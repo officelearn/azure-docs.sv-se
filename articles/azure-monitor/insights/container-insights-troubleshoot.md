@@ -2,19 +2,19 @@
 title: Så här felsöker du Azure Monitor för behållare | Microsoft Docs
 description: Den här artikeln beskriver hur du kan felsöka och lösa problem med Azure Monitor för behållare.
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.openlocfilehash: bc4105dc23445c29364961501f93e42f8c3b683d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/21/2020
+ms.openlocfilehash: fcd799c63e4afb68d96f67d1c03016a4d3b10f34
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800451"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092838"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Felsöka Azure Monitor för behållare
 
 När du konfigurerar övervakning av ditt Azure Kubernetes service-kluster (AKS) med Azure Monitor för behållare kan du stöta på ett problem som förhindrar data insamling eller rapporterings status. I den här artikeln beskrivs några vanliga problem och fel söknings steg.
 
-## <a name="authorization-error-during-onboarding-or-update-operation"></a>Auktoriseringsfel vid onboarding eller uppdaterings åtgärd
+## <a name="authorization-error-during-onboarding-or-update-operation"></a>Auktoriseringsfel vid registrering eller uppdatering
 
 När du aktiverar Azure Monitor för behållare eller uppdaterar ett kluster för att stödja insamling av mått, kan det hända att du får ett fel som liknar följande – *klienten <användarens identitet> "med objekt-ID" <användarens objectId> "har inte behörighet att utföra åtgärden" Microsoft. Authorization/roleAssignments/Write "över omfattning*
 
@@ -37,7 +37,7 @@ Om Azure Monitor för behållare har Aktiver ATS och kon figurer ATS, men du int
 
     `kubectl get ds omsagent --namespace=kube-system`
 
-    Utdata bör likna följande, som anger att den har distribuerats korrekt:
+    Utdata bör likna följande exempel, vilket indikerar att det har distribuerats korrekt:
 
     ```
     User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
@@ -48,7 +48,7 @@ Om Azure Monitor för behållare har Aktiver ATS och kon figurer ATS, men du int
 
     `kubectl get ds omsagent-win --namespace=kube-system`
 
-    Utdata bör likna följande, som anger att den har distribuerats korrekt:
+    Utdata bör likna följande exempel, vilket indikerar att det har distribuerats korrekt:
 
     ```
     User@aksuser:~$ kubectl get ds omsagent-win --namespace=kube-system
@@ -82,33 +82,6 @@ Om Azure Monitor för behållare har Aktiver ATS och kon figurer ATS, men du int
     omsagent-win-6drwq                  1/1       Running   0          1d
     ```
 
-5. Kontrol lera agent loggarna. När agenten har distribuerats kör den en snabb kontroll genom att köra OMI-kommandon och visar versionen för agenten och providern.
-
-6. Verifiera att agenten har distribuerats genom att köra kommandot:`kubectl logs omsagent-484hw --namespace=kube-system`
-
-    Status bör likna följande exempel:
-
-    ```
-    User@aksuser:~$ kubectl logs omsagent-484hw --namespace=kube-system
-    :
-    :
-    instance of Container_HostInventory
-    {
-        [Key] InstanceID=3a4407a5-d840-4c59-b2f0-8d42e07298c2
-        Computer=aks-nodepool1-39773055-0
-        DockerVersion=1.13.1
-        OperatingSystem=Ubuntu 16.04.3 LTS
-        Volume=local
-        Network=bridge host macvlan null overlay
-        NodeRole=Not Orchestrated
-        OrchestratorType=Kubernetes
-    }
-    Primary Workspace: b438b4f6-912a-46d5-9cb1-b44069212abc    Status: Onboarded(OMSAgent Running)
-    omi 1.4.2.2
-    omsagent 1.6.0.23
-    docker-cimprov 1.0.0.31
-    ```
-
 ## <a name="error-messages"></a>Felmeddelanden
 
 I tabellen nedan sammanfattas kända fel som kan uppstå när du använder Azure Monitor för behållare.
@@ -117,7 +90,7 @@ I tabellen nedan sammanfattas kända fel som kan uppstå när du använder Azure
 | ---- | --- |
 | Fel meddelande`No data for selected filters`  | Det kan ta lite tid att upprätta övervakningsdataflödet för kluster som skapats nyligen. Tillåt minst 10 till 15 minuter innan data visas för klustret. |
 | Fel meddelande`Error retrieving data` | Även om Azure Kubernetes service-klustret konfigurerar för hälso-och prestanda övervakning upprättas en anslutning mellan klustret och Azure Log Analytics-arbetsytan. En Log Analytics arbets yta används för att lagra alla övervaknings data för klustret. Det här felet kan inträffa när din Log Analytics-arbetsyta har tagits bort. Kontrol lera att arbets ytan har tagits bort och om den var måste du aktivera övervakning av klustret igen med Azure Monitor för behållare och ange en befintlig eller skapa en ny arbets yta. Om du vill aktivera igen måste du [inaktivera](container-insights-optout.md) övervakning av klustret och [Aktivera](container-insights-enable-new-cluster.md) Azure Monitor för behållare igen. |
-| `Error retrieving data`När du har lagt till Azure Monitor för behållare via AZ AKS cli | När du aktiverar övervakning med `az aks cli` kan Azure Monitor för behållare inte distribueras korrekt. Kontrol lera om lösningen har distribuerats. Det gör du genom att gå till din Log Analytics arbets yta och se om lösningen är tillgänglig genom att välja **lösningar** i rutan till vänster. För att lösa det här problemet måste du distribuera om lösningen genom att följa anvisningarna i så här [distribuerar du Azure Monitor för behållare](container-insights-onboard.md) |
+| `Error retrieving data`När du har lagt till Azure Monitor för behållare via AZ AKS cli | När du aktiverar övervakning med `az aks cli` kan Azure Monitor för behållare inte distribueras korrekt. Kontrol lera om lösningen har distribuerats. Verifiera genom att gå till din Log Analytics arbets yta och se om lösningen är tillgänglig genom att välja **lösningar** i rutan till vänster. För att lösa det här problemet måste du distribuera om lösningen genom att följa anvisningarna i så här [distribuerar du Azure Monitor för behållare](container-insights-onboard.md) |
 
 För att hjälpa till att diagnostisera problemet har vi tillhandahållit ett fel söknings skript som finns [här](https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/troubleshoot/TroubleshootError_nonAzureK8s.ps1).
 

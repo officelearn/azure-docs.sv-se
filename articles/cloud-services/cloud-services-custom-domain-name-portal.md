@@ -8,11 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: e764e6a474b9843d43f9e8af9cf3b6a8ddf37189
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37189df6b1c9bf3f9fca185226f2ee3eeb3ddd7d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811644"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092736"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Konfigurera ett anpassat domän namn för en Azure-moln tjänst
 När du skapar en moln tjänst tilldelar Azure den till en under domän till **cloudapp.net**. Om din moln tjänst till exempel heter Contoso, kommer användarna att kunna komma åt ditt program på en URL som `http://contoso.cloudapp.net` . Azure tilldelar också en virtuell IP-adress.
@@ -42,7 +43,7 @@ En CNAME-post mappar en *speciell* domän, till exempel **contoso.com** eller **
 > [!NOTE]
 > Vissa domän registratorer tillåter bara att du mappar under domäner när du använder en CNAME-post, t. ex. www- \. contoso.com och inte rot namn, till exempel contoso.com. Mer information om CNAME-poster finns i dokumentationen från din registrator, Wikipedia- [posten på CNAME-posten](https://en.wikipedia.org/wiki/CNAME_record)eller i [IETF-domän namn – implementering och Specifikations](https://tools.ietf.org/html/rfc1035) dokument.
 
-### <a name="a-record"></a>En post
+### <a name="a-record"></a>A-post
 En *a* -post mappar en domän, till exempel **contoso.com** eller **www- \. contoso.com**, *eller en domän med jokertecken* , till exempel ** \* . contoso.com**, till en IP-adress. Om det gäller en Azure-molnbaserad tjänst är tjänstens virtuella IP-adress. Den största fördelen med en post över en CNAME-post är att du kan ha en post som använder ett jokertecken, till exempel \* **. contoso.com**, som hanterar begär Anden för flera under domäner som **mail.contoso.com**, **login.contoso.com**eller **www \. contso.com**.
 
 > [!NOTE]
@@ -62,7 +63,7 @@ Om du vill skapa en CNAME-post måste du lägga till en ny post i DNS-tabellen f
        ![snabb blick-avsnittet som visar webbplatsens URL][csurl]
 
        **ELLER**
-   * Installera och konfigurera [Azure PowerShell](/powershell/azure/overview)och Använd sedan följande kommando:
+   * Installera och konfigurera [Azure PowerShell](/powershell/azure/)och Använd sedan följande kommando:
 
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -95,7 +96,7 @@ Om du vill skapa en A-post måste du först hitta den virtuella IP-adressen för
        ![snabb genom delen som visar VIP][vip]
 
        **ELLER**
-   * Installera och konfigurera [Azure PowerShell](/powershell/azure/overview)och Använd sedan följande kommando:
+   * Installera och konfigurera [Azure PowerShell](/powershell/azure/)och Använd sedan följande kommando:
 
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -134,7 +135,7 @@ Det här exemplet visar hur du skapar en A-post för rot domänen. Om du vill sk
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-[Azure Portal]: https://portal.azure.com
+[Azure-portalen]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
 

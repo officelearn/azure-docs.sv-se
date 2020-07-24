@@ -3,11 +3,12 @@ title: Video analys i real tid för IoT Edge kvoter – Azure
 description: I den här artikeln beskrivs video analys i real tid för IoT Edge kvoter och begränsningar.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 9b01db8f1120174806f4b687f7e9ebc4e2386f3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90141fa850c9ab3e3abbea15001249da0736ac45
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84261053"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091818"
 ---
 # <a name="quotas-and-limitations"></a>Kvoter och begränsningar
 
@@ -46,11 +47,8 @@ I för hands versionen finns det begränsningar för olika noder som kan ansluta
 * Signal grind processor
    * Måste omedelbart underordnas från RTSP-källan.
 * Till gångs mottagare 
-   * Det får finnas högst en sådan nod per graf-topologi.
-      * Om en till gångs mottagare används kan det inte finnas någon fil mottagare eller vice versa.
    * Måste omedelbart underordnas från RTSP-källan eller signal grind processor.
 * Fil mottagare
-   * Det får finnas högst en sådan nod per diagram sto pol Ogin (se ovanstående anmärkning om till gångs mottagare).
    * Måste omedelbart underordnas från signal grind processor.
    * Får inte omedelbart underordnas av en HTTP-förlängning eller processor för rörelse identifiering
 * IoT Hub mottagare

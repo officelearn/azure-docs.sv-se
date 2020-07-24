@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: 44095cb85c62fd40032263d96ad678bdeb5effc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad4c60d6a3facd49f08749b2b3f4b01242d3844c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82159411"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091801"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Hybrid design av DRM-undersystem 
 
@@ -95,15 +95,15 @@ Genom att konfigurera en till gångs leverans princip kan du kontrol lera följa
 
 Baserat på förklaringarna i föregående avsnitt, använder följande fem hybrid scenarier respektive konfigurations kombinationer för **innehålls nyckel** - **till gångs** -och konfigurations principer (de exempel som anges i den sista kolumnen följer tabellen):
 
-|**Innehåll som är värd för & ursprung**|**DRM-kryptering**|**DRM-licensleverans**|**Konfigurera innehålls nyckel**|**Konfigurera till gångs leverans princip**|**Urvalsundersökningar**|
+|**Innehåll som är värd för & ursprung**|**DRM-kryptering**|**DRM-licensleverans**|**Konfigurera innehålls nyckel**|**Konfigurera till gångs leverans princip**|**Exempel**|
 |---|---|---|---|---|---|
 |AMS|AMS|AMS|Ja|Ja|Exempel 1|
 |AMS|AMS|Tredje part|Ja|Ja|Exempel 2|
-|AMS|Tredje part|AMS|Ja|Nej|Exempel 3|
-|AMS|Tredje part|Utanpå|Nej|Nej|Exempel 4|
-|Tredje part|Tredje part|AMS|Ja|Nej|    
+|AMS|Tredje part|AMS|Yes|No|Exempel 3|
+|AMS|Tredje part|Utanpå|Inga|Inga|Exempel 4|
+|Tredje part|Tredje part|AMS|Yes|No|    
 
-I exemplen fungerar PlayReady-skyddet både för streck och smidig strömning. Video-URL: erna nedan är smidiga strömmande URL: er. För att hämta motsvarande streck-URL: er lägger du bara till "(format = mpd-Time-CSF)". Du kan använda [Azure Media test Player](https://aka.ms/amtest) för att testa i en webbläsare. Det gör att du kan konfigurera vilket strömnings protokoll som ska användas, under vilka Tech. IE11 och Microsoft Edge på Windows 10 stöder PlayReady genom EME. Mer information finns i [information om test verktyget](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
+I exemplen fungerar PlayReady-skyddet både för streck och smidig strömning. Video-URL: erna nedan är smidiga strömmande URL: er. För att hämta motsvarande streck-URL: er lägger du bara till "(format = mpd-Time-CSF)". Du kan använda [Azure Media test Player](https://aka.ms/amtest) för att testa i en webbläsare. Det gör att du kan konfigurera vilket strömnings protokoll som ska användas, under vilka Tech. IE11 och Microsoft Edge på Windows 10 stöder PlayReady genom EME. Mer information finns i [information om test verktyget](/azure/media-services/previous/offline-playready-streaming-windows-10).
 
 ### <a name="sample-1"></a>Exempel 1
 
@@ -142,4 +142,3 @@ Visa Media Services utbildnings vägar.
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

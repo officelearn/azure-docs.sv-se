@@ -12,15 +12,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: ab99b974aed6f8cd5e1da2ee9b427f593b405889
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e01d5c8d57752c11b2890c1d109b58a223d260f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73571240"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091937"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Transformeringar och jobb i Media Services
 
-Det här avsnittet innehåller information om [transformeringar](https://docs.microsoft.com/rest/api/media/transforms) och [jobb](https://docs.microsoft.com/rest/api/media/jobs) och förklarar förhållandet mellan dessa entiteter.
+Det här avsnittet innehåller information om [transformeringar](/rest/api/media/transforms) och [jobb](/rest/api/media/jobs) och förklarar förhållandet mellan dessa entiteter.
 
 ## <a name="overview"></a>Översikt
 
@@ -57,7 +58,7 @@ Använd **transformeringar** för att konfigurera vanliga aktiviteter för kodni
 
 ### <a name="viewing-schema"></a>Visa schema
 
-I Media Services v3 är för inställningar starkt skrivna entiteter i själva API: et. Du hittar definitionen "schema" för dessa objekt i [Open API-specifikationen (eller Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Du kan också Visa förinställda definitioner (som **StandardEncoderPreset**) i [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.net SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet)eller någon annan Media Services v3 SDK referens dokumentation.
+I Media Services v3 är för inställningar starkt skrivna entiteter i själva API: et. Du hittar definitionen "schema" för dessa objekt i [Open API-specifikationen (eller Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Du kan också Visa förinställda definitioner (som **StandardEncoderPreset**) i [REST API](/rest/api/media/transforms/createorupdate#standardencoderpreset), [.net SDK](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet)eller någon annan Media Services v3 SDK referens dokumentation.
 
 ### <a name="creating-transforms"></a>Skapar transformeringar
 
@@ -65,7 +66,7 @@ Du kan skapa transformeringar med hjälp av REST, CLI eller någon av de publice
 
 ### <a name="updating-transforms"></a>Uppdaterar transformeringar
 
-Om du behöver uppdatera [transformeringen](https://docs.microsoft.com/rest/api/media/transforms)använder du **uppdaterings** åtgärden. Den är avsedd för att göra ändringar i beskrivningen eller prioriteterna för underliggande TransformOutputs. Vi rekommenderar att sådana uppdateringar utförs när alla pågående jobb har slutförts. Om du tänker skriva om receptet måste du skapa en ny transformering.
+Om du behöver uppdatera [transformeringen](/rest/api/media/transforms)använder du **uppdaterings** åtgärden. Den är avsedd för att göra ändringar i beskrivningen eller prioriteterna för underliggande TransformOutputs. Vi rekommenderar att sådana uppdateringar utförs när alla pågående jobb har slutförts. Om du tänker skriva om receptet måste du skapa en ny transformering.
 
 ### <a name="transform-object-diagram"></a>Transformera objekt diagram
 
@@ -77,7 +78,7 @@ Välj bilden för att visa den i full storlek.
 
 ## <a name="jobs"></a>Jobb
 
-Ett **jobb** är den faktiska begäran om Media Services att tillämpa **transformeringen** på ett angivet video-eller ljud innehåll. När transformeringen har skapats kan du skicka jobb med Media Services-API: er eller någon av de publicerade SDK: erna. **Jobbet** anger information som platsen för indata-videon och platsen för utdata. Du kan ange platsen för din inkommande video med hjälp av: HTTPS-URL: er, SAS-URL: er eller [till gångar](https://docs.microsoft.com/rest/api/media/assets).  
+Ett **jobb** är den faktiska begäran om Media Services att tillämpa **transformeringen** på ett angivet video-eller ljud innehåll. När transformeringen har skapats kan du skicka jobb med Media Services-API: er eller någon av de publicerade SDK: erna. **Jobbet** anger information som platsen för indata-videon och platsen för utdata. Du kan ange platsen för din inkommande video med hjälp av: HTTPS-URL: er, SAS-URL: er eller [till gångar](/rest/api/media/assets).  
 
 ### <a name="job-input-from-https"></a>Jobb inmatat från HTTPS
 
@@ -93,7 +94,7 @@ Jobbets förlopp och tillstånd kan hämtas genom att övervaka händelser med E
 
 ### <a name="updating-jobs"></a>Uppdaterar jobb
 
-Uppdaterings åtgärden för [jobb](https://docs.microsoft.com/rest/api/media/jobs) -entiteten kan användas för att ändra *beskrivningen* och *prioritets* egenskaperna när jobbet har skickats. En ändring av *prioritets* egenskapen är endast effektiv om jobbet fortfarande har statusen i kö. Om jobbet har påbörjat bearbetningen eller har avslut ATS har ändrings prioriteten ingen påverkan.
+Uppdaterings åtgärden för [jobb](/rest/api/media/jobs) -entiteten kan användas för att ändra *beskrivningen* och *prioritets* egenskaperna när jobbet har skickats. En ändring av *prioritets* egenskapen är endast effektiv om jobbet fortfarande har statusen i kö. Om jobbet har påbörjat bearbetningen eller har avslut ATS har ändrings prioriteten ingen påverkan.
 
 ### <a name="job-object-diagram"></a>Jobb objekts diagram
 
@@ -115,7 +116,7 @@ Kolla in [Azure Media Services community](media-services-community.md) -artikeln
 
 ## <a name="see-also"></a>Se även
 
-* [Felkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
+* [Felkoder](/rest/api/media/jobs/get#joberrorcode)
 * [Filtrering, sortering, sid indelning för Media Services entiteter](entities-overview.md)
 
 ## <a name="next-steps"></a>Nästa steg

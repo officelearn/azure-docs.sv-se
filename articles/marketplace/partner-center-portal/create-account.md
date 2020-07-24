@@ -3,21 +3,24 @@ title: Skapa ett kommersiellt marknads plats konto i Partner Center
 description: Lär dig hur du skapar ett Microsoft-konto för kommersiell marknads plats i Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: guide
-ms.date: 04/14/2020
-ms.openlocfilehash: 4a178feb4bdf0bc361185e21e47ccdceac3a7f21
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/01/2020
+ms.openlocfilehash: 5a55d66bfed19f6d88d4ff13a9f59d7e791664cc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110019"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092192"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Skapa ett kommersiellt marknads plats konto i Partner Center
 
 Om du vill publicera dina erbjudanden till [Azure Marketplace](https://azuremarketplace.microsoft.com/) eller [Microsoft AppSource](https://appsource.microsoft.com/)måste du skapa ett konto i det kommersiella Marketplace-programmet i Partner Center. Den här artikeln beskriver hur du skapar ett partner Center-konto och hur du lägger till nya utgivare i programmet för kommersiella marknads platser.
 
 >[!IMPORTANT]
->Om du har ett konto i [Cloud Partner Portal](https://cloudpartner.azure.com) som har flyttats till Partner Center, behöver du inte skapa ett nytt konto. Mer information finns i [för utgivare som flyttar från Cloud Partner Portal](#for-publishers-who-are-moving-from-the-cloud-partner-portal).
+>För att publicera erbjudanden i den kommersiella Marketplace måste du använda ett arbets konto som är kopplat till ett företag eller en organisation. Personliga konton stöds inte.
+
+>[!IMPORTANT]
+>Om du hade ett konto i Cloud Partner Portal (CPP) har vi flyttat det till Partner Center. du behöver inte skapa ett nytt konto. Mer information finns i [för utgivare som har flyttat från Cloud Partner Portal](#for-publishers-who-moved-from-the-cloud-partner-portal).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -43,7 +46,7 @@ Använd den här metoden om du är nybörjare på Partner Center och inte är re
 - [Ange din utgivar profil](#provide-your-publisher-profile)
 
 >[!IMPORTANT]
->Om du har ett [Cloud Partner Portal](https://cloudpartner.azure.com) -konto som har flyttats till Partner Center, behöver du inte skapa ett nytt konto. Mer information finns i [för utgivare som flyttar från Cloud Partner Portal](#for-publishers-who-are-moving-from-the-cloud-partner-portal).
+>Om du hade ett konto i Cloud Partner Portal flyttade vi det till Partner Center. du behöver inte skapa ett nytt konto. Mer information finns i [för utgivare som har flyttat från Cloud Partner Portal](#for-publishers-who-moved-from-the-cloud-partner-portal).
 
 ### <a name="register-on-the-partner-center-enrollment-page"></a>Registrera dig på sidan för registrering av Partner Center
 
@@ -94,7 +97,7 @@ För båda registrerings typerna kommer du att:
 Se till att din konto information är användbar.
 
 >[!IMPORTANT]
->Om du har ett konto i [Cloud Partner Portal](https://cloudpartner.azure.com/) som har flyttats till Partner Center, behöver du inte skapa ett nytt konto. Mer information finns i [för utgivare som flyttar från Cloud Partner Portal](#for-publishers-who-are-moving-from-the-cloud-partner-portal).
+>Om du hade ett konto i Cloud Partner Portal flyttade vi det till Partner Center. du behöver inte skapa ett nytt konto. Mer information finns i [för utgivare som har flyttat från Cloud Partner Portal](#for-publishers-who-moved-from-the-cloud-partner-portal).
 
 ### <a name="what-if-im-already-enrolled-in-the-microsoft-partner-network"></a>Vad händer om jag redan har registrerat sig i Microsoft Partner Network?
 
@@ -154,15 +157,13 @@ När du har loggat in på Partner Center slutför du konfigurationen av ditt kon
 
 Nu har du skapat ett kommersiellt marknads plats konto i Partner Center. Mer information finns i [Översikt över kommersiella Marketplace](./commercial-marketplace-overview.md). Information om hur du lägger till utgivare finns i [lägga till nya utgivare på den kommersiella marknads platsen](#add-new-publishers-to-the-commercial-marketplace-program).
 
-## <a name="for-publishers-who-are-moving-from-the-cloud-partner-portal"></a>För utgivare som flyttas från Cloud Partner Portal
+## <a name="for-publishers-who-moved-from-the-cloud-partner-portal"></a>För utgivare som har flyttat från Cloud Partner Portal
 
-Om ditt konto har migrerats från [Cloud Partner Portal](https://cloudpartner.azure.com)behöver du inte skapa ett nytt Partner Center-konto. Du bör ha tagit emot en anpassad länk till ditt nya partner Center-konto i både e-post och i ett informations meddelande när du har loggat in på ditt befintliga Cloud Partner Portal-konto.
+Om du har ett Cloud Partner Portal-konto har vi flyttat det till Partner Center. Du behöver inte skapa ett nytt Partner Center-konto. Du bör ha tagit emot en anpassad länk till ditt nya partner Center-konto i både e-post och i ett informations meddelande när du har loggat in på ditt befintliga Cloud Partner Portal-konto.
 
 När du har valt den anpassade länken och aktiverat ditt nya partner Center-konto kan du gå tillbaka till ditt konto genom att gå till [instrument panelen för extern Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) i Partner Center.
 
-Publicerings avtalet och företags profil informationen migreras till ditt nya partner Center-konto, tillsammans med tidigare konfigurerade profil information för konto utbetalning, användar konton och behörigheter samt aktiva erbjudanden som är associerade med ditt Cloud Partner Portal-konto.
-
-När din konto information har flyttats från Cloud Partner Portal till Partner Center använder du inte längre Cloud Partner Portal för att göra konto uppdateringar eller för att hantera användare, behörigheter och fakturering. Under en begränsad tid uppdateras eventuella konto uppdateringar som du gör i Partner Center automatiskt i ditt skrivskyddade Cloud Partner Portal-konto tills det slutligen är föråldrat.
+Publicerings avtalet och företags profil informationen övergår till ditt nya partner Center-konto, tillsammans med tidigare konfigurerade profil information för konto utbetalning, användar konton och behörigheter samt aktiva erbjudanden som har associerats med ditt Cloud Partner Portal-konto.
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Lägga till nya utgivare i programmet för kommersiella marknads platser
 

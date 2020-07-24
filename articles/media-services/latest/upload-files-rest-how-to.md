@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 38d46978e37ead59deb17a86f643df041452e497
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57839c82af71f7cedfe1b3c77095210d273be4a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76705776"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091852"
 ---
 # <a name="upload-files-into-a-media-services-v3-account-using-rest"></a>Ladda upp filer till ett Media Services v3-konto med REST
 
-I Media Services laddar du upp dina digitala filer till en BLOB-behållare som är kopplad till en till gång. [Till gångs](https://docs.microsoft.com/rest/api/media/operations/asset) enheten kan innehålla video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning (samt metadata om dessa filer). När filerna har överförts till till gångens behållare lagras innehållet på ett säkert sätt i molnet för vidare bearbetning och strömning.
+I Media Services laddar du upp dina digitala filer till en BLOB-behållare som är kopplad till en till gång. [Till gångs](/rest/api/media/operations/asset) enheten kan innehålla video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning (samt metadata om dessa filer). När filerna har överförts till till gångens behållare lagras innehållet på ett säkert sätt i molnet för vidare bearbetning och strömning.
 
 Den här artikeln visar hur du laddar upp en lokal fil med hjälp av REST.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra stegen som beskrivs i det här avsnittet måste du:
 
@@ -52,7 +53,7 @@ I det här avsnittet visas hur du hämtar en SAS-URL som har skapats för den sk
 1. Välj **till gångar**  ->  **listar URL: erna till till**gångar.
 2. Tryck på **Skicka**.
 
-    ![Överför en fil](./media/upload-files/postman-create-sas-locator.png)
+    ![Ladda upp en fil](./media/upload-files/postman-create-sas-locator.png)
 
 Du ser **svaret** med informationen om till gångens URL: er. Kopiera den första URL: en och Använd den för att ladda upp filen.
 
@@ -62,4 +63,4 @@ Använd Azure Storage-API: er eller SDK: er (till exempel [lagrings REST API](..
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Självstudie: koda en fjärrfil baserat på URL och strömma videon REST](stream-files-tutorial-with-rest.md)
+[Självstudier: Koda en fjärrfil baserat på URL och strömma videon – REST](stream-files-tutorial-with-rest.md)

@@ -5,11 +5,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: e66ae6aa0b9b7e309fbd6fcc3699cb873a266bbe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18d3460804528d736cfc74c1c2d358eb08013513
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83647889"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092974"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Arbets yta-baserade Application Insights resurser (förhands granskning)
 
@@ -24,7 +25,7 @@ Om du vill testa den nya upplevelsen loggar du in på [Azure Portal](https://por
 
 ![Arbets yta-baserad Application Insights resurs](./media/create-workspace-resource/create-workspace-based.png)
 
-Om du inte redan har en befintlig Log Analytics arbets yta kan du [läsa dokumentationen för att skapa Log Analytics arbets ytor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+Om du inte redan har en befintlig Log Analytics arbets yta kan du [läsa dokumentationen för att skapa Log Analytics arbets ytor](../learn/quick-create-workspace.md).
 
 För den offentliga för hands versions **arbets ytan är resurserna för närvarande begränsade till västra USA 2, östra USA och södra centrala USA.**
 
@@ -39,7 +40,7 @@ Om du klickar på den blå länk texten tas du till den associerade Log Analytic
 
 ## <a name="copy-the-connection-string"></a>Kopiera anslutningssträngen
 
-[Anslutnings strängen](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) identifierar den resurs som du vill associera dina telemetridata med. Du kan också ändra de slut punkter som resursen kommer att använda som mål för din telemetri. Du måste kopiera anslutnings strängen och lägga till den i programmets kod eller till en miljö variabel.
+[Anslutnings strängen](./sdk-connection-string.md?tabs=net) identifierar den resurs som du vill associera dina telemetridata med. Du kan också ändra de slut punkter som resursen kommer att använda som mål för din telemetri. Du måste kopiera anslutnings strängen och lägga till den i programmets kod eller till en miljö variabel.
 
 ## <a name="monitoring-configuration"></a>Övervaknings konfiguration
 
@@ -51,14 +52,14 @@ För kodbaserade program övervakning installerar du bara lämplig Application I
 
 Detaljerad dokumentation om hur du konfigurerar en Application Insights SDK för kodbaserade övervakning finns i språk-och Framework-specifik dokumentation:
 
-- [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)
-- [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)
-- [Bakgrunds aktiviteter & moderna konsol program (.NET/.NET Core)](https://docs.microsoft.com/azure/azure-monitor/app/worker-service)
-- [Klassiska konsol program (.NET)](https://docs.microsoft.com/azure/azure-monitor/app/console) 
-- [Programmeringsspråket](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started?tabs=maven)
-- [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript)
-- [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs)
-- [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)
+- [ASP.NET](./asp-net.md)
+- [ASP.NET Core](./asp-net-core.md)
+- [Bakgrunds aktiviteter & moderna konsol program (.NET/.NET Core)](./worker-service.md)
+- [Klassiska konsol program (.NET)](./console.md) 
+- [Programmeringsspråket](./java-get-started.md?tabs=maven)
+- [JavaScript](./javascript.md)
+- [Node.js](./nodejs.md)
+- [Python](./opencensus-python.md)
 
 ### <a name="codeless-monitoring-and-visual-studio-resource-creation"></a>Övervakning av kod och Visual Studio-resurs skapas
 
@@ -101,7 +102,7 @@ az monitor app-insights component create --app
 az monitor app-insights component create --app demoApp --location eastus --kind web -g my_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-Fullständig Azure CLI-dokumentation för det här kommandot finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
+Fullständig Azure CLI-dokumentation för det här kommandot finns i [Azure CLI-dokumentationen](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -197,7 +198,7 @@ I fönstret Application Insights resurs väljer du **Egenskaper**  >  **ändra a
 ## <a name="next-steps"></a>Nästa steg
 
 * [Utforska mått](../../azure-monitor/platform/metrics-charts.md)
-* [Skriv analysfrågor](../../azure-monitor/app/analytics.md)
+* [Skriv analysfrågor](../log-query/log-query-overview.md)
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md

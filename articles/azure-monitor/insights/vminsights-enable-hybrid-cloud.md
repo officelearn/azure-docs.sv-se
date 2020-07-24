@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 734f61c2e96002516e9e15af88d2c6b0fce00e98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 013515e0608bf790ceef8dc13d9d547496306610
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480750"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092855"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-environment"></a>Aktivera Azure Monitor for VMs för en hybrid miljö
 
@@ -18,7 +19,7 @@ ms.locfileid: "79480750"
 
 I den här artikeln förklaras hur du aktiverar Azure Monitor for VMs för virtuella datorer eller fysiska datorer som finns i ditt data Center eller i annan moln miljö. I slutet av den här processen kommer du att ha börjat övervaka dina virtuella datorer i din miljö och lära dig om de har problem med prestanda eller tillgänglighet.
 
-Innan du börjar bör du läsa igenom kraven och kontrol lera att din [prenumeration och dina](vminsights-enable-overview.md) resurser uppfyller kraven. Granska kraven och distributions metoderna för [Log Analytics Linux-och Windows-agenten](../../log-analytics/log-analytics-agent-overview.md).
+Innan du börjar bör du läsa igenom kraven och kontrol lera att din [prenumeration och dina](vminsights-enable-overview.md) resurser uppfyller kraven. Granska kraven och distributions metoderna för [Log Analytics Linux-och Windows-agenten](../platform/log-analytics-agent.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -78,7 +79,7 @@ Om det inte går att starta beroende agenten kontrollerar du om det finns detalj
 
 Filer för beroende agenten placeras i följande kataloger:
 
-| Files | Location |
+| Files | Plats |
 |:--|:--|
 | Kärnfiler | /opt/microsoft/dependency-agent |
 | Loggfiler | /var/opt/microsoft/dependency-agent/log |
@@ -155,7 +156,7 @@ Om du inte vet hur du distribuerar resurser med hjälp av en mall, se:
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-Om du vill använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.27 eller senare. För att identifiera din version, kör `az --version` . Information om hur du installerar eller uppgraderar Azure CLI finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du vill använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.27 eller senare. För att identifiera din version, kör `az --version` . Information om hur du installerar eller uppgraderar Azure CLI finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ### <a name="create-and-execute-a-template"></a>Skapa och köra en mall
 
@@ -234,7 +235,7 @@ Om beroende Agent installationen lyckades, men du inte ser datorn på kartan, ka
 
     **Linux**: Sök efter den process som körs "Microsoft-Dependency-agent".
 
-2. Är du på den [kostnads fria pris nivån av Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? Den kostnads fria planen tillåter upp till fem unika datorer. Eventuella efterföljande datorer visas inte på kartan, även om de fem föregående fem inte längre skickar data.
+2. Är du på den [kostnads fria pris nivån av Log Analytics](./solutions.md)? Den kostnads fria planen tillåter upp till fem unika datorer. Eventuella efterföljande datorer visas inte på kartan, även om de fem föregående fem inte längre skickar data.
 
 3. Skickar datorn logg-och perf-data till Azure Monitor loggar? Utför följande fråga för datorn:
 

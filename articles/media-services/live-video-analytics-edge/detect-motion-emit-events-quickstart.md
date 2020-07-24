@@ -3,12 +3,12 @@ title: Identifiera rörelse-och genererar händelser – Azure
 description: Den här snabb starten visar hur du använder real tids analys på IoT Edge för att identifiera rörelse-och utsändnings händelser genom att programmatiskt anropa direkta metoder.
 ms.topic: quickstart
 ms.date: 05/29/2020
-ms.openlocfilehash: 69486515125c624b3ef5d44aba6e6d8f7694a3cc
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: fca773d0583bee3bef4e7254bcca95866b2205e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84816713"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091921"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>Snabb start: identifiera rörelse-och genererar händelser
 
@@ -18,7 +18,7 @@ Den här snabb starten vägleder dig genom stegen för att komma igång med real
 
 Den här artikeln baseras på [exempel kod](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp) skriven i C#.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto som har en aktiv prenumeration. [Skapa ett konto utan kostnad](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) om du inte redan har ett.
 * [Visual Studio Code](https://code.visualstudio.com/) med följande fil namns tillägg:
@@ -36,7 +36,7 @@ I den här självstudien krävs följande Azure-resurser:
 * IoT Hub
 * Lagringskonto
 * Azure Media Services konto
-* Virtuella Linux-datorer i Azure, med [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installerat
+* Virtuella Linux-datorer i Azure, med [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge-linux.md) installerat
 
 I den här snabb starten rekommenderar vi att du använder [installations skriptet Live Video Analytics-resurser](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) för att distribuera de nödvändiga resurserna i din Azure-prenumeration. Det gör du på följande sätt:
 
@@ -228,7 +228,7 @@ Följ de här stegen för att köra exempel koden:
 
 ## <a name="interpret-results"></a>Tolka resultaten
 
-När du kör medie diagrammet passerar resultatet från noden för rörelse detektorn genom IoT Hub Sink-noden till IoT Hub. De meddelanden som visas i fönstret **utdata** i Visual Studio Code innehåller ett `body` avsnitt och ett `applicationProperties` avsnitt. Mer information finns i [skapa och läsa IoT Hub meddelanden](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+När du kör medie diagrammet passerar resultatet från noden för rörelse detektorn genom IoT Hub Sink-noden till IoT Hub. De meddelanden som visas i fönstret **utdata** i Visual Studio Code innehåller ett `body` avsnitt och ett `applicationProperties` avsnitt. Mer information finns i [skapa och läsa IoT Hub meddelanden](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 I följande meddelanden definierar modulen live video analys program egenskaperna och innehållet i bröd texten.
 

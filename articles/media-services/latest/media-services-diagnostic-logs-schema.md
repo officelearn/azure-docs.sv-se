@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: 37baed076ca074c1d558af36649e90959a0034c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bc688a61235a31c3d6b6e88cbb90c0d14cca179
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75750884"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092022"
 ---
 # <a name="diagnostic-logs-schemas"></a>Scheman för diagnostikloggar
 
@@ -29,7 +30,7 @@ I den här artikeln beskrivs scheman för Media Services diagnostiska loggar.
 
 ## <a name="top-level-diagnostic-logs-schema"></a>Schema för diagnostiska loggar på högsta nivån
 
-Detaljerad beskrivning av schemat på den högsta nivån av diagnostiska loggar finns i [tjänster, scheman och kategorier som stöds för Azure Diagnostic-loggar](../../azure-monitor/platform/tutorial-dashboards.md).
+Detaljerad beskrivning av schemat på den högsta nivån av diagnostiska loggar finns i [tjänster, scheman och kategorier som stöds för Azure Diagnostic-loggar](../../azure-monitor/platform/resource-logs-schema.md).
 
 ## <a name="key-delivery-log-schema"></a>Logg schema för nyckel leverans
 
@@ -37,7 +38,7 @@ Detaljerad beskrivning av schemat på den högsta nivån av diagnostiska loggar 
 
 De här egenskaperna är speciella för logg schema för nyckel leverans.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |keyId|ID för den begärda nyckeln.|
 |keyType|Kan vara något av följande värden: "Clear" (ingen kryptering), "FairPlay", "PlayReady" eller "Widevine".|

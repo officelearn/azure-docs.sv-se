@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d6e60329f3c61811aa8a42528244b2883ff4b685
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb1511736b993032df8ca52fac01243f1feafdf4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85834105"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092396"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Skapa och etablera en IoT Edge enhet med en TPM på Linux
 
@@ -31,7 +31,7 @@ Uppgifterna är följande:
 >
 > Om du använder en fysisk enhet kan du gå vidare till avsnittet [Hämta etablerings information från en fysisk enhet](#retrieve-provisioning-information-from-a-physical-device) i den här artikeln.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Windows-utvecklings dator med [Hyper-V aktiverat](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). Den här artikeln använder Windows 10 som kör en virtuell Ubuntu-Server.
 * En aktiv IoT Hub.
@@ -55,7 +55,7 @@ En virtuell växel gör att den virtuella datorn kan ansluta till ett fysiskt n�
 
 4. Ge din nya virtuella växel ett namn, till exempel **EdgeSwitch**. Kontrol lera att anslutnings typen är inställd på **externt nätverk**och välj sedan **OK**.
 
-5. Ett popup-fönster varnar dig om att nätverks anslutningen kan avbrytas. Välj **Ja** om du vill fortsätta.
+5. Ett popup-fönster varnar dig om att nätverks anslutningen kan avbrytas. Fortsätt genom att välja **Ja**.
 
 Om du ser fel när du skapar den nya virtuella växeln ser du till att inga andra växlar använder Ethernet-adaptern och att inga andra växlar använder samma namn.
 

@@ -3,15 +3,16 @@ title: Introduktionsguide för Microsoft Business Applications Independent Softw
 description: Så här går du till Business Applications ISV Connect-programmet.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 6/25/2020
+ms.topic: article
+author: qianw211
 ms.author: dsindona
-ms.openlocfilehash: 37d8c26bd41f06a39d4404c142aef5faa0bf199c
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 7/14/2020
+ms.openlocfilehash: 65d18bca4f8f7b5d655d91ece1c9d966311b701b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170249"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092226"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Introduktionsguide för Microsoft Business Applications Independent Software Vendor (ISV) Connect Program
 
@@ -38,7 +39,7 @@ Deltagande i det här programmet kräver att du granskar och godkänner [Busines
 
 1.  Logga in på [partner Center](https://partner.microsoft.com/dashboard).
 2.  Välj **Inställningar** (kugg hjuls ikon) och välj **Inställningar för utvecklare**.
-3.  Välj **avtal**. 
+3.  Välj **avtal**.
 4.  Välj versions länken och Visa avtalet.
 5.  Om du vill godkänna och godkänna avtalet väljer du **Godkänn avtal**.
 
@@ -75,9 +76,8 @@ Det sista steget för registrering i Business Applications ISV Connect-programme
 
 Be din konto ansvarig eller kontakta [Microsoft partner support](https://aka.ms/marketplacepublishersupport) om du behöver hjälp med ditt konto. Allmän information om Business Applications ISV Connect-programmet finns i:
 
-- **[Business Applications för ISV: er (artikel online)](https://aka.ms/bizappsisvweb)**
-
-- **[Översikt över det nya programmet för Business Applications-ISV: ar (PDF)](https://aka.ms/bizappsisvprogram)**
-
-- **[Principer för ISV Connect-program](https://aka.ms/bizappsisvpolicies)**
-
+- [Business Applications för ISV](https://partner.microsoft.com/solutions/business-applications/isv-overview) : er (artikel online)
+- [Översikt över det nya programmet för Business Applications-ISV:](https://aka.ms/BizAppsISVProgram) ar (PDF)
+- [Vanliga frågor och svar om Business Applications ISV Connect-program](https://assetsprod.microsoft.com/business-applications-partner-faq.pdf) (PDF)
+- [Kommande program för Business Applications-ISV](https://cloudblogs.microsoft.com/dynamics365/bdm/2019/04/17/upcoming-program-for-business-applications-isvs/) : er (blogg inlägg)
+- [Principer för ISV Connect-program](https://aka.ms/bizappsisvpolicies) (PDF)

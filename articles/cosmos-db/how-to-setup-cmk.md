@@ -4,13 +4,14 @@ description: Lär dig hur du konfigurerar Kundhanterade nycklar för ditt Azure 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 07/16/2020
 ms.author: thweiss
-ms.openlocfilehash: 443e037f89508b0fc3b01ba90f884c139f4c64be
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 989fbb123e39f85aeeb8eba9961f9aeab1e76c84
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027759"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092631"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Konfigurera kundhanterade nycklar för ditt Azure Cosmos-konto med Azure Key Vault
 
@@ -227,7 +228,15 @@ Att rotera den Kundhanterade nyckeln som används av ditt Azure Cosmos-konto kan
 
   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-rot.png" alt-text="Skapa en ny nyckel version":::
 
-- Byt ut nyckeln som för närvarande används med en helt annan genom att uppdatera `keyVaultKeyUri` egenskapen för ditt konto. Så här gör du det i PowerShell:
+- Byt ut nyckeln som för närvarande används med en helt annan genom att uppdatera nyckel-URI: n på ditt konto. Från Azure Portal går du till ditt Azure Cosmos-konto och väljer **data kryptering** på den vänstra menyn:
+
+    :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Meny posten data kryptering":::
+
+    Ersätt sedan nyckel- **URI: n** med den nya nyckel som du vill använda och välj **Spara**:
+
+    :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="Uppdatera nyckel-URI: n":::
+
+    Så här gör du för att uppnå samma resultat i PowerShell:
 
     ```powershell
     $resourceGroupName = "myResourceGroup"
@@ -286,7 +295,11 @@ Inte för närvarande, men nycklar för container nivå beaktas.
 
 ### <a name="how-can-i-tell-if-customer-managed-keys-are-enabled-on-my-azure-cosmos-account"></a>Hur kan jag se om Kundhanterade nycklar är aktiverade på mitt Azure Cosmos-konto?
 
-Du kan hämta information om ditt Azure Cosmos-konto via programmering och leta efter `keyVaultKeyUri` egenskapen. Se ovan för olika sätt att göra det [i PowerShell](#using-powershell) och [med Azure CLI](#using-azure-cli).
+Från Azure Portal går du till ditt Azure Cosmos-konto och tittar på **data krypterings** posten på den vänstra menyn. om posten finns aktive ras Kundhanterade nycklar på ditt konto:
+
+:::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Meny posten data kryptering":::
+
+Du kan också hämta information om ditt Azure Cosmos-konto via programmering och leta efter `keyVaultKeyUri` egenskapen. Se ovan för olika sätt att göra det [i PowerShell](#using-powershell) och [med Azure CLI](#using-azure-cli).
 
 ### <a name="how-do-customer-managed-keys-affect-a-backup"></a>Hur påverkar kund hanterade nycklar en säkerhets kopia?
 

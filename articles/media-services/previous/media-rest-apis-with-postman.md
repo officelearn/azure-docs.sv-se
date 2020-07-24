@@ -13,22 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 11c9c26e7c0f36e1e3dba732e90a6aef95e6ee14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21eb3d9862c8fa2b840117d5f0e9fbd0ad2214c9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76694998"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091750"
 ---
 # <a name="configure-postman-for-media-services-v2-rest-api-calls"></a>Konfigurera PostMan för Media Services v2 REST API anrop  
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Den här självstudien visar hur du konfigurerar **Postman** så att den kan användas för att anropa Azure Media Services REST-API: er för (AMS). I självstudien visas hur du importerar miljö-och samlings filer till **Postman**. Samlingen innehåller grupperade definitioner av HTTP-begäranden som anropar Azure Media Services (AMS) REST-API: er. Miljöfilen innehåller variabler som används av samlingen.
 
 Den här miljön och samlingen används i artiklar som visar hur du uppnår olika uppgifter med Azure Media Services REST-API: er.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Installera [Postman](https://www.getpostman.com/) REST-klienten för att köra REST API:er som visas i några AMS REST-självstudierna. 
 
@@ -40,14 +41,14 @@ Den här miljön och samlingen används i artiklar som visar hur du uppnår olik
 2. Öppna **Postman**.
 3. På höger sida om skärmen, väljer du alternativet **Hantera miljö**.
 
-    ![Överför en fil](./media/media-services-rest-upload-files/postman-create-env.png)
+    ![Ladda upp en fil](./media/media-services-rest-upload-files/postman-create-env.png)
 4. Från dialogrutan **Hantera miljö**, klickar du på **Importera**.
 5. Bläddra och välj **AzureMediaServices.postman_environment.jspå** filen.
 6. **AzureMedia** -miljön har lagts till.
 7. Stäng dialogrutan.
 8. Välj **AzureMedia** -miljön.
 
-    ![Överför en fil](./media/media-services-rest-upload-files/postman-choose-env.png)
+    ![Ladda upp en fil](./media/media-services-rest-upload-files/postman-choose-env.png)
 
 ## <a name="configure-the-collection"></a>Konfigurera samlingen
 
@@ -55,7 +56,7 @@ Den här miljön och samlingen används i artiklar som visar hur du uppnår olik
 2. Klicka på **Importera** för att importera samlingsfilen.
 3. Välj **AzureMediaServicesOperations.postman_collection.jspå** filen.
 
-    ![Överför en fil](./media/media-services-rest-upload-files/postman-import-collection.png)
+    ![Ladda upp en fil](./media/media-services-rest-upload-files/postman-import-collection.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

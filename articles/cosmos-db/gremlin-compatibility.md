@@ -7,11 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/10/2019
 ms.author: sngun
-ms.openlocfilehash: 1db7937cb574ce62986f25e0bfa688dc54b5c606
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7257246f618e3028534f3ebd60eaf6f94a3a4720
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700607"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092515"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Azure Cosmos DB Gremlin-kompatibilitet
 Azure Cosmos DB diagram motor närmar sig följande steg Specifikation för [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) , men det finns skillnader i implementeringen som är specifik för Azure Cosmos dB. Information om vilka Gremlin-steg som stöds finns i artikeln om [stöd för GREMLIN API Wire Protocol](gremlin-support.md) .
@@ -44,7 +45,7 @@ Azure Cosmos DB diagram motor närmar sig följande steg Specifikation för [Apa
 
 * **Index användning för Gremlin-frågor med `.V()` steg för steg-för-steg**: för närvarande kommer endast det första `.V()` anropet av en genom gång att använda indexet för att lösa eventuella filter eller predikat som är kopplade till den. Efterföljande anrop kommer inte att se indexet, vilket kan öka svars tiden och kostnaden för frågan.
     
-    Vid antagande av standard indexering använder en typisk Read Gremlin-fråga som börjar med `.V()` steget parametrar i sina kopplade filtrerings steg, till exempel `.has()` eller `.where()` för att optimera frågans kostnad och prestanda. Ett exempel:
+    Vid antagande av standard indexering använder en typisk Read Gremlin-fråga som börjar med `.V()` steget parametrar i sina kopplade filtrerings steg, till exempel `.has()` eller `.where()` för att optimera frågans kostnad och prestanda. Exempel:
 
     ```java
     g.V().has('category', 'A')
@@ -68,7 +69,7 @@ Azure Cosmos DB diagram motor närmar sig följande steg Specifikation för [Apa
     g.V().has('category', 'A').fold().union(unfold(), __.V().has('category', 'B'))
     ```
 
-    Du kan granska frågans prestanda genom att använda [Gremlin `executionProfile()` steg] (graf-Execution-Profile.MD.
+    Du kan granska prestanda för frågorna med hjälp av Gremlin- [ `executionProfile()` steget](graph-execution-profile.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * Besök [Cosmos DB User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db) -sidan för att dela feedback och fokusera på funktioner som är viktiga för dig.

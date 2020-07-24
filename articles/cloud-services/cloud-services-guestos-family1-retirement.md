@@ -9,11 +9,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: 0e60a8a563819b38bbe67a0b532c6dcada6821b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f08352d4a79b8c27b2c163516f44edf578fbe3a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83835639"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092651"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Påminnelse om gäst operativ system familj 1
 Indragningen av OS-familjen 1 lanserades första den 1 juni 2013.
@@ -31,7 +32,7 @@ Cloud Services påverkas om något av följande gäller:
 2. Du har inget värde för osFamily som anges explicit i filen ServiceConfiguration. cscfg för din moln tjänst. För närvarande använder systemet standardvärdet "1" i det här fallet.
 3. I Azure Portal listas ditt gäst operativ system familje värde som "Windows Server 2008".
 
-Om du vill ta reda på vilka av dina moln tjänster som kör operativ system familjen kan du köra följande skript i Azure PowerShell, men du måste [konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs) först. Mer information om skriptet finns i [Azure gäst operativ system familj 1 uttjänta: 2014 juni](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
+Om du vill ta reda på vilka av dina moln tjänster som kör operativ system familjen kan du köra följande skript i Azure PowerShell, men du måste [konfigurera Azure PowerShell](/powershell/azure/) först. Mer information om skriptet finns i [Azure gäst operativ system familj 1 uttjänta: 2014 juni](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {

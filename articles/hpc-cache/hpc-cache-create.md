@@ -4,17 +4,18 @@ description: Så här skapar du en Azure HPC cache-instans
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/01/2020
+ms.date: 07/10/2020
 ms.author: v-erkel
-ms.openlocfilehash: 894595ee3660532bf046a39e994fa669f7c6b002
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a988f08b2b6e30543c112b20e5b374130ceddc47
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84434094"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092498"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Skapa en Azure HPC-cache
 
-Använd Azure Portal för att skapa din cache.
+Använd Azure Portal eller Azure CLI för att skapa din cache.
 
 ![skärm bild av cache-översikten i Azure Portal med knappen Skapa längst ned](media/hpc-cache-home-page.png)
 
@@ -22,11 +23,13 @@ Klicka på bilden nedan om du vill titta på en [video demonstration](https://az
 
 [![video miniatyr: Azure HPC cache: Setup (Klicka för att besöka video sidan)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
 
+## <a name="portal"></a>[Portal](#tab/azure-portal)
+
 ## <a name="define-basic-details"></a>Definiera grundläggande information
 
 ![skärm bild av sidan projekt information i Azure Portal](media/hpc-cache-create-basics.png)
 
-I **projekt information**väljer du den prenumeration och resurs grupp som ska vara värd för cachen. Se till att prenumerationen finns på [åtkomst](hpc-cache-prereqs.md#azure-subscription) listan.
+I **projekt information**väljer du den prenumeration och resurs grupp som ska vara värd för cachen. Se till att prenumerationen finns på [åtkomst](hpc-cache-prerequisites.md#azure-subscription) listan.
 
 I **tjänst information**anger du cache-namn och följande attribut:
 
@@ -56,9 +59,9 @@ Azure HPC cache hanterar vilka filer som cachelagras och förinstalleras för at
 
 ## <a name="enable-azure-key-vault-encryption-optional"></a>Aktivera Azure Key Vault kryptering (valfritt)
 
-Om din cache finns i en region som stöder Kundhanterade krypterings nycklar visas sidan **disk krypterings nycklar** mellan flikarna **cache** och **taggar** . Vid publicerings tillfället stöds det här alternativet i östra USA, södra centrala USA och västra USA 2.
+Om din cache finns i en region som stöder Kundhanterade krypterings nycklar visas sidan **disk krypterings nycklar** mellan flikarna **cache** och **taggar** . Läs [regional tillgänglighet](hpc-cache-overview.md#region-availability) om du vill veta mer om region support.
 
-Om du vill hantera krypterings nycklarna som används med Cache-lagringen, anger du Azure Key Vault information på sidan **disk krypterings nycklar** . Nyckel valvet måste finnas i samma region och i samma prenumeration som cachen.
+Om du vill hantera krypterings nycklarna som används för cache-lagringen, anger du Azure Key Vault information på sidan **disk krypterings nycklar** . Nyckel valvet måste finnas i samma region och i samma prenumeration som cachen.
 
 Du kan hoppa över det här avsnittet om du inte behöver Kundhanterade nycklar. Azure krypterar data med Microsoft-hanterade nycklar som standard. Läs mer i [Azure Storage-kryptering](../storage/common/storage-service-encryption.md) .
 
@@ -94,6 +97,99 @@ När en avisering har skapats visas ett meddelande med en länk till den nya Azu
 
 > [!NOTE]
 > Om cachen använder Kundhanterade krypterings nycklar kan cachen visas i resurs listan innan distributionens status ändras till slutförd. Så snart cachens status **väntar på nyckel** kan du [ge den](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) behörighet att använda nyckel valvet.
+
+## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+## <a name="create-the-cache-with-azure-cli"></a>Skapa cachen med Azure CLI
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+> [!NOTE]
+> Azure CLI har för närvarande inte stöd för att skapa en cache med Kundhanterade krypterings nycklar. Använd Azure Portal.
+
+Använd kommandot [AZ HPC-cache Create](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-create) för att skapa en ny Azure HPC-cache.
+
+Ange följande värden:
+
+* Namn på resurs grupp för cache
+* Cache-namn
+* Azure-region
+* Cache-undernät, i det här formatet:
+
+  ``--subnet "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/sub
+nets/<cache_subnet_name>"``
+
+  Under nätet för cache måste ha minst 64 IP-adresser (/24) och det får inte innehålla några andra resurser.
+
+* Cache-kapacitet. Två värden anger maximalt data flöde för Azure HPC-cachen:
+
+  * Cachestorlek (i GB)
+  * SKU för de virtuella datorer som används i cache-infrastrukturen
+
+  [AZ HPC – cache SKU-lista](/cli/azure/ext/hpc-cache/hpc-cache/skus) visar tillgängliga SKU: er och giltiga alternativ för cachestorlek för var och en. Storleks alternativ för cache mellan 3 TB och 48 TB, men endast vissa värden stöds.
+
+  Det här diagrammet visar vilken cachestorlek och vilka SKU-kombinationer som är giltiga vid den tidpunkt då dokumentet förbereds (2020 juli).
+
+  | Cachestorlek | Standard_2G | Standard_4G | Standard_8G |
+  |------------|-------------|-------------|-------------|
+  | 3072 GB    | ja         | nej          | nej          |
+  | 6144 GB    | yes         | ja         | Nej          |
+  | 12288 GB   | yes         | ja         | yes         |
+  | 24576 GB   | Nej          | ja         | yes         |
+  | 49152 GB   | nej          | nej          | ja         |
+
+  Läs avsnittet **Ange cache-kapacitet** i fliken Portal instruktioner för viktig information om priser, data flöde och hur du ändrar cacheminnet för ditt arbets flöde.
+
+Exempel på att skapa cache:
+
+```azurecli
+az hpc-cache create --resource-group doc-demo-rg --name my-cache-0619 \
+    --location "eastus" --cache-size-gb "3072" \
+    --subnet "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default" \
+    --sku-name "Standard_2G"
+```
+
+Det tar flera minuter att skapa cacheminnet. Vid lyckad returnerar kommandot CREATE följande utdata:
+
+```azurecli
+{
+  "cacheSizeGb": 3072,
+  "health": {
+    "state": "Healthy",
+    "statusDescription": "The cache is in Running state"
+  },
+  "id": "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.StorageCache/caches/my-cache-0619",
+  "location": "eastus",
+  "mountAddresses": [
+    "10.3.0.17",
+    "10.3.0.18",
+    "10.3.0.19"
+  ],
+  "name": "my-cache-0619",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "doc-demo-rg",
+  "sku": {
+    "name": "Standard_2G"
+  },
+  "subnet": "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default",
+  "tags": null,
+  "type": "Microsoft.StorageCache/caches",
+  "upgradeStatus": {
+    "currentFirmwareVersion": "5.3.42",
+    "firmwareUpdateDeadline": "0001-01-01T00:00:00+00:00",
+    "firmwareUpdateStatus": "unavailable",
+    "lastFirmwareUpdate": "2020-04-01T15:19:54.068299+00:00",
+    "pendingFirmwareVersion": null
+  }
+}
+```
+
+Meddelandet innehåller viss användbar information, inklusive följande objekt:
+
+* Klient monterings adresser – Använd de här IP-adresserna när du är redo att ansluta klienter till cacheminnet. Mer information finns i [montera Azure HPC cache](hpc-cache-mount.md) .
+* Uppgraderings status – när en program uppdatering släpps ändras det här meddelandet. Du kan [Uppgradera cache-programvaran](hpc-cache-manage.md#upgrade-cache-software) manuellt vid en lämplig tidpunkt, eller så kommer den att tillämpas automatiskt efter flera dagar.
+
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

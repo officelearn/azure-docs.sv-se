@@ -7,11 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: tracking-python
-ms.openlocfilehash: ca186fa62605953bfb90c1a4669fc8283eb78469
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 432ff655ef072d491227d297e620612203f73d3f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559785"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092991"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetri korrelation i Application Insights
 
@@ -33,7 +34,7 @@ I en miljö med mikrotjänster kan spår från komponenter gå till olika lagrin
 
 ## <a name="example"></a>Exempel
 
-Nu ska vi titta på ett exempel. Ett program som kallas aktie kurser visar det aktuella marknads priset för en aktie genom att använda ett externt API som kallas lager. Programmet för aktie kurser har en sida som kallas lager sida som-klientens webbläsare öppnar med hjälp av `GET /Home/Stock` . Programmet skickar frågor till aktie-API: et genom att använda HTTP-anropet `GET /api/stock/value` .
+Låt oss ta en titt på ett exempel. Ett program som kallas aktie kurser visar det aktuella marknads priset för en aktie genom att använda ett externt API som kallas lager. Programmet för aktie kurser har en sida som kallas lager sida som-klientens webbläsare öppnar med hjälp av `GET /Home/Stock` . Programmet skickar frågor till aktie-API: et genom att använda HTTP-anropet `GET /api/stock/value` .
 
 Du kan analysera den resulterande Telemetrin genom att köra en fråga:
 
@@ -301,15 +302,15 @@ När den här koden körs skrivs följande ut i-konsolen:
 ```
 Observera att det finns en `spanId` sådan för logg meddelandet som ligger inom intervallet. Detta är samma `spanId` som tillhör det intervall som namnges `hello` .
 
-Du kan exportera loggdata med hjälp av `AzureLogHandler` . Mer information finns i [den här artikeln](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#logs).
+Du kan exportera loggdata med hjälp av `AzureLogHandler` . Mer information finns i [den här artikeln](./opencensus-python.md#logs).
 
 ## <a name="telemetry-correlation-in-net"></a>Telemetri-korrelation i .NET
 
 Med tiden har .NET definierat flera sätt att korrelera telemetri-och diagnostikloggar:
 
-- `System.Diagnostics.CorrelationManager`tillåter spårning av [LogicalOperationStack och ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx).
-- `System.Diagnostics.Tracing.EventSource`och ETW (Event Tracing for Windows) (ETW) definiera [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx) -metoden.
-- `ILogger`använder [logg omfattningar](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes).
+- `System.Diagnostics.CorrelationManager`tillåter spårning av [LogicalOperationStack och ActivityId](/dotnet/api/system.diagnostics.correlationmanager?view=netcore-3.1).
+- `System.Diagnostics.Tracing.EventSource`och ETW (Event Tracing for Windows) (ETW) definiera [SetCurrentThreadActivityId](/dotnet/api/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid?view=netcore-3.1#overloads) -metoden.
+- `ILogger`använder [logg omfattningar](/aspnet/core/fundamentals/logging#log-scopes).
 - Kontext spridning för Windows Communication Foundation (WCF) och HTTP-kabelering.
 
 Men dessa metoder aktiverade inte stöd för automatisk Distributed spårning. `DiagnosticSource`stöder automatisk korrelation mellan datorer. .NET-bibliotek stöder `DiagnosticSource` och tillåter automatisk spridning mellan datorer av korrelations kontexten via transporten, till exempel http.
@@ -327,7 +328,7 @@ Application Insights SDK, från och med version 2.4.0-beta1, använder `Diagnost
 <a name="java-correlation"></a>
 ## <a name="telemetry-correlation-in-java"></a>Telemetri korrelation i Java
 
-[Java-agenten](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) och [Java SDK](../../azure-monitor/app/java-get-started.md) version 2.0.0 eller senare har stöd för automatisk korrelation av telemetri. Den fylls i automatiskt `operation_id` för all telemetri (t. ex. spår, undantag och anpassade händelser) som utfärdats inom omfånget för en begäran. Den sprider också korrelations rubrikerna (beskrivs ovan) för tjänst-till-tjänst-anrop via HTTP, om [Java SDK-agenten](../../azure-monitor/app/java-agent.md) har kon figurer ATS.
+[Java-agenten](./java-in-process-agent.md) och [Java SDK](../../azure-monitor/app/java-get-started.md) version 2.0.0 eller senare har stöd för automatisk korrelation av telemetri. Den fylls i automatiskt `operation_id` för all telemetri (t. ex. spår, undantag och anpassade händelser) som utfärdats inom omfånget för en begäran. Den sprider också korrelations rubrikerna (beskrivs ovan) för tjänst-till-tjänst-anrop via HTTP, om [Java SDK-agenten](../../azure-monitor/app/java-agent.md) har kon figurer ATS.
 
 > [!NOTE]
 > Application Insights Java-agenten automatiskt samlar in begär Anden och beroenden för JMS, Kafka, nettning/webflöde med mera. För Java SDK-anrop som görs via Apache HttpClient stöds för korrelations funktionen. Automatisk kontext spridning mellan meddelande tekniker (t. ex. Kafka, RabbitMQ och Azure Service Bus) stöds inte i SDK. 

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev
-ms.openlocfilehash: e82c7809f5a6c79b61dc0c6731a696c672f6aa97
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1dcb2095416b74eb8dd805d811ecc7142a6bafb8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247344"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091631"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Förbereda utvecklingsmiljön i Windows
 
@@ -23,7 +23,7 @@ ms.locfileid: "86247344"
 
 För att kunna skapa och köra [Azure Service Fabric-program][1] på en Windows-utvecklingsdator måste du installera Service Fabric-körmiljön, SDK och verktyg. Du måste också [Aktivera körning av Windows PowerShell-skript](#enable-powershell-script-execution) som ingår i SDK: n.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="supported-operating-system-versions"></a>Operativsystemversioner som stöds
 
@@ -68,8 +68,8 @@ Om du bara behöver SDK kan du installera det här paketet:
 
 De aktuella versionerna är:
 
-* Service Fabric SDK och verktyg 4.1.416
-* Service Fabric runtime-7.1.417
+* Service Fabric SDK och verktyg 4.1.428
+* Service Fabric runtime-7.1.428
 
 En lista över versioner som stöds finns i [Service Fabric versioner](service-fabric-versions.md)
 

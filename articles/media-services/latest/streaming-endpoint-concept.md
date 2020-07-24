@@ -12,16 +12,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 72cfdf172e4524e302ef2e22826d4f78ce32daf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 030a10e9138af32ee848009a14216c37567d9d2d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582734"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092005"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Slut punkter för direkt uppspelning (ursprung) i Azure Media Services
 
-I Microsoft Azure Media Services representerar en [strömmande slut punkt](https://docs.microsoft.com/rest/api/media/streamingendpoints) en dynamisk (just-in-Time)-paketering och ursprungs tjänst som kan leverera Live och innehåll på begäran direkt till en app i klient spelaren med ett av de vanliga protokollen för strömnings mediet (HLS eller tank streck). Dessutom tillhandahåller **direkt uppspelnings slut punkten** dynamisk kryptering (just-in-Time) för att branschledande DRM: er. 
+I Microsoft Azure Media Services representerar en [strömmande slut punkt](/rest/api/media/streamingendpoints) en dynamisk (just-in-Time)-paketering och ursprungs tjänst som kan leverera Live och innehåll på begäran direkt till en app i klient spelaren med ett av de vanliga protokollen för strömnings mediet (HLS eller tank streck). Dessutom tillhandahåller **direkt uppspelnings slut punkten** dynamisk kryptering (just-in-Time) för att branschledande DRM: er. 
 
 När du skapar ett Media Services konto skapas en **standard** slut punkt för direkt uppspelning när du har stoppat tillstånd. Det går inte att ta bort **standard** slut punkten för direkt uppspelning. Fler slut punkter för direkt uppspelning kan skapas under kontot (se [kvoter och gränser](limits-quotas-constraints.md)).
 
@@ -41,7 +41,7 @@ När du använder standard slut punkten för direkt uppspelning `servicename` ut
 ### <a name="limitations"></a>Begränsningar
 
 * Slut punktens namn för direkt uppspelning har ett max värde på 24 tecken.
-* Namnet ska följa det här [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) -mönstret: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
+* Namnet ska följa det här [regex](/dotnet/standard/base-types/regular-expression-language-quick-reference) -mönstret: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
 
 ## <a name="types"></a>Typer
 
@@ -77,7 +77,7 @@ Rekommenderad användning |Rekommenderas för de flesta strömnings scenarier.|P
 
 ## <a name="streaming-endpoint-properties"></a>Egenskaper för strömnings slut punkt
 
-Det här avsnittet innehåller information om några av egenskaperna för strömnings slut punkten. Exempel på hur du skapar en ny slut punkt för direkt uppspelning och beskrivningar av alla egenskaper finns i [direkt uppspelnings slut punkt](https://docs.microsoft.com/rest/api/media/streamingendpoints/create).
+Det här avsnittet innehåller information om några av egenskaperna för strömnings slut punkten. Exempel på hur du skapar en ny slut punkt för direkt uppspelning och beskrivningar av alla egenskaper finns i [direkt uppspelnings slut punkt](/rest/api/media/streamingendpoints/create).
 
 - `accessControl`: Används för att konfigurera följande säkerhets inställningar för den här strömnings slut punkten: Akamai för signatur huvud och IP-adresser som tillåts att ansluta till den här slut punkten. Den här egenskapen kan bara anges när `cdnEnabled` har angetts till false.
 
@@ -92,7 +92,7 @@ Det här avsnittet innehåller information om några av egenskaperna för ström
 
 - `cdnProfile`: Om `cdnEnabled` är inställt på Sant kan du också skicka `cdnProfile` värden. `cdnProfile`är namnet på CDN-profilen där CDN-slutpunkten kommer att skapas. Du kan ange en befintlig cdnProfile eller använda en ny. Om värdet är NULL och `cdnEnabled` Sant används standardvärdet "AzureMediaStreamingPlatformCdnProfile". Om den angivna `cdnProfile` redan finns skapas en slut punkt under den. Om profilen inte finns skapas en ny profil automatiskt.
 - `cdnProvider`: När CDN har Aktiver ATS kan du också skicka `cdnProvider` värden. `cdnProvider`styr vilken provider som ska användas. För närvarande stöds tre värden: "StandardVerizon", "PremiumVerizon" och "StandardAkamai". Om inget värde anges och `cdnEnabled` är sant används "StandardVerizon" (det är standardvärdet).
-- `crossSiteAccessPolicies`: Används för att ange åtkomst principer mellan platser för olika klienter. Mer information finns i [Specifikation över domän princip fil](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) och [göra en tjänst tillgänglig över domän gränser](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx). Inställningarna gäller endast för Smooth Streaming.
+- `crossSiteAccessPolicies`: Används för att ange åtkomst principer mellan platser för olika klienter. Mer information finns i [Specifikation över domän princip fil](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) och [göra en tjänst tillgänglig över domän gränser](/previous-versions/azure/azure-services/gg185950(v=azure.100)). Inställningarna gäller endast för Smooth Streaming.
 - `customHostNames`: Används för att konfigurera en slut punkt för direkt uppspelning för att acceptera trafik som dirigerats till ett anpassat värdnamn. Den här egenskapen är giltig för slut punkter för standard-och Premium-direktuppspelning och kan ställas in när `cdnEnabled` : false.
 
     Ägande rätten till domän namnet måste bekräftas av Media Services. Media Services verifierar domän namnets ägarskap genom att kräva en `CName` post som innehåller Media Services-konto-ID som en komponent som ska läggas till i domänen som används. Som exempel, för att "sports.contoso.com" ska användas som ett anpassat värdnamn för strömnings slut punkten måste en post för vara `<accountId>.contoso.com` konfigurerad för att peka på ett av Media Services verifierings värd namn. Verifierings värd namnet består av verifydns. \<mediaservices-dns-zone> .

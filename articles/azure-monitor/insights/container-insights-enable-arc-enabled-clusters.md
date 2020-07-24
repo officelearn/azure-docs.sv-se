@@ -3,12 +3,12 @@ title: Konfigurera Azure Arc-aktiverat Kubernetes-kluster med Azure Monitor för
 description: Den här artikeln beskriver hur du konfigurerar övervakning med Azure Monitor för behållare på Azure Arc-aktiverade Kubernetes-kluster.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: b1adbd5c1f9f0710a814c91872d3f8a9f1afb50f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8002b20f37ca5149c58ca3e29402916ebbc1333
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261060"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092889"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Aktivera övervakning av Azure Arc-aktiverade Kubernetes-kluster
 
@@ -32,7 +32,7 @@ Följande stöds officiellt med Azure Monitor för behållare:
 
 - Linux OS-versionen för Master-och Worker-noder som stöds är: Ubuntu (18,04 LTS och 16,04 LTS).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrol lera att du har följande innan du börjar:
 
@@ -63,7 +63,7 @@ Kontrol lera att du har följande innan du börjar:
     >[!IMPORTANT]
     >Den lägsta agent version som stöds för övervakning av Arc-aktiverade Kubernetes-kluster är ciprod04162020 eller senare.
 
-- [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-6) krävs om du aktiverar övervakning med hjälp av PowerShell-skript metoden.
+- [PowerShell Core](/powershell/scripting/install/installing-powershell?view=powershell-6) krävs om du aktiverar övervakning med hjälp av PowerShell-skript metoden.
 
 - [Bash version 4](https://www.gnu.org/software/bash/) krävs om du aktiverar övervakning med hjälp av bash-skript metoden.
 
@@ -218,7 +218,7 @@ Om du anger protokollet som **http**skapas HTTP-begäranden med hjälp av SSL/TL
 
 ### <a name="configure-using-powershell"></a>Konfigurera med hjälp av PowerShell
 
-Ange användar namn och lösen ord, IP-adress eller fullständigt domän namn och port nummer för proxyservern. Ett exempel:
+Ange användar namn och lösen ord, IP-adress eller fullständigt domän namn och port nummer för proxyservern. Exempel:
 
 ```powershell
 $proxyEndpoint = https://<user>:<password>@<proxyhost>:<port>
@@ -226,7 +226,7 @@ $proxyEndpoint = https://<user>:<password>@<proxyhost>:<port>
 
 ### <a name="configure-using-bash"></a>Konfigurera med bash
 
-Ange användar namn och lösen ord, IP-adress eller fullständigt domän namn och port nummer för proxyservern. Ett exempel:
+Ange användar namn och lösen ord, IP-adress eller fullständigt domän namn och port nummer för proxyservern. Exempel:
 
 ```bash
 export proxyEndpoint=https://<user>:<password>@<proxyhost>:<port>

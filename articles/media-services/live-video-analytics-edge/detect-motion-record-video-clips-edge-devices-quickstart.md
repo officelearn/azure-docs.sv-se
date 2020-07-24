@@ -3,12 +3,12 @@ title: Identifiera rörelse & spela in video på gräns enheter – Azure
 description: Den här snabb starten visar hur du använder real tids analys på IoT Edge för att analysera Live-videofeeden från en (simulerad) IP-kamera, identifiera om någon rörelse finns tillgänglig och spela in ett MP4-videoklipp i det lokala fil systemet på gräns enheten.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 32f1ae5e9edbdbe522afb39bd56584cd2423dd33
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 14dcc7b298244a1d53a9b820c641ea87c4f9a016
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817080"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091869"
 ---
 # <a name="quickstart-detect-motion-and-record-video-on-edge-devices"></a>Snabb start: identifiera rörelse-och inspelnings video på gräns enheter
  
@@ -16,7 +16,7 @@ Den här snabb starten visar hur du använder video analys i real tid för IoT E
 
 Den här artikeln baseras på exempel kod skriven i C#. Det bygger på snabb starten för att [identifiera rörelse och generera händelser](detect-motion-emit-events-quickstart.md) . 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto utan kostnad](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) om du inte redan har ett.
 * [Visual Studio Code](https://code.visualstudio.com/)med följande tillägg:
@@ -164,7 +164,7 @@ Se till att du har slutfört stegen för [att förbereda övervakningen av händ
      * Ett sista anrop till `GraphTopologyList` visar att listan nu är tom.
 
 ## <a name="interpret-results"></a>Tolka resultaten 
-När du kör medie diagrammet passerar resultatet från noden för rörelse detektorn genom IoT Hub Sink-noden till IoT Hub. De meddelanden som visas i fönstret **utdata** i Visual Studio Code innehåller ett `body` avsnitt och ett `applicationProperties` avsnitt. Mer information finns i [skapa och läsa IoT Hub meddelanden](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+När du kör medie diagrammet passerar resultatet från noden för rörelse detektorn genom IoT Hub Sink-noden till IoT Hub. De meddelanden som visas i fönstret **utdata** i Visual Studio Code innehåller ett `body` avsnitt och ett `applicationProperties` avsnitt. Mer information finns i [skapa och läsa IoT Hub meddelanden](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 I följande meddelanden definierar modulen live video analys program egenskaperna och innehållet i bröd texten.
 
@@ -254,7 +254,7 @@ För att spela upp MP4-klippet:
 
     ![Utdata](./media/quickstarts/samples-output.png) 
 
-1. Använd [säker kopia (SCP)](https://docs.microsoft.com/azure/virtual-machines/linux/copy-files-to-linux-vm-using-scp) för att kopiera filerna till den lokala datorn. 
+1. Använd [säker kopia (SCP)](../../virtual-machines/linux/copy-files-to-linux-vm-using-scp.md) för att kopiera filerna till den lokala datorn. 
 1. Spela upp filerna med hjälp av [VLC Media Player](https://www.videolan.org/vlc/) eller någon annan MP4-spelare.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
@@ -267,4 +267,4 @@ Om du tänker testa de andra snabb starterna ska du behålla de resurser som du 
 * Granska ytterligare utmaningar för avancerade användare:
 
     * Använd en [IP-kamera](https://en.wikipedia.org/wiki/IP_camera) som stöder RTSP i stället för att använda RTSP-simulatorn. Du hittar IP-kameror som har stöd för RTSP på sidan [ONVIF-produkter](https://www.onvif.org/conformant-products) . Sök efter enheter som uppfyller profilerna G, S eller T.
-    * Använd en AMD64-eller x64 Linux-enhet i stället för att använda en virtuell Linux-dator i Azure. Enheten måste finnas i samma nätverk som IP-kameran. Följ anvisningarna i [installera Azure IoT Edge runtime på Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Följ sedan anvisningarna i [distribuera din första IoT Edge-modul till en virtuell Linux-enhet](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) för att registrera enheten med Azure IoT Hub.
+    * Använd en AMD64-eller x64 Linux-enhet i stället för att använda en virtuell Linux-dator i Azure. Enheten måste finnas i samma nätverk som IP-kameran. Följ anvisningarna i [installera Azure IoT Edge runtime på Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Följ sedan anvisningarna i [distribuera din första IoT Edge-modul till en virtuell Linux-enhet](../../iot-edge/quickstart-linux.md) för att registrera enheten med Azure IoT Hub.

@@ -11,16 +11,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
-ms.openlocfilehash: 9c80056fd62173ff1e5a6ed3979adba71b7706cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01972ab02aa901af6144c02171efd36314e2f514
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582765"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091954"
 ---
 # <a name="streaming-policies"></a>Principer för direktuppspelning
 
-I Azure Media Services v3 kan du använda [strömmande principer](https://docs.microsoft.com/rest/api/media/streamingpolicies) för att definiera strömmande protokoll och krypterings alternativ för dina [strömmande positionerare](streaming-locators-concept.md). Media Services v3 innehåller några fördefinierade strömmande principer så att du kan använda dem direkt för utvärdering eller produktion. 
+I Azure Media Services v3 kan du använda [strömmande principer](/rest/api/media/streamingpolicies) för att definiera strömmande protokoll och krypterings alternativ för dina [strömmande positionerare](streaming-locators-concept.md). Media Services v3 innehåller några fördefinierade strömmande principer så att du kan använda dem direkt för utvärdering eller produktion. 
 
 För närvarande tillgängliga fördefinierade strömmande principer:<br/>
 * Predefined_DownloadOnly
@@ -44,11 +44,11 @@ Klicka på bilden för att visa den i full storlek.
 
 Om du krypterar innehållet måste du skapa en princip för [innehålls nycklar](content-key-policy-concept.md), **innehålls nyckel principen** behövs inte för att rensa strömma eller ladda ned. 
 
-Om du har särskilda krav (till exempel om du vill ange olika protokoll, behöver använda en anpassad nyckel leverans tjänst eller om du behöver använda ett tydligt ljud spår) kan du [skapa](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) en anpassad direkt uppspelnings princip. 
+Om du har särskilda krav (till exempel om du vill ange olika protokoll, behöver använda en anpassad nyckel leverans tjänst eller om du behöver använda ett tydligt ljud spår) kan du [skapa](/rest/api/media/streamingpolicies/create) en anpassad direkt uppspelnings princip. 
 
 ## <a name="get-a-streaming-policy-definition"></a>Hämta en definition för strömnings princip  
 
-Om du vill se definitionen av en strömmande princip använder du [Get](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) och anger namnet på principen. Till exempel:
+Om du vill se definitionen av en strömmande princip använder du [Get](/rest/api/media/streamingpolicies/get) och anger namnet på principen. Exempel:
 
 ### <a name="rest"></a>REST
 

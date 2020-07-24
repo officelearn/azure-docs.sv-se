@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 850f4e3754af790e6b9bab5c68c9bd10849bba37
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9fac5d3efabc5d9f796c91d688f35e01aeefdca3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965288"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092770"
 ---
 # <a name="rendering-using-azure"></a>Rendering med hjälp av Azure
 
@@ -79,7 +79,7 @@ Det finns flera sätt att använda Azure Batch, som alla gäller även för Azur
 * API:er:
   * Skriv kod med hjälp av [rest](/rest/api/batchservice), [.net](/dotnet/api/overview/azure/batch), [python](/python/api/overview/azure/batch), [Java](/java/api/overview/azure/batch)eller andra API: er som stöds.  Utvecklare kan integrera Azure Batch funktioner i befintliga program eller arbets flöden, oavsett om de är molnbaserade eller baserade lokalt.  [Autodesk Maya-plugin-programmet](https://github.com/Azure/azure-batch-maya) använder till exempel batch python-API: et för att anropa batch, skapa och hantera pooler, skicka jobb och uppgifter och övervaknings status.
 * Kommando rads verktyg:
-  * [Kommando rads](/cli/azure/) -eller [Azure PowerShell](/powershell/azure/overview) för Azure kan användas för att använda skript för batch-användning.
+  * [Kommando rads](/cli/azure/) -eller [Azure PowerShell](/powershell/azure/) för Azure kan användas för att använda skript för batch-användning.
   * I synnerhet gör stödet för batch CLI det mycket enklare att skapa pooler och skicka jobb.
 * UIs:
   * [Batch Explorer](https://github.com/Azure/BatchExplorer) är ett klient verktyg för flera plattformar som också tillåter att batch-konton hanteras och övervakas, men ger till gång till en del rikare funktioner jämfört med Azure Portal gränssnittet.  En uppsättning pool-och jobbmallar tillhandahålls som är skräddarsydda för varje program som stöds och som kan användas för att enkelt skapa pooler och skicka jobb.

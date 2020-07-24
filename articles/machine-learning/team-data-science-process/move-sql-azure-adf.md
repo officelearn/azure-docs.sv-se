@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: aed35ec583af83e6ee6cb81c4e59e694cef493e1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 18ded2713ec89a9a0666cd00221d437c1c9ef090
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086661"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092430"
 ---
 # <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Flytta data från en SQL Server databas till SQL Database med Azure Data Factory
 
@@ -53,7 +53,7 @@ Den här självstudien förutsätter att du har:
 * En **Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/pricing/free-trial/).
 * Ett **Azure Storage-konto**. Du använder ett Azure Storage-konto för att lagra data i den här självstudien. Om du inte har ett Azure Storage-konto går du till artikeln [skapa ett lagrings konto](../../storage/common/storage-account-create.md) . När du har skapat lagrings kontot måste du hämta den konto nyckel som används för att få åtkomst till lagringen. Se [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md).
 * Åtkomst till en **Azure SQL Database**. Om du måste konfigurera en Azure SQL Database innehåller avsnittet [komma igång med Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) information om hur du etablerar en ny instans av en Azure SQL Database.
-* Installerat och konfigurerat **Azure PowerShell** lokalt. Instruktioner finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
+* Installerat och konfigurerat **Azure PowerShell** lokalt. Instruktioner finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/).
 
 > [!NOTE]
 > Den här proceduren använder [Azure Portal](https://portal.azure.com/).
@@ -87,7 +87,7 @@ Steg för steg-proceduren för att skapa länkade tjänster finns i [Skapa länk
 Skapa tabeller som anger strukturen, platsen och tillgängligheten för data uppsättningarna med följande skriptbaserade procedurer. JSON-filer används för att definiera tabeller. Mer information om strukturen för dessa filer finns i [data uppsättningar](../../data-factory/concepts-datasets-linked-services.md).
 
 > [!NOTE]
-> Du bör köra `Add-AzureAccount` cmdleten innan du kör cmdleten [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) för att bekräfta att rätt Azure-prenumeration har valts för kommando körningen. Dokumentation av den här cmdleten finns i [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0).
+> Du bör köra `Add-AzureAccount` cmdleten innan du kör cmdleten [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) för att bekräfta att rätt Azure-prenumeration har valts för kommando körningen. Dokumentation av den här cmdleten finns i [Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount?view=azuresmps-3.7.0).
 >
 >
 

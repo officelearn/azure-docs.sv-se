@@ -3,15 +3,16 @@ title: Använd direkta metoder i real tids video analys på IoT Edge – Azure
 description: Live video analys på IoT Edge visar flera direkta metoder. De direkta metoderna baseras på konventionerna som beskrivs i det här avsnittet.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: b87452de6b12b0335afca5e28abb3ef6adb29157
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed7cec7b8513044c2bf9b24600b8d9f42a485aae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84261375"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091835"
 ---
 # <a name="direct-methods"></a>Direkta metoder
 
-Live video analys på IoT Edge visar flera direkta metoder som kan anropas från IoT Hub. Direkta metoder representerar en förfrågan-svar-interaktion med en enhet som liknar ett HTTP-anrop i som de lyckas eller Miss lyckas omedelbart (efter en användardefinierad tids gräns). Den här metoden är användbar för scenarier där omedelbara åtgärder är olika beroende på om enheten kunde svara. Mer information finns i [förstå och anropa direkt metoder från IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods).
+Live video analys på IoT Edge visar flera direkta metoder som kan anropas från IoT Hub. Direkta metoder representerar en förfrågan-svar-interaktion med en enhet som liknar ett HTTP-anrop i som de lyckas eller Miss lyckas omedelbart (efter en användardefinierad tids gräns). Den här metoden är användbar för scenarier där omedelbara åtgärder är olika beroende på om enheten kunde svara. Mer information finns i [förstå och anropa direkt metoder från IoT Hub](../../iot-hub/iot-hub-devguide-direct-methods.md).
 
 I det här avsnittet beskrivs dessa metoder och konventioner.
 
@@ -111,7 +112,7 @@ Detaljerade fel uppgifter, till exempel valideringar av graf-modul, läggs till 
 
 Den här direkta metoden hämtar en enda diagram sto pol Ogin.
 
-#### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Begäran
 
 ```
 {
@@ -123,7 +124,7 @@ Den här direkta metoden hämtar en enda diagram sto pol Ogin.
 }
 ```
 
-#### <a name="response"></a>Svar
+#### <a name="response"></a>Svarsåtgärder
 
 ```
 {
@@ -141,7 +142,7 @@ Den här direkta metoden hämtar en enda diagram sto pol Ogin.
 
 |Villkor  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Entitet hittades|  200 |E.t.
+|Entitet hittades|  200 |Ej tillämpligt
 |Allmänna användar fel    |400 intervall  ||
 |Entiteten hittades inte   |404        ||
 |Allmänna Server fel| 500 intervall       ||
@@ -159,7 +160,7 @@ Viktiga aspekter:
     * Det finns inga referenser till borttagna parametrar i grafen
 * Topologi uppdateringar är inte tillåtna om det finns aktiva grafer
 
-#### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Begäran
 
 ```
 {
@@ -174,7 +175,7 @@ Viktiga aspekter:
 }
 ```
 
-#### <a name="response"></a>Svar
+#### <a name="response"></a>Svarsåtgärder
 
 ```
 {
@@ -192,8 +193,8 @@ Viktiga aspekter:
 
 |Villkor  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-Den befintliga entiteten har uppdaterats |200|   E.t.|
-En ny entitet har skapats  |201|   E.t.|
+Den befintliga entiteten har uppdaterats |200|   Ej tillämpligt|
+En ny entitet har skapats  |201|   Ej tillämpligt|
 Allmänna användar fel |400 intervall  ||
 Diagram verifierings fel |400    |GraphValidationError|
 Modul validerings fel|   400 |ModuleValidationError|
@@ -203,7 +204,7 @@ Allmänna Server fel   |500 intervall  ||
 
 Tar bort en enskild diagram sto pol Ogin.
 
-#### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Begäran
 
 ```
 {
@@ -215,7 +216,7 @@ Tar bort en enskild diagram sto pol Ogin.
 }
 ```
 
-#### <a name="response"></a>Svar
+#### <a name="response"></a>Svarsåtgärder
 
 ```
 {
@@ -228,8 +229,8 @@ Tar bort en enskild diagram sto pol Ogin.
 
 |Villkor  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Entitet borttagen|    200|    E.t.|
-|Entiteten hittades inte|  204|    E.t.|
+|Entitet borttagen|    200|    Ej tillämpligt|
+|Entiteten hittades inte|  204|    Ej tillämpligt|
 |Allmänna användar fel|   400 intervall   ||
 |Diagram sto pol Ogin refereras till av en eller flera diagram instanser| 409 |GraphTopologyInUse|
 |Allmänna Server fel| 500 intervall   ||
@@ -238,7 +239,7 @@ Tar bort en enskild diagram sto pol Ogin.
 
 Hämtar en lista över alla Graph-topologier som matchar filter kriterierna.
 
-#### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Begäran
 
 ```
 {
@@ -254,7 +255,7 @@ Hämtar en lista över alla Graph-topologier som matchar filter kriterierna.
 }
 ```
 
-#### <a name="response"></a>Svar
+#### <a name="response"></a>Svarsåtgärder
 
 ```
 {
@@ -286,7 +287,7 @@ Hämtar en lista över alla Graph-topologier som matchar filter kriterierna.
 
 |Villkor  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Klart|   200 |E.t.|
+|Klart|   200 |Ej tillämpligt|
 |Allmänna användar fel|   400 intervall   ||
 |Allmänna Server fel| 500 intervall   ||
 
@@ -294,7 +295,7 @@ Hämtar en lista över alla Graph-topologier som matchar filter kriterierna.
 
 Hämtar en enstaka graf-förekomst:
 
-#### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Begäran
 
 ```
 {
@@ -306,7 +307,7 @@ Hämtar en enstaka graf-förekomst:
 }
 ```
 
-#### <a name="response"></a>Svar
+#### <a name="response"></a>Svarsåtgärder
 
 ```
 {
@@ -324,7 +325,7 @@ Hämtar en enstaka graf-förekomst:
 
 |Villkor  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Entitet hittades   |200|   E.t.|
+|Entitet hittades   |200|   Ej tillämpligt|
 |Allmänna användar fel|   400 intervall   ||
 |Entiteten hittades inte|  404 ||
 |Allmänna Server fel| 500 intervall   ||
@@ -341,7 +342,7 @@ Viktiga aspekter:
 * Uppdatering av diagram instanser är delvis begränsad medan grafen inte är i inaktivt läge.
 * Diagram instans uppdateringar är inte tillåtna i aktiva diagram.
 
-#### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Begäran
 
 ```
 {
@@ -356,7 +357,7 @@ Viktiga aspekter:
 }
 ```
 
-#### <a name="response"></a>Svar
+#### <a name="response"></a>Svarsåtgärder
 
 ````
 {
@@ -374,8 +375,8 @@ Viktiga aspekter:
 
 |Villkor  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Den befintliga entiteten har uppdaterats    |200    |E.t.|
-|En ny entitet har skapats|    201 |E.t.|
+|Den befintliga entiteten har uppdaterats    |200    |Ej tillämpligt|
+|En ny entitet har skapats|    201 |Ej tillämpligt|
 |Allmänna användar fel|   400 intervall   ||
 |Diagram verifierings fel    |400|   GraphValidationError|
 |Modul validerings fel|  400 |ModuleValidationError|
@@ -390,7 +391,7 @@ Viktiga aspekter:
 
 * Endast inaktiverade diagram kan tas bort.
 
-#### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Begäran
 
 ```
 {
@@ -402,7 +403,7 @@ Viktiga aspekter:
 }
 ```
 
-#### <a name="response"></a>Svar
+#### <a name="response"></a>Svarsåtgärder
 
 ```
 {
@@ -415,8 +416,8 @@ Viktiga aspekter:
 
 |Villkor  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Grafen har tagits bort|    200|    E.t.|
-|Grafen hittades inte|   204|    E.t.|
+|Grafen har tagits bort|    200|    Ej tillämpligt|
+|Grafen hittades inte|   204|    Ej tillämpligt|
 |Allmänna användar fel    |400 intervall  ||
 |Grafen är inte i läget "stoppad"    |409    |OperationNotAllowedInState|
 |Allmänna Server fel| 500 intervall   ||
@@ -426,7 +427,7 @@ Viktiga aspekter:
 Detta liknar GraphTopologyList. Den gör det möjligt att räkna upp graf-instanser.
 Hämtar en lista över alla grafer-instanser som matchar filter kriterierna.
 
-#### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Begäran
 
 ```
 {
@@ -442,7 +443,7 @@ Hämtar en lista över alla grafer-instanser som matchar filter kriterierna.
 }
 ```
 
-#### <a name="response"></a>Svar
+#### <a name="response"></a>Svarsåtgärder
 
 ```
 {
@@ -473,7 +474,7 @@ Hämtar en lista över alla grafer-instanser som matchar filter kriterierna.
 
 |Villkor  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Klart    |200    |E.t.|
+|Klart    |200    |Ej tillämpligt|
 |Allmänna användar fel|   400 intervall   ||
 |Allmänna Server fel| 500 intervall   ||
 
@@ -492,7 +493,7 @@ Viktiga aspekter
     * Att starta en graf om tillståndet "aktivering" fungerar på samma sätt som om grafen inaktiverades (det vill säga: anropa block tills grafen har Aktiver ATS)
     * Aktivering av ett diagram på "aktivt" läge returnerar omedelbart.
 
-#### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Begäran
 
 ```
 {
@@ -504,7 +505,7 @@ Viktiga aspekter
 }
 ```
 
-#### <a name="response"></a>Svar
+#### <a name="response"></a>Svarsåtgärder
 
 ```
 {
@@ -517,8 +518,8 @@ Viktiga aspekter
 
 |Villkor  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Grafen har Aktiver ATS   |200    |E.t.|
-|En ny entitet har skapats |201|   E.t.|
+|Grafen har Aktiver ATS   |200    |Ej tillämpligt|
+|En ny entitet har skapats |201|   Ej tillämpligt|
 |Allmänna användar fel    |400 intervall  ||
 |Modul validerings fel   |400|   ModuleValidationError|
 |Resurs validerings fel|    409|    ResourceValidationError|
@@ -541,7 +542,7 @@ Viktiga aspekter:
     * Inaktive ring av diagram på status "inaktive ring" fungerar på samma sätt som om grafen inaktiverades (det vill säga: anropa block tills grafen är inaktive rad)
     * Inaktive ring av en graf i tillståndet "inaktiv" returneras omedelbart.
 
-#### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Begäran
 
 ```
 {
@@ -555,7 +556,7 @@ Viktiga aspekter:
 }
 ```
 
-#### <a name="response"></a>Svar
+#### <a name="response"></a>Svarsåtgärder
 
 ```
 {
@@ -566,8 +567,8 @@ Viktiga aspekter:
 
 |Villkor  |Statuskod    |Detaljerad felkod|
 |---|---|---|
-|Grafen har Aktiver ATS   |200|   E.t.|
-|En ny entitet har skapats |201|   E.t.|
+|Grafen har Aktiver ATS   |200|   Ej tillämpligt|
+|En ny entitet har skapats |201|   Ej tillämpligt|
 |Allmänna användar fel    |400 intervall  ||
 |Grafen är i aktiverings läge   |409|   OperationNotAllowedInState|
 |Allmänna Server fel  |500 intervall  ||

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 48d9990115a0e786d12915acf1eaadc196a00b0b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c9ece4860f8babba110da8536e5028f337fbc772
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170045"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092957"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Anslutningsappar för Azure Logic Apps
 
@@ -235,7 +235,7 @@ Anslut till SFTP-servrar som du kan komma åt från Internet med hjälp av SSH s
 
 Anslut till SharePoint Online så att du kan hantera filer, bilagor, mappar med mera.
 
-[![API-ikon ][dynamics-365-icon]<br> **Dynamics <br> 365**][dynamics-365-doc]
+[! [API-ikon] [Dynamics-365-Icon]<br>**Dynamics 365 <br> **] [Dynamics-365-doc]
 
 Anslut till ditt Dynamics 365-konto så att du kan skapa och hantera poster, artiklar med mera.
 
@@ -259,14 +259,9 @@ Använda och publicera händelser via en Event Hub. Du kan till exempel hämta u
 
 Övervaka händelser som publicerats av en Event Grid, till exempel när Azure-resurser eller resurser från tredje part ändras.
 
-
 [![API-ikon ][salesforce-icon]<br> **Salesforce**][salesforce-doc]
 
 Anslut till ditt Salesforce-konto så att du kan skapa och hantera objekt, till exempel poster, jobb, objekt med mera.
-
-[![API-ikon ][twitter-icon]<br> **Twitter**][twitter-doc]
-
-Anslut till ditt Twitter-konto så att du kan hantera tweets, följare, din tids linje och mer. Spara dina tweets i SQL, Excel eller SharePoint.
 
 <a name="on-premises-connectors"></a>
 
@@ -400,7 +395,7 @@ Mer information finns i de här ämnena:
 
 ## <a name="triggers-and-action-types"></a>Utlösare och åtgärds typer
 
-Kopplingar kan tillhandahålla *utlösare*, *åtgärder*eller både och. En *utlösare* är det första steget i alla logiska appar, vanligt vis genom att ange den händelse som utlöser utlösaren och börjar köra din Logic app. FTP-anslutningen har till exempel en utlösare som startar din Logic app "när en fil läggs till eller ändras". Vissa utlösare söker regelbundet efter den angivna händelsen eller data och utlöses sedan när de identifierar den angivna händelsen eller informationen. Andra utlösare väntar men utlöses direkt när en enskild händelse inträffar eller när nya data är tillgängliga. Utlösare skickas också tillsammans med alla data som krävs till din Logic app. Din Logic app kan läsa och använda dessa data i hela arbets flödet. Twitter-anslutningen har exempelvis en utlösare, "när en ny tweet publiceras", som skickar Tweetens innehåll till din Logic app-arbetsflöde.
+Kopplingar kan tillhandahålla *utlösare*, *åtgärder*eller både och. En *utlösare* är det första steget i alla logiska appar, vanligt vis genom att ange den händelse som utlöser utlösaren och börjar köra din Logic app. FTP-anslutningen har till exempel en utlösare som startar din Logic app "när en fil läggs till eller ändras". Vissa utlösare söker regelbundet efter den angivna händelsen eller data och utlöses sedan när de identifierar den angivna händelsen eller informationen. Andra utlösare väntar men utlöses direkt när en enskild händelse inträffar eller när nya data är tillgängliga. Utlösare skickas också tillsammans med alla data som krävs till din Logic app. Din Logic app kan läsa och använda dessa data i hela arbets flödet. Office 365 Outlook Connector har till exempel en utlösare, "när ett nytt e-postmeddelande kommer", som kan skicka innehållet från e-postmeddelandet till din Logic app-arbetsflöde.
 
 När en utlösare aktive ras skapar Azure Logic Apps en instans av din Logic app och börjar köra *åtgärderna* i din Logic app-arbetsflöde. Åtgärder är de steg som följer utlösaren och utför uppgifter i din Logic app-arbetsflöde. Du kan till exempel skapa en Logic-app som hämtar kund information från en SQL-databas och bearbetar dessa data i senare åtgärder.
 
@@ -416,7 +411,7 @@ Här är de allmänna typerna av utlösare som Azure Logic Apps tillhandahåller
 
 ## <a name="connector-configuration"></a>Anslutnings konfiguration
 
-Varje kopplings utlösare och åtgärder tillhandahåller egna egenskaper som du kan konfigurera. Många anslutningar kräver också att du först skapar en *anslutning* till mål tjänsten eller systemet och anger autentiseringsuppgifter för autentisering eller annan konfigurations information innan du kan använda en utlösare eller åtgärd i din Logic app. Du måste till exempel auktorisera en anslutning till ett Twitter-konto för att komma åt data eller för att publicera åt dig.
+Varje kopplings utlösare och åtgärder tillhandahåller egna egenskaper som du kan konfigurera. Många anslutningar kräver också att du först skapar en *anslutning* till mål tjänsten eller systemet och anger autentiseringsuppgifter för autentisering eller annan konfigurations information innan du kan använda en utlösare eller åtgärd i din Logic app. Innan du kan komma åt och arbeta med ditt Office 365 Outlook-e-postkonto måste du till exempel auktorisera en anslutning till det kontot.
 
 För kopplingar som använder Azure Active Directory (Azure AD) OAuth, skapar en anslutning en inloggning till tjänsten, till exempel Office 365, Salesforce eller GitHub, där din åtkomsttoken är [krypterad](../security/fundamentals/encryption-overview.md) och lagras säkert i ett Azure Secret Store. Andra anslutningar, till exempel FTP och SQL, kräver en anslutning som har konfigurations information, till exempel Server adressen, användar namnet och lösen ordet. Dessa anslutnings konfigurations uppgifter krypteras och lagras på ett säkert sätt. Läs mer om [kryptering i Azure](../security/fundamentals/encryption-overview.md).
 
@@ -479,6 +474,7 @@ Om din organisation inte tillåter att du ansluter till vissa resurser genom att
 [azure-cognitive-services-text-analytics-icon]: ./media/apis-list/azure-cognitive-services-text-analytics.png
 [azure-cosmos-db-icon]: ./media/apis-list/azure-cosmos-db.png
 [azure-data-lake-icon]: ./media/apis-list/azure-data-lake.png
+[azure-devops-icon]: ./media/apis-list/azure-devops.png
 [azure-document-db-icon]: ./media/apis-list/azure-document-db.png
 [azure-event-grid-icon]: ./media/apis-list/azure-event-grid.png
 [azure-event-grid-publish-icon]: ./media/apis-list/azure-event-grid-publish.png
@@ -497,15 +493,11 @@ Om din organisation inte tillåter att du ansluter till vissa resurser genom att
 [bitly-icon]: ./media/apis-list/bitly.png
 [biztalk-server-icon]: ./media/apis-list/biztalk.png
 [blogger-icon]: ./media/apis-list/blogger.png
-[box-icon]: ./media/apis-list/box.png
 [campfire-icon]: ./media/apis-list/campfire.png
 [common-data-service-icon]: ./media/apis-list/common-data-service.png
-[dropbox-icon]: ./media/apis-list/dropbox.png
-[dynamics-365-icon]: ./media/apis-list/dynamics-crm-online.png
 [dynamics-365-financials-icon]: ./media/apis-list/dynamics-365-financials.png
 [dynamics-365-operations-icon]: ./media/apis-list/dynamics-365-operations.png
 [easy-redmine-icon]: ./media/apis-list/easyredmine.png
-[facebook-icon]: ./media/apis-list/facebook.png
 [file-system-icon]: ./media/apis-list/file-system.png
 [ftp-icon]: ./media/apis-list/ftp.png
 [github-icon]: ./media/apis-list/github.png
@@ -522,11 +514,9 @@ Om din organisation inte tillåter att du ansluter till vissa resurser genom att
 [instagram-icon]: ./media/apis-list/instagram.png
 [instapaper-icon]: ./media/apis-list/instapaper.png
 [jira-icon]: ./media/apis-list/jira.png
-[mailchimp-icon]: ./media/apis-list/mailchimp.png
 [mandrill-icon]: ./media/apis-list/mandrill.png
 [mysql-icon]: ./media/apis-list/mysql.png
 [office-365-outlook-icon]: ./media/apis-list/office-365.png
-[office-365-users-icon]: ./media/apis-list/office-365-users.png
 [onedrive-icon]: ./media/apis-list/onedrive.png
 [onedrive-for-business-icon]: ./media/apis-list/onedrive-business.png
 [oracle-db-icon]: ./media/apis-list/oracle-db.png
@@ -536,7 +526,6 @@ Om din organisation inte tillåter att du ansluter till vissa resurser genom att
 [postgre-sql-icon]: ./media/apis-list/postgre-sql.png
 [project-online-icon]: ./media/apis-list/projecton-line.png
 [redmine-icon]: ./media/apis-list/redmine.png
-[rss-icon]: ./media/apis-list/rss.png
 [salesforce-icon]: ./media/apis-list/salesforce.png
 [sap-icon]: ./media/apis-list/sap.png
 [send-grid-icon]: ./media/apis-list/sendgrid.png
@@ -550,13 +539,9 @@ Om din organisation inte tillåter att du ansluter till vissa resurser genom att
 [sql-server-icon]: ./media/apis-list/sql.png
 [teradata-icon]: ./media/apis-list/teradata.png
 [todoist-icon]: ./media/apis-list/todoist.png
-[trello-icon]: ./media/apis-list/trello.png
 [twilio-icon]: ./media/apis-list/twilio.png
-[twitter-icon]: ./media/apis-list/twitter.png
 [vimeo-icon]: ./media/apis-list/vimeo.png
-[visual-studio-team-services-icon]: ./media/apis-list/visual-studio-team-services.png
 [wordpress-icon]: ./media/apis-list/wordpress.png
-[yammer-icon]: ./media/apis-list/yammer.png
 [youtube-icon]: ./media/apis-list/youtube.png
 
 <!-- Enterprise Integration Pack icons -->
@@ -614,15 +599,10 @@ Om din organisation inte tillåter att du ansluter till vissa resurser genom att
 [azure-sql-data-warehouse-doc]: https://docs.microsoft.com/connectors/sqldw/ "Anslut till Azure SQL Data Warehouse så att du kan visa dina data"
 [azure-table-storage-doc]: https://docs.microsoft.com/connectors/azuretables/ "Anslut till ditt Azure Storage-konto så att du kan skapa, uppdatera och fråga tabeller med mera"
 [biztalk-server-doc]: https://docs.microsoft.com/connectors/biztalk/ "Anslut till din BizTalk Server så att du kan köra BizTalk-baserade program sida vid sida med Azure Logic Apps"
-[box-doc]: ./connectors-create-api-box.md "Rutan Anslut till. Ladda upp, Hämta, ta bort, lista dina filer med mera"
-[dropbox-doc]: ./connectors-create-api-dropbox.md "Anslut till Dropbox. Ladda upp, Hämta, ta bort, lista dina filer med mera"
-[dynamics-365-doc]: ./connectors-create-api-crmonline.md "Anslut till Dynamics CRM Online så att du kan arbeta med CRM Online-data"
-[facebook-doc]: ./connectors-create-api-facebook.md "Anslut till Facebook. Publicera på en tids linje, hämta en sid matning med mera"
 [file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "Ansluta till ett lokalt filsystem"
 [ftp-doc]: ./connectors-create-api-ftp.md "Ansluta till en FTP-/FTPS-server för FTP-aktiviteter, till exempel överföring, hämtning och borttagning av filer och mycket mer"
 [github-doc]: ./connectors-create-api-github.md "Ansluta till GitHub och spåra problem"
 [google-calendar-doc]: ./connectors-create-api-googlecalendar.md "Ansluter till Google Calendar och kan hantera kalendern"
-[google-drive-doc]: ./connectors-create-api-googledrive.md "Anslut till GoogleDrive så att du kan arbeta med dina data"
 [google-sheets-doc]: ./connectors-create-api-googlesheet.md "Anslut till Google Sheets så att du kan ändra dina blad"
 [google-tasks-doc]: ./connectors-create-api-googletasks.md "Ansluter till Google tasks så att du kan hantera dina uppgifter"
 [ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "Ansluta till 3270-appar i IBM-stordatorer"
@@ -630,18 +610,14 @@ Om din organisation inte tillåter att du ansluter till vissa resurser genom att
 [ibm-informix-doc]: ./connectors-create-api-informix.md "Anslut till Informix i molnet eller lokalt. Läsa en rad, lista tabeller med mera"
 [ibm-mq-doc]: ./connectors-create-api-mq.md "Ansluta till IBM MQ lokalt eller i Azure för att skicka och ta emot meddelanden"
 [instagram-doc]: ./connectors-create-api-instagram.md "Anslut till Instagram. Utlösa eller agera på händelser"
-[mailchimp-doc]: ./connectors-create-api-mailchimp.md "Anslut till ditt MailChimp-konto. Hantera och automatisera e-post"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "Ansluta till Mandrill för kommunikation"
 [mysql-doc]: https://docs.microsoft.com/connectors/mysql/ "Anslut till din lokala MySQL-databas så att du kan läsa och skriva data"
 [office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Anslut till ditt Office 365-konto så att du kan skicka och ta emot e-post, hantera din kalender och dina kontakter med mera"
-[office-365-users-doc]: ./connectors-create-api-office365-users.md
 [onedrive-doc]: ./connectors-create-api-onedrive.md "Anslut till din personliga Microsoft OneDrive så att du kan ladda upp, ta bort, lista filer och mycket mer"
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Anslut till ditt företag Microsoft OneDrive så att du kan ladda upp, ta bort, lista dina filer med mera"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Anslut till en Oracle-databas så att du kan lägga till, infoga och ta bort rader med mera"
 [outlook.com-doc]: ./connectors-create-api-outlook.md "Anslut till din Outlook-postlåda så att du kan hantera din e-post, kalendrar, kontakter med mera"
 [postgre-sql-doc]: https://docs.microsoft.com/connectors/postgresql/ "Anslut till PostgreSQL-databasen så att du kan läsa data från tabeller"
-[project-online-doc]: ./connectors-create-api-projectonline.md "Anslut till Microsoft Project Online så att du kan hantera dina projekt, aktiviteter, resurser med mera"
-[rss-doc]: ./connectors-create-api-rss.md "Publicera och hämta flödes objekt, Utlös åtgärder när ett nytt objekt publiceras i ett RSS-flöde"
 [salesforce-doc]: ./connectors-create-api-salesforce.md "Anslut till ditt Salesforce-konto. Hantera konton, leads, affärs möjligheter och mycket mer"
 [sap-connector-doc]: ../logic-apps/logic-apps-using-sap-connector.md "Ansluta till ett lokalt SAP-system"
 [sendgrid-doc]: ./connectors-create-api-sendgrid.md "Anslut till SendGrid. Skicka e-post och hantera mottagar listor"
@@ -653,10 +629,7 @@ Om din organisation inte tillåter att du ansluter till vissa resurser genom att
 [sparkpost-doc]: ./connectors-create-api-sparkpost.md "Ansluter till SparkPost för kommunikation"
 [sql-server-doc]: ./connectors-create-api-sqlazure.md "Anslut till Azure SQL Database eller SQL Server. Skapa, uppdatera, hämta och ta bort poster i en SQL Database-tabell"
 [teradata-doc]: https://docs.microsoft.com/connectors/teradata/ "Anslut till Teradata-databasen för att läsa data från tabeller"
-[trello-doc]: ./connectors-create-api-trello.md "Anslut till Trello. Hantera dina projekt och organisera allt med vem som helst"
 [twilio-doc]: ./connectors-create-api-twilio.md "Anslut till Twilio. Skicka och hämta meddelanden, Hämta tillgängliga nummer, hantera inkommande telefonnummer och mycket mer"
-[twitter-doc]: ./connectors-create-api-twitter.md "Anslut till Twitter. Hämta tids linjer, publicera tweets med mera"
-[yammer-doc]: ./connectors-create-api-yammer.md "Anslut till Yammer. Publicera meddelanden, få nya meddelanden och mycket mer"
 [youtube-doc]: ./connectors-create-api-youtube.md "Anslut till YouTube. Hantera dina videor och kanaler"
 
 <!--Enterprise Intregation Pack doc links-->

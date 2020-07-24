@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 7d3a85e6fcc5b9d1c5ca1511cd7edd05ff5d9ae4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fc201cc1f3d4d26ca7b9e949d2917688e6fea8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582689"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091988"
 ---
-# <a name="streaming-endpoint-origin-errors"></a>Slut punkts fel för direkt uppspelning (ursprung) 
+# <a name="streaming-endpoint-origin-errors"></a>Fel med slutpunkter för direktuppspelning (ursprung) 
 
 I det här avsnittet beskrivs fel som kan uppstå från Azure Media Services [streaming Endpoint service](streaming-endpoint-concept.md).
 
-## <a name="400-bad-request"></a>400 Felaktig begäran
+## <a name="400-bad-request"></a>400 – Felaktig begäran
 
 Begäran innehåller ogiltig information och avvisas av dessa felkoder och av någon av följande orsaker:
 
@@ -66,7 +66,7 @@ Begäran tillåts inte på grund av en av följande orsaker:
 |MPE_METADATA_NOT_FOUND |0x80890257 |Det gick inte att hitta vissa metadata i manifestet eller så gick det inte att hitta ombasen från Storage. |
 |MPE_STORAGE_RESOURCE_NOT_FOUND |0x808900ED |Lagrings åtgärds fel, resursen hittades inte. |
 
-## <a name="409-conflict"></a>409 konflikt
+## <a name="409-conflict"></a>409 – Konflikt
 
 Det ID som angetts för en resurs på en `PUT` eller en `POST` åtgärd har gjorts av en befintlig resurs. Använd ett annat ID för resursen för att lösa det här problemet.
 
@@ -82,7 +82,7 @@ Det ID som angetts för en resurs på en `PUT` eller en `POST` åtgärd har gjor
 
 ## <a name="412-precondition-failure"></a>412 för villkors haveri
 
-Åtgärden angav en eTag som skiljer sig från den version som är tillgänglig på servern, det vill säga ett optimistiskt samtidighets fel. Försök att utföra begäran igen när du har läst den senaste versionen av resursen och uppdaterat eTag på begäran.
+Åtgärden angav en eTag som skiljer sig från den version som är tillgänglig på servern, det vill säga ett optimistiskt samtidighets fel. Försök att utföra åtgärden igen när du har läst in den senaste versionen av resursen och uppdaterat eTag i förfrågan.
 
 |Felkod|HEXADECIMALT värde |Felbeskrivning|
 |---|---|---|
@@ -163,13 +163,13 @@ För direktsända artiklar och exempel, se:
 - [Koncept: Live-händelser och Live-utdata](live-events-outputs-concept.md)
 - [Exempel: självstudie för Live Streaming](stream-live-tutorial-with-api.md)
 
-## <a name="416-range-not-satisfiable"></a>416-området uppfyller inte kraven
+## <a name="416-range-not-satisfiable"></a>416 Ogiltigt intervall
 
 |Felkod|HEXADECIMALT värde |Felbeskrivning|
 |---|---|---|
 |MPE_STORAGE_INVALID_RANGE|0x808900F1|Lagrings åtgärds fel, returnerat http 416-fel, ogiltigt intervall.|
 
-## <a name="500-internal-server-error"></a>500 Internt serverfel
+## <a name="500-internal-server-error"></a>500 internt serverfel
 
 Under bearbetningen av begäran upptäcker Media Services fel som förhindrar bearbetningen från att fortsätta.  
 
@@ -184,10 +184,10 @@ Under bearbetningen av begäran upptäcker Media Services fel som förhindrar be
 
 ## <a name="503-service-unavailable"></a>503 Tjänsten är inte tillgänglig
 
-Servern kan för närvarande inte ta emot begär Anden. Det här felet kan orsakas av för många begär anden till tjänsten. Media Services begränsnings metoden begränsar resursanvändningen för program som gör överdriven begäran till tjänsten.
+Servern kan för närvarande inte ta emot begär Anden. Det här felet kan orsakas av för många förfrågningar till tjänsten. Begränsningsfunktionen i Media Services begränsar resursanvändningen för program som skickar för många förfrågningar till tjänsten.
 
 > [!NOTE]
-> Kontrol lera fel meddelandet och fel kod strängen för att få mer detaljerad information om orsaken till att du fick 503-felet. Detta fel innebär inte alltid begränsning.
+> Kontrollera felmeddelandet och felkodsträngen för att få mer detaljerad information om orsaken till 503-felet. Det här felet medför inte alltid begränsning.
 > 
 
 |Felkod|HEXADECIMALT värde |Felbeskrivning|
@@ -200,7 +200,7 @@ Kolla in [Azure Media Services community](media-services-community.md) -artikeln
 
 ## <a name="see-also"></a>Se även
 
-- [Felkoder vid kodning](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
+- [Felkoder vid kodning](/rest/api/media/jobs/get#joberrorcode)
 - [Azure Media Services begrepp](concepts-overview.md)
 - [Kvoter och begränsningar](limits-quotas-constraints.md)
 

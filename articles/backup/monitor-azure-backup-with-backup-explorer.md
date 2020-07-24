@@ -4,11 +4,12 @@ description: Den här artikeln beskriver hur du använder backup Explorer för a
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: e891ee1ccfbe929aaa8ac35518b40f5514da714f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f514f899f2db70ecb2924c2e627f3bed28e3dcad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83715213"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092804"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Övervaka säkerhets kopieringar med Backup Explorer
 
@@ -93,8 +94,8 @@ Du kan välja ikonen "fäst" överst i varje tabell eller diagram för att fäst
 
 ## <a name="cross-tenant-views"></a>Vyer mellan klienter
 
-Om du är en Azure Lighthouse-användare med delegerad åtkomst till prenumerationer i flera klient miljöer kan du använda standard prenumerations filtret. Du visar de prenumerationer som du vill visa data för genom att välja ikonen "filter" längst upp till höger i Azure Portal. När du använder den här funktionen samlar backup Explorer samman information om alla valv i de valda prenumerationerna. Mer information finns i [Vad är Azure Lighthouse?](https://docs.microsoft.com/azure/lighthouse/overview).
+Om du är en Azure Lighthouse-användare med delegerad åtkomst till prenumerationer i flera klient miljöer kan du använda standard prenumerations filtret. Du visar de prenumerationer som du vill visa data för genom att välja ikonen "filter" längst upp till höger i Azure Portal. När du använder den här funktionen samlar backup Explorer samman information om alla valv i de valda prenumerationerna. Mer information finns i [Vad är Azure Lighthouse?](../lighthouse/overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig hur du använder Azure Monitor för att få insikter om dina säkerhets kopierings data](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor)
+[Lär dig hur du använder Azure Monitor för att få insikter om dina säkerhets kopierings data](./backup-azure-monitoring-use-azuremonitor.md)

@@ -2,13 +2,13 @@
 title: Översikt över Service Fabric och behållare
 description: En översikt över Service Fabric och användning av behållare för att distribuera program i mikrotjänster. Den här artikeln innehåller en översikt över hur behållare kan användas och de tillgängliga funktionerna i Service Fabric.
 ms.topic: conceptual
-ms.date: 8/8/2018
-ms.openlocfilehash: 7c92910a92c8fa3061a1a0d53611734cf681484f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 7/9/2020
+ms.openlocfilehash: cd0ec7dd2247fdd791df362fa34542178c17df4d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259228"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091665"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric och behållare
 
@@ -53,7 +53,7 @@ En Linux-baserad självstudie finns i [skapa ditt första Service Fabric behåll
 
 #### <a name="windows-server-containers"></a>Windows Server-containrar
 
-Windows Server 2016 innehåller två typer av behållare som skiljer sig mellan olika isolerings nivåer. Windows Server-behållare och Docker-behållare liknar varandra eftersom båda har ett namn område och fil system isolering, samtidigt som kärnan delas med värden som de körs på. På Linux har denna isolering traditionellt tillhandahållits av cgroups och namnrum och Windows Server-behållare fungerar på samma sätt.
+Windows Server 2016 och senare innehåller två olika typer av behållare som skiljer sig mellan olika isolerings nivåer. Windows Server-behållare och Docker-behållare liknar varandra eftersom båda har ett namn område och fil system isolering, samtidigt som kärnan delas med värden som de körs på. På Linux har denna isolering traditionellt tillhandahållits av cgroups och namnrum och Windows Server-behållare fungerar på samma sätt.
 
 Windows-behållare med stöd för Hyper-V ger mer isolering och säkerhet eftersom ingen container delar operativ systemets kernel med någon annan behållare eller med värden. Med den här högre säkerhets isolerings nivån är Hyper-V-aktiverade behållare riktade till potentiellt skadliga, flera klient scenarier.
 En Windows-baserad själv studie kurs finns i [skapa ditt första Service Fabric behållar program i Windows](service-fabric-get-started-containers.md).
@@ -73,7 +73,10 @@ Här är typiska exempel där en behållare är ett bra val:
 
 ## <a name="service-fabric-support-for-containers"></a>Service Fabric-stöd för containrar
 
-Service Fabric stöder distribution av Docker-behållare på Linux och Windows Server-behållare på Windows Server 2016, tillsammans med stöd för isolerings läget för Hyper-V. 
+Service Fabric stöder distribution av Docker-behållare på Linux och Windows Server-behållare på Windows Server 2016 och senare, tillsammans med stöd för isolerings läget för Hyper-V.
+
+> [!NOTE]
+> Behållare stöds inte på lokala Service Fabric-klusternoder (inga Linux-kluster på Onebox behållaravbildningen, eller Windows-kluster på lokala Service Fabric installationer).
 
 Service Fabric tillhandahåller en [program modell](service-fabric-application-model.md) där en behållare representerar en program värd där flera tjänst repliker placeras. Service Fabric stöder också ett [scenario för körbara filer](service-fabric-guest-executables-introduction.md) där du inte använder de inbyggda Service Fabric programmerings modeller, men i stället paketera ett befintligt program, skrivet med valfritt språk eller ramverk, inuti en behållare. Det här scenariot är vanliga användnings fall för behållare.
 

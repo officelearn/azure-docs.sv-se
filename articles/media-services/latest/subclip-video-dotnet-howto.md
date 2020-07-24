@@ -13,16 +13,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/09/2019
 ms.author: juliako
-ms.openlocfilehash: 3d584ee742aa93cdecf4b04d942afb2ed83a7357
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31fa7fe6b16b7ba97b8ce5e6697f1aaaf88aa294
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67305149"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091903"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Under klipp en video vid kodning med Media Services-.NET
 
-Du kan trimma eller under klipp en video när du kodar den med ett [jobb](https://docs.microsoft.com/rest/api/media/jobs). Den här funktionen fungerar med alla [transformeringar](https://docs.microsoft.com/rest/api/media/transforms) som har skapats med antingen [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) för inställningar eller [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) för inställningar.
+Du kan trimma eller under klipp en video när du kodar den med ett [jobb](/rest/api/media/jobs). Den här funktionen fungerar med alla [transformeringar](/rest/api/media/transforms) som har skapats med antingen [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) för inställningar eller [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset) för inställningar.
 
 Följande C#-exempel skapar ett jobb som trimmar en video i en till gång när den skickar ett kodnings jobb. 
 
@@ -30,7 +30,7 @@ Följande C#-exempel skapar ett jobb som trimmar en video i en till gång när d
 
 För att slutföra stegen som beskrivs i det här avsnittet måste du:
 
-- [Skapa ett Azure Media Services-konto](create-account-cli-how-to.md)
+- [Skapa ett Azure Media Services-konto](./create-account-howto.md)
 - Skapa en transformering och in-och utdata-till gångar. Du kan se hur du skapar en transformering och in-och utdata-till gångar i guiden [Ladda upp, koda och strömma videor med hjälp av .net](stream-files-tutorial-with-api.md) .
 - Läs avsnittet [encoding Concept](encoding-concept.md) .
 

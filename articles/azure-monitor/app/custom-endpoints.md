@@ -4,18 +4,19 @@ description: Ändra standard Azure Monitor Application Insights SDK-slutpunkter 
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.custom: references_regions
-ms.openlocfilehash: d0c9467497a8bd108d37a340d2cdbb887061e3a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50a072cd7e509642c36c783e3cc0fd78e4d5adc0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194838"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092872"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Application Insights som åsidosätter standard slut punkter
 
 Om du vill skicka data från Application Insights till vissa regioner måste du åsidosätta standard slut punkts adresserna. Varje SDK kräver något annorlunda ändringar, som beskrivs i den här artikeln. Dessa ändringar kräver att du justerar exempel koden och ersätter plats hållar värden för `QuickPulse_Endpoint_Address` , `TelemetryChannel_Endpoint_Address` och `Profile_Query_Endpoint_address` med de faktiska slut punkts adresserna för din specifika region. Slutet av den här artikeln innehåller länkar till slut punkts adresser för regioner där denna konfiguration krävs.
 
 > [!NOTE]
-> [Anslutnings strängar](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) är den nya bästa metoden för att ställa in anpassade slut punkter i Application Insights.
+> [Anslutnings strängar](./sdk-connection-string.md?tabs=net) är den nya bästa metoden för att ställa in anpassade slut punkter i Application Insights.
 
 ---
 
@@ -76,7 +77,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 # <a name="azure-functions"></a>[Azure Functions](#tab/functions)
 
-För Azure Functions rekommenderar vi nu att du använder [anslutnings strängar](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) som anges i funktionens program inställningar. Om du vill komma åt program inställningar för din funktion från rutan funktioner väljer du **Inställningar**  >  **konfiguration**  >  **program inställningar**. 
+För Azure Functions rekommenderar vi nu att du använder [anslutnings strängar](./sdk-connection-string.md?tabs=net) som anges i funktionens program inställningar. Om du vill komma åt program inställningar för din funktion från rutan funktioner väljer du **Inställningar**  >  **konfiguration**  >  **program inställningar**. 
 
 Namn: `APPLICATIONINSIGHTS_CONNECTION_STRING` värde:`Connection String Value`
 
@@ -155,7 +156,7 @@ Vägledning om hur du ändrar inmatnings slut punkten för Open-inventering – 
 
 ## <a name="regions-that-require-endpoint-modification"></a>Regioner som kräver slut punkts ändring
 
-För närvarande är de enda regionerna som kräver slut punkts ändringar [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) och [Azure Kina](https://docs.microsoft.com/azure/china/resources-developer-guide).
+För närvarande är de enda regionerna som kräver slut punkts ändringar [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) och [Azure Kina](/azure/china/resources-developer-guide).
 
 |Region |  Slut punkts namn | Värde |
 |-----------------|:------------|:-------------|
@@ -179,5 +180,5 @@ Om du för närvarande använder [Application Insights REST API](https://dev.app
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om anpassade ändringar för Azure Government finns i den detaljerade vägledningen för [Azure-övervakning och-hantering](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
-- Mer information om Azure Kina finns i [Azure Kina-Spelbok](https://docs.microsoft.com/azure/china/).
+- Mer information om anpassade ändringar för Azure Government finns i den detaljerade vägledningen för [Azure-övervakning och-hantering](../../azure-government/compare-azure-government-global-azure.md#application-insights).
+- Mer information om Azure Kina finns i [Azure Kina-Spelbok](/azure/china/).

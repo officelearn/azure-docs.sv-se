@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: bf6477fed1840daa326f411862a7304018f39e3c
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 94e930c996710c2b25d4114c7cfcb17129c5177d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85252210"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022437"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Självstudie: skicka push-meddelanden till iOS-appar med hjälp av Azure Notification Hubs
 
@@ -27,7 +27,7 @@ Att köra den här självstudien är en förutsättning för de efterföljande k
 - Skapa en meddelandehubb.
 - Konfigurera Notification Hub med APN-information.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/free/).
 
@@ -185,7 +185,7 @@ Det andra alternativet har ett antal fördelar jämfört med att använda certif
 
    Detta är det token-värde som kommer att användas senare för att konfigurera Notification Hubs.
 
-I slutet av de här stegen bör du ha följande information för att kunna använda senare i [Konfigurera Notification Hub med APN-information](notification-hubs-ios-push-notifications-swift-apps-get-started.md#configure-your-notification-hub-with-apns-information):
+I slutet av de här stegen bör du ha följande information för att kunna använda senare i [Konfigurera Notification Hub med APN-information](#configure-the-notification-hub-with-apns-information):
 
 - **Team-ID**   (se steg 1)
 - **Paket-ID**   (se steg 1)
@@ -235,7 +235,7 @@ I det här avsnittet skapar du en Notification Hub och konfigurerar autentiserin
 
 2. Välj **alla tjänster**   på den vänstra menyn och välj sedan **Notification Hubs**   i avsnittet **mobil**   . Välj stjärn ikonen bredvid tjänst namnet för att lägga till tjänsten i **Favoriter**   -avsnittet på den vänstra menyn. När du har lagt till **Notification Hubs**   i **Favoriter**väljer du den.
 
-   :::image type="content" source="media/ios-sdk-get-started/image18.png" alt-text="Azure Portal":::
+   :::image type="content" source="media/ios-sdk-get-started/image18.png" alt-text="Azure-portalen":::
 
 3. På sidan **Notification Hubs**   väljer du **Lägg till**   i verktygsfältet.
 
@@ -264,7 +264,7 @@ I det här avsnittet skapar du en Notification Hub och konfigurerar autentiserin
 
 ## <a name="configure-the-notification-hub-with-apns-information"></a>Konfigurera Notification Hub med APN-information
 
-Under **Notification Services**väljer du **Apple (APNs)** och följer sedan lämpliga steg baserat på den metod som du valde tidigare i avsnittet [skapa ett certifikat för Notification Hubs](notification-hubs-ios-push-notifications-swift-apps-get-started.md#creating-a-certificate-for-notification-hubs)   .
+Under **Notification Services**väljer du **Apple (APNs)** och följer sedan lämpliga steg baserat på den metod som du valde tidigare i avsnittet [skapa ett certifikat för Notification Hubs](#create-a-certificate-for-notification-hubs)   .
 
 > [!NOTE]
 > Använd endast **produktion** för **program läge** om du vill skicka push-meddelanden till användare som har köpt din app från Store.
@@ -306,4 +306,4 @@ Du har nu konfigurerat din Notification Hub med APN. Du har också de anslutning
 
 I den här självstudien har du skapat och konfigurerat en Notification Hub i Azure och konfigurerat det så att meddelanden kan skickas till ditt program via Apple Push Notification Service (APN). Härnäst ska vi skapa ett exempel på iOS-program och integrera Azure Notifications Hub SDK så att det kan ta emot push-meddelanden som skickas via Azure Portal. Gå vidare till följande självstudie baserat på ditt val av språk:
 
-- [Självstudie: integrera med en iOS-app med Swift](notification-hubs-ios-push-notifications-swift-apps-get-started.md)
+- [Självstudie: integrera med en iOS-app med Swift]()

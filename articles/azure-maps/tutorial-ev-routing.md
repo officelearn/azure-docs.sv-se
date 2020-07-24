@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 8c78913486610b171b7577d0bc239e0e7060038e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 32a3ec0caae303c37cad771b2bbbd1b7840512a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560384"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075435"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Självstudie: dirigera elektriska bilar med Azure Notebooks (python)
 
@@ -39,7 +39,7 @@ I de här självstudierna får du:
 
 För att slutföra den här självstudien måste du först skapa ett Azure Maps konto och hämta din primär nyckel (prenumerations nyckel). 
 
-Om du vill skapa en Azure Maps konto prenumeration följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps). Du behöver en Azure Maps konto prenumeration med pris nivån S1. 
+Om du vill skapa en Azure Maps konto prenumeration följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-azure-maps-account). Du behöver en Azure Maps konto prenumeration med pris nivån S1. 
 
 Följ anvisningarna i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account)för att hämta den primära prenumerations nyckeln för ditt konto.
 
@@ -82,12 +82,12 @@ Försök att förstå de funktioner som implementeras i Notebook-filen. Kör kod
 
 Om du vill köra koden i antecknings boken installerar du paket på projekt nivå genom att utföra följande steg:
 
-1. Hämta filen [*Requirements. txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) från [Azure Maps Jupyter Notebook-lagringsplatsen](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)och ladda sedan upp den till projektet.
+1. Ladda ned [*requirements.txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) -filen från den [Azure Maps Jupyter Notebook-lagringsplatsen](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)och ladda sedan upp den till projektet.
 1. På instrument panelen för projektet väljer du **projekt inställningar**. 
 1. I fönstret **projekt inställningar** väljer du fliken **miljö** och väljer sedan **Lägg till**.
 1. Under **miljö konfigurations steg**gör du följande:   
-    a. I den första List rutan väljer du **krav. txt**.  
-    b. I den andra List rutan väljer du din *Requirements. txt* -fil.  
+    a. I den första List rutan väljer du **Requirements.txt**.  
+    b. Välj din *requirements.txt* -fil i den andra List rutan.  
     c. I den tredje List rutan väljer du **python Version 3,6** som version.
 1. Välj **Spara**.
 

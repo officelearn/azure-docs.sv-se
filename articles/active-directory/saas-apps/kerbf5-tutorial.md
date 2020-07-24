@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory enkel inloggning (SSO) med F5 | Microsoft Docs'
+title: 'Självstudie: integrering med enkel inloggning i Azure AD med F5 | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och F5.
 services: active-directory
 documentationCenter: na
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a24ec98e9d5978a6f896715b25bd6b08d4a0262d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 8d64774bd76a88c2ee8c1981fb3509c7265f4736
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232193"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87017456"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med F5
 
@@ -177,7 +177,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Ett exempel är `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -282,45 +282,45 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 Du konfigurerar en Active Directory AAA-server i Access Policy Manager (APM) för att ange domänkontrollanter och autentiseringsuppgifter för APM som ska användas för att autentisera användare.
 
-1.    På huvud fliken klickar du på **åtkomst princip > AAA-servrar > Active Directory**. Skärmen Active Directory servrar visas.
+1. På huvud fliken klickar du på **åtkomst princip > AAA-servrar > Active Directory**. Skärmen Active Directory servrar visas.
 
-2.    Klicka på **Skapa**. Skärmen nya server Egenskaper öppnas.
+2. Klicka på **Skapa**. Skärmen nya server Egenskaper öppnas.
 
-3.    I fältet **namn** anger du ett unikt namn för autentiseringsservern.
+3. I fältet **namn** anger du ett unikt namn för autentiseringsservern.
 
-4.    I fältet **domän namn** skriver du namnet på Windows-domänen.
+4. I fältet **domän namn** skriver du namnet på Windows-domänen.
 
-5.    Välj något av följande alternativ för inställningen **Server anslutning** :
+5. Välj något av följande alternativ för inställningen **Server anslutning** :
 
-    * Välj **Använd pool** för att konfigurera hög tillgänglighet för AAA-servern.
+   * Välj **Använd pool** för att konfigurera hög tillgänglighet för AAA-servern.
 
-    * Välj **Direct** för att konfigurera AAA-servern för fristående funktioner.
+   * Välj **Direct** för att konfigurera AAA-servern för fristående funktioner.
 
-6.    Om du har valt **direkt**, anger du ett namn **i fältet domänkontrollant** .
+6. Om du har valt **direkt**, anger du ett namn **i fältet domänkontrollant** .
 
-7.    Om du har valt Använd **pool**konfigurerar du poolen:
+7. Om du har valt Använd **pool**konfigurerar du poolen:
 
-    * Skriv ett namn i fältet **namn på domänkontrollantens pool** .
+   * Skriv ett namn i fältet **namn på domänkontrollantens pool** .
 
-    * Ange **domän kontrol Lanterna** i poolen genom att skriva in IP-adressen och värd namnet för var och en av dem och klicka på knappen **Lägg till** .
+   * Ange **domän kontrol Lanterna** i poolen genom att skriva in IP-adressen och värd namnet för var och en av dem och klicka på knappen **Lägg till** .
 
-    * För att övervaka hälso tillståndet för AAA-servern har du möjlighet att välja en hälso Övervakare: endast **gateway_icmps** övervakaren är lämplig i det här fallet. Du kan välja den från övervaknings listan för **serverpoolen** .
+   * För att övervaka hälso tillståndet för AAA-servern har du möjlighet att välja en hälso Övervakare: endast **gateway_icmps** övervakaren är lämplig i det här fallet. Du kan välja den från övervaknings listan för **serverpoolen** .
 
-8.    I fältet **admin-namn** skriver du ett skift läges känsligt namn för en administratör som har Active Directory administratörs behörighet. APM använder informationen i fälten **admin-namn** och **Administratörs lösen ord** för AD-fråga. Om Active Directory har kon figurer ATS för anonyma frågor behöver du inte ange ett administratörs namn. Annars behöver APM ett konto med tillräcklig behörighet för att binda till en Active Directory-Server, Hämta användar grupps information och hämta Active Directory lösen ords principer som stöder lösenordsbaserade funktioner. (APM måste hämta lösen ords principer, till exempel om du väljer alternativet uppmana användaren att ändra lösen ordet innan förfallo datum i en AD-fråga.) Om du inte anger information om administratörs kontot i den här konfigurationen använder APM användar kontot för att hämta information. Detta fungerar om användar kontot har tillräcklig behörighet.
+8. I fältet **admin-namn** skriver du ett skift läges känsligt namn för en administratör som har Active Directory administratörs behörighet. APM använder informationen i fälten **admin-namn** och **Administratörs lösen ord** för AD-fråga. Om Active Directory har kon figurer ATS för anonyma frågor behöver du inte ange ett administratörs namn. Annars behöver APM ett konto med tillräcklig behörighet för att binda till en Active Directory-Server, Hämta användar grupps information och hämta Active Directory lösen ords principer som stöder lösenordsbaserade funktioner. (APM måste hämta lösen ords principer, till exempel om du väljer alternativet uppmana användaren att ändra lösen ordet innan förfallo datum i en AD-fråga.) Om du inte anger information om administratörs kontot i den här konfigurationen använder APM användar kontot för att hämta information. Detta fungerar om användar kontot har tillräcklig behörighet.
 
-9.    I fältet **Administratörs lösen ord** anger du det administratörs lösen ord som är associerat med domän namnet.
+9. I fältet **Administratörs lösen ord** anger du det administratörs lösen ord som är associerat med domän namnet.
 
-10.    I fältet **Verifiera administratörs lösen ord** anger du det administratörs lösen ord som är associerat med **domän namns** inställningen.
+10. I fältet **Verifiera administratörs lösen ord** anger du det administratörs lösen ord som är associerat med **domän namns** inställningen.
 
-11.    I fältet **gruppens cache livstid** anger du antalet dagar. Standard livs längden är 30 dagar.
+11. I fältet **gruppens cache livstid** anger du antalet dagar. Standard livs längden är 30 dagar.
 
-12.    Ange antalet dagar i fältet **livs längd för lösen ords säkerhets objektets cacheminne** . Standard livs längden är 30 dagar.
+12. Ange antalet dagar i fältet **livs längd för lösen ords säkerhets objektets cacheminne** . Standard livs längden är 30 dagar.
 
-13.    Från listan **Kerberos-typ för Kerberos-förautentisering** väljer du en krypterings typ. Standardvärdet är **none**. Om du anger en krypterings typ inkluderar BIG-IP-systemet Kerberos-Förautentiserings data i det första begäran om Autentiseringstjänsten (AS-REQ).
+13. Från listan **Kerberos-typ för Kerberos-förautentisering** väljer du en krypterings typ. Standardvärdet är **none**. Om du anger en krypterings typ inkluderar BIG-IP-systemet Kerberos-Förautentiserings data i det första begäran om Autentiseringstjänsten (AS-REQ).
 
-14.    I fältet **tids gräns** anger du ett timeout-intervall (i sekunder) för AAA-servern. (Den här inställningen är valfri.)
+14. I fältet **tids gräns** anger du ett timeout-intervall (i sekunder) för AAA-servern. (Den här inställningen är valfri.)
 
-15.    Klicka på **klart**. Den nya servern visas på listan. Detta lägger till den nya Active Directory servern i listan Active Directory servrar.
+15. Klicka på **klart**. Den nya servern visas på listan. Detta lägger till den nya Active Directory servern i listan Active Directory servrar.
 
     ![F5-konfiguration (Kerberos)](./media/kerbf5-tutorial/configure17.png)
 

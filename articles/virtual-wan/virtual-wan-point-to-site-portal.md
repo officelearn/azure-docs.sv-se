@@ -2,17 +2,17 @@
 title: Skapa en punkt-till-plats-anslutning till Azure med Azure Virtual WAN | Microsoft Docs
 description: I den här självstudien förklarar vi hur du skapar en punkt-till-plats-VPN-anslutning till Azure med Azure Virtual WAN.
 services: virtual-wan
-author: anzaman
+author: kumudD
 ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 06/29/2020
 ms.author: alzam
-ms.openlocfilehash: 9c93ad0357011008c45b2898260a655509b02dc2
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 27bb252b857fea2548e89471adcedcbd38b9f8ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560720"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077367"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Självstudie: skapa en VPN-anslutning för användare med Azure Virtual WAN
 
@@ -40,7 +40,7 @@ Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurat
 
 * Hämta ett IP-adressintervall för din hubbregion. Hubben är ett virtuellt nätverk som skapas och används av virtuellt WAN-nätverk. Det adress intervall som du anger för hubben får inte överlappa något av dina befintliga virtuella nätverk som du ansluter till. Det får inte heller överlappa det adressintervall som du ansluter till lokalt. Om du inte känner till IP-adressintervall som finns i din lokala nätverks konfiguration, koordinerar du med någon som kan ge den informationen åt dig.
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-virtual-wan"></a><a name="wan"></a>Skapa ett virtuellt WAN
 
@@ -50,7 +50,7 @@ Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurat
 1. Välj **virtuellt WAN** från resultaten. På sidan virtuellt WAN väljer du **skapa** för att öppna sidan Skapa WAN.
 1. På sidan **skapa WAN** , på fliken **grundläggande** , fyller du i följande fält:
 
-   ![Virtuellt WAN](./media/virtual-wan-point-to-site-portal/vwan.png)
+   ![Virtual WAN](./media/virtual-wan-point-to-site-portal/vwan.png)
 
    * **Prenumeration** – Välj vilken prenumeration du vill använda.
    * **Resurs grupp** – skapa ny eller Använd befintlig.

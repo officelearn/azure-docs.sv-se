@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b225b6471dd59275b3963bc2de09607c97a21465
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 7fd1b815a56a21e502decb440806040c626c13d2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85373411"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019649"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudie: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory
 
@@ -47,7 +47,7 @@ Om du vill använda programproxy behöver du en Windows-server som kör Windows 
 Vi rekommenderar att du har mer än en Windows-server för att säkra hög tillgänglighet i produktionsmiljön. I den här självstudien räcker det med en Windows-server.
 
 > [!IMPORTANT]
-> Om du installerar anslutningen på Windows Server 2019 måste du inaktivera stöd för HTTP2-protokoll i WinHttp-komponenten. Detta är inaktiverat som standard i tidigare versioner av operativ system som stöds. Om du lägger till följande register nyckel och startar om servern inaktive ras den på Windows Server 2019. Observera att detta är en hel dators register nyckel.
+> Om du installerar anslutningen på Windows Server 2019 måste du inaktivera stöd för HTTP2-protokoll i WinHttp-komponenten för att Kerberos-begränsad delegering ska fungera korrekt. Detta är inaktiverat som standard i tidigare versioner av operativ system som stöds. Om du lägger till följande register nyckel och startar om servern inaktive ras den på Windows Server 2019. Observera att detta är en hel dators register nyckel.
 >
 > ```
 > Windows Registry Editor Version 5.00
@@ -95,6 +95,9 @@ Aktivera TLS 1.2:
 
 Börja med att aktivera kommunikation till Azure-datacenter för att förbereda din miljö för Azure AD-programproxy. Om det finns en brand vägg i sökvägen ser du till att den är öppen. En öppen brand vägg gör det möjligt för anslutningen att göra HTTPS-förfrågningar (TCP) till programproxyn.
 
+> [!IMPORTANT]
+> Om du installerar anslutningen för Azure Government Cloud följer du [krav](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) och [installations anvisningar](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud). Detta kräver att du aktiverar åtkomst till en annan uppsättning URL: er och ytterligare en parameter för att köra installationen.
+
 ### <a name="open-ports"></a>Öppna portar
 
 Öppna följande portar för **utgående** trafik.
@@ -121,6 +124,7 @@ Du kan tillåta anslutningar till \* . msappproxy.net och \* . ServiceBus.Window
 ## <a name="install-and-register-a-connector"></a>Installera och registrera ett anslutningsprogram
 
 Om du vill använda programproxyn installerar du en anslutning på varje Windows Server som du använder med Application Proxy-tjänsten. Anslutningsprogrammet är en agent som hanterar den utgående anslutningen från lokala programservrar till programproxy i Azure Active Directory. Du kan installera ett anslutningsprogram på servrar som även har andra autentiseringsagenter installerade, till exempel Azure Active Directory Connect.
+
 
 Så här installerar du anslutningsprogrammet:
 
@@ -186,7 +190,7 @@ Nu när du har förberett din miljö och installerat ett anslutningsprogram är 
 4. I avsnittet **lokala program** väljer du **Lägg till ett lokalt program**.
 5. I avsnittet **Lägg till ett eget lokalt program** anger du följande information om ditt program:
 
-    | Field | Beskrivning |
+    | Fält | Beskrivning |
     | :---- | :---------- |
     | **Namn** | Namnet på programmet som ska visas på åtkomstpanelen och i Azure-portalen. |
     | **Intern webbadress** | Det här är webbadressen för att komma åt programmet från inuti ditt privata nätverk. Du kan ange en specifik sökväg på backend-servern som du vill publicera, medan resten av servern är opublicerad. På så sätt kan du publicera olika webbplatser på samma server som olika program och ge varje webbplats sitt eget namn och sina egna åtkomstregler.<br><br>Om du publicerar en sökväg, så se till att den innehåller alla bilder, skript och formatmallar som krävs för ditt program. Om din app till exempel är på https: \/ /yourapp/app och använder avbildningar som finns på https: \/ /yourapp/media, ska du publicera https: \/ /yourapp/som sökväg. Den interna webbadressen måste inte vara landningssidan som användarna ser. Mer information finns i [Ange en anpassad startsida för publicerade program](application-proxy-configure-custom-home-page.md). |
@@ -196,7 +200,7 @@ Nu när du har förberett din miljö och installerat ett anslutningsprogram är 
 
 6. Om det behövs konfigurerar du **ytterligare inställningar**. De flesta programmen bör behålla dessa inställningarna i standardtillstånden. 
 
-    | Field | Beskrivning |
+    | Fält | Beskrivning |
     | :---- | :---------- |
     | **Tidsgränsen för serverdels-programmet** | Ställ endast in värdet på **Lång** om programmet autentiserar och ansluter långsamt. Som standard har backend-programmets tids gräns en längd på 85 sekunder. När värdet är Long ökas Server dels tids gränsen till 180 sekunder. |
     | **Använd endast HTTP-cookie** | Ställ in värdet på **Ja** för att programproxycookies ska inkluderas i HTTPOnly-flaggan i HTTP-svarsrubriken. Ställ in värdet på **Nej** om du använder fjärrskrivbordstjänster.|

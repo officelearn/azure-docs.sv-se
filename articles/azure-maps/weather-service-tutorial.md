@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 41d52eff2dc2d9fc1e4c956c893a2f14c91d9f92
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 9d35ed0ee657e90ebc77c16ed654d32975ed9580
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560382"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024851"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Självstudie: koppla sensor data med väder prognos data med hjälp av Azure Notebooks (python)
 
@@ -35,7 +35,7 @@ I de här självstudierna får du:
 
 För att slutföra den här självstudien måste du först:
 
-1. Skapa en Azure Maps konto prenumeration på S0-pris nivån genom att följa instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps).
+1. Skapa en Azure Maps konto prenumeration på S0-pris nivån genom att följa instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-azure-maps-account).
 2. Hämta den primära prenumerations nyckeln för ditt konto genom att följa anvisningarna i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
 

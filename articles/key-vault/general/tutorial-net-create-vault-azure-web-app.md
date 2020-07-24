@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f6e70caaedf906142b19ba45f0eb4d818e2955e7
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 4e236be298f92506e40a7f5197b2abeb065e7eed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85051892"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013274"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Självstudie: Använd en hanterad identitet för att ansluta Key Vault till en Azure-webbapp med .NET
 
@@ -22,13 +22,13 @@ Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra hemli
 
 I den här självstudien används en hanterad identitet för att autentisera en Azure-webbapp med en Azure Key Vault. Även om stegen använder [Azure Key Vault v4-klient biblioteket för .net](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) och [Azure CLI](/cli/azure/get-started-with-azure-cli), gäller samma grundläggande principer när du använder det utvecklings språk du väljer, Azure PowerShell och/eller Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [.Net Core 3,1 SDK eller senare](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) eller [Azure PowerShell](/powershell/azure/overview)
+* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) eller [Azure PowerShell](/powershell/azure/)
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -51,7 +51,7 @@ Om du vill skapa ett nyckel valv använder du kommandot AZ-kommandot för att sk
 az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 ```
 
-Anteckna den returnerade `vaultUri` , som kommer att ha formatet "https://<ditt-nyckel valv>. Vault.Azure.net/". Den kommer att användas i steget [Uppdatera kod](#update-the-code) steget.
+Anteckna den returnerade `vaultUri` som visas i formatet "https:// &lt; Your-The-The-The-The-The-The-The-The-The--the- &gt; Vault.Azure.net/ Den kommer att användas i steget [Uppdatera kod](#update-the-code) steget.
 
 Du kan nu placera en hemlighet i ditt nyckel valv med kommandot [AZ Key Vault Secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) . Ange namnet på din hemlighet till "hemlig hemlighet" och värdet till "lyckades!".
 
@@ -310,7 +310,7 @@ await context.Response.WriteAsync(secretValue);
 
 Var säker på att spara ändringarna innan du fortsätter till nästa steg.
 
-### <a name="redeploy-your-web-app"></a>Distribuera om din webbapp
+### <a name="redeploy-your-web-app"></a>Distribuera din webbapp igen
 
 När du har uppdaterat koden kan du distribuera om den till Azure med följande git-kommandon:
 

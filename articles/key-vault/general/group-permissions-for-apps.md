@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 28765d3a4a0812f6f3631427432105fdc4650808
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 21cb7133bad27013895a5e717cb7729b71795ce9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126237"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078959"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Tillhandahålla Key Vault autentisering med en princip för åtkomst kontroll
 
@@ -33,13 +33,13 @@ Fullständig information om Key Vault åtkomst kontroll finns i [Azure Key Vault
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett nyckel valv. Du kan använda ett befintligt nyckel valv eller skapa ett nytt genom att följa stegen i någon av följande snabb starter:
    - [Skapa ett nyckel valv med Azure CLI](../secrets/quick-create-cli.md)
    - [Skapa ett nyckel valv med Azure PowerShell](../secrets/quick-create-powershell.md)
    - [Skapa ett nyckel valv med Azure Portal](../secrets/quick-create-portal.md).
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) eller [Azure PowerShell](/powershell/azure/overview). Du kan också använda [Azure Portal](https://portal.azure.com).
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) eller [Azure PowerShell](/powershell/azure/). Du kan också använda [Azure Portal](https://portal.azure.com).
 
 ## <a name="grant-access-to-your-key-vault"></a>Bevilja åtkomst till ditt nyckel valv
 

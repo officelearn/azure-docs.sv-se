@@ -3,12 +3,12 @@ title: PowerShell-skript – ta bort en borttagen fil resurs
 description: Lär dig hur du använder ett Azure PowerShell-skript för att ta bort en fil resurs som tagits bort av misstag.
 ms.topic: sample
 ms.date: 02/02/2020
-ms.openlocfilehash: 199cb4720c2efe03d47fd06ea0cf41eae29d06fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d3a3ad3c2904b98f7a3350d3672b51f3a1e9415e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513242"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007640"
 ---
 # <a name="powershell-script-to-undelete-an-accidentally-deleted-file-share"></a>PowerShell-skript för att ta bort en fil resurs som tagits bort av misstag
 
@@ -154,7 +154,7 @@ Restore-DeletedFileShare $sa.Context $FileShareName $DeletedShareVersion
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-1. Installera de senaste Azure PowerShell AZ-modulerna från [den här länken](//powershell/azure/install-az-ps) innan du kör skriptet.
+1. Installera de senaste Azure PowerShell AZ-modulerna från [den här länken](/powershell/azure/install-az-ps) innan du kör skriptet.
 2. Behåll följande information när du behöver skicka dem som värden för olika parametrar i skriptet:
 
     * **-SubscriptionId** -ID för den prenumeration där fil resursen finns.

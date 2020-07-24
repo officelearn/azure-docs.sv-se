@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 05/24/2019
-ms.openlocfilehash: 9e3638c9823ed0fbae61a0dc5a93dff2e211d3f3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 6477d8f59d66c053ced4ceebed98082d51f92c2f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022649"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075995"
 ---
 # <a name="use-cli-to-import-a-bacpac-file-into-a-database-in-sql-database"></a>Använd CLI för att importera en BACPAC-fil till en databas i SQL Database
 
@@ -46,7 +46,7 @@ az group delete --name $resource
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| | |
+| Kommando | Beskrivning |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Server kommandon. |
 | [AZ SQL DB-import](/cli/azure/sql/db#az-sql-db-import) | Kommandot för databas import. |

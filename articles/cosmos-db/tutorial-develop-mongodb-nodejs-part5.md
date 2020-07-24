@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 1bed17084af39fa75fe01d68fbdd33c586d48e67
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: f77c20faa87adf28a2dda43412a59867309c7cf8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114290"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066918"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – Ansluta till Cosmos DB med hjälp av Mongoose
 
@@ -30,9 +30,9 @@ I den här delen av självstudien får du göra följande:
 > * Skapa Hero-tjänsten för att hämta Hero-data.
 > * Kör appen lokalt.
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Innan du börjar med den här självstudien bör du slutföra stegen i [del 4](tutorial-develop-mongodb-nodejs-part4.md).
 
@@ -226,11 +226,11 @@ Som nästa steg måste du konfigurera väger för att hantera URL:erna för beg�
 
 Nu ska vi ägna en minut åt att gå igenom den tidigare koden. Först kommer vi till filen index.js, som konfigurerar nodservern. Observera att den konfigurerar och definierar vägarna. Sedan kommunicerar routes.js-filen med hero-tjänsten och beordrar den att hämta dina funktioner, som **getHeroes**, och att skicka begäran och svaret. Filen hero.service.js hämtar modellen och ansluter till Mongo. Sedan körs **getHeroes** när vi anropar den och returnerar svaret 200. 
 
-## <a name="run-the-app"></a>Kör appen
+## <a name="run-the-app"></a>Köra appen
 
 Kör sedan appen med hjälp av följande steg:
 
-1. Spara alla ändringar i Visual Studio Code. Till vänster väljer du knappen **Felsökning**![felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png) och väljer sedan knappen **Starta felsökning**![felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
+1. Spara alla ändringar i Visual Studio Code. Välj knappen **Felsök** till vänster :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png"::: och välj sedan knappen **Starta fel sökning** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png"::: .
 
 1. Byt nu till webbläsaren. Öppna **utvecklarverktyg** och **fliken nätverk**. Gå till så `http://localhost:3000` ser du vårt program.
 

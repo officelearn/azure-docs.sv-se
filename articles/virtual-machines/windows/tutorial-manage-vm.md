@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 229df5d2f5186ad7cec08952f2a44790f9220dfe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c896e617346c9bab598044cedfc475b471466cd0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100319"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998858"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Självstudie: skapa och hantera virtuella Windows-datorer med Azure PowerShell
 
@@ -30,11 +30,11 @@ Med virtuella Azure-datorer får du en fullständigt konfigurerbar och flexibel 
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/powershell](https://shell.azure.com/powershell)gå till. Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att gå till [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
-Skapa en resursgrupp med kommandot [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup).
+Skapa en resursgrupp med kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas före den virtuella datorn. I följande exempel skapas en resurs grupp med namnet *myResourceGroupVM* i regionen *östra* :
 
@@ -50,13 +50,13 @@ Resursgruppen som anges när du skapar eller ändrar en virtuell dator visas i h
 
 När du skapar en virtuell dator finns flera tillgängliga alternativ, som t.ex. avbildning av operativsystemet, nätverkskonfiguration och administrativa autentiseringsuppgifter. Det här exemplet skapar en virtuell dator med namnet *myVM*, som kör standardversionen av Windows Server 2016 Datacenter.
 
-Ange användarnamn och lösenord för administratörskontot på den virtuella datorn med [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6):
+Ange användarnamn och lösenord för administratörskontot på den virtuella datorn med [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Skapa den virtuella datorn med hjälp av [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
+Skapa den virtuella datorn med hjälp av [New-AzVM](/powershell/module/az.compute/new-azvm).
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -93,13 +93,13 @@ I fönstret **Windows-säkerhet** väljer du **fler alternativ** och sedan **anv
 
 På Azures marknadsplats finns många avbildningar som kan användas för att skapa en ny virtuell dator. I de föregående stegen skapades en virtuell dator med avbildningen Windows Server 2016 Datacenter. I det här steget används PowerShell-modulen för att söka på marknadsplatsen efter andra Windows-avbildningar som också kan användas som bas för nya virtuella datorer. Den här processen består av att hitta utgivare, erbjudande, SKU och eventuellt ett versionsnummer för att [identifiera](cli-ps-findimage.md#terminology) avbildningen.
 
-Använd kommandot [Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) till att returnera en lista med avbildningsutgivare:
+Använd kommandot [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) till att returnera en lista med avbildningsutgivare:
 
 ```azurepowershell-interactive
 Get-AzVMImagePublisher -Location "EastUS"
 ```
 
-Använd [Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) till att returnera en lista med avbildningserbjudanden. Den returnerade listan filtreras på den angivna utgivaren med det här kommandot som heter `MicrosoftWindowsServer`:
+Använd [Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer) till att returnera en lista med avbildningserbjudanden. Den returnerade listan filtreras på den angivna utgivaren med det här kommandot som heter `MicrosoftWindowsServer`:
 
 ```azurepowershell-interactive
 Get-AzVMImageOffer `
@@ -117,7 +117,7 @@ WindowsServer     MicrosoftWindowsServer EastUS
 WindowsServer-HUB MicrosoftWindowsServer EastUS
 ```
 
-Kommandot [Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) filtrerar sedan på namnet på utgivaren och erbjudandet och returnerar en lista med avbildningsnamn.
+Kommandot [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) filtrerar sedan på namnet på utgivaren och erbjudandet och returnerar en lista med avbildningsnamn.
 
 ```azurepowershell-interactive
 Get-AzVMImageSku `
@@ -175,16 +175,16 @@ I följande tabell kategoriseras storlekarna i användningsfall.
 
 | Typ                     | Normala storlekar           |    Beskrivning       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Generellt syfte](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Balanserat förhållande mellan processor och minne. Perfekt för utveckling eller test samt små till medelstora lösningar för program och data.  |
-| [Beräkningsoptimerad](sizes-compute.md)   | Fsv2          | Högt förhållande mellan processor och minne. Bra för program med medelhög trafik, nätverkstillämpningar och batchprocesser.        |
-| [Minnesoptimerad](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Högt förhållande mellan minne och kärna. Utmärkt för relationsdatabaser, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
-| [Lagringsoptimerad](sizes-storage.md)      | Lsv2, LS              | Högt diskgenomflöde och I/O. Perfekt för stordata, SQL- och NoSQL-databaser.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Virtuella specialdatorer som är avsedda för tung grafisk rendering och videoredigering.       |
-| [Höga prestanda](sizes-hpc.md) | H        | Virtuella datorer med de kraftfullaste processorerna och nätverksgränssnitt för stora dataflöden (RDMA). |
+| [Generell användning](../sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Balanserat förhållande mellan processor och minne. Perfekt för utveckling eller test samt små till medelstora lösningar för program och data.  |
+| [Beräkningsoptimerad](../sizes-compute.md)   | Fsv2          | Högt förhållande mellan processor och minne. Bra för program med medelhög trafik, nätverkstillämpningar och batchprocesser.        |
+| [Minnesoptimerad](../sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Högt förhållande mellan minne och kärna. Utmärkt för relationsdatabaser, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
+| [Lagringsoptimerad](../sizes-storage.md)      | Lsv2, LS              | Högt diskgenomflöde och I/O. Perfekt för stordata, SQL- och NoSQL-databaser.                                                         |
+| [GPU](../sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Virtuella specialdatorer som är avsedda för tung grafisk rendering och videoredigering.       |
+| [Höga prestanda](../sizes-hpc.md) | H        | Virtuella datorer med de kraftfullaste processorerna och nätverksgränssnitt för stora dataflöden (RDMA). |
 
 ### <a name="find-available-vm-sizes"></a>Hitta tillgängliga VM-storlekar
 
-Om du vill se en lista med VM-storlekar som är tillgängliga i en viss region kan du använda kommandot [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize).
+Om du vill se en lista med VM-storlekar som är tillgängliga i en viss region kan du använda kommandot [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize).
 
 ```azurepowershell-interactive
 Get-AzVMSize -Location "EastUS"
@@ -194,7 +194,7 @@ Get-AzVMSize -Location "EastUS"
 
 När en virtuell dator har distribuerats kan storleken ändras för att öka eller minska resurstilldelningen.
 
-Kontrollera om önskad storlek är tillgänglig i den aktuella virtuella datorns kluster innan du ändrar storleken på en virtuell dator. Kommandot [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) returnerar en lista med storlekar.
+Kontrollera om önskad storlek är tillgänglig i den aktuella virtuella datorns kluster innan du ändrar storleken på en virtuell dator. Kommandot [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize) returnerar en lista med storlekar.
 
 ```azurepowershell-interactive
 Get-AzVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
@@ -245,7 +245,7 @@ En virtuell Azure-dator kan ha en av många energinivåer.
 | - | Energinivån för den virtuella datorn är okänd. |
 
 
-Om du vill hämta tillståndet för en viss virtuell dator kan du använda kommandot [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Du måste ange ett giltigt namn för en virtuell dator och resursgrupp.
+Om du vill hämta tillståndet för en viss virtuell dator kan du använda kommandot [Get-AzVM](/powershell/module/az.compute/get-azvm). Du måste ange ett giltigt namn för en virtuell dator och resursgrupp.
 
 ```azurepowershell-interactive
 Get-AzVM `
@@ -268,7 +268,7 @@ Under livscykeln för en virtuell dator kan du köra administrativa uppgifter, g
 
 ### <a name="stop-a-vm"></a>Stoppa en virtuell dator
 
-Stoppa och frigöra en virtuell dator med [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm):
+Stoppa och frigöra en virtuell dator med [Stop-AzVM](/powershell/module/az.compute/stop-azvm):
 
 ```azurepowershell-interactive
 Stop-AzVM `

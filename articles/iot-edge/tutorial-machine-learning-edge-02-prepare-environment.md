@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 42c776d4d6c3973e7c222c9c9adf3e5105f6c84f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 22628af5b3e62edfc96699ad051b6a00cf9c1429
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79296818"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078949"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Självstudie: Konfigurera en miljö för maskin inlärning på IoT Edge
 
@@ -37,12 +37,12 @@ Den virtuella utvecklings datorn kommer att konfigureras med:
 * [Git Credential Manager för Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)
 * [.NET Core SDK](https://dotnet.microsoft.com/)
 * [Python 3](https://www.python.org/)
-* [Visual Studio-koden](https://code.visualstudio.com/)
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.1.0)
 * [VS Code-tillägg](https://marketplace.visualstudio.com/search?target=VSCode)
   * [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
   * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  * [C #](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+  * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
   * [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
   * [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
 
@@ -52,7 +52,7 @@ Det tar cirka 30 minuter att skapa och konfigurera den virtuella datorn.
 
 1. Klona eller ladda ned [Machine Learning och IoT Edge](https://github.com/Azure-Samples/IoTEdgeAndMlSample) exempel lagrings platsen till din lokala dator.
 
-1. Öppna PowerShell som administratör och navigera till **\IoTEdgeAndMlSample\DevVM** -katalogen som finns under rot katalogen där du laddade ned koden. Vi kommer att referera till rot katalogen för din källa som `srcdir`.
+1. Öppna PowerShell som administratör och navigera till **\IoTEdgeAndMlSample\DevVM** -katalogen som finns under rot katalogen där du laddade ned koden. Vi kommer att referera till rot katalogen för din källa som `srcdir` .
 
     ```powershell
     cd c:\srcdir\IoTEdgeAndMlSample\DevVM
@@ -66,7 +66,7 @@ Det tar cirka 30 minuter att skapa och konfigurera den virtuella datorn.
     Set-ExecutionPolicy Bypass -Scope Process
     ```
 
-1. Kör Create-AzureDevVM. ps1.
+1. Kör Create-AzureDevVM.ps1.
 
     ```powershell
     .\Create-AzureDevVm.ps1
@@ -181,7 +181,7 @@ Som en del av att skapa IoT-hubben skapade även skriptet som vi körde i föreg
 
 1. Öppna [Azure Portal](https://portal.azure.com) och gå till resurs gruppen som du använder för den här självstudien.
 
-1. Välj den IoT Hub som skriptet har skapat i listan över resurser. Det får ett namn som slutar med slumpmässiga tecken som `IotEdgeAndMlHub-jrujej6de6i7w`.
+1. Välj den IoT Hub som skriptet har skapat i listan över resurser. Det får ett namn som slutar med slumpmässiga tecken som `IotEdgeAndMlHub-jrujej6de6i7w` .
 
 1. I menyn i den vänstra rutan under **meddelanden**väljer du **meddelanderoutning.**
 
@@ -193,7 +193,7 @@ Som en del av att skapa IoT-hubben skapade även skriptet som vi körde i föreg
 
    Vi ser **turbofanDeviceStorage** finns i listan med anpassade slut punkter. Observera följande egenskaper för den här slut punkten:
 
-   * Den pekar på Blob storage-behållaren som du skapade `devicedata` med namnet enligt **namnet på containern**.
+   * Den pekar på Blob storage-behållaren som du skapade med namnet `devicedata` enligt **namnet på containern**.
    * Dess **fil namns format** har partition som det sista elementet i namnet. Vi hittar det här formatet är enklare för de fil åtgärder som vi ska göra med Azure Notebooks senare i självstudien.
    * Dess **status** bör vara felfri.
 

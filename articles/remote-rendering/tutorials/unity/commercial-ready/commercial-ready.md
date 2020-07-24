@@ -1,16 +1,16 @@
 ---
-title: Skapa ett affärs klart program för Azure Remote rendering
+title: Skapa ett kommersiellt Azure Remote Rendering-program
 description: Strategier och överväganden för att skapa ett kommersiellt klart program med Azure Remote rendering
-author: m-the-hoff
-ms.author: v-michof
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: fa1a49aeef8b86230dc1d5ea898832cfb1cee852
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: e827f7eff707f5a7c467f53eacab6973bff2ef2f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85569998"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076433"
 ---
 # <a name="tutorial-creating-a-commercial-ready-azure-remote-rendering-application"></a>Självstudie: skapa ett affärs klart program för Azure Remote rendering
 
@@ -23,7 +23,7 @@ I den här självstudien lär du dig:
 > * Optimera användar upplevelsen kring tiden för inläsning av session
 > * Att tänka på kring nätverks fördröjning
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den här självstudien bygger på [Självstudier: skydda Azure-Fjärråter givning och modell lagring](../security/security.md).
 
@@ -38,7 +38,7 @@ En bred översikt över metod tips för System-Wide-arkitektur finns på:
 * [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)
 * [Kom igång-guide för Azure-utvecklare](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide)
 
-## <a name="analytics"></a>Analys
+## <a name="analytics"></a>Analytics
 
 Integrering av analys verktyg kan hjälpa dig att hantera, spåra och förbättra din lösning.
 

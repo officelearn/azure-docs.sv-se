@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea300148f421577e6f3ace961d06127fc9f2b536
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 126ae74041bac5fa4a02285abff0ce115d297cf8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801180"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058296"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pymetrics"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med pymetrics
 
@@ -96,13 +96,9 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [pymetrics client support team](mailto:solutions-engineering@pymetrics.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. pymetrics-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
-
-    ![image](common/default-attributes.png)
-
-1. Utöver ovan förväntar sig pymetrics-programmet att fler attribut skickas tillbaka i SAML-svar, som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
+1. Pymetrics-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande tabell visas en lista över standardattribut. Dessa attribut är förifyllda men du kan granska dem enligt dina krav.
     
-    | Name | Källattribut|
+    | Namn | Källattribut|
     | --------------- | --------- |
     | UserFirstName | user.givenname |
     | UserLastName | user.surname |

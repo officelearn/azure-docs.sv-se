@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/25/2019
-ms.openlocfilehash: 455860b2ccdfe3188c4985b64bd76ce51ab991ca
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 792fede4fd76469ee3f8ae2550d0e3f3a25126a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84708509"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073434"
 ---
 # <a name="use-powershell-to-create-a-managed-instance"></a>Använd PowerShell för att skapa en hanterad instans
 
@@ -66,6 +66,6 @@ Det här skriptet använder några av följande kommandon. Om du vill ha mer inf
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell dokumentation](/powershell/azure/overview).
+Mer information om Azure PowerShell finns i [Azure PowerShell dokumentation](/powershell/azure/).
 
 Ytterligare PowerShell-skript exempel för Azure SQL-hanterad instans finns i [PowerShell-skript för Azure SQL-hanterad instans](../../database/powershell-script-content-guide.md).

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 04/15/2020
-ms.openlocfilehash: 63c098ccd42a438f8daab787afb54cf13cd053c3
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 07/15/2020
+ms.openlocfilehash: 760624b06d00a873ff48c659ef65f9af62cd6454
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780563"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084032"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Självstudie: Lägg till komplettera automatiskt och förslag med hjälp av .NET SDK
 
@@ -26,7 +26,7 @@ I den här guiden får du lära dig att:
 > * Lägg till komplettera automatiskt
 > * Kombinera autokomplettering och förslag
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien är en del av en serie och bygger på det växlings projekt som skapats i [C#-självstudien: Sök Resultat sid brytning – Azure kognitiv sökning](tutorial-csharp-paging.md).
 
@@ -36,13 +36,13 @@ Du kan också hämta och köra lösningen för den här självstudien: [3-Add-ty
 
 Vi börjar med det enklaste fallet med att erbjuda alternativ till användaren: en listruta med förslag.
 
-1. I filen index. cshtml ändrar `@id` du **TextBoxFor** -instruktionen till **azureautosuggest**.
+1. I filen index. cshtml ändrar du `@id` **TextBoxFor** -instruktionen till **azureautosuggest**.
 
     ```cs
      @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautosuggest" }) <input value="" class="searchBoxSubmit" type="submit">
     ```
 
-2. Följ den här instruktionen, efter den avslutande ** &lt;/div&gt;**, anger du det här skriptet. Det här skriptet använder [widgeten Autoavsluta](https://api.jqueryui.com/autocomplete/) från jQuery UI-bibliotek med öppen källkod för att presentera den nedrullningsbara listan över föreslagna resultat. 
+2. Följ den här instruktionen, efter den avslutande ** &lt; /div &gt; **, anger du det här skriptet. Det här skriptet använder [widgeten Autoavsluta](https://api.jqueryui.com/autocomplete/) från jQuery UI-bibliotek med öppen källkod för att presentera den nedrullningsbara listan över föreslagna resultat. 
 
     ```javascript
     <script>
@@ -61,7 +61,7 @@ Vi börjar med det enklaste fallet med att erbjuda alternativ till användaren: 
 
 ### <a name="add-references-to-jquery-scripts-to-the-view"></a>Lägg till referenser till jQuery-skript i vyn
 
-1. Du kommer åt jQuery-biblioteket genom att &lt;ändra&gt; head-avsnittet i visnings filen till följande kod:
+1. Du kommer åt jQuery-biblioteket genom &lt; att ändra Head- &gt; avsnittet i visnings filen till följande kod:
 
     ```cs
     <head>
@@ -308,7 +308,7 @@ Det finns bibliotek som erbjuder den här funktionen – ofta kallat "intern ify
 
     Ett alternativ för autokomplettering returneras överst i **resultat** listan, följt av alla förslag.
 
-2. Först implementerar vi ett stick i vyn så att ett ljust grått ord för automatisk komplettering återges direkt under Bolder text som anges av användaren. HTML innehåller relativ placering för detta ändamål. Ändra **TextBoxFor** -instruktionen (och dess &lt;omgivande&gt; div-uttryck) till följande, och Observera att en andra sökruta som identifieras som **under** är rätt under vår vanliga sökruta genom att hämta den här sökrutan 39 pixlarna från sin standard plats!
+2. Först implementerar vi ett stick i vyn så att ett ljust grått ord för automatisk komplettering återges direkt under Bolder text som anges av användaren. HTML innehåller relativ placering för detta ändamål. Ändra **TextBoxFor** -instruktionen (och dess omgivande &lt; div &gt; -uttryck) till följande, och Observera att en andra sökruta som identifieras som **under** är rätt under vår vanliga sökruta genom att hämta den här sökrutan 39 pixlarna från sin standard plats!
 
     ```cs
     <div id="underneath" class="searchBox" style="position: relative; left: 0; top: 0">

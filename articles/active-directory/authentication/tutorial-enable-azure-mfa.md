@@ -5,23 +5,28 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/11/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 253eb23be03c1cc0f2abf4ad1fed734426dc287d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1df88e26284dc868267cbc79e27df6f0e25f1250
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77154825"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035068"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Självstudie: skydda användar inloggnings händelser med Azure Multi-Factor Authentication
 
 Multi-Factor Authentication (MFA) är en process där en användare uppmanas att logga in för ytterligare identifierings former. Den här frågan kan vara att ange en kod på sin mobil telefon eller för att tillhandahålla en finger avsökning. När du behöver en andra form av autentisering, ökar säkerheten eftersom den här ytterligare faktorn inte är något som är lätt för en angripare att hämta eller duplicera.
 
 Azure Multi-Factor Authentication-och principer för villkorlig åtkomst ger flexibiliteten att aktivera MFA för användare under speciella inloggnings händelser.
+
+> [!IMPORTANT]
+> I den här självstudien visas en administratör för att aktivera Azure Multi-Factor Authentication.
+>
+> Om ditt IT-team inte har aktiverat möjligheten att använda Azure Multi-Factor Authentication eller om du har problem under inloggningen kan du kontakta supportavdelningen för ytterligare hjälp.
 
 I den här guiden får du lära du dig hur man:
 
@@ -30,7 +35,7 @@ I den här guiden får du lära du dig hur man:
 > * Konfigurera princip villkor som begär MFA
 > * Testa MFA-processen som en användare
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -38,9 +43,9 @@ För att slutföra den här självstudien behöver du följande resurser och beh
     * Om det behövs kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Ett konto med *Global administratörs* behörighet.
 * En icke-administratörs användare med ett lösen ord som du känner till, till exempel *testuser*. Du testar slutanvändarens Azure Multi-Factor Authentication-upplevelse med det här kontot i den här självstudien.
-    * Om du behöver skapa en användare, se [snabb start: Lägg till nya användare i Azure Active Directory](../add-users-azure-active-directory.md).
+    * Om du behöver skapa en användare, se [snabb start: Lägg till nya användare i Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * En grupp som inte är administratörs användare som är medlem i, till exempel *MFA-test-Group*. Du aktiverar Azure Multi-Factor Authentication för den här gruppen i den här självstudien.
-    * Om du behöver skapa en grupp, se så här [skapar du en grupp och lägger till medlemmar i Azure Active Directory](../active-directory-groups-create-azure-portal.md).
+    * Om du behöver skapa en grupp, se så här [skapar du en grupp och lägger till medlemmar i Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="create-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
@@ -102,7 +107,7 @@ Nu ska vi se din princip för villkorlig åtkomst och Azure Multi-Factor Authent
 
 Logga nu in på Azure Portal. När Azure Portal konfigurerades i principen för villkorlig åtkomst för att kräva ytterligare verifiering får du en Azure Multi-Factor Authentication-prompt.
 
-1. Öppna ett nytt webbläsarfönster i InPrivate-eller Incognito- [https://portal.azure.com](https://portal.azure.com)läge och bläddra till.
+1. Öppna ett nytt webbläsarfönster i InPrivate-eller Incognito-läge och bläddra till [https://portal.azure.com](https://portal.azure.com) .
 1. Logga in med en test användare som inte är administratör, till exempel *testuser*. Du måste registrera dig för och använda Azure Multi-Factor Authentication. Följ anvisningarna för att slutföra processen och kontrol lera att du har loggat in på Azure Portal.
 
     ![Följ webbläsarens prompter och klicka sedan på din registrerade Multi-Factor Authentication-prompt för att logga in](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)

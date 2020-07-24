@@ -4,12 +4,12 @@ description: Lär dig hur du anropar affärs processer från din App Service-app
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: mvc
-ms.openlocfilehash: a8b94d626916b00d75eea3fea0567fa33df3382c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 2b478ae75c8be978ea93a493b65dafdc7756c4b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562312"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083250"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Självstudie: skicka e-post och anropa andra affärs processer från App Service
 
@@ -17,12 +17,12 @@ I den här självstudien får du lära dig hur du integrerar din App Service-app
 
 - Skicka bekräftelse meddelande för en transaktion
 - Lägg till användare i Facebook-gruppen
-- Ansluta till tredje parts system som SAP, SalesForce osv.
+- Ansluta till tredje parts system som SAP, Salesforce osv.
 - Exchange standard B2B-meddelanden
 
 I den här självstudien skickar du e-post med Gmail från din App Service-app med hjälp av [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Det finns andra sätt att skicka e-postmeddelanden från en webbapp, till exempel SMTP-konfigurationen som tillhandahålls av ditt språk ramverk. Logic Apps ger dock mycket mer kraft till din App Service-app utan att öka komplexiteten i din kod. Logic Apps tillhandahåller ett enkelt konfigurations gränssnitt för de mest populära företags integreringarna och din app kan anropa dem när som helst med en HTTP-begäran.
 
-## <a name="prerequisite"></a>Krav
+## <a name="prerequisite"></a>Förutsättning
 
 Distribuera en app med det språk ramverk som du väljer att App Service. Om du vill följa en självstudie för att distribuera en exempel-app, se nedan:
 
@@ -36,7 +36,7 @@ Distribuera en app med det språk ramverk som du väljer att App Service. Om du 
 
 ### <a name="nodejs"></a>[Node.js](#tab/node)
 
-[Självstudie: Bygg en Node. js-och MongoDB-app i Azure](app-service-web-tutorial-nodejs-mongodb-app.md)
+[Självstudie: Bygg en Node.js-och MongoDB-app i Azure](app-service-web-tutorial-nodejs-mongodb-app.md)
 
 ### <a name="php"></a>[PHP](#tab/php)
 
@@ -57,10 +57,10 @@ Distribuera en app med det språk ramverk som du väljer att App Service. Om du 
 1. I [Azure Portal](https://portal.azure.com)skapar du en tom Logic-app genom att följa anvisningarna i [skapa din Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app). När du ser **Logic Apps designer**går du tillbaka till den här självstudien.
 1. På Välkomst sidan för Logic Apps designer väljer du **när en HTTP-begäran tas emot** under **starta med en gemensam utlösare**.
 
-    ![](./media/tutorial-send-email/receive-http-request.png)
+    ![Skärm bild som visar Välkomst sidan för Logic Apps designer med när en H-T-P-begäran tas emot.](./media/tutorial-send-email/receive-http-request.png)
 1. I dialog rutan **när en HTTP-begäran tas emot**väljer **du Använd exempel nytto last för att generera schemat**.
 
-    ![](./media/tutorial-send-email/generate-schema-with-payload.png)
+    ![Skärm bild som visar dialog rutan när en H T T P P-begäran och den använda exempel nytto lasten för att generera schema opion har valts. ](./media/tutorial-send-email/generate-schema-with-payload.png)
 
 1. Kopiera följande exempel-JSON till text rutan och välj **färdig**.
 
@@ -77,7 +77,7 @@ Distribuera en app med det språk ramverk som du väljer att App Service. Om du 
 
     Nu kan du se URL: en för din utlösare för HTTP-begäran. Välj kopierings ikonen för att kopiera den för senare användning.
 
-    ![](./media/tutorial-send-email/http-request-url.png)
+    ![Skärm bild som visar kopierings ikonen för att kopiera U R L i din f T T P-utlösare för begäran.](./media/tutorial-send-email/http-request-url.png)
 
     Den här definitionen av HTTP-begäran är en utlösare för allt du vill göra i den här Logic-appen, vara Gmail eller något annat. Senare kommer du att anropa den här URL: en i din App Service-app. Mer information om begär ande utlösare finns i [referens för http-begäran/svar](../connectors/connectors-native-reqres.md).
 
@@ -87,18 +87,18 @@ Distribuera en app med det språk ramverk som du väljer att App Service. Om du 
     > Du kan söka efter andra typer av integreringar, till exempel SendGrid, MailChimp, Office 365 och SalesForce. Mer information finns i [Logic Apps-dokumentationen](https://docs.microsoft.com/azure/logic-apps/).
 1. I dialog rutan **Gmail** väljer du **Logga** in och loggar in på det Gmail-konto som du vill skicka e-postmeddelandet från.
 
-    ![](./media/tutorial-send-email/gmail-sign-in.png)
+    ![Skärm bild som visar dialog rutan Gmail som du använder för att logga in på det Gmail-konto som du vill skicka e-post från.](./media/tutorial-send-email/gmail-sign-in.png)
 
 1. När du har loggat in klickar du på i rutan **till för att** öppna dialog rutan dynamiskt innehåll automatiskt.
 
 1. Bredvid åtgärden **när en HTTP-begäran tas emot** väljer du **Se fler**.
 
-    ![](./media/tutorial-send-email/expand-dynamic-content.png)
+    ![Skärm bild som visar knappen Se fler bredvid när en H T T P P-begäran tas emot.](./media/tutorial-send-email/expand-dynamic-content.png)
 
     Du bör nu se de tre egenskaperna från dina exempel-JSON-data som du använde tidigare. I det här steget använder du dessa egenskaper från HTTP-begäran för att skapa ett e-postmeddelande.
 1. Eftersom du väljer värdet för fältet **till** väljer du **e-post**. Om du vill kan du växla till dialog rutan dynamiskt innehåll genom att klicka på **Lägg till dynamiskt innehåll**.
 
-    ![](./media/tutorial-send-email/hide-dynamic-content.png)
+    ![Skärm bild som visar alternativet för e-post och alternativet Lägg till dynamiskt innehåll markerat.](./media/tutorial-send-email/hide-dynamic-content.png)
 
 1. I list rutan **Lägg till ny parameter** väljer du **ämne** och **brödtext**.
 
@@ -107,17 +107,17 @@ Distribuera en app med det språk ramverk som du väljer att App Service. Om du 
 1. Klicka i **bröd texten** **och välj sedan på på**samma sätt. Flytta markören till vänster om **förfallet** och skriv *det här arbetsobjektet är förfallet*.
 
     > [!TIP]
-    > Om du vill redigera HTML-innehåll direkt i e-postmeddelandets brödtext väljer du **kodvyn** överst i fönstret Logic Apps designer. Se bara till att du behåller koden för dynamiskt innehåll (till exempel `@{triggerBody()?['due']}`)
+    > Om du vill redigera HTML-innehåll direkt i e-postmeddelandets brödtext väljer du **kodvyn** överst i fönstret Logic Apps designer. Se bara till att du behåller koden för dynamiskt innehåll (till exempel `@{triggerBody()?['due']}` )
     >
-    > ![](./media/tutorial-send-email/edit-rich-html-email.png) 
+    > ![Skärm bild som visar kodvyn för att Visa H T M L-innehåll direkt i e-postmeddelandets brödtext.](./media/tutorial-send-email/edit-rich-html-email.png) 
 
-1. Lägg sedan till ett asynkront HTTP-svar i HTTP-utlösaren. Mellan HTTP-utlösaren och Gmail-åtgärden klickar **+** du på signeringen och väljer **Lägg till en parallell gren**.
+1. Lägg sedan till ett asynkront HTTP-svar i HTTP-utlösaren. Mellan HTTP-utlösaren och Gmail-åtgärden klickar du på **+** signeringen och väljer **Lägg till en parallell gren**.
 
-    ![](./media/tutorial-send-email/add-http-response.png)
+    ![Skärm bild som visar alternativet + signera och Lägg till ett parallellt gren alternativ markerat.](./media/tutorial-send-email/add-http-response.png)
 
 1. I sökrutan söker du efter **svar**och väljer sedan åtgärden **svar** .
 
-    ![](./media/tutorial-send-email/choose-response-action.png)
+    ![Skärm bild som visar den markerade Sök fältet och svars åtgärden.](./media/tutorial-send-email/choose-response-action.png)
 
     Som standard skickar svars åtgärden en HTTP 200. Det är tillräckligt för den här självstudien. Mer information finns i referens för [http-begäran/svar](../connectors/connectors-native-reqres.md).
 
@@ -127,7 +127,7 @@ Distribuera en app med det språk ramverk som du väljer att App Service. Om du 
 
 Kontrol lera att du har kopierat URL: en för HTTP-begäran från en tidigare version. Eftersom det innehåller känslig information är det bäst att du inte sätter den i koden direkt. Med App Service kan du referera till den som en miljö variabel i stället med hjälp av app-inställningar. 
 
-I [Cloud Shell](https://shell.azure.com)skapar du appens inställning med följande kommando (Ersätt * \<App-Name>*, * \<resurs grupp-namn>* och * \<Logic-App-URL>*):
+I [Cloud Shell](https://shell.azure.com)skapar du appens inställning med följande kommando (Ersätt *\<app-name>* , *\<resource-group-name>* och *\<logic-app-url>* ):
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings LOGIC_APP_URL="<your-logic-app-url>"
@@ -145,14 +145,14 @@ I din kod gör du ett HTTP-standardinlägg till URL: en med valfritt HTTP-klient
     }
     ```
 
-- Begäran innehåller rubriken `Content-Type: application/json`. 
+- Begäran innehåller rubriken `Content-Type: application/json` . 
 - Du kan optimera prestanda genom att skicka begäran asynkront om möjligt.
 
 Klicka på fliken föredraget språk/ramverk nedan om du vill se ett exempel.
 
 ### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
-I ASP.NET kan du skicka HTTP-inlägget med klassen [system .net. http. HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) . Ett exempel:
+I ASP.NET kan du skicka HTTP-inlägget med klassen [system .net. http. HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) . Exempel:
 
 ```csharp
 // requires using System.Net.Http;
@@ -177,7 +177,7 @@ Om du testar den här koden i exempel appen för [Självstudier: skapa en ASP.ne
 
 ### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
-I ASP.NET Core kan du skicka HTTP-inlägget med klassen [system .net. http. HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) . Ett exempel:
+I ASP.NET Core kan du skicka HTTP-inlägget med klassen [system .net. http. HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) . Exempel:
 
 ```csharp
 // requires using System.Net.Http;
@@ -199,13 +199,13 @@ var statusCode = result.StatusCode.ToString();
 ```
 
 > [!NOTE]
-> Den här koden är avsedd för enkel demonstration. I praktiken ska du inte instansiera `HttpClient` ett objekt för varje begäran. Följ rikt linjerna i [använda IHttpClientFactory för att implementera elastiska HTTP-begäranden](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
+> Den här koden är avsedd för enkel demonstration. I praktiken ska du inte instansiera ett `HttpClient` objekt för varje begäran. Följ rikt linjerna i [använda IHttpClientFactory för att implementera elastiska HTTP-begäranden](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
 Om du testar den här koden i exempel appen för [Självstudier: skapa en ASP.net Core-och SQL Database-app i Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md)kan du använda den för att skicka en bekräftelse via e-post i [åtgärden Skapa](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65)när `Todo` objektet har lagts till.
 
 ### <a name="nodejs"></a>[Node.js](#tab/node)
 
-I Node. js kan du enkelt skicka HTTP-posten med ett NPM-paket som [Axios](https://www.npmjs.com/package/axios). Ett exempel:
+I Node.js kan du enkelt skicka HTTP-posten med ett NPM-paket som [Axios](https://www.npmjs.com/package/axios). Exempel:
 
 ```javascript
 // Requires npm install --save axios
@@ -228,11 +228,11 @@ var jsonData = {
 
 ```
 
-Om du testar den här koden i exempel appen för [Självstudier: skapa en Node. js-och MongoDB-app i Azure](app-service-web-tutorial-nodejs-mongodb-app.md)kan du använda den för att skicka ett bekräftelse meddelande i [create-funktionen](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27)när [artikeln har sparats](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24).
+Om du testar den här koden i exempel appen för [Självstudier: skapa en Node.js-och MongoDB-app i Azure](app-service-web-tutorial-nodejs-mongodb-app.md), kan du använda den för att skicka en bekräftelse via e-post i [create-funktionen](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27)när [artikeln har sparats](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24).
 
 ### <a name="php"></a>[PHP](#tab/php)
 
-I PHP kan du enkelt skicka HTTP-posten med [guzzle](http://docs.guzzlephp.org/en/stable/index.html). Ett exempel:
+I PHP kan du enkelt skicka HTTP-posten med [guzzle](http://docs.guzzlephp.org/en/stable/index.html). Exempel:
 
 ```php
 // Requires composer require guzzlehttp/guzzle:~6.0
@@ -264,7 +264,7 @@ Om du testar den här koden i exempel appen för [Självstudier: bygga en php-oc
 
 ### <a name="python"></a>[Python](#tab/python)
 
-I python kan du enkelt skicka HTTP-posten med [begär Anden](https://pypi.org/project/requests/). Ett exempel:
+I python kan du enkelt skicka HTTP-posten med [begär Anden](https://pypi.org/project/requests/). Exempel:
 
 ```python
 # Requires pip install requests && pip freeze > requirements.txt
@@ -295,7 +295,7 @@ Om du testar den här koden i exempel appen för [Självstudier: köra en python
 
 ### <a name="ruby"></a>[Ruby](#tab/ruby)
 
-I ruby kan du enkelt skicka HTTP-posten med [JSONClient](https://www.rubydoc.info/gems/httpclient/JSONClient). Ett exempel:
+I ruby kan du enkelt skicka HTTP-posten med [JSONClient](https://www.rubydoc.info/gems/httpclient/JSONClient). Exempel:
 
 ```ruby
 clnt = JSONClient.new
@@ -308,7 +308,7 @@ body = {
 connection = clnt.post_async(ENV['LOGIC_APP_URL'], body)
 ```
 
-Om du testar den här koden i exempel appen för att [skapa en ruby-och postgres-app i Azure App Service på Linux](containers/tutorial-ruby-postgres-app.md), kan du använda den för att skicka en bekräftelse av e-post i åtgärden [skapa](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L26-L38) [när @task.save den lyckas](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L30).
+Om du testar den här koden i exempel appen för att [skapa en ruby-och postgres-app i Azure App Service på Linux](containers/tutorial-ruby-postgres-app.md), kan du använda den för att skicka en bekräftelse av e-post i åtgärden [skapa](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L26-L38) [när den @task.save lyckas](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L30).
 
 ---
 

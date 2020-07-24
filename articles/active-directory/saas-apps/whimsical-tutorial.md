@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 401ca1a22b47555f530e1785e25653269403812c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1c16f83be4cd10f53705633b9c4f4eb522c8408e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83666128"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058158"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-whimsical"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med WHimsical
 
@@ -32,12 +32,12 @@ I den här självstudien får du lära dig hur du integrerar WHimsical med Azure
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* WHimsical för enkel inloggning (SSO) aktive rad.
+* Arbets ytan WHimsical team.
 
 > [!NOTE]
 > ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
@@ -93,15 +93,15 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://whimsical.com/@<TENANT_NAME>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med faktisk svars-URL och inloggnings-URL. Kontakta [WHimsical client support team](mailto:help@whimsical.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med faktisk svars-URL och inloggnings-URL. Dina speciella värden visas på skärmen för SAML-installationen i inställningar för WHimsical-arbetsyta. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. WHimsical-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
+1. WHimsical-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
     ![image](common/default-attributes.png)
 
 1. Utöver ovan förväntar sig WHimsical-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
-    | Name | Källattribut|
+    | Namn | Källattribut|
     | --------- | --------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
@@ -146,7 +146,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-whimsical-sso"></a>Konfigurera WHimsical SSO
 
-Om du vill konfigurera enkel inloggning på **WHimsical** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för WHimsical](mailto:help@whimsical.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **WHimsical** -sidan måste du ladda upp den **XML för federationsmetadata** som du precis har laddat ned till inställningarna för [arbets ytan](https://whimsical.com/workspace/settings).
+
+![SAML-installation för WHimsical-arbetsyta](media/whimsical-tutorial/saml-setup.png)
+
+Överföring av **XML-metadata för federationsmetadata** bör vara det enda steget du behöver göra i WHimsical för att konfigurera en SAML SSO-anslutning.
 
 ### <a name="create-whimsical-test-user"></a>Skapa WHimsical test användare
 
@@ -164,7 +168,7 @@ När du klickar på panelen WHimsical på åtkomst panelen, bör du loggas in au
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova WHimsical med Azure AD](https://aad.portal.azure.com/)
 

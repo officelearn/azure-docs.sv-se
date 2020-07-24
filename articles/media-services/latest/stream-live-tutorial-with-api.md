@@ -15,37 +15,37 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 0b6667965ddd1fce30bb2da2593e2a9274b595ed
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b92d26da837cab72a4c4404a7b5b3de5d3116480
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79472024"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043366"
 ---
 # <a name="tutorial-stream-live-with-media-services"></a>Självstudie: strömma live med Media Services
 
 > [!NOTE]
-> Även om självstudien använder [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) -exempel är de allmänna stegen desamma för [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)eller andra [SDK](media-services-apis-overview.md#sdks): er som stöds.
+> Även om självstudien använder [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) -exempel är de allmänna stegen desamma för [REST API](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event?view=azure-cli-latest)eller andra [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
-I Azure Media Services ansvarar [livehändelser](https://docs.microsoft.com/rest/api/media/liveevents) för bearbetning av liveströmmat innehåll. En livehändelse tillhandahåller en slutpunkt (infognings-URL) som du sedan vidarebefordrar till en livekodare. Livehändelsen tar emot live indataströmmar från livekodaren och gör den tillgänglig för strömning via en eller flera [slutpunkter för direktuppspelning](https://docs.microsoft.com/rest/api/media/streamingendpoints). Livehändelser tillhandahåller också en slutpunkt för förhandsvisning (förhandsvisnings-URL) som du använder för att förhandsgranska och validera din ström inför vidare behandling och leverans. Den här självstudien visar hur du använder .NET Core för att skapa en **genomströmnings**typ av en livehändelse.
+I Azure Media Services ansvarar [livehändelser](/rest/api/media/liveevents) för bearbetning av liveströmmat innehåll. En livehändelse tillhandahåller en slutpunkt (infognings-URL) som du sedan vidarebefordrar till en livekodare. Livehändelsen tar emot live indataströmmar från livekodaren och gör den tillgänglig för strömning via en eller flera [slutpunkter för direktuppspelning](/rest/api/media/streamingendpoints). Livehändelser tillhandahåller också en slutpunkt för förhandsvisning (förhandsvisnings-URL) som du använder för att förhandsgranska och validera din ström inför vidare behandling och leverans. Den här självstudien visar hur du använder .NET Core för att skapa en **genomströmnings**typ av en livehändelse.
 
 Självstudien visar hur du:
 
 > [!div class="checklist"]
 > * Ladda ned exempel appen som beskrivs i avsnittet.
 > * Granska koden som utför direkt uppspelning.
-> * Titta på händelsen med [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) på [https://ampdemo.azureedge.net](https://ampdemo.azureedge.net).
+> * Titta på händelsen med [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) på [https://ampdemo.azureedge.net](https://ampdemo.azureedge.net) .
 > * Rensa resurser.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att kunna genomföra vägledningen:
 
 - Installera Visual Studio Code eller Visual Studio.
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md).<br/>Kom ihåg att komma ihåg de värden som du använder för resurs gruppens namn och Media Services konto namnet.
-- Följ stegen i [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Få åtkomst till Azure Media Services-API med Azure CLI) och spara autentiseringsuppgifterna. Du måste använda dem för att få åtkomst till API: et.
+- [Skapa ett Media Services-konto](./create-account-howto.md).<br/>Kom ihåg att komma ihåg de värden som du använder för resurs gruppens namn och Media Services konto namnet.
+- Följ stegen i [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) (Få åtkomst till Azure Media Services-API med Azure CLI) och spara autentiseringsuppgifterna. Du måste använda dem för att få åtkomst till API: et.
 - En kamera eller en enhet (till exempel en bärbar dator) som används för att sända en händelse.
 - En lokal Live-kodare som konverterar signaler från kameran till strömmar som skickas till Media Services Live streaming service finns i [rekommenderade lokala Live-kodare](recommended-on-premises-live-encoders.md). Dataströmmen måste anges i **RTMP**- eller **Smooth Streaming**-format.
 
@@ -62,7 +62,7 @@ Klona en GitHub-lagringsplats som innehåller det strömmande .NET-exemplet till
 
 Livesändningsexemplet finns i [Live](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live/MediaV3LiveApp)-mappen.
 
-Öppna [appSettings. JSON](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) i det nedladdade projektet. Ersätt värdena med de autentiseringsuppgifter som du har fått från [att komma åt API: er](access-api-cli-how-to.md).
+Öppna [appsettings.jspå](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) i det nedladdade projektet. Ersätt värdena med de autentiseringsuppgifter som du har fått från [att komma åt API: er](./access-api-howto.md).
 
 > [!IMPORTANT]
 > I det här exemplet används ett unikt suffix för varje resurs. Om du avbryter fel sökningen eller avslutar appen utan att köra den via, kommer du att få flera Live-händelser i ditt konto. <br/>Se till att stoppa de livehändelser som körs. Annars **faktureras**du!
@@ -167,7 +167,7 @@ Om du är klar med strömnings händelser och vill rensa de resurser som etabler
 
 ## <a name="watch-the-event"></a>Titta på händelsen
 
-Du kan titta på händelsen genom att kopiera den strömmande URL som du fick när du körde kod som beskrivs i skapa en strömmande positionerare. Du kan använda en valfri media spelare. [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) tillgängligt för att testa data strömmen på https://ampdemo.azureedge.net.
+Du kan titta på händelsen genom att kopiera den strömmande URL som du fick när du körde kod som beskrivs i skapa en strömmande positionerare. Du kan använda en valfri media spelare. [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) tillgängligt för att testa data strömmen på https://ampdemo.azureedge.net .
 
 Livehändelser konverterar automatiskt händelser till innehåll-på-begäran när de stoppas. Även efter att du har stoppat och tagit bort händelsen kan användarna strömma ditt arkiverade innehåll som en video på begäran så länge du inte tar bort till gången. En till gång kan inte tas bort om den används av en händelse. händelsen måste tas bort först.
 

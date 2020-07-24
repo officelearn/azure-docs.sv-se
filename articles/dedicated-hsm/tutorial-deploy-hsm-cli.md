@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 76b7a97a5be5e7952b0ac11d93bd68656ff8f1ec
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6c5484c421807f5657fe5fc460342d39d442bcda
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79454320"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048585"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Självstudie: Distribuera HSM: er till ett befintligt virtuellt nätverk med CLI
 
@@ -36,7 +36,7 @@ En typisk arkitektur med hög tillgänglighet för distribution i flera regioner
 
 Den här självstudien fokuserar på integreringen av ett par HSM:er och den nödvändiga ExpressRoute-gatewayen (se Undernät 1 ovan) i ett befintligt virtuellt nätverk (se VNET 1 ovan).  Alla andra resurser är Azure-standardresurser. Samma integreringsprocess kan användas för HSM:er i undernät 4 på VNET 3 ovan.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Dedikerad HSM i Azure är för närvarande inte tillgängligt på Azure-portalen. All interaktion med tjänsten sker via kommandoraden eller PowerShell. Den här självstudien använder kommandoradsgränssnittet (CLI) i Azure Cloud Shell. Om Azure CLI är nytt för dig följer du instruktionerna för att komma igång här: [Komma igång med Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
@@ -47,7 +47,7 @@ Antaganden:
 - Du har skapat en resursgrupp för dessa resurser, och de nya som distribueras i den här självstudien ansluts till den gruppen.
 - Du redan har skapat nödvändiga virtuella nätverk, undernät och virtuella datorer enligt diagrammet ovan och vill nu integrera två HSM:er i den distributionen.
 
-Alla instruktioner nedan förutsätter att du redan har navigerat till Azure Portal och att du har öppnat Cloud Shell (Välj "\>\_" överst till höger i portalen).
+Alla instruktioner nedan förutsätter att du redan har navigerat till Azure Portal och att du har öppnat Cloud Shell (Välj " \> \_ " överst till höger i portalen).
 
 ## <a name="provisioning-a-dedicated-hsm"></a>Etablera en Dedikerad HSM
 
@@ -63,15 +63,7 @@ az feature show \
    --name AzureDedicatedHSM
 ```
 
-Följande kommando verifierar de nätverksfunktioner som krävs för tjänsten Dedikerad HSM.
-
-```azurecli
-az feature show \
-   --namespace Microsoft.Network \
-   --name AllowBaremetalServers
-```
-
-Båda kommandona ska returnera statusen "registrerad" (som visas nedan). Om kommandona inte returnerar ”Registrerad” behöver du registrera dig för den här tjänsten. Kontakta din Microsoft-kontorepresentant.
+Kommandona ska returnera statusen "registrerad" (som visas nedan). Om kommandona inte returnerar "registrerad" måste du registrera dig för den här tjänsten genom att kontakta din Microsoft-konto representant.
 
 ![prenumerationsstatus](media/tutorial-deploy-hsm-cli/subscription-status.png)
 
@@ -126,7 +118,7 @@ Den associerade Azure Resource Manager-mallfilen skapar 6 resurser med den här 
 - En HSM i stämpel 1
 - En HSM i stämpel 2
 
-När parametervärden har angetts måste filerna laddas upp till Azure-portalens Cloud Shell-filresurs för användning. Klicka på\>\_"" Cloud Shell-symbolen överst till höger i Azure Portal så att den nedre delen av skärmen visas i en kommando miljö. Alternativen för detta är BASH och PowerShell, och du bör välja BASH om det inte redan har angetts.
+När parametervärden har angetts måste filerna laddas upp till Azure-portalens Cloud Shell-filresurs för användning. Klicka på " \> \_ " Cloud Shell-symbolen överst till höger i Azure Portal så att den nedre delen av skärmen visas i en kommando miljö. Alternativen för detta är BASH och PowerShell, och du bör välja BASH om det inte redan har angetts.
 
 Kommandogränssnittet innehåller ett alternativ för uppladdning/nedladdning i verktygsfältet, och du bör ange det här till att ladda upp milen och parameterfilerna till din filresurs:
 

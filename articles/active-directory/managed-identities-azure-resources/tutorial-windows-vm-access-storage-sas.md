@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1ed86db85de8d4665c9eecfbde96b0909b12362
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6ca5ec32e1f88572812b19cf08d4c6f9dc70af6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608321"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018584"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Självstudie: Använd en Windows VM-systemtilldelad hanterad identitet för att få åtkomst till Azure Storage via SAS-autentiseringsuppgifter
 
@@ -28,7 +28,7 @@ ms.locfileid: "85608321"
 
 Den här självstudien visar hur du använder en systemtilldelad identitet för en virtuell Windows-dator (VM) för att hämta en autentiseringsuppgifter för signaturen för delad åtkomst (SAS) för lagring. Mer specifikt, en [autentiseringsuppgift för tjänst-SAS](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
-En tjänst-SAS ger möjlighet att bevilja begränsad åtkomst till objekt i ett lagrings konto, för begränsad tid och en viss tjänst (i vårt exempel Blob-tjänsten) utan att exponera en åtkomst nyckel för kontot. Du kan en använda SAS-autentiseringsuppgift som vanligt när du gör lagringsåtgärder, till exempel när du använder Storage SDK. I den här självstudien demonstrerar vi överföring och hämtning av en blob med hjälp av Azure Storage PowerShell. Du lär dig att göra följande:
+En tjänst-SAS ger möjlighet att bevilja begränsad åtkomst till objekt i ett lagrings konto, för begränsad tid och en viss tjänst (i vårt exempel Blob-tjänsten) utan att exponera en åtkomst nyckel för kontot. Du kan en använda SAS-autentiseringsuppgift som vanligt när du gör lagringsåtgärder, till exempel när du använder Storage SDK. I den här självstudien demonstrerar vi överföring och hämtning av en blob med hjälp av Azure Storage PowerShell. Du lär dig hur du:
 
 > [!div class="checklist"]
 > * skapar ett lagringskonto
@@ -83,7 +83,7 @@ Azure Storage har inte inbyggt stöd för Azure Active Directory-autentisering. 
 
 Under resten av självstudiekursen arbetar vi från den virtuella datorn som vi skapade tidigare.
 
-Du måste använda Azure Resource Manager PowerShell-cmdletar i den här delen.  Om du inte har det installerat kan du [Ladda ned den senaste versionen](https://docs.microsoft.com/powershell/azure/overview) innan du fortsätter.
+Du måste använda Azure Resource Manager PowerShell-cmdletar i den här delen.  Om du inte har det installerat kan du [Ladda ned den senaste versionen](https://docs.microsoft.com/powershell/azure/) innan du fortsätter.
 
 1. Gå till **Virtuella datorer** på Azure Portal, gå till din virtuella Windows-dator och klicka sedan på **Anslut** längst upp på sidan **Översikt**.
 2. Ange ditt **användarnamn** och **lösenord** som du lade till när du skapade den virtuella Windows-datorn. 

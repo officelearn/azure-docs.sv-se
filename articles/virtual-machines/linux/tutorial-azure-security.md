@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9b70474a985cde1cd6d7d98e84f7f228fde7a812
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6711075ba3a58e526733c3a18cab03084edc067e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460111"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080105"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Självstudier: Övervaka virtuella Linux-datorer i Azure Security Center
 
@@ -57,7 +57,7 @@ Datainsamlingsagenten från Security Center installeras på alla virtuella dator
 
 ## <a name="set-up-a-security-policy"></a>Konfigurera en säkerhetsprincip
 
-Säkerhetsprinciper används för att definiera objekten för vilka Security Center samlar in data och lämnar rekommendationer. Du kan använda olika säkerhetsprinciper för olika uppsättningar av Azure-resurser. Även om Azures standardresurser ska utvärderas mot alla principobjekt kan du inaktivera enskilda principobjekt för alla Azure-resurser eller för en viss resursgrupp. Detaljerad information om säkerhetsprinciper i Security Center finns i [Ange säkerhetsprinciper i Azure Security Center](../../security-center/security-center-policies.md). 
+Säkerhetsprinciper används för att definiera objekten för vilka Security Center samlar in data och lämnar rekommendationer. Du kan använda olika säkerhetsprinciper för olika uppsättningar av Azure-resurser. Även om Azures standardresurser ska utvärderas mot alla principobjekt kan du inaktivera enskilda principobjekt för alla Azure-resurser eller för en viss resursgrupp. Detaljerad information om säkerhetsprinciper i Security Center finns i [Ange säkerhetsprinciper i Azure Security Center](../../security-center/tutorial-security-policy.md). 
 
 Så här ställer du in en säkerhetsprincip för en hel prenumeration:
 
@@ -134,4 +134,3 @@ Gå vidare till nästa självstudiekurs om vill veta mer om hur du skapar en CI/
 
 > [!div class="nextstepaction"]
 > [Skapa CI/CD-infrastruktur med Jenkins, GitHub och Docker](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
-

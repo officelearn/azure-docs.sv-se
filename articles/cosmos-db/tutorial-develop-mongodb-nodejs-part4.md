@@ -10,12 +10,12 @@ ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: ec6165ba8ab33beba0b50d6b589b3d31269d7b1e
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: e1b67a5fc7b687804eb30c615648ab06bc308ba2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114477"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067277"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – skapa ett Cosmos-konto
 
@@ -31,7 +31,7 @@ Del 4 av självstudiekursen bygger vidare på [del 3](tutorial-develop-mongodb-n
 
 > [!VIDEO https://www.youtube.com/embed/hfUM-AbOh94]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Utför stegen i [del 3](tutorial-develop-mongodb-nodejs-part3.md) av självstudiekursen innan du påbörjar den här delen. 
 
@@ -61,7 +61,7 @@ Det kan ta ett par minuter innan kommandot har slutförts. När det är klart vi
 
 När Azure Cosmos DB-kontot har skapats:
 1. Öppna ett nytt webbläsarfönster och gå till[https://portal.azure.com](https://portal.azure.com)
-1. Klicka på Azure Cosmos DB-logotypen ![Azure Cosmos DB-ikon på Azure-portalen](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png) i det vänstra fältet så ser du alla dina Azure Cosmos DB-databaser.
+1. Klicka på Azure Cosmos DB logo typ :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png"::: i det vänstra fältet och visar alla Azure Cosmos-databaser som du har.
 1. Klicka på det Azure Cosmos DB-konto som du precis skapat, välj fliken **Översikt** och rulla nedåt tills du ser kartan som visar databasens plats. 
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png" alt-text="Nytt Azure Cosmos DB-konto på Azure-portalen":::

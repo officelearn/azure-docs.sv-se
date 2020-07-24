@@ -9,16 +9,16 @@ ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 6350e85552a6c92592dbe2b1a9cf48a35f86a7be
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: acd2ae54d81fb508d5f8c02262cf8c2f0f071fb5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198453"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080615"
 ---
-# <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Skapa och konfigurera ett nyckelvalv för Azure Disk Encryption
+# <a name="create-and-configure-a-key-vault-for-azure-disk-encryption"></a>Skapa och konfigurera ett nyckel valv för Azure Disk Encryption
 
-Azure Disk Encryption använder Azure Key Vault för att kontrol lera och hantera disk krypterings nycklar och hemligheter.  Mer information om nyckel valv finns i [Kom igång med Azure Key Vault](../key-vault/key-vault-get-started.md) och [skydda nyckel valvet](../key-vault/general/secure-your-key-vault.md).
+Azure Disk Encryption använder Azure Key Vault för att kontrol lera och hantera disk krypterings nycklar och hemligheter.  Mer information om nyckel valv finns i [Kom igång med Azure Key Vault](../key-vault/general/overview.md) och [skydda nyckel valvet](../key-vault/general/secure-your-key-vault.md).
 
 Att skapa och konfigurera ett nyckel valv som ska användas med Azure Disk Encryption omfattar tre steg:
 
@@ -32,7 +32,7 @@ Du kan också, om du vill, skapa eller importera en nyckel krypterings nyckel (K
 
 ## <a name="install-tools-and-connect-to-azure"></a>Installera verktyg och Anslut till Azure
 
-Stegen i den här artikeln kan utföras med [Azure CLI](/cli/azure/), [Azure PowerShell AZ-modulen](/powershell/azure/overview)eller [Azure Portal](https://portal.azure.com).
+Stegen i den här artikeln kan utföras med [Azure CLI](/cli/azure/), [Azure PowerShell AZ-modulen](/powershell/azure/)eller [Azure Portal](https://portal.azure.com).
 
 ### <a name="connect-to-your-azure-account"></a>Anslut till ditt Azure-konto
 

@@ -9,12 +9,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: I den här kursen får du lära dig hur du använder Azure dev Spaces och Visual Studio för att göra team utveckling på ett .NET Core-program i Azure Kubernetes service
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: c84c77fe7a425318700903427ff1c4aaa4e73a11
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5d917dc71ef02b5197ed8d20ec31c538a1af4c14
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82166044"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072978"
 ---
 # <a name="team-development-using-net-core-and-visual-studio-with-azure-dev-spaces"></a>Grupp utveckling med .NET Core och Visual Studio med Azure dev Spaces
 
@@ -36,7 +36,7 @@ Exempelprogrammet är inte komplext för tillfället. Men i en riktig utveckling
 * Vissa utvecklare försöker kringgå problemet genom att simulera eller testa många av tjänstberoendena. Den här metoden kan vara till hjälp, men att hantera dessa simuleringar kan snabbt börja påverka utvecklingskostnaden. Dessutom gör den metoden att din utvecklingsmiljö ser annorlunda ut jämfört med produktionen, vilket kan ge upphov till svårupptäckta buggar.
 * Av detta följer att all slags integreringstestning blir komplicerad. Realistiskt sett kan integrationstestning endast ske när koden checkats in, vilket kan medföra problem senare i utvecklingscykeln.
 
-    ![](media/common/microservices-challenges.png)
+    ![En bild som visar komplexiteten vid integrerings testningen genom att illustrera relationerna mellan en app service och dess beroenden.](media/common/microservices-challenges.png)
 
 ### <a name="work-in-a-shared-dev-space"></a>Arbeta i en delad utvecklarmiljö
 Med Azure Dev Spaces kan du konfigurera en *delad* utvecklarmiljö i Azure. Varje utvecklare kan fokusera på sin del av programmet, och kan arbeta med *icke incheckad kod* i en utvecklarmiljö som redan innehåller alla andra tjänster och molnresurser som krävs i det aktuella scenariot. Beroenden är alltid uppdaterade och utvecklarna arbetar på ett sätt som återspeglar produktionsmiljön.
@@ -45,7 +45,7 @@ Med Azure Dev Spaces kan du konfigurera en *delad* utvecklarmiljö i Azure. Varj
 När du utvecklar kod för en tjänst är koden sällan perfekt förrän du väljer att checka in den. Du arbetar ju fortfarande med den, testar den och experimenterar med lösningar. Azure Dev Spaces införlivar begreppet **utrymme**, som innebär att du kan arbeta isolerat, utan att oroa dig för att skada andra teammedlemmars kod.
 
 ## <a name="use-dev-spaces-for-team-development"></a>Använda Dev Spaces för teamutveckling
-Låt oss demonstrera dessa idéer med ett konkret exempel med vårt exempel program för *webfrontend* -> -*mywebapi* . Vi tänker oss ett scenario där utvecklaren Scott behöver göra en ändring i tjänsten *mywebapi*, och *enbart* den tjänsten. *webfrontend* behöver inte ändras i Scotts uppdatering.
+Låt oss demonstrera dessa idéer med ett konkret exempel med vårt exempel program för *webfrontend*-  ->  *mywebapi* . Vi tänker oss ett scenario där utvecklaren Scott behöver göra en ändring i tjänsten *mywebapi*, och *enbart* den tjänsten. *webfrontend* behöver inte ändras i Scotts uppdatering.
 
 _Utan_ användning av Dev Spaces skulle Scott vara begränsad till vissa sätt att utveckla och testa sina uppdatering. Inget av dessa lämpar sig särskilt väl:
 * Köra ALLA komponenter lokalt, vilket kräver en kraftfullare utvecklingsdator med Docker samt potentiellt MiniKube installerat.
@@ -63,8 +63,8 @@ Först behöver vi distribuera en baslinje för våra tjänster. Den här distri
 1. Högerklicka på projektet i **Solution Explorer** och välj **Egenskaper**.
 1. Visa Azure Dev Spaces-inställningarna genom att välja fliken **Felsök** till vänster.
 1. Välj **Ändra** för att skapa det utrymme som ska användas när du trycker på F5 eller Ctrl+F5 för tjänsten.
-1. I list rutan utrymme väljer ** \<du skapa nytt utrymme... \>**.
-1. Se till att det överordnade utrymmet är inställt på ** \<inget\>** och ange utrymmes namnet **dev**. Klicka på OK.
+1. I list rutan utrymme väljer du **\<Create New Space…\>** .
+1. Se till att det överordnade utrymmet är inställt på **\<none\>** och ange namn på utrymmes **utveckling**. Klicka på OK.
 1. Tryck på Ctrl+F5 för att köra _mywebapi_ utan felsökaren inkopplad.
 1. Växla till Visual Studio-fönstret med projektet _webfrontend_ och tryck på Ctrl+F5 för att köra även det.
 
@@ -88,17 +88,17 @@ Så här skapar du ett nytt utrymme:
 2. Högerklicka på projektet i **Solution Explorer** och välj **Egenskaper**.
 3. Visa Azure Dev Spaces-inställningarna genom att välja fliken **Felsök** till vänster.
 4. Härifrån kan du ändra eller skapa klustret och/eller utrymmet som ska användas när du kör F5 eller Ctrl+F5. *Kontrollera att det Azure Dev Spaces-utrymme som du skapade tidigare är valt*.
-5. I list rutan utrymme väljer ** \<du skapa nytt utrymme... \>**.
+5. I list rutan utrymme väljer du **\<Create New Space…\>** .
 
-    ![](media/get-started-netcore-visualstudio/Settings.png)
+    ![Skärm bild som visar valet av "Skapa nytt utrymme" i rutan utrymme på sidan Egenskaper för fel söknings projekt i Visual Studio-Solution Explorer.](media/get-started-netcore-visualstudio/Settings.png)
 
 6. I dialogrutan **Lägg till utrymme** anger du det överordnade utrymmet till **dev** och anger ett namn för ditt nya utrymme. Du kan använda ditt namn (till exempel ”scott”) för det nya utrymmet så att dina kolleger ser vilket utrymme du arbetar i. Klicka på **OK**.
 
-    ![](media/get-started-netcore-visualstudio/AddSpace.png)
+    ![Skärm bild som visar dialog rutan Lägg till utrymme för att lägga till ett nytt dev-utrymme för grupp utveckling.](media/get-started-netcore-visualstudio/AddSpace.png)
 
 7. Nu bör du se att ditt AKS-kluster och det nya utrymmet har valts på egenskapssidan för projektet.
 
-    ![](media/get-started-netcore-visualstudio/Settings2.png)
+    ![Skärm bild som visar AKS-klustret "MyAKS" och utrymmet "Scott" markerat på sidan Egenskaper för fel söknings projekt i Visual Studio-Solution Explorer.](media/get-started-netcore-visualstudio/Settings2.png)
 
 ### <a name="update-code-for-mywebapi"></a>Uppdatera koden för *mywebapi*
 
@@ -117,14 +117,14 @@ Så här skapar du ett nytt utrymme:
 
 Här är ett diagram som hjälper dig att förstå hur de olika utrymmena fungerar. Den lila vägen visar en begäran via utrymmet _dev_, vilket är standardsökvägen som används om inget utrymme har lagts till i URL:en. Den rosa vägen visar en begäran via utrymmet _dev/scott_.
 
-![](media/common/Space-Routing.png)
+![Ett diagram som visar skillnaderna i Sök vägs namn och routning av förfrågningar genom det nyligen skapade "dev/Scott"-utrymmet och standard utrymmet för utveckling.](media/common/Space-Routing.png)
 
 Med den här inbyggda funktionen i Azure Dev Spaces kan du testa kod från slutpunkt till slutpunkt i en delad miljö utan att varje utvecklare måste återskapa hela tjänststacken i deras respektive utrymme. Den här typen av routning kräver att spridningshuvuden vidarebefordras i programkoden, vilket illustrerades i föregående steg i den här guiden.
 
 ### <a name="test-code-running-in-the-_devscott_-space"></a>Testa den kod som körs i utrymmet _dev/scott_
-Om du vill testa den nya versionen av *mywebapi* tillsammans med *webfrontend*öppnar du webbläsaren till URL: en för den offentliga åtkomst punkten för *webfrontend* ( `http://dev.webfrontend.123456abcdef.eus.azds.io`till exempel) och går till sidan om. Du bör se det ursprungliga meddelandet ”Hello from webfrontend and Hello from mywebapi”.
+Om du vill testa den nya versionen av *mywebapi* tillsammans med *webfrontend*öppnar du webbläsaren till URL: en för den offentliga åtkomst punkten för *webfrontend* (till exempel `http://dev.webfrontend.123456abcdef.eus.azds.io` ) och går till sidan om. Du bör se det ursprungliga meddelandet ”Hello from webfrontend and Hello from mywebapi”.
 
-Lägg till delen ”scott.s.” en del till URL: en så att den kan\:läsa något som http//Scott.s.dev.webfrontend.123456abcdef.EUs.azds.io och uppdatera webbläsaren. Den brytpunkt som du angett i projektet *mywebapi* bör nås. Fortsätt genom att trycka på F5. Nu bör du se det nya meddelandet ”Hello from webfrontend and mywebapi now says something new”. Det beror på att sökvägen till den uppdaterade koden i *mywebapi* körs i utrymmet _dev/scott_.
+Lägg till delen ”scott.s.” en del till URL: en så att den kan läsa något som http \: //Scott.s.dev.webfrontend.123456abcdef.EUs.azds.io och uppdatera webbläsaren. Den brytpunkt som du angett i projektet *mywebapi* bör nås. Fortsätt genom att trycka på F5. Nu bör du se det nya meddelandet ”Hello from webfrontend and mywebapi now says something new”. Det beror på att sökvägen till den uppdaterade koden i *mywebapi* körs i utrymmet _dev/scott_.
 
 När du har ett _dev_-utrymme som alltid innehåller dina senaste ändringar, och under förutsättning att ditt program är utformat för att dra nytta av DevSpace utrymmesbaserade routning enligt beskrivningen i den här delen av självstudien, blir det förhoppningsvis enkelt att se hur Dev Spaces avsevärt kan underlätta testning av nya funktioner inom ramen för det större programmet. I stället för att behöva distribuera _alla_ tjänster till ditt privata utrymme kan du skapa ett privat utrymme som härleds från _dev_ och endast ”införa” de tjänster du faktiskt arbetar med. Dev Spaces-routningsinfrastrukturen hanterar resten genom att utnyttja så många tjänster utanför ditt privata adressutrymme som går att hitta, samtidigt som det återgår till den senaste versionen som körs i utrymmet _dev_. Ännu bättre är att _flera_ utvecklare aktivt kan utveckla olika tjänster samtidigt i sina egna utrymmen utan att störa varandra.
 

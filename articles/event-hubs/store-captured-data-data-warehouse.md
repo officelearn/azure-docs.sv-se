@@ -4,16 +4,16 @@ description: 'Självstudie: den här själv studie kursen visar hur du samlar in
 services: event-hubs
 ms.date: 06/23/2020
 ms.topic: tutorial
-ms.openlocfilehash: b5f38c1a5b60dc8c8f0d9e8710c5dbc95434fe78
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 8d45681b53aa2dd8df8c2288fecdde1b45fb7bd4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322499"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039505"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Självstudie: Migrera insamlade Event Hubs data till en SQL Data Warehouse med Event Grid och Azure Functions
 
-Event Hubs [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) är det enklaste sättet att automatiskt leverera strömmade data i Event Hubs till Azure Blob-lagring eller Azure Data Lake-lagring. Du kan sedan bearbeta och leverera data till andra lagringsmål, som SQL Data Warehouse eller Cosmos DB. I den här självstudien lär du dig att samla in data från din händelsehubb till ett SQL Data Warehouse med en Azure-funktion som utlöses av ett [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) (händelserutnät).
+Event Hubs [Capture](./event-hubs-capture-overview.md) är det enklaste sättet att automatiskt leverera strömmade data i Event Hubs till Azure Blob-lagring eller Azure Data Lake-lagring. Du kan sedan bearbeta och leverera data till andra lagringsmål, som SQL Data Warehouse eller Cosmos DB. I den här självstudien lär du dig att samla in data från din händelsehubb till ett SQL Data Warehouse med en Azure-funktion som utlöses av ett [Event Grid](../event-grid/overview.md) (händelserutnät).
 
 ![Visual Studio](./media/store-captured-data-data-warehouse/EventGridIntegrationOverview.PNG)
 
@@ -31,7 +31,7 @@ I den här självstudien gör du följande:
 > - Strömma exempeldata till Event Hub.
 > - Verifiera insamlade data i SQL Data Warehouse
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -130,7 +130,7 @@ När du har publicerat funktionen är du klar att prenumerera på insamlingshän
 
 ## <a name="create-an-event-grid-subscription-from-the-functions-app"></a>Skapa en Event Grid-prenumeration från Functions-appen
  
-1. Gå till [Azure Portal](https://portal.azure.com/). Välj din resursgrupp och funktionsapp.
+1. Öppna [Azure-portalen](https://portal.azure.com/). Välj din resursgrupp och funktionsapp.
 
    ![Visa funktionsapp](./media/store-captured-data-data-warehouse/view-function-app.png)
 
@@ -178,7 +178,4 @@ Vänta några minuter och skicka sedan en fråga till tabellen i informationslag
 ## <a name="next-steps"></a>Nästa steg 
 Du kan använda kraftfulla verktyg för datavisualisering med ditt informationslager för att få värdefull kunskap.
 
-Den här artikeln visar hur du använder [Power BI med SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-integrate-power-bi)
-
-
-
+Den här artikeln visar hur du använder [Power BI med SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-integrate-power-bi)

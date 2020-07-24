@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d269b95e5e6fb8491afd4c2f9729cbb047cf3419
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7fe1c01542df2fcc38982fe2a30f9e94c712eacb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100455"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065253"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Självstudier: Skapa och distribuera virtuella datorer med hög tillgänglighet med Azure PowerShell
 
@@ -41,13 +41,13 @@ Använd tillgänglighetsuppsättningar när du vill distribuera tillförlitliga 
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/powershell](https://shell.azure.com/powershell)gå till. Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att gå till [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 ## <a name="create-an-availability-set"></a>Skapa en tillgänglighetsuppsättning
 
 Maskinvaran på en plats är uppdelad i flera uppdateringsdomäner och feldomäner. En **uppdateringsdomän** är en grupp av underliggande fysisk maskinvara som kan startas om samtidigt. De virtuella datorerna i samma **feldomän** delar samma lagring, strömkälla och nätverksväxel.  
 
-Du kan skapa en tillgänglighetsuppsättning med hjälp av [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset). I det här exemplet är antalet för både uppdateringsdomäner och feldomäner *2*, och tillgänglighetsuppsättningen heter *myAvailabilitySet*.
+Du kan skapa en tillgänglighetsuppsättning med hjälp av [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). I det här exemplet är antalet för både uppdateringsdomäner och feldomäner *2*, och tillgänglighetsuppsättningen heter *myAvailabilitySet*.
 
 Skapa en resursgrupp.
 
@@ -57,7 +57,7 @@ New-AzResourceGroup `
    -Location EastUS
 ```
 
-Skapa en hanterad tillgänglighetsuppsättning med hjälp av [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset) med parametern `-sku aligned`.
+Skapa en hanterad tillgänglighetsuppsättning med hjälp av [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) med parametern `-sku aligned`.
 
 ```azurepowershell-interactive
 New-AzAvailabilitySet `
@@ -73,15 +73,15 @@ New-AzAvailabilitySet `
 De virtuella datorerna måste skapas i tillgänglighetsuppsättningen för att säkerställa att de distribueras i maskinvaran. Du kan inte lägga till en befintlig virtuell dator i en tillgänglighetsuppsättning efter att den har skapats. 
 
 
-När du skapar en virtuell dator med hjälp av [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) använder du parametern `-AvailabilitySetName` för att ange namnet på tillgänglighetsuppsättningen.
+När du skapar en virtuell dator med hjälp av [New-AzVM](/powershell/module/az.compute/new-azvm) använder du parametern `-AvailabilitySetName` för att ange namnet på tillgänglighetsuppsättningen.
 
-Ange först ett administratörsanvändarnamn och lösenord för den virtuella datorn med [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Ange först ett administratörsanvändarnamn och lösenord för den virtuella datorn med [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Skapa nu två virtuella datorer med hjälp av [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) i tillgänglighetsuppsättningen.
+Skapa nu två virtuella datorer med hjälp av [New-AzVM](/powershell/module/az.compute/new-azvm) i tillgänglighetsuppsättningen.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
@@ -101,13 +101,13 @@ for ($i=1; $i -le 2; $i++)
 
 Det tar några minuter att skapa och konfigurera de virtuella datorerna. När du är klar har du två virtuella datorer distribuerade över den underliggande maskinvaran. 
 
-Om du tittar på tillgänglighets uppsättningen i portalen genom att gå till **resurs grupper** > **myResourceGroupAvailability** > **myAvailabilitySet**bör du se hur de virtuella datorerna distribueras mellan de två fel-och uppdaterings domänerna.
+Om du tittar på tillgänglighets uppsättningen i portalen genom att gå till **resurs grupper**  >  **myResourceGroupAvailability**  >  **myAvailabilitySet**bör du se hur de virtuella datorerna distribueras mellan de två fel-och uppdaterings domänerna.
 
 ![Tillgänglighetsuppsättning i portalen](./media/tutorial-availability-sets/fd-ud.png)
 
 ## <a name="check-for-available-vm-sizes"></a>Kontrollera tillgängliga VM-storlekar 
 
-När du skapar en virtuell dator inuti en tillgänglighets uppsättning måste du veta vilka VM-storlekar som är tillgängliga på maskin varan. Använd kommandot [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) för att hämta alla tillgängliga storlekar för virtuella datorer som du kan distribuera i tillgänglighets uppsättningen.
+När du skapar en virtuell dator inuti en tillgänglighets uppsättning måste du veta vilka VM-storlekar som är tillgängliga på maskin varan. Använd kommandot [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize) för att hämta alla tillgängliga storlekar för virtuella datorer som du kan distribuera i tillgänglighets uppsättningen.
 
 ```azurepowershell-interactive
 Get-AzVMSize `
@@ -136,5 +136,3 @@ Gå vidare till nästa kurs vill veta mer om VM-skalningsuppsättningar.
 
 > [!div class="nextstepaction"]
 > [Skapa en skalnings uppsättning för virtuella datorer](tutorial-create-vmss.md)
-
-

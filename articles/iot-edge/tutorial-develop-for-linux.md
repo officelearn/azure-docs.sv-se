@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 478d9c0485125870f8d5ffb4132f46476b4bb4ef
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 924654dace53b326e3a29bb834f773122b0476ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80384372"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081125"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Självstudie: utveckla IoT Edge moduler för Linux-enheter
 
@@ -45,7 +45,7 @@ Den här kursen riktar sig till Linux-enheter som kör IoT Edge. Du kan använda
 
 I följande tabell visas de utvecklings scenarier som stöds för **Linux-behållare** i Visual Studio Code och Visual Studio.
 
-|   | Visual Studio-koden | Visual Studio 2017/2019 |
+|   | Visuell Studio-kod | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Arkitektur för Linux-enhet** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
 | **Azure-tjänster** | Azure Functions <br> Azure Stream Analytics <br> Azure Machine Learning |   |
@@ -57,7 +57,7 @@ I följande tabell visas de utvecklings scenarier som stöds för **Linux-behål
 
 I den här självstudien får du lära dig utvecklings stegen för Visual Studio Code. Om du hellre vill använda Visual Studio läser du instruktionerna i [använda Visual studio 2019 för att utveckla och felsöka moduler för Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En utvecklings dator:
 
@@ -98,19 +98,19 @@ Använd IoT-tilläggen för Visual Studio Code för att utveckla IoT Edge module
 
 1. Installera [Visual Studio Code](https://code.visualstudio.com/) på utvecklings datorn.
 
-2. När installationen är färdig väljer du **Visa** > **tillägg**.
+2. När installationen är färdig väljer du **Visa**  >  **tillägg**.
 
 3. Sök efter **Azure IoT-verktyg**, som i själva verket är en samling tillägg som hjälper dig att interagera med IoT Hub-och IoT-enheter samt utveckla IoT Edge moduler.
 
 4. Välj **Installera**. Varje inkluderat tillägg installeras individuellt.
 
-5. När du har installerat tilläggen öppnar du paletten kommando genom att välja **Visa** > **kommando palett**.
+5. När du har installerat tilläggen öppnar du paletten kommando genom att välja **Visa**  >  **kommando palett**.
 
 6. I paletten kommando söker du efter och väljer **Azure: Logga**in. Följ anvisningarna för att logga in på ditt Azure-konto.
 
 7. I kommando paletten igen söker du efter och väljer **Azure-IoT Hub: välj IoT Hub**. Följ anvisningarna för att välja din Azure-prenumeration och IoT Hub.
 
-8. Öppna avsnittet Explorer i Visual Studio Code genom att antingen välja ikonen i aktivitets fältet till vänster eller genom att välja **Visa** > **Utforskaren**.
+8. Öppna avsnittet Explorer i Visual Studio Code genom att antingen välja ikonen i aktivitets fältet till vänster eller genom att välja **Visa**  >  **Utforskaren**.
 
 9. Längst ned i Explorer-avsnittet expanderar du menyn komprimerade **Azure IoT Hub-enheter** . Du bör se de enheter och IoT Edge enheter som är kopplade till den IoT-hubb som du valde via kommando paletten.
 
@@ -128,25 +128,25 @@ I den här självstudien använder vi C#-modulen, eftersom det är den mall som 
 
 I kommando paletten Visual Studio Code söker du efter och väljer **Azure IoT Edge: ny IoT Edge lösning**. Följ anvisningarna och Använd följande värden för att skapa din lösning:
 
-   | Field | Värde |
+   | Fält | Värde |
    | ----- | ----- |
    | Välj mapp | Välj den plats på utvecklingsdatorn där Visual Studio Code ska skapa lösningsfilerna. |
    | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen eller acceptera standardnamnet **EdgeSolution**. |
    | Välj modulmall | Välj **C#-modul**. |
    | Ange ett modulnamn | Godkänn standard- **SampleModule**. |
-   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen fylls i baserat på det namn du angav i föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. <br><br> Den slutliga avbildnings lagrings \<platsen ser\>ut som register namn. azurecr.io/samplemodule. |
+   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen fylls i baserat på det namn du angav i föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. <br><br> Den slutliga avbildnings lagrings platsen ser ut som \<registry name\> . azurecr.io/samplemodule. |
 
    ![Ange lagringsplatsen för Docker-avbildningen](./media/tutorial-develop-for-linux/image-repository.png)
 
 När din nya lösning har lästs in i Visual Studio Code-fönstret kan du bekanta dig med de filer som den skapade:
 
-* Mappen **. VSCode** innehåller en fil med namnet **Launch. JSON**, som används för fel sökning av moduler.
+* Mappen **. VSCode** innehåller en fil med namnet **launch.jspå**, som används för fel söknings moduler.
 * Mappen **moduler** innehåller en mapp för varje modul i din lösning. Just nu är det bara **SampleModule**eller det namn som du har fått till modulen. Mappen SampleModule innehåller huvud program koden, modulens metadata och flera Docker-filer.
 * **. Miljö** filen innehåller autentiseringsuppgifterna till behållar registret. Autentiseringsuppgifterna delas med din IoT Edge-enhet så att de har åtkomst till att hämta behållar avbildningarna.
-* Filen **Deployment. debug. template. JSON** File och **Deployment. template. JSON** är mallar som hjälper dig att skapa ett distributions manifest. Ett *distributions manifest* är en fil som definierar exakt vilka moduler som du vill distribuera på en enhet, hur de ska konfigureras och hur de kan kommunicera med varandra och molnet. Mallfilerna använder punkter för vissa värden. När du transformerar mallen till ett sant distributions manifest ersätts pekarna med värden som tas från andra lösningsfiler. Leta upp de två vanliga plats hållarna i distributions mal len:
+* **deployment.debug.template.jsi** filen och **deployment.template.jspå** filen är mallar som hjälper dig att skapa ett distributions manifest. Ett *distributions manifest* är en fil som definierar exakt vilka moduler som du vill distribuera på en enhet, hur de ska konfigureras och hur de kan kommunicera med varandra och molnet. Mallfilerna använder punkter för vissa värden. När du transformerar mallen till ett sant distributions manifest ersätts pekarna med värden som tas från andra lösningsfiler. Leta upp de två vanliga plats hållarna i distributions mal len:
 
   * I avsnittet autentiseringsuppgifter för registret fylls adressen till från den information som du angav när du skapade lösningen. Användar namnet och lösen ordet refererar dock till de variabler som lagras i. miljö-filen. Den här konfigurationen är av säkerhets nivå, eftersom. filen. ".
-  * I avsnittet SampleModule fylls behållar avbildningen inte i, även om du angav avbildnings lagrings platsen när du skapade lösningen. Plats hållaren pekar på filen **module. JSON** i mappen SampleModule. Om du går till filen ser du att bild fältet innehåller lagrings platsen, men också ett tagg värde som består av versionen och behållarens plattform. Du kan iterera versionen manuellt som en del av din utvecklings cykel och du väljer behållar plattformen med en växlaren som vi introducerar senare i det här avsnittet.
+  * I avsnittet SampleModule fylls behållar avbildningen inte i, även om du angav avbildnings lagrings platsen när du skapade lösningen. Plats hållaren pekar på **module.jspå** filen i mappen SampleModule. Om du går till filen ser du att bild fältet innehåller lagrings platsen, men också ett tagg värde som består av versionen och behållarens plattform. Du kan iterera versionen manuellt som en del av din utvecklings cykel och du väljer behållar plattformen med en växlaren som vi introducerar senare i det här avsnittet.
 
 ### <a name="provide-your-registry-credentials-to-the-iot-edge-agent"></a>Ange autentiseringsuppgifterna för registret för IoT Edge agenten
 
@@ -190,7 +190,7 @@ C#-koden som medföljer projekt mal len använder [klassen ModuleClient](https:/
 
    ![Hitta utdatafilens namn i SendEventToOutputAsync](./media/tutorial-develop-for-linux/declare-output-queue.png)
 
-6. Öppna filen **Deployment. template. JSON** .
+6. Öppna filen **deployment.template.js** .
 
 7. Hitta egenskapen **modules** för de $edgeAgent önskade egenskaperna.
 
@@ -198,9 +198,9 @@ C#-koden som medföljer projekt mal len använder [klassen ModuleClient](https:/
 
 8. Leta upp önskade egenskaper för **$edgeHub** -modulen längst ned i filen.
 
-   En av funktionerna i modulen IoT Edge Hub är att dirigera meddelanden mellan alla moduler i en distribution. Granska värdena i egenskapen **routes** . Den första vägen, **SampleModuleToIoTHub**, använder ett jokertecken (**\***) för att ange alla meddelanden som kommer från alla utgående köer i SampleModule-modulen. Dessa meddelanden hamnar i *$upstream*, vilket är ett reserverat namn som anger IoT Hub. Den andra vägen, sensorToSampleModule, tar meddelanden från SimulatedTemperatureSensor-modulen och dirigerar dem till den *INPUT1* -indatakö som du såg i SampleModule-koden.
+   En av funktionerna i modulen IoT Edge Hub är att dirigera meddelanden mellan alla moduler i en distribution. Granska värdena i egenskapen **routes** . Den första vägen, **SampleModuleToIoTHub**, använder ett jokertecken ( **\*** ) för att ange alla meddelanden som kommer från alla utgående köer i SampleModule-modulen. Dessa meddelanden hamnar i *$upstream*, vilket är ett reserverat namn som anger IoT Hub. Den andra vägen, sensorToSampleModule, tar meddelanden från SimulatedTemperatureSensor-modulen och dirigerar dem till den *INPUT1* -indatakö som du såg i SampleModule-koden.
 
-   ![Granska vägar i distributionen. template. JSON](./media/tutorial-develop-for-linux/deployment-routes.png)
+   ![Granska vägar i deployment.template.jspå](./media/tutorial-develop-for-linux/deployment-routes.png)
 
 ## <a name="build-and-push-your-solution"></a>Skapa och push-överföra lösningen
 
@@ -210,7 +210,7 @@ Du har granskat modulens kod och distributions mal len för att förstå några 
 
 Ange dina autentiseringsuppgifter för behållar registret till Docker så att den kan skicka behållar avbildningen så att den lagras i registret.
 
-1. Öppna Visual Studio Code Integrated Terminal genom att välja **Visa** > **Terminal**.
+1. Öppna Visual Studio Code Integrated Terminal genom att välja **Visa**  >  **Terminal**.
 
 2. Logga in på Docker med de autentiseringsuppgifter för Azure Container Registry som du sparade när du skapade registret.
 
@@ -218,36 +218,42 @@ Ange dina autentiseringsuppgifter för behållar registret till Docker så att d
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   Du kan få en säkerhets varning som rekommenderar att du använder `--password-stdin`. Det bästa tillvägagångs sättet rekommenderas för produktions scenarier, men det ligger utanför omfånget för den här självstudien. Mer information finns i [inloggnings referens för Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
+   Du kan få en säkerhets varning som rekommenderar att du använder `--password-stdin` . Det bästa tillvägagångs sättet rekommenderas för produktions scenarier, men det ligger utanför omfånget för den här självstudien. Mer information finns i [inloggnings referens för Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
+   
+3. Logga in på Azure Container Registry
+
+   ```cmd/sh
+   az acr login -n <ACR registry name>
+   ```
 
 ### <a name="build-and-push"></a>Bygg och skicka
 
 Visual Studio Code har nu åtkomst till ditt behållar register, så det är dags att omvandla lösnings koden till en behållar avbildning.
 
-1. I Visual Studio Code Explorer högerklickar du på filen **Deployment. template. JSON** och väljer **Build och push IoT Edge-lösning**.
+1. I Visual Studio Code Explorer högerklickar du på filen **deployment.template.js** och väljer **Build och push IoT Edge lösning**.
 
    ![Bygga och push-IoT Edge moduler](./media/tutorial-develop-for-linux/build-and-push-modules.png)
 
-   Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** och som innehåller det fullständiga distributions manifestet, och bygger ut information i distributions mal len och andra filer i lösningen. Sedan körs `docker build` den för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs `docker push` den för att skicka avbildnings lagrings platsen till behållar registret.
+   Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** och som innehåller det fullständiga distributions manifestet, och bygger ut information i distributions mal len och andra filer i lösningen. Sedan körs den `docker build` för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs den `docker push` för att skicka avbildnings lagrings platsen till behållar registret.
 
    Den här processen kan ta flera minuter första gången, men går snabbare nästa gång du kör kommandona.
 
-2. Öppna filen **Deployment. amd64. JSON** i den nyligen skapade mappen config. Fil namnet visar mål arkitekturen, så det är en annan om du väljer en annan arkitektur.
+2. Öppna filen **deployment.amd64.jspå** filen i den nyligen skapade mappen config. Fil namnet visar mål arkitekturen, så det är en annan om du väljer en annan arkitektur.
 
-3. Observera att de två parametrarna som hade plats hållare nu fylls med sina rätta värden. I avsnittet **registryCredentials** finns ditt register användar namn och lösen ord hämtade från. miljö-filen. **SampleModule** har en fullständig avbildnings lagrings plats med taggen Name, version och Architecture från filen module. JSON.
+3. Observera att de två parametrarna som hade plats hållare nu fylls med sina rätta värden. I avsnittet **registryCredentials** finns ditt register användar namn och lösen ord hämtade från. miljö-filen. **SampleModule** har den fullständiga avbildnings lagrings platsen med namnet, versionen och arkitektur tag gen från module.jsi filen.
 
-4. Öppna filen **module. JSON** i mappen SampleModule.
+4. Öppna filen **module.js** i mappen SampleModule
 
 5. Ändra versions numret för modulens bild. (Versionen, inte $schema-versionen.) Du kan till exempel öka korrigerings versions numret till **0.0.2** som om vi hade gjort en liten korrigering i modulens kod.
 
    >[!TIP]
    >Med versioner av versioner aktiverar du versions kontroll och du kan testa ändringar på en liten uppsättning enheter innan du distribuerar uppdateringar till produktion. Om du inte ökar modulens version innan du skapar och skickar, skriver du över lagrings platsen i behållar registret.
 
-6. Spara ändringarna i filen module. JSON.
+6. Spara ändringarna i module.jspå filen.
 
-7. Högerklicka på filen **Deployment. template. JSON** igen och välj sedan **build-och push-IoT Edge lösning**igen.
+7. Högerklicka på **deployment.template.js** filen igen och välj sedan **build-och push-IoT Edge lösning**igen.
 
-8. Öppna filen **Deployment. amd64. JSON** igen. Observera att en ny fil inte skapades när du körde kommandot build och push igen. I stället har samma fil uppdaterats för att återspegla ändringarna. SampleModule-avbildningen pekar nu mot 0.0.2-versionen av behållaren.
+8. Öppna **deployment.amd64.js** filen igen. Observera att en ny fil inte skapades när du körde kommandot build och push igen. I stället har samma fil uppdaterats för att återspegla ändringarna. SampleModule-avbildningen pekar nu mot 0.0.2-versionen av behållaren.
 
 9. För att ytterligare kontrol lera vad build och push-kommandot gjorde går du till [Azure Portal](https://portal.azure.com) och navigerar till behållar registret.
 
@@ -257,12 +263,12 @@ Visual Studio Code har nu åtkomst till ditt behållar register, så det är dag
 
 <!--Alternative steps: Use VS Code Docker tools to view ACR images with tags-->
 
-### <a name="troubleshoot"></a>Felsöka
+### <a name="troubleshoot"></a>Felsök
 
 Om du stöter på fel när du skapar och skickar en modultyp måste det ofta göras med Docker-konfiguration på din utvecklings dator. Använd följande kontroller för att granska konfigurationen:
 
 * Körde du `docker login` kommandot med de autentiseringsuppgifter som du kopierade från behållar registret? De här autentiseringsuppgifterna skiljer sig från de som du använder för att logga in på Azure.
-* Stämmer containerlagringsplatsen? Har du rätt namn på behållar registret och rätt Modulnamn? Öppna filen **module. JSON** i mappen SampleModule för att kontrol lera. Värdet för lagring bör se ut som ** \<register\>namn. azurecr.io/samplemodule**.
+* Stämmer containerlagringsplatsen? Har du rätt namn på behållar registret och rätt Modulnamn? Öppna filen **module.js** i mappen SampleModule för att kontrol lera. Värdet för lagring bör se ut som ** \<registry name\> . azurecr.io/samplemodule**.
 * Om du har använt ett annat namn än **SampleModule** för modulen, är det namnet konsekvent i lösningen?
 * Kör datorn samma typ av behållare som du skapar? Den här självstudien gäller för Linux IoT Edge-enheter, så Visual Studio Code bör säga **amd64** eller **arm32v7** i sido fältet, och Docker Skriv bordet ska köra Linux-behållare.  
 
@@ -276,9 +282,9 @@ Du verifierade att de inbyggda behållar avbildningarna lagras i behållar regis
 
    ![Skapa distribution för en enskild enhet](./media/tutorial-develop-for-linux/create-deployment.png)
 
-3. I Utforskaren navigerar du till mappen **config** och väljer sedan filen **Deployment. amd64. JSON** .
+3. I Utforskaren navigerar du till mappen **config** och väljer sedan filen **deployment.amd64.js** .
 
-   Använd inte filen Deployment. template. JSON, som inte har autentiseringsuppgifterna för behållar registret eller modulens avbildnings värden. Om du använder en Linux ARM32-enhet får distributions manifestet namnet Deployment. arm32v7. JSON.
+   Använd inte deployment.template.jspå filen, som inte har autentiseringsuppgifter för behållar registret eller modulens bildvärden. Om du är mål för en Linux ARM32-enhet får distributions manifestet namnet deployment.arm32v7.jspå.
 
 4. Expandera informationen för din IoT Edge-enhet och expandera sedan listan med **moduler** för enheten.
 
@@ -327,8 +333,8 @@ Kommandona i det här avsnittet gäller för din IoT Edge-enhet, inte din utveck
 I den här självstudien ställer du in Visual Studio Code på utvecklings datorn och distribuerar din första IoT Edge modul från den. Nu när du känner till de grundläggande begreppen kan du försöka lägga till funktioner i en modul så att den kan analysera data som passerar genom den. Välj önskat språk:
 
 > [!div class="nextstepaction"]
-> [C](tutorial-c-module.md)
-> [C#](tutorial-csharp-module.md)
-> 
-> [Python](tutorial-python-module.md) [Java](tutorial-java-module.md)Java Node[. js](tutorial-node-module.md)python
-> 
+> [C](tutorial-c-module.md) 
+>  [C#](tutorial-csharp-module.md) 
+>  [Java](tutorial-java-module.md) 
+>  [Node.js](tutorial-node-module.md) 
+>  [Python](tutorial-python-module.md)

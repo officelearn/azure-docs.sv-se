@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 12/14/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: ed3cda35b416eb171b8bb7970fcce38a1f916f30
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: fedeb9fd1b2dd3bd47f3d950d506e2b2854bfd82
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253070"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008800"
 ---
 # <a name="set-up-custom-domain"></a>Konfigurera en anpassad CDN-domän
 
@@ -45,6 +45,6 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](/powershell/azure/).
 
 Ytterligare Azure PowerShell-exempel för Azure API Management finns i [PowerShell-exempel](../powershell-samples.md).

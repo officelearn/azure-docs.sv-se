@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 022e6eb517987207755d31fdb1820e35197d8dc6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: d281b8a438710cc98307e41210c3435b26483acd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202120"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013376"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Så här använder du Key Vault mjuk borttagning med PowerShell
 
@@ -27,7 +27,7 @@ Azure Key Vault funktionen för mjuk borttagning tillåter återställning av bo
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-- Azure PowerShell 1.0.0 eller senare – om du inte har den här installationen, installerar Azure PowerShell och associerar den med din Azure-prenumeration, se [så här installerar och konfigurerar du Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
+- Azure PowerShell 1.0.0 eller senare – om du inte har den här installationen, installerar Azure PowerShell och associerar den med din Azure-prenumeration, se [så här installerar och konfigurerar du Azure PowerShell](https://docs.microsoft.com/powershell/azure/). 
 
 >[!NOTE]
 > Det finns en inaktuell version av vår Key Vault PowerShell-fil för utdatafiler som **kan** läsas in i din miljö i stället för till rätt version. Vi förväntar sig en uppdaterad version av PowerShell som innehåller den korrigering som behövs för formatering av utdata och kommer att uppdatera det här avsnittet vid den tidpunkten. Den aktuella lösningen, om du stöter på det här formaterings problemet, är:

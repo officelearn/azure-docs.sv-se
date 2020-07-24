@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/04/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5842d21f9fb35cd8fddc5521d630d597aedcc2ba
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 0ac13dc669ed20df58f05c672926b7bee55dbc90
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983157"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035034"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Självstudie: gör det möjligt för användare att låsa upp kontot eller återställa lösen ord med hjälp av Azure Active Directory självbetjäning för återställning av lösen ord
 
 Azure Active Directory (Azure AD) självbetjäning för återställning av lösen ord (SSPR) ger användare möjlighet att ändra eller återställa sitt lösen ord, utan någon administratör eller support vid inblandning. Om ett användar konto är låst eller om det glömmer sitt lösen ord, kan de följa prompter för att avblockera sig själva och komma tillbaka till arbetet. Detta minskar risken för support och produktivitets förlust när en användare inte kan logga in på sin enhet eller ett program.
 
 > [!IMPORTANT]
-> Den här snabb starten visar en administratör för att aktivera återställning av lösen ord för självbetjäning. Om du är en slutanvändare som redan är registrerad för lösen ords återställning via självbetjäning och behöver gå tillbaka till ditt konto, går du till https://aka.ms/sspr .
+> I den här självstudien visas en administratör för att aktivera återställning av lösen ord för självbetjäning. Om du är en slutanvändare som redan är registrerad för lösen ords återställning via självbetjäning och behöver gå tillbaka till ditt konto, går du till https://aka.ms/sspr .
 >
 > Om IT-teamet inte har aktiverat möjligheten att återställa ditt eget lösen ord kan du kontakta supportavdelningen för ytterligare hjälp.
 
@@ -41,9 +41,9 @@ För att slutföra den här självstudien behöver du följande resurser och beh
     * Om det behövs kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Ett konto med *Global administratörs* behörighet.
 * En icke-administratörs användare med ett lösen ord som du känner till, till exempel *testuser*. Du testar slutanvändarens SSPR-upplevelse med det här kontot i den här självstudien.
-    * Om du behöver skapa en användare, se [snabb start: Lägg till nya användare i Azure Active Directory](../add-users-azure-active-directory.md).
+    * Om du behöver skapa en användare, se [snabb start: Lägg till nya användare i Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * En grupp som inte är administratörs användare som är medlem i, till exempel *SSPR-test-Group*. Du aktiverar SSPR för den här gruppen i den här självstudien.
-    * Om du behöver skapa en grupp, se så här [skapar du en grupp och lägger till medlemmar i Azure Active Directory](../active-directory-groups-create-azure-portal.md).
+    * Om du behöver skapa en grupp, se så här [skapar du en grupp och lägger till medlemmar i Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="enable-self-service-password-reset"></a>Aktivera lösenordsåterställning via självbetjäning
 
@@ -78,8 +78,8 @@ När användarna behöver låsa upp sitt konto eller återställa sitt lösen or
     * *Kod för mobilapp*
     * *E-post*
     * *Mobiltelefon*
-    * *Arbetstelefon*
-    * *Säkerhetsfrågor*
+
+    Ytterligare autentiseringsmetoder, till exempel *Office Phone* eller *säkerhets frågor*, kan aktive ras efter behov för att passa dina affärs behov.
 
 1. Om du vill använda autentiseringsmetoder väljer du **Spara**.
 
@@ -95,7 +95,7 @@ En administratör kan ange kontakt information manuellt eller så kan användarn
 
 ## <a name="configure-notifications-and-customizations"></a>Konfigurera meddelanden och anpassningar
 
-Om du vill hålla användare informerade om konto aktivitet kan du konfigurera e-postaviseringar som ska skickas när en SSPR-händelse inträffar. Dessa meddelanden kan avse både vanliga användar konton och administratörs konton. För administratörs konton ger det här meddelandet ytterligare ett informations lager när lösen ordet för privilegierade administratörs konton återställs med hjälp av SSPR.
+Om du vill hålla användare informerade om konto aktivitet kan du konfigurera e-postaviseringar som ska skickas när en SSPR-händelse inträffar. Dessa meddelanden kan avse både vanliga användar konton och administratörs konton. För administratörs konton ger det här meddelandet ytterligare ett informations lager när lösen ordet för privilegierade administratörs konton återställs med hjälp av SSPR. Alla globala administratörer meddelas när SSPR används på ett administratörs konto.
 
 1. På sidan **meddelanden** från menyn till vänster konfigurerar du följande alternativ:
 

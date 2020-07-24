@@ -17,12 +17,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 709926671e1ad4d8beefaf0f1cff4c56b1948ca3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b96f337b27e40c5eaec88e220ca3fee6904df905
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80127372"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022284"
 ---
 # <a name="tutorial-send-push-notification-to-specific-android-users-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Självstudie: skicka push-meddelanden till vissa Android-användare med Azure Notification Hubs och Google Cloud Messaging (inaktuellt)
 
@@ -40,7 +40,7 @@ I den här självstudien gör du följande:
 > * Uppdatera Android-programmet.
 > * Testa appen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför [Självstudie: Push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md) innan du börjar med den här självstudien.
 
@@ -154,7 +154,7 @@ Nästa steg är att uppdatera Android-programmet som skapades i [Självstudie: P
 
     Den grafiska layouten för `main_activity.xml` bör nu se ut som följande bild:
 
-    ![][A1]
+    ![Skärm bild av en app med rutor för användar namn, lösen ord, mottagare och meddelande, samt knappar för att logga in och skicka meddelanden.][A1]
 3. Skapa en ny klass med namnet `RegisterClient` i samma paket som klassen `MainActivity`. Använd koden nedan för den nya klassfilen.
 
     ```java
@@ -406,7 +406,7 @@ Nästa steg är att uppdatera Android-programmet som skapades i [Självstudie: P
     }
     ```
 
-    Hanteraren för **inloggnings** knappen genererar en grundläggande autentiseringstoken med hjälp av användar namn och lösen ord (den representerar alla token som används i autentiseringsschemat) och använder `RegisterClient` sedan för att anropa Server delen för registrering. `login`
+    `login`Hanteraren för **inloggnings** knappen genererar en grundläggande autentiseringstoken med hjälp av användar namn och lösen ord (den representerar alla token som används i autentiseringsschemat) och använder sedan `RegisterClient` för att anropa Server delen för registrering.
 
     `sendPush`-metoden anropar serverdelen för att utlösa ett säkert meddelande till användaren baserat på användartaggen. Plattformens meddelandetjänst som `sendPush` har som mål är beroende av `pns`-strängen som skickats.
 
@@ -474,7 +474,7 @@ Nästa steg är att uppdatera Android-programmet som skapades i [Självstudie: P
 2. Ange ett användarnamn och lösenord i Android-appen. De måste båda ha samma strängvärde och får inte innehålla blanksteg eller specialtecken.
 3. Klicka på **Logga**in i Android-appen. Vänta på ett popup-meddelande med texten **Inloggad och registrerad**. Detta aktiverar knappen **Skicka meddelande**.
 
-    ![][A2]
+    ![Skärm bild av en app. Ett popup-meddelande som bekräftar att användaren är inloggad och registrerad är synlig och knappen Skicka meddelande är aktive rad.][A2]
 4. Klicka på växlingsknapparna för att aktivera alla plattformar där du körde appen och registrerade en användare.
 5. Ange namnet på den användare som får meddelandet. Användaren måste vara registrerad för meddelanden på målenheterna.
 6. Ange ett meddelande som användaren ska få som ett push-meddelande.

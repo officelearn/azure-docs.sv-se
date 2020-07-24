@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: eb00234fb7522c763dbaa910bee99cf327bebaf1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 80fcebec76788ca9ec754b35c57f9965f38c2c0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77597906"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037107"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Självstudie: Utöka Windows-filservrar med Azure File Sync
 
@@ -26,13 +26,13 @@ I artikeln beskrivs de grundläggande stegen för att utöka lagrings kapacitete
 > * Skapa en synkroniseringsgrupp och en molnslutpunkt
 > * Skapa en serverslutpunkt
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på [Azure-portalen](https://portal.azure.com).
 
-## <a name="prepare-your-environment"></a>Förbered din miljö
+## <a name="prepare-your-environment"></a>Förbereda din miljö
 
 För den här självstudien behöver du göra följande innan du kan distribuera Azure File Sync:
 
@@ -67,7 +67,7 @@ När du har distribuerat ett Azure Storage-konto skapar du en filresurs.
 
 1. Välj den nya filresursen. På filresursplatsen väljer du **Ladda upp**.
 
-    ![Överför en fil](./media/storage-sync-files-extend-servers/create-file-share-portal5.png)
+    ![Ladda upp en fil](./media/storage-sync-files-extend-servers/create-file-share-portal5.png)
 
 1. Bläddra till mappen _FilesToSync_, där du har skapat .txt-filen, välj _mytestdoc.txt_ och välj **Ladda upp**.
 
@@ -121,7 +121,7 @@ Nu har du skapat en ny virtuell dator och anslutit en datadisk. Nu kommer du att
 
 1. På sidan **Anslut till den virtuella datorn** behåller du standardalternativen för att ansluta via **IP-adress** via port 3389. Välj **Ladda ned RDP-fil**.
 
-   ![Hämta RDP-filen](./media/storage-sync-files-extend-servers/download-rdp.png)
+   ![Ladda ned RDP-filen](./media/storage-sync-files-extend-servers/download-rdp.png)
 
 1. Öppna den nedladdade RDP-filen och välj **Anslut** när du tillfrågas.
 1. I fönstret **Windows-säkerhet** väljer du **fler alternativ** och sedan **använd ett annat konto**. Ange användarnamnet som *localhost\användarnamn* och ange det lösenord som du skapade för den virtuella datorn. Välj sedan **OK**.
@@ -164,9 +164,9 @@ Nu kan du lägga till datadisken på den virtuella datorn.
    Nu har du tagit disken online och skapat en volym. Öppna Utforskaren på den virtuella Windows Server-datorn för att bekräfta förekomsten av den nyligen tillagda datadisken.
 
 1. I Utforskaren på den virtuella datorn expanderar du **Den här datorn** och öppnar den nya enheten. I det här exemplet är det F:-enheten.
-1. Högerklicka och välj **ny** > **mapp**. Namnge mappen _FilesToSync_.
+1. Högerklicka och välj **ny**  >  **mapp**. Namnge mappen _FilesToSync_.
 1. Öppna mappen **FilesToSync**.
-1. Högerklicka och välj **nytt** > **text dokument**. Namnge textfilen _MyTestFile_.
+1. Högerklicka och välj **nytt**  >  **text dokument**. Namnge textfilen _MyTestFile_.
 
     ![Lägga till en ny textfil](media/storage-sync-files-extend-servers/new-file.png)
 
@@ -220,7 +220,7 @@ För att distribuera Azure File Sync placerar först en resurs för **tjänsten 
    | **Namn** | Ett unikt namn (per prenumeration) för tjänsten för synkronisering av lagring.<br><br>Använd _afssyncservice02_ för den här självstudien. |
    | **Prenumeration** | Den Azure-prenumeration som du använder för den här kursen. |
    | **Resursgrupp** | Den resursgrupp som innehåller tjänsten för synkronisering av lagring.<br><br>Använd _afsresgroup101918_ för den här självstudien. |
-   | **Position** | USA, östra |
+   | **Plats** | East US |
 
 1. När du är klar väljer du **Skapa** för att distribuera **tjänsten för synkronisering av lagring**.
 1. Välj fliken **Meddelanden** > **Gå till resurs**.
@@ -238,7 +238,7 @@ Azure File Sync-agenten är ett nedladdningsbart paket som möjliggör att Windo
 
    ![Välja agent](media/storage-sync-files-extend-servers/select-agent.png)
 
-1. Välj **Tillåt när** > **körningen** > är**öppen**.
+1. Välj **Tillåt när**  >  **körningen**är  >  **öppen**.
 1. Stäng PowerShell-fönstret, om du inte redan har gjort det.
 1. Acceptera standardinställningarna i **konfigurationsguiden för lagringssynkroniseringsagenten**.
 1. Välj **Installera**.
@@ -259,12 +259,11 @@ Användargränssnittet för serverregistrering bör öppnas automatiskt när du 
 
    ![Skärmbild av användargränssnittet för serverregistrering](media/storage-sync-files-extend-servers/signin.png)
 
-   | | |
-   | ----- | ----- |
    | Värde | Beskrivning |
+   | ----- | ----- |
    | **Azure-prenumeration** | Den prenumeration som innehåller tjänsten för synkronisering av lagring för den här kursen. |
-   | **Resurs grupp** | Den resursgrupp som innehåller tjänsten för synkronisering av lagring. Använd _afsresgroup101918_ för den här självstudien. |
-   | **Tjänst för synkronisering av lagring** | Namnet på tjänsten för synkronisering av lagring. Använd _afssyncservice02_ för den här självstudien. |
+   | **Resursgrupp** | Den resursgrupp som innehåller tjänsten för synkronisering av lagring. Använd _afsresgroup101918_ för den här självstudien. |
+   | **Storage Sync Service (Tjänst för synkronisering av lagring)** | Namnet på tjänsten för synkronisering av lagring. Använd _afssyncservice02_ för den här självstudien. |
 
 1. Välj **Registrera** för att slutföra serverregistreringen.
 1. Som en del av registreringsprocessen uppmanas du att logga in en gång till. Logga in och välj **Nästa**.
@@ -301,10 +300,9 @@ En serverslutpunkt representerar en specifik plats på en registrerad server. De
 
 1. I fönstret **Lägg till serverslutpunkt** anger du följande information för att skapa en serverslutpunkt:
 
-   | | |
-   | ----- | ----- |
    | Värde | Beskrivning |
-   | **Registrerad server** | Namnet på den server som du skapade. Använd *afsvm101918* för den här självstudien. |
+   | ----- | ----- |
+   | **Registrerad Server** | Namnet på den server som du skapade. Använd *afsvm101918* för den här självstudien. |
    | **Sökväg** | Windows Server-sökvägen till den enhet som du skapade. Använd *f:\filestosync* i den här självstudien. |
    | **Molnnivåindelning** | Lämna det inaktiverat för den här kursen. |
    | **Ledigt utrymme på volym** | Lämna det tomt för den här kursen. |

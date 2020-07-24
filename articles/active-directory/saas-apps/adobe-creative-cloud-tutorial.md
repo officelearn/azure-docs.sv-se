@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/21/2019
+ms.date: 07/14/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25dd638c15fecbef787e4ceabea9ae7cb4359582
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5d78cbb9f8ea56df6952022f5388d66a9163f714
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76120374"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018535"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adobe-creative-cloud"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Adobe Creative Cloud
 
@@ -34,9 +33,9 @@ I den här självstudien får du lära dig hur du integrerar Adobe Creative Clou
 * Gör det möjligt för användarna att logga in automatiskt för att Adobe Creative Cloud med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -48,10 +47,7 @@ För att komma igång behöver du följande objekt:
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * Adobe Creative Cloud stöder **SP**-initierad enkel inloggning
-
-
-
-
+* När du har konfigurerat Adobe Creative Cloud kan du framtvinga kontroll över sessioner, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-adobe-creative-cloud-from-the-gallery"></a>Lägga till Adobe Creative Cloud från galleriet
 
@@ -65,7 +61,7 @@ Om du vill konfigurera integreringen av Adobe Creative Cloud i Azure Active Dire
 1. Välj **Adobe Creative Cloud** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-adobe-creative-cloud"></a>Konfigurera och testa enkel inloggning med Azure AD för Adobe Creative Cloud
+## <a name="configure-and-test-azure-ad-sso-for-adobe-creative-cloud"></a>Konfigurera och testa Azure AD SSO för Adobe Creative Cloud
 
 Konfigurera och testa Azure AD SSO med Adobe Creative Cloud med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Adobe Creative Cloud.
 
@@ -95,7 +91,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://www.okta.com/saml2/service-provider/<token>`
 
     > [!NOTE]
-    > Identifierarvärdet är inte verkligt. Uppdatera det här värdet med den faktiska identifieraren. Kontakta [kundsupporten för Adobe Creative Cloud](https://www.adobe.com/au/creativecloud/business/teams/plans.html) och be om det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Identifierarvärdet är inte verkligt. Följ anvisningarna i avsnittet steg 4 i **Konfigurera Adobe Cloud SSO** . I kan du öppna **XML-filen för federationsmetadata** och hämta ENTITETS-ID-värdet från den och placera det som ett ID-värde i Azure AD-konfigurationen. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. Adobe Creative Cloud programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
@@ -103,7 +99,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig Adobe Creative Cloud-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem efter behov.
 
-    | Name | Källattribut|
+    | Namn | Källattribut|
     |----- | --------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
@@ -128,7 +124,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -184,7 +180,7 @@ För att Azure AD-användare ska kunna logga in på Adobe Creative Cloud måste 
 2. Lägg till användaren i Adobe-konsolen som externt ID och tilldela dem till en produktprofil. Detaljerad information om att lägga till användare finns i [Lägga till användare i Adobe-administratörskonsolen](https://helpx.adobe.com/enterprise/using/users.html#Addusers) 
 
 3. I det här läget skriver du din e-postadress/UPN i Adobe-inloggnings formuläret, trycker på TABB och du ska återställa till Azure AD:
-   * Webb åtkomst: www\.-Adobe.com > inloggning
+   * Webb åtkomst: www- \. adobe.com > inloggning
    * I verktyget skrivbordsapp > Logga in
    * I programmet > Hjälp > Logga in
 
@@ -198,13 +194,12 @@ När du klickar på Adobe Creative Cloud-panelen i åtkomstpanelen bör du autom
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Försök Adobe Creative Cloud med Azure AD](https://aad.portal.azure.com/)
 
 - [Konfigurera en identitet (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-identity.html)
   
 - [Konfigurera Azure för användning med Adobe SSO (adobe.com)](https://helpx.adobe.com/enterprise/kb/configure-microsoft-azure-with-adobe-sso.html)
-

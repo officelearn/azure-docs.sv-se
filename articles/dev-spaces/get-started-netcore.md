@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett .NET Core-program i Azure Kubernetes service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
-ms.openlocfilehash: d4078113f93159ef981a78a9917ed65bd03a304b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9c73c191054c9eee183a762d0a029d6c8dc431ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80240555"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013648"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Skapa ett Kubernetes dev-utrymme: Visual Studio Code och .NET Core med Azure dev Spaces
 
@@ -20,7 +20,7 @@ I den här guiden får du lära dig hur du:
 - Utveckla kod iterativt i containrar med VS Code och kommandoraden.
 - Effektivt utvecklar och testar din kod i en teammiljö.
 
-> [!Note]
+> [!NOTE]
 > **Om du får fastna när som** helst kan du läsa avsnittet [fel sökning](troubleshooting.md) .
 
 ## <a name="install-the-azure-cli"></a>Installera Azure CLI
@@ -33,7 +33,7 @@ Logga in i Azure. Skriv in följande kommando i ett terminalfönster:
 az login
 ```
 
-> [!Note]
+> [!NOTE]
 > Om du inte har någon Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free).
 
 #### <a name="if-you-have-multiple-azure-subscriptions"></a>Om du har flera Azure-prenumerationer ...
@@ -126,7 +126,7 @@ Håll ett öga på kommandots utdata – du kommer att se flera saker under för
 - Information om containerns slutpunkt(er) visas. I det här fallet förväntar vi oss en offentlig HTTP-URL.
 - Förutsatt att ovanstående steg slutförs ordentligt kan du börja se `stdout`- (och `stderr`-) utdata när containern startas.
 
-> [!Note]
+> [!NOTE]
 > De här stegen tar längre tid första gången kommandot `up` körs, men efterföljande körningar bör gå snabbare.
 
 ### <a name="test-the-web-app"></a>Testa webbappen
@@ -151,15 +151,14 @@ webfrontend-5798f9dc44-99fsd: Now listening on: http://[::]:80
 webfrontend-5798f9dc44-99fsd: Application started. Press Ctrl+C to shut down.
 ```
 
-Identifiera den offentliga URL: en för tjänsten i utdata från `up` kommandot. Den avslutas `.azds.io`. I exemplet ovan är `http://webfrontend.1234567890abcdef1234.eus.azds.io/`den offentliga URL: en.
+Identifiera den offentliga URL: en för tjänsten i utdata från `up` kommandot. Den avslutas `.azds.io` . I exemplet ovan är den offentliga URL: en `http://webfrontend.1234567890abcdef1234.eus.azds.io/` .
 
-Om du vill se din webbapp öppnar du den offentliga URL: en i en webbläsare. Observera också att `stdout` meddelande `stderr` och utdata strömmas till azds-fönstret för *spårnings* terminalen när du interagerar med din webbapp. Du kan också se spårnings information för HTTP-begäranden när de går igenom systemet. Detta gör det enklare för dig att spåra komplexa anrop i flera tjänster under utvecklingen. Instrumentation som lagts till av dev Spaces innehåller den här förfrågan spårningen.
+Om du vill se din webbapp öppnar du den offentliga URL: en i en webbläsare. Observera också `stdout` att meddelande och `stderr` utdata strömmas till azds-fönstret för *spårnings* terminalen när du interagerar med din webbapp. Du kan också se spårnings information för HTTP-begäranden när de går igenom systemet. Detta gör det enklare för dig att spåra komplexa anrop i flera tjänster under utvecklingen. Instrumentation som lagts till av dev Spaces innehåller den här förfrågan spårningen.
 
-![azds för spårnings fönstret](media/get-started-netcore/azds-trace.png)
+![ett spår terminalfönster för z d s](media/get-started-netcore/azds-trace.png)
 
-
-> [!Note]
-> Förutom den offentliga URL: en kan du använda den alternativa `http://localhost:<portnumber>` URL: en som visas i konsolens utdata. Om du använder localhost-URL:en kan det verka som om containern körs lokalt, men i själva verket körs den i AKS. I Azure dev Spaces används Kubernetes *Port-Forward-* funktioner för att mappa localhost-porten till den behållare som körs i AKS. Detta underlättar interaktion med tjänsten från den lokala datorn.
+> [!NOTE]
+> Förutom den offentliga URL: en kan du använda den alternativa URL: en `http://localhost:<portnumber>` som visas i konsolens utdata. Om du använder localhost-URL:en kan det verka som om containern körs lokalt, men i själva verket körs den i AKS. I Azure dev Spaces används Kubernetes *Port-Forward-* funktioner för att mappa localhost-porten till den behållare som körs i AKS. Detta underlättar interaktion med tjänsten från den lokala datorn.
 
 ### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
 Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – det handlar om att du snabbt och löpande kan se effekten av dina kodändringar i en Kubernetes-miljö i molnet.
@@ -191,9 +190,9 @@ Det finns dock en ännu *snabbare kodutvecklingsmetod*, som vi ska titta närmar
 
 I det här avsnittet ska du använda VS Code för att direkt felsöka våra containrar som körs i Azure. Du får också lära dig hur du kan få en snabbare redigera-kör-test-loop.
 
-![](media/common/edit-refresh-see.png)
+![Diagrammet visar en utvecklings slinga med tre steg: redigera kod, uppdatera behållare och se uppdatering.](media/common/edit-refresh-see.png)
 
-> [!Note]
+> [!NOTE]
 > **Om du fastnar** läser du [felsökningsavsnittet](troubleshooting.md) eller skriver en kommentar på den här sidan.
 
 ### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Initiera felsökningstillgångar med VS Code-tillägget
@@ -203,16 +202,16 @@ Du måste först konfigurera kodprojektet så att VS Code kommunicerar med vår 
 
 Då läggs felsökningskonfigurationen för Azure Dev Spaces till under mappen `.vscode`. Det här kommandot ska inte förväxlas med kommandot `azds prep` som konfigurerar projektet för distribution.
 
-![](media/common/command-palette.png)
+![Den här skärm bilden visar valet av kommandot "Azure dev Spaces: förbereda konfigurationsfiler för Azure dev Spaces" från fönstret kommando rads fönster.](media/common/command-palette.png)
 
 
 ### <a name="select-the-azds-debug-configuration"></a>Välj AZDS-felsökningskonfigurationen
 1. Du öppnar felsökningsvyn genom att klicka på felsökningsikonen i **aktivitetsfältet** längs kanten i VS Code.
 1. Välj **.NET Core Launch (AZDS)** (.NET Core-start (AZDS)) som den aktiva felsökningskonfigurationen.
 
-![](media/get-started-netcore/debug-configuration.png)
+![Skärm bilden är i det övre vänstra hörnet i Visual Studio Code-fönstret. Fel söknings ikonen är markerad, den vänstra panelen heter "FELSÖK", och en listruta till höger om rubriken visar "dot NET Core Launch (A Z D S).](media/get-started-netcore/debug-configuration.png)
 
-> [!Note]
+> [!NOTE]
 > Om du inte ser några Azure Dev Spaces-kommandon på kommandopaletten kontrollerar du att du har installerat VS Code-tillägget för Azure Dev Spaces. Kontrollera att arbetsytan som du öppnade i VS Code är mappen som innehåller azds.yaml.
 
 
@@ -221,10 +220,10 @@ Tryck på **F5** för att felsöka koden i Kubernetes.
 
 Precis som med `up`-kommandot, synkroniseras koden med utvecklarmiljön och en container skapas och distribueras till Kubernetes. Men den här gången är felsökaren kopplad till fjärrcontainern.
 
-> [!Tip]
+> [!TIP]
 > Statusfältet för VS Code blir orange, vilket indikerar att fel söknings programmet är kopplat. Den visar också en klicknings bara URL som du kan använda för att öppna din webbplats.
 
-![](media/common/vscode-status-bar-url.png)
+![Skärm bilden visar slutet av Visual Studio Code-fönstret. Fältet orange status är den sista raden. Det innehåller ett U R L-svar för att öppna webbplatsen.](media/common/vscode-status-bar-url.png)
 
 Lägg till en brytpunkt i en kodfil på serversidan, t.ex. i funktionen `About()` i källfilen `Controllers/HomeController.cs`. Brytpunkten aktiveras när du uppdaterar sidan i webbläsaren.
 
@@ -243,7 +242,7 @@ public IActionResult About()
 
 Spara filen och klicka på knappen **starta om** i **rutan fel söknings åtgärder**. 
 
-![](media/common/debug-action-refresh.png)
+![Fönstret fel söknings åtgärder är ett litet fönster överst i mitten av sidan (strax under sid rubriken). Knappen starta om, en cirkulär pil, är markerad. Hov rings bilden för knappen är "starta om (Ctrl + Shift + F 5)".](media/common/debug-action-refresh.png)
 
 I stället för att återskapa och distribuera om en ny containeravbildning varje gång koden ändras, vilket ofta tar lång tid, kompilerar Azure Dev Spaces om koden inkrementellt i den befintliga containern för snabbare redigerings- och felsökningsförlopp.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 556fd1f9fe4ba5753d882fa81c6d5a89051bcd91
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 65062b886000a9a0e19dec7d72bf27ab1e1790eb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85605040"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016929"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kisi-physical-security"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med fysisk säkerhet för kisi
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur du integrerar kisi fysisk säkerh
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -46,7 +46,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 * Kisi fysisk säkerhet stöder **SP-och IDP** -INITIERAd SSO
 * Kisi fysisk säkerhet stöder **just-in-Time** User-etablering
 
-* När du har konfigurerat kisi fysisk säkerhet kan du framtvinga kontroll av sessioner, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat kisi fysisk säkerhet kan du framtvinga kontroll av sessioner, vilket skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-kisi-physical-security-from-the-gallery"></a>Lägga till kisi fysisk säkerhet från galleriet
 
@@ -85,9 +85,12 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, anger du värdena för följande fält:
 
-    a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster:`https://identity.kms.kisi.io/saml/<DOMAIN>`
+    a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster:`https://api.kisi.io/saml/metadata`
 
-    b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://identity.kms.kisi.io/saml/<DOMAIN>`
+    b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://api.kisi.io/saml/consume/<DOMAIN>`
+
+    > [!NOTE] 
+    > `DOMAIN`är en alfanumerisk identifierare som är tilldelad till organisationen av kisi, den är **inte** samma som organisationens DNS-domännamn. *
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -101,8 +104,8 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     ![image](common/default-attributes.png)
 
 1. Utöver ovan förväntar sig kisi fysiska säkerhets program att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
-    
-    | Name | Källattribut|
+
+    | Namn | Källattribut|
     | ---------------| --------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
@@ -119,7 +122,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
-   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I **Namn**-fältet skriver du `B.Simon`.
    1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
@@ -150,7 +153,7 @@ Om du vill konfigurera enkel inloggning på **kisi fysiska säkerhets** sidan m�
 
 I det här avsnittet skapas en användare som kallas Britta Simon i kisi fysisk säkerhet. Kisi fysisk säkerhet stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i kisi fysiska säkerhet skapas en ny efter autentiseringen.
 
-## <a name="test-sso"></a>Testa SSO 
+## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 

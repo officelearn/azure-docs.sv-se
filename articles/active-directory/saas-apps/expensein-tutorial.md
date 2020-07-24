@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/11/2019
+ms.date: 07/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf7e3659aa3044a4453574a2cd171303d00abc19
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 377499b1dd263398e1be42379f8db60e8a0477f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85606725"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87017524"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Självstudie: integrera utgifter med Azure Active Directory
 
@@ -33,7 +32,7 @@ I den här självstudien får du lära dig hur du integrerar kostnad med Azure A
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -42,7 +41,10 @@ För att komma igång behöver du följande objekt:
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö. Kostnad har stöd för **SP-och IDP** -initierad SSO.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö. 
+* Kostnad har stöd för **SP-och IDP** -initierad SSO.
+* När du har konfigurerat kostnad kan du framtvinga kontroll av sessioner, vilket skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
 
 ## <a name="adding-expensein-from-the-gallery"></a>Lägga till utgifter från galleriet
 
@@ -55,20 +57,20 @@ Om du vill konfigurera en integrering av utgifterna i Azure AD måste du lägga 
 1. Skriv **kostnadi** i sökrutan i avsnittet **Lägg till från galleriet** .
 1. Välj **utgifts** hantering från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+## <a name="configure-and-test-azure-ad-sso-for-expensein"></a>Konfigurera och testa Azure AD SSO för kostnad
 
 Konfigurera och testa Azure AD SSO med kostnad med en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och en relaterad användare i kostnad.
 
 Om du vill konfigurera och testa Azure AD SSO med kostnad, slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** så att användarna kan använda den här funktionen.
-2. **[Konfigurera kostnad](#configure-expensein)** för att konfigurera SSO-inställningarna på program sidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** för att testa enkel inloggning i Azure AD med B. Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** att aktivera B. Simon för att använda enkel inloggning i Azure AD.
-5. **[Skapa utgifts-och test användare](#create-expensein-test-user)** för att få en motsvarighet till B. Simon i kostnad, som är länkad till Azure AD-representation av användare.
-6. **[Testa SSO](#test-sso)** för att kontrol lera om konfigurationen fungerar.
+    1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** för att testa enkel inloggning i Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** att aktivera B. Simon för att använda enkel inloggning i Azure AD.
+1. **[Konfigurera kostnad för enkel inloggning](#configure-expensein-sso)** för att konfigurera SSO-inställningar på program sidan.
+    1. **[Skapa utgifts-och test användare](#create-expensein-test-user)** för att få en motsvarighet till B. Simon i kostnad, som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** för att kontrol lera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
@@ -78,14 +80,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
-
-    I text rutan **svars-URL** skriver du någon av URL: en:
-
-    ```https
-    https://app.expensein.com/samlcallback
-    https://mobileapi.expensein.com/identity/samlcallback
-    ```
+4. I avsnittet **grundläggande SAML-konfiguration** behöver användaren inte utföra några steg eftersom appen redan är Förintegrerad med Azure.
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -98,38 +93,6 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 1. I avsnittet **Konfigurera utgifter** kopierar du lämpliga URL: er baserat på ditt krav.
 
    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
-
-### <a name="configure-expensein"></a>Konfigurera kostnad
-
-1. Om du vill automatisera konfigurationen i kostnad måste du installera **webb läsar tillägget Mina appar med säker inloggning** genom att klicka på **installera tillägget**.
-
-    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
-
-2. När du har lagt till tillägg i webbläsaren kan du klicka på **installations utgifter** för att dirigera dig till programmet för kostnad. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på kostnad. Webb läsar tillägget kommer automatiskt att konfigurera programmet åt dig och automatisera steg 3-5.
-
-    ![Konfigurera konfiguration](common/setup-sso.png)
-
-3. Om du vill konfigurera utgifter manuellt öppnar du ett nytt webbläsarfönster och loggar in på din företags webbplats för utgifter som administratör och utför följande steg:
-
-4. Klicka på **administratör** överst på sidan och gå sedan till **enkel inloggning** och klicka på **Lägg till provider**.
-
-     ![Reseräkning-konfiguration](./media/expenseIn-tutorial/config01.png)
-
-5. Utför följande steg på popup-sidan för den **nya identitets leverantören** :
-
-    ![Reseräkning-konfiguration](./media/expenseIn-tutorial/config02.png)
-
-    a. I text rutan **Providernamn** skriver du namnet som t. ex.: Azure.
-
-    b. Välj **Ja** som **Tillåt Provider Intitated-inloggning**.
-
-    c. I text rutan **mål-URL** , klistra in värdet för **inloggnings-URL**, som du har kopierat från Azure Portal.
-
-    d. I text rutan **utfärdare** klistrar du in värdet för **Azure AD-identifierare**, som du har kopierat från Azure Portal.
-
-    e. Öppna certifikatet (base64) i anteckningar, kopiera innehållet och klistra in det i text rutan **certifikat** .
-
-    f. Klicka på **Skapa**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -161,6 +124,31 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
+
+## <a name="configure-expensein-sso"></a>Konfigurera kostnad för SSO
+
+1. Öppna ett nytt webbläsarfönster och logga in på din kostnadsbaserade företags webbplats som administratör.
+
+1. Klicka på **administratör** överst på sidan och gå sedan till **enkel inloggning** och klicka på **Lägg till provider**.
+
+     ![Reseräkning-konfiguration](./media/expenseIn-tutorial/config01.png)
+
+1. Utför följande steg på popup-sidan för den **nya identitets leverantören** :
+
+    ![Reseräkning-konfiguration](./media/expenseIn-tutorial/config02.png)
+
+    a. Skriv namnet i text rutan **Providernamn** . till exempel Azure.
+
+    b. Välj **Ja** för **Tillåt Provider Intitiated-inloggning**.
+
+    c. I text rutan **mål-URL** , klistra in värdet för **inloggnings-URL**, som du har kopierat från Azure Portal.
+
+    d. I text rutan **utfärdare** klistrar du in värdet för **Azure AD-identifierare**, som du har kopierat från Azure Portal.
+
+    e. Öppna certifikatet (base64) i anteckningar, kopiera innehållet och klistra in det i text rutan **certifikat** .
+
+    f. Klicka på **Skapa**.
+
 ### <a name="create-expensein-test-user"></a>Skapa kostnad för test användare
 
 Om du vill att Azure AD-användare ska kunna logga in på utgifter måste de tillhandahållas i kostnad. I kostnad, är etableringen en manuell uppgift.
@@ -185,7 +173,7 @@ Om du vill att Azure AD-användare ska kunna logga in på utgifter måste de til
 
     d. Klicka på **Skapa**.
 
-### <a name="test-sso"></a>Testa SSO
+## <a name="test-sso"></a>Testa SSO
 
 När du väljer fliken kostnads hantering i åtkomst panelen, bör du loggas in automatiskt på den kostnad som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
@@ -196,3 +184,9 @@ När du väljer fliken kostnads hantering i åtkomst panelen, bör du loggas in 
 - [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Prova kostnad med Azure AD](https://aad.portal.azure.com/)
+
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Skydda utgifts hantering med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

@@ -2,18 +2,18 @@
 title: Självstudie för att beställa Azure Data Box | Microsoft Docs
 description: Lär dig om förutsättningarna för distribution och hur du beställer en Azure Data Box
 services: databox
-author: alkohli
+author: priestlg
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 04/23/2019
-ms.author: alkohli
-ms.openlocfilehash: cfb95f2fb02544197f9b2796a705844e33eca201
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.date: 07/21/2020
+ms.author: v-grpr
+ms.openlocfilehash: fd841dee5f3a845d793255f5e13b416fb1add4f4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392495"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007427"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Självstudie: Beställa Azure Data Box
 
@@ -40,7 +40,7 @@ Slutför följande konfigurations krav för Data Box-enhet tjänst och enhet inn
 
 [!INCLUDE [Prerequisites](../../includes/data-box-deploy-ordered-prerequisites.md)]
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 Du kan logga in på Azure och köra Azure CLI-kommandon på ett av två sätt:
 
@@ -49,11 +49,15 @@ Du kan logga in på Azure och köra Azure CLI-kommandon på ett av två sätt:
 
 Vi använder Azure CLI via Windows PowerShell för självstudien, men du kan välja något av alternativen.
 
-### <a name="install-the-cli-locally"></a>Installera CLI lokalt
+### <a name="for-azure-cli"></a>För Azure CLI
+
+Innan du börjar ska du kontrollera att:
+
+#### <a name="install-the-cli-locally"></a>Installera CLI lokalt
 
 * Installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) version 2.0.67 eller senare. Alternativt kan du [Installera med MSI](https://aka.ms/installazurecliwindows).
 
-#### <a name="sign-in-to-azure"></a>Logga in på Azure
+**Logga in på Azure**
 
 Öppna ett Windows PowerShell-kommando fönster och logga in på Azure med kommandot [AZ login](/cli/azure/reference-index#az-login) :
 
@@ -83,7 +87,7 @@ You have logged in. Now let us find all the subscriptions to which you have acce
 ]
 ```
 
-#### <a name="install-the-azure-data-box-cli-extension"></a>Installera Azure Data Box CLI-tillägget
+**Installera Azure Data Box CLI-tillägget**
 
 Innan du kan använda kommandona för Azure Data Box CLI måste du installera tillägget. Azure CLI-tillägg ger dig till gång till experiment-och för hands versions kommandon som ännu inte har levererats som en del av kärn-CLI. Mer information om tillägg finns i [använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
@@ -115,82 +119,90 @@ Om tillägget har installerats visas följande utdata:
         Please let us know how we are doing: https://aka.ms/clihats
 ```
 
-### <a name="use-azure-cloud-shell"></a>Använda Azure Cloud Shell
+#### <a name="use-azure-cloud-shell"></a>Använda Azure Cloud Shell
 
-Du kan använda [Azure Cloud Shell](https://shell.azure.com/), en Azure-värdbaserad, interaktiv gränssnitts miljö i webbläsaren för att köra CLI-kommandon. Azure Cloud Shell stöder bash eller Windows PowerShell med Azure-tjänster. Azure CLI är förinstallerat och konfigurerat för användning med ditt konto. Klicka på knappen Cloud Shell på menyn i det övre högra avsnittet av Azure Portal:
+Du kan använda [Azure Cloud Shell](https://shell.azure.com/), en Azure-värdbaserad, interaktiv gränssnitts miljö i webbläsaren för att köra CLI-kommandon. Azure Cloud Shell stöder bash eller Windows PowerShell med Azure-tjänster. Azure CLI är förinstallerat och konfigurerat för användning med ditt konto. Välj knappen Cloud Shell på menyn i det övre högra avsnittet av Azure Portal:
 
 ![Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
 
 Knappen startar ett interaktivt gränssnitt som du kan använda för att köra stegen som beskrivs i den här instruktions artikeln.
 
-<!-- To start Azure Cloud Shell:
+# <a name="powershell"></a>[PowerShell](#tab/azure-ps)
 
-| Option | Example/Link |
-|-----------------------------------------------|---|
-| Select **Try It** in the upper-right corner of a code block. Selecting **Try It** doesn't automatically copy the code to Cloud Shell. | ![Example of Try It for Azure Cloud Shell](../../includes/media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
-| Go to [https://shell.azure.com](https://shell.azure.com), or select the **Launch Cloud Shell** button to open Cloud Shell in your browser. | [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
-| Select the **Cloud Shell** button on the menu bar at the upper right in the [Azure portal](https://portal.azure.com). | ![Cloud Shell button in the Azure portal](../../includes/media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
+[!INCLUDE [Prerequisites](../../includes/data-box-deploy-ordered-prerequisites.md)]
 
-To run the code in this article in Azure Cloud Shell:
+### <a name="for-azure-powershell"></a>För Azure PowerShell
 
-1. Start Cloud Shell.
+Innan du börjar ska du kontrol lera att du:
 
-2. Select the **Copy** button on a code block to copy the code.
+* Installera Windows PowerShell 6.2.4 eller högre.
+* Installera Azure PowerShell-modulen (AZ).
+* Installera Azure Data Box-modulen (AZ. data data).
+* Logga in på Azure.
 
-3. Paste the code into the Cloud Shell session by selecting **Ctrl**+**Shift**+**V** on Windows and Linux or by selecting **Cmd**+**Shift**+**V** on macOS.
+#### <a name="install-azure-powershell-and-modules-locally"></a>Installera Azure PowerShell och moduler lokalt
 
-4. Select **Enter** to run the code.
+**Installera eller uppgradera Windows PowerShell**
 
-For this tutorial, we use Windows PowerShell command prompt to run Azure CLI commands. -->
+Du måste ha Windows PowerShell-version 6.2.4 eller senare installerat. Om du vill ta reda på vilken version av PowerShell som du har installerat kör du: `$PSVersionTable` .
 
-<!-- This goes away, we'll show this later when we show how to order a Data Box. -->
-<!-- ## Change the output format type
+Du ser följande utdata:
 
-All Azure CLI commands will use json as the output format by default unless you change it. You can change the output format by using the global parameter `--output <output-format>`. -->
-
-<!-- ```azurecli
-
-az databox job <command> --output <output-format>
-
+```azurepowershell
+    PS C:\users\gusp> $PSVersionTable
+    
+    Name                           Value
+    ----                           -----
+    PSVersion                      6.2.3
+    PSEdition                      Core
+    GitCommitId                    6.2.3
+    OS                             Microsoft Windows 10.0.18363
+    Platform                       Win32NT
+    PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0…}
+    PSRemotingProtocolVersion      2.3
+    SerializationVersion           1.1.0.1
+    WSManStackVersion              3.0
 ```
 
-Azure Data Box CLI commands support the following output formats:
+Om din version är lägre än 6.2.4 måste du uppgradera din version av Windows PowerShell. Information om hur du installerar den senaste versionen av Windows PowerShell finns i [installera Azure PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7).
 
-* json (default setting)
-* jsonc
-* table
-* tsv
-* yaml
-* yamlc
-* none
+**Installera Azure PowerShell-och Data Box-enhet-moduler**
 
-You can use the parameter `--output` with all Azure Data Box CLI commands. -->
+Du måste installera Azure PowerShell-modulerna för att kunna använda Azure PowerShell för att beställa en Azure Data Box. Så här installerar du Azure PowerShell-moduler:
 
-<!-- To set the output format to yaml: -->
+1. Installera [Azure PowerShell AZ-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
+2. Installera sedan AZ. data med hjälp av kommandot `Install-Module -Name Az.DataBox` .
 
-<!-- ```azurecli
-PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "mydataboxorder" --output "yaml"
+```azurepowershell
+PS C:\PowerShell\Modules> Install-Module -Name Az.DataBox
+PS C:\PowerShell\Modules> Get-InstalledModule -Name "Az.DataBox"
 
-``` -->
-<!-- 
-To set the out format to tabular form (easier to read):
+Version              Name                                Repository           Description
+-------              ----                                ----------           -----------
+0.1.1                Az.DataBox                          PSGallery            Microsoft Azure PowerShell - DataBox ser…
+```
 
-```azurecli
-PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "mydataboxorder" --output "table"
+#### <a name="sign-in-to-azure"></a>Logga in på Azure
 
-``` -->
+Öppna ett Windows PowerShell-kommando fönster och logga in på Azure med kommandot [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount) :
 
-<!-- Here's the example output of `az databox job show` after changing the output format to table:
+```azurepowershell
+PS C:\Windows> Connect-AzAccount
+```
 
-```azurecli
-PS C:\WINDOWS\system32> az databox job show --resource-group "GDPTest" --name "mydataboxtest3" --output "table"
-Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+Här är resultatet från en lyckad inloggning:
 
-DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name            ResourceGroup    StartTime                         Status
---------------  ---------------  -------------------------  -------------  ---------------------------  ----------  --------------  ---------------  --------------------------------  -------------
-NonScheduled    True             True                       False          True                         westus      mydataboxorder  myresourcegroup          2020-06-11T22:05:49.436622+00:00  DeviceOrdered
+```output
+WARNING: To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code FSBFZMBKC to authenticate.
 
-``` -->
+Account              SubscriptionName                          TenantId                             Environment
+-------              ----------------                          --------                             -----------
+gusp@contoso.com     MySubscription                            aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa AzureCloud
+
+PS C:\Windows\System32>
+```
+
+Detaljerad information om hur du loggar in på Azure med hjälp av Windows PowerShell finns i [Logga in med Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 
 ---
 
@@ -201,61 +213,87 @@ NonScheduled    True             True                       False          True 
 Utför följande steg i Azure Portal för att beställa en enhet.
 
 1. Använd dina Microsoft Azure-autentiseringsuppgifter för att logga in på denna URL: [https://portal.azure.com](https://portal.azure.com).
-2. Klicka på **+ Skapa en resurs** och sök efter *Azure Data Box*. Klicka på **Azure Data Box**.
+2. Välj **+ Skapa en resurs** och sök efter *Azure Data Box*. Välj **Azure Data Box**.
 
-   [![Söka efter Azure Data Box 1](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)
+   ![Välj Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
-3. Klicka på **Skapa**.
+3. Välj **Skapa**.
+
+   ![Välj Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
 4. Kontrollera om Data Box-tjänsten är tillgänglig i din region. Ange eller välj följande information och välj **Tillämpa**.
 
-    |Inställningen  |Värde  |
+    |Inställning  |Värde  |
     |---------|---------|
-    |Prenumeration     | Välj en prenumeration för EA, CSP eller Azure-sponsring för Data Box-tjänsten. <br> Prenumerationen är kopplad till ditt faktureringskonto.       |
     |Överföringstyp     | Välj **Importera till Azure**.        |
+    |Prenumeration     | Välj en prenumeration för EA, CSP eller Azure-sponsring för Data Box-tjänsten. <br> Prenumerationen är kopplad till ditt faktureringskonto.       |
+    |Resursgrupp | Välj en befintlig resurs grupp. En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. |
     |Källans land/region    |    Välj landet/regionen där dina data finns.         |
-    |Azure-målregion     |     Välj den Azure-region dit du vill överföra data.        |
+    |Azure-målregion     |     Välj den Azure-region dit du vill överföra data. <br> Mer information finns i [regional tillgänglighet](data-box-overview.md#region-availability).            |
+
+    [![Azure Data Box import ordning](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
 
 5. Välj **Data Box**. Den högsta användbara kapaciteten för en enskild order är 80 TB. Du kan skapa flera beställningar för större datamängder.
 
-      [![Välj Data Box-enhet alternativ 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
+    ![Välja Data Box-alternativ 1](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
-6. I **Order** (Beställa) anger du **Order details** (Beställningsinformation). Ange eller välj följande information och välj **Nästa**.
+6. I **ordning**går du till fliken **grundläggande** . Ange eller Välj följande information och välj **Nästa: data mål>**.
 
     |Inställning  |Värde  |
     |---------|---------|
-    |Namn     |  Välj ett smeknamn så att du kan spåra beställningen. <br> Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. <br> Namnet måste börja och sluta med en bokstav eller en siffra.      |
-    |Resursgrupp     |    Använd ett befintligt eller skapa ett nytt. <br> En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans.         |
-    |Azure-målregion     | Välj en region för lagringskontot. <br> Mer information finns i [regional tillgänglighet](data-box-overview.md#region-availability).        |
-    |Lagringsmål     | Välj mellanlagringskonto eller hanterade diskar eller båda. <br> Baserat på den angivna Azure-regionen väljer du ett eller flera lagringskonton från den filtrerade listan med befintliga lagringskonton. Data Box kan länkas med upp till 10 lagringskonton. <br> Du kan också skapa ett nytt konto för **Generell användning v1**, **Generell användning v2** eller **bloblagring**. <br>Lagringskonton med virtuella nätverk stöds. För att Data Box-tjänsten ska fungera med skyddade lagringskonton aktiverar du de betrodda tjänsterna i inställningarna för nätverksbrandväggen för lagringskontot. Mer information finns i så här [lägger du till Azure Data box som en betrodd tjänst](../storage/common/storage-network-security.md#exceptions).|
+    |Prenumeration      | Prenumerationen fylls i automatiskt baserat på din tidigare val.|
+    |Resursgrupp    | Den resurs grupp som du valde tidigare. |
+    |Importera beställnings namn | Välj ett smeknamn så att du kan spåra beställningen. <br> Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. <br> Namnet måste börja och sluta med en bokstav eller en siffra.    |
 
-    Om du använder lagringskontot som lagringsmål visas följande skärmbild:
+    ![Välja Data Box-alternativ 1](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
-    ![Data Box-enhet ordning för lagrings konto](media/data-box-deploy-ordered/order-storage-account.png)
+    Som standard krypteras lösen ordet för enhets upplåsningen med hjälp av en Microsoft-hanterad nyckel. När du har slutfört beställningen kan du lägga till en kund hanterad nyckel. Med en kundhanterad nyckel kan du använda din egen nyckel från en Azure Key Vault-nyckel för att skydda enhetens lösen ord för att låsa upp enheten. Mer information finns i [använda Kundhanterade nycklar i Azure Key Vault för Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 
-    Om du använder Data Box-enhet för att skapa hanterade diskar från lokala virtuella hård diskar (VHD: er), måste du också ange följande information:
+7. På fliken **data mål** väljer du **data mål**.
 
-    |Inställningen  |Värde  |
+    Om du använder **lagrings kontona** som lagrings mål visas följande skärm bild:
+
+    ![Azure Data Box data destination](media/data-box-deploy-ordered/select-data-box-import-07.png)
+
+    Baserat på den angivna Azure-regionen väljer du ett eller flera lagringskonton från den filtrerade listan med befintliga lagringskonton. Data Box kan länkas med upp till 10 lagringskonton. Du kan också skapa ett nytt konto för **Generell användning v1**, **Generell användning v2** eller **bloblagring**.
+
+    Lagringskonton med virtuella nätverk stöds. För att Data Box-tjänsten ska fungera med skyddade lagringskonton aktiverar du de betrodda tjänsterna i inställningarna för nätverksbrandväggen för lagringskontot. Mer information finns i så här [lägger du till Azure Data box som en betrodd tjänst](../storage/common/storage-network-security.md#exceptions).
+
+    Om du använder Data Box-enhet för att skapa **hanterade diskar** från lokala virtuella hård diskar (VHD: er), måste du också ange följande information:
+
+    |Inställning  |Värde  |
     |---------|---------|
     |Resursgrupper     | Skapa nya resursgrupper om du planerar att skapa hanterade diskar från lokala virtuella hårddiskar. Du kan bara använda en befintlig resurs grupp om resurs gruppen skapades tidigare när du skapade en Data Box-enhets ordning för den hanterade disken av Data Box-enhet-tjänsten. <br> Ange flera resursgrupper avgränsade med semikolon. Högst 10 resursgrupper stöds.|
 
-    ![Data Box-enhet ordning för hanterad disk](media/data-box-deploy-ordered/order-managed-disks.png)
+    ![Data Box-enhet ordning för hanterad disk](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     Det angivna lagringskontot för hanterade diskar används som ett mellanlagringskonto. Data Box-tjänsten laddar upp de virtuella hårddiskarna som sidblobar till mellanlagringskontot innan de konverteras till hanterade diskar och flyttas till resursgrupperna. Mer information finns i [Verifiera dataöverföring till Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
-7. I **Leveransadress** uppger du för- och efternamn, företagets postadress och ett giltigt telefonnummer. Klicka på **Verifiera adress**. Tjänsten verifierar leveransadressen och tjänstens tillgänglighet. Om tjänsten är tillgänglig för den angivna leveransadressen får du ett meddelande om det.
+    Välj **Nästa: kontakt uppgifter** för att fortsätta.
+
+8. I **kontakt information**väljer du **+ Lägg till leverans adress**.
+
+    ![Data Box-enhet ordning för hanterad disk](media/data-box-deploy-ordered/select-data-box-import-08a.png)
+
+9. I **Leveransadress** uppger du för- och efternamn, företagets postadress och ett giltigt telefonnummer. Välj **Verifiera adress**. Tjänsten verifierar leveransadressen och tjänstens tillgänglighet. Om tjänsten är tillgänglig för den angivna leveransadressen får du ett meddelande om det.
+
+   ![Data Box-enhet ordning för hanterad disk](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
    Om du har valt självhanterad leverans får du ett e-postmeddelande när beställningen har placerats. Mer information om självhanterad leverans finns i [Använd självhanterad leverans](data-box-portal-customer-managed-shipping.md).
 
-8. Klicka på **Nästa** när leverans informationen har verifierats.
+10. Välj **Lägg till leverans adress** när leverans informationen har verifierats. Du kommer tillbaka till fliken **kontakt information** .
 
-9. Ange e-postadresser i **Notification details** (Information om meddelande). Tjänsten skickar e-postmeddelanden om alla uppdateringar rörande orderstatus.
+11. Lägg till en eller flera e-postadresser när du har återgår till **kontakt uppgifter** . Tjänsten skickar e-postmeddelanden om alla uppdateringar rörande orderstatus.
 
     Vi rekommenderar att du använder en grupp-e-postadress, så att du kan fortsätta att ta emot meddelanden även om en gruppadministratör lämnar företaget.
 
-10. Granska informationen **Summary** (Sammanfattning) som rör beställningen, kontakt, meddelanden och sekretess. Markera rutan för avtalet till sekretesspolicyn.
+    ![Data Box-enhet ordning för hanterad disk](media/data-box-deploy-ordered/select-data-box-import-08c.png)
 
-11. Klicka på **Order** (Ordning). Det tar några minuter att skapa beställningen.
+12. Granska informationen i **Granska + order** som är relaterad till order, kontakt, avisering och sekretess villkor. Markera rutan för avtalet till sekretesspolicyn.
+
+13. Välj **Beställ**. Det tar några minuter att skapa beställningen.
+
+    ![Data Box-enhet ordning för hanterad disk](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -287,7 +325,7 @@ Utför följande steg med Azure CLI för att beställa en enhet:
    |DocumentDB| Frågesträngen JMESPath. Mer information finns i [JMESPath](http://jmespath.org/). | --fråga<string>|
    |utförlig| Inkludera utförlig loggning. | --utförlig |
 
-2. I kommando tolken för Choice eller Terminal använder du [dataaz-jobbet Skapa](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) för att skapa din Azure Data boxs order.
+2. I kommando tolken för Choice eller Terminal använder du [data Box-jobbet AZ Create](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) för att skapa din Azure Data boxs order.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -369,6 +407,64 @@ Utför följande steg med Azure CLI för att beställa en enhet:
     NonScheduled    True             True                       False          True                         westus      mydataboxtest4  myresourcegroup  2020-06-18T03:48:00.905893+00:00  DeviceOrdered
 
     ```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-ps)
+
+Utför följande steg med Azure PowerShell för att beställa en enhet:
+
+1. Innan du skapar import ordningen måste du skaffa ditt lagrings konto och spara lagrings konto objekt i en variabel.
+
+   ```azurepowershell
+    $storAcct = Get-AzStorageAccount -Name "mystorageaccount" -ResourceGroup "myresourcegroup"
+   ```
+
+2. Skriv ned inställningarna för din Data Box-enhets ordning. Inställningarna omfattar din personliga/affärs information, prenumerations namn, enhets information och information om leverans. Du måste använda de här inställningarna som parametrar när du kör PowerShell-kommandot för att skapa Data Box-enhets ordningen. I följande tabell visas de parameter inställningar som används för [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob).
+
+    | Inställning (parameter) | Beskrivning |  Exempelvärde |
+    |---|---|---|
+    |ResourceGroupName [krävs]| Använd en befintlig resurs grupp. En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. | myresourcegroup|
+    |Namn [obligatoriskt]| Namnet på den ordning som du skapar. | "mydataboxorder"|
+    |Kontakt person [nödvändig]| Namnet som är associerat med leverans adressen. | "Gus Polen"|
+    |Telefonnummer [obligatoriskt]| Telefonnumret till den person eller det företag som ska ta emot ordern.| "14255551234"
+    |Plats [krävs]| Den närmaste Azure-region som ska leverera din enhet.| WestUS|
+    |DataBoxType [krävs]| Den speciella Data Box-enhet enhet som du beställer. Giltiga värden är: "data," DataBoxDisk "och" DataBoxHeavy "| DataBox |
+    |EmailId [krävs]| E-postadresserna som är kopplade till ordern.| "gusp@contoso.com" |
+    |StreetAddress1 [krävs]| Gatuadressen dit ordern ska skickas. | "15700 NE 39th St" |
+    |StreetAddress2| Den sekundära adress informationen, till exempel lägenhets nummer eller build-nummer. | "Bld 123" |
+    |StreetAddress3| Den tertiära adress informationen. | |
+    |Stad [obligatoriskt]| Den stad som enheten ska skickas till. | Redmond |
+    |StateOrProvinceCode [krävs]| Det tillstånd som enheten ska skickas till.| WA |
+    |CountryCode [krävs]| Det land som enheten kommer att skickas till. | "USA" |
+    |Post nummer [obligatoriskt]| Post numret eller post numret som är associerat med leverans adressen.| "98052"|
+    |CompanyName| Namnet på ditt företag som du arbetar för.| "Contoso, LTD" |
+    |StorageAccountResourceId [krävs]| Azure Storage konto-ID: t som du vill importera data från.| <AzStorageAccount>. ID |
+
+3. I kommando tolken för Choice eller Terminal använder du kommandot [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob) för att skapa din Azure Data boxs ordning.
+
+   ```azurepowershell
+    PS> $storAcct = Get-AzureStorageAccount -StorageAccountName "mystorageaccount"
+    PS> New-AzDataBoxJob -Location "WestUS" \
+                         -StreetAddress1 "15700 NE 39th St" \
+                         -PostalCode "98052" \
+                         -City "Redmond" \
+                         -StateOrProvinceCode "WA" \
+                         -CountryCode "US" \
+                         -EmailId "gusp@contoso.com" \
+                         -PhoneNumber 4255551234 \
+                         -ContactName "Gus Poland" \
+                         -StorageAccount $storAcct.id \
+                         -DataBoxType DataBox \
+                         -ResourceGroupName "myresourcegroup" \
+                         -Name "myDataBoxOrderPSTest"
+   ```
+
+   Här är utdata från att köra kommandot:
+
+   ```output
+    jobResource.Name     jobResource.Sku.Name jobResource.Status jobResource.StartTime jobResource.Location ResourceGroup
+    ----------------     -------------------- ------------------ --------------------- -------------------- -------------
+    myDataBoxOrderPSTest DataBox              DeviceOrdered      07-06-2020 05:25:30   westus               myresourcegroup
+   ```
 
 ---
 
@@ -469,13 +565,77 @@ I följande tabell visas parameter informationen för `az databox job list` :
    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
    CancellationReason                                               DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name                 ResourceGroup    StartTime                         Status
    ---------------------- ----------------------------------------  --------------  ---------------  -------------------------  -------------  ---------------------------  ----------  -------------------  ---------------  --------------------------------  -------------
-   OtherReason This was a test order for documentation purposes.    NonScheduled    False            False                      True           False                        westus      gdpImportTest        GDPTest          2020-05-26T23:20:57.464075+00:00  Cancelled
-   NoLongerNeeded This order was created for documentation purposes.NonScheduled    False            False                      True           False                        westus      mydataboxExportTest  GDPTest          2020-05-27T00:04:16.640397+00:00  Cancelled
-   IncorrectOrder                                                   NonScheduled    False            False                      True           False                        westus      mydataboxtest2       GDPTest          2020-06-10T16:54:23.509181+00:00  Cancelled
-                                                                    NonScheduled    True             True                       False          True                         westus      mydataboxtest3       GDPTest          2020-06-11T22:05:49.436622+00:00  DeviceOrdered
-                                                                    NonScheduled    True             True                       False          True                         westus      mydataboxtest4       GDPTest          2020-06-18T03:48:00.905893+00:00  DeviceOrdered
+   OtherReason This was a test order for documentation purposes.    NonScheduled    False            False                      True           False                        westus      gdpImportTest        MyResGrp         2020-05-26T23:20:57.464075+00:00  Cancelled
+   NoLongerNeeded This order was created for documentation purposes.NonScheduled    False            False                      True           False                        westus      mydataboxExportTest  MyResGrp         2020-05-27T00:04:16.640397+00:00  Cancelled
+   IncorrectOrder                                                   NonScheduled    False            False                      True           False                        westus      mydataboxtest2       MyResGrp         2020-06-10T16:54:23.509181+00:00  Cancelled
+                                                                    NonScheduled    True             True                       False          True                         westus      mydataboxtest3       MyResGrp         2020-06-11T22:05:49.436622+00:00  DeviceOrdered
+                                                                    NonScheduled    True             True                       False          True                         westus      mydataboxtest4       MyResGrp         2020-06-18T03:48:00.905893+00:00  DeviceOrdered
    PS C:\WINDOWS\system32>
    ```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-ps)
+
+### <a name="track-a-single-order"></a>Spåra en enskild order
+
+Kör [Get-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/Get-AzDataBoxJob)för att få spårnings information om en enskild, befintlig Azure Data boxs ordning. Kommandot visar information om ordningen, till exempel, men inte begränsat till: namn, resurs grupp, spårnings information, prenumerations-ID, kontakt information, leverans typ och enhets-SKU.
+
+> [!NOTE]
+> `Get-AzDataBoxJob`används för att visa både en och flera order. Skillnaden är att du anger ordnings namnet för enskilda beställningar.
+
+   ```azurepowershell
+    Get-AzDataBoxJob -ResourceGroupName <String> -Name <String>
+   ```
+
+   I följande tabell visas parameter informationen för `Get-AzDataBoxJob` :
+
+   | Parameter | Beskrivning |  Exempelvärde |
+   |---|---|---|
+   |ResourceGroup [krävs]| Namnet på resurs gruppen som är kopplad till ordern. En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. | myresourcegroup|
+   |Namn [obligatoriskt]| Namnet på den ordning som information ska hämtas för. | "mydataboxorder"|
+   |ResourceId| ID för den resurs som är kopplad till ordern. |  |
+
+   Här är ett exempel på kommandot med utdata:
+
+   ```azurepowershell
+    PS C:\WINDOWS\system32> Get-AzDataBoxJob -ResourceGroupName "myResourceGroup" -Name "myDataBoxOrderPSTest"
+   ```
+
+   Här är utdata från att köra kommandot:
+
+   ```output
+   jobResource.Name     jobResource.Sku.Name jobResource.Status jobResource.StartTime jobResource.Location ResourceGroup
+   ----------------     -------------------- ------------------ --------------------- -------------------- -------------
+   myDataBoxOrderPSTest DataBox              DeviceOrdered      7/7/2020 12:37:16 AM  WestUS               myResourceGroup
+   ```
+
+### <a name="list-all-orders"></a>Lista alla beställningar
+
+Om du har ordnat flera enheter kan du köra [Get-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/Get-AzDataBoxJob) för att visa alla dina Azure Data Box beställningar. Kommandot visar alla beställningar som tillhör en speciell resurs grupp. Visas också i utdata: order namn, leverans status, Azure-region, leverans typ, order status. Annullerade order ingår också i listan.
+Kommandot visar även tidsstämplar för varje order.
+
+```azurepowershell
+Get-AzDataBoxJob -ResourceGroupName <String>
+```
+
+Här är ett exempel på kommandot:
+
+```azurepowershell
+PS C:\WINDOWS\system32> Get-AzDataBoxJob -ResourceGroupName "myResourceGroup"
+```
+
+Här är utdata från att köra kommandot:
+
+```output
+jobResource.Name     jobResource.Sku.Name jobResource.Status jobResource.StartTime jobResource.Location ResourceGroup
+----------------     -------------------- ------------------ --------------------- -------------------- -------------
+guspImportTest       DataBox              Cancelled          5/26/2020 11:20:57 PM WestUS               myResourceGroup
+mydataboxExportTest  DataBox              Cancelled          5/27/2020 12:04:16 AM WestUS               myResourceGroup
+mydataboximport1     DataBox              Cancelled          6/26/2020 11:00:34 PM WestUS               myResourceGroup
+myDataBoxOrderPSTest DataBox              Cancelled          7/07/2020 12:37:16 AM WestUS               myResourceGroup
+mydataboxtest2       DataBox              Cancelled          6/10/2020 4:54:23  PM WestUS               myResourceGroup
+mydataboxtest4       DataBox              DeviceOrdered      6/18/2020 3:48:00  AM WestUS               myResourceGroup
+PS C:\WINDOWS\system32>
+```
 
 ---
 
@@ -506,7 +666,7 @@ Om du vill avbryta en Azure Data Boxs ordning kan du köra [AZ data-Job Cancel](
    |resurs-grupp [obligatoriskt]| Namnet på resurs gruppen som är kopplad till den ordning som ska tas bort. En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. | myresourcegroup|
    |namn [obligatoriskt]| Namnet på den ordning som ska tas bort. | "mydataboxorder"|
    |Orsak [required]| Orsaken till att ordern annulleras. | "Jag har angett felaktig information och behövde avbryta beställningen." |
-   |ja| Begär inte bekräftelse. | --Ja (-y)| --Ja-y |
+   |yes| Begär inte bekräftelse. | --Ja (-y)| --Ja-y |
    |felsökning| Inkludera felsöknings information för utförlig loggning | --Felsök |
    |Hjälp| Visa hjälp information för det här kommandot. | --hjälp-h |
    |endast-show-Errors| Visa endast fel, ignorera varningar. | --endast-show-Errors |
@@ -543,7 +703,7 @@ Om du har avbrutit en Azure Data Box order kan du köra [AZ](https://docs.micros
    |resurs-grupp [obligatoriskt]| Namnet på resurs gruppen som är kopplad till den ordning som ska tas bort. En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. | myresourcegroup|
    |namn [obligatoriskt]| Namnet på den ordning som ska tas bort. | "mydataboxorder"|
    |prenumeration| Namnet eller ID (GUID) för din Azure-prenumeration. | "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" |
-   |ja| Begär inte bekräftelse. | --Ja (-y)| --Ja-y |
+   |yes| Begär inte bekräftelse. | --Ja (-y)| --Ja-y |
    |felsökning| Inkludera felsöknings information för utförlig loggning | --Felsök |
    |Hjälp| Visa hjälp information för det här kommandot. | --hjälp-h |
    |endast-show-Errors| Visa endast fel, ignorera varningar. | --endast-show-Errors |
@@ -564,6 +724,74 @@ Här är ett exempel på kommandot med utdata:
    command ran in 1.142 seconds.
    PS C:\Windows>
    ```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-ps)
+
+### <a name="cancel-an-order"></a>Annullera en beställning
+
+Om du vill avbryta en Azure Data Box ordning kör du [Stop-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/stop-azdataboxjob). Du måste ange orsaken till annulleringen av ordern.
+
+```azurepowershell
+Stop-AzDataBoxJob -ResourceGroup <String> -Name <String> -Reason <String>
+```
+
+I följande tabell visas parameter informationen för `Stop-AzDataBoxJob` :
+
+| Parameter | Beskrivning |  Exempelvärde |
+|---|---|---|
+|ResourceGroup [krävs]| Namnet på resurs gruppen som är kopplad till den order som ska avbrytas. En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. | myresourcegroup|
+|Namn [obligatoriskt]| Namnet på den ordning som ska tas bort. | "mydataboxorder"|
+|Orsak [required]| Orsaken till att ordern annulleras. | "Jag har angett felaktig information och behövde avbryta beställningen." |
+|Force | Tvingar cmdleten att köras utan bekräftelse från användaren. | -Force |
+
+Här är ett exempel på kommandot med utdata:
+
+```azurepowershell
+PS C:\PowerShell\Modules> Stop-AzDataBoxJob -ResourceGroupName myResourceGroup \
+                                            -Name "myDataBoxOrderPSTest" \
+                                            -Reason "I entered erroneous information and had to cancel."
+```
+
+Här är utdata från att köra kommandot:
+
+```output
+Confirm
+"Cancelling Databox Job "myDataBoxOrderPSTest
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+PS C:\WINDOWS\system32>
+```
+
+### <a name="delete-an-order"></a>Ta bort en order
+
+Om du har avbrutit en Azure Data Box order kan du köra [Remove-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/remove-azdataboxjob) för att ta bort ordern.
+
+```azurepowershell
+Remove-AzDataBoxJob -Name <String> -ResourceGroup <String>
+```
+
+I följande tabell visas parameter informationen för `Remove-AzDataBoxJob` :
+
+| Parameter | Beskrivning |  Exempelvärde |
+|---|---|---|
+|ResourceGroup [krävs]| Namnet på resurs gruppen som är kopplad till den ordning som ska tas bort. En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. | myresourcegroup|
+|Namn [obligatoriskt]| Namnet på den ordning som ska tas bort. | "mydataboxorder"|
+|Force | Tvingar cmdleten att köras utan bekräftelse från användaren. | -Force |
+
+Här är ett exempel på kommandot med utdata:
+
+```azurepowershell
+PS C:\Windows> Remove-AzDataBoxJob -ResourceGroup "myresourcegroup" \
+                                   -Name "mydataboxtest3"
+```
+
+Här är utdata från att köra kommandot:
+
+```output
+Confirm
+"Removing Databox Job "mydataboxtest3
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+PS C:\Windows>
+```
 
 ---
 

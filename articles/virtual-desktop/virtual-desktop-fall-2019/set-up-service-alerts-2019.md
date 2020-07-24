@@ -1,5 +1,5 @@
 ---
-title: Konfigurera tjänst aviseringar för Windows Virtual Desktop – Azure
+title: Konfigurera tjänst aviseringar för Windows Virtual Desktop – hösten 2019 – Azure
 description: Konfigurera Azure Service Health för att ta emot tjänst meddelanden för virtuella Windows-datorer.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f2eead8dfd1f4d88d28de1f70134dcfcad8471d3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5b3a29e97fbdf2579e2ef6a86b8dadf91f679366
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259765"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085834"
 ---
-# <a name="tutorial-set-up-service-alerts"></a>Självstudie: Konfigurera tjänst aviseringar
+# <a name="tutorial-set-up-service-alerts---fall-2019"></a>Självstudie: Konfigurera tjänst aviseringar – höst 2019
 
 >[!IMPORTANT]
 >Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../set-up-service-alerts.md).
@@ -29,7 +29,7 @@ I den här självstudien får du lära dig att:
 
 Mer information om Azure Service Health finns i [Azure Health-dokumentationen](https://docs.microsoft.com/azure/service-health/).
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Självstudie: skapa en klient i Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
 - [Självstudie: skapa tjänstens huvud namn och roll tilldelningar med PowerShell](create-service-principal-role-powershell.md)

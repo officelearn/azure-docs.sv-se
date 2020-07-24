@@ -1,5 +1,5 @@
 ---
-title: Skapa en hanterad disk från ett snapshot-CLI-exempel
+title: Skapa hanterad disk från Snapshot (Linux) – CLI-exempel
 description: Skriptexempel för Azure CLI – Skapa en hanterad disk från en ögonblicksbild
 services: virtual-machines-linux
 documentationcenter: storage
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: c0c009573393a65d901634fca8de3cf03df6b874
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7c5e9e16b81c0befb6524a284d63fb2e106bff7d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460417"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085327"
 ---
-# <a name="create-a-managed-disk-from-a-snapshot-with-cli"></a>Skapa en hanterad disk från en ögonblicksbild med CLI
+# <a name="create-a-managed-disk-from-a-snapshot-with-cli-linux"></a>Skapa en hanterad disk från en ögonblicks bild med CLI (Linux)
 
 Det här skriptet skapar en hanterad disk från en ögonblicksbild. Du kan använda den för att återställa en virtuell dator från ögonblicksbilder av operativsystem och datadiskar. Skapa OS och hanterade datadiskar från respektive ögonblicksbilder, och skapa sedan en ny virtuell dator genom att koppla hanterade diskar. Du kan även återställa datadiskar på en befintlig virtuell dator genom att koppla datadiskar som skapats från ögonblicksbilder.
 
@@ -40,15 +40,15 @@ Det här skriptet skapar en hanterad disk från en ögonblicksbild. Du kan anvä
 
 Det här skriptet använder följande kommandon för att skapa en hanterad disk från en ögonblicksbild. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | Hämtar alla egenskaper för en ögonblicksbild med hjälp av ögonblicksbildens namn och resursgruppsegenskaper. ID-egenskapen används för att skapa en hanterad disk.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Skapar en hanterad disk med ett ögonblicksbilds-ID för en hanterad ögonblicksbild |
+| [az snapshot show](/cli/azure/snapshot) | Hämtar alla egenskaper för en ögonblicksbild med hjälp av ögonblicksbildens namn och resursgruppsegenskaper. ID-egenskapen används för att skapa en hanterad disk.  |
+| [az disk create](/cli/azure/disk) | Skapar en hanterad disk med ett ögonblicksbilds-ID för en hanterad ögonblicksbild |
 
 ## <a name="next-steps"></a>Nästa steg
 
 [Skapa en virtuell dator genom att koppla en hanterad disk som OS-disk](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
 Ytterligare CLI-skriptexempel för virtuella datorer och hanterade diskar finns i [Dokumentation för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

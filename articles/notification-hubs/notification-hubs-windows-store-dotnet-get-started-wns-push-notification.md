@@ -15,12 +15,12 @@ ms.date: 12/05/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: f78f24ee68545b386169e29a5a52ccc572849ad7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 232bd96373f22957a88c94585f53237e05d5e5cf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80127063"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076693"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-using-azure-notification-hubs"></a>Självstudie: skicka meddelanden till Universell Windows-plattform appar med Azure Notification Hubs
 
@@ -39,11 +39,11 @@ Du utför följande steg:
 > * Skapa en Windows-exempelapp
 > * Skicka testmeddelanden
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - Microsoft Visual Studio 2017 eller senare. Exemplet i den här självstudien använder [Visual Studio 2019](https://www.visualstudio.com/products).
-- [Installerade verktyg för UWP-apputveckling](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
+- [Installerade verktyg för UWP-apputveckling](/windows/uwp/get-started/get-set-up)
 - Ett aktivt Windows Store-konto
 - Bekräfta att inställningen **Hämta meddelanden från appar och annan avsändare** är aktive rad. 
     - Starta fönstret **Inställningar** på datorn.
@@ -116,7 +116,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med WNS. Du har anslutn
     using Windows.UI.Popups;
     ```
 
-10. Leta upp `App.xaml.cs` `App` klassen i projekt filen och Lägg till följande `InitNotificationsAsync` metod definition. Ersätt `<your hub name>` med namnet på den aviserings hubb som du skapade i Azure Portal och Ersätt `<Your DefaultListenSharedAccessSignature connection string>` med `DefaultListenSharedAccessSignature` anslutnings strängen från sidan **åtkomst principer** i Notification Hub:
+10. `App.xaml.cs`Leta upp klassen i projekt filen `App` och Lägg till följande `InitNotificationsAsync` metod definition. Ersätt `<your hub name>` med namnet på den aviserings hubb som du skapade i Azure Portal och Ersätt `<Your DefaultListenSharedAccessSignature connection string>` med `DefaultListenSharedAccessSignature` anslutnings strängen från sidan **åtkomst principer** i Notification Hub:
 
     ```csharp
     private async void InitNotificationsAsync()
@@ -191,6 +191,6 @@ notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
 <!-- URLs. -->
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[toast catalog]: https://msdn.microsoft.com/library/windows/apps/hh761494.aspx
-[tile catalog]: https://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[badge overview]: https://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[toast catalog]: /previous-versions/windows/apps/hh761494(v=win.10)
+[tile catalog]: /previous-versions/windows/apps/hh761491(v=win.10)
+[badge overview]: /previous-versions/windows/apps/hh779719(v=win.10)

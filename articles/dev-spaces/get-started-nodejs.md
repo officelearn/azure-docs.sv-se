@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett Node.js program i Azure Kubernetes service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
-ms.openlocfilehash: 3ee8ec8eb78ccb8a7405fd00654ee00ebba8b7c1
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 286f4f37b0f34614b560c9a1758c18f5f7c586bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854985"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044334"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-nodejs-with-azure-dev-spaces"></a>Skapa ett Kubernetes dev-utrymme: Visual Studio Code och Node.js med Azure dev Spaces
 
@@ -20,7 +20,7 @@ I den här guiden får du lära dig hur du:
 - Utveckla kod iterativt i containrar med VS Code och kommandoraden.
 - Effektivt utvecklar och testar din kod i en teammiljö.
 
-> [!Note]
+> [!NOTE]
 > **Om du får fastna när som** helst kan du läsa avsnittet [fel sökning](troubleshooting.md) .
 
 ## <a name="install-the-azure-cli"></a>Installera Azure CLI
@@ -33,7 +33,7 @@ Logga in i Azure. Skriv in följande kommando i ett terminalfönster:
 az login
 ```
 
-> [!Note]
+> [!NOTE]
 > Om du inte har någon Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free).
 
 #### <a name="if-you-have-multiple-azure-subscriptions"></a>Om du har flera Azure-prenumerationer ...
@@ -126,7 +126,7 @@ Håll ett öga på kommandots utdata – du kommer att se flera saker under för
 - Information om containerns slutpunkt(er) visas. I det här fallet förväntar vi oss en offentlig HTTP-URL.
 - Förutsatt att ovanstående steg slutförs ordentligt kan du börja se `stdout`- (och `stderr`-) utdata när containern startas.
 
-> [!Note]
+> [!NOTE]
 > De här stegen tar längre tid första gången kommandot `up` körs, men efterföljande körningar bör gå snabbare.
 
 ### <a name="test-the-web-app"></a>Testa webbappen
@@ -142,7 +142,7 @@ Identifiera den offentliga URL: en för tjänsten i utdata från `up` kommandot.
 
 Om du vill se din webbapp öppnar du den offentliga URL: en i en webbläsare. Observera också `stdout` att meddelande och `stderr` utdata strömmas till azds-fönstret för *spårnings* terminalen när du interagerar med din webbapp. Du kan också se spårnings information för HTTP-begäranden när de går igenom systemet. Detta gör det enklare för dig att spåra komplexa anrop i flera tjänster under utvecklingen. Instrumentation som lagts till av dev Spaces innehåller den här förfrågan spårningen.
 
-> [!Note]
+> [!NOTE]
 > Förutom den offentliga URL: en kan du använda den alternativa URL: en `http://localhost:<portnumber>` som visas i konsolens utdata. Om du använder URL: en för localhost kan det verka som att behållaren körs lokalt, men i själva verket körs den i Azure. I Azure dev Spaces används Kubernetes *Port-Forward-* funktioner för att mappa localhost-porten till den behållare som körs i AKS. Detta underlättar interaktion med tjänsten från den lokala datorn.
 
 ### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
@@ -199,9 +199,9 @@ Det finns dock en ännu *snabbare kodutvecklingsmetod*, som vi ska titta närmar
 
 I det här avsnittet ska du använda VS Code för att direkt felsöka våra containrar som körs i Azure. Du får också lära dig hur du kan få en snabbare redigera-kör-test-loop.
 
-![](media/common/edit-refresh-see.png)
+![Diagrammet visar en utvecklings slinga med tre steg: redigera kod, uppdatera behållare och se uppdatering.](media/common/edit-refresh-see.png)
 
-> [!Note]
+> [!NOTE]
 > **Om du fastnar** läser du [felsökningsavsnittet](troubleshooting.md) eller skriver en kommentar på den här sidan.
 
 ### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Initiera felsökningstillgångar med VS Code-tillägget
@@ -211,15 +211,15 @@ Du måste först konfigurera kodprojektet så att VS Code kommunicerar med vår 
 
 Då läggs felsökningskonfigurationen för Azure Dev Spaces till under mappen `.vscode`. Det här kommandot ska inte förväxlas med kommandot `azds prep` som konfigurerar projektet för distribution.
 
-![](media/common/command-palette.png)
+![Skärm bilden visar valet av kommandot "Azure dev Spaces: förbereda konfigurationsfiler för Azure dev Spaces" från fönstret kommando rads fönster.](media/common/command-palette.png)
 
 ### <a name="select-the-azds-debug-configuration"></a>Välj AZDS-felsökningskonfigurationen
 1. Du öppnar felsökningsvyn genom att klicka på felsökningsikonen i **aktivitetsfältet** längs kanten i VS Code.
 1. Välj **Start program (AZDS)** (Starta program (AZDS)) som aktiv felsökningskonfiguration.
 
-![](media/get-started-node/debug-configuration-nodejs2.png)
+![Skärm bilden är i det övre vänstra hörnet i Visual Studio Code-fönstret. Fel söknings ikonen är markerad, den vänstra panelen heter "DEBUG" och en nedrullningsbar lista till höger om rubriken visar "starta program (A Z D S)](media/get-started-node/debug-configuration-nodejs2.png)
 
-> [!Note]
+> [!NOTE]
 > Om du inte ser några Azure dev Spaces-kommandon i paletten, kontrollerar du att du har [installerat vs Code-tillägget för Azure dev Spaces](get-started-nodejs.md#get-kubernetes-debugging-for-vs-code).
 
 ### <a name="debug-the-container-in-kubernetes"></a>Felsöka containern i Kubernetes
@@ -227,10 +227,10 @@ Tryck på **F5** för att felsöka koden i Kubernetes!
 
 På liknande sätt som med `up`-kommandot synkroniseras koden med utvecklingsmiljön när du startar felsökningen, och en container skapas och distribueras till Kubernetes. Den här gången är felsökaren kopplad till fjärrcontainern.
 
-> [!Tip]
+> [!TIP]
 > Statusfältet för VS Code blir orange, vilket indikerar att fel söknings programmet är kopplat. Den visar också en klicknings bara URL, som du kan använda för att snabbt öppna din webbplats.
 
-![](media/common/vscode-status-bar-url.png)
+![Skärm bilden visar slutet av Visual Studio Code-fönstret. Fältet orange status är den sista raden. Det innehåller ett U R L-svar för att öppna webbplatsen.](media/common/vscode-status-bar-url.png)
 
 Ange en Bryt punkt i en kod fil på Server sidan, till exempel inom `app.get('/api'...` på [rad 13 i `server.js` ](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13). 
 
@@ -255,7 +255,7 @@ app.get('/api', function (req, res) {
 
 Spara filen och klicka på knappen **starta om** i **rutan fel söknings åtgärder**. 
 
-![](media/common/debug-action-refresh.png)
+![Fönstret fel söknings åtgärder är ett litet fönster överst i mitten av sidan (strax under sid rubriken). Knappen starta om visar en cirkulär pil och är markerad. Hov rings bilden för knappen är "starta om (Ctrl + Shift + F 5)".](media/common/debug-action-refresh.png)
 
 I stället för att skapa och distribuera om en ny containeravbildning varje gång koden ändras, vilket ofta tar lång tid, startar Azure Dev Spaces om Node.js-processen mellan felsökningssessioner för att snabba upp redigerings- och felsökningsförloppet.
 

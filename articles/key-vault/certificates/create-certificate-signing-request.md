@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: ae2d6259bac6a2034edc98de9b0405f32f17fbc3
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 225fb1099c1a095a4ec5bced4acc010d7cec6835
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849495"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043890"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Skapa och sammanfoga CSR i Key Vault
 
@@ -59,7 +59,7 @@ Följande steg hjälper dig att skapa ett certifikat från certifikat utfärdare
 
     Certifikatbegäran har nu slagits samman.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 1.  Om du vill skapa en kund service representant för den certifikat utfärdare som du väljer navigerar du till det nyckel valv som du vill lägga till certifikatet i.
 2.  Välj **certifikat**på sidan Key Vault egenskaper.
@@ -81,7 +81,24 @@ Följande steg hjälper dig att skapa ett certifikat från certifikat utfärdare
 
 Certifikatbegäran har nu slagits samman.
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="adding-more-information-to-csr"></a>Lägga till mer information i CSR
+
+Om du vill lägga till mer information när du skapar CSR, t. ex. 
+    - Land:
+    - Stad/plats:
+    - Region:
+    - Organisation
+    - Organisations enhet: du kan lägga till all den informationen när du skapar en kund service representant genom att definiera den i subjectName.
+
+Exempel
+    ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
+    ```
+
+>[!Note]
+>Om du begär ett DV-certifikat med alla dessa uppgifter i CSR kan certifikat utfärdaren avvisa begäran eftersom CA kanske inte kan verifiera all information i begäran. Om du begär ett OV-certifikat blir det mer lämpligt att lägga till all information i CSR.
+
+
+## <a name="troubleshoot"></a>Felsök
 
 Om certifikatet som har utfärdats är inaktiverat i Azure Portal kan du gå vidare och visa **certifikat åtgärden** för att granska fel meddelandet för det certifikatet.
 

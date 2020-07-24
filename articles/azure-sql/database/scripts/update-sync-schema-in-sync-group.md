@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 1cfc6f71543787fb6e8393fe4a5162ffefb0a3a0
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 44a9b0b4d609013147f799ae19f750c34e81837c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196661"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084882"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
@@ -58,7 +58,7 @@ UpdateSyncSchema.ps1 -SubscriptionId <subscriptionId> -ResourceGroupName <resour
 
 Skriptet **UpdateSyncSchema** innehåller följande parametrar:
 
-| Parameter | Anteckningar |
+| Parameter | Kommentarer |
 |---|---|
 | $subscriptionId | Den prenumeration där synkroniseringsgruppen skapas. |
 | $resourceGroupName | Den resursgrupp där synkroniseringsgruppen skapas.|
@@ -76,7 +76,7 @@ Skriptet **UpdateSyncSchema** innehåller följande parametrar:
 
 Skriptet **UpdateSyncSchema** använder följande parametrar. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Kommentarer |
 |---|---|
 | [Get-AzSqlSyncGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncgroup) | Returnerar information om en Sync-grupp. |
 | [Uppdatera – AzSqlSyncGroup](https://docs.microsoft.com/powershell/module/az.sql/update-azsqlsyncgroup) | Uppdaterar en synkroniseringsgrupp. |
@@ -86,7 +86,7 @@ Skriptet **UpdateSyncSchema** använder följande parametrar. Varje kommando i t
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/).
 
 Ytterligare PowerShell-skriptexempel för SQL Database finns i [PowerShell-skript för Azure SQL Database](../powershell-script-content-guide.md).
 

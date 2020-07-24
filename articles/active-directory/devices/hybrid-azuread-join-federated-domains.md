@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46bb3517af31e328efae89afef8f3e83ccbc8bfa
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: c44d2d80e311fd42f0e2167cb0495a4070d0a313
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83778754"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025871"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Självstudier: Konfigurera Hybrid Azure Active Directory-anslutningar för federerade domäner
 
@@ -50,9 +50,9 @@ Lär dig att:
 > * Konfigurera Hybrid Azure Active Directory-anslutning
 > * Aktivera äldre Windows-enheter
 > * Verifiera registreringen
-> * Felsöka
+> * Felsök
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien förutsätter att du är bekant med de här artiklarna:
 
@@ -196,7 +196,7 @@ Här är tre sätt att hitta och kontrol lera enhets status:
 
 ### <a name="using-powershell"></a>Använda PowerShell
 
-Verifiera enhetens registrerings tillstånd i din Azure-klient med hjälp av **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)**. Denna cmdlet finns i [Azure Active Directory PowerShell-modulen](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Verifiera enhetens registrerings tillstånd i din Azure-klient med hjälp av **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. Denna cmdlet finns i [Azure Active Directory PowerShell-modulen](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
 
 När du använder cmdleten **Get-MSolDevice** för att kontrol lera tjänst informationen:
 

@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 64085c55376ec85e20244abb452c2e365aa0aeec
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: ed552bfb37f01200a4dba38ea733a1189768d56a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114392"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067161"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – skapa användargränssnittet med Angular
 
@@ -32,7 +32,7 @@ Del 3 av självstudiekursen bygger vidare på [del 2](tutorial-develop-mongodb-n
 
 > [!VIDEO https://www.youtube.com/embed/MnxHuqcJVoM]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Utför stegen i [del 2](tutorial-develop-mongodb-nodejs-part2.md) av självstudiekursen innan du påbörjar den här delen.
 
@@ -41,7 +41,7 @@ Utför stegen i [del 2](tutorial-develop-mongodb-nodejs-part2.md) av självstudi
 
 ## <a name="build-the-ui"></a>Skapa användargränssnittet
 
-1. Klicka på stoppknappen i Visual Studio Code ![Stoppknapp i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/stop-button.png) för att stoppa Node-appen.
+1. Stoppa Node-appen genom att klicka på stopp knappen i Visual Studio Code :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part3/stop-button.png"::: . 
 
 2. Generera en heroes-komponent genom att skriva följande kommando i kommandotolken i Windows eller i terminalfönstret på en Mac. I den här koden är g = generera, c = komponent och heroes = namnet på komponenten. Koden har en platt filstruktur (--flat) så att ingen undermapp skapas för den.
 
@@ -486,7 +486,7 @@ Nu när vi har komponenten, hur gör vi så att den visas på skärmen? Vi ska �
 
     Nu ska vi köra appen.
 
-2. Klicka på knappen **Felsök**![Felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) till vänster i Visual Studio Code och klicka sedan på knappen **Starta felsökning**![Felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png).
+2. I Visual Studio Code klickar du på **Debug** knappen Felsök :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png"::: till vänster och klickar sedan på knappen **Starta fel sökning** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png"::: .
 
 3. Öppna en webbläsare och gå till **localhost:3000** och se när appen körs lokalt.
 

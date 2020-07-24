@@ -3,7 +3,7 @@ title: Självstudie – Skapa åtkomst paket – hantering av Azure AD-berättig
 description: Stegvis själv studie kurs om hur du skapar ditt första Access-paket i Azure Active Directory hantering av rättigheter.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 03/30/2020
-ms.author: ajburnle
+ms.date: 07/22/2020
+ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2d31ef46dfba31a8f217f68e8d5f98b67d58da5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b79a631ba82d0b4a420ef27684e5a62571ddf85a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80410606"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034584"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Självstudie: skapa ditt första Access-paket i Azure AD-hantering av rättigheter
 
@@ -29,7 +29,7 @@ Att hantera åtkomst till alla resurser som krävs av de anställda, till exempe
 
 I den här självstudien arbetar du för Sparbanken-bank som IT-administratör. Du har fått en förfrågan om att skapa ett paket med resurser för en marknadsförings kampanj som interna användare kan själv betjäna. Begär Anden kräver inte godkännande och användarens åtkomst upphör att gälla efter 30 dagar. I den här självstudien är marknadsförings kampanjens resurser bara medlemmar i en enda grupp, men det kan vara en samling av grupper, program eller SharePoint Online-webbplatser.
 
-![Scenarioöversikt](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
+![Översikt över scenario](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
 I den här guiden får du lära dig att:
 
@@ -42,7 +42,7 @@ En steg-för-steg-demonstration av processen att distribuera Azure Active Direct
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda hantering av Azure AD-rättigheter måste du ha en av följande licenser:
 
@@ -65,9 +65,9 @@ En resurs katalog har en eller flera resurser att dela. I det här steget skapar
 
 1. Skapa eller konfigurera följande två användare. Du kan använda dessa namn eller olika namn. **Admin1** kan vara den användare som du för närvarande är inloggad som.
 
-    | Name | Katalogroll |
+    | Namn | Katalogroll |
     | --- | --- |
-    | **Admin1** | Global administratör<br/>ELLER<br/>Användar administratör |
+    | **Admin1** | Global administratör<br/>\- eller -<br/>Användaradministratör |
     | **Requestor1** | Användare |
 
 1. Skapa en Azure AD-säkerhetsgrupp med namnet **marknadsförings resurser** med en **tilldelad**medlemskaps typ.
@@ -118,7 +118,7 @@ Ett *Access-paket* är ett paket med resurser som ett team eller projekt behöve
 
     >[!NOTE]
     > När du använder [dynamiska grupper](../users-groups-roles/groups-create-rule.md) kan du inte se andra roller som är tillgängliga förutom ägare. Det här är avsiktligt.
-    > ![Scenarioöversikt](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
+    > ![Översikt över scenario](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
 
 12. Klicka på **Nästa** för att öppna fliken **förfrågningar** .
 

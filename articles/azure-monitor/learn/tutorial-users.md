@@ -7,16 +7,16 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2017
 ms.custom: mvc
-ms.openlocfilehash: cc6c7fc94e940732ba180c83344eabf29597d849
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ae4a7335394f0e2f0bd0e3ac47c36b1f61026428
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77670363"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079595"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Använda Azure Application Insights till att förstå hur kunderna använder din app
 
-Azure Application Insights samlar in användningsinformation för att hjälpa dig att förstå hur dina användare interagerar med appen.  Den här självstudien går igenom de olika resurser som är tillgängliga för att analysera den här informationen.  Du lär dig att göra följande:
+Azure Application Insights samlar in användningsinformation för att hjälpa dig att förstå hur dina användare interagerar med appen.  Den här självstudien går igenom de olika resurser som är tillgängliga för att analysera den här informationen.  Du lär dig hur du:
 
 > [!div class="checklist"]
 > * Analyserar information om användare som har åtkomst till din app
@@ -28,7 +28,7 @@ Azure Application Insights samlar in användningsinformation för att hjälpa di
 > * Inspekterar hur användarna navigerar genom appen
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -38,10 +38,10 @@ För att slutföra den här kursen behöver du:
 - Ladda ned och installera [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
 - Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](../../azure-monitor/app/asp-net.md). 
 - [Skicka telemetridata från appen](../../azure-monitor/app/usage-overview.md#send-telemetry-from-your-app) för att lägga till anpassade händelser/sidvisningar
-- Skicka [användarkontext](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) för att spåra vad en användare gör över tid och utnyttja användningsfunktionerna fullt ut.
+- Skicka [användarkontext](../app/usage-send-user-context.md) för att spåra vad en användare gör över tid och utnyttja användningsfunktionerna fullt ut.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com) .
 
 ## <a name="get-information-about-your-users"></a>Få information om dina användare
 På panelen **Användare** kan du få förstå viktig information om dina användare på flera olika sätt. Du kan använda den här panelen till att förstå sådan information som var dina användare ansluter från, information om deras klient och vilka områden i appen de använder. 
@@ -102,16 +102,16 @@ Medan de tidigare panelerna fokuserar på vad användarna av din app har gjort f
 
 1. Välj **Trattar** på menyn och klicka sedan på **Ny**. 
 
-    ![](media/tutorial-users/funnelsnew.png)
+    ![Skärm bild som visar hur du skapar en ny tratt.](media/tutorial-users/funnelsnew.png)
 
 2. Ange ett **trattnamn**.
 3. Skapa en tratt med minst två steg genom att välja en åtgärd för varje steg.  Listan över åtgärder skapas utifrån användningsdata som samlas in av Application Insights.
 
-    ![](media/tutorial-users/funnelsedit.png)
+    ![Skärm bild som visar hur du skapar steg i en ny tratt.](media/tutorial-users/funnelsedit.png)
 
 4. Klicka på **Spara** för att spara tratten och visa sedan resultaten.  Fönstret till höger om tratten visar de vanligaste händelserna före den första aktiviteten och efter den sista aktiviteten för att hjälpa dig att förstå användartendenser runt den specifika sekvensen.
 
-    ![](media/tutorial-users/funnelsright.png)
+    ![Skärm bild som visar händelse resultatet av en nyligen skapad tratt.](media/tutorial-users/funnelsright.png)
 
 
 ## <a name="learn-which-customers-return"></a>Få reda på vilka kunder som kommer tillbaka
@@ -120,11 +120,11 @@ Medan de tidigare panelerna fokuserar på vad användarna av din app har gjort f
 1. Välj **Kvarhållning** på menyn.
 2. Som standard innehåller den analyserade informationen användare som har utfört en åtgärd och sedan kommit tillbaka och utfört en åtgärd.  Du kan ändra det här filtret så att det, till exempel, bara inkluderar de användare som kommer tillbaka efter att ha slutfört ett köp.
 
-    ![](media/tutorial-users/retentionquery.png)
+    ![Skärm bild som visar hur du anger ett bevarande filter.](media/tutorial-users/retentionquery.png)
 
 3. De återkommande användarna som matchar villkoren visas i grafiskt format och tabellformat för olika tidsvaraktigheter.  Det vanliga mönstret visar en gradvis nedgång i antalet återkommande användare över tid.  En plötslig nedgång från en tidsperiod till nästa kan ge upphov till oro. 
 
-    ![](media/tutorial-users/retentiongraph.png)
+    ![Skärm bild som visar ett diagram för användare som matchar de villkor som angetts för ett bevarande filter.](media/tutorial-users/retentiongraph.png)
 
 ## <a name="analyze-user-navigation"></a>Analysera användarnavigering
 Ett **användarflöde** visualiserar hur användare navigerar mellan sidorna och funktionerna i din app.  Det här hjälper dig att besvara frågor som var användarna normalt går från en viss sida, hur de normalt avslutar din app och om det finns några åtgärder som upprepas regelbundet.
@@ -133,15 +133,15 @@ Ett **användarflöde** visualiserar hur användare navigerar mellan sidorna och
 2.  Klicka på **Nytt** för att skapa ett nytt användarflöde och klicka sedan på **Redigera** för att redigera dess egenskaper.
 3.  Öka **tidsintervallet** till 7 dagar och välj sedan den inledande händelsen.  Flödet spårar användarsessioner som börjar med den händelsen.
 
-    ![](media/tutorial-users/flowsedit.png)
+    ![Skärm bild som visar hur du skapar ett nytt användar flöde.](media/tutorial-users/flowsedit.png)
 
 4.  Användarflödet visas och du kan se olika användarvägar och deras antal sessioner.  Blå linjer anger en åtgärd som användaren har utfört efter den aktuella åtgärden.  En blå linje anger att användarsessionen är slut.
 
-    ![](media/tutorial-users/flows.png)
+    ![Skärm bild som visar visning av användar Sök vägar och antal sessioner för ett användar flöde.](media/tutorial-users/flows.png)
 
 5.  Om du vill ta bort en händelse från flödet klickar du på **x** i hörnet av åtgärden och klickar sedan på **Skapa diagram**.  Diagrammet ritas om med instanserna av den händelsen borttagna.  Klicka på **Redigera** för att se att händelsen nu har lagts till i **Exkluderade händelser**.
 
-    ![](media/tutorial-users/flowsexclude.png)
+    ![Skärm bild som visar en lista över undantagna händelser för ett användar flöde.](media/tutorial-users/flowsexclude.png)
 
 ## <a name="consolidate-usage-data"></a>Konsolidera användningsdata
 **Arbetsböcker** kombinerar datavisualiseringar, analysfrågor och text till interaktiva dokument.  Du kan använda arbetsböcker för att gruppera gemensam användningsinformation, konsolidera information från en viss incident eller rapportera tillbaka till ditt team om appens användning.
@@ -150,12 +150,12 @@ Ett **användarflöde** visualiserar hur användare navigerar mellan sidorna och
 2.  Klicka på **Nytt** för att skapa en ny arbetsbok.
 3.  En fråga har redan angetts som innehåller alla användningsdata på sista dagen visade som ett stapeldiagram.  Du kan använda den här frågan, redigera den manuellt eller klicka på **Exempelfrågor** för att välja från andra användbara frågor.
 
-    ![](media/tutorial-users/samplequeries.png)
+    ![Skärm bild som visar en lista över exempel frågor som du kan använda.](media/tutorial-users/samplequeries.png)
 
 4.  Klicka på **Klar med redigeringen**.
 5.  Klicka på **Redigera** i det övre fönstret för att redigera texten högst upp i arbetsboken.  Det här formateras med markdown.
 
-    ![](media/tutorial-users/markdown.png)
+    ![Skärm bild som visar hur du redigerar texten överst i arbets boken.](media/tutorial-users/markdown.png)
 
 6.  Klicka på **Lägg till användare** för att lägga till ett diagram med användarinformation.  Redigera informationen om diagrammet om du vill och klicka sedan på **Klar med redigeringen** för att spara det.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 35ac39109bfcb4dc63b738c947d2ad8caf8ac0a6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 704c56745ad89e9ed2f79e8a863f1d0bc9845bf9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77021295"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001833"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Självstudie: Distribuera och genom gång av en kontinuerlig app-mall för patient övervakning
 
@@ -85,13 +85,16 @@ Om du klickar på fliken **enhets mallar** ser du att det finns två olika enhet
 >[!div class="mx-imgBorder"] 
 >![Enhets mal len Smart Vital patch](media/smart-vitals-device-template.png)
 
-Om du klickar på fliken **enhets grupper** ser du också att dessa enhets mallar automatiskt har enhets grupper skapade.
+### <a name="device-groups"></a>Enhetsgrupper 
+Med enhets grupper kan du logiskt gruppera en uppsättning enheter för att sedan utföra Mass frågor eller åtgärder. 
+
+Om du klickar på fliken enhets grupper ser vi att vi har skapat några standard enhets grupper för var och en av enhets mallarna i programmet. Du ser att vi också har skapat två ytterligare exempel enhets grupper som heter "etablera enheter" och "enheter med inaktuell inbyggd program vara". Vi använder dessa exempel enhets grupper som indata för att köra vissa [jobb](#jobs).
 
 ### <a name="rules"></a>Regler
 
 När du hoppar till fliken regler visas tre regler som finns i program mal len:
 
-* **Klammerparentes temperatur hög**: den här regeln utlöses när enhetens temperatur på den smarta Knee-klammern är större än 95&deg;F över ett 5-minuters fönster. Du kan använda den här regeln för att meddela patient-och sjukvårds teamet, och att fjärrlagra enheten.
+* **Klammerparentes temperatur hög**: den här regeln utlöses när enhetens temperatur på den smarta Knee-klammern är större än 95 &deg; F över ett 5-minuters fönster. Du kan använda den här regeln för att meddela patient-och sjukvårds teamet, och att fjärrlagra enheten.
 
 * **Identifierad**: den här regeln utlöses om en patient befinner sig. Du kan använda den här regeln för att konfigurera en åtgärd för att distribuera ett drifts team för att hjälpa patienten som har fallit.
 
@@ -99,6 +102,13 @@ När du hoppar till fliken regler visas tre regler som finns i program mal len:
 
 >[!div class="mx-imgBorder"] 
 >![Hög regel för klammerns temperatur](media/brace-temp-rule.png)
+
+### <a name="jobs"></a>Jobb
+
+Med jobb kan du köra Mass åtgärder på en uppsättning enheter, med hjälp av [enhets grupper](#device-groups) som inmatade. Vi har dirigerat program mal len med två exempel jobb som en lösnings operatör kan behöva köra vid någon tidpunkt i enhetens livs cykel:
+* **Uppdatera Knee-inbyggd program vara**: det här jobbet hittar enheter i enhets gruppens enheter med gammal inbyggd program vara och kör ett kommando för att uppdatera enheterna till den senaste versionen av den inbyggda program varan för Knee-klammern. Det här exemplet förutsätter att enheterna har funktioner för att ta emot ett "Update"-kommando och hämta den inbyggda program varans filer från molnet direkt.  
+
+* **Reprovision-enheter**: om du har en uppsättning enheter som nyligen har returnerats till sjukhus och som måste etableras på nytt för nästa uppsättning patienter kan du köra det här jobbet för att skapa en Mass uppdatering av dina etablerings enheter. I det här fallet tar vi alla enheter från en enhets grupp som kallas "etablera enheter" och vi kör ett kommando för att etablera dem. 
 
 ### <a name="devices"></a>Enheter
 
@@ -112,6 +122,10 @@ På fliken **kommandon** kan du köra kommandon som har modeller ATS som en del 
 
 >[!div class="mx-imgBorder"] 
 >![Vyer för Knee-klammer](media/knee-brace-dashboard.png)
+
+### <a name="data-export"></a>Dataexport
+
+Med data export kan du exportera IoT Central enhets data kontinuerligt till andra Azure-tjänster, inklusive [Azure API för FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

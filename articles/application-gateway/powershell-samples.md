@@ -7,20 +7,19 @@ ms.service: application-gateway
 ms.topic: sample
 ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: d45fd7bf88e6988b83a621eda2689c10356441a4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 045009f695197277ab576c8ff41f36af43957be7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74129741"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067770"
 ---
-# <a name="azure-powershell-examples-for-azure-application-gateway"></a>Azure PowerShell exempel för Azure Application Gateway
+# <a name="azure-powershell-examples-for-azure-application-gateway-ag"></a>Azure PowerShell exempel för Azure Application Gateway (AG)
 
 Följande tabell innehåller länkar till Azure PowerShell skript exempel för Azure Application Gateway.
 
-| | |
-|---|---|
+| Exempel | Beskrivning |
+|-------- | ----------- |
 | [Hantera webbtrafik](./scripts/create-vmss-powershell.md) | Skapar en Application Gateway och alla relaterade resurser.|
 | [Begränsa webbtrafik](./scripts/create-vmss-waf-powershell.md) | Skapar ett Application Gateway som begränsar trafik med hjälp av OWASP-regler.|
-|[Anpassade regler för WAF v2](scripts/waf-custom-rules-powershell.md)|Skapar en Application Gateway brand vägg för webbaserade program v2 med anpassade regler.
-| | |
+|[Anpassade regler för WAF v2](scripts/waf-custom-rules-powershell.md)|Skapar en Application Gateway brand vägg för webbaserade program v2 med anpassade regler.|

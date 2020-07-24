@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: bfed93a4ed13878448d21b95d265e49bf0260742
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 522a13c6de87dd8074b76f95670baf79fc96d419
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85798263"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075341"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Självstudie: kom igång med Log Analytics frågor
 
@@ -87,7 +87,7 @@ Om du vill använda kontrollen **tidsintervall** väljer du den i det översta f
 - Tidsintervalls värden är UTC, vilket kan skilja sig från den lokala tids zonen.
 - Om frågan uttryckligen ställer in ett filter för **TimeGenerated**, visar tids väljaren **set i Query**och är inaktive rad för att förhindra en konflikt.
 
-### <a name="run-a-query"></a>Kör en fråga
+### <a name="run-a-query"></a>Köra en fråga
 Om du vill köra en fråga placerar du markören någonstans i frågan och väljer **Kör** i det översta fältet **eller trycker på** + **RETUR**. Frågan körs tills den hittar en tom rad.
 
 ## <a name="filter-results"></a>Filtrera resultat
@@ -189,7 +189,7 @@ Så här sparar du en fråga:
    
    Om du vill spara en fråga som en funktion anger du ett **funktions Ali Aset**, vilket är ett kort namn för andra frågor som ska användas för att anropa den här frågan.
    
-1. Ange en **kategori** för **query Explorer** som ska användas för frågan.
+1. Om du är i en Log Analytics arbets yta, anger du en **kategori** för **query Explorer** som ska användas för frågan. (Kategorier är inte tillgängliga för program insikts frågor)
    
 1. Välj **Spara**.
    
@@ -202,6 +202,10 @@ Om du vill läsa in en sparad fråga väljer du **query Explorer** längst upp t
 
 ### <a name="export-and-share-queries"></a>Exportera och dela frågor
 Om du vill exportera en fråga väljer du **Exportera** i det översta fältet och väljer sedan **Exportera till CSV – alla kolumner**, **Exportera till CSV-visade kolumner**eller **Exportera till Power BI (M fråga)** i list rutan.
+
+Följande video visar hur du integrerar Log Analytics med Excel.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Asme]
 
 Om du vill dela en länk till en fråga väljer du **Kopiera länk** i det översta fältet och väljer sedan **Kopiera länk till fråga**, **Kopiera frågetext**eller **Kopiera frågeresultat** till kopiera till Urklipp. Du kan skicka fråg-länken till andra som har åtkomst till samma arbets yta.
 

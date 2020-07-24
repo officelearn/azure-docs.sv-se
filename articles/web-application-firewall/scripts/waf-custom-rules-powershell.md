@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell skript exempel – skapa anpassade regler för WAF
+title: Azure PowerShell skript exempel som använder anpassade WAF-regler
 description: Azure PowerShell skript exempel – skapa brand vägg för webbaserade program på Application Gateway anpassade regler
 author: vhorne
 ms.service: web-application-firewall
@@ -7,18 +7,18 @@ services: web-application-firewall
 ms.topic: sample
 ms.date: 09/30/2019
 ms.author: victorh
-ms.openlocfilehash: 950f71c284268a9aa2773eb57213e266622d85bd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b73b15e7f174868fa4c0a9518725a4585cf3dffe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73501577"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035595"
 ---
 # <a name="create-waf-custom-rules-with-azure-powershell"></a>Skapa anpassade WAF-regler med Azure PowerShell
 
 Det här skriptet skapar en Application Gateway brand vägg för webbaserade program som använder anpassade regler. Den anpassade regeln blockerar trafik om begär ande huvudet innehåller användar agentens *evilbot*.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="azure-powershell-module"></a>Azure PowerShell-modul
 
@@ -45,7 +45,7 @@ Remove-AzResourceGroup -Name CustomRulesTest
 
 Det här skriptet använder följande kommandon för att skapa distributionen. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Skapar undernätskonfigurationen. |
@@ -71,4 +71,4 @@ Det här skriptet använder följande kommandon för att skapa distributionen. V
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om anpassade regler för WAF finns i [anpassade regler för brand vägg för webbaserade program](../ag/custom-waf-rules-overview.md)
-- Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
+- Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](/powershell/azure/).

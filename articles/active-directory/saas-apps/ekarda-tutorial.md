@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3790da8674732c50d55a85c84367f0d2fe3e08f5
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: aacaec5ff632385a1f1686610370bb92eb63c349
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85256171"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87017576"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ekarda"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Ekarda
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur du integrerar Ekarda med Azure Ac
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -123,7 +123,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -151,12 +151,12 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **admin**  ->  **mitt konto**.
 
-    ![Ekarda-konfiguration](./media/ekarda-tutorial/ekarda.PNG)    
+    ![Ekarda-konfiguration](./media/ekarda-tutorial/ekarda.png)    
 
 1. Längst ned på sidan hittar du avsnittet **SAML-inställningar** där du kommer att konfigurera SAML-integrationen.
 1. Utför följande steg på följande sida:
 
-    ![Ekarda-konfiguration](./media/ekarda-tutorial/ekarda1.PNG)
+    ![Ekarda-konfiguration](./media/ekarda-tutorial/ekarda1.png)
 
     a. Klicka på länken för **service providerns metadata** och spara den som en fil på din dator.
 
@@ -170,7 +170,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     f. Öppna den nedladdade **certifikat (base64)** från Azure Portal i anteckningar och klistra in innehållet i text rutan **IDP x509-certifikat** .
 
-    g. Välj avsnittet **Aktivera service nivå mål** i **alternativ** .
+    ex. Välj avsnittet **Aktivera service nivå mål** i **alternativ** .
 
     h. Klicka på **Uppdatera**.
 
@@ -188,13 +188,14 @@ När du klickar på panelen Ekarda på åtkomst panelen, bör du loggas in autom
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova Ekarda med Azure AD](https://aad.portal.azure.com/)
 
+- Använd [Ekarda Enterprise ecard-lösning](https://ekarda.com/ecards-ecards-with-logo-for-business-corporate-enterprise) för att tillhandahålla ett antal anställda för att skicka eCards som är märkta med företagets logo typ för sina klienter och kollegor. Lär dig mer om att tillhandahålla [Ekarda som en SSO-lösning](https://support.ekarda.com/#SSO-Implementation).
+
 - [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Så här skyddar du Ekarda med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

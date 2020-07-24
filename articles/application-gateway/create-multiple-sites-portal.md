@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 07/26/2019
+ms.date: 07/20/2020
 ms.author: victorh
-ms.openlocfilehash: ca6be666a9b77532b4f1c61f6e3391c239e82c91
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2f1501438c5fde5be401411ee51b212323427761
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74075157"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068125"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Självstudie: skapa och konfigurera en Application Gateway som värd för flera webbplatser med hjälp av Azure Portal
 
@@ -29,9 +29,9 @@ I den här guiden får du lära dig att:
 > * Skapa routningsregler
 > * Skapa en CNAME-post i domänen
 
-![Exempel på routning mellan flera webbplatser](./media/create-multiple-sites-portal/scenario.png)
+:::image type="content" source="./media/create-multiple-sites-portal/scenario.png" alt-text="Application Gateway för flera platser":::
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -50,7 +50,7 @@ Logga in på Azure Portal på[https://portal.azure.com](https://portal.azure.com
    - **Resurs grupp**: Välj **myResourceGroupAG** för resurs gruppen. Om den inte finns väljer du **Skapa ny** för att skapa den.
    - **Namn på Application Gateway**: ange *myAppGateway* som namn på Application Gateway.
 
-     ![Skapa ny Application Gateway: grunderna](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png" alt-text="Skapa Application Gateway":::
 
 2.  För att Azure ska kunna kommunicera mellan resurserna som du skapar krävs ett virtuellt nätverk. Du kan antingen skapa ett nytt virtuellt nätverk eller använda ett befintligt. I det här exemplet ska du skapa ett nytt virtuellt nätverk på samma tidpunkt som du skapar programgatewayen. Application Gateway instanser skapas i separata undernät. Du skapar två undernät i det här exemplet: ett för programgatewayen och ett för backend-servrarna.
 
@@ -66,7 +66,7 @@ Logga in på Azure Portal på[https://portal.azure.com](https://portal.azure.com
 
     Välj **OK** för att stänga fönstret **Skapa virtuellt nätverk** och spara inställningarna för det virtuella nätverket.
 
-     ![Skapa ny Application Gateway: virtuellt nätverk](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png" alt-text="Skapa VNet":::
     
 3. På fliken **grundläggande** accepterar du standardvärdena för de andra inställningarna och väljer sedan **Nästa: frontend**-klienter.
 
@@ -78,7 +78,7 @@ Logga in på Azure Portal på[https://portal.azure.com](https://portal.azure.com
 
 2. Välj **Skapa ny** för den **offentliga IP-adressen** och ange *myAGPublicIPAddress* för den offentliga IP-adressen och välj sedan **OK**. 
 
-     ![Skapa ny Application Gateway: klient delar](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Skapa VNet":::
 
 3. Välj **Nästa:** Server delar.
 
@@ -96,7 +96,7 @@ Backend-poolen används för att dirigera begär anden till backend-servrar som 
 3. I fönstret **Lägg till en server dels grupp** väljer du **Lägg till** för att spara konfigurationen av backend-poolen och återgår till fliken back **ändar** .
 4. Lägg nu till en annan backend-pool med namnet *fabrikamPool*.
 
-     ![Skapa ny Application Gateway: Server delar](./media/create-multiple-sites-portal/backend-pools.png)
+    :::image type="content" source="./media/create-multiple-sites-portal/backend-pools.png" alt-text="Skapa server delar":::
 
 4. **På fliken Server** delar väljer du **Nästa: konfiguration**.
 
@@ -117,9 +117,12 @@ På fliken **konfiguration** ansluter du klient dels-och backend-pooler som du s
    - **Typ av lyssnare**: flera platser
    - **Värdnamn**: **www.contoso.com**
 
+>[!NOTE]
+> Med Application Gateway eller WAF v2 SKU kan du också konfigurera upp till 5 värdnamn per lyssnare och du kan använda jokertecken i värd namnet. Mer information finns i [namn på jokertecken i lyssnaren](multiple-site-overview.md#wildcard-host-names-in-listener-preview) . I Azure Portal kan du definiera dem i separata text rutor i fältet värdnamn.
+
    Acceptera standardvärdena för de andra inställningarna på fliken **lyssnare** och välj sedan fliken **backend-mål** för att konfigurera resten av regeln.
 
-   ![Skapa ny Application Gateway: lyssnare](./media/create-multiple-sites-portal/routing-rule.png)
+   :::image type="content" source="./media/create-multiple-sites-portal/routing-rule.png" alt-text="Skapa regel för routning":::
 
 4. På fliken **backend-mål** väljer du **ContosoPool** för **Server dels målet**.
 
@@ -128,7 +131,7 @@ På fliken **konfiguration** ansluter du klient dels-och backend-pooler som du s
 6. I fönstret **Lägg till regel för routning** väljer du **Lägg till** för att spara regeln för Routning och återgå till fliken **konfiguration** .
 7. Välj **Lägg till en regel** och Lägg till en liknande regel, lyssnare, Server dels mål och http-inställning för fabrikam.
 
-     ![Skapa ny Application Gateway: regel för routning](./media/create-multiple-sites-portal/fabrikamRule.png)
+     :::image type="content" source="./media/create-multiple-sites-portal/fabrikam-rule.png" alt-text="Fabrikam-regel":::
 
 7. Välj **Nästa: Taggar** och **Nästa: granska + skapa**.
 

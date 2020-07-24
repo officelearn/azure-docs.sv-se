@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7f0bc04bb8e7358f5bdb2e4dfc3db198e24303f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 104583522c7041d89d9c63ba67a5633a3bd383f3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67085649"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016498"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Självstudie: Azure Active Directory integration med Zscaler Private Access Administrator
 
@@ -33,14 +33,17 @@ Att integrera Zscaler Private Access-administratör med Azure AD ger följande f
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Zscaler Private Access Administrator behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
 * Zscaler privat åtkomst administratör för enkel inloggning aktive rad prenumeration
+
+> [!NOTE]
+> Den här integreringen är också tillgänglig för användning från Azure AD amerikanska myndigheters moln miljö. Du hittar det här programmet i Cloud App-galleriet för Azure AD amerikanska myndigheter och konfigurerar det på samma sätt som du gör från det offentliga molnet.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -183,7 +186,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **användar namn** `brittasimon@yourcompanydomain.extension` . Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -239,7 +242,7 @@ Om du vill att Azure AD-användare ska kunna logga in på Zscaler Private Access
 
     ![Användar administratör för Zscaler privat åtkomst administratör](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_useradmin.png)
 
-    a. I text rutan **användar namn** anger du e-postmeddelandet till en användare BrittaSimon@contoso.com.
+    a. I text rutan **användar namn** anger du e-postmeddelandet till en användare BrittaSimon@contoso.com .
 
     b. Skriv lösen ordet i text rutan **lösen ord** .
 
@@ -251,7 +254,7 @@ Om du vill att Azure AD-användare ska kunna logga in på Zscaler Private Access
 
     f. Skriv telefonnumret i text rutan **telefon** .
 
-    g. I text rutan **tidszon** väljer du tids zonen.
+    ex. I text rutan **tidszon** väljer du tids zonen.
 
     h. Klicka på **Spara**.
 

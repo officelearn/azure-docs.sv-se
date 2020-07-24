@@ -5,12 +5,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio Code för att utföra grupp utveckling i ett .NET Core-program i Azure Kubernetes service
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: 69434c6168bfadbf3291c6efe85fb2f1934c8d11
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f83dbea53427d88043537a5039f4071d974a9786
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78251972"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013617"
 ---
 # <a name="team-development-using-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Grupp utveckling med .NET Core och Visual Studio Code med Azure dev Spaces
 
@@ -31,7 +31,7 @@ Exempelprogrammet är inte särskilt komplext för tillfället. Men i en riktig 
 * Vissa utvecklare försöker kringgå problemet genom att simulera eller testa många av tjänstberoendena. Den här metoden kan vara till hjälp, men att hantera dessa simuleringar kan snabbt börja påverka utvecklingskostnaden. Dessutom gör den metoden att din utvecklingsmiljö ser väldigt annorlunda ut jämfört med produktionen, vilket gör att svårupptäckta buggar kan uppstå.
 * Av detta följer att all slags integreringstestning blir komplicerad. Realistiskt sett kan integrationstestning endast ske när koden checkats in, vilket kan medföra problem senare i utvecklingscykeln.
 
-    ![](media/common/microservices-challenges.png)
+    ![En bild som visar komplexiteten vid integrerings testningen genom att illustrera relationerna mellan en app service och dess beroenden.](media/common/microservices-challenges.png)
 
 ### <a name="work-in-a-shared-dev-space"></a>Arbeta i en delad utvecklarmiljö
 Med Azure Dev Spaces kan du konfigurera en *delad* utvecklarmiljö i Azure. Varje utvecklare kan fokusera på sin del av programmet, och kan arbeta med *icke incheckad kod* i en utvecklarmiljö som redan innehåller alla andra tjänster och molnresurser som krävs i det aktuella scenariot. Beroenden är alltid uppdaterade och utvecklarna arbetar på ett sätt som återspeglar produktionsmiljön.
@@ -40,7 +40,7 @@ Med Azure Dev Spaces kan du konfigurera en *delad* utvecklarmiljö i Azure. Varj
 När du utvecklar kod för en tjänst är koden sällan perfekt förrän du väljer att checka in den. Du arbetar ju fortfarande med den, testar den och experimenterar med lösningar. Azure Dev Spaces införlivar begreppet **utrymme**, som innebär att du kan arbeta isolerat, utan att oroa dig för att skada andra teammedlemmars kod.
 
 ## <a name="use-dev-spaces-for-team-development"></a>Använda Dev Spaces för teamutveckling
-Låt oss demonstrera dessa idéer med ett konkret exempel med vårt exempel program för *webfrontend* -> -*mywebapi* . Vi tänker oss ett scenario där utvecklaren Scott behöver göra en ändring i tjänsten *mywebapi*, och *enbart* den tjänsten. *webfrontend* behöver inte ändras i Scotts uppdatering.
+Låt oss demonstrera dessa idéer med ett konkret exempel med vårt exempel program för *webfrontend*-  ->  *mywebapi* . Vi tänker oss ett scenario där utvecklaren Scott behöver göra en ändring i tjänsten *mywebapi*, och *enbart* den tjänsten. *webfrontend* behöver inte ändras i Scotts uppdatering.
 
 _Utan_ användning av Dev Spaces skulle Scott vara begränsad till vissa sätt att utveckla och testa sina uppdatering. Inget av dessa lämpar sig särskilt väl:
 * Köra ALLA komponenter lokalt. Det här kräver en kraftfullare utvecklingsdator med Docker samt potentiellt MiniKube installerat.
@@ -53,7 +53,7 @@ Först behöver vi distribuera en baslinje för våra tjänster. Den här distri
 
 1. Klona [dev Spaces-exempel programmet](https://github.com/Azure/dev-spaces):`git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
 1. Checka ut den fjärranslutna grenen *azds_updates*:`git checkout -b azds_updates origin/azds_updates`
-1. Välj utrymmet _dev_: `azds space select --name dev`. När du uppmanas att välja ett överordnat _ \<dev\>_-utrymme väljer du inget.
+1. Välj utrymmet _dev_: `azds space select --name dev`. När du uppmanas att välja ett överordnat dev-utrymme väljer du _\<none\>_ .
 1. Navigera till katalogen _mywebapi_ och kör: `azds up -d`
 1. Navigera till katalogen _webfrontend_ och kör: `azds up -d`
 1. Kör `azds list-uris` för att se den offentliga slutpunkten för _webfrontend_
@@ -91,14 +91,14 @@ När du uppmanas väljer du _dev_ som **parent dev space** (överordnad utveckli
 
 I linje med vårt inledande antagande har vi har använt namnet _scott_ för det nya utrymmet så att andra kan identifiera vem som arbetar i den. Men det kan kallas vad som helst och är flexibelt vad gäller innebörden, till exempel _sprint4_ eller _demo_. Oavsett vilket så fungerar _dev_ som baslinje för alla utvecklare som arbetar med en del av det här programmet:
 
-![](media/common/ci-cd-space-setup.png)
+![Ett diagram som visar ett enkelt dev-utrymme.](media/common/ci-cd-space-setup.png)
 
 Kör kommandot `azds space list` för att se en lista över alla utrymmen i utvecklarmiljön. Den _valda_ kolumnen anger vilket utrymme du för närvarande har valt (sant/falskt). I ditt fall valdes det utrymme som heter _dev/scott_ automatiskt när det skapades. Du kan välja ett annat utrymme när som helst med kommandot `azds space select`.
 
 Nu ska vi se hur det fungerar i praktiken.
 
 ### <a name="make-a-code-change"></a>Göra en kodändring
-Gå till VS Code-fönstret `mywebapi` och gör en kod redigering till- `string Get(int id)` metoden i `Controllers/ValuesController.cs`, till exempel:
+Gå till VS Code-fönstret `mywebapi` och gör en kod redigering till `string Get(int id)` -metoden i `Controllers/ValuesController.cs` , till exempel:
 
 ```csharp
 [HttpGet("{id}")]
@@ -110,7 +110,7 @@ public string Get(int id)
 
 ### <a name="run-the-service"></a>Köra tjänsten
 
-Tryck på F5 (eller Skriv `azds up` in terminalfönstret) för att köra tjänsten för att köra tjänsten. Tjänsten körs automatiskt i det valda utrymmet _dev/scott_. Bekräfta att tjänsten körs i sitt eget utrymme genom att köra `azds list-up`:
+Tryck på F5 (eller Skriv `azds up` in terminalfönstret) för att köra tjänsten för att köra tjänsten. Tjänsten körs automatiskt i det valda utrymmet _dev/scott_. Bekräfta att tjänsten körs i sitt eget utrymme genom att köra `azds list-up` :
 
 ```cmd
 $ azds list-up
@@ -122,7 +122,7 @@ webfrontend               dev       Service  26m ago  Running
 
 Observera att en instans av *mywebapi* nu körs i _dev/Scott-_ utrymmet. Versionen som körs i _dev_ körs fortfarande, men den visas inte.
 
-Visa en lista med URL: er för det `azds list-uris`aktuella utrymmet genom att köra.
+Visa en lista med URL: er för det aktuella utrymmet genom att köra `azds list-uris` .
 
 ```cmd
 $ azds list-uris

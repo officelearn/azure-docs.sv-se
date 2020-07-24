@@ -5,12 +5,12 @@ author: KarlErickson
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
-ms.openlocfilehash: b6d7b2c60e777266b1cab578b8970c1fa1c6bc50
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d93d11f32ba5db9b0be38757d0f1456fc137a9ef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77425331"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083080"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Självstudie: skapa en funktion i Java med en Event Hub-utlösare och en Azure Cosmos DB utgående bindning
 
@@ -25,7 +25,7 @@ I den här självstudien får du:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien måste du ha följande installerat:
 
@@ -35,7 +35,7 @@ För att slutföra den här självstudien måste du ha följande installerat:
 * [Azure Functions Core tools](https://www.npmjs.com/package/azure-functions-core-tools) version 2.6.666 eller senare
 
 > [!IMPORTANT]
-> `JAVA_HOME` Miljövariabeln måste anges till installations platsen för JDK för att slutföra den här självstudien.
+> `JAVA_HOME`Miljövariabeln måste anges till installations platsen för JDK för att slutföra den här självstudien.
 
 Om du föredrar att använda koden för den här självstudien direkt, se exempel lagrings platsen för [Java-Functions-eventhub-cosmosdb](https://github.com/Azure-Samples/java-functions-eventhub-cosmosdb) .
 
@@ -58,7 +58,7 @@ Om du inte använder Cloud Shell måste du använda Azure CLI lokalt för att ko
 
 ### <a name="set-environment-variables"></a>Ange miljövariabler
 
-Skapa sedan några miljövariabler för namn och plats för de resurser som du ska skapa. Använd följande kommandon och Ersätt `<value>` plats hållarna med värden som du väljer. Värdena bör följa [namngivnings reglerna och begränsningarna för Azure-resurser](/azure/architecture/best-practices/resource-naming). Använd ett `LOCATION` av värdena som skapas av `az functionapp list-consumption-locations` kommandot för variabeln.
+Skapa sedan några miljövariabler för namn och plats för de resurser som du ska skapa. Använd följande kommandon och Ersätt `<value>` plats hållarna med värden som du väljer. Värdena bör följa [namngivnings reglerna och begränsningarna för Azure-resurser](/azure/architecture/best-practices/resource-naming). `LOCATION`Använd ett av värdena som skapas av kommandot för variabeln `az functionapp list-consumption-locations` .
 
 ```azurecli-interactive
 RESOURCE_GROUP=<value>
@@ -128,7 +128,7 @@ az cosmosdb collection create \
     --partition-key-path '/temperatureStatus'
 ```
 
-`partition-key-path` Värdet partitionerar dina data baserat på `temperatureStatus` värdet för varje objekt. Med hjälp av partitionsnyckel kan Cosmos DB öka prestandan genom att dela upp data i distinkta del mängder som den kan komma åt oberoende av varandra.
+`partition-key-path`Värdet partitionerar dina data baserat på `temperatureStatus` värdet för varje objekt. Med hjälp av partitionsnyckel kan Cosmos DB öka prestandan genom att dela upp data i distinkta del mängder som den kan komma åt oberoende av varandra.
 
 ### <a name="create-a-storage-account-and-function-app"></a>Skapa ett lagrings konto och en Function-app
 
@@ -147,7 +147,7 @@ az functionapp create \
     --runtime java
 ```
 
-När `az functionapp create` kommandot skapar din Function-app skapas även en Application Insights-resurs med samma namn. Function-appen konfigureras automatiskt med en inställning som `APPINSIGHTS_INSTRUMENTATIONKEY` heter som ansluter den till Application Insights. Du kan visa app-telemetri när du har distribuerat dina funktioner till Azure, enligt beskrivningen längre fram i den här självstudien.
+När `az functionapp create` kommandot skapar din Function-app skapas även en Application Insights-resurs med samma namn. Function-appen konfigureras automatiskt med en inställning `APPINSIGHTS_INSTRUMENTATIONKEY` som heter som ansluter den till Application Insights. Du kan visa app-telemetri när du har distribuerat dina funktioner till Azure, enligt beskrivningen längre fram i den här självstudien.
 
 ## <a name="configure-your-function-app"></a>Konfigurera din Function-app
 
@@ -226,7 +226,7 @@ mvn archetype:generate --batch-mode \
     -DartifactId=telemetry-functions
 ```
 
-Det här kommandot genererar flera filer i `telemetry-functions` en mapp:
+Det här kommandot genererar flera filer i en `telemetry-functions` mapp:
 
 * En `pom.xml` fil som ska användas med maven
 * En `local.settings.json` fil som innehåller appinställningar för lokal testning
@@ -324,11 +324,11 @@ public class Function {
 }
 ```
 
-Som du kan se innehåller den här filen två funktioner `generateSensorData` och. `processSensorData` `generateSensorData` Funktionen simulerar en sensor som skickar temperatur-och tryck läsningar till Event Hub. En timer-utlösare kör funktionen var tionde sekund och en utgående bindning för Event Hub skickar returvärdet till händelsehubben.
+Som du kan se innehåller den här filen två funktioner `generateSensorData` och `processSensorData` . `generateSensorData`Funktionen simulerar en sensor som skickar temperatur-och tryck läsningar till Event Hub. En timer-utlösare kör funktionen var tionde sekund och en utgående bindning för Event Hub skickar returvärdet till händelsehubben.
 
-När händelsehubben tar emot meddelandet genererar den en händelse. `processSensorData` Funktionen körs när händelsen tas emot. Den bearbetar sedan händelse data och använder en Azure Cosmos DB utgående bindning för att skicka resultaten till Azure Cosmos DB.
+När händelsehubben tar emot meddelandet genererar den en händelse. `processSensorData`Funktionen körs när händelsen tas emot. Den bearbetar sedan händelse data och använder en Azure Cosmos DB utgående bindning för att skicka resultaten till Azure Cosmos DB.
 
-De data som används av dessa funktioner lagras i en klass som `TelemetryItem`kallas, som du behöver implementera. Skapa en ny fil med `TelemetryItem.java` namnet på samma plats som `Function.java` och Lägg till följande kod:
+De data som används av dessa funktioner lagras i en klass `TelemetryItem` som kallas, som du behöver implementera. Skapa en ny fil `TelemetryItem.java` med namnet på samma plats som `Function.java` och Lägg till följande kod:
 
 ```java
 package com.example;
@@ -445,9 +445,9 @@ az group delete --name $RESOURCE_GROUP
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du skapar en Azure-funktion som hanterar Event Hub-händelser och uppdaterar en Cosmos DB. Mer information finns i [Azure Functions Java Developer Guide](/azure/azure-functions/functions-reference-java). Information om anteckningarna som används finns i [com. Microsoft. Azure. functions. Annotation](/java/api/com.microsoft.azure.functions.annotation) reference.
+I den här självstudien har du lärt dig hur du skapar en Azure-funktion som hanterar Event Hub-händelser och uppdaterar en Cosmos DB. Mer information finns i [Azure Functions Java Developer Guide](./functions-reference-java.md). Information om anteckningarna som används finns i [com. Microsoft. Azure. functions. Annotation](/java/api/com.microsoft.azure.functions.annotation) reference.
 
-Den här självstudien använde miljövariabler och program inställningar för att lagra hemligheter som anslutnings strängar. Information om hur du lagrar dessa hemligheter i Azure Key Vault finns i [använda Key Vault referenser för app service och Azure Functions](/azure/app-service/app-service-key-vault-references).
+Den här självstudien använde miljövariabler och program inställningar för att lagra hemligheter som anslutnings strängar. Information om hur du lagrar dessa hemligheter i Azure Key Vault finns i [använda Key Vault referenser för app service och Azure Functions](../app-service/app-service-key-vault-references.md).
 
 Nu ska du lära dig hur du använder Azure pipelines CI/CD för automatisk distribution:
 

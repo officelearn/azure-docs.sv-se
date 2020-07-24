@@ -2,13 +2,13 @@
 title: 'Självstudie: skapa ett innehålls bibliotek för att distribuera virtuella datorer i Azure VMware-lösningen (AVS)'
 description: I den här Azure VMware Solution (AVS)-självstudien skapar du ett innehålls bibliotek för att distribuera en virtuell dator i ett moln privat moln.
 ms.topic: tutorial
-ms.date: 07/10/2020
-ms.openlocfilehash: bdea4304baa92fadc4d6c3d0060f99cf37af5f77
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/16/2020
+ms.openlocfilehash: d5f0f26293af9eb146cfb4b2f3adf47fe8cce94f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86262511"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079391"
 ---
 # <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution-avs"></a>Självstudie: skapa ett innehålls bibliotek för att distribuera virtuella datorer i Azure VMware-lösningen (AVS)
 
@@ -20,7 +20,7 @@ I den här guiden får du lära dig att:
 > * Ladda upp en ISO-avbildning till innehålls biblioteket
 > * Distribuera en virtuell dator med hjälp av ISO i innehålls biblioteket
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ett NSX-T logiskt växel segment och en hanterad DHCP-tjänst krävs för att slutföra den här självstudien.  Mer information finns i avsnittet [Hantera DHCP i Azure VMware-lösning (AVS)](manage-dhcp.md) .
 

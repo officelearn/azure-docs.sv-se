@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 2e2edd7930ba4555748791210ad303c54f93c347
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 59874387b6dfc23fddbd6c6eed89263a54389649
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086117"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048001"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Självstudie 1: förutsägelse kredit risk-Azure Machine Learning Studio (klassisk)
 
@@ -121,7 +121,7 @@ När data har konverterats till CSV-format måste du ladda upp den till Machine 
 
 3. Klicka på **+NEW** (Ny) längst ned i fönstret.
 
-4. Välj **DATASET** (Datamängd).
+4. Välj **data uppsättning**.
 
 5. Välj **FROM LOCAL FILE** (Från lokal fil).
 
@@ -195,7 +195,7 @@ Om du vill använda [Redigera metadata][edit-metadata]anger du först vilka kolu
 
     ![Lägga till metadata](./media/tutorial-part1-credit-risk/experiment-with-edit-metadata-module.png)
 
-    Det röda utropstecknet anger att du inte har angett egenskaperna för den här modulen ännu. Det gör du i nästa steg.
+    Det röda utropstecknet anger att du inte har angett egenskaperna för den här modulen ännu. Det ska vi göra nu.
 
     > [!TIP]
     > Du kan lägga till en kommentar till en modul genom att dubbelklicka på modulen och skriva text. På så sätt kan du snabbt se vad modulen gör i experimentet. I det här fallet dubbelklickar du på modulen [Edit Metadata][edit-metadata] (Redigera metadata) och skriver kommentaren ”Lägg till kolumnrubriker”. Klicka någon annanstans på arbetsytan för att stänga textrutan. Om du vill visa kommentaren klickar du på nedåtpilen i modulen.
@@ -311,6 +311,6 @@ Du är nu redo att träna och utvärdera modeller för dessa data.
 > [Självstudie 2 – Träna och utvärdera modeller](tutorial-part2-credit-risk-train.md)
 
 <!-- Module References -->
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
+[execute-r-script]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/execute-r-script
+[edit-metadata]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/edit-metadata
+[split]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/split-data

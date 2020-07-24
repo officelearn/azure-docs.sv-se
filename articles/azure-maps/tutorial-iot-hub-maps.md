@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: cf1d732391f86bec9c0ec2de1e6bace2e808bb19
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 1f0668a897f5bc88fbaeb770bc045e56dae2d48f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85318934"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075497"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Självstudie: implementera IoT spatial Analytics med hjälp av Azure Maps
 
@@ -83,7 +83,7 @@ Följande bild visar det yt avgränsnings områden som marker ATS i blått. Hyre
   ![Netstängsel-väg](./media/tutorial-iot-hub-maps/geofence-route.png)
 
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -91,7 +91,7 @@ För att slutföra stegen i den här självstudien måste du först skapa en res
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Välj **Resursgrupper**.
+2. Välj **resurs grupper**.
     
    ![Resursgrupper](./media/tutorial-iot-hub-maps/resource-group.png)
 
@@ -110,7 +110,7 @@ För att slutföra stegen i den här självstudien måste du först skapa en res
 
 ### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto 
 
-För att implementera affärs logik baserat på Azure Maps spatial analys måste vi skapa ett Azure Maps-konto i resurs gruppen som vi har skapat. Följ instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) om du vill skapa en Azure Maps konto prenumeration med pris nivån S1. Följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta din primära nyckel för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
+För att implementera affärs logik baserat på Azure Maps spatial analys måste vi skapa ett Azure Maps-konto i resurs gruppen som vi har skapat. Följ instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-azure-maps-account) om du vill skapa en Azure Maps konto prenumeration med pris nivån S1. Följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta din primära nyckel för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
 
 

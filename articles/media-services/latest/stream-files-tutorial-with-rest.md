@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/16/2020
 ms.author: juliako
-ms.openlocfilehash: 35be4ec2c4f5f8c299120c0ba7dbdcb1dd112473
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f12771e55ced3b8783b6c7497b83e6b041c66b75
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79472041"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074469"
 ---
-# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Självstudie: koda en fjärrfil baserat på URL och strömma videon REST
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Självstudier: Koda en fjärrfil baserat på URL och strömma videon – REST
 
 Med Azure Media Services kan du koda dina mediefiler till format som kan spelas upp på en mängd olika webbläsare och enheter. Du kanske vill strömma ditt innehåll i Apples HLS- eller MPEG DASH-formaten. Innan du strömmar, bör du koda dina högkvalitativa digitala mediafiler. Vägledning om kodning finns i [Kodningskoncept](encoding-concept.md).
 
@@ -40,9 +40,9 @@ I den här självstudiekursen lär du dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md).
+- [Skapa ett Media Services-konto](./create-account-howto.md).
 
     Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot
 
@@ -125,7 +125,7 @@ I det här avsnittet skickar vi begäranden som är relevanta för att koda och 
 
 ### <a name="start-a-streaming-endpoint"></a>Starta en slut punkt för direkt uppspelning
 
-Om du vill aktivera direkt uppspelning måste du först starta den [strömnings slut punkt](https://docs.microsoft.com/azure/media-services/latest/streaming-endpoint-concept) som du vill strömma videon från.
+Om du vill aktivera direkt uppspelning måste du först starta den [strömnings slut punkt](./streaming-endpoint-concept.md) som du vill strömma videon från.
 
 > [!NOTE]
 > Du faktureras bara när slut punkten för direkt uppspelning är i körnings läge.
@@ -147,11 +147,11 @@ Om du vill aktivera direkt uppspelning måste du först starta den [strömnings 
         
         `https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/<resourceGroupName>/providers/Microsoft.Media/mediaservices/<accountName>/streamingendpointoperations/1be71957-4edc-4f3c-a29d-5c2777136a2e?api-version=2018-07-01`
 
-        Artikeln [spåra asynkrona Azure-åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) förklarar i djup hur du spårar statusen för asynkrona Azure-åtgärder via värden som returneras i svaret.
+        Artikeln [spåra asynkrona Azure-åtgärder](../../azure-resource-manager/management/async-operations.md) förklarar i djup hur du spårar statusen för asynkrona Azure-åtgärder via värden som returneras i svaret.
 
 ### <a name="create-an-output-asset"></a>Skapa en utdatatillgång
 
-Utmatnings [till gången](https://docs.microsoft.com/rest/api/media/assets) lagrar resultatet av ditt kodnings jobb. 
+Utmatnings [till gången](/rest/api/media/assets) lagrar resultatet av ditt kodnings jobb. 
 
 1. I det vänstra fönstret i Postman-appen väljer du "till gångar".
 2. Välj därefter Skapa eller uppdatera en tillgång.
@@ -175,14 +175,14 @@ Utmatnings [till gången](https://docs.microsoft.com/rest/api/media/assets) lagr
 
 ### <a name="create-a-transform"></a>Skapa en transformering
 
-När kodningen eller bearbetningen av innehåll i Media Services görs, konfigureras vanligtvis kodningsinställningarna som ett recept. Du skickar sedan ett **Jobb** som tillämpar receptet på en video. Genom att skicka nya jobb för varje ny video tillämpar du receptet på alla videor i biblioteket. Ett recept i Media Services kallas för en **Transformering**. Mer information finns i [Transformeringar och jobb](transform-concept.md). Det exempel som beskrivs i självstudien definierar ett recept som kodar videon för att strömma den till olika iOS- och Android-enheter. 
+När kodningen eller bearbetningen av innehåll i Media Services görs, konfigureras vanligtvis kodningsinställningarna som ett recept. Du skickar sedan ett **Jobb** som tillämpar receptet på en video. Genom att skicka nya jobb för varje ny video tillämpar du receptet på alla videor i biblioteket. Ett recept i Media Services kallas för en **Transformering**. Mer information finns i [Transformeringar och jobb](./transforms-jobs-concept.md). Det exempel som beskrivs i självstudien definierar ett recept som kodar videon för att strömma den till olika iOS- och Android-enheter. 
 
-När du skapar en ny instans för en [Transformering](https://docs.microsoft.com/rest/api/media/transforms), måste du ange vilken utdata du vill att den ska skapa. Den obligatoriska parametern är ett **TransformOutput**-objekt. Varje **TransformOutput** innehåller en **Förinställning**. I **Förinställning** finns stegvisa anvisningar för den video- och/eller ljudbearbetning som ska användas för att generera önskad **TransformOutput**. Det exempel som beskrivs i artikeln använder en inbyggd förinställning som kallas **AdaptiveStreaming**. Förinställningen kodar indatavideon i en automatiskt genererad bithastighetsstege (par för bithastighetsupplösning) som baseras på indatans upplösning och bithastighet, samt producerar ISO MP4-filer med H.264-video och AAC-ljud som motsvarar varje par för bithastighetsupplösningen. Information om denna förinställning finns i [Automatisk generering av bithastighetsstege](autogen-bitrate-ladder.md).
+När du skapar en ny instans för en [Transformering](/rest/api/media/transforms), måste du ange vilken utdata du vill att den ska skapa. Den obligatoriska parametern är ett **TransformOutput**-objekt. Varje **TransformOutput** innehåller en **Förinställning**. I **Förinställning** finns stegvisa anvisningar för den video- och/eller ljudbearbetning som ska användas för att generera önskad **TransformOutput**. Det exempel som beskrivs i artikeln använder en inbyggd förinställning som kallas **AdaptiveStreaming**. Förinställningen kodar indatavideon i en automatiskt genererad bithastighetsstege (par för bithastighetsupplösning) som baseras på indatans upplösning och bithastighet, samt producerar ISO MP4-filer med H.264-video och AAC-ljud som motsvarar varje par för bithastighetsupplösningen. Information om denna förinställning finns i [Automatisk generering av bithastighetsstege](autogen-bitrate-ladder.md).
 
 Du kan använda en inbyggd EncoderNamedPreset eller anpassade förinställningar. 
 
 > [!Note]
-> När du skapar en [Transformering](https://docs.microsoft.com/rest/api/media/transforms) bör du först kontrollera om det redan finns en med **Get**-metoden. Den här kursen förutsätter att du skapar transformeringen med ett unikt namn.
+> När du skapar en [Transformering](/rest/api/media/transforms) bör du först kontrollera om det redan finns en med **Get**-metoden. Den här kursen förutsätter att du skapar transformeringen med ett unikt namn.
 
 1. I det vänstra fönstret i Postman-appen väljer du kodning och analys.
 2. Välj sedan Skapa transformering.
@@ -215,9 +215,9 @@ Du kan använda en inbyggd EncoderNamedPreset eller anpassade förinställningar
 
 ### <a name="create-a-job"></a>Skapa ett jobb
 
-Ett [Jobb](https://docs.microsoft.com/rest/api/media/jobs) är den faktiska begäran till Media Services om att tillämpa den skapade **Transformeringen** på en given indatavideo eller ett ljudinnehåll. **Jobb** anger information som platsen för indatavideon och platsen för utdatan.
+Ett [Jobb](/rest/api/media/jobs) är den faktiska begäran till Media Services om att tillämpa den skapade **Transformeringen** på en given indatavideo eller ett ljudinnehåll. **Jobb** anger information som platsen för indatavideon och platsen för utdatan.
 
-I det här exemplet baseras jobbets Indatatyp på en HTTPS-URL ("https:\//nimbuscdn-nimbuspm.streaming.MediaServices.Windows.net/2b533311-b215-4409-80af-529c3e853622/").
+I det här exemplet baseras jobbets Indatatyp på en HTTPS-URL ("https: \/ /nimbuscdn-nimbuspm.streaming.MediaServices.Windows.net/2b533311-b215-4409-80af-529c3e853622/").
 
 1. I det vänstra fönstret i Postman-appen väljer du kodning och analys.
 2. Välj därefter Skapa eller uppdatera jobbet.
@@ -256,18 +256,18 @@ Jobbet tar en stund att slutföra och du meddelas när detta sker. Om du vill se
 
 #### <a name="job-error-codes"></a>Jobbfelkoder
 
-Se [Felkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Se [Felkoder](/rest/api/media/jobs/get#joberrorcode).
 
 ### <a name="create-a-streaming-locator"></a>Skapa en positionerare för direktuppspelning
 
-När kodningsjobbet är klart, är nästa steg att göra videon i **utdatatillgången** tillgänglig för uppspelning av klienter. Du kan göra detta i två steg: Först skapar du en [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) och därefter skapar du de strömmande URL:er som klienterna ska använda. 
+När kodningsjobbet är klart, är nästa steg att göra videon i **utdatatillgången** tillgänglig för uppspelning av klienter. Du kan göra detta i två steg: Först skapar du en [StreamingLocator](/rest/api/media/streaminglocators) och därefter skapar du de strömmande URL:er som klienterna ska använda. 
 
 Processen för att skapa en strömmande positionerare kallas publicering. Som standard är streaming Locator giltig omedelbart efter att du har gjort API-anrop och varar tills den tas bort, om du inte konfigurerar de valfria start-och slut tiderna. 
 
-När du skapar en [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) behöver du ange önskat **StreamingPolicyName**. I det här exemplet kommer du att strömma in-Clear (eller icke-krypterad) innehåll, så den fördefinierade principen för att rensa strömmande Predefined_ClearStreamingOnly används.
+När du skapar en [StreamingLocator](/rest/api/media/streaminglocators) behöver du ange önskat **StreamingPolicyName**. I det här exemplet kommer du att strömma in-Clear (eller icke-krypterad) innehåll, så den fördefinierade principen för att rensa strömmande Predefined_ClearStreamingOnly används.
 
 > [!IMPORTANT]
-> Om du använder en anpassad [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) bör du skapa en begränsad uppsättning av sådana principer för ditt Media Service-konto, och återanvända dem för dina StreamingLocators när samma krypterings- och protokollalternativ krävs. 
+> Om du använder en anpassad [StreamingPolicy](/rest/api/media/streamingpolicies) bör du skapa en begränsad uppsättning av sådana principer för ditt Media Service-konto, och återanvända dem för dina StreamingLocators när samma krypterings- och protokollalternativ krävs. 
 
 Ditt medie tjänst konto har en kvot för antalet poster i **strömnings principen** . Du bör inte skapa en ny **strömmande princip** för varje strömmande positionerare.
 
@@ -297,7 +297,7 @@ Ditt medie tjänst konto har en kvot för antalet poster i **strömnings princip
 
 #### <a name="list-paths"></a>Lista sökvägar
 
-Nu när [positioneraren för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators) har skapats kan du hämta direktuppspelningswebbadresserna
+Nu när [positioneraren för direktuppspelning](/rest/api/media/streaminglocators) har skapats kan du hämta direktuppspelningswebbadresserna
 
 1. Välj "strömmande principer" i det vänstra fönstret i Postman-appen.
 2. Välj sedan Lista sökvägar.
@@ -372,7 +372,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 
 I den här artikeln används Azure Media Player till att testa strömningen. 
 
-1. Öppna en webbläsare och gå till [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
+1. Öppna en webbläsare och gå till [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/) .
 2. I **URL:**-rutan klistrar du in den URL som du skapat. 
 3. Tryck på **Uppdatera spelare**.
 

@@ -13,17 +13,17 @@ ms.topic: tutorial
 ms.date: 07/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2ab87990981f08164bb47cef9eaa1876514f1ad6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e5c74f6356c8b07cfef923dfb5e12547aa4693ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202842"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053562"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Självstudie: analysera videor med Media Services v3
 
 > [!NOTE]
-> Även om den här självstudien använder [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) -exemplen är de allmänna stegen desamma för [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)eller andra [SDK](media-services-apis-overview.md#sdks): er som stöds.
+> Även om den här självstudien använder [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) -exemplen är de allmänna stegen desamma för [REST API](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event?view=azure-cli-latest)eller andra [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
 Den här självstudien visar hur du analyserar videor med Azure Media Services. Det finns många scenarier där du kanske vill veta mer om inspelat video- eller ljudinnehåll. Organisationer kan till exempel för att uppnå högre kundnöjdhet köra tal-till-text-bearbetning och konvertera inspelningar från kundtjänst till en sökbar katalog med index och instrumentpaneler. Sedan kan de få insikter om deras verksamhet. Dessa insikter innehåller en lista över vanliga klagomål, källor till sådana klagomål och annan användbar information.
 
@@ -33,7 +33,7 @@ I den här självstudiekursen lär du dig att:
 > * Ladda ned exempel appen som beskrivs i avsnittet.
 > * Granska koden som analyserar den angivna videon.
 > * Kör appen.
-> * Granska utdata.
+> * Granska resultatet.
 > * Rensa resurser.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -45,8 +45,8 @@ Som en viktig påminnelse måste du följa alla tillämpliga lagar i din använd
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte har Visual Studio installerat kan du hämta [Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md).<br/>Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot.
-- Följ stegen i [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Få åtkomst till Azure Media Services-API med Azure CLI) och spara autentiseringsuppgifterna. Du måste använda dem för att få åtkomst till API: et.
+- [Skapa ett Media Services-konto](./create-account-howto.md).<br/>Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot.
+- Följ stegen i [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) (Få åtkomst till Azure Media Services-API med Azure CLI) och spara autentiseringsuppgifterna. Du måste använda dem för att få åtkomst till API: et.
 
 ## <a name="download-and-configure-the-sample"></a>Ladda ned och konfigurera exemplet
 
@@ -58,7 +58,7 @@ Klona en GitHub-lagringsplats som innehåller .NET-exemplet till din dator med f
 
 Du hittar exemplet i mappen [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos).
 
-Öppna [appsettings.jspå](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) i det nedladdade projektet. Ersätt värdena med de autentiseringsuppgifter som du har fått från [att komma åt API: er](access-api-cli-how-to.md).
+Öppna [appsettings.jspå](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) i det nedladdade projektet. Ersätt värdena med de autentiseringsuppgifter som du har fått från [att komma åt API: er](./access-api-howto.md).
 
 ## <a name="examine-the-code-that-analyzes-the-specified-video"></a>Granska koden som analyserar den angivna videon
 
@@ -84,33 +84,33 @@ Om du vill börja använda API:er för Media Services med .NET, måste du skapa 
 
 ### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Skapa en indatatillgång och ladda upp en lokal fil till den 
 
-Funktionen **CreateInputAsset** skapar en ny indata [till gång](https://docs.microsoft.com/rest/api/media/assets) och laddar upp den angivna lokala video filen i den. Tillgången används som indata för kodningsjobbet. I Media Services v3 kan indata till ett jobb antingen vara en tillgång eller innehåll som du gör tillgängligt för Media Services-kontot via HTTPS-webbadresser. Information om hur du kodar från en HTTPS-URL finns i [den här](job-input-from-http-how-to.md) artikeln.  
+Funktionen **CreateInputAsset** skapar en ny indata [till gång](/rest/api/media/assets) och laddar upp den angivna lokala video filen i den. Tillgången används som indata för kodningsjobbet. I Media Services v3 kan indata till ett jobb antingen vara en tillgång eller innehåll som du gör tillgängligt för Media Services-kontot via HTTPS-webbadresser. Information om hur du kodar från en HTTPS-URL finns i [den här](job-input-from-http-how-to.md) artikeln.  
 
 I Media Services v3 använder du Azure Storage-API:er till att ladda upp filer. I följande .NET-kodfragment visas hur du gör detta.
 
 Följande funktion utför följande åtgärder:
 
 * Skapar en till gång.
-* Hämtar en skrivbar [SAS-URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) till till gångens [behållare i lagringen](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container).
+* Hämtar en skrivbar [SAS-URL](../../storage/common/storage-sas-overview.md) till till gångens [behållare i lagringen](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container).
 
-    Om du använder funktionen [ListContainerSas](https://docs.microsoft.com/rest/api/media/assets/listcontainersas) för att hämta SAS-URL: er, Observera att funktionen returnerar flera SAS-URL: er eftersom det finns två lagrings konto nycklar för varje lagrings konto. Ett lagrings konto har två nycklar eftersom det tillåter sömlös rotation av lagrings konto nycklar (till exempel att ändra ett när du använder den andra, och sedan börja använda den nya nyckeln och rotera den andra nyckeln). Den första SAS-URL: en representerar lagrings KEY1 och andra lagrings key2.
+    Om du använder funktionen [ListContainerSas](/rest/api/media/assets/listcontainersas) för att hämta SAS-URL: er, Observera att funktionen returnerar flera SAS-URL: er eftersom det finns två lagrings konto nycklar för varje lagrings konto. Ett lagrings konto har två nycklar eftersom det tillåter sömlös rotation av lagrings konto nycklar (till exempel att ändra ett när du använder den andra, och sedan börja använda den nya nyckeln och rotera den andra nyckeln). Den första SAS-URL: en representerar lagrings KEY1 och andra lagrings key2.
 * Överför filen till behållaren i lagrings utrymmet med SAS-URL: en.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]
 
 ### <a name="create-an-output-asset-to-store-the-result-of-the-job"></a>Skapa en utdatatillgång där resultatet av ett jobb lagras
 
-[Utdatatillgången](https://docs.microsoft.com/rest/api/media/assets) lagrar resultatet av ditt jobb. Projektet definierar funktionen **DownloadResults** som laddar ner resultaten från den här utdatatillgången till mappen ”utdata”, så att du kan se vad du har fått.
+[Utdatatillgången](/rest/api/media/assets) lagrar resultatet av ditt jobb. Projektet definierar funktionen **DownloadResults** som laddar ner resultaten från den här utdatatillgången till mappen ”utdata”, så att du kan se vad du har fått.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateOutputAsset)]
 
 ### <a name="create-a-transform-and-a-job-that-analyzes-videos"></a>Skapa en transformering och ett jobb som analyserar videor
 
-När du kodar eller bearbetar innehåll i Media Services, är det ett vanligt mönster för att ställa in kodnings inställningar som ett recept. Du skickar sedan ett **Jobb** som tillämpar receptet på en video. Genom att skicka nya jobb för varje ny video använder du det receptet på alla videor i biblioteket. Ett recept i Media Services kallas för en **transformering**. Mer information finns i [transformeringar och jobb](transform-concept.md). Det exempel som beskrivs i självstudien definierar ett recept som analyserar den angivna videon.
+När du kodar eller bearbetar innehåll i Media Services, är det ett vanligt mönster för att ställa in kodnings inställningar som ett recept. Du skickar sedan ett **Jobb** som tillämpar receptet på en video. Genom att skicka nya jobb för varje ny video använder du det receptet på alla videor i biblioteket. Ett recept i Media Services kallas för en **transformering**. Mer information finns i [transformeringar och jobb](./transforms-jobs-concept.md). Det exempel som beskrivs i självstudien definierar ett recept som analyserar den angivna videon.
 
 #### <a name="transform"></a>Transformering
 
-När du skapar en ny instans för en [Transformering](https://docs.microsoft.com/rest/api/media/transforms), måste du ange vilken utdata du vill att den ska skapa. **TransformOutput** är en obligatorisk parameter. Varje **TransformOutput** innehåller en **Förinställning**. I **Förinställning** finns stegvisa anvisningar för den video- och/eller ljudbearbetning som ska användas för att generera önskad **TransformOutput**. I det här exemplet används **VideoAnalyzerPreset** för för inställning och språket ("en-US") skickas till dess konstruktor ( `new VideoAnalyzerPreset("en-US")` ). Med denna förinställning kan du extrahera flera ljud- och videoinsikter från en video. Du kan använda förinställningen **AudioAnalyzerPreset** om du vill extrahera flera ljudinsikter från en video.
+När du skapar en ny instans för en [Transformering](/rest/api/media/transforms), måste du ange vilken utdata du vill att den ska skapa. **TransformOutput** är en obligatorisk parameter. Varje **TransformOutput** innehåller en **Förinställning**. I **Förinställning** finns stegvisa anvisningar för den video- och/eller ljudbearbetning som ska användas för att generera önskad **TransformOutput**. I det här exemplet används **VideoAnalyzerPreset** för för inställning och språket ("en-US") skickas till dess konstruktor ( `new VideoAnalyzerPreset("en-US")` ). Med denna förinställning kan du extrahera flera ljud- och videoinsikter från en video. Du kan använda förinställningen **AudioAnalyzerPreset** om du vill extrahera flera ljudinsikter från en video.
 
 När du skapar en **transformering**kontrollerar du först om det redan finns en som redan finns med **Get** -metoden, som du ser i koden som följer. I Media Services v3 returnerar **Get**-metoderna i entiteter **null** om entiteten inte finns (skiftlägesokänslig kontroll av namnet).
 
@@ -118,7 +118,7 @@ När du skapar en **transformering**kontrollerar du först om det redan finns en
 
 #### <a name="job"></a>Jobb
 
-Som nämns ovan är objektet [Transformering](https://docs.microsoft.com/rest/api/media/transforms) receptet och ett [Jobb](https://docs.microsoft.com/rest/api/media/jobs) är det faktiska begärandet till Media Services om att tillämpa **transformeringen** på en indatavideo eller ett ljudinnehåll. **Jobbet** anger information som platsen för indata-videon och platsen för utdata. Du kan ange platsen för din video med: HTTPS-webbadresser, SAS-URL:er eller tillgångar som finns på ditt Media Services-konto.
+Som nämns ovan är objektet [Transformering](/rest/api/media/transforms) receptet och ett [Jobb](/rest/api/media/jobs) är det faktiska begärandet till Media Services om att tillämpa **transformeringen** på en indatavideo eller ett ljudinnehåll. **Jobbet** anger information som platsen för indata-videon och platsen för utdata. Du kan ange platsen för din video med: HTTPS-webbadresser, SAS-URL:er eller tillgångar som finns på ditt Media Services-konto.
 
 I det här exemplet är jobbets indata en lokal video.  
 
@@ -126,7 +126,7 @@ I det här exemplet är jobbets indata en lokal video.
 
 ### <a name="wait-for-the-job-to-complete"></a>Vänta tills jobbet är klart
 
-Det tar lite tid att slutföra jobbet. När du gör det, vill du bli meddelad. Det finns olika alternativ för att få meddelanden om när [jobben](https://docs.microsoft.com/rest/api/media/jobs) är klara. Det enklaste alternativet (som visas här) är att använda avsökning.
+Det tar lite tid att slutföra jobbet. När du gör det, vill du bli meddelad. Det finns olika alternativ för att få meddelanden om när [jobben](/rest/api/media/jobs) är klara. Det enklaste alternativet (som visas här) är att använda avsökning.
 
 Avsökningen är inte en rekommenderad metod för produktion av appar på grund av potentiell latens. Avsökningen kan begränsas om den överanvänds på ett konto. Utvecklare bör i stället använda Event Grid.
 
@@ -138,11 +138,11 @@ Event Grid är utformat för hög tillgänglighet, konsekvent prestanda och dyna
 
 ### <a name="job-error-codes"></a>Jobbfelkoder
 
-Se [Felkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Se [Felkoder](/rest/api/media/jobs/get#joberrorcode).
 
 ### <a name="download-the-result-of-the-job"></a>Ladda ned jobbets resultat
 
-Följande funktion hämtar resultatet från utmatnings [till gången](https://docs.microsoft.com/rest/api/media/assets) till mappen "utdata", så att du kan granska resultatet av jobbet.
+Följande funktion hämtar resultatet från utmatnings [till gången](/rest/api/media/assets) till mappen "utdata", så att du kan granska resultatet av jobbet.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#DownloadResults)]
 
@@ -160,7 +160,7 @@ När vi kör programmet skapar jobbet miniatyrer för varje ansikte som hittas i
 
 ## <a name="examine-the-output"></a>Granska utdatan
 
-Utdatafilen för videoanalysen kallas insights.json. Den här filen innehåller insikter om videon. Beskrivning av elementen i json-filen finns i artikeln [Medieintelligens](intelligence-concept.md).
+Utdatafilen för videoanalysen kallas insights.json. Den här filen innehåller insikter om videon. Beskrivning av elementen i json-filen finns i artikeln [Medieintelligens](./analyzing-video-audio-files-concept.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

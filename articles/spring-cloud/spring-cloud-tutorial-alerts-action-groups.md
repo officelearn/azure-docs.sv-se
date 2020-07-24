@@ -6,12 +6,13 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
-ms.openlocfilehash: 0d3fcbbb317ef70687c83ff21e2ab817d89051a6
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: devx-track-java
+ms.openlocfilehash: c31c52d278c1e40b18b3308ca154b934d060d403
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142459"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071166"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Självstudie: så här övervakar du våren Cloud-resurser med hjälp av aviseringar och åtgärds grupper
 
@@ -21,7 +22,7 @@ Det finns två steg för att konfigurera en aviserings pipeline:
 1. Konfigurera en åtgärds grupp med åtgärder som ska vidtas när en avisering utlöses, till exempel e-post, SMS, Runbook eller webhook. Åtgärds grupper kan återanvändas mellan olika aviseringar.
 2. Ställ in aviserings regler. Reglerna binder mått mönster med åtgärds grupper baserat på mål resurs, mått, villkor, tids agg regering osv.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Förutom Azures våren-krav fungerar procedurerna i den här självstudien med en distribuerad Azure våren Cloud-instans.  Kom igång genom att följa en [snabb start](spring-cloud-quickstart-launch-app-cli.md) .
 
@@ -93,7 +94,7 @@ Mer information om de villkor som är tillgängliga för övervakning finns i [a
 
 1. Ange **allvarlighets grad**.
 
-1. Klicka på **skapa aviserings regel**.
+1. Klicka på **Skapa aviseringsregel**.
 
    ![Skärm bilds portalen ny varnings regel](media/alerts-action-groups/alerts-3-4.png)
 
@@ -110,7 +111,7 @@ Du kan också skapa en regel med hjälp av sidan **mått** :
 I den här självstudien har du lärt dig hur du konfigurerar aviseringar och åtgärds grupper för ett Azure våren Cloud-program. Mer information om åtgärds grupper finns i:
 
 > [!div class="nextstepaction"]
-> [Skapa och hantera åtgärds grupper i Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+> [Skapa och hantera åtgärdsgrupper i Azure-portalen](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
 
 > [!div class="nextstepaction"]
 > [Aviserings beteende i SMS i åtgärds grupper](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)

@@ -9,12 +9,12 @@ ms.subservice: powershell
 ms.date: 11/08/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 999a869ec30316a330413f309e1e7431d92fac9f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: e783f7f0a9be413679e509e4d6124d50bb811821
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195928"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059291"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>Självstudie: Installera program i VM-skalningsuppsättningar med Azure PowerShell
 
@@ -25,7 +25,7 @@ Om du vill köra program på virtuella datorinstanser i en skalningsuppsättning
 > * Använd det anpassade Azure-skripttillägget
 > * Uppdatera ett program som körs på en skalningsuppsättning
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
@@ -35,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 ## <a name="what-is-the-azure-custom-script-extension"></a>Vad är det anpassade Azure-skripttillägget?
 Det anpassade skripttillägget laddar ner och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfiguration efter distribution, programvaruinstallation eller andra konfigurerings-/hanteringsuppgifter. Skript kan laddas ned från Azure Storage eller GitHub, eller tillhandahållas via Azure Portal vid tilläggskörning.
 
-Tillägget för anpassat skript integreras med Azure Resource Manager-mallar. Det kan också användas med Azure CLI, Azure PowerShell, Azure-portalen eller REST API. Mer information finns i [översikten över tillägget för anpassat skript](../virtual-machines/windows/extensions-customscript.md).
+Tillägget för anpassat skript integreras med Azure Resource Manager-mallar. Det kan också användas med Azure CLI, Azure PowerShell, Azure-portalen eller REST API. Mer information finns i [översikten över tillägget för anpassat skript](../virtual-machines/extensions/custom-script-windows.md).
 
 Om du vill se hur det anpassade skripttillägget fungerar, skapar du en skalningsuppsättning som installerar IIS-webbservern och matar ut värddatornamnet för skalningsuppsättningens virtuella datorinstans. Den anpassade skripttilläggsdefinition laddar ner ett exempelskript från GitHub, installerar nödvändiga paket och skriver sedan den virtuella datorinstansens värddatornamn till en grundläggande HTML-sida.
 

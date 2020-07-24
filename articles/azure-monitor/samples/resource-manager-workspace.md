@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 66c62156cec79a65b856a6f4c8f2ad34aa687b05
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: d5af288ea564c4118e010c8d0f0f86c5337ce170
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83854494"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024062"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Exempel på Resource Manager-mallar för Log Analytics arbets ytor i Azure Monitor
 Den här artikeln innehåller exempel [Azure Resource Manager mallar](../../azure-resource-manager/templates/template-syntax.md) för att skapa och konfigurera Log Analytics arbets ytor i Azure Monitor. Varje exempel innehåller en mallfil och en parameter fil med exempel värden som du kan använda för mallen.
@@ -27,7 +27,7 @@ Den här artikeln innehåller exempel [Azure Resource Manager mallar](../../azur
 ## <a name="create-a-log-analytics-workspace"></a>Skapa en Log Analytics-arbetsyta
 I följande exempel skapas en ny tom Log Analytics-arbetsyta.
 
-### <a name="notes"></a>Anteckningar
+### <a name="notes"></a>Kommentarer
 
 - Om du anger en **kostnads fri**pris nivå tar du bort **retentionInDays** -elementet.
 
@@ -156,7 +156,7 @@ I följande exempel skapas en ny tom Log Analytics-arbetsyta.
 ## <a name="collect-windows-events"></a>Samla in Windows-händelser
 Följande exempel lägger till en samling av [Windows-händelser](../platform/data-sources-windows-events.md) till en befintlig arbets yta.
 
-### <a name="notes"></a>Anteckningar
+### <a name="notes"></a>Kommentarer
 
 - Lägg till ett **data källa** element för varje händelse logg som ska samlas in. Du kan ange en annan uppsättning händelse typer för varje logg.
 
@@ -251,7 +251,7 @@ Följande exempel lägger till en samling av [Windows-händelser](../platform/da
 ## <a name="collect-syslog"></a>Samla in syslog
 Följande exempel lägger till en samling av [Syslog-händelser](../platform/data-sources-syslog.md) till en befintlig arbets yta.
 
-### <a name="notes"></a>Anteckningar
+### <a name="notes"></a>Kommentarer
 
 - Lägg till ett **data källa** element för varje funktion som ska samlas in. Du kan ange olika uppsättningar av allvarlighets grader för varje funktion.
 
@@ -389,7 +389,7 @@ Följande exempel lägger till en samling av [Syslog-händelser](../platform/dat
 ## <a name="collect-windows-performance-counters"></a>Samla in prestanda räknare i Windows
 I följande exempel läggs insamling av [Windows-prestandaräknare](../platform/data-sources-performance-counters.md) till i en befintlig arbets yta.
 
-### <a name="notes"></a>Anteckningar
+### <a name="notes"></a>Kommentarer
 
 - Lägg till ett **data källa** element för varje räknare och instans som ska samlas in. Du kan ange olika samlings hastigheter för varje räknare och instans-kombination.
   
@@ -493,7 +493,7 @@ I följande exempel läggs insamling av [Windows-prestandaräknare](../platform/
 ## <a name="collect-linux-performance-counters"></a>Samla in Linux-prestandaräknare
 Följande exempel lägger till en samling [Linux-prestandaräknare](../platform/data-sources-performance-counters.md) till en befintlig arbets yta.
 
-### <a name="notes"></a>Anteckningar
+### <a name="notes"></a>Kommentarer
 
 - Lägg till ett **data källa** element för varje objekt och instans som ska samlas in. Du kan ange olika uppsättningar med räknare för varje kombination av objekt och instanser, men du kan bara ange en enskild hastighet för alla räknare.
   
@@ -607,9 +607,9 @@ Följande exempel lägger till en samling [Linux-prestandaräknare](../platform/
 ## <a name="collect-custom-logs"></a>Samla in anpassade loggar
 Följande exempel lägger till en samling med [anpassade loggar](../platform/data-sources-custom-logs.md) till en befintlig arbets yta.
 
-### <a name="notes"></a>Anteckningar
+### <a name="notes"></a>Kommentarer
 
-- Konfigurationen av avgränsare och extraktioner kan vara komplex. Om du behöver hjälp kan du definiera en anpassad logg med hjälp av Azure Portal och hämta dess konfiguration med [Get-AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.8.0) med **-kind** inställt på **CustomLog**.
+- Konfigurationen av avgränsare och extraktioner kan vara komplex. Om du behöver hjälp kan du definiera en anpassad logg med hjälp av Azure Portal och hämta dess konfiguration med [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.8.0) med **-kind** inställt på **CustomLog**.
 
   
 ### <a name="template-file"></a>Mallfil

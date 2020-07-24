@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b62441a4b1307a232ad2f592f13253c0759b5431
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 64a33b12da0e9b90eaeb7039f65b2493a839a0c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564210"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054115"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Självstudie: etablera Azure Data Box Gateway i VMware
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kraven för att etablera en virtuell enhet på ett värdsystem som kör VMware ESXi 6.0, 6.5 eller 6.7 är följande.
 
@@ -93,7 +93,7 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
   
 3. Ladda upp VMDK till ESXi-servern. Välj **Storage** (Lagring) i navigeringsfönstret.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
+   ![Skärm bild av en sida på ESXi Server-webbplatsen som visar fönstret navigatör med alternativet lagring valt.](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
 4. I det högra fönstret, under **Datastores** (Datalager), väljer du det datalager där du vill ladda upp VMDK. 
 
@@ -120,7 +120,7 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
 
     ![Välj fil att ladda upp](./media/data-box-gateway-deploy-provision-vmware/image7.png)
 
-10. Klicka på **Open** (Öppna). Uppladdningen av VMDK-filen till det angivna datalagret startar. Det kan ta flera minuter för filen att laddas upp.
+10. Klicka på **Öppna**. Uppladdningen av VMDK-filen till det angivna datalagret startar. Det kan ta flera minuter för filen att laddas upp.
 11. När uppladdningen är klar visas filen i datalagret i den mapp du har skapat. Ladda nu upp den andra VMDK-filen till samma datalager. När båda filerna har laddats upp slås de två filerna ihop till en enda fil. Då visas en enda fil i katalogen.
 
     ![Två VMDK-filer sammanfogas i en enda fil](./media/data-box-gateway-deploy-provision-vmware/image8.png)

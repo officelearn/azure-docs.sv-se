@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: d2e10c2a02bf14f7a01ce03bc70f6e3f43b96385
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 7ba6a059a35bee0b122659d8fc70466595112fca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700823"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011043"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Självstudie: Skala en VM-skalningsuppsättning automatiskt med Azure PowerShell
 
@@ -67,9 +67,9 @@ Följande parametrar används för den här regeln:
 
 | Parameter               | Förklaring                                                                                                         | Värde          |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-| *– MetricName*           | Prestandamått för att övervaka och tillämpa åtgärder för skalningsuppsättningar på.                                                   | Procent CPU |
+| *– MetricName*           | Prestandamått för att övervaka och tillämpa åtgärder för skalningsuppsättningar på.                                                   | Processorprocentandel |
 | *-TimeGrain*            | Hur ofta måtten samlas in för analys.                                                                   | 1 minut       |
-| *-MetricStatistic*      | Definierar hur de insamlade mätvärdena ska aggregeras för analys.                                                | Medel        |
+| *-MetricStatistic*      | Definierar hur de insamlade mätvärdena ska aggregeras för analys.                                                | Medelvärde        |
 | *-TimeWindow*           | Tidsperioden som övervakas innan värdena för måttet och tröskelvärdet jämförs.                                   | 5 minuter      |
 | *– Operatör*             | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än   |
 | *– Tröskel*            | Det värde som får regeln för automatisk skalning att utlösa en åtgärd.                                                      | 70 %            |
@@ -99,7 +99,7 @@ $myRuleScaleOut = New-AzureRmAutoscaleRule `
 ## <a name="create-a-rule-to-autoscale-in"></a>Skapa en regel för att automatiskt skala in
 På kvällar eller helger, kan efterfrågan på ditt program minska. Om den här minskade belastningen är konsekvent över en tidsperiod, kan du konfigurera regler för automatisk skalning för att minska antalet virtuella datorinstanser i skalningsuppsättningen. Den här åtgärden för skala in minskar kostnaden för att köra din skalningsuppsättningen eftersom du bara köra de antal instanser som krävs för att uppfylla den aktuella efterfrågan.
 
-Skapa en annan regel med [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule) som minskar antalet virtuella datorinstanser i en skalningsuppsättning när den genomsnittliga CPU-belastningen faller under 30 % över en 5 minutersperiod. När regeln utlöses minskas eller ökas antalet virtuella datorinstanser med en. I följande exempel skapas ett objekt med namnet *myRuleScaleDown* som innehåller den här regeln om att skala upp. *-MetricResourceId* använder de variabler som tidigare definierats för prenumerations-ID, resursgruppnamn och namn på skalningsuppsättning:
+Skapa en annan regel med [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule) som minskar antalet virtuella datorinstanser i en skalningsuppsättning när den genomsnittliga CPU-belastningen faller under 30 % över en 5 minutersperiod. När regeln utlöses minskar antalet virtuella dator instanser med ett. I följande exempel skapas ett objekt med namnet *myRuleScaleDown* som innehåller den här skalnings regeln. *-MetricResourceId* använder de variabler som tidigare definierats för prenumerations-ID, resursgruppnamn och namn på skalningsuppsättning:
 
 ```azurepowershell-interactive
 $myRuleScaleIn = New-AzureRmAutoscaleRule `

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 609ac66ca27d5cad7dd2fb295c3a2a721a1cda16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 80393042191abc2a8eb74182cf18581d252222a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81392697"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056473"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Självstudie: Distribuera ett Azure Kubernetes Service-kluster (AKS)
 
@@ -33,7 +33,9 @@ Den här självstudien kräver att du kör Azure CLI version 2.0.53 eller senare
 
 AKS-kluster kan använda rollbaserad Kubernetes-åtkomstkontroll (RBAC). Med dessa kontroller kan du definiera åtkomst till resurser baserat på roller som är tilldelade till användare. Du kan kombinera behörigheter om en användare har tilldelats flera roller, och behörigheter kan begränsas till en enda namnrymd eller tillämpas på hela klustret. Som standard aktiverar Azure CLI automatiskt RBAC när du skapar ett AKS-kluster.
 
-Skapa ett AKS-kluster med [az aks create][]. I följande exempel skapas ett kluster med namnet *myAKSCluster* i resursgruppen med namnet *myResourceGroup*. Den här resursgruppen skapades i [föregående självstudie][aks-tutorial-prepare-acr]. För att ett AKS-kluster ska kunna interagera med andra Azure-resurser skapas ett Azure Active Directory tjänstens huvud namn automatiskt, eftersom du inte angav något. Här ges tjänstens huvud namn [rätt att hämta avbildningar][container-registry-integration] från den Azure Container Registry-instans (ACR) som du skapade i föregående självstudie. Observera att du kan använda en [hanterad identitet](use-managed-identity.md) i stället för ett tjänst huvud namn för enklare hantering.
+Skapa ett AKS-kluster med [az aks create][]. I följande exempel skapas ett kluster med namnet *myAKSCluster* i resursgruppen med namnet *myResourceGroup*. Den här resurs gruppen skapades i [föregående självstudie][aks-tutorial-prepare-acr] i regionen *östra* . I följande exempel anges ingen region så AKS-klustret skapas också i regionen *östra* . Mer information om resurs begränsningar och regions tillgänglighet för AKS finns i [kvoter, begränsningar för virtuella datorer och regions tillgänglighet i Azure Kubernetes service (AKS)][quotas-skus-regions] .
+
+För att ett AKS-kluster ska kunna interagera med andra Azure-resurser skapas ett Azure Active Directory tjänstens huvud namn automatiskt, eftersom du inte angav något. Här ges tjänstens huvud namn [rätt att hämta avbildningar][container-registry-integration] från den Azure Container Registry-instans (ACR) som du skapade i föregående självstudie. Observera att du kan använda en [hanterad identitet](use-managed-identity.md) i stället för ett tjänst huvud namn för enklare hantering.
 
 ```azurecli
 az aks create \
@@ -108,3 +110,4 @@ Gå vidare till nästa självstudie och lär dig hur du distribuerar ett program
 [az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-registry-integration]: ./cluster-container-registry-integration.md
+[quotas-skus-regions]: quotas-skus-regions.md

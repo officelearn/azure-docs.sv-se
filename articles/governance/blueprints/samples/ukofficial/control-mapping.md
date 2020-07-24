@@ -1,20 +1,20 @@
 ---
 title: Storbritannien, officiella & UK NHS-skisser kontroller
 description: Kontroll mappning av NHS i Storbritannien och Storbritannien. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
-ms.date: 05/08/2020
+ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 88f9606df5c3dcbca6ade05be918e3500a6ba64c
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 360c6bc2e1f207ca2d4470ffe62a81f524ce2a73
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005603"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078988"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Kontroll mappning av NHS i Storbritannien och Storbritannien i Storbritannien
 
 I följande artikel beskrivs hur NHS i Storbritannien och Storbritannien i Storbritannien mappas till de officiella NHS-kontrollerna i Storbritannien och Storbritannien. Mer information om kontrollerna finns i [Storbritannien officiellt](https://www.gov.uk/government/publications/government-security-classifications).
 
-Följande mappningar är de officiella NHS-kontrollerna i **Storbritannien** och **Storbritannien** . Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj ** \[förhands\] granskningen i Storbritannien NHS kontroller och distribuera särskilda VM-tillägg så att de stöder gransknings krav i** det inbyggda princip initiativet.
+Följande mappningar är de officiella NHS-kontrollerna i **Storbritannien** och **Storbritannien** . Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj ** \[ förhands granskningen i \] Storbritannien NHS kontroller och distribuera särskilda VM-tillägg så att de stöder gransknings krav i** det inbyggda princip initiativet.
 
 > [!IMPORTANT]
 > Varje kontroll nedan är kopplad till en eller flera [Azure policy](../../../policy/overview.md) -definitioner. Dessa principer kan hjälpa dig att [utvärdera efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta ingen 1:1 eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan är **kompatibel** i Azure policy endast som avser själva principerna. Detta garanterar inte att du är helt kompatibel med alla krav för en kontroll. Standarden för efterlevnad innehåller dessutom kontroller som inte åtgärdas av några Azure Policy definitioner för tillfället. Därför är regelefterlevnad i Azure Policy bara en partiell vy av din övergripande kompatibilitetsstatus. Kopplingarna mellan kontroller och Azure Policy definitioner för det här skiss exemplet för efterlevnad kan ändras med tiden. Om du vill visa ändrings historiken läser du [inchecknings historiken för GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
@@ -27,6 +27,9 @@ Skissen hjälper dig att se till att informations överföring med Azure-tjänst
 - Säker överföring till lagringskonton ska vara aktiverat
 - Visa gransknings resultat från Windows-webbservrar som inte använder säkra kommunikations protokoll
 - Distribuera förutsättningar för att granska Windows-webbservrar som inte använder säkra kommunikations protokoll
+- Webb program bör endast vara tillgängliga via HTTPS
+- Funktionsapp bör endast vara tillgängligt via HTTPS
+- API-appen bör bara vara tillgänglig via HTTPS
 
 ## <a name="23-data-at-rest-protection"></a>2,3 data vid rest-skydd
 
@@ -107,27 +110,27 @@ Den här skissen tilldelar också Azure Policy definitioner till gransknings kon
 
 Den här skissen tilldelar också en Azure Policy-definition som granskar Linux VM lösen ords fil behörigheter för att varna om de är felaktigt inställda. Med den här designen kan du vidta lämpliga åtgärder för att säkerställa att autentiserare inte komprometteras.
 
-- \[För\]hands version: Visa gransknings resultat från virtuella Linux-datorer som inte har behörigheterna passwd-fil inställd på 0644
+- Visa gransknings resultat från virtuella Linux-datorer som inte har passwd-filbehörigheterna inställt på 0644
 
 Den här skissen hjälper dig att använda starka lösen ord genom att tilldela Azure Policy definitioner som granskar virtuella Windows-datorer som inte uppfyller minimi kraven och andra lösen ords krav. Om de virtuella datorerna strider mot principen för lösen ords säkerhet kan du vidta åtgärder för att säkerställa att lösen ord för alla VM-användarkonton är kompatibla med principen.
 
-- \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
-- \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
-- \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som inte har en minsta ålder på lösen ord på 1 dag
-- \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
-- \[För\]hands version: Distribuera förutsättningar för att granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
-- \[För\]hands version: Visa gransknings resultat från virtuella Windows-datorer där inställningen för lösen ords komplexitet är aktive rad
-- \[För\]hands version: Visa gransknings resultat från virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
-- \[För\]hands version: Visa gransknings resultat från virtuella Windows-datorer som inte har minsta ålder på lösen ord på 1 dag
-- \[För\]hands version: Visa gransknings resultat från virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
-- \[För\]hands version: Visa gransknings resultat från virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
+- Distribuera krav för att granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
+- Distribuera krav för att granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
+- Distribuera krav för att granska virtuella Windows-datorer som inte har en minsta ålder på lösen ord på 1 dag
+- Distribuera krav för att granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
+- Distribuera krav för att granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
+- Visa gransknings resultat från virtuella Windows-datorer där inställningen för lösen ords komplexitet är aktive rad
+- Visa gransknings resultat från virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
+- Visa gransknings resultat från virtuella Windows-datorer som inte har minsta ålder på lösen ord på 1 dag
+- Visa gransknings resultat från virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
+- Visa gransknings resultat från virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
 
 Den här skissen hjälper dig också att styra åtkomsten till Azure-resurser genom att tilldela Azure Policy definitioner. Dessa principer granskar användningen av resurs typer och konfigurationer som kan tillåta mer åtkomst till resurser. Att förstå resurser som strider mot dessa principer kan hjälpa dig att vidta lämpliga åtgärder för att säkerställa åtkomst till Azure-resurser som är begränsade till behöriga användare.
 
-- \[För\]hands version: Distribuera krav för att granska virtuella Linux-datorer som har konton utan lösen ord
-- \[För\]hands version: Distribuera krav för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
-- \[För\]hands version: Visa gransknings resultat från virtuella Linux-datorer som har konton utan lösen ord
-- \[För\]hands version: Visa gransknings resultat från virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
+- Distribuera krav för att granska virtuella Linux-datorer som har konton utan lösen ord
+- Distribuera krav för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
+- Visa gransknings resultat från virtuella Linux-datorer som har konton utan lösen ord
+- Visa gransknings resultat från virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
 - Lagrings konton ska migreras till nya Azure Resource Manager resurser
 - Virtuella datorer ska migreras till nya Azure Resource Manager-resurser
 - Granska virtuella datorer som inte använder hanterade diskar
@@ -145,36 +148,6 @@ Förutom att använda fler än 25 principer för lämplig säker användar hante
 - Fjärrfelsökning bör inaktive ras för Funktionsapp
 - Fjärrfelsökning bör inaktive ras för webb program
 - Fjärrfelsökning bör inaktive ras för API-appen
-- Webb program bör endast vara tillgängliga via HTTPS
-- Funktionsapp bör endast vara tillgängligt via HTTPS
-- API-appen bör bara vara tillgänglig via HTTPS
-
-## <a name="12-secure-service-administration"></a>12 säker tjänst administration
-
-Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen hjälper dig att begränsa och kontrol lera privilegierade åtkomst rättigheter genom att tilldela fem [Azure policy](../../../policy/overview.md) definitioner för att granska externa konton med ägare och/eller Skriv behörigheter och konton med ägare, och/eller Skriv behörigheter som inte har Multi-Factor Authentication aktiverade.
-
-System som används för administration av en moln tjänst har hög privilegie rad åtkomst till tjänsten. Deras kompromisser skulle ha betydande påverkan, inklusive metoder för att kringgå säkerhets kontroller och stjäla eller manipulera stora mängder data. De metoder som används av tjänst leverantörens administratörer för att hantera drifts tjänsten bör utformas för att minska risken för utnyttjande som kan undergräva säkerheten för tjänsten. Om den här principen inte har implementerats kan en angripare ha möjlighet att kringgå säkerhets kontroller och stjäla eller manipulera stora mängder data.
-
-- MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration
-- MFA ska vara aktiverade konton med Skriv behörighet för din prenumeration
-- Externa konton med ägar behörigheter bör tas bort från din prenumeration
-- Externa konton med Skriv behörighet bör tas bort från din prenumeration
-
-Den här skissen tilldelar Azure Policy definitioner för att granska användningen av Azure Active Directory autentisering för SQL-servrar och Service Fabric. Med hjälp av Azure Active Directory-autentisering möjliggörs förenklad behörighets hantering och centraliserad identitets hantering för databas användare och andra Microsoft-tjänster.
-
-- En Azure Active Directory administratör bör tillhandahållas för SQL-servrar
-- Service Fabric kluster bör endast använda Azure Active Directory för klientautentisering
-
-Den här skissen tilldelar också Azure Policy definitioner till gransknings konton som ska prioriteras för granskning, inklusive avskrivna konton och externa konton med utökade behörigheter. Vid behov kan konton blockeras från att logga in (eller tas bort), vilket omedelbart tar bort åtkomst behörighet till Azure-resurser. Den här skissen tilldelar två Azure Policy definitioner för att granska avskrivet konto som bör tas bort.
-
-- Föråldrade konton bör tas bort från din prenumeration
-- Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration
-- Externa konton med ägar behörigheter bör tas bort från din prenumeration
-- Externa konton med Skriv behörighet bör tas bort från din prenumeration
-
-Den här skissen tilldelar också en Azure Policy-definition som granskar Linux VM lösen ords fil behörigheter för att varna om de är felaktigt inställda. Med den här designen kan du vidta lämpliga åtgärder för att säkerställa att autentiserare inte komprometteras.
-
-- \[För\]hands version: Visa gransknings resultat från virtuella Linux-datorer som inte har behörigheterna passwd-fil inställd på 0644
 
 ## <a name="13-audit-information-for-users"></a>13 gransknings information för användare
 
@@ -182,8 +155,8 @@ Den här skissen hjälper dig att se till att system händelser loggas genom att
 
 - Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 - Granska diagnostikinställning
-- \[För\]hands version: Distribuera Log Analytics agent för virtuella Linux-datorer
-- \[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[För hands version \] : distribuera Log Analytics agent för virtuella Linux-datorer
+- \[För hands version \] : distribuera Log Analytics agent för virtuella Windows-datorer
 - Distribuera nätverks övervakare när virtuella nätverk skapas
 
 ## <a name="next-steps"></a>Nästa steg
@@ -191,8 +164,8 @@ Den här skissen hjälper dig att se till att system händelser loggas genom att
 Nu när du har granskat kontroll mappningen av NHS-ritningar från Storbritannien och Storbritannien kan du gå till följande artiklar och läsa mer om översikten och hur du distribuerar det här exemplet:
 
 > [!div class="nextstepaction"]
-> [Officiella och brittiska NHS-ritningar – översikt](./index.md)
-> [Storbritannien och Storbritannien NHS ritningar – distribuera steg](./deploy.md)
+> [Officiella och brittiska NHS-ritningar – översikt](./index.md) 
+>  [Officiella och brittiska NHS-ritningar – distribuera steg](./deploy.md)
 
 Ytterligare artiklar om skisser och hur de används:
 

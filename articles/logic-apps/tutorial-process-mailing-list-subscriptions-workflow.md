@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: 7d7f573e5b18e6e0e63d3275aecefe408a9143fb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c1ed32a95864c20690607912bc32c01e3e597a65
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75456612"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048592"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Självstudie: skapa automatiska godkännande-baserade arbets flöden med hjälp av Azure Logic Apps
 
@@ -33,7 +33,7 @@ När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
 ![Översikt över färdiga Logic-appar på hög nivå](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-overview.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -47,24 +47,24 @@ Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifte
 
 ## <a name="create-your-logic-app"></a>Skapa en logikapp
 
-1. Från huvud menyn i Azure väljer du **skapa en app för resurs** > **integrerings** > **logik**.
+1. Från huvud menyn i Azure väljer du **skapa en app för resurs**  >  **integrerings**  >  **logik**.
 
    ![Skapa din nya Logic app-resurs](./media/tutorial-process-mailing-list-subscriptions-workflow/create-new-logic-app-resource.png)
 
-1. Under **Skapa en logikapp** anger du informationen om din logikapp så som det visas här. När du är klar väljer du **Skapa**.
+1. Under **Skapa en logikapp** anger du informationen om din logikapp så som det visas här. När du är färdig väljer du **Skapa**.
 
    ![Ange information om din Logic app](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
 
    | Egenskap | Värde | Beskrivning |
    |----------|-------|-------------|
-   | **Namn** | LA-MailingList | Din Logic Apps namn, som endast får innehålla bokstäver, siffror,`-`bindestreck (), under streck (`_`), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "LA-MailingList". |
+   | **Namn** | LA-MailingList | Din Logic Apps namn, som endast får innehålla bokstäver, siffror, bindestreck ( `-` ), under streck ( `_` ), parenteser ( `(` , `)` ) och punkter ( `.` ). I det här exemplet används "LA-MailingList". |
    | **Prenumeration** | <*ditt-Azure-prenumerations namn*> | Ditt Azure-prenumerations namn |
    | **Resursgrupp** | LA-MailingList-RG | Namnet på Azure- [resurs gruppen](../azure-resource-manager/management/overview.md)som används för att organisera relaterade resurser. I det här exemplet används "LA-MailingList-RG". |
-   | **Position** | USA, västra | Tdet region där du kan lagra information om din Logic Apps. I det här exemplet används "västra USA". |
+   | **Plats** | USA, västra | Tdet region där du kan lagra information om din Logic Apps. I det här exemplet används "västra USA". |
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. |
    ||||
 
-1. När Azure har distribuerat din app går du till Azure-verktygsfältet och väljer **aviseringar** > **gå till resurs** för din distribuerade Logic-app.
+1. När Azure har distribuerat din app går du till Azure-verktygsfältet och väljer **aviseringar**  >  **gå till resurs** för din distribuerade Logic-app.
 
    ![Gå till din nya Logic app-resurs](./media/tutorial-process-mailing-list-subscriptions-workflow/go-to-logic-app-resource.png)
 
@@ -78,7 +78,7 @@ Lägg sedan till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-c
 
 ## <a name="add-trigger-to-monitor-emails"></a>Lägga till utlösare för att övervaka e-post
 
-1. Ange `when email arrives` som filter i rutan Sök i Logic App Designer. I listan **utlösare** väljer du alternativet **när ett nytt e-postmeddelande anländer** till e-postleverantören.
+1. Ange som filter i rutan Sök i Logic App Designer `when email arrives` . I listan **utlösare** väljer du alternativet **när ett nytt e-postmeddelande anländer** till e-postleverantören.
 
    I det här exemplet används Office 365 Outlook-utlösare:
 
@@ -106,7 +106,7 @@ Lägg sedan till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-c
 
       ![Lägg till egenskapen "ämnes filter" för att utlösa](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
 
-      Mer information om den här utlösarens egenskaper finns i [referens för Office 365 Outlook Connector](https://docs.microsoft.com/connectors/office365/) eller [kopplings referens för Outlook.com](https://docs.microsoft.com/connectors/outlook/).
+      Mer information om den här utlösarens egenskaper finns i [referens för Office 365 Outlook Connector](/connectors/office365/) eller [kopplings referens för Outlook.com](/connectors/outlook/).
 
    1. När egenskapen visas i utlösaren anger du den här texten:`subscribe-test-members-ML`
 
@@ -116,7 +116,7 @@ Lägg sedan till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-c
 
    ![Minimera form för att dölja information](./media/tutorial-process-mailing-list-subscriptions-workflow/collapse-trigger-shape.png)
 
-1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
+1. Spara logikappen. I verktygsfältet designer väljer du **Spara**.
 
 Logikappen har nu lanserats men gör inget annat än att kontrollera inkommande e-post. Därför ska vi lägga till en åtgärd som svarar när utlösaren utlöses.
 
@@ -138,16 +138,16 @@ Nu när du har en utlösare lägger du till en [åtgärd](../logic-apps/logic-ap
 
    | Egenskap | Värde | Beskrivning |
    |----------|-------|-------------|
-   | **Att** | <*din-e-postadress*> | Godkännarens e-postadress. I testsyfte kan du använda din egen adress. I det här exemplet används den fiktiva "sophia.owen@fabrikam.com" e-postadressen. |
-   | **Subjekt** | `Approve member request for test-members-ML` | En beskrivande e-postrubrik |
+   | **Att** | <*din-e-postadress*> | Godkännarens e-postadress. I testsyfte kan du använda din egen adress. I det här exemplet används den fiktiva " sophia.owen@fabrikam.com " e-postadressen. |
+   | **Ämne** | `Approve member request for test-members-ML` | En beskrivande e-postrubrik |
    | **Användaralternativ** | `Approve, Reject` | Svars alternativen som god kännaren kan välja. Som standard kan god kännaren välja antingen "Godkänn" eller "avvisa" som svar. |
    ||||
 
    För närvarande kan du ignorera den dynamiska innehålls listan som visas när du klickar i vissa redigerings rutor. I den här listan kan du välja tillgängliga utdata från tidigare åtgärder som du kan använda som indata i arbets flödet.
 
-   Mer information om den här åtgärdens egenskaper finns i [referens för Office 365 Outlook Connector](https://docs.microsoft.com/connectors/office365/) eller [kopplings referens för Outlook.com](https://docs.microsoft.com/connectors/outlook/).
+   Mer information om den här åtgärdens egenskaper finns i [referens för Office 365 Outlook Connector](/connectors/office365/) eller [kopplings referens för Outlook.com](/connectors/outlook/).
  
-1. Spara din logikapp.
+1. Spara logikappen.
 
 Lägg sedan till ett villkor för att kontrol lera god kännaren för det valda svaret.
 
@@ -183,7 +183,7 @@ Lägg sedan till ett villkor för att kontrol lera god kännaren för det valda 
 
       ![Slut villkor för godkänt exempel](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response-2.png)
 
-1. Spara din logikapp.
+1. Spara logikappen.
 
 Ange sedan den åtgärd som utförs av logikappen när granskaren godkänner begäran. 
 
@@ -205,14 +205,14 @@ Lägg nu till en åtgärd som lägger till den godkända medlemmen i din distrib
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **List Id** | Ja | `test-members-ML` | Namnet på MailChimp-e-postlistan. I det här exemplet används "test-members-ML". |
-   | **Status** | Ja | `subscribed` | Välj prenumerations status för den nya medlemmen. I det här exemplet används "prenumererar". <p>Mer information finns i dokumentationen om att [hantera prenumeranter med MailChimp-API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/). |
-   | **E-postadress** | Ja | <*ny medlem – e-postadress*> | Från listan med dynamiskt innehåll väljer du **från** under **när ett nytt e-postmeddelande kommer**, vilket skickar e-postadressen för den nya medlemmen. |
+   | **List Id** | Yes | `test-members-ML` | Namnet på MailChimp-e-postlistan. I det här exemplet används "test-members-ML". |
+   | **Status** | Yes | `subscribed` | Välj prenumerations status för den nya medlemmen. I det här exemplet används "prenumererar". <p>Mer information finns i dokumentationen om att [hantera prenumeranter med MailChimp-API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/). |
+   | **E-postadress** | Yes | <*ny medlem – e-postadress*> | Från listan med dynamiskt innehåll väljer du **från** under **när ett nytt e-postmeddelande kommer**, vilket skickar e-postadressen för den nya medlemmen. |
    ||||
 
-   Mer information om den här åtgärdens egenskaper finns i [referens för MailChimp-koppling](https://docs.microsoft.com/connectors/mailchimp/).
+   Mer information om den här åtgärdens egenskaper finns i [referens för MailChimp-koppling](/connectors/mailchimp/).
 
-1. Spara din logikapp.
+1. Spara logikappen.
 
 Sedan lägger till ett villkor så att du kan kontrollera om den nya medlemmen har lagts till på distributionslistan. På så sätt kan logikappen meddela dig om den här åtgärden lyckas eller misslyckas.
 
@@ -248,7 +248,7 @@ Skapa de meddelanden som skickas om den godkända medlemmen lyckas eller misslyc
 
    ![I grenen "om sant" väljer du Lägg till en åtgärd](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success.png)
 
-1. Under **Välj en åtgärd**i sökrutan anger `outlook send email` du som filter och väljer åtgärden **Skicka ett e-postmeddelande** .
+1. Under **Välj en åtgärd**i sökrutan anger du `outlook send email` som filter och väljer åtgärden **Skicka ett e-postmeddelande** .
 
    ![Lägg till åtgärden "Skicka ett e-postmeddelande"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-2.png)
 
@@ -260,12 +260,12 @@ Skapa de meddelanden som skickas om den godkända medlemmen lyckas eller misslyc
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Att** | Ja | <*din-e-postadress*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. |
-   | **Subjekt** | Ja | <*ämne – för-lyckad-e-post*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`Success! Member added to "test-members-ML": ` <p>I listan med dynamiskt innehåll, under **Lägg till medlem i listan**, väljer du egenskapen **e-postadress** . |
-   | **Brödtext** | Ja | <*brödtext – för klar ande – e-post*> | Brödtext i e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`New member has joined "test-members-ML":` <p>Välj egenskapen **e-postadress** i listan med dynamiskt innehåll. <p>På nästa rad anger du den här texten:`Member opt-in status: ` <p> Välj egenskapen **status** under **Lägg till medlem i listan**i listan med dynamiskt innehåll. |
+   | **Att** | Yes | <*din-e-postadress*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. |
+   | **Ämne** | Yes | <*ämne – för-lyckad-e-post*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`Success! Member added to "test-members-ML": ` <p>I listan med dynamiskt innehåll, under **Lägg till medlem i listan**, väljer du egenskapen **e-postadress** . |
+   | **Brödtext** | Yes | <*brödtext – för klar ande – e-post*> | Brödtext i e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`New member has joined "test-members-ML":` <p>Välj egenskapen **e-postadress** i listan med dynamiskt innehåll. <p>På nästa rad anger du den här texten:`Member opt-in status: ` <p> Välj egenskapen **status** under **Lägg till medlem i listan**i listan med dynamiskt innehåll. |
    |||||
 
-1. Spara din logikapp.
+1. Spara logikappen.
 
 ## <a name="send-email-if-member-not-added"></a>Skicka e-post om medlem inte läggs till
 
@@ -273,7 +273,7 @@ Skapa de meddelanden som skickas om den godkända medlemmen lyckas eller misslyc
 
    ![I grenen "om falskt" väljer du "Lägg till en åtgärd"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png)
 
-1. Under **Välj en åtgärd**i sökrutan anger `outlook send email` du som filter och väljer åtgärden **Skicka ett e-postmeddelande** .
+1. Under **Välj en åtgärd**i sökrutan anger du `outlook send email` som filter och väljer åtgärden **Skicka ett e-postmeddelande** .
 
    ![Lägg till åtgärd för Send an email (Skicka ett e-postmeddelande)](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-2.png)
 
@@ -285,12 +285,12 @@ Skapa de meddelanden som skickas om den godkända medlemmen lyckas eller misslyc
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Att** | Ja | <*din-e-postadress*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. |
-   | **Subjekt** | Ja | <*Subject-för-Failure-e-post*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`Failed, member not added to "test-members-ML": ` <p>I listan med dynamiskt innehåll, under **Lägg till medlem i listan**, väljer du egenskapen **e-postadress** . |
-   | **Brödtext** | Ja | <*Body-för-Failure-e-post*> | Brödtext i e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`Member might already exist. Check your MailChimp account.` |
+   | **Att** | Yes | <*din-e-postadress*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. |
+   | **Ämne** | Yes | <*Subject-för-Failure-e-post*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`Failed, member not added to "test-members-ML": ` <p>I listan med dynamiskt innehåll, under **Lägg till medlem i listan**, väljer du egenskapen **e-postadress** . |
+   | **Brödtext** | Yes | <*Body-för-Failure-e-post*> | Brödtext i e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`Member might already exist. Check your MailChimp account.` |
    |||||
 
-1. Spara din logikapp. 
+1. Spara logikappen. 
 
 Nu testar du logikappen, som ser ut som i det här exemplet:
 
@@ -324,7 +324,7 @@ När du inte längre behöver appen exempel logik tar du bort resurs gruppen som
 
 1. På Azures huvudmeny går du till **Resursgrupper** och väljer resursgruppen för logikappen.
 
-1. Välj **Översikt** > **ta bort resurs grupp**på menyn resurs grupp. 
+1. Välj **Översikt**  >  **ta bort resurs grupp**på menyn resurs grupp. 
 
    ![”Översikt” > ”Ta bort resursgrupp”](./media/tutorial-process-mailing-list-subscriptions-workflow/delete-resource-group.png)
 

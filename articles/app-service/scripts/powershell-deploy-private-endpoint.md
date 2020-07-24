@@ -8,11 +8,12 @@ ms.date: 07/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: e4bdf1c06a4a52a9483b3d2bbae8d2737c531eb0
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 97ded67b9f9daa2652b2740a21a4b7d6a0ac2bdd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86060509"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068266"
 ---
 # <a name="create-an-app-service-app-and-deploy-private-endpoint-using-powershell"></a>Skapa en App Service-app och distribuera privat slut punkt med PowerShell
 
@@ -107,7 +108,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Skapar en App Service-plan. |
@@ -123,5 +124,5 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
+- Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](/powershell/azure/).
 - Ytterligare Azure PowerShell exempel för Azure App Service Web Apps finns i [Azure PowerShells exemplen](../samples-powershell.md).

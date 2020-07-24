@@ -3,12 +3,12 @@ title: Händelsebaserade videoinspelningar till molnet och uppspelningen från m
 description: I den här självstudien får du lära dig hur du använder Azure Live Video Analytics på Azure IoT Edge för att registrera en Event-baserad videoinspelning i molnet och spela upp den från molnet igen.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 938bae28b1a523e23ea9f8f1ba79bbe6c487d5db
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: cbd00bf5737e9833a860e154c629bb344416b6ca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765207"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011795"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Självstudie: Event-baserad videoinspelning till molnet och uppspelningen från molnet
 
@@ -32,11 +32,11 @@ Läs de här artiklarna innan du börjar:
 * [Video analys i real tid med IoT Edge terminologi](terminology.md)
 * [Media Graph-begrepp](media-graph-concept.md) 
 * [Händelsebaserad videoinspelning](event-based-video-recording-concept.md)
-* [Självstudie: utveckla en IoT Edge-modul](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
+* [Självstudie: utveckla en IoT Edge-modul](../../iot-edge/tutorial-develop-for-linux.md)
 * [Så här redigerar du Deployment. * .template.jspå](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
-* Avsnitt om [hur du deklarerar vägar i IoT Edge distributions manifest](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)
+* Avsnitt om [hur du deklarerar vägar i IoT Edge distributions manifest](../../iot-edge/module-composition.md#declare-routes)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Krav för den här självstudien är:
 
@@ -52,7 +52,7 @@ I slutet av de här stegen har du relevanta Azure-resurser distribuerade i din A
 * Azure IoT Hub
 * Azure-lagringskonto
 * Azure Media Services konto
-* Virtuella Linux-datorer i Azure med [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installerat
+* Virtuella Linux-datorer i Azure med [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge-linux.md) installerat
 
 ## <a name="concepts"></a>Begrepp
 
@@ -135,9 +135,9 @@ Bläddra till src/Edge i Visual Studio Code. Du ser den. kuvert-fil som du skapa
 * **rtspsim**: Detta är RTSP-simulatorn.
 * **objectCounter**: det här är den modul som söker efter vissa objekt i resultatet från yolov3.
 
-För modulen objectCounter, se strängen ($ {MODULES. objectCounter}) som används för värdet "bild". Detta baseras på [självstudien](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux) om hur du utvecklar en IoT Edge-modul. Visual Studio Code känner automatiskt av att koden för objectCounter-modulen är under src/Edge/modules/objectCounter. 
+För modulen objectCounter, se strängen ($ {MODULES. objectCounter}) som används för värdet "bild". Detta baseras på [självstudien](../../iot-edge/tutorial-develop-for-linux.md) om hur du utvecklar en IoT Edge-modul. Visual Studio Code känner automatiskt av att koden för objectCounter-modulen är under src/Edge/modules/objectCounter. 
 
-Läs [det här avsnittet](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) om hur du deklarerar vägar i IoT Edge distributions manifestet. Granska sedan vägarna i-mallens JSON-fil. Observera hur:
+Läs [det här avsnittet](../../iot-edge/module-composition.md#declare-routes) om hur du deklarerar vägar i IoT Edge distributions manifestet. Granska sedan vägarna i-mallens JSON-fil. Observera hur:
 
 * LVAToObjectCounter används för att skicka vissa händelser till en angiven slut punkt i objectCounter-modulen.
 * ObjectCounterToLVA används för att skicka en Utlös ande händelse till en speciell slut punkt (som bör vara noden IoT Hub källa) i lvaEdge-modulen.
@@ -150,7 +150,7 @@ Läs [det här avsnittet](https://docs.microsoft.com/azure/iot-edge/module-compo
 
 Distributions manifestet definierar vilka moduler som distribueras till en gräns enhet och konfigurations inställningarna för dessa moduler. Följ de här stegen för att generera ett manifest från mallfilen och distribuera det sedan till gräns enheten.
 
-Använd Visual Studio Code och följ [anvisningarna](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux#build-and-push-your-solution) för att logga in på Docker. Välj sedan **build och Push IoT Edge-lösning**. Använd src/Edge/deployment.objectCounter.template.jspå för det här steget.
+Använd Visual Studio Code och följ [anvisningarna](../../iot-edge/tutorial-develop-for-linux.md#build-and-push-your-solution) för att logga in på Docker. Välj sedan **build och Push IoT Edge-lösning**. Använd src/Edge/deployment.objectCounter.template.jspå för det här steget.
 
 ![Lösning för att bygga och push IoT Edge](./media/event-based-video-recording-tutorial/build-push.png)
 
@@ -259,7 +259,7 @@ Följ dessa steg om du vill visa händelserna från modulen objectCounter och fr
 
 ## <a name="interpret-the-results"></a>Tolka resultaten 
 
-När du kör medie diagrammet skickar live video analys i IoT Edge-modulen vissa diagnostik-och drift händelser till IoT Edge Hub. Dessa händelser är de meddelanden som visas i fönstret **utdata** i Visual Studio Code. De innehåller ett Body-avsnitt och ett applicationProperties-avsnitt. Information om vad dessa avsnitt representerar finns i [skapa och läsa IoT Hub meddelanden](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+När du kör medie diagrammet skickar live video analys i IoT Edge-modulen vissa diagnostik-och drift händelser till IoT Edge Hub. Dessa händelser är de meddelanden som visas i fönstret **utdata** i Visual Studio Code. De innehåller ett Body-avsnitt och ett applicationProperties-avsnitt. Information om vad dessa avsnitt representerar finns i [skapa och läsa IoT Hub meddelanden](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 I följande meddelanden definieras program egenskaperna och innehållet i bröd texten av modulen live video analys.
 
@@ -413,4 +413,4 @@ Om du tänker testa de andra självstudierna ska du hålla på de resurser som d
 ## <a name="next-steps"></a>Nästa steg
 
 * Använd en [IP-kamera](https://en.wikipedia.org/wiki/IP_camera) med stöd för RTSP i stället för att använda RTSP-simulatorn. Du kan söka efter IP-kameror med RTSP-stöd på [ONVIF-sidan produkter](https://www.onvif.org/conformant-products/) genom att söka efter enheter som uppfyller profilerna G, S eller T.
-* Använd en AMD64-eller x64 Linux-enhet (jämfört med en virtuell Azure Linux-dator). Enheten måste finnas i samma nätverk som IP-kameran. Följ anvisningarna i [installera Azure IoT Edge runtime på Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Följ sedan anvisningarna i avsnittet [distribuera din första IoT Edge till en virtuell Linux-enhet](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) snabb start för att registrera enheten med Azure IoT Hub.
+* Använd en AMD64-eller x64 Linux-enhet (jämfört med en virtuell Azure Linux-dator). Enheten måste finnas i samma nätverk som IP-kameran. Följ anvisningarna i [installera Azure IoT Edge runtime på Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Följ sedan anvisningarna i avsnittet [distribuera din första IoT Edge till en virtuell Linux-enhet](../../iot-edge/quickstart-linux.md) snabb start för att registrera enheten med Azure IoT Hub.

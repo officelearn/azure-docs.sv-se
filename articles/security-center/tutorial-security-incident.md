@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: 971b93422e2b3f2053e0c5564c7ba924a631d810
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dc19d74953db48ccf51d4731e2b9feccb2294041
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80585771"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076394"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Självstudie: Reagera på säkerhetsincidenter
 Security Center analyserar kontinuerligt dina hybridmolnarbetsbelastningar med avancerad analys och hotinformation för att varna dig om skadlig aktivitet. Dessutom kan du integrera varningar från andra säkerhetsprodukter och -tjänster i Security Center och skapa anpassade varningar utifrån dina egna indikatorer eller intelligenskällor. När en varning har genererats krävs snabba åtgärder för att undersöka och åtgärda. I den här självstudien får du lära dig hur man:
@@ -29,9 +29,9 @@ Security Center analyserar kontinuerligt dina hybridmolnarbetsbelastningar med a
 > * Undersök ytterligare för att fastställa rotorsaken och omfånget för en säkerhetsincident
 > * Sök säkerhetsdata för enklare undersökning
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att gå igenom de funktioner som beskrivs i den här självstudien måste du vara på Security Center standard pris nivån. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard.
 
 ## <a name="scenario"></a>Scenario
@@ -98,12 +98,13 @@ Du kan använda sökfunktioner i Security Center för att hitta mer bevis för u
 Om du vill göra en sökning öppnar du instrumentpanelen för **Security Center**, klickar på **Sök** i det vänstra navigeringsfönstret, väljer arbetsytan som innehåller entiteterna du vill söka, skriver sökfrågan och klickar på sökknappen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-De andra snabbstarterna och självstudierna i den här samlingen bygger på den här snabbstarten. Om du tänker fortsätta med att arbeta med efterföljande snabbstarter och självstudier ska du fortsätta att köra Standard-nivån och ha automatisk etablering aktiverad. Om du inte tänker fortsätta eller vill återgå till den kostnadsfria nivån:
+
+De andra snabbstarterna och självstudierna i den här samlingen bygger på den här snabbstarten. Om du planerar att fortsätta att arbeta med efterföljande snabb starter och självstudier kan du fortsätta att köra standard-nivån och behålla automatisk etablering aktive rad. Om du inte tänker fortsätta eller vill återgå till den kostnadsfria nivån:
 
 1. Återgå till huvudmenyn i Security Center och välj **Säkerhetsprincip**.
 2. Välj den prenumeration eller princip du vill ska återgå till den kostnadsfria nivån. **Säkerhetsprincip** öppnas.
 3. Under **PRINCIPKOMPONENTER** väljer du **Prisnivå**.
-4. Välj **Kostnadsfri** om du vill byta prenumeration från Standard-nivån till den kostnadsfria nivån.
+4. Välj **kostnads fri** om du vill ändra prenumerationen från standard nivån till den kostnads fria nivån.
 5. Välj **Spara**.
 
 Om du vill avaktivera automatisk etablering:

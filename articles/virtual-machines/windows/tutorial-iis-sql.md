@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3e44236f74a5448c540c58ba730d65b412d48bd0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1c53194bd345c18ac582acd538f1e8f8e1e34d54
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101713"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027860"
 ---
 # <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Självstudie: Installera SQL-, IIS-, .NET-stacken på en virtuell Windows-dator med Azure PowerShell
 
@@ -29,11 +29,11 @@ I den här självstudien installerar vi en SQL-, IIS-, .NET-stack med Azure Powe
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/powershell](https://shell.azure.com/powershell)gå till. Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att gå till [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 ## <a name="create-an-iis-vm"></a>Skapa en virtuell IIS-dator 
 
-I det här exemplet använder vi cmdleten [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) i PowerShell Cloud Shell för att snabbt skapa en virtuell dator i Windows Server 2016 och sedan installera IIS och .NET Framework. De virtuella IIS- och SQL-datorerna delar en resursgrupp och ett virtuellt nätverk, så vi skapar variabler för de namnen.
+I det här exemplet använder vi cmdleten [New-AzVM](/powershell/module/az.compute/new-azvm) i PowerShell Cloud Shell för att snabbt skapa en virtuell dator i Windows Server 2016 och sedan installera IIS och .NET Framework. De virtuella IIS- och SQL-datorerna delar en resursgrupp och ett virtuellt nätverk, så vi skapar variabler för de namnen.
 
 
 ```azurepowershell-interactive
@@ -52,7 +52,7 @@ New-AzVm `
     -OpenPorts 80,3389 
 ```
 
-Installera IIS och .NET Framework med det anpassade skripttillägget med cmdleten [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
+Installera IIS och .NET Framework med det anpassade skripttillägget med cmdleten [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension).
 
 ```azurepowershell-interactive
 Set-AzVMExtension `
@@ -76,7 +76,7 @@ $vNet = Get-AzVirtualNetwork `
    -ResourceGroupName $resourceGroup
 ```
 
-Skapa en konfiguration för undernätet med hjälp av [Add-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/add-azvirtualnetworksubnetconfig).
+Skapa en konfiguration för undernätet med hjälp av [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig).
 
 
 ```azurepowershell-interactive
@@ -87,7 +87,7 @@ Add-AzVirtualNetworkSubnetConfig `
    -ServiceEndpoint Microsoft.Sql
 ```
 
-Uppdatera vNet med den nya undernätsinformationen med hjälp av [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetwork)
+Uppdatera vNet med den nya undernätsinformationen med hjälp av [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)
    
 ```azurepowershell-interactive   
 $vNet | Set-AzVirtualNetwork
@@ -111,7 +111,7 @@ New-AzVm `
     -OpenPorts 3389,1401 
 ```
 
-Använd [Set-AzVMSqlServerExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsqlserverextension) för att lägga till [SQL Server-tillägget](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) till den virtuella SQL-datorn.
+Använd [Set-AzVMSqlServerExtension](/powershell/module/az.compute/set-azvmsqlserverextension) för att lägga till [SQL Server-tillägget](../../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md) till den virtuella SQL-datorn.
 
 ```azurepowershell-interactive
 Set-AzVMSqlServerExtension `
@@ -135,4 +135,3 @@ Gå vidare till nästa självstudie och lär dig hur du skyddar IIS-webbservern 
 
 > [!div class="nextstepaction"]
 > [Skydda IIS-webbservern med TLS/SSL-certifikat](tutorial-secure-web-server.md)
-

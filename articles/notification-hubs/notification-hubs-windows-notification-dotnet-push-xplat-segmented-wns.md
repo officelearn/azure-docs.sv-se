@@ -17,12 +17,12 @@ ms.date: 09/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 9151870836b1a616a79e54275ed185a425c11f0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: be20cd583be7c9c87d9f3a3cebc6609764384c9a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72385607"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084236"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-running-universal-windows-platform-applications"></a>Självstudie: skicka meddelanden till vissa enheter som kör Universell Windows-plattform program
 
@@ -47,7 +47,7 @@ I den här självstudien utför du följande uppgifter:
 > * Skicka taggade meddelanden
 > * Kör appen och generera meddelanden
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför [Självstudier: Skicka meddelanden till Universal Windows Platform-appar med hjälp av Azure Notification Hubs][get-started] innan du startar den här självstudiekursen.  
 
@@ -81,9 +81,9 @@ Det första steget är att lägga till UI-element till din befintliga huvudsida 
     </Grid>
     ```
 
-1. I **Solution Explorer**högerklickar du på projektet och väljer **Lägg till** > **klass**. I **Lägg till nytt objekt**namnger du klass *meddelanden*och väljer **Lägg till**. Om det `public` behövs lägger du till modifieraren i klass definitionen.
+1. I **Solution Explorer**högerklickar du på projektet och väljer **Lägg till**  >  **klass**. I **Lägg till nytt objekt**namnger du klass *meddelanden*och väljer **Lägg till**. Om det behövs lägger du till `public` modifieraren i klass definitionen.
 
-1. Lägg till följande `using` -instruktioner i den nya filen:
+1. Lägg till följande- `using` instruktioner i den nya filen:
 
     ```csharp
     using Windows.Networking.PushNotifications;
@@ -194,7 +194,7 @@ I det här avsnittet registrerar du med meddelandehubben vid start med hjälp av
 > [!NOTE]
 > Eftersom den kanal-URI som tilldelats av Windows Notification Service (WNS) kan ändras när som helst bör du ofta registrera dig för meddelanden för att undvika meddelandefel. Det här exemplet registrerar för meddelande varje gång som appen startas. För appar som du kör ofta, eller mer än en gång om dagen, kan du förmodligen hoppa över registreringen för att bevara bandbredden om mindre än en dag har passerat sedan den tidigare registreringen.
 
-1. Om du vill `notifications` använda-klassen för att prenumerera baserat på kategorier öppnar du filen *app.XAML.cs* och uppdaterar sedan `InitNotificationsAsync` metoden.
+1. Om du vill använda `notifications` -klassen för att prenumerera baserat på kategorier öppnar du filen *app.XAML.cs* och uppdaterar sedan `InitNotificationsAsync` metoden.
 
     ```csharp
     // *** Remove or comment out these lines ***
@@ -265,8 +265,8 @@ I den här artikeln beskrivs hur du skickar senaste nytt efter kategori. Backend
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started/
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for Windows Store]: https://msdn.microsoft.com/library/jj927172.aspx
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
+[Notification Hubs How-To for Windows Store]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
 [Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253

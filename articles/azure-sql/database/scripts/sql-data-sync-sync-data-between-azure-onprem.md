@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: ca07e30f9d3ef8dee185884cfb4946d93b515932
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 432f9a3e6af60beda9dd8a8dd1237cb93cc40639
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196720"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084948"
 ---
 # <a name="use-powershell-to-sync-data-between-sql-database-and-sql-server"></a>Använd PowerShell för att synkronisera data mellan SQL Database och SQL Server
 
@@ -292,7 +292,7 @@ Remove-AzResourceGroup -ResourceGroupName $syncDatabaseResourceGroupName
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzSqlSyncAgent](/powershell/module/az.sql/New-azSqlSyncAgent) |  Skapar en ny Sync-agent. |
 | [New-AzSqlSyncAgentKey](/powershell/module/az.sql/New-azSqlSyncAgentKey) |  Genererar den agent nyckel som är kopplad till Sync-agenten. |
@@ -307,7 +307,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/).
 
 Ytterligare PowerShell-skriptexempel för SQL Database finns i [PowerShell-skript för Azure SQL Database](../powershell-script-content-guide.md).
 

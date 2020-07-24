@@ -7,12 +7,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio för att felsöka ett .NET Core-program med flera tjänster i Azure Kubernetes service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
-ms.openlocfilehash: 7f95c21c2cf5b7adcdb34d7bbe2b1f8314c20333
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 073019a75f78263e9d300a82469b36268d032679
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75438391"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072948"
 ---
 # <a name="running-multiple-dependent-services-net-core-and-visual-studio-with-azure-dev-spaces"></a>Köra flera beroende tjänster: .NET Core och Visual Studio med Azure dev Spaces
 
@@ -21,7 +21,7 @@ I den här självstudien lär du dig att utveckla program för flera tjänster m
 ## <a name="call-another-container"></a>Anropa en annan container
 I det här avsnittet ska du skapa en andra tjänst, `mywebapi`, som ska anropas av `webfrontend`. Varje tjänst körs i en separat container. Du ska sedan felsöka båda containrarna.
 
-![](media/common/multi-container.png)
+![Diagrammet visar webfrontend-tjänstens anrop (som indikeras av en pil) mywebapi-tjänsten.](media/common/multi-container.png)
 
 ### <a name="download-sample-code-for-mywebapi"></a>Ladda ned exempelkoden för *mywebapi*
 För enkelhetens skull laddar vi ned exempelkoden från en GitHub-databas. Gå till https://github.com/Azure/dev-spaces och välj **Klona eller Ladda ned** för att ladda ned GitHub-databasen. Koden för det här avsnittet finns i `samples/dotnetcore/getting-started/mywebapi`.
@@ -34,7 +34,7 @@ För enkelhetens skull laddar vi ned exempelkoden från en GitHub-databas. Gå t
 2. När `mywebapi` är klar öppnar du webbläsaren på localhost-adressen och lägger till `/api/values` i URL:en för att anropa standard-GET-API:et för `ValuesController`. 
 3. Om alla steg lyckades bör du se ett svar från `mywebapi`-tjänsten som ser ut så här.
 
-    ![](media/get-started-netcore-visualstudio/WebAPIResponse.png)
+    ![Webb sidan visar en JSON-matris med två strängar: "värde1" och "värde2".](media/get-started-netcore-visualstudio/WebAPIResponse.png)
 
 ### <a name="make-a-request-from-webfrontend-to-mywebapi"></a>Skicka en begäran från *webfrontend* till *mywebapi*
 Nu ska vi skriva kod i `webfrontend` som skickar en begäran till `mywebapi`. Växla till Visual Studio-fönstret som innehåller `webfrontend`-projektet. *Ersätt* koden för About-metoden i filen `HomeController.cs` med följande kod:

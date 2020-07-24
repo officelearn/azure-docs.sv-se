@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 352f52a2a6d84d352bb46e09f104efde303307f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 341be30c30f7b4a2a53f70f18e1c2a3a30de1cb4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80478044"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034513"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med F5
+# <a name="tutorial-configure-single-sign-on-sso-between-azure-active-directory-and-f5"></a>Självstudie: Konfigurera enkel inloggning (SSO) mellan Azure Active Directory och F5
 
 I den här självstudien får du lära dig hur du integrerar F5 med Azure Active Directory (Azure AD). När du integrerar F5 med Azure AD kan du:
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar F5 med Azure Active
 
 Mer information om SaaS app integration med enkel inloggning i Azure AD finns i [enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -177,7 +177,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -221,7 +221,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. Dessutom krävs **SSL-certifikat för program värd namnet. Gå till system > certifikat hantering > hantering av trafik certifikat > SSL-certifikat lista**. Välj **Importera** från det högra hörnet. **Import typen** är **PKCS 12 (IIS)**. Ange ett **nyckel namn** (kommer att refereras till senare i konfigurationen) och ange PFX-filen. Ange **lösen ordet** för PFX-filen. Klicka på **Importera**.
 
     >[!NOTE]
-    >I exempel namnet `Headerapp.superdemo.live`på appen använder vi ett jokertecken med vårt namn `WildCard-SuperDemo.live`.
+    >I exempel namnet på appen `Headerapp.superdemo.live` använder vi ett jokertecken med vårt namn `WildCard-SuperDemo.live` .
 
     ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure13.png)
 
@@ -286,7 +286,7 @@ Det här avsnittet är avsett att användas om du inte kan använda den guidade 
 1. Gå till **System > certifikat hantering > hantering av trafik certifikat > SSL-certifikat lista**. Välj **Importera** från det högra hörnet. **Import typen** är **PKCS 12 (IIS)**. Ange ett **nyckel namn** (kommer att refereras till senare i konfigurationen) och ange PFX-filen. Ange **lösen ordet** för PFX-filen. Klicka på **Importera**.
 
     >[!NOTE]
-    >I exempel namnet `Headerapp.superdemo.live`på appen använder vi ett jokertecken med vårt namn `WildCard-SuperDemo.live`.
+    >I exempel namnet på appen `Headerapp.superdemo.live` använder vi ett jokertecken med vårt namn `WildCard-SuperDemo.live` .
   
     ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure17.png)
 
@@ -346,7 +346,7 @@ Det här avsnittet är avsett att användas om du inte kan använda den guidade 
  
     ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure29.png)
 
-    a. Bläddra till metadata. XML-fil som hämtats från Azure AD och ange ett namn på en **identitets leverantör**.
+    a. Bläddra till metadata.xml fil som hämtats från Azure AD och ange ett namn på en **identitetsprovider**.
 
     b. Klicka på **OK**.
 
@@ -360,7 +360,7 @@ Det här avsnittet är avsett att användas om du inte kan använda den guidade 
 
     f. **Matchande källa =% {session. Server. landinguri}** 
 
-    g. **Matchande värde =/***
+    ex. **Matchande värde =/***
 
     h. Klicka på **Uppdatera**
 
@@ -394,7 +394,7 @@ Det här avsnittet är avsett att användas om du inte kan använda den guidade 
 
     ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure35.png)
  
-    g. Klicka på redigeraren för **visuella principer**, redigera **åtkomst princip för profil** länk.
+    ex. Klicka på redigeraren för **visuella principer**, redigera **åtkomst princip för profil** länk.
 
     h. Klicka på +-tecknet i redigeraren för visuella principer och välj **SAML-autentisering**.
 
@@ -418,7 +418,7 @@ Det här avsnittet är avsett att användas om du inte kan använda den guidade 
 
 1. Tilldela åtkomst profilen till den virtuella servern för att använda F5 BIG-IP APM för att tillämpa profil inställningarna på inkommande trafik och köra den tidigare definierade åtkomst principen.
 
-    a. Klicka på **huvud** > **servrar**för**lokal trafik** > .
+    a. Klicka på **huvud**  >  servrar för**lokal trafik**  >  **Virtual Servers**.
 
     ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure40.png)
  
@@ -438,11 +438,11 @@ Det här avsnittet är avsett att användas om du inte kan använda den guidade 
  
     När RULE_INIT {set static::d ebug 0} när ACCESS_ACL_ALLOWED {
 
-    Ange AZUREAD_USERNAME [ACCESS:: sessionsdata Hämta "session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"] om {$static::d ebug} {log local0. "AZUREAD_USERNAME = $AZUREAD _USERNAME"} om {! ( [HTTP:: header finns "AZUREAD_USERNAME"]) } {HTTP:: rubrik infoga AZUREAD_USERNAME $AZUREAD _USERNAME}
+    Ange AZUREAD_USERNAME [ACCESS:: sessionsdata Hämta "session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name "] om {$static::d ebug} {log local0. "AZUREAD_USERNAME = $AZUREAD _USERNAME"} om {! ( [HTTP:: header finns "AZUREAD_USERNAME"]) } {HTTP:: rubrik infoga AZUREAD_USERNAME $AZUREAD _USERNAME}
 
-    Ange AZUREAD_DISPLAYNAME [ACCESS:: sessionsdata Hämta "session.saml.last.attr.name.http://schemas.microsoft.com/identity/claims/displayname"] om {$static::d ebug} {log local0. "AZUREAD_DISPLAYNAME = $AZUREAD _DISPLAYNAME"} om {! ( [HTTP:: header finns "AZUREAD_DISPLAYNAME"]) } {HTTP:: rubrik infoga AZUREAD_DISPLAYNAME $AZUREAD _DISPLAYNAME}
+    Ange AZUREAD_DISPLAYNAME [ACCESS:: sessionsdata Hämta "session.saml.last.attr.name. http://schemas.microsoft.com/identity/claims/displayname "] om {$static::d ebug} {log local0. "AZUREAD_DISPLAYNAME = $AZUREAD _DISPLAYNAME"} om {! ( [HTTP:: header finns "AZUREAD_DISPLAYNAME"]) } {HTTP:: rubrik infoga AZUREAD_DISPLAYNAME $AZUREAD _DISPLAYNAME}
 
-    Ange AZUREAD_EMAILADDRESS [ACCESS:: sessionsdata Hämta "session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"] om {$static::d ebug} {log local0. "AZUREAD_EMAILADDRESS = $AZUREAD _EMAILADDRESS"} om {! ( [HTTP:: header finns "AZUREAD_EMAILADDRESS"]) } {HTTP:: rubrik infoga AZUREAD_EMAILADDRESS $AZUREAD _EMAILADDRESS}}
+    Ange AZUREAD_EMAILADDRESS [ACCESS:: sessionsdata Hämta "session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress "] om {$static::d ebug} {log local0. "AZUREAD_EMAILADDRESS = $AZUREAD _EMAILADDRESS"} om {! ( [HTTP:: header finns "AZUREAD_EMAILADDRESS"]) } {HTTP:: rubrik infoga AZUREAD_EMAILADDRESS $AZUREAD _EMAILADDRESS}}
 
     **Exempel på utdata nedan**
 
@@ -464,7 +464,7 @@ När du klickar på F5-panelen i åtkomst panelen, bör du loggas in automatiskt
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova F5 med Azure AD](https://aad.portal.azure.com/)
 

@@ -11,12 +11,12 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: carlrab, vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 34cbba15f5798286be63171da0173f6214fe7822
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ac945b14091ae01cfad66c3776c84406583e491f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022734"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037125"
 ---
 # <a name="use-cli-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Använd CLI för att konfigurera SQL Database granskning och Avancerat skydd
 
@@ -52,7 +52,7 @@ az group delete --name $resource
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| | |
+| Kommando | Beskrivning |
 |---|---|
 | [AZ SQL DB audit-policy](/cli/azure/sql/db/audit-policy) | Anger granskningsprincipen för en databas. |
 | [AZ SQL DB Threat-policy](/cli/azure/sql/db/threat-policy) | Ställer in en princip för avancerat skydd på en databas. |

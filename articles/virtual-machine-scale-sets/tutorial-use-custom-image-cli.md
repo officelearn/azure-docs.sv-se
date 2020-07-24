@@ -9,20 +9,20 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
 ms.reviewer: akjosh
-ms.openlocfilehash: 22f3fd44fbeb3d951d4add7b90a0e9aebd863ebf
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 159ded093f278672a8251263f7bab1050a945e11
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792878"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085851"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Självstudie: Skapa och använd en anpassad avbildning för VM-skalningsuppsättningar med Azure CLI
 När du skapar en skalningsuppsättning, kan du ange en avbildning som ska användas när de virtuella datorinstanserna distribueras. Om du vill minska antalet uppgifter när de virtuella datorinstanserna distribueras, kan du använda en anpassad virtuell datoravbildning. Den här anpassade virtuella datoravbildningen inkluderar alla nödvändiga programinstallationer eller konfigurationer. Alla virtuella datorinstanser som skapats i skalningsuppsättningen använder den anpassade virtuella datoravbildningen och är redo att hantera din programtrafik. I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
-> * Skapa ett galleri för delad avbildning
+> * Skapa ett Shared Image Gallery
 > * Skapa en specialiserad avbildnings definition
-> * Skapa en avbildnings version
+> * Skapa en avbildningsversion
 > * Skapa en skalnings uppsättning från en specialiserad avbildning
 > * Dela ett avbildnings Galleri
 
@@ -69,7 +69,7 @@ Nu ska vi installera en grundläggande webbserver för att anpassa din virtuella
 sudo apt-get install -y nginx
 ```
 
-När du är färdig skriver `exit` du för att koppla från ssh-anslutningen.
+När du är färdig skriver du `exit` för att koppla från ssh-anslutningen.
 
 ## <a name="create-an-image-gallery"></a>Skapa ett bild galleri 
 
@@ -90,13 +90,13 @@ Bild definitioner skapa en logisk gruppering för avbildningar. De används för
 
 Namn på bild definitioner kan bestå av versaler eller gemener, siffror, punkter, streck och punkter. 
 
-Se till att bild definitionen är av rätt typ. Om du har generaliserat den virtuella datorn (med Sysprep för Windows eller waagent för Linux) bör du skapa en generaliserad avbildnings definition med hjälp av `--os-state generalized`. Om du vill använda den virtuella datorn utan att ta bort befintliga användar konton skapar du en specialiserad `--os-state specialized`avbildnings definition med hjälp av.
+Se till att bild definitionen är av rätt typ. Om du har generaliserat den virtuella datorn (med Sysprep för Windows eller waagent för Linux) bör du skapa en generaliserad avbildnings definition med hjälp av `--os-state generalized` . Om du vill använda den virtuella datorn utan att ta bort befintliga användar konton skapar du en specialiserad avbildnings definition med hjälp av `--os-state specialized` .
 
-Mer information om de värden som du kan ange för en bild definition finns i [bild definitioner](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Mer information om de värden som du kan ange för en bild definition finns i [bild definitioner](../virtual-machines/linux/shared-image-galleries.md#image-definitions).
 
 Skapa en bild definition i galleriet med hjälp av [AZ sig-bild-definition Create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-I det här exemplet heter avbildnings definitionen *myImageDefinition*och är för en [SPECIALISERAd](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) Linux OS-avbildning. Använd `--os-type Windows`om du vill skapa en definition för avbildningar med hjälp av ett Windows-operativsystem. 
+I det här exemplet heter avbildnings definitionen *myImageDefinition*och är för en [SPECIALISERAd](../virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images) Linux OS-avbildning. Använd om du vill skapa en definition för avbildningar med hjälp av ett Windows-operativsystem `--os-type Windows` . 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -137,18 +137,18 @@ az sig image-version create \
 > [!NOTE]
 > Du måste vänta tills avbildnings versionen är fullständigt slutförd och replikerad innan du kan använda samma hanterade avbildning för att skapa en annan avbildnings version.
 >
-> Du kan också lagra din avbildning i Premium Storage genom att `--storage-account-type  premium_lrs`lägga till eller [zonens redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) genom `--storage-account-type  standard_zrs` att lägga till den när du skapar avbildnings versionen.
+> Du kan också lagra din avbildning i Premium Storage genom att lägga till `--storage-account-type  premium_lrs` eller [zonens redundant lagring](../storage/common/storage-redundancy.md) genom att lägga till `--storage-account-type  standard_zrs` den när du skapar avbildnings versionen.
 >
 
 
 
 
 ## <a name="create-a-scale-set-from-the-image"></a>Skapa en skalnings uppsättning från avbildningen
-Skapa en skalnings uppsättning från den specialiserade avbildningen med hjälp av [`az vmss create`](/cli/azure/vmss#az-vmss-create). 
+Skapa en skalnings uppsättning från den specialiserade avbildningen med hjälp av [`az vmss create`](/cli/azure/vmss#az-vmss-create) . 
 
 Skapa skalnings uppsättningen med [`az vmss create`](/cli/azure/vmss#az-vmss-create) hjälp av parametern--specialiserad för att ange att avbildningen är en specialiserad avbildning. 
 
-Använd bild Definitions-ID `--image` : t för för att skapa skalnings uppsättnings instanserna från den senaste versionen av avbildningen som är tillgänglig. Du kan också skapa skalnings uppsättnings instanser från en speciell version genom att ange avbildningens versions `--image`-ID för. 
+Använd bild Definitions-ID: t för för `--image` att skapa skalnings uppsättnings instanserna från den senaste versionen av avbildningen som är tillgänglig. Du kan också skapa skalnings uppsättnings instanser från en speciell version genom att ange avbildningens versions-ID för `--image` . 
 
 Skapa en skalnings uppsättning med namnet *myScaleSet* den senaste versionen av *myImageDefinition* -avbildningen som vi skapade tidigare.
 
@@ -217,7 +217,7 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-Mer information om hur du delar resurser med RBAC finns i [Hantera åtkomst med RBAC och Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
+Mer information om hur du delar resurser med RBAC finns i [Hantera åtkomst med RBAC och Azure CLI](../role-based-access-control/role-assignments-cli.md).
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
@@ -232,9 +232,9 @@ az group delete --name myResourceGroup --no-wait --yes
 I den här självstudien fick du läsa om hur du skapar och använder en anpassad virtuell datoravbildning för din skalningsuppsättning med Azure CLI:
 
 > [!div class="checklist"]
-> * Skapa ett galleri för delad avbildning
+> * Skapa ett Shared Image Gallery
 > * Skapa en specialiserad avbildnings definition
-> * Skapa en avbildnings version
+> * Skapa en avbildningsversion
 > * Skapa en skalnings uppsättning från en specialiserad avbildning
 > * Dela ett avbildnings Galleri
 

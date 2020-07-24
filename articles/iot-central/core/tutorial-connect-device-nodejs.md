@@ -1,64 +1,64 @@
 ---
-title: Självstudie – ansluta en generisk Node. js-klient app till Azure IoT Central | Microsoft Docs
-description: Den här självstudien visar hur du, som enhets utvecklare, ansluter en enhet som kör en Node. js-klient till ditt Azure IoT Central-program. Du skapar en enhets mall genom att importera en enhets kapacitets modell och lägga till vyer som gör att du kan interagera med en ansluten enhet
+title: Självstudie – ansluta en allmän Node.js klient-app till Azure IoT Central | Microsoft Docs
+description: Den här självstudien visar hur du, som enhets utvecklare, ansluter en enhet som kör en Node.js-klient till ditt Azure IoT Central-program. Du skapar en enhets mall genom att importera en enhets kapacitets modell och lägga till vyer som gör att du kan interagera med en ansluten enhet
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2020
+ms.date: 07/07/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mqtt
-ms.openlocfilehash: 65f441425113d89010cc2d282758c5a042be9300
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 08df3bce9d1ecce4d4b0cdfc3034355feef6a4ba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417913"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003380"
 ---
-# <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-nodejs"></a>Självstudie: skapa och ansluta ett klient program till ditt Azure IoT Central-program (Node. js)
+# <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-nodejs"></a>Självstudie: skapa och ansluta ett klient program till ditt Azure IoT Central-program (Node.js)
 
 [!INCLUDE [iot-central-selector-tutorial-connect](../../../includes/iot-central-selector-tutorial-connect.md)]
 
 *Den här artikeln gäller lösnings byggare och enhets utvecklare.*
 
-Den här självstudien visar hur du, som enhets utvecklare, ansluter ett Node. js-klientprogram till ditt Azure IoT Central-program. Node. js-programmet simulerar beteendet för en miljö sensor enhet. Du kan använda ett exempel på _enhets kapacitets modell_ för att skapa en _enhets mal len_ i IoT Central. Du lägger till vyer i enhets mal len för att låta en operatör interagera med en enhet.
+Den här självstudien visar hur du, som enhets utvecklare, ansluter ett Node.js klient program till ditt Azure IoT Central-program. Node.js programmet simulerar beteendet för en miljö sensor enhet. Du kan använda ett exempel på _enhets kapacitets modell_ för att skapa en _enhets mal len_ i IoT Central. Du lägger till vyer i enhets mal len för att låta en operatör interagera med en enhet.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Importera en enhets kapacitets modell för att skapa en enhets mall.
 > * Lägg till standard-och anpassade vyer i en enhets mall.
 > * Publicera en enhets mall och Lägg till en riktig enhet i IoT Central programmet.
-> * Skapa och kör Node. js-enhets koden och se hur den ansluter till ditt IoT Central-program.
+> * Skapa och kör Node.js enhets koden och se hur den ansluter till ditt IoT Central-program.
 > * Visa den simulerade telemetri som skickas från enheten.
 > * Använd en vy för att hantera enhets egenskaper.
 > * Anropa synkrona och asynkrona kommandon för att styra enheten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-* Ett Azure IoT Central-program som skapats med hjälp av den **anpassade program** mal len. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
-* En utvecklings dator med [Node. js](https://nodejs.org/) version 10.0.0 eller senare installerad. Du kan köra `node --version` på kommando raden för att kontrol lera din version. Anvisningarna i den här självstudien förutsätter att du kör **Node** -kommandot i kommando tolken i Windows. Du kan dock använda Node. js på många andra operativ system.
+* Ett Azure IoT Central-program som skapats med hjälp av den **anpassade program** mal len. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md). Programmet måste ha skapats på eller efter 07/14/2020.
+* En utvecklings dator med [Node.js](https://nodejs.org/) version 10.0.0 eller senare installerad. Du kan köra `node --version` på kommando raden för att kontrol lera din version. Anvisningarna i den här självstudien förutsätter att du kör **Node** -kommandot i kommando tolken i Windows. Du kan dock använda Node.js på många andra operativ system.
 
 [!INCLUDE [iot-central-add-environmental-sensor](../../../includes/iot-central-add-environmental-sensor.md)]
 
 ### <a name="create-a-nodejs-application"></a>Skapa ett Node.js-program
 
-Följande steg visar hur du skapar ett Node. js-klientprogram som ansluter till den riktiga enheten som du har lagt till i programmet. Detta Node. js-program simulerar beteendet hos en riktig enhet.
+Följande steg visar hur du skapar ett Node.js klient program som ansluter till den riktiga enheten som du har lagt till i programmet. I det här Node.js programmet simuleras beteendet för en riktig enhet.
 
 1. I din kommando rads miljö navigerar du till `environmental-sensor` mappen som du skapade tidigare.
 
-1. Du initierar Node. js-projektet och installerar de nödvändiga beroendena genom att köra följande kommandon – acceptera alla standard alternativ när du kör `npm init` :
+1. Om du vill initiera Node.js-projektet och installera de nödvändiga beroendena, kör du följande kommandon – Godkänn alla standard alternativ när du kör `npm init` :
 
     ```cmd/sh
     npm init
     npm install azure-iot-device azure-iot-device-mqtt azure-iot-provisioning-device-mqtt azure-iot-security-symmetric-key --save
     ```
 
-1. Skapa en fil med namnet **environmentalSensor. js** i `environmental-sensor` mappen.
+1. Skapa en fil med namnet **environmentalSensor.js** i `environmental-sensor` mappen.
 
-1. Lägg till följande- `require` instruktioner i början av filen **environmentalSensor. js** :
+1. Lägg till följande- `require` instruktioner i början av **environmentalSensor.js** -filen:
 
     ```javascript
     "use strict";
@@ -121,7 +121,7 @@ Följande steg visar hur du skapar ett Node. js-klientprogram som ansluter till 
 
     IoT Central använder enheten för att synkronisera egenskaps värden mellan enheten och IoT Central programmet. Enhetens egenskaps värden använder enhetens dubbla rapporterade egenskaper. Skrivbara egenskaper använder både enhetens dubbla rapporter och önskade egenskaper.
 
-1. Om du vill definiera och hantera de skrivbara egenskaper som enheten svarar på lägger du till följande kod:
+1. Lägg till följande kod för att definiera och hantera de skrivbara egenskaper som enheten svarar på. Meddelandet som enheten skickar som svar på uppdatering av [skrivbara egenskaper](concepts-telemetry-properties-commands.md#writeable-property-types) måste innehålla `av` `ac` fälten och. `ad`Fältet är valfritt:
 
     ```javascript
     // Add any writeable properties your device supports,
@@ -130,12 +130,12 @@ Följande steg visar hur du skapar ett Node. js-klientprogram som ansluter till 
     var writeableProperties = {
       'name': (newValue, callback) => {
           setTimeout(() => {
-            callback(newValue, 'completed');
+            callback(newValue, 'completed', 200);
           }, 1000);
       },
       'brightness': (newValue, callback) => {
         setTimeout(() => {
-            callback(newValue, 'completed');
+            callback(newValue, 'completed', 200);
         }, 5000);
       }
     };
@@ -145,13 +145,14 @@ Följande steg visar hur du skapar ett Node. js-klientprogram som ansluter till 
       twin.on('properties.desired', function (desiredChange) {
         for (let setting in desiredChange) {
           if (writeableProperties[setting]) {
-            console.log(`Received setting: ${setting}: ${desiredChange[setting].value}`);
-            writeableProperties[setting](desiredChange[setting].value, (newValue, status) => {
+            console.log(`Received setting: ${setting}: ${desiredChange[setting]}`);
+            writeableProperties[setting](desiredChange[setting], (newValue, status, code) => {
               var patch = {
                 [setting]: {
                   value: newValue,
-                  status: status,
-                  desiredVersion: desiredChange.$version
+                  ad: status,
+                  ac: code,
+                  av: desiredChange.$version
                 }
               }
               sendDeviceProperties(twin, patch);
@@ -280,7 +281,9 @@ Följande steg visar hur du skapar ett Node. js-klientprogram som ansluter till 
           } else {
             // Send device properties once on device start up.
             var properties = {
-              state: 'true'
+              state: 'true',
+              processorArchitecture: 'ARM',
+              swVersion: '1.0.0'
             };
             sendDeviceProperties(twin, properties);
 
@@ -326,9 +329,13 @@ Du kan se hur enheten svarar på kommandon och egenskaps uppdateringar:
 
 ![Observera klient programmet](media/tutorial-connect-device-nodejs/run-application-2.png)
 
+## <a name="view-raw-data"></a>Visa rå data
+
+[!INCLUDE [iot-central-monitor-environmental-sensor-raw-data](../../../includes/iot-central-monitor-environmental-sensor-raw-data.md)]
+
 ## <a name="next-steps"></a>Nästa steg
 
-Som en enhets utvecklare nu har du lärt dig grunderna för hur du skapar en enhet med hjälp av Node. js, men vissa föreslagna nästa steg är att:
+Som en enhets utvecklare har du nu lärt dig grunderna för hur du skapar en enhet med hjälp av Node.js, men vissa föreslagna nästa steg är att:
 
 * Lär dig hur du ansluter en riktig enhet till IoT Central i [ansluta en MXChip IoT DevKit-enhet till Azure IoT Central Application](./howto-connect-devkit.md) instruktion-artikeln.
 * Läs [Vad är enhets mallar?](./concepts-device-templates.md) om du vill lära dig mer om rollen hets mallar när du implementerar din enhets kod.

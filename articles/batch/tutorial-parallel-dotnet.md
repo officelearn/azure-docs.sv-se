@@ -1,16 +1,16 @@
 ---
-title: Köra en parallell arbets belastning
+title: 'Köra en parallell arbets belastning med .NET-API: et'
 description: Självstudie – Omkoda mediefiler parallellt med ffmpeg i Azure Batch med hjälp av klientbiblioteket Batch .NET
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: d8a5db6c6c63d680514e21bef0e5a8bc6b3ea550
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: afa660a7138f3b69b2a6f7c478550095f357e29b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733081"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062580"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Självstudie: Kör en parallell arbetsbelastning med Azure Batch med hjälp av .NET API
 
@@ -29,7 +29,7 @@ I den här självstudien konverterar du MP4-mediefiler parallellt till MP3-forma
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Visual Studio 2017 eller senare](https://www.visualstudio.com/vs), eller [.net Core 2,1](https://www.microsoft.com/net/download/dotnet-core/2.1) för Linux, MacOS eller Windows.
 
@@ -45,8 +45,8 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 Använd Azure-portalen och lägg till ffmpeg i Batch-kontot som ett [programpaket](batch-application-packages.md). Med programpaket kan du hantera uppgiftsprogram och deras distribution till beräkningsnoderna i din pool. 
 
-1. Klicka på **fler tjänster** > **batch-konton**i Azure Portal och klicka på namnet på batch-kontot.
-3. Klicka på **program** > **Lägg till**.
+1. Klicka på **fler tjänster**  >  **batch-konton**i Azure Portal och klicka på namnet på batch-kontot.
+3. Klicka på **program**  >  **Lägg till**.
 4. Som **Program-id** anger du *ffmpeg* och paketversionen *3.4*. Välj zip-filen för ffmpeg som du laddade ned tidigare och klicka på **OK**. Programpaketet för ffmpeg läggs till i Batch-kontot.
 
 ![Lägg till programpaket](./media/tutorial-parallel-dotnet/add-application.png)
@@ -55,7 +55,7 @@ Använd Azure-portalen och lägg till ffmpeg i Batch-kontot som ett [programpake
 
 ## <a name="download-and-run-the-sample"></a>Ladda ned och kör exemplet
 
-### <a name="download-the-sample"></a>Hämta exemplet
+### <a name="download-the-sample"></a>Ladda ned exemplet
 
 [Ladda ned eller klona exempelappen](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) från GitHub. Om du vill klona lagringsplatsen för exempelappen med en Git-klient använder du följande kommando:
 
@@ -65,7 +65,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 Gå till den katalog som innehåller filen med Visual Studio-lösningen `BatchDotNetFfmpegTutorial.sln`.
 
-Öppna lösningsfilen i Visual Studio och uppdatera strängarna med autentiseringsuppgifterna i `Program.cs` med värdena för dina konton. Ett exempel:
+Öppna lösningsfilen i Visual Studio och uppdatera strängarna med autentiseringsuppgifterna i `Program.cs` med värdena för dina konton. Exempel:
 
 ```csharp
 // Batch account credentials
@@ -118,7 +118,7 @@ Sample end: 11/19/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
-Gå till Batch-kontot i Azure-portalen för att övervaka poolen, beräkningsnoderna, jobbet och uppgifterna. Om du till exempel vill visa en värme karta över datornoderna i din pool klickar du på **pooler** > *WinFFmpegPool*.
+Gå till Batch-kontot i Azure-portalen för att övervaka poolen, beräkningsnoderna, jobbet och uppgifterna. Om du till exempel vill visa en värme karta över datornoderna i din pool klickar du på **pooler**  >  *WinFFmpegPool*.
 
 När uppgifter körs ser den termiska kartan ut ungefär så här:
 

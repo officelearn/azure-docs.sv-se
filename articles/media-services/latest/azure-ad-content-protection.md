@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/1/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2dbd75748d30a67c22ac729a8a2130a2d43aef9b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 81c83cd8dcea5f8746b67a7bd52ea52a09c8a711
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205166"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001408"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Självstudie: innehålls skydd från slut punkt till slut punkt med hjälp av Azure AD
 
@@ -48,13 +48,13 @@ Följande nya teknik versioner och koncept används. Vi rekommenderar att du bek
 Det är valfritt men vi rekommenderar att du är bekant med följande begrepp innan du påbörjar den här självstudien:
 
 * Digital Rights Management (DRM)
-* [Azure Media Services (AMS) v3](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
+* [Azure Media Services (AMS) v3](./media-services-overview.md)
 * AMS- [principer för innehålls nycklar](content-key-policy-concept.md) med hjälp av AMS API v3, Azure Portal eller [Azure Media Services Explorer-verktyget (AMSE)](https://github.com/Azure/Azure-Media-Services-Explorer)
-* Azure AD v2-slutpunkter på [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/)
-* Modern molnbaserad autentisering som [OAuth 2,0 och OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols)
-  * [Flödes kods flöde i OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) och varför PKCE krävs
-  * [Delegerad behörighet vs program behörighet](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#permissions)
-* [JWT-token](https://docs.microsoft.com/azure/active-directory/develop/access-tokens), dess anspråk och förnyelse av signerings nyckel (ingår i exemplet.)
+* Azure AD v2-slutpunkter på [Microsoft Identity Platform](../../active-directory/develop/index.yml)
+* Modern molnbaserad autentisering som [OAuth 2,0 och OpenID Connect](../../active-directory/develop/active-directory-v2-protocols.md)
+  * [Flödes kods flöde i OAuth 2,0](../../active-directory/develop/v2-oauth2-auth-code-flow.md) och varför PKCE krävs
+  * [Delegerad behörighet vs program behörighet](../../active-directory/develop/developer-glossary.md#permissions)
+* [JWT-token](../../active-directory/develop/access-tokens.md), dess anspråk och förnyelse av signerings nyckel (ingår i exemplet.)
 
 ### <a name="prerequisite-code-and-installations"></a>Nödvändig kod och installationer
 
@@ -63,7 +63,7 @@ Det är valfritt men vi rekommenderar att du är bekant med följande begrepp in
 * En installation av Node.js. Hämta Node.js här [https://nodejs.org](https://nodejs.org) . NPM levereras med installationen.
 * En [Azure-prenumeration](https://azure.microsoft.com/free/).
 * Ett Azure Media Services-konto (AMS).
-* @azure/msal-browserv 2.0, en av medlemmarna i [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) SDK-serien för olika klient plattformar
+* @azure/msal-browserv 2.0, en av medlemmarna i [Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md) SDK-serien för olika klient plattformar
 * Den senaste versionen av [Azure Media Player](https://github.com/Azure-Samples/azure-media-player-samples)(ingår i exemplet.)
 * Autentiseringsuppgifter för FPS från Apple om du vill inkludera FairPlay DRM och det program certifikat som är värd för CORS som är tillgängligt via Java Script på klient sidan.
 
@@ -98,7 +98,7 @@ Under systemets design visas i följande diagram.  Den har tre lager:
 
 ![skärm för parsning av JWT-token](media/aad-ams-content-protection/subsystem.svg)
 
-Läs [design av ett innehålls skydds system med flera DRM med åtkomst kontroll](https://docs.microsoft.com/azure/media-services/latest/design-multi-drm-system-with-access-control) för mer information om under systemet.
+Läs [design av ett innehålls skydds system med flera DRM med åtkomst kontroll](./design-multi-drm-system-with-access-control.md) för mer information om under systemet.
 
 ## <a name="understand-the-single-page-app"></a>Förstå appen med en sida
 
@@ -170,7 +170,7 @@ Välj en Azure AD-klient som ska användas för vårt exempel från slut punkt t
 | Beskrivning av administratörs medgivande * * | *Resurs omfång för leverans Server del för DRM-Licens* | En detaljerad beskrivning av det omfång som visas när klient administratörer utökar ett omfång på medgivande skärmen. |
 | Visningsnamn för användarmedgivande | *Rights. Licens. Delivery* | Vad scopet kommer att anropas på skärmen för medgivande när användare godkänner det här omfånget. |
 | Beskrivning av användarmedgivande | *Resurs omfång för leverans Server del för DRM-Licens* | Det här är en detaljerad beskrivning av det omfång som visas när användarna utökar ett omfång på medgivande skärmen. |
-| Tillstånd | *Aktiverad* | Anger om det här omfånget är tillgängligt för klienter att begära. Ange den som "inaktive rad" för omfattningar som du inte vill ska visas för klienterna. Endast inaktiverade omfattningar kan tas bort och vi rekommenderar att du väntar minst en vecka efter att ett omfång har inaktiverats innan du tar bort det för att se till att inga klienter fortfarande använder det. |
+| Status | *Aktiverad* | Anger om det här omfånget är tillgängligt för klienter att begära. Ange den som "inaktive rad" för omfattningar som du inte vill ska visas för klienterna. Endast inaktiverade omfattningar kan tas bort och vi rekommenderar att du väntar minst en vecka efter att ett omfång har inaktiverats innan du tar bort det för att se till att inga klienter fortfarande använder det. |
 
 ## <a name="register-the-client-app"></a>Registrera klient programmet
 
@@ -339,7 +339,7 @@ if (tokenClaims != null && tokenClaims.Length > 0)
 }
 ```
 
-*Grupp* anspråk är medlem i ett [begränsat anspråk som angetts](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claim-sets) i Azure AD.
+*Grupp* anspråk är medlem i ett [begränsat anspråk som angetts](../../active-directory/develop/active-directory-claims-mapping.md#claim-sets) i Azure AD.
 
 #### <a name="test"></a>Test
 

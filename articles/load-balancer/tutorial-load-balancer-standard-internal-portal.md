@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: b8fcef13fbe41ac26b2a31d6871896428649eaa1
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: f7f16093074b48610c1db8fec7f05ee01e7ab1ed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920859"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078776"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-standard-load-balancer-in-the-azure-portal"></a>Självstudie: utjämna intern trafik belastning med en standard belastningsutjämnare i Azure Portal
 
@@ -32,25 +32,23 @@ Om du vill kan du utföra de här stegen med hjälp av [Azure CLI](load-balancer
 
 Om du vill utföra stegen i den här självstudien loggar du in på Azure Portal på [https://portal.azure.com](https://portal.azure.com) .
 
-## <a name="create-a-vnet-back-end-servers-and-a-test-vm"></a>Skapa ett virtuellt nätverk, serverdelsservrar och en virtuell testdator
+## <a name="virtual-network-and-parameters"></a>Virtuellt nätverk och parametrar
+I det här avsnittet måste du ersätta följande parametrar i stegen med informationen nedan:
 
-Först skapar du ett virtuellt nätverk (VNet). I VNet skapar du två virtuella datorer som ska användas för backend-poolen för din standard belastningsutjämnare och en tredje virtuell dator som ska användas för att testa belastningsutjämnaren. 
+| Parameter                   | Värde                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupSLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | USA, östra 2      |
+| **\<IPv4-address-space>**   | 10.3.0.0 \ 16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.3.0.0 \ 24          |
 
-### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
-
-1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **nätverk**  >  **virtuellt nätverk**.
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
    
-1. I fönsterrutan **Skapa virtuellt nätverk** skriver eller väljer du dessa värden:
-   
-   - **Namn**: Skriv **MyVNet**.
-   - **ResourceGroup**: Välj **Skapa ny**, ange **MyResourceGroupLB** och välj **OK**. 
-   - **Undernät**  >  **Namn**: Skriv **MyBackendSubnet**.
-   
-1. Välj **Skapa**.
 
-   ![Skapa ett virtuellt nätverk](./media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
 
-### <a name="create-virtual-machines"></a>Skapa virtuella datorer
+## <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
 1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **Compute**  >  **Windows Server 2016 Data Center**. 
    
@@ -92,11 +90,11 @@ Skapa en intern standard belastnings utjämning med hjälp av portalen. Det namn
    
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
-    | Inställningen                 | Värde                                              |
+    | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
-    | Name                   | *myLoadBalancer*                                   |
+    | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **USA, östra 2**.                                        |
     | Typ          | Välj **Intern**.                                        |
     | SKU           | Välj **standard**.                          |
@@ -184,7 +182,7 @@ Om du vill konfigurera [portar med hög tillgänglighet](load-balancer-ha-ports-
 
 1. Välj **OK**.
    
-   ![Lägga till en lastbalanserarregel](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
+   ![Lägga till en regel för lastbalanseraren](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
 
 ## <a name="test-the-load-balancer"></a>Testa lastbalanseraren
 

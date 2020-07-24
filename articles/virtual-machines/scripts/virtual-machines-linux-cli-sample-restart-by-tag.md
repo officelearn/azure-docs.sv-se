@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cac918f369a10a8084cdc7d0c66d5c0c4c400cc2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f098b866eee6fd8555cafcec0f64a0a5f261f9e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81458547"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079986"
 ---
 # <a name="restart-vms"></a>Starta om virtuella datorer
 
@@ -84,17 +84,17 @@ az group delete -n myResourceGroup --no-wait --yes
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, virtuell dator, tillgänglighetsuppsättning, lastbalanserare och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Skapar de virtuella datorerna.  |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm) | Används med `--query` för att säkerställa att de virtuella datorerna etableras innan de startas om, och sedan för att hämta ID:na för de virtuella datorerna för att starta om dem. |
-| [az resource list](https://docs.microsoft.com/cli/azure/vm) | Används med `--query` att hämta ID:na för de virtuella datorerna med taggen. |
-| [az vm restart](https://docs.microsoft.com/cli/azure/vm) | Startar om de virtuella datorerna. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
+| [az vm create](/cli/azure/vm/availability-set) | Skapar de virtuella datorerna.  |
+| [az vm list](/cli/azure/vm) | Används med `--query` för att säkerställa att de virtuella datorerna etableras innan de startas om, och sedan för att hämta ID:na för de virtuella datorerna för att starta om dem. |
+| [az resource list](/cli/azure/vm) | Används med `--query` att hämta ID:na för de virtuella datorerna med taggen. |
+| [az vm restart](/cli/azure/vm) | Startar om de virtuella datorerna. |
+| [az group delete](/cli/azure/vm/extension) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
 Ytterligare CLI-skriptexempel för virtuella datorer finns i [Dokumentation för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

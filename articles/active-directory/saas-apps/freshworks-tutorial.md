@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b73b8769b5f7360ba4ad778600b1000b8b3f7bc7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2ca1e794449f41a7ab0c9b129105f2324401b3c1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72376415"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034235"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshworks"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Freshworks
 
@@ -33,12 +33,15 @@ I den här självstudien får du lära dig hur du integrerar Freshworks med Azur
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 * Freshworks för enkel inloggning (SSO) aktive rad.
+
+> [!NOTE]
+> Den här integreringen är också tillgänglig för användning från Azure AD amerikanska myndigheters moln miljö. Du hittar det här programmet i Cloud App-galleriet för Azure AD amerikanska myndigheter och konfigurerar det på samma sätt som du gör från det offentliga molnet.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -93,7 +96,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. Om du vill ändra **signerings** alternativen enligt ditt krav klickar du på knappen **Redigera** för att öppna dialog rutan **certifikat** för SAML-signering.
+1. Om du vill ändra **signerings**   alternativen enligt ditt krav klickar **Edit**   du på knappen Redigera för att öppna dialog rutan **certifikat för SAML-signering**   .
 
      ![image](common/edit-certificate.png)
 
@@ -115,7 +118,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -141,7 +144,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Öppna ett nytt webbläsarfönster och logga in på din Freshworks-företags webbplats som administratör och utför följande steg:
 
-2. På menyn till vänster på menyn klickar du på **säkerhets** ikon och kontrollerar sedan alternativet **enkel inloggning** och väljer **SAML SSO** under **autentiseringsmetoder**.
+2. På menyn till vänster på menyn klickar du på **säkerhets**   ikon och kontrollerar sedan alternativet **enkel inloggning** och väljer **SAML SSO** under **autentiseringsmetoder**.
 
     ![Freshworks-konfiguration](./media/freshworks-tutorial/configure01.png)
 
@@ -175,7 +178,7 @@ När du klickar på panelen Freshworks på åtkomst panelen, bör du loggas in a
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova Freshworks med Azure AD](https://aad.portal.azure.com/)
 

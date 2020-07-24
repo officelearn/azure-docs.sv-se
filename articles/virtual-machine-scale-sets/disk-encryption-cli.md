@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: fd8b88e55f487032f76aa379018f09c144842d60
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: fa86773f52c05818f4abea2b7a8b5347e1778274
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200300"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046320"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Kryptera OS och anslutna data diskar i en skalnings uppsättning för virtuella datorer med Azure CLI
 
@@ -32,7 +32,7 @@ Innan du kan skapa en skalningsuppsättning skapar du en resursgrupp med [az gro
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa nu en skalningsuppsättning för en virtuell dator med [az vmss create](/cli/azure/vmss). I följande exempel skapas en skalningsuppsättning med namnet *myScaleSet* som är inställd på att uppdateras automatiskt när ändringar tillämpas och genererar SSH-nycklar om de inte finns i *~/.ssh/id_rsa*. En data disk på 32 GB är kopplad till varje virtuell dator instans och [tillägget Azures anpassade skript](../virtual-machines/linux/extensions-customscript.md) används för att förbereda data diskarna med [AZ VMSS-tilläggs uppsättning](/cli/azure/vmss/extension):
+Skapa nu en skalningsuppsättning för en virtuell dator med [az vmss create](/cli/azure/vmss). I följande exempel skapas en skalningsuppsättning med namnet *myScaleSet* som är inställd på att uppdateras automatiskt när ändringar tillämpas och genererar SSH-nycklar om de inte finns i *~/.ssh/id_rsa*. En data disk på 32 GB är kopplad till varje virtuell dator instans och [tillägget Azures anpassade skript](../virtual-machines/extensions/custom-script-linux.md) används för att förbereda data diskarna med [AZ VMSS-tilläggs uppsättning](/cli/azure/vmss/extension):
 
 ```azurecli-interactive
 # Create a scale set with attached data disk

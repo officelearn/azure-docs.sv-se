@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/22/2020
-ms.openlocfilehash: 8d04099f2835102b8fdf63b26bd19b43b206cf6a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a9c2a5beae8a9206554dd6c432c1d8442b652696
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172794"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021893"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Självstudie: skapa en anpassad analys för telefonnummer
 
@@ -29,7 +29,7 @@ Den här självstudien använder [REST-API: er](https://docs.microsoft.com/rest/
 > * Testa hur den anpassade Analyzer-tokenizes text
 > * Skapa separata analyser för indexering och sökning för att ytterligare förbättra resultaten
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande tjänster och verktyg krävs för den här självstudien.
 
@@ -38,7 +38,7 @@ Följande tjänster och verktyg krävs för den här självstudien.
 
 ## <a name="download-files"></a>Hämta filer
 
-Käll koden för den här självstudien finns i mappen [Anpassade analyser](https://github.com/Azure-Samples/azure-search-postman-samples/custom-analyzers) i mappen [Azure-samples/Azure-Search-Postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) GitHub.
+Käll koden för den här självstudien finns i mappen [Anpassade analyser](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/custom-analyzers) i mappen [Azure-samples/Azure-Search-Postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) GitHub.
 
 ## <a name="1---create-azure-cognitive-search-service"></a>1 – Skapa Azure Kognitiv sökning-tjänsten
 
@@ -586,7 +586,7 @@ I den här självstudien demonstreras processen för att skapa och testa en anpa
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar med din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar med din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken alla resurser eller resurs grupper i det vänstra navigerings fönstret.
 

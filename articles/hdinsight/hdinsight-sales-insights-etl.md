@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: c213b0089af0af295d44afd38bbc5c17b6db159d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a0f081e0f8df00bbc99d2163fb54a2f15d92a159
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81535238"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006440"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Självstudie: skapa en pipeline för data från slut punkt till slut punkt för att härleda Sälj insikter i Azure HDInsight
 
@@ -23,17 +23,17 @@ Den här datapipelinen kombinerar data från olika butiker, tar bort alla oönsk
 
 ![ETL-arkitektur](./media/hdinsight-sales-insights-etl/architecture.png)
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure CLI – minst version 2.2.0. Se [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-* JQ, en JSON-processor med kommando rad.  Se [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
+* JQ, en JSON-processor med kommando rad.  Se [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/) .
 
 * En medlem i den [inbyggda roll ägaren i Azure](../role-based-access-control/built-in-roles.md).
 
-* Om du använder PowerShell för att utlösa Data Factory pipeline behöver du [AZ-modulen](https://docs.microsoft.com/powershell/azure/overview).
+* Om du använder PowerShell för att utlösa Data Factory pipeline behöver du [AZ-modulen](https://docs.microsoft.com/powershell/azure/).
 
 * [Power BI Desktop](https://aka.ms/pbiSingleInstaller) för att visualisera affärs insikter i slutet av den här självstudien.
 
@@ -67,7 +67,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
     cd hdinsight-sales-insights-etl
     ```
 
-1. Se `salesdata scripts templates` till att de har skapats. Verifiera med följande kommando:
+1. Se till att de `salesdata scripts templates` har skapats. Verifiera med följande kommando:
 
    ```bash
    ls
@@ -106,7 +106,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Det kan ta ungefär 20 minuter att skapa kluster.
 
-Standard lösen ordet för SSH-åtkomst till klustren är `Thisisapassword1`. Om du vill ändra lösen ordet går du `./templates/resourcesparameters_remainder.json` till filen och ändrar lösen ordet för parametrarna `sparksshPassword`, `sparkClusterLoginPassword`, `llapClusterLoginPassword`och. `llapsshPassword`
+Standard lösen ordet för SSH-åtkomst till klustren är `Thisisapassword1` . Om du vill ändra lösen ordet går du till `./templates/resourcesparameters_remainder.json` filen och ändrar lösen ordet för `sparksshPassword` `sparkClusterLoginPassword` parametrarna,, `llapClusterLoginPassword` och `llapsshPassword` .
 
 ### <a name="verify-deployment-and-collect-resource-information"></a>Verifiera distribution och samla in resursinformation
 
@@ -170,9 +170,9 @@ ADLSGen2StorageName=$(cat resourcesoutputs_storage.json | jq -r '.properties.out
 
 Det här skriptet gör följande:
 
-1. Skapar ett huvud namn för `Storage Blob Data Contributor` tjänsten med behörigheter på data Lake Storage Gen2 lagrings konto.
+1. Skapar ett huvud namn för tjänsten med `Storage Blob Data Contributor` behörigheter på data Lake Storage Gen2 lagrings konto.
 1. Hämtar en autentiseringstoken för att auktorisera POST begär anden till [data Lake Storage Gen2 fil system REST API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/filesystem/create).
-1. Fyller i det faktiska namnet på ditt Data Lake Storage Gen2 lagrings konto i `sparktransform.py` filerna `query.hql` och.
+1. Fyller i det faktiska namnet på ditt Data Lake Storage Gen2 lagrings konto i `sparktransform.py` `query.hql` filerna och.
 1. Hämtar lagrings nycklar för Data Lake Storage Gen2-och Blob Storage-konton.
 1. Skapar en annan resurs distribution för att skapa en Azure Data Factory pipeline med tillhör ande länkade tjänster och aktiviteter. Den överför lagrings nycklarna som parametrar till mallfilen så att de länkade tjänsterna kan komma åt lagrings kontona på rätt sätt.
 
@@ -190,7 +190,7 @@ cat resourcesoutputs_adf.json | jq -r '.properties.outputs.factoryName.value'
 
 Om du vill utlösa pipelinen kan du antingen:
 
-* Utlös Data Factory pipeline i PowerShell. Ersätt `RESOURCEGROUP`och med `DataFactoryName` lämpliga värden och kör sedan följande kommandon:
+* Utlös Data Factory pipeline i PowerShell. Ersätt `RESOURCEGROUP` och `DataFactoryName` med lämpliga värden och kör sedan följande kommandon:
 
     ```powershell
     # If you have multiple subscriptions, set the one to use
@@ -210,7 +210,7 @@ Om du vill utlösa pipelinen kan du antingen:
         -PipelineRunId $pipeline
     ```
 
-    Kör `Get-AzDataFactoryV2PipelineRun` på nytt vid behov för att övervaka förloppet.
+    Kör på nytt `Get-AzDataFactoryV2PipelineRun` vid behov för att övervaka förloppet.
 
     Eller
 
@@ -232,7 +232,7 @@ Andra sätt att transformera data med hjälp av HDInsight finns i [den här arti
     scp scripts/query.hql sshuser@$llapClusterName-ssh.azurehdinsight.net:/home/sshuser/
     ```
 
-    Påminnelse: standard lösen ordet är `Thisisapassword1`.
+    Påminnelse: standard lösen ordet är `Thisisapassword1` .
 
 1. Använd SSH för att få åtkomst till LLAP-klustret. Ange kommandot:
 
@@ -252,24 +252,24 @@ Andra sätt att transformera data med hjälp av HDInsight finns i [den här arti
 
 1. Öppna Power BI Desktop.
 
-1. Från menyn navigerar du till **Hämta data** > **mer...**  > Interaktiv **Azure** > **HDInsight-fråga**.
+1. Från menyn navigerar du till **Hämta data**  >  **mer...**  >  **Azure**  >  **Interaktiv HDInsight-fråga**.
 
 1. Välj **Anslut**.
 
 1. Från dialog rutan **HDInsight-interaktiv fråga** :
-    1. I text rutan **Server** anger du namnet på ditt LLAP-kluster i formatet `https://LLAPCLUSTERNAME.azurehdinsight.net`.
-    1. I text rutan **databas** anger `default`du.
+    1. I text rutan **Server** anger du namnet på ditt LLAP-kluster i formatet `https://LLAPCLUSTERNAME.azurehdinsight.net` .
+    1. I text rutan **databas** anger du `default` .
     1. Välj **OK**.
 
 1. I dialog rutan **AzureHive** :
-    1. I text rutan **användar namn** anger `admin`du.
-    1. I text rutan **lösen ord** anger `Thisisapassword1`du.
+    1. I text rutan **användar namn** anger du `admin` .
+    1. I text rutan **lösen ord** anger du `Thisisapassword1` .
     1. Välj **Anslut**.
 
-1. Från **Navigator**väljer `sales`du och/eller `sales_raw` för att förhandsgranska data. När data har lästs in kan du experimentera med den instrument panel som du vill skapa. Se följande länkar för att komma igång med Power BI-instrumentpaneler:
+1. Från **Navigator**väljer du `sales` och/eller `sales_raw` för att förhandsgranska data. När data har lästs in kan du experimentera med den instrument panel som du vill skapa. Se följande länkar för att komma igång med Power BI-instrumentpaneler:
 
 * [Introduktion till instrumentpaneler för Power BI-designers](https://docs.microsoft.com/power-bi/service-dashboards)
-* [Självstudie: kom igång med Power BI-tjänst](https://docs.microsoft.com/power-bi/service-get-started)
+* [Självstudie: Kom igång med Power BI-tjänsten](https://docs.microsoft.com/power-bi/service-get-started)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

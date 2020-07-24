@@ -1,25 +1,25 @@
 ---
 title: Själv studie kursen Video Indexer kopplingar med Logic app och energi automatisering.
 description: Den här självstudien visar hur du kan låsa upp nya upplevelser och försäljares möjligheter Video Indexer kopplingar med Logic app och energi automatisering.
-author: anikaz
+author: anzaman
 manager: johndeu
-ms.author: anzaman
+ms.author: alzam
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 05/01/2020
-ms.openlocfilehash: 932f52aa694c13fd3696d82872135304a4e41bdc
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 5f29e616c0643914ca28921eee481105a5feb0c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801135"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047105"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Självstudie: använda Video Indexer med Logic app och Power automatisering
 
 Azure Media Services [video Indexer v2 REST API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Delete-Video?) stöder både server-till-Server-och klient-till-server-kommunikation och gör det möjligt för video Indexer användare att integrera video-och ljud insikter enkelt i sin program logik, låsa upp nya upplevelser och försäljarens möjligheter.
 
-För att förenkla integrationen stöder vi [Logic Apps](https://azure.microsoft.com/services/logic-apps/) och [automatiserade](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) anslutningar som är kompatibla med vårt API. Du kan använda kopplingarna för att konfigurera anpassade arbets flöden för att effektivt indexera och extrahera insikter från en stor mängd video-och ljudfiler, utan att behöva skriva en enda rad kod. Genom att använda kopplingarna för din integrering får du dessutom bättre insyn i arbets flödets hälso tillstånd och ett enkelt sätt att felsöka det.  
+För att förenkla integrationen stöder vi [Logic Apps](https://azure.microsoft.com/services/logic-apps/)   och [automatiserade](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/)   anslutningar som är kompatibla med vårt API. Du kan använda kopplingarna för att konfigurera anpassade arbets flöden för att effektivt indexera och extrahera insikter från en stor mängd video-och ljudfiler, utan att behöva skriva en enda rad kod. Genom att använda kopplingarna för din integrering får du dessutom bättre insyn i arbets flödets hälso tillstånd och ett enkelt sätt att felsöka det.  
 
 För att hjälpa dig att komma igång snabbt med Video Indexer-kopplingar kommer vi att göra en genom gång av ett exempel på en Logic app och en automatiserad automatiserad lösning som du kan konfigurera. 
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att börja med behöver du också ett Video Indexer konto tillsammans med åtkomst till API: erna via API-nyckeln. 
 
@@ -64,7 +64,7 @@ Gå sedan till åtgärden "skapa SAS-URI per sökväg" och välj lista över fil
 
 ![SAS-URI med sökväg](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 
-Fyll i [kontots plats och ID](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-use-apis#location) för att hämta video Indexer-kontots token.
+Fyll i [kontots plats och ID](./video-indexer-use-apis.md#account-id)   för att hämta video Indexer-kontots token.
 
 ![Hämta konto åtkomst-token](./media/logic-apps-connector-tutorial/account-access-token.png)
 
@@ -90,7 +90,7 @@ Om du vill konfigurera det här flödet måste du ange din Video Indexer API-nyc
 
 För utlösaren visas ett fält för HTTP POST-URL. URL: en genereras inte förrän du har sparat ditt flöde. du behöver dock URL: en slutligen. Vi kommer att komma tillbaka till detta. 
 
-Fyll i [kontots plats och ID](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-use-apis#location) för att hämta video Indexer-kontots token.  
+Fyll i [kontots plats och ID](./video-indexer-use-apis.md#account-id)   för att hämta video Indexer-kontots token.  
 
 Gå till åtgärden "Hämta video index" och fyll i de obligatoriska parametrarna. För video-ID skriver du följande uttryck: triggerOutputs () [' frågor '] [' ID '] 
 

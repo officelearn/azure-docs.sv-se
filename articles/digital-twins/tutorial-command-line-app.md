@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d670ee0cb2396858d908ac13f70819efd57d7f63
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: fcedec126c925ff218b8a0fb17b81dbf5ac1d769
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391833"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044229"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Utforska digitala Azure-enheter med ett exempel på en klient
 
-I den här självstudien introduceras ett exempel program som implementerar ett kommando rads klient program för att interagera med en digital Azure-instans. Klient programmet liknar den som skrevs i [Självstudier: koda en klient app](tutorial-code.md).
+I den här självstudien introduceras ett exempel program som implementerar ett kommando rads klient program för att interagera med en digital Azure-instans. Klient programmet liknar den som skrevs i [*Självstudier: koda en klient app*](tutorial-code.md).
 
 Du kan använda det här exemplet för att utföra viktiga Azure Digital-åtgärder, till exempel överföra modeller, skapa och ändra dubbla och skapa relationer. Du kan också titta på koden för exemplet för att lära dig om Azures digitala dubbla API: er och öva på att implementera dina egna kommandon genom att ändra det exempel projekt som du vill.
 
@@ -129,7 +129,7 @@ CreateModels Room
 ```
 
 Eftersom det inte går att skriva över modeller kommer det nu att returnera ett tjänst fel.
-Information om hur du tar bort befintliga modeller finns i [så här gör du: Hantera anpassade modeller](how-to-manage-model.md).
+Information om hur du tar bort befintliga modeller finns i [*så här gör du: Hantera anpassade modeller*](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
@@ -285,7 +285,7 @@ En huvud funktion i Azure Digitals flätas är möjligheten att [fråga](concept
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Projektet i den här självstudien utgör grunden för nästa självstudie, [Självstudier: ansluta en komplett lösning](tutorial-end-to-end.md). Om du planerar att fortsätta till nästa självstudie kan du behålla de resurser som du har ställt in här för att fortsätta använda den här Azure Digital-instansen och den konfigurerade exempel appen.
+Projektet i den här självstudien utgör grunden för nästa självstudie, [*Självstudier: ansluta en komplett lösning*](tutorial-end-to-end.md). Om du planerar att fortsätta till nästa självstudie kan du behålla de resurser som du har ställt in här för att fortsätta använda den här Azure Digital-instansen och den konfigurerade exempel appen.
 * I det här fallet kan du använda exempel appens `DeleteAllTwins` och- `DeleteAllModels` kommandon för att rensa de dubbla och modellerna i din instans. Detta ger dig en ren arbets gång för nästa självstudie.
 
 Om du inte längre behöver resurserna som skapas i den här självstudien kan du ta bort dem genom att följa stegen nedan.
@@ -316,10 +316,10 @@ I den här självstudien kommer du igång med Azure Digitals dubbla, genom att k
 Fortsätt till nästa självstudie om du vill använda exempel kommando rads appen i kombination med andra Azure-tjänster för att slutföra ett data drivet, slut punkt till slut punkts scenario:
 
 > [!div class="nextstepaction"]
-> [Självstudie: Anslut en lösning från slut punkt till slut punkt](tutorial-end-to-end.md)
+> [*Självstudie: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md)
 
 Du kan också börja titta närmare på begrepps dokumentationen för att lära dig mer om element som du har arbetat med i självstudien:
-* [Begrepp: anpassade modeller](concepts-models.md)
+* [*Begrepp: anpassade modeller*](concepts-models.md)
 
 Du kan också gå djupare i de här självstudierna genom att starta instruktions artiklar:
-* [Anvisningar: använda Azure Digitals flätat CLI](how-to-use-cli.md)
+* [*Anvisningar: använda Azure Digitals flätat CLI*](how-to-use-cli.md)

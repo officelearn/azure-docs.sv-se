@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1070230d968a6239a5a4aab5ac412280393d17da
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: bcc0651bace15280127bb725c21b32673f8cdb6e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133179"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071201"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -34,10 +34,10 @@ Den här självstudien visar hur du migrerar Amazon Web Services (virtuella dato
 > * Köra ett redundanstest för att kontrollera att allt fungerar
 > * Kör en engångsredundans till Azure
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 - Kontrollera att de virtuella datorer du vill migrera körs på en OS-version som stöds. Versioner som stöds inkluderar: 
   - Windows Server 2016 
   - Windows Server 2012 R2
@@ -115,7 +115,7 @@ På din portalsida för valvet i Azure-portalen i avsnittet **Kom igång** välj
 
 Välj följande värden på sidan **Skyddsmål**:
 
-|    |  |
+| Steg | Urval |
 |---------|-----------|
 | Var finns dina datorer? |Välj **Lokalt**.|
 | Till vilken plats ska dina datorer replikeras? |Välj **till Azure**.|
@@ -176,12 +176,12 @@ När du är klar med alla fem avsnitt under **Förbered infrastrukturen** välje
 
 Aktivera replikering för varje virtuell dator som du vill migrera. När replikeringen har aktiverats, installerar Site Recovery automatiskt mobilitetstjänsten.
 
-1. Gå till [Azure-portalen](https://portal.azure.com).
+1. Öppna [Azure-portalen](https://portal.azure.com).
 1. På sidan för ditt valv, under **Kom igång**, klickar du på **Site Recovery**.
 2. Under **För lokala datorer och virtuella Azure-datorer** klickar du på **Steg 1: Replikera program**. Slutför guidesidorna med följande information. Välj **OK** på varje sida när du är klar:
    - 1: Konfigurera källan
 
-     |  |  |
+     | Parameter | Värde |
      |-----|-----|
      | Källa: | Välj **Lokalt**.|
      | Källplats:| Ange namnet på din konfigurationsservers EC2-instans.|
@@ -190,7 +190,7 @@ Aktivera replikering för varje virtuell dator som du vill migrera. När replike
 
    - 2: Konfigurera målet
 
-     |  |  |
+     | Parameter | Värde |
      |-----|-----|
      | Mål: | Låt standardvärdet vara kvar.|
      | Prenumeration: | Välj den prenumeration som du har använt.|

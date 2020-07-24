@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: mvc, tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 57468a4b4234809ca6293ca39ed54a3934f9a4fc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d5dd74c55f1f355c95da93d8d42e6637f1fa78fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506391"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056002"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Skapa en funktion i Linux med en anpassad container
 
@@ -106,6 +106,8 @@ Ange följande värden när du uppmanas till det:
 Skriv `Y` eller tryck på RETUR för att bekräfta.
 
 Maven skapar projektfilerna i en ny mapp med namnet _artifactId_, som i det här exemplet är `fabrikam-functions` . 
+
+Om du vill köra på Java 11 i Azure måste du ändra värdena i pom.xml-filen. Mer information finns i [Java-versioner](functions-reference-java.md#java-versions).
 ::: zone-end
 `--docker`Alternativet genererar en `Dockerfile` för projektet, som definierar en lämplig anpassad behållare för användning med Azure Functions och den valda körningen.
 
@@ -156,7 +158,15 @@ Använd **CTRL** - **C** för att stoppa värden.
 
 ## <a name="build-the-container-image-and-test-locally"></a>Bygg behållar avbildningen och testa lokalt
 
-Valfritt Granska * Dockerfile "i roten för projektmappen. Dockerfile beskriver den miljö som krävs för att köra Function-appen på Linux.  Den fullständiga listan med bas avbildningar som stöds för Azure Functions finns på [sidan för Azure Functions Base-avbildning](https://hub.docker.com/_/microsoft-azure-functions-base).
+Valfritt Granska *Dockerfile* i roten för projektmappen. Dockerfile beskriver den miljö som krävs för att köra Function-appen på Linux.  Den fullständiga listan med bas avbildningar som stöds för Azure Functions finns på [sidan för Azure Functions Base-avbildning](https://hub.docker.com/_/microsoft-azure-functions-base).
+
+::: zone pivot="programming-language-java"  
+Om du kör på Java 11 (för hands version) ändrar du `JAVA_VERSION` argumentet build i den genererade Dockerfile till följande: 
+
+```docker
+ARG JAVA_VERSION=11
+```
+::: zone-end
     
 Kör kommandot [Docker build](https://docs.docker.com/engine/reference/commandline/build/) i rotmappen för rotmappen och ange ett namn, och en `azurefunctionsimage` tagg `v1.0.0` . Ersätt `<DOCKER_ID>` med ditt konto-ID för Docker Hub. Det här kommandot skapar Docker-avbildningen för containern.
 

@@ -3,17 +3,17 @@ title: Självstudie – ansluta en generisk python-app till Azure IoT Central | 
 description: Den här självstudien visar hur du, som enhets utvecklare, ansluter en enhet som kör en python-app till ditt Azure IoT Central-program. Du skapar en enhets mall genom att importera en enhets kapacitets modell och lägga till vyer som gör att du kan interagera med en ansluten enhet
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2020
+ms.date: 07/07/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: tracking-python
-ms.openlocfilehash: 98aa452e8b0b5cf04edd319298c2b35e6097148e
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: f89a8caf5b91fb22cca020b1d146905b68c6ed96
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971070"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002077"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Självstudie: skapa och ansluta ett klient program till ditt Azure IoT Central-program (python)
 
@@ -38,7 +38,7 @@ I den här guiden får du lära dig att:
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-* Ett Azure IoT Central-program som skapats med hjälp av den **anpassade program** mal len. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
+* Ett Azure IoT Central-program som skapats med hjälp av den **anpassade program** mal len. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md). Programmet måste ha skapats på eller efter 07/14/2020.
 * En utvecklings dator med [python](https://www.python.org/) version 3,7 eller senare installerad. Du kan köra `python3 --version` på kommando raden för att kontrol lera din version. Python är tillgängligt för många olika operativ system. Anvisningarna i den här självstudien förutsätter att du kör kommandot **python3** i kommando tolken i Windows.
 
 [!INCLUDE [iot-central-add-environmental-sensor](../../../includes/iot-central-add-environmental-sensor.md)]
@@ -214,18 +214,18 @@ Följande steg visar hur du skapar ett python-klientprogram som ansluter till de
 
     En operatör kan visa svars nytto lasten i kommando historiken.
 
-1. Lägg till följande funktioner i `main` funktionen för att hantera egenskaps uppdateringar som skickas från ditt IoT Central-program:
+1. Lägg till följande funktioner i `main` funktionen för att hantera egenskaps uppdateringar som skickas från ditt IoT Central-program. Meddelandet som enheten skickar som svar på uppdatering av [skrivbara egenskaper](concepts-telemetry-properties-commands.md#writeable-property-types) måste innehålla `av` `ac` fälten och. `ad`Fältet är valfritt:
 
     ```python
       async def name_setting(value, version):
         await asyncio.sleep(1)
         print(f'Setting name value {value} - {version}')
-        await device_client.patch_twin_reported_properties({'name' : {'value': value['value'], 'status': 'completed', 'desiredVersion': version}})
+        await device_client.patch_twin_reported_properties({'name' : {'value': value, 'ad': 'completed', 'ac': 200, 'av': version}})
 
       async def brightness_setting(value, version):
         await asyncio.sleep(5)
         print(f'Setting brightness value {value} - {version}')
-        await device_client.patch_twin_reported_properties({'brightness' : {'value': value['value'], 'status': 'completed', 'desiredVersion': version}})
+        await device_client.patch_twin_reported_properties({'brightness' : {'value': value, 'ad': 'completed', 'ac': 200, 'av': version}})
 
       settings = {
         'name': name_setting,
@@ -261,7 +261,7 @@ Följande steg visar hur du skapar ett python-klientprogram som ansluter till de
 
       if device_client is not None and device_client.connected:
         print('Send reported properties on startup')
-        await device_client.patch_twin_reported_properties({'state': 'true'})
+        await device_client.patch_twin_reported_properties({'state': 'true', 'processorArchitecture': 'ARM', 'swVersion': '1.0.0'})
         tasks = asyncio.gather(
           send_telemetry(),
           command_listener(),
@@ -303,6 +303,10 @@ Du kan se att enheten ansluter till ditt Azure IoT Central-program och börjar s
 Du kan se hur enheten svarar på kommandon och egenskaps uppdateringar:
 
 ![Observera klient programmet](media/tutorial-connect-device-python/run-application-2.png)
+
+## <a name="view-raw-data"></a>Visa rå data
+
+[!INCLUDE [iot-central-monitor-environmental-sensor-raw-data](../../../includes/iot-central-monitor-environmental-sensor-raw-data.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

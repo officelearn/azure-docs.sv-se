@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
-ms.openlocfilehash: 4313d9fec9e858a5d30cfea2bbe7372e6a96169c
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 520022be8ee2054d6c0c89ee3f027de9094ae1af
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413900"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055258"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Azure Monitor PowerShell-exempel
 Den här artikeln visar exempel på PowerShell-kommandon som hjälper dig att komma åt Azure Monitor-funktioner.
@@ -22,10 +22,10 @@ Den här artikeln visar exempel på PowerShell-kommandon som hjälper dig att ko
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="set-up-powershell"></a>Konfigurera PowerShell
-Om du inte redan har gjort det konfigurerar du PowerShell att köras på datorn. Mer information finns i [så här installerar och konfigurerar du PowerShell](/powershell/azure/overview).
+Om du inte redan har gjort det konfigurerar du PowerShell att köras på datorn. Mer information finns i [så här installerar och konfigurerar du PowerShell](/powershell/azure/).
 
 ## <a name="examples-in-this-article"></a>Exempel i den här artikeln
-I exemplen i artikeln visas hur du kan använda Azure Monitor-cmdletar. Du kan också granska hela listan med Azure Monitor PowerShell-cmdletar i [Azure Monitor (insikter)-cmdletar](https://docs.microsoft.com/powershell/module/az.applicationinsights).
+I exemplen i artikeln visas hur du kan använda Azure Monitor-cmdletar. Du kan också granska hela listan med Azure Monitor PowerShell-cmdletar i [Azure Monitor (insikter)-cmdletar](/powershell/module/az.applicationinsights).
 
 ## <a name="sign-in-and-use-subscriptions"></a>Logga in och Använd prenumerationer
 Börja med att logga in på din Azure-prenumeration.
@@ -53,7 +53,7 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## <a name="retrieve-activity-log"></a>Hämta aktivitets logg
-Använd cmdleten [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) .  Här följer några vanliga exempel. Aktivitets loggen innehåller de senaste 90 dagarna av åtgärder. Om du använder datum före den här tiden resulterar det i ett fel meddelande.  
+Använd cmdleten [Get-AzLog](/powershell/module/az.monitor/get-azlog) .  Här följer några vanliga exempel. Aktivitets loggen innehåller de senaste 90 dagarna av åtgärder. Om du använder datum före den här tiden resulterar det i ett fel meddelande.  
 
 Se vad aktuellt datum/tid är för att kontrol lera vilka tider som ska användas i kommandona nedan:
 ```powershell
@@ -116,7 +116,7 @@ Om du vill visa historiken för en speciell aviserings regel kan du använda `Ge
 Get-AzAlertHistory -ResourceId /subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/alertrules/myalert -StartTime 2016-03-1 -Status Activated
 ```
 
-`Get-AzAlertHistory`Cmdleten stöder olika parametrar. Mer information finns i [Get-AlertHistory](https://msdn.microsoft.com/library/mt282453.aspx).
+`Get-AzAlertHistory`Cmdleten stöder olika parametrar. Mer information finns i [Get-AlertHistory](/previous-versions/azure/mt282453(v=azure.100)).
 
 ## <a name="retrieve-information-on-alert-rules"></a>Hämta information om aviserings regler
 Alla följande kommandon fungerar på en resurs grupp med namnet "montest".
@@ -139,7 +139,7 @@ Hämta alla varnings regler för en mål resurs. Till exempel alla varnings regl
 Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
-`Get-AzAlertRule`stöder andra parametrar. Mer information finns i [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) .
+`Get-AzAlertRule`stöder andra parametrar. Mer information finns i [Get-AlertRule](/previous-versions/azure/mt282459(v=azure.100)) .
 
 ## <a name="create-metric-alerts"></a>Skapa måttaviseringar
 Du kan använda `Add-AlertRule` cmdleten för att skapa, uppdatera eller inaktivera en varnings regel.
@@ -150,15 +150,15 @@ I följande tabell beskrivs de parametrar och värden som används för att skap
 
 | parameter | värde |
 | --- | --- |
-| Name |simpletestdiskwrite |
-| Plats för den här aviserings regeln |USA, östra |
+| Namn |simpletestdiskwrite |
+| Plats för den här aviserings regeln |East US |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | MetricName för den avisering som skapas |\PhysicalDisk (_Total) \ disk skrivningar/s. Se `Get-MetricDefinitions` cmdleten om hur du hämtar de exakta mått namnen |
 | operator |GreaterThan |
 | Tröskelvärde (antal/SEK i för det här måttet) |1 |
 | WindowSize (hh: mm: SS-format) |00:05:00 |
-| aggregator (statistik för måttet, som använder genomsnitts antal, i det här fallet) |Medel |
+| aggregator (statistik för måttet, som använder genomsnitts antal, i det här fallet) |Medelvärde |
 | anpassade e-postmeddelanden (sträng mat ris) |'foo@example.com','bar@example.com' |
 | Skicka e-post till ägare, deltagare och läsare |-SendToServiceOwners |
 
@@ -201,7 +201,7 @@ I följande exempel skapas en tabell med mått namnet och enheten för den.
 Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
-En fullständig lista över tillgängliga alternativ för `Get-AzMetricDefinition` finns på [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
+En fullständig lista över tillgängliga alternativ för `Get-AzMetricDefinition` finns på [Get-MetricDefinitions](/previous-versions/azure/mt282458(v=azure.100)).
 
 ## <a name="create-and-manage-activity-log-alerts"></a>Skapa och hantera aktivitets logg aviseringar
 Du kan använda `Set-AzActivityLogAlert` cmdleten för att ange en aktivitets logg avisering. En aktivitets logg avisering kräver att du först definierar dina villkor som ord listor och sedan skapar en avisering som använder dessa villkor.
@@ -272,7 +272,7 @@ Skapa slutligen den automatiska skalnings inställningen för att lägga till de
 Add-AzAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -ResourceGroup big2 -TargetResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -AutoscaleProfiles $profile1 -Notifications $notification1
 ```
 
-Mer information om hur du hanterar inställningar för autoskalning finns i [Get-AutoscaleSetting](https://msdn.microsoft.com/library/mt282461.aspx).
+Mer information om hur du hanterar inställningar för autoskalning finns i [Get-AutoscaleSetting](/previous-versions/azure/mt282461(v=azure.100)).
 
 ## <a name="autoscale-history"></a>Autoskalning-historik
 I följande exempel visas hur du kan visa senaste automatiska skalnings-och aviserings händelser. Använd aktivitets loggs ökningen för att Visa autoskalning-historiken.
@@ -287,7 +287,7 @@ Du kan använda `Get-AzAutoScaleHistory` cmdleten för att hämta historik för 
 Get-AzAutoScaleHistory -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/microsoft.insights/autoscalesettings/myScaleSetting -StartTime 2016-03-15 -DetailedOutput
 ```
 
-Mer information finns i [Get-AutoscaleHistory](https://msdn.microsoft.com/library/mt282464.aspx).
+Mer information finns i [Get-AutoscaleHistory](/previous-versions/azure/mt282464(v=azure.100)).
 
 ### <a name="view-details-for-an-autoscale-setting"></a>Visa information om en autoskalningsinställning
 Du kan använda `Get-Autoscalesetting` cmdleten för att hämta mer information om den automatiska skalnings inställningen.
@@ -399,4 +399,3 @@ Observera att egenskapen WorkspaceId tar arbets ytans *resurs-ID* . Du kan hämt
 ```
 
 Dessa kommandon kan kombineras för att skicka data till flera mål.
-

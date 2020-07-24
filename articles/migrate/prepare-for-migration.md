@@ -4,12 +4,12 @@ description: Lär dig hur du förbereder lokala datorer för migrering med Azure
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: aec2e95b65be2e3c69b2d29111fa1cfdbd66674e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: b92a26732f59235dac4c03f4e648d36dadd6c4ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223626"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077975"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Förbered lokala datorer för migrering till Azure
 
@@ -59,7 +59,7 @@ Kontrol lera att operativ system som stöds för migrering:
 
 Granska vilka URL: er och portar som nås under migreringen.
 
-**Scenario** | **Detaljer** |  **Webbadresser** | **Hamnarna**
+**Scenario** | **Detaljer** |  **Webbadresser** | **Portar**
 --- | --- | --- | ---
 **VMware-agent utan migrering** | Använder [Azure Migrate-enheten](migrate-appliance-architecture.md) för migrering. Ingenting installeras på virtuella VMware-datorer. | Granska de offentliga moln-och myndighets- [URL: erna](migrate-appliance.md#url-access) som krävs för identifiering, utvärdering och migrering med produkten. | [Granska](migrate-support-matrix-vmware-migration.md#port-requirements-agentless) port kraven för migrering utan agent.
 **VMware-agent-baserad migrering** | Använder [replikeringstjänsten](migrate-replication-appliance.md) för migrering. Mobilitets tjänst agenten är installerad på virtuella datorer. | Granska det [offentliga molnet](migrate-replication-appliance.md#url-access) och [Azure Government](migrate-replication-appliance.md#azure-government-url-access) de URL: er som krävs för att få åtkomst till replikerings enheten. | [Granska](migrate-replication-appliance.md#port-access) portarna som används vid agent-baserad migrering.
@@ -127,6 +127,18 @@ För andra versioner förbereder du datorer så att de sammanfattas i tabellen.
 **Ta bort udev-regel** | Ta bort alla udev-regler som reserverar gränssnitts namn baserat på Mac-adress osv. | Ta bort manuellt för alla versioner utom de som anropas ovan.
 **Uppdatera nätverks gränssnitt** | Uppdatera nätverks gränssnitt för att ta emot IP-adresser baserat på DHCP. nst | Uppdatera manuellt för alla versioner utom de som anropas ovan.
 **Aktivera SSH** | Se till att SSH är aktiverat och att sshd-tjänsten är inställd på att starta automatiskt vid omstart.<br/><br/> Se till att inkommande anslutningar för ssh-anslutning inte blockeras av OS-brandväggen eller skript bara regler.| Aktivera manuellt för alla versioner utom de som anropas ovan.
+
+I följande tabell sammanfattas de steg som utförs automatiskt för de operativ system som anges ovan.
+
+| Åtgärd                                      | Agent \- baserad VMware-migrering | Migrering utan agent | Hyper\-V   |
+|---------------------------------------------|-------------------------------|----------------------------|------------|
+| Installera Hyper- \- V Linux Integration Services | Ja                           | Ja                        | Krävs inte |
+| Aktivera loggning av Azures serie konsol         | Ja                           | Ja                        | No         |
+| Uppdatera enhets mappnings fil                      | Yes                           | Inga                         | Inga         |
+| Uppdatera fstab-poster                        | Ja                           | Ja                        | No         |
+| Ta bort udev-regel                            | Ja                           | Ja                        | No         |
+| Uppdatera nätverks gränssnitt                   | Ja                           | Ja                        | No         |
+| Aktivera SSH                                  | Inga                            | Inga                         | Inga         |
 
 Lär dig mer om hur du [kör en virtuell Linux-dator på Azure](../virtual-machines/linux/create-upload-generic.md)och få instruktioner för några av de populära Linux-distributionerna.
 

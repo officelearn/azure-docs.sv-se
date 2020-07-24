@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: f4c4c63e6461dd3aa3cabe86b871434814fb400e
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 8ac742c42a32e8b864c4be71e786c292ceb1514d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84708546"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073384"
 ---
 # <a name="use-powershell-with-an-azure-resource-manager-template-to-create-a-managed-instance"></a>Använd PowerShell med en Azure Resource Manager mall för att skapa en hanterad instans
 
@@ -41,7 +41,7 @@ Azure PowerShell-kommandon kan starta distribution med hjälp av en fördefinier
 
 Instans namn, SQL-administratörens användar namn, VNet/undernät och sortering kan inte ändras senare. Andra instansegenskaper kan ändras.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det här exemplet förutsätter att du har [skapat en giltig nätverks miljö](../virtual-network-subnet-create-arm-template.md) eller [ändrat ett befintligt virtuellt](../vnet-existing-add-subnet.md) nätverk för din hanterade instans. Du kan förbereda nätverks miljön med en separat [Azure Resource Manager mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment), om det behövs. 
 
@@ -138,6 +138,6 @@ När skriptet har slutförts kan den hanterade instansen nås från alla Azure-t
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell dokumentation](/powershell/azure/overview).
+Mer information om Azure PowerShell finns i [Azure PowerShell dokumentation](/powershell/azure/).
 
 Ytterligare PowerShell-skript exempel för Azure SQL-hanterad instans finns i [PowerShell-skript för Azure SQL-hanterad instans](../../database/powershell-script-content-guide.md).

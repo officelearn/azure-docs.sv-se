@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 90ef75c704459ca726480e6950ba748162c66b8e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: a9c9dee94dd50462109a8864ffb413ce991c8dbd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147015"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072401"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Tagga bilder i ett etikett projekt 
 
@@ -24,7 +24,7 @@ När projekt administratören har [skapat ett etikett projekt](https://docs.micr
 > * Etikett verktygen
 > * Så här använder du verktygen för vissa etikett uppgifter
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett [Microsoft-konto](https://account.microsoft.com/account) eller ett Azure Active Directory konto för organisationen och projektet
 * Deltagar nivå åtkomst till arbets ytan som innehåller ett etikett projekt.
@@ -65,6 +65,10 @@ Azure aktiverar knappen **Skicka** när du har taggat alla bilder på sidan. Vä
 När du har skickat taggar för data till handen uppdaterar Azure sidan med en ny uppsättning avbildningar från arbets kön.
 
 ### <a name="assisted-machine-learning-preview"></a>Assisterad maskin inlärning (för hands version) 
+
+> [!IMPORTANT]
+> Assisterad maskin inlärning är för närvarande en offentlig för hands version.
+> För hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Machine Learning-algoritmer kan utlösas. Om dessa algoritmer är aktiverade i projektet kan du se följande:
 

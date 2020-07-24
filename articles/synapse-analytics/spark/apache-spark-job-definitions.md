@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.openlocfilehash: 3311a9a92cc5e63a6fa20e4dd0d2af00fdacc95c
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: ac3e163ffefcb7b164860b0c4fa42edc866227e3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194492"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065633"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Självstudie: skapa Apache Spark jobb definition i Synapse Studio
 
@@ -24,11 +24,11 @@ Den här självstudien omfattar följande uppgifter:
 
 * Skapa en Apache Spark jobb definition för PySpark (python)
 * Skapa en Apache Spark jobb definition för Spark (Scala)
-* Skapa en Apache Spark jobb definition för .NET Spark (C#)
+* Skapa en Apache Spark jobb definition för .NET Spark (C#/F #)
 * Skicka in en Apache Spark jobb definition som ett batch-jobb
 * Lägg till en Apache Spark jobb definition i pipeline
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar med den här självstudien måste du uppfylla följande krav:
 
@@ -42,7 +42,7 @@ I det här avsnittet skapar du en Apache Spark jobb definition för PySpark (pyt
 
 1. Öppna [Azure Synapse Studio](https://web.azuresynapse.net/).
 
-2. Du kan gå till [exempelfiler för att skapa Apache Spark jobb definitioner](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) för att ladda ned **WORDCOUNT. jar** och **shakespear.txt**. Ladda sedan upp dessa filer till Azure Storage: Klicka på **data**, Välj **lagrings konton**och ladda upp relaterade filer till ditt ADLS Gen2-filsystem. Hoppa över det här steget om filerna redan finns i Azure Storage. 
+2. Du kan gå till [exempel filer för att skapa Apache Spark jobb definitioner](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) för att ladda ned **WORDCOUNT.py** och **shakespear.txt**. Ladda sedan upp dessa filer till Azure Storage: Klicka på **data**, Välj **lagrings konton**och ladda upp relaterade filer till ditt ADLS Gen2-filsystem. Hoppa över det här steget om filerna redan finns i Azure Storage. 
 
      ![överför python-fil](./media/apache-spark-job-definitions/upload-python-file.png)
 
@@ -57,9 +57,9 @@ I det här avsnittet skapar du en Apache Spark jobb definition för PySpark (pyt
      |  Egenskap   | Beskrivning   |  
      | ----- | ----- |  
      |Jobb definitions namn| Ange ett namn för din Apache Spark jobb definition. Detta namn kan uppdateras när som helst tills det publiceras. Urvalsundersökningar`job definition sample`|
-     |Huvud definitions fil| Huvud filen som används för jobbet. Välj en PY-fil från lagrings platsen. Du kan välja **Ladda upp fil** för att överföra filen till ett lagrings konto. Urvalsundersökningar`abfss://azureportaldeploy@storageaccountname.dfs.core.windows.net/synapse/workspaces/workspace name/batchjobs/python/fileexists.py`|
-     |Kommando rads argument| Valfria argument för jobbet. Urvalsundersökningar`shakespeare.txt`|
-     |Reference-filer| Ytterligare filer som används som referens i huvud definitions filen. Du kan välja **Ladda upp fil** för att överföra filen till ett lagrings konto. Urvalsundersökningar`abfss://azureportaldeploy@storageaccountname.dfs.core.windows.net/synapse/workspaces/workspace name/batchjobs/python/shakespeare.txt`|
+     |Huvud definitions fil| Huvud filen som används för jobbet. Välj en PY-fil från lagrings platsen. Du kan välja **Ladda upp fil** för att överföra filen till ett lagrings konto. Urvalsundersökningar`abfss://…/path/to/wordcount.py`|
+     |Kommando rads argument| Valfria argument för jobbet. Urvalsundersökningar`abfss://…/path/to/shakespeare.txt abfss://…/path/to/result`|
+     |Reference-filer| Ytterligare filer som används som referens i huvud definitions filen. Du kan välja **Ladda upp fil** för att överföra filen till ett lagrings konto. |
      |Spark-pool| Jobbet skickas till den valda Apache Spark poolen.|
      |Spark-version| Den version av Apache Spark som Apache Sparks poolen körs på.|
      |Körare| Antal körningar som anges i den angivna Apache Spark poolen för jobbet.|
@@ -92,9 +92,9 @@ I det här avsnittet skapar du en Apache Spark jobb definition för Apache Spark
      |  Egenskap   | Beskrivning   |  
      | ----- | ----- |  
      |Jobb definitions namn| Ange ett namn för din Apache Spark jobb definition. Detta namn kan uppdateras när som helst tills det publiceras. Urvalsundersökningar`job definition sample`|
-     |Huvud definitions fil| Huvud filen som används för jobbet. Välj en JAR-fil från lagrings platsen. Du kan välja **Ladda upp fil** för att överföra filen till ett lagrings konto. Urvalsundersökningar`abfss://sparkjob@storageaccountname.dfs.core.windows.net/scala/wordcount/wordcount.jar`|
+     |Huvud definitions fil| Huvud filen som används för jobbet. Välj en JAR-fil från lagrings platsen. Du kan välja **Ladda upp fil** för att överföra filen till ett lagrings konto. Urvalsundersökningar`abfss://…/path/to/wordcount.jar`|
      |Huvud klass namn| Den fullständigt kvalificerade identifieraren eller den huvudsakliga klass som finns i huvud definitions filen. Urvalsundersökningar`WordCount`|
-     |Kommando rads argument| Valfria argument för jobbet. Urvalsundersökningar`abfss://sparkjob@storageaccountname.dfs.core.windows.net/scala/wordcount/shakespeare.txt abfss://sparkjob@storageaccountname.dfs.core.windows.net/scala/wordcount/result`|
+     |Kommando rads argument| Valfria argument för jobbet. Urvalsundersökningar`abfss://…/path/to/shakespeare.txt abfss://…/path/to/result`|
      |Reference-filer| Ytterligare filer som används som referens i huvud definitions filen. Du kan välja **Ladda upp fil** för att överföra filen till ett lagrings konto.|
      |Spark-pool| Jobbet skickas till den valda Apache Spark poolen.|
      |Spark-version| Den version av Apache Spark som Apache Sparks poolen körs på.|
@@ -109,9 +109,9 @@ I det här avsnittet skapar du en Apache Spark jobb definition för Apache Spark
      ![publicera Scala-definition](./media/apache-spark-job-definitions/publish-scala-definition.png)
 
 
-## <a name="create-an-apache-spark-job-definition-for-net-sparkc"></a>Skapa en Apache Spark jobb definition för .NET Spark (C#)
+## <a name="create-an-apache-spark-job-definition-for-net-sparkcf"></a>Skapa en Apache Spark jobb definition för .NET Spark (C#/F #)
 
-I det här avsnittet skapar du en Apache Spark jobb definition för .NET Spark (C#).
+I det här avsnittet skapar du en Apache Spark jobb definition för .NET Spark (C#/F #).
  1. Öppna [Azure Synapse Studio](https://web.azuresynapse.net/).
 
  2. Du kan gå till [exempel filer för att skapa Apache Spark jobb definitioner](https://github.com/Azure-Samples/Synapse/tree/master/Spark/DotNET) för att ladda ned **wordcount.zip** och **shakespear.txt**. Ladda sedan upp dessa filer till Azure Storage: Klicka på **data**, Välj **lagrings konton**och ladda upp relaterade filer till ditt ADLS Gen2-filsystem. Hoppa över det här steget om filerna redan finns i Azure Storage. 
@@ -125,12 +125,13 @@ I det här avsnittet skapar du en Apache Spark jobb definition för .NET Spark (
  4. Välj **.net Spark (C#/f #)** från List rutan språk i fönstret för Apache Spark jobb definitions huvud.
 
  5. Fyll i information för Apache Spark jobb definition. Du kan kopiera exempel informationen.
+    
      |  Egenskap   | Beskrivning   |  
      | ----- | ----- |  
      |Jobb definitions namn| Ange ett namn för din Apache Spark jobb definition. Detta namn kan uppdateras när som helst tills det publiceras. Urvalsundersökningar`job definition sample`|
-     |Huvud definitions fil| Huvud filen som används för jobbet. Välj en ZIP-fil som innehåller ditt .NET för Apache Spark-program (det vill säga den viktigaste körbara filen, DLL-filer som innehåller användardefinierade funktioner och andra filer som krävs) från din lagrings plats. Du kan välja **Ladda upp fil** för att överföra filen till ett lagrings konto. Urvalsundersökningar`abfss://sparkjob@storageaccountname.dfs.core.windows.net/dotnet/wordcount/wordcount.zip`|
+     |Huvud definitions fil| Huvud filen som används för jobbet. Välj en ZIP-fil som innehåller ditt .NET för Apache Spark-program (det vill säga den viktigaste körbara filen, DLL-filer som innehåller användardefinierade funktioner och andra filer som krävs) från din lagrings plats. Du kan välja **Ladda upp fil** för att överföra filen till ett lagrings konto. Urvalsundersökningar`abfss://…/path/to/wordcount.zip`|
      |Huvud program fil| Den körbara filen i huvud definitionens ZIP-fil. Urvalsundersökningar`WordCount`|
-     |Kommando rads argument| Valfria argument för jobbet. Urvalsundersökningar`abfss://sparkjob@storageaccountname.dfs.core.windows.net/dotnet/wordcount/shakespeare.txt abfss://sparkjob@storageaccountname.dfs.core.windows.net/dotnet/wordcount/result`|
+     |Kommando rads argument| Valfria argument för jobbet. Urvalsundersökningar`abfss://…/path/to/shakespeare.txt abfss://…/path/to/result`|
      |Reference-filer| Ytterligare filer som krävs av arbetsnoderna för att köra .NET för Apache Spark program som inte ingår i huvud definitionens ZIP-fil (det vill säga beroende jar v7, ytterligare användardefinierade funktions-DLL-filer och andra konfigurationsfiler). Du kan välja **Ladda upp fil** för att överföra filen till ett lagrings konto.|
      |Spark-pool| Jobbet skickas till den valda Apache Spark poolen.|
      |Spark-version| Den version av Apache Spark som Apache Sparks poolen körs på.|

@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 72d25582d15e745b0bdefcde5f68af94eab49293
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: a455da1de984b5394b1bf0aafbd29b61fb6b8dfa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84712215"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071336"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>Skapa och hitta ankare med hjälp av Azure spatiala ankare i enhet
 
@@ -32,7 +32,7 @@ Med Azure Spatial Anchors kan du dela fästpunkter i världen mellan olika enhet
 - Överför dem till molnet.
 - Leta upp och ta bort moln rums ankare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att du har följande för att slutföra den här guiden:
 
@@ -198,7 +198,7 @@ Läs mer om klassen [CloudSpatialAnchor](https://docs.microsoft.com/dotnet/api/m
     // you might show content at this anchor for a while, then save when
     // the user confirms placement.
     CloudSpatialAnchor cloudAnchor = new CloudSpatialAnchor();
-    cloudAnchor.LocalAnchor = this.localAnchor.GetNativeAnchorPointer();
+    cloudAnchor.LocalAnchor = this.localAnchor.GetNativeSpatialAnchorPtr();
     await this.cloudSession.CreateAnchorAsync(cloudAnchor);
     this.feedback = $"Created a cloud anchor with ID={cloudAnchor.Identifier}");
 ```

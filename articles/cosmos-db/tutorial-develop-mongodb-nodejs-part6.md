@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: de9e7fd605a1d53d1078523c77cd33065c03ca85
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: c4d44b1bf645132f5c2d6e863dbe0c93f024c7ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118975"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066934"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – Lägga till CRUD-funktioner i appen
 
@@ -23,11 +23,11 @@ Den här självstudien i flera delar visar hur du skapar en ny app skriven i Nod
 
 > [!div class="checklist"]
 > * Skapa Post-, Put- och Delete-funktioner för hero-tjänsten
-> * Kör appen
+> * Köra appen
 
 > [!VIDEO https://www.youtube.com/embed/Y5mdAlFGZjc]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudiekursen innan du påbörjar den här delen.
 
@@ -36,7 +36,7 @@ Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudi
 
 ## <a name="add-a-post-function-to-the-hero-service"></a>Lägga till en Post-funktion till hero-tjänsten
 
-1. Öppna **routes.js** och **hero.service.js** bredvid varandra i Visual Studio Code genom att klicka på knappen för att **dela redigerare**![Knappen för att dela redigerare i Visual Studio](./media/tutorial-develop-mongodb-nodejs-part6/split-editor-button.png).
+1. I Visual Studio Code öppnar du **routes.js** och **hero.service.js** sida vid sida genom att trycka på knappen **dela redigeraren** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/split-editor-button.png"::: .
 
     Notera att rad 7 i routes.js anropar funktionen `getHeroes` på rad 5 i **hero.service.js**.  Vi måste skapa samma koppling för post-, put- och delete-funktionerna. 
 
@@ -84,7 +84,7 @@ Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudi
     });
     ```
 
-5. Kontrollera att allt fungerar som det ska genom att köra appen. Spara alla ändringar i Visual Studio Code, välj **Felsök**![Felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) till vänster och välj sedan **Starta felsökning**![Ikonen Starta felsökning i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
+5. Kontrollera att allt fungerar som det ska genom att köra appen. Spara alla ändringar i Visual Studio Code, Välj knappen **Felsök** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png"::: på vänster sida och välj sedan knappen **Starta fel sökning** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png"::: .
 
 6. Gå tillbaka till webbläsaren och öppna fliken Nätverk under Utvecklarverktyg. På de flesta datorer trycker du på F12 för att göra det. Gå till `http://localhost:3000` för att se alla anrop som gjorts i nätverket.
 
@@ -169,7 +169,7 @@ Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudi
     };
     ```
 
-4. Nu när vi har uppdaterat koden väljer du **Starta om**![Knappen Starta om i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) i Visual Studio Code.
+4. Nu när vi har uppdaterat koden väljer du knappen **starta om** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png"::: i Visual Studio Code.
 
 5. Uppdatera sidan i webbläsaren och välj knappen **Add New Hero** (Lägg till ny hero). Lägg till en ny hero med ID = "9", name = "Starlord" och saying = "Hi". Välj den nya hero-komponenten genom att klicka på **Spara**.
 

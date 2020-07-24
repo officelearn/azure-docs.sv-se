@@ -3,12 +3,12 @@ title: Kontinuerlig video inspelning till molnet och uppspelningen från Cloud-s
 description: I den här självstudien får du lära dig hur du använder Azure Live Video Analytics på Azure IoT Edge för att kontinuerligt spela in video i molnet och strömma någon del av videon med hjälp av Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 008927d607ef2a14e30e8e2090692ccd2bb1e7eb
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 60b93aac3a0da4bbc49f83c5cbd43191693cae50
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85808020"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043472"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Självstudie: kontinuerlig video inspelning till molnet och uppspelningen från molnet
 
@@ -49,7 +49,7 @@ I slutet av de här stegen har du relevanta Azure-resurser distribuerade i din A
 * Azure IoT Hub
 * Azure-lagringskonto
 * Azure Media Services konto
-* Virtuella Linux-datorer i Azure med [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installerat
+* Virtuella Linux-datorer i Azure med [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge-linux.md) installerat
 
 ## <a name="concepts"></a>Begrepp
 
@@ -231,7 +231,7 @@ När du använder live video analys i IoT Edge-modulen för att spela in direktu
 
 ## <a name="interpret-the-results"></a>Tolka resultaten 
 
-När du kör medie diagrammet skickar live video analys i IoT Edge-modulen vissa diagnostik-och drift händelser till IoT Edge Hub. Dessa händelser är de meddelanden som visas i fönstret **utdata** i Visual Studio Code. De innehåller ett Body-avsnitt och ett applicationProperties-avsnitt. Information om vad dessa avsnitt representerar finns i [skapa och läsa IoT Hub meddelanden](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+När du kör medie diagrammet skickar live video analys i IoT Edge-modulen vissa diagnostik-och drift händelser till IoT Edge Hub. Dessa händelser är de meddelanden som visas i fönstret **utdata** i Visual Studio Code. De innehåller ett Body-avsnitt och ett applicationProperties-avsnitt. Information om vad dessa avsnitt representerar finns i [skapa och läsa IoT Hub meddelanden](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 I följande meddelanden definieras program egenskaperna och innehållet i bröd texten av modulen live video analys.
 
@@ -375,4 +375,4 @@ Om du tänker testa de andra självstudierna ska du hålla på de resurser som d
 ## <a name="next-steps"></a>Nästa steg
 
 * Använd en [IP-kamera](https://en.wikipedia.org/wiki/IP_camera) med stöd för RTSP i stället för att använda RTSP-simulatorn. Du kan söka efter IP-kameror med RTSP-stöd på [ONVIF-sidan produkter](https://www.onvif.org/conformant-products/) genom att söka efter enheter som uppfyller profilerna G, S eller T.
-* Använd en AMD64-eller x64 Linux-enhet (jämfört med en virtuell Azure Linux-dator). Enheten måste finnas i samma nätverk som IP-kameran. Följ anvisningarna i [installera Azure IoT Edge runtime på Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Följ sedan anvisningarna i avsnittet [distribuera din första IoT Edge till en virtuell Linux-enhet](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) snabb start för att registrera enheten med Azure IoT Hub.
+* Använd en AMD64-eller x64 Linux-enhet (jämfört med en virtuell Azure Linux-dator). Enheten måste finnas i samma nätverk som IP-kameran. Följ anvisningarna i [installera Azure IoT Edge runtime på Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Följ sedan anvisningarna i avsnittet [distribuera din första IoT Edge till en virtuell Linux-enhet](../../iot-edge/quickstart-linux.md) snabb start för att registrera enheten med Azure IoT Hub.

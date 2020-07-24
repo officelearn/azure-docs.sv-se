@@ -1,206 +1,227 @@
 ---
-title: Konfigurera fysiskt baserat åter givnings material i 3DSMax
-description: Förklarar hur du konfigurerar fysiskt baserat åter givnings material i 3DSMax och exporterar dem till FBX-format.
+title: Konfigurera PBR-material i Max 3DS
+description: Förklarar hur du ställer in fysiskt baserat åter givnings material i 3ds Max och exporterar dem till FBX-format.
 author: muxanickms
 ms.author: misams
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: df4be8963c93199f9fad23ab3f709f691e1da768
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: ac0f4ee8f06982126d2ae30bed01716b287e8993
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85880148"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078036"
 ---
-# <a name="tutorial-set-up-physically-based-rendering-materials-in-3d-studio-max"></a>Självstudie: Konfigurera fysiskt baserat åter givnings material i 3D Studio Max
+# <a name="tutorial-set-up-physically-based-rendering-materials-in-3ds-max"></a>Självstudie: Konfigurera fysiskt baserat åter givnings material i 3ds Max
 
 ## <a name="overview"></a>Översikt
 I den här självstudien får du lära dig att:
 
 >[!div class="checklist"]
 >
-> * Tilldela material med avancerad belysning till objekt i scenen.
+> * Tilldela material med avancerad belysning till objekt i en scen.
 > * Hantera instanser av objekt och material.
 > * Exportera en scen till FBX-format och välj viktiga alternativ.
 
-Att skapa ett [PBR-material (fysiskt baserat åter givning)](../../overview/features/pbr-materials.md) i 3D Studio Max (3DSMax) är en relativt enkel uppgift. Det liknar på många sätt att installera PBR i andra appar för innehålls skapande som Maya. Den här självstudien är en guide till grundläggande PBR Shader-installation och FBX export för Azure-fjärrrendering-projekt.
+Att skapa ett [PBR-material (fysiskt baserat åter givning)](../../overview/features/pbr-materials.md) i 3ds Max är en enkel uppgift. Det liknar på många sätt att installera PBR i andra appar för innehålls skapande som Maya. Den här självstudien är en guide till grundläggande PBR Shader-installation och FBX export för Azure-fjärrrendering-projekt.
 
-Exempel scenen i den här självstudien innehåller ett antal polygon-Box-objekt. De har tilldelats olika material, till exempel trä, metall, målad metall, plast och gummi. Varje material innehåller i stort sett alla eller de flesta av följande texturer:
+Exempel scenen i den här självstudien innehåller ett antal polygon-Box-objekt. De har tilldelats olika material, t. ex. trä, metall, målad metall, plast och gummi. Varje material innehåller i stort sett alla eller de flesta av följande texturer:
 
-* **Albedo**, som är materialets färg karta och kallas även för **diffusion** eller **BaseColor**.
+* **Albedo**, som är materialets färg karta och kallas även för **diffusion** och **BaseColor**.
 * **Metall**, som avgör om ett material är metallisk och vilka delar som är metalliska. 
 * **Grovhet**, som avgör hur grov eller utjämna en yta är.
 Det påverkar också skärpan eller blurriness av reflekterande och högdagrar på en yta.
-* **Normal**, som lägger till information på en yta utan att behöva lägga till fler polygoner. Exempel på Detaljer kan vara pitting och indrag på en metall yta eller kornig het i trä.
-* **Omgivande ocklusion**, som används för att lägga till mjuka skuggor och kontakt skuggor i en modell. Det är en grå Skale karta som visar vilka områden i en modell som får fullständig belysning (vit) eller en fullständig nyans (svart).
+* **Normal**, som lägger till information på en yta utan att lägga till fler polygoner. Exempel på detaljer är pitting och indrag på en metall yta eller kärna i trä.
+* **Omgivande ocklusion**, som används för att lägga till mjuka skuggor och kontakt skuggor i en modell. Det är en grå Skale karta som visar vilka områden i modellen som får fullständig belysning (vit) eller en fullständig nyans (svart).
 
 ## <a name="prepare-the-scene"></a>Förbered scenen
-I **3D Studio Max**är processen för att ställa in ett PBR-material som följer.
+I 3ds Max är processen för att ställa in ett PBR-material som följer.
 
-För att börja med, som du ser i exempel scenen har vi skapat ett antal Box-objekt, som representerar en annan typ av material:
-
->[!TIP]
->Det är värt att notera innan du börjar skapa till gångar för ARR som använder **mätare** för mått.  
->Därför är det lämpligt att ställa in dina **enhets system enheter** på **mätare**. Dessutom är det tillrådligt att exportera för att ange enheter till mätare i FBX export inställningar.
-
-Följande bild illustrerar stegen för att ställa in system enheter på mätare i högsta antal i 3D Studio. I huvud menyn går du till **Anpassa**  >  **enheter installations**  >  **system enheter** och i list rutan **system enheter skalning** väljer du **mätare**. 
-![system enheter](media/3dsmax/system-units.jpg)
-
-Med system enheter inställda på mätare kan vi börja skapa våra modeller. I vår exempel scen skapar vi flera Box-objekt, var och en som representerar en annan material typ, till exempel metall, gummi, plast osv. 
+För att starta ska vi skapa ett antal Box-objekt som representerar en annan typ av material.
 
 >[!TIP]
->Det är en bra idé när du skapar till gångar för att ge namn på rätt sätt. Detta gör dem lättare att hitta senare om scenen har många objekt
+>Det är värt att notera innan du börjar skapa till gångar för fjär rendering som använder mätare för mått.  
+>
+>Därför är det en bra idé att ställa in din scens systemen het på mätare. Det är också en bra idé att ange **enheter** till mätare i FBX export inställningar när du exporterar en scen.
 
-![Byt namn på objekt](media/3dsmax/rename-objects.jpg)
+Följande skärm bild visar stegen för att ställa in system enheter på mätare i max. 
+
+1. På huvud menyn går du till **Anpassa**enheter konfigurera installations programmet för  >  **Units Setup**  >  **system enheter**. I **system enhets skala**väljer du **mätare**: ![ skärm bild som visar hur du ställer in system enheter.](media/3dsmax/system-units.jpg)
+
+1. Nu kan vi börja skapa modeller. I exempel scenen skapar vi flera Box-objekt, som var och en representerar en annan material typ. Till exempel metall, gummi och plast. 
+
+   >[!TIP]
+   >När du skapar till gångar är det en bra idé att namnge dem på rätt sätt. Detta gör dem lättare att hitta senare om scenen innehåller många objekt.
+
+1. Byt namn på objekten så som visas på följande skärm bild: 
+
+   ![Skärm bild som visar hur du byter namn på objekt.](media/3dsmax/rename-objects.jpg)
 
 ## <a name="assign-materials"></a>Tilldela material
 
-Med vissa objekt som skapats i vår scen – i det här fallet ett antal kuber kan vi starta PBR-installationen:
+Nu när vi har några objekt i vår scen, i det här fallet ett antal kuber, kan vi starta PBR-installationen:
 
-* I huvud verktygsfältet klickar du på ikonen **material redigerare** , som du ser i följande bild. Du kan också trycka på **M** på tangent bordet för att öppna redigeraren. Material redigeraren har två lägen som kan väljas i list rutan **lägen** – **kompakt material redigerings** läge och läget för bakgrunds **material** . Eftersom den här scenen är relativt enkel, kommer vi att använda **kompakt läge**.
+1. I huvud verktygsfältet väljer du ikonen **material redigerare** , som du ser i följande skärm bild. Du kan också välja **M** på tangent bordet för att öppna redigeraren. Material redigeraren har två lägen som du kan välja i listan **lägen** : **kompakt material redigerings** läge och redigerings läge för Skriv **material** . Eftersom den här scenen är relativt enkel använder vi kompakt läge.
 
-* Inuti material redigeraren visas ett antal sfärer – dessa sfärer är vårt material. Vi kommer att tilldela ett av dessa material till varje objekt-Box – i vår scen. Om du vill utföra den här tilldelningen väljer du först ett av objekten i huvud visnings området. När du har valt det här alternativet klickar du på den första sfären i fönstret material redigerare. När du har tilldelat ett objekt markeras det valda materialet som du ser i nästa bild.
+1. I material redigeraren ser du ett antal sfärer. Dessa sfärer är materialet. Vi tilldelar ett sådant material till varje objekt (varje ruta) i scenen. Om du vill tilldela materialet väljer du först ett av objekten i huvud visnings området. Välj sedan den första sfären i material redigeraren. När det har tilldelats ett objekt markeras det valda materialet, som du ser i nästa bild.
 
-* Klicka på knappen **Tilldela material till markering** som visas. Det valda materialet har nu tilldelats det valda objektet.
-![Tilldela material](media/3dsmax/assign-material.jpg)
+1. Välj **Tilldela material att välja**enligt vad som visas. Materialet tilldelas nu det valda objektet.
 
-I material redigeraren kan du välja typer av material från ett brett urval, beroende på ditt användnings fall. Normalt är material typen **standard** inställd som standard. Det här materialet är ett grundläggande material som inte är lämpligt för PBR-installationen, så vi måste ändra material typen till ett PBR-material. Det **fysiska materialet är det fysiska materialet**som föredra **3DSMax** material för Azure-fjärrrendering-projekt.
+   ![Skärm bild som visar hur du tilldelar material.](media/3dsmax/assign-material.jpg)
 
-* I material redigeraren klickar du på fliken **standard** och i den material-och kart läsare som öppnar Välj **fysiskt material**. Den här åtgärden kommer att konvertera det tilldelade **standard** materialet till ett fysiskt PBR- **material**.
-![fysiskt material](media/3dsmax/physical-material.jpg)
+    I material redigeraren kan du välja bland ett brett urval av material typer, beroende på dina behov. Normalt är material typen **standard** inställd som standard. Det här materialet är ett grundläggande material som inte passar för PBR-installationen. Vi måste ändra material typen till ett PBR-material. Fysiskt material är det föredragna 3ds Max-materialet för Azure-fjärråtergivnings projekt.
 
-* I material redigeraren visas nu egenskaperna för det fysiska materialet (se nedan) och vi kan börja tilldela till gång till strukturer.
-![texturer – lista](media/3dsmax/textures-list.jpg)
+1. Välj fliken **standard** i material redigeraren. I **webbläsaren material/karta**väljer du **fysiskt material**. Den här åtgärden konverterar det tilldelade **standard** materialet till ett fysiskt PBR-material.
 
-Som du kan se på bilden ovan finns det en mängd olika kartor och texturer som kan läggas till i materialet. I vårt syfte kommer vi bara att använda fem textur fack i materialet.
+   ![Skärm bild som visar hur du ändrar materialet.](media/3dsmax/physical-material.jpg)
+
+    I material redigeraren ser du nu egenskaperna för det fysiska materialet, som du ser i följande skärm bild. Nu kan du börja tilldela till gången strukturer.
+
+   ![Skärm bild som visar listan över texturer.](media/3dsmax/textures-list.jpg)
+
+Som du ser finns det en mängd olika kartor och texturer som du kan lägga till i materialet. I den här självstudien använder vi bara fem textur fack i materialet.
 
 >[!TIP]
->Det är en bra idé att namnge ditt material på lämpligt sätt, som visas i bilden ovan.
+>Det är en bra idé att namnge ditt material på lämpligt sätt, som du ser i föregående skärm bild.
 
-Nu kan vi börja överväga att tilldela texturer till vårt material. Hur du genererar strukturer kan variera beroende på preferenser eller till och med efter användning. Du kan till exempel vara glad att använda bild strukturer som kan användas för alla till gångar, eller så kan du behöva specifika delar av ett projekt/till gång för att få en egen anpassad uppsättning texturer. Du kanske vill använda generiska indelnings texturer som erhållits online eller skapa dem själv i appar som **Photoshop**, **Quixel Suite**, **substans Suite** osv. 
+Hur du genererar strukturer kan variera beroende på preferenser eller användning. Du kanske till exempel vill använda strukturerade texturer som kan användas för alla till gångar. Eller så kanske du behöver specifika delar av ett projekt eller till gång för att få egna anpassade uppsättningar med strukturer. Du kanske vill använda allmänna strukturer som du kan ansluta online. Du kan också skapa dem själv i appar som Photoshop, Quixel Suite och substans Suite.
 
-Innan vi börjar tilldela våra strukturer, kommer vi att behöva ta hänsyn till våra till gångars textur koordinater (UVW). Även om det är bäst att använda en textur i en modell för att se till att modellen har blivit omsluten (texturer inte visas korrekt utan rätt UV-unwrap), är det viktigt för våra syfte om vi tänker använda en **ocklusion** karta i vår modell. Till skillnad från **Stingray Shader** i **Maya**har det **fysiska materialet** i **3DSMax** inte någon dedikerad **omgivande ocklusion** textur plats. Därför kommer vi att använda AO-kartan på en annan plats och för att tillåta att den används separat från andra texturer (till exempel), vi tilldelar den en egen UVW-kart kanal. 
+Innan vi börjar tilldela strukturer måste du tänka på till gångens textur koordinater (UVW). Det är en bra idé när du använder en textur i en modell för att se till att modellen är unwrap. (Texturer visas inte korrekt utan korrekt UV-avfigurning.) Det är särskilt viktigt för våra syfte eftersom vi vill använda en ocklusion-karta (AO) i vår modell. Till skillnad från Stingray Shader i Maya har det fysiska materialet i 3ds Max ingen dedikerad AO textur plats. Vi använder därför AO-kartan på en annan plats. Om du vill att den ska kunna användas separat från andra texturer (till exempel för att lägga till texturer) ska vi tilldela den en egen UVW-kart kanal. 
 
-Vi börjar med att tilldela en **UVW-modifierare** till vår modell enligt följande:
+Vi börjar med att tilldela en UVW-modifierare till modellen, som du ser i följande skärm bild. 
 
-* I redigeraren för valda objekt egenskaper klickar du på listan modifierare och i den nedrullningsbara List rutan öppnas rullnings listen nedåt och väljer unwrap UVW. Den här åtgärden kommer att använda en UVW-modifierare för vår till gång.
-![unwrap-modifierare](media/3dsmax/unwrap-modifier.jpg)
+- I redigeraren för valda objekt egenskaper väljer du listan med ändringar. Rulla nedåt i list rutan som visas och välj **unwrap UVW**. Den här åtgärden tillämpar en UVW-modifierare för till gången.
+![Skärm bild som visar hur du väljer unwrap UVW.](media/3dsmax/unwrap-modifier.jpg)
 
-* Kart kanalen är inställd på en. Den är i kart kanal en som du kommer att göra i huvud listan. I vårt fall har objektet inte omslutits utan några överlappande textur koordinater (UV).
-![unwrap-UVW](media/3dsmax/unwrapped-uvw.jpg)
+  Kart kanalen har angetts till 1. Du använder vanligt vis huvud nedbrytningen i kart kanal 1. I det här fallet har objektet inte omslutits utan överlappande textur koordinater (UV).
+![Skärm bild som visar UVW (Unwrapped textur koordinater).](media/3dsmax/unwrapped-uvw.jpg)
 
 Nästa steg är att skapa en andra UV-kart kanal.
 
-* Stäng UV-redigeraren om den är öppen och i avsnittet kanal på menyn **Redigera UV** -menyn ändra kanal numret till två. Kart kanal 2 är den förväntade kanalen för omgivande ocklusion Maps. 
+1. Stäng UV-redigeraren om den är öppen. I avsnittet **kanal** på menyn **Redigera UVs** ändrar du kanal numret till **2**. Kart kanal 2 är den förväntade kanalen för AO Maps. 
 
-* I dialog rutan för **kanal ändrings varningar** som öppnas kan du välja att antingen **Flytta** befintliga UV-objekt i kanal 1 till den nya kanalen 2 eller **överge** de befintliga UV: s som skapar en ny UV- **unwrap** automatiskt. Välj endast **överge** om du vill skapa en ny **UV** -omslutning för den omgivande ocklusion-kartan som skiljer sig från UV: s i kart kanal 1 (till exempel om du vill använda strukturerade texturer i kanal 1). I vårt syfte kommer vi att **Flytta** UV: s från kanal ett till kanal 2 eftersom vi inte behöver redigera den nya UV-kanalen.
+1. I dialog rutan **kanal ändrings varning** kan du antingen **Flytta** befintliga UVs i kanal 1 till den nya kanalen 2 eller **överge** den befintliga UVs som skapar en ny UV-omslutning automatiskt. Välj endast **överge** om du planerar att skapa en ny UV-brytning för Ao-kartan som skiljer sig från UVs i kartans kanal 1. (Om du till exempel vill använda textur strukturer i kanal 1.) I den här självstudien flyttar vi UVs från kanal en till kanal 2 eftersom vi inte behöver redigera den nya UV-kanalen.
 
->[!NOTE]
->Även om du har kopierat – **flyttat** – UV-unwrap från kart kanal 1 till kart kanal 2 kan du göra nödvändiga ändringar i den nya kanalens UV, utan att påverka den ursprungliga kart kanalen.
+   >[!NOTE]
+   >Även om du har kopierat (flyttat) UV-omslutning från kart kanal 1 till kart kanal 2, kan du göra nödvändiga ändringar i den nya kanal UVs utan att påverka den ursprungliga kart kanalen.
 
-![kanal-ändra](media/3dsmax/channel-change.jpg)
+   ![Skärm bild som visar varningen för kanal ändring.](media/3dsmax/channel-change.jpg)
 
-Med den nya kart kanalen skapad kan vi återgå till det fysiska materialet i material redigeraren och börja lägga till våra texturer till den. Vi lägger först till den omgivande ocklusion (**Ao**)-kartan eftersom det finns ett ytterligare steg att vidta för att tillåta att den fungerar korrekt. När AO-kartan är ansluten till vårt material måste vi instruera den att använda kart kanal 2.
+Nu när vi har skapat den nya kart kanalen kan vi gå tillbaka till det fysiska materialet i material redigeraren och börja lägga till våra texturer till den. Först ska vi lägga till AO-kartan eftersom det finns ett annat steg att tillåta att den fungerar korrekt. När AO-kartan är ansluten till vårt material måste vi konfigurera den för att använda kart kanal 2.
 
-* Som tidigare nämnts finns det ingen dedikerad plats för AO Maps i det **3DSMax fysiska materialet**. Vi tillämpar i stället den AO kartan på den **diffusa tuffa** platsen.
+Som tidigare nämnts finns det ingen dedikerad plats för AO Maps i det fysiska det högsta fysiska materialet för 3DS. I stället tillämpar vi AO-kartan på den **diffusa tuffa** platsen.
 
-* I det fysiska materialets **allmänna Maps** -lista klickar du på den **diffusa ojämnheten** **ingen kart** plats och läser in din Ao-karta.
+1. I det fysiska materialets **allmänna Maps** -lista väljer du **ingen kart** plats bredvid **diffus grovhet** och läser in din Ao-karta.
 
-* I egenskaperna för AO texturer visas kart kanalen inställd på **1** som standard. Ändra värdet till **2**. Den här åtgärden slutför de steg som krävs för att lägga till din omgivande ocklusion-karta.
+1. I egenskaperna för AO-texturer anges kart kanalen till **1** som standard. Ändra värdet till **2**. Den här åtgärden slutför de steg som krävs för att lägga till AO-kartan.
+
+   >[!IMPORTANT]
+   >Detta är ett viktigt steg, särskilt om din UVs i kanal 2 skiljer sig från de i kanal 1, eftersom AO inte mappas korrekt om fel kanal är markerad.
+
+   ![Skärm bild som visar hur du tilldelar en AO-karta.](media/3dsmax/assign-ao-map.jpg)
+
+Vi kommer nu att tilldela den normala kartan till PBR-materialet. Den här åtgärden skiljer sig något från processen i Maya. Den normala kartan används inte direkt på ojämnhets kartans plats. (Det finns inget normalt kart fack i det högsta fysiska materialet för 3DS.) I stället lägger du till den normala kartan i en normal kart modifierare, som i sin tur är kopplad till normal facket.
+
+1. I avsnittet **särskilda kartor** i egenskaperna för fysiskt material (i material redigeraren) väljer du **ingen kart** plats bredvid **ojämnhets karta**. 
+
+1. Leta upp och välj **Normal ojämnhet**i **webbläsaren material/karta**. Den här åtgärden lägger till en **Normal ojämnhets** modifierare för materialet.
+
+1. I den **normala ojämnhets** modifieraren väljer du **ingen karta** bredvid **Normal**. Leta upp och Läs in din normala karta.
+
+1. Kontrol lera att metoden är inställd på **tangens**. (Det bör vara som standard.) Om det behövs växlar du till **vänd grönt (Y)**.
+
+   ![Skärm bild som visar hur du väljer normal ojämnhet. ](media/3dsmax/normal-bump.jpg)
+    ![ Skärm bild som visar inläsning av den normala kartan.](media/3dsmax/load-normal-map.jpg)
+
+När den normala kartan har tilldelats korrekt kan vi tilldela de återstående texturerna för att slutföra installationen av det fysiska materialet. Den här processen är enkel. Det finns inga särskilda inställningar att tänka på. Följande skärm bild visar en fullständig uppsättning texturer som tilldelats materialet: 
+
+![Skärm bild som visar en fullständig uppsättning texturer som tilldelats materialet.](media/3dsmax/all-textures.jpg)
+
+Nu när PBR-materialen har skapats och kon figurer ATS är det värt att tänka på indelnings objekt i scenen. Instansen liknar objekt i scenen, t. ex. nötter, bultar, skruvar och spolare. Alla objekt som är desamma kan ge betydande besparingar när det gäller fil storlek. Instanser av ett huvud objekt kan ha sin egen skalning, rotation och transformering, så att du kan placera dem efter behov i din scen. I 3ds Max är indelnings processen enkel.
+
+1. I huvud visnings området väljer du det eller de objekt som du vill exportera.
+
+1. Håll **ned SKIFT** -tangenten och dra till gångarna uppåt med hjälp av verktyget Omforma (flytta). 
+
+1. I dialog rutan **klonings alternativ** anger du **objekt** till **instans** och väljer sedan **OK**:
+
+   ![Skärm bild av dialog rutan klonings alternativ.](media/3dsmax/instance-object.jpg)
+
+Den här åtgärden skapar en instans av objektet som du kan flytta, rotera eller skala oberoende av dess överordnade och andra instanser av den överordnade.
 
 >[!IMPORTANT]
->Det här är ett viktigt steg, särskilt om UV: er i kanal 2 skiljer sig från dem i kanal 1, eftersom AO inte kommer att mappa korrekt med fel kanal vald.
-
-![tilldela-Ao – mappa](media/3dsmax/assign-ao-map.jpg)
-
-Vi kommer nu att ta itu med att tilldela vår normal-karta till vårt PBR-material. Den här åtgärden skiljer sig något från **Maya** i att normal-kartan inte appliceras direkt på ojämnhets kartans plats (det finns ingen normal kart plats i det **3DSMax fysiska materialet** som sådan), men läggs i stället till i en normal-map-modifierare som är kopplad till den **normala** platsen.
-
-* I avsnittet **särskilda kartor** i egenskaper för fysiskt material (i material redigeraren) klickar du på diagrammets **ojämnhets**plats **.** 
-
-* Leta upp och klicka på **Normal ojämnhet**i webbläsaren material/karta. Med den här åtgärden läggs en **Normal ojämnhets** modifierare till på vårt material.
-
-* I den **normala ojämnhets** modifieraren klickar du på **Normal**, **ingen karta** och letar upp och läser in din normala-karta.
-
-* Kontrol lera att metoden är inställd på **tangens** (den bör vara som standard) och växla till **vänd grönt (Y)** om det behövs.
-
-![normal-ojämnhets ](media/3dsmax/normal-bump.jpg)
- ![ belastning – normal-karta](media/3dsmax/load-normal-map.jpg)
-
-Med vår normala karta tilldelad kan vi fortsätta att tilldela de återstående texturerna för att slutföra installationen av det fysiska materialet. Den här processen är en enkel process utan särskilda inställningar att tänka på. Följande bild visar en fullständig uppsättning texturer som tilldelats vårt material: ![ alla – texturer](media/3dsmax/all-textures.jpg)
-
-När ditt PBR-material har skapats och kon figurer ATS är det värt att tänka på instans objekt i din scen. Informerar liknande objekt i din scen – till exempel nötter, bultar, skruv spolar, i stort sett alla objekt som är desamma kan ge betydande besparingar i fil storlek. Instanser av ett huvud objekt kan ha sin egen skalning, rotation och transformering så att de kan placeras efter behov i din scen. I **3D Studio Max**är **indelnings** processen enkel.
-
-* I huvud visnings området väljer du de objekt/objekt som du vill exportera.
-
-* Håll **ned SKIFT** och dra till gångarna uppåt med verktyget Omforma (flytta) 
-
-* I dialog rutan **klonings alternativ** som öppnas anger du **objekt** till **instans** och klickar på **OK**. 
-![instans – objekt](media/3dsmax/instance-object.jpg)
-
-Den här åtgärden skapar en instans av objektet som kan flyttas roterat eller skalas oberoende av dess överordnade och andra instanser av den överordnade.
-
->[!IMPORTANT]
->Men eventuella ändringar som du gör i ett under objekts läge överförs till alla instanser av ditt objekt, så om du arbetar med ett instans objekt komponenter – hörn, är polygoner osv så att du vill att alla de här instanserna ska påverkas. Kom ihåg att alla instanser av objekt kan göras till ett unikt objekt när som helst. 
+>Alla ändringar du gör i en instans när du befinner dig i under objekts läge överförs till alla instanser av objektet. Så om du arbetar med ett instans objekts komponenter, t. ex. hörn och polygoner, måste du se till att du vill ha alla ändringar som du gör för att påverka alla instanser. Kom ihåg att alla instanser av objekt kan göras till ett unikt objekt när som helst. 
 
 >[!TIP]
->Bästa praxis när det gäller indelningen i din scen är att skapa dem när du går vidare, eftersom det är mycket svårt att ersätta **kopior** med instans objekt senare. 
+>När instans instansen i din scen är det en bra idé att skapa instanser när du går vidare. Det är svårt att ersätta kopior med instans objekt senare. 
 
-En slutlig sak att ta hänsyn till innan vi går vidare till export processen är hur du kanske vill paketera din scen/till gång för delning. Vi rekommenderar att du skickar till gången till en klient eller en grupp medlem om du vill att de ska kunna öppna och Visa till gången eftersom den bör ses med en minimal mängd du behöver. Det är därför viktigt att du behåller dina till gångs textur Sök vägar i förhållande till scen filen. Om textur Sök vägarna för din till gång pekar på en lokal enhet eller absolut sökväg/plats, kommer de inte att läsas in i scenen om de öppnas på en annan dator, även om **. Max** -filen sitter i samma mapp som texturerna. Att göra textur Sök vägarna relativa i 3D Studio Max löser problemet och är ganska enkelt.
+En slutlig sak att tänka på innan vi går vidare med export processen är hur du kanske vill paketera din scen/till gång för delning. Vi rekommenderar att om du skickar till gången till klienter eller grupp medlemmar vill du att de ska kunna öppna och Visa till gången eftersom den bör ses med en minimal mängd du behöver. Det är därför viktigt att hålla din till gångs textur Sök vägar i förhållande till scen filen. Om textur Sök vägarna för din till gångs plats till en lokal enhet eller absolut sökväg/plats, läses de inte in i scenen om de öppnas på en annan dator, även om. Max-filen finns i samma mapp som strukturerna. Att göra textur Sök vägarna relativa i 3ds Max löser problemet och är ganska enkelt.
 
-* I huvud verktygsfältet går du till **fil**  >  **referens**för  >  **till gångs spårning växla**. 
+1. I huvud verktygsfältet går du till **fil**  >  **referens**för  >  **till gångs spårning växla**. 
 
-* I webbläsaren till gångs spårning som öppnas visas alla eller de flesta texturer som du har tillämpat på ditt PBR-material som anges under kolumnen **Maps/shaders** .
+1. I fönstret till gångs spårning ser du alla eller de flesta texturer som du har tillämpat på ditt PBR-material som anges i kolumnen **Maps/shaders** .
 
-* Bredvid dem i kolumnen **fullständig sökväg** ser du fil Sök vägen till platsen för dina strukturer, vilket förmodligen är deras plats på den lokala datorn.
+1. Bredvid dem, i kolumnen **fullständig sökväg** , ser du sökvägen till texturens placering, förmodligen sökvägen till platsen på den lokala datorn.
 
-* Slutligen visas en kolumn med namnet **status**. Den här kolumnen visar om en specifik struktur har hittats och använts på din scen eller inte, och flaggar den här texturen med något av följande villkor **OK**, **found**eller **File saknas**. De två första visar att filen har hittats och lästs in, medan det sista, innebär att spåraren inte kunde hitta någon fil.
-![textur – sökvägar](media/3dsmax/texture-paths.jpg)
+1. Slutligen visas en kolumn med namnet **status**. Den här kolumnen anger om en specifik textur har hittats och använts på din scen. Den flaggar texturen med någon av följande villkor: **OK**, **hittades**eller **filen saknas**. De två första anger att filen har hittats och lästs in. Det sista uppenbart innebär att spåraren inte kunde hitta filen.
+ 
+   ![Skärm bild som visar fönstret till gångs spårning.](media/3dsmax/texture-paths.jpg)
 
-Du kanske märker att inte alla dina texturer visas i till gångs Spårare när du öppnar det första gången. Det finns inget som är bekymrat över, som att köras genom Sök vägs processen en gång eller två gånger hittar alla scen strukturer. Processen för att söka efter Sök vägar är följande: 
+Du kanske märker att inte alla dina texturer visas i fönstret till gångs spårning när du öppnar det första gången. Detta är inget som är bekymrat över. Att köra genom Sök vägs processen en gång eller två gånger, hittar du vanligt vis alla en scens texturer. Processen för att söka efter Sök vägar är följande: 
 
-* I fönstret till gångs Spårare **flyttar** + **du till** den översta texturen i listan **kartor/skuggningar** och fortsätter att hålla ned SKIFT-tangenten genom att klicka på den sista texturen i listan. Den här åtgärden markerar alla texturer i listan. De valda texturerna är nu markerade i blått (se bilden ovan).
+1. I fönstret till gångs spårning håller du ned **SKIFT** -tangenten och väljer den översta strukturen i listan **Maps/shaders** och fortsätter att hålla **SKIFT**och väljer den sista texturen i listan. Den här åtgärden markerar alla texturer i listan. De markerade texturerna är markerade i blått. (Se föregående skärm bild.)
 
-* Högerklicka på markeringen och i popup-menyn som öppnas, Välj **Ange sökväg**.
+1. Högerklicka på markeringen och välj **Ange sökväg**.
 
-* I rutan **Ange till gångs Sök väg** som öppnas, väljer du den lokala sökvägen till dina texturer och ersätter den med följande `.\` och klickar sedan på **OK**. 
+1. I rutan **Ange till gångs Sök väg** väljer du den lokala sökvägen till dina strukturer och ersätter den med `.\` .  Välj **OK**. 
 
-* Efter en tids period (som varierar beroende på hur många texturer som finns i din scen och på hur stor din scen är) bör till gångs spåraren lösa sig på följande sätt (se bilden).
-![Lös – texturer](media/3dsmax/resolve-textures.jpg)
+    Fönstret till gångs spårning uppdateras så som visas i följande skärm bild. Den här uppdateringen kan ta en stund, beroende på hur många strukturer som finns i din scen och på hur stor din scen är.
+![Screensthot som visar den uppdaterade till gångs spårnings fönstret.](media/3dsmax/resolve-textures.jpg)
 
-Observera att kolumnen **fullständig sökväg** nu är tom. Det innebär att scenen inte längre söker efter relevanta texturer på en angiven (absolut) plats, men kommer alltid att hitta dem så länge den maximala filen eller den relaterade FBX-filen placeras i samma mapp som texturerna. 
+Observera att kolumnen **fullständig sökväg** nu är tom. Det innebär att scenen inte längre söker efter relevanta texturer på en angiven (absolut) plats. Den hittar alltid dem så länge filen. Max eller relaterad FBX finns i samma mapp som strukturerna. 
 
 >[!NOTE]
->Ibland kan det hända att du måste upprepa den här processen några gånger för att hitta och lösa alla texturer och sökvägar. Detta är inget som är bekymrat till, bara upprepa tills alla relevanta till gångar redovisas. Det kan också vara fallet att vissa filer inte längre hittas. I det här fallet markerar du bara alla till gångar i listan och klickar på **ta bort saknade sökvägar** (se bilden ovan)
+>Du kanske måste upprepa den här processen ett par gånger för att hitta och lösa alla texturer och sökvägar. Detta är inget som är bekymrat över. Upprepa bara processen tills alla relevanta till gångar redovisas. I vissa fall hittas inte vissa filer. I så fall väljer du bara alla till gångar i listan och väljer sedan **ta bort saknade sökvägar**. (Se föregående bild.)
 
 ## <a name="fbx-export"></a>FBX-export
 
-När du har slutfört till gångs spårningen kan vi nu gå vidare till FBX-exporten. Processen är återigen enkel och kan göras på ett par olika sätt. 
+Nu när vi har gjort textur Sök vägarna relativa kan vi gå vidare till FBX-exporten. Processen är återigen enkel och du kan göra det på ett par olika sätt. 
 
 >[!TIP]
->Det är en bra idé att om du inte vill exportera hela scenen väljer du endast för att exportera de till gångar som behövs. I synnerhet resurs intensiva scener kan exporten ta lång tid, så det är klokt att bara exportera det du behöver
+>Om du inte vill exportera hela scenen är det en bra idé att välja endast för att exportera de till gångar som du behöver. Vid resurs krävande scener kan exporten ta lång tid.
 >
->Om du har använt modifierare som t. ex. **Turbosmooth** eller **Öppna SubDiv** osv som du döljer dem innan du exporterar som de kan orsaka problem under exporten. Spara alltid din scen innan du gör detta! 
+>Om du har använt modifierare som Turbosmooth eller Open SubDiv, är det en bra idé att komprimera dem innan du exporterar eftersom de kan orsaka problem under exporten. Se till att spara din scen innan du döljer dem. 
 
-* I scenen väljer du de till gångar som du vill exportera och i huvud verktygsfältet går du till **fil**  >  **export**  >  **export vald**
+1. I scenen väljer du de resurser som du vill exportera. I huvud verktygsfältet går du till **fil**  >  **export**  >  **export vald**.
 
-* I dialog rutan **Välj fil som ska exporteras** skriver eller väljer du namn på utdatafil och i alternativet för att **Spara som typ** väljer du **Autodesk (*. FBX)**. Den här åtgärden öppnar FBX-export-menyn. 
+1. I dialog rutan **Välj fil som ska exporteras** skriver eller väljer du ett namn på utdatafilen. I listan **fil format** väljer du **Autodesk (*. FBX)**. Den här åtgärden öppnar export fönstret för FBX.
 
-* Kom ihåg att om du har skapat instanser i din scen är det viktigt att **bevara instanser** är aktiverade i FBX export inställningar. 
-![FBX – exportera](media/3dsmax/fbx-export.jpg)
+  >[!IMPORTANT] 
+  >Om du har skapat instanser i din scen är det viktigt att välja **bevara instanser** i export inställningarna för FBX. 
 
-Kom ihåg att tidigare nämnde att det fanns ett par olika sätt att exportera filen. Om avsikten med exporten är att FBX ska delas tillsammans med dess texturer-filer i en mapp/katalog, bör inställningarna som visas i bilden nedan gälla och fungerar bra. När du har valt inställningarna klickar du på **OK**.
-![FBX – inställningar](media/3dsmax/fbx-settings.jpg)
+  ![Skärm bild som visar hur du exporterar till FBX.](media/3dsmax/fbx-export.jpg)
 
-Men om du föredrar att inte dela stora mappar/kataloger med texturer tillsammans med FBX kan du välja att **bädda** in texturerna i FBX. Det innebär att hela till gångs texturer ingår – kommer att läggas till i en enda FBX. Tänk på att om du kombinerar din export till en enda till gång så blir FBX-filen betydligt större.
+  Kom ihåg att det finns ett par olika sätt att exportera filen. Om avsikten är att dela FBX tillsammans med dess textur-filer i en mapp/katalog, bör inställningarna som visas i följande skärm bild fungera bra. 
 
->[!IMPORTANT]
->Om din resultat FBX-fil är större än 2,4 GB, ska den lägsta versionen av FBX-export inställningarna (se ovan) vara 2016 eller senare. Eftersom nyare versioner har 64-bitars stöd och därmed stöder större filer.
+   Om du inte vill dela stora mappar/kataloger med texturer tillsammans med FBX kan du välja att bädda in texturerna i FBX. Om du bäddar in texturerna läggs hela till gången, inklusive texturer, till i en enda FBX. Detta kombinerar din export till en enda till gång, men FBX-filen kommer att bli betydligt större.
 
-* I export inställningarna för FBX växlar du till * * Inbäddnings medium och klickar sedan på **OK** för att exportera med texturer som ingår. 
+   >[!IMPORTANT]
+   >Om den resulterande FBX-filen är större än 2,4 GB ska den lägsta version som anges i export inställningarna för FBX vara 2016 eller senare. (Se föregående skärm bild.) Nyare versioner har stöd för 64 bitar, så de har stöd för större filer.
 
-När du exporterar till FBX när du använder det fysiska materialet visas förmodligen följande varnings fönster när du klickar på OK i dialog rutan exportera: ![ Exportera – varningar](media/3dsmax/export-warnings.jpg)
+1. Om du vill exportera scenen med texturer som ingår väljer du **bädda in media**i fönstret * FBX export. 
 
-Den här varningen informerar bara användaren om att de exporterade materialen kanske inte är kompatibla med andra program varu paket. Eftersom det fysiska materialet är kompatibelt med Azure fjärrrendering är det inget att bekymra dig om. Klicka bara på **OK** för att slutföra processen och Stäng fönstret.
+1. Välj resten av inställningarna och välj sedan **OK**:
+
+    ![Skärm bild som visar export inställningarna för FBX.](media/3dsmax/fbx-settings.jpg)
+
+
+   När du exporterar till FBX när du använder ett fysiskt material ser du förmodligen följande varning när du har valt **OK** i fönstret FBX export: 
+
+   ![Skärm bild som visar att det inte gick att exportera material](media/3dsmax/export-warnings.jpg)
+
+   Den här varningen anger att det exporterade materialet kanske inte är kompatibelt med andra program varu paket. Eftersom det fysiska materialet är kompatibelt med Azure-fjärrrendering behöver du inte bekymra dig om den här varningen. 
+
+1. Klicka på **OK** för att slutföra processen och Stäng fönstret.
 
 ## <a name="conclusion"></a>Slutsats
 
@@ -208,7 +229,7 @@ I allmänhet ser den här typen av material mer realistisk eftersom den baseras 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu vet du hur du konfigurerar material med avancerad belysning för objekt i en scen. Du vet också hur du exporterar objekten till FBX-format som stöds av Azure Remote rendering. Nästa steg är att konvertera FBX-filen och visualisera den i Azure Remote rendering.
+Nu vet du hur du konfigurerar material med avancerad belysning för objekt i en scen. Du vet också hur du exporterar objekt till FBX-format, som stöds av Azure Remote rendering. Nästa steg är att konvertera FBX-filen och visualisera den i Azure Remote rendering.
 
 >[!div class="nextstepaction"]
 >[Snabb start: konvertera en modell för åter givning](../../quickstarts\convert-model.md)

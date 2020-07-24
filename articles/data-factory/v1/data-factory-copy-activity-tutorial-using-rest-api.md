@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3007aa1fab8797d77e1edde83f22e359196641cc
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 91a92f9dd0eaf55b8ba35f38102ee30b8cda4bfa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85248589"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053811"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Självstudier: Använd REST API för att skapa ett Azure Data Factory-pipeline för att kopiera data 
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra 
 >  
 > Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Självstudie: Bygg en pipeline för att omvandla data med Hadoop-kluster).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -57,7 +57,7 @@ En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra 
   2. Hämta ett **klient-ID** och en **hemlig nyckel**. 
   3. Hämta **klient-ID**. 
   4. Tilldela **ADFCopyTutorialApp**-programmet rollen som **Data Factory-deltagare**.  
-* Installera [Azure PowerShell](/powershell/azure/overview).  
+* Installera [Azure PowerShell](/powershell/azure/).  
 * Starta **PowerShell** och kör följande kommando. Låt Azure PowerShell vara öppet tills du är klar med självstudien. Om du stänger och öppnar det igen måste du köra kommandona en gång till.
   
   1. Kör följande kommando och ange det användarnamn och lösenord som du använder för att logga in på Azure-portalen:

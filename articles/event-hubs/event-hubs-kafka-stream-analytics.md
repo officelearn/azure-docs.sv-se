@@ -3,12 +3,12 @@ title: Azure Event Hubs process Apache Kafka händelser
 description: 'Självstudie: den här artikeln visar hur du bearbetar Kafka-händelser som matas in via Event Hub med hjälp av Azure Stream Analytics'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 8fbc1ae326cc75603f5a86361e4bc79ecc461fd6
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 6dfca5b476dff1ee3367b5365c15869c8cff819b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85313264"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074918"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Självstudie: bearbeta Apache Kafka för Event Hubs händelser med Stream Analytics 
 Den här artikeln visar hur du strömmar data till Event Hubs och bearbetar dem med Azure Stream Analytics. Det vägleder dig genom följande steg: 
@@ -20,7 +20,7 @@ Den här artikeln visar hur du strömmar data till Event Hubs och bearbetar dem 
 Du behöver inte ändra protokoll klienter eller köra egna kluster när du använder Kafka-slutpunkten som exponeras av en Event Hub. Azure Event Hubs stöder [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html) och senare. 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här snabbstarten behöver du följande:
 
@@ -129,7 +129,7 @@ Frågan i Stream Analyticss jobbet passerar data utan att utföra någon analys.
  
 
 ### <a name="define-a-query"></a>Definiera en fråga
-När du har en Stream Analytics-jobbkonfiguration för att läsa en inkommande dataström är nästa steg att skapa en omvandling som analyserar data i realtid. Du definierar transformationsfrågan med [Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). I den här genom gången definierar du en fråga som passerar data utan att utföra någon omvandling.
+När du har en Stream Analytics-jobbkonfiguration för att läsa en inkommande dataström är nästa steg att skapa en omvandling som analyserar data i realtid. Du definierar transformationsfrågan med [Stream Analytics-frågespråket](/stream-analytics-query/stream-analytics-query-language-reference). I den här genom gången definierar du en fråga som passerar data utan att utföra någon omvandling.
 
 1. Välj **fråga**.
 2. Ersätt `[YourOutputAlias]` med det kolumnalias som du skapade tidigare i frågefönstret.

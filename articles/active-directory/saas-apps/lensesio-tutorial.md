@@ -15,29 +15,30 @@ ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fa73253c49f49647d3415340b2601f1395f912c
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c2b630111261be8e3615ab45e95633040e799551
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172827"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050993"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lensesio"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Lenses.io
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-the-lensesio-dataops-portal"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Lenses.io DataOps-portalen.
 
-I den här självstudien får du lära dig hur du integrerar Lenses.io med Azure Active Directory (Azure AD). När du integrerar Lenses.io med Azure AD kan du:
+I den här självstudien får du lära dig att integrera [lenses.io](https://lenses.io/) DataOps-portalen med Azure Active Directory (Azure AD). När du integrerar Lenses.io med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till Lenses.io.
-* Gör det möjligt för användarna att logga in automatiskt till Lenses.io med sina Azure AD-konton.
+* Kontroll i Azure AD som har åtkomst till Lenses.io-portalen.
+* Gör det möjligt för användarna att logga in automatiskt till linser med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* Lenses.io för enkel inloggning (SSO) aktive rad.
+* En instans av en linser-Portal. Du kan distribuera en linser-Portal på [olika sätt](https://lenses.io/product/deployment/).
+* En Lenses.io- [licens](https://lenses.io/product/pricing/) som stöder enkel inloggning (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -61,15 +62,15 @@ Om du vill konfigurera integreringen av Lenses.io i Azure AD måste du lägga ti
 
 ## <a name="configure-and-test-azure-ad-sso-for-lensesio"></a>Konfigurera och testa Azure AD SSO för Lenses.io
 
-Konfigurera och testa Azure AD SSO med Lenses.io med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Lenses.io.
+Konfigurera och testa Azure AD SSO med Lenses.io-portalen med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Lenses.io.
 
 Om du vill konfigurera och testa Azure AD SSO med Lenses.io, slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Skapa en Azure AD-testanvändare och grupp](#create-an-azure-ad-test-user-and-group)** – för att testa enkel inloggning med Azure AD med B. Simon.
     1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 1. **[Konfigurera LENSES.io SSO](#configure-lensesio-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-    1. **[Skapa lenses.io test User](#create-lensesio-test-user)** -om du vill ha en motsvarighet till B. Simon i lenses.io som är länkad till Azure AD-representation av användare.
+    1. **[Skapa lenses.io test Group-behörigheter](#create-lensesio-test-group-permissions)** – för att kontrol lera vad B. Simon ska ha åtkomst till i lenses.IO (auktorisering).
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
@@ -84,26 +85,26 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<CUSTOMER_LENSES_BASE_URL>`
+    a. I text rutan **inloggnings-URL** skriver du en URL med följande mönster: `https://<CUSTOMER_LENSES_BASE_URL>` t. ex.`https://lenses.my.company.com`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<CUSTOMER_LENSES_BASE_URL>`
+    b. I text rutan **identifierare (enhets-ID)** anger du en URL med följande mönster: `https://<CUSTOMER_LENSES_BASE_URL>` t. ex.`https://lenses.my.company.com`
 
     c. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<CUSTOMER_LENSES_BASE_URL>/api/v2/auth/saml/callback?client_name=SAML2Client`
+    otillräcklig.`https://lenses.my.company.com/api/v2/auth/saml/callback?client_name=SAML2Client`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska inloggnings-URL: en, svars-URL och identifierare. Kontakta [lenses.io client support team](mailto:support@lenses.io) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska inloggnings-URL: en, svars-URL och identifierare, baserat på bas-URL: en för din linser-Portal instans. Du hittar mer information i [LENSES.io SSO-dokumentationen](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0).
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-1. I avsnittet **konfigurera lenses.io** kopierar du lämpliga URL: er baserat på ditt krav.
+1. I avsnittet **konfigurera lenses.io** använder du XML-filen ovan för att konfigurera linser mot din Azure SSO.
 
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+### <a name="create-an-azure-ad-test-user-and-group"></a>Skapa en Azure AD-test användare och-grupp
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
-
-I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon. Du kommer också att skapa en test grupp för B. Simon som ska användas för att kontrol lera vilka Access B. Simon som har i linser.
+Du kan ta reda på hur linser använder mappning av grupp medlemskap för auktorisering i [SSO-dokumentationen för linser](https://docs.lenses.io/install_setup/configuration/security.html#id3)
 
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
 1. Välj **ny användare** överst på skärmen.
@@ -112,6 +113,23 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
    1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
+
+Så här skapar du gruppen:
+1. Gå tillbaka till **Azure Active Directory**, Välj **grupper**
+1. Välj **ny grupp** överst på skärmen.
+1. I **grupp egenskaperna**följer du dessa steg:
+   1. I fältet **typ av grupp** väljer du `Security` .
+   1. I fältet **grupp namn** anger du`LensesUsers`
+   1. Klicka på **Skapa**.
+1. Välj gruppen `LensesUsers` och anteckna **objekt-ID** (t. ex. `f8b5c1ec-45de-4abd-af5c-e874091fb5f7` ). Detta ID kommer att användas i linser för att mappa användare av gruppen till [rätt behörigheter](https://docs.lenses.io/install_setup/configuration/security.html#id3).  
+   
+Så här tilldelar du gruppen till test användaren: 
+1. Gå tillbaka till **Azure Active Directory**och välj **användare**.
+1. Välj test användare `B.Simon` .
+1. Välj **grupper**.
+1. Välj **Lägg till medlemskap** överst på skärmen.
+1. Sök efter `LensesUsers` och markera det.
+1. Klicka på **Välj**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
@@ -133,19 +151,23 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-lensesio-sso"></a>Konfigurera Lenses.io SSO
 
-Om du vill konfigurera enkel inloggning på **lenses.io** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för lenses.io](mailto:support@lenses.io). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **lenses.io** -portalen installerar du den hämtade **XML-koden för federationsmetadata** på objektiv-instansen och [konfigurerar objektiv för att aktivera SSO](https://docs.lenses.io/install_setup/configuration/security.html#configure-lenses). 
 
-### <a name="create-lensesio-test-user"></a>Skapa Lenses.io test användare
+### <a name="create-lensesio-test-group-permissions"></a>Skapa Lenses.io test Group-behörigheter
 
-I det här avsnittet skapar du en användare som heter Britta Simon i Lenses.io. Arbeta med [lenses.io support team](mailto:support@lenses.io) för att lägga till användare i lenses.io-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en grupp i linser med **objekt-ID: t** för den `LensesUsers` grupp som vi noterade i [avsnittet](#create-an-azure-ad-test-user-and-group)om att skapa användare.
+Du tilldelar önskade behörigheter som `B.Simon` ska ha i linser.
+Du hittar mer information om [grupp mappningen för Azure-linser](https://docs.lenses.io/install_setup/configuration/security.html#azure-groups).
 
 ## <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Lenses.io på åtkomst panelen, bör du loggas in automatiskt på den Lenses.io som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Lenses.io på åtkomst panelen, bör du loggas in automatiskt på din Lenses.io-portal som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
+
+- [Konfigurera SSO i din Lenses.io-instans](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0)
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

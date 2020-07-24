@@ -1,5 +1,5 @@
 ---
-title: Självstudie`:` Använd en hanterad identitet för att komma åt Azure Key Vault-Windows-Azure AD
+title: Självstudie `:` Använd en hanterad identitet för att komma åt Azure Key Vault-Windows-Azure AD
 description: En självstudie som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Windows-dator för att få åtkomst till Azure Key Vault.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd9f85e3bfd11ee655ce581c60a5b65e13f4497b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7648f0c41731968c6cf8d2b2b2e55fffd9b5f53d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75971812"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018782"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Key Vault 
 
@@ -35,7 +35,7 @@ Lär dig att:
 > * Ge din virtuella dator åtkomst till en hemlighet som lagras i Key Vault 
 > * Få ett åtkomsttoken med hjälp av den virtuella datorns identitet och använd den när du hämtar hemligheten från Key Vault 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -52,7 +52,7 @@ I det här avsnittet visas hur du beviljar din VM-åtkomst till en hemlighet som
 
 Börja med att skapa ett Key Vault och bevilja den virtuella datorns systemtilldelade hanterade identitet åtkomst till Key Vault.   
 
-1. Längst upp i det vänstra navigerings fältet väljer du **skapa en resurs** > **säkerhet och identitet** > **Key Vault**.  
+1. Längst upp i det vänstra navigerings fältet väljer du **skapa en resurs**  >  **säkerhet och identitet**  >  **Key Vault**.  
 2. Ange ett **namn** för det nya Key Vault. 
 3. Leta upp Key Vault i samma prenumerations- och resursgrupp som den virtuella dator du skapade tidigare. 
 4. Välj **Åtkomstprinciper** och klicka på **Lägg till**. 
@@ -75,7 +75,7 @@ Lägg sedan till en hemlighet i Key Vault, så att du senare kan hämta hemlighe
  
 ## <a name="access-data"></a>Åtkomst till data  
 
-Det här avsnittet visar hur du hämtar en åtkomsttoken med hjälp av den virtuella datorns identitet och hur du hämtar hemligheten från Key Vault. Om du inte har PowerShell 4.3.1 eller senaste installerat måste du [ladda ned och installera den senaste versionen](https://docs.microsoft.com/powershell/azure/overview).
+Det här avsnittet visar hur du hämtar en åtkomsttoken med hjälp av den virtuella datorns identitet och hur du hämtar hemligheten från Key Vault. Om du inte har PowerShell 4.3.1 eller senaste installerat måste du [ladda ned och installera den senaste versionen](https://docs.microsoft.com/powershell/azure/).
 
 Först måste vi använda den virtuella datorns systemtilldelade hanterade identitet för att få ett åtkomsttoken och autentisera mot Key Vault:
  

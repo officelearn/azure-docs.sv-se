@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 9c07db575827254de833fc0b2390be823ebc4e57
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bd1c41f23164d8dda2712ef2c361498cdaed6105
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206546"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032312"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Bygg ut en lösning från slut punkt till slut punkt
 
@@ -26,6 +26,9 @@ I den här självstudien kommer du att...
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+### <a name="set-up-cloud-shell-session"></a>Konfigurera Cloud Shell-session
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
 
 [!INCLUDE [Azure Digital Twins tutorial: configure the sample project](../../includes/digital-twins-tutorial-sample-configure.md)]
@@ -433,7 +436,7 @@ Slutligen tar du bort exempel mappen Project som du laddade ned från den lokala
 I den här självstudien har du skapat ett scenario från slut punkt till slut punkt som visar att Azure Digitals dubbla enheter drivs av direktsänd enhets data.
 
 Börja sedan titta på begrepps dokumentationen för att lära dig mer om element som du har arbetat med i självstudien:
-* [Begrepp: anpassade modeller](concepts-models.md)
+* [*Begrepp: anpassade modeller*](concepts-models.md)
 
 Du kan också gå djupare med processerna i den här självstudien genom att starta instruktions artiklar:
-* [Anvisningar: använda Azure Digitals flätat CLI](how-to-use-cli.md)
+* [*Anvisningar: använda Azure Digitals flätat CLI*](how-to-use-cli.md)

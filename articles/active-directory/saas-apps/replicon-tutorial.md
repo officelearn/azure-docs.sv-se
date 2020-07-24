@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b27615b0c76b5c23bbc79788431b0e909b8bf22a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 84a93d4fb8a6a3890ddd2c94b4f0a5c9114bd84d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67092771"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058202"
 ---
 # <a name="tutorial-integrate-replicon-with-azure-active-directory"></a>Självstudie: integrera Replicon med Azure Active Directory
 
@@ -33,12 +33,15 @@ I den här självstudien får du lära dig hur du integrerar Replicon med Azure 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få en månads kostnads fri utvärderings version [här](https://azure.microsoft.com/pricing/free-trial/).
 * Replicon för enkel inloggning (SSO) aktive rad.
+
+> [!NOTE]
+> Den här integreringen är också tillgänglig för användning från Azure AD amerikanska myndigheters moln miljö. Du hittar det här programmet i Cloud App-galleriet för Azure AD amerikanska myndigheter och konfigurerar det på samma sätt som du gör från det offentliga molnet.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -113,9 +116,9 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     * Följande visar schemat för den fullständiga URL: en:`https://na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
 
-   b. Klicka på **+** alternativet för att expandera **v20Configuration** -avsnittet.
+   b. Klicka på alternativet **+** för att expandera **v20Configuration** -avsnittet.
 
-   c. Klicka på **+** alternativet för att expandera **metaDataConfiguration** -avsnittet.
+   c. Klicka på alternativet **+** för att expandera **metaDataConfiguration** -avsnittet.
 
    d. Välj **SHA256** för xmlSignatureAlgorithm
 
@@ -129,7 +132,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `BrittaSimon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `BrittaSimon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -171,7 +174,7 @@ Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i 
 
     ![Användarprofil](./media/replicon-tutorial/ic777808.png "Användarprofil")
 
-    a. I text rutan **inloggnings namn** skriver du in Azure AD-e-postadressen för den Azure AD- `B.Simon@contoso.com`användare som du vill etablera.
+    a. I text rutan **inloggnings namn** skriver du in Azure AD-e-postadressen för den Azure AD-användare som du vill etablera `B.Simon@contoso.com` .
 
     > [!NOTE]
     > Inloggnings namnet måste matcha användarens e-postadress i Azure AD

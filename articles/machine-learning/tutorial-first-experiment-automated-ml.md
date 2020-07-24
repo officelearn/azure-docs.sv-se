@@ -9,18 +9,21 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 03/04/2020
-ms.openlocfilehash: cca09f53f90b43713c2b9b764568fb0a6d157c5d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 07/10/2020
+ms.openlocfilehash: d11df9bae954dc654e22157639b74e5ca2363494
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118965"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047813"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Självstudie: skapa en klassificerings modell med automatiserad ML i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-I den här självstudien får du lära dig hur du skapar en grundläggande klassificerings modell utan att skriva en enda rad kod med hjälp av Azure Machine Learnings automatiserade Machine Learning-gränssnittet. Den här klassificerings modellen förutsäger om en klient kommer att prenumerera på en fast term insättning med ett finansiellt institut.
+I den här självstudien får du lära dig hur du skapar en grundläggande klassificerings modell utan att skriva en enda rad kod med hjälp av automatisk maskin inlärning i Azure Machine Learning Studio. Den här klassificerings modellen förutsäger om en klient kommer att prenumerera på en fast term insättning med ett finansiellt institut.
+
+>[!IMPORTANT]
+> Den automatiserade maskin inlärnings upplevelsen i Azure Machine Learning Studio är i för hands version. Vissa funktioner kanske inte stöds eller har begränsade funktioner.
 
 Med automatisk maskin inlärning kan du automatisera tids krävande uppgifter. Automatisk maskin inlärning itererar snabbt över många kombinationer av algoritmer och egenskaper för att hjälpa dig att hitta den bästa modellen utifrån ett lyckat mått på hur du väljer.
 
@@ -36,26 +39,26 @@ I den här självstudien får du lära dig hur du utför följande uppgifter:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree).
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLFree).
 
-* Ladda ned data filen [**bankmarketing_train. csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) . **Y** -kolumnen visar om en kund prenumererar på en fast term insättning, som senare identifieras som mål kolumn för förutsägelser i den här självstudien. 
+* Hämta [**bankmarketing_train.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) data filen. **Y** -kolumnen visar om en kund prenumererar på en fast term insättning, som senare identifieras som mål kolumn för förutsägelser i den här självstudien. 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
 En Azure Machine Learning arbets yta är en grundläggande resurs i molnet som du använder för att experimentera, träna och distribuera maskin inlärnings modeller. Den binder din Azure-prenumeration och resurs grupp till ett enkelt förbrukat objekt i tjänsten. 
 
-Du skapar en arbets yta via Azure Portal, en webbaserad konsol för att hantera dina Azure-resurser.
+Skapa en **Enterprise Edition** -arbetsyta via Azure Portal, en webbaserad konsol för att hantera dina Azure-resurser.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 >[!IMPORTANT] 
 > Anteckna din **arbets yta** och din **prenumeration**. Du behöver dessa för att se till att du skapar experimentet på rätt plats. 
 
-## <a name="create-and-run-the-experiment"></a>Skapa och kör experimentet
+## <a name="get-started-in-azure-machine-learning-studio"></a>Kom igång i Azure Machine Learning Studio
 
-Du har slutfört följande experiment med att ställa in och köra steg via Azure Machine Learning på https://ml.azure.com , ett konsoliderat webb gränssnitt som innehåller maskin inlärnings verktyg för att utföra data vetenskaps scenarier för utbildnings nivåer för data vetenskap. Det här gränssnittet stöds inte i Internet Explorer-webbläsare.
+Du har slutfört följande experiment med att ställa in och köra steg via Azure Machine Learning Studio på https://ml.azure.com , ett konsoliderat webb gränssnitt som innehåller maskin inlärnings verktyg för att utföra data vetenskaps scenarier för utbildning av data vetenskap för alla färdighets nivåer. Studio stöds inte i Internet Explorer-webbläsare.
 
-1. Logga in på [Azure Machine Learning](https://ml.azure.com).
+1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Välj din prenumeration och arbets ytan du skapade.
 
@@ -67,7 +70,11 @@ Du har slutfört följande experiment med att ställa in och köra steg via Azur
 
    ![Sidan Kom igång](./media/tutorial-first-experiment-automated-ml/get-started.png)
 
-1. Välj **ny automatisk ml-körning**. 
+1. Välj **+ ny automatiserad ml-körning**. 
+
+## <a name="create-and-load-dataset"></a>Skapa och läsa in data uppsättning
+
+Innan du konfigurerar experimentet laddar du upp data filen till din arbets yta i form av en Azure Machine Learning data uppsättning. På så sätt kan du se till att dina data formateras korrekt för experimentet.
 
 1. Skapa en ny data uppsättning genom att välja **från lokala filer** från List rutan **+ skapa data uppsättning** . 
 
@@ -79,7 +86,7 @@ Du har slutfört följande experiment med att ställa in och köra steg via Azur
 
     1. Välj **Bläddra**.
     
-    1. Välj **bankmarketing_train. csv** -filen på den lokala datorn. Det här är den fil som du laddade ned som en [förutsättning](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
+    1. Välj **bankmarketing_train.csv** -filen på den lokala datorn. Det här är den fil som du laddade ned som en [förutsättning](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
 
     1. Ge din data uppsättning ett unikt namn och ange en valfri beskrivning. 
 
@@ -91,35 +98,45 @@ Du har slutfört följande experiment med att ställa in och köra steg via Azur
         
         Fält|Beskrivning| Värde för självstudier
         ---|---|---
-        Fil format|Definierar layout och typ av data som lagras i en fil.| Avgränsade
+        Filformat|Definierar layout och typ av data som lagras i en fil.| Avgränsade
         Avgränsare|Ett eller flera tecken för att ange avgränsningen mellan &nbsp; separata, oberoende regioner i oformaterad text eller andra data strömmar. |Komma
         Kodning|Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.| UTF-8
         Kolumnrubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.| Alla filer har samma rubriker
-        Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Inga
+        Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Ingen
 
     1. Med hjälp av **schema** formuläret kan du ytterligare konfigurera dina data för det här experimentet. I det här exemplet väljer du växlings växeln för **day_of_week** -funktionen, så att den inte inkluderas för det här experimentet. Välj **Nästa**.
 
         ![Konfiguration av fliken för hands version](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
 
-    1. I formuläret **bekräfta information** kontrollerar du att informationen stämmer överens med den **grundläggande informationen** och **inställningarna och för hands** formulären.
+    1. I formuläret **bekräfta information** kontrollerar du att informationen stämmer överens med den **grundläggande informationen, data lagret och fil val** och **Inställningar och för hands** formulär.
+    
     1. Klicka på **skapa** för att slutföra skapandet av din data uppsättning.
+    
     1. Välj din data uppsättning när den visas i listan.
+    
     1. Granska **data förhands granskningen** för att se till att du inte har inkluderat **day_of_week** Välj **OK**.
 
     1. Välj **Nästa**.
+
+## <a name="configure-experiment-run"></a>Konfigurera experiment körning
+
+När du har läst in och konfigurerat dina data kan du konfigurera experimentet. Den här installationen innehåller experiment design uppgifter, till exempel, hur du väljer storlek på din beräknings miljö och hur du anger vilken kolumn som du vill förutsäga. 
 
 1. Fyll i formuläret **Konfigurera körning** enligt följande:
     1. Ange följande experiment namn:`my-1st-automl-experiment`
 
     1. Välj **y** som mål kolumn, vad du vill förutsäga. Den här kolumnen visar om klienten prenumererar på en term insättning eller inte.
+    
     1. Välj **skapa en ny beräkning** och konfigurera beräknings målet. Ett beräknings mål är en lokal eller molnbaserad resurs miljö som används för att köra ditt utbildnings skript eller som värd för tjänst distributionen. För det här experimentet använder vi en molnbaserad beräkning. 
 
         Fält | Beskrivning | Värde för självstudier
         ----|---|---
         Compute-namn |Ett unikt namn som identifierar din beräknings kontext.|automl – beräkning
+        Typ av virtuell &nbsp; dator &nbsp;| Välj typ av virtuell dator för din beräkning.|PROCESSOR (Central bearbetnings enhet)
         &nbsp; &nbsp; Storlek på virtuell dator| Välj storlek på den virtuella datorn för din beräkning.|Standard_DS12_V2
-        Min/max-noder (i avancerade inställningar)| Du måste ange 1 eller fler noder för att kunna profilera data.|Minsta antal noder: 1<br>Max noder: 6
-  
+        Min/högsta antal noder| Du måste ange 1 eller fler noder för att kunna profilera data.|Minsta antal noder: 1<br>Max noder: 6
+        Inaktiva sekunder innan skalning | Inaktivitetstid innan klustret skalas automatiskt ned till lägsta antal noder.|120 (standard)
+        Avancerade inställningar | Inställningar för att konfigurera och auktorisera ett virtuellt nätverk för experimentet.| Ingen
         1. Välj **skapa** för att hämta beräknings målet. 
 
             **Det tar några minuter att slutföra.** 
@@ -128,18 +145,17 @@ Du har slutfört följande experiment med att ställa in och köra steg via Azur
 
     1. Välj **Nästa**.
 
-1. I formuläret **uppgifts typ och inställningar** väljer du **klassificering** som typ av Machine Learning-aktivitet.
+1. I formuläret **uppgifts typ och inställningar** slutför du installationen för ditt AUTOMATISERAde ml-experiment genom att ange aktivitets typ och konfigurations inställningar för Machine Learning.
+    
+    1.  Välj **klassificering** som typ av Machine Learning-aktivitet.
 
     1. Välj **Visa ytterligare konfigurations inställningar** och fyll i fälten enligt följande. De här inställningarna är för att bättre styra utbildnings jobbet. Annars tillämpas standardvärdena utifrån experiment val och data.
 
-        >[!NOTE]
-        > I den här självstudien får du inte ange mått poäng eller Max kärnor per upprepnings tröskel. Du kan inte heller blockera algoritmer från att testas.
-   
         Ytterligare &nbsp; konfigurationer|Beskrivning|Värde &nbsp; för &nbsp; självstudier
         ------|---------|---
         Primärt mått| Bedömnings mått som ska mätas av Machine Learning-algoritmen.|AUC_weighted
-        Automatisk funktionalisering| Aktiverar för bearbetning. Detta inkluderar automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner.| Aktivera
-        Blockerade algoritmer | Algoritmer som du vill undanta från utbildnings jobbet| Inga
+        Förklara bästa modell| Visar automatiskt förklaringar för den bästa modellen som skapats av automatisk ML.| Aktivera
+        Blockerade algoritmer | Algoritmer som du vill undanta från utbildnings jobbet| Ingen
         Avslutnings kriterium| Om ett villkor uppfylls stoppas utbildnings jobbet. |Utbildnings &nbsp; jobb &nbsp; tid (timmar): 1 <br> Mått &nbsp; poängs &nbsp; tröskel: ingen
         Validering | Välj en kors validerings typ och antalet tester.|Validerings typ:<br>&nbsp;k-vikning &nbsp; kors validering <br> <br> Antal valideringar: 2
         Samtidighet| Maximalt antal parallella iterationer som utförs per iteration| Max &nbsp; . antal samtidiga &nbsp; iterationer: 5
@@ -161,7 +177,7 @@ Gå till fliken **modeller** om du vill se vilka algoritmer (modeller) som har t
 
 Medan du väntar på att alla experiment modeller ska slutföras väljer du **algoritmens namn** för en slutförd modell för att utforska dess prestanda information. 
 
-Följande navigerar i flikarna **modell information** och **visualiseringar** för att visa den valda modellens egenskaper, mått och prestanda diagram. 
+Följande navigerar via flikarna **information** och **mått** för att visa den valda modellens egenskaper, mått och prestanda diagram. 
 
 ![Kör upprepnings information](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 
@@ -171,11 +187,15 @@ Med det automatiserade Machine Learning-gränssnittet kan du distribuera den bä
 
 För det här experimentet innebär distribution till en webb tjänst att finans Institutet nu har en iterativ och skalbar webb lösning för att identifiera potentiella fasta, långsiktiga kunder. 
 
-När körningen är klar går du tillbaka till sidan **körnings information** och väljer fliken **modeller** .
+Kontrol lera om experiment körningen är klar. Det gör du genom att gå tillbaka till den överordnade körnings sidan genom att välja **Kör 1** överst på skärmen. En **slutförd** status visas längst upp till vänster på skärmen. 
 
-I den här experiment kontexten betraktas **VotingEnsemble** som den bästa modellen, baserat på **AUC_weighted** mått.  Vi distribuerar den här modellen, men vi rekommenderar att distributionen tar ungefär 20 minuter att slutföra. Distributions processen innehåller flera steg som att registrera modellen, generera resurser och konfigurera dem för webb tjänsten.
+När experimentet har slutförts fylls sidan **information** i med ett avsnitt för **bästa modell Sammanfattning** . I den här experiment kontexten betraktas **VotingEnsemble** som den bästa modellen, baserat på **AUC_weighted** mått.  
 
-1. Välj knappen **distribuera bästa modell** i det nedre vänstra hörnet.
+Vi distribuerar den här modellen, men vi rekommenderar att distributionen tar ungefär 20 minuter att slutföra. Distributions processen innehåller flera steg som att registrera modellen, generera resurser och konfigurera dem för webb tjänsten.
+
+1. Välj **VotingEnsemble** för att öppna den aktuella sidan.
+
+1. Välj knappen **distribuera** längst upp till vänster.
 
 1. Fyll i fönstret **distribuera en modell** enligt följande:
 
@@ -191,7 +211,7 @@ I den här experiment kontexten betraktas **VotingEnsemble** som den bästa mode
 
 1. Välj **Distribuera**.  
 
-    Ett grönt meddelande visas längst upp på skärmen **Kör** och i fönstret för **Rekommenderad modell** visas ett status meddelande under **distributions status**. Välj **Uppdatera** regelbundet för att kontrol lera distributions statusen.
+    Ett grönt meddelande visas längst upp på skärmen **Kör** och i fönstret **modell Sammanfattning** visas ett status meddelande under **distributions status**. Välj **Uppdatera** regelbundet för att kontrol lera distributions statusen.
     
 Nu har du en fungerande webb tjänst för att generera förutsägelser. 
 

@@ -6,12 +6,13 @@ ms.topic: tutorial
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
-ms.openlocfilehash: ca889e48510ec20b4823c6ec5e4e0149d5aaaa62
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: devx-track-java
+ms.openlocfilehash: edbb3c1b2ed3e696c304f72c7b40fa926cae2c54
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86141878"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021196"
 ---
 # <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Självstudie: skala ett program i Azure våren Cloud
 
@@ -21,11 +22,11 @@ Skala ditt program uppåt och nedåt genom att ändra antalet virtuella processo
 
 När du är klar vet du hur du ska göra snabba manuella ändringar i varje program i din tjänst. Skalningen börjar gälla om några sekunder och kräver inga kod ändringar eller omdistributioner.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa de här procedurerna behöver du:
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 * En distribuerad Azure våren Cloud Service-instans.  Följ [snabb starten när du distribuerar en app via Azure CLI](spring-cloud-quickstart-launch-app-cli.md) för att komma igång.
 * Minst ett program som redan har skapats i din tjänst instans.
 

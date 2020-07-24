@@ -2,19 +2,20 @@
 title: Autentiseringsmetoder
 titleSuffix: Azure Maps
 description: I den här artikeln får du lära dig mer om Azure Active Directory och autentisering med delad nyckel. Båda används för Microsoft Azure Maps-tjänster. Lär dig hur du hämtar Azure Maps prenumerations nyckel.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: fe79b630291959ce4dc8b4743127986088a876ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e270a9a1a773442a4d1d28d9bbfe37639cac7c65
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987544"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133392"
 ---
 # <a name="authentication-with-azure-maps"></a>Autentisering med Azure Maps
 

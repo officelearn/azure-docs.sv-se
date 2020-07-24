@@ -1,19 +1,19 @@
 ---
 title: Väder täckning | Microsoft Azure Maps
 description: I den här artikeln får du lära dig om väder täckning i Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c18a09b494de7ecb639fbc5639b7162bdb02d2a6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d6e08f53fa6c5fbfa8e7f4569b7475c21e40dc05
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86241989"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133222"
 ---
 # <a name="azure-maps-weather-coverage"></a>Azure Maps väder täckning
 
@@ -23,7 +23,7 @@ Azure Maps har inte samma nivå av information och exakthet för alla länder oc
 
 Följande tabell innehåller information om vilken typ av väder information som du kan begära från varje land/region.
 
-| Symbol | Betydelse |
+| Symbol | Innebörd |
 |--------|---------|
 |*       |Täcker väder utmed väg, aktuella villkor, Tim prognos, kvartals dags prognos och dagliga prognos-API: er |
 

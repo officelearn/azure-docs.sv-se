@@ -2,27 +2,25 @@
 title: ta med fil
 description: ta med fil
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
-ms.author: diberry
-ms.openlocfilehash: 237ba5ba390b4065a67f29611fbd43375c239578
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ddf16334830b64c57e9d09a75dfc80fc319a9ccd
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188896"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133921"
 ---
-[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest) |[bibliotek käll kods](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [paket (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [exempel](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
+[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)  | [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer)  |  [Paket (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-* Den aktuella versionen av [Node. js](https://nodejs.org) och NPM.
+* Den aktuella versionen av [Node.js](https://nodejs.org) och NPM.
 
 ## <a name="using-this-quickstart"></a>Använd den här snabb starten
 
@@ -53,9 +51,9 @@ Kör `npm init -y` kommandot för att skapa en `package.json` fil.
 npm init -y
 ```
 
-## <a name="install-the-nodejs-library-for-personalizer"></a>Installera Node. js-biblioteket för Personanpassare
+## <a name="install-the-nodejs-library-for-personalizer"></a>Installera Node.js bibliotek för Personanpassare
 
-Installera det personliga klient biblioteket för Node. js med följande kommando:
+Installera installations program för en personanpassa klient för Node.js med följande kommando:
 
 ```console
 npm install @azure/cognitiveservices-personalizer --save
@@ -79,7 +77,7 @@ Att fastställa belöningen i den här snabb starten är trivial. I ett produkti
 
 ## <a name="code-examples"></a>Kodexempel
 
-De här kodfragmenten visar hur du gör följande med det anpassade klient biblioteket för Node. js:
+De här kodfragmenten visar hur du gör följande med det anpassade klient biblioteket för Node.js:
 
 * [Skapa en personanpassa klient](#create-a-personalizer-client)
 * [Rang-API](#request-the-best-action)
@@ -87,23 +85,23 @@ De här kodfragmenten visar hur du gör följande med det anpassade klient bibli
 
 ## <a name="create-a-new-nodejs-application"></a>Skapa ett nytt Node.js-program
 
-Skapa ett nytt Node. js-program i önskat redigerings program eller IDE `sample.js`-namn.
+Skapa ett nytt Node.js-program i önskat redigerings program eller IDE-namn `sample.js` .
 
 ## <a name="add-the-dependencies"></a>Lägg till beroenden
 
-Öppna **Sample. js** -filen i önskat redigerings program eller IDE. Lägg till följande `requires` för att lägga till NPM-paketen:
+Öppna **sample.js** -filen i önskat redigerings program eller IDE. Lägg till följande `requires` för att lägga till NPM-paketen:
 
 [!code-javascript[Add module dependencies](~/samples-personalizer/quickstarts/node/sample.js?name=Dependencies)]
 
 ## <a name="add-personalizer-resource-information"></a>Lägg till information om personanpassa resurser
 
-Skapa variabler för resursens Azure-nyckel och slut punkt från miljövariablerna, med `PERSONALIZER_KEY` namnet `PERSONALIZER_ENDPOINT`och. Om du har skapat miljövariablerna när programmet har startats måste redigeraren, IDE eller gränssnittet som kör det stängas och läsas in igen för att få åtkomst till variabeln. Metoderna kommer att skapas senare i den här snabb starten.
+Skapa variabler för resursens Azure-nyckel och slut punkt från miljövariablerna, med namnet `PERSONALIZER_KEY` och `PERSONALIZER_ENDPOINT` . Om du har skapat miljövariablerna när programmet har startats måste redigeraren, IDE eller gränssnittet som kör det stängas och läsas in igen för att få åtkomst till variabeln. Metoderna kommer att skapas senare i den här snabb starten.
 
 [!code-javascript[Add Personalizer resource information](~/samples-personalizer/quickstarts/node/sample.js?name=AuthorizationVariables)]
 
 ## <a name="create-a-personalizer-client"></a>Skapa en personanpassa klient
 
-Skapa sedan en metod för att returnera en personanpassa klient. Parametern till-metoden är `PERSONALIZER_RESOURCE_ENDPOINT` och ApiKey är. `PERSONALIZER_RESOURCE_KEY`
+Skapa sedan en metod för att returnera en personanpassa klient. Parametern till-metoden är `PERSONALIZER_RESOURCE_ENDPOINT` och ApiKey är `PERSONALIZER_RESOURCE_KEY` .
 
 [!code-javascript[Create a Personalizer client](~/samples-personalizer/quickstarts/node/sample.js?name=Client)]
 
@@ -132,7 +130,7 @@ Lägg till följande metoder, som [hämtar innehålls valen](#get-content-choice
 
 ## <a name="request-the-best-action"></a>Begär den bästa åtgärden
 
-För att slutföra ranknings förfrågan ber programmet användarens inställningar att skapa innehålls val. Processen kan skapa innehåll som ska undantas från åtgärder, som visas `excludeActions`som. Ranknings förfrågan behöver [åtgärder](../concepts-features.md#actions-represent-a-list-of-options) och deras funktioner, currentContext-funktioner, excludeActions och ett unikt ID för ranknings händelse för att ta emot det rankade svaret.
+För att slutföra ranknings förfrågan ber programmet användarens inställningar att skapa innehålls val. Processen kan skapa innehåll som ska undantas från åtgärder, som visas som `excludeActions` . Ranknings förfrågan behöver [åtgärder](../concepts-features.md#actions-represent-a-list-of-options) och deras funktioner, currentContext-funktioner, excludeActions och ett unikt ID för ranknings händelse för att ta emot det rankade svaret.
 
 Den här snabb starten har enkla Sammanhangs funktioner i tid på dygnet och användarens mat preferenser. I produktions system kan det vara en icke-trivial sak att fastställa och [utvärdera](../concept-feature-evaluation.md) [åtgärder och funktioner](../concepts-features.md) .
 
@@ -149,7 +147,7 @@ Den här snabb starten tilldelar ett enkelt tal som en belönings poäng, anting
 
 ## <a name="run-the-program"></a>Köra programmet
 
-Kör programmet med Node. js från program katalogen.
+Kör programmet med Node.js från program katalogen.
 
 ```console
 node sample.js

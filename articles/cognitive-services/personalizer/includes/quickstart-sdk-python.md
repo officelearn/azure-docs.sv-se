@@ -2,24 +2,22 @@
 title: ta med fil
 description: ta med fil
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
-ms.author: diberry
-ms.openlocfilehash: d35f11125809167c4834b33f913d9369a6402ac0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: b602ab1a6aa6f9c4c153924bce63da12d872a62e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188897"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133924"
 ---
-[Referens dokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer?view=azure-python) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-personalizer) | [paket (pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [exempel](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)
+[Referens dokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer?view=azure-python)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-personalizer)  |  [Paket (pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -67,7 +65,7 @@ De här kodfragmenten visar hur du gör följande med personanpassa klient bibli
 
 ## <a name="create-a-new-python-application"></a>Skapa ett nytt python-program
 
-Skapa ett nytt python-program i önskat redigerings program eller IDE `sample.py`-namn.
+Skapa ett nytt python-program i önskat redigerings program eller IDE-namn `sample.py` .
 
 ## <a name="add-the-dependencies"></a>Lägg till beroenden
 
@@ -77,15 +75,15 @@ Från projekt katalogen öppnar du **Sample.py** -filen i önskat redigerings pr
 
 ## <a name="add-personalizer-resource-information"></a>Lägg till information om personanpassa resurser
 
-Skapa variabler för resursens Azure-nyckel och slut punkt från miljövariablerna, med `PERSONALIZER_RESOURCE_KEY` namnet `PERSONALIZER_RESOURCE_ENDPOINT`och. Om du har skapat miljövariablerna när programmet har startats måste redigeraren, IDE eller gränssnittet som kör det stängas och läsas in igen för att få åtkomst till variabeln. Metoderna kommer att skapas senare i den här snabb starten.
+Skapa variabler för resursens Azure-nyckel och slut punkt från miljövariablerna, med namnet `PERSONALIZER_RESOURCE_KEY` och `PERSONALIZER_RESOURCE_ENDPOINT` . Om du har skapat miljövariablerna när programmet har startats måste redigeraren, IDE eller gränssnittet som kör det stängas och läsas in igen för att få åtkomst till variabeln. Metoderna kommer att skapas senare i den här snabb starten.
 
-Resurs namnet är en del av slut punkts- `https://<your-resource-name>.api.cognitive.microsoft.com/`URL: en:.
+Resurs namnet är en del av slut punkts-URL: en: `https://<your-resource-name>.api.cognitive.microsoft.com/` .
 
 [!code-python[Create variables to hold the Personalizer resource key and endpoint values found in the Azure portal.](~/samples-personalizer/quickstarts/python/sample.py?name=AuthorizationVariables)]
 
 ## <a name="create-a-personalizer-client"></a>Skapa en personanpassa klient
 
-Skapa sedan en metod för att returnera en personanpassa klient. Parametern till-metoden är `PERSONALIZER_RESOURCE_ENDPOINT` och ApiKey är. `PERSONALIZER_RESOURCE_KEY`
+Skapa sedan en metod för att returnera en personanpassa klient. Parametern till-metoden är `PERSONALIZER_RESOURCE_ENDPOINT` och ApiKey är `PERSONALIZER_RESOURCE_KEY` .
 
 [!code-python[Create the Personalizer client](~/samples-personalizer/quickstarts/python/sample.py?name=Client)]
 
@@ -116,7 +114,7 @@ Lägg till följande metoder, som [hämtar innehålls valen](#get-content-choice
 ## <a name="request-the-best-action"></a>Begär den bästa åtgärden
 
 
-För att slutföra ranknings förfrågan ställer programmet till användarens inställningar för att skapa ett `currentContent` av innehålls valen. Processen kan skapa innehåll som ska undantas från åtgärder, som visas `excludeActions`som. Ranknings förfrågan behöver åtgärder och deras funktioner, currentContext-funktioner, excludeActions och ett unikt händelse-ID för att få svaret.
+För att slutföra ranknings förfrågan ställer programmet till användarens inställningar för att skapa ett `currentContent` av innehålls valen. Processen kan skapa innehåll som ska undantas från åtgärder, som visas som `excludeActions` . Ranknings förfrågan behöver åtgärder och deras funktioner, currentContext-funktioner, excludeActions och ett unikt händelse-ID för att få svaret.
 
 Den här snabb starten har enkla Sammanhangs funktioner i tid på dygnet och användarens mat preferenser. I produktions system kan det vara en icke-trivial sak att fastställa och [utvärdera](../concept-feature-evaluation.md) [åtgärder och funktioner](../concepts-features.md) .
 

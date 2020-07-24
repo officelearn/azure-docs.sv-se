@@ -6,27 +6,29 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 07/23/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 24d726f7600c3ba80833640be8036bf0daa2c014
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e30c4142232a2d695204f5c8f612eb44791c847c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518732"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133171"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Förhindra anonym offentlig Läs behörighet till behållare och blobbar
 
 Anonym offentlig Läs behörighet till behållare och blobbar i Azure Storage är ett bekvämt sätt att dela data, men det kan också innebära en säkerhets risk. Det är viktigt att du hanterar anonym åtkomst sparsamt och förstår hur du utvärderar anonym åtkomst till dina data. Drifts komplexitet, mänskligt fel eller skadlig attack mot data som är allmänt tillgängliga kan leda till kostsamma data intrång. Microsoft rekommenderar att du bara aktiverar anonym åtkomst när det är nödvändigt för ditt program scenario.
 
-Som standard kan en användare med rätt behörighet konfigurera offentlig åtkomst till behållare och blobbar. Du kan förhindra all offentlig åtkomst på lagrings kontots nivå. Om du inte tillåter offentlig BLOB-åtkomst för lagrings kontot kan inte behållare i kontot konfigureras för offentlig åtkomst. Alla behållare som redan har kon figurer ATS för offentlig åtkomst accepterar inte längre anonyma begär Anden. Mer information finns i [Konfigurera anonym offentlig Läs behörighet för behållare och blobbar](anonymous-read-access-configure.md).
+Som standard är offentlig åtkomst till dina BLOB-data alltid förbjuden. Standard konfigurationen för ett lagrings konto tillåter dock en användare med rätt behörighet att konfigurera offentlig åtkomst till behållare och blobbar i ett lagrings konto. För ökad säkerhet kan du neka all offentlig åtkomst till lagrings kontot, oavsett inställningen för offentlig åtkomst för en enskild behållare. Att neka offentlig åtkomst till lagrings kontot förhindrar att en användare aktiverar offentlig åtkomst för en behållare i kontot. Microsoft rekommenderar att du inte tillåter offentlig åtkomst till ett lagrings konto om inte ditt scenario kräver det. Om du inte tillåter offentlig åtkomst kan du förhindra data intrång orsakade av oönskad anonym åtkomst.
+
+Om du inte tillåter offentlig BLOB-åtkomst för lagrings kontot, Azure Storage avvisar alla anonyma begär anden till det kontot. När offentlig åtkomst inte tillåts för ett konto kan behållare i det kontot inte konfigureras senare för offentlig åtkomst. Alla behållare som redan har kon figurer ATS för offentlig åtkomst accepterar inte längre anonyma begär Anden. Mer information finns i [Konfigurera anonym offentlig Läs behörighet för behållare och blobbar](anonymous-read-access-configure.md).
 
 Den här artikeln beskriver hur du analyserar anonyma begär Anden mot ett lagrings konto och hur du förhindrar anonym åtkomst för hela lagrings kontot eller för en enskild behållare.
 
 ## <a name="detect-anonymous-requests-from-client-applications"></a>Identifiera anonyma begär Anden från klient program
 
-Om du inte tillåter offentlig Läs behörighet för ett lagrings konto riskerar du att avvisa begär anden till behållare och blobbar som för närvarande är konfigurerade för offentlig åtkomst. Om den offentliga åtkomsten för ett lagrings konto nekas åsidosätts de offentliga åtkomst inställningarna för alla behållare i lagrings kontot. När offentlig åtkomst inte tillåts för lagrings kontot kommer alla framtida anonyma begär anden till det kontot att Miss förväntas.
+Om du inte tillåter offentlig Läs behörighet för ett lagrings konto riskerar du att avvisa begär anden till behållare och blobbar som för närvarande är konfigurerade för offentlig åtkomst. Om den offentliga åtkomsten för ett lagrings konto nekas åsidosätts de offentliga åtkomst inställningarna för enskilda behållare i lagrings kontot. När offentlig åtkomst inte tillåts för lagrings kontot kommer alla framtida anonyma begär anden till det kontot att Miss förväntas.
 
 För att förstå hur otillåten offentlig åtkomst kan påverka klient program, rekommenderar Microsoft att du aktiverar loggning och mått för kontot och analyserar mönster för anonyma begär Anden under ett tidsintervall. Använd mått för att fastställa antalet anonyma begär anden till lagrings kontot och Använd loggar för att avgöra vilka behållare som ska användas anonymt.
 

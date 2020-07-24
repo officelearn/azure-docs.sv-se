@@ -1,19 +1,19 @@
 ---
 title: Välj rätt pris nivå | Microsoft Azure Maps
 description: I den här artikeln får du lära dig om pris nivåer som erbjuds av Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: a8bf7ff9bacd4fe84ee5b64d0aed5cb271ce06f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b32706822ff16780388f4acb5d59bf3d91e6d91
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335666"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133341"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Välj rätt pris nivå i Azure Maps
 
@@ -27,13 +27,13 @@ Pris nivån för S0 är rätt för dig, om de geospatiala geospatiala API: erna 
 
 ### <a name="pricing-tier-capabilities"></a>Pris nivå funktioner
 
-| Kapacitet                              |        S0           |  S1      |
+| Funktion                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
 | Mappa åter givning                              | ✓                   | ✓       |
 | Satellit bilder                       |                     | ✓        |
 | Sök                                  | ✓                    | ✓        |
 | Batch-sökning                            |                     | ✓        |
-| Routa                                   | ✓                    |✓        |
+| Väg                                   | ✓                    |✓        |
 | Batchbearbetning                            |                    | ✓        |
 | Mat ris routning                          |                     | ✓        |
 | Flödes intervall (ISO Kron)                |                     | ✓        |

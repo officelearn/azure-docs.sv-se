@@ -2,24 +2,22 @@
 title: ta med fil
 description: ta med fil
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
-ms.author: diberry
-ms.openlocfilehash: 0b09f15eb05a94bb62f4484ac362467fbdb0af8b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 94ffc22cc7e8e44e99d5eb42518030ff41267996
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188895"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133923"
 ---
-[Referens dokumentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer) | [paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) | [exempel](https://github.com/Azure-Samples/cognitive-services-personalizer-samples)
+[Referens dokumentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer)  |  [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-personalizer-samples)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -42,7 +40,7 @@ Det finns flera steg för att använda den här snabb starten:
 
 Skapa ett nytt .NET Core-program i önskat redigerings program eller IDE.
 
-I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du kommandot dotNet `new` för att skapa en ny konsol app med namnet. `personalizer-quickstart` Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda käll `Program.cs`fil:.
+I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du `new` kommandot dotNet för att skapa en ny konsol app med namnet `personalizer-quickstart` . Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda käll fil: `Program.cs` .
 
 ```console
 dotnet new console -n personalizer-quickstart
@@ -100,13 +98,13 @@ Från projekt katalogen öppnar du **program.cs** -filen i önskat redigerings p
 
 ## <a name="add-personalizer-resource-information"></a>Lägg till information om personanpassa resurser
 
-I **program** -klassen skapar du variabler för din resurs Azure-nyckel och slut punkt från miljövariablerna, med `PERSONALIZER_RESOURCE_KEY` namnet `PERSONALIZER_RESOURCE_ENDPOINT`och. Om du har skapat miljövariablerna när programmet har startats måste redigeraren, IDE eller gränssnittet som kör det stängas och läsas in igen för att få åtkomst till variabeln. Metoderna kommer att skapas senare i den här snabb starten.
+I **program** -klassen skapar du variabler för din resurs Azure-nyckel och slut punkt från miljövariablerna, med namnet `PERSONALIZER_RESOURCE_KEY` och `PERSONALIZER_RESOURCE_ENDPOINT` . Om du har skapat miljövariablerna när programmet har startats måste redigeraren, IDE eller gränssnittet som kör det stängas och läsas in igen för att få åtkomst till variabeln. Metoderna kommer att skapas senare i den här snabb starten.
 
 [!code-csharp[Create variables to hold the Personalizer resource key and endpoint values found in the Azure portal.](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=classVariables)]
 
 ## <a name="create-a-personalizer-client"></a>Skapa en personanpassa klient
 
-Skapa sedan en metod för att returnera en personanpassa klient. Parametern till-metoden är `PERSONALIZER_RESOURCE_ENDPOINT` och ApiKey är. `PERSONALIZER_RESOURCE_KEY`
+Skapa sedan en metod för att returnera en personanpassa klient. Parametern till-metoden är `PERSONALIZER_RESOURCE_ENDPOINT` och ApiKey är `PERSONALIZER_RESOURCE_KEY` .
 
 [!code-csharp[Create the Personalizer client](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=authorization)]
 
@@ -145,7 +143,7 @@ Lägg till följande metoder, som [hämtar innehålls valen](#get-food-items-as-
 
 ## <a name="request-the-best-action"></a>Begär den bästa åtgärden
 
-För att slutföra ranknings förfrågan ställer programmet till användarens inställningar för att skapa ett `currentContent` av innehålls valen. Processen kan skapa innehåll som ska undantas från åtgärder, som visas `excludeActions`som. Ranknings förfrågan behöver åtgärder och deras funktioner, currentContext-funktioner, excludeActions och ett unikt händelse-ID för att få svaret.
+För att slutföra ranknings förfrågan ställer programmet till användarens inställningar för att skapa ett `currentContent` av innehålls valen. Processen kan skapa innehåll som ska undantas från åtgärder, som visas som `excludeActions` . Ranknings förfrågan behöver åtgärder och deras funktioner, currentContext-funktioner, excludeActions och ett unikt händelse-ID för att få svaret.
 
 Den här snabb starten har enkla Sammanhangs funktioner i tid på dygnet och användarens mat preferenser. I produktions system kan det vara en icke-trivial sak att fastställa och [utvärdera](../concept-feature-evaluation.md) [åtgärder och funktioner](../concepts-features.md) .
 
@@ -161,7 +159,7 @@ Den här snabb starten tilldelar ett enkelt tal som en belönings poäng, anting
 
 ## <a name="run-the-program"></a>Köra programmet
 
-Kör programmet med kommandot dotNet `run` från program katalogen.
+Kör programmet med `run` kommandot dotNet från program katalogen.
 
 ```console
 dotnet run

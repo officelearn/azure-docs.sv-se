@@ -2,19 +2,17 @@
 title: ta med fil
 description: ta med fil
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
-ms.author: diberry
-ms.openlocfilehash: 1c3631b4a2964c5e3a8d8267d1934a5822966342
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ac0192da3afa76c3c21056f218f2b249c44d1c36
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673449"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133926"
 ---
 Cognitive Services tillhandahåller två bearbetnings tjänster för naturligt språk, [language Understanding](../luis/what-is-luis.md) och [QNA Maker](../qnamaker/overview/overview.md), var och en med olika ändamål. Förstå när du ska använda varje tjänst och hur de ska komplettera varandra.
 
@@ -43,7 +41,7 @@ Om din Chat-robot tar emot texten `How do I get to the Human Resources building 
 
 ## <a name="when-do-you-use-luis"></a>När använder du LUIS?
 
-Använd LUIS när du behöver känna till avsikten med uttryck som en del av en process i chatt-roboten. Om du fortsätter med exempel texten, `How do I get to the Human Resources building on the Seattle North campus?` och du vet att användarens avsikt är att hitta en plats, kan du skicka information om uttryck (som dras ut med entiteter) till en annan tjänst, till exempel en transport server, för att få svaret.
+Använd LUIS när du behöver känna till avsikten med uttryck som ingår i en process i chattroboten. Om du fortsätter med exempel texten, `How do I get to the Human Resources building on the Seattle North campus?` och du vet att användarens avsikt är att hitta en plats, kan du skicka information om uttryck (som dras ut med entiteter) till en annan tjänst, till exempel en transport server, för att få svaret.
 
 Du behöver inte kombinera LUIS och QnA Maker för att avgöra avsikten.
 
@@ -51,7 +49,7 @@ Du kan kombinera de två tjänsterna för den här uttryck, om Chat-roboten mås
 
 ## <a name="when-do-you-use-qna-maker"></a>När använder du QnA Maker?
 
-Använd QnA Maker när du har en statisk kunskaps bas med svar. Den här kunskaps basen är anpassad efter dina behov, som du har skapat med dokument som PDF-filer och URL: er.
+Använd QnA Maker när du har en statisk kunskapsbas med svar. Den här kunskapsbasen är anpassad efter dina behov, som du har skapat med dokument som PDF-filer och webbadresser.
 
 Fortsätt med exemplet uttryck, `How do I get to the Human Resources building on the Seattle North campus?` Skicka texten som en fråga till din publicerade QNA Maker-tjänst och få det bästa svaret.
 
@@ -75,7 +73,7 @@ Om din Chat-robot behöver mer information än vad som finns i tjänsten kan du 
 
 Använd verktyget bot Framework **[DISPATCH CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** för att hjälpa till att bygga en process som fungerar med båda tjänsterna. Det här verktyget skapar en LUIS app av avsikter som skickar mellan LUIS och QnA Maker som underordnade appar. [Läs mer](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs) om integrering med Luis-, QNA Maker-och bot-ramverket.
 
-Använd robot Builder-exemplet, **NLP med utsändning**, i [C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) eller [Node. js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch), för att implementera den här typen av chatt-robot.
+Använd robot Builder-exemplet, **NLP med sändning**, i [C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) eller [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)för att implementera den här typen av chatt-robot.
 
 ## <a name="best-practices"></a>Bästa praxis
 

@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 7cf03de2efdb1026934985c225a2a9eecbfbb5a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24e4554e2202c8b5452193e1b0f48cf6c8ada5dd
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84902517"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133925"
 ---
 ## <a name="limitations"></a>Begränsningar
 
@@ -79,7 +79,15 @@ När en dedikerad värd har allokerats tilldelar Azure den till den fysiska serv
 
 ## <a name="quotas"></a>Kvoter
 
-Det finns en standard kvot gräns på 3000 virtuella processorer för dedikerade värdar, per region. Men antalet värdar som du kan distribuera begränsas också av kvoten för den virtuella datorns storleks familj som används för värden. En prenumeration där **du betalar per** användning kan till exempel bara ha en kvot på 10 virtuella processorer som är tillgängliga för Dsv3-storleks serien i regionen USA, östra. I så fall måste du begära en kvot ökning till minst 64 virtuella processorer innan du kan distribuera en dedikerad värd. Välj knappen **öka** i det övre högra hörnet för att skicka en begäran om det behövs.
+Det finns två typer av kvoter som används när du distribuerar en dedikerad värd.
+
+1. Dedikerad värd vCPU kvot. Standard kvot gränsen är 3000 virtuella processorer per region.
+1. Kvot för VM-storleks familj. En prenumeration där **du betalar per** användning kan till exempel bara ha en kvot på 10 virtuella processorer som är tillgängliga för Dsv3-storleks serien i regionen USA, östra. Om du vill distribuera en Dsv3-dedikerad värd måste du begära en kvot ökning till minst 64 virtuella processorer innan du kan distribuera den dedikerade värden. 
+
+Om du vill begära en kvot ökning skapar du en support förfrågan i [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+Genom att etablering av en dedikerad värd förbrukas både dedikerad värd vCPU och vCPU-kvoten för VM-familjen, men den kommer inte att använda den regionala vCPU.
+
 
 ![Skärm bild av sidan användning och kvoter i portalen](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 

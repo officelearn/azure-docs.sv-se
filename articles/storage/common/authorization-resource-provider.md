@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 73077b6b25c09c17deb4ad468c79fe6d5ddd648e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 634e1866a2c3e30e0750b9e6f4b2b3f93db2f8dc
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833263"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133120"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Använd Azure Storage Resource Provider för att få åtkomst till hanterings resurser
 
@@ -26,7 +26,7 @@ Du kan använda Azure Storage Resource Provider för att utföra åtgärder som 
 
 Microsoft tillhandahåller två REST-API: er för att arbeta med Azure Storage-resurser. Dessa API: er utgör grunden för alla åtgärder som du kan utföra med Azure Storage. Med Azure Storage REST API kan du arbeta med data i ditt lagrings konto, inklusive BLOB-, kö-, fil-och tabell data. Med Azure Storage Resource Provider REST API kan du arbeta med lagrings kontot och relaterade resurser.
 
-En begäran som läser eller skriver BLOB-data kräver olika behörigheter än en begäran som utför en hanterings åtgärd. RBAC ger detaljerad kontroll över behörigheter för båda typerna av resurser. När du tilldelar en RBAC-roll till ett säkerhets objekt ser du till att du förstår vilka behörigheter som ska beviljas av huvud kontot. En detaljerad referens som beskriver vilka åtgärder som är associerade med varje inbyggd RBAC-roll finns i [inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
+En begäran som läser eller skriver BLOB-data kräver olika behörigheter än en begäran som utför en hanterings åtgärd. RBAC ger detaljerad kontroll över behörigheter för båda typerna av resurser. När du tilldelar en RBAC-roll till ett säkerhets objekt ser du till att du förstår vilka behörigheter som ska beviljas av huvud kontot. En detaljerad referens som beskriver vilka åtgärder som är associerade med varje inbyggd RBAC-roll finns i [inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md).
 
 Azure Storage stöder användning av Azure AD för att auktorisera begär Anden mot blob-och Queue-lagring. Information om RBAC-roller för blob-och Queue data-åtgärder finns i [bevilja åtkomst till blobbar och köer med hjälp av Active Directory](storage-auth-aad.md).
 
@@ -34,7 +34,7 @@ Azure Storage stöder användning av Azure AD för att auktorisera begär Anden 
 
 Varje Azure-prenumeration har en associerad Azure Active Directory som hanterar användare, grupper och program. En användare, grupp eller ett program kallas även säkerhets objekt i kontexten för [Microsoft Identity Platform](/azure/active-directory/develop/). Du kan bevilja åtkomst till resurser i en prenumeration på ett säkerhets objekt som definieras i Active Directory med hjälp av rollbaserad åtkomst kontroll (RBAC).
 
-När du tilldelar en RBAC-roll till ett säkerhets objekt, anger du även omfattningen som de behörigheter som har beviljats av rollen gäller. För hanterings åtgärder kan du tilldela en roll på nivån för prenumerationen, resurs gruppen eller lagrings kontot. Du kan tilldela en RBAC-roll till ett säkerhets objekt med hjälp av [Azure Portal](https://portal.azure.com/), [Azure CLI-verktyg](../../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs)eller [Azure Storage Resource Provider REST API](/rest/api/storagerp).
+När du tilldelar en RBAC-roll till ett säkerhets objekt, anger du även omfattningen som de behörigheter som har beviljats av rollen gäller. För hanterings åtgärder kan du tilldela en roll på nivån för prenumerationen, resurs gruppen eller lagrings kontot. Du kan tilldela en RBAC-roll till ett säkerhets objekt med hjälp av [Azure Portal](https://portal.azure.com/), [Azure CLI-verktyg](../../cli-install-nodejs.md), [PowerShell](/powershell/azure/)eller [Azure Storage Resource Provider REST API](/rest/api/storagerp).
 
 Mer information finns i [Vad är Azures rollbaserad åtkomst kontroll (Azure RBAC)?](../../role-based-access-control/overview.md) och [klassiska prenumerations administratörs roller, Azure RBAC-roller och Azure AD-administratörskonsolen](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -57,7 +57,7 @@ Den tredje kolumnen i tabellen visar om den inbyggda rollen stöder **Microsoft.
 
 ### <a name="custom-roles-for-management-operations"></a>Anpassade roller för hanterings åtgärder
 
-Azure har också stöd för att definiera anpassade RBAC-roller för åtkomst till hanterings resurser. Mer information om anpassade roller finns i [anpassade roller för Azure-resurser](../../role-based-access-control/custom-roles.md).
+Azure har också stöd för att definiera anpassade Azure-roller för åtkomst till hanterings resurser. Mer information om anpassade roller finns i [Azure-anpassade roller](../../role-based-access-control/custom-roles.md).
 
 ## <a name="code-samples"></a>Kodexempel
 

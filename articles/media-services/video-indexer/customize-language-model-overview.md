@@ -9,12 +9,13 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
-ms.author: anzaman
-ms.openlocfilehash: d264b0d35be5114d35713f793b771e42449c9230
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: kumud
+ms.openlocfilehash: 29490e08748a37f7eb93fbb8804f55f74c53df35
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83745674"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047139"
 ---
 # <a name="customize-a-language-model-with-video-indexer"></a>Anpassa en språk modell med Video Indexer
 

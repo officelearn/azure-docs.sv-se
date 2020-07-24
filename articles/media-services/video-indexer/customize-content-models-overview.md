@@ -9,16 +9,17 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 06/26/2019
-ms.author: anzaman
-ms.openlocfilehash: 09e6fd8530ddb1745a92c6f31f4d5a5843a2ac10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: kumud
+ms.openlocfilehash: 937a73847e867e826b3a577adf0c85184d7a93d0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76513175"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047242"
 ---
 # <a name="customizing-content-models-in-video-indexer"></a>Anpassa innehålls modeller i Video Indexer
 
-Med Video Indexer kan du anpassa vissa modeller så att de anpassas efter ditt speciella användnings fall. Dessa modeller innehåller [varumärken](customize-brands-model-overview.md), [språk](customize-language-model-overview.md)och [person](customize-person-model-overview.md). Du kan enkelt anpassa dessa modeller med hjälp av Video Indexer webbplats eller API.
+Du kan anpassa vissa av modellerna i Video Indexer efter ditt specifika användningsfall. Dessa modeller innehåller [varumärken](customize-brands-model-overview.md), [språk](customize-language-model-overview.md)och [person](customize-person-model-overview.md). Du kan enkelt anpassa dessa modeller via webbplatsen eller API:et för Video Indexer.
 
 Den här artikeln innehåller länkar till artiklar som förklarar fördelarna med varje typ av anpassning. Artikeln innehåller också länkar till instruktions guider som visar hur du kan implementera anpassningen av varje modell.
 
@@ -26,7 +27,7 @@ Den här artikeln innehåller länkar till artiklar som förklarar fördelarna m
 
 * [Animerat Character-identifiering](animated-characters-recognition.md)
 
-## <a name="brands-model"></a>Märken modell
+## <a name="brands-model"></a>Varumärkesmodell
 
 * [Anpassa modell översikten för märken](customize-brands-model-overview.md)
 * [Anpassa modellen märkena med hjälp av Video Indexer webbplats](customize-brands-model-with-website.md)
@@ -38,7 +39,7 @@ Den här artikeln innehåller länkar till artiklar som förklarar fördelarna m
 * [Anpassa språk modeller med hjälp av Video Indexer webbplats](customize-language-model-with-website.md)
 * [Anpassa språk modeller med hjälp av Video Indexer API](customize-language-model-with-api.md)
  
-## <a name="person-model"></a>Person modell
+## <a name="person-model"></a>Personmodell
 
 * [Översikt över anpassning av person modeller](customize-person-model-overview.md)
 * [Anpassa person modeller med hjälp av Video Indexer webbplats](customize-person-model-with-website.md)

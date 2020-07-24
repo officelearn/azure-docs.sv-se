@@ -1,5 +1,5 @@
 ---
-title: Använda GitOps för en Azure Arc-aktiverad kluster konfiguration (förhands granskning)
+title: Distribuera konfigurationer med GitOps på Arc-aktiverade Kubernetes-kluster (för hands version)
 services: azure-arc
 ms.service: azure-arc
 ms.date: 05/19/2020
@@ -8,24 +8,24 @@ author: mlearned
 ms.author: mlearned
 description: Använda GitOps för en Azure Arc-aktiverad kluster konfiguration (förhands granskning)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes service, containers
-ms.openlocfilehash: 890b35aac33a6fa207a71d76143997a1b93116bf
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: e25fdf3a51b3e9264c85707df31d3a4d107b25ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856978"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049973"
 ---
-# <a name="use-gitops-for-an-azure-arc-enabled--configuration-preview"></a>Använda GitOps för en Azure Arc-aktiverad konfiguration (för hands version)
+# <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Distribuera konfigurationer med GitOps på Arc-aktiverade Kubernetes-kluster (för hands version)
 
-Den här arkitekturen använder ett GitOps-arbetsflöde för att konfigurera klustret och distribuera program. Konfigurationen beskrivs i deklarativt i. yaml-filer och lagras i git. En agent bevakar git-lagrings platsen för ändringar och tillämpar dem.  Samma agent säkerställer också regelbundet att kluster tillstånden matchar det tillstånd som har deklarerats i git-lagrings platsen och returnerar klustret till önskat tillstånd om några ohanterade ändringar har skett.
+GitOps är syftet med att deklarera det önskade läget för Kubernetes-konfiguration (distributioner, namnrymder och så vidare) i en git-lagringsplats följt av en avsöknings-och pull-baserad distribution av dessa konfigurationer till klustret med hjälp av en operatör. Det här dokumentet beskriver installationen av sådana arbets flöden i Azure Arc-aktiverade Kubernetes-kluster.
 
-Anslutningen mellan klustret och en eller flera git-databaser spåras i Azure Resource Manager som `sourceControlConfiguration` tilläggs resurs. `sourceControlConfiguration`Resurs egenskaperna representerar var och hur Kubernetes resurser ska flöda från git till klustret. `sourceControlConfiguration`Data lagras krypterade i vila i en CosmosDb-databas för att säkerställa datakonfidentialitet.
+Anslutningen mellan klustret och en eller flera git-databaser spåras i Azure Resource Manager som `sourceControlConfiguration` tilläggs resurs. `sourceControlConfiguration`Resurs egenskaperna representerar var och hur Kubernetes resurser ska flöda från git till klustret. `sourceControlConfiguration`Data lagras krypterade i vila i en Azure Cosmos DB databas för att säkerställa data sekretessen.
 
-Azure-bågen aktiverade Kubernetes som `config-agent` körs i klustret ansvarar för att titta efter nya eller uppdaterade `sourceControlConfiguration` resurser och dirigerar att lägga till, uppdatera eller ta bort git lagrings platsen-länkar automatiskt.
-
-Samma mönster kan användas för att hantera en större samling kluster, som kan distribueras i heterogena miljöer. Du kan till exempel ha en lagrings plats som definierar bas linje konfigurationen för din organisation och tillämpa den på flera Kubernetes-kluster samtidigt.
+Den som `config-agent` körs i klustret ansvarar för att titta efter nya eller uppdaterade `sourceControlConfiguration` tilläggs resurser på den Azure Arc-aktiverade Kubernetes-resursen, distribuera en flödes operatör för att se git-lagringsplatsen och sprida alla uppdateringar som görs till `sourceControlConfiguration` . Det går även att skapa flera `sourceControlConfiguration` resurser med `namespace` omfång på samma Azure Arc-Kubernetes-kluster för att uppnå flera innehavare. I sådana fall kan varje operatör bara distribuera konfigurationer till dess respektive namnrymd.
 
 Git-lagringsplatsen kan innehålla alla giltiga Kubernetes-resurser, inklusive namnrymder, ConfigMaps, distributioner, DaemonSets osv.  Det kan också innehålla Helm-diagram för att distribuera program. En vanlig uppsättning scenarier innefattar att definiera en bas linje konfiguration för din organisation, som kan innehålla vanliga RBAC-roller och bindningar, övervaknings-eller loggnings agenter eller kluster för många tjänster.
+
+Samma mönster kan användas för att hantera en större samling kluster, som kan distribueras i heterogena miljöer. Du kan till exempel ha en lagrings plats som definierar bas linje konfigurationen för din organisation och tillämpa den på flera Kubernetes-kluster samtidigt. Med [Azure policy kan du automatisera](use-azure-policy.md) skapandet av en `sourceControlConfiguration` med en speciell uppsättning parametrar på alla Azure Arc-aktiverade Kubernetes-resurser under ett omfång (prenumeration eller resurs grupp).
 
 Den här kom igång-guiden hjälper dig att använda en uppsättning konfigurationer med kluster administratörs omfång.
 
@@ -39,8 +39,8 @@ Exempel lagrings platsen är strukturerad runt personen som är medlem av en klu
  **distribution:** `cluster-config/azure-vote` 
  **ConfigMap:**`team-a/endpoints`
 
-`config-agent`Söker Azure efter nya eller uppdaterade `sourceControlConfiguration` var 30: e sekund.  Detta är den längsta tid det tar för `config-agent` att hämta en ny eller uppdaterad konfiguration.
-Om du associerar ett privat lagrings lager bör du även slutföra stegen i [tillämpa konfiguration från en privat git-lagringsplats](#apply-configuration-from-a-private-git-repository)
+`config-agent`Söker Azure efter nya eller uppdaterade `sourceControlConfiguration` var 30: e sekund, vilket är den längsta tid det tar för `config-agent` att hämta en ny eller uppdaterad konfiguration.
+Om du associerar ett privat lager med `sourceControlConfiguration` måste du också slutföra stegen i [tillämpa konfiguration från en privat git-lagringsplats](#apply-configuration-from-a-private-git-repository).
 
 ### <a name="using-azure-cli"></a>Använda Azure CLI
 
@@ -117,7 +117,7 @@ Dessa scenarier stöds av flöde, men inte av sourceControlConfiguration än.
 
 Här följer några ytterligare parametrar för att anpassa skapandet av konfigurationen:
 
-`--enable-helm-operator`: *Valfri* växel för att aktivera stöd för Helm-diagram distributioner. Som standard är detta inaktiverat.
+`--enable-helm-operator`: *Valfri* växel för att aktivera stöd för Helm-diagram distributioner.
 
 `--helm-operator-chart-values`: *Valfria* diagram värden för Helm-operatorn (om aktive rad).  Till exempel "--Set Helm. versions = v3".
 
@@ -125,7 +125,7 @@ Här följer några ytterligare parametrar för att anpassa skapandet av konfigu
 
 `--operator-namespace`: Det *valfria* namnet för operatorns namn område. Standard: standard
 
-`--operator-params`: *Valfria* parametrar för operatorn. Måste anges inom enkla citat tecken. Till exempel, ```--operator-params='--git-readonly --git-path=releases/prod' ```
+`--operator-params`: *Valfria* parametrar för operatorn. Måste anges inom enkla citat tecken. Till exempel, ```--operator-params='--git-readonly --git-path=releases' ```
 
 Alternativ som stöds i--Operator-params
 
@@ -143,13 +143,16 @@ Alternativ som stöds i--Operator-params
 
 * Om "--git-User" eller "-git-e-post" inte har angetts (vilket innebär att du inte vill att flödet ska skriva till lagrings platsen), så anges--git-ReadOnly automatiskt (om du inte redan har gjort det).
 
-* Om enableHelmOperator är true kan operatorInstanceName + operatorNamespace-strängar inte överstiga 47 tecken.  Om du inte följer denna gräns får du följande fel meddelande:
+* Om enableHelmOperator är true kan operatorInstanceName + operatorNamespace-strängar inte överstiga 47 tecken.  Om du inte följer den här gränsen får du följande fel meddelande:
 
    ```console
    {"OperatorMessage":"Error: {failed to install chart from path [helm-operator] for release [<operatorInstanceName>-helm-<operatorNamespace>]: err [release name \"<operatorInstanceName>-helm-<operatorNamespace>\" exceeds max length of 53]} occurred while doing the operation : {Installing the operator} on the config","ClusterState":"Installing the operator"}
    ```
 
 Mer information finns i [flödes dokumentation](https://aka.ms/FluxcdReadme).
+
+> [!TIP]
+> Det är möjligt att skapa en sourceControlConfiguration på Azure Portal och på fliken **konfigurationer** på resurs bladet Azure Arc-aktiverade Kubernetes.
 
 ## <a name="validate-the-sourcecontrolconfiguration"></a>Verifiera sourceControlConfiguration
 
@@ -206,7 +209,7 @@ När etablerings processen utförs går det `sourceControlConfiguration` igenom 
 
 ## <a name="apply-configuration-from-a-private-git-repository"></a>Tillämpa konfigurationen från en privat git-lagringsplats
 
-Om du använder en privat git-lagrings platsen måste du utföra ytterligare en uppgift för att stänga slingan: du måste lägga till den offentliga nyckeln som genererades av `flux` som en **distributions nyckel** i lagrings platsen.
+Om du använder en privat git-lagrings platsen måste du utföra ytterligare en uppgift för att stänga slingan: Lägg till den offentliga nyckeln som genereras av `flux` som en **distributions nyckel** i lagrings platsen.
 
 **Hämta den offentliga nyckeln med Azure CLI**
 
@@ -232,7 +235,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 5. Klistra in den offentliga nyckeln (minus omgivande citat tecken)
 6. Klicka på **Lägg till nyckel**
 
-Mer information om hur du hanterar distributions nycklar finns i GitHub-dokumenten.
+Mer information om hur du hanterar dessa nycklar finns i GitHub-dokumenten.
 
 **Om du använder en Azure DevOps-lagringsplats lägger du till nyckeln till dina SSH-nycklar**
 
@@ -292,9 +295,11 @@ kubectl -n itops get all
 
 ## <a name="delete-a-configuration"></a>Ta bort en konfiguration
 
-Du kan ta bort en `sourceControlConfiguration` med hjälp av Azure CLI eller Azure Portal.  När du har initierat kommandot Ta bort `sourceControlConfiguration` kommer resursen att tas bort omedelbart i Azure, men det kan ta upp till 1 timme för fullständig borttagning av de associerade objekten från klustret (vi har ett artikel efter släpning för att förkorta detta). Om `sourceControlConfiguration` har skapats med namn områdes omfånget tas inte namn området bort från klustret (för att undvika att andra resurser som kan ha skapats i namn området) bryts.
+Ta bort en `sourceControlConfiguration` med hjälp av Azure CLI eller Azure Portal.  När du har initierat kommandot Ta bort `sourceControlConfiguration` kommer resursen att tas bort omedelbart i Azure, men det kan ta upp till 1 timme för fullständig borttagning av de associerade objekten från klustret (vi har ett artikel efter släpning för att minska den här tids fördröjningen).
 
-Observera att ändringar i klustret som resulterade i distributioner från det spårade git-lagrings platsen inte tas bort när tas `sourceControlConfiguration` bort.
+> [!NOTE]
+> När en sourceControlConfiguration med namn områdes omfånget har skapats är det möjligt för användare med `edit` roll bindning i namn område att distribuera arbets belastningar i namn området. När detta `sourceControlConfiguration` med namn områdes omfånget tas bort lämnas namn området kvar och tas inte bort för att undvika att de andra arbets belastningarna bryts.
+> Eventuella ändringar i klustret som resulterade i distributioner från det spårade git-lagrings platsen tas inte bort när tas `sourceControlConfiguration` bort.
 
 ```console
 az k8sconfiguration delete --name '<config name>' -g '<resource group name>' --cluster-name '<cluster name>' --cluster-type connectedClusters
@@ -308,5 +313,5 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Använd GitOps med Helm för kluster konfiguration](./use-gitops-with-helm.md)
+- [Använd Helm med käll kontroll konfiguration](./use-gitops-with-helm.md)
 - [Använd Azure Policy för att styra kluster konfigurationen](./use-azure-policy.md)

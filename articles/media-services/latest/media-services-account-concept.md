@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 08579f7ba952bb4ebcba1595508612affb852528
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46f5644fb47b840f273ccab37da4f4743ad335f3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75980371"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053118"
 ---
 # <a name="manage-azure-media-services-v3-accounts"></a>Hantera Azure Media Services v3-konton
 
@@ -28,7 +29,7 @@ Om du behöver flytta ett Media Services konto till en ny prenumeration måste d
 > [!NOTE]
 > Media Services v3 stöder flera innehavares modeller.
 
-### <a name="considerations"></a>Att tänka på
+### <a name="considerations"></a>Överväganden
 
 * Skapa säkerhets kopior av alla data i ditt konto innan du migrerar till en annan prenumeration.
 * Du måste stoppa alla slut punkter för direkt uppspelning och Live streaming-resurser. Användarna kommer inte att kunna komma åt ditt innehåll under hela resurs grupps flyttningen. 
@@ -42,4 +43,4 @@ Försök att rotera lagrings konto nycklarna om ett Media Services konto eller e
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa ett konto](create-account-cli-quickstart.md)
+[Skapa ett konto](./create-account-howto.md)

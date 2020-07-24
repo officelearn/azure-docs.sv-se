@@ -8,14 +8,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 80932ebbedeca3f5e0a1b4cc2e68d73ef5b0d63a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 9aec584271975982e1d58cc3525faee0d403e1af
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025734"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048087"
 ---
-# <a name="create-and-explore-azure-machine-learning-dataset-with-labels-preview"></a>Skapa och utforska Azure Machine Learning data uppsättning med etiketter (förhands granskning)
+# <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Skapa och utforska Azure Machine Learning data uppsättning med etiketter
 
 I den här artikeln får du lära dig hur du exporterar data etiketter från ett Azure Machine Learning data märknings projekt och läser in dem i populära format, till exempel en Pandas-dataframe för data utforskning eller en Torchvision-datauppsättning för avbildnings omvandling. 
 
@@ -23,7 +23,7 @@ I den här artikeln får du lära dig hur du exporterar data etiketter från ett
 
 Azure Machine Learning data uppsättningar med etiketter är [TabularDatasets](how-to-create-register-datasets.md#dataset-types) med en etikett egenskap, kommer vi att referera till dem som etiketterade data uppsättningar. De här typerna av TabularDatasets skapas bara som utdata från projekt med Azure Machine Learning data etiketter. Skapa ett projekt med data etiketter med [de här stegen](how-to-create-labeling-projects.md). Machine Learning stöder data märknings projekt för bild klassificering, antingen flera etiketter eller flera klasser och objekt identifiering tillsammans med gränser rutor.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree) innan du börjar.
 * [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)eller åtkomst till [Azure Machine Learning Studio](https://ml.azure.com/).

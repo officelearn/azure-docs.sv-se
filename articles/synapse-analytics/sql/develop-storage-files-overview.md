@@ -1,5 +1,5 @@
 ---
-title: Få åtkomst till filer på lagrings platsen med SQL på begäran (för hands version) i Synapse SQL
+title: Komma åt filer på lagring i SQL på begäran (för hands version)
 description: Beskriver hur du frågar lagrings filer med hjälp av SQL on-demand-resurser (för hands version) i Synapse SQL.
 services: synapse-analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f786e92ca99c4c1700d00adf396ba1127b66ea7c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d7f990b059346c4c782ca923e663997317c4df16
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247106"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046877"
 ---
 # <a name="accessing-external-storage-in-synapse-sql-on-demand"></a>Åtkomst till extern lagring i Synapse SQL (på begäran)
 
@@ -43,7 +43,7 @@ Användaren kan komma åt lagringen med följande åtkomst regler:
 - Azure AD User-OpenRowSet kommer att använda Azure AD-identitet för anroparen för att få åtkomst till Azure Storage eller åtkomst till lagring med anonym åtkomst.
 - SQL User – OpenRowSet kommer att få åtkomst till lagring med anonym åtkomst.
 
-SQL-huvudobjekt kan också använda OpenRowSet för att direkt fråga filer som skyddas med SAS-token eller hanterad identitet på arbets ytan. Om en SQL-användare kör den här funktionen måste en privilegie rad användare med ALTER all CREDENTIAL-behörighet skapa en server begränsad autentiseringsuppgift som matchar URL i funktionen (med hjälp av lagrings namn och behållare) och beviljar behörighet för den här autentiseringsuppgiften till anroparen i OpenRowSet-funktionen:
+SQL-huvudobjekt kan också använda OpenRowSet för att direkt fråga filer som skyddas med SAS-token eller hanterad identitet på arbets ytan. Om en SQL-användare kör den här funktionen måste en privilegie rad användare med `ALTER ANY CREDENTIAL` behörighet skapa en server begränsad autentiseringsuppgift som matchar URL i funktionen (med hjälp av lagrings namn och behållare) och beviljar behörighet för den här autentiseringsuppgiften till anroparen i OpenRowSet-funktionen:
 
 ```sql
 EXECUTE AS somepoweruser
@@ -87,8 +87,8 @@ DATABASens begränsade AUTENTISERINGSUPPGIFTER anger hur du kommer åt filer på
 Anroparen måste ha någon av följande behörigheter för att köra OpenRowSet-funktionen:
 
 - En av behörigheterna för att köra OpenRowSet:
-  - ADMINISTRERA Mass åtgärd möjliggör inloggning för att köra OpenRowSet-funktionen.
-  - ADMINISTRERA DATABASens Mass åtgärd gör det möjligt för databas omfattnings användare att köra OpenRowSet-funktionen.
+  - `ADMINISTER BULK OPERATIONS`aktiverar inloggning för att köra OpenRowSet-funktionen.
+  - `ADMINISTER DATABASE BULK OPERATIONS`gör det möjligt för databas omfattnings användare att köra OpenRowSet-funktionen.
 - REFERERAR till DATABASens begränsade AUTENTISERINGSUPPGIFTER till autentiseringsuppgiften som refereras i den externa DATA källan
 
 #### <a name="accessing-anonymous-data-sources"></a>Åtkomst till anonyma data källor
@@ -149,15 +149,15 @@ Anroparen måste ha följande behörigheter för att kunna läsa data:
 
 I följande tabell visas de behörigheter som krävs för de åtgärder som anges ovan.
 
-| Fråga | Nödvändiga behörigheter|
+| Söka i data | Nödvändiga behörigheter|
 | --- | --- |
-| OpenRowSet (BULK) utan DataSource | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN` eller SQL-inloggningen måste ha referenser till autentiseringsuppgifter:: \<URL> för SAS-skyddad lagring |
-| OpenRowSet (BULK) med DataSource utan autentiseringsuppgifter | `ADMINISTER BULK ADMIN`eller `ADMINISTER DATABASE BULK ADMIN` , |
-| OpenRowSet (BULK) med data källa med autentiseringsuppgifter | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN` eller`REFERENCES DATABASE SCOPED CREDENTIAL` |
+| OpenRowSet (BULK) utan DataSource | `ADMINISTER BULK OPERATIONS`, `ADMINISTER DATABASE BULK OPERATIONS` eller SQL-inloggningen måste ha referenser till autentiseringsuppgifter:: \<URL> för SAS-skyddad lagring |
+| OpenRowSet (BULK) med DataSource utan autentiseringsuppgifter | `ADMINISTER BULK OPERATIONS`eller `ADMINISTER DATABASE BULK OPERATIONS` , |
+| OpenRowSet (BULK) med data källa med autentiseringsuppgifter | `REFERENCES DATABASE SCOPED CREDENTIAL`och en av `ADMINISTER BULK OPERATIONS` eller`ADMINISTER DATABASE BULK OPERATIONS` |
 | SKAPA EXTERN DATA KÄLLA | `ALTER ANY EXTERNAL DATA SOURCE` och `REFERENCES DATABASE SCOPED CREDENTIAL` |
 | SKAPA EXTERN TABELL | `CREATE TABLE`, `ALTER ANY SCHEMA` , `ALTER ANY EXTERNAL FILE FORMAT` , och`ALTER ANY EXTERNAL DATA SOURCE` |
 | VÄLJ FRÅN EXTERN TABELL | `SELECT TABLE` och `REFERENCES DATABASE SCOPED CREDENTIAL` |
-| CETAS | För att skapa tabell `CREATE TABLE` , `ALTER ANY SCHEMA` ,, `ALTER ANY DATA SOURCE` och `ALTER ANY EXTERNAL FILE FORMAT` . Läsa data: `ADMIN BULK OPERATIONS` eller `REFERENCES CREDENTIAL` `SELECT TABLE` per tabell/vy/funktion i fråga + R/W behörighet för lagring |
+| CETAS | För att skapa tabell `CREATE TABLE` , `ALTER ANY SCHEMA` ,, `ALTER ANY DATA SOURCE` och `ALTER ANY EXTERNAL FILE FORMAT` . Läsa data: `ADMINISTER BULK OPERATIONS` eller `REFERENCES CREDENTIAL` `SELECT TABLE` per tabell/vy/funktion i fråga + R/W behörighet för lagring |
 
 ## <a name="next-steps"></a>Nästa steg
 

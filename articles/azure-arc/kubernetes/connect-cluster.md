@@ -9,16 +9,16 @@ ms.author: mlearned
 description: Anslut ett Azure Arc-aktiverat Kubernetes-kluster med Azure Arc
 keywords: Kubernetes, båge, Azure, K8s, behållare
 ms.custom: references_regions
-ms.openlocfilehash: 1a186ac3bf2297de5ffc7ff478ba9b4350dae4c8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2c5e697f3dd67087582118fb6a6e083feecf549f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104289"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050098"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Ansluta ett Azure Arc-aktiverat Kubernetes-kluster (för hands version)
 
-Anslut ett Kubernetes-kluster till Azure-bågen.
+Det här dokumentet beskriver processen för att ansluta ett CNCF-certifierat Kubernetes-kluster (Cloud Native Computing Foundation) som AKS-motor på Azure, AKS-Engine på Azure Stack Hub, GKE, EKS och VMware vSphere Cluster till Azure Arc.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -28,7 +28,7 @@ Kontrol lera att du har följande krav:
   * Skapa ett Kubernetes-kluster med [Kubernetes i Docker (Natura)](https://kind.sigs.k8s.io/)
   * Skapa ett Kubernetes-kluster med Docker för [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) eller [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
 * Du behöver en kubeconfig-fil för att få åtkomst till klustret och kluster administratörs rollen i klustret för distribution av Arc-aktiverade Kubernetes-agenter.
-* Användaren eller tjänstens huvud namn som används med `az login` och- `az connectedk8s connect` kommandon måste ha behörigheterna Läs och skriv för resurs typen Microsoft. Kubernetes/connectedclusters. Rollen "Azure-båge för Kubernetes onboarding" som har dessa behörigheter kan användas för roll tilldelningar för användaren eller tjänstens huvud namn som används med Azure CLI för onboarding.
+* Användaren eller tjänstens huvud namn som används med `az login` och- `az connectedk8s connect` kommandon måste ha behörigheterna Läs och skriv för resurs typen Microsoft. Kubernetes/connectedclusters. Rollen "Kubernetes kluster – Azure Arc onboarding" har dessa behörigheter och kan användas för roll tilldelningar för användarens eller tjänstens huvud namn.
 * Helm 3 krävs för onboarding av klustret med connectedk8s-tillägget. [Installera den senaste versionen av Helm 3](https://helm.sh/docs/intro/install) för att uppfylla det här kravet.
 * Azure CLI version 2.3 + krävs för att installera Azure Arc-aktiverade Kubernetes CLI-tillägg. [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) eller uppdatera till den senaste versionen för att säkerställa att du har Azure CLI version 2.3 +.
 * Installera Arc-aktiverade Kubernetes CLI-tillägg:
@@ -54,7 +54,7 @@ Kontrol lera att du har följande krav:
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-* USA, östra
+* East US
 * Europa, västra
 
 ## <a name="network-requirements"></a>Nätverkskrav
@@ -64,7 +64,7 @@ Azure Arc-agenter kräver att följande protokoll/portar/utgående URL: er funge
 * TCP på port 443-->`https://:443`
 * TCP på port 9418-->`git://:9418`
 
-| Slut punkt (DNS)                                                                                               | Description                                                                                                                 |
+| Slut punkt (DNS)                                                                                               | Beskrivning                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `https://management.azure.com`                                                                                 | Krävs för att agenten ska kunna ansluta till Azure och registrera klustret                                                        |
 | `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com` | Data planens slut punkt för agenten för att push-överföra status och hämta konfigurations information                                      |
@@ -169,6 +169,9 @@ AzureArcTest1  eastus      AzureArcTest
 
 Du kan också visa den här resursen på [Azure Portal](https://portal.azure.com/). När du har öppnat portalen i webbläsaren navigerar du till resurs gruppen och den Azure Arc-aktiverade Kubernetes-resursen baserat på de resurs namn och resurs grupp namn som användes tidigare i `az connectedk8s connect` kommandot.
 
+> [!NOTE]
+> När klustret har registrerats tar det cirka 5 till 10 minuter för klustrets metadata (kluster version, agent version, antal noder) till Surface på sidan Översikt i den Azure Arc-aktiverade Kubernetes-resursen i Azure Portal.
+
 Azure Arc-aktiverade Kubernetes distribuerar några operatörer till `azure-arc` namn området. Du kan visa dessa distributioner och poddar här:
 
 ```console
@@ -204,7 +207,7 @@ Azure Arc-aktiverade Kubernetes består av några agenter (operatörer) som kör
 * `deployment.apps/config-agent`: bevakar det anslutna klustret för käll kontroll konfigurations resurser som tillämpas på klustret och uppdaterar kompatibilitetstillstånd
 * `deployment.apps/controller-manager`: är en operatör av operatörer och dirigerar interaktioner mellan Azure båg-komponenter
 * `deployment.apps/metrics-agent`: samlar in Mät värden för andra Arc-agenter för att säkerställa att dessa agenter visar optimala prestanda
-* `deployment.apps/cluster-metadata-operator`: samlar in kluster-metadata-kluster version, antal noder och Arc-agentens version
+* `deployment.apps/cluster-metadata-operator`: samlar in kluster-metadata-kluster version, antal noder och Azure Arc agent-version
 * `deployment.apps/resource-sync-agent`: synkroniserar ovanstående klustrade metadata till Azure
 * `deployment.apps/clusteridentityoperator`: Azure Arc-aktiverad Kubernetes har för närvarande stöd för systemtilldelad identitet. clusteridentityoperator upprätthåller det hanterade tjänst identitets certifikatet (MSI) som används av andra agenter för kommunikation med Azure.
 * `deployment.apps/flux-logs-agent`: samlar in loggar från flödes operatörer som distribuerats som en del av käll kontroll konfigurationen
@@ -218,7 +221,7 @@ Du kan ta bort en `Microsoft.Kubernetes/connectedcluster` resurs med hjälp av A
   ```console
   az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
   ```
-  Detta tar bort `Microsoft.Kubernetes/connectedCluster` resursen och eventuella associerade `sourcecontrolconfiguration` resurser i Azure. Azure CLI använder Helm Uninstall för att ta bort de agenter som körs i klustret också.
+  Det här kommandot tar bort `Microsoft.Kubernetes/connectedCluster` resursen och eventuella associerade `sourcecontrolconfiguration` resurser i Azure. Azure CLI använder Helm Uninstall för att ta bort de agenter som körs i klustret också.
 
 * **Borttagning på Azure Portal**: om du tar bort den Azure Arc-aktiverade Kubernetes-resursen på Azure Portal tas `Microsoft.Kubernetes/connectedcluster` resursen och eventuella associerade `sourcecontrolconfiguration` resurser i Azure bort, men de agenter som körs i klustret tas inte bort. Kör följande kommando för att ta bort agenterna som körs i klustret.
 

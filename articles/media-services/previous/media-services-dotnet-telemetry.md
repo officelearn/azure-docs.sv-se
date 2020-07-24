@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1ffaefc51121aeb7421d6e49a3c0e58c76d4391e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c101f6f2007e9d772f03be5d69e56d5f52866d6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61464954"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052774"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>Konfigurera Azure Media Services telemetri med .NET 
 
@@ -30,7 +30,7 @@ I den här artikeln beskrivs allmänna steg som du kan vidta när du konfigurera
 
 Du kan använda telemetridata på något av följande sätt:
 
-- Läs data direkt från Azure Table Storage (till exempel med hjälp av Storage SDK). Beskrivning av tabeller för telemetri-lagring finns i informationen om att använda **telemetri** i [den här](https://msdn.microsoft.com/library/mt742089.aspx) artikeln.
+- Läs data direkt från Azure Table Storage (till exempel med hjälp av Storage SDK). Beskrivning av tabeller för telemetri-lagring finns i informationen om att använda **telemetri** i [den här](/previous-versions/azure/mt742089(v=azure.100)) artikeln.
 
 Eller
 

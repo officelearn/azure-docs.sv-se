@@ -5,17 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 642f2705f54fe8f84cfde7ff039c9a723be59595
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c224f40996625ead4592a3bf50e02f0877c76db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83770967"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051313"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Vilka autentiserings- och verifieringsmetoder är tillgängliga i Azure Active Directory?
 
@@ -34,11 +35,11 @@ I följande tabell beskrivs vilka metoder som är tillgängliga för primär ell
 
 | Metod | Primär autentisering | Sekundär autentisering |
 | --- | --- | --- |
-| [Lösenord](#password) | Ja | |
+| [Lösenord](#password) | Yes | |
 | [Microsoft Authenticator-appen](#microsoft-authenticator-app) | Ja (för hands version) | MFA och SSPR |
-| [Säkerhets nycklar för FIDO2 (för hands version)](#fido2-security-keys) | Ja | Endast MFA |
+| [Säkerhets nycklar för FIDO2 (för hands version)](#fido2-security-keys) | Yes | Endast MFA |
 | [OATH-programvaru-token](#oath-software-tokens) | No | MFA |
-| [OATH-token för maskin vara (för hands version)](#oath-hardware-tokens-preview) | Ja | MFA |
+| [OATH-token för maskin vara (för hands version)](#oath-hardware-tokens-preview) | Yes | MFA |
 | [SMS](#phone-options) | Ja (för hands version) | MFA och SSPR |
 | [Röstsamtal](#phone-options) | No | MFA och SSPR |
 | [Säkerhetsfrågor](#security-questions) | No | SSPR – endast |
@@ -49,7 +50,7 @@ Den här artikeln beskriver dessa olika autentiserings-och verifierings metoder 
 
 ![Autentiseringsmetoder som används på inloggnings skärmen](media/concept-authentication-methods/overview-login.png)
 
-## <a name="password"></a>lösenordsinställning
+## <a name="password"></a>Lösenord
 
 Ett Azure AD-lösenord är ofta en av de primära autentiseringsmetoderna. Du kan inte inaktivera autentiseringsmetoden för lösen ord.
 

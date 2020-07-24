@@ -10,11 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: bb57af37308badcd3123af3348178aaac061f376
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d533735af340b23e8a79b6c5953df748a548609c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83652179"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046969"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Vanliga frågor och svar om Video Indexer
 
@@ -58,13 +59,13 @@ Nej, Video Indexer ger en integrering av flera Machine Learning-modeller i en pi
 
 ### <a name="what-media-formats-does-video-indexer-support"></a>Vilka Media format stöder Video Indexer?
 
-Video Indexer stöder de flesta vanliga medie format. Mer information finns i listan [Azure Media Encoder standardformat](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats) .
+Video Indexer stöder de flesta vanliga medie format. Mer information finns i listan [Azure Media Encoder standardformat](../latest/media-encoder-standard-formats.md) .
 
 ### <a name="how-do-i-upload-a-media-file-into-video-indexer-and-what-are-the-limitations"></a>Hur gör jag för att ladda upp en mediefil i Video Indexer och vilka är begränsningarna?
 
 I Video Indexer webbaserad portal kan du ladda upp en mediefil med hjälp av dialog rutan fil uppladdning eller genom att peka på en URL som är direkt värd för käll filen (se [exemplet](https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4)). Alla webb adresser som är värdar för medie innehåll med en iFrame-eller inbäddnings kod fungerar inte (se [exemplet](https://www.videoindexer.ai/accounts/7e1282e8-083c-46ab-8c20-84cae3dc289d/videos/5cfa29e152/?t=4.11)). 
 
-Mer information finns i den här [instruktions hand boken](https://docs.microsoft.com/azure/media-services/video-indexer/upload-index-videos).
+Mer information finns i den här [instruktions hand boken](./upload-index-videos.md).
 
 #### <a name="limitations"></a>Begränsningar
 
@@ -75,7 +76,7 @@ En omfattande lista finns i [överförings överväganden och begränsningar](up
 
 ### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>Hur lång tid tar det Video Indexer för att extrahera insikter från media?
 
-Hur lång tid det tar att indexera en video-eller ljudfil, både via Video Indexer-API och det Video Indexer webbaserade gränssnittet, är beroende av flera parametrar, till exempel fil längd och kvalitet, antalet insikter som finns i filen, antalet [reserverade enheter](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) som är tillgängliga och om [slut punkten för direkt uppspelning](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) är aktive rad eller inte. Vi rekommenderar att du kör några testfiler med ditt eget innehåll och tar ett genomsnitt för att få en bättre uppfattning.
+Hur lång tid det tar att indexera en video-eller ljudfil, både via Video Indexer-API och det Video Indexer webbaserade gränssnittet, är beroende av flera parametrar, till exempel fil längd och kvalitet, antalet insikter som finns i filen, antalet [reserverade enheter](../previous/media-services-scale-media-processing-overview.md) som är tillgängliga och om [slut punkten för direkt uppspelning](../previous/media-services-streaming-endpoints-overview.md) är aktive rad eller inte. Vi rekommenderar att du kör några testfiler med ditt eget innehåll och tar ett genomsnitt för att få en bättre uppfattning.
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>Kan jag skapa anpassade arbets flöden för att automatisera processer med Video Indexer?
 

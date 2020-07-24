@@ -1,24 +1,24 @@
 ---
-title: Kombinerad registrering för SSPR och MFA – Azure Active Directory
-description: Registrering av Azure AD-Multi-Factor Authentication och återställning av lösen ord för självbetjäning
+title: Kombinerad registrering för SSPR och Azure Multi-Factor Authentication-Azure Active Directory
+description: Lär dig mer om den kombinerade registrerings upplevelsen för Azure Active Directory att låta användare registrera sig för både Azure-Multi-Factor Authentication och återställning av lösen ord för självbetjäning
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87cec45ac3d7bf491278a4ba8520e8257fd0f6c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8ceb375eb9da853b4c89ffe278d3483f6a4fa72
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550669"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050957"
 ---
-# <a name="combined-security-information-registration-overview"></a>Översikt över kombinerad säkerhets informations registrering
+# <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Kombinerad säkerhets informations registrering för Azure Active Directory översikt
 
 Innan en kombinerad registrering har användare registrerat autentiseringsmetoder för Azure Multi-Factor Authentication och lösen ords återställning via självbetjäning (SSPR) separat. Personer har förvirrat att liknande metoder användes för Multi-Factor Authentication och SSPR, men de var tvungna att registrera sig för båda funktionerna. Med kombinerad registrering kan användarna registrera sig en gång och få fördelarna med både Multi-Factor Authentication-och SSPR.
 
@@ -34,11 +34,13 @@ Innan du aktiverar den nya upplevelsen kan du läsa den här administratörs sä
 Den kombinerade säkerhets informations registreringen i Azure AD är för närvarande inte tillgänglig för nationella moln som Azure amerikanska myndigheter, Azure Germany eller Azure Kina 21Vianet.
 
 > [!IMPORTANT]
-> Användare som har Aktiver ATS för både den ursprungliga för hands versionen och den förbättrade kombinerade registreringen kommer att se det nya beteendet. Användare som har Aktiver ATS för båda erfarenheterna kan bara se den nya min profil upplevelsen. Den nya min profil överensstämmer med utseendet och känslan av kombinerad registrering och ger en sömlös upplevelse för användarna. Användarna kan se min profil genom att gå till [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .
+> Användare som har Aktiver ATS för både den ursprungliga för hands versionen och den förbättrade kombinerade registrerings upplevelsen ser det nya beteendet. Användare som är aktiverade för båda upplevelserna ser bara den nya min profil upplevelsen. Den nya *min profil* överensstämmer med utseendet och känslan av kombinerad registrering och ger en sömlös upplevelse för användarna. Användarna kan se min profil genom att gå till [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .
 >
-> Du kan stöta på ett fel meddelande när du försöker få åtkomst till alternativet säkerhets information. Det går till exempel inte att logga in dig. I det här fallet kontrollerar du att du inte har någon konfigurations-eller grup princip objekt som blockerar cookies från tredje part i webbläsaren.
+> Du kan stöta på ett fel meddelande när du försöker få åtkomst till alternativet för säkerhets information, till exempel "det går inte att logga in". Bekräfta att du inte har någon konfigurations-eller grup princip objekt som blockerar cookies från tredje part i webbläsaren.
 
-Mina profil sidor är lokaliserade baserat på språk inställningarna för den dator som har åtkomst till sidan. Microsoft lagrar det senaste språket som används i webbläsarens cacheminne, så efterföljande försök att komma åt sidorna fortsätter att återges på det senast använda språket. Om du rensar cacheminnet åter renderas sidorna igen. Om du vill tvinga ett speciellt språk kan du lägga till `?lng=<language>` i slutet av webb adressen, där `<language>` är koden för det språk som du vill återge.
+*Mina profil* sidor är lokaliserade baserat på språk inställningarna för den dator som har åtkomst till sidan. Microsoft lagrar det senaste språket som används i webbläsarens cacheminne, så efterföljande försök att komma åt sidorna fortsätter att återges på det senast använda språket. Sidorna återges igen om du rensar cacheminnet.
+
+Om du vill tvinga ett speciellt språk kan du lägga till `?lng=<language>` i slutet av webb adressen, där `<language>` är koden för det språk som du vill återge.
 
 ![Konfigurera SSPR eller andra säkerhets verifierings metoder](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
@@ -48,15 +50,15 @@ Kombinerad registrering stöder följande autentiseringsmetoder och åtgärder:
 
 | Metod | Registrera dig | Ändra | Ta bort |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Ja (högst 5) | No | Ja |
-| Annan Authenticator-app | Ja (högst 5) | No | Ja |
-| Maskinvaru-token | Nej | Nej | Ja |
+| Microsoft Authenticator | Ja (högst 5) | No | Yes |
+| Annan Authenticator-app | Ja (högst 5) | No | Yes |
+| Maskinvaru-token | Inga | Inga | Yes |
 | Telefon | Ja | Ja | Ja |
 | Alternativ telefon | Ja | Ja | Ja |
-| Arbetstelefon | Nej | Nej | Nej |
+| Arbetstelefon | Inga | Inga | Inga |
 | E-post | Ja | Ja | Ja |
-| Säkerhetsfrågor | Ja | No | Ja |
-| Applösenord | Ja | No | Ja |
+| Säkerhetsfrågor | Yes | No | Yes |
+| Applösenord | Yes | No | Yes |
 | FIDO2 säkerhets nycklar<br />*Endast hanterat läge från sidan [säkerhets information](https://mysignins.microsoft.com/security-info)*| Ja | Ja | Ja |
 
 > [!NOTE]
@@ -78,30 +80,30 @@ Det finns två lägen för kombinerad registrering: avbryta och hantera.
 - **Avbrotts läge** är en guide som liknar erfarenhet, som presenteras för användare när de registrerar eller uppdaterar sina säkerhets uppgifter vid inloggning.
 - **Hanterings läget** är en del av användar profilen och gör att användarna kan hantera sina säkerhets uppgifter.
 
-För båda lägena måste användare som tidigare har registrerat en metod som kan användas för Multi-Factor Authentication utföra Multi-Factor Authentication innan de kan komma åt sina säkerhets uppgifter. Användarna måste bekräfta sin information innan de fortsätter att använda sina tidigare registrerade metoder. 
+För båda lägena kan användare som tidigare har registrerat en metod som kan användas för Multi-Factor Authentication måste utföra Multi-Factor Authentication innan de kan komma åt sina säkerhets uppgifter. Användarna måste bekräfta sin information innan de fortsätter att använda sina tidigare registrerade metoder. 
 
 ### <a name="interrupt-mode"></a>Avbrotts läge
 
 Kombinerad registrering respekterar både Multi-Factor Authentication-och SSPR-principer, om båda har Aktiver ATS för din klient. Dessa principer styr huruvida en användare avbryts för registrering under inloggning och vilka metoder som är tillgängliga för registrering.
 
-Här följer flera scenarier där användare kan uppmanas att registrera eller uppdatera sin säkerhets information:
+Följande är exempel scenarier där användare kan uppmanas att registrera eller uppdatera sin säkerhets information:
 
-- Multi-Factor Authentication registrering tillämpas via identitets skydd: användarna uppmanas att registrera sig under inloggningen. De registrerar Multi-Factor Authentication metoder och SSPR-metoder (om användaren är aktive rad för SSPR).
-- Multi-Factor Authentication registrering tillämpas via per användare-Multi-Factor Authentication: användarna uppmanas att registrera sig under inloggningen. De registrerar Multi-Factor Authentication metoder och SSPR-metoder (om användaren är aktive rad för SSPR).
-- Multi-Factor Authentication registrering tillämpas via villkorlig åtkomst eller andra principer: användarna uppmanas att registrera sig när de använder en resurs som kräver Multi-Factor Authentication. De registrerar Multi-Factor Authentication metoder och SSPR-metoder (om användaren är aktive rad för SSPR).
-- SSPR-registrering framtvingad: användarna uppmanas att registrera sig under inloggningen. De registrerar endast SSPR-metoder.
-- Tvingande uppdatering av SSPR: användare måste granska sina säkerhets uppgifter med ett intervall som angetts av administratören. Användarna visar sin information och kan bekräfta den aktuella informationen eller göra ändringar om det behövs.
+- *Multi-Factor Authentication registrering framtvingas genom identitets skydd:* Användarna uppmanas att registrera sig under inloggningen. De registrerar Multi-Factor Authentication metoder och SSPR-metoder (om användaren är aktive rad för SSPR).
+- *Multi-Factor Authentication registrering tillämpas via per användare-Multi-Factor Authentication:* Användarna uppmanas att registrera sig under inloggningen. De registrerar Multi-Factor Authentication metoder och SSPR-metoder (om användaren är aktive rad för SSPR).
+- *Multi-Factor Authentication registreringen tillämpas via villkorlig åtkomst eller andra principer:* Användarna uppmanas att registrera sig när de använder en resurs som kräver Multi-Factor Authentication. De registrerar Multi-Factor Authentication metoder och SSPR-metoder (om användaren är aktive rad för SSPR).
+- *SSPR-registrering framtvingas:* Användarna uppmanas att registrera sig under inloggningen. De registrerar endast SSPR-metoder.
+- *Tvingande SSPR-uppdatering:* Användare måste granska sina säkerhets uppgifter med ett intervall som angetts av administratören. Användarna visar sin information och kan bekräfta den aktuella informationen eller göra ändringar om det behövs.
 
 När registreringen är aktive rad visas det minsta antal metoder som krävs för att uppfylla både Multi-Factor Authentication-och SSPR-principer, från de flesta till minst säkra.
 
-Ett exempel:
+Tänk på följande exempel scenario:
 
 - En användare har Aktiver ATS för SSPR. SSPR-principen krävde två metoder för att återställa och har aktiverat mobil kod, e-post och telefon.
-   - Den här användaren krävs för att registrera två metoder.
-      - Användaren visas som standard autentiserare.
-      - Användaren kan välja att registrera e-post i stället för Authenticator-appen eller telefon.
+- Den här användaren krävs för att registrera två metoder.
+   - Användaren visas som standard autentiserare.
+   - Användaren kan välja att registrera e-post i stället för Authenticator-appen eller telefon.
 
-Det här flödesschemat beskriver vilka metoder som visas för en användare när du avbryter registreringen under inloggningen:
+Följande flödes diagram beskriver vilka metoder som visas för en användare när du avbryter registreringen under inloggningen:
 
 ![Kombinerat flödes schema för säkerhets information](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
 
@@ -125,7 +127,7 @@ En användare har inte konfigurerat all nödvändig säkerhets information och g
 
 En administratör har inte tvingat registrering.
 
-En användare som ännu inte har konfigurerat all nödvändig säkerhets information går till [https://myprofile.microsoft.com](https://myprofile.microsoft.com) . Användaren väljer **säkerhets information** i den vänstra rutan. Därifrån väljer användaren att lägga till en metod, väljer någon av de tillgängliga metoderna och följer stegen för att ställa in den metoden. När du är färdig ser användaren den metod som precis har kon figurer ATS på sidan säkerhets information.
+En användare som ännu inte har konfigurerat all nödvändig säkerhets information går till [https://myprofile.microsoft.com](https://myprofile.microsoft.com) . Användaren väljer **säkerhets information** i den vänstra rutan. Därifrån väljer användaren att lägga till en metod, väljer någon av de tillgängliga metoderna och följer stegen för att ställa in den metoden. När du är färdig ser användaren den metod som har angetts på sidan säkerhets information.
 
 ### <a name="delete-security-info-from-my-profile"></a>Ta bort säkerhets information från min profil
 

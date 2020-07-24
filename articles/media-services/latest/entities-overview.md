@@ -13,18 +13,18 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 7e4f1141a9d4bd58451782e8412063a22565556d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9f9463cd1cac49e36ea52cafaf4d07f4e709ca7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80584538"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053253"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrering, sortering och sid indelning av Media Services entiteter
 
 I det här avsnittet beskrivs OData-frågealternativen och sid brytnings stöd som är tillgängligt när du visar Azure Media Services v3-entiteter.
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 * Egenskaper för entiteter av `Datetime` typen är alltid i UTC-format.
 * Blank steg i frågesträngen ska vara URL-kodat innan du skickar en begäran.
@@ -64,13 +64,13 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ## <a name="order-by"></a>Sortera efter
 
-Används `$orderby` för att sortera de returnerade objekten efter den angivna parametern. Till exempel:  
+Används `$orderby` för att sortera de returnerade objekten efter den angivna parametern. Exempel:  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-Om du vill sortera resultaten i stigande eller fallande ordning, lägger du till antingen `asc` eller `desc` till fält namnet, avgränsat med ett blank steg. Exempel: `$orderby properties/created desc`.
+Om du vill sortera resultaten i stigande eller fallande ordning, lägger du till antingen `asc` eller `desc` till fält namnet, avgränsat med ett blank steg. Till exempel: `$orderby properties/created desc`.
 
 ## <a name="skip-token"></a>Hoppa över token
 
@@ -158,34 +158,34 @@ Följande tabell visar hur du kan använda filtrerings-och sorterings alternativ
 
 |Entitetsnamn|Egenskapsnamn|Filtrera|Beställa|
 |---|---|---|---|
-|[Tillgångar](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` och `desc`|
+|[Tillgångar](/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` och `desc`|
 ||egenskaper. alternateId |`eq`||
 ||egenskaper. assetId |`eq`||
 ||egenskaper. skapad| `eq`, `gt`, `lt`| `asc` och `desc`|
-|[Principer för innehållsnycklar](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
+|[Principer för innehållsnycklar](/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
 ||egenskaper. skapad    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
 ||egenskaper. Beskrivning    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
 ||egenskaper. lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
 ||egenskaper. policyId|`eq`, `ne`||
-|[Jobb](https://docs.microsoft.com/rest/api/media/jobs)| name  | `eq`            | `asc` och `desc`|
+|[Jobb](/rest/api/media/jobs)| name  | `eq`            | `asc` och `desc`|
 ||egenskaper. State        | `eq`, `ne`        |                         |
 ||egenskaper. skapad      | `gt`, `ge`, `lt`, `le`| `asc` och `desc`|
 ||egenskaper. lastModified | `gt`, `ge`, `lt`, `le` | `asc` och `desc`| 
-|[Positionerare för direktuppspelning](https://docs.microsoft.com/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
+|[Positionerare för direktuppspelning](/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
 ||egenskaper. skapad    |`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` och `desc`|
 ||egenskaper. slut tid    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
-|[Principer för direktuppspelning](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
+|[Principer för direktuppspelning](/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
 ||egenskaper. skapad    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
-|[Transformering](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` och `desc`|
+|[Transformering](/rest/api/media/transforms)| name | `eq`            | `asc` och `desc`|
 || egenskaper. skapad      | `gt`, `ge`, `lt`, `le`| `asc` och `desc`|
 || egenskaper. lastModified | `gt`, `ge`, `lt`, `le`| `asc` och `desc`|
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lista till gångar](https://docs.microsoft.com/rest/api/media/assets/list)
-* [Lista med innehålls nyckel principer](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
-* [Lista jobb](https://docs.microsoft.com/rest/api/media/jobs/list)
-* [Lista över strömmande principer](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
-* [Lista över strömmande positionerare](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+* [Lista till gångar](/rest/api/media/assets/list)
+* [Lista med innehålls nyckel principer](/rest/api/media/contentkeypolicies/list)
+* [Lista jobb](/rest/api/media/jobs/list)
+* [Lista över strömmande principer](/rest/api/media/streamingpolicies/list)
+* [Lista över strömmande positionerare](/rest/api/media/streaminglocators/list)
 * [Strömma en fil](stream-files-dotnet-quickstart.md)
 * [Kvoter och begränsningar](limits-quotas-constraints.md)

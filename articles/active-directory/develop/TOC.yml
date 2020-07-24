@@ -343,8 +343,6 @@
               href: msal-js-use-ie-browser.md
             - name: Kända problem –IE och Microsoft Edge
               href: msal-js-known-issues-ie-edge-browsers.md
-            - name: Kända problem – Safari
-              href: msal-js-known-issues-safari-browser.md
             - name: Hantera fel och undantag
               href: msal-handling-exceptions.md?tabs=javascript
             - name: Loggning

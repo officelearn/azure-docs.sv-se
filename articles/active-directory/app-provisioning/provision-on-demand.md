@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 78a56b6a848139c47d7934a47decb126afe00b7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7799e873afb117481cebafd982df59a3267f4405
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85297536"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051588"
 ---
 # <a name="on-demand-provisioning"></a>Etablering på begäran
 Med etablering på begäran kan du etablera en användare i ett program på några sekunder. Du kan använda funktionen för att snabbt felsöka konfigurations problem, validera uttryck som du har definierat, testa omfångs filter och mycket mer. 
@@ -30,6 +30,8 @@ Med etablering på begäran kan du etablera en användare i ett program på någ
 5. Klicka på **etablera på begäran**.
 6. Sök efter en användare efter förnamn, efter namn, visnings namn, User Principal Name eller e-post.
 7. Välj etablera längst ned på sidan.
+
+:::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="Etablera en användare på begäran.":::
 
 ## <a name="understanding-the-provisioning-steps"></a>Förstå etablerings stegen
 Etablerings funktionen på begäran försöker visa de steg som etablerings tjänsten vidtar vid etablering av en användare. Det finns vanligt vis fem steg för att konfigurera en användare, och ett eller flera av stegen nedan visas i etablerings upplevelsen vid behov.
@@ -88,6 +90,8 @@ På sidan Visa information visas egenskaperna för den eller de användare som m
 ### <a name="step-5-perform-action"></a>Steg 5: utför åtgärd
 Slutligen vidtar etablerings tjänsten en åtgärd som att skapa, uppdatera, ta bort eller hoppa över användaren. 
 
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Användaren har slutförts.":::
+
 **Visa detaljer**
 
 I avsnittet Visa information visas de attribut som har ändrats i mål programmet. Detta representerar den slutliga utmatningen av etablerings tjänstens aktivitet och de attribut som exporterades. Om det här steget Miss lyckas representerar de attribut som visas de attribut som etablerings tjänsten försökte ändra.  
@@ -102,11 +106,11 @@ I avsnittet Visa information visas de attribut som har ändrats i mål programme
 **Hur lång tid tar etableringen på begäran?** Det tar vanligt vis mindre än 30 sekunder. 
 
 ## <a name="known-limitations"></a>Kända begränsningar
-Det finns några kända begränsningar idag. Publicera på [UserVoice](https://aka.ms/appprovisioningfeaturerequest) så att vi bättre kan prioritera vilka förbättringar som ska utföras härnäst. Observera att de här begränsningarna är begränsade till etablerings funktionen på begäran. Mer information om hur ett program stöder etablering av grupper, borttagningar osv. finns i själv studie kursen om program. 
+Det finns några kända begränsningar idag. Publicera på [användarens röst](https://aka.ms/appprovisioningfeaturerequest) så att vi bättre kan prioritera vilka förbättringar som ska utföras härnäst. Observera att de här begränsningarna är begränsade till etablerings funktionen på begäran. Mer information om hur ett program stöder etablering av grupper, borttagningar osv. finns i själv studie kursen om program. 
 
 * Programmen Workday, AWS och SuccessFactors har inte stöd för etablering på begäran.
 * Etablering av grupper och roller på begäran stöds inte.
-* Det finns inte stöd för att inaktivera eller ta bort användare och grupper.
+* Etablering på begäran stöder inaktive ring av användare som har tagits bort från programmet, men som inte har stöd för att inaktivera eller ta bort användare som har inaktiverats eller tagits bort från Azure Active Directory (användarna visas inte när de söker efter en användare).
 
 ## <a name="next-steps"></a>Nästa steg
 

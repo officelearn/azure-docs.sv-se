@@ -5,21 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7997359fb29afc876b184b811e0409cfdbeb265a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2eff16e0d1aa242ed4ca8b427c7af8e8defa7804
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83826476"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051297"
 ---
-# <a name="password-management-frequently-asked-questions"></a>Vanliga frågor och svar om lösen ords hantering
+# <a name="self-service-password-reset-frequently-asked-questions"></a>Vanliga frågor och svar om lösen ords återställning via självbetjäning
 
-Här följer några vanliga frågor och svar (FAQ) för alla saker som rör lösen ords återställning.
+Här följer några vanliga frågor och svar (FAQ) för alla saker som rör självbetjäning för återställning av lösen ord.
 
 Om du har en allmän fråga om Azure Active Directory (Azure AD) och lösen ords återställning via självbetjäning (SSPR) som inte besvaras här kan du be communityn om hjälp på [sidan Microsoft Q&en fråga för Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). Medlemmar i communityn är tekniker, produkt chefer, MVP: er och andra IT-proffs.
 
@@ -37,7 +38,7 @@ Vanliga frågor och svar är indelade i följande avsnitt:
 
   > **S:** Ja. Så länge lösen ords återställning är aktiverat och de är licensierade kan användare gå till registrerings portalen för lösen ords återställning ( https://aka.ms/ssprsetup) för att registrera deras autentiseringsinformation). Användare kan även registrera sig via åtkomst panelen ( https://myapps.microsoft.com) . Om du vill registrera dig via åtkomst panelen måste du välja profil bilden, välja **profil**och sedan välja alternativet **Registrera för lösen ords återställning** .
   >
-  >
+  > Om du aktiverar [kombinerad registrering](concept-registration-mfa-sspr-combined.md)kan användarna registrera sig för både SSPR och Azure Multi-Factor Authentication samtidigt.
 * **F: om jag aktiverar lösen ords återställning för en grupp och sedan bestämmer dig för att aktivera den för alla, måste mina användare omregistrera sig?**
 
   > **S:** Nej. Användare som har fyllt i diagnostikdata behöver inte registreras igen.

@@ -12,17 +12,18 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/30/2020
 ms.author: juliako
-ms.openlocfilehash: 1d28fc37b98493322b9e201ac899b7911dd1d705
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c0eb626b827656a478e02a43b98ed15e7469f92
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708968"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053469"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analysera video-och ljudfiler med Azure Media Services
 
 Med Azure Media Services v3 kan du extrahera insikter från dina video-och ljudfiler med Video Indexer. I den här artikeln beskrivs de Media Services v3 Analyzer-för hands inställningarna som används för att extrahera dessa insikter. Använd Video Indexer direkt för att indexera mer detaljerad information. Om du vill veta när du ska använda Video Indexer jämfört med Media Services Analyzer-för inställningar, kan du läsa [jämförelse dokumentet](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
-Om du vill analysera ditt innehåll med Media Services v3-för inställningar skapar du en **transformering** och skickar ett **jobb** som använder någon av dessa för inställningar: [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) eller **AudioAnalyzerPreset**. En själv studie kurs som demonstrerar hur du använder **VideoAnalyzerPreset**finns i [analysera videor med Azure Media Services](analyze-videos-tutorial-with-api.md).
+Om du vill analysera ditt innehåll med Media Services v3-för inställningar skapar du en **transformering** och skickar ett **jobb** som använder någon av dessa för inställningar: [VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset) eller **AudioAnalyzerPreset**. En själv studie kurs som demonstrerar hur du använder **VideoAnalyzerPreset**finns i [analysera videor med Azure Media Services](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
 > När du använder en Video- eller Audio Analyzer-förinställningen använder du Azure-portalen för att ställa in ditt konto på att ha 10 mediereserverade S3-enheter. Mer information finns i [Skala mediebearbetning](media-reserved-units-cli-how-to.md).
@@ -37,9 +38,9 @@ Media Services stöder för närvarande följande inbyggda Analyzer-för hands i
 
 |**Förvals namn**|**Scenario**|**Detaljer**|
 |---|---|---|
-|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analysera ljud|För inställningen används en fördefinierad uppsättning av AI-baserade analys åtgärder, inklusive tal avskrifter. För närvarande stöder för inställningen bearbetning av innehåll med ett enda ljud spår som innehåller tal på ett och samma språk. Du kan ange språket för ljud nytto lasten i indata med BCP-47-formatet för ' language tag-region '. Språk som stöds är engelska ("en-US" och "en-GB"), spanska (' es-ES ' och ' es-MX '), franska (fr-FR), italienska ("IT-IT"), japanska (' ja-JP '). portugisiska ("pt-BR"), kinesiska (' zh-CN '), tyska ("de-DE"), arabiska (' ar-tex ' och ' ar-SY '), ryska (' ru-RU '), hindi (' Hi-IN ') och koreanska (' ko-KR ').<br/><br/> Om språket inte har angetts eller är inställt på null väljer automatisk språk identifiering det första språket som identifieras och fortsätter med det valda språket under filens varaktighet. Funktionen för automatisk språk identifiering stöder för närvarande engelska, kinesiska, franska, tyska, italienska, japanska, spanska, ryska och portugisiska. Den stöder inte dynamisk växling mellan språk när det första språket har identifierats. Funktionen för automatisk språk identifiering fungerar bäst med ljud inspelningar med tydligt discernible tal. Om automatisk språk identifiering inte kan hitta språket, går avskriften tillbaka till engelska.|
-|[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analysera ljud och video|Extraherar insikter (avancerade metadata) från både ljud och video och matar ut en JSON-format fil. Du kan ange om du bara vill extrahera ljud insikter när du bearbetar en videofil. Mer information finns i [Analysera video](analyze-videos-tutorial-with-api.md).|
-|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Identifiera ansikten som finns i videon|Beskriver de inställningar som ska användas när du analyserar en video för att identifiera alla ytor som finns.|
+|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analysera ljud|För inställningen används en fördefinierad uppsättning av AI-baserade analys åtgärder, inklusive tal avskrifter. För närvarande stöder för inställningen bearbetning av innehåll med ett enda ljud spår som innehåller tal på ett och samma språk. Du kan ange språket för ljud nytto lasten i indata med BCP-47-formatet för ' language tag-region '. Språk som stöds är engelska ("en-US" och "en-GB"), spanska (' es-ES ' och ' es-MX '), franska (fr-FR), italienska ("IT-IT"), japanska (' ja-JP '). portugisiska ("pt-BR"), kinesiska (' zh-CN '), tyska ("de-DE"), arabiska (' ar-tex ' och ' ar-SY '), ryska (' ru-RU '), hindi (' Hi-IN ') och koreanska (' ko-KR ').<br/><br/> Om språket inte har angetts eller är inställt på null väljer automatisk språk identifiering det första språket som identifieras och fortsätter med det valda språket under filens varaktighet. Funktionen för automatisk språk identifiering stöder för närvarande engelska, kinesiska, franska, tyska, italienska, japanska, spanska, ryska och portugisiska. Den stöder inte dynamisk växling mellan språk när det första språket har identifierats. Funktionen för automatisk språk identifiering fungerar bäst med ljud inspelningar med tydligt discernible tal. Om automatisk språk identifiering inte kan hitta språket, går avskriften tillbaka till engelska.|
+|[VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analysera ljud och video|Extraherar insikter (avancerade metadata) från både ljud och video och matar ut en JSON-format fil. Du kan ange om du bara vill extrahera ljud insikter när du bearbetar en videofil. Mer information finns i [Analysera video](analyze-videos-tutorial-with-api.md).|
+|[FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset)|Identifiera ansikten som finns i videon|Beskriver de inställningar som ska användas när du analyserar en video för att identifiera alla ytor som finns.|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 
@@ -66,7 +67,7 @@ Utdata innehåller en JSON-fil (insights.jspå) med alla insikter som finns i vi
 
 ### <a name="transcript"></a>avskrifts
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Rad-ID.|
 |text|Själva avskriften.|
@@ -104,7 +105,7 @@ Exempel:
 
 ### <a name="ocr"></a>stöd
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|ID för OCR-linje.|
 |text|OCR-text.|
@@ -147,7 +148,7 @@ Exempel:
 
 ### <a name="faces"></a>ytor
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Ansikts-ID.|
 |name|Ansikts namnet. Det kan vara okänt #0, ett identifierat kändis eller en kundutbildad person.|
@@ -157,7 +158,7 @@ Exempel:
 |knownPersonId|Det interna ID: t (om det är en känd person).|
 |referenceId|Bing-ID: t (om det är en Bing-kändis).|
 |referenceType|Just Bing.|
-|rubrik|Rubriken (om det är en kändis, till exempel "Microsofts VD").|
+|title|Rubriken (om det är en kändis, till exempel "Microsofts VD").|
 |imageUrl|Bild-URL: en, om det är en kändis.|
 |pipe|Instanser där ytan fanns inom det aktuella tidsintervallet. Varje instans har också en thumbnailsId. |
 
@@ -192,7 +193,7 @@ Exempel:
 
 ### <a name="shots"></a>bilder
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Bild-ID.|
 |Nyckel rutor|En lista över nyckel bild rutor i instansen (var och en har ett ID och en lista över instanser av instans intervallet). Nyckel bilds instanser har ett thumbnailId-fält med nyckel rutans miniatyr-ID.|
@@ -249,7 +250,7 @@ Exempel:
 
 ### <a name="statistics"></a>uppgifterna
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |CorrespondenceCount|Antal korrespondens i videon.|
 |WordCount|Antalet ord per talare.|
@@ -262,7 +263,7 @@ Exempel:
 
 Sentiment sammanställs av deras sentimentType-fält (positiv/neutral/negativ). Till exempel 0-0,1, 0,1-0,2.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Sentiment-ID.|
 |averageScore |Medelvärdet av alla resultat från alla instanser av sentiment-typ positiv/neutral/negativ|
@@ -297,7 +298,7 @@ Sentiment sammanställs av deras sentimentType-fält (positiv/neutral/negativ). 
 
 ### <a name="labels"></a>Etiketter
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Etikett-ID: t.|
 |name|Etikett namnet (till exempel "dator", "TV").|
@@ -355,7 +356,7 @@ Sentiment sammanställs av deras sentimentType-fält (positiv/neutral/negativ). 
 
 ### <a name="keywords"></a>nyckelord
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|Nyckelords-ID: t.|
 |text|Nyckelords texten.|
@@ -406,7 +407,7 @@ VisualContentModeration-blocket innehåller tidsintervall som Video Indexer hitt
 
 Videor som innehåller vuxen eller vågat innehåll kan endast vara tillgängliga för privat vy. Användare kan skicka en begäran om en mänsklig granskning av innehållet, vilket innebär att `IsAdult` attributet innehåller resultatet av mänsklig granskning.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |id|ID för moderator för visuellt innehåll.|
 |adultScore|Den vuxen poängen (från Content moderator).|
@@ -441,4 +442,4 @@ Videor som innehåller vuxen eller vågat innehåll kan endast vara tillgänglig
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-[Självstudie: Analysera videor med Azure Media Services](analyze-videos-tutorial-with-api.md)
+[Självstudier: Analysera videor med Azure Media Services](analyze-videos-tutorial-with-api.md)

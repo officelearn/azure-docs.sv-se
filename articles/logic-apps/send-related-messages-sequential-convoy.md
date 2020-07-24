@@ -6,15 +6,16 @@ ms.suite: integration
 ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: bd6b05489d13f835de4dce2aa3d885132285efca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c00d2e4f622bcfad7b2468013336f0d936e318c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987607"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048664"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Skicka relaterade meddelanden i ordning med en sekventiell konvojmönster i Azure Logic Apps med Azure Service Bus
 
-När du behöver skicka korrelerade meddelanden i en viss ordning kan du följa det [ *sekventiella konvojmönster* -mönstret](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) när du använder [Azure Logic Apps](../logic-apps/logic-apps-overview.md) med hjälp av [Azure Service Bus-anslutningen](../connectors/connectors-create-api-servicebus.md). Korrelerade meddelanden har en egenskap som definierar relationen mellan dessa meddelanden, till exempel ID för [sessionen](../service-bus-messaging/message-sessions.md) i Service Bus.
+När du behöver skicka korrelerade meddelanden i en viss ordning kan du följa det [ *sekventiella konvojmönster* -mönstret](/azure/architecture/patterns/sequential-convoy) när du använder [Azure Logic Apps](../logic-apps/logic-apps-overview.md) med hjälp av [Azure Service Bus-anslutningen](../connectors/connectors-create-api-servicebus.md). Korrelerade meddelanden har en egenskap som definierar relationen mellan dessa meddelanden, till exempel ID för [sessionen](../service-bus-messaging/message-sessions.md) i Service Bus.
 
 Anta till exempel att du har 10 meddelanden för en session med namnet "session 1" och att du har 5 meddelanden för en session med namnet "session 2" som alla skickas till samma [Service Bus kö](../service-bus-messaging/service-bus-queues-topics-subscriptions.md). Du kan skapa en Logic app som bearbetar meddelanden från kön så att alla meddelanden från "session 1" hanteras av en enda Utlös ande körning och att alla meddelanden från "session 2" hanteras av nästa Utlös ande körning.
 
@@ -28,9 +29,9 @@ Den här artikeln visar hur du skapar en logisk app som implementerar det här m
 
 Information om hur du granskar mallens JSON-fil finns i [GitHub: service-bus-sessions.jspå](https://github.com/Azure/logicapps/blob/master/templates/service-bus-sessions.json).
 
-Mer information finns i [sekventiella konvojmönster-mönster – design mönster för Azure Architecture-molnet](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy).
+Mer information finns i [sekventiella konvojmönster-mönster – design mönster för Azure Architecture-molnet](/azure/architecture/patterns/sequential-convoy).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -116,7 +117,7 @@ Här är arbets flödet på den översta nivån i den **korrelerade order levera
 
 ![Mallens arbets flöde på högsta nivån](./media/send-related-messages-sequential-convoy/template-top-level-flow.png)
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | **`When a message is received in a queue (peek-lock)`** | Baserat på den angivna upprepningen kontrollerar detta Service Bus utlösaren den angivna Service Bus kön för alla meddelanden. Om det finns ett meddelande i kön utlöses utlösaren som skapar och kör en arbets flödes instans. <p><p>Termen *Peek-lock* innebär att utlösaren skickar en begäran om att hämta ett meddelande från kön. Om ett meddelande finns hämtar och låser utlösaren meddelandet så att ingen annan bearbetning sker i meddelandet förrän låsnings perioden går ut. Om du vill ha mer information [initierar du sessionen](#initialize-session). |
 | **`Init isDone`** | Den här [ **initierande variabel** åtgärden](../logic-apps/logic-apps-create-variables-store-values.md#initialize-variable) skapar en boolesk variabel som är inställd på `false` och anger när följande villkor är uppfyllda: <p><p>-Det går inte att läsa fler meddelanden i sessionen. <br>– Låset för låset behöver inte längre förnyas så att den aktuella arbets flödes instansen kan slutföras. <p><p>Mer information finns i [initiera sessionen](#initialize-session). |
@@ -132,7 +133,7 @@ Här är flödet på den översta nivån i `Try` [omfattnings åtgärden](../log
 
 ![Åtgärds arbets flöde för "prova"](./media/send-related-messages-sequential-convoy/try-scope-action.png)
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | **`Send initial message to topic`** | Du kan ersätta den här åtgärden med vilken åtgärd du vill hantera det första meddelandet från sessionen i kön. Sessions-ID: t anger sessionen. <p><p>För den här mallen skickar en Service Bus-åtgärd det första meddelandet till ett Service Bus ämne. Mer information finns i [hantera det inledande meddelandet](#handle-initial-message). |
 | (parallell gren) | Den här [parallella gren åtgärden](../logic-apps/logic-apps-control-flow-branches.md) skapar två sökvägar: <p><p>-Gren #1: Fortsätt att bearbeta meddelandet. Mer information finns i [gren #1: Slutför inledande meddelande i kö](#complete-initial-message). <p><p>-Gren #2: överge meddelandet om något går fel och släpp för hämtning av en annan utlöses körning. Mer information finns i [gren #2: överge inledande meddelande från kö](#abandon-initial-message). <p><p>Båda vägarna går längre till senare i **stängnings sessionen i en kö och åtgärden lyckades** , som beskrivs i nästa rad. |
@@ -143,7 +144,7 @@ Här är flödet på den översta nivån i `Try` [omfattnings åtgärden](../log
 
 #### <a name="branch-1-complete-initial-message-in-queue"></a>Gren #1: Slutför inledande meddelande i kö
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | `Complete initial message in queue` | Detta Service Bus åtgärd markerar ett meddelande som har hämtats som slutfört och tar bort meddelandet från kön för att förhindra ombearbetning. Mer information finns i [hantera det inledande meddelandet](#handle-initial-message). |
 | `While there are more messages for the session in the queue` | Detta [ **tills** loopen](../logic-apps/logic-apps-control-flow-loops.md#until-loop) fortsätter att hämta meddelanden när det finns meddelanden eller tills en timme skickas. Mer information om åtgärderna i den här slingan finns [när det finns fler meddelanden för sessionen i kön](#while-more-messages-for-session). |
@@ -167,7 +168,7 @@ Här är flödet på den översta nivån i `Catch` omfattnings åtgärden när i
 
 ![Åtgärds arbets flöde för "catch"-omfattning](./media/send-related-messages-sequential-convoy/catch-scope-action.png)
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | **`Close a session in a queue and fail`** | Den här Service Bus åtgärden stänger sessionen i kön så att det inte går att öppna det. Mer information finns i [Stäng en session i en kö och sluta fungera](#close-session-fail). |
 | **`Find failure msg from 'Try' block`** | Den här [ **filter mat ris** åtgärden](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action) skapar en matris från indata och utdata från alla åtgärder i `Try` omfånget baserat på de angivna kriterierna. I det här fallet returnerar den här åtgärden utdata från de åtgärder som resulterade i `Failed` status. Mer information finns i [hitta felmeddelande från try-block](#find-failure-message). |
@@ -194,14 +195,14 @@ Följ dessa steg om du vill ange värden för utlösare och åtgärder i den **k
 
   | Egenskap | Krävs för det här scenariot | Värde | Beskrivning |
   |----------|----------------------------|-------|-------------|
-  | **Könamn** | Ja | <*Queue-Name*> | Namnet på din tidigare skapade Service Bus-kö. I det här exemplet används "Fabrikam-Service-Bus-Queue". |
-  | **Kötyp** | Ja | **Huvudformulär** | Din primära Service Bus-kö |
-  | **Sessions-ID** | Ja | **Nästa tillgängliga** | Med det här alternativet får du en session för varje utlösare som körs baserat på sessions-ID: t från meddelandet i Service Bus kön. Sessionen är också låst så att ingen annan Logic-app eller annan klient kan bearbeta meddelanden som är relaterade till den här sessionen. Arbets flödets efterföljande åtgärder bearbetar alla meddelanden som är associerade med den sessionen, enligt beskrivningen längre fram i den här artikeln. <p><p>Här är mer information om de andra **sessions-ID-** alternativen: <p>- **Ingen**: standard alternativet, vilket leder till att inga sessioner används och inte kan användas för att implementera det sekventiella konvojmönster-mönstret. <p>- **Ange anpassat värde**: Använd det här alternativet när du känner till det sessions-ID som du vill använda och du alltid vill köra utlösaren för sessions-ID: t. <p>**Obs!** Service Bus-anslutningen kan spara ett begränsat antal unika sessioner i taget från Azure Service Bus till kopplingens cacheminne. Om antalet sessioner överskrider den här gränsen tas gamla sessioner bort från cachen. Mer information finns i [Exchange-meddelanden i molnet med Azure Logic Apps och Azure Service Bus](../connectors/connectors-create-api-servicebus.md#connector-reference). |
-  | **Intervall** | Ja | <*antal intervall*> | Antalet tidsenheter mellan upprepningar innan ett meddelande kontrol leras. |
-  | **Frekvens** | Ja | **Sekund**, **minut**, **timme**, **dag**, **vecka**eller **månad** | Tidsenheten för upprepningen som ska användas vid sökning efter ett meddelande. <p>**Tips**: om du vill lägga **till en tidszon** eller **Start tid**väljer du dessa egenskaper i listan **Lägg till ny parameter** . |
+  | **Könamn** | Yes | <*Queue-Name*> | Namnet på din tidigare skapade Service Bus-kö. I det här exemplet används "Fabrikam-Service-Bus-Queue". |
+  | **Kötyp** | Yes | **Huvudformulär** | Din primära Service Bus-kö |
+  | **Sessions-ID** | Yes | **Nästa tillgängliga** | Med det här alternativet får du en session för varje utlösare som körs baserat på sessions-ID: t från meddelandet i Service Bus kön. Sessionen är också låst så att ingen annan Logic-app eller annan klient kan bearbeta meddelanden som är relaterade till den här sessionen. Arbets flödets efterföljande åtgärder bearbetar alla meddelanden som är associerade med den sessionen, enligt beskrivningen längre fram i den här artikeln. <p><p>Här är mer information om de andra **sessions-ID-** alternativen: <p>- **Ingen**: standard alternativet, vilket leder till att inga sessioner används och inte kan användas för att implementera det sekventiella konvojmönster-mönstret. <p>- **Ange anpassat värde**: Använd det här alternativet när du känner till det sessions-ID som du vill använda och du alltid vill köra utlösaren för sessions-ID: t. <p>**Obs!** Service Bus-anslutningen kan spara ett begränsat antal unika sessioner i taget från Azure Service Bus till kopplingens cacheminne. Om antalet sessioner överskrider den här gränsen tas gamla sessioner bort från cachen. Mer information finns i [Exchange-meddelanden i molnet med Azure Logic Apps och Azure Service Bus](../connectors/connectors-create-api-servicebus.md#connector-reference). |
+  | **Intervall** | Yes | <*antal intervall*> | Antalet tidsenheter mellan upprepningar innan ett meddelande kontrol leras. |
+  | **Frekvens** | Yes | **Sekund**, **minut**, **timme**, **dag**, **vecka**eller **månad** | Tidsenheten för upprepningen som ska användas vid sökning efter ett meddelande. <p>**Tips**: om du vill lägga **till en tidszon** eller **Start tid**väljer du dessa egenskaper i listan **Lägg till ny parameter** . |
   |||||
 
-  Mer information om utlösare finns i [Service Bus – när ett meddelande tas emot i en kö (Peek-lock)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). Utlösaren matar ut en [ServiceBusMessage](https://docs.microsoft.com/connectors/servicebus/#servicebusmessage).
+  Mer information om utlösare finns i [Service Bus – när ett meddelande tas emot i en kö (Peek-lock)](/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). Utlösaren matar ut en [ServiceBusMessage](/connectors/servicebus/#servicebusmessage).
 
 När sessionen har initierats använder arbets flödet åtgärden **initiera variabel** för att skapa en boolesk variabel som ursprungligen ställs in på `false` och anger när följande villkor är uppfyllda: 
 
@@ -421,4 +422,4 @@ Om du vill testa din Logic-App skickar du meddelanden till din Service Bus-kö.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [utlösare och åtgärder för Service Bus-anslutaren](https://docs.microsoft.com/connectors/servicebus/)
+* Läs mer om [utlösare och åtgärder för Service Bus-anslutaren](/connectors/servicebus/)

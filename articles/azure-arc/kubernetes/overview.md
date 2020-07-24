@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Den här artikeln innehåller en översikt över Azure Arc-aktiverade Kubernetes.
 keywords: Kubernetes, båge, Azure, behållare
 ms.custom: references_regions
-ms.openlocfilehash: 3960a0f0b6866a0a5d3476e841d29c6e5a89a238
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 4f07c0e5e01648984514701cd4838f85478d86af
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309942"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050064"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Vad är Azure Arc-aktiverad Kubernetes Preview?
 
@@ -24,9 +24,8 @@ För att ansluta ett Kubernetes-kluster till Azure måste kluster administratör
 
 Azure Arc-aktiverade Kubernetes har stöd för branschstandardiserade SSL för att skydda data under överföring. Dessutom lagras data som krypteras i vila i en Azure Cosmos DB databas för att säkerställa data sekretessen.
  
- > [!NOTE]
-> Azure Arc-aktiverade Kubernetes är en för hands version. Vi rekommenderar det inte för produktions arbets belastningar. 
-
+> [!NOTE]
+> Azure Arc-aktiverade Kubernetes är en för hands version. Vi rekommenderar det inte för produktions arbets belastningar.
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds 
 
@@ -40,12 +39,11 @@ Azure Arc-aktiverade Kubernetes har stöd för följande scenarier:
 
 * Tillämpa principer med Azure Policy för Kubernetes. 
 
- 
 ## <a name="supported-regions"></a>Regioner som stöds 
 
 Azure Arc-aktiverade Kubernetes stöds för närvarande i följande regioner: 
 
-* USA, östra 
+* East US 
 * Europa, västra 
 
 ## <a name="next-steps"></a>Nästa steg

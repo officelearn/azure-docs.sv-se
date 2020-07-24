@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: ce014fc338ebfad18b91ba65b614ca0a380a3f7c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: be80c0d5999ed06bcc505ec5737e7e416d28b981
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243859"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050690"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Support principer för Azure Kubernetes-tjänsten
 
@@ -137,7 +137,7 @@ Om kunderna gör destruktiva ändringar eller gör att kontroll Plans komponente
 
 ## <a name="network-ports-access-and-nsgs"></a>Nätverks portar, åtkomst och NSG: er
 
-Som en hanterad tjänst har AKS särskilda nätverks-och anslutnings krav. Dessa krav är mindre flexibla än kraven för normala IaaS-komponenter. I AKS, åtgärder som att anpassa NSG-regler, blockera en speciell port (till exempel genom att använda brand Väggs regler som blockerar utgående port 443) och vit listning URL: er kan göra att klustret inte stöds.
+Som en hanterad tjänst har AKS särskilda nätverks-och anslutnings krav. Dessa krav är mindre flexibla än kraven för normala IaaS-komponenter. I AKS, åtgärder som att anpassa NSG-regler, blockera en speciell port (t. ex. genom att använda brand Väggs regler som blockerar utgående port 443) och att lägga till URL: er i en lista över tillåtna kan det göra att klustret inte stöds.
 
 > [!NOTE]
 > För närvarande tillåter AKS inte att du fullständigt låser ut utgående trafik från klustret. Om du vill kontrol lera listan över URL: er och portar som klustret kan använda för utgående trafik, se [begränsa utgående trafik](limit-egress-traffic.md).

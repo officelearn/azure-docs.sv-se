@@ -1,5 +1,5 @@
 ---
-title: Konfigurera IP-brandväggens regler i Azure Synapse Analytics
+title: Konfigurera IP-brandväggens regler
 description: En artikel som lär dig att konfigurera IP-brandväggens regler i Azure Synapse Analytics
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 255714fcf69a8ed72cf1f306e5aafabd49a199ca
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: a06b4e6ced437cc83fadfad000fa682264264874
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194407"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052417"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Regler för IP-brandvägg för Azure Synapse Analytics (för hands version)
 
@@ -49,4 +49,4 @@ Om du använder standard anslutnings princip inställningen för omdirigering ka
 
 Skapa en [Azure DataSynapses-arbetsyta](../quickstart-create-workspace.md)
 
-Skapa en Azure dataSynapses-arbetsyta med en [hanterad arbets yta VNet](./synapse-workspace-managed-vnet.md)
+Skapa en Azure dataSynapses-arbetsyta med en [hanterad arbets yta Virtual Network](./synapse-workspace-managed-vnet.md)

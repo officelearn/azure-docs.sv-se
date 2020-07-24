@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: rogardle
-ms.openlocfilehash: 363d26391c8ee40fb95a0b8fd92c4d94f1082b8d
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 2201cae66aae8c2d9d106871db0d4ebbd003f361
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221535"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052142"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>VIRTUELLA Oracle-avbildningar och deras distribution på Microsoft Azure
 
@@ -107,12 +107,12 @@ Azure NetApp Files har utformats för att uppfylla kärn kraven för att köra a
 - Hög tillgänglighet, hög hållbarhet och hanterbarhet i skala, vanligt vis efter verksamhets kritiska företags arbets belastningar (t. ex. SAP och Oracle)
 - Snabb och effektiv säkerhets kopiering och återställning för att uppnå de mest aggressiva RTO och återställnings service avtalet
 
-Dessa funktioner är möjliga eftersom Azure NetApp Files baseras på NetApp® ONTAP® alla Flash-system som körs i Azure Data Center-miljön, som en Azure Native-tjänst. Resultatet är en idealisk teknik för databas lagring som kan tillhandahållas och konsumeras precis som andra alternativ för Azure Storage. Mer information om hur du distribuerar och får åtkomst till Azure NetApp Files NFS-volymer finns i [Azure NetApp Files-dokumentationen](https://docs.microsoft.com/azure/azure-netapp-files/) . Se [metod tips för Oracle i Azure-distribution med hjälp av Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf) för bästa praxis för att distribuera en Oracle-databas på Azure NetApp Files.
+Dessa funktioner är möjliga eftersom Azure NetApp Files baseras på NetApp® ONTAP® alla Flash-system som körs i Azure Data Center-miljön, som en Azure Native-tjänst. Resultatet är en idealisk teknik för databas lagring som kan tillhandahållas och konsumeras precis som andra alternativ för Azure Storage. Mer information om hur du distribuerar och får åtkomst till Azure NetApp Files NFS-volymer finns i [Azure NetApp Files-dokumentationen](../../../azure-netapp-files/index.yml) . Se [metod tips för Oracle i Azure-distribution med hjälp av Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf) för bästa praxis för att distribuera en Oracle-databas på Azure NetApp Files.
 
 ## <a name="licensing-oracle-database--software-on-azure"></a>Licensierings Oracle Database & program vara på Azure
 
 Microsoft Azure är en godkänd moln miljö för att köra Oracle Database. Tabellen för Oracle Core Factor kan inte användas när du licensierar Oracle-databaser i molnet. När du använder virtuella datorer med Hyper-Threading-teknik som är aktive rad för Enterprise Edition-databaser, kan du i stället räkna två virtuella processorer som likvärdiga med en Oracle processor licens om hyperthreading är aktiverat (enligt vad som anges i princip dokumentet). Du hittar information om principen [här](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
-Oracle-databaser kräver vanligt vis mer minne och IO. Därför rekommenderas [Minnesoptimerade virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) för dessa arbets belastningar. För att optimera dina arbets belastningar rekommenderas [begränsade kärn virtuella processorer](https://docs.microsoft.com/azure/virtual-machines/linux/constrained-vcpu) för Oracle Database arbets belastningar som kräver hög minnes-, lagrings-och I/O-bandbredd, men inte med ett högt antal kärnor.
+Oracle-databaser kräver vanligt vis mer minne och IO. Därför rekommenderas [Minnesoptimerade virtuella datorer](../../sizes-memory.md) för dessa arbets belastningar. För att optimera dina arbets belastningar rekommenderas [begränsade kärn virtuella processorer](../../linux/constrained-vcpu.md) för Oracle Database arbets belastningar som kräver hög minnes-, lagrings-och I/O-bandbredd, men inte med ett högt antal kärnor.
 
 När du migrerar Oracle-programvara och arbets belastningar från en lokal plats till Microsoft Azure tillhandahåller Oracle License Mobility såsom anges i [vanliga frågor och svar om Oracle på Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
 

@@ -1,32 +1,32 @@
 - name: Dokumentation om Virtual Machines
   href: index.yml
 - name: Virtuella Linux-datorer i Azure
-  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/'
+  href: ./linux/index.yml
 - name: Virtuella Windows-datorer i Azure
-  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/'
+  href: ./windows/index.yml
 - name: Dokumentation om VM-tillägg
   href: ./extensions/overview.md
 - name: Arbetsbelastningar
   items:
     - name: Red Hat
-      href: ./workloads/redhat/redhat-overview.md
+      href: ./workloads/redhat/overview.md
     - name: Beräkning med höga prestanda
       href: ./workloads/hpc/overview.md
     - name: SAP
       href: ./workloads/sap/get-started.md
     - name: Oracle
-      href: ./workloads/oracle/oracle-considerations.md
+      href: ./workloads/oracle/oracle-overview.md
     - name: Byta värd för stordator
       href: ./workloads/mainframe-rehosting/overview.md
 - name: Klassiska distributioner
   items:
     - name: Virtuella Linux-datorer med klassisk distribution
-      href: 'https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/classic/'
+      href: /previous-versions/azure/virtual-machines/linux/classic/
     - name: Virtuella Windows-datorer med klassisk distribution
-      href: 'https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/'
+      href: /previous-versions/azure/virtual-machines/windows/classic/
 - name: Resurser
   items:
-    - name: Utveckla din kompetens med Microsoft Learn
+    - name: Utveckla dina färdigheter med Microsoft Learn
       href: /learn/browse/?products=azure-virtual-machines
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=compute'

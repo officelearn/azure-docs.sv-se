@@ -10,13 +10,14 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: af608dcfbb5d98cf3116de4e14dc12bf6facb97b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b449f68b25fce19dc034d2a0db0ae5ce8a28ec7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76989917"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047497"
 ---
-# <a name="animated-character-detection-preview"></a>Animerat Character-identifiering (förhands granskning)
+# <a name="animated-character-detection-preview"></a>Identifiering av animerade karaktärer (förhandsversion)
 
 Azure Media Services Video Indexer stöder identifiering, gruppering och igenkänning av tecken i animerat innehåll via integrering med [Cognitive Services anpassad vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). Den här funktionen är tillgänglig både via portalen och via API: et.
 
@@ -133,7 +134,7 @@ Följ dessa steg för att ansluta dig Custom Vision konto till Video Indexer ell
         ![Anpassning av innehålls modell](./media/animated-characters-recognition/content-model-customization-tab.png)
 
      1. När de har tränats in kommer alla videor som ska indexeras eller indexeras med den modellen att identifiera de intränaa tecknen. 
-    Betalda konton som har åtkomst till sitt Custom Vision konto kan se modeller och taggade bilder där. Lär dig mer om [att förbättra din klassificerare i Custom vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
+    Betalda konton som har åtkomst till sitt Custom Vision konto kan se modeller och taggade bilder där. Lär dig mer om [att förbättra din klassificerare i Custom vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md).
 
 1. Ta bort ett animerat teckensnitt.
 
@@ -159,7 +160,7 @@ Följ dessa steg för att ansluta dig Custom Vision konto till Video Indexer ell
 1. Anslut ett Custom Vision-konto.
 
     Om du äger ett Video Indexer betalt konto måste du först ansluta ett Custom Vision-konto. <br/>
-    Om du inte redan har ett Custom Vision konto kan du skapa ett. Mer information finns i [Custom vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home).
+    Om du inte redan har ett Custom Vision konto kan du skapa ett. Mer information finns i [Custom vision](../../cognitive-services/custom-vision-service/home.md).
 
     [Anslut ditt Custom vision-konto med hjälp av API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag).
 1. Skapa en animerad tecken modell.

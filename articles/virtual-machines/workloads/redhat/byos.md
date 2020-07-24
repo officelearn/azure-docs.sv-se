@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2020
 ms.author: alsin
-ms.openlocfilehash: af541faaf9529cec81c60cb1a879161d66e34a7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54d703b8a493610174f00844cd0736f65f3ee541
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84694390"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052171"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux guld-avbildningar för prenumerationer i Azure
 
@@ -68,7 +69,7 @@ Resten av det här dokumentet fokuserar på CLI-metoden för att etablera och go
 
 ## <a name="use-the-red-hat-gold-images-from-the-azure-cli"></a>Använd Red Hat Gold-avbildningar från Azure CLI
 
-Följande instruktioner vägleder dig genom den första distributions processen för en virtuell RHEL-dator med hjälp av Azure CLI. Dessa instruktioner förutsätter att du har [installerat Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Följande instruktioner vägleder dig genom den första distributions processen för en virtuell RHEL-dator med hjälp av Azure CLI. Dessa instruktioner förutsätter att du har [installerat Azure CLI](/cli/azure/install-azure-cli).
 
 >[!IMPORTANT]
 >Se till att du använder alla små bokstäver i referenserna utgivare, erbjudande, plan och bild för alla följande kommandon.
@@ -199,7 +200,7 @@ Anvisningar för hur du använder Azure Disk Encryption finns [Azure Disk Encryp
 
     I det här fallet kontaktar du Microsoft eller Red Hat för att aktivera din prenumeration.
 
-- Om du ändrar en ögonblicks bild från en RHEL BYOS-avbildning och försöker publicera den anpassade avbildningen i det [delade bild galleriet](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries)måste du ange plan information som matchar den ursprungliga källan till ögonblicks bilden. Kommandot kan till exempel se ut så här:
+- Om du ändrar en ögonblicks bild från en RHEL BYOS-avbildning och försöker publicera den anpassade avbildningen i det [delade bild galleriet](../../linux/shared-image-galleries.md)måste du ange plan information som matchar den ursprungliga källan till ögonblicks bilden. Kommandot kan till exempel se ut så här:
 
     ```azurecli
     az vm create –image \

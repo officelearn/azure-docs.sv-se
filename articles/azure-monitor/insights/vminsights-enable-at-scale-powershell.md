@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2019
-ms.openlocfilehash: 77fe4b4ffbf7c189a5bf64e662f395fc78e53944
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 021e5e8ee01745dd0b534e53dbb6d75b5b78c419
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82581496"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049613"
 ---
 # <a name="enable-azure-monitor-for-vms-using-azure-powershell-or-resource-manager-templates"></a>Aktivera Azure Monitor for VMs med hjälp av Azure PowerShell-eller Resource Manager-mallar
 
@@ -31,7 +31,7 @@ Om du inte vet hur du distribuerar resurser med hjälp av en mall, se:
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-Om du vill använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.27 eller senare. För att identifiera din version, kör `az --version` . Information om hur du installerar eller uppgraderar Azure CLI finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du vill använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.27 eller senare. För att identifiera din version, kör `az --version` . Information om hur du installerar eller uppgraderar Azure CLI finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 1. Kopiera och klistra in följande JSON-syntax i filen:
 
@@ -122,7 +122,7 @@ Om du inte vet hur du distribuerar resurser med hjälp av en mall, se:
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-Om du vill använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.27 eller senare. För att identifiera din version, kör `az --version` . Information om hur du installerar eller uppgraderar Azure CLI finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du vill använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.27 eller senare. För att identifiera din version, kör `az --version` . Information om hur du installerar eller uppgraderar Azure CLI finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ### <a name="download-templates"></a>Hämta mallar
 
@@ -178,7 +178,7 @@ Om du vill aktivera Azure Monitor for VMs för flera virtuella datorer eller ska
 
 För varje virtuell dator eller skalnings uppsättning för virtuella datorer kontrollerar skriptet om VM-tillägget redan är installerat. Om VM-tillägget är installerat försöker skriptet installera det igen. Om VM-tillägget inte är installerat installerar skriptet Log Analytics-och beroende agentens VM-tillägg.
 
-Kontrol lera att du använder Azure PowerShell module AZ version 1.0.0 eller senare med `Enable-AzureRM` kompatibilitets-alias aktiverade. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Kontrol lera att du använder Azure PowerShell module AZ version 1.0.0 eller senare med `Enable-AzureRM` kompatibilitets-alias aktiverade. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 Om du vill hämta en lista över skriptets argument information och exempel på användning, kör `Get-Help` .
 

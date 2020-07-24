@@ -1,5 +1,5 @@
 ---
-title: Red Hat Enterprise Linux avbildningar i Azure | Microsoft Docs
+title: Red Hat Enterprise Linux avbildningar som är tillgängliga i Azure
 description: Lär dig mer om Red Hat Enterprise Linux avbildningar i Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: 089858c789bb11245e98f32047cabb4117ece904
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01c9c4389e2c950fe68c8be171b4c50d3d6271c1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82838594"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052033"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Red Hat Enterprise Linux-avbildningar (RHEL) som är tillgängliga i Azure
 Azure erbjuder en rad olika RHEL-avbildningar för olika användnings fall.
@@ -30,7 +31,7 @@ Det här är en lista över RHEL-avbildningar som är tillgängliga i Azure. Om 
 > [!NOTE]
 > RAW-avbildningar skapas inte längre i förmån för LVM-partitionerade avbildningar. LVM ger flera fördelar jämfört med den äldre RAW-partitionen (icke-LVM), inklusive avsevärt mer flexibla alternativ för att ändra storlek på partitioner.
 
-Erbjudande| SKU | Partitionering | Etablering | Obs!
+Erbjudande| SKU | Partitionering | Etablering | Kommentarer
 :----|:----|:-------------|:-------------|:-----
 RHEL          | 6.7      | OUTSPÄDD    | Linux-agent |
 |             | 6.8      | OUTSPÄDD    | Linux-agent |
@@ -54,10 +55,14 @@ RHEL          | 6.7      | OUTSPÄDD    | Linux-agent |
 |             | 78 – Gen2  | LVM    | Linux-agent | Anslutet till vanliga databaser (EUS är inte tillgängliga för RHEL 7,8)
 |             | 8-LVM    | LVM    | Linux-agent | RHEL 8. x-serien med bilder. Anslutet till vanliga databaser.
 |             | 8-LVM-Gen2| LVM    | Linux-agent | Hyper-V generation 2-RHEL 8. x-serien med bilder. Anslutet till vanliga databaser.
-|             | 8        | LVM    | Linux-agent | RHEL 8,0-bilder
+|             | 8        | LVM    | Linux-agent | RHEL 8,0-avbildningar.
 |             | 8-Gen2   | LVM    | Linux-agent | Hyper-V generation 2-RHEL 8,0-avbildningar.
-|             | 8.1      | LVM    | Linux-agent | RHEL 8,1-avbildningar. Är kopplat till vanliga databaser.
+|             | 8.1      | LVM    | Linux-agent | RHEL 8,2-avbildningar. Är kopplat till vanliga databaser.
 |             | 81gen2   | LVM    | Linux-agent | Hyper-V generation 2-RHEL 8,1-avbildningar. Är kopplat till vanliga databaser.
+|             | 8,1 – CI   | LVM    | Linux-agent | RHEL 8,1-avbildningar med Cloud-Init som etablerings agent. Är kopplat till vanliga databaser.
+|             | 81 – CI-Gen2| LVM    | Linux-agent | Hyper-V generation 2-RHEL 8,1-avbildningar som använder Cloud-Init som etablerings agent. Är kopplat till vanliga databaser.
+|             | 8,2      | LVM    | Linux-agent | RHEL 8,2-avbildningar. Är kopplat till vanliga databaser.
+|             | 82gen2   | LVM    | Linux-agent | Hyper-V generation 2-RHEL 8,1-avbildningar. Är kopplat till vanliga databaser.
 RHEL – SAP      | 7.4      | LVM    | Linux-agent | RHEL 7,4 för SAP HANA-och Business-appar. Ansluten till E4S-lagringsplatser kommer att ta betalt för SAP och RHEL samt bas beräknings avgiften.
 |             | 74sap – Gen2| LVM    | Linux-agent | RHEL 7,4 för SAP HANA-och Business-appar. Avbildning av generation 2. Ansluten till E4S-lagringsplatser kommer att ta betalt för SAP och RHEL samt bas beräknings avgiften.
 |             | 7.5       | LVM    | Linux-agent | RHEL 7,5 för SAP HANA-och Business-appar. Ansluten till E4S-lagringsplatser kommer att ta betalt för SAP och RHEL samt bas beräknings avgiften.
@@ -84,7 +89,8 @@ RHEL – BYOS     |RHEL – lvm74| LVM    | Linux-agent | RHEL 7,4 BYOS-avbildni
 |             |RHEL – lvm75| LVM    | Linux-agent | RHEL 7,5 BYOS-avbildningar, som inte är kopplade till någon källa med uppdateringar, tar inte betalt för en RHEL Premium.
 |             |RHEL – lvm76| LVM    | Linux-agent | RHEL 7,6 BYOS-avbildningar, som inte är kopplade till någon källa med uppdateringar, tar inte betalt för en RHEL Premium.
 |             |RHEL – lvm77| LVM    | Linux-agent | RHEL 7,7 BYOS-avbildningar, som inte är kopplade till någon källa med uppdateringar, tar inte betalt för en RHEL Premium.
-|             |RHEL – lvm8 | LVM    | Linux-agent | RHEL 8 BYOS-avbildningar (RHEL lägre version visas i avbildningens versions värde), som inte är kopplade till någon källa med uppdateringar, kommer inte att ta betalt för en RHEL Premium.
+|             |RHEL – lvm8 | LVM    | Linux-agent | RHEL 8,0 BYOS-avbildningar, som inte är kopplade till någon källa med uppdateringar, tar inte betalt för en RHEL Premium.
+|             |RHEL – lvm81 | LVM    | Linux-agent | RHEL 8,1 BYOS-avbildningar, som inte är kopplade till någon källa med uppdateringar, tar inte betalt för en RHEL Premium.
 
 > [!NOTE]
 > Produkt erbjudandet RHEL-SAP-HANA anses vara livs längd av Red Hat. Befintliga distributioner fortsätter att fungera normalt, men Red Hat rekommenderar att kunderna migrerar från RHEL-SAP-HANA-avbildningarna till RHEL-SAP-HA-avbildningarna som innehåller SAP HANA-lagringsplatser och HA-tillägget. Mer information om Red Hats SAP Cloud-erbjudanden finns [här](https://access.redhat.com/articles/3751271).

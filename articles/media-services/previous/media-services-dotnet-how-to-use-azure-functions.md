@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43e16d15c48471d75a7ab5ce23898f1161a60153
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712504"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052822"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Utveckla Azure Functions med Media Services
 
@@ -26,7 +27,7 @@ Den här artikeln visar hur du kommer igång med att skapa Azure Functions som a
 
 Om du vill utforska och distribuera befintliga Azure Functions som använder Azure Media Services kan du kolla [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Den här lagrings platsen innehåller exempel som använder Media Services för att Visa arbets flöden som är relaterade till att mata in innehåll direkt från Blob Storage, kodning och skrivning av innehåll till Blob Storage. Den innehåller också exempel på hur du övervakar jobb meddelanden via Webhooks och Azure-köer. Du kan också utveckla dina funktioner baserat på exemplen i [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) -lagringsplatsen. Distribuera funktionerna genom att trycka på knappen **distribuera till Azure** .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Innan du kan skapa din första funktion måste du ha ett aktivt Azure-konto. Om du inte redan har ett Azure-konto [finns kostnadsfria konton tillgängliga](https://azure.microsoft.com/free/).
 - Om du ska skapa Azure Functions som utför åtgärder på ditt Azure Media Services-konto (AMS) eller lyssnar på händelser som skickats av Media Services, bör du skapa ett AMS-konto enligt beskrivningen [här](media-services-portal-create-account.md).
@@ -333,11 +334,11 @@ Om du vill testa din funktion måste du ladda upp en MP4-fil till **indatafilen*
 
 1. Välj det lagrings konto som du har angett i **StorageConnection** -miljövariabeln.
 2. Klicka på **blobbar**.
-3. Klicka på **+ Container**. Namnge behållar **indatamängden**.
+3. Klicka på **+Behållare**. Namnge behållar **indatamängden**.
 4. Tryck på **överför** och bläddra till en MP4-fil som du vill ladda upp.
 
 >[!NOTE]
-> När du använder en BLOB-utlösare i en förbruknings plan kan det vara upp till 10 minuter att bearbeta nya blobbar när en Function-app har varit inaktiv. När Function-appen körs bearbetas blobarna direkt. Mer information finns i [Blob Storage-utlösare och bindningar](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
+> När du använder en BLOB-utlösare i en förbruknings plan kan det vara upp till 10 minuter att bearbeta nya blobbar när en Function-app har varit inaktiv. När Function-appen körs bearbetas blobarna direkt. Mer information finns i [Blob Storage-utlösare och bindningar](../../azure-functions/functions-bindings-storage-blob.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -349,4 +350,3 @@ Se även [använda Azure Webhooks för att övervaka Media Services jobb meddela
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

@@ -6,17 +6,17 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7c9dd20aea410aecb34811ca6e08e0f641be292b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa9b186e74ed3b8fe5496afd5b21c54f50537d5f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84148352"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049787"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Felsöka problem med att aktivera eller Visa Application Insights Profiler
 
-## <a name="active-issues"></a>Aktiva problem
-
-* Profilering av ASP.NET Core 3. x-program stöds nu på Azure App Services.
+> [!CAUTION]
+> Det finns ett fel som kör profiler för ASP.NET Core appar på Azure App Service. Vi har en åtgärd, men det tar några veckor att distribuera World Wide. Du kan kringgå felet genom att lägga till Application Insights SDK i programmet med instruktioner [här](./asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
 
 ## <a name="general-troubleshooting"></a><a id="troubleshooting"></a>Allmän fel sökning
 
@@ -75,7 +75,7 @@ För att profiler ska fungera korrekt:
 
 
 * Webbjobbet **ApplicationInsightsProfiler3** måste köras. Så här kontrollerar du webb jobbet:
-   1. Gå till [kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/).
+   1. Gå till [kudu](/archive/blogs/cdndevs/the-kudu-debug-console-azure-websites-best-kept-secret).
    1. På menyn **verktyg** väljer du **instrument panel för WebJobs**.  
       Fönstret **WebJobs** öppnas. 
    
@@ -193,11 +193,3 @@ Om ditt program ansluter till Internet via en proxy eller en brand vägg, kan du
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png
 [profiler-webbjobb]:./media/profiler-troubleshooting/Profiler-webjob.png
 [profiler-jobb-logg]:./media/profiler-troubleshooting/Profiler-webjob-log.png
-
-
-
-
-
-
-
-

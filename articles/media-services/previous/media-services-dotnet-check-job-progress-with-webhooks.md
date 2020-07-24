@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: c0e4d281880b3870c81352efca146ece7100be74
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 0a82050bef36e139c122ea97f777fb5cb1906974
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964319"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052960"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Använd Azure Webhooks för att övervaka Media Services jobb meddelanden med .NET 
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 När du kör jobb krävs ofta ett sätt att spåra jobbets förlopp. Du kan övervaka Media Services jobb meddelanden med hjälp av Azure Webhooks eller [Azure Queue Storage](media-services-dotnet-check-job-progress-with-queues.md). Den här artikeln visar hur du arbetar med Webhooks.
 
@@ -42,7 +42,7 @@ Den här artikeln visar hur du
 
 Du hittar definitioner av olika Media Services .NET-Azure Functions (inklusive det som visas i den här artikeln) [här](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att kunna genomföra vägledningen:
 
@@ -61,7 +61,7 @@ När du utvecklar Media Services funktioner är det praktiskt att lägga till mi
 
 Avsnittet [program inställningar](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) definierar parametrar som används i webhooken som definieras i den här artikeln. Lägg också till följande parametrar i appens inställningar. 
 
-|Name|Definition|Exempel| 
+|Namn|Definition|Exempel| 
 |---|---|---|
 |SigningKey |En signerings nyckel.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | En webhook-slutpunkt. När din webhook-funktion har skapats kan du kopiera URL: en från länken **Hämta funktions webb adress** . | https: \/ /juliakofuncapp.azurewebsites.NET/API/Notification_Webhook_Function?Code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g = =.|

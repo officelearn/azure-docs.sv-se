@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 79f2df0f94b212ea45c01c825b23f1dbb4cc40db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6715014485b227713447ce5d552cf7ba79737845
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582293"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053225"
 ---
 # <a name="scaling-media-processing"></a>Bearbetning av skalningsmedia
 
@@ -37,7 +37,7 @@ I följande tabell får du hjälp att fatta ett beslut när du väljer mellan ol
 | **S2**|Kodning med enkel bit hastighet och flera bit hastigheter.<br/>Normal användning för både SD-och HD-kodning.|Kodning med för inställningen "H264, enskild bit hastighet" tar cirka 6 minuter.<br/><br/>Kodning med för inställningen "H264, Multiple bit hastighet" tar cirka 12 minuter.|
 | **S3**|Kodning med enkel bit hastighet och flera bit hastigheter.<br/>Högupplösta HD-och 4K-lösningar. Tids känslig, snabbare svars tids kodning.|Kodning med en för inställning för "H264, enkel bit hastighet" tar cirka 3 minuter.<br/><br/>Encoding med för inställningen "H264, Multiplable bit/1080p" tar cirka 8 minuter.|
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 * För ljud analys-och video analys jobb som utlöses av Media Services v3 eller Video Indexer rekommenderas S3-enhets typ starkt.
 * Om du använder den delade poolen, det vill säga utan reserverade enheter, har dina kodade aktiviteter samma prestanda som i S1-ru: er. Det finns dock ingen övre gräns för den tid som dina aktiviteter kan spendera i köade tillstånd, och vid en och samma tidpunkt är det bara bara en aktivitet som kommer att köras.
@@ -49,7 +49,7 @@ Resten av artikeln visar hur du använder [Media Services v3 CLI](https://aka.ms
 
 ## <a name="prerequisites"></a>Förutsättningar 
 
-[Skapa ett Media Services-konto](create-account-cli-how-to.md).
+[Skapa ett Media Services-konto](./create-account-howto.md).
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
@@ -57,7 +57,7 @@ Resten av artikeln visar hur du använder [Media Services v3 CLI](https://aka.ms
 
 Kör kommandot `mru`.
 
-Följande [AZ AMS konto MRU](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) -kommando anger medie reserverade enheter på "amsaccount"-kontot med hjälp av **Count** -och **Type** -parametrarna.
+Följande [AZ AMS konto MRU](/cli/azure/ams/account/mru?view=azure-cli-latest) -kommando anger medie reserverade enheter på "amsaccount"-kontot med hjälp av **Count** -och **Type** -parametrarna.
 
 ```azurecli
 az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
@@ -74,4 +74,4 @@ Du debiteras baserat på antalet minuter som de reserverade enheterna är etable
 ## <a name="see-also"></a>Se även
 
 * [Kvoter och begränsningar](limits-quotas-constraints.md)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Azure CLI](/cli/azure/ams?view=azure-cli-latest)

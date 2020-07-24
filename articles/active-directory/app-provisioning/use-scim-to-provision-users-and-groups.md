@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: b08509bed6b26cb56caebd4dc47fc3b7ac84ce27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8138f125c55e3b2d76cb680ea48366c5a3e05fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117326"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051514"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure AD
 
@@ -60,7 +60,7 @@ Varje program kräver olika attribut för att skapa en användare eller grupp. S
 |tagg|urn: IETF: params: scim: schemas: tillägg: 2.0: CustomExtension: tagg|extensionAttribute1|
 |status|aktiv|isSoftDeleted (beräknat värde lagras inte på användare)|
 
-Det schema som definierats ovan ska representeras med JSON-nyttolasten nedan. Observera att förutom de attribut som krävs för programmet, innehåller JSON-representationen de obligatoriska attributen "ID,", "externalId" och "meta".
+Det schema som definierats ovan ska representeras med JSON-nyttolasten nedan. Observera att förutom de attribut som krävs för programmet innehåller JSON-representationen obligatoriska `id` , `externalId` -och- `meta` attribut.
 
 ```json
 {
@@ -100,7 +100,7 @@ Du kan sedan använda tabellen nedan för att förstå hur attributen som progra
 |Anställnings|urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: employeeNumber|
 | Facsimile – TelephoneNumber |phoneNumbers [Type EQ "fax"]. värde |
 | förnamn |Name. givenName |
-| Befattning |rubrik |
+| Befattning |title |
 | e-post |e-postmeddelanden [typ EQ "Work"]. värde |
 | mailNickname |externalId |
 | manager |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Manager |
@@ -134,7 +134,7 @@ Det finns flera slut punkter definierade i SCIM RFC. Du kan komma igång med/Use
 |/Group|Utföra CRUD-åtgärder på ett grupp objekt.|
 |/ServiceProviderConfig|Innehåller information om funktionerna i SCIM-standarden som stöds, till exempel de resurser som stöds och autentiseringsmetoden.|
 |/ResourceTypes|Anger metadata för varje resurs|
-|/Schemas|De attribut som stöds av varje klient och tjänst leverantör kan variera. Även om en tjänst leverantör kan inkludera "namn," "title" och "e-post" medan en annan tjänst leverantör använder "namn", "title" och "phoneNumbers". Schema slut punkten gör det möjligt att identifiera de attribut som stöds.|
+|/Schemas|De attribut som stöds av varje klient och tjänst leverantör kan variera. En tjänst leverantör kan inkludera `name` , `title` och `emails` en annan tjänst leverantör använder `name` , `title` och `phoneNumbers` . Schema slut punkten gör det möjligt att identifiera de attribut som stöds.|
 |/Bulk|Med Mass åtgärder kan du utföra åtgärder på en stor mängd resurs objekt i en enda åtgärd (t. ex. Uppdatera medlemskap för en stor grupp).|
 
 
@@ -149,7 +149,7 @@ I [SCIM 2,0-protokoll specifikationen](http://www.simplecloud.info/#Specificatio
 * Har stöd för att skapa användare och eventuellt även grupper, enligt avsnitt [3,3 i scim-protokollet](https://tools.ietf.org/html/rfc7644#section-3.3).  
 * Stöder ändring av användare eller grupper med PATCH-begäranden enligt [avsnittet 3.5.2 i scim-protokollet](https://tools.ietf.org/html/rfc7644#section-3.5.2).  
 * Stöder hämtning av en känd resurs för en användare eller grupp som skapats tidigare, enligt [avsnittet 3.4.1 i scim-protokollet](https://tools.ietf.org/html/rfc7644#section-3.4.1).  
-* Har stöd för att skicka frågor till användare eller grupper enligt avsnittet [3.4.2 i scim-protokollet](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Som standard hämtas användare av och efter `id` frågas av deras `username` och `externalid` , och grupper efter frågas av `displayName` .  
+* Har stöd för att skicka frågor till användare eller grupper enligt avsnittet [3.4.2 i scim-protokollet](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Som standard hämtas användare av och efter `id` frågas av deras `username` och `externalId` , och grupper efter frågas av `displayName` .  
 * Har stöd för att skicka frågor till användare efter ID och chef, enligt avsnittet 3.4.2 i SCIM-protokollet.  
 * Har stöd för att skicka frågor till grupper efter ID och per medlem, enligt avsnittet 3.4.2 i SCIM-protokollet.  
 * Accepterar en enda Bearer-token för autentisering och auktorisering av Azure AD till ditt program.
@@ -224,7 +224,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="create-user"></a>Skapa användare
 
-###### <a name="request"></a>Förfrågan
+###### <a name="request"></a>Begäran
 
 *POST-/users*
 ```json
@@ -252,7 +252,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 }
 ```
 
-##### <a name="response"></a>Svar
+##### <a name="response"></a>Svarsåtgärder
 
 *HTTP/1.1 201 har skapats*
 ```json
@@ -282,7 +282,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="get-user"></a>Hämta användare
 
-###### <a name="request"></a><a name="request-1"></a>Förfrågan
+###### <a name="request"></a><a name="request-1"></a>Begäran
 *Hämta/Users/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response-user-found"></a><a name="response-1"></a>Svar (användaren hittades)
@@ -312,7 +312,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 }
 ```
 
-###### <a name="request"></a>Förfrågan
+###### <a name="request"></a>Begäran
 *Hämta/Users/5171a35d82074e068ce2* 
 
 ###### <a name="response-user-not-found-note-that-the-detail-is-not-required-only-status"></a>Svar (användaren hittades inte. Observera att detalj nivån inte är obligatorisk, endast status.)
@@ -329,11 +329,11 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="get-user-by-query"></a>Hämta användare efter fråga
 
-##### <a name="request"></a><a name="request-2"></a>Förfrågan
+##### <a name="request"></a><a name="request-2"></a>Begäran
 
 *Hämta/Users? filter = userName EQ "Test_User_dfeef4c5-5681 -4387-b016-bdf221e82081"*
 
-##### <a name="response"></a><a name="response-2"></a>Svar
+##### <a name="response"></a><a name="response-2"></a>Svarade
 
 *HTTP/1.1 200 OK*
 ```json
@@ -370,11 +370,11 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="get-user-by-query---zero-results"></a>Hämta användare från fråga – noll resultat
 
-##### <a name="request"></a><a name="request-3"></a>Förfrågan
+##### <a name="request"></a><a name="request-3"></a>Begäran
 
 *Hämta/Users? filter = userName EQ "obefintlig användare"*
 
-##### <a name="response"></a><a name="response-3"></a>Svar
+##### <a name="response"></a><a name="response-3"></a>Svarade
 
 *HTTP/1.1 200 OK*
 ```json
@@ -390,7 +390,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="update-user-multi-valued-properties"></a>Uppdatera användare [Egenskaper för flera värden]
 
-##### <a name="request"></a><a name="request-4"></a>Förfrågan
+##### <a name="request"></a><a name="request-4"></a>Begäran
 
 *KORRIGERING/Users/6764549bef60420686bc HTTP/1.1*
 ```json
@@ -411,7 +411,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 }
 ```
 
-##### <a name="response"></a><a name="response-4"></a>Svar
+##### <a name="response"></a><a name="response-4"></a>Svarade
 
 *HTTP/1.1 200 OK*
 ```json
@@ -441,7 +441,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="update-user-single-valued-properties"></a>Uppdatera användare [Egenskaper för enstaka värde]
 
-##### <a name="request"></a><a name="request-5"></a>Förfrågan
+##### <a name="request"></a><a name="request-5"></a>Begäran
 
 *KORRIGERING/Users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -455,7 +455,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 }
 ```
 
-##### <a name="response"></a><a name="response-5"></a>Svar
+##### <a name="response"></a><a name="response-5"></a>Svarade
 
 *HTTP/1.1 200 OK*
 ```json
@@ -486,7 +486,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 ### <a name="disable-user"></a>Inaktivera användare
 
-##### <a name="request"></a><a name="request-14"></a>Förfrågan
+##### <a name="request"></a><a name="request-14"></a>Begäran
 
 *KORRIGERING/Users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -504,7 +504,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 }
 ```
 
-##### <a name="response"></a><a name="response-14"></a>Svar
+##### <a name="response"></a><a name="response-14"></a>Svarade
 
 ```json
 {
@@ -540,11 +540,11 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 ```
 #### <a name="delete-user"></a>Ta bort användare
 
-##### <a name="request"></a><a name="request-6"></a>Förfrågan
+##### <a name="request"></a><a name="request-6"></a>Begäran
 
 *TA bort/users/5171a35d82074e068ce2 HTTP/1.1*
 
-##### <a name="response"></a><a name="response-6"></a>Svar
+##### <a name="response"></a><a name="response-6"></a>Svarade
 
 *HTTP/1.1 204 inget innehåll*
 
@@ -557,7 +557,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="create-group"></a>Skapa grupp
 
-##### <a name="request"></a><a name="request-7"></a>Förfrågan
+##### <a name="request"></a><a name="request-7"></a>Begäran
 
 *PUBLICERA/Groups HTTP/1.1*
 ```json
@@ -571,7 +571,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 }
 ```
 
-##### <a name="response"></a><a name="response-7"></a>Svar
+##### <a name="response"></a><a name="response-7"></a>Svarade
 
 *HTTP/1.1 201 har skapats*
 ```json
@@ -592,11 +592,11 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="get-group"></a>Hämta grupp
 
-##### <a name="request"></a><a name="request-8"></a>Förfrågan
+##### <a name="request"></a><a name="request-8"></a>Begäran
 
 *Hämta/Groups/40734ae655284ad3abcc? excludedAttributes = medlemmar HTTP/1.1*
 
-##### <a name="response"></a><a name="response-8"></a>Svar
+##### <a name="response"></a><a name="response-8"></a>Svarade
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -614,10 +614,10 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="get-group-by-displayname"></a>Hämta grupp efter displayName
 
-##### <a name="request"></a><a name="request-9"></a>Förfrågan
+##### <a name="request"></a><a name="request-9"></a>Begäran
 *Hämta/Groups? excludedAttributes = members&filter = displayName EQ "HTTP/1.1*
 
-##### <a name="response"></a><a name="response-9"></a>Svar
+##### <a name="response"></a><a name="response-9"></a>Svarade
 
 *HTTP/1.1 200 OK*
 ```json
@@ -643,7 +643,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="update-group-non-member-attributes"></a>Uppdaterings grupp [attribut för icke-medlem]
 
-##### <a name="request"></a><a name="request-10"></a>Förfrågan
+##### <a name="request"></a><a name="request-10"></a>Begäran
 
 *KORRIGERING/Groups/fa2ce26709934589afc5 HTTP/1.1*
 ```json
@@ -657,13 +657,13 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 }
 ```
 
-##### <a name="response"></a><a name="response-10"></a>Svar
+##### <a name="response"></a><a name="response-10"></a>Svarade
 
 *HTTP/1.1 204 inget innehåll*
 
 ### <a name="update-group-add-members"></a>Uppdatera grupp [Lägg till medlemmar]
 
-##### <a name="request"></a><a name="request-11"></a>Förfrågan
+##### <a name="request"></a><a name="request-11"></a>Begäran
 
 *KORRIGERING/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -680,13 +680,13 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 }
 ```
 
-##### <a name="response"></a><a name="response-11"></a>Svar
+##### <a name="response"></a><a name="response-11"></a>Svarade
 
 *HTTP/1.1 204 inget innehåll*
 
 #### <a name="update-group-remove-members"></a>Uppdaterings grupp [ta bort medlemmar]
 
-##### <a name="request"></a><a name="request-12"></a>Förfrågan
+##### <a name="request"></a><a name="request-12"></a>Begäran
 
 *KORRIGERING/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -703,17 +703,17 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 }
 ```
 
-##### <a name="response"></a><a name="response-12"></a>Svar
+##### <a name="response"></a><a name="response-12"></a>Svarade
 
 *HTTP/1.1 204 inget innehåll*
 
 #### <a name="delete-group"></a>Ta bort grupp
 
-##### <a name="request"></a><a name="request-13"></a>Förfrågan
+##### <a name="request"></a><a name="request-13"></a>Begäran
 
 *TA bort/Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
-##### <a name="response"></a><a name="response-13"></a>Svar
+##### <a name="response"></a><a name="response-13"></a>Svarade
 
 *HTTP/1.1 204 inget innehåll*
 
@@ -745,7 +745,7 @@ Minsta fält för TLS 1,2 cipher-paket:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>IP-intervall
-Azure AD Provisioning-tjänsten kan för närvarande opperate under alla Azure IP-intervall. Arbetet pågår för att konsolidera den uppsättning IP-adressintervall som tjänsten körs på. Det här dokumentet kommer att uppdateras när listan över IP-adressintervall har konsoliderats. 
+Azure AD Provisioning-tjänsten kan för närvarande användas under alla Azure IP-intervall. Arbetet pågår för att konsolidera den uppsättning IP-adressintervall som tjänsten körs på. Det här dokumentet kommer att uppdateras när listan över IP-adressintervall har konsoliderats. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Steg 3: Bygg en SCIM-slutpunkt
 
@@ -915,10 +915,10 @@ Skicka en GET-begäran till token-styrenheten för att få en giltig Bearer-toke
 
 ***Exempel 1. Fråga tjänsten om en matchande användare***
 
-Azure Active Directory skickar frågor till tjänsten för en användare med ett externalId som matchar värdet för ett värde i en användare i Azure AD. Frågan uttrycks som en Hypertext Transfer Protocol (HTTP)-begäran, till exempel det här exemplet, där jyoung är ett exempel på ett smek namn för en användare i Azure Active Directory.
+Azure Active Directory skickar en fråga till tjänsten för en användare med ett `externalId` attributvärde som matchar värdet för attributet smek namn för en användare i Azure AD. Frågan uttrycks som en Hypertext Transfer Protocol (HTTP)-begäran, till exempel det här exemplet, där jyoung är ett exempel på ett smek namn för en användare i Azure Active Directory.
 
 >[!NOTE]
-> Detta är endast ett exempel. Alla användare får inte ett smek namn-attribut och värdet som en användare har kanske inte är unikt i katalogen. Dessutom kan attributet som används för matchning (som i det här fallet vara externalId) konfigureras i [mappningar för Azure AD-attribut](customize-application-attributes.md).
+> Detta är endast ett exempel. Alla användare får inte ett smek namn-attribut och värdet som en användare har kanske inte är unikt i katalogen. Dessutom kan attributet som används för matchning (som i det här fallet `externalId` ) konfigureras i [mappningar för Azure AD-attribut](customize-application-attributes.md).
 
 ```
 GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
@@ -939,7 +939,7 @@ I exempel koden översätts begäran till ett anrop till QueryAsync-metoden för
  Task<Resource[]> QueryAsync(IRequest<IQueryParameters> request);
 ```
 
-I exempel frågan, för en användare med ett angivet värde för attributet externalId, är värdena för argumenten som skickas till QueryAsync-metoden:
+I exempel frågan, för en användare med ett angivet värde för `externalId` attributet, är värdena för argumenten som skickas till metoden QueryAsync:
 
 * komponentparametrar. AlternateFilters. Count: 1
 * komponentparametrar. AlternateFilters. ElementAt (0). AttributePath: "externalId"
@@ -948,7 +948,7 @@ I exempel frågan, för en användare med ett angivet värde för attributet ext
 
 ***Exempel 2. Etablera en användare***
 
-Om svaret på en fråga till webb tjänsten för en användare med ett externalId-attributvärde som matchar värdet för ett värde för en användares attributvärde inte returnerar några användare, kommer Azure Active Directory begär Anden som tjänsten etablerar en användare som motsvarar den som finns i Azure Active Directory.  Här är ett exempel på en sådan begäran: 
+Om svaret på en fråga till webb tjänsten för en användare med ett `externalId` attributvärde som matchar värdet för ett värde för en användare inte returnerar några användare, kommer Azure Active Directory begär Anden som tjänsten etablerar en användare som motsvarar den som finns i Azure Active Directory.  Här är ett exempel på en sådan begäran: 
 
 ```
  POST https://.../scim/Users HTTP/1.1
@@ -1191,7 +1191,7 @@ SCIM-specifikationen definierar inte ett SCIM schema för autentisering och aukt
 |--|--|--|--|
 |Användar namn och lösen ord (rekommenderas inte eller stöds inte av Azure AD)|Lätt att implementera|Osäker – [din pa $ $Word spelar ingen roll](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Stöds från fall till fall för Galleri-appar. Stöds inte för appar som inte är gallerier.|
 |Token med lång livs längd|Token för lång livs längd kräver inte att en användare finns. De är enkla för administratörer att använda vid konfigurations etablering.|Token för lång livs längd kan vara svårt att dela med en administratör utan att använda oskyddade metoder, till exempel e-post. |Stöds för Galleri-och appar som inte är gallerier. |
-|Bevilja OAuth-auktoriseringskod|Åtkomst-token är mycket kortare än lösen ord och har en automatiserad uppdaterings funktion som används av token med lång livs längd.  En riktig användare måste närvara vid den första auktoriseringen och lägga till en ansvars nivå. |Kräver att en användare är närvarande. Om användaren lämnar organisationen är token ogiltig och auktoriseringen måste slutföras igen.|Stöds för Galleri-appar. Stöd för icke-Gallery-appar pågår.|
+|Bevilja OAuth-auktoriseringskod|Åtkomst-token är mycket kortare än lösen ord och har en automatiserad uppdaterings funktion som används av token med lång livs längd.  En riktig användare måste närvara vid den första auktoriseringen och lägga till en ansvars nivå. |Kräver att en användare är närvarande. Om användaren lämnar organisationen är token ogiltig och auktoriseringen måste slutföras igen.|Stöds för Galleri-appar, men inte för appar som inte är gallerier. Support för icke-galleri är i vår efter släpning.|
 |Beviljande av OAuth-klientautentiseringsuppgifter|Åtkomst-token är mycket kortare än lösen ord och har en automatiserad uppdaterings funktion som används av token med lång livs längd. Både behörigheten Tillåt och klientens autentiseringsuppgifter skapar samma typ av åtkomsttoken, så att flytta mellan dessa metoder är transparent för API: et.  Etableringen kan vara helt automatiserad och nya token kan utföras tyst utan användar interaktion. ||Stöds inte för Galleri-och appar som inte är gallerier. Support finns i vår efter släpning.|
 
 > [!NOTE]
@@ -1209,7 +1209,7 @@ Metod tips (rekommenderas men krävs inte):
 * Stöder flera omdirigerings-URL: er. Administratörer kan konfigurera etablering från både "portal.azure.com" och "aad.portal.azure.com". Genom att stödja flera omdirigerings-URL: er ser du till att användarna kan auktorisera åtkomst från portalen.
 * Stöd för flera hemligheter för att säkerställa en smidig hemlig förnyelse utan drift avbrott. 
 
-**Långa OAuth-token för OAuth-förlängd:** Om ditt program inte stöder OAuth-auktoriseringsvärdet för OAuth-auktoriseringskod kan du också generera en lång livs längd för OAuth Bearer-token som en administratör kan använda för att konfigurera etablerings integrationen. Token ska vara beständig, annars placeras etablerings jobbet i [karantän](application-provisioning-quarantine-status.md) när token upphör att gälla. Denna token måste vara lägre 1 KB i storlek.  
+**OAuth-token för lång livs längd:** Om ditt program inte stöder OAuth-auktoriseringsvärdet för OAuth-auktoriseringskod kan du också generera en lång livs längd för OAuth Bearer-token som en administratör kan använda för att konfigurera etablerings integrationen. Token ska vara beständig, annars placeras etablerings jobbet i [karantän](application-provisioning-quarantine-status.md) när token upphör att gälla. Denna token måste vara lägre 1 KB i storlek.  
 
 Om du vill ha ytterligare metoder för autentisering och auktorisering kan du berätta för oss på [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
 

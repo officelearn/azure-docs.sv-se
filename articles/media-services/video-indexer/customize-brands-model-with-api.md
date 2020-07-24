@@ -9,13 +9,13 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2020
-ms.author: anzaman
-ms.openlocfilehash: 79c3a7934e9152a4908f895c20ee6fbdc0f360cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: kumud
+ms.openlocfilehash: 5fc565ecc1b501f52e934784695594dcfef2a83a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80128000"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047280"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Anpassa en modell med ett varumärke med Video Indexer-API
 
@@ -37,7 +37,7 @@ Några andra parametrar som du kan ange i texten:
 * `referenceUrl`Värdet kan vara alla referens webbplatser för varumärket, till exempel en länk till en wikipedia-sida.
 * `tags`Värdet är en lista med taggar för varumärket. Den här taggen visas i fältet för märkets *kategori* på video Indexer webbplats. Till exempel kan märket "Azure" märkas eller kategoriseras som "moln".
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Svaret innehåller information om det varumärke som du nyss skapade enligt formatet i exemplet nedan.
 
@@ -63,7 +63,7 @@ Svaret innehåller information om det varumärke som du nyss skapade enligt form
 
 [Ta bort ett varumärke](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?) -API tar bort ett varumärke från anpassade varumärkes-modellen för det angivna kontot. Kontot anges i `accountId` parametern. När det har anropats kommer varumärket inte längre att finnas i listorna *Inkludera* eller *exkludera* varumärken.
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Det finns inget returnerat innehåll när varumärket har tagits bort.
 
@@ -71,7 +71,7 @@ Det finns inget returnerat innehåll när varumärket har tagits bort.
 
 Med [Hämta ett varumärke](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?) -API kan du söka efter information om ett varumärke i anpassade varumärkes-modellen för det angivna kontot med hjälp av märkes-ID.
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Svaret innehåller information om det märke som du sökte efter (med varumärkes-ID) enligt exemplet nedan.
 
@@ -100,7 +100,7 @@ Svaret innehåller information om det märke som du sökte efter (med varumärke
 
 Med [Uppdatera en varumärkes](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?) -API kan du söka efter information om ett varumärke i anpassade varumärkes-modellen för det angivna kontot med hjälp av varumärkes-ID.
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Svaret innehåller den uppdaterade informationen om det varumärke som du uppdaterade efter formatet i exemplet nedan.
 
@@ -126,7 +126,7 @@ Svaret innehåller den uppdaterade informationen om det varumärke som du uppdat
 
 API: t [Hämta alla varumärken](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?) returnerar alla varumärken i den anpassade varumärkes-modellen för det angivna kontot, oavsett om varumärket är avsett att finnas i listan *Inkludera* eller *exkludera* varumärken.
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Svaret innehåller en lista över alla varumärken i ditt konto och var och en av sina uppgifter efter formatet i exemplet nedan.
 
@@ -166,7 +166,7 @@ Svaret innehåller en lista över alla varumärken i ditt konto och var och en a
 
 Med API: erna för [Get-inställningar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands) returneras modell inställningarna för varumärke i det angivna kontot. Modell inställningarna för varumärken representerar om identifiering från Bing-databasen är aktive rad eller inte. Om Bing-varumärken inte är aktiverade, kommer Video Indexer bara identifiera varumärken från den anpassade varumärke modellen för det angivna kontot.
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Svaret visar om Bing-varumärken är aktiverade efter formatet i exemplet nedan.
 
@@ -186,7 +186,7 @@ Svaret visar om Bing-varumärken är aktiverade efter formatet i exemplet nedan.
 
 `useBuiltIn`Flaggan som anges till True innebär att Bing-varumärken är aktiverade. Om `useBuiltin` är falskt inaktive ras Bing-varumärken.
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Det finns inget returnerat innehåll när modell inställningen för varumärken har uppdaterats.
 

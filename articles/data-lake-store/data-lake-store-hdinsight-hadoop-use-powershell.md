@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 902210f0ba6fc195cd219dd5a24e7098ed484d8f
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: b1a228e9d15a349f032291fb0678bdd0ad9d95b3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855666"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048845"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Använd Azure PowerShell för att skapa ett HDInsight-kluster med Azure Data Lake Storage Gen1 (som ytterligare lagrings utrymme)
 
@@ -44,14 +44,14 @@ Att konfigurera HDInsight för att fungera med Data Lake Storage Gen1 med hjälp
 * Skapa HDInsight-kluster med autentisering till Data Lake Storage Gen1
 * Köra ett test jobb på klustret
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Innan du påbörjar de här självstudierna måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Installera Azure PowerShell 1.0 eller senare**. Se [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
+* **Installera Azure PowerShell 1.0 eller senare**. Se [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/).
 * **Windows SDK**. Du kan installera det [härifrån](https://dev.windows.com/en-us/downloads). Du kan använda detta för att skapa ett säkerhetscertifikat.
 * **Azure Active Directory tjänstens huvud namn**. Steg i den här självstudien innehåller instruktioner om hur du skapar ett tjänst objekt i Azure AD. Du måste dock vara en Azure AD-administratör för att kunna skapa ett huvud namn för tjänsten. Om du är en Azure AD-administratör kan du hoppa över den här förutsättningen och fortsätta med självstudien.
 

@@ -2,16 +2,15 @@
 title: Använda hanterade identiteter i Azure Kubernetes-tjänsten
 description: Lär dig hur du använder hanterade identiteter i Azure Kubernetes service (AKS)
 services: container-service
-author: mlearned
 ms.topic: article
-ms.date: 07/10/2020
-ms.author: mlearned
-ms.openlocfilehash: 95a303a4b6a83901560b26679bca920b9de4d3f4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/17/2020
+ms.author: thomasge
+ms.openlocfilehash: e96126d1516e8a1e20e6f6db9b3a448b94c71cd7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250914"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050599"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Använda hanterade identiteter i Azure Kubernetes-tjänsten
 
@@ -27,10 +26,10 @@ Du måste ha följande resurs installerad:
 
 ## <a name="limitations"></a>Begränsningar
 
-* Det finns för närvarande inte stöd för att ta med dina egna hanterade identiteter.
 * AKS-kluster med hanterade identiteter kan bara aktive ras när klustret skapas.
-* Det går inte att uppdatera eller uppgradera befintliga AKS-kluster för att aktivera hanterade identiteter.
+* Befintliga AKS-kluster kan inte migreras till hanterade identiteter.
 * Under kluster **uppgraderings** åtgärder är den hanterade identiteten tillfälligt otillgänglig.
+* Klienterna flyttar/migrerar för hanterade identitets aktiverade kluster stöds inte.
 
 ## <a name="summary-of-managed-identities"></a>Sammanfattning av hanterade identiteter
 
@@ -38,18 +37,18 @@ AKS använder flera hanterade identiteter för inbyggda tjänster och tillägg.
 
 | Identitet                       | Namn    | Användningsfall | Standard behörigheter | Ta med din egen identitet
 |----------------------------|-----------|----------|
-| Kontrollplan | inte synlig | Används av AKS för att hantera nätverks resurser, t. ex. skapa en belastningsutjämnare för ingress, offentlig IP osv.| Deltagar roll för nod resurs grupp | Stöds för närvarande inte
+| Kontrollplan | inte synlig | Används av AKS för hanterade nätverks resurser inklusive ingångs utjämning och AKS offentliga IP-adresser | Deltagar roll för nod resurs grupp | Förhandsgranskning
 | Kubelet | AKS-kluster namn – agentpoolegenskap | Autentisering med Azure Container Registry (ACR) | Läsar roll för nod resurs grupp | Stöds för närvarande inte
-| Tillägg | AzureNPM | Ingen identitet krävs | NA | Nej
-| Tillägg | AzureCNI nätverks övervakning | Ingen identitet krävs | NA | Nej
-| Tillägg | azurepolicy (Gatekeeper) | Ingen identitet krävs | NA | Nej
-| Tillägg | azurepolicy | Ingen identitet krävs | NA | Nej
-| Tillägg | Calico | Ingen identitet krävs | NA | Nej
-| Tillägg | Instrumentpanel | Ingen identitet krävs | NA | Nej
-| Tillägg | HTTPApplicationRouting | Hanterar nödvändiga nätverks resurser | Läsar roll för nod resurs grupp, deltagar roll för DNS-zon | Nej
-| Tillägg | Ingress Application Gateway | Hanterar nödvändiga nätverks resurser| Deltagar roll för nod resurs grupp | Nej
-| Tillägg | omsagent | Används för att skicka AKS-mått till Azure Monitor | Övervaknings mått utgivar rollen | Nej
-| Tillägg | Virtuell-nod (ACIConnector) | Hanterar nödvändiga nätverks resurser för Azure Container Instances (ACI) | Deltagar roll för nod resurs grupp | Nej
+| Tillägg | AzureNPM | Ingen identitet krävs | Ej tillämpligt | No
+| Tillägg | AzureCNI nätverks övervakning | Ingen identitet krävs | Ej tillämpligt | No
+| Tillägg | azurepolicy (Gatekeeper) | Ingen identitet krävs | Ej tillämpligt | No
+| Tillägg | azurepolicy | Ingen identitet krävs | Ej tillämpligt | No
+| Tillägg | Calico | Ingen identitet krävs | Ej tillämpligt | No
+| Tillägg | Instrumentpanel | Ingen identitet krävs | Ej tillämpligt | No
+| Tillägg | HTTPApplicationRouting | Hanterar nödvändiga nätverks resurser | Läsar roll för nod resurs grupp, deltagar roll för DNS-zon | No
+| Tillägg | Ingress Application Gateway | Hanterar nödvändiga nätverks resurser| Deltagar roll för nod resurs grupp | No
+| Tillägg | omsagent | Används för att skicka AKS-mått till Azure Monitor | Övervaknings mått utgivar rollen | No
+| Tillägg | Virtuell-nod (ACIConnector) | Hanterar nödvändiga nätverks resurser för Azure Container Instances (ACI) | Deltagar roll för nod resurs grupp | No
 
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>Skapa ett AKS-kluster med hanterade identiteter
@@ -71,7 +70,7 @@ az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity
 
 Ett lyckat kluster skapas med hanterade identiteter som innehåller den här tjänstens huvud princips profil information:
 
-```json
+```output
 "servicePrincipalProfile": {
     "clientId": "msi"
   }
@@ -80,18 +79,20 @@ Ett lyckat kluster skapas med hanterade identiteter som innehåller den här tj�
 Använd följande kommando för att fråga ObjectID för din hanterade identitet för kontroll planet:
 
 ```azurecli-interactive
-az aks show -g myResourceGroup -n MyManagedCluster --query "identity"
+az aks show -g myResourceGroup -n myManagedCluster --query "identity"
 ```
 
 Resultatet bör se ut så här:
 
-```json
+```output
 {
   "principalId": "<object_id>",   
   "tenantId": "<tenant_id>",      
   "type": "SystemAssigned"                                 
 }
 ```
+
+När klustret har skapats kan du distribuera dina program arbets belastningar till det nya klustret och interagera med det precis som du har gjort med service-huvudbaserade AKS-kluster.
 
 > [!NOTE]
 > För att skapa och använda ditt eget VNet, en statisk IP-adress eller en ansluten Azure-disk där resurserna ligger utanför resurs gruppen för arbetsnoder, använder du PrincipalID för den tilldelade hanterade identiteten i kluster systemet för att utföra en roll tilldelning. Mer information om roll tilldelning finns i [Delegera åtkomst till andra Azure-resurser](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
@@ -101,13 +102,115 @@ Resultatet bör se ut så här:
 Slutligen kan du hämta autentiseringsuppgifter för att få åtkomst till klustret:
 
 ```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
+az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
 
-Klustret kommer att skapas på några minuter. Du kan sedan distribuera dina program arbets belastningar till det nya klustret och interagera med det precis som du har gjort med service-huvudbaserade AKS-kluster.
+## <a name="bring-your-own-control-plane-mi-preview"></a>Ta med ditt eget kontroll plan MI (för hands version)
+En anpassad kontroll plan identitet ger åtkomst till den befintliga identiteten innan klustret skapas. Detta möjliggör scenarier som att använda en anpassad VNET eller outboundType av UDR med en hanterad identitet.
+
+> [!IMPORTANT]
+> AKS för hands versions funktioner är tillgängliga på en självbetjänings-och deltagande nivå. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och omfattas inte av service nivå avtal och begränsad garanti. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Mer information finns i följande support artiklar:
+>
+> - [Support principer för AKS](support-policies.md)
+> - [Vanliga frågor och svar om support för Azure](faq.md)
+
+Du måste ha följande resurser installerade:
+- Azure CLI, version 2.9.0 eller senare
+- Tillägget AKS-Preview 0.4.57
+
+Begränsningar för att ta med ditt eget kontroll plan MI (för hands version):
+* Azure Government stöds inte för närvarande.
+* Azure Kina 21Vianet stöds inte för närvarande.
+
+```azurecli-interactive
+az extension add --name aks-preview
+az extension list
+```
+
+```azurecli-interactive
+az extension update --name aks-preview
+az extension list
+```
+
+```azurecli-interactive
+az feature register --name UserAssignedIdentityPreview --namespace Microsoft.ContainerService
+```
+
+Det kan ta flera minuter innan statusen visas som **registrerad**. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UserAssignedIdentityPreview')].{Name:name,State:properties.state}"
+```
+
+När statusen visas som registrerad uppdaterar du registreringen av `Microsoft.ContainerService` resurs leverantören med hjälp av [AZ Provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) kommando:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+Om du inte har en hanterad identitet ännu bör du gå vidare och skapa en till exempel genom att använda [AZ Identity CLI][az-identity-create].
+
+```azurecli-interactive
+az identity create --name myIdentity --resource-group myResourceGroup
+```
+Resultatet bör se ut så här:
+
+```output
+{                                                                                                                                                                                 
+  "clientId": "<client-id>",
+  "clientSecretUrl": "<clientSecretUrl>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
+  "location": "westus2",
+  "name": "myIdentity",
+  "principalId": "<principalId>",
+  "resourceGroup": "myResourceGroup",                       
+  "tags": {},
+  "tenantId": "<tenant-id>>",
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
+
+Om din hanterade identitet är en del av din prenumeration kan du använda [AZ Identity CLI-kommandot][az-identity-list] för att fråga den.  
+
+```azurecli-interactive
+az identity list --query "[].{Name:name, Id:id, Location:location}" -o table
+```
+
+Nu kan du använda följande kommando för att skapa ditt kluster med din befintliga identitet:
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myManagedCluster \
+    --network-plugin azure \
+    --vnet-subnet-id <subnet-id> \
+    --docker-bridge-address 172.17.0.1/16 \
+    --dns-service-ip 10.2.0.10 \
+    --service-cidr 10.2.0.0/24 \
+    --enable-managed-identity \
+    --assign-identity <identity-id> \
+```
+
+Ett lyckat kluster skapas med dina egna hanterade identiteter som innehåller den här userAssignedIdentities profil informationen:
+
+```output
+ "identity": {
+   "principalId": null,
+   "tenantId": null,
+   "type": "UserAssigned",
+   "userAssignedIdentities": {
+     "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity": {
+       "clientId": "<client-id>",
+       "principalId": "<principal-id>"
+     }
+   }
+ },
+```
 
 ## <a name="next-steps"></a>Nästa steg
 * Använd [Azure Resource Manager arm-mallar][aks-arm-template] för att skapa hanterade identitets aktiverade kluster.
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
+[az-identity-create]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-create
+[az-identity-list]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-list

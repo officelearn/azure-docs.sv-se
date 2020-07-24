@@ -4,18 +4,18 @@ description: Lär dig hur du uppgraderar ett Azure Kubernetes service-kluster (A
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: 603a27f0ecffb762a18f58847110c4dd3de68425
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: da46c44dc9cc16dfa44aacb15b35b652c0c912a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250999"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050612"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Uppgradera ett AKS-kluster (Azure Kubernetes Service)
 
 Som en del av livs cykeln för ett AKS-kluster måste du ofta uppgradera till den senaste versionen av Kubernetes. Det är viktigt att du tillämpar de senaste Kubernetes säkerhets versionerna eller uppgraderar för att få de senaste funktionerna. Den här artikeln visar hur du uppgraderar huvud komponenterna eller en enskild standardnode-pool i ett AKS-kluster.
 
-Information om AKS-kluster som använder flera Node-pooler eller Windows Server-noder (för närvarande i för hands version i AKS) finns i [uppgradera en Node-pool i AKS][nodepool-upgrade].
+Information om AKS-kluster som använder flera resurspooler eller Windows Server-noder finns i [uppgradera en Node-pool i AKS][nodepool-upgrade].
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -33,9 +33,11 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> När du uppgraderar ett AKS-kluster kan Kubernetes minor-versioner inte hoppas över. Till exempel tillåts uppgraderingar mellan *1.12. x*  ->  *1.13. x* eller *1.13. x*  ->  *1.14. x* , men *1.12.* x  ->  *1.14. x* är inte.
+> När du uppgraderar ett AKS-kluster som stöds kan Kubernetes minor-versioner inte hoppas över. Till exempel tillåts uppgraderingar mellan *1.12. x*  ->  *1.13. x* eller *1.13. x*  ->  *1.14. x* , men *1.12.* x  ->  *1.14. x* är inte.
 >
 > Uppgradera från *1.12. x*  ->  *1.14. x*genom att först uppgradera från *1.12.* x  ->  *1.13. x*och sedan uppgradera från *1.13. x*  ->  *1.14. x*.
+>
+> Det går bara att hoppa över flera versioner när du uppgraderar från en version som inte stöds tillbaka till en version som stöds. Du kan t. ex. uppgradera från en *1.10. x* --> en 1.15 som stöds *. x* kan slutföras.
 
 Följande exempel på utdata visar att klustret kan uppgraderas till versioner *1.13.9* och *1.13.10*:
 

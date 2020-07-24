@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 95d8d819aa1b418b4a7ec736cef64cb989f7e37b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbd460b584789aa7d40de9ba6430ff6202c3764b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74885644"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052524"
 ---
 # <a name="streaming-endpoints-overview"></a>Översikt över slut punkter för direkt uppspelning  
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 I Microsoft Azure Media Services (AMS) representerar en **strömmande slut punkt** en strömmande tjänst som kan leverera innehåll direkt till ett klient program eller till ett Content Delivery Network (CDN) för vidare distribution. Media Services ger också sömlös Azure CDN-integrering. Den utgående strömmen från en StreamingEndpoint-tjänst kan vara en Live Stream, en video på begäran eller progressiv nedladdning av din till gång på ditt Media Servicess konto. Varje Azure Media Services konto innehåller en standard StreamingEndpoint. Ytterligare strömnings slut punkter kan skapas under kontot. Det finns två versioner av strömnings slut punkter, 1,0 och 2,0. Från och med 10 januari 2017 kommer eventuella nyligen skapade AMS-konton att inkludera version 2,0 **standard** StreamingEndpoint. Ytterligare slut punkter för direkt uppspelning som du lägger till i det här kontot kommer också att vara version 2,0. Ändringen påverkar inte befintliga konton. befintliga strömnings slut punkter kommer att vara version 1,0 och kan uppgraderas till version 2,0. Med den här ändringen kan du göra ändringar i funktioner, fakturerings-och funktions ändringar (mer information finns i avsnittet **strömnings typer och versioner** som beskrivs nedan).
 
-Azure Media Services lade till följande egenskaper i entiteten för strömnings slut punkt: **CdnProvider**, **CdnProfile**, **StreamingEndpointVersion**. Detaljerad översikt över dessa egenskaper finns i [detta](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
+Azure Media Services lade till följande egenskaper i entiteten för strömnings slut punkt: **CdnProvider**, **CdnProfile**, **StreamingEndpointVersion**. Detaljerad översikt över dessa egenskaper finns i [detta](/rest/api/media/operations/streamingendpoint). 
 
 När du skapar ett Azure Media Services konto skapas en standard slut punkt för standard strömning för dig i **stoppat** läge. Det går inte att ta bort standard slut punkten för direkt uppspelning. Beroende på Azure CDN tillgänglighet i mål regionen innehåller som standard den nyskapade standard slut punkten för direkt uppspelning även "StandardVerizon" CDN Provider integration. 
                 
@@ -76,10 +77,10 @@ Om din **version "1,0"** för strömnings slut punkten har >= 1 Premium streamin
 
 |Typ|StreamingEndpointVersion|ScaleUnits|CDN|Fakturering|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Klassisk|1.0|0|NA|Kostnadsfri|
-|Standard slut punkt för direkt uppspelning (förhands granskning)|2.0|0|Ja|Förutbetalt|
-|Premium – direktuppspelningsenheter|1.0|> 0|Ja|Förutbetalt|
-|Premium – direktuppspelningsenheter|2.0|> 0|Ja|Förutbetalt|
+|Klassisk|1,0|0|Ej tillämpligt|Kostnadsfri|
+|Standard slut punkt för direkt uppspelning (förhands granskning)|2.0|0|Yes|Förutbetalt|
+|Premium – direktuppspelningsenheter|1,0|> 0|Yes|Förutbetalt|
+|Premium – direktuppspelningsenheter|2.0|> 0|Yes|Förutbetalt|
 
 ### <a name="features"></a>Funktioner
 
@@ -101,7 +102,7 @@ Information om SLA finns i [prissättning och service avtal](https://azure.micro
 
 ## <a name="migration-between-types"></a>Migrering mellan typer
 
-Från | Till | Åtgärd
+Från | Om du vill | Åtgärd
 ---|---|---
 Klassisk|Standard|Du måste välja
 Klassisk|Premium| Skala (ytterligare enheter för strömning)
@@ -121,4 +122,3 @@ Granska sökvägarna för Media Services-utbildning.
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

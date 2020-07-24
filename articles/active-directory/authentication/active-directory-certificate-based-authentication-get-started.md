@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ca19ccb925721126f7e7d8495addd0794766f376
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 94955e27dcadb3acbea03926d6d1ed73e9c5c9ed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202865"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051349"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Komma igång med certifikatbaserad autentisering i Azure Active Directory
 
@@ -93,7 +93,7 @@ Schemat för en certifikat utfärdare ser ut så här:
     }
 ```
 
-För-konfigurationen kan du använda [Azure Active Directory PowerShell version 2](/powershell/azure/install-adv2?view=azureadps-2.0):
+För-konfigurationen kan du använda [Azure Active Directory PowerShell version 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0):
 
 1. Starta Windows PowerShell med administratörs behörighet.
 2. Installera Azure AD-modulen version [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) eller högre.
@@ -104,7 +104,7 @@ För-konfigurationen kan du använda [Azure Active Directory PowerShell version 
 
 Som ett första konfigurations steg måste du upprätta en anslutning till din klient organisation. Så snart en anslutning till din klient organisation finns kan du granska, lägga till, ta bort och ändra betrodda certifikat utfärdare som definieras i din katalog.
 
-### <a name="connect"></a>Ansluta
+### <a name="connect"></a>Anslut
 
 Använd cmdleten [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) för att upprätta en anslutning till klienten:
 
@@ -122,7 +122,7 @@ Om du vill hämta betrodda certifikat utfärdare som har definierats i din katal
 
 ### <a name="add"></a>Lägg till
 
-Om du vill skapa en betrodd certifikat utfärdare använder du cmdleten [New-AzureADTrustedCertificateAuthority](/azurepowershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) och anger attributet **crlDistributionPoint** till ett korrekt värde:
+Om du vill skapa en betrodd certifikat utfärdare använder du cmdleten [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) och anger attributet **crlDistributionPoint** till ett korrekt värde:
 
 ```azurepowershell
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"

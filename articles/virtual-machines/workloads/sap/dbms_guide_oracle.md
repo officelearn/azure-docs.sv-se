@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b6879d11a4b47c0090f13baa0a15dcc696c8534
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3301667c0ee6ad739b6fb734c2cea3aef4889bd9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525389"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051838"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning
 
@@ -74,7 +74,7 @@ ms.locfileid: "86525389"
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:/powershell/azureps-cmdlets-docs
+[azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
@@ -372,12 +372,12 @@ Information om vilka typer av virtuella Azure-datorer som stöds finns i SAP anm
 
 Den lägsta konfigurationen är följande: 
 
-| Komponent | Disk | Cachelagring | Lagringspool |
+| Komponent | Disk | Caching | Lagringspool |
 | --- | ---| --- | --- |
-| \oracle \<SID> \origlogaA & mirrlogB | Premium | Inga | Krävs inte |
-| \oracle \<SID> \origlogaB & mirrlogA | Premium | Inga | Krävs inte |
+| \oracle \<SID> \origlogaA & mirrlogB | Premium | Ingen | Krävs inte |
+| \oracle \<SID> \origlogaB & mirrlogA | Premium | Ingen | Krävs inte |
 | \oracle \<SID> \sapdata1... m | Premium | Skrivskyddad | Kan användas |
-| \oracle \<SID> \oraarch | Standard | Inga | Krävs inte |
+| \oracle \<SID> \oraarch | Standard | Ingen | Krävs inte |
 | Oracle Home, saptrace,... | OS-disk | | Krävs inte |
 
 
@@ -385,15 +385,15 @@ Diskar som väljs för att vara värd för online-återupprepnings loggar bör d
 
 Prestanda konfigurationen är följande:
 
-| Komponent | Disk | Cachelagring | Lagringspool |
+| Komponent | Disk | Caching | Lagringspool |
 | --- | ---| --- | --- |
-| \oracle \<SID> \origlogaA | Premium | Inga | Kan användas  |
-| \oracle \<SID> \origlogaB | Premium | Inga | Kan användas |
-| \oracle \<SID> \mirrlogAB | Premium | Inga | Kan användas |
-| \oracle \<SID> \mirrlogBA | Premium | Inga | Kan användas |
+| \oracle \<SID> \origlogaA | Premium | Ingen | Kan användas  |
+| \oracle \<SID> \origlogaB | Premium | Ingen | Kan användas |
+| \oracle \<SID> \mirrlogAB | Premium | Ingen | Kan användas |
+| \oracle \<SID> \mirrlogBA | Premium | Ingen | Kan användas |
 | \oracle \<SID> \sapdata1... m | Premium | Skrivskyddad | Rekommenderas  |
-| \oracle\SID\sapdata (n + 1) * | Premium | Inga | Kan användas |
-| \oracle \<SID> \oraarch * | Premium | Inga | Krävs inte |
+| \oracle\SID\sapdata (n + 1) * | Premium | Ingen | Kan användas |
+| \oracle \<SID> \oraarch * | Premium | Ingen | Krävs inte |
 | Oracle Home, saptrace,... | OS-disk | Krävs inte |
 
 * (n + 1): värdbaserade SYSTEM-, TEMP-och UNDO-datatabeller. I/O-mönstret för system-och Undo-datatabeller skiljer sig från andra register utrymmen som är värdar för program data. Ingen cachelagring är det bästa alternativet för systemets prestanda och återställa tabell utrymmen.
@@ -420,7 +420,7 @@ Mer information om haveri beredskap för Oracle-databaser i Azure finns i [haver
 
 ### <a name="accelerated-networking"></a>Snabbare nätverk
 För Oracle-distributioner i Windows rekommenderar vi att du påskyndade nätverket enligt beskrivningen i [Azure accelererat nätverk](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Överväg även rekommendationer som görs i [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md). 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 [Överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) beskriver andra viktiga begrepp som rör distributioner av virtuella datorer med Oracle Database, inklusive Azures tillgänglighets uppsättningar och SAP-övervakning.
 
 ## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Information om Oracle Database på Oracle Linux
@@ -462,12 +462,12 @@ Information om vilka typer av virtuella Azure-datorer som stöds finns i SAP anm
 
 Lägsta konfiguration:
 
-| Komponent | Disk | Cachelagring | Tar bort |
+| Komponent | Disk | Caching | Tar bort |
 | --- | ---| --- | --- |
-| /Oracle/ \<SID> /origlogaA & mirrlogB | Premium | Inga | Krävs inte |
-| /Oracle/ \<SID> /origlogaB & mirrlogA | Premium | Inga | Krävs inte |
+| /Oracle/ \<SID> /origlogaA & mirrlogB | Premium | Ingen | Krävs inte |
+| /Oracle/ \<SID> /origlogaB & mirrlogA | Premium | Ingen | Krävs inte |
 | /Oracle/ \<SID> /sapdata1... m | Premium | Skrivskyddad | Kan användas |
-| /Oracle/ \<SID> /oraarch | Standard | Inga | Krävs inte |
+| /Oracle/ \<SID> /oraarch | Standard | Ingen | Krävs inte |
 | Oracle Home, saptrace,... | OS-disk | | Krävs inte |
 
 * Ta bort: LVM rand eller MDADM med RAID0
@@ -476,15 +476,15 @@ Disk valet för att vara värd för Oracle: s online-återupprepnings loggar bö
 
 Prestanda konfiguration:
 
-| Komponent | Disk | Cachelagring | Tar bort |
+| Komponent | Disk | Caching | Tar bort |
 | --- | ---| --- | --- |
-| /Oracle/ \<SID> /origlogaA | Premium | Inga | Kan användas  |
-| /Oracle/ \<SID> /origlogaB | Premium | Inga | Kan användas |
-| /Oracle/ \<SID> /mirrlogAB | Premium | Inga | Kan användas |
-| /Oracle/ \<SID> /mirrlogBA | Premium | Inga | Kan användas |
+| /Oracle/ \<SID> /origlogaA | Premium | Ingen | Kan användas  |
+| /Oracle/ \<SID> /origlogaB | Premium | Ingen | Kan användas |
+| /Oracle/ \<SID> /mirrlogAB | Premium | Ingen | Kan användas |
+| /Oracle/ \<SID> /mirrlogBA | Premium | Ingen | Kan användas |
 | /Oracle/ \<SID> /sapdata1... m | Premium | Skrivskyddad | Rekommenderas  |
-| /Oracle/ \<SID> /sapdata (n + 1) * | Premium | Inga | Kan användas |
-| /Oracle/ \<SID> /oraarch * | Premium | Inga | Krävs inte |
+| /Oracle/ \<SID> /sapdata (n + 1) * | Premium | Ingen | Kan användas |
+| /Oracle/ \<SID> /oraarch * | Premium | Ingen | Krävs inte |
 | Oracle Home, saptrace,... | OS-disk | Krävs inte |
 
 * Ta bort: LVM rand eller MDADM med RAID0
@@ -523,5 +523,5 @@ sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.gi
 </code></pre>
 
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 [Överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) beskriver andra viktiga begrepp som rör distributioner av virtuella datorer med Oracle Database, inklusive Azures tillgänglighets uppsättningar och SAP-övervakning.

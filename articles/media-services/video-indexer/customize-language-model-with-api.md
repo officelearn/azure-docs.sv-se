@@ -9,13 +9,13 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/04/2020
-ms.author: anzaman
-ms.openlocfilehash: 19067bbbaf93c9abc9a9220b09dd482ce9115655
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: kumud
+ms.openlocfilehash: f373afae03357ffb65eb459f806fe441e29b21b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80127987"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047076"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-api"></a>Anpassa en språk modell med Video Indexer API
 
@@ -37,7 +37,7 @@ Om du vill ladda upp filer som ska läggas till i språk modellen måste du ladd
 * Nyckeln är fil namnet och värdet är txt-filen.
 * Nyckeln är fil namnet och värdet är en URL till txt-filen.
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Svaret innehåller metadata för den nyligen skapade språk modellen tillsammans med metadata på var och en av modellens filer som följer formatet på det här exemplet JSON-utdata:
 
@@ -75,7 +75,7 @@ Svaret innehåller metadata för den nyligen skapade språk modellen tillsammans
 > [!NOTE]
 > Du måste först skapa språk modellen och överföra dess filer. Du kan ladda upp filer när du skapar språk modellen eller genom att uppdatera språk modellen.
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Svaret innehåller metadata för den nytränade språk modellen tillsammans med metadata på var och en av modellens filer som följer formatet på det här exemplet JSON-utdata:
 
@@ -111,7 +111,7 @@ Det returnerade `id` är ett unikt ID som används för att skilja mellan språk
 
 [Ta bort ett språk modells](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) -API tar bort en anpassad språk modell från det angivna kontot. Alla videoklipp som använder den borttagna språk modellen behåller samma index tills du omindexerat videon. Om du Omindexerar videon kan du tilldela en ny språk modell till videon. Annars kommer Video Indexer att använda sin standard modell för att Omindexera videon.
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Det finns inget returnerat innehåll när språk modellen har tagits bort.
 
@@ -127,7 +127,7 @@ Om du vill ladda upp filer som ska läggas till i språk modellen måste du ladd
 * Nyckeln är fil namnet och värdet är txt-filen.
 * Nyckeln är fil namnet och värdet är en URL till txt-filen.
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Svaret innehåller metadata för den nytränade språk modellen tillsammans med metadata på var och en av modellens filer som följer formatet på det här exemplet JSON-utdata:
 
@@ -163,7 +163,7 @@ Använd de `id` filer som returneras i svaret för att ladda ned innehållet i f
 
 Med [Uppdatera en fil](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update) kan du uppdatera namn och `enable` tillstånd för en fil i en anpassad språk modell i det angivna kontot.
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Svaret innehåller metadata för den fil som du uppdaterade efter formatet på exemplet JSON-utdata nedan.
 
@@ -183,7 +183,7 @@ Använd `id` filen som returnerades i svaret för att ladda ned innehållet i fi
 
 [Get](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model?&pattern=get) -API: et returnerar information om den angivna språk modellen i det angivna kontot, till exempel språk och de filer som finns i språk modellen.
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Svaret innehåller metadata på den angivna språk modellen tillsammans med metadata på var och en av modellens filer som följer formatet på det här exemplet JSON-utdata:
 
@@ -219,7 +219,7 @@ Använd `id` filen som returnerades i svaret för att ladda ned innehållet i fi
 
 [Hämta alla](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get) API: er returnerar alla anpassade språk modeller i det angivna kontot i en lista.
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Svaret innehåller en lista över alla språk modeller i ditt konto och var och en av deras metadata och filer efter formatet på det här exemplet JSON-utdata:
 
@@ -263,7 +263,7 @@ Svaret innehåller en lista över alla språk modeller i ditt konto och var och 
 
 [Borttagnings](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete) -API: n tar bort den angivna filen från den angivna språk modellen i det angivna kontot.
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Det finns inget returnerat innehåll när filen tas bort från språk modellen.
 
@@ -271,7 +271,7 @@ Det finns inget returnerat innehåll när filen tas bort från språk modellen.
 
 [Hämta metadata för ett fil](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model) -API returnerar innehållet i och metadata för den angivna filen från den valda språk modellen i ditt konto.
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Svaret innehåller innehåll och metadata för filen i JSON-format, ungefär som i det här exemplet:
 
@@ -293,7 +293,7 @@ Svaret innehåller innehåll och metadata för filen i JSON-format, ungefär som
 
 [Hämtningen av ett fil](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?) -API laddar ned en textfil som innehåller innehållet i den angivna filen från den angivna språk modellen i det angivna kontot. Text filen måste matcha innehållet i text filen som ursprungligen överfördes.
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Svaret kommer att hämtas till en textfil med innehållet i filen i JSON-format.
 

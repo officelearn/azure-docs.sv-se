@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 839347ce0a04cc1ca1bf16c68e0ccc36fcf0f7fc
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 2f82d5d4dcb29504abbfa6881fa825b6d8efce0d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200806"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049539"
 ---
 # <a name="metrics-in-azure-monitor"></a>Mått i Azure Monitor
 
@@ -35,9 +35,9 @@ I följande tabell visas de olika sätt som du kan använda Metric-data i Azure 
 | **Visualisera** | Fäst ett diagram från metrics Explorer till en [Azure-instrumentpanel](../learn/tutorial-app-dashboards.md).<br>Skapa en [arbets bok](../platform/workbooks-overview.md) som ska kombineras med flera data uppsättningar i en interaktiv rapport. Exportera resultatet av en fråga till [Grafana](grafana-plugin.md) för att dra nytta av dess instrument panel och kombinera med andra data källor. |
 | **Varning** | Konfigurera en [regel för mått varningar](alerts-metric.md) som skickar ett meddelande eller [automatiserar en åtgärd](action-groups.md) när mått värdet korsar ett tröskelvärde. |
 | **Automatisera** |  Använd [autoskalning](autoscale-overview.md) för att öka eller minska resurser baserat på ett mått värde som korsar ett tröskelvärde. |
-| **Export** | [Dirigera mått till loggar](resource-logs-collect-storage.md) för att analysera data i Azure Monitor mått tillsammans med data i Azure Monitor loggar och lagra mått värden i mer än 93 dagar.<br>Strömma mått till en [Event Hub](stream-monitoring-data-event-hubs.md) för att dirigera dem till externa system. |
-| **Hämta** | Komma åt Mät värden från en kommando rad med [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Använd [REST API](rest-api-walkthrough.md)för att komma åt Mät värden från anpassade program.<br>Komma åt Mät värden från en kommando rad med [CLI](/cli/azure/monitor/metrics). |
-| **Arkivattributet** | [Arkivera](..//learn/tutorial-archive-data.md) prestanda-eller hälso historiken för din resurs för efterlevnad, granskning eller offline rapportering. |
+| **Export** | [Dirigera mått till loggar](./resource-logs.md#send-to-azure-storage) för att analysera data i Azure Monitor mått tillsammans med data i Azure Monitor loggar och lagra mått värden i mer än 93 dagar.<br>Strömma mått till en [Event Hub](stream-monitoring-data-event-hubs.md) för att dirigera dem till externa system. |
+| **Hämta** | Komma åt Mät värden från en kommando rad med [PowerShell-cmdletar](/powershell/module/az.applicationinsights)<br>Använd [REST API](rest-api-walkthrough.md)för att komma åt Mät värden från anpassade program.<br>Komma åt Mät värden från en kommando rad med [CLI](/cli/azure/monitor/metrics). |
+| **Arkiv** | [Arkivera](./platform-logs-overview.md) prestanda-eller hälso historiken för din resurs för efterlevnad, granskning eller offline rapportering. |
 
 ## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Hur struktureras data i Azure Monitor mått?
 Data som samlas in av Azure Monitor mått lagras i en databas för tids serier som är optimerade för analys av tidsstämplade data. Varje uppsättning metriska värden är en tids serie med följande egenskaper:
@@ -108,7 +108,7 @@ För de flesta resurser i Azure lagras måtten i 93 dagar. Det finns vissa undan
 
 
 > [!NOTE]
-> Du kan [Skicka plattforms mått för Azure Monitor resurser till en Log Analytics arbets yta](resource-logs-collect-storage.md) för långsiktiga trender.
+> Du kan [Skicka plattforms mått för Azure Monitor resurser till en Log Analytics arbets yta](./resource-logs.md#send-to-azure-storage) för långsiktiga trender.
 
 
 

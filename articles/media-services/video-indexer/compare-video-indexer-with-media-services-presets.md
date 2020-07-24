@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: juliako
-ms.openlocfilehash: dcfc6ea4afe23424e72c625518356be52f62bc81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0961aa3e573e511a6941bc59ddc335f64799abb4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77602186"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047338"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Jämför Azure Media Services v3 för inställningar och Video Indexer 
 
@@ -30,11 +31,11 @@ För närvarande finns det en överlappning mellan funktioner som erbjuds av [vi
 
 |Funktion|Video Indexer-API: er |Inställningar för video analys och ljud analys<br/>i Media Services v3-API: er|
 |---|---|---|
-|Medie insikter|[Optimerad](video-indexer-output-json-v2.md) |[Grunder](../latest/intelligence-concept.md)|
+|Medie insikter|[Optimerad](video-indexer-output-json-v2.md) |[Grunder](../latest/analyzing-video-audio-files-concept.md)|
 |Erfarenheter|Se den fullständiga listan över funktioner som stöds: <br/> [Översikt](video-indexer-overview.md)|Returnerar endast video insikter|
 |Fakturering|[Media Services priser](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Media Services priser](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
 |Efterlevnad|För de mest aktuella uppdateringarna går du till [Azure compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) och söker efter "video Indexer" för att se om det överensstämmer med ett intresse bevis.|För de mest aktuella uppdateringarna går du till [Azure compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) och söker efter "Media Services" för att se om det överensstämmer med ett intresse bevis.|
-|Kostnadsfri utvärderingsversion|USA, östra|Inte tillgänglig|
+|Kostnadsfri utvärdering|East US|Inte tillgängligt|
 |Regional tillgänglighet|Se [Cognitive Services tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)|Se [Media Services tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).|
 
 ## <a name="next-steps"></a>Nästa steg

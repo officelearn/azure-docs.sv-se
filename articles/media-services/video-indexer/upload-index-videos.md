@@ -10,43 +10,44 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: 245eabdf4d77682c87062c2581239a554112d748
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 011f94cf24c6148ee01275541b090ba28d697018
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77468770"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052494"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
-När du laddar upp videor med Video Indexer API har du följande uppladdnings alternativ: 
+När du laddar upp videor med Video Indexer-API:et har du följande uppladdningsalternativ: 
 
 * ladda upp videon från en URL (rekommenderas),
 * skicka videofilen som en bytematris i begärandetexten,
-* Använd befintlig Azure Media Services till gång genom att ange [till gångs-ID: t](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (stöds endast i betalda konton).
+* använda en befintlig Azure Media Services-resurs genom att tillhandahålla [tillgångs-id:t](../latest/assets-concept.md) (stöds endast för betalkonton).
 
-När din video har laddats upp kan Video Indexer (valfritt) koda videon (beskrivs i artikeln). När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med alternativet betald skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till mediekontot. 
+När din video har laddats upp kan Video Indexer (valfritt) koda videon (beskrivs i artikeln). När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med betalalternativet skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till mediekontot. 
 
 Artikeln visar hur du överför och indexerar dina videor med följande alternativ:
 
-* [Video Indexer webbplats](#website) 
-* [Video Indexer-API: er](#apis)
+* [Video Indexer-webbplatsen](#website) 
+* [API:er för Video Indexer](#apis)
 
-## <a name="uploading-considerations-and-limitations"></a>Att överföra överväganden och begränsningar
+## <a name="uploading-considerations-and-limitations"></a>Överväganden och begränsningar vid uppladdning
  
-- Ett namn på videon får inte vara större än 80 tecken.
-- När du laddar upp videon baserat på URL (önskad) måste slut punkten skyddas med TLS 1,2 (eller högre).
-- Uppladdnings storleken med URL-alternativet är begränsad till 30 GB.
-- Längden på fråge-URL: en är begränsad till 6144 tecken där Frågesträngens URL-längd är begränsad till 4096 tecken.
-- Uppladdnings storleken med alternativet byte mat ris är begränsad till 2 GB.
-- Tids gränsen nåddes för byte mat ris-alternativet efter 30 min.
+- Namnet på videon får inte vara längre än 80 tecken.
+- När du laddar upp videon baserat på en webbadress (rekommenderas) måste slutpunkten skyddas med TLS 1.2 (eller senare).
+- Uppladdningsstorleken med webbadressalternativet är begränsad till 30 GB.
+- Längden på webbadressen i förfrågan är begränsad till 6 144 tecken där frågesträngsadressen är begränsad till 4 096 tecken.
+- Uppladdningsstorleken med bytearrayalternativet är begränsad till 2 GB.
+- Det finns en tidsgräns för bytearrayalternativet på 30 min.
 - Den URL som anges i `videoURL` param måste vara kodad.
-- Indexering av Media Services till gångar har samma begränsning som indexering från URL: en.
-- Video Indexer har en maximal tids gräns på 4 timmar för en enskild fil.
-- URL: en måste vara tillgänglig (till exempel en offentlig URL). 
+- Indexering av Media Services-resurser har samma begränsning som vid indexering från webbadresser.
+- Video Indexer har en maximal tidsgräns på 4 timmar för en enskild fil.
+- Webbadressen måste kunna nås (till exempel vara en offentlig webbadress). 
 
-    Om det är en privat URL måste åtkomsttoken anges i begäran.
+    Om det är en privat webbadress måste åtkomsttoken anges i förfrågan.
 - URL: en måste peka på en giltig mediafil och inte till en webb sida, till exempel en länk till `www.youtube.com` sidan.
-- I ett betalt konto kan du överföra upp till 50 filmer per minut och i ett utvärderings konto upp till 5 filmer per minut.
+- Med ett betalkonto kan du överföra upp till 50 filmer per minut och med ett utvärderingskonto upp till 5 filmer per minut.
 
 > [!Tip]
 > Det rekommenderas att du använder .NET Framework version 4.6.2 eller senare eftersom äldre .NET Framework-versioner inte använder TLS 1.2 som standard.
@@ -57,10 +58,10 @@ Artikeln visar hur du överför och indexerar dina videor med följande alternat
 
 I artikeln om [inmatade behållare/fil format](../latest/media-encoder-standard-formats.md#input-containerfile-formats) finns en lista över fil format som du kan använda med video Indexer.
 
-## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a id="website"/>Ladda upp och indexera en video med hjälp av Video Indexer webbplats
+## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a name="website"></a>Ladda upp och indexera en video med hjälp av Video Indexer webbplats
 
 > [!NOTE]
-> Ett namn på videon får inte vara större än 80 tecken.
+> Namnet på videon får inte vara längre än 80 tecken.
 
 1. Logga in på [Video Indexer](https://www.videoindexer.ai/)-webbplatsen.
 2. Ladda upp en video genom att trycka på knappen eller länken **Ladda upp**.
@@ -73,7 +74,7 @@ I artikeln om [inmatade behållare/fil format](../latest/media-encoder-standard-
 
     När Video Indexer är klar med analysen får du ett meddelande med en länk till videon och en kort beskrivning av vad som hittades i videon. Till exempel: personer, ämnen och OCR.
 
-## <a name="upload-and-index-with-api"></a><a id="apis"/>Ladda upp och indexera med API
+## <a name="upload-and-index-with-api"></a><a name="apis"></a>Ladda upp och indexera med API
 
 Använd [Ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) -API för att ladda upp och indexera videor baserat på en URL. Kod exemplet som följer innehåller den kommenterade koden som visar hur du överför byte-matrisen. 
 
@@ -92,7 +93,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
 - Indexering av tillståndsändring: 
     - Egenskaper:    
     
-        |Name|Beskrivning|
+        |Namn|Beskrivning|
         |---|---|
         |id|Video-ID|
         |state|Videotillståndet|  
@@ -100,7 +101,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
 - Person som identifierades i videon:
   - Egenskaper
     
-      |Name|Beskrivning|
+      |Namn|Beskrivning|
       |---|---|
       |id| Video-ID|
       |faceId|Ansikts-ID som visas i videoindexet|
@@ -109,7 +110,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
         
     - Exempel: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&FaceID = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&personName = Inigo_Montoya 
 
-##### <a name="notes"></a>Obs!
+##### <a name="notes"></a>Kommentarer
 
 - Video Indexer returnerar alla befintliga parametrar som anges i den ursprungliga webbadressen.
 - Den tillhandahållna webbadressen måste vara kodad.
@@ -141,7 +142,7 @@ När videon har laddats upp kan Video Indexer koda videon. Sedan fortsätter den
 
 När du använder API:t [Ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) eller [Indexera om video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) är en av de valfria parametrarna `streamingPreset`. Om du ställer in `streamingPreset` på `Default`, `SingleBitrate` eller `AdaptiveBitrate` utlöses kodningsprocessen. När indexerings- och kodningsjobben är klara publiceras videon så att du även kan strömma videon. Slutpunkten för direktuppspelning som du vill strömma videon från måste ha tillståndet **Körs**.
 
-För att kunna köra indexerings- och kodningsjobben kräver [Azure Media Services-kontot som är anslutet till ditt Video Indexer-konto](connect-to-azure.md) reserverade enheter. Mer information finns i [Skala mediebearbetning](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview). Eftersom det är beräkningsintensiva jobb rekommenderas enhetstypen S3 starkt. Antalet RU:er definierar det maximala antalet jobb som kan köras parallellt. Baslinjerekommendationen är 10 S3-RU:er. 
+För att kunna köra indexerings- och kodningsjobben kräver [Azure Media Services-kontot som är anslutet till ditt Video Indexer-konto](connect-to-azure.md) reserverade enheter. Mer information finns i [Skala mediebearbetning](../previous/media-services-scale-media-processing-overview.md). Eftersom det är beräkningsintensiva jobb rekommenderas enhetstypen S3 starkt. Antalet RU:er definierar det maximala antalet jobb som kan köras parallellt. Baslinjerekommendationen är 10 S3-RU:er. 
 
 Om du bara vill indexera videon men inte koda den ställer du in `streamingPreset` på `NoStreaming`.
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 1996f607d05cb84a80acbb105504ce0b5d3bb0c1
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: a588c58c74ab9632f3c3c61e223dd37704103714
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856897"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048100"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Algoritm & module-referens för Azure Machine Learning designer (för hands version)
 
@@ -43,7 +43,7 @@ Hjälp med att välja algoritmer finns i
 
 | Funktioner | Beskrivning | Modul |
 | --- |--- | --- |
-| Regression | Förutsäg ett värde. | [Förbättrad regression för beslutsträd](boosted-decision-tree-regression.md) <br/> [Regression för beslutsskog](decision-forest-regression.md) <br/> [Linjär regression](linear-regression.md)  <br/> [Regression för Neural Network](neural-network-regression.md)  <br/> |
+| Regression | Förutsäg ett värde. | [Förbättrad regression för beslutsträd](boosted-decision-tree-regression.md) <br/> [Regression för beslutsskog](decision-forest-regression.md) <br/> [Fast skog Quantile regression](fast-forest-quantile-regression.md)  <br/> [Linjär regression](linear-regression.md)  <br/> [Regression för Neural Network](neural-network-regression.md)  <br/> [Poisson-regression](poisson-regression.md)  <br/>|
 | Klustring | Gruppera data tillsammans.| [K-means-klustring](k-means-clustering.md)
 | Klassificering | Förutsäg en klass.  Välj mellan binära (två klasser) eller algoritmer för multiklasser.| [Förbättrat beslutsträd med flera klasser](multiclass-boosted-decision-tree.md) <br/> [Beslutsskog med två klasser](multiclass-decision-forest.md) <br/> [Logistic Regression med flera klasser](multiclass-logistic-regression.md)  <br/> [Neural Network med flera klasser](multiclass-neural-network.md) <br/> [En-mot- alla-multiklass](one-vs-all-multiclass.md) <br/> [Genomsnittsperceptron med två klasser](two-class-averaged-perceptron.md) <br/>  [Tvåklassigt förbättrat beslutsträd](two-class-boosted-decision-tree.md)  <br/> [Beslutsskog med två klasser](two-class-decision-forest.md) <br/>  [Logistic Regression med två klasser](two-class-logistic-regression.md) <br/> [Neural Network med två klasser](two-class-neural-network.md) <br/> [Tvåklassig dator för vektorstöd](two-class-support-vector-machine.md) | 
 

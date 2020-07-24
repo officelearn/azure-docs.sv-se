@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/19/2020
-ms.openlocfilehash: 676a0471ad4321f37cf6dd854d6d98083723f5de
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8f827d3e983a50589975eca59808bd1471fe4810
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116700"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047588"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Översikt över den kommersiella Marketplace-portalen i Partner Center
 
@@ -28,9 +28,9 @@ Partner Center är navet i en Microsoft partner-miljö. För organisationer som 
 
 ## <a name="migration-from-the-cloud-partner-portal"></a>Migrering från Cloud Partner Portal
 
-Partner Center utvecklas för att bättre integrera alla aspekter av vår relation med program varu utgivare. Som en del av den här utvecklingen har vi migrerat all hantering av marknads plats erbjudanden från [Cloud Partner Portal](https://cloudpartner.azure.com/) till Partner Center.
+Partner Center utvecklas för att bättre integrera alla aspekter av vår relation med program varu utgivare. Som en del av den här utvecklingen har vi migrerat all hantering av marknads plats erbjudanden från Cloud Partner Portal (CPP) till Partner Center.
 
-Befintliga utgivare som tidigare har använt Cloud Partner Portal kommer att hitta en välbekant men förbättrad och intuitiv användar upplevelse med partner Center. Användarna dirigeras sömlöst till rätt plats. Kunder påverkas inte av den här uppgraderingen av partner processen.
+Befintliga utgivare som tidigare använde CPP hittar en välbekant men förbättrad och intuitiv användar upplevelse med partner Center. Användarna dirigeras sömlöst till rätt plats. Kunder påverkas inte av den här uppgraderingen av partner processen.
 
 ### <a name="improvements-on-publishing-and-offer-management-user-experience"></a>Förbättringar av användar upplevelsen för publicering och erbjudande hantering
 

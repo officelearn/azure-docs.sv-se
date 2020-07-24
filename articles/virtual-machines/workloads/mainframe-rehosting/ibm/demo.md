@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 83f7f16d8406744a10451e8d488b7719845c525d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b2509539551b3991690e6d0313e069ae015eb892
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135946"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052406"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Konfigurera en programutvecklare styrd distribution (ADCD) i IBM zD&T v1
 
@@ -72,7 +72,7 @@ Nu när du har paket måste du ladda upp dem till den virtuella datorn i Azure.
 
 2. Välj fliken **SSH** och kopiera sedan SSH-kommandot till Urklipp.
 
-3. Logga in på den virtuella datorn med dina autentiseringsuppgifter och valfri [SSH-klient](/azure/virtual-machines/linux/use-remote-desktop) . Den här demon använder Linux-tilläggen för Windows 10, som lägger till ett bash-gränssnitt i kommando tolken i Windows. SparaTillFil fungerar lika bra.
+3. Logga in på den virtuella datorn med dina autentiseringsuppgifter och valfri [SSH-klient](../../../linux/use-remote-desktop.md) . Den här demon använder Linux-tilläggen för Windows 10, som lägger till ett bash-gränssnitt i kommando tolken i Windows. SparaTillFil fungerar lika bra.
 
 4. När du är inloggad skapar du en katalog för att ladda upp IBM-paketen. Kom ihåg att Linux är Skift läges känsligt. Den här demon förutsätter till exempel att paketen laddas upp till:
 
@@ -186,11 +186,11 @@ Din avbildning kan nu distribueras och är redo att monteras av en 3270-termin A
 
 Grattis! Nu kör du en IBM stordator miljö på Azure.
 
-## <a name="learn-more"></a>Läs mer
+## <a name="learn-more"></a>Mer information
 
-- [Stordator-migrering: myths och fakta](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
-- [IBM DB2-pureScale på Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
-- [Felsökning](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
+- [Stordator-migrering: myths och fakta](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
+- [IBM DB2-pureScale på Azure](../../../linux/ibm-db2-purescale-azure.md)
+- [Felsökning](../../../troubleshooting/index.yml)
 - [Avmystifiera-stordator till Azure-migrering](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

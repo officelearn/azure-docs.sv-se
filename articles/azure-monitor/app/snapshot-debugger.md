@@ -4,11 +4,12 @@ description: Fel söknings ögonblicks bilder samlas in automatiskt när undanta
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: 18f43ba90157d71ec9488b6858fa9f41b2ee42a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c920ab019d5d802ea862ab923297670da766a456
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692027"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049681"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Ögonblicksbilder för felsökning av undantag i .NET-appar
 När ett undantag inträffar kan du automatiskt samla in en fel söknings ögonblicks bild från Live-webbappen. I ögonblicks bilden visas statusen för käll koden och variablerna vid det tillfälle då undantaget uppstod. Snapshot Debugger i [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) övervakar undantags telemetri från din webbapp. Den samlar in ögonblicks bilder i de övergivna undantagen så att du har den information du behöver för att diagnostisera problem i produktionen. Ta med [Snapshot Collector NuGet-paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) i ditt program och konfigurera sedan samlings parametrar i [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Ögonblicks bilder visas på [undantag](../../azure-monitor/app/asp-net-exceptions.md) i Application Insights portalen.
@@ -37,7 +38,7 @@ Om du har aktiverat Snapshot Debugger men inte ser ögonblicks bilder, se vår [
 
 ## <a name="grant-permissions"></a>Bevilja behörigheter
 
-Åtkomst till ögonblicks bilder skyddas av rollbaserad åtkomst kontroll (RBAC). Om du vill inspektera en ögonblicks bild måste du först lägga till den nödvändiga rollen av en prenumerations ägare.
+Åtkomsten till ögonblicksbilder skyddas av rollbaserad åtkomstkontroll (RBAC). För att kunna se en ögonblicksbild måste en prenumerationsägare först lägga till dig i den roll som krävs.
 
 > [!NOTE]
 > Ägare och deltagare har inte den här rollen automatiskt. Om de vill visa ögonblicks bilder måste de lägga till sig själva i rollen.
@@ -45,7 +46,7 @@ Om du har aktiverat Snapshot Debugger men inte ser ögonblicks bilder, se vår [
 Prenumerations ägare bör tilldela `Application Insights Snapshot Debugger` rollen till användare som ska inspektera ögonblicks bilder. Den här rollen kan tilldelas enskilda användare eller grupper efter prenumerations ägare för mål Application Insights resurs eller dess resurs grupp eller prenumeration.
 
 1. Navigera till Application Insights resursen i Azure Portal.
-1. Klicka på **Åtkomstkontroll (IAM)** .
+1. Klicka på **Åtkomstkontroll (IAM)**.
 1. Klicka på knappen **+ Lägg till roll tilldelning** .
 1. Välj **Application Insights Snapshot debugger** i list rutan **roller** .
 1. Sök efter och ange ett namn för den användare som ska läggas till.
@@ -88,7 +89,7 @@ Snapshot Collector implementeras som en [Application Insights Telemetry-processo
 Varje gången ditt program anropar [TrackException](../../azure-monitor/app/asp-net-exceptions.md#exceptions)beräknar Snapshot Collector ett problem-ID från den typ av undantag som genereras och metoden Throw.
 Varje gången ditt program anropar TrackException ökas en räknare för rätt problem-ID. När räknaren når `ThresholdForSnapshotting` värdet läggs problem-ID: t till i en samlings plan.
 
-Snapshot Collector övervakar också undantag när de utlöses genom att prenumerera på händelsen [AppDomain. currentDomain. FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception) . När händelsen utlöses beräknas problem-ID: t för undantaget och jämförs med problem-ID: n i samlings planen.
+Snapshot Collector övervakar också undantag när de utlöses genom att prenumerera på händelsen [AppDomain. currentDomain. FirstChanceException](/dotnet/api/system.appdomain.firstchanceexception) . När händelsen utlöses beräknas problem-ID: t för undantaget och jämförs med problem-ID: n i samlings planen.
 Om det finns en matchning, skapas en ögonblicks bild av processen som körs. Ögonblicks bilden tilldelas en unik identifierare och undantaget stämplas med den identifieraren. När FirstChanceException-hanteraren returnerar bearbetas det genererade undantaget som normalt. Slutligen når undantaget metoden TrackException igen där det, tillsammans med ögonblicks bilds-ID, rapporteras till Application Insights.
 
 Huvud processen fortsätter att köra och betjäna trafik till användare med litet avbrott. Under tiden överförs ögonblicks bilden till överförings processen för ögonblicks bilder. Överföring av ögonblicks bilder skapar en MiniDump och laddar upp den till Application Insights tillsammans med eventuella relevanta symbol-filer (. pdb).
@@ -116,7 +117,7 @@ Version 15,2 (eller senare) av Visual Studio 2017 publicerar symboler för versi
 För Azure Compute och andra typer ser du till att symbol-filerna finns i samma mapp i huvud programmet. dll (vanligt vis `wwwroot/bin` ) eller är tillgängliga på den aktuella sökvägen.
 
 > [!NOTE]
-> Mer information om de olika symbol alternativen som är tillgängliga finns i [Visual Studio-dokumentationen](https://docs.microsoft.com/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
+> Mer information om de olika symbol alternativen som är tillgängliga finns i [Visual Studio-dokumentationen](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
 ). För bästa resultat rekommenderar vi att du använder "fullständig", "portabel" eller "inbäddad".
 
 ### <a name="optimized-builds"></a>Optimerade versioner
@@ -137,6 +138,6 @@ Aktivera Application Insights Snapshot Debugger för ditt program:
 
 Utöver Application Insights Snapshot Debugger:
  
-* [Ange snappoints i din kod](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) för att hämta ögonblicks bilder utan att vänta på ett undantag.
+* [Ange snappoints i din kod](/visualstudio/debugger/debug-live-azure-applications) för att hämta ögonblicks bilder utan att vänta på ett undantag.
 * [Diagnostisera undantag i dina webbappar](../../azure-monitor/app/asp-net-exceptions.md) förklarar hur du gör fler undantag synliga för Application Insights.
 * [Smart identifiering](../../azure-monitor/app/proactive-diagnostics.md) identifierar automatiskt prestanda avvikelser.

@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Använd Azure Policy för att tillämpa klusterkonfigurationer i stor skala
 keywords: Kubernetes, båge, Azure, K8s, behållare
-ms.openlocfilehash: 26b291e2a957047361d4f52eeff58cbe8aa8c633
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e4279f3d89376320116067bf191e3196271918ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111277"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050045"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Använd Azure Policy om du vill använda klusterkonfigurationer i skala (för hands version)
 
@@ -22,6 +22,10 @@ ms.locfileid: "86111277"
 Använd Azure Policy för att framtvinga att varje `Microsoft.Kubernetes/connectedclusters` resurs eller git-Ops-aktiverad `Microsoft.ContainerService/managedClusters` resurs har en speciell `Microsoft.KubernetesConfiguration/sourceControlConfigurations` tillämpning. Om du vill använda Azure Policy väljer du en befintlig princip definition och skapar en princip tilldelning. När du skapar princip tilldelningen anger du omfånget för tilldelningen: det här är en Azure-resurs grupp eller-prenumeration. Du anger också parametrarna för `sourceControlConfiguration` som ska skapas. När tilldelningen har skapats kommer principmodulen att identifiera alla `connectedCluster` eller `managedCluster` resurser som finns inom omfånget och som ska gälla `sourceControlConfiguration` för var och en.
 
 Om du använder flera git-databaser som källor till sanningen för varje kluster (till exempel en lagrings platsen för central IT/kluster operatör och andra databaser för program team), kan du aktivera detta genom att använda flera princip tilldelningar, varje princip tilldelning som kon figurer ATS för att använda en annan git-lagrings platsen.
+
+## <a name="prerequisite"></a>Förutsättning
+
+Se till att du har `Microsoft.Authorization/policyAssignments/write` behörighet för det omfång (prenumeration eller resurs grupp) där du vill skapa den här princip tilldelningen.
 
 ## <a name="create-a-policy-assignment"></a>Skapa en principtilldelning
 
@@ -42,7 +46,7 @@ När princip tilldelningen har skapats, för alla nya `connectedCluster` resurse
 
 ## <a name="verify-a-policy-assignment"></a>Verifiera en princip tilldelning
 
-1. I Azure Portal navigerar du till en av dina `connectedCluster` resurser och i avsnittet **Inställningar** på sid panelen väljer du **principer**. (UX för AKS-hanterat kluster är inte implementerat ännu, men kommer.)
+1. I Azure Portal navigerar du till en av dina `connectedCluster` resurser och i avsnittet **Inställningar** på sid panelen väljer du **principer**. (UX för AKS-kluster är inte implementerat ännu, men kommer.)
 2. I listan bör du se princip tilldelningen som du skapade ovan, och **kompatibilitetstillstånd** bör vara *kompatibelt*.
 3. I avsnittet **Inställningar** på sid panelen väljer du **konfigurationer**.
 4. I listan bör du se `sourceControlConfiguration` att princip tilldelningen har skapats.

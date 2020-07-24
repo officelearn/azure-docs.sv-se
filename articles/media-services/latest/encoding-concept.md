@@ -13,11 +13,12 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 04706de4b1cc18a4f3146f75442de84340319cef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a54f86081774ffb9ac2fe23a72c8ba83e3d6845c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84220168"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053333"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Koda video och ljud med Media Services
 
@@ -28,7 +29,7 @@ Videor levereras vanligt vis till enheter och appar genom [progressiv nedladdnin
 > [!IMPORTANT]
 > Media Services debiteras inte för annullerade eller felaktiga jobb. Ett jobb som har nått 50% Progress och annulleras faktureras exempelvis inte vid 50% av jobb minuterna. Du debiteras bara för färdiga jobb.
 
-* Om du vill leverera med progressiv nedladdning kan du använda Azure Media Services för att konvertera en digital mediafil (mezzaninfil) till en [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) -fil som innehåller video som har kodats med [H. 264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) -kodeken och ljud som har kodats med [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) -kodeken. Den här MP4-filen skrivs till en till gång i ditt lagrings konto. Du kan använda Azure Storage-API: er eller SDK: er (till exempel [lagrings REST API](../../storage/common/storage-rest-api-auth.md) eller [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) för att hämta filen direkt. Om du skapade utmatnings till gången med ett angivet behållar namn i lager, använder du den platsen. Annars kan du använda Media Services för att [Visa URL: erna till till gångs containern](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
+* Om du vill leverera med progressiv nedladdning kan du använda Azure Media Services för att konvertera en digital mediafil (mezzaninfil) till en [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) -fil som innehåller video som har kodats med [H. 264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) -kodeken och ljud som har kodats med [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) -kodeken. Den här MP4-filen skrivs till en till gång i ditt lagrings konto. Du kan använda Azure Storage-API: er eller SDK: er (till exempel [lagrings REST API](../../storage/common/storage-rest-api-auth.md) eller [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) för att hämta filen direkt. Om du skapade utmatnings till gången med ett angivet behållar namn i lager, använder du den platsen. Annars kan du använda Media Services för att [Visa URL: erna till till gångs containern](/rest/api/media/assets/listcontainersas). 
 * För att förbereda innehåll för leverans av direkt uppspelning med anpassningsbar bit hastighet måste mezzaninfil-filen kodas vid flera bit hastigheter (högt till lågt). För att säkerställa en korrekt över gång av kvalitet sänks videons upplösning när bit hastigheten sänks. Detta resulterar i en så kallad kodnings steg – en tabell över lösningar och bit hastigheter (se [autogenererad steg-för anpassad bit hastighet](autogen-bitrate-ladder.md)). Du kan använda Media Services för att koda dina mezzaninfil-filer på flera bit hastigheter. När du gör det får du en uppsättning MP4-filer och tillhör ande konfigurationsfiler för direkt uppspelning som skrivs till en till gång i ditt lagrings konto. Du kan sedan använda funktionen för [dynamisk paketering](dynamic-packaging-overview.md) i Media Services för att leverera videon via strömmande protokoll som [MPEG-streck](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) och [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Detta kräver att du skapar en [strömmande lokaliserare](streaming-locators-concept.md) och skapar strömmande URL: er som motsvarar de protokoll som stöds, som sedan kan skickas vidare till enheter/appar baserat på deras funktioner.
 
 Följande diagram visar arbets flödet för kodning på begäran med dynamisk paketering.
@@ -39,7 +40,7 @@ Det här avsnittet ger vägledning om hur du kodar ditt innehåll med Media Serv
 
 ## <a name="transforms-and-jobs"></a>Transformeringar och jobb
 
-Om du vill koda med Media Services v3 måste du skapa en [transformering](https://docs.microsoft.com/rest/api/media/transforms) och ett [jobb](https://docs.microsoft.com/rest/api/media/jobs). Transformeringen definierar ett recept för kodnings inställningar och utdata. jobbet är en instans av receptet. Mer information finns i [Transformeringar och jobb](transforms-jobs-concept.md).
+Om du vill koda med Media Services v3 måste du skapa en [transformering](/rest/api/media/transforms) och ett [jobb](/rest/api/media/jobs). Transformeringen definierar ett recept för kodnings inställningar och utdata. jobbet är en instans av receptet. Mer information finns i [Transformeringar och jobb](transforms-jobs-concept.md).
 
 När du kodar med Media Services använder du för inställningar för att berätta för kodaren hur indatafilerna ska bearbetas. I Media Services v3 använder du standard kodare för att koda dina filer. Du kan till exempel ange video upplösning och/eller antalet ljud kanaler som du vill ha i det kodade innehållet.
 
@@ -71,9 +72,9 @@ Indataporten kan lagras som en medie tjänst till gång, i vilket fall du skapar
 
 ### <a name="creating-job-input-with-subclipping"></a>Skapa jobb ingångar med under Urklipp
 
-När du kodar en video kan du ange att även trimma eller klippa ut käll filen och skapa utdata som bara har en önskad del av indata-videon. Den här funktionen fungerar med alla [transformeringar](https://docs.microsoft.com/rest/api/media/transforms) som har skapats med antingen [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) för inställningar eller [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) för inställningar.
+När du kodar en video kan du ange att även trimma eller klippa ut käll filen och skapa utdata som bara har en önskad del av indata-videon. Den här funktionen fungerar med alla [transformeringar](/rest/api/media/transforms) som har skapats med antingen [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) för inställningar eller [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset) för inställningar.
 
-Du kan ange att du vill skapa ett [jobb](https://docs.microsoft.com/rest/api/media/jobs/create) med ett enda klipp av en video på begäran eller Live Archive (en inspelad händelse). Jobbets inmatare kan vara en till gång eller en HTTPS-URL.
+Du kan ange att du vill skapa ett [jobb](/rest/api/media/jobs/create) med ett enda klipp av en video på begäran eller Live Archive (en inspelad händelse). Jobbets inmatare kan vara en till gång eller en HTTPS-URL.
 
 > [!TIP]
 > Om du vill strömma en sublip av videon utan att behöva koda om videon kan du överväga att använda [för filtrerings manifest med dynamisk Paketeraren](filters-dynamic-manifest-overview.md).
@@ -91,7 +92,7 @@ Media Services stöder följande inbyggda kodnings för inställningar:
 
 ### <a name="builtinstandardencoderpreset"></a>BuiltInStandardEncoderPreset
 
-[BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) används för att ange en inbyggd för inställning för kodning av inmatad video med Standard-kodaren.
+[BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) används för att ange en inbyggd för inställning för kodning av inmatad video med Standard-kodaren.
 
 Följande för inställningar stöds för närvarande:
 
@@ -108,15 +109,15 @@ Följande för inställningar stöds för närvarande:
 - **EncoderNamedPreset. H264SingleBitrate720p**: genererar en MP4-fil där videon kodas med H. 264-codec vid 4500 kbit/s och en bild höjd på 720 bild punkter, och stereo ljudet kodas med AAC-LC-kodek vid 64 kbit/s.
 - **EncoderNamedPreset. H264SingleBitrateSD**: genererar en MP4-fil där videon kodas med H. 264-codec vid 2200 kbit/s och en bild höjd på 480 bild punkter, och stereo ljudet kodas med AAC-LC-kodek vid 64 kbit/s.
 
-Om du vill se listan med de senaste aktuella för inställningarna, se [inbyggda för inställningar som används för att koda videor](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
+Om du vill se listan med de senaste aktuella för inställningarna, se [inbyggda för inställningar som används för att koda videor](/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
 Se [Ladda upp, koda och strömma filer](stream-files-tutorial-with-api.md)för att se hur för inställningarna används.
 
 ### <a name="standardencoderpreset"></a>StandardEncoderPreset
 
-[StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) beskriver vilka inställningar som ska användas när du kodar Indataporten med Standard-kodaren. Använd den här för inställningen när du anpassar förinställda transformeringar.
+[StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset) beskriver vilka inställningar som ska användas när du kodar Indataporten med Standard-kodaren. Använd den här för inställningen när du anpassar förinställda transformeringar.
 
-#### <a name="considerations"></a>Att tänka på
+#### <a name="considerations"></a>Överväganden
 
 När du skapar anpassade för inställningar gäller följande aspekter:
 
@@ -135,7 +136,7 @@ Media Services har fullständigt stöd för att anpassa alla värden i för inst
 
 ## <a name="preset-schema"></a>Förinställt schema
 
-I Media Services v3 är för inställningar starkt skrivna entiteter i själva API: et. Du hittar definitionen "schema" för dessa objekt i [Open API-specifikationen (eller Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Du kan också Visa förinställda definitioner (som **StandardEncoderPreset**) i [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.net SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (eller andra Media Services v3 SDK referens dokumentation).
+I Media Services v3 är för inställningar starkt skrivna entiteter i själva API: et. Du hittar definitionen "schema" för dessa objekt i [Open API-specifikationen (eller Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Du kan också Visa förinställda definitioner (som **StandardEncoderPreset**) i [REST API](/rest/api/media/transforms/createorupdate#standardencoderpreset), [.net SDK](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (eller andra Media Services v3 SDK referens dokumentation).
 
 ## <a name="scaling-encoding-in-v3"></a>Skalnings kodning i v3
 

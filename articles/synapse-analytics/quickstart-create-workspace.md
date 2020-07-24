@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a069ee40c2db99b05e9620cf83c06c49cc9e29fc
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: da7f115224db10ad1d66e8ffe7b86e58e43ae866
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274245"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052458"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Snabb start: skapa en Synapse-arbetsyta
 
@@ -22,7 +22,7 @@ I den här snabb starten beskrivs stegen för att skapa en Azure dataSynapses-ar
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto innan du börjar](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Azure Data Lake Storage Gen2 lagrings konto](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
@@ -56,7 +56,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/)
     > [!IMPORTANT]
     > Azure Synapse-arbetsytan måste kunna läsa och skriva till det valda ADLS Gen2 kontot. För alla lagrings konton som du länkar som primärt lagrings konto måste du dessutom ha aktiverat **hierarkiskt namn område** för att skapa lagrings kontot.
     >
-    > Under ADLS Gen2 urvals fälten finns en anteckning om att den hanterade identiteten för arbets ytan kommer att tilldelas rollen **Storaqe BLOB data Contributor** i det valda data Lake Storage Gen2-filsystemet som ger fullständig åtkomst.
+    > Under ADLS Gen2 urvals fälten finns en anteckning om att den hanterade identiteten för arbets ytan kommer att tilldelas rollen **Storage BLOB data Contributor** på det valda data Lake Storage Gen2 fil systemet som ger fullständig åtkomst.
 
 4. Valfritt Ändra något av fliken **standardvärden säkerhet + nätverk** :
 5. Valfritt Lägg till taggar på fliken **taggar** .

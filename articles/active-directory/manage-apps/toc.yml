@@ -38,48 +38,44 @@
       href: application-management-fundamentals.md
     - name: Vanliga scenarier för apphantering
       href: common-scenarios.md
-    - name: Molnappar och enkel inloggning
+    - name: Planera integration av en molnapp
       items:
-        - name: Planera integration av en molnapp
-          items:
-            - name: Komma igång med appintegrering
-              href: plan-an-application-integration.md
-            - name: Planera distribution av åtkomstpanel
-              href: access-panel-deployment-plan.md
-            - name: Vägledning för utvecklare
-              href: developer-guidance-for-integrating-applications.md
-        - name: Enkel inloggning
-          items:
-            - name: Aktivera enkel inloggning för ditt program för flera innehavare
-              href: isv-sso-content.md
-            - name: Skapa en Azure-klient för program för flera innehavare
-              href: isv-tenant-multi-tenant-app.md
-            - name: Välja federation för flera innehavare
-              href: isv-choose-multi-tenant-federation.md
-            - name: Skapa dokumentation för program för flera innehavare
-              href: isv-create-sso-documentation.md
-            - name: Planera en distribution för enkel inloggning
-              href: plan-sso-deployment.md
+        - name: Komma igång med appintegrering
+          href: plan-an-application-integration.md
+        - name: Planera distribution av åtkomstpanel
+          href: access-panel-deployment-plan.md
+        - name: Vägledning för utvecklare
+          href: developer-guidance-for-integrating-applications.md
+    - name: Enkel inloggning
+      items:
+        - name: Aktivera enkel inloggning för ditt program för flera innehavare
+          href: isv-sso-content.md
+        - name: Skapa en Azure-klient för program för flera innehavare
+          href: isv-tenant-multi-tenant-app.md
+        - name: Välja federation för flera innehavare
+          href: isv-choose-multi-tenant-federation.md
+        - name: Skapa dokumentation för program för flera innehavare
+          href: isv-create-sso-documentation.md
+        - name: Planera en distribution för enkel inloggning
+          href: plan-sso-deployment.md
         - name: Enkel inloggning med ett klick
-          items:
-            - name: Vad är enkel inloggning med ett klick
-              href: one-click-sso-tutorial.md
-        - name: Programsäkerhet
-          items:
-            - name: Åtkomstalternativ för appar
-              href: what-is-access-management.md
-            - name: Alternativ för certifikatsignering
-              href: certificate-signing-options.md
-            - name: Hantera certifikat
-              href: manage-certificates-for-federated-single-sign-on.md
-            - name: Begränsningar för klientorganisation
-              href: tenant-restrictions.md
-            - name: Konfigurera SAML-tokenkryptering
-              href: howto-saml-token-encryption.md
-            - name: Slutanvändarportaler
-              href: end-user-experiences.md
-    - name: Synlighet och kontroll för molnapp
-      href: cloud-app-security.md
+          href: one-click-sso-tutorial.md
+    - name: Programsäkerhet
+      items:
+        - name: Åtkomstalternativ för appar
+          href: what-is-access-management.md
+        - name: Alternativ för certifikatsignering
+          href: certificate-signing-options.md
+        - name: Hantera certifikat
+          href: manage-certificates-for-federated-single-sign-on.md
+        - name: Begränsningar för klientorganisation
+          href: tenant-restrictions.md
+        - name: Konfigurera SAML-tokenkryptering
+          href: howto-saml-token-encryption.md
+        - name: Slutanvändarportaler
+          href: end-user-experiences.md
+        - name: Synlighet och kontroll för molnapp
+          href: cloud-app-security.md
     - name: Programproxy för lokala appar
       items:
         - name: Programproxy

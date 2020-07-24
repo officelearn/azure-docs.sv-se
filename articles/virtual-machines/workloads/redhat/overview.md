@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 718447e1dbf597af4349eab0be78a2bb544dec90
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7394cb50010bddddf8f8eff4b4f04eaf4d3231b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78970178"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052120"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Red Hat-arbetsbelastningar på Azure
 
@@ -36,7 +36,7 @@ Du kanske vill använda avbildningarna enligt principen betala per användning o
 
 ### <a name="red-hat-gold-images"></a>Red Hat guld-bilder
 
-Azure erbjuder även Red Hat Gold-bilder`rhel-byos`(). De här avbildningarna kan vara användbara för kunder som har befintliga Red Hat-prenumerationer och vill använda dem i Azure. Du måste aktivera dina befintliga Red Hat-prenumerationer för Red Hat Cloud Access innan du kan använda dem i Azure. Åtkomst till dessa avbildningar beviljas automatiskt när dina Red Hat-prenumerationer är aktiverade för moln åtkomst och uppfyller kraven för behörighet. Med hjälp av dessa avbildningar kan en kund undvika dubbel fakturering som kan uppstå när du använder avbildningarna enligt principen betala per användning.
+Azure erbjuder även Red Hat Gold-bilder ( `rhel-byos` ). De här avbildningarna kan vara användbara för kunder som har befintliga Red Hat-prenumerationer och vill använda dem i Azure. Du måste aktivera dina befintliga Red Hat-prenumerationer för Red Hat Cloud Access innan du kan använda dem i Azure. Åtkomst till dessa avbildningar beviljas automatiskt när dina Red Hat-prenumerationer är aktiverade för moln åtkomst och uppfyller kraven för behörighet. Med hjälp av dessa avbildningar kan en kund undvika dubbel fakturering som kan uppstå när du använder avbildningarna enligt principen betala per användning.
 * Lär dig hur du [aktiverar Red Hat-prenumerationer för moln åtkomst med Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs).
 * Lär dig hur du [hittar de röda hat Gold-bilderna i Azure Portal, Azure CLI eller PowerShell-cmdleten](./byos.md).
 
@@ -45,7 +45,7 @@ Azure erbjuder även Red Hat Gold-bilder`rhel-byos`(). De här avbildningarna ka
 
 ### <a name="generation-2-images"></a>Generation 2-avbildningar
 
-Virtuella datorer i generation 2 (VM) tillhandahåller vissa nya funktioner jämfört med virtuella datorer i generation 1. Mer information finns i [generation 2-dokumentationen](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2). Den viktigaste skillnaden från ett RHEL bild perspektiv är att virtuella datorer i generation 2 använder en UEFI i stället för den inbyggda program varans BIOS. De använder också GPT (GUID Partition Table) i stället för en Master Boot Record (MBR) vid start. Användningen av GPT ger bland annat OS-disk storlekar som är större än 2 TB. Dessutom körs [virtuella datorer i Mv2-serien](../../mv2-series.md) bara på generation 2-avbildningar.
+Virtuella datorer i generation 2 (VM) tillhandahåller vissa nya funktioner jämfört med virtuella datorer i generation 1. Mer information finns i [generation 2-dokumentationen](../../linux/generation-2.md). Den viktigaste skillnaden från ett RHEL bild perspektiv är att virtuella datorer i generation 2 använder en UEFI i stället för den inbyggda program varans BIOS. De använder också GPT (GUID Partition Table) i stället för en Master Boot Record (MBR) vid start. Användningen av GPT ger bland annat OS-disk storlekar som är större än 2 TB. Dessutom körs [virtuella datorer i Mv2-serien](../../mv2-series.md) bara på generation 2-avbildningar.
 
 RHEL generation 2-avbildningar finns på Azure Marketplace. Sök efter "Gen2" i avbildnings-SKU: n i listan över alla avbildningar som visas när du använder Azure CLI. Gå till fliken **Avancerat** i distributions processen för virtuella datorer för att distribuera en virtuell dator i generation 2.
 
@@ -55,10 +55,10 @@ Azure tillhandahåller endast en uppdaterings infrastruktur för Red Hat för vi
 
 ### <a name="rhui-update-behavior"></a>RHUI uppdaterings beteende
 
-RHEL-avbildningar som är anslutna till RHUI-uppdateringen som standard till den senaste lägre `yum update` versionen av RHEL när en körs. Det innebär att en virtuell RHEL 7,4-dator kan uppgraderas till RHEL 7,7 om `yum update` en åtgärd körs på den. Det här beteendet är avsiktligt för RHUI. Du kan minimera det här uppgraderings beteendet genom att växla från vanliga RHEL-lagringsplatser till [utökade uppdaterings support databaser](./redhat-rhui.md#rhel-eus-and-version-locking-rhel-vms).
+RHEL-avbildningar som är anslutna till RHUI-uppdateringen som standard till den senaste lägre versionen av RHEL när en `yum update` körs. Det innebär att en virtuell RHEL 7,4-dator kan uppgraderas till RHEL 7,7 om en `yum update` åtgärd körs på den. Det här beteendet är avsiktligt för RHUI. Du kan minimera det här uppgraderings beteendet genom att växla från vanliga RHEL-lagringsplatser till [utökade uppdaterings support databaser](./redhat-rhui.md#rhel-eus-and-version-locking-rhel-vms).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om [RHEL-avbildningar på Azure](./redhat-images.md).
 * Läs mer om [Red Hats uppdaterings infrastruktur](./redhat-rhui.md).
-* Lär dig mer om [erbjudandet för Red Hat Gold`rhel-byos`Image ()](./byos.md).
+* Lär dig mer om [erbjudandet för Red Hat Gold Image ( `rhel-byos` )](./byos.md).

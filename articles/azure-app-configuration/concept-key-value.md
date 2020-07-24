@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.openlocfilehash: b8f8bda52be63a4176411855dd9ff9919e9e31f5
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 14ff1a00b40d956f369b1978f15f01f113c50270
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856683"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050144"
 ---
 # <a name="keys-and-values"></a>Nycklar och värden
 
@@ -77,7 +77,7 @@ Du kan använda valfritt Unicode-tecken i etiketter förutom `*` , `,` , och `\`
 
 Varje nyckel värde identifieras unikt med nyckeln plus en etikett som kan vara `null` . Du frågar en app Configuration Store efter nyckel värden genom att ange ett mönster. Konfigurations arkivet för appar returnerar alla nyckel värden som matchar mönstret och deras motsvarande värden och attribut. Använd följande nyckel mönster i REST API anrop till app-konfiguration:
 
-| Tangent | |
+| Nyckel | Beskrivning |
 |---|---|
 | `key` utelämnas eller `key=*` | Matchar alla nycklar |
 | `key=abc` | Matchar nyckel namn **ABC** exakt |
@@ -86,7 +86,7 @@ Varje nyckel värde identifieras unikt med nyckeln plus en etikett som kan vara 
 
 Du kan också inkludera följande etikett mönster:
 
-| Etikett | |
+| Etikett | Beskrivning |
 |---|---|
 | `label` utelämnas eller `label=*` | Matchar alla etiketter, som innehåller`null` |
 | `label=%00` | Matchar `null` etikett |

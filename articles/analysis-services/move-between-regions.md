@@ -7,11 +7,13 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ff012dc78f3981b6fb5fdbd8a5bde45083dd997b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 4844f3e34a6b49559affbb4d4ed7bc5b5e38e538
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699438"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050363"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Flytta Analysis Services till en annan region
 
@@ -46,7 +48,7 @@ Innan du flyttar en server till en annan region rekommenderar vi att du skapar e
 > [!NOTE]
 > Om du använder en lokal datagateway för att ansluta till data källor måste du också flytta Gateway-resursen till mål server regionen. Mer information finns i [Installera och konfigurera en lokal datagateway](analysis-services-gateway-install.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure Storage-konto**: krävs för att lagra en. ABF säkerhets kopierings fil.
 - **SQL Server Management Studio (SSMS)**: krävs för att säkerhetskopiera och återställa modell databaser.

@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a0295a73d325d8de7673b9a66c7047a80d82b09
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 105f911b97e01a4b05673fc67b51c677df15eb89
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981863"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051283"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Lösen ords verifierings alternativ för Azure Active Directory
 
-Multi-Factor Authentication (MFA) är ett bra sätt att skydda din organisation, men användare kan ofta bli frustrerade med det extra säkerhets skiktet som krävs för att komma ihåg sina lösen ord. Metoder för snabbare autentisering är mer praktiska eftersom lösen ordet tas bort och ersätts med något som du har, plus något du känner till.
+Funktioner som Multi-Factor Authentication (MFA) är ett bra sätt att skydda din organisation, men användare kan ofta bli frustrerade med det extra säkerhets skiktet som behöver komma ihåg sina lösen ord. Metoder för snabbare autentisering är mer praktiska eftersom lösen ordet tas bort och ersätts med något som du har, plus något du känner till.
 
 | Autentisering  | Något du har | Något som du är eller vet |
 | --- | --- | --- |
@@ -36,11 +36,11 @@ Varje organisation har olika behov när den kommer till autentiseringen. Microso
 
 ## <a name="windows-hello-for-business"></a>Windows Hello för företag
 
-Windows Hello för företag är idealiskt för informations anställda som har sin egen angivna Windows-dator. Bio måttet och PIN-koden är direkt knutna till användarens dator, vilket förhindrar åtkomst från någon annan än ägaren. Med PKI-integrering (Public Key Infrastructure) och inbyggt stöd för enkel inloggning (SSO), är Windows Hello för företag en smidig metod för sömlös åtkomst till företagets resurser lokalt och i molnet.
+Windows Hello för företag är idealiskt för informations anställda som har sin egen angivna Windows-dator. Autentiseringsuppgifterna för bio-och PIN-kod är direkt knutna till användarens dator, vilket förhindrar åtkomst från någon annan än ägaren. Med PKI-integrering (Public Key Infrastructure) och inbyggt stöd för enkel inloggning (SSO), är Windows Hello för företag en smidig metod för sömlös åtkomst till företagets resurser lokalt och i molnet.
 
 ![Exempel på en användar inloggning med Windows Hello för företag](./media/concept-authentication-passwordless/windows-hellow-sign-in.jpeg)
 
-Följande steg visar hur inloggnings processen fungerar med Azure Active Directory.
+Följande steg visar hur inloggnings processen fungerar med Azure AD:
 
 ![Diagram som beskriver de steg som ingår i användar inloggning med Windows Hello för företag](./media/concept-authentication-passwordless/windows-hello-flow.png)
 
@@ -56,11 +56,11 @@ Följande steg visar hur inloggnings processen fungerar med Azure Active Directo
 
 ## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator app
 
-Tillåt din anställdas telefon att bli en metod för lösen ords lös autentisering. Du kanske redan använder Microsoft Authenticator-appen som ett bekvämt alternativ för Multi-Factor Authentication förutom ett lösen ord. Du kan också använda Authenticator-appen som ett lösen ords alternativ.
+Du kan också låta din personals telefon bli en metod för lösen ords lös autentisering. Du kanske redan använder Microsoft Authenticator-appen som ett bekvämt alternativ för Multi-Factor Authentication förutom ett lösen ord. Du kan också använda Authenticator-appen som ett lösen ords alternativ.
 
 ![Logga in på Microsoft Edge med Microsoft Authenticator-appen](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
-Authenticator-appen förvandlar en iOS-eller Android-telefon till en stark, lösen ords rik autentiseringsuppgift. Användare kan logga in på vilken plattform eller webbläsare som helst genom att få ett meddelande till sin telefon, matcha ett nummer som visas på skärmen till det som visas på telefonen och sedan använda sina bio mått (touch eller FACET) eller PIN-kod för att bekräfta. Installations information finns i [Hämta och installera Microsoft Authenticator-appen](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) .
+Authenticator-appen förvandlar en iOS-eller Android-telefon till en stark, lösen ords rik autentiseringsuppgift. Användare kan logga in på vilken plattform eller webbläsare som helst genom att få ett meddelande till sin telefon, matcha ett nummer som visas på skärmen till det som visas på telefonen och sedan använda sina bio mått (touch eller FACET) eller PIN-kod för att bekräfta. Se [Hämta och installera Microsoft Authenticator-appen](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) för installations information.
 
 Lösenordsautentisering som använder Authenticator-appen följer samma grundläggande mönster som Windows Hello för företag. Det är lite mer komplicerat eftersom användaren måste identifieras så att Azure AD kan hitta den Microsoft Authenticator app-version som används:
 
@@ -75,11 +75,18 @@ Lösenordsautentisering som använder Authenticator-appen följer samma grundlä
 1. Nonce signeras med den privata nyckeln och skickas tillbaka till Azure AD.
 1. Azure AD utför verifiering av offentliga/privata nycklar och returnerar en token.
 
+För att komma igång med lösen ords lös inloggning, slutför du följande anvisningar:
+
+> [!div class="nextstepaction"]
+> [Aktivera lösen ords utan lösen ord med Authenticator-appen](howto-authentication-passwordless-phone.md)
+
 ## <a name="fido2-security-keys"></a>FIDO2 säkerhets nycklar
 
 FIDO2-säkerhetsnycklar är en unphishable standard-baserad autentiseringsmetod för lösen ords skydd som kan komma i vilken form som helst. Snabb identitet Online (FIDO) är en öppen standard för lösen ords mässig autentisering. Med FIDO kan användare och organisationer utnyttja standard för att logga in på sina resurser utan användar namn eller lösen ord med hjälp av en extern säkerhets nyckel eller en plattforms nyckel som är inbyggd i en enhet.
 
-För en offentlig för hands version kan anställda använda säkerhets nycklar för att logga in på sina Azure AD-eller hybrid Azure AD-anslutna Windows 10-enheter och få enkel inloggning till sina moln resurser och lokala resurser. Användare kan också logga in i webbläsare som stöds. FIDO2-säkerhetsnycklar är ett bra alternativ för företag som är mycket känsliga eller har scenarier eller anställda som inte är villiga eller kan använda sin telefon som en andra faktor.
+Anställda kan använda säkerhets nycklar för att logga in på sina Azure AD-eller hybrid Azure AD-anslutna Windows 10-enheter och få enkel inloggning till sina moln resurser och lokala resurser. Användare kan också logga in i webbläsare som stöds. FIDO2-säkerhetsnycklar är ett bra alternativ för företag som är mycket känsliga eller har scenarier eller anställda som inte är villiga eller kan använda sin telefon som en andra faktor.
+
+Logga in med FIDO2 säkerhets nycklar till Azure AD finns för närvarande i för hands version.
 
 ![Logga in på Microsoft Edge med en säkerhets nyckel](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -127,7 +134,15 @@ Följande leverantörer ger FIDO2 säkerhets nycklar för olika form faktorer so
 
 Kontakta om du är en leverantör och vill få din enhet på den här listan över enheter som stöds [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com) .
 
+Kom igång med FIDO2-säkerhetsnycklar genom att utföra följande instruktioner:
+
+> [!div class="nextstepaction"]
+> [Aktivera lösen ords skydd med FIDO2-säkerhetsnycklar](howto-authentication-passwordless-security-key.md)
+
+
 ## <a name="what-scenarios-work-with-the-preview"></a>Vilka scenarier fungerar med för hands versionen?
+
+Inloggnings funktionerna i Azure AD är för närvarande en för hands version. Följande gäller:
 
 - Administratörer kan aktivera metoder för lösen ords kryptering för sina klienter
 - Administratörer kan rikta alla användare eller välja användare/grupper inom sin klient organisation för varje metod
@@ -162,12 +177,12 @@ Använd följande tabell för att välja vilken metod som ska ha stöd för dina
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Aktivera FIDO2 säkerhets nyckel alternativ i din organisation](howto-authentication-passwordless-security-key.md)
+För att komma igång med lösen ords lös i Azure AD, fyller du i någon av följande instruktioner:
 
-[Aktivera telefonbaserade lösen ords alternativ i din organisation](howto-authentication-passwordless-phone.md)
+* [Aktivera FIDO2-inloggning med lösen ord för säkerhets nyckel](howto-authentication-passwordless-security-key.md)
+* [Aktivera telefonbaserad inloggning via telefon med Authenticator-appen](howto-authentication-passwordless-phone.md)
 
 ### <a name="external-links"></a>Externa länkar
 
-[FIDO Alliance](https://fidoalliance.org/)
-
-[FIDO2 CTAP-specifikation](https://fidoalliance.org/specs/fido-v2.0-id-20180227/fido-client-to-authenticator-protocol-v2.0-id-20180227.html)
+* [FIDO Alliance](https://fidoalliance.org/)
+* [FIDO2 CTAP-specifikation](https://fidoalliance.org/specs/fido-v2.0-id-20180227/fido-client-to-authenticator-protocol-v2.0-id-20180227.html)

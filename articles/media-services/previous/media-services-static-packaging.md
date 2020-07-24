@@ -14,16 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: e99d72a0bce51d5d61e5f248f5ba279afe13a405
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b53ddb9cd6f6aae25086f44e4f5a8b189293b11c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74970133"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052619"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Använda Azure Media Packager för att utföra statiska uppgifter  
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 
 ## <a name="overview"></a>Översikt
@@ -48,7 +49,7 @@ Du kan också använda statisk paketering för att utföra följande uppgifter: 
 * Använda statisk kryptering för att skydda HLSv3 med PlayReady
 
 ## <a name="validating-adaptive-bitrate-mp4s-encoded-with-external-encoders"></a>Verifierar anpassad bit hastighet hastigheter kodad med externa kodare
-Om du vill använda en uppsättning MP4-filer med anpassningsbar bit hastighet som inte kodats med Media Services kodare, bör du validera dina filer före vidare bearbetning. Media Services Paketeraren kan verifiera en till gång som innehåller en uppsättning MP4-filer och kontrol lera om till gången kan paketeras till Smooth Streaming eller HLS. Om verifierings uppgiften Miss lyckas slutförs jobbet som bearbetade uppgiften med ett fel. XML-filen som definierar för inställningarna för verifierings uppgiften finns i artikeln [uppgifts för inställning för Azure Media Packager](https://msdn.microsoft.com/library/azure/hh973635.aspx) .
+Om du vill använda en uppsättning MP4-filer med anpassningsbar bit hastighet som inte kodats med Media Services kodare, bör du validera dina filer före vidare bearbetning. Media Services Paketeraren kan verifiera en till gång som innehåller en uppsättning MP4-filer och kontrol lera om till gången kan paketeras till Smooth Streaming eller HLS. Om verifierings uppgiften Miss lyckas slutförs jobbet som bearbetade uppgiften med ett fel. XML-filen som definierar för inställningarna för verifierings uppgiften finns i artikeln [uppgifts för inställning för Azure Media Packager](/previous-versions/azure/reference/hh973635(v=azure.100)) .
 
 > [!NOTE]
 > Använd Media Encoder Standard för att skapa eller Media Services Paketeraren för att verifiera ditt innehåll för att undvika körnings problem. Om servern för strömning på begäran inte kan parsa källfilerna vid körning får du HTTP 1,1-fel "415 medie typ som inte stöds". Upprepade gånger orsaken till att servern inte kan parsa källfilerna påverkar prestandan för den strömmande servern på begäran och kan minska den tillgängliga bandbredden för att betjäna andra begär Anden. Azure Media Services erbjuder ett Serviceavtal (SLA) på sina strömnings tjänster på begäran. Detta service avtal går dock inte att följa om servern inte används på ett sådant sätt som beskrivs ovan.
@@ -82,7 +83,7 @@ Om du vill validera dina MP4-filer med Media Services Paketeraren måste du skap
 
 När du har MP4-uppsättningen med anpassad bit hastighet kan du dra nytta av dynamisk paketering. Med dynamisk paketering kan du leverera strömmar i det angivna protokollet utan ytterligare paketering. Mer information finns i [dynamisk paketering](media-services-dynamic-packaging-overview.md).
 
-I följande kod exempel används Azure Media Services .NET SDK-tillägg.  Se till att uppdatera koden så att den pekar på den mapp där dina indata-MP4-filer och. ISM-filer finns. Och även till var MediaPackager_ValidateTask.xmls filen finns. Den här XML-filen definieras i artikeln [uppgifts för inställning för Azure Media packageer](https://msdn.microsoft.com/library/azure/hh973635.aspx) .
+I följande kod exempel används Azure Media Services .NET SDK-tillägg.  Se till att uppdatera koden så att den pekar på den mapp där dina indata-MP4-filer och. ISM-filer finns. Och även till var MediaPackager_ValidateTask.xmls filen finns. Den här XML-filen definieras i artikeln [uppgifts för inställning för Azure Media packageer](/previous-versions/azure/reference/hh973635(v=azure.100)) .
 
 ```csharp
     using Microsoft.WindowsAzure.MediaServices.Client;
@@ -265,13 +266,13 @@ Exemplet i det här avsnittet kodar en mezzaninfil-fil (i det här fallet MP4) t
 Media Services tillhandahåller nu en tjänst för att leverera Microsoft PlayReady-licenser. Exemplet i den här artikeln visar hur du konfigurerar Media Services PlayReady licens Delivery Service (se metoden ConfigureLicenseDeliveryService som definieras i koden nedan). Mer information om Media Services PlayReady licens Delivery Service finns i [använda PlayReady Dynamic Encryption and License Delivery Service](media-services-protect-with-playready-widevine.md).
 
 > [!NOTE]
-> För att leverera MPEG-streck krypterat med PlayReady, se till att använda CENC-alternativ genom att ange egenskaperna useSencBox och adjustSubSamples (beskrivs i artikeln [uppgifts för inställning för Azure Media Encryption](https://msdn.microsoft.com/library/azure/hh973610.aspx) ) till true.  
+> För att leverera MPEG-streck krypterat med PlayReady, se till att använda CENC-alternativ genom att ange egenskaperna useSencBox och adjustSubSamples (beskrivs i artikeln [uppgifts för inställning för Azure Media Encryption](/previous-versions/azure/reference/hh973610(v=azure.100)) ) till true.  
 > 
 > 
 
 Se till att uppdatera följande kod för att peka på den mapp där din indata MP4-fil finns.
 
-Och även för var MediaPackager_MP4ToSmooth.xml och MediaEncryptor_PlayReadyProtection.xml filerna finns. MediaPackager_MP4ToSmooth.xml definieras i [uppgifts för inställning för Azure Media Packager](https://msdn.microsoft.com/library/azure/hh973635.aspx) och MediaEncryptor_PlayReadyProtection.xml definieras i artikeln [uppgifts för inställning för Azure Media Encryption](https://msdn.microsoft.com/library/azure/hh973610.aspx) . 
+Och även för var MediaPackager_MP4ToSmooth.xml och MediaEncryptor_PlayReadyProtection.xml filerna finns. MediaPackager_MP4ToSmooth.xml definieras i [uppgifts för inställning för Azure Media Packager](/previous-versions/azure/reference/hh973635(v=azure.100)) och MediaEncryptor_PlayReadyProtection.xml definieras i artikeln [uppgifts för inställning för Azure Media Encryption](/previous-versions/azure/reference/hh973610(v=azure.100)) . 
 
 Exemplet definierar UpdatePlayReadyConfigurationXMLFile-metoden som du kan använda för att dynamiskt uppdatera MediaEncryptor_PlayReadyProtection.xml-filen. Om du har nyckeln tillgängligt, kan du använda metoden CommonEncryption. GeneratePlayReadyContentKey för att generera innehålls nyckeln baserat på värdena keySeedValue och KeyId.
 
@@ -720,7 +721,7 @@ Om du vill kryptera din HLS med AES-128 kan du välja att använda dynamisk kryp
 > 
 > 
 
-Exemplet i det här avsnittet kodar en mezzaninfil-fil (i det här fallet MP4) till MP4-filer med multibit hastighet och paketerar hastigheter till Smooth Streaming. Sedan paketeras Smooth Streaming till HTTP Live Streaming (HLS) krypterad med Advanced Encryption Standard (AES) 128-bitars ström kryptering. Se till att uppdatera följande kod för att peka på den mapp där din indata MP4-fil finns. Och även för var MediaPackager_MP4ToSmooth.xml och MediaPackager_SmoothToHLS.xml konfigurationsfiler finns. Du kan hitta definitionen för de här filerna i artikeln [uppgifts för inställning för Azure Media Packager](https://msdn.microsoft.com/library/azure/hh973635.aspx) .
+Exemplet i det här avsnittet kodar en mezzaninfil-fil (i det här fallet MP4) till MP4-filer med multibit hastighet och paketerar hastigheter till Smooth Streaming. Sedan paketeras Smooth Streaming till HTTP Live Streaming (HLS) krypterad med Advanced Encryption Standard (AES) 128-bitars ström kryptering. Se till att uppdatera följande kod för att peka på den mapp där din indata MP4-fil finns. Och även för var MediaPackager_MP4ToSmooth.xml och MediaPackager_SmoothToHLS.xml konfigurationsfiler finns. Du kan hitta definitionen för de här filerna i artikeln [uppgifts för inställning för Azure Media Packager](/previous-versions/azure/reference/hh973635(v=azure.100)) .
 
 ```csharp
     using System;
@@ -1008,7 +1009,7 @@ Exemplet i det här avsnittet kodar en mezzaninfil-fil (i det här fallet MP4) t
 
 Media Services tillhandahåller nu en tjänst för att leverera Microsoft PlayReady-licenser. Exemplet i den här artikeln visar hur du konfigurerar Media Services PlayReady licens Delivery Service (se metoden **ConfigureLicenseDeliveryService** som definieras i koden nedan). 
 
-Se till att uppdatera följande kod för att peka på den mapp där din indata MP4-fil finns. Och även för var MediaPackager_MP4ToSmooth.xml, MediaPackager_SmoothToHLS.xml och MediaEncryptor_PlayReadyProtection.xml filer finns. MediaPackager_MP4ToSmooth.xml och MediaPackager_SmoothToHLS.xml definieras i [uppgifts för inställning för Azure Media Packager](https://msdn.microsoft.com/library/azure/hh973635.aspx) och MediaEncryptor_PlayReadyProtection.xml definieras i artikeln [uppgifts för inställning för Azure Media Encryptor](https://msdn.microsoft.com/library/azure/hh973610.aspx) .
+Se till att uppdatera följande kod för att peka på den mapp där din indata MP4-fil finns. Och även för var MediaPackager_MP4ToSmooth.xml, MediaPackager_SmoothToHLS.xml och MediaEncryptor_PlayReadyProtection.xml filer finns. MediaPackager_MP4ToSmooth.xml och MediaPackager_SmoothToHLS.xml definieras i [uppgifts för inställning för Azure Media Packager](/previous-versions/azure/reference/hh973635(v=azure.100)) och MediaEncryptor_PlayReadyProtection.xml definieras i artikeln [uppgifts för inställning för Azure Media Encryptor](/previous-versions/azure/reference/hh973610(v=azure.100)) .
 
 ```csharp
     using System;
@@ -1487,4 +1488,3 @@ Se till att uppdatera följande kod för att peka på den mapp där din indata M
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

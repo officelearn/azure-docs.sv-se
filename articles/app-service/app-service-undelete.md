@@ -5,12 +5,12 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: 94a5fd3ae1de0708f0e5550547f7ab2fc9f881cb
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: c3c79944aa4add0a32dbb584b13606e32e146a1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146232"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050302"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Återställa borttagen App Service-app med hjälp av PowerShell
 
@@ -58,7 +58,7 @@ Den detaljerade informationen innehåller:
 När den app du vill återställa har identifierats kan du återställa den med hjälp av `Restore-AzDeletedWebApp` .
 
 ```powershell
-Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
+Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
 ```
 > [!NOTE]
 > Distributions platser återställs inte som en del av din app. Om du behöver återställa en mellanlagringsplats använder du- `-Slot <slot-name>` flaggan.
@@ -66,7 +66,7 @@ Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServ
 
 Kommandot Inputs for är:
 
-- **Resurs grupp**: mål resurs grupp där appen kommer att återställas
+- **Mål resurs grupp**: mål resurs grupp där appen kommer att återställas
 - **Namn**: appens namn måste vara globalt unik.
 - **TargetAppServicePlanName**: App Service plan länkade till appen
 

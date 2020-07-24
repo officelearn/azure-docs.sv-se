@@ -12,18 +12,18 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
-ms.openlocfilehash: 30e22cb786e5dc2a667fe41ca8edf398cf0b7613
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bd092dbee09a783dcbd6e36c82a70ff5decaf83
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "65761796"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053328"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Koda med en anpassad transformering-REST
 
 När du kodar med Azure Media Services kan du snabbt komma igång med en av de rekommenderade inbyggda för inställningarna, baserat på bransch bästa praxis, som du ser i själv studie kursen för [strömnings filer](stream-files-tutorial-with-rest.md#create-a-transform) . Du kan också bygga en anpassad för inställning för att rikta in dig på specifika scenario-eller enhets krav.
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 När du skapar anpassade för inställningar gäller följande aspekter:
 
@@ -32,7 +32,7 @@ När du skapar anpassade för inställningar gäller följande aspekter:
 
 ## <a name="prerequisites"></a>Förutsättningar 
 
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md). <br/>Kom ihåg att komma ihåg resurs gruppens namn och namnet på Media Services kontot. 
+- [Skapa ett Media Services-konto](./create-account-howto.md). <br/>Kom ihåg att komma ihåg resurs gruppens namn och namnet på Media Services kontot. 
 - [Konfigurera PostMan för Azure Media Services REST API-anrop](media-rest-apis-with-postman.md).<br/>Kontrol lera att du följer det sista steget i avsnittet [Hämta Azure AD-token](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
 ## <a name="define-a-custom-preset"></a>Definiera en anpassad för inställning
@@ -133,7 +133,7 @@ I det här exemplet lägger vi först till ett AacAudio-lager för ljud kodninge
 
 ## <a name="create-a-new-transform"></a>Skapa en ny transformering  
 
-I det här exemplet skapar vi en **transformering** som baseras på den anpassade för inställning som vi definierade tidigare. När du skapar en transformering bör du först använda [Get](https://docs.microsoft.com/rest/api/media/transforms/get) för att kontrol lera om det redan finns en. Om transformeringen finns kan du använda den igen. 
+I det här exemplet skapar vi en **transformering** som baseras på den anpassade för inställning som vi definierade tidigare. När du skapar en transformering bör du först använda [Get](/rest/api/media/transforms/get) för att kontrol lera om det redan finns en. Om transformeringen finns kan du använda den igen. 
 
 I Postman-samlingen som du laddade ned väljer du transformeringar **och jobb** -> **skapa eller uppdatera transformering**.
 
@@ -151,4 +151,4 @@ För att Media Services ska kunna använda transformeringen på den angivna vide
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [andra rest-åtgärder](https://docs.microsoft.com/rest/api/media/)
+Se [andra rest-åtgärder](/rest/api/media/)

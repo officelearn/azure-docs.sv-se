@@ -1,5 +1,5 @@
 ---
-title: Synkronisera Apache Spark för externa definitioner av Azure Synapse-tabeller i SQL på begäran (för hands version)
+title: Synkronisera Apache Spark för externa tabell definitioner i SQL på begäran (för hands version)
 description: Översikt över hur du frågar Spark-tabeller med SQL på begäran (för hands version)
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: db6b2d95bf8f38495296885d14260b9900af1d51
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3e9f688a31d2847505e974ab6a1557aa6a7b2047
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247055"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046843"
 ---
 # <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-sql-on-demand-preview"></a>Synkronisera Apache Spark för externa definitioner av Azure Synapse-tabeller i SQL på begäran (för hands version)
 
@@ -35,14 +35,14 @@ SELECT * FROM [db].dbo.[spark_table]
 ```
 
 > [!NOTE]
-> Lägg till, släpp eller ändra Spark extern tabell kolumn visas inte i den externa tabellen i SQL på begäran.
+> Kommandona Add, Drop eller Alter Spark external Table för en kolumn visas inte i den externa tabellen i SQL på begäran.
 
 ## <a name="apache-spark-data-types-to-sql-data-types-mapping"></a>Apache Spark data typer till SQL data types-mappning
 
 | Spark-datatyp | SQL-datatyp               |
 | --------------- | --------------------------- |
 | ByteType        | smallint                    |
-| ShortType       | smallint                    |
+| Kort typ       | smallint                    |
 | IntegerType     | int                         |
 | LongType        | bigint                      |
 | FloatType       | real                        |

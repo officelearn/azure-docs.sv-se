@@ -3,12 +3,12 @@ title: Använd portalen för att ladda upp, koda och strömma innehåll – Azur
 description: Den här snabb starten visar hur du använder portalen för att ladda upp, koda och strömma innehåll med Azure Media Services.
 ms.topic: quickstart
 ms.date: 06/08/2020
-ms.openlocfilehash: 374e8a22bf8fdcb14101bffc26f9d1b27480ce88
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: bab13b7b878f8992ac5523b9902054a42a3dc769
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232482"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053352"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Snabb start: Ladda upp, koda och strömma innehåll med portalen
 
@@ -35,7 +35,7 @@ Den här snabb starten visar hur du använder Azure Portal för att ladda upp, k
 
         När du använder Azure Portal kan du för närvarande göra följande: generera en TTML och WebVTT-filer med dold textning. Filer i dessa format kan användas för att göra ljud-och videofiler tillgängliga för personer med hörsel funktions hinder. Du kan också extrahera nyckelord från ditt innehåll.
 
-        Om du vill ha en omfattande upplevelse som gör det möjligt att extrahera insikter från dina video-och ljudfiler använder du Media Services v3-för inställningar (enligt beskrivningen i [Självstudier: analysera videor med Media Services v3](analyze-videos-tutorial-with-api.md)). <br/>Om du vill ha mer detaljerade insikter använder du [video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) direkt.    
+        Om du vill ha en omfattande upplevelse som gör det möjligt att extrahera insikter från dina video-och ljudfiler använder du Media Services v3-för inställningar (enligt beskrivningen i [Självstudier: analysera videor med Media Services v3](analyze-videos-tutorial-with-api.md)). <br/>Om du vill ha mer detaljerade insikter använder du [video Indexer](../video-indexer/index.yml) direkt.    
 * När innehållet har bearbetats kan du leverera medie innehåll till klient spelarna. Om du vill göra videor i utmatnings till gången tillgängliga för klienter för uppspelning måste du skapa en **strömmande positionerare**. När du skapar en **strömmande positionerare**måste du ange en **strömmande princip**. Med **direkt uppspelnings principer** kan du definiera strömmande protokoll och krypterings alternativ (om det finns några) för dina **strömmande positionerare**.
     
     Beakta

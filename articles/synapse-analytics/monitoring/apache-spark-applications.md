@@ -1,6 +1,6 @@
 ---
-title: Övervaka Apache Spark program
-description: Använd Azure Synapse Studio för att övervaka dina Apache Spark-program.
+title: Övervaka Apache Spark program med Synapse Studio
+description: Använd Synapse Studio för att övervaka dina Apache Spark-program.
 services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 20c4216e7af0cb4100204ebae1b484a53e3c50a6
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: ecc34b84e5be2d0470cc5a58a71a70e9ffcab1b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971385"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052558"
 ---
-# <a name="use-the-azure-synapse-studio-to-monitor-your-apache-spark-applications"></a>Använd Azure Synapse Studio för att övervaka dina Apache Spark-program
+# <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Använd Synapse Studio för att övervaka dina Apache Spark-program
 
 Med Azure Synapse Analytics kan du använda Apache Spark för att köra antecknings böcker, jobb och andra typer av program på dina Apache Spark-pooler på din arbets yta.
 
@@ -29,11 +29,11 @@ Den här självstudien omfattar följande uppgifter:
 * Visa avbrutna Apache Spark program
 * Det gick inte att felsöka Apache Spark programmet
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar med den här självstudien måste du uppfylla följande krav:
 
-- En Azure Synapse Studio-arbetsyta. Instruktioner finns i [skapa en Azure Synapse Studio-arbetsyta](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
+- En Synapse Studio-arbetsyta. Instruktioner finns i [skapa en Synapse Studio-arbetsyta](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
 
 - En Apache Spark pool.
 
@@ -147,4 +147,4 @@ Innan du börjar med den här självstudien måste du uppfylla följande krav:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om övervakning av pipeline-körningar finns i artikeln [övervaka pipelinen kör Azure Synapse Studio](how-to-monitor-pipeline-runs.md) .  
+Mer information om övervakning av pipeline-körningar finns i artikeln [övervaka pipeline som körs med hjälp av Synapse Studio](how-to-monitor-pipeline-runs.md) .  

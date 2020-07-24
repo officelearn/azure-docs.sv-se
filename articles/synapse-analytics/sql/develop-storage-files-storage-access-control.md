@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: b54545708d21c876fb85e1795b26c34eece005dd
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5f3b5c60907260a0e868d491a4d55ea3624c2bce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255718"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046796"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Kontrol lera åtkomsten till lagrings kontot för SQL på begäran (för hands version)
 
@@ -87,6 +87,11 @@ Du kan använda följande kombinationer av auktoriserings-och Azure Storage type
 | *Hanterad identitet* | Stöds      | Stöds        | Stöds     |
 | *Användar identitet*    | Stöds      | Stöds        | Stöds     |
 
+
+> [!IMPORTANT]
+> Vid åtkomst till lagring som skyddas med brand väggen kan endast hanterad identitet användas. Du måste [tillåta betrodda Microsoft-tjänster... Ange](../../storage/common/storage-network-security.md#trusted-microsoft-services) och [tilldela uttryckligen en RBAC-roll](../../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights) till den [systemtilldelade hanterade identiteten](../../active-directory/managed-identities-azure-resources/overview.md) för den resurs instansen. I det här fallet motsvarar åtkomst omfånget för instansen den RBAC-roll som tilldelats den hanterade identiteten.
+>
+
 ## <a name="credentials"></a>Autentiseringsuppgifter
 
 Om du vill fråga en fil som finns i Azure Storage måste din SQL-slutpunkt på begäran ha en autentiseringsuppgift som innehåller autentiseringsinformationen. Två typer av autentiseringsuppgifter används:
@@ -109,11 +114,7 @@ Om du vill använda autentiseringsuppgifterna måste användaren ha `REFERENCES`
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 ```
 
-För att säkerställa en smidig Azure AD-direktautentisering har alla användare som standard rätt att använda `UserIdentity` autentiseringsuppgiften. Detta uppnås genom en automatisk körning av följande uttryck vid Azure Synapse-arbetsytans etablering:
-
-```sql
-GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
-```
+För att säkerställa en smidig Azure AD-direktautentisering har alla användare som standard rätt att använda `UserIdentity` autentiseringsuppgiften.
 
 ## <a name="server-scoped-credential"></a>Autentiseringsuppgifter för Server omfång
 

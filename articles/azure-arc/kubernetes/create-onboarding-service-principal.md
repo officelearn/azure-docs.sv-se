@@ -8,11 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: 'Skapa en Azure Arc-aktiverad onboarding-tjänstens huvud namn '
 keywords: Kubernetes, båge, Azure, behållare
-ms.openlocfilehash: 3c95c6bb85c7c1bc097b7751a560a658863c0afd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02689dba32c8cc91e4a4a4de4dee98bc990b4dd6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83725609"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050075"
 ---
 # <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Skapa en Azure Arc-aktiverad onboarding service-huvudobjekt (för hands version)
 
@@ -44,13 +45,13 @@ az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onb
 
 ## <a name="assign-permissions"></a>Tilldela behörigheter
 
-När du har skapat det nya huvud namnet för tjänsten tilldelar du rollen "Azure-Arc för Kubernetes onboarding" till det nya huvudobjektet. Det här är en inbyggd Azure-roll med begränsad behörighet, som endast tillåter att huvud kontot registrerar kluster i Azure. Huvudobjektet kan inte uppdatera, ta bort eller ändra andra kluster eller resurser i prenumerationen.
+När du har skapat det nya huvud namnet för tjänsten tilldelar du rollen "Kubernetes kluster – Azure Arc onboarding" till det nyligen skapade huvudobjektet. Det här är en inbyggd Azure-roll med begränsad behörighet, som endast tillåter att huvud kontot registrerar kluster i Azure. Huvudobjektet kan inte uppdatera, ta bort eller ändra andra kluster eller resurser i prenumerationen.
 
 Med tanke på de begränsade förmågorna kan kunder enkelt använda den här huvudobjektet för att publicera flera kluster.
 
 Behörigheter kan begränsas ytterligare genom att skicka i lämpligt `--scope` argument när du tilldelar rollen. Detta gör det möjligt för kunderna att begränsa kluster registreringen. Följande scenarier stöds av olika `--scope` Parametrar:
 
-| Resurs  | `scope`-argument| Verkan |
+| Resurs  | `scope`-argument| Effekt |
 | ------------- | ------------- | ------------- |
 | Prenumeration | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | Tjänstens huvud namn kan registrera alla kluster i en befintlig resurs grupp i den aktuella prenumerationen |
 | Resursgrupp | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | Tjänstens huvud namn kan __bara__ registrera kluster i resurs gruppen`myGroup` |

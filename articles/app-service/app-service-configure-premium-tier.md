@@ -6,12 +6,12 @@ ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 07/25/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4fa64562f8d26297d2b2c8a13cd8b6a513c2c630
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d9ef246079fc95b79a2dc7a3d33eba79da70c55a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170028"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050378"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Konfigurera PremiumV2-nivån för Azure App Service
 
@@ -87,7 +87,7 @@ Om din app körs i en App Service distribution där **PremiumV2** inte är tillg
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 
-Du kan automatisera skapandet av appar i **PremiumV2** -nivån med skript med hjälp av [Azure CLI](/cli/azure/install-azure-cli) eller [Azure PowerShell](/powershell/azure/overview).
+Du kan automatisera skapandet av appar i **PremiumV2** -nivån med skript med hjälp av [Azure CLI](/cli/azure/install-azure-cli) eller [Azure PowerShell](/powershell/azure/).
 
 ### <a name="azure-cli"></a>Azure CLI
 

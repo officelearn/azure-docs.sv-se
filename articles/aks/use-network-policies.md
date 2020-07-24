@@ -5,11 +5,12 @@ description: Lär dig hur du skyddar trafik som flödar in och ut ur poddar med 
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 7e494c6ac89289a9b271d16b871b8a22e1ca9e6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 598747c0d64db2ae62f740dca4c3e4141f2562f2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83683205"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050475"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Skydda trafik mellan poddar med hjälp av nätverks principer i Azure Kubernetes service (AKS)
 
@@ -49,7 +50,7 @@ Båda implementeringarna använder Linux- *program varan iptables* för att geno
 
 ### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Skillnader mellan Azure och Calico-principer och deras funktioner
 
-| Kapacitet                               | Azure                      | Calico                      |
+| Funktion                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
 | Plattformar som stöds                      | Linux                      | Linux                       |
 | Nätverks alternativ som stöds             | Azure-CNI                  | Azure-CNI och Kubernetes       |
@@ -157,13 +158,13 @@ kubectl label namespace/development purpose=development
 Skapa en exempel Server dels Pod som kör NGINX. Den här backend-Pod kan användas för att simulera ett exempel på ett webbaserat program för Server delen. Skapa den här Pod i namn området för *utveckling* och öppna port *80* för att hantera webb trafik. Märk Pod med *app = webapp, Role = Server* del så att vi kan rikta den mot en nätverks princip i nästa avsnitt:
 
 ```console
-kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80 --generator=run-pod/v1
+kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80
 ```
 
 Skapa en annan Pod och koppla en terminalsession för att testa att du kan nå standard webb sidan NGINX:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
+kubectl run --rm -it --image=alpine network-policy --namespace development
 ```
 
 I Shell-prompten använder `wget` du för att bekräfta att du har åtkomst till standard webb sidan för nginx:
@@ -219,7 +220,7 @@ kubectl apply -f backend-policy.yaml
 Låt oss se om du kan använda webb sidan NGINX på backend-Pod igen. Skapa en annan test-Pod och koppla en terminalsession:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
+kubectl run --rm -it --image=alpine network-policy --namespace development
 ```
 
 I Shell-prompten använder `wget` du för att se om du kan komma åt standard webb sidan för nginx. Den här gången anger du ett timeout-värde till *2* sekunder. Nätverks principen blockerar nu all inkommande trafik, så det går inte att läsa in sidan, som du ser i följande exempel:
@@ -276,7 +277,7 @@ kubectl apply -f backend-policy.yaml
 Schemalägg en pod som är märkt som *app = webapp, Role = frontend* och koppla en terminalsession:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
+kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
 ```
 
 I Shell-prompten använder `wget` du för att se om du kan komma åt standard webb sidan för nginx:
@@ -306,7 +307,7 @@ exit
 Nätverks principen tillåter trafik från poddar-märkta *appar: webapp, Role: frontend*, men bör neka all annan trafik. Vi testar att se om en annan Pod utan dessa etiketter kan komma åt backend-NGINX pod. Skapa en annan test-Pod och koppla en terminalsession:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
+kubectl run --rm -it --image=alpine network-policy --namespace development
 ```
 
 I Shell-prompten använder `wget` du för att se om du kan komma åt standard webb sidan för nginx. Nätverks principen blockerar inkommande trafik, så det går inte att läsa in sidan, som du ser i följande exempel:
@@ -339,7 +340,7 @@ kubectl label namespace/production purpose=production
 Schemalägg en test-Pod i namn området för *produktion* som är märkt som *app = webapp, Role = frontend*. Koppla en terminalsession:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
+kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
 ```
 
 I Shell-prompten använder `wget` du för att bekräfta att du har åtkomst till standard webb sidan för nginx:
@@ -403,7 +404,7 @@ kubectl apply -f backend-policy.yaml
 Schemalägg en annan Pod i *produktions* namn rymden och koppla en terminalserversession:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
+kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
 ```
 
 I Shell-prompten använder `wget` du för att se att nätverks principen nu nekar trafik:
@@ -425,7 +426,7 @@ exit
 När trafik nekas från namn området för *produktion* , Schemalägg en test-Pod tillbaka i *utvecklings* namn rymden och koppla en terminalsession:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
+kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
 ```
 
 I Shell-prompten använder `wget` du för att se att nätverks principen tillåter trafiken:

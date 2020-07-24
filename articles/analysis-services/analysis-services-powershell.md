@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dfa9de94665c0ee98d0252be6de807f18e39b087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e64ffe5007d27a44167f08807a9694875fe48c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83697968"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050447"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Hantera Azure Analysis Services med PowerShell
 
@@ -25,7 +26,7 @@ Hanterings uppgifter för server resurser som att skapa eller ta bort en server,
 
 De flesta PowerShell-aktiviteter kräver att du har administratörs behörighet på den Analysis Services server som du hanterar. Schemalagda PowerShell-aktiviteter är obevakade åtgärder. Kontot eller tjänstens huvud namn som kör Scheduler måste ha administratörs behörighet på Analysis Servicess servern. 
 
-För Server åtgärder med hjälp av Azure PowerShell-cmdletar måste ditt konto eller kontot som kör Scheduler också tillhöra ägar rollen för resursen i [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md). 
+För Server åtgärder med hjälp av Azure PowerShell-cmdletar måste ditt konto eller kontot som kör Scheduler också tillhöra ägar rollen för resursen i [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="resource-and-server-operations"></a>Resurs-och Server åtgärder 
 

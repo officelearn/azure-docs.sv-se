@@ -6,11 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 11/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7c5dfe6ed08df01f78346c76fd5a35e7d64ab520
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8beb1d60ca8dcc18978ffeb523a7d63f90ca6c01
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671587"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049805"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Profilera webbappar som körs på en virtuell Azure-dator eller en virtuell dators skalnings uppsättning med hjälp av Application Insights Profiler
 
@@ -24,7 +25,7 @@ Du kan också Distribuera Azure Application Insights profiler på följande tjä
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Distribuera profiler på en virtuell dator eller en skalnings uppsättning för virtuella datorer
 Den här artikeln visar hur du kan få Application Insights Profiler som körs på din virtuella Azure-dator (VM) eller skalnings uppsättning för virtuella Azure-datorer. Profiler installeras med Azure-diagnostik-tillägget för virtuella datorer. Konfigurera tillägget för att köra profiler och skapa Application Insights SDK i ditt program.
 
-1. Lägg till Application Insights SDK i [ASP.net-programmet](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
+1. Lägg till Application Insights SDK i [ASP.net-programmet](./asp-net.md).
 
    Om du vill visa profiler för dina begär Anden måste du skicka begäran om telemetri till Application Insights.
 
@@ -71,7 +72,7 @@ Den här artikeln visar hur du kan få Application Insights Profiler som körs p
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
     ```  
-   b. Om du har problem med att upprätta fjärråtkomst kan du använda [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) för att köra följande kommando:  
+   b. Om du har problem med att upprätta fjärråtkomst kan du använda [Azure CLI](/cli/azure/get-started-with-azure-cli) för att köra följande kommando:  
 
     ```powershell
     az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"

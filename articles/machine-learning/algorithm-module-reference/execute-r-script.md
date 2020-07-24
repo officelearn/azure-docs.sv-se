@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/27/2020
-ms.openlocfilehash: 71e1a43728cf923207d209848b26627aeb7bd680
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3559ae5c246129aa369cb49e7749e499002f1dc6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751748"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048185"
 ---
 # <a name="execute-r-script-module"></a>Kör R-skript-modul
 
@@ -320,9 +320,8 @@ Du kan skicka R-objekt mellan instanser av modulen kör R-skript med hjälp av f
 
 Följande förinstallerade R-paket är tillgängliga för närvarande:
 
-|              |            | 
-|--------------|------------| 
 | Paket      | Version    | 
+|--------------|------------| 
 | askpass      | 1.1        | 
 | assertthat   | 0.2.1      | 
 | backports    | 1.1.4      | 
@@ -354,7 +353,7 @@ Följande förinstallerade R-paket är tillgängliga för närvarande:
 | digest       | 0.6.19     | 
 | dplyr        | 0.7.6      | 
 | e1071        | 1.7-2      | 
-| evaluate     | 0.14       | 
+| evaluate (utvärdera)     | 0,14       | 
 | fansi        | 0.4.0      | 
 | forcats      | 0.3.0      | 
 | foreach      | 1.4.4      | 

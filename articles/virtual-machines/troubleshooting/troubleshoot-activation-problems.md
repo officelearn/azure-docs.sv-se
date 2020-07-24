@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 44c86dae3c7df8293404c253b94164c37d574158
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c89fcf22f669c97f2b17acce57c293eabcf96de
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736942"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009704"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Felsöka aktiveringsproblem med virtuella Azure Windows-datorer
 
@@ -46,9 +46,9 @@ I allmänhet sker Azure VM-aktiveringsproblem om den virtuella Windows-datorn in
 ## <a name="solution"></a>Lösning
 
 >[!NOTE]
->Om du använder en plats-till-plats-VPN och Tvingad tunnel trafik, se [Använd Azure-anpassade vägar för att aktivera KMS-aktivering med Tvingad tunnel trafik](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling). 
+>Om du använder en plats-till-plats-VPN och Tvingad tunnel trafik, se [Använd Azure-anpassade vägar för att aktivera KMS-aktivering med Tvingad tunnel trafik](../../vpn-gateway/vpn-gateway-about-forced-tunneling.md). 
 >
->Om du använder ExpressRoute och det finns en standard väg publicerad, [kan jag blockera Internet anslutning till virtuella nätverk som är anslutna till ExpressRoute-kretsar?](https://docs.microsoft.com/azure/expressroute/expressroute-faqs).
+>Om du använder ExpressRoute och det finns en standard väg publicerad, [kan jag blockera Internet anslutning till virtuella nätverk som är anslutna till ExpressRoute-kretsar?](../../expressroute/expressroute-faqs.md).
 
 ### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>Steg 1 Konfigurera rätt konfigurations nyckel för KMS-klienten
 
@@ -61,7 +61,7 @@ För den virtuella datorn som skapas från en anpassad avbildning måste du konf
     cscript c:\windows\system32\slmgr.vbs /dlv
     ```
 
-2. Om **slmgr.vbs /dlv** visar RETAIL-kanalen kör du följande kommandon för att konfigurera [KMS-klientens konfigurationsnyckel](https://technet.microsoft.com/library/jj612867%28v=ws.11%29.aspx?f=255&MSPPError=-2147217396) för versionen av Windows Server som används och tvinga den att försöka aktivera igen: 
+2. Om **slmgr.vbs /dlv** visar RETAIL-kanalen kör du följande kommandon för att konfigurera [KMS-klientens konfigurationsnyckel](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj612867(v=ws.11)?f=255&MSPPError=-2147217396) för versionen av Windows Server som används och tvinga den att försöka aktivera igen: 
 
     ```
     cscript c:\windows\system32\slmgr.vbs /ipk <KMS client setup key>
@@ -77,7 +77,7 @@ För den virtuella datorn som skapas från en anpassad avbildning måste du konf
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>Steg 2 kontrol lera anslutningen mellan den virtuella datorn och Azure KMS-tjänsten
 
-1. Hämta och extrahera [PSping](https://docs.microsoft.com/sysinternals/downloads/psping) -verktyget till en lokal mapp på den virtuella datorn som inte aktive ras. 
+1. Hämta och extrahera [PSping](/sysinternals/downloads/psping) -verktyget till en lokal mapp på den virtuella datorn som inte aktive ras. 
 
 2. Gå till Start, Sök på Windows PowerShell, högerklicka på Windows PowerShell och välj Kör som administratör.
 
@@ -102,7 +102,7 @@ För den virtuella datorn som skapas från en anpassad avbildning måste du konf
   
     Se också till att den utgående nätverks trafiken till KMS-slutpunkten med 1688-porten inte blockeras av brand väggen på den virtuella datorn.
 
-5. Verifiera att du använder [Network Watcher nästa hopp](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) som nästa hopp typ från den virtuella datorn i fråga till IP-23.102.135.246 (för KMS.Core.Windows.net) eller IP-adressen för lämplig KMS-slutpunkt som gäller din region är **Internet**.  Om resultatet är VirtualAppliance eller VirtualNetworkGateway, är det troligt att det finns en standard väg.  Kontakta nätverks administratören och arbeta med dem för att fastställa rätt åtgärds riktning.  Detta kan vara en [anpassad väg](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation) om lösningen är konsekvent med organisationens principer.
+5. Verifiera att du använder [Network Watcher nästa hopp](../../network-watcher/network-watcher-next-hop-overview.md) som nästa hopp typ från den virtuella datorn i fråga till IP-23.102.135.246 (för KMS.Core.Windows.net) eller IP-adressen för lämplig KMS-slutpunkt som gäller din region är **Internet**.  Om resultatet är VirtualAppliance eller VirtualNetworkGateway, är det troligt att det finns en standard väg.  Kontakta nätverks administratören och arbeta med dem för att fastställa rätt åtgärds riktning.  Detta kan vara en [anpassad väg](./custom-routes-enable-kms-activation.md) om lösningen är konsekvent med organisationens principer.
 
 6. När du har kontrollerat lyckad anslutning till kms.core.windows.net kör du följande kommando i den utökade Windows PowerShell-kommandotolken. Det här kommandot försöker aktivera flera gånger.
 
@@ -114,7 +114,7 @@ För den virtuella datorn som skapas från en anpassad avbildning måste du konf
     
     **Aktivera Windows (R), Server Data Center Edition (12345678-1234-1234-1234-12345678)...  Produkten har Aktiver ATS.**
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR 
+## <a name="faq"></a>Vanliga frågor 
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>Jag skapade Windows Server 2016 från Azure Marketplace. Måste jag konfigurera KMS-nyckeln för att aktivera Windows Server 2016? 
 
@@ -130,7 +130,7 @@ Ja.
 ### <a name="what-happens-if-windows-activation-period-expires"></a>Vad händer om Windows-aktiverings perioden upphör att gälla? 
 
  
-När Grace-perioden har upphört att gälla och Windows fortfarande inte har Aktiver ATS, kommer Windows Server 2008 R2 och senare versioner av Windows att visa ytterligare meddelanden om aktivering. Skriv bords underlägget är svart och Windows Update endast installera säkerhets uppdateringar och viktiga uppdateringar, men inte valfria uppdateringar. Se avsnittet meddelanden längst ned på sidan [licens villkor](https://technet.microsoft.com/library/ff793403.aspx) .   
+När Grace-perioden har upphört att gälla och Windows fortfarande inte har Aktiver ATS, kommer Windows Server 2008 R2 och senare versioner av Windows att visa ytterligare meddelanden om aktivering. Skriv bords underlägget är svart och Windows Update endast installera säkerhets uppdateringar och viktiga uppdateringar, men inte valfria uppdateringar. Se avsnittet meddelanden längst ned på sidan [licens villkor](/previous-versions/tn-archive/ff793403(v=technet.10)) .   
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 

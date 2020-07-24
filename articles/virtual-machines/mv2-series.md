@@ -7,11 +7,12 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 4576a8bdcb6077a9d5de20c52f99325fdcacc0f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21c28f3b6b498b162cbff276755b098c5ebba7c1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84673706"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010486"
 ---
 # <a name="mv2-series"></a>Mv2-serien
 
@@ -27,7 +28,7 @@ Direktmigrering: stöds inte
 
 Minnes bebetjänings uppdateringar: stöds inte
 
-Skrivningsaccelerator: [stöds](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Skrivningsaccelerator: [stöds](./windows/how-to-enable-write-accelerator.md)
 
 |Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|
@@ -49,7 +50,7 @@ Skrivningsaccelerator: [stöds](https://docs.microsoft.com/azure/virtual-machine
 
 ## <a name="other-sizes"></a>Andra storlekar
 
-- [Generellt syfte](sizes-general.md)
+- [Generell användning](sizes-general.md)
 - [Minnesoptimerad](sizes-memory.md)
 - [Lagringsoptimerad](sizes-storage.md)
 - [GPU-optimerad](sizes-gpu.md)

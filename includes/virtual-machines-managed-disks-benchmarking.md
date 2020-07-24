@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da5811abec889bcc47d08878a0950df7f0983663
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67673534"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010841"
 ---
 *Uppvärmning av cacheminnet*  
 Disken med ReadOnly-värd-cachelagring kan ge högre IOPS än disk gränsen. För att få den här maximala Läs prestandan från värd-cachen måste du först värma upp cacheminnet för den här disken. Detta säkerställer att den Läs IOs som benchmarking-verktyget kommer att köra på CacheReads volym, träffar i själva cacheminnet och inte på disken direkt. Cacheträffar resulterar i ytterligare IOPS från den enkla cache-aktiverade disken.
@@ -62,24 +62,24 @@ Utför stegen nedan för att värma upp cachen
 
 1. Skapa två åtkomst-specifikationer med värden som visas nedan,
 
-   | Name | Begär ande storlek | Slumpmässiga | Läs |
+   | Namn | Begär ande storlek | Slumpmässiga | Läs |
    | --- | --- | --- | --- |
-   | RandomWrites \_ 1 MB |1 MB |100 |0 |
-   | RandomReads \_ 1 MB |1 MB |100 |100 |
+   | RandomWrites \_ 1 MB |1 MB |100 |0 |
+   | RandomReads \_ 1 MB |1 MB |100 |100 |
 1. Kör IOMeter-testet för att initiera cache-disken med följande parametrar. Använd tre arbets trådar för mål volymen och ett ködjup på 128. Ange körnings tiden för testet till 2 timmar på fliken test konfiguration.
 
-   | Scenario | Mål volym | Name | Varaktighet |
+   | Scenario | Mål volym | Namn | Varaktighet |
    | --- | --- | --- | --- |
    | Initiera cache-disk |CacheReads |RandomWrites \_ 1 MB |2 timmar |
 1. Kör IOMeter-testet för att värma upp cache-disken med följande parametrar. Använd tre arbets trådar för mål volymen och ett ködjup på 128. Ange körnings tiden för testet till 2 timmar på fliken test konfiguration.
 
-   | Scenario | Mål volym | Name | Varaktighet |
+   | Scenario | Mål volym | Namn | Varaktighet |
    | --- | --- | --- | --- |
    | Värm upp cache-disk |CacheReads |RandomReads \_ 1 MB |2 timmar |
 
 När du har värmt upp cache-disken fortsätter du med de test scenarier som anges nedan. Om du vill köra IOMeter-testet använder du minst tre arbets trådar för **varje** mål volym. För varje arbets tråd väljer du mål volymen, ställer in ködjup och väljer en av de sparade test specifikationerna, som du ser i tabellen nedan, för att köra motsvarande test scenario. Tabellen visar även förväntade resultat för IOPS och data flöde när du kör de här testerna. I alla scenarier används en liten IO-storlek på 8 KB och ett högt ködjup på 128.
 
-| Test scenario | Mål volym | Name | Resultat |
+| Test scenario | Mål volym | Namn | Resultat |
 | --- | --- | --- | --- |
 | Max. Läs IOPS |CacheReads |RandomWrites \_ 8K |50 000 IOPS |
 | Max. Skriv IOPS |NoCacheWrites |RandomReads \_ 8K |64 000 IOPS |
@@ -153,7 +153,7 @@ sudo fio --runtime 30 fiowrite.ini
 ```
 
 Medan testet körs kan du se antalet skrivnings-IOPS som den virtuella datorn och Premium-diskarna levererar. Som du ser i exemplet nedan levereras den virtuella DS14-datorn till den maximala Skriv-IOPS-gränsen på 50 000 IOPS.  
-    ![Antalet skriv IOPS VM och Premium-diskar levereras](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
+    ![Antalet skriv IOPS VM och Premium-diskar levereras.](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
 
 #### <a name="maximum-read-iops"></a>Högsta Läs-IOPS
 
@@ -194,7 +194,7 @@ sudo fio --runtime 30 fioread.ini
 ```
 
 Medan testet körs kan du se antalet Läs-IOPS som den virtuella datorn och Premium-diskarna levererar. Som du ser i exemplet nedan levererar den virtuella DS14-datorn mer än 64 000 Läs-IOPS. Detta är en kombination av disk-och cache-prestanda.  
-    ![](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
+    ![Skärm bild av antalet skriv IOPS VM och Premium-diskar som levereras.](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
 
 #### <a name="maximum-read-and-write-iops"></a>Maximal Läs-och skriv-IOPS
 

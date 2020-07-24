@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: c48cf6a7a82e90d3c9d8dc4c35e37dfb944af99f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42a595246f45b2c7423aaf77c95f17243cf8813c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80282689"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012391"
 ---
 # <a name="development-tools-on-the-azure-data-science-virtual-machine"></a>Utvecklingsverktyg på Azure-Data Science Virtual Machine
 
@@ -23,9 +23,9 @@ Data Science Virtual Machine (DSVM) paketerar flera populära verktyg i ett myck
 
 ## <a name="visual-studio-community-edition"></a>Visual Studio Community Edition
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   | Generell användning IDE      |
+| Vad är det?   | Generell användning IDE      |
 | DSVM-versioner som stöds      | Windows: Visual Studio 2017, Windows 2019: Visual Studio 2019      |
 | Vanliga användnings områden      | Program varu utveckling    |
 | Hur konfigureras den och installeras på DSVM?      | Arbets belastningen data vetenskap (python och R-verktyg), Azure-arbetsbelastning (Hadoop, Data Lake), Node.js SQL Server verktyg [Azure Machine Learning för Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
@@ -37,9 +37,9 @@ Data Science Virtual Machine (DSVM) paketerar flera populära verktyg i ett myck
 
 ## <a name="visual-studio-code"></a>Visuell Studio-kod 
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   | Generell användning IDE      |
+| Vad är det?   | Generell användning IDE      |
 | DSVM-versioner som stöds      | Windows, Linux     |
 | Vanliga användnings områden      | Kod redigerare och git-integrering   |
 | Använda och köra den      | Skriv bords gen väg ( `C:\Program Files (x86)\Microsoft VS Code\Code.exe` ) i Windows, skriv bords gen väg eller Terminal ( `code` ) i Linux    |
@@ -47,9 +47,9 @@ Data Science Virtual Machine (DSVM) paketerar flera populära verktyg i ett myck
 
 ## <a name="rstudio-desktop"></a>RStudio Desktop
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   | Client IDE för R-språk   |
+| Vad är det?   | Client IDE för R-språk   |
 | DSVM-versioner som stöds      | Windows, Linux      |
 | Vanliga användnings områden      |  R-utveckling     |
 | Använda och köra den      | Skriv bords gen väg ( `C:\Program Files\RStudio\bin\rstudio.exe` ) på Windows, skriv bords gen väg ( `/usr/bin/rstudio` ) på Linux      |
@@ -57,10 +57,10 @@ Data Science Virtual Machine (DSVM) paketerar flera populära verktyg i ett myck
 
 ## <a name="rstudio-server"></a>RStudio Server
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   | Client IDE för R-språk   |
-| Vad är detta?   | Webbaserad IDE för R    |
+| Vad är det?   | Client IDE för R-språk   |
+| Vad är det?   | Webbaserad IDE för R    |
 | DSVM-versioner som stöds      | Linux      |
 | Vanliga användnings områden      |  R-utveckling     |
 | Använda och köra den      | Aktivera tjänsten med _systemctl aktivera RStudio-Server_och starta sedan tjänsten med _systemctl start RStudio-Server_. Logga sedan in på RStudio-servern på http: \/ /Your-VM-IP: 8787.       |
@@ -68,9 +68,9 @@ Data Science Virtual Machine (DSVM) paketerar flera populära verktyg i ett myck
 
 ## <a name="juno"></a>Juno 
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   | Client IDE för Julia-språk   |
+| Vad är det?   | Client IDE för Julia-språk   |
 | DSVM-versioner som stöds      | Windows, Linux      |
 | Vanliga användnings områden      |  Julias utveckling     |
 | Använda och köra den      | Skriv bords gen väg ( `C:\JuliaPro-0.5.1.1\Juno.bat` ) på Windows, skriv bords gen väg ( `/opt/JuliaPro-VERSION/Juno` ) på Linux      |
@@ -78,9 +78,9 @@ Data Science Virtual Machine (DSVM) paketerar flera populära verktyg i ett myck
 
 ## <a name="pycharm"></a>Pycharm med
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   | Client IDE för python-språk    |
+| Vad är det?   | Client IDE för python-språk    |
 | DSVM-versioner som stöds      | Windows 2019, Linux      |
 | Vanliga användnings områden      |  Python-utveckling     |
 | Använda och köra den      | Skriv bords gen vägen ( `C:\Program Files\tk` ) i Windows. Skriv bords gen väg ( `/usr/bin/pycharm` ) på Linux      |

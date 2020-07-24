@@ -7,12 +7,12 @@ ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.openlocfilehash: 10d4c2d6650502510bd160cc452ac2289130263b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3e9a14edf9235baff2955c9f8419dc78e45755c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549505"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007987"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Installera och konfigurera Windows Azure Diagnostics-tillägget (WAD)
 [Tillägget Azure Diagnostics](diagnostics-extension-overview.md) är en agent i Azure Monitor som samlar in övervaknings data från gäst operativ systemet och arbets belastningar på virtuella Azure-datorer och andra beräknings resurser. Den här artikeln innehåller information om hur du installerar och konfigurerar Windows Diagnostics-tillägget och en beskrivning av hur data lagras i och Azure Storage konto.
@@ -77,7 +77,7 @@ Du kan installera och Konfigurera diagnostik-tillägget på en enskild virtuell 
 Se [använda övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager mallar](../../virtual-machines/extensions/diagnostics-template.md) för distribution av diagnostikprogrammet med Azure Resource Manager mallar. 
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-distribution
-Azure CLI kan användas för att distribuera Azure-diagnostik-tillägget till en befintlig virtuell dator som använder [AZ VM-tillägg](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set) som i följande exempel. 
+Azure CLI kan användas för att distribuera Azure-diagnostik-tillägget till en befintlig virtuell dator som använder [AZ VM-tillägg](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set) som i följande exempel. 
 
 ```azurecli
 az vm extension set \
@@ -133,7 +133,7 @@ De offentliga inställningarna definieras i det [offentliga elementet](diagnosti
 
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
-PowerShell kan användas för att distribuera Azure-diagnostik-tillägget till en befintlig virtuell dator med [set-AzVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) som i följande exempel. 
+PowerShell kan användas för att distribuera Azure-diagnostik-tillägget till en befintlig virtuell dator med [set-AzVMDiagnosticsExtension](/powershell/module/servicemanagement/azure.service/set-azurevmdiagnosticsextension) som i följande exempel. 
 
 ```powershell
 Set-AzVMDiagnosticsExtension -ResourceGroupName "myvmresourcegroup" `
@@ -203,7 +203,7 @@ I följande tabell visas olika typer av data som har samlats in från diagnostik
 | bild | Blob | En anpassad behållare baserat på hur du konfigurerar kataloger som övervakas av diagnostisk övervakare.  Namnet på den här BLOB-behållaren anges i WADDirectoriesTable. |
 
 ## <a name="tools-to-view-diagnostic-data"></a>Verktyg för att Visa diagnostikdata
-Det finns flera verktyg för att visa data när de har överförts till lagring. Ett exempel:
+Det finns flera verktyg för att visa data när de har överförts till lagring. Exempel:
 
 * Server Explorer i Visual Studio – om du har installerat Azure-verktygen för Microsoft Visual Studio kan du använda noden Azure Storage i Server Explorer för att visa skrivskyddade blob-och tabell data från dina Azure Storage-konton. Du kan visa data från ditt lokala Storage emulator-konto och även från lagrings konton som du har skapat för Azure. Mer information finns i avsnittet [om att bläddra och hantera lagrings resurser med Server Explorer](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage data på Windows, OSX och Linux.

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 23f12278d02715bd94f1ea26abf2bd4b2b03caf1
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 6b95eeaf7dd72c85c3940e3cdc2a71c193c35ff5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187412"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008616"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Hantera autentiseringsuppgifter i Azure Automation
 
@@ -44,7 +44,7 @@ Cmdletarna i följande tabell används för att komma åt autentiseringsuppgifte
 |:--- |:--- |
 | `Get-AutomationPSCredential` |Hämtar ett `PSCredential` objekt som ska användas i en Runbook-eller DSC-konfiguration. Oftast bör du använda den här [interna cmdleten](modules.md#internal-cmdlets) i stället för `Get-AzAutomationCredential` cmdleten, eftersom den senare bara hämtar autentiseringsinformation. Den här informationen är normalt inte användbar för att skicka till en annan cmdlet. |
 | [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) |Hämtar autentiseringsuppgifter med en prompt för användar namn och lösen ord. Denna cmdlet är en del av standard modulen Microsoft. PowerShell. Security. Se [standardmoduler](modules.md#default-modules).|
-| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) | Skapar en inloggnings till gång. Denna cmdlet är en del av Azures standard-modul. Se [standardmoduler](modules.md#default-modules).|
+| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure.service/new-azureautomationcredential?view=azuresmps-4.0.0) | Skapar en inloggnings till gång. Denna cmdlet är en del av Azures standard-modul. Se [standardmoduler](modules.md#default-modules).|
 
 Om du vill hämta `PSCredential` objekt i din kod måste du importera `Orchestrator.AssetManagement.Cmdlets` modulen. Mer information finns i [Hantera moduler i Azure Automation](modules.md).
 

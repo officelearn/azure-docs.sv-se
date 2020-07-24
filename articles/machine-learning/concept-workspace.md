@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/08/2020
-ms.openlocfilehash: 415c624153971e88afac3b18920a3ba3a8f2cfae
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 118c80b27d10714703d631f0e2560540eb2d39cf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147040"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012560"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Vad är en Azure Machine Learning arbets yta?
 
@@ -47,13 +47,18 @@ Diagrammet visar följande komponenter för en arbets yta:
 
 Du kan interagera med din arbets yta på följande sätt:
 
+> [!IMPORTANT]
+> Verktyg som marker ATS (för hands version) nedan finns för närvarande i offentlig för hands version.
+> För hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 + På webben:
     + [Azure Machine Learning Studio](https://ml.azure.com) 
     + [Azure Machine Learning designer (för hands version)](concept-designer.md) – endast tillgängligt i [Enterprise Edition](overview-what-is-azure-ml.md#sku) -arbetsytor.
 + I valfri python-miljö med [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-+ I valfri R-miljö med [Azure Machine Learning SDK för R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
++ I valfri R-miljö med [Azure Machine Learning SDK för R (för hands version)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + På kommando raden med hjälp av Azure Machine Learning [CLI-tillägget](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli)
 + [Azure Machine Learning VS Code-tillägg](how-to-manage-resources-vscode.md#workspaces)
+
 
 ## <a name="machine-learning-with-a-workspace"></a>Machine Learning med en arbets yta
 

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 1b3ae6295a639c3d59643b106b920cb606572e0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bca809d6c25594c1c614f694e71e39a4f61e2a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670584"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008191"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Samla in IIS-loggar i Azure Monitor
 Internet Information Services (IIS) lagrar användar aktivitet i loggfiler som kan samlas in av Azure Monitor och lagras som [loggdata](data-platform.md).
@@ -18,7 +19,7 @@ Internet Information Services (IIS) lagrar användar aktivitet i loggfiler som k
 ![IIS-loggar](media/data-sources-iis-logs/overview.png)
 
 ## <a name="configuring-iis-logs"></a>Konfigurera IIS-loggar
-Azure Monitor samlar in poster från loggfiler som skapats av IIS, så du måste [Konfigurera IIS för loggning](https://technet.microsoft.com/library/hh831775.aspx).
+Azure Monitor samlar in poster från loggfiler som skapats av IIS, så du måste [Konfigurera IIS för loggning](/previous-versions/orphan-topics/ws.11/hh831775(v=ws.11)).
 
 Azure Monitor stöder endast IIS-loggfiler som lagras i W3C-format och inte stöder anpassade fält eller avancerad IIS-loggning. De samlar inte in loggar i NCSA eller IIS-ursprungligt format.
 

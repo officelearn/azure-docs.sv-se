@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 9cb9f1a33c37487f4bfb1419d45d4e42a862d815
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddf9a1309cb4f9156cec3aeb5d2ddd9d22cde485
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888122"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011456"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Konfigurera objekt replikering för block-blobar (för hands version)
 
@@ -36,7 +36,7 @@ Innan du börjar ska du kontrol lera att du har registrerat dig för följande f
 - [Blob-version (för hands version)](versioning-overview.md)
 - [Ändra stöd för feed i Azure Blob Storage (för hands version)](storage-blob-change-feed.md)
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 Innan du konfigurerar objekt replikering i Azure Portal skapar du käll-och mål behållare i deras respektive lagrings konton, om de inte redan finns. Du kan också aktivera BLOB-versioner och ändra feed på käll kontot och aktivera BLOB-versioner på mål kontot.
 
@@ -52,7 +52,7 @@ Följ dessa steg om du vill skapa en replikeringsprincip i Azure Portal:
 
     :::image type="content" source="media/object-replication-configure/configure-replication-policy.png" alt-text="Skärm bild som visar regler för replikering i Azure Portal":::
 
-1. Om du vill kan du ange ett eller flera filter för att endast kopiera blobbar som matchar ett prefix. Om du till exempel anger ett prefix `b` replikeras endast blobbar vars namn börjar med den bokstaven. Du kan ange en virtuell katalog som en del av prefixet.
+1. Om du vill kan du ange ett eller flera filter för att endast kopiera blobbar som matchar ett prefix. Om du till exempel anger ett prefix `b` replikeras endast blobbar vars namn börjar med den bokstaven. Du kan ange en virtuell katalog som en del av prefixet. Prefixlängden stöder inte jokertecken.
 
     Följande bild visar filter som begränsar vilka blobbar som kopieras som en del av en replikeringsprincip.
 
@@ -68,7 +68,7 @@ Följ dessa steg om du vill skapa en replikeringsprincip i Azure Portal:
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Om du vill skapa en replikeringsprincip med PowerShell måste du först installera [2.0.1-för hands](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) version av AZ. Storage PowerShell-modulen. Följ de här stegen för att installera Preview-modulen:
+Om du vill skapa en replikeringsprincip med PowerShell måste du först installera [2.0.1-för hands](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) version eller senare av AZ. Storage PowerShell-modulen. Följ de här stegen för att installera Preview-modulen:
 
 1. Avinstallera tidigare installationer av Azure PowerShell från Windows med hjälp av inställningen **appar & funktioner** under **Inställningar**.
 
@@ -234,7 +234,7 @@ az storage account or-policy show --resource-group <resource-group> \
 
 Om du vill ta bort en replikeringsprincip och dess associerade regler använder du Azure Portal, PowerShell eller CLI.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 Följ dessa steg om du vill ta bort en replikeringsprincip i Azure Portal:
 

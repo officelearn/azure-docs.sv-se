@@ -11,20 +11,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
-ms.openlocfilehash: cbba0401815f6754939cdaeb6e7343cf085dff68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc7bfecbcb387fa0da0809a9a2287b243e861c49
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736976"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010877"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Tillägg för AMD GPU-drivrutin för Windows
 
-Den här artikeln innehåller en översikt över VM-tillägget för att distribuera AMD GPU-drivrutiner på virtuella datorer med Windows [NVv4-serien](https://docs.microsoft.com/azure/virtual-machines/nvv4-series) . När du installerar AMD-drivrutiner med det här tillägget accepterar du och samtycker till villkoren i [licens avtalet för AMD-](https://amd.com/radeonsoftwarems)slutanvändare. Under installationen kan den virtuella datorn startas om för att slutföra driv rutins konfigurationen.
+Den här artikeln innehåller en översikt över VM-tillägget för att distribuera AMD GPU-drivrutiner på virtuella datorer med Windows [NVv4-serien](../nvv4-series.md) . När du installerar AMD-drivrutiner med det här tillägget accepterar du och samtycker till villkoren i [licens avtalet för AMD-](https://amd.com/radeonsoftwarems)slutanvändare. Under installationen kan den virtuella datorn startas om för att slutföra driv rutins konfigurationen.
 
-Anvisningar om manuell installation av driv rutinerna och de aktuella versioner som stöds finns [här](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup).
+Anvisningar om manuell installation av driv rutinerna och de aktuella versioner som stöds finns [här](../windows/n-series-amd-driver-setup.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -67,12 +67,12 @@ Följande JSON visar schemat för tillägget.
 
 ### <a name="properties"></a>Egenskaper
 
-| Name | Värde/exempel | Datatyp |
+| Namn | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | utgivare | Microsoft. HpcCompute | sträng |
 | typ | AmdGpuDriverWindows | sträng |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1,0 | int |
 
 
 ## <a name="deployment"></a>Distribution
@@ -81,7 +81,7 @@ Följande JSON visar schemat för tillägget.
 
 Azure VM-tillägg kan distribueras med Azure Resource Manager mallar. Mallarna är idealiska när du distribuerar en eller flera virtuella datorer som kräver konfiguration av efter distribution.
 
-JSON-konfigurationen för ett tillägg för virtuell dator kan kapslas i den virtuella dator resursen eller placeras på rot-eller toppnivå i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet för resurs namn och typ. Mer information finns i [Ange namn och typ för underordnade resurser](../../azure-resource-manager/resource-manager-template-child-resource.md). 
+JSON-konfigurationen för ett tillägg för virtuell dator kan kapslas i den virtuella dator resursen eller placeras på rot-eller toppnivå i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet för resurs namn och typ. Mer information finns i [Ange namn och typ för underordnade resurser](../../azure-resource-manager/templates/child-resource-name-type.md). 
 
 I följande exempel förutsätts att tillägget är kapslat i den virtuella dator resursen. Vid kapsling av tilläggs resursen placeras JSON i `"resources": []` objektet på den virtuella datorn.
 
@@ -172,4 +172,4 @@ Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azu
 ## <a name="next-steps"></a>Nästa steg
 Mer information om tillägg finns i [tillägg för virtuella datorer och funktioner för Windows](features-windows.md).
 
-Mer information om virtuella datorer i N-serien finns i [GPU-optimerade storlekar för virtuella datorer](../windows/sizes-gpu.md).
+Mer information om virtuella datorer i N-serien finns i [GPU-optimerade storlekar för virtuella datorer](../sizes-gpu.md).

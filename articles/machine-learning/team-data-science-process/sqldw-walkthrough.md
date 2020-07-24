@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a748b9284407b5ecd8cc8f6225c6762e7017d4d9
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: d5a332acbf6550fcc3a4256e1bc0531b31dd6c6a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026125"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012264"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Team data science-processen i praktiken: använda Azure Synapse Analytics
 I den här självstudien vägleder vi dig genom att skapa och distribuera en maskin inlärnings modell med Azure Synapse Analytics för en offentligt tillgänglig data uppsättning – [NYC taxi TRIPs](https://www.andresmh.com/nyctaxitrips/) -datauppsättningen. Den binära klassificerings modellen är konstruerad för att förutsäga om ett tips är betalt för en resa.  I modeller ingår klassificering av multiklass (oavsett om det finns ett tips) och regression (fördelningen för de belopp som betalas).
@@ -95,7 +95,7 @@ Följ dokumentationen i [create och fråga en Azure SQL Data Warehouse i Azure P
 
 * **Server namn**: \<server Name> . Database.Windows.net
 * **Namn på SQLDW (databas)**
-* **Användar**
+* **Användarnamn**
 * **Lösenord**
 
 **Installera Visual Studio och SQL Server Data Tools.** Instruktioner finns i [komma igång med Visual Studio 2019 för SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
@@ -602,7 +602,7 @@ AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
 **Utdata:** Den här frågan genererar en tabell (med 2 803 538 rader) med upphämtnings-och DropOff-latituder och longituder och motsvarande direkta avstånd i miles. Här följer resultaten för de första tre raderna:
 
-|  | pickup_latitude | pickup_longitude | dropoff_latitude | dropoff_longitude | DirectDistance |
+| (Rad nummer) | pickup_latitude | pickup_longitude | dropoff_latitude | dropoff_longitude | DirectDistance |
 | --- | --- | --- | --- | --- | --- |
 | 1 |40,731804 |– 74,001083 |40,736622 |– 73,988953 |.7169601222 |
 | 2 |40,715794 |– 74, 010635 |40,725338 |– 74,00399 |.7448343721 |

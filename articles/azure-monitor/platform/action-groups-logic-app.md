@@ -6,11 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
-ms.openlocfilehash: 655a3acc44a1418778b37fbef85e5df75d042317
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f592c42bc06c6bcd33ce6e10c506f8af0d8e0cf2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78206244"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008395"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Så här utlöser du komplexa åtgärder med Azure Monitor aviseringar
 
@@ -40,7 +41,7 @@ Processen påminner om du vill att Logic app ska utföra en annan åtgärd.
 
 3.  **Namnge din Logic app, Välj**en **resurs grupp**och så vidare.
 
-    ![Skapa en Logic app](media/action-groups-logic-app/create-logic-app-dialog.png "Skapa en logikapp")
+    ![Skapa en logikapp](media/action-groups-logic-app/create-logic-app-dialog.png "Skapa en logikapp")
 
 4.  Välj **skapa** för att skapa Logic-appen. Ett popup-meddelande indikerar att Logic-appen har skapats. Välj **Starta resurs** för att öppna **Logic Apps designer**.
 
@@ -127,7 +128,7 @@ Processen påminner om du vill att Logic app ska utföra en annan åtgärd.
 
 14. Överst i **Logic Apps designer**väljer du **Spara** för att spara din Logic app.
 
-15. Öppna den befintliga åtgärds gruppen och Lägg till en åtgärd som refererar till Logic app. Om du inte har en befintlig åtgärds grupp kan du läsa [skapa och hantera åtgärds grupper i Azure Portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) för att skapa en. Glöm inte att spara ändringarna.
+15. Öppna den befintliga åtgärds gruppen och Lägg till en åtgärd som refererar till Logic app. Om du inte har en befintlig åtgärds grupp kan du läsa [skapa och hantera åtgärds grupper i Azure Portal](./action-groups.md) för att skapa en. Glöm inte att spara ändringarna.
 
     ![Uppdatera åtgärds gruppen](media/action-groups-logic-app/update-action-group.png "Uppdatera åtgärds gruppen")
 
@@ -294,6 +295,5 @@ Logic Apps har flera olika anslutningar som gör att du kan utlösa åtgärder i
 
 ## <a name="next-steps"></a>Nästa steg
 * Få en [Översikt över Azure aktivitets logg aviseringar](../../azure-monitor/platform/alerts-overview.md) och lär dig hur du tar emot aviseringar.  
-* Lär dig hur du [konfigurerar aviseringar när ett Azure Service Health-meddelande publiceras](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+* Lär dig hur du [konfigurerar aviseringar när ett Azure Service Health-meddelande publiceras](../../service-health/alerts-activity-log-service-notifications-portal.md).
 * Läs mer om [Åtgärds grupper](../../azure-monitor/platform/action-groups.md).
-

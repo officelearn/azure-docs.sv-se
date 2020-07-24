@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: 1d38a3cac5525de6835bbb0f9873cbd0636d44a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3fe4a70d2cf59f003c785740b55634d44863dc9c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869679"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009534"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Azure-diagnostik tillägg för virtuella Windows-datorer
 
@@ -20,7 +21,7 @@ ms.locfileid: "81869679"
 
 Med tillägget Azure-diagnostik VM kan du samla in övervaknings data, till exempel prestanda räknare och händelse loggar, från din virtuella Windows-dator. Du kan i detalj ange vilka data du vill samla in och var du vill att data ska placeras, till exempel ett Azure Storage konto eller en Azure Event Hub. Du kan också använda dessa data för att skapa diagram i Azure Portal eller skapa mått aviseringar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -36,7 +37,7 @@ Azure-diagnostik-tillägget kräver att den virtuella mål datorn är ansluten t
 
 ## <a name="template-deployment"></a>Malldistribution
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager mallar. Det JSON-schema som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall för att köra Azure-diagnostik-tillägget under en distribution av Azure Resource Manager mallar. Se [använda övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager mallar](extensions-diagnostics-template.md).
+Azure VM-tillägg kan distribueras med Azure Resource Manager mallar. Det JSON-schema som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall för att köra Azure-diagnostik-tillägget under en distribution av Azure Resource Manager mallar. Se [använda övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager mallar](../extensions/diagnostics-template.md).
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-distribution
 
@@ -54,7 +55,7 @@ az vm extension set \
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-`Set-AzVMDiagnosticsExtension`Kommandot kan användas för att lägga till Azure-diagnostik-tillägget till en befintlig virtuell dator. Se även [använda PowerShell för att aktivera Azure-diagnostik på en virtuell dator som kör Windows](ps-extensions-diagnostics.md).
+`Set-AzVMDiagnosticsExtension`Kommandot kan användas för att lägga till Azure-diagnostik-tillägget till en befintlig virtuell dator. Se även [använda PowerShell för att aktivera Azure-diagnostik på en virtuell dator som kör Windows](../extensions/diagnostics-windows.md).
 
  
 

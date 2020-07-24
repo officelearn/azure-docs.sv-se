@@ -3,12 +3,12 @@ title: Live video analys på IoT EDG-terminologi – Azure
 description: Den här artikeln innehåller en översikt över video analys på IoT Edge terminologi.
 ms.topic: conceptual
 ms.date: 05/30/2020
-ms.openlocfilehash: 58f3d7b54fd0bd19e6bc0a057ef053bb2c74cd97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d4eff506b2a6f51b9803f827379b9ba0c2b2ff6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84816522"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011506"
 ---
 # <a name="terminology"></a>Terminologi
 
@@ -26,7 +26,7 @@ Live video analys på IoT Edge kan skapa till gångar och/eller lägga till data
 
 ## <a name="streaming"></a>Strömning
 
-Om du har tittat på video på en mobil enhet från tjänster som Netflix, YouTube och andra, har du erfaren strömmande video. Uppspelningen börjar strax efter att du har nått "Play" (om du har tillräckligt med bandbredd) och du kan söka fram och tillbaka längs videons tids linje. Med strömning är tanken att leverera endast den del av videon som bevakas och att låta visnings programmet spela upp videon medan data fortfarande överförs från en server till uppspelnings klienten. I samband med Azure Media Services avser [streaming](https://en.wikipedia.org/wiki/Streaming_media) processen att leverera medier från [Azure Media Services](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview) till en strömmande klient (till exempel Azure Media Player). Du kan använda Azure Media Services för att strömma video till klienter som använder branschstandardiserade HTTP-baserade medie strömnings protokoll som [http Live Streaming (HLS)](https://developer.apple.com/streaming/) och [MPEG-streck](https://dashif.org/about/). HLS stöds av Azure Media Player och Web-spelarna som [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Googles Shaka Player](https://github.com/google/shaka-player), eller så kan du återge internt i mobilappar med Android: s [Exoplayer](https://github.com/google/ExoPlayer) och iOS [av Foundation](https://developer.apple.com/av-foundation/). MPEG-bindestreck stöds också av Azure Media Player, [hittar du en lista över klienter på den här sidan](https://dashif.org/clients/). 
+Om du har tittat på video på en mobil enhet från tjänster som Netflix, YouTube och andra, har du erfaren strömmande video. Uppspelningen börjar strax efter att du har nått "Play" (om du har tillräckligt med bandbredd) och du kan söka fram och tillbaka längs videons tids linje. Med strömning är tanken att leverera endast den del av videon som bevakas och att låta visnings programmet spela upp videon medan data fortfarande överförs från en server till uppspelnings klienten. I samband med Azure Media Services avser [streaming](https://en.wikipedia.org/wiki/Streaming_media) processen att leverera medier från [Azure Media Services](../azure-media-player/azure-media-player-overview.md) till en strömmande klient (till exempel Azure Media Player). Du kan använda Azure Media Services för att strömma video till klienter som använder branschstandardiserade HTTP-baserade medie strömnings protokoll som [http Live Streaming (HLS)](https://developer.apple.com/streaming/) och [MPEG-streck](https://dashif.org/about/). HLS stöds av Azure Media Player och Web-spelarna som [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Googles Shaka Player](https://github.com/google/shaka-player), eller så kan du återge internt i mobilappar med Android: s [Exoplayer](https://github.com/google/ExoPlayer) och iOS [av Foundation](https://developer.apple.com/av-foundation/). MPEG-bindestreck stöds också av Azure Media Player, [hittar du en lista över klienter på den här sidan](https://dashif.org/clients/). 
 
 Genom att använda [Media Graph](#media-graph)s för att spela in videor till en till gång i Azure Media Services kan du använda Media Services streaming-kapacitet för att leverera video STRÖMMAR i HLS och bindestreck. Du kan läsa mer om det i artikeln [video uppspelning](video-playback-concept.md) .
 

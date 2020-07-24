@@ -6,11 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 6a1dddfbcdbf2bd49586238872db15f1da5d7ce1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ed0009bce18e2b0970b425c31d2f38cef387187
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84457311"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008327"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Bästa praxis för Azure Cache for Redis 
 Genom att följa dessa rekommendationer kan du maximera prestanda och kostnads effektiv användning av Azure-cachen för Redis-instansen.
@@ -60,7 +61,7 @@ Det finns flera saker som rör minnes användningen i Redis-serverinstansen som 
 ## <a name="when-is-it-safe-to-retry"></a>När är det säkert att försöka igen?
 Tyvärr finns det inget enkelt svar.  Varje program måste bestämma vilka åtgärder som kan göras om och vilket inte kan göras.  Varje åtgärd har olika krav och beroenden mellan nycklar.  Här följer några saker som du kan tänka på:
 
- * Du kan få fel på klient sidan även om Redis har kört kommandot som du bad om att köra.  Ett exempel:
+ * Du kan få fel på klient sidan även om Redis har kört kommandot som du bad om att köra.  Exempel:
      - Tids gränser är ett koncept på klient sidan.  Om åtgärden har nått servern kör servern kommandot även om klienten ger väntande svar.  
      - När ett fel uppstår på socket-anslutningen är det inte möjligt att veta om åtgärden faktiskt kördes på servern.  Anslutnings felet kan till exempel inträffa efter att servern bearbetat begäran, men innan klienten får svaret.
  *  Hur reagerar mitt program om jag råkar köra samma åtgärd två gånger?  Vad händer om jag exempelvis ökar ett heltal två gånger i stället för en gång?  Skrivs mitt program till samma nyckel från flera platser?  Vad händer om min omprövnings logik skriver över ett värde som har angetts av någon annan del av min app?
@@ -82,10 +83,10 @@ Om du vill testa hur koden fungerar under fel tillstånd, kan du överväga att 
  
 ### <a name="redis-benchmark-examples"></a>Redis – benchmark-exempel
 **Före test konfiguration**: Förbered cache-instansen med data som krävs för svar på svars tid och data flöde som visas nedan.
-> redis-benchmark.exe-h-yourcache.redis.cache.windows.net – a yourAccesskey-t SET-n 10-d 1024 
+> Redis – prestandatest – h yourcache.redis.cache.windows.net – a yourAccesskey-t SET-n 10-d 1024 
 
 **Så här testar du svars tiden**: testa get-begäranden med en last på 1 KB.
-> redis-benchmark.exe-h-yourcache.redis.cache.windows.net – a yourAccesskey-t GET-d 1024-P 50-c 4
+> Redis – prestandatest-h yourcache.redis.cache.windows.net – a yourAccesskey-t GET-d 1024-P 50-c 4
 
 **Testa data flödet:** Pipeline GET-begäranden med nytto lasten 1 KB.
-> redis-benchmark.exe-h yourcache.redis.cache.windows.net – a yourAccesskey-t GET-n 1000000-d 1024-P 50-c 50
+> Redis – prestandatest-h yourcache.redis.cache.windows.net – a yourAccesskey-t GET-n 1000000-d 1024-P 50-c 50

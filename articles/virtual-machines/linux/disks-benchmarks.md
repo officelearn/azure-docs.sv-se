@@ -7,13 +7,14 @@ ms.date: 01/11/2019
 ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: a658bfc0815a03d0f6944d1c42eacdd04397458d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1dfcad5a4fb6611543e6421e82889f239f14951
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84660887"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010842"
 ---
-# <a name="benchmarking-a-disk"></a>Prestandatest av en disk
+# <a name="benchmark-your-application-on-azure-disk-storage"></a>Benchmarka ditt program på Azure-disklagring
 
 Benchmarking är en process för att simulera olika arbets belastningar i ditt program och mäta programmets prestanda för varje arbets belastning. Med hjälp av stegen som beskrivs i [artikeln designa för hög prestanda](premium-storage-performance.md). Genom att köra benchmarking-verktyg på de virtuella datorer som är värdar för programmet kan du bestämma vilka prestanda nivåer som programmet kan uppnå med Premium Storage. I den här artikeln ger vi exempel på att du kan mäta en standard VM-DS14 som tillhandahålls med Azure Premium Storage-diskar.
 

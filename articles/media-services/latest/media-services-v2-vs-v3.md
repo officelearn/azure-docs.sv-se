@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: fd094e35ceaa718ec1b258d74106b39744cbd16f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 091a5d33e49e2abe811bf3cc250d04d69506165d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79087831"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011642"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services v2 vs. v3
 
@@ -27,7 +28,7 @@ Den här artikeln beskriver ändringar som introducerades i Azure Media Services
 
 ## <a name="general-changes-from-v2"></a>Allmänna ändringar från v2
 
-* För till gångar som skapats med v3 stöder Media Services endast [lagrings kryptering Azure Storage på Server sidan](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+* För till gångar som skapats med v3 stöder Media Services endast [lagrings kryptering Azure Storage på Server sidan](../../storage/common/storage-service-encryption.md).
     * Du kan använda v3-API: er med till gångar som skapats med v2-API: er med [lagrings kryptering](../previous/media-services-rest-storage-encryption.md) (AES 256) som tillhandahålls av Media Services.
     * Du kan inte skapa nya till gångar med äldre AES 256- [lagrings kryptering](../previous/media-services-rest-storage-encryption.md) med hjälp av v3-API: er.
 * [Till gångens](assets-concept.md)egenskaper i v3 skiljer sig åt från v2, se [hur egenskaper mappas](#map-v3-asset-properties-to-v2).
@@ -87,11 +88,11 @@ V3-API: et har följande funktions luckor i relation till v2-API: et. Att stäng
 
 ### <a name="map-v3-asset-properties-to-v2"></a>Mappa v3 till gångs egenskaper till v2
 
-Följande tabell visar hur [till gångens](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)egenskaper i v3 mappar till till gångens egenskaper i v2.
+Följande tabell visar hur [till gångens](/rest/api/media/assets/createorupdate#asset)egenskaper i v3 mappar till till gångens egenskaper i v2.
 
 |v3-egenskaper|v2-egenskaper|
 |---|---|
-|`id`– (unik) fullständig Azure Resource Manager Sök väg, se exempel i [till gång](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|`id`– (unik) fullständig Azure Resource Manager Sök väg, se exempel i [till gång](/rest/api/media/assets/createorupdate)||
 |`name`-(unik) se [namn konventioner](media-services-apis-overview.md#naming-conventions) ||
 |`alternateId`|`AlternateId`|
 |`assetId`|`Id`-(unikt) värde börjar med `nb:cid:UUID:` prefixet.|
@@ -109,8 +110,8 @@ För att skydda dina till gångar i vila bör till gångarna krypteras med krypt
 |Krypterings alternativ|Beskrivning|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Media Services lagrings kryptering|AES-256-kryptering, nyckel som hanteras av Media Services.|Stöds<sup>(1)</sup>|Stöds inte<sup>(2)</sup>|
-|[Kryptering för lagringstjänst för vilande data](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Kryptering på Server sidan som erbjuds av Azure Storage, nyckel som hanteras av Azure eller av kunden.|Stöds|Stöds|
-|[Kryptering av lagring på klient Sidan](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Kryptering på klient sidan som erbjuds av Azure Storage, nyckel som hanteras av kunden i Key Vault.|Stöds inte|Stöds inte|
+|[Kryptering för lagringstjänst för vilande data](../../storage/common/storage-service-encryption.md)|Kryptering på Server sidan som erbjuds av Azure Storage, nyckel som hanteras av Azure eller av kunden.|Stöds|Stöds|
+|[Kryptering av lagring på klient Sidan](../../storage/common/storage-client-side-encryption.md)|Kryptering på klient sidan som erbjuds av Azure Storage, nyckel som hanteras av kunden i Key Vault.|Stöds inte|Stöds inte|
 
 <sup>1</sup> medan Media Services stöder hantering av innehåll i Clear/utan någon form av kryptering, vilket gör att det inte rekommenderas.
 

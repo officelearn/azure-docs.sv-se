@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 10/23/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 54515b347a95b9315ca9ba87568fb2104c3b2b45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb7d4d8a6f1c1ee55601cdd839e330147e60bcc7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737010"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011081"
 ---
 # <a name="orchestration-modes-preview"></a>Orchestration-lägen (förhands granskning)
 
@@ -42,7 +42,7 @@ Skalnings uppsättningar för virtuella datorer har stöd för 2 distinkta Orche
 
 ## <a name="orchestration-modes"></a>Orkestreringslägen
 
-|                             | "orchestrationMode": "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
+| Funktion                     | "orchestrationMode": "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
 | Konfigurations modell för virtuell dator      | Ingen                                       | Obligatorisk |
 | Lägger till ny virtuell dator i skalnings uppsättningen  | Virtuella datorer läggs explicit till i skalnings uppsättningen när den virtuella datorn skapas. | Virtuella datorer skapas implicit och läggs till i skalnings uppsättningen baserat på den virtuella datorns konfigurations modell, instans antal och regler för automatisk skalning | |
@@ -64,4 +64,4 @@ Skalnings uppsättningar för virtuella datorer har stöd för 2 distinkta Orche
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i [Översikt över tillgänglighets alternativ](availability.md).
+Mer information finns i [Översikt över tillgänglighets alternativ](../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json).

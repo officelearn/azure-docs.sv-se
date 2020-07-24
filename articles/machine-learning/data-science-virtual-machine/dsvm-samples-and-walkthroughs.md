@@ -10,11 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d064e940997d13e51be4fd38e9f678b778ce31f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98a1cd883867aa2f785b15f4c7ae4f2266a421ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74900052"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012577"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Exempel på Azure Data Science-Virtual Machines
 
@@ -22,9 +23,9 @@ Azure Data Science Virtual Machines (Dsvm) innehåller en omfattande uppsättnin
 > [!NOTE]
 > Mer information om hur du kör Jupyter-anteckningsböcker på dina virtuella datorer för data vetenskap finns i avsnittet [Access Jupyter](#access-jupyter) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att kunna köra dessa exempel måste du ha etablerad en Data Science Virtual Machine. Se snabb starter för [Windows](./provision-vm.md) och [Ubuntu](./dsvm-ubuntu-intro.md).
+För att kunna köra dessa exempel måste du ha etablerad en [Ubuntu data science Virtual Machine](./dsvm-ubuntu-intro.md).
 
 ## <a name="available-samples"></a>Tillgängliga exempel
 | Exempel kategori | Beskrivning | Platser |

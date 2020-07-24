@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: how-to
 ms.date: 06/04/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 6dd3efb3e8bbe902d3c8267aff714a8e7f77acc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e78634001c5ef1b11d6add8f02208cfa9cacf07
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738846"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012305"
 ---
 # <a name="track-model-metrics-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Spåra modell mått och distribuera ML-modeller med MLflow och Azure Machine Learning (för hands version)
 
@@ -47,7 +47,7 @@ Följande diagram illustrerar att med MLflow spårning spårar du ett Experiment
  MLflow tracking erbjuder funktioner för mått loggning och artefakt lagring som endast är tillgängliga via [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 
-| | MLflow &nbsp; spårning & distribution | Azure Machine Learning python SDK |  Azure Machine Learning CLI | Azure Machine Learning-studio|
+| Funktion | MLflow &nbsp; spårning & distribution | Azure Machine Learning python SDK |  Azure Machine Learning CLI | Azure Machine Learning-studio|
 |---|---|---|---|---|
 | Hantera arbets yta |   | ✓ | ✓ | ✓ |
 | Använda data lager  |   | ✓ | ✓ | |
@@ -59,7 +59,7 @@ Följande diagram illustrerar att med MLflow spårning spårar du ett Experiment
 |Övervaka modell prestanda||✓|  |   |
 | Identifiera dataavvikelser |   | ✓ |   | ✓ |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Installera MLflow.](https://mlflow.org/docs/latest/quickstart.html)
 * [Installera Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) på den lokala datorn SDK: n ger anslutningen till MLflow för att få åtkomst till din arbets yta.

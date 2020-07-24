@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: d03e911b88e6a7729b0519e74941b47d85a97901
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cc00ecb3810b1499f52ea9f3a0c110e92c75dff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84944635"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009620"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Ladda upp en virtuell hård disk till Azure eller kopiera en hanterad disk till en annan region – Azure PowerShell
 
 [!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ladda ned den senaste [versionen av AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installera Azure PowerShell-modul](/powershell/azure/install-Az-ps).
@@ -34,7 +34,7 @@ Om du vill överföra din virtuella hård disk till Azure måste du skapa en tom
 
 Den här typen av hanterade diskar har två unika tillstånd:
 
-- ReadToUpload, vilket innebär att disken är redo att ta emot en uppladdning, men [att ingen säker åtkomst-signatur](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS) har genererats.
+- ReadToUpload, vilket innebär att disken är redo att ta emot en uppladdning, men [att ingen säker åtkomst-signatur](../../storage/common/storage-sas-overview.md) (SAS) har genererats.
 - ActiveUpload, vilket innebär att disken är redo att ta emot en uppladdning och att SAS har genererats.
 
 > [!NOTE]
@@ -44,7 +44,7 @@ Den här typen av hanterade diskar har två unika tillstånd:
 
 Innan du kan skapa en tom standard hård disk för uppladdning behöver du fil storleken på den virtuella hård disk som du vill ladda upp, i byte. Exempel koden kommer att ge dig, men för att göra det själv kan du använda: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length` . Det här värdet används när du anger parametern **-UploadSizeInBytes** .
 
-I det lokala gränssnittet skapar du en tom standard hård disk för uppladdning genom att ange **uppladdnings** inställningen i parametern **-CreateOption** och parametern **-UploadSizeInBytes** i cmdleten [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) . Anropa sedan [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) för att skapa disken.
+I det lokala gränssnittet skapar du en tom standard hård disk för uppladdning genom att ange **uppladdnings** inställningen i parametern **-CreateOption** och parametern **-UploadSizeInBytes** i cmdleten [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) . Anropa sedan [New-AzDisk](/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) för att skapa disken.
 
 Ersätt `<yourdiskname>` , `<yourresourcegroupname>` och `<yourregion>` kör sedan följande kommandon:
 

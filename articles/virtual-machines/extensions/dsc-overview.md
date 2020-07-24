@@ -3,8 +3,8 @@ title: Önskad tillstånds konfiguration för Azure-översikt
 description: Lär dig hur du använder den Microsoft Azure tilläggs hanteraren för PowerShell (Desired State Configuration). Artikeln innehåller krav, arkitektur och cmdlets.
 services: virtual-machines-windows
 documentationcenter: ''
-author: bobbytreed
-manager: carmonm
+author: mgoedtel
+manager: evansma
 editor: ''
 tags: azure-resource-manager
 keywords: DSC
@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 05/02/2018
-ms.author: robreed
-ms.openlocfilehash: 82d268eedd73b8de670da93ad3a601b5e75e6444
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.author: magoedte
+ms.openlocfilehash: edf1fce488bf3bb8aa107a295cf3488243775192
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188543"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010928"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduktion till tilläggshanteraren för Azure Desired State Configuration
 
@@ -59,7 +59,7 @@ När tillägget anropas för första gången installeras en version av WMF med h
 - Om **wmfVersion** -egenskapen har angetts installeras den versionen av WMF, om inte den versionen är inkompatibel med den virtuella datorns operativ system.
 - Om ingen **wmfVersion** -egenskap anges installeras den senaste tillämpliga versionen av WMF.
 
-Installation av WMF kräver en omstart. Efter omstarten laddar tillägget. zip-filen som anges i egenskapen **modulesUrl** , om den har angetts. Om den här platsen finns i Azure Blob Storage kan du ange en SAS-token i egenskapen **sasToken** för att komma åt filen. När. zip har hämtats och packats upp körs konfigurations funktionen som definieras i **configurationFunction** för att generera en MOF-fil ([Managed Object Format](https://docs.microsoft.com/windows/win32/wmisdk/managed-object-format--mof-)). Tillägget körs sedan `Start-DscConfiguration -Force` med hjälp av den genererade MOF-filen. Tillägget fångar utdata och skriver den till Azures status kanal.
+Installation av WMF kräver en omstart. Efter omstarten laddar tillägget. zip-filen som anges i egenskapen **modulesUrl** , om den har angetts. Om den här platsen finns i Azure Blob Storage kan du ange en SAS-token i egenskapen **sasToken** för att komma åt filen. När. zip har hämtats och packats upp körs konfigurations funktionen som definieras i **configurationFunction** för att generera en MOF-fil ([Managed Object Format](/windows/win32/wmisdk/managed-object-format--mof-)). Tillägget körs sedan `Start-DscConfiguration -Force` med hjälp av den genererade MOF-filen. Tillägget fångar utdata och skriver den till Azures status kanal.
 
 ### <a name="default-configuration-script"></a>Standard konfigurations skript
 
@@ -81,7 +81,7 @@ Den här informationen kan visas i Azure Portal eller så kan du använda PowerS
 ```
 
 För konfigurations namnet för noden, se till att nodens konfiguration finns i konfiguration av Azure-tillstånd.  Om den inte gör det returnerar tilläggs distributionen ett haveri.  Kontrol lera också att du använder namnet på *nodens konfiguration* och inte konfigurationen.
-En konfiguration definieras i ett skript som används [för att kompilera Node-konfigurationen (MOF-filen)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
+En konfiguration definieras i ett skript som används [för att kompilera Node-konfigurationen (MOF-filen)](../../automation/automation-dsc-compile.md).
 Namnet är alltid konfigurationen följt av en punkt `.` och antingen `localhost` eller ett särskilt dator namn.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>DSC-tillägg i Resource Manager-mallar
@@ -188,11 +188,11 @@ Portalen samlar in följande ingångar:
 
 - **Konfigurations argument**: om konfigurations funktionen tar argument anger du dem här i formatet **argumentName1 = värde1, argumentName2 = värde2**. Det här formatet är ett annat format där konfigurations argument godkänns i PowerShell-cmdletar eller Resource Manager-mallar.
 
-- **PSD1-fil för konfigurations data**: konfigurationen kräver en konfigurations data fil i. PSD1, Använd det här fältet för att välja data filen och ladda upp den till blob-lagringen för användare. Konfigurations data filen skyddas av en SAS-token i Blob Storage.
+- **PSD1-fil för konfigurations data**: om konfigurationen kräver en konfigurations data fil i `.psd1` använder du det här fältet för att välja data filen och ladda upp den till blob-lagringen för användare. Konfigurations data filen skyddas av en SAS-token i Blob Storage.
 
 - **WMF-version**: anger den version av Windows Management Framework (WMF) som ska installeras på den virtuella datorn. Om du anger den här egenskapen till senaste installeras den senaste versionen av WMF. För närvarande är de enda möjliga värdena för den här egenskapen 4,0, 5,0, 5,1 och senaste. Dessa möjliga värden är beroende av uppdateringar. Standardvärdet är **senaste**.
 
-- **Data insamling**: anger om tillägget ska samla in telemetri. Mer information finns i [data insamling för Azure DSC-tillägg](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/).
+- **Data insamling**: anger om tillägget ska samla in telemetri. Mer information finns i [data insamling för Azure DSC-tillägg](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/).
 
 - **Version**: anger vilken version av DSC-tillägget som ska installeras. Information om versioner finns i [versions historik för DSC-tillägg](/powershell/scripting/dsc/getting-started/azuredscexthistory).
 

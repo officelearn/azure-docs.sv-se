@@ -10,11 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: ccb95064f756ef035b7da92d029680f1c195982b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3e1cfa13a3fd568ab2f1253c015880c57f99ce7e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958743"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012493"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Data plattformar som stöds på Data Science Virtual Machine
 
@@ -24,19 +25,19 @@ Följande data plattforms verktyg stöds på DSVM.
 
 ## <a name="sql-server-developer-edition"></a>SQL Server Developer Edition
 
-| | |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   | En lokal Relations databas instans      |
+| Vad är det?   | En lokal Relations databas instans      |
 | DSVM-versioner som stöds      | Windows 2016: SQL Server 2017, Windows 2019: SQL Server 2019      |
-| Vanliga användnings områden      | Snabb utveckling lokalt med mindre data uppsättning <br/> Kör in-Database R   |
-| Länkar till exempel      |    Ett litet exempel på en ny data uppsättning i Göteborg i Göteborg läses in i SQL-databasen:<br/>  `nyctaxi` <br/> Jupyter-exempel som visar Microsoft Machine Learning Server och databas analys finns på:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
-| Relaterade verktyg på DSVM       | SQL Server Management Studio <br/> ODBC/JDBC-drivrutiner<br/> pyodbc, RODBC<br />Apache Drill      |
+| Vanliga användnings områden      | <ul><li>Snabb utveckling lokalt med mindre data uppsättning</li><li>Kör in-Database R</li></ul> |
+| Länkar till exempel      | <ul><li>Ett litet exempel på en ny data uppsättning i Göteborg i Göteborg läses in i SQL-databasen:<br/>  `nyctaxi`</li><li>Jupyter-exempel som visar Microsoft Machine Learning Server och databas analys finns på:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`</li></ul> |
+| Relaterade verktyg på DSVM       | <ul><li>SQL Server Management Studio</li><li>ODBC/JDBC-drivrutiner</li><li>pyodbc, RODBC</li><li>Apache Drill</li></ul> |
 
 > [!NOTE]
 > SQL Server Developer Edition kan endast användas i utvecklings-och test syfte. Du behöver en licens eller någon av de virtuella datorerna SQL Server för att köra den i produktion.
 
 
-### <a name="setup"></a>Installation
+### <a name="setup"></a>Konfiguration
 
 Databas servern är redan förkonfigurerad och Windows-tjänster som är relaterade till SQL Server (som `SQL Server (MSSQLSERVER)` ) är inställda på att köras automatiskt. Det enda manuella steget innebär att du aktiverar databas analyser med hjälp av Microsoft Machine Learning Server. Du kan aktivera analys genom att köra följande kommando som en engångs åtgärd i SQL Server Management Studio (SSMS). Kör det här kommandot när du har loggat in som dator administratör, öppna en ny fråga i SSMS och kontrol lera att den valda databasen är `master` :
 
@@ -61,20 +62,20 @@ Dessutom levereras DSVM med ODBC-och JDBC-drivrutiner för att prata med SQL Ser
 
 ## <a name="apache-spark-2x-standalone"></a>Apache Spark 2. x (fristående)
 
-| | |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   | En fristående instans (enkel nod i processen) för den populära Apache Spark plattformen. ett system för snabb, storskalig data bearbetning och maskin inlärning     |
+| Vad är det?   | En fristående instans (enkel nod i processen) för den populära Apache Spark plattformen. ett system för snabb, storskalig data bearbetning och maskin inlärning     |
 | DSVM-versioner som stöds      | Linux     |
-| Vanliga användnings områden      | * Snabb utveckling av Spark/PySpark-program lokalt med en mindre data uppsättning och senare distribution på stora Spark-kluster som Azure HDInsight<br/> * Test Microsoft Machine Learning Server Spark-kontext <br />* Använd SparkML eller Microsofts [MMLSpark](https://github.com/Azure/mmlspark) -bibliotek med öppen källkod för att skapa ml-program |
-| Länkar till exempel      |    Jupyter-exempel: <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> Microsoft Machine Learning Server (Spark-kontext):/dsvm/samples/MRS/MRSSparkContextSample.R |
-| Relaterade verktyg på DSVM       | PySpark, Scala<br/>Jupyter (Spark/PySpark-kernel)<br/>Microsoft Machine Learning Server, sparker, Sparklyr <br />Apache Drill      |
+| Vanliga användnings områden      | <ul><li>Snabb utveckling av Spark/PySpark-program lokalt med en mindre data uppsättning och senare distribution på stora Spark-kluster som Azure HDInsight</li><li>Test Microsoft Machine Learning Server Spark-kontext</li><li>Använd SparkML eller Microsofts [MMLSpark](https://github.com/Azure/mmlspark) -bibliotek med öppen källkod för att skapa ml-program</li></ul> |
+| Länkar till exempel      |    Jupyter-exempel:<ul><li>~/notebooks/SparkML/pySpark</li><li>~/notebooks/MMLSpark</li></ul><p>Microsoft Machine Learning Server (Spark-kontext):/dsvm/samples/MRS/MRSSparkContextSample.R</p> |
+| Relaterade verktyg på DSVM       | <ul><li>PySpark, Scala</li><li>Jupyter (Spark/PySpark-kernel)</li><li>Microsoft Machine Learning Server, sparker, Sparklyr</li><li>Apache Drill</li></ul> |
 
 ### <a name="how-to-use-it"></a>Använd så här
 Du kan skicka Spark-jobb på kommando raden genom att köra `spark-submit` `pyspark` kommandot eller. Du kan också skapa en Jupyter-anteckningsbok genom att skapa en ny antecknings bok med Spark-kärnan.
 
 Du kan använda Spark från R genom att använda bibliotek som sparker, Sparklyr och Microsoft Machine Learning Server, som är tillgängliga på DSVM. Se pekare till exempel i föregående tabell.
 
-### <a name="setup"></a>Installation
+### <a name="setup"></a>Konfiguration
 Innan du kör i en spark-kontext i Microsoft Machine Learning Server på Ubuntu Linux DSVM-versionen måste du slutföra ett engångs inställnings steg för att aktivera en lokal enskild nod Hadoop HDFS-och garn-instans. Hadoop-tjänster installeras som standard men inaktive ras på DSVM. Om du vill aktivera dem kör du följande kommandon som rot första gången:
 
 ```bash

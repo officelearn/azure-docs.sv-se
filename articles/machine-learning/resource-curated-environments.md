@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 9d0964fb28451abe0a77276d6f9d605fcaac2514
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 72ccf2a765f50358635e4a803ed0b92e60bd7d19
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156445"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012220"
 ---
 # <a name="azure-machine-learning-curated-environments"></a>Azure Machine Learning granskade miljöer
 
-Den här artikeln innehåller de granskade miljöerna i Azure Machine Learning och de paket och kanaler som är förinstallerade i dem.
+Den här artikeln innehåller de granskade miljöerna i Azure Machine Learning och de paket och kanaler som är förinstallerade i dem. Granskade miljöer tillhandahålls av Azure Machine Learning och är tillgängliga i arbets ytan som standard. De backas upp av cachelagrade Docker-avbildningar, vilket minskar kostnaden för att köra förberedelser och möjliggör snabbare distributions tid. Använd de här miljöerna för att snabbt komma igång med olika ramverk för maskin inlärning.
 
 > [!NOTE]
 > Den här listan uppdateras från och med juni 2020. Använd python SDK för att hämta den senast uppdaterade listan. Mer information finns i artikeln om [miljöer](./how-to-use-environments.md#use-a-curated-environment).

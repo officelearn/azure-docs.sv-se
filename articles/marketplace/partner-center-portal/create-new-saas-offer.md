@@ -1,18 +1,18 @@
 ---
-title: Skapa ett nytt SaaS-erbjudande för Microsoft Commercial Marketplace
-description: Så här skapar du ett nytt SaaS-erbjudande (Software as a Service) för att lista eller sälja i Microsoft AppSource, Azure Marketplace eller via program varan för Cloud Solution Provider (CSP) med hjälp av Microsoft-programmet för kommersiella marknads platser i Microsoft Partner Center.
+title: Skapa ett SaaS-erbjudande, Azure Marketplace och Microsoft AppSource
+description: Så här skapar du ett SaaS-erbjudande (Software as a Service) för att visa eller sälja i Microsoft AppSource, Azure Marketplace eller via program varan för Cloud Solution Provider (CSP) med Microsoft Software-programmet för kommersiella marknads platser i Microsoft Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: a233f3594ace74a6bfeca90ffccfbcb233e5d890
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/22/2020
+ms.openlocfilehash: 2c5394dce503a6fa00e2a3e6ff73a683d3d2e76f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121901"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012101"
 ---
-# <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Skapa ett nytt SaaS-erbjudande på den kommersiella Marketplace
+# <a name="create-a-saas-offer"></a>Skapa ett SaaS-erbjudande
 
 Om du vill börja skapa SaaS-erbjudanden (program vara som en tjänst) i den kommersiella marknads platsen, måste du först [skapa ett partner Center-konto](./create-account.md) och öppna [instrument panelen för extern marknads](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)plats på fliken **Översikt** .
 
@@ -96,7 +96,7 @@ Detta är ett exempel på en uppdelning av kostnader och utbetalningar för att 
 - I det här exemplet har Microsoft fakturerar $100,00 till kunden för din program varu licens och ger ut $80,00 till utgivaren.
 
 > [!NOTE]
-> **Minskad service avgift för Marketplace** – för vissa SaaS-erbjudanden som du har publicerat på den kommersiella marknaden kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i Microsoft Publisher Agreement) till 10%. För dina erbjudanden som ska kvalificeras måste ditt erbjudande ha utsetts av Microsoft för att vara en prioriterad eller överordnad IP-adress för samtidig försäljning. Berättigande måste uppfyllas minst fem (5) arbets dagar före slutet av varje kalender månad för att ta emot den minskade service avgiften för Marketplace för månaden. Den minskade service avgiften för Marketplace gäller inte för virtuella datorer, hanterade appar eller andra produkter som görs tillgängliga via den kommersiella marknads platsen.
+> **Minskad service avgift för Marketplace** – för vissa SaaS-erbjudanden som du har publicerat på den kommersiella marknaden kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i Microsoft Publisher Agreement) till 10%. För dina erbjudanden som ska kvalificeras måste ditt erbjudande ha utsetts av Microsoft som Azure IP Co-Sälj-motiverade. Berättigande måste uppfyllas minst fem (5) arbets dagar före slutet av varje kalender månad för att ta emot den minskade service avgiften för Marketplace för månaden. Den minskade service avgiften för Marketplace gäller även för Azure IP Co-Sälj motiverade VM: ar, hanterade appar och andra kvalificerade IaaS-erbjudanden som görs tillgängliga via den kommersiella marknads platsen.
 
 ### <a name="list-through-microsoft"></a>Lista via Microsoft
 
@@ -137,7 +137,7 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 6. Sekretesspolicy
 7. Erbjudandets namn
 8. Sammanfattning
-9. Description
+9. Beskrivning
 10. Skärm bilder/videor
 11. Dokument
 
@@ -147,7 +147,7 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 
 #### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
-1. Titel
+1. Rubrik
 2. Beskrivning
 3. Användbara länkar
 4. Skärmbilder
@@ -260,7 +260,7 @@ Ange information som ska visas på Marketplace, inklusive beskrivningar av ditt 
 - **Sök Nyckelord** – ange upp till tre Sök nyckelord som kunder kan använda för att hitta ditt erbjudande på Marketplace.
 - **Komma igång-instruktioner** (krävs) – förklara hur du konfigurerar och börjar använda din app för potentiella kunder.  Den här snabb starten kan innehålla länkar till mer detaljerad onlinedokumentation. Upp till 3 000 tecken text kan anges i det här fältet.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Beskrivning
 
 Det här fältet är obligatoriskt.
 
@@ -331,14 +331,14 @@ Diagram och detaljerade förklaringar som beskriver användningen av de insamlad
 
 - **Landnings sidans URL** (krävs) – definiera SaaS-webbplats-URL: en (till exempel: `https://contoso.com/signup` ) som kunderna kommer att hamna på efter att ha skaffat ditt erbjudande från Marketplace och utlösa konfigurations processen från den nyligen skapade SaaS-prenumerationen.  URL: en kommer att anropas med parametern Marketplace Purchase Identification Identification som unikt identifierar den specifika kundens SaaS-köp.  Du måste byta denna token för motsvarande prenumerations information för SaaS med hjälp av [lösnings](./pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) -API: et.  Informationen och alla andra som du vill samla in bör användas som en del av en kundinteraktiv webb sida som skapats i din erfarenhet för att slutföra slut kund registreringen och aktivera köpet.  På den här sidan ska användaren registrera sig genom autentisering med ett klick genom att använda Azure Active Directory (Azure AD). <br> <br> Den här URL: en med parametern Marketplace för inköp av Marketplace kommer också att anropas när slutanvändaren startar hanterad SaaS-upplevelse från Azure Portal eller M365 administrations Center. Du bör hantera båda flödena när token tillhandahålls första gången efter köpet för nya kunder och när det tillhandahålls för befintlig kund hantering av sin SaaS. <br> <br> Landnings sidan du konfigurerar här bör vara igång 24/7. Detta är det enda sättet du får information om nya köp av dina SaaS-erbjudanden som görs i Marketplace, eller konfigurations förfrågningar för en aktiv prenumeration på ett erbjudande.
 
-- **Anslutning-webhook** (krävs) – för alla asynkrona händelser som Microsoft behöver skicka till dig (till exempel SaaS-prenumerationen har avbrutits) måste du ange en anslutning-webhook-URL. Vi kommer att anropa denna URL för att meddela dig om evenemanget. <br> <br> Webhooken som du tillhandahåller bör vara igång 24/7 eftersom det är det enda sättet som du kommer att få information om uppdateringar om dina kunders SaaS prenumerationer som köpts via Marketplace.  Om du inte redan har ett webhook-system på plats är den enklaste konfigurationen att ha en HTTP-slutpunkt som lyssnar efter händelser som publiceras till den och sedan hantera dem på rätt sätt (t. ex. `https://prod-1westus.logic.azure.com:443/work` ). Mer information finns i [anropa, utlösa eller kapsla arbets flöden med HTTP-slutpunkter i Logic Apps](../../logic-apps/logic-apps-http-endpoint.md).
+- **Anslutning-webhook** (krävs) – för alla asynkrona händelser som Microsoft behöver skicka till dig (till exempel SaaS-prenumerationen har avbrutits) måste du ange en anslutning-webhook-URL. Vi kommer att anropa denna URL för att meddela dig om evenemanget. <br> <br> Webhooken som du tillhandahåller bör vara igång 24/7 eftersom det är det enda sättet som du kommer att få information om uppdateringar om dina kunders SaaS prenumerationer som köpts via Marketplace. Om du inte redan har ett webhook-system på plats är den enklaste konfigurationen att ha en HTTP-slutpunkt som lyssnar efter händelser som publiceras till den och sedan hantera dem på rätt sätt (t. ex. `https://prod-1westus.logic.azure.com:443/work` ). Mer information finns i [anropa, utlösa eller kapsla arbets flöden med HTTP-slutpunkter i Logic Apps](../../logic-apps/logic-apps-http-endpoint.md).
 
 - **Azure AD-klient-ID** (krävs) – inuti Azure Portal behöver vi [skapa en Azure Active Directory (AD)-app](../../active-directory/develop/howto-create-service-principal-portal.md) så att vi kan verifiera anslutningen mellan våra två tjänster bakom en autentiserad kommunikation. Du hittar [klient-ID: t](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)) genom att gå till Azure Active Directory och välja **Egenskaper**och leta efter **katalog-ID** -numret i listan (till exempel 50c464d3-4930-494c-963c-1e951d15360e).
 
 - **Azure AD App-ID** (krävs) – du behöver också ditt [program-ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). Om du vill hämta värdet går du till din Azure Active Directory och väljer **Appregistreringar**och letar sedan efter det **program-ID-** nummer som anges (till exempel `50c464d3-4930-494c-963c-1e951d15360e` ).
 
 >[!Note]
->ID för Azure AD-App är kopplat till ditt utgivar-ID i ditt partner Center-konto.  Kontrol lera att samma program-ID används i alla dina erbjudanden.
+>ID för Azure AD-App är kopplat till ditt utgivar-ID i ditt partner Center-konto. Se till att du använder samma program-ID i alla dina erbjudanden.
 
 >[!Note]
 >Om utgivaren har två eller flera olika konton i Partner Center, ska två eller flera olika Azure AD App-ID: n användas, var och en av kontona. Varje partner konto i Partner Center bör använda unikt Azure AD App-ID för alla SaaS-erbjudanden som publiceras via det här kontot.
@@ -347,7 +347,7 @@ Välj **Spara utkast** innan du fortsätter.
 
 ## <a name="plan-overview"></a>Plan översikt
 
-På den här sidan kan du ange olika plan alternativ inom samma erbjudande. Dessa planer (kallas ibland SKU: er) kan variera beroende på version, monetarisering eller tjänst nivåer. Du måste konfigurera minst en plan för att kunna sälja ditt erbjudande i Marketplace.
+På den här sidan kan du ange olika plan alternativ inom samma erbjudande. Dessa planer (tidigare kallade SKU: er) kan variera beroende på version, monetarisering eller tjänst nivåer. Du måste konfigurera minst en plan för att sälja ditt erbjudande i Marketplace.
 
 När du har skapat dina prenumerations namn, ID: n, pris modeller, tillgänglighet (offentlig eller privat), aktuell publicerings status och alla tillgängliga åtgärder.
 
@@ -380,7 +380,7 @@ På den här sidan kan du konfigurera de marknader som planen kommer att vara ti
 
 #### <a name="markets-optional"></a>Marknader (valfritt)
 
-Varje plan måste vara tillgänglig på minst en marknad. Välj **Redigera marknader** och markera kryss rutan för alla marknads platser där du vill göra den här planen tillgänglig. Den här sidan innehåller en sökruta och ett alternativ för att välja "skatte mottagare"-länder/-regioner där Microsoft betalar försäljnings-och användnings skatt för din räkning.
+Varje plan måste vara tillgänglig på minst en marknad. Välj **Redigera marknader** och markera kryss rutan för alla marknads platser där du vill göra den här planen tillgänglig. Den här sidan innehåller en sökruta och ett alternativ för att välja ["skatte mottagare"-länder/-regioner](tax-details-paid-transactions.md)där Microsoft betalar försäljnings-och användnings skatt för din räkning.
 
 Om du redan har angett priser för din plan i USA dollar (USD) och lagt till en annan marknads plats kommer priset för den nya marknaden att beräknas enligt de aktuella växelkurserna. Granska priset för varje marknad innan du publicerar. Visa priser med hjälp av länken "export priser (xlsx)" när du har sparat ändringarna.
 
@@ -413,7 +413,7 @@ Granska dina priser noggrant innan du publicerar, eftersom det finns vissa begr�
 - När en fakturerings period har publicerats för en plan kan du inte ta bort den senare.
 - När ett pris för en marknad i planen har publicerats kan det inte ändras senare.
 
-#### <a name="free-trial"></a>Kostnadsfri utvärderingsversion
+#### <a name="free-trial"></a>Kostnadsfri utvärdering
 
 Med SaaS erbjudanden via den kommersiella Marketplace kan du tillhandahålla en månads kostnads fri utvärderings version när du säljer via Microsoft. För alla fakturerings modeller och villkor förutom mätnings planer stöds kostnads fria utvärderings versioner. Med det här alternativet kan kunder ha en låg barriär för att komma in genom en månads kostnads fri åtkomst.  Om du väljer att aktivera en kostnads fri utvärderings version för planer i ditt erbjudande kan kunden inte konvertera till en betald prenumeration innan den första en månads period slutar att gälla.  Under den här tiden kan kunder som köper erbjudandet prova över de planer som stöds och som har den kostnads fria utvärderings versionen aktive rad och konvertera mellan dem.  Konverteringen till en betald prenumeration görs automatiskt i slutet av perioden.
 
@@ -444,7 +444,7 @@ Välj **det här är en privat plan** för att göra din plan privat och endast 
 
 Tilldela den mål grupp som ska ha åtkomst till den här privata planen. Åtkomst tilldelas med klient-ID: n med alternativet att inkludera en beskrivning av varje tilldelad klient-ID. Högst 10 klient-ID: n kan läggas till, eller 20 000 kunders klient-ID om du importerar en. csv-kalkylbladsfilen.
 
-En klient organisation är en representation av en organisation med ett ID som representeras som GUID (globalt unik identifierare, ett 128-bitars heltal som används för att identifiera resurser). Det är en dedikerad instans av Azure AD som en organisation eller app-utvecklare får när organisationen eller appens utvecklare skapar en relation med Microsoft, till exempel när du registrerar dig för Azure, Microsoft Intune eller Microsoft 365. Varje Azure AD-klient är unik och avgränsad från andra Azure AD-klienter. Om du vill kontrollera klientorganisationen loggar du in på Azure-portalen med det konto du vill använda för att hantera din app. Om du har en klient kommer du automatiskt att loggas in och kan se klientorganisationens namn direkt under namnet på ditt konto. Hovra över ditt kontonamn längst upp till höger i Azure-portalen så visas namn, e-post, katalog/klient-ID (ett GUID) och domän. Om ditt konto är kopplat till flera klienter måste du välja namnet på ditt konto för att öppna en meny där du kan växla mellan klienter. Varje klient har sitt eget klient-ID. Du kan också leta upp organisationens klient-ID med en domän namns-URL på [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
+En klient organisation är en representation av en organisation med ett ID som representeras som GUID (globalt unik identifierare, ett 128-bitars heltal som används för att identifiera resurser). Det är en dedikerad instans av Azure AD som en organisation eller app-utvecklare får när organisationen eller appens utvecklare skapar en relation med Microsoft, till exempel när du registrerar dig för Azure, Microsoft Intune eller Microsoft 365. Varje klientorganisation i Azure AD är separat och åtskild från andra klientorganisationer i Azure AD. Om du vill kontrollera klientorganisationen loggar du in på Azure-portalen med det konto du vill använda för att hantera din app. Om du har en klient kommer du automatiskt att loggas in och kan se klientorganisationens namn direkt under namnet på ditt konto. Hovra över ditt kontonamn längst upp till höger i Azure-portalen så visas namn, e-post, katalog/klient-ID (ett GUID) och domän. Om ditt konto är kopplat till flera klienter måste du välja namnet på ditt konto för att öppna en meny där du kan växla mellan klienter. Varje klient har sitt eget klient-ID. Du kan också leta upp organisationens klient-ID med en domän namns-URL på [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 
 Även om SaaS-erbjudanden använder klient-ID: n för att definiera en privat mål grupp kan andra erbjudande typer använda Azures prenumerations-ID (som också visas som GUID).
 

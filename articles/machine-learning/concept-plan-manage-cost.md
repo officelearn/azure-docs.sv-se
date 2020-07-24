@@ -10,11 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: ae1beeebfddfe250ae20a70c3e78ec32774218d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fc9a1a1c3a08f0530649ae64926c673e2d666e0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82996329"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012696"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planera och hantera kostnader för Azure Machine Learning
 
@@ -80,7 +81,7 @@ AmlCompute-kluster har utformats för att skalas dynamiskt baserat på din arbet
 
 Du kan också konfigurera hur lång tid noden är inaktiv innan den skalas ned. Som standard är inaktiv tid före nedskalning inställd på 120 sekunder.
 
-+ Om du utför mindre iterativ experimentering bör du minska den här tiden för att spara kostnaderna. 
++ Om du utför mindre iterativ experimentering bör du minska den här tiden för att spara kostnaderna.
 + Om du utför en mycket iterativ utveckling/testning experimentering kan du behöva öka tiden så att du inte betalar för kontinuerlig skalning upp och ned efter varje ändring i ditt utbildnings skript eller miljö.
 
 AmlCompute-kluster kan konfigureras för att ändra arbets belastnings kraven i Azure Portal med hjälp av [AMLCOMPUTE SDK-klassen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py), [AmlCompute CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)med [REST-API: er](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
@@ -106,33 +107,15 @@ Här följer några alternativ som du har:
 * För [justering](how-to-tune-hyperparameters.md#early-termination)av den här inställningen definierar du en princip för tidig avslutning från en bandit-princip, en princip för att stoppa en median eller en princip för avtrunkering. Om du vill kontrol lera om det finns ytterligare kontroller av de flesta parametrar använder du parametrar som `max_total_runs` eller `max_duration_minutes` .
 * För [Automatisk maskin inlärning](how-to-configure-auto-train.md#exit)ställer du in liknande avslutnings principer med hjälp av `enable_early_stopping` flaggan. Använd också egenskaper som `iteration_timeout_minutes` och `experiment_timeout_minutes` för att kontrol lera maximal varaktighet för en körning eller för hela experimentet.
 
-## <a name="use-low-priority-vms"></a>Använda lågprioriterade virtuella datorer
+## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a>Använd virtuella datorer med låg prioritet
 
 Med Azure kan du använda outnyttjad kapacitet för virtuella datorer med låg prioritet över virtuella datorers skalnings uppsättningar, batch och tjänsten Machine Learning. Dessa allokeringar är emptible men kommer till ett reducerat pris jämfört med dedikerade virtuella datorer. I allmänhet rekommenderar vi att du använder virtuella datorer med låg prioritet för batch-arbetsbelastningar. Du bör också använda dem där avbrott kan återskapas antingen via omsändningar (för batch-Inferencing) eller genom omstarter (för djup inlärnings utbildning med kontroll punkt).
 
 Virtuella datorer med låg prioritet har en enda kvot som är separat från det dedikerade kvot svärdet, som ingår i VM-serien. Läs [mer om AmlCompute-kvoter](how-to-manage-quotas.md).
 
-Ange prioritet för din virtuella dator på något av följande sätt:
+ Virtuella datorer med låg prioritet fungerar inte för beräknings instanser eftersom de behöver stöd för interaktiva Notebook-upplevelser.
 
-* I Studio väljer du **låg prioritet** när du skapar en virtuell dator.
-
-* Med python SDK anger du `vm_priority` attributet i etablerings konfigurationen.  
-
-    ```python
-    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
-                                                               vm_priority='lowpriority',
-                                                               max_nodes=4)
-    ```
-
-* Använd CLI och ange `vm-priority` :
-
-    ```azurecli-interactive
-    az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority
-    ```
-
- Virtuella datorer med låg prioritet fungerar inte för beräknings instanser eftersom de behöver stöd för interaktiva Notebook-upplevelser. 
-
-## <a name="use-reserved-instances"></a>Använd reserverade instanser
+## <a name="use-reserved-instances"></a>Använda reserverade instanser
 
 Ett annat sätt att spara pengar på beräknings resurser är Azure reserverad VM-instans. Med detta erbjudande genomför du ett år eller tre års villkor. Dessa rabatter är upp till 72% av priserna för betala per användning och tillämpas direkt på din månatliga Azure-faktura.
 
@@ -143,5 +126,5 @@ Azure Machine Learning Compute har stöd för reserverade instanser. Om du köpe
 
 Läs mer om:
 * [Hantera och öka resurs kvoter](how-to-manage-quotas.md)
-* [Hantera kostnader med [kostnads analys](../cost-management-billing/costs/quick-acm-cost-analysis.md).
+* [Hantera kostnader med kostnads analys](../cost-management-billing/costs/quick-acm-cost-analysis.md).
 * [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute).

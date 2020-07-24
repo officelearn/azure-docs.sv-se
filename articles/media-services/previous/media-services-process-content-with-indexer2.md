@@ -14,16 +14,17 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
-ms.openlocfilehash: c24218dc116803ca0e0a1f166b7b54b24fc4d5ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4589e2e923bf4068cc3a707c69f0304a1539745
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78163802"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011557"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexera mediefiler med Azure Media Indexer 2 för hands version
 
 > [!NOTE]
-> **Azure Media Indexer 2** medie processorn kommer att dras tillbaka. Se det här avsnittet om [äldre komponenter](legacy-components.md) för datum för indragningen. [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) ersätter denna äldre medie processor. Mer information finns i [Migrera från Azure Media Indexer och Azure Media Indexer 2 till Azure Media Services video Indexer](migrate-indexer-v1-v2.md).
+> **Azure Media Indexer 2** medie processorn kommer att dras tillbaka. Se det här avsnittet om [äldre komponenter](legacy-components.md) för datum för indragningen. [Azure Media Services video Indexer](../video-indexer/index.yml) ersätter denna äldre medie processor. Mer information finns i [Migrera från Azure Media Indexer och Azure Media Indexer 2 till Azure Media Services video Indexer](migrate-indexer-v1-v2.md).
 
 Med den **Azure Media Indexer 2-förhands gransknings** medie processorn (MP) kan du göra mediefiler och innehåll sökbara, samt generera dold textning spår. Jämfört med den tidigare versionen av [Azure Media Indexer](media-services-index-content.md)utför **Azure Media Indexer 2 för hands** versionen snabbare indexering och erbjuder bredare språk stöd. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (mandariner, förenklad), portugisiska, arabiska, ryska och japanska.
 
@@ -31,7 +32,7 @@ Med den **Azure Media Indexer 2-förhands gransknings** medie processorn (MP) ka
 
 Den här artikeln visar hur du skapar indexerings jobb med **Azure Media Indexer 2 Preview**.
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 Följande gäller:
  
@@ -300,4 +301,3 @@ namespace IndexContent
 [Översikt över Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Azure-medieanalys demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-

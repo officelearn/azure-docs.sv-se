@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: c414087270558e21340e50114c0563ff7e50064c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15c3f3994b9d519a4144fa2c2e1418e92cdbd6ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80282315"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012414"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Maskin inlärnings-och data vetenskaps verktyg i Azure Data Science Virtual Machines
 Azure Data Science Virtual Machines (Dsvm) har en omfattande uppsättning verktyg och bibliotek för maskin inlärning som är tillgängligt på populära språk, till exempel python, R och Julia.
@@ -26,9 +26,9 @@ Här följer några av verktygen och biblioteken för maskin inlärning på Dsvm
 
 Se den fullständiga referensen för [Azure Machine Learning SDK för python](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   |   Azure Machine Learning är en moln tjänst som du kan använda för att utveckla och distribuera maskin inlärnings modeller. Du kan spåra dina modeller när du skapar, tränar, skalar och hanterar dem med hjälp av python SDK. Distribuera modeller som behållare och kör dem i molnet, lokalt eller på Azure IoT Edge.   |
+| Vad är det?   |   Azure Machine Learning är en moln tjänst som du kan använda för att utveckla och distribuera maskin inlärnings modeller. Du kan spåra dina modeller när du skapar, tränar, skalar och hanterar dem med hjälp av python SDK. Distribuera modeller som behållare och kör dem i molnet, lokalt eller på Azure IoT Edge.   |
 | Versioner som stöds     | Windows (Conda-miljö: AzureML), Linux (Conda-miljö: py36)    |
 | Vanliga användnings områden      | Allmän plattform för maskin inlärning      |
 | Hur konfigureras den eller installeras?      |  Installerat med GPU-stöd   |
@@ -38,9 +38,9 @@ Se den fullständiga referensen för [Azure Machine Learning SDK för python](ht
 
 ## <a name="h2o"></a>H2O
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   | En AI-plattform med öppen källkod som har stöd för minnes intern, distribuerad, snabb och skalbar maskin inlärning.  |
+| Vad är det?   | En AI-plattform med öppen källkod som har stöd för minnes intern, distribuerad, snabb och skalbar maskin inlärning.  |
 | Versioner som stöds      | Linux   |
 | Vanliga användnings områden      | Allmänt distribuerad, skalbar maskin inlärning   |
 | Hur konfigureras den eller installeras?      | H2O installeras i `/dsvm/tools/h2o` .      |
@@ -52,9 +52,9 @@ Det finns flera andra maskin inlärnings bibliotek på Dsvm, till exempel det po
 
 ## <a name="lightgbm"></a>LightGBM
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   | En snabb, distribuerad, högpresterande gradient-förstärkning (GBDT, GBRT, GBM eller MART) som baseras på algoritmer för besluts träd. Den används för rankning, klassificering och många andra uppgifter för maskin inlärning.    |
+| Vad är det?   | En snabb, distribuerad, högpresterande gradient-förstärkning (GBDT, GBRT, GBM eller MART) som baseras på algoritmer för besluts träd. Den används för rankning, klassificering och många andra uppgifter för maskin inlärning.    |
 | Versioner som stöds      | Windows, Linux    |
 | Vanliga användnings områden      | Generell användnings ramverk för tonings förstärkning      |
 | Hur konfigureras den eller installeras?      | I Windows installeras LightGBM som ett python-paket. På Linux är den körbara filen i `/opt/LightGBM/lightgbm` , R-paketet installerat och python-paket installeras.     |
@@ -62,9 +62,9 @@ Det finns flera andra maskin inlärnings bibliotek på Dsvm, till exempel det po
 | Relaterade verktyg      | MXNet, XgBoost  |
 
 ## <a name="rattle"></a>Rattle
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   |   Ett grafiskt användar gränssnitt för Data utvinning med hjälp av R.   |
+| Vad är det?   |   Ett grafiskt användar gränssnitt för Data utvinning med hjälp av R.   |
 | Versioner som stöds     | Windows, Linux     |
 | Vanliga användnings områden      | Allmänna GRÄNSSNITTs data utvinnings verktyg för R    |
 | Använda eller köra det      | Som ett UI-verktyg. Starta en kommando tolk i Windows, kör R och sedan i R, kör `rattle()` . I Linux ansluter du till X2Go, startar en Terminal, kör R och sedan i R, kör `rattle()` . |
@@ -72,9 +72,9 @@ Det finns flera andra maskin inlärnings bibliotek på Dsvm, till exempel det po
 | Relaterade verktyg      |LightGBM, Wekas, XGBoost   |
 
 ## <a name="vowpal-wabbit"></a>Vowpal Wabbit
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   |   Ett snabbt och enkelt utbildnings system bibliotek med öppen källkod    |
+| Vad är det?   |   Ett snabbt och enkelt utbildnings system bibliotek med öppen källkod    |
 | Versioner som stöds     | Windows, Linux     |
 | Vanliga användnings områden      | Allmänt maskin inlärnings bibliotek      |
 | Hur konfigureras den eller installeras?      |  Windows: MSI installations program<br/>Linux: apt-get |
@@ -84,9 +84,9 @@ Det finns flera andra maskin inlärnings bibliotek på Dsvm, till exempel det po
 
 
 ## <a name="weka"></a>Weka
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   |  En samling Machine Learning-algoritmer för data utvinnings aktiviteter. Algoritmerna kan antingen appliceras direkt på en data uppsättning eller anropas från din egen Java-kod. Wekas innehåller verktyg för för bearbetning av data, klassificering, regression, klustring, associerings regler och visualisering. |
+| Vad är det?   |  En samling Machine Learning-algoritmer för data utvinnings aktiviteter. Algoritmerna kan antingen appliceras direkt på en data uppsättning eller anropas från din egen Java-kod. Wekas innehåller verktyg för för bearbetning av data, klassificering, regression, klustring, associerings regler och visualisering. |
 | Versioner som stöds     | Windows, Linux     |
 | Vanliga användnings områden      | Allmänt verktyg för maskin inlärning     |
 | Använda eller köra det      | I Windows söker du efter Wekas på **Start** menyn. Logga in med X2Go i Linux och gå sedan till **program**  >  **utvecklings**  >  **wekas**. |
@@ -94,9 +94,9 @@ Det finns flera andra maskin inlärnings bibliotek på Dsvm, till exempel det po
 | Relaterade verktyg      |LightGBM, Rattle, XGBoost   |
 
 ## <a name="xgboost"></a>XGBoost 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   |   Ett snabb, portabelt och distribuerat GBDT-bibliotek (, GBRT eller GBM) för python, R, Java, Scala, C++ med mera. Den körs på en enskild dator och på Apache Hadoop och Spark.    |
+| Vad är det?   |   Ett snabb, portabelt och distribuerat GBDT-bibliotek (, GBRT eller GBM) för python, R, Java, Scala, C++ med mera. Den körs på en enskild dator och på Apache Hadoop och Spark.    |
 | Versioner som stöds     | Windows, Linux     |
 | Vanliga användnings områden      | Allmänt maskin inlärnings bibliotek      |
 | Hur konfigureras den eller installeras?      |  Installerat med GPU-stöd   |
@@ -105,9 +105,9 @@ Det finns flera andra maskin inlärnings bibliotek på Dsvm, till exempel det po
 | Relaterade verktyg      | LightGBM, MXNet   |
 
 ## <a name="apache-drill"></a>Apache Drill
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   | SQL-frågemotor med öppen källkod på Big data    |
+| Vad är det?   | SQL-frågemotor med öppen källkod på Big data    |
 | DSVM-versioner som stöds      | Windows 2019, Linux  |
 | Hur konfigureras den och installeras på DSVM?      |  Endast installerat i `/dsvm/tools/drill*` inbäddat läge   |
 | Vanliga användnings områden      |  För data utforskning på plats utan att behöva extrahera, transformera, läsa in (ETL). Fråga olika data källor och format, inklusive CSV, JSON, Relations tabeller och Hadoop.     |

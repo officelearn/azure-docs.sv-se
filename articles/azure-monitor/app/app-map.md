@@ -4,15 +4,16 @@ description: Övervaka komplexa programtopologier med program kartan
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 7c5c9173704535b1e34ffde5867bd512e3e02ed8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f9f19ea9370b9da3e69d871e8b53ccf7f64a6a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80989535"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008514"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Program karta: prioritering distribuerade program
 
-Med program kartan kan du upptäcka Flask halsar i prestanda eller felaktiga hotspots i alla komponenter i det distribuerade programmet. Varje nod på kartan representerar en program komponent eller dess beroenden. och har hälso-KPI och aviserings status. Du kan klicka dig igenom från valfri komponent till mer detaljerad diagnostik, till exempel Application Insights händelser. Om din app använder Azure-tjänster kan du också klicka dig till Azure Diagnostics, till exempel SQL Database Advisor rekommendationer.
+Med en programkarta kan du lätt identifiera flaskhalsar i prestanda eller felpunkter i alla komponenter i ditt distribuerade program. Varje nod på kartan representerar en program komponent eller dess beroenden. och har hälso-KPI och aviserings status. Du kan klicka dig igenom från valfri komponent till mer detaljerad diagnostik, till exempel Application Insights händelser. Om din app använder Azure-tjänster kan du också klicka dig till Azure Diagnostics, till exempel SQL Database Advisor rekommendationer.
 
 ## <a name="what-is-a-component"></a>Vad är en komponent?
 
@@ -156,7 +157,7 @@ Om du vill [ASP.net Core](asp-net-core.md#adding-telemetryinitializers) program 
 
 **Java-agent**
 
-För [Java-agent 3,0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) anges moln roll namnet enligt följande:
+För [Java-agent 3,0](./java-in-process-agent.md) anges moln roll namnet enligt följande:
 
 ```json
 {
@@ -258,15 +259,15 @@ Om du har problem med att få program kartan att fungera som förväntat kan du 
 
 1. Kontrollera att du använder en SDK som stöds officiellt. SDK:er som inte stöds eller community-SDK:er har kanske inte stöd för korrelation.
 
-    I den här [artikeln](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) hittar du en lista över SDK: er som stöds.
+    I den här [artikeln](./platforms.md) finns en lista över SDK:er som stöds.
 
 2. Uppgradera alla komponenter till den senaste SDK-versionen.
 
-3. Om du använder Azure Functions med C# uppgraderar du till [Functions v2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+3. Om du använder Azure Functions med C# uppgraderar du till [Functions v2](../../azure-functions/functions-versions.md).
 
 4. Bekräfta att [namnet på moln rollen](#set-cloud-role-name) har kon figurer ATS korrekt.
 
-5. Om du saknar ett beroende kontrollerar du att det finns i listan över [automatiskt insamlade beroenden](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Om inte så kan du ändå spåra det manuellt med ett [beroendespårningsanrop](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+5. Om du saknar ett beroende kontrollerar du att det finns i listan över [automatiskt insamlade beroenden](./auto-collect-dependencies.md). Om inte så kan du ändå spåra det manuellt med ett [beroendespårningsanrop](./api-custom-events-metrics.md#trackdependency).
 
 ### <a name="too-many-nodes-on-the-map"></a>För många noder på kartan
 
@@ -280,7 +281,7 @@ För att åtgärda detta måste du ändra Instrumentation till rätt sätt i fä
 
 * Beroende typen ska representera den logiska typen för ett beroende. Till exempel är HTTP, SQL eller Azure Blob typiska beroende typer. Det får inte innehålla unika ID: n.
 
-* Syftet med namnet på moln rollen beskrivs i [avsnittet ovan](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
+* Syftet med namnet på moln rollen beskrivs i [avsnittet ovan](#set-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Portal feedback
 

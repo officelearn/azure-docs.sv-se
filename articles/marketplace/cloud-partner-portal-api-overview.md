@@ -3,19 +3,21 @@ title: Cloud Partner Portal API-referens – Microsoft Commercial Marketplace
 description: Beskrivning av, krav som ska användas och lista över Marketplace API-åtgärder.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: 56594b41bd0b771d0cb9a2f49611d9b6c6d393db
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: reference
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 51c8b91ccf85087f965d632dee9296076aba0d86
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113589"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011966"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>API-referens för Cloud Partner Portal
 
 > [!NOTE]
-> Cloud Partner Portal API: er är integrerade med partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. I integrationen presenteras små ändringar. Granska [ändringarna i cpp-API: erna](#changes-to-cpp-apis-after-the-migration-to-partner-center) som anges i det här dokumentet för att se till att koden fortsätter att fungera efter migreringen till Partner Center.
+> Cloud Partner Portal API: er är integrerade i och fortsätter att fungera i Partner Center. Över gången introducerar små ändringar. Granska [ändringarna i cpp-API: erna](#changes-to-cpp-apis-after-the-migration-to-partner-center) som anges i det här dokumentet för att se till att koden fortsätter att fungera efter över gången till Partner Center. CPP-API: er bör endast användas för befintliga produkter som redan har integrerats före över gången till Partner Center. nya produkter bör använda API: er för överföring av Partner Center.
 
 Cloud Partner Portal REST-API: er tillåter programmerings hämtning och manipulering av arbets belastningar, erbjudanden och utgivar profiler. API: erna använder rollbaserad åtkomst kontroll (RBAC) för att genomdriva korrekta behörigheter vid bearbetnings tiden.
 
@@ -48,7 +50,7 @@ Denna referens information innehåller API: er för att utföra följande vanlig
 - [Skapa ett erbjudande](./cloud-partner-portal-api-creating-offer.md)
 - [Publicera ett erbjudande](./cloud-partner-portal-api-publish-offer.md)
 
-### <a name="operations"></a>Operations
+### <a name="operations"></a>Åtgärder
 
 - [Hämta åtgärder](./cloud-partner-portal-api-retrieve-operations.md)
 - [Avbryt åtgärder](./cloud-partner-portal-api-cancel-operations.md)

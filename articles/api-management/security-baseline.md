@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b5640a42c0fdcb0bd958011db28c19854b16a547
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4e951b7eb2d3d5e49ab80af2604d5b44565dd25e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252767"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008548"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Azures säkerhets bas linje för API Management
 
@@ -640,7 +640,7 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomsten till Azure API Management. Azure API Management förlitar sig på Azure rollbaserad Access Control (RBAC) för att möjliggöra detaljerad åtkomst hantering för API Management tjänster och entiteter (t. ex. API: er och principer).
+**Vägledning**: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomsten till Azure API Management. Azure API Management förlitar sig på Azure rollbaserad åtkomst kontroll (Azure RBAC) för att möjliggöra detaljerad åtkomst hantering för API Management tjänster och entiteter (t. ex. API: er och principer).
 
 * [Så här använder du rollbaserad åtkomstkontroll i Azure API Management](./api-management-role-based-access-control.md)
 

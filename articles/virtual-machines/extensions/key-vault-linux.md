@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f209a8b1d7ba5ab4fc213e43d56c04aebc3bd410
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: d2deb59b5a10177b1a6e57046c013ec9dac0fb06
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224272"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010809"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault tillägg för virtuell dator för Linux
 
@@ -35,7 +35,7 @@ Key Vault VM-tillägget stöder dessa Linux-distributioner:
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver inte skyddade inställningar. alla dess inställningar betraktas som information utan att säkerheten påverkas. Tillägget kräver en lista över övervakade hemligheter, avsöknings frekvens och mål certifikat arkivet. Specifikt:  
+Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver inte skyddade inställningar. alla dess inställningar betraktas som information utan att säkerheten påverkas. Tillägget kräver en lista över övervakade hemligheter, avsöknings frekvens och mål certifikat arkivet. Tänk särskilt på att:  
 ```json
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -71,7 +71,7 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 > [!NOTE]
 > URL: er för dina observerade certifikat bör ha formatet `https://myVaultName.vault.azure.net/secrets/myCertName` .
 > 
-> Detta beror på att `/secrets` sökvägen returnerar det fullständiga certifikatet, inklusive den privata nyckeln, medan `/certificates` sökvägen inte fungerar. Mer information om certifikat hittar du här: [Key Vault certifikat](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Detta beror på att `/secrets` sökvägen returnerar det fullständiga certifikatet, inklusive den privata nyckeln, medan `/certificates` sökvägen inte fungerar. Mer information om certifikat hittar du här: [Key Vault certifikat](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!NOTE]
 > Egenskapen "authenticationSettings" är valfri för scenarier när den virtuella datorn har flera tilldelade identiteter.
@@ -85,7 +85,7 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 | apiVersion | 2019-07-01 | date |
 | utgivare | Microsoft.Azure.KeyVault | sträng |
 | typ | KeyVaultForLinux | sträng |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1,0 | int |
 | pollingIntervalInS | 3600 | sträng |
 | Certifikat Arkiv | Den ignoreras i Linux | sträng |
 | linkOnRenewal | falskt | boolean |
@@ -204,12 +204,12 @@ Azure CLI kan användas för att distribuera Key Vault VM-tillägget till en bef
 Observera följande begränsningar/krav:
 - Key Vault begränsningar:
   - Det måste finnas vid tidpunkten för distributionen 
-  - Key Vault åtkomst princip mustbe angetts för VM/VMSS-identitet med hjälp av en hanterad identitet. Se [tillhandahålla Key Vault autentisering med en hanterad identitet](../../key-vault/managed-identity.md)
+  - Key Vault åtkomst princip mustbe angetts för VM/VMSS-identitet med hjälp av en hanterad identitet. Se [tillhandahålla Key Vault autentisering med en hanterad identitet](../../key-vault/general/managed-identity.md)
 
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsöka
+### <a name="troubleshoot"></a>Felsök
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och genom att använda Azure PowerShell. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure PowerShell.
 

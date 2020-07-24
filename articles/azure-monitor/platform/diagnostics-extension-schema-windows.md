@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: e078f81db75dd6b89a65ff2d00bb2805ea912d0d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d2b1afea746410e966b43bef01a039a8471d4ae7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249146"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007936"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Windows Diagnostics-tilläggsprogram schema
 Azure-diagnostik tillägget är en agent i Azure Monitor som samlar in övervaknings data från gäst operativ systemet och arbets belastningar i Azure Compute-resurser. Den här artikeln beskriver det schema som används för konfiguration av Diagnostics-tillägget på virtuella Windows-datorer och andra beräknings resurser.
@@ -70,7 +70,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 ## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration-element
  *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration*
 
- Krävs
+ Obligatorisk
 
 |Attribut|Beskrivning|  
 |----------------|-----------------|  
@@ -157,7 +157,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Konfigurerar insamling av händelser som genereras från [EventSource-klassen](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Nödvändigt attribut:<br /><br /> **Provider** – klass namnet för EventSource-händelsen.<br /><br /> Valfria attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** – den minsta allvarlighets grad som ska överföras till ditt lagrings konto.<br /><br /> - **scheduledTransferPeriod** – intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [data typ för XML-varaktighet.](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**EtwEventSourceProviderConfiguration**|Konfigurerar insamling av händelser som genereras från [EventSource-klassen](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1). Nödvändigt attribut:<br /><br /> **Provider** – klass namnet för EventSource-händelsen.<br /><br /> Valfria attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** – den minsta allvarlighets grad som ska överföras till ditt lagrings konto.<br /><br /> - **scheduledTransferPeriod** – intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [data typ för XML-varaktighet.](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 |**EtwManifestProviderConfiguration**|Nödvändigt attribut:<br /><br /> **Provider** – GUID för händelse leverantören<br /><br /> Valfria attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** – den minsta allvarlighets grad som ska överföras till ditt lagrings konto.<br /><br /> - **scheduledTransferPeriod** – intervallet mellan schemalagda överföringar till lagring avrundat uppåt till närmaste minut. Värdet är en [data typ för XML-varaktighet.](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
 
@@ -165,7 +165,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration-element  
  *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-EtwProviders-EtwEventSourceProviderConfiguration*
 
- Konfigurerar insamling av händelser som genereras från [EventSource-klassen](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
+ Konfigurerar insamling av händelser som genereras från [EventSource-klassen](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1).  
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
@@ -208,7 +208,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 
 |Underordnat element|Beskrivning|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|Följande attribut krävs:<br /><br /> - **counterSpecifier** – namnet på prestanda räknaren. Ett exempel är `\Processor(_Total)\% Processor Time`. Om du vill hämta en lista över prestanda räknare på värden kör du kommandot `typeperf` .<br /><br /> - **sampleRate** – hur ofta räknaren ska samplas.<br /><br /> Valfritt attribut:<br /><br /> **enhet** – enhets måttet för räknaren. Värdena är tillgängliga i [UnitType-klassen](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
+|**PerformanceCounterConfiguration**|Följande attribut krävs:<br /><br /> - **counterSpecifier** – namnet på prestanda räknaren. Till exempel `\Processor(_Total)\% Processor Time`. Om du vill hämta en lista över prestanda räknare på värden kör du kommandot `typeperf` .<br /><br /> - **sampleRate** – hur ofta räknaren ska samplas.<br /><br /> Valfritt attribut:<br /><br /> **enhet** – enhets måttet för räknaren. Värdena är tillgängliga i [UnitType-klassen](/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
 |**mottagare** | Tillagt i 1,5. Valfritt. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Azure Monitor eller Event Hubs. Observera att du måste lägga till egenskapen *resourceId* under *mått* elementet om du vill att händelser som laddats upp till Event Hubs har ett resurs-ID.|    
 
 
@@ -239,7 +239,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 |**bufferQuotaInMB**|**unsignedInt**|Valfritt. Anger den maximala mängden fil system lagring som är tillgänglig för angivna data.<br /><br /> Standardvärdet är 0.|  
 |**scheduledTransferLogLevelFilter**|**nollängd**|Valfritt. Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
 |**scheduledTransferPeriod**|**giltighet**|Valfritt. Anger intervallet mellan schemalagda data överföringar, avrundade uppåt till närmaste minut.<br /><br /> Standardvärdet är PT0S.|  
-|**mottagare** |**nollängd**| Tillagt i 1,5. Valfritt. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Application Insights eller Event Hubs. Observera att du måste lägga till egenskapen *resourceId* under *mått* elementet om du vill att händelser som laddats upp till Event Hubs har ett resurs-ID.|  
+|**mottagare** |**sträng**| Tillagt i 1,5. Valfritt. Pekar på en mottagar plats för att även skicka diagnostikdata. Till exempel Application Insights eller Event Hubs. Observera att du måste lägga till egenskapen *resourceId* under *mått* elementet om du vill att händelser som laddats upp till Event Hubs har ett resurs-ID.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Träd: rot-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-DockerSources*
@@ -284,7 +284,7 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 
 |Element|Typ|Beskrivning|  
 |-------------|----------|-----------------|  
-|**Kanal**|sträng|Se beskrivningen på en annan plats på den här sidan.|  
+|**Kanalig**|sträng|Se beskrivningen på en annan plats på den här sidan.|  
 
 ## <a name="channel-element"></a>Kanal element
  *Träd: root-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig-Sink-Channels-Channel*
@@ -295,8 +295,8 @@ Elementet på den översta nivån i konfigurations filen för diagnostik.
 
 |Attribut|Typ|Beskrivning|  
 |----------------|----------|-----------------|  
-|**logLevel**|**nollängd**|Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
-|**Namn**|**nollängd**|Ett unikt namn på den kanal som ska referera till|  
+|**logLevel**|**sträng**|Anger den lägsta allvarlighets graden för logg poster som överförs. Standardvärdet är **odefinierat**, vilket överför alla loggar. Andra möjliga värden (i högst minst information) är **utförlig**, **information**, **Varning**, **fel**och **kritisk**.|  
+|**Namn**|**sträng**|Ett unikt namn på den kanal som ska referera till|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig-element

@@ -7,11 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5477eea12ee41bae42365555e38aa95ca0faeb3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 318656a779aa5ba2279f075fcc44589fe2039682
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987102"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009500"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av PowerShell
 
@@ -20,7 +21,7 @@ Den här artikeln hjälper dig ansluta virtuella nätverk via VNet-till-VNet-ans
 Anvisningarna i den här artikeln gäller för Resource Manager-distributionsmodellen och användning av PowerShell. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure-portalen](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -80,7 +81,7 @@ För den här övningen kan du kombinera konfigurationer eller bara välja den d
 
 * Eftersom det tar upp till 45 minuter att skapa en gateway, kan Azure Cloud Shell tids gräns under den här övningen. Du kan starta om Cloud Shell genom att klicka längst upp till vänster i terminalen. Se till att omdeklarera eventuella variabler när du startar om terminalen.
 
-* Om du hellre vill installera den senaste versionen av modulen Azure PowerShell lokalt, se [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
+* Om du hellre vill installera den senaste versionen av modulen Azure PowerShell lokalt, se [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/).
 
 ### <a name="step-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>Steg 1 – Planera dina IP-adressintervall
 

@@ -9,18 +9,18 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: caa8e928a10deb3d6d97e601c607074c09e0572e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 681bd0aff909552531d682186d5b22dce5ef33f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223524"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010775"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>För hands version: skapa en avbildning från en virtuell dator
 
 Om du har en befintlig virtuell dator som du vill använda för att göra flera identiska virtuella datorer kan du använda den virtuella datorn för att skapa en avbildning i ett delat avbildnings galleri med hjälp av Azure PowerShell. Du kan också skapa en avbildning från en virtuell dator med hjälp av [Azure CLI](image-version-vm-cli.md).
 
-Du kan avbilda en avbildning från både [specialiserade och generaliserade](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#generalized-and-specialized-images) virtuella datorer med hjälp av Azure PowerShell. 
+Du kan avbilda en avbildning från både [specialiserade och generaliserade](./windows/shared-image-galleries.md#generalized-and-specialized-images) virtuella datorer med hjälp av Azure PowerShell. 
 
 Bilder i ett bild galleri har två komponenter som vi kommer att skapa i det här exemplet:
 - En **bild definition** innehåller information om avbildningen och kraven för att använda den. Detta inkluderar om avbildningen är Windows eller Linux, specialiserad eller generaliserad, viktig information och lägsta och högsta minnes krav. Det är en definition av en typ av bild. 
@@ -54,7 +54,7 @@ $gallery = Get-AzGallery `
 
 ## <a name="get-the-vm"></a>Hämta den virtuella datorn
 
-Du kan se en lista över virtuella datorer som är tillgängliga i en resurs grupp med hjälp av [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). När du känner till namnet på den virtuella datorn och vilken resurs grupp det finns i kan du använda `Get-AzVM` igen för att hämta det virtuella datorobjektet och lagra det i en variabel som ska användas senare. Det här exemplet hämtar en virtuell dator med namnet *sourceVM* från resurs gruppen "myResourceGroup" och tilldelar den variabeln *$sourceVm*. 
+Du kan se en lista över virtuella datorer som är tillgängliga i en resurs grupp med hjälp av [Get-AzVM](/powershell/module/az.compute/get-azvm). När du känner till namnet på den virtuella datorn och vilken resurs grupp det finns i kan du använda `Get-AzVM` igen för att hämta det virtuella datorobjektet och lagra det i en variabel som ska användas senare. Det här exemplet hämtar en virtuell dator med namnet *sourceVM* från resurs gruppen "myResourceGroup" och tilldelar den variabeln *$sourceVm*. 
 
 ```azurepowershell-interactive
 $sourceVm = Get-AzVM `
@@ -62,7 +62,7 @@ $sourceVm = Get-AzVM `
    -ResourceGroupName myResourceGroup
 ```
 
-Det är en bra idé att stop\deallocate den virtuella datorn innan du skapar en avbildning med hjälp av [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
+Det är en bra idé att stop\deallocate den virtuella datorn innan du skapar en avbildning med hjälp av [Stop-AzVM](/powershell/module/az.compute/stop-azvm).
 
 ```azurepowershell-interactive
 Stop-AzVM `
@@ -77,9 +77,9 @@ Bild definitioner skapa en logisk gruppering för avbildningar. De används för
 
 När du gör en avbildnings definition ser du till att har all rätt information. Om du generaliserar den virtuella datorn (med Sysprep för Windows eller waagent för Linux) bör du skapa en avbildnings definition med hjälp av `-OsState generalized` . Om du inte generaliserade den virtuella datorn skapar du en avbildnings definition med hjälp av `-OsState specialized` .
 
-Mer information om de värden som du kan ange för en bild definition finns i [bild definitioner](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Mer information om de värden som du kan ange för en bild definition finns i [bild definitioner](./windows/shared-image-galleries.md#image-definitions).
 
-Skapa avbildnings definitionen med [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Skapa avbildnings definitionen med [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). 
 
 I det här exemplet heter avbildnings definitionen *myImageDefinition*och är för en SPECIALISERAD virtuell dator som kör Windows. Om du vill skapa en definition för avbildningar som använder Linux använder du `-OsType Linux` . 
 
@@ -99,7 +99,7 @@ $imageDefinition = New-AzGalleryImageDefinition `
 
 ## <a name="create-an-image-version"></a>Skapa en avbildningsversion
 
-Skapa en avbildnings version med [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Skapa en avbildnings version med [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). 
 
 Tillåtna tecken för bild version är tal och punkter. Talen måste vara inom intervallet för ett 32-bitars heltal. Format: *Major version*. *MinorVersion*. *Korrigering*.
 
@@ -133,7 +133,7 @@ $job.State
 > [!NOTE]
 > Du måste vänta tills avbildnings versionen är fullständigt slutförd och replikerad innan du kan använda samma hanterade avbildning för att skapa en annan avbildnings version.
 >
-> Du kan också lagra avbildningen i premiun-lagringen genom att lägga till `-StorageAccountType Premium_LRS` eller [zonen redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) genom att lägga till `-StorageAccountType Standard_ZRS` när du skapar avbildnings versionen.
+> Du kan också lagra avbildningen i premiun-lagringen genom att lägga till `-StorageAccountType Premium_LRS` eller [zonen redundant lagring](../storage/common/storage-redundancy.md) genom att lägga till `-StorageAccountType Standard_ZRS` när du skapar avbildnings versionen.
 >
 
 ## <a name="next-steps"></a>Nästa steg

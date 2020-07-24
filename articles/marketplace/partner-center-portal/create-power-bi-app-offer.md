@@ -1,20 +1,20 @@
 ---
-title: Skapa ett erbjudande för Power BI app i Microsoft Commercial Marketplace
+title: Skapa ett Power BI app-erbjudande i Microsoft AppSource
 description: Lär dig hur du skapar och publicerar ett Power BI app-erbjudande i Microsoft AppSource.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: 8a4ff5c5bce7774f805130f68d7418a73cb751f8
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/22/2020
+ms.openlocfilehash: fa8c08f5d6f49b12306ea1f4bb82c07747622f48
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85980363"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011948"
 ---
-# <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Skapa en Power BI-app för Microsoft AppSource
+# <a name="create-a-power-bi-app-offer"></a>Skapa ett erbjudande för Power BI app
 
 Den här artikeln beskriver hur du skapar och publicerar ett Power BI app-erbjudande till Microsoft [AppSource](https://appsource.microsoft.com/).
 
@@ -53,7 +53,7 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På den här sidan visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Ett exempel:
+Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Exempel:
 
 - Om erbjudandet är ett utkast för att [ta bort utkastet](update-existing-offer.md#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan)
@@ -143,10 +143,10 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 7. Sekretesspolicy
 8. Erbjudandets namn
 9. Sammanfattning
-10. Description
+10. Beskrivning
 11. Skärm bilder/videor
 
-### <a name="name"></a>Name
+### <a name="name"></a>Namn
 
 Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
 
@@ -160,7 +160,7 @@ Namnet:
 
 Ange en kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 

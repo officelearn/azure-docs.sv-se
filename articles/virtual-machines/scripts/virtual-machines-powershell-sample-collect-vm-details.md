@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/01/2019
 ms.author: v-miegge
 ms.custom: mvc
-ms.openlocfilehash: a45f0a882c58c7035badcc1270c66bd9c6fb252a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6b48334f1e7f2032216e1b058950c7ffc3cef70b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526919"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010163"
 ---
 # <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>Samla in information om alla virtuella datorer i en prenumeration med PowerShell
 
@@ -73,7 +73,7 @@ $report | Export-CSV "$home/$reportName"
 ## <a name="script-explanation"></a>Förklaring av skript
 Det här skriptet använder följande kommandon för att skapa en CSV-export av information om virtuella datorer i en prenumeration. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-|Kommando|Anteckningar|
+|Kommando|Kommentarer|
 |-|-|
 |[Select-AzSubscription](/powershell/module/az.accounts/set-azcontext)|Anger klienten, prenumerationen och miljön för de cmdletar som ska användas i den aktuella sessionen.|
 |[Get-AzVM](/powershell/module/az.compute/get-azvm)|Hämtar egenskaperna för en virtuell dator.|
@@ -82,6 +82,6 @@ Det här skriptet använder följande kommandon för att skapa en CSV-export av 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
+Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](/powershell/azure/).
 
 Ytterligare PowerShell-skriptexempel för virtuella datorer finns i [dokumentationen för virtuella Azure Windows-datorer](../windows/powershell-samples.md?toc=/azure/virtual-machines/windows/toc.json).

@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: juliako
-ms.openlocfilehash: e54944c0c10fb773a4a3141c0d3fb6524f288ae2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70499ad354e2fafaac99fe46c1838a0be2813943
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987242"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011693"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Vanliga frågor och svar om Media Services v3
 
@@ -45,7 +46,7 @@ Mer information finns i [skala medie bearbetning](media-reserved-units-cli-how-t
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>Vad är den rekommenderade metoden för att bearbeta videor?
 
-Använd [transformeringar](https://docs.microsoft.com/rest/api/media/transforms) för att konfigurera vanliga aktiviteter för kodning eller analys av videor. Varje transformering beskriver ett recept, eller ett arbets flöde för uppgifter för bearbetning av video-eller ljudfiler. Ett [jobb](https://docs.microsoft.com/rest/api/media/jobs) är den faktiska begäran om Media Services att tillämpa transformeringen på ett indata-eller ljud innehåll. När transformeringen har skapats kan du skicka jobb genom att använda Media Services API: er eller någon av de publicerade SDK: erna. Mer information finns i [Transformeringar och jobb](transforms-jobs-concept.md).
+Använd [transformeringar](/rest/api/media/transforms) för att konfigurera vanliga aktiviteter för kodning eller analys av videor. Varje transformering beskriver ett recept, eller ett arbets flöde för uppgifter för bearbetning av video-eller ljudfiler. Ett [jobb](/rest/api/media/jobs) är den faktiska begäran om Media Services att tillämpa transformeringen på ett indata-eller ljud innehåll. När transformeringen har skapats kan du skicka jobb genom att använda Media Services API: er eller någon av de publicerade SDK: erna. Mer information finns i [Transformeringar och jobb](transforms-jobs-concept.md).
 
 ### <a name="i-uploaded-encoded-and-published-a-video-why-wont-the-video-play-when-i-try-to-stream-it"></a>Jag har laddat upp, kodat och publicerat en video. Varför spelas inte videon upp när jag försöker strömma den?
 
@@ -158,9 +159,9 @@ För närvarande kan du använda [Azure Portal](https://portal.azure.com/) för 
 
 * Hantera [Live-händelser](live-events-outputs-concept.md) i Media Services v3. 
 * Visa (inte hantera) v3- [till gångar](assets-concept.md). 
-* [Hämta information om att komma åt API: er](access-api-portal.md). 
+* [Hämta information om att komma åt API: er](./access-api-howto.md). 
 
-För alla andra hanterings uppgifter (t. ex. [transformationer och jobb](transforms-jobs-concept.md) och [innehålls skydd](content-protection-overview.md)) använder du [REST API](https://docs.microsoft.com/rest/api/media/), [Azure CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
+För alla andra hanterings uppgifter (t. ex. [transformationer och jobb](transforms-jobs-concept.md) och [innehålls skydd](content-protection-overview.md)) använder du [REST API](/rest/api/media/), [Azure CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Finns det ett AssetFile-koncept i v3?
 
@@ -170,7 +171,7 @@ Mer information finns i [migrera till Media Services v3](media-services-v2-vs-v3
 
 ### <a name="where-did-client-side-storage-encryption-go"></a>Var finns lagrings kryptering på klient Sidan?
 
-Vi rekommenderar nu att du använder lagrings kryptering på Server sidan (som är aktiverat som standard). Mer information finns i [Azure Storage tjänst kryptering för vilande data](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+Vi rekommenderar nu att du använder lagrings kryptering på Server sidan (som är aktiverat som standard). Mer information finns i [Azure Storage tjänst kryptering för vilande data](../../storage/common/storage-service-encryption.md).
 
 ## <a name="offline-streaming"></a>Offline-direktuppspelning
 

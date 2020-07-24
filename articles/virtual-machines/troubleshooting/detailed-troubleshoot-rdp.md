@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: ea448b87f9e6954abecead2934bfb7f4ed04a9c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91f15e32866cca008553286f7585247909d9a4ba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77920152"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009874"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Detaljerade åtgärder för felsökning av problem med fjärrskrivbordsanslutning till virtuella Windows-datorer i Azure
 Den här artikeln innehåller detaljerade fel söknings steg för att diagnostisera och åtgärda komplexa fjärr skrivbords fel för Windows-baserade virtuella Azure-datorer.
@@ -35,9 +36,9 @@ Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azu
 ## <a name="components-of-a-remote-desktop-connection"></a>Komponenter i en fjärr skrivbords anslutning
 Följande komponenter ingår i en RDP-anslutning:
 
-![](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
+![Ett diagram som visar de komponenter som ingår i en anslutning till fjärr skrivbord (RDP).](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
 
-Innan du fortsätter kan det vara bra att granska vad som har ändrats sedan den senaste lyckade fjärr skrivbords anslutningen till den virtuella datorn. Ett exempel:
+Innan du fortsätter kan det vara bra att granska vad som har ändrats sedan den senaste lyckade fjärr skrivbords anslutningen till den virtuella datorn. Exempel:
 
 * Den offentliga IP-adressen för den virtuella datorn eller moln tjänsten som innehåller den virtuella datorn (kallas även den virtuella IP-adressen [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)) har ändrats. RDP-felet kan bero på att DNS-klientcachen fortfarande har den *gamla IP-adressen* registrerad för DNS-namnet. Töm cacheminnet för DNS-klienten och försök att ansluta den virtuella datorn igen. Eller försök att ansluta direkt med den nya VIP: en.
 * Du använder ett program från tredje part för att hantera dina fjärr skrivbords anslutningar i stället för att använda den anslutning som genererades av Azure Portal. Kontrol lera att program konfigurationen innehåller rätt TCP-port för fjärr skrivbords trafiken. Du kan kontrol lera den här porten för en klassisk virtuell dator i [Azure Portal](https://portal.azure.com)genom att klicka på den virtuella datorns inställningar > slut punkter.
@@ -64,7 +65,7 @@ Fjärr skrivbords klienten kanske inte kan komma åt fjärr skrivbords tjänsten
 ## <a name="source-1-remote-desktop-client-computer"></a>Källa 1: klient dator för fjärr skrivbord
 Kontrol lera att datorn kan göra fjärr skrivbords anslutningar till en annan lokal, Windows-baserad dator.
 
-![](./media/detailed-troubleshoot-rdp/tshootrdp_1.png)
+![Ett diagram över komponenterna i en fjärr skrivbords anslutning (RDP) med RDP-klienten markerad och en pil som pekar på en annan lokal dator som anger en anslutning.](./media/detailed-troubleshoot-rdp/tshootrdp_1.png)
 
 Om du inte kan det kan du söka efter följande inställningar på datorn:
 
@@ -78,9 +79,9 @@ I alla dessa fall inaktiverar du tillfälligt program varan och försöker anslu
 ## <a name="source-2-organization-intranet-edge-device"></a>Källa 2: organisationens intranät gräns enhet
 Kontrol lera att en dator som är direktansluten till Internet kan göra fjärr skrivbords anslutningar till din virtuella Azure-dator.
 
-![](./media/detailed-troubleshoot-rdp/tshootrdp_2.png)
+![Ett diagram över komponenterna i en anslutning till fjärr skrivbord (RDP) med en RDP-klient som är ansluten till Internet markerad och en pil som pekar på en virtuell Azure-dator som anger en anslutning.](./media/detailed-troubleshoot-rdp/tshootrdp_2.png)
 
-Om du inte har en dator som är direkt ansluten till Internet skapar du och testar med en ny virtuell Azure-dator i en resurs grupp eller moln tjänst. Mer information finns i [skapa en virtuell dator som kör Windows i Azure](../virtual-machines-windows-hero-tutorial.md). Du kan ta bort den virtuella datorn och resurs gruppen eller moln tjänsten efter testet.
+Om du inte har en dator som är direkt ansluten till Internet skapar du och testar med en ny virtuell Azure-dator i en resurs grupp eller moln tjänst. Mer information finns i [skapa en virtuell dator som kör Windows i Azure](../windows/quick-create-portal.md). Du kan ta bort den virtuella datorn och resurs gruppen eller moln tjänsten efter testet.
 
 Om du kan skapa en anslutning till fjärr skrivbord med en dator som är direktansluten till Internet, kontrollerar du organisationens intranät gräns enhet för:
 
@@ -96,29 +97,29 @@ Arbeta med nätverks administratören för att korrigera inställningarna för o
 
 För virtuella datorer som skapats med den klassiska distributions modellen kontrollerar du att en annan virtuell Azure-dator som finns i samma moln tjänst eller virtuella nätverk kan göra fjärr skrivbords anslutningar till din virtuella Azure-dator.
 
-![](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)
+![Ett diagram över komponenterna i en anslutning till fjärr skrivbord (RDP) med en virtuell Azure-dator markerad och en pil som pekar på en annan virtuell Azure-dator i samma moln tjänst som indikerar en anslutning.](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)
 
 > [!NOTE]
 > För virtuella datorer som skapats i Resource Manager, gå över till [källa 4: nätverks säkerhets grupper](#source-4-network-security-groups).
 
-Skapa en annan virtuell dator i samma moln tjänst eller virtuella nätverk. Följ stegen i [skapa en virtuell dator som kör Windows i Azure](../virtual-machines-windows-hero-tutorial.md). Ta bort den virtuella test datorn när testet har slutförts.
+Skapa en annan virtuell dator i samma moln tjänst eller virtuella nätverk. Följ stegen i [skapa en virtuell dator som kör Windows i Azure](../windows/quick-create-portal.md). Ta bort den virtuella test datorn när testet har slutförts.
 
 Om du kan ansluta via fjärr skrivbord till en virtuell dator i samma moln tjänst eller virtuellt nätverk kontrollerar du följande inställningar:
 
 * Slut punkts konfigurationen för fjärr skrivbords trafik på den virtuella mål datorn: den privata TCP-porten för slut punkten måste matcha den TCP-port som den virtuella datorns fjärr skrivbords tjänst lyssnar på (Standardvärdet är 3389).
-* Åtkomst kontrol listan för fjärr skrivbords trafikens slut punkt på den virtuella mål datorn: ACL: er låter dig ange tillåten eller nekad inkommande trafik från Internet baserat på dess käll-IP-adress. Felkonfigurerade ACL: er kan förhindra inkommande fjärr skrivbords trafik till slut punkten. Kontrol lera dina ACL: er för att säkerställa att inkommande trafik från dina offentliga IP-adresser för proxyservern eller andra gräns servrar tillåts. Mer information finns i [Vad är en lista över nätverks Access Control (ACL)?](../../virtual-network/virtual-networks-acl.md)
+* Åtkomst kontrol listan för fjärr skrivbords trafikens slut punkt på den virtuella mål datorn: ACL: er låter dig ange tillåten eller nekad inkommande trafik från Internet baserat på dess käll-IP-adress. Felkonfigurerade ACL: er kan förhindra inkommande fjärr skrivbords trafik till slut punkten. Kontrol lera dina ACL: er för att säkerställa att inkommande trafik från dina offentliga IP-adresser för proxyservern eller andra gräns servrar tillåts. Mer information finns i [Vad är en lista över nätverks Access Control (ACL)?](/previous-versions/azure/virtual-network/virtual-networks-acl)
 
-Om du vill kontrol lera om slut punkten är orsaken till problemet tar du bort den aktuella slut punkten och skapar en ny och väljer en slumpmässig port i intervallet 49152 – 65535 för det externa port numret. Mer information finns i [så här konfigurerar du slut punkter till en virtuell dator](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Om du vill kontrol lera om slut punkten är orsaken till problemet tar du bort den aktuella slut punkten och skapar en ny och väljer en slumpmässig port i intervallet 49152 – 65535 för det externa port numret. Mer information finns i [så här konfigurerar du slut punkter till en virtuell dator](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=/azure/virtual-machines/windows/classic/toc.json).
 
 ## <a name="source-4-network-security-groups"></a>Källa 4: nätverks säkerhets grupper
 Nätverks säkerhets grupper ger mer detaljerad kontroll över tillåten inkommande och utgående trafik. Du kan skapa regler som spänner över undernät och moln tjänster i ett virtuellt Azure-nätverk.
 
-Använd [kontrol lera IP-flöde](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) för att bekräfta om en regel i en nätverks säkerhets grupp blockerar trafik till eller från en virtuell dator. Du kan också granska gällande säkerhets grupps regler för att säkerställa att NSG-regeln för inkommande "Tillåt" finns och prioriteras för RDP-porten (standard 3389). Mer information finns i [använda effektiva säkerhets regler för att felsöka trafik flöde för virtuella datorer](../../virtual-network/diagnose-network-traffic-filter-problem.md).
+Använd [kontrol lera IP-flöde](../../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) för att bekräfta om en regel i en nätverks säkerhets grupp blockerar trafik till eller från en virtuell dator. Du kan också granska gällande säkerhets grupps regler för att säkerställa att NSG-regeln för inkommande "Tillåt" finns och prioriteras för RDP-porten (standard 3389). Mer information finns i [använda effektiva säkerhets regler för att felsöka trafik flöde för virtuella datorer](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 ## <a name="source-5-windows-based-azure-vm"></a>Källa 5: Windows-baserad virtuell Azure-dator
-![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
+![Ett diagram över komponenterna i en anslutning till fjärr skrivbord (RDP) med en virtuell Azure-dator markerad i en moln tjänst och ett meddelande om att det kan vara en "möjlig problem källa". En blå linje indikerar att regler för nätverks säkerhets grupper kan blockera trafik till eller från den virtuella Azure-datorn.](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 
-Följ anvisningarna i [den här artikeln](../windows/reset-rdp.md). Den här artikeln återställer fjärr skrivbords tjänsten på den virtuella datorn:
+Följ anvisningarna i [den här artikeln](./reset-rdp.md). Den här artikeln återställer fjärr skrivbords tjänsten på den virtuella datorn:
 
 * Aktivera standard regeln "fjärr skrivbord" i Windows-brandväggen (TCP-port 3389).
 * Aktivera fjärr skrivbords anslutningar genom att ange registervärdet HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections till 0.
@@ -132,9 +133,9 @@ Försök att ansluta från datorn igen. Om du fortfarande inte kan ansluta via f
 
 För virtuella datorer som skapats med den klassiska distributions modellen kan du använda en fjärran sluten Azure PowerShell-session till den virtuella Azure-datorn. Först måste du installera ett certifikat för den virtuella datorns värd moln tjänst. Gå till [Konfigurera säker fjärran sluten PowerShell-åtkomst till Azure Virtual Machines](https://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) och ladda ned **InstallWinRMCertAzureVM.ps1** -skript filen till den lokala datorn.
 
-Installera sedan Azure PowerShell om du inte redan gjort det. Se [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
+Installera sedan Azure PowerShell om du inte redan gjort det. Se [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/).
 
-Öppna sedan en Azure PowerShell kommando tolk och ändra den aktuella mappen till platsen för **InstallWinRMCertAzureVM.ps1** skript filen. Om du vill köra ett Azure PowerShell skript måste du ange rätt körnings princip. Kör kommandot **Get-ExecutionPolicy** för att fastställa den aktuella policy nivån. Information om hur du anger lämplig nivå finns i [set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
+Öppna sedan en Azure PowerShell kommando tolk och ändra den aktuella mappen till platsen för **InstallWinRMCertAzureVM.ps1** skript filen. Om du vill köra ett Azure PowerShell skript måste du ange rätt körnings princip. Kör kommandot **Get-ExecutionPolicy** för att fastställa den aktuella policy nivån. Information om hur du anger lämplig nivå finns i [set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-5.1).
 
 Fyll sedan i namnet på din Azure-prenumeration, moln tjänst namnet och namnet på den virtuella datorn (ta bort < och > tecken) och kör sedan dessa kommandon.
 
@@ -193,11 +194,10 @@ Exit-PSSession
 Kontrol lera att fjärr skrivbords slut punkten för den virtuella Azure-datorn också använder TCP-port 3398 som intern port. Starta om den virtuella Azure-datorn och försök att ansluta till fjärr skrivbordet igen.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
-[Återställa ett lösen ord eller fjärr skrivbords tjänsten för virtuella Windows-datorer](../windows/reset-rdp.md)
+[Återställa ett lösen ord eller fjärr skrivbords tjänsten för virtuella Windows-datorer](./reset-rdp.md)
 
-[Hur du installerar och konfigurerar Azure PowerShell](/powershell/azure/overview)
+[Hur du installerar och konfigurerar Azure PowerShell](/powershell/azure/)
 
-[Felsök SSH-anslutningar (Secure Shell) till en Linux-baserad virtuell Azure-dator](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Felsök SSH-anslutningar (Secure Shell) till en Linux-baserad virtuell Azure-dator](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json)
 
-[Felsöka åtkomst till ett program som körs på en virtuell Azure-dator](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
+[Felsöka åtkomst till ett program som körs på en virtuell Azure-dator](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json)

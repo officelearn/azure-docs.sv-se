@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: a2569ca3f998030680bd7dbd872d71ccd372a25d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73f2b3ea90cc94fa3411552c7b812fe53eb4dbbb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77672437"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008106"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Skapa diagnostisk inställning i Azure med hjälp av en Resource Manager-mall
 [Diagnostikinställningar](diagnostic-settings.md) i Azure Monitor anger var du vill skicka [plattforms loggar](platform-logs-overview.md) som samlas in av Azure-resurser och den Azure-plattform som de är beroende av. Den här artikeln innehåller information och exempel på hur du använder en [Azure Resource Manager-mall](../../azure-resource-manager/templates/template-syntax.md) för att skapa och konfigurera diagnostikinställningar för att samla in plattforms loggar till olika mål.
@@ -29,7 +30,7 @@ Mer information finns i [distribuera resurser med Resource Manager-mallar och Az
 
 
 ## <a name="resource-logs"></a>Resursloggar
-För resurs loggar lägger du till en resurs av typen `<resource namespace>/providers/diagnosticSettings` till mallen. Avsnittet egenskaper följer formatet som beskrivs i [diagnostikinställningar-Create eller Update](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Ange ett `category` i `logs` avsnittet för var och en av de kategorier som är giltiga för den resurs som du vill samla in. Lägg till `metrics` egenskapen för att samla in resurs mått till samma mål om [resursen stöder mått](metrics-supported.md).
+För resurs loggar lägger du till en resurs av typen `<resource namespace>/providers/diagnosticSettings` till mallen. Avsnittet egenskaper följer formatet som beskrivs i [diagnostikinställningar-Create eller Update](/rest/api/monitor/diagnosticsettings/createorupdate). Ange ett `category` i `logs` avsnittet för var och en av de kategorier som är giltiga för den resurs som du vill samla in. Lägg till `metrics` egenskapen för att samla in resurs mått till samma mål om [resursen stöder mått](metrics-supported.md).
 
 Följande är en mall som samlar in en resurs logg kategori för en viss resurs till en Log Analytics arbets yta, lagrings konto och händelsehubben.
 
@@ -143,7 +144,7 @@ Följande är ett exempel som skapar en diagnostisk inställning för en autoska
 ```
 
 ## <a name="activity-log"></a>Aktivitetslogg
-Lägg till en resurs av typen för Azure aktivitets loggen `Microsoft.Insights/diagnosticSettings` . De tillgängliga kategorierna visas i [Kategorier i aktivitets loggen](activity-log-view.md#categories-in-the-activity-log). Följande är en mall som samlar in alla aktivitets logg kategorier till en Log Analytics arbets yta, lagrings konto och händelsehubben.
+Lägg till en resurs av typen för Azure aktivitets loggen `Microsoft.Insights/diagnosticSettings` . De tillgängliga kategorierna visas i [Kategorier i aktivitets loggen](./activity-log.md#view-the-activity-log). Följande är en mall som samlar in alla aktivitets logg kategorier till en Log Analytics arbets yta, lagrings konto och händelsehubben.
 
 
 ```json

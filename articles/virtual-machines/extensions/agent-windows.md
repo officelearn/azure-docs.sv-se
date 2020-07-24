@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: a002479375d835f7fafe031517e5b2fe61b77b5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ff5825f3272f0dadc74147d36e8c5fd8e7838d7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608697"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010962"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Översikt över Azure Virtual Machine agent
 Den Microsoft Azure virtuella dator agenten (VM-agenten) är en säker, lätt process som hanterar interaktionen mellan virtuella datorer (VM) med Azure Fabric-styrenheten. VM-agenten har en primär roll för att aktivera och köra tillägg för virtuella Azure-datorer. Med VM-tillägg kan du konfigurera virtuella datorer efter distributionen, till exempel installera och konfigurera program vara. VM-tillägg möjliggör också återställnings funktioner som att återställa det administrativa lösen ordet för en virtuell dator. Utan Azure VM-agenten kan VM-tillägg inte köras.
@@ -67,16 +68,16 @@ $vm.OSProfile.AllowExtensionOperations = $true
 $vm | Update-AzVM
 ```
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 - Windows VM-agenten måste ha minst Windows Server 2008 (64-bitars) för att kunna köras med .NET Framework 4,0. Se [lägsta versions stöd för virtuella dator agenter i Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
 
-- Se till att den virtuella datorn har åtkomst till IP-168.63.129.16. Mer information finns i [Vad är IP-168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+- Se till att den virtuella datorn har åtkomst till IP-168.63.129.16. Mer information finns i [Vad är IP-168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ## <a name="detect-the-vm-agent"></a>Identifiera VM-agenten
 
 ### <a name="powershell"></a>PowerShell
 
-Azure Resource Manager PowerShell-modulen kan användas för att hämta information om virtuella Azure-datorer. Använd [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)för att se information om en virtuell dator, till exempel etablerings status för den virtuella Azure-agenten:
+Azure Resource Manager PowerShell-modulen kan användas för att hämta information om virtuella Azure-datorer. Använd [Get-AzVM](/powershell/module/az.compute/get-azvm)för att se information om en virtuell dator, till exempel etablerings status för den virtuella Azure-agenten:
 
 ```powershell
 Get-AzVM

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 14e8b3e28115fb191760382ed2a9fbd5c5a04114
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: dc9e4e0a896677fd22baf33e7776e8158bd0bee6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919912"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011353"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: nivåer för frekvent åtkomst, lågfrekvent åtkomst och arkivlagring
 
@@ -118,10 +118,10 @@ I följande tabell visas en jämförelse av Premium Performance Block Blob Stora
 |                                           | **Förstklassig prestanda**   | **Frekvent nivå** | **Låg frekvent nivå**       | **Arkiv lag ring**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **Tillgänglighet**                          | 99,9 %                     | 99,9 %        | 99 %                 | Offline           |
-| **Tillgänglighet** <br> **(RA-GRS-läsningar)**  | E.t.                       | 99,99 %       | 99,9 %               | Offline           |
+| **Tillgänglighet** <br> **(RA-GRS-läsningar)**  | Ej tillämpligt                       | 99,99 %       | 99,9 %               | Offline           |
 | **Avgifter för användning**                         | Högre kostnader för lagring, lägre åtkomst och kostnad för transaktioner | Högre kostnader för lagring, lägre åtkomst och transaktionskostnader | Lägre kostnader för lagring, högre åtkomst och transaktionskostnader | Lägsta kostnader för lagring, högsta åtkomst och transaktionskostnader |
-| **Minsta objektstorlek**                   | E.t.                       | E.t.          | E.t.                 | E.t.               |
-| **Minsta lagringstid**              | E.t.                       | E.t.          | 30 dagar<sup>1</sup> | 180 dagar
+| **Minsta objektstorlek**                   | Ej tillämpligt                       | Ej tillämpligt          | Ej tillämpligt                 | Ej tillämpligt               |
+| **Minsta lagringstid**              | Ej tillämpligt                       | Ej tillämpligt          | 30 dagar<sup>1</sup> | 180 dagar
 | **Svarstid** <br> **(Tid till första byte)** | Ensiffriga millisekunder | millisekunder | millisekunder        | timmar<sup>2</sup> |
 
 <sup>1</sup> objekt på den lägsta nivån i GPv2-konton har en minsta Retentions tid på 30 dagar. Blob Storage-konton har inte minsta Retentions tid för den låg frekventa nivån.
@@ -220,7 +220,7 @@ Alla lagrings konton använder en pris modell för Block-Blob-lagring baserat p�
 > [!NOTE]
 > Mer information om priser för block blobbar finns [Azure Storage prissättnings](https://azure.microsoft.com/pricing/details/storage/blobs/) sida. Mer information om kostnaderna för utgående dataöverföring finns på sidan [Prisinformation om Dataöverföringar](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 **Bör jag använda Blob Storage- eller GPv2-konton om jag vill lagra data i olika nivåer?**
 
@@ -248,7 +248,7 @@ Nivåerna frekvent och låg frekvent åtkomst tillsammans med skiktning på BLOB
 
 Blobbar i frekvent åtkomst nivå har samma svars tid som blobbar i GPv1-, GPv2-och Blob Storage-konton. Blobbar i låg frekvent åtkomst nivå har liknande svars tid (i millisekunder) som blobbar i GPv1-, GPv2-och Blob Storage-konton. Blobbar i Arkiv åtkomst nivån har flera timmars svars tid i GPv1-, GPv2-och Blob Storage-konton.
 
-Blobbar i låg frekvent åtkomst nivå har något lägre tillgänglighets nivå (SLA) än blobbar som lagras i frekvent åtkomst nivå. Mer information finns i [SLA för Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
+Blobbar i låg frekvent åtkomst nivå har något lägre tillgänglighets nivå (SLA) än blobbar som lagras i frekvent åtkomst nivå. Mer information finns i [SLA för Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
 **Kan samma åtgärder användas för lagringsnivåerna frekvent, lågfrekvent och arkivlagring?**
 

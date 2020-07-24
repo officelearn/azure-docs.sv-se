@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 5d8aa456a6454dd511b7dcda5d3f74a739033356
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0426c5359e4d82d0316613586b9298596d82605
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83774346"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009772"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Inaktivera brandvägg för gästoperativsystem i en virtuell Azure-dator
 
@@ -73,7 +74,7 @@ Om du har en fungerande Azure-agent kan du använda [anpassat skript tillägg](.
 
 #### <a name="mitigation-3-pstools-commands"></a>Minskning 3: PSTools-kommandon
 
-1.  Hämta [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools)på den virtuella datorn för fel sökning.
+1.  Hämta [PSTools](/sysinternals/downloads/pstools)på den virtuella datorn för fel sökning.
 
 2.  Öppna en CMD-instans och få åtkomst till den virtuella datorn via dess DIP.
 

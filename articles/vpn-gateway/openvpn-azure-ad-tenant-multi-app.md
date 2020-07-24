@@ -2,18 +2,19 @@
 title: 'VPN Gateway: Azure AD-klient för olika användar grupper: Azure AD-autentisering'
 description: Du kan använda P2S VPN för att ansluta till ditt VNet med Azure AD-autentisering
 services: vpn-gateway
-author: anzaman
+author: kumudD
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: alzam
-ms.openlocfilehash: 0ef0c7d3a269753067e53a69b9da680db969e25d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57650b32d9155277d8ecc25d1b2147ebc87e7ecb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414442"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009687"
 ---
-# <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Skapa en Azure Active Directory-klientorganisation för P2S-anslutningar med OpenVPN-protokoll
+# <a name="create-an-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>Skapa en Active Directory-klient (AD) för P2S OpenVPN-protokoll anslutningar
 
 När du ansluter till ditt VNet kan du använda certifikatbaserad autentisering eller RADIUS-autentisering. Men när du använder det öppna VPN-protokollet kan du också använda Azure Active Directory autentisering. Om du vill att en annan uppsättning användare ska kunna ansluta till olika VPN-gatewayer kan du registrera flera appar i AD och länka dem till olika VPN-gatewayer. Den här artikeln hjälper dig att skapa en Azure AD-klient för P2S OpenVPN-autentisering och skapa och registrera flera appar i Azure AD för att ge olika åtkomst till olika användare och grupper.
 

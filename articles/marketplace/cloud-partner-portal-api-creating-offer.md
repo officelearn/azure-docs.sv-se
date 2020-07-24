@@ -4,19 +4,21 @@ description: API för att skapa ett nytt eller uppdatera ett befintligt erbjudan
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/19/2020
-ms.openlocfilehash: 5104d11c1eaf9641f1d631db97dcca036308cd45
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 249eb982ee701ea0a442121c02e55ad98e1f6fb9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115731"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011999"
 ---
 <a name="create-or-modify-an-offer"></a>Skapa eller ändra ett erbjudande
 =========================
 
 > [!NOTE]
-> Cloud Partner Portal API: er är integrerade med partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. I integrationen presenteras små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](./cloud-partner-portal-api-overview.md) för att se till att koden fortsätter att fungera efter migreringen till Partner Center.
+> Cloud Partner Portal API: er är integrerade i och fortsätter att fungera i Partner Center. Över gången introducerar små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](./cloud-partner-portal-api-overview.md) för att se till att koden fortsätter att fungera efter över gången till Partner Center. CPP-API: er bör endast användas för befintliga produkter som redan har integrerats före över gången till Partner Center. nya produkter bör använda API: er för överföring av Partner Center.
 
 Det här anropet uppdaterar ett enskilt erbjudande i utgivarens namnrymd eller skapar ett nytt erbjudande.
 
@@ -33,7 +35,7 @@ Det här anropet uppdaterar ett enskilt erbjudande i utgivarens namnrymd eller s
 | api-version       |  Senaste versionen av API: et            |   Datum           |
 |  |  |  |
 
-<a name="header"></a>Sidhuvud
+<a name="header"></a>Huvud
 ------
 
 |  **Namn**        |  **Värde**               |
@@ -48,7 +50,7 @@ Det här anropet uppdaterar ett enskilt erbjudande i utgivarens namnrymd eller s
 
 I följande exempel skapas ett erbjudande med offerID av `contosovirtualmachine` .
 
-### <a name="request"></a>Förfrågan
+### <a name="request"></a>Begäran
 
 ``` json
   {
@@ -143,7 +145,7 @@ I följande exempel skapas ett erbjudande med offerID av `contosovirtualmachine`
 ```
 
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 ``` json
  {

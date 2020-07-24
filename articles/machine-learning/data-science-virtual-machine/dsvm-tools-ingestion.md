@@ -10,11 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: d86858f8d7f09628457b718ca3c481934d720081
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 736504febea16af53c2c05bc367513b2dde93ccf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708016"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012322"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Data Science Virtual Machine verktyg för data inmatning
 
@@ -24,9 +25,9 @@ Här följer några data flytt verktyg som är tillgängliga i DSVM.
 
 ## <a name="adlcopy"></a>AdlCopy
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   | Ett verktyg för att kopiera data från Azure Blob Storage till Azure Data Lake Store. Det kan också kopiera data mellan två Azure Data Lake Store-konton.      |
+| Vad är det?   | Ett verktyg för att kopiera data från Azure Blob Storage till Azure Data Lake Store. Det kan också kopiera data mellan två Azure Data Lake Store-konton.      |
 | DSVM-versioner som stöds      | Windows      |
 | Vanliga användnings områden      | Importera flera blobbar från Azure Blob Storage till Azure Data Lake Store.      |
 |  Hur använder man/kör den?    |   Öppna en kommando tolk och skriv `adlcopy` för att få hjälp.    |
@@ -35,9 +36,9 @@ Här följer några data flytt verktyg som är tillgängliga i DSVM.
 
 ## <a name="azure-cli"></a>Azure CLI
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   | Ett hanterings verktyg för Azure. Det innehåller också kommando verb för att flytta data från Azure-dataplattformar som Azure Blob Storage och Azure Data Lake Store.     |
+| Vad är det?   | Ett hanterings verktyg för Azure. Det innehåller också kommando verb för att flytta data från Azure-dataplattformar som Azure Blob Storage och Azure Data Lake Store.     |
 | DSVM-versioner som stöds      | Windows, Linux     |
 | Vanliga användnings områden      | Importera och exportera data till och från Azure Storage och Azure Data Lake Store.      |
 |  Hur använder man/kör den?    |   Öppna en kommando tolk och skriv `az` för att få hjälp.    |
@@ -47,9 +48,9 @@ Här följer några data flytt verktyg som är tillgängliga i DSVM.
 
 ## <a name="azcopy"></a>AzCopy
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   | Ett verktyg för att kopiera data till och från lokala filer, Azure Blob Storage, filer och tabeller.      |
+| Vad är det?   | Ett verktyg för att kopiera data till och från lokala filer, Azure Blob Storage, filer och tabeller.      |
 | DSVM-versioner som stöds      | Windows      |
 | Vanliga användnings områden      | Kopiera filer till Azure Blob Storage och kopiera blobbar mellan konton.      |
 |  Hur använder man/kör den?    |   Öppna en kommando tolk och skriv `azcopy` för att få hjälp.    |
@@ -59,9 +60,9 @@ Här följer några data flytt verktyg som är tillgängliga i DSVM.
 
 ## <a name="azure-cosmos-db-data-migration-tool"></a>Verktyget Azure Cosmos DB datamigrering
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   | Verktyg för att importera data från olika källor till Azure Cosmos DB en NoSQL-databas i molnet. Dessa källor innehåller JSON-filer, CSV-filer, SQL, MongoDB, Azure Table Storage, Amazon DynamoDB och Azure Cosmos DB SQL API-samlingar.      |
+| Vad är det?   | Verktyg för att importera data från olika källor till Azure Cosmos DB en NoSQL-databas i molnet. Dessa källor innehåller JSON-filer, CSV-filer, SQL, MongoDB, Azure Table Storage, Amazon DynamoDB och Azure Cosmos DB SQL API-samlingar.      |
 | DSVM-versioner som stöds      | Windows      |
 | Vanliga användnings områden      | Importera filer från en virtuell dator till CosmosDB, importera data från Azure Table Storage till CosmosDB och importera data från en Microsoft SQL Server databas till CosmosDB.     |
 |  Hur använder man/kör den?    |   Om du vill använda kommando rads versionen öppnar du en kommando tolk och skriver `dt` . Om du vill använda GUI-verktyget öppnar du en kommando tolk och skriver `dtui` .    |
@@ -70,9 +71,9 @@ Här följer några data flytt verktyg som är tillgängliga i DSVM.
 
 ## <a name="azure-storage-explorer"></a>Azure Lagringsutforskaren
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   | Grafiskt användar gränssnitt för att interagera med filer som lagras i Azure-molnet. |
+| Vad är det?   | Grafiskt användar gränssnitt för att interagera med filer som lagras i Azure-molnet. |
 | DSVM-versioner som stöds      | Windows      |
 | Vanliga användnings områden      | Importera och exportera data från DSVM.    |
 |  Hur använder man/kör den?    | Sök efter "Azure Storage Explorer" på Start menyn. |
@@ -81,9 +82,9 @@ Här följer några data flytt verktyg som är tillgängliga i DSVM.
 
 ## <a name="bcp"></a>bcp
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   | SQL Server verktyget för att kopiera data mellan SQL Server och en datafil.      |
+| Vad är det?   | SQL Server verktyget för att kopiera data mellan SQL Server och en datafil.      |
 | DSVM-versioner som stöds      | Windows      |
 | Vanliga användnings områden      | Importera en CSV-fil till en SQL Server tabell och exportera en SQL Server tabell till en fil.      |
 |  Hur använder man/kör den?    |   Öppna en kommando tolk och skriv `bcp` för att få hjälp.    |
@@ -92,9 +93,9 @@ Här följer några data flytt verktyg som är tillgängliga i DSVM.
 
 ## <a name="blobfuse"></a>blobfuse
 
-|    |           |
+| Kategori | Värde |
 | ------------- | ------------- |
-| Vad är detta?   | Ett verktyg för att montera en Azure Blob Storage-behållare i Linux-filsystemet.      |
+| Vad är det?   | Ett verktyg för att montera en Azure Blob Storage-behållare i Linux-filsystemet.      |
 | DSVM-versioner som stöds      | Linux      |
 | Vanliga användnings områden      | Läsning och skrivning till blobbar i en behållare.      |
 |  Hur använder och kör jag det?    |   Kör _blobfuse_ på en Terminal.    |

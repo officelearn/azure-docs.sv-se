@@ -1,18 +1,18 @@
 ---
 title: Skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace
-description: Lär dig hur du skapar ett erbjudande för virtuella datorer på Azure Marketplace med den SKU som krävs.
+description: Lär dig hur du skapar ett erbjudande för virtuella datorer på Azure Marketplace med den nödvändiga planen.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: emuench
 ms.author: mingshen
-ms.date: 06/17/2020
-ms.openlocfilehash: fe53de2c81f9e9df5fd9270951f943b0b3505f1e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/17/2020
+ms.openlocfilehash: 6df1620f2d1097ac23e5dfa3903fefc74d13fa65
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110988"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012033"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace
 
@@ -180,7 +180,7 @@ På sidan **erbjudande lista** definierar du erbjudande information, till exempe
 
 ### <a name="marketplace-details"></a>Information om Marketplace
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>Namn
 
 Namnet som du anger här visas för kunder som titel på din erbjudande lista. Det här fältet fylls i automatiskt med det namn som du angav i rutan för **erbjudet alias** när du skapade erbjudandet. Du kan ändra det här namnet senare. Namnet:
 
@@ -196,7 +196,7 @@ Ange en kort beskrivning av ditt erbjudande, som visas i Sök resultaten för Az
 
 Ange en längre Beskrivning av ditt erbjudande, som visas i Sök resultaten för Azure Marketplace. Det kan innehålla upp till 256 tecken.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -226,7 +226,7 @@ Ange support webbplatsen där kunderna kan kontakta support teamet.
 
 Ange kontakt information för Microsoft-partner som ska användas när kunderna öppnar ett support ärende. Den här informationen visas inte på Azure Marketplace.
 
-- Name
+- Namn
 - E-post
 - Telefon
 
@@ -234,7 +234,7 @@ Ange kontakt information för Microsoft-partner som ska användas när kunderna 
 
 Ange kontakt information för Microsoft som ska användas när det finns problem med erbjudandet, inklusive problem med certifieringen. Den här informationen visas inte på Azure Marketplace.
 
-- Name
+- Namn
 - E-post
 - Telefon
 
@@ -286,7 +286,7 @@ Välj **Spara utkast** innan du fortsätter till nästa avsnitt.
 
 ## <a name="plan-overview"></a>Plan översikt
 
-Du kan ange olika plan alternativ inom samma erbjudande i Partner Center. Dessa planer kallas tidigare för SKU: er. Ett erbjudande kräver minst en plan som kan variera av försäljande mål grupp, Azure-region, funktioner eller VM-avbildningar.
+Du kan ange olika plan alternativ inom samma erbjudande i Partner Center. Ett erbjudande kräver minst en plan (tidigare kallat SKU), som kan variera av försäljande mål, Azure-region,-funktioner eller VM-avbildningar.
 
 När du har skapat dina planer väljer du fliken **plan översikt** för att visa:
 
@@ -393,7 +393,7 @@ Använd en av följande tre alternativ för pris poster för en användnings-bas
 > [!NOTE]
 > Spara pris ändringar så att du kan exportera pris information. När du har publicerat ett pris för en marknad i planen kan du inte ändra det senare. För att se till att priserna är rätt innan du publicerar dem, exportera pris kalkyl bladet och granska priserna på varje marknad.
 
-#### <a name="free-trial"></a>Kostnadsfri utvärderingsversion
+#### <a name="free-trial"></a>Kostnadsfri utvärdering
 
 Du kan erbjuda en månads *kostnads fri utvärderings version* av en månad eller tre månader till dina kunder.
 
@@ -412,7 +412,6 @@ Du kan utforma varje plan som ska vara synlig för alla eller endast till en fö
 
 >[!Note]
 >Privata erbjudanden stöds inte med Azure-prenumerationer som upprättats via en åter försäljare av Cloud Solution Provider-programmet (CSP).
-
 
 #### <a name="hide-a-plan"></a>Dölj en plan
 
@@ -517,9 +516,9 @@ Sidan **erbjudande översikt** visar en visuell representation av stegen, både 
 Den här sidan innehåller också länkar som hjälper dig att arbeta med erbjudandet, beroende på dess status:
 
 - Om erbjudandet är ett utkast: [ta bort utkast erbjudande](update-existing-offer.md#delete-a-draft-offer)
-- Om erbjudandet är Live: [sluta sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan))
-- Om erbjudandet är i för hands version: [Go-Live](publishing-status.md#publisher-approval))
-- Om du inte har slutfört utloggningen av utgivare: [Avbryt publiceringen](update-existing-offer.md#cancel-publishing))
+- Om erbjudandet är Live: [sluta sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Om erbjudandet är i för hands version: [Go-Live](publishing-status.md#publisher-approval)
+- Om du inte har slutfört utloggningen av utgivare: [Avbryt publicering](update-existing-offer.md#cancel-publishing)
 
 ## <a name="marketplace-examples"></a>Marketplace-exempel
 
@@ -535,7 +534,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 4. Villkor
 5. Sekretess policy adress (länk)
 6. Erbjudandets namn
-7. Description
+7. Beskrivning
 8. Användbara länkar
 9. Skärm bilder/videor
 
@@ -566,7 +565,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 
 #### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
-1. Name
+1. Namn
 2. Beskrivning
 3. Användbara länkar
 4. Skärm bilder/videor

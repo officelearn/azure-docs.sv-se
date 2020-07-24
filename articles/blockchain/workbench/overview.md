@@ -4,12 +4,12 @@ description: Översikt över Azure blockchain Workbench Preview och dess funktio
 ms.date: 05/22/2020
 ms.topic: overview
 ms.reviewer: brendal
-ms.openlocfilehash: 384fa553204a5a86ad479f2cc623ebb70a9a6f5f
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: fbd6be3907dbd10b003d065dfb14031a0e378478
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434130"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003163"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>Vad är Azure Blockchain Workbench?
 
@@ -55,7 +55,7 @@ För att ge feedback på produkter eller för att begära nya funktioner, post e
 
 Engagera med Microsoft-tekniker och Azure blockchain community-experter.
 
-* [Microsoft Q&en fråge sida för Azure blockchain Workbench](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html)
+* [Microsoft Q&en fråge sida för Azure blockchain Workbench](/answers/topics/azure-blockchain-workbench.html)
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 

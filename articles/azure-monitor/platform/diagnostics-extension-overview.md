@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 5dcdfba6e8dd00c8ba09e5e98293a30d19e51c99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6201a4e0551f0f75dde65b2bc4b8b560a0f5ea20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83635959"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008004"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Översikt över Azure-diagnostik-tillägg
 Azure-diagnostik tillägget är en [agent i Azure Monitor](agents-overview.md) som samlar in övervaknings data från gäst operativ systemet i Azure Compute-resurser, inklusive virtuella datorer. Den här artikeln innehåller en översikt över Azure-diagnostik-tillägget, inklusive de funktioner som stöds och alternativ för installation och konfiguration. 
@@ -33,7 +34,7 @@ Viktiga skillnader att tänka på är:
 
 - Azure-diagnostik-tillägget kan bara användas med virtuella Azure-datorer. Log Analytics agenten kan användas med virtuella datorer i Azure, andra moln och lokalt.
 - Azure-diagnostik-tillägget skickar data till Azure Storage, [Azure Monitor mått](data-platform-metrics.md) (endast Windows) och Event Hubs. Log Analytics agent samlar in data till [Azure Monitor loggar](data-platform-logs.md).
-- Log Analytics agent krävs för [lösningar](../monitor-reference.md#insights-and-core-solutions), [Azure Monitor for VMS](../insights/vminsights-overview.md)och andra tjänster som [Azure Security Center](/azure/security-center/).
+- Log Analytics agent krävs för [lösningar](../monitor-reference.md#insights-and-core-solutions), [Azure Monitor for VMS](../insights/vminsights-overview.md)och andra tjänster som [Azure Security Center](../../security-center/index.yml).
 
 ## <a name="costs"></a>Kostnader
 Det kostar inget för Azure Diagnostic-tillägget, men du kan debiteras avgifter för inmatade data. Kontrol lera [Azure Monitor prissättningen](https://azure.microsoft.com/pricing/details/monitor/) för målet där du samlar in data.
@@ -49,8 +50,8 @@ I följande tabeller visas de data som kan samlas in av tillägget Windows och L
 | Prestandaräknare | Numeriska värden mäter prestanda för olika aspekter av operativ system och arbets belastningar. |
 | IIS-loggar             | Användnings information för IIS-webbplatser som körs på gäst operativ systemet. |
 | Program loggar     | Spåra meddelanden som skrivits av ditt program. |
-| .NET EventSource-loggar |Kod skrivnings händelser med hjälp av .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) -klassen |
-| [Manifestbaserade ETW-loggar](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |ETW (Event Tracing for Windows) händelser som genererats av en process. |
+| .NET EventSource-loggar |Kod skrivnings händelser med hjälp av .NET [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) -klassen |
+| [Manifestbaserade ETW-loggar](/windows/desktop/etw/about-event-tracing) |ETW (Event Tracing for Windows) händelser som genererats av en process. |
 | Krasch dum par (loggar)   | Information om processens tillstånd om ett program kraschar. |
 | Filbaserade loggar    | Loggar som skapats av ditt program eller din tjänst. |
 | Diagnostikloggar för agent | Information om Azure-diagnostik sig själv. |
@@ -116,4 +117,3 @@ I följande artiklar finns information om hur du installerar och konfigurerar Di
 
 * Lär dig att [använda prestanda räknare i Azure-diagnostik](../../cloud-services/diagnostics-performance-counters.md).
 * Om du har problem med att starta eller hitta dina data i Azure Storage-tabeller läser du [felsöka Azure-diagnostik](diagnostics-extension-troubleshooting.md)
-

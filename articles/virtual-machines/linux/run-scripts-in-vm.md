@@ -7,11 +7,12 @@ author: bobbytreed
 ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: article
-ms.openlocfilehash: 9dbfb3e76fe1c0e80dd8020b79f4edd6d32a24a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d40352d2110fa54ab699e41fa6d161d5c9ea4f4e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758594"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010520"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>Kör skript i din virtuella Linux-dator
 
@@ -32,7 +33,7 @@ Det [anpassade skript tillägget](../extensions/custom-script-linux.md) används
 [Kommando funktionen kör](run-command.md) möjliggör hantering av virtuella datorer och program och fel sökning med skript och är tillgänglig även om datorn inte kan nås, till exempel om gäst brand väggen inte har RDP-eller SSH-porten öppen.
 
 * Kör skript på virtuella Azure-datorer.
-* Kan köras med [Azure Portal](run-command.md), [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke)eller [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand)
+* Kan köras med [Azure Portal](run-command.md), [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke)eller [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)
 * Kör snabbt ett skript och visa utdata och upprepa efter behov i Azure Portal.
 * Skriptet kan skrivas in direkt eller så kan du köra ett av de inbyggda skripten.
 * Kör PowerShell-skript i Windows-datorer och bash-skript på Linux-datorer.
@@ -55,7 +56,7 @@ Det [anpassade skript tillägget](../extensions/custom-script-linux.md) används
 
 ## <a name="serial-console"></a>Seriekonsol
 
-[Seriell konsol](serial-console.md) ger direkt åtkomst till en virtuell dator, på samma sätt som ett tangent bord som är anslutet till den virtuella datorn.
+[Seriell konsol](../troubleshooting/serial-console-linux.md) ger direkt åtkomst till en virtuell dator, på samma sätt som ett tangent bord som är anslutet till den virtuella datorn.
 
 * Kör kommandon i Azure Virtual Machines.
 * Kan köras med hjälp av en text-baserad konsol till datorn i Azure Portal.
@@ -69,4 +70,4 @@ Lär dig mer om de olika funktionerna som är tillgängliga för att köra skrip
 * [Anpassat skripttillägg](../extensions/custom-script-linux.md)
 * [Kör kommando](run-command.md)
 * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)
-* [Seriell konsol](serial-console.md)
+* [Seriell konsol](../troubleshooting/serial-console-linux.md)

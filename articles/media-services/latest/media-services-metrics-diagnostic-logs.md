@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: f051d02ac06163cf1861ab6bfc6afd0dcbb0ad8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7058160819c9b6ccc3f63511f86e930fcbfc413b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82559540"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011659"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Övervaka Media Services mått och diagnostikloggar via Azure Monitor
 
@@ -58,7 +58,7 @@ Du bör också granska [konto kvoter och begränsningar](limits-quotas-constrain
 
 ### <a name="streaming-endpoint"></a>Slutpunkt för direktuppspelning
 
-Följande Media Services [slut punkter för direkt uppspelnings](https://docs.microsoft.com/rest/api/media/streamingendpoints) mått stöds:
+Följande Media Services [slut punkter för direkt uppspelnings](/rest/api/media/streamingendpoints) mått stöds:
 
 |Måttnamn|Visningsnamn|Beskrivning|
 |---|---|---|
@@ -92,7 +92,7 @@ Media Services stöder följande diagnostikloggar:
 
 ### <a name="key-delivery"></a>Nyckel leverans
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |Begäran om nyckel leverans tjänst|Loggar som visar information om viktiga leverans tjänst begär Anden. Mer information finns i [scheman](media-services-diagnostic-logs-schema.md).|
 

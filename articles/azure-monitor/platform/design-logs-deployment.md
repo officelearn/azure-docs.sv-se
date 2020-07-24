@@ -6,14 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: ed525230315781eeca41956047a173f27b1447e1
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 939a2e67d6d2c215f7a575b6b9bd08660fc03b27
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201298"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008208"
 ---
-# <a name="designing-your-azure-monitor-logs-deployment"></a>Designa distributioner av Azure Monitor loggar
+# <a name="designing-your-azure-monitor-logs-deployment"></a>Utforma en distribution med Azure Monitor-loggar
 
 Azure Monitor lagrar [loggdata](data-platform-logs.md) i en Log Analytics arbets yta, som är en Azure-resurs och en behållare där data samlas in, aggregeras och fungerar som en administrativ gränser. Även om du kan distribuera en eller flera arbets ytor i din Azure-prenumeration finns det flera saker du bör känna till för att säkerställa att din första distribution följer våra rikt linjer för att ge dig ett kostnads effektivt, hanterbart och skalbart distributions möte som dina organisationer behöver.
 
@@ -25,7 +25,7 @@ En Log Analytics arbets yta innehåller:
 
 * En geografisk plats för data lagring.
 * Data isolering genom att ge olika användare åtkomst rättigheter efter en av våra rekommenderade design strategier.
-* Omfattning för konfiguration av inställningar som [pris nivå](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [kvarhållning](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)och [data capping](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#manage-your-maximum-daily-data-volume).
+* Omfattning för konfiguration av inställningar som [pris nivå](./manage-cost-storage.md#changing-pricing-tier), [kvarhållning](./manage-cost-storage.md#change-the-data-retention-period)och [data capping](./manage-cost-storage.md#manage-your-maximum-daily-data-volume).
 
 Den här artikeln innehåller en detaljerad översikt över design-och migrerings överväganden, åtkomst kontroll översikt och en förståelse för de design implementeringar vi rekommenderar för din IT-organisation.
 

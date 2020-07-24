@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/08/2020
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dae584bdfa97b2c30cab5f15881323c26366592c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5326fd6adf12d53d836594c8e53bda14e0871e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253366"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009126"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Gör så här: Kräv app Protection-princip och en godkänd klient app för åtkomst till Cloud App med villkorlig åtkomst
 
@@ -30,10 +30,11 @@ Den här artikeln innehåller tre scenarier för att konfigurera principer för 
 
 I den villkorliga åtkomsten känner de här klient programmen till att skyddas med en skydds princip för appar. Mer information om skydds principer för appar finns i artikeln, [Översikt över app Protection-principer](/intune/apps/app-protection-policy)
 
-En lista över tillgängliga klient program finns i [krav på skydds princip för appar](concept-conditional-access-grant.md).
+> [!WARNING]
+> Alla program stöds inte som godkända program eller stöder program skydds principer. En lista över tillgängliga klient program finns i [krav på skydds princip för appar](concept-conditional-access-grant.md#require-app-protection-policy).
 
 > [!NOTE]
->    Or-satsen används i principen för att göra det möjligt för användare att använda appar som har stöd för antingen **Kräv skydds princip** för appar eller **Kräv godkända kontroller för klient programs** tilldelning. Mer information om vilka appar som stöder **Kräv skydds kontroll för program skydds principen** finns i [krav på skydds princip](concept-conditional-access-grant.md)för appar.
+> "Kräv en av de valda kontrollerna" under Granting Controls är som en OR-sats. Detta används inom en princip för att tillåta att användare använder appar som har stöd för antingen **Kräv app Protection-princip** eller **kräver godkända kontroller för klient programs** tilldelning. **Kräv att appens skydds princip** tillämpas om en app stöds i båda principerna. Mer information om vilka appar som stöder **Kräv skydds kontroll för program skydds principen** finns i [krav på skydds princip](concept-conditional-access-grant.md#require-app-protection-policy)för appar.
 
 ## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>Scenario 1: Office 365-appar kräver godkända appar med skydds principer för appar
 
@@ -172,7 +173,7 @@ Läs artikeln [så här skapar och tilldelar du skydds principer för appar](/in
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Vad är villkorlig åtkomst?](overview.md)
+[Vad är villkorsstyrd åtkomst?](overview.md)
 
 [Komponenter för villkorlig åtkomst](concept-conditional-access-policies.md)
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: 81040adf6cfbb8820ec7f306c7d614830e3a2613
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1808623821d71169ec35beab1d33d4eb2c32c189
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791125"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008412"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Skapa och kör anpassade tillgänglighets test med Azure Functions
 
@@ -23,7 +23,7 @@ Den här artikeln beskriver hur du skapar en Azure-funktion med TrackAvailabilit
 
 - Om du har en Application Insights-resurs:
     - Som standard skapar Azure Functions en Application Insights resurs, men om du vill använda en av dina redan skapade resurser måste du ange att du under genereringen.
-    - Följ anvisningarna för hur du [skapar en funktion som utlöses av en Azure Functions resurs och timer](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (stoppa före rensning) med följande val.
+    - Följ anvisningarna för hur du [skapar en funktion som utlöses av en Azure Functions resurs och timer](../../azure-functions/functions-create-scheduled-function.md) (stoppa före rensning) med följande val.
         -  Välj fliken **övervakning** längst upp.
 
             ![ Skapa en Azure Functions-app med din egen App Insights-resurs](media/availability-azure-functions/create-function-app.png)
@@ -35,7 +35,7 @@ Den här artikeln beskriver hur du skapar en Azure-funktion med TrackAvailabilit
         - Välj **Granska + skapa**
 - Om du inte har en Application Insights-resurs som har skapats ännu för din timer-utlöst funktion:
     - Som standard när du skapar ditt Azure Functions program skapas en Application Insights resurs åt dig.
-    - Följ anvisningarna för hur du [skapar en Azure Functions resurs och timer-utlöst funktion](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (stoppa före rensning).
+    - Följ anvisningarna för hur du [skapar en Azure Functions resurs och timer-utlöst funktion](../../azure-functions/functions-create-scheduled-function.md) (stoppa före rensning).
 
 ## <a name="sample-code"></a>Exempelkod
 
@@ -45,7 +45,7 @@ Kopiera koden nedan till filen Run. CSX (det ersätter den befintliga koden). De
 >![Azure Functions Run. CSX i Azure Portal](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
-> För den slut punkts adress som du använder: `EndpointAddress= https://dc.services.visualstudio.com/v2/track` . Om inte din resurs finns i en region som Azure Government eller Azure Kina, i vilket fall läser du den här artikeln om hur [du åsidosätter standard slut punkterna](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) och väljer lämplig telemetri-kanal slut punkt för din region.
+> För den slut punkts adress som du använder: `EndpointAddress= https://dc.services.visualstudio.com/v2/track` . Om inte din resurs finns i en region som Azure Government eller Azure Kina, i vilket fall läser du den här artikeln om hur [du åsidosätter standard slut punkterna](./custom-endpoints.md#regions-that-require-endpoint-modification) och väljer lämplig telemetri-kanal slut punkt för din region.
 
 ```C#
 #load "runAvailabilityTest.csx"

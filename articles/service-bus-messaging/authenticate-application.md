@@ -3,12 +3,12 @@ title: Autentisera ett program för att få åtkomst till Azure Service Bus enti
 description: Den här artikeln innehåller information om att autentisera ett program med Azure Active Directory åtkomst till Azure Service Bus entiteter (köer, ämnen osv.)
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 707fbec4317b4c34349e04895f9c6a0bdf4f1b47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 371fa42420c2cc90a581b05ac47d7a65f28fc473
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341507"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128496"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autentisera och auktorisera ett program med Azure Active Directory åtkomst till Azure Service Bus entiteter
 Azure Service Bus stöder användning av Azure Active Directory (Azure AD) för att auktorisera begär anden till Service Bus entiteter (köer, ämnen, prenumerationer eller filter). Med Azure AD kan du använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till ett säkerhets objekt, som kan vara en användare, grupp eller ett program tjänst objekt. Mer information om roller och roll tilldelningar finns i [förstå de olika rollerna](../role-based-access-control/overview.md).
@@ -51,7 +51,7 @@ I följande lista beskrivs de nivåer där du kan begränsa åtkomsten till Serv
 > [!NOTE]
 > Tänk på att det kan ta upp till fem minuter att sprida RBAC-roll tilldelningar. 
 
-Mer information om hur inbyggda roller definieras finns i [förstå roll definitioner](../role-based-access-control/role-definitions.md#management-and-data-operations). Information om hur du skapar anpassade RBAC-roller finns i [skapa anpassade roller för Azure Role-baserade Access Control](../role-based-access-control/custom-roles.md).
+Mer information om hur inbyggda roller definieras finns i [förstå roll definitioner](../role-based-access-control/role-definitions.md#management-and-data-operations). Information om hur du skapar anpassade Azure-roller finns i [Azure-anpassade roller](../role-based-access-control/custom-roles.md).
 
 
 ## <a name="assign-rbac-roles-using-the-azure-portal"></a>Tilldela RBAC-roller med hjälp av Azure Portal  
@@ -150,7 +150,7 @@ När du kör konsol programmet uppmanas du att välja ett scenario. Välj **inte
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Mer information om RBAC finns i [Vad är rollbaserad åtkomst kontroll (RBAC)](../role-based-access-control/overview.md)?
+- Mer information om RBAC finns i [Vad är Azures rollbaserad åtkomst kontroll (Azure RBAC)](../role-based-access-control/overview.md)?
 - Information om hur du tilldelar och hanterar RBAC-roll tilldelningar med Azure PowerShell, Azure CLI eller REST API finns i följande artiklar:
     - [Hantera rollbaserad åtkomst kontroll (RBAC) med Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
     - [Hantera rollbaserad åtkomst kontroll (RBAC) med Azure CLI](../role-based-access-control/role-assignments-cli.md)

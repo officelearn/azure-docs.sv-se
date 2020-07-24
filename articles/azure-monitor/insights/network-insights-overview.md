@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: 0f5b2fbd13cb9658e255fde727e115df748aaed9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccc5578944dc6eea9a62360045272896d78e2fac
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77654876"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128683"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor för nätverk (för hands version)
 Azure Monitor för nätverk ger en omfattande vy över hälsa och mått för alla distribuerade nätverks resurser utan någon konfiguration. Den avancerade Sök funktionen hjälper till att identifiera resurs beroenden, vilket möjliggör scenarier som att identifiera resurser som är värdar för din webbplats genom att helt enkelt söka efter namnet på den värdbaserade webbplatsen.
@@ -29,7 +30,7 @@ Vyn resurs hälsa och aviseringar kan anpassas med hjälp av filter som **prenum
 
 Du kan använda sökrutan för att söka efter resurser och associerade resurser. Till exempel är en offentlig IP-adress kopplad till en Application Gateway. Om du söker efter offentliga IP DNS-namn identifieras både offentlig IP-adress och tillhör ande Application Gateway.
 
-![Search](media/network-insights-overview/search.png)
+![Sök](media/network-insights-overview/search.png)
 
 
 ## <a name="resource-health-and-metric"></a>Resource Health och mått
@@ -47,7 +48,7 @@ Du kan klicka på varje-element i diagramvyn. Klicka på hälso ikonen för att 
 I rutnätet **aviseringar** till höger får du en översikt över alla aviseringar som har genererats för de valda resurserna i alla prenumerationer. Klicka på sidan antal aviseringar för att gå till sidan detaljerade aviseringar.
 
 ## <a name="dependency-view"></a>Beroende vy
-**Beroende** vyn hjälper till att visualisera hur resursen konfigureras. För hands beroende vy stöds bara för Application Gateway. Du kan komma åt beroende vyn genom att klicka på Application Gateway resurs namn från vyn mått rutnät.
+**Beroende** vyn hjälper till att visualisera hur resursen konfigureras. För hands beroende vy stöds nu för Application Gateway, virtuellt WAN och Load Balancer. Om du till exempel vill Application Gateway kan beroende vy nås genom att klicka på Application Gateway resurs namnet från vyn mått rutnät. Detta gäller även för virtuella WAN-och Load Balancer. 
 
 ![Application Gateway vy](media/network-insights-overview/application-gateway.png)
 
@@ -69,4 +70,4 @@ Klicka på **vyn detaljerad statistik** för att starta en förkonfigurerad arbe
 
 ## <a name="next-steps"></a>Nästa steg 
 
-- Läs mer om nätverks övervakning i vad är [Azure Network Watcher?](/azure/network-watcher/network-watcher-monitoring-overview).
+- Läs mer om nätverks övervakning i vad är [Azure Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md).

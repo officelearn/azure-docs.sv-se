@@ -1,20 +1,20 @@
 ---
-title: Marknads insikter – Microsoft Commercial Marketplace
+title: Marknads insikter – Microsoft Commercial Marketplace, Microsoft AppSource och Azure Marketplace
 description: Få åtkomst till en sammanfattning av Marketplace Web Analytics, som gör att du kan mäta kund engagemang i Microsoft AppSource och Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/16/2019
-ms.openlocfilehash: 8b5f90449f27007febe93f1193c6d2245b076e7e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/22/2019
+ms.openlocfilehash: c72f3c9cce19896557fa9f4114b935fcc5ca8dc2
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120406"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128955"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Marketplace insikter-instrument panel i Partner Center
 
-Den här artikeln innehåller information om instrument panelen för marknads insikter i Partner Center. Den här instrument panelen visar en sammanfattning av Marketplace Web Analytics, som gör det möjligt för utgivare att mäta kund engagemang för sina respektive produkt informations sidor på Marketplace butiker: Microsoft AppSource och Azure Marketplace.
+Den här artikeln innehåller information om instrument panelen för marknads insikter i Partner Center. På den här instrument panelen visas en sammanfattning av Marketplace-webbanalyser som gör det möjligt för utgivare att mäta kund engagemang för sina respektive produkt informations sidor som visas på den kommersiella Marketplace-butiker: Microsoft AppSource och Azure Marketplace.
 
 ## <a name="marketplace-insights-dashboard"></a>Instrumentpanelen Marknadsplatsinsikter
 
@@ -25,18 +25,20 @@ Du kan visa grafiska representationer av följande objekt:
 - [Sammanfattning av marknads insikter](#marketplace-insights-summary)
 - [Sid besök per geografi](#page-visits-by-geography)  
 - [Sid besök jämfört med unika besökare](#page-visits-versus-unique-visitors-trend)
-- [Anrop till åtgärd respektive unika besökare med CTAs](#call-to-action-versus-unique-visitors-with-ctas)
+- [Anrop till åtgärd (centrum) gentemot unika besökare med CTAs](#call-to-action-versus-unique-visitors-with-ctas)
 - [Sid besök och anrop till åtgärder efter erbjudanden](#page-visits-and-calls-to-action-by-offers)
 - [Anrop till procentuell trend för åtgärder](#call-to-action-percentage-trend)
 - [Sid besök och anrop till åtgärder efter referens domäner](#page-visits-and-calls-to-action-by-referral-domains)
 - [Informations tabell för Marketplace](#marketplace-insights-details-table)
+
+Den maximala svars tiden mellan användare som besöker erbjudanden på Azure Marketplace eller AppSource och rapportering i Partner Center är 48 timmar.
 
 >[!NOTE]
 > Detaljerade definitioner av analys terminologi finns i [vanliga frågor och terminologi för affärs platsers analys](./faq-terminology.md).
 
 ### <a name="insights-dashboard-layout"></a>Layout för insikter-instrumentpanel
 
-Du kan visa Marketplace-mått på flera olika sätt:
+Visa mått på kommersiell Marketplace på flera olika sätt:
 
 - Butik-flikar
 - Sid filter
@@ -74,7 +76,7 @@ Antalet visar antalet distinkta besökare under det valda datum intervallet för
 
 ### <a name="call-to-action"></a>Anrop till åtgärd
 
-Det här talet representerar knappen för **att** Klicka på slutförd på sidan erbjudande på sidan erbjudande (produkt informations sida). **Anrop till åtgärden** räknas när knapparna **Hämta nu**, **kontakta mig**och **Free trial** **testa enhet** är markerade.
+Det här talet representerar knappen för **att** Klicka på slutförd på sidan erbjudande på sidan erbjudande (produkt informations sida). **Anrop till åtgärden** räknas när användarna väljer knapparna **Hämta nu**, **kostnads fri utvärdering**, **kontakta mig**eller **testa enhet** .
 
 ![Samtal till åtgärds Sammanfattning för partner Center](./media/insights-summary.png)
 
@@ -128,7 +130,7 @@ Den här tabellen innehåller en listvy över sid besöken och anrop till åtgä
 
 - Data kan extraheras till en CSV-fil om antalet poster är mindre än 1000.
 - Om antalet poster är över 1000 placeras exporterade data asynkront på sidan nedladdningar under de närmaste 30 dagarna.
-- Filter kan användas för att visa de data som du är intresse rad av. Data kan filtreras efter erbjudande namn och kampanj namn.  
+- Filtrera data efter namn och kampanj namn för att visa de data du är intresse rad av.
 
 ## <a name="next-steps"></a>Nästa steg
 

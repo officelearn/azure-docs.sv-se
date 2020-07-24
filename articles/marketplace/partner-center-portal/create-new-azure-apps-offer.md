@@ -3,14 +3,16 @@ title: Skapa ett erbjudande för Azure-program – Microsoft Commercial Marketpl
 description: Lär dig mer om steg och överväganden för att skapa ett nytt Azure-programerbjudande på den kommersiella Marketplace-portalen i Partner Center. Du kan visa eller sälja ditt Azure Application-erbjudande på Azure Marketplace eller via program varan för Cloud Solution Provider (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: c5371b2d9379ca861addac07de50d7cdf9c34c8b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+author: qianw211
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 6789e32cbbb1257a668e7be87a8b73a0511b6fb0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121986"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127442"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
@@ -65,7 +67,7 @@ Granska följande resurser när du förbereder ditt erbjudande för Azure-progra
 
 Välj en eller båda av följande skript miljöer för att hantera ditt Azure-program:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 Vi rekommenderar att du lägger till följande verktyg i utvecklings miljön:
@@ -186,7 +188,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 5. Sekretess policy adress (länk)
 6. Erbjudandets namn
 7. Sammanfattning
-8. Description
+8. Beskrivning
 9. Skärm bilder/videor
 
 <br>Här är ett exempel på hur information om erbjudandet visas i Azure Portal:
@@ -195,12 +197,12 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 
 #### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
-1. Titel
+1. Rubrik
 2. Beskrivning
 3. Användbara länkar
 4. Skärmbilder
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>Namn
 
 Det namn som du anger här visas för kunder som rubrik på din erbjudande lista. Det här fältet fylls i automatiskt med texten du angav för **erbjud alias** när du skapade erbjudandet, men du kan ändra det här värdet. Det här namnet kan vara ett varumärke (och du kan inkludera varumärkes-eller Copyright-symboler). Namnet får innehålla högst 50 tecken och får inte innehålla några emojis.
 
@@ -212,7 +214,7 @@ Ange en kort beskrivning av erbjudandet, upp till 100 tecken. Beskrivningen kan 
 
 Ange en längre Beskrivning av erbjudandet, upp till 256 tecken. Beskrivningen kan användas i Sök resultat.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -308,7 +310,7 @@ Den tekniska konfigurationen definierar information (klient-ID och app-ID) som a
 
 ## <a name="plan-overview"></a>Plan översikt
 
-På den här fliken kan du ange olika plan alternativ inom samma erbjudande. Dessa planer (kallas SKU: er i Cloud Partner Portal) kan variera beroende på typ av plan (lösnings mal len vs. hanterat program), monetarisering eller mål grupp.  Konfigurera minst en plan för att lista ditt erbjudande i Marketplace.
+På den här fliken kan du ange olika plan alternativ inom samma erbjudande. Dessa planer (tidigare kallade SKU: er) kan variera beroende på typ av plan (lösnings mal len vs. hanterat program), monetarisering eller mål grupp. Konfigurera minst en plan för att lista ditt erbjudande i Marketplace.
 
 När du har skapat dina prenumerations namn, ID, plan typ, tillgänglighet (offentlig eller privat), aktuell publicerings status och alla tillgängliga åtgärder på den här fliken.
 
@@ -327,7 +329,7 @@ Vilka **åtgärder** som är tillgängliga i **plan översikten** varierar beroe
 
 På den här fliken kan du ange en hög nivå konfiguration för typen av plan, om den återanvänder paket från ett annat abonnemang och vilka moln planen ska vara tillgänglig i. Dina svar på den här fliken kommer att påverka vilka fält som visas på andra flikar för samma plan.
 
-#### <a name="plan-type"></a>Typ av plan
+#### <a name="plan-type"></a>Plantyp
 Välj typ av plan för ditt erbjudande. En plan för **lösnings mal len** hanteras helt av kunden. En **hanterad program** plan gör det möjligt för utgivare att hantera programmet för kundens räkning. Mer information finns i [typer av Azure-programplaner](#types-of-azure-application-plans).
 
 #### <a name="re-use-technical-configuration"></a>Använd teknisk konfiguration igen
@@ -510,7 +512,7 @@ Ange vem som ska ha hanterings åtkomst till det här hanterade programmet i var
 
 **Auktorisering** – lägg till Azure Active Directory objekt-ID för den användare, grupp eller det program som du vill bevilja behörighet till den hanterade resurs gruppen. Identifiera användaren med sitt huvud-ID, som finns på [bladet Azure Active Directory användare på Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-För varje huvud konto väljer du en av de inbyggda Azure AD-rollerna i listan (ägare eller deltagare). Rollen du väljer beskriver de behörigheter som huvud kontot kommer att ha på resurserna i kund prenumerationen. Mer information finns i [Inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md). Mer information om rollbaserad åtkomst kontroll (RBAC) finns i [Kom igång med RBAC i Azure Portal](../../role-based-access-control/overview.md).
+För varje huvud konto väljer du en av de inbyggda Azure AD-rollerna i listan (ägare eller deltagare). Rollen du väljer beskriver de behörigheter som huvud kontot kommer att ha på resurserna i kund prenumerationen. Mer information finns i [inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md). Mer information om rollbaserad åtkomst kontroll (RBAC) finns i [Kom igång med RBAC i Azure Portal](../../role-based-access-control/overview.md).
 
 >[!Note]
 >Även om du kan lägga till upp till 100-auktoriseringar per moln är det oftast enklare att skapa en Active Directory användar grupp och ange dess ID i "huvud-ID". På så sätt kan du lägga till fler användare i hanterings gruppen när planen har distribuerats och minska behovet av att uppdatera planen bara för att lägga till fler auktoriseringar.

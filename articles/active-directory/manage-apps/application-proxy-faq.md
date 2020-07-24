@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/03/2019
+ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 839ce418fa8ad72e18537cf673c8af0479409ba7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b95ae3c7fcf52a732304bb835f91c52b015801e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386291"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128938"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Vanliga frågor och svar om Active Directory (Azure AD) Application Proxy
 
@@ -52,6 +52,9 @@ Rekommendationer finns i [hög tillgänglighet och belastnings utjämning för d
 ### <a name="is-tls-termination-tlshttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>Stöds TLS-avslutning (TLS/HTTPS-kontroll eller acceleration) på trafik från anslutnings servrarna till Azure?
 
 Application Proxy Connector utför certifikatbaserad autentisering till Azure. TLS-avslutning (TLS/HTTPS-kontroll eller acceleration) delar denna autentiseringsmetod och stöds inte. Trafik från anslutningen till Azure måste kringgå alla enheter som utför TLS-avslutning.  
+
+### <a name="is-tls-12-required-for-all-connections"></a>Krävs TLS 1,2 för alla anslutningar?
+Ja. För att tillhandahålla den bästa krypteringen till våra kunder begränsar Application Proxy-tjänsten åtkomst till endast TLS 1,2-protokoll. Dessa ändringar uppnåddes gradvis och gällde sedan den 31 augusti 2019. Kontrol lera att alla kombinationer av klient-server och webb läsar Server har uppdaterats för att använda TLS 1,2 för att upprätthålla anslutningen till Application Proxy-tjänsten. Detta inkluderar klienter som användarna använder för att få åtkomst till program som publicerats via programproxy. Se förbereda för [TLS 1,2 i Office 365](https://docs.microsoft.com/microsoft-365/compliance/prepare-tls-1.2-in-office-365) för användbara referenser och resurser.
 
 ### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>Kan jag placera en vidarebefordrad proxyserver mellan kopplings servrarna och backend-programservern?
 Ja, det här scenariot stöds från anslutnings versionen 1.5.1526.0. Se [arbeta med befintliga lokala proxyservrar](application-proxy-configure-connectors-with-proxy-servers.md).
@@ -93,6 +96,9 @@ På sidan program registreringar kan du ändra start sidans URL till önskad ext
 
 Nej, det finns inga IIS-krav för program som har publicerats. Du kan publicera webb program som körs på andra servrar än Windows Server. Men du kanske inte kan använda förautentisering med en server som inte är Windows-Server, beroende på om webb servern stöder Negotiate (Kerberos-autentisering). IIS krävs inte på den server där anslutningen är installerad.
 
+### <a name="can-i-configure-application-proxy-to-add-the-hsts-header"></a>Kan jag konfigurera Application Proxy för att lägga till HSTS-huvudet?
+Programproxyn lägger inte automatiskt till HTTP Strict-Transport-Security-huvudet i HTTPS-svar, men det behåller sidhuvudet om det är i det ursprungliga svaret som skickas av det publicerade programmet. Att bevisa en inställning för att aktivera den här funktionen finns i översikten. Om du är intresse rad av en för hands version som gör det möjligt att lägga till detta i svar kan du kontakta aadapfeedback@microsoft.com Mer information.
+
 ## <a name="integrated-windows-authentication"></a>Integrerad Windows-autentisering
 
 ### <a name="when-should-i-use-the-principalsallowedtodelegatetoaccount-method-when-setting-up-kerberos-constrained-delegation-kcd"></a>När ska jag använda PrincipalsAllowedToDelegateToAccount-metoden när jag konfigurerar Kerberos-begränsad delegering (KCD)?
@@ -133,7 +139,7 @@ Ja, det är förväntat. Scenariot före autentisering kräver en ActiveX-kontro
 
 ### <a name="is-the-remote-desktop-web-client-html5-supported"></a>Stöds en webb klient för fjärr skrivbord (HTML5)?
 
-Nej, det här scenariot stöds inte för närvarande. Följ vårt feedback-forum för [UserVoice](https://aka.ms/aadapuservoice) för uppdateringar av den här funktionen.
+Ja, det här scenariot är för närvarande en offentlig för hands version. Se [publicera fjärr skrivbord med Azure AD-programproxy](application-proxy-integrate-with-remote-desktop-services.md).
 
 ### <a name="after-i-configured-the-pre-authentication-scenario-i-realized-that-the-user-has-to-authenticate-twice-first-on-the-azure-ad-sign-in-form-and-then-on-the-rdweb-sign-in-form-is-this-expected-how-can-i-reduce-this-to-one-sign-in"></a>När jag har konfigurerat scenariot för för autentisering påträffade jag att användaren måste autentisera två gånger: först i inloggnings formuläret för Azure AD och sedan i RDWeb-inloggnings formuläret. Förväntas detta? Hur kan jag minska detta till en inloggning?
 

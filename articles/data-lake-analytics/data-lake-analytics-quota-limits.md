@@ -5,16 +5,16 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: how-to
 ms.date: 03/15/2018
-ms.openlocfilehash: b51fbfc15183fe5c8defafa6523835f938c1cf49
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 0025e35f516543c8fe703daa647ca29ed3fb87e6
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121256"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127595"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Justera kvoter och gränser i Azure Data Lake Analytics
 
@@ -34,7 +34,7 @@ Om du vill gå utöver den här gränsen kan du prova följande alternativ:
 
 **Maximalt antal analys enheter (Australien) per konto:** 250, standard 32
 
-Detta är det maximala antalet Australien som kan köras samtidigt i ditt konto. Om det totala antalet aktiva Australien över alla jobb överskrider den här gränsen placeras nyare jobb automatiskt i kö. Ett exempel:
+Detta är det maximala antalet Australien som kan köras samtidigt i ditt konto. Om det totala antalet aktiva Australien över alla jobb överskrider den här gränsen placeras nyare jobb automatiskt i kö. Exempel:
 
 * Om du bara har ett jobb som körs med 32, kommer det att vänta i jobbkön tills det första jobbet har slutförts när du skickar ett andra jobb.
 * Om du redan har fyra jobb som kör och var och en använder 8-Australien, och du skickar ett femte jobb som kräver 8 Australien väntar det i jobbkön tills det finns 8 tillgängliga.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: b7739320fa23bf4469548f61486da1a5ee6110da
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 075837d0c382f5bc6f436a63dfe227c17f0a57a3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507171"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128666"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Åtkomst och identitetsalternativ för Azure Kubernetes Service (AKS)
 
@@ -105,7 +105,7 @@ Azure RBAC är ett auktoriserings system som bygger på [Azure Resource Manager]
 
 Med Azure RBAC skapar du en *roll definition* som beskriver de behörigheter som ska tillämpas. En användare eller grupp tilldelas sedan den här roll definitionen via en *roll tilldelning* för ett visst *omfång*, som kan vara en enskild resurs, en resurs grupp eller över prenumerationen.
 
-Mer information finns i [Vad är Azure RBAC?][azure-rbac]
+Mer information finns i [Vad är Azures rollbaserad åtkomst kontroll (Azure RBAC)?][azure-rbac]
 
 Det finns två åtkomst nivåer som krävs för att fullständigt kunna använda ett AKS-kluster: 
 1. [Få åtkomst till AKS-resursen i din Azure-prenumeration](#azure-rbac-to-authorize-access-to-the-aks-resource). Med den här processen kan du styra sakernas skalning eller uppgradera klustret med hjälp av AKS-API: er samt hämta din kubeconfig.

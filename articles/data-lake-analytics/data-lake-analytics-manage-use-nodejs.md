@@ -3,18 +3,16 @@ title: Hantera Azure Data Lake Analytics med hjälp av Azure SDK för Node.js
 description: Den här artikeln beskriver hur du använder Azure SDK för Node.js till att hantera Data Lake Analytics-konton, datakällor, jobb och användare.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: f821f8f8fddfafbdba060fd3f9940ce32c138755
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d5ac360b70cf9e8c3b808d2316698ae223c72362
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121358"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127527"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Hantera Azure Data Lake Analytics med hjälp av Azure SDK för Node.js
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]

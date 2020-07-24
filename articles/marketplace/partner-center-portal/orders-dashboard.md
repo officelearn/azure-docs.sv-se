@@ -1,16 +1,16 @@
 ---
-title: Instrument panel för partner Center-beställning i kommersiell Marketplace-analys
-description: Lär dig hur du får åtkomst till analys rapporter om dina Marketplace-erbjudanden i ett grafiskt och nedladdnings Bart format.
+title: Instrument panel för partner Center på den kommersiella Marketplace-analys, Microsoft AppSource och Azure Marketplace
+description: Lär dig hur du får åtkomst till analys rapporter om dina kommersiella Marketplace-erbjudanden i ett grafiskt och nedladdnings Bart format.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/01/2020
-ms.openlocfilehash: fe1f64994d344ad9b23895823b846da62d895128
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/22/2020
+ms.openlocfilehash: 7a704936b35ba5c747ab5884c61f3f5413ac5f07
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536138"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127323"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Analys av orderinstrumentpanelen på kommersiell marknadsplats
 
@@ -33,6 +33,8 @@ På **instrument panelen för order** i menyn **analysera** visas aktuella best�
 - [Trend för beställningar och platser](#orders-and-seats-trend)
 - [Order detalj tabell](#order-details-table)
 
+Den maximala svars tiden mellan skapande och rapportering av beställningar i Partner Center är 48 timmar.
+
 ## <a name="order-dashboard-details"></a>Information om order instrument panel
 
 I det här avsnittet beskrivs analys rapporterna i detalj.
@@ -53,7 +55,7 @@ Procentvärdet bredvid totalt antal beställningar representerar den mängd till
 
 ### <a name="orders-by-geography"></a>Beställningar efter geografi
 
-Termisk karta för **beställningar per geografi** visar antalet beställningar på en världs karta och visar platser som har mappats baserat på kundens land/region. Den här termisk karta fungerar på samma sätt som **[kunden efter geografi termisk karta](./customer-dashboard.md#customer-by-geography)**.
+Värme kartan för **beställningar efter geografi** visar ett antal beställningar på en världs karta och visar platser som har mappats baserat på kundens land/region. Den här termisk karta fungerar på samma sätt som **[kunden efter geografi termisk karta](./customer-dashboard.md#customer-by-geography)**.
 
 ![Partner Center, analysera beställningar efter geografi](./media/orders-by-geography.png)
 
@@ -71,7 +73,7 @@ Med ring diagram för **beställningar per** erbjudande ordnas beställningar (i
 
 ### <a name="orders-trend-per-site-versus-per-seat"></a>Order trend per plats kontra per plats
 
-Ring diagrammet **per plats och per klient** representerar fördelningen av per plats-SaaS och per plats SaaS beställningar som köpts av kunder (det här diagrammet innehåller annullerade order). Stapeldiagrammet representerar trenden för per webbplats SaaS och per plats SaaS beställningar som köpts av kunder (det här diagrammet innehåller annullerade order).
+Ring diagrammet **per-och-plats-per-** plats motsvarar fördelningen av SaaS per webbplats och per plats SaaS beställningar som köpts av kunder (det här diagrammet innehåller annullerade order). Stapeldiagrammet representerar trenden för per webbplats SaaS och per plats SaaS beställningar som köpts av kunder (det här diagrammet innehåller annullerade order).
 
 ### <a name="orders-by-plans"></a>Order by-planer
 
@@ -82,7 +84,7 @@ Diagrammet **order by-planer** representerar trenden för beställningar på pla
 **Trend diagrammet order och platser** visar de översta 50-erbjudandena med det högsta antalet beställningar. De visas på en ledare och sorteras efter det högsta antalet order och ordningen i procent.
 
 - **Order by-planer** – Välj ett erbjudande för att Visa fördelningen av order antal för de fem främsta planerna i diagrammet.
-- **Platser efter planer** – den månatliga trenden för platser för de fem främsta planerna. Om erbjudandet du väljer inte är ett erbjudande per klient visas inte några data i det här ytdiagrammet-diagrammet.
+- **Platser efter planer** – den månatliga trenden för platser för de fem främsta planerna. Om erbjudandet du väljer inte är ett erbjudande per klient kommer inga data att visas här.
 
 ### <a name="canceled-orders-by-offers"></a>Annullerade beställningar efter erbjudanden
 
@@ -98,8 +100,8 @@ Tabellen Order information visar en numrerad lista över de 1000 främsta order 
 - Varje kolumn i rutnätet är sorterbar.
 - Data kan extraheras till en TSV-fil om antalet poster är mindre än 1000.
 - Om poster nummer över 1000 placeras exporterade data asynkront på sidan nedladdningar under de närmaste 30 dagarna.
-- Filter kan tillämpas på **tabellen Order information** för att visa endast de data som du är intresse rad av. Data kan filtreras efter land/region, Azure-licensserver, Marketplace-licens typ, erbjudande typ, beställnings status, kostnads fria spår, prenumerations-ID för Marketplace, kund-ID och företags namn.
-- Eftersom SaaS-erbjudanden som köpts via Azure Marketplace eller AppSource inte kräver en Azure-prenumeration, visas prenumerations-ID: t för Marketplace som 00000000-0000-0000-0000-000000000000 i avsnittet **detaljerade order data** .
+- Använd filter i **tabellen Orderspecifikationer** om du bara vill visa de data du är intresse rad av. Filtrera efter land/region, typ av Azure-licens, licens typ för kommersiell Marketplace, erbjudande typ, order status, kostnads fria historik, prenumerations-ID för handels-Marketplace, kund-ID och företags namn.
+- Eftersom SaaS-erbjudanden som köpts via Azure Marketplace eller AppSource inte kräver en Azure-prenumeration, så visas prenumerations-ID: t för Marketplace som 00000000-0000-0000-0000-000000000000 i avsnittet **detaljerade order data** .
 
 #### <a name="orders-page-filters"></a>Sid filter för order
 

@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 047e03c4fa5916119036c5e539674dc48a6c77aa
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
+ms.openlocfilehash: 787f30302d163dc0097cde1be31e745d7f29bb64
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85554022"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129788"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett Java Script SPA
 
 I den här snabb starten använder du ett kod exempel för att lära dig hur ett Java Script-program (Single-Side Application) kan logga in användare av personliga konton, arbets konton och skol konton. En JavaScript-SPA kan också hämta en åtkomsttoken för att anropa Microsoft Graph-API: et eller något webb-API. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en Azure-prenumeration kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.js](https://nodejs.org/en/download/)
@@ -204,7 +204,7 @@ Snabb starts koden visar också hur du initierar MSAL-biblioteket:
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
-> |Var  | Description |
+> |Var  | Beskrivning |
 > |---------|---------|
 > |`clientId`     | Program-ID för programmet som är registrerat i Azure Portal.|
 > |`authority`    | Valfritt Auktoritets-URL: en som stöder konto typer, enligt beskrivningen ovan i avsnittet konfiguration. Standard auktoriteten är `https://login.microsoftonline.com/common` . |
@@ -232,7 +232,7 @@ myMSALObj.loginPopup(loginRequest)
 });
 ```
 
-> |Var  | Description |
+> |Var  | Beskrivning |
 > |---------|---------|
 > | `scopes`   | Valfritt Innehåller omfattningar som begärs för användar medgivande vid inloggnings tillfället. Till exempel `[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er (det vill säga `api://<Application ID>/access_as_user` ). |
 
@@ -262,13 +262,13 @@ myMSALObj.acquireTokenSilent(tokenRequest)
     });
 ```
 
-> |Var  | Description |
+> |Var  | Beskrivning |
 > |---------|---------|
 > | `scopes`   | Innehåller omfång som begärs att returneras i åtkomsttoken för API. Till exempel `[ "mail.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er (det vill säga `api://<Application ID>/access_as_user` ).|
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Det finns situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Ett exempel:
+Det finns situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Exempel:
 * Användare kan behöva ange sina autentiseringsuppgifter på grund av att deras lösen ord har upphört att gälla.
 * Ditt program begär åtkomst till ytterligare resurs omfattningar som användaren behöver godkänna.
 * Tvåfaktorautentisering krävs.

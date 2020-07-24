@@ -1,19 +1,19 @@
 ---
 title: Lägga till ett Open Geospatial Consortium (OGC) kart skikt | Microsoft Azure Maps
 description: Lär dig hur du lägger till ett OGC kart lager på kartan och hur du använder de olika alternativen i OgcMapLayer-klassen.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b753ecfc07cfb3806838f8a05dbe33ef0bb92730
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6efc6b27090ecc7171bb66deb303a4764d9b6f04
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334286"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128564"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Lägg till ett kart skikt från Open Geospatial Consortium (OGC)
 
@@ -28,7 +28,7 @@ I följande avsnitt beskrivs de webb kart tjänst funktioner som stöds av `OgcM
 - GetFeatureInfo kräver att tjänsten stöder `EPSG:4326` eller hanterar omprojektioner. 
 - Åtgärder som stöds:
 
-    | | |
+    | Åtgärd | Beskrivning |
     | :-- | :-- |
     | GetCapabilities | Hämtar metadata om tjänsten med funktioner som stöds |
     | GetMap | Hämtar en kart bild för en angiven region |
@@ -42,7 +42,7 @@ I följande avsnitt beskrivs de webb kart tjänst funktioner som stöds av `OgcM
 - TileMatrix-identifieraren måste vara ett heltals värde som motsvarar en zoomnings nivå på kartan. På en Azure-karta är zoomnings nivån ett värde mellan `"0"` och `"22"` . Det `"0"` stöds, men stöds `"00"` inte.
 - Åtgärder som stöds:
 
-    | | |
+    | Åtgärd | Beskrivning |
     | :-- | :-- |
     | GetCapabilities | Hämtar de åtgärder och funktioner som stöds |
     | GetTile | Hämtar bilder för en viss panel |

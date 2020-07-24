@@ -7,11 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: db256c8361af740ac536e059969a5085e57df485
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb57606259fe674519015fd2de741d6c1d08c5e9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263383"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127204"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Översikt över Azure Files Identity-baserade autentiseringsalternativ för SMB-åtkomst
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -45,7 +46,7 @@ Det är bra att förstå vissa viktiga villkor som rör Azure AD Domain Service-
 
 -   **Rollbaserad Access Control i Azure (RBAC)**
 
-    Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure. Med RBAC kan du hantera åtkomst till resurser genom att ge användarna minst de behörigheter som krävs för att utföra sina jobb. Mer information om RBAC finns i [Vad är rollbaserad åtkomst kontroll (RBAC) i Azure?](../../role-based-access-control/overview.md).
+    Rollbaserad åtkomst kontroll i Azure (Azure RBAC) möjliggör detaljerad åtkomst hantering för Azure. Med RBAC kan du hantera åtkomst till resurser genom att ge användarna minst de behörigheter som krävs för att utföra sina jobb. Mer information om RBAC finns i [Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC) i Azure?](../../role-based-access-control/overview.md).
 
 ## <a name="common-use-cases"></a>Vanliga användarsituationer
 
@@ -145,7 +146,7 @@ Det finns ingen ytterligare service avgift för att aktivera identitets baserad 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure Files-och identitets-baserad autentisering över SMB finns i följande resurser:
 
-- [Planera för distribution av Azure Files](storage-files-planning.md)
+- [Planera för en Azure Files-distribution](storage-files-planning.md)
 - [Aktivera lokal Active Directory Domain Services autentisering över SMB för Azure-filresurser](storage-files-identity-auth-active-directory-enable.md)
 - [Aktivera Azure Active Directory Domain Services autentisering på Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md)
 - [Vanliga frågor och svar](storage-files-faq.md)

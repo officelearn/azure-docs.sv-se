@@ -2,19 +2,19 @@
 title: Hantera autentisering
 titleSuffix: Azure Maps
 description: Använd Azure Portal för att hantera autentisering i Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 174606b4b070b69aba94f438a3f7177f0d5897f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69dda537beda1d1bec4f019e1d5cadd16bdd5b39
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84981733"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126864"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Hantera autentisering i Azure Maps
 
@@ -45,12 +45,12 @@ I följande tabell beskrivs vanliga scenarier för autentisering och auktoriseri
 
 | Scenario                                                                                    | Autentisering | Auktorisering | Utvecklings arbete | Drift ansträngning |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
-| [Trusted daemon/icke-interaktiv klient program](./how-to-secure-daemon-app.md)        | Delad nyckel     | E.t.           | Medium             | Hög               |
-| [Trusted daemon/icke-interaktiv klient program](./how-to-secure-daemon-app.md)        | Azure AD       | Hög          | Låg                | Medium             |
-| [Webb program med en enda sida med interaktiv enkel inloggning](./how-to-secure-spa-users.md) | Azure AD       | Hög          | Medium             | Medium             |
-| [Webb program med en enda sida med icke-interaktiv inloggning](./how-to-secure-spa-app.md)      | Azure AD       | Hög          | Medium             | Medium             |
-| [Webb program med interaktiv enkel inloggning](./how-to-secure-webapp-users.md)          | Azure AD       | Hög          | Hög               | Medium             |
-| [IoT-enhet/indatamängds begränsad enhet](./how-to-secure-device-code.md)                     | Azure AD       | Hög          | Medium             | Medium             |
+| [Trusted daemon/icke-interaktiv klient program](./how-to-secure-daemon-app.md)        | Delad nyckel     | Ej tillämpligt           | Medium             | Högt               |
+| [Trusted daemon/icke-interaktiv klient program](./how-to-secure-daemon-app.md)        | Azure AD       | Högt          | Lågt                | Medium             |
+| [Webb program med en enda sida med interaktiv enkel inloggning](./how-to-secure-spa-users.md) | Azure AD       | Högt          | Medel             | Medium             |
+| [Webb program med en enda sida med icke-interaktiv inloggning](./how-to-secure-spa-app.md)      | Azure AD       | Högt          | Medel             | Medium             |
+| [Webb program med interaktiv enkel inloggning](./how-to-secure-webapp-users.md)          | Azure AD       | Högt          | Högt               | Medel             |
+| [IoT-enhet/indatamängds begränsad enhet](./how-to-secure-device-code.md)                     | Azure AD       | Högt          | Medel             | Medium             |
 
 Länkarna i tabellen tar dig till detaljerad konfigurations information för varje scenario.
 

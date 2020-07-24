@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d482b3335b31d116846ec64883b43897fcc4e43d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: baab0160247e17556f0928f12f26a5ecca767210
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255667"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129312"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Använd Microsoft Teams på Windows Virtual Desktop
 
@@ -27,7 +27,7 @@ Microsoft Teams på Windows Virtual Desktop stöder chatt och samarbete. Med med
 
 Med medie optimering för Microsoft team, hanterar Windows Skriv bords klienten ljud och video lokalt för team-samtal och-möten. Du kan fortfarande använda Microsoft Teams på virtuella Windows-datorer med andra klienter utan optimerad samtal och möten. Teams chatt-och samarbets funktioner stöds på alla plattformar. Om du vill omdirigera lokala enheter i fjärrsessionen kan du läsa [anpassa Remote Desktop Protocol egenskaper för en adresspool](#customize-remote-desktop-protocol-properties-for-a-host-pool).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan använda Microsoft Teams på Windows Virtual Desktop måste du göra följande saker:
 
@@ -54,6 +54,14 @@ Om du vill aktivera medie optimering för team anger du följande register nycke
 ### <a name="install-the-teams-websocket-service"></a>Installera Teams WebSocket-tjänsten
 
 Installera [WebSocket-tjänsten](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj0i) på den virtuella dator avbildningen. Om ett installations fel uppstår installerar du den [senaste versionen av Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) och försöker igen.
+
+#### <a name="latest-websocket-service-versions"></a>Senaste WebSocket service-versioner
+
+I följande tabell visas de aktuella versionerna som är tillgängliga för varje användar grupp:
+
+|Version    |Utgivningsdatum  |
+|-----------|--------------|
+|0.11.0     |05/29/2020    |
 
 ### <a name="install-microsoft-teams"></a>Installera Microsoft Teams
 

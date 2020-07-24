@@ -10,12 +10,12 @@ ms.date: 04/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9b2de4f320801b20de5bcc9687a723dadb182ef8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db65ba904cdce7bec83b851c6b50316c89fcedfd
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807712"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128734"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Använd Azure Portal för att få åtkomst till BLOB-eller Queue-data
 
@@ -25,7 +25,7 @@ Du kan också ange hur du vill auktorisera en enskild BLOB-uppladdning i Azure P
 
 ## <a name="permissions-needed-to-access-blob-or-queue-data"></a>Behörigheter som krävs för att få åtkomst till BLOB-eller Queue data
 
-Beroende på hur du vill ge åtkomst till BLOB-eller Queue-data i Azure Portal måste du ha vissa behörigheter. I de flesta fall tillhandahålls dessa behörigheter via rollbaserad åtkomst kontroll (RBAC). Mer information om RBAC finns i [Vad är rollbaserad åtkomst kontroll (RBAC)?](../../role-based-access-control/overview.md).
+Beroende på hur du vill ge åtkomst till BLOB-eller Queue-data i Azure Portal måste du ha vissa behörigheter. I de flesta fall tillhandahålls dessa behörigheter via rollbaserad åtkomst kontroll (RBAC). Mer information om RBAC finns i [Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC)?](../../role-based-access-control/overview.md).
 
 ### <a name="use-the-account-access-key"></a>Använda kontots åtkomst nyckel
 
@@ -57,7 +57,7 @@ De inbyggda rollerna som stöder åtkomst till BLOB-eller Queue-data är:
 - [Data deltagare i Storage Queue](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Läs-/skriv-/borttagnings behörigheter för köer.
 - [Data läsare för lagrings köer](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader): Läs behörighet för köer.
 
-Anpassade roller har stöd för olika kombinationer av samma behörigheter som tillhandahålls av de inbyggda rollerna. Mer information om hur du skapar anpassade RBAC-roller finns i [anpassade roller för Azure-resurser](../../role-based-access-control/custom-roles.md) och [förstå roll definitioner för Azure-resurser](../../role-based-access-control/role-definitions.md).
+Anpassade roller har stöd för olika kombinationer av samma behörigheter som tillhandahålls av de inbyggda rollerna. Mer information om hur du skapar anpassade Azure-roller finns i [Azure-anpassade roller](../../role-based-access-control/custom-roles.md) och [förstå roll definitioner för Azure-resurser](../../role-based-access-control/role-definitions.md).
 
 Det finns inte stöd för att Visa köer med en klassisk prenumerations administratörs roll. Om du vill visa en lista över köer måste användaren ha tilldelats rollen som Azure Resource Managers **läsare** , rollen **data läsare för lagrings kön** eller rollen **data deltagare i lagrings kön** .
 

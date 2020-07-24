@@ -1,25 +1,25 @@
 ---
 title: Lägg till ett symbol lager till Android Maps | Microsoft Azure Maps
 description: I den här artikeln får du lära dig hur du återger punkt data på en karta genom att lägga till ett symbol lager till den med hjälp av Microsoft Azure Maps Android SDK.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b6b73fef368dc8dec5d8c042cdac1d3cea899450
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 528c5a5ba4314e44334548334e312d1111768cf5
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242448"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127085"
 ---
 # <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Lägg till ett symbol lager till en karta med Azure Maps Android SDK
 
 Den här artikeln visar hur du återger punkt data från en data källa som ett symbol lager på en karta med hjälp av Azure Maps Android SDK.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa stegen i den här artikeln fullständigt måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) för att läsa in en karta.
 

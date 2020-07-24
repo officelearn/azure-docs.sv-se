@@ -9,20 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 05/19/2020
+ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 0eaa4a828716f1a52161726e768acc817d1fde17
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-javascript
+ms.openlocfilehash: cf86e2b747975e18fc999949340207b618dd8864
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134175"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129805"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett Java Script SPA med auth Code Flow
-
-> [!IMPORTANT]
-> Den här funktionen finns för närvarande som en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av den här funktionen kan ändras före allmän tillgänglighet (GA).
 
 I den här snabb starten kör du ett kod exempel som visar hur ett Java Script-program (Single-Side Application) kan logga in användare av personliga konton, arbets konton och skol konton med hjälp av flödet för auktoriseringskod. Kod exemplet visar också hur man hämtar en åtkomsttoken för att anropa ett webb-API, i det här fallet Microsoft Graph API. Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 
@@ -171,7 +168,7 @@ Kör projektet med en webb server genom att använda Node.js:
     npm install
     npm start
     ```
-1. Bläddra till `http://localhost:3000/`.
+1. Gå till `http://localhost:3000/`.
 
 1. Välj **Logga** in för att starta inloggnings processen och anropa sedan Microsoft Graph-API: et.
 

@@ -1,19 +1,19 @@
 ---
 title: Trafik täckning | Microsoft Azure Maps
 description: I den här artikeln får du lära dig mer om trafik täckning i Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 09/22/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 836a924bb371aaf2879e951501c6febbe51e182e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 346cd13c021b70dac1501e5ca5a9e6930d407e6e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80333952"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129431"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps trafik täckning
 
@@ -23,7 +23,7 @@ Maps har dock inte samma nivå av information och noggrannhet för alla länder 
 
 ## <a name="americas"></a>Nord- och Sydamerika
 
-|Land/region  |Incidenter  |Flöde  |
+|Land/region  |Incidenter  |Flöden  |
 |---------|:---------:|:---------:|
 |Argentina      |✓         |✓         |
 |Brasilien     |✓         |✓         |
@@ -39,7 +39,7 @@ Maps har dock inte samma nivå av information och noggrannhet för alla länder 
 
 ## <a name="asia-pacific"></a>Asien och stillahavsområdet
 
-|Land/region   |Incidenter  |Flöde  |
+|Land/region   |Incidenter  |Flöden  |
 |---------|:---------:|:---------:|
 |Australien     |✓         |✓        |
 |Brunei   |✓         |✓        |
@@ -59,7 +59,7 @@ Maps har dock inte samma nivå av information och noggrannhet för alla länder 
 
 ## <a name="europe"></a>Europa
 
-|Land/region   |Incidenter  |Flöde  |
+|Land/region   |Incidenter  |Flöden  |
 |---------|:---------:|:---------:|
 |Andorra   |✓         |✓         |
 |Österrike     |✓         |✓         |
@@ -117,7 +117,7 @@ Maps har dock inte samma nivå av information och noggrannhet för alla länder 
 
 ## <a name="middle-east-and-africa"></a>Mellanöstern och Afrika
 
-|Land/region |Incidenter  |Flöde  |
+|Land/region |Incidenter  |Flöden  |
 |---------|:---------:|:---------:|
 |Bahrain     |✓         |✓         |
 |Egypten     |✓         |✓         |

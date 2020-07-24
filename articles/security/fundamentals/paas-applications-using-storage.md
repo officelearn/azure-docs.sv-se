@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 675e10101d01d831aad7652c70cbfcf320085a3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da59c0d54fa08194f9d77fc79754cbfbaca1a1e8
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70999172"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128411"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Metod tips för att skydda PaaS-webb program och mobilappar med hjälp av Azure Storage
 I den här artikeln diskuterar vi en samling Azure Storage säkerhets metod tips för att skydda dina webb-och mobil program för PaaS-tjänster (Platform-as-a-Service). Dessa bästa metoder härleds från vår erfarenhet av Azure och våra kunders upplevelser som du själv har.
@@ -65,7 +65,7 @@ Organisationer som inte tillämpar data åtkomst kontroll genom att använda fun
 Läs mer om RBAC i:
 
 - [Hantera åtkomst med hjälp av RBAC och Azure-portalen](/azure/role-based-access-control/role-assignments-portal)
-- [Inbyggda roller för Azure-resurser](/azure/role-based-access-control/built-in-roles)
+- [Inbyggda roller i Azure](/azure/role-based-access-control/built-in-roles)
 - [Säkerhetsguiden för Azure Storage](/azure/storage/common/storage-security-guide) 
 
 ## <a name="use-client-side-encryption-for-high-value-data"></a>Använd kryptering på klient sidan för data med hög värde

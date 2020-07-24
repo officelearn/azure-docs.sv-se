@@ -2,25 +2,23 @@
 title: Kom igång med U-SQL-språk i Azure Data Lake Analytics
 description: Lär dig grunderna för U-SQL-språket i Azure Data Lake Analytics. Skriv din första fråga med variabler för extra data från filer, transformera rad uppsättningen och samla in data.
 services: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/23/2017
-ms.openlocfilehash: e80ecac68c3352c7f067fcbfcedb9a07aed729a8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 6f2af2eed8aa01f35e1813bcd910f3ea22e2a335
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120865"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128853"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Kom igång med U-SQL i Azure Data Lake Analytics
 
 U-SQL är ett språk som kombinerar deklarativ SQL med tvingande C# så att du kan bearbeta data i valfri skala. Genom den skalbara distribuerade fråge funktionen i U-SQL kan du effektivt analysera data i Relations lager, till exempel Azure SQL Database. Med U-SQL kan du bearbeta ostrukturerade data genom att använda schema vid läsning och infoga anpassad logik och UDF: er. U-SQL innehåller dessutom utöknings barhet som ger dig detaljerad kontroll över hur du kör i skala.
 
-## <a name="learning-resources"></a>Inlärningsresurser
+## <a name="learning-resources"></a>Utbildningsresurser
 
 * [U-SQL-kursen](https://aka.ms/usqltutorial) innehåller en guidad genom gång av det mesta av U-SQL-språket. Det här dokumentet rekommenderar läsning för alla utvecklare som vill lära sig U-SQL.
 * Detaljerad information om **språksyntaxen i u-SQL**finns i [språk referens för u-SQL](https://docs.microsoft.com/u-sql/).

@@ -3,11 +3,12 @@ title: Hanterade identiteter för Azure-resurser med Service Bus
 description: Den här artikeln beskriver hur du använder hanterade identiteter för att få åtkomst till Azure Service Bus entiteter (köer, ämnen och prenumerationer).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 62c00c92ddd8265b1174cc195bfa83d533ec20d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f803b66323004ac3bf71075cda1a4f2e47bbd4e7
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341404"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128870"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autentisera en hanterad identitet med Azure Active Directory för att få åtkomst till Azure Service Bus resurser
 [Hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) är en funktion i Azure som gör att du kan skapa en säker identitet som är kopplad till den distribution som program koden körs under. Du kan sedan associera identiteten med åtkomst kontroll roller som ger anpassade behörigheter för åtkomst till specifika Azure-resurser som ditt program behöver.
@@ -59,7 +60,7 @@ I följande lista beskrivs de nivåer där du kan begränsa åtkomsten till Serv
 > [!NOTE]
 > Tänk på att det kan ta upp till fem minuter att sprida RBAC-roll tilldelningar. 
 
-Mer information om hur inbyggda roller definieras finns i [förstå roll definitioner](../role-based-access-control/role-definitions.md#management-and-data-operations). Information om hur du skapar anpassade RBAC-roller finns i [skapa anpassade roller för Azure Role-baserade Access Control](../role-based-access-control/custom-roles.md).
+Mer information om hur inbyggda roller definieras finns i [förstå roll definitioner](../role-based-access-control/role-definitions.md#management-and-data-operations). Information om hur du skapar anpassade Azure-roller finns i [Azure-anpassade roller](../role-based-access-control/custom-roles.md).
 
 ## <a name="enable-managed-identities-on-a-vm"></a>Aktivera hanterade identiteter på en virtuell dator
 Innan du kan använda hanterade identiteter för Azure-resurser för att auktorisera Service Bus resurser från din virtuella dator måste du först aktivera hanterade identiteter för Azure-resurser på den virtuella datorn. Information om hur du aktiverar hanterade identiteter för Azure-resurser finns i någon av följande artiklar:
@@ -113,7 +114,7 @@ Om du vill tilldela en roll till en Service Bus-namnrymd navigerar du till namn 
 
 När du har tilldelat rollen får webb programmet åtkomst till Service Bus entiteter under det definierade omfånget. 
 
-### <a name="run-the-app"></a>Kör appen
+### <a name="run-the-app"></a>Köra appen
 
 Ändra nu standard sidan för det ASP.NET-program som du skapade. Du kan använda webb program koden från [den här GitHub-lagringsplatsen](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  
 

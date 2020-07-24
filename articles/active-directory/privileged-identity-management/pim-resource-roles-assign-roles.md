@@ -15,12 +15,12 @@ ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 985342b19baad8b9210e985c9c7dfb9482708a0c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 32b678058e2d24d277eaf56a1aadec3678e25a5b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023780"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128173"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Tilldela Azure-resurs roller i Privileged Identity Management
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kan hante
 - Säkerhets hanterare
 
 > [!NOTE]
-> Användare eller medlemmar i en grupp som har tilldelats prenumerations rollerna ägare eller användar åtkomst administratör och globala Azure AD-administratörer som aktiverar prenumerations hantering i Azure AD har resurs administratörs behörighet som standard. Dessa administratörer kan tilldela roller, konfigurera roll inställningar och granska åtkomst med hjälp av Privileged Identity Management för Azure-resurser. En användare kan inte hantera Privileged Identity Management för resurser utan resurs administratörs behörighet. Visa listan över [inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
+> Användare eller medlemmar i en grupp som har tilldelats prenumerations rollerna ägare eller användar åtkomst administratör och globala Azure AD-administratörer som aktiverar prenumerations hantering i Azure AD har resurs administratörs behörighet som standard. Dessa administratörer kan tilldela roller, konfigurera roll inställningar och granska åtkomst med hjälp av Privileged Identity Management för Azure-resurser. En användare kan inte hantera Privileged Identity Management för resurser utan resurs administratörs behörighet. Visa listan över [inbyggda Azure-roller](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="assign-a-role"></a>Tilldela en roll
 

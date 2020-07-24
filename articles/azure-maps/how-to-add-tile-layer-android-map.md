@@ -1,19 +1,19 @@
 ---
 title: Lägg till ett panel lager till Android Maps | Microsoft Azure Maps
 description: I den här artikeln får du lära dig hur du återger ett panel lager på en karta med hjälp av Microsoft Azure Maps Android SDK.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f98598bd1307bb1b46ff23814780c5f809b9ac90
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7480ba3befaf560eace2cae4ef4a822012373a2
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335566"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126983"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Lägg till ett panel lager till en karta med Azure Maps Android SDK
 

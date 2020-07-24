@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ba4188445f9bdf791ef760936bd27ac0f507fb4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d82289366d79f44460b96d75781cac4fa50de53a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737180"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129737"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integrera Azure Digitals dubbla med andra tjänster
 
@@ -24,7 +24,7 @@ Azures digitala dubblare kan drivas med data från IoT Hub. På så sätt kan du
 
 Azure Digital-dubbla har inte någon inbyggd IoT Hub. Du kan använda en befintlig IoT Hub som du för närvarande har i produktions miljön eller distribuera en ny. Detta ger dig fullständig åtkomst till alla enhets hanterings funktioner i IoT Hub.
 
-Använd en [Azure-funktion](../azure-functions/functions-overview.md)för att mata in data från IoT Hub i Azure Digitals dubbla. Lär dig mer om det här mönstret i [How-to: intag av telemetri från IoT Hub](how-to-ingest-iot-hub-data.md)eller prova själv i [självstudien om Azure Digitals dubblare: Anslut en lösning från slut punkt till slut punkt](tutorial-end-to-end.md).
+Använd en [Azure-funktion](../azure-functions/functions-overview.md)för att mata in data från IoT Hub i Azure Digitals dubbla. Lär dig mer om det här mönstret i [*How-to: intag av telemetri från IoT Hub*](how-to-ingest-iot-hub-data.md)eller prova själv i självstudien om Azure Digitals dubblare [*: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md).
 
 ## <a name="data-egress-services"></a>Utgående tjänster för data
 
@@ -33,7 +33,7 @@ Azure Digitals dubbla, kan skicka data till anslutna **slut punkter**. Slut punk
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Slut punkter är kopplade till Azure Digitals dubbla med hanterings-API: er eller Azure Portal. Lär dig mer om hur du ansluter en slut punkt till Azure Digitals dubbla i [anvisningar: hantera slut punkter och vägar](how-to-manage-routes.md).
+Slut punkter är kopplade till Azure Digitals dubbla med hanterings-API: er eller Azure Portal. Lär dig mer om hur du ansluter en slut punkt till Azure Digitals dubbla i [*anvisningar: hantera slut punkter och vägar*](how-to-manage-routes.md).
 
 Det finns många andra tjänster där du kanske vill dirigera dina data i slut ändan, till exempel [Azure Storage](../storage/common/storage-introduction.md) eller [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md). Om du vill skicka dina data till tjänster som de här kan du koppla mål tjänsten till en slut punkt.
 
@@ -42,7 +42,7 @@ Om du till exempel också använder [Azure Maps](../azure-maps/about-azure-maps.
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om slut punkter och vidarebefordran av händelser till externa tjänster:
-* [Koncept: routning av Azure Digitals dubbla händelser](concepts-route-events.md)
+* [*Koncept: routning av Azure Digitals dubbla händelser*](concepts-route-events.md)
 
 Mer information finns i så här konfigurerar du Azure Digital-dubblare för att mata in data från IoT Hub:
-* [How-to: intag av telemetri från IoT Hub](how-to-ingest-iot-hub-data.md)
+* [*How-to: intag av telemetri från IoT Hub*](how-to-ingest-iot-hub-data.md)

@@ -2,18 +2,19 @@
 title: Så här skyddar du ett daemon-program
 titleSuffix: Azure Maps
 description: Använd Azure Portal för att hantera autentisering för att konfigurera ett Trusted daemon-program.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 4fa3492b0cd71e61900dc4be150cd0f0169379ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 066118622f19d7efac71ddd66ac1abe058008b55
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988696"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126779"
 ---
 # <a name="secure-a-daemon-application"></a>Skydda ett daemon-program
 
@@ -113,7 +114,7 @@ Du beviljar *rollbaserad åtkomst kontroll* (RBAC) genom att tilldela antingen d
 > [!div class="mx-imgBorder"]
 > ![Visa tillgängliga roller](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
-1. Gå till ditt **Azure Maps-konto**. Välj roll tilldelningar för **åtkomst kontroll (IAM)**  >  **Role assignments**.
+1. Gå till ditt **Azure Maps-konto**. Välj **Åtkomstkontroll (IAM)** > **Rolltilldelningar**.
 
     > [!div class="mx-imgBorder"]
     > ![Bevilja RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)

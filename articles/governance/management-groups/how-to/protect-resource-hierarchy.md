@@ -3,15 +3,16 @@ title: Så här skyddar du din resurs-hierarki – Azure-styrning
 description: Lär dig hur du skyddar din resurs-hierarki med hierarkiska inställningar som inkluderar inställning av standard hanterings gruppen.
 ms.date: 05/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 60c184d176ae62c1af525db656c56a83422cb94a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50b5ba1bccf3d603b6d273892d0c903d433786f3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83837418"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128004"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Så här skyddar du din resurs-hierarki
 
-Dina resurser, resurs grupper, prenumerationer, hanterings grupper och klient organisation sammanfattar tillsammans din mappstruktur. Inställningar för rot hanterings gruppen, till exempel anpassade RBAC-roller eller Azure Policy princip tilldelningar, kan påverka varje resurs i din resurs-hierarki. Det är viktigt att skydda resurs-hierarkin från ändringar som kan påverka alla resurser negativt.
+Dina resurser, resurs grupper, prenumerationer, hanterings grupper och klient organisation sammanfattar tillsammans din mappstruktur. Inställningar för rot hanterings gruppen, till exempel Azure-anpassade roller eller Azure Policy princip tilldelningar, kan påverka varje resurs i din resurspool. Det är viktigt att skydda resurs-hierarkin från ändringar som kan påverka alla resurser negativt.
 
 Hanterings grupper har nu hierarkiska inställningar som gör det möjligt för klient administratören att styra dessa beteenden. Den här artikeln beskriver var och en av de tillgängliga inställningarna för hierarkin och hur du ställer in dem.
 

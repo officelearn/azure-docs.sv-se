@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 69e88aed1485d07bc4adc57abc0bda02a1def728
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2434c5b80fedb7fd5ae61357cadf5d23f9b00934
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808891"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127187"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Ge åtkomst till blob-och Queue-data med hanterade identiteter för Azure-resurser
 
@@ -61,7 +61,7 @@ Om utvecklings miljön inte stöder enkel inloggning eller inloggning via en web
 
 #### <a name="create-the-service-principal"></a>Skapa huvudnamn för tjänsten
 
-Om du vill skapa ett huvud namn för tjänsten med Azure CLI och tilldela en RBAC-roll, anropar du kommandot [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) . Ange en Azure Storage data åtkomst roll som ska tilldelas det nya huvud namnet för tjänsten. Ange dessutom omfånget för roll tilldelningen. Mer information om de inbyggda roller som finns för Azure Storage finns [inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
+Om du vill skapa ett huvud namn för tjänsten med Azure CLI och tilldela en RBAC-roll, anropar du kommandot [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) . Ange en Azure Storage data åtkomst roll som ska tilldelas det nya huvud namnet för tjänsten. Ange dessutom omfånget för roll tilldelningen. Mer information om de inbyggda roller som finns för Azure Storage finns i [inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md).
 
 Om du inte har tillräcklig behörighet för att tilldela en roll till tjänstens huvud namn kan du behöva be kontots ägare eller administratör att utföra roll tilldelningen.
 

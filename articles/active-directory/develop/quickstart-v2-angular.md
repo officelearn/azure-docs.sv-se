@@ -7,26 +7,26 @@ author: jasonnutter
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: f457e876cb9484fce29cba35c7570572b2771aed
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: a7553eea8941b93e589f38f8229ef35b70361f8e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860060"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129193"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett angulande Enkels Ides program
 
 I den här snabb starten använder du ett kod exempel för att lära dig hur ett särskilt SPA-program (Single-Side Application) kan logga in användare som har personliga Microsoft-konton, arbets konton eller skol konton. En vinkel-SPA kan också hämta en åtkomsttoken för att anropa Microsoft Graph-API: et eller något webb-API.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Node. js](https://nodejs.org/en/download/).
+* [Node.js](https://nodejs.org/en/download/).
 * [Visual Studio Code](https://code.visualstudio.com/download) för att redigera projektfiler eller [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) för att köra projektet.
 
 > [!div renderon="docs"]
@@ -62,7 +62,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 
 #### <a name="step-2-download-the-code-sample"></a>Steg 2: Hämta kod exemplet
 >[!div renderon="docs"]
->Om du vill köra projektet med en webb server med hjälp av Node. js, [klona exempel lagrings platsen](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) eller [Ladda ned de grundläggande projektfilerna](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip). Öppna filerna med hjälp av ett redigerings program, till exempel Visual Studio Code.
+>Om du vill köra projektet med en webb server med hjälp av Node.js, [klona exempel lagrings platsen](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) eller [Ladda ned de grundläggande projektfilerna](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip). Öppna filerna med hjälp av ett redigerings program, till exempel Visual Studio Code.
 
 > [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Ladda ned kod exemplet](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip)
@@ -107,9 +107,9 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 > > [!TIP]
 > > För att hitta värdena för **program-ID (klient)**, **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
 
-Mer information om tillgängliga konfigurerbara alternativ finns i [initiera klient program](msal-js-initializing-client-applications.md). 
+Mer information om tillgängliga konfigurerbara alternativ finns i [initiera klient program](msal-js-initializing-client-applications.md).
 
-Du hittar käll koden för biblioteket MSAL. js i [AzureAD/Microsoft-Authentication-Library-for-JS](https://github.com/AzureAD/microsoft-authentication-library-for-js) -lagringsplatsen på GitHub.
+Du hittar käll koden för MSAL.js bibliotek i [AzureAD/Microsoft-Authentication-Library-for-JS](https://github.com/AzureAD/microsoft-authentication-library-for-js) -lagringsplatsen på GitHub.
 
 >[!div class="sxs-lookup" renderon="portal"]
 >#### <a name="step-3-run-the-project"></a>Steg 3: kör projektet
@@ -126,7 +126,7 @@ Om du använder Node.js:
    npm start
    ```
 
-1. Bläddra till **http://localhost:4200/** .
+1. Bläddra till **http://localhost:4200/**.
 1. Välj **inloggning**.
 1. Välj **profil** för att anropa Microsoft Graph.
 
@@ -134,7 +134,7 @@ När webbläsaren har läst in programmet väljer du **Logga in**. Första gång
 
 ## <a name="how-the-sample-works"></a>Så här fungerar exemplet
 
-![Diagram som visar hur exempel programmet i den här snabb starten fungerar](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+![Diagram som visar hur exempel programmet i den här snabb starten fungerar](./media/quickstart-v2-angular/diagram-auth-flow-spa-angular.svg)
 
 
 ## <a name="next-steps"></a>Nästa steg

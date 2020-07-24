@@ -2,18 +2,17 @@
 title: Så här felsöker du Azure Data Lake Analytics U-SQL runtime-fel
 description: Lär dig hur du felsöker U-SQL runtime-fel.
 services: data-lake-analytics
-author: guyhay
-ms.author: guyhay
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/10/2019
-ms.openlocfilehash: 1e3fb218e6cda5619bfa1a0936e07d6731a9cc93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54524b0528f94ca9386c2d0d45ba4393c965fa88
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73648459"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128819"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Lär dig hur du felsöker U-SQL runtime-fel på grund av körnings ändringar
 

@@ -3,12 +3,12 @@ title: Återställa system tillstånd till en Windows-Server
 description: Steg för steg-förklaringar för återställning av Windows Server-systemtillstånd från en säkerhets kopia i Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 5212e5ea0ed3a8c0e0a8e9d4fa45f1eb6c901bf5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 8ba4cb5d5617b6a051aec8c54a595e701f62fb87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184486"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067369"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Återställa system tillstånd till Windows Server
 
@@ -183,7 +183,7 @@ Den här artikeln diskuterar bara det första scenariot, som anropar en nonautho
         >[!NOTE]
         >Om du återställer alla Active Directory data (och det inte finns några fungerande domänkontrollanter kvar i skogen) i steg 9 ovan, se till att välja **utför en auktoritativ återställning av Active Directory filer**.
 
-    * Använd verktyget [Wbadmin](https://docs.microsoft.com/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) för att utföra återställningen från kommando raden.
+    * Använd verktyget [Wbadmin](/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) för att utföra återställningen från kommando raden.
 
         Du behöver versions identifieraren för den säkerhets kopia som du vill använda. Du kan hämta en lista över versions identifierare genom att köra det här kommandot:
 
@@ -193,7 +193,7 @@ Den här artikeln diskuterar bara det första scenariot, som anropar en nonautho
 
         Sedan använder du den versions identifieraren för att köra återställningen.
 
-        Om du till exempel vill utföra en [nonauthorative återställning av AD DS och en auktoritativ återställning av SYSVOL-mappen](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) med säkerhets kopian från 04/30/2020 kl. 9:00, som lagras på den delade resursen `\\servername\share` för `server01` , skriver du:
+        Om du till exempel vill utföra en [nonauthorative återställning av AD DS och en auktoritativ återställning av SYSVOL-mappen](/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) med säkerhets kopian från 04/30/2020 kl. 9:00, som lagras på den delade resursen `\\servername\share` för `server01` , skriver du:
 
         ```cmd
         wbadmin start systemstaterecovery -version:04/30/2020-09:00 -backupTarget:\\servername\share -machine:server01 -authsysvol

@@ -3,12 +3,12 @@ title: Offlinesäkerhetskopiering för DPM och Azure Backup Server
 description: Med Azure Backup kan du skicka data från nätverket med Azure import/export-tjänsten. I den här artikeln beskrivs arbets flödet offline-säkerhetskopiering för DPM och Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 3f02c48ddd2c5cd4831d8c7a84dbbf42f55a562a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f27a38657bb43a1d1153a0372db0e1f9e284eccc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187803"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067352"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server (MABS)
 
@@ -49,7 +49,7 @@ Kontrol lera att följande krav är uppfyllda innan du startar arbets flödet of
 
 * På DPM-eller MABS-servern kontrollerar du att Microsoft Edge eller Internet Explorer 11 är installerat och att Java Script är aktiverat.
 * Skapa ett Azure Storage-konto i samma prenumeration som Recovery Services-valvet.
-* Kontrol lera att du har de [behörigheter som krävs](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) för att skapa Azure Active Directory-programmet. Arbets flödet offline-säkerhetskopiering skapar ett Azure Active Directory-program i prenumerationen som är kopplad till Azure Storage kontot. Målet med programmet är att tillhandahålla Azure Backup med säker och begränsad åtkomst till Azure import-tjänsten som krävs för arbets flödet offline-säkerhetskopiering.
+* Kontrol lera att du har de [behörigheter som krävs](../active-directory/develop/howto-create-service-principal-portal.md) för att skapa Azure Active Directory-programmet. Arbets flödet offline-säkerhetskopiering skapar ett Azure Active Directory-program i prenumerationen som är kopplad till Azure Storage kontot. Målet med programmet är att tillhandahålla Azure Backup med säker och begränsad åtkomst till Azure import-tjänsten som krävs för arbets flödet offline-säkerhetskopiering.
 * Registrera Microsoft. ImportExport-resurs leverantören med prenumerationen som innehåller det Azure Storage kontot. Så här registrerar du resurs leverantören:
     1. Klicka på **prenumerationer**i huvud menyn.
     2. Om du prenumererar på flera prenumerationer väljer du den prenumeration som du använder för säkerhets kopiering offline. Om du bara använder en prenumeration visas din prenumeration.
@@ -64,7 +64,7 @@ Kontrol lera att följande krav är uppfyllda innan du startar arbets flödet of
 
 ## <a name="workflow"></a>Arbetsflöde
 
-Informationen i det här avsnittet hjälper dig att slutföra arbets flödet för offline-säkerhetskopiering så att dina data kan skickas till ett Azure-datacenter och laddas upp till Azure Storage. Om du har frågor om import tjänsten eller någon del av processen går du till [översikts dokumentationen för import tjänsten](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) som refereras tidigare.
+Informationen i det här avsnittet hjälper dig att slutföra arbets flödet för offline-säkerhetskopiering så att dina data kan skickas till ett Azure-datacenter och laddas upp till Azure Storage. Om du har frågor om import tjänsten eller någon del av processen går du till [översikts dokumentationen för import tjänsten](../storage/common/storage-import-export-service.md) som refereras tidigare.
 
 ## <a name="initiate-offline-backup"></a>Starta säkerhets kopiering offline
 
@@ -188,7 +188,7 @@ Hur lång tid det tar att bearbeta ett Azure-importerat jobb varierar. Process t
 
 ### <a name="monitor-azure-import-job-status"></a>Övervaka status för Azure import-jobb
 
-Du kan övervaka statusen för ditt import jobb från Azure Portal genom att gå till sidan för **import/export-jobb** och välja ditt jobb. Mer information om import jobbens status finns i artikeln om export i [lagrings import](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) .
+Du kan övervaka statusen för ditt import jobb från Azure Portal genom att gå till sidan för **import/export-jobb** och välja ditt jobb. Mer information om import jobbens status finns i artikeln om export i [lagrings import](../storage/common/storage-import-export-service.md) .
 
 ### <a name="complete-the-workflow"></a>Slutför arbets flödet
 

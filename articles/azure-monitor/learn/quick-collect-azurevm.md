@@ -7,16 +7,16 @@ author: bwren
 ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: 2e63b2ca0ee7246009068e6a2875795a14aeddb3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 91a4e2f6a770282e9d031c31fdf1af15f0cd00bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84695376"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067556"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Samla in data från en virtuell Azure-dator med Azure Monitor
 
-[Azure Monitor](../overview.md) kan samla in data direkt från dina virtuella Azure-datorer till en Log Analytics arbets yta för detaljerad analys och korrelation. Genom att installera Log Analytics VM-tillägget för [Windows](../../virtual-machines/extensions/oms-windows.md) och [Linux](../../virtual-machines/extensions/oms-linux.md) kan Azure Monitor samla in data från dina virtuella Azure-datorer. Den här snabb starten visar hur du konfigurerar och samlar in data från dina virtuella Azure Linux-eller Windows-datorer med hjälp av VM-tillägget med några få enkla steg.  
+[Azure Monitor](../overview.md) kan samla in data direkt från dina virtuella Azure-datorer till en Log Analytics arbets yta för analys av information och korrelationer. Genom att installera Log Analytics VM-tillägget för [Windows](../../virtual-machines/extensions/oms-windows.md) och [Linux](../../virtual-machines/extensions/oms-linux.md) kan Azure Monitor samla in data från dina virtuella Azure-datorer. Den här snabb starten visar hur du konfigurerar och samlar in data från dina virtuella Azure Linux-eller Windows-datorer med hjälp av VM-tillägget med några få enkla steg.  
  
 För den här snabbstarten förutsätts det att du har en befintlig virtuell dator i Azure. Om du inte har det kan du [skapa en virtuell Windows-dator](../../virtual-machines/windows/quick-create-portal.md) eller [skapa en virtuell Linux-dator](../../virtual-machines/linux/quick-create-cli.md) med hjälp av våra snabbstarter för virtuella datorer.
 
@@ -28,7 +28,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 1. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**.
 
-    ![Azure Portal](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
+    ![Azure-portalen](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. Välj **skapa**och välj sedan alternativ för följande objekt:
 
@@ -141,4 +141,4 @@ Nu när du kan samla in funktions- och prestandadata från dina virtuella Window
 Om du vill lära dig hur du visar och analyserar data kan du fortsätta till självstudiekursen.
 
 > [!div class="nextstepaction"]
-> [Visa eller analysera data i Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md)
+> [Visa eller analysera data i Log Analytics](../log-query/get-started-portal.md)

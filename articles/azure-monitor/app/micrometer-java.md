@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: dd04087db32f0bbfa75dafa7e12c355e5ab7b515
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da75498d6e4616b287ddb11c69df2469baaf2655
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670074"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067633"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Använda micrometer med Azure Application Insights Java SDK
 Micrometer program övervakning mäter mått för JVM program kod och låter dig exportera data till dina favorit övervaknings system. I den här artikeln får du lära dig hur du använder micrometer med Application Insights för både våren boot-och non-våren Boot-program.
@@ -270,4 +271,4 @@ Lägg till följande bindnings kod i konfigurations filen:
 ## <a name="next-steps"></a>Nästa steg
 
 * Mer information om micrometer finns i den officiella [micrometer-dokumentationen](https://micrometer.io/docs).
-* Mer information om våren på Azure finns i den officiella [vår dokumentation om Azure](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable).
+* Mer information om våren på Azure finns i den officiella [vår dokumentation om Azure](/java/azure/spring-framework/?view=azure-java-stable).

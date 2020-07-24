@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 9ae0aec6b87a746ed1f141dcf98f599acd20ab3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a454d04701160492539f5c9caba57c9e617401e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82864257"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067478"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimera logg frågor i Azure Monitor
 Azure Monitor loggar använder [Azure datautforskaren (ADX)](/azure/data-explorer/) för att lagra loggdata och köra frågor för att analysera data. Den skapar, hanterar och underhåller ADX-kluster åt dig, och optimerar dem för din logg analys arbets belastning. När du kör en fråga optimeras den och dirigeras till lämpligt ADX-kluster som lagrar arbets ytans data. Både Azure Monitor loggar och Azure Datautforskaren använder många automatiska metoder för optimering av frågor. Även om automatiska optimeringar ger betydande ökning, finns det i vissa fall där du kan förbättra dina frågeresultat dramatiskt. Den här artikeln beskriver prestanda överväganden och flera tekniker för att åtgärda dem.
@@ -156,7 +157,7 @@ Heartbeat
 > Den här indikatorn visar bara CPU från det omedelbara klustret. I frågor med flera regioner representerar den bara en av regionerna. I frågor med flera arbets ytor kan det hända att den inte innehåller alla arbets ytor.
 
 ### <a name="avoid-full-xml-and-json-parsing-when-string-parsing-works"></a>Undvik fullständig XML-och JSON-parsning när sträng parsning fungerar
-Fullständig parsning av ett XML-eller JSON-objekt kan förbruka höga processor-och minnes resurser. I många fall är det lättare att parsa dem som strängar med hjälp av [operatorn parser](/azure/kusto/query/parseoperator) eller andra [text tolknings tekniker](/azure/azure-monitor/log-query/parse-text)när bara en eller två parametrar behövs och XML-eller JSON-objekten är enkla. Prestanda ökningen blir mer betydelsefull eftersom antalet poster i XML-eller JSON-objektet ökar. Det är viktigt när antalet poster når flera miljoner.
+Fullständig parsning av ett XML-eller JSON-objekt kan förbruka höga processor-och minnes resurser. I många fall är det lättare att parsa dem som strängar med hjälp av [operatorn parser](/azure/kusto/query/parseoperator) eller andra [text tolknings tekniker](./parse-text.md)när bara en eller två parametrar behövs och XML-eller JSON-objekten är enkla. Prestanda ökningen blir mer betydelsefull eftersom antalet poster i XML-eller JSON-objektet ökar. Det är viktigt när antalet poster når flera miljoner.
 
 Följande fråga returnerar till exempel exakt samma resultat som frågorna ovan utan att utföra fullständig XML-parsning. Observera att det gör vissa antaganden på XML-filstrukturen, till exempel att fil Sök vägens element kommer efter FileHash och att ingen av dem har attribut. 
 
@@ -219,6 +220,64 @@ SecurityEvent
 | summarize LoginSessions = dcount(LogonGuid) by Account
 ```
 
+### <a name="avoid-multiple-scans-of-same-source-data-using-conditional-aggregation-functions-and-materialize-function"></a>Undvik flera avsökningar av samma källdata med villkorliga agg regerings funktioner och materialisera funktion
+När en fråga har flera under frågor som sammanfogas med hjälp av JOIN-eller union-operatorer, genomsöker varje under fråga hela källan separat och sammanfogar sedan resultaten. Detta är flera gånger det antal gånger som data genomsöks – kritisk faktor i mycket stora data mängder.
+
+En teknik för att undvika detta är genom att använda funktionerna för villkorlig agg regering. De flesta av [agg regerings funktionerna](/azure/data-explorer/kusto/query/summarizeoperator#list-of-aggregation-functions) som används i sammanfattnings operatorn har en tillstånds version som gör att du kan använda en enda sammanfattnings operator med flera villkor. 
+
+Följande frågor visar till exempel antalet inloggnings händelser och antalet process körnings händelser för varje konto. De returnerar samma resultat, men den första genomsöker data två gånger, den andra genomsöker den bara en gång:
+
+```Kusto
+//Scans the SecurityEvent table twice and perform expensive join
+SecurityEvent
+| where EventID == 4624 //Login event
+| summarize LoginCount = count() by Account
+| join 
+(
+    SecurityEvent
+    | where EventID == 4688 //Process execution event
+    | summarize ExecutionCount = count(), ExecutedProcesses = make_set(Process) by Account
+) on Account
+```
+
+```Kusto
+//Scan only once with no join
+SecurityEvent
+| where EventID == 4624 or EventID == 4688 //early filter
+| summarize LoginCount = countif(EventID == 4624), ExecutionCount = countif(EventID == 4688), ExecutedProcesses = make_set_if(Process,EventID == 4688)  by Account
+```
+
+Ett annat fall där under frågor är onödigt för filtrering för parse- [operatorn](/azure/data-explorer/kusto/query/parseoperator?pivots=azuremonitor) för att se till att det bearbetar endast poster som matchar ett speciellt mönster. Detta är onödigt eftersom operatorn parser och andra liknande operatorer returnerar tomma resultat när mönstret inte matchar. Här följer två frågor som returnerar exakt samma resultat medan data för den andra frågan bara genomsöks en gång. I den andra frågan är varje parse-kommando bara relevant för dess händelser. Operatorn utöka efteråt visar hur du refererar till en tom data situation.
+
+```Kusto
+//Scan SecurityEvent table twice
+union(
+SecurityEvent
+| where EventID == 8002 
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" *
+| distinct FilePath
+),(
+SecurityEvent
+| where EventID == 4799
+| parse EventData with * "CallerProcessName\">" CallerProcessName1 "</Data>" * 
+| distinct CallerProcessName1
+)
+```
+
+```Kusto
+//Single scan of the SecurityEvent table
+SecurityEvent
+| where EventID == 8002 or EventID == 4799
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" * //Relevant only for event 8002
+| parse EventData with * "CallerProcessName\">" CallerProcessName1 "</Data>" *  //Relevant only for event 4799
+| extend FilePath = iif(isempty(CallerProcessName1),FilePath,"")
+| distinct FilePath, CallerProcessName1
+```
+
+När ovanstående inte tillåter att du använder under frågor, är en annan metod att tipsa till frågesyntaxen om att det finns en enda data källa som används i var och en av dem med hjälp av [funktionen materialisera ()](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). Detta är användbart när käll informationen kommer från en funktion som används flera gånger i frågan.
+
+
+
 ### <a name="reduce-the-number-of-columns-that-is-retrieved"></a>Minska antalet kolumner som hämtas
 
 Eftersom Azure Datautforskaren är ett data lager i kolumner, är hämtning av alla kolumner oberoende av de andra. Antalet kolumner som hämtas direkt påverkar den totala data volymen. Du bör bara inkludera de kolumner i utdata som behövs för att [sammanfatta](/azure/kusto/query/summarizeoperator) resultaten eller [projicera](/azure/kusto/query/projectoperator) de angivna kolumnerna. Azure Datautforskaren har flera optimeringar för att minska antalet hämtade kolumner. Om den avgör att en kolumn inte behövs, till exempel om den inte refereras till i kommandot [sammanfatta](/azure/kusto/query/summarizeoperator) , kommer den inte att hämta den.
@@ -260,7 +319,7 @@ Perf
 ) on Computer
 ```
 
-Ett vanligt fall där ett sådant fel inträffar är när [arg_max ()](/azure/kusto/query/arg-max-aggfunction) används för att hitta den senaste förekomsten. Ett exempel:
+Ett vanligt fall där ett sådant fel inträffar är när [arg_max ()](/azure/kusto/query/arg-max-aggfunction) används för att hitta den senaste förekomsten. Exempel:
 
 ```Kusto
 Perf

@@ -6,16 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/15/2019
-ms.openlocfilehash: 51584ccf5f845be8a06b1e049cae11e636edef11
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82960845e357579b82c493958287cb602d75182e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659840"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067402"
 ---
 # <a name="log-analytics-smart-analytics-examples"></a>Log Analytics Smart Analytics-exempel
 Den här artikeln innehåller exempel som använder smarta analys funktioner i Log Analytics för att utföra analyser av användar aktivitet. Du kan antingen använda dessa exempel för att analysera dina egna program som övervakas av Application Insights eller använda koncepten i dessa frågor för liknande analys av andra data. 
 
-Mer information om de olika nyckelord som används i de här exemplen finns i [språk referens för Kusto](https://docs.microsoft.com/azure/kusto/query/) . Gå igenom en [lektion om hur du skapar frågor](get-started-queries.md) om du är nybörjare på Log Analytics.
+Mer information om de olika nyckelord som används i de här exemplen finns i [språk referens för Kusto](/azure/kusto/query/) . Gå igenom en [lektion om hur du skapar frågor](get-started-queries.md) om du är nybörjare på Log Analytics.
 
 ## <a name="cohorts-analytics"></a>Kohorter-analys
 

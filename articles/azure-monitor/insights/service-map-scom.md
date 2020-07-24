@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: dc9425b25fa594d06473865f1add9c91c7760a97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1756bd72dc78bfafc8959c4ff1c8f95d255c931
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557230"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067570"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrera System Center Operations Manager med Azure Monitor for VMs kart funktion
 
@@ -20,7 +20,7 @@ I Azure Monitor for VMs kan du Visa identifierade program komponenter på virtue
 >[!NOTE]
 >Om du redan har distribuerat Tjänstkarta kan du Visa dina kartor i Azure Monitor for VMs, som innehåller ytterligare funktioner för att övervaka hälso tillstånd och prestanda för virtuella datorer. Kart funktionen i Azure Monitor for VMs är avsedd att ersätta den fristående Tjänstkarta-lösningen. Läs mer i [Azure Monitor for VMS översikt](vminsights-overview.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En System Center Operations Manager hanterings grupp (2012 R2 eller senare).
 * En Log Analytics arbets yta som har kon figurer ATS för att stödja Azure Monitor for VMs.
@@ -138,9 +138,9 @@ I den aktuella designen presenteras följande problem och begränsningar:
 
 Officiella Azure-dokumentation om hur du skapar ett huvud namn för tjänsten finns i:
 
-* [Skapa ett huvud namn för tjänsten med hjälp av PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Skapa ett huvud namn för tjänsten med hjälp av Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
-* [Skapa ett huvud namn för tjänsten med hjälp av Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Skapa ett huvud namn för tjänsten med hjälp av PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+* [Skapa ett huvud namn för tjänsten med hjälp av Azure CLI](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Skapa ett huvud namn för tjänsten med hjälp av Azure Portal](../../active-directory/develop/howto-create-service-principal-portal.md)
 
 ### <a name="suggestions"></a>Förslag
 

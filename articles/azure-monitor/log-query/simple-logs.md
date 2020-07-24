@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/12/2019
-ms.openlocfilehash: 59bcb42edaf7d46498a3514b4f1c919c6e8cc0c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7bdb0ae813600f53df44ee1a61a4cbbb56bb0bfe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77660265"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067506"
 ---
 # <a name="simple-logs-experience-in-azure-monitor-preview"></a>Enkla loggar i Azure Monitor (för hands version)
 Azure Monitor ger en [rikare upplevelse](get-started-portal.md) för att skapa [logg frågor](log-query-overview.md) med KQL-språket. Du behöver inte ha full effekt på KQL, men du föredrar en förenklad upplevelse för grundläggande krav på frågor. Med enkel inloggnings upplevelsen kan du skapa grundläggande frågor utan att direkt interagera med KQL. Du kan också använda enkla loggar som ett utbildnings verktyg för KQL eftersom du behöver mer avancerade frågor.
@@ -23,7 +24,7 @@ Azure Monitor ger en [rikare upplevelse](get-started-portal.md) för att skapa [
 De enkla loggarna hämtar data från *AzureDiagnostics*-, *AzureMetrics*-och *AzureActivity* -tabellen för den valda resursen. 
 
 ## <a name="using-simple-logs"></a>Använda enkla loggar
-Navigera till en Cosmos DB eller Key Vault i din Azure-prenumeration med [diagnostikinställningar som kon figurer ATS för att samla in loggar i en Log Analytics arbets yta](../platform/resource-logs-collect-storage.md). Klicka på **loggar** på menyn **övervakning** för att öppna de enkla loggarna.
+Navigera till en Cosmos DB eller Key Vault i din Azure-prenumeration med [diagnostikinställningar som kon figurer ATS för att samla in loggar i en Log Analytics arbets yta](../platform/resource-logs.md#send-to-azure-storage). Klicka på **loggar** på menyn **övervakning** för att öppna de enkla loggarna.
 
 ![Meny](media/simple-logs/menu.png)
 

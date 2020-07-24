@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: syntetisera tal, Swift-tal-tjänst'
+title: 'Snabb start: syntetisera tal i SWIFT på iOS-tal-tjänsten'
 titleSuffix: Azure Cognitive Services
 description: Lär dig mer om att syntetisera tal i SWIFT på iOS med hjälp av tal-SDK
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: yulili
-ms.openlocfilehash: 8ce7d963e1d4a3514a0e60435634ba4f4a9cb009
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: e71717bdacbc3c6eb08fbdc8d56ec19c26a1d114
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391289"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062275"
 ---
 # <a name="quickstart-synthesize-speech-in-swift-on-ios-using-the-speech-sdk"></a>Snabb start: syntetisera tal i SWIFT på iOS med hjälp av tal-SDK
 
 I den här artikeln får du lära dig hur du skapar en iOS-app i Swift med Cognitive Services Speech SDK för att syntetisera tal från text.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Gå igenom den här listan med förhandskrav innan du sätter igång:
 

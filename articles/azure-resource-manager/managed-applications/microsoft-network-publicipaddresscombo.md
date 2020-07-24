@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0393673663df8f3ca580ff34e16bee910b955f8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5def6db9d551b3882204c9f997f164a0df7ac223
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75651922"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063293"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>GRÄNSSNITTs element för Microsoft. Network. PublicIpAddressCombo
 
@@ -17,7 +18,7 @@ En grupp kontroller för att välja en ny eller befintlig offentlig IP-adress.
 
 ## <a name="ui-sample"></a>UI-exempel
 
-![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft.network.publicipaddresscombo.png)
+![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft-network-publicipaddresscombo.png)
 
 - Om användaren väljer Ingen för offentlig IP-adress är text rutan domän namns etikett dold.
 - Om användaren väljer en befintlig offentlig IP-adress är text rutan domän namns etikett inaktive rad. Dess värde är domän namns etiketten för den valda IP-adressen.

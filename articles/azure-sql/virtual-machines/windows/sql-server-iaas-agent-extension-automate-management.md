@@ -16,12 +16,12 @@ ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 67df782cf8044593859e7761278d93187d258d26
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 638a7fa96f4112f9805fd46618dc0acd1c2f382f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231955"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063229"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatisera hanterings uppgifter på virtuella Azure-datorer med hjälp av tillägget SQL Server IaaS-agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -48,7 +48,7 @@ När SQL Server IaaS agent-tillägget är installerat och körs, blir administra
 * På den SQL Server panelen i den virtuella datorn i Azure Portal och via Azure PowerShell för SQL Server avbildningar på Azure Marketplace.
 * Genom Azure PowerShell för manuella installationer av tillägget. 
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 Här följer kraven för att använda SQL Server IaaS agent Extension på den virtuella datorn:
 
 **Operativ system**:
@@ -71,7 +71,7 @@ Här följer kraven för att använda SQL Server IaaS agent Extension på den vi
 
 **Azure PowerShell**:
 
-* [Hämta och konfigurera de senaste Azure PowerShell-kommandona](/powershell/azure/overview)
+* [Hämta och konfigurera de senaste Azure PowerShell-kommandona](/powershell/azure/)
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 955a3b8d12eb3b93bc9d44c624953cd5c1007318
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5821a1d1f6713ef39d7475fb004164e7c0fd71ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258205"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062066"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Förstå digitala sammanflätade och deras dubbla diagram
 
@@ -23,7 +23,7 @@ I en Azure digital-lösning för dubbla lösningar representeras entiteterna i d
 
 ## <a name="digital-twins"></a>Digitala dubbla
 
-Innan du kan skapa en digital i din Azure Digitals-instans måste du ha en *modell* som överförs till tjänsten. En modell beskriver uppsättningen egenskaper, telemetri-meddelanden och relationer som en viss, t. ex. kan ha, bland annat. Information om vilka typer av information som definieras i en modell finns i [begrepp: anpassade modeller](concepts-models.md).
+Innan du kan skapa en digital i din Azure Digitals-instans måste du ha en *modell* som överförs till tjänsten. En modell beskriver uppsättningen egenskaper, telemetri-meddelanden och relationer som en viss, t. ex. kan ha, bland annat. Information om vilka typer av information som definieras i en modell finns i [*begrepp: anpassade modeller*](concepts-models.md).
 
 När du har skapat och laddat upp en modell kan ditt klient program skapa en instans av typen. Detta är en digital, dubbel. När du har skapat en *vånings*modell kan du till exempel skapa en eller flera digitala garn som använder den här typen (t. ex. en typ av *golv*som kallas *GroundFloor*, en annan som kallas *Floor2*osv.). 
 
@@ -197,8 +197,8 @@ Här är ett exempel på en relation som är formaterad som ett JSON-objekt:
 ## <a name="next-steps"></a>Nästa steg
 
 Se Hantera diagram element med Azures digitala dubbla API: er:
-* [Anvisningar: hantera digitala dubbla](how-to-manage-twin.md)
-* [Anvisningar: hantera den dubbla grafen med relationer](how-to-manage-graph.md)
+* [*Anvisningar: hantera digitala dubbla*](how-to-manage-twin.md)
+* [*Anvisningar: hantera den dubbla grafen med relationer*](how-to-manage-graph.md)
 
 Eller Lär dig mer om att skicka frågor till Azure Digitals dubbla grafer för information:
-* [Begrepp: frågespråk](concepts-query-language.md)
+* [*Begrepp: frågespråk*](concepts-query-language.md)

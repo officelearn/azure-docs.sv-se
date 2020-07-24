@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: cd2f88d78a967b46c1983e7eb96328c14d90a81a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 730109a096b352b6d179693293128b465e0be83f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344007"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063269"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure privat länk för Azure SQL Database och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -146,7 +146,7 @@ Resultatet visar att en IP-adress är upp. som motsvarar IP-adressen för den pr
 
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Kontrol lera anslutningen med SQL Server Management Studio (SSMS)
 > [!NOTE]
-> Använd det **fullständigt kvalificerade domän namnet (FQDN)** för servern i anslutnings strängar för dina klienter. Alla inloggnings försök som görs direkt till IP-adressen Miss lyckas. Det här beteendet är avsiktligt eftersom den privata slut punkten dirigerar trafik till SQL-gatewayen i regionen och FQDN måste anges för att inloggningar ska lyckas.
+> Använd det **fullständigt kvalificerade domän namnet (FQDN)** för servern i anslutnings strängar för dina klienter ( `<server>.database.windows.net` ). Alla inloggnings försök som görs direkt till IP-adressen eller med hjälp av den privata länkens FQDN ( `<server>.privatelink.database.windows.net` ) Miss lyckas. Det här beteendet är avsiktligt eftersom den privata slut punkten dirigerar trafik till SQL-gatewayen i regionen och rätt FQDN måste anges för att inloggningar ska lyckas.
 
 Följ anvisningarna här för att använda [SSMS för att ansluta till den SQL Database](connect-query-ssms.md). När du har anslutit till SQL Database med SSMS kontrollerar du att du ansluter från den privata IP-adressen för den virtuella Azure-datorn genom att köra följande fråga:
 

@@ -3,12 +3,12 @@ title: Översikt över säkerhetsfunktioner
 description: Lär dig mer om säkerhetsfunktioner i Azure Backup som hjälper dig att skydda dina säkerhets kopierings data och uppfylla verksamhetens säkerhets behov.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: ce6d8a43b48be5189f0459c9f82c69354f40689f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 750ad7b10969ef5f83e0b5058e350066d3f97351
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513209"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062604"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Översikt över säkerhetsfunktioner i Azure Backup
 
@@ -16,7 +16,7 @@ Ett av de viktigaste stegen som du kan vidta för att skydda dina data är att h
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>Hantering och kontroll av identitets-och användar åtkomst
 
-Lagrings konton som används av Recovery Services-valven är isolerade och kan inte användas av användare i något skadligt syfte. Åtkomst tillåts endast via Azure Backup hanterings åtgärder, till exempel Restore. Med Azure Backup kan du kontrol lera hanterade åtgärder genom detaljerad åtkomst med hjälp av [Azure Role-baserade Access Control (RBAC)](./backup-rbac-rs-vault.md). Med RBAC kan du åtskilja uppgifter i ditt team och bara ge åtkomst till de användare som krävs för att utföra sina jobb.
+Lagrings konton som används av Recovery Services-valven är isolerade och kan inte användas av användare i något skadligt syfte. Åtkomst tillåts endast via Azure Backup hanterings åtgärder, till exempel Restore. Med Azure Backup kan du styra de hanterade åtgärderna genom detaljerad åtkomst med hjälp av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](./backup-rbac-rs-vault.md). Med RBAC kan du åtskilja uppgifter i ditt team och bara ge åtkomst till de användare som krävs för att utföra sina jobb.
 
 Azure Backup innehåller tre [inbyggda roller](../role-based-access-control/built-in-roles.md) för att kontrol lera säkerhets kopierings hanterings åtgärder:
 

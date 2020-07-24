@@ -3,14 +3,14 @@ title: Konfigurera Kundhanterade nycklar för ditt Azure Batch-konto med Azure K
 description: Lär dig hur du krypterar batch-data med hjälp av nycklar
 author: pkshultz
 ms.topic: how-to
-ms.date: 06/02/2020
+ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: d0dcb79d5e319abd46515162ce5a17e935d9693b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 77c0489838685d65d7579f37d6a6cb922af509f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960894"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062534"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Konfigurera Kundhanterade nycklar för ditt Azure Batch-konto med Azure Key Vault och hanterad identitet
 
@@ -20,11 +20,12 @@ De nycklar som du anger måste genereras i [Azure Key Vault](../key-vault/genera
 
 > [!IMPORTANT]
 > Stöd för Kundhanterade nycklar i Azure Batch är för närvarande en offentlig för hands version för USA, västra centrala, östra USA, södra centrala USA, västra USA 2, US Gov, Virginia och US Gov, Arizona regioner.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-a-batch-account-with-system-assigned-managed-identity"></a>Skapa ett batch-konto med systemtilldelad hanterad identitet
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 När du skapar batch-konton i [Azure Portal](https://portal.azure.com/)väljer du **system som tilldelats** i identitets typen under fliken **Avancerat** .
 
@@ -58,6 +59,9 @@ az batch account show \
     --query identity
 ```
 
+> [!NOTE]
+> Den systemtilldelade hanterade identiteten som skapats i ett batch-konto används bara för att hämta Kundhanterade nycklar från Key Vault. Den här identiteten är inte tillgänglig i batch-pooler.
+
 ## <a name="configure-your-azure-key-vault-instance"></a>Konfigurera Azure Key Vault-instansen
 
 ### <a name="create-an-azure-key-vault"></a>Skapa ett Azure Key Vault
@@ -86,7 +90,7 @@ När nyckeln har skapats klickar du på den nya nyckeln och den aktuella version
 
 ## <a name="enable-customer-managed-keys-on-azure-batch-account"></a>Aktivera Kundhanterade nycklar på Azure Batch konto
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 Gå till sidan för batch-kontot i [Azure Portal](https://portal.azure.com/). Aktivera **kundhanterad nyckel**under avsnittet **kryptering** . Du kan använda nyckel identifieraren direkt eller så kan du välja nyckel valvet och sedan klicka på **Välj ett nyckel valv och nyckel**.
 
@@ -145,4 +149,5 @@ az batch account set \
   * **När jag har återställt åtkomst hur lång tid tar det för batch-kontot att fungera igen?** Det kan ta upp till 10 minuter innan kontot kan nås igen när åtkomsten har återställts.
   * **När batch-kontot inte är tillgängligt vad händer med mina resurser?** Alla pooler som körs när batch-åtkomst till Kundhanterade nycklar går förlorade kommer att fortsätta att köras. Noderna övergår dock till ett otillgängligt tillstånd och aktiviteterna kommer att sluta köras (och köas). När åtkomsten återställs blir noderna tillgängliga igen och aktiviteter kommer att startas om.
   * **Gäller den här krypterings funktionen för VM-diskar i en batch-pool?** Nej. För konfigurations pooler för moln tjänster tillämpas ingen kryptering för operativ systemet och den temporära disken. För konfigurations pooler för virtuella datorer krypteras operativ systemet och de angivna data diskarna med en hanterad Microsoft Platform-nyckel som standard. För närvarande kan du inte ange din egen nyckel för de här diskarna. Om du vill kryptera den temporära disken för virtuella datorer för en batch-pool med en hanterad nyckel för Microsoft-plattform måste du aktivera egenskapen [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) i den [virtuella datorns konfigurations](/rest/api/batchservice/pool/add#virtualmachineconfiguration) uppsättning. För mycket känsliga miljöer rekommenderar vi att du aktiverar temporär disk kryptering och undviker att lagra känsliga data på operativ system och data diskar.
+  * **Är den systemtilldelade hanterade identiteten på batch-kontot som är tillgängligt på Compute-noderna?** Nej. Den här hanterade identiteten används för närvarande endast för att få åtkomst till Azure Key Vault för den Kundhanterade nyckeln.
   

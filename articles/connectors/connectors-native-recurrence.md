@@ -5,12 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 18a58815ccd7bd229b6c1a27c92e903f22c8fd55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/22/2020
+ms.openlocfilehash: 8706ae12d45b9c6667ae99078d479f0e907840fc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322575"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007563"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Skapa, Schemalägg och kör återkommande uppgifter och arbets flöden med upprepnings utlösaren i Azure Logic Apps
 
@@ -33,7 +34,7 @@ För skillnader mellan den här utlösaren och den glidande fönster utlösaren 
 > [!TIP]
 > Om du vill utlösa din Logic app och bara köra en gång i framtiden, se [Kör jobb en gång](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -53,8 +54,8 @@ För skillnader mellan den här utlösaren och den glidande fönster utlösaren 
 
    | Egenskap | JSON-namn | Krävs | Typ | Beskrivning |
    |----------|-----------|----------|------|-------------|
-   | **Intervall** | `interval` | Ja | Integer | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen. Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader <br>– Vecka: 1-71 veckor <br>– Dag: 1-500 dagar <br>– Timme: 1 – 12000 timmar <br>-Minute: 1 – 72000 minuter <br>-Sekund: 1 – 9999999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "månad", är upprepningen var 6: a månad. |
-   | **Frekvens** | `frequency` | Ja | Sträng | Tidsenhet för upprepning: **sekund**, **minut**, **timme**, **dag**, **vecka**eller **månad** |
+   | **Intervall** | `interval` | Yes | Heltal | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen. Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader <br>– Vecka: 1-71 veckor <br>– Dag: 1-500 dagar <br>– Timme: 1 – 12000 timmar <br>-Minute: 1 – 72000 minuter <br>-Sekund: 1 – 9999999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "månad", är upprepningen var 6: a månad. |
+   | **Frekvens** | `frequency` | Yes | Sträng | Tidsenhet för upprepning: **sekund**, **minut**, **timme**, **dag**, **vecka**eller **månad** |
    ||||||
 
    > [!IMPORTANT]
@@ -74,10 +75,10 @@ För skillnader mellan den här utlösaren och den glidande fönster utlösaren 
    | Egenskap | JSON-namn | Krävs | Typ | Beskrivning |
    |----------|-----------|----------|------|-------------|
    | **Tidszon** | `timeZone` | No | Sträng | Gäller endast när du anger en start tid eftersom den här utlösaren inte accepterar [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Välj den tidszon som du vill använda. |
-   | **Start tid** | `startTime` | No | Sträng | Ange start datum och-tid i följande format: <p>ÅÅÅÅ-MM-DDThh: mm: SS om du väljer en tidszon <p>\- eller - <p>ÅÅÅÅ-MM-DDThh: mm: ssZ om du inte väljer en tidszon <p>Om du till exempel vill ha 18 september 2020 på 2:00 PM anger du "2020-09-18T14:00:00" och väljer en tidszon som Pacific, normal tid. Eller ange "2020-09-18T14:00:00Z" utan en tidszon. <p>**Obs:** Den här start tiden har högst 49 år i framtiden och måste följa [8601 ISO-tiden för datum/tid](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datum format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte väljer en tidszon måste du lägga till bokstaven "Z" i slutet utan blank steg. Detta "Z" avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkla scheman är start tiden den första förekomsten, medan utlösaren i komplexa scheman inte utlöses tidigare än start tiden. [*Hur kan jag använda start datum och-tid?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Starttid** | `startTime` | No | Sträng | Ange start datum och-tid i följande format: <p>ÅÅÅÅ-MM-DDThh: mm: SS om du väljer en tidszon <p>\- eller - <p>ÅÅÅÅ-MM-DDThh: mm: ssZ om du inte väljer en tidszon <p>Om du till exempel vill ha 18 september 2020 på 2:00 PM anger du "2020-09-18T14:00:00" och väljer en tidszon som Pacific, normal tid. Eller ange "2020-09-18T14:00:00Z" utan en tidszon. <p>**Obs:** Den här start tiden har högst 49 år i framtiden och måste följa [8601 ISO-tiden för datum/tid](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datum format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte väljer en tidszon måste du lägga till bokstaven "Z" i slutet utan blank steg. Detta "Z" avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkla scheman är start tiden den första förekomsten, medan utlösaren i komplexa scheman inte utlöses tidigare än start tiden. [*Hur kan jag använda start datum och-tid?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    | **Dessa dagar** | `weekDays` | No | Sträng eller sträng mat ris | Om du väljer "vecka" kan du välja en eller flera dagar när du vill köra arbets flödet: **måndag**, **tisdag**, **onsdag**, **torsdag**, **fredag**, **lördag**och **söndag** |
    | **Vid dessa timmar** | `hours` | No | Heltals-eller heltals mat ris | Om du väljer "dag" eller "vecka" kan du välja ett eller flera heltal från 0 till 23 som de timmar på dagen då du vill köra arbets flödet. <p><p>Om du t. ex. anger "10", "12" och "14", får du 10 AM, 12 PM och 2 PM för timmar på dagen, men minuterna beräknas baserat på när upprepningen startar. Om du vill ställa in vissa minuter av dagen, till exempel 10:00 AM, 12:00 PM och 2:00 PM, anger du dessa värden med hjälp av egenskapen **vid följande minuter** . |
-   | **Vid dessa minuter** | `minutes` | No | Heltals-eller heltals mat ris | Om du väljer "dag" eller "vecka" kan du välja ett eller flera heltal från 0 till 59 som minuter i timmen när du vill köra arbets flödet. <p>Du kan till exempel ange "30" som minut märke och använda föregående exempel för timmar på dagen, du får 10:30 AM, 12:30 PM och 2:30 PM. |
+   | **Vid dessa minuter** | `minutes` | No | Heltals-eller heltals mat ris | Om du väljer "dag" eller "vecka" kan du välja ett eller flera heltal från 0 till 59 som minuter i timmen när du vill köra arbets flödet. <p>Du kan till exempel ange "30" som minut märke och använda föregående exempel för timmar på dagen, du får 10:30 AM, 12:30 PM och 2:30 PM. <p>**Obs!** ibland kan tidsstämpeln för den utlösta körningen variera upp till 1 minut från den schemalagda tiden. Om du behöver skicka tidsstämpeln exakt som schemalagt till efterföljande åtgärder kan du använda mall uttryck för att ändra tidstämpeln. Mer information finns i [datum-och tids funktioner för uttryck](../logic-apps/workflow-definition-language-functions-reference.md#date-time-functions). |
    |||||
 
    Anta till exempel att idag är fredag den 4 september 2020. Följande upprepnings utlösare utlöses inte *tidigare* än start datum och-tid, som är fredag den 18 september 2020 kl. 8:00 PST. Däremot anges upprepnings schema för 10:30, 12:30 PM och 2:30 PM endast på måndagar. Första gången utlösaren utlöses och skapar en arbets flödes instans för Logic app på måndag kl. 10:30. Mer information om hur start tiden fungerar finns i [exemplen för start tid](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).

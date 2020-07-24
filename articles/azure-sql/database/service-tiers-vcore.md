@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 11/27/2019
-ms.openlocfilehash: 7b5e4174da3ffa0dff5c840e5da1d98435e8d07b
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/21/2020
+ms.openlocfilehash: c54979efbbd164a11614b92d9a337a86e2f221fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985558"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007749"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Översikt över vCore-modellen – Azure SQL Database och Azure SQL-hanterad instans 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ VCore-modellen (Virtual Core) som används av Azure SQL Database och Azure SQL-h
 - Högre beräknings-, minnes-, I/O-och lagrings gränser.
 - Kontroll över maskin varu genereringen för att bättre matcha beräknings-och minnes kraven för arbets belastningen.
 - Pris rabatter för [Azure Hybrid-förmån (AHB)](../azure-hybrid-benefit.md) och [reserverad instans (RI)](reserved-capacity-overview.md).
-- Bättre genomskinlighet i maskin varu informationen som gör beräkningen; underlättar planeringen av migreringar från lokala distributioner.
+- Bättre genomskinlighet i maskin varu informationen som används för att hantera data bearbetningen, vilket underlättar planeringen av migreringar från lokala distributioner.
 
 ## <a name="service-tiers"></a>Tjänstnivåer
 
@@ -69,7 +69,7 @@ Den etablerade beräknings nivån tillhandahåller en viss mängd data bearbetni
 
 ## <a name="hardware-generations"></a>Maskin varu generationer
 
-Alternativen för att skapa maskin vara i vCore-modellen är gen 4/5, M-serien (för hands version) och Fsv2-serien (för hands version). Maskin varu generationen definierar vanligt vis beräknings-och minnes gränser och andra egenskaper som påverkar arbets Belastningens prestanda.
+Alternativen för att skapa maskin vara i vCore-modellen är generation 4/5, M-serien och Fsv2-serien. Maskin varu generationen definierar vanligt vis beräknings-och minnes gränser och andra egenskaper som påverkar arbets Belastningens prestanda.
 
 ### <a name="gen4gen5"></a>Gen4/Gen5
 
@@ -77,21 +77,21 @@ Alternativen för att skapa maskin vara i vCore-modellen är gen 4/5, M-serien (
 
 För regioner där Gen4/Gen5 är tillgängligt, se [Gen4/Gen5-tillgänglighet](#gen4gen5-1).
 
-### <a name="fsv2-seriespreview"></a>Fsv2-serien (för hands version)
+### <a name="fsv2-series"></a>Fsv2-serien
 
 - Fsv2-serien är ett alternativ för att optimera maskin vara som ger låg processor latens och hög klock hastighet för de flesta processor krävande arbets belastningar.
 - Beroende på arbets belastningen kan Fsv2-serien leverera mer processor prestanda per vCore än Gen5 och vCore-storleken 72 ger mer processor prestanda för mindre kostnad än 80 virtuella kärnor på Gen5. 
 - Fsv2 ger mindre minne och tempdb per vCore än annan maskin vara, så arbets belastningarna som är känsliga för dessa gränser kan vilja överväga Gen5 eller M-serien i stället.  
 
-Fsv2-serien stöds bara i Generell användning nivån.  För regioner där Fsv2-serien är tillgänglig, se [tillgänglighet för Fsv2-serien](#fsv2-series).
+Fsv2-serien stöds bara i Generell användning nivån. För regioner där Fsv2-serien är tillgänglig, se [tillgänglighet för Fsv2-serien](#fsv2-series).
 
 
-### <a name="m-seriespreview"></a>M-serien (för hands version)
+### <a name="m-series"></a>M-serien
 
 - M-serien är ett minnesoptimerade maskin varu alternativ för arbets belastningar som kräver mer minnes-och högre beräknings gränser än vad som anges i Gen5.
-- M-serien tillhandahåller 29 GB per vCore och 128 virtuella kärnor, vilket ökar minnes gränsen i förhållande till Gen5 med 8x till nästan 4 TB.
+- M-serien tillhandahåller 29 GB per vCore och upp till 128 virtuella kärnor, vilket ökar minnes gränsen i förhållande till Gen5 med 8x till nästan 4 TB.
 
-M-serien stöds endast på Affärskritisk nivå och stöder inte zon redundans.  Prenumerationen måste vara en betald erbjudande typ, inklusive betala per användning eller Enterprise-avtal (EA).  För regioner där M-serien är tillgänglig, se [tillgänglighet för m-serien](#m-series).
+M-serien stöds endast på Affärskritisk nivå och stöder inte zon redundans.  Prenumerationen måste vara en betald erbjudande typ, inklusive betala per användning eller Enterprise-avtal (EA). För regioner där M-serien är tillgänglig, se [tillgänglighet för m-serien](#m-series).
 
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
@@ -104,8 +104,8 @@ To enable M-series hardware for a subscription and region, a support request mus
 |:---------|:---------|:---------|
 |Gen4     |– Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer<br>-Etablera upp till 24 virtuella kärnor (1 vCore = 1 fysisk kärna)  |– 7 GB per vCore<br>-Etablera upp till 168 GB|
 |Gen5     |**Allokerad beräkning**<br>– Intel E5-2673 v4 (Broadwell) 2,3-GHz och Intel SP-8160 (Skylake) * processorer<br>-Etablera upp till 80 virtuella kärnor (1 vCore = 1 Hyper-Thread)<br><br>**Serverlös databearbetning**<br>– Intel E5-2673 v4 (Broadwell) 2,3-GHz och Intel SP-8160 (Skylake) * processorer<br>-Skala upp till 16 virtuella kärnor (1 vCore = 1 Hyper-Thread) automatiskt|**Allokerad beräkning**<br>– 5,1 GB per vCore<br>-Etablera upp till 408 GB<br><br>**Serverlös databearbetning**<br>-Skala upp till 24 GB per vCore automatiskt<br>-Skala upp till 48 GB max|
-|Fsv2-serien     |– Intel Xeon platina 8168-processorer (SkyLake)<br>– Med en hög kärnors klock hastighet på 3,4 GHz och en maximal Turbo Turbo klock hastighet på 3,7 GHz.<br>-Etablera 72 virtuella kärnor (1 vCore = 1 Hyper-Thread)|– 1,9 GB per vCore<br>-Etablera 136 GB|
-|M-serien     |– Intel Xeon E7-8890 v3 2,5 GHz och Intel Xeon platina 8280M 2,7 GHz-processorer (kaskad Lake)<br>-Etablera 128 virtuella kärnor (1 vCore = 1 Hyper-Thread)|– 29 GB per vCore<br>-Etablera 3,7 TB|
+|Fsv2-serien     |– Intel Xeon platina 8168-processorer (Skylake)<br>– Med en hög kärnors klock hastighet på 3,4 GHz och en maximal Turbo Turbo klock hastighet på 3,7 GHz.<br>-Etablera upp till 72 virtuella kärnor (1 vCore = 1 Hyper-Thread)|– 1,9 GB per vCore<br>-Etablera upp till 136 GB|
+|M-serien     |– Intel Xeon E7-8890 v3 2,5 GHz och Intel Xeon platina 8280M 2,7 GHz-processorer (kaskad Lake)<br>-Etablera upp till 128 virtuella kärnor (1 vCore = 1 Hyper-Thread)|– 29 GB per vCore<br>-Etablera upp till 3,7 TB|
 
 \*I vyn [sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamisk hantering visas maskin varu generering för Gen5-databaser med Intel SP-8160-processorer (Skylake) som Gen6. Resurs gränser för alla Gen5-databaser är desamma oavsett processor typ (Broadwell eller Skylake).
 
@@ -154,7 +154,7 @@ På sidan SQL-hanterad instans väljer du **pris nivå** länk placerad under av
 
 ![ändra maskin vara för SQL-hanterad instans](./media/service-tiers-vcore/change-managed-instance-hardware.png)
 
-På sidan **pris nivå** kommer du att kunna ändra maskin varu genereringen enligt beskrivningen i föregående steg.
+På sidan pris nivå kommer du att kunna ändra maskin varu genereringen enligt beskrivningen i föregående steg.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

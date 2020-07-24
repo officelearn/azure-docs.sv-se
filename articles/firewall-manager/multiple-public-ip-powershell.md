@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: 87af7f0f9b446fb3a54a600f61409c2cfc1a2494
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 652c7cbfbe63ef2ae9a0d54e05407152ea300f1d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86189480"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007018"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses"></a>Distribuera en Azure-brandvägg med flera offentliga IP-adresser
 
@@ -37,9 +37,9 @@ $fw = New-AzFirewall -Name <firewall name> -ResourceGroupName $rgName `
      -VirtualHubId $vHubId 
 ```
 
-### <a name="delete-a-public-ip-address"></a>Ta bort en offentlig IP-adress
+### <a name="update-a-public-ip-address"></a>Uppdatera en offentlig IP-adress
 
-Du kan använda Azure PowerShell för att ta bort en offentlig IP-adress från en Azure-brandvägg. I följande exempel tar bort en offentlig IP-adress från en brand vägg. Den börjar med tre offentliga IP-adresser.
+Du kan använda Azure PowerShell för att uppdatera en offentlig IP-adress för en Azure-brandvägg. I följande exempel tar bort en offentlig IP-adress från en brand vägg. Den börjar med tre offentliga IP-adresser.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <subscription ID>

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 442dfc1667027bd39b138d59a28542138cc4a1ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 690f59c643f1fe8c8cfc74758a0f8f13b129f78a
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085980"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87172059"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Skala sessionsbaserade värdar med hjälp av Azure Automation
 
@@ -60,12 +60,12 @@ Verktyget har dock också följande begränsningar:
 
 - Den här lösningen gäller endast för pooler för virtuella datorer i flera sessioner.
 - Den här lösningen hanterar virtuella datorer i vilken region som helst, men kan bara användas i samma prenumeration som ditt Azure Automation-konto och Azure Logic-appen.
-- Den maximala körningen av ett jobb i runbooken är 3 timmar. Om det tar längre tid att starta eller stoppa de virtuella datorerna i poolen, kommer jobbet att Miss Förslut. Mer information finns i [delade resurser](../../automation/automation-runbook-execution.md#fair-share)
+- Den maximala körningen av ett jobb i runbooken är 3 timmar. Om det tar längre tid att starta eller stoppa de virtuella datorerna i poolen, kommer jobbet att Miss Förslut. Mer information finns i [delade resurser](../../automation/automation-runbook-execution.md#fair-share).
 
 >[!NOTE]
->Skalnings verktyget styr belastnings Utjämnings läget för den värddator som skalan. Den anger den till bredd-första belastnings utjämning för både högsta och låg belastnings tid.
+>Skalnings verktyget styr belastnings Utjämnings läget för den aktuella värddatorn som skalas för närvarande. Verktyget använder det bredd-första belastnings Utjämnings läget för både högsta och låg belastnings tid.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar konfigurera skalnings verktyget ser du till att du har följande klart:
 
@@ -140,7 +140,7 @@ Nu när du har ett Azure Automation konto måste du också skapa ett Azure Autom
 
 Ett [Azure Automation kör som-konto](../../automation/manage-runas-account.md) tillhandahåller autentisering för att hantera resurser i Azure med Azure-cmdletar. När du skapar ett Kör som-konto skapas en ny tjänst huvud användare i Azure Active Directory och deltagar rollen tilldelas till tjänstens huvud namns användare på prenumerations nivån. Ett Kör som-konto i Azure är ett bra sätt att autentisera säkert med certifikat och ett huvud namn för tjänsten utan att behöva lagra ett användar namn och lösen ord i ett Credential-objekt. Om du vill veta mer om autentisering med kör som-konto, se [begränsa behörigheter för kör som-konto](../../automation/manage-runas-account.md#limit-run-as-account-permissions).
 
-Alla användare som är medlemmar i rollen prenumerations administratörer och administratören av prenumerationen kan skapa ett Kör som-konto genom att följa anvisningarna i nästa avsnitt.
+Alla användare som är medlemmar i rollen prenumerations administratörer och medadministratör för prenumerationen kan skapa ett Kör som-konto.
 
 Så här skapar du ett Kör som-konto i ditt Azure Automation-konto:
 

@@ -12,12 +12,12 @@ ms.date: 04/10/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b7164aa71495100d7be4f1c0f6ef6de90644831b
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 0f3ecb918aa1f830edeafbe57b365441e1e534f4
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115982"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169345"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Självstudie: registrera ett webb program i Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ Om du använder en inbyggd app i stället (t. ex. iOS, Android, mobil & Desktop)
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte redan har skapat din egen [Azure AD B2C-klient](tutorial-create-tenant.md)skapar du en nu. Du kan använda en befintlig Azure AD B2C klient.
 
@@ -63,7 +63,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår
 
 När program registreringen är klar aktiverar du det implicita tilldelnings flödet:
 
-1. Under **Hantera**väljer du **autentisering**.
+1. På den vänstra menyn, under **Hantera**, väljer du **autentisering**.
 1. Under **implicit beviljande**väljer du kryss rutorna för **åtkomst-tokens** och **ID-token** .
 1. Välj **Spara**.
 
@@ -96,7 +96,7 @@ Om programmet utbyter en auktoriseringskod för en åtkomsttoken måste du skapa
 #### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 
 1. På sidan **Azure AD B2C-Appregistreringar** väljer du det program som du skapade, till exempel *webapp1*.
-1. Under **Hantera**väljer du **certifikat & hemligheter**.
+1. På den vänstra menyn, under **Hantera**, väljer du **certifikat & hemligheter**.
 1. Välj **Ny klienthemlighet**.
 1. Ange en beskrivning av klient hemligheten i rutan **Beskrivning** . Till exempel *clientsecret1*.
 1. Under **upphör ande**väljer du en varaktighet för vilken hemligheten är giltig och väljer sedan **Lägg till**.

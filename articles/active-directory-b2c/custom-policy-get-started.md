@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 65ff0ab03abdbd3b403d37700dc8df4fa5eee73a
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: cb3bb363b1d6be72fe8941cad509b4c3525cfa15
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116581"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169437"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Kom igång med anpassade principer i Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ ms.locfileid: "87116581"
 
 [Anpassade principer](custom-policy-overview.md) är konfigurationsfiler som definierar beteendet för din Azure Active Directory B2C (Azure AD B2C)-klient. I den här artikeln skapar du en anpassad princip som stöder registrering av lokalt konto eller inloggning med hjälp av en e-postadress och ett lösen ord. Du förbereder också din miljö för att lägga till identitets leverantörer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Om du inte redan har en, [skapar du en Azure AD B2C klient](tutorial-create-tenant.md) som är länkad till din Azure-prenumeration.
 - [Registrera ditt program](tutorial-register-applications.md) i klient organisationen som du skapade så att den kan kommunicera med Azure AD B2C.
@@ -87,7 +87,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda **Ap
 
 Sedan exponerar du API: et genom att lägga till ett omfång:
 
-1. Under **Hantera**väljer du **exponera ett API**.
+1. I den vänstra menyn, under **Hantera**, väljer du **exponera ett API**.
 1. Välj **Lägg till ett omfång**och välj sedan **Spara och fortsätt** att acceptera standard-ID: t för program-ID.
 1. Ange följande värden för att skapa en omfattning som tillåter anpassad princip körning i Azure AD B2C klient organisation:
     * **Omfattnings namn**:`user_impersonation`
@@ -110,13 +110,13 @@ Sedan exponerar du API: et genom att lägga till ett omfång:
 
 Ange sedan att programmet ska behandlas som en offentlig klient:
 
-1. Under **Hantera**väljer du **autentisering**.
+1. På den vänstra menyn, under **Hantera**, väljer du **autentisering**.
 1. Under **Avancerade inställningar**aktiverar du **behandla program som en offentlig klient** (Välj **Ja**). Se till att **"allowPublicClient": true** har angetts i applikations manifestet. 
 1. Välj **Spara**.
 
 Bevilja nu behörighet till API-omfånget som du visade tidigare i *IdentityExperienceFramework* -registreringen:
 
-1. Under **Hantera**, Välj **API-behörigheter**.
+1. I den vänstra menyn, under **Hantera**, väljer du **API-behörigheter**.
 1. Under **konfigurerade behörigheter**väljer du **Lägg till en behörighet**.
 1. Välj fliken **Mina API: er** och välj sedan **IdentityExperienceFramework** -programmet.
 1. Under **behörighet**väljer du den **user_impersonation** definition som du definierade tidigare.

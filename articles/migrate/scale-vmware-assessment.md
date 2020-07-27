@@ -3,12 +3,12 @@ title: Utvärdera ett stort antal virtuella VMware-datorer för migrering till A
 description: Beskriver hur du bedömer ett stort antal virtuella VMware-datorer för migrering till Azure med hjälp av tjänsten Azure Migrate. e
 ms.topic: how-to
 ms.date: 03/23/2020
-ms.openlocfilehash: d404583b1bad474a5e24e8c7cf060aeb80d610bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6490a5448bb68dcccd61784d149e9765107400c2
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80336857"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171918"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Utvärdera ett stort antal virtuella VMware-datorer för migrering till Azure
 
@@ -34,29 +34,32 @@ När du planerar för utvärdering av ett stort antal virtuella VMware-datorer f
 
 - **Planera Azure Migrate projekt**: ta reda på hur du distribuerar Azure Migrate-projekt. Om dina data Center till exempel finns i olika geografiska områden, eller om du behöver lagra identifierings-, utvärderings-eller migrerings-relaterade metadata i en annan geografi, kan du behöva flera projekt. 
 - **Plan utrustning**: Azure Migrate använder en lokal Azure Migrate-installation som distribueras som en virtuell VMware-dator för att kontinuerligt identifiera virtuella datorer. Enheten övervakar miljö ändringar, till exempel att lägga till virtuella datorer, diskar eller nätverkskort. Den skickar även metadata-och prestanda information om dem till Azure. Du måste ta reda på hur många apparater du behöver distribuera.
-- **Planera konton för identifiering**: Azure Migrates enheten använder ett konto med åtkomst till vCenter Server för att identifiera virtuella datorer för utvärdering och migrering. Om du upptäcker fler än 10 000 virtuella datorer konfigurerar du flera konton.
+- **Planera konton för identifiering**: Azure Migrates enheten använder ett konto med åtkomst till vCenter Server för att identifiera virtuella datorer för utvärdering och migrering. Om du upptäcker fler än 10 000 virtuella datorer måste du konfigurera flera konton eftersom det krävs att det inte finns några överlappande mellan de virtuella datorerna som identifierats från två enheter i ett projekt. 
 
+> [!NOTE]
+> Om du konfigurerar flera anordningar ser du till att det inte finns några överlappande mellan de virtuella datorerna på de vCenter-konton som angetts. En identifiering med sådan överlappning är ett scenario som inte stöds. Om en virtuell dator identifieras av fler än en installation resulterar detta i dubbletter i identifieringen och i problem med att aktivera replikering för den virtuella datorn med hjälp av Azure Portal i Server-migreringen.
 
 ## <a name="planning-limits"></a>Planerings gränser
  
 Använd de gränser som sammanfattas i den här tabellen för planering.
 
-**Planering** | **Gränser**
+**Planering** | **Begränsningar**
 --- | --- 
 **Azure Migrate projekt** | Utvärdera upp till 35 000 virtuella datorer i ett projekt.
 **Azure Migrate-installation** | En apparat kan identifiera upp till 10 000 virtuella datorer på en vCenter Server.<br/> En installation kan bara ansluta till en enda vCenter Server.<br/> En installation kan bara associeras med ett enda Azure Migrate-projekt.<br/>  Ett valfritt antal enheter kan associeras med ett enda Azure Migrate-projekt. <br/><br/> 
-**Grupp** | Du kan lägga till upp till 35 000 virtuella datorer i en enda grupp.
+**Grupper** | Du kan lägga till upp till 35 000 virtuella datorer i en enda grupp.
 **Azure Migrate utvärdering** | Du kan utvärdera upp till 35 000 virtuella datorer i en enda utvärdering.
 
 Här är några exempel på distributioner med dessa begränsningar:
 
 
 **vCenter-Server** | **Virtuella datorer på servern** | **Rekommendation** | **Åtgärd**
----|---|---
+---|---|---|---
 En | < 10 000 | Ett Azure Migrate projekt.<br/> En-apparat.<br/> Ett vCenter-konto för identifiering. | Konfigurera installationen, Anslut till vCenter Server med ett konto.
-En | > 10 000 | Ett Azure Migrate projekt.<br/> Flera enheter.<br/> Flera vCenter-konton. | Konfigurera installations programmet för varje 10 000-VM.<br/><br/> Konfigurera vCenter-konton och dividera lagret för att begränsa åtkomsten för ett konto till färre än 10 000 virtuella datorer.<br/> Anslut varje installation till vCenter-servern med ett konto.<br/> Du kan analysera beroenden mellan datorer som har identifierats med olika enheter.
+En | > 10 000 | Ett Azure Migrate projekt.<br/> Flera enheter.<br/> Flera vCenter-konton. | Konfigurera installations programmet för varje 10 000-VM.<br/><br/> Konfigurera vCenter-konton och dividera lagret för att begränsa åtkomsten för ett konto till färre än 10 000 virtuella datorer.<br/> Anslut varje installation till vCenter-servern med ett konto.<br/> Du kan analysera beroenden mellan datorer som har identifierats med olika enheter. <br/> <br/> Se till att det inte överlappar de virtuella datorerna på de vCenter-konton som angetts. En identifiering med sådan överlappning är ett scenario som inte stöds. Om en virtuell dator identifieras av fler än en installation resulterar detta i en dubblett i identifieringen och i problem med att aktivera replikering för den virtuella datorn med hjälp av Azure Portal i Server-migreringen.
 Flera | < 10 000 |  Ett Azure Migrate projekt.<br/> Flera enheter.<br/> Ett vCenter-konto för identifiering. | Konfigurera enheter, Anslut till vCenter Server med ett konto.<br/> Du kan analysera beroenden mellan datorer som har identifierats med olika enheter.
-Flera | > 10 000 | Ett Azure Migrate projekt.<br/> Flera enheter.<br/> Flera vCenter-konton. | Om vCenter Server identifiering < 10 000 virtuella datorer måste du konfigurera en installation för varje vCenter Server.<br/><br/> Om vCenter Server identifiering > 10 000 virtuella datorer måste du konfigurera en installation för varje 10 000-dator.<br/> Konfigurera vCenter-konton och dividera lagret för att begränsa åtkomsten för ett konto till färre än 10 000 virtuella datorer.<br/> Anslut varje installation till vCenter-servern med ett konto.<br/> Du kan analysera beroenden mellan datorer som har identifierats med olika enheter.
+Flera | > 10 000 | Ett Azure Migrate projekt.<br/> Flera enheter.<br/> Flera vCenter-konton. | Om vCenter Server identifiering < 10 000 virtuella datorer måste du konfigurera en installation för varje vCenter Server.<br/><br/> Om vCenter Server identifiering > 10 000 virtuella datorer måste du konfigurera en installation för varje 10 000-dator.<br/> Konfigurera vCenter-konton och dividera lagret för att begränsa åtkomsten för ett konto till färre än 10 000 virtuella datorer.<br/> Anslut varje installation till vCenter-servern med ett konto.<br/> Du kan analysera beroenden mellan datorer som har identifierats med olika enheter. <br/><br/> Se till att det inte överlappar de virtuella datorerna på de vCenter-konton som angetts. En identifiering med sådan överlappning är ett scenario som inte stöds. Om en virtuell dator identifieras av fler än en installation resulterar detta i en dubblett i identifieringen och i problem med att aktivera replikering för den virtuella datorn med hjälp av Azure Portal i Server-migreringen.
+
 
 
 ## <a name="plan-discovery-in-a-multi-tenant-environment"></a>Planera identifiering i en miljö med flera klienter

@@ -7,21 +7,25 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 10/18/2019
-ms.openlocfilehash: e59648ee76b6715029c690329cbf8f4f1eee7243
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/24/2020
+ms.openlocfilehash: 6d990b94210383ba4b30569693f4471f43306ed2
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483660"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169824"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>Konfigurera exportprincipen för en NFS-volym
 
-Beskriver hur du konfigurerar en exportpolicy och kontrollerar åtkomst till en Azure NetApp Files-volym. Azure NetApp Files export policy stöder endast NFS-volymer.  Både NFSv3 och NFSv4 stöds. 
+Du kan konfigurera export policy för att kontrol lera åtkomsten till en Azure NetApp Files volym. Azure NetApp Files export policy stöder volymer som använder NFS-protokollet (både NFSv3 och NFSv 4.1) och det dubbla protokollet (NFSv3 och SMB). 
+
+Du kan skapa upp till fem export princip regler.
 
 ## <a name="steps"></a>Steg 
 
-1.  Klicka på **Exportera princip** i Azure NetApp Files navigerings fönstret. 
+1.  På sidan volymer väljer du den volym som du vill konfigurera export principen för och klickar på **Exportera princip**. 
+
+    Du kan också konfigurera export principen när volymen skapas.
 
 2.  Ange information för följande fält för att skapa en exportpolicyregel:   
     *  **Tabbindex**   
@@ -39,7 +43,11 @@ Beskriver hur du konfigurerar en exportpolicy och kontrollerar åtkomst till en 
         * Läs- och skriv
         * Skrivskydd
 
-    ![Exportpolicy](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
+    * **Rot åtkomst**  
+        Ange om `root` kontot har åtkomst till volymen.  Som standard är rot åtkomsten inställd på **på**och `root` kontot har åtkomst till volymen.
+
+        ![Exportpolicy](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
+
 
 
 ## <a name="next-steps"></a>Nästa steg 

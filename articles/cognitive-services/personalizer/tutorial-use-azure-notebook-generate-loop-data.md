@@ -3,20 +3,18 @@ title: 'Självstudie: Azure Notebook – Personanpassare'
 titleSuffix: Azure Cognitive Services
 description: Den här självstudien simulerar en studie slinga _system i en Azure-anteckningsbok, som föreslår vilken typ av kaffe en kund ska beställa. Användarna och deras inställningar lagras i en användar data uppsättning. Information om kaffeet är också tillgänglig och lagrad i en kaffe data uppsättning.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 04/27/2020
-ms.author: diberry
 ms.custom: tracking-python
-ms.openlocfilehash: 30897e1bdd5d139d3a11980430cbcc6b10052ecc
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 62e9140a1bab44d913e164304af13204f375f461
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608493"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131981"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Självstudie: använda en Personanpassare i Azure Notebook
 

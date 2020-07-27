@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/01/2019
+ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: b8935dd4138095aa9b8e84ddf75c06307f9ce00d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f14ac279f14feb3f83490ab96965d4355bed125
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483643"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169470"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Skapa en NFS-volym för Azure NetApp Files
 
@@ -31,7 +31,7 @@ Du måste redan ha konfigurerat en kapacitetspool.
 Ett undernät måste delegeras till Azure NetApp Files.  
 [Delegera ett undernät till Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 
-## <a name="considerations"></a>Att tänka på 
+## <a name="considerations"></a>Överväganden 
 
 * Bestämma vilken NFS-version som ska användas  
   NFSv3 kan hantera en mängd olika användnings fall och distribueras ofta i de flesta företags program. Du bör validera vilken version (NFSv3 eller NFSv 4.1) som programmet behöver och skapa din volym med lämplig version. Om du till exempel använder [Apache ActiveMQ](https://activemq.apache.org/shared-file-system-master-slave)rekommenderas fil låsning med nfsv 4.1 över NFSv3. 
@@ -42,7 +42,7 @@ Ett undernät måste delegeras till Azure NetApp Files.
 * Lokal användare/grupp och LDAP-stöd för NFSv 4.1  
   För närvarande stöder NFSv 4.1 endast rot åtkomst till volymer. Se [Konfigurera nfsv 4.1 standard domän för Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md). 
 
-## <a name="best-practice"></a>Regelverk
+## <a name="best-practice"></a>Bästa praxis
 
 * Du bör se till att du använder rätt monterings instruktioner för volymen.  Se [montera eller demontera en volym för virtuella Windows-eller Linux-datorer](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
 
@@ -76,11 +76,11 @@ Ett undernät måste delegeras till Azure NetApp Files.
         Fältet **Tillgänglig kvot** visar mängden outnyttjat utrymme i kapacitetspoolen, som du kan använda för att skapa en ny volym. Storleken på den nya volymen får inte överskrida den tillgängliga kvoten.  
 
     * **Virtuellt nätverk**  
-        Ange från vilket virtuellt Azure-nätverk du vill komma åt volymen.  
+        Ange det virtuella Azure-nätverk (VNet) som du vill ha åtkomst till volymen från.  
 
         Det virtuella nätverk som du anger måste ha ett undernät delegerat till Azure NetApp Files. Azure NetApp Files-tjänsten kan endast nås från samma virtuella nätverk eller från ett virtuellt nätverk som finns i samma region som volymen via VNet-peering. Du kan också komma åt volymen från det lokala nätverket via Express Route.   
 
-    * **Delnät**  
+    * **Undernät**  
         Ange det undernät som du vill använda för volymen.  
         Det undernät som du anger måste delegeras till Azure NetApp Files. 
         
@@ -89,6 +89,12 @@ Ett undernät måste delegeras till Azure NetApp Files.
         ![Skapa en volym](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Skapa undernät](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * Om du vill använda en befintlig ögonblicks bild princip på volymen klickar du på **Visa Avancerat avsnitt** för att expandera den och väljer en ögonblicks bilds princip på den nedrullningsbara menyn. 
+
+        Information om hur du skapar en ögonblicks bilds princip finns i [Hantera ögonblicks bilder](azure-netapp-files-manage-snapshots.md).
+
+        ![Visa avancerad markering](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
 4. Klicka på **protokoll**och utför följande åtgärder:  
     * Välj **NFS** som protokoll typ för volymen.   

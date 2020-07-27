@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: caa5c0178cda563650928be40d02716868255fb1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b99e5f7d079e580ad8fcd30a311c24a55ef7fc5b
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121630"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171142"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Prisnivåer i Azure Database for PostgreSQL – Enskild server
 
@@ -85,9 +85,9 @@ Om du till exempel har allokerat 1000 GB lagrings utrymme och den faktiska anvä
 
 Kom ihåg att lagringen bara kan skalas upp, inte nedåt.
 
-## <a name="backup"></a>Backup
+## <a name="backup-storage"></a>Lagring av säkerhets kopior
 
-Tjänsten tar automatiskt säkerhets kopior av servern. Du kan välja en kvarhållningsperiod från mellan 7 och 35 dagar. Generell användning-och Minnesoptimerade servrar kan välja att ha Geo-redundant lagring för säkerhets kopiering. Läs mer om säkerhets kopieringar i [artikeln begrepp](concepts-backup.md).
+Azure Database for PostgreSQL tillhandahåller upp till 100% av din etablerade Server lagring som säkerhets kopierings lagring utan extra kostnad. Alla säkerhets kopierings lagringar som du använder utöver detta belopp debiteras i GB per månad. Om du till exempel etablerar en server med 250 GB lagrings utrymme, kommer du att ha 250 GB ytterligare lagrings utrymme för Server säkerhets kopior utan kostnad. Lagring för säkerhets kopieringar utöver 250 GB debiteras enligt [pris sättnings modellen](https://azure.microsoft.com/pricing/details/postgresql/). Om du vill förstå faktorer som påverkar lagrings användningen av säkerhets kopior, övervakar och kontrollerar lagrings kostnaden för säkerhets kopiering kan du läsa [dokumentationen för säkerhets kopiering](concepts-backup.md).
 
 ## <a name="scale-resources"></a>Skala resurser
 

@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: overview
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: f1718de6bc9a86f85cadf4531386e663d5a420d3
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 7fe7c1473579c62b110548a2c5e98f9bdfaf6bf9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273769"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131471"
 ---
 # <a name="backend-pool-management"></a>Hantering av Server dels pooler
 Backend-poolen är en kritisk komponent i belastningsutjämnaren. Backend-poolen definierar den grupp av resurser som kommer att betjäna trafik för en specifik belastnings Utjämnings regel.
@@ -255,10 +255,12 @@ All hantering av backend-pooler görs direkt på objektet för Server delen som 
 
   >[!IMPORTANT] 
   >Den här funktionen är för närvarande en för hands version och har följande begränsningar:
-  >* Gräns på 100 IP-adresser som läggs till
+  >* Endast standard Load Balancer
+  >* Begränsning på 100 IP-adresser i backend-poolen
   >* Server dels resurserna måste finnas i samma virtuella nätverk som belastningsutjämnaren
   >* Den här funktionen stöds inte för närvarande i Azure Portal
-  >* Endast standard Load Balancer
+  >* ACI-behållare stöds för närvarande inte av den här funktionen
+  >* Belastnings utjämning eller tjänster som upprättas av belastningsutjämnare kan inte placeras i belastningsutjämnarens backend-pool
   
 ### <a name="powershell"></a>PowerShell
 Skapa ny backend-pool:
@@ -271,8 +273,7 @@ $vnetName = "myVnet"
 $location = "eastus"
 $nicName = "myNic"
 
-$backendPool = 
-New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
+$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName  
 ```
 
 Uppdatera backend-poolen med en ny IP-adress från det befintliga virtuella nätverket:
@@ -281,18 +282,17 @@ Uppdatera backend-poolen med en ny IP-adress från det befintliga virtuella nät
 $virtualNetwork = 
 Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup 
  
-$ip1 = 
-New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
+$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
  
 $backendPool.LoadBalancerBackendAddresses.Add($ip1) 
 
-Set-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool $backendPool  
+Set-AzLoadBalancerBackendAddressPool -InputObject $backendPool
 ```
 
 Hämta information om Server delens pool för belastningsutjämnaren för att bekräfta att backend-adresserna har lagts till i backend-poolen:
 
 ```azurepowershell-interactive
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool $backendPool  
+Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName 
 ```
 Skapa ett nätverks gränssnitt och Lägg till det i backend-poolen. Ange IP-adressen till en av Server dels adresserna:
 

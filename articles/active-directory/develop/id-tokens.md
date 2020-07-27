@@ -14,12 +14,12 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 2fbbf5f9d01ed4a469967dac87faa3b130905757
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aca2e0a878470a644aff3a42411b69da9096fc78
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027112"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87170520"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft Identity Platform ID-token
 
@@ -87,7 +87,7 @@ I den här listan visas de JWT-anspråk som är i de flesta id_tokens som standa
 |`ver` | Sträng, antingen 1,0 eller 2,0 | Anger versionen för id_token. |
 
 > [!NOTE]
-> V 1.0-och v-22.0 id_token har skillnader i mängden information som de kommer att ha som visas i exemplen ovan. Versionen anger i princip slut punkten för Azure AD-plattformen varifrån den utfärdades. [Azure AD OAuth-implementeringen](about-microsoft-identity-platform.md) har utvecklats genom åren. Det finns för närvarande två olika outh-slutpunkter för Azure AD-program. Du kan använda någon av de nya slut punkterna som kategoriseras som v 2.0 eller v 1.0. OAuth-slutpunkter för båda dessa är olika. V 2.0-slutpunkten är nyare och funktionerna i v 1.0-slutpunkten migreras till den här slut punkten. Nya utvecklare bör använda v 2.0-slutpunkten.
+> V 1.0-och v 2.0-id_token har skillnader i mängden information som de kommer att ha som visas i exemplen ovan. Versionen anger i princip slut punkten för Azure AD-plattformen varifrån den utfärdades. [Azure AD OAuth-implementeringen](about-microsoft-identity-platform.md) har utvecklats genom åren. Det finns för närvarande två olika outh-slutpunkter för Azure AD-program. Du kan använda någon av de nya slut punkterna som kategoriseras som v 2.0 eller v 1.0. OAuth-slutpunkter för båda dessa är olika. V 2.0-slutpunkten är nyare och funktionerna i v 1.0-slutpunkten migreras till den här slut punkten. Nya utvecklare bör använda v 2.0-slutpunkten.
 >
 > - v 1.0: Azure AD-slut punkter:`https://login.microsoftonline.com/common/oauth2/authorize`
 > - v 2.0: Microsoft identitypPlatform-slutpunkter:`https://login.microsoftonline.com/common/oauth2/v2.0/authorize`

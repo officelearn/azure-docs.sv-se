@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev
-ms.openlocfilehash: b1b3815085524a3e96ad607ac0ea8efb2c2e92fb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: aaddev, devx-track-javascript
+ms.openlocfilehash: 63e94916232c4b3c7a275e51bdcde496b75ae913
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026211"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129108"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Självstudie: Logga in användare och anropa Microsoft Graph-API: et från en JavaScript-app med en enda sida (SPA) med auth Code Flow
 
@@ -51,7 +51,7 @@ Om du vill konfigurera kod exemplet innan du kör det går du vidare till [konfi
 
 Om du vill fortsätta med självstudien och bygga programmet själv kan du gå vidare till nästa avsnitt, [krav](#prerequisites).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Node.js](https://nodejs.org/en/download/) för att köra en lokal webbserver
 * [Visual Studio Code](https://code.visualstudio.com/download) eller en annan kod redigerare
@@ -324,7 +324,7 @@ const tokenRequest = {
   - För det huvudsakliga (eller *globala*) Azure-molnet anger du `https://login.microsoftonline.com` .
   - För **nationella** moln (till exempel Kina) kan du hitta lämpliga värden i [nationella moln](authentication-national-cloud.md).
 - `Enter_the_Tenant_info_here`ska vara något av följande:
-  - Om ditt program har stöd *för konton i den här organisations katalogen*ersätter du värdet med **klient-ID** eller **klient namn**. Till exempel `contoso.microsoft.com`.
+  - Om ditt program har stöd *för konton i den här organisations katalogen*ersätter du värdet med **klient-ID** eller **klient namn**. Exempelvis `contoso.microsoft.com`.
   - Om ditt program har stöd *för konton i en organisations katalog*ersätter du värdet med `organizations` .
   - Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton*ersätter du värdet med `common` .
   - Om du bara vill begränsa stödet till *personliga Microsoft-konton*ersätter du värdet med `consumers` .
@@ -555,7 +555,7 @@ Det SPA du har skapat i den här självstudien anropar `acquireTokenSilent` och/
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Efter den första inloggningen ska appen inte be användarna att autentisera varje gång de behöver åtkomst till en skyddad resurs (det vill säga en token). Anropa för att förhindra sådana omautentiserings begär Anden `acquireTokenSilent` . Det finns dock vissa situationer där du kan behöva tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Exempel:
+Efter den första inloggningen ska appen inte be användarna att autentisera varje gång de behöver åtkomst till en skyddad resurs (det vill säga en token). Anropa för att förhindra sådana omautentiserings begär Anden `acquireTokenSilent` . Det finns dock vissa situationer där du kan behöva tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Till exempel:
 
 - Användarna måste ange sina autentiseringsuppgifter på nytt eftersom lösen ordet har upphört att gälla.
 - Ditt program begär åtkomst till en resurs och du behöver användarens medgivande.

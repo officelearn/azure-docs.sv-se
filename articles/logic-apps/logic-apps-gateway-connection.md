@@ -3,15 +3,15 @@ title: Åtkomst till data källor lokalt
 description: Anslut till lokala data källor från Azure Logic Apps genom att skapa en lokal Azure-datagateway-resurs
 services: logic-apps
 ms.suite: integration
-ms.reviewer: arthii, logicappspm
+ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
-ms.date: 02/14/2020
-ms.openlocfilehash: b216fa668483ef6fc30c1054dd4f65361ad17934
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/21/2020
+ms.openlocfilehash: 94fedc5dc6c9f420fbf14f80618a6daeefe908b2
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065953"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87172055"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ansluta till lokala datakällor från Azure Logic Apps
 
@@ -50,15 +50,15 @@ I Azure Logic Apps stöder den lokala datagatewayen de [lokala](../connectors/ap
 
 Azure Logic Apps stöder Läs-och skriv åtgärder via datagatewayen. Dessa åtgärder har dock [gränser för deras nytto Last storlek](/data-integration/gateway/service-gateway-onprem#considerations). Även om själva gatewayen inte ådrar sig ytterligare kostnader, gäller [Logic Apps prissättnings modell](../logic-apps/logic-apps-pricing.md) för dessa anslutningar och andra åtgärder i Azure Logic Apps.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Du har redan [installerat den lokala datagatewayen på en lokal dator](../logic-apps/logic-apps-gateway-install.md).
 
 * Du använder [samma Azure-konto och prenumeration](../logic-apps/logic-apps-gateway-install.md#requirements) som användes när du installerade data gatewayen. Det här Azure-kontot måste tillhöra en enda [Azure Active Directory (Azure AD)-klient eller-katalog](../active-directory/fundamentals/active-directory-whatis.md#terminology).
 
-* Gateway-installationen har inte redan registrerats och begärts av en annan Azure gateway-resurs.
+* Gateway-installationen har inte redan registrerats och begärts av en annan befintlig Azure gateway-resurs i Azure Portal.
 
-  När du skapar en gateway-resurs i Azure Portal väljer du en gateway-installation som länkar till din gateway-resurs och bara den gateway-resursen. I Azure Logic Apps använder lokala utlösare och åtgärder sedan Gateway-resursen för att ansluta till lokala data källor. I dessa utlösare och åtgärder väljer du din Azure-prenumeration och den tillhör ande gateway-resurs som du vill använda. Varje gateway-resurs länkar enbart till en gateway-installation, som endast länkar till ett Azure-konto.
+  När du skapar en gateway-resurs i Azure Portal väljer du en gateway-installation som länkar till din gateway-resurs och bara den gateway-resursen. Varje gateway-resurs kan bara länka till en gateway-installation, som bara kan länka till ett Azure-konto. I Azure Logic Apps använder lokala utlösare och åtgärder Gateway-resursen vid anslutning till lokala data källor. Förutsatt att du har åtkomst till prenumerationen kan du välja mellan olika Azure-prenumerationer som är associerade med en annan gateway-resurs. Din Logic app-och gateway-resurs behöver inte använda samma Azure-prenumeration.
 
   > [!NOTE]
   > Endast Gateway-administratören kan skapa Gateway-resursen i Azure Portal. För närvarande stöds inte tjänstens huvud namn. 
@@ -108,6 +108,8 @@ När du har skapat din gateway-resurs och associerat din Azure-prenumeration med
 
 1. Under **gatewayer**väljer du din Azure-prenumeration som har den gateway-resurs som du vill använda från listan **prenumerationer** .
 
+   Förutsatt att du har åtkomst till prenumerationen kan du välja mellan olika Azure-prenumerationer som är associerade med en annan gateway-resurs. Din Logic app-och gateway-resurs behöver inte använda samma Azure-prenumeration.
+
 1. Välj den gateway-resurs som du vill använda från listan **anslutnings Gateway** , som visar tillgängliga gateway-resurser i den valda prenumerationen. Varje gateway-resurs är länkad till en enda Gateway-installation.
 
    > [!NOTE]
@@ -153,7 +155,7 @@ Om du vill skapa en annan gateway-resurs länkar du Gateway-installationen till 
 
 1. Om du inte redan har valt väljer du **lokal datagateway**på menyn gateway-resurs. I verktygsfältet gateway-resurs väljer du **ta bort**.
 
-   Exempel:
+   Till exempel:
 
    ![Ta bort gateway-resurs i Azure](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway.png)
 

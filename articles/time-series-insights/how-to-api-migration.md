@@ -8,14 +8,14 @@ ms.author: shresha
 manager: dpalled
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 07/23/2020
 ms.custom: shresha
-ms.openlocfilehash: 6cd06c31b56ce89a13af9bae8c77dc73efd69ef7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a5721748f023ea5f098b71d8d43dbda53721c54d
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100241"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171739"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migrera till nya Azure Time Series Insights Gen2 API-versioner
 
@@ -23,30 +23,30 @@ ms.locfileid: "87100241"
 
 Om du har skapat en Azure Time Series Insights Gen2-miljö när den var i en offentlig för hands version (före den 16 juli 2020) kan du uppdatera din TSD-miljö för att använda de nya allmänt tillgängliga versionerna av API: er genom att följa stegen som beskrivs i den här artikeln.
 
-Den nya API-versionen är `2020-07-31` och använder en uppdaterad [syntax för Time Series-uttryck](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax). 
+Den nya API-versionen är `2020-07-31` och använder en uppdaterad [syntax för Time Series-uttryck](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 Användare måste migrera sin Miljös [tids serie modell variabler](./concepts-variables.md), sparade frågor, Power BI frågor och eventuella anpassade verktyg som gör anrop till API-slutpunkterna. Om du har frågor eller problem med migreringsprocessen skickar du ett support ärende via Azure Portal och nämner det här dokumentet.
 
 > [!IMPORTANT]
-> För hands versionen av API `2018-11-01-preview` -versionen fortsätter att stödjas fram till den 31 oktober 2020. Slutför alla tillämpliga steg i den här migreringen innan du gör det för att undvika eventuella avbrott i tjänsten. 
+> För hands versionen av API `2018-11-01-preview` -versionen fortsätter att stödjas fram till den 31 oktober 2020. Slutför alla tillämpliga steg i den här migreringen innan du gör det för att undvika eventuella avbrott i tjänsten.
 
 ## <a name="migrate-time-series-model-and-saved-queries"></a>Migrera tids serie modellen och sparade frågor
 
-För att hjälpa användarna att migrera [tids serie modellens variabler](./concepts-variables.md) och sparade frågor, finns det ett inbyggt verktyg som är tillgängligt via [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com). Navigera till den miljö som du vill migrera och följ stegen nedan. **Du kan slutföra migreringen delvis och återgå till att slutföra den vid ett senare tillfälle, men ingen av uppdateringarna kan återställas.** 
+För att hjälpa användarna att migrera [tids serie modellens variabler](./concepts-variables.md) och sparade frågor, finns det ett inbyggt verktyg som är tillgängligt via [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com). Navigera till den miljö som du vill migrera och följ stegen nedan. **Du kan slutföra migreringen delvis och återgå till att slutföra den vid ett senare tillfälle, men ingen av uppdateringarna kan återställas.**
 
 > [!NOTE]
 > Du måste vara deltagare i miljön för att kunna uppdatera tids serie modellen och sparade frågor. Om du inte är en deltagare kommer du bara att kunna migrera dina personliga sparade frågor. Granska [miljö åtkomst principer](./concepts-access-policies.md) och din åtkomst nivå innan du fortsätter.
 
-1. Du uppmanas att uppdatera den syntax som används av dina tids serie modell variabler och sparade frågor i Explorer. 
-   
+1. Du uppmanas att uppdatera den syntax som används av dina tids serie modell variabler och sparade frågor i Explorer.
+
     [![Fråga](media/api-migration/ux-prompt.png)](media/v2-update-overview/overview-one.png#lightbox)
-    
-    Om du råkar stänga meddelandet av misstag kan du hitta det i meddelande panelen. 
+
+    Om du råkar stänga meddelandet av misstag kan du hitta det i meddelande panelen.
 
 1. Klicka på **Visa uppdateringar** för att öppna migreringsverktyget.
-    
-1. Klicka på **hämtnings typer**. Eftersom migreringen kommer att skriva över dina aktuella typer för att ändra variabelns syntax måste du spara en kopia av dina aktuella typer. Verktyget meddelar dig när typer har laddats ned. 
-   
+
+1. Klicka på **hämtnings typer**. Eftersom migreringen kommer att skriva över dina aktuella typer för att ändra variabelns syntax måste du spara en kopia av dina aktuella typer. Verktyget meddelar dig när typer har laddats ned.
+
     [![Hämtnings typer](media/api-migration/ux-migration-tool.png)](media/v2-update-overview/overview-one.png#lightbox)
 
 1. Klicka på **Uppdatera variabler**. Verktyget meddelar dig när variabler har uppdaterats.
@@ -56,39 +56,38 @@ För att hjälpa användarna att migrera [tids serie modellens variabler](./conc
 
     [![Uppdatera variabler](media/api-migration/ux-migration-tool-downloaded-types.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-2. Klicka på **Uppdatera sparade frågor**. Verktyget meddelar dig när variabler har uppdaterats.
-   
+1. Klicka på **Uppdatera sparade frågor**. Verktyget meddelar dig när variabler har uppdaterats.
+
     [![Uppdatera sparade frågor](media/api-migration/ux-migration-tool-updated-variables.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-3. Klicka på **Klar**.
+1. Klicka på **Klar**.
 
     [![Slutförd migrering](media/api-migration/ux-migration-tool-updated-saved-queries.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-
-Granska den uppdaterade miljön genom att Diagrama några av de nyligen skapade variablerna och sparade frågor. Om du ser oväntade funktions sätt när du använder diagrammet kan du skicka feedback via feedback-verktyget i Utforskaren. 
+Granska den uppdaterade miljön genom att Diagrama några av de nyligen skapade variablerna och sparade frågor. Om du ser oväntade funktions sätt när du använder diagrammet kan du skicka feedback via feedback-verktyget i Utforskaren.
 
 ## <a name="migrate-power-bi-queries"></a>Migrera Power BIs frågor
 
-Om du har genererat frågor med hjälp av Power BI anslutningen, gör de anrop till Azure Time Series Insights med hjälp av syntaxen för Preview API-versionen och den gamla tids serien. Dessa frågor fortsätter att hämta data till dess att för hands versions-API: et är föråldrat. 
+Om du har genererat frågor med hjälp av Power BI anslutningen, gör de anrop till Azure Time Series Insights med hjälp av syntaxen för Preview API-versionen och den gamla tids serien. Dessa frågor fortsätter att hämta data till dess att för hands versions-API: et är föråldrat.
 
-För att du ska kunna uppdatera frågorna för att använda den nya API-versionen och den nya tids serie uttrycks syntaxen måste frågorna återskapas från Utforskaren. Läs mer om hur du [skapar frågor med hjälp av Power BI-anslutningen](./how-to-connect-power-bi.md). 
+För att du ska kunna uppdatera frågorna för att använda den nya API-versionen och den nya tids serie uttrycks syntaxen måste frågorna återskapas från Utforskaren. Läs mer om hur du [skapar frågor med hjälp av Power BI-anslutningen](./how-to-connect-power-bi.md).
 
 > [!NOTE]
-> Du måste använda den Power BI Desktop juli 2020-versionen. Om inte kan du se ett [ogiltigt versions fel för frågans nytto Last](./how-to-diagnose-troubleshoot.md#problem-power-bi-connector-shows-unable-to-connect). 
+> Du måste använda den Power BI Desktop juli 2020-versionen. Om inte kan du se ett [ogiltigt versions fel för frågans nytto Last](./how-to-diagnose-troubleshoot.md#problem-power-bi-connector-shows-unable-to-connect).
 
 ## <a name="migrate-custom-applications"></a>Migrera anpassade program
 
-Om det anpassade programmet gör anrop till följande REST-slutpunkter, räcker det att uppdatera API-versionen till `2020-07-31` i URI: n: 
+Om det anpassade programmet gör anrop till följande REST-slutpunkter, räcker det att uppdatera API-versionen till `2020-07-31` i URI: n:
 
 - API: er för Time Series-modellen
   - API: er för modell inställningar
-    - [Ta](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
+    - [Hämta](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
     - [Uppdatera](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
-  - Instans-API: er 
+  - Instans-API: er
     - [Alla batch-åtgärder](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
     - [Lista](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/list)
     - [Sök](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search)
-    - [Lev](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/suggest)
+    - [Föreslå](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/suggest)
   - API: er för hierarki
     - [Alla batch-åtgärder](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
     - [Lista](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list)
@@ -96,8 +95,7 @@ Om det anpassade programmet gör anrop till följande REST-slutpunkter, räcker 
     - [Ta bort, Hämta åtgärder](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
     - [Lista](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list)
 
-
-För följande REST-slutpunkter måste du uppdatera API-versionen till `2020-07-31` i URI: n och kontrol lera att alla förekomster av `tsx` egenskapen använder den uppdaterade [tids serie uttrycks syntaxen](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax). 
+För följande REST-slutpunkter måste du uppdatera API-versionen till `2020-07-31` i URI: n och kontrol lera att alla förekomster av `tsx` egenskapen använder den uppdaterade [tids serie uttrycks syntaxen](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 - Typer av API: er
   - [Placerings åtgärd](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
@@ -106,12 +104,12 @@ För följande REST-slutpunkter måste du uppdatera API-versionen till `2020-07-
   - [GetSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
   - [GetAggregateSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
 
-
 ### <a name="examples"></a>Exempel
 
 #### <a name="typesbatchput"></a>TypesBatchPut
 
-Gammal brödtext för begäran (används av `2018-11-01-preview` ): 
+Gammal brödtext för begäran (används av `2018-11-01-preview` ):
+
 ```JSON
 {
   "put": [
@@ -139,6 +137,7 @@ Gammal brödtext för begäran (används av `2018-11-01-preview` ):
 ```
 
 Uppdaterad begär ande text (används av `2020-07-31` ):
+
 ```JSON
 {
   "put": [
@@ -169,7 +168,8 @@ Alternativt `filter` kan även vara `$event.Mode.String = 'outdoor'` . `value`M�
 
 #### <a name="getevents"></a>GetEvents
 
-Gammal brödtext för begäran (används av `2018-11-01-preview` ): 
+Gammal brödtext för begäran (används av `2018-11-01-preview` ):
+
 ```JSON
 {
   "getEvents": {
@@ -195,6 +195,7 @@ Gammal brödtext för begäran (används av `2018-11-01-preview` ):
 ```
 
 Uppdaterad begär ande text (används av `2020-07-31` ):
+
 ```JSON
 {
   "getEvents": {
@@ -219,10 +220,12 @@ Uppdaterad begär ande text (används av `2020-07-31` ):
 }
 ```
 
-Alternativt `filter` kan även vara `($event['Value'].Double != null) OR ($event['Status'].String = 'Good')` . 
+Alternativt `filter` kan även vara `($event['Value'].Double != null) OR ($event['Status'].String = 'Good')` .
 
 #### <a name="getseries"></a>GetSeries
-Gammal brödtext för begäran (används av `2018-11-01-preview` ): 
+
+Gammal brödtext för begäran (används av `2018-11-01-preview` ):
+
 ```JSON
 {
   "getSeries": {
@@ -252,6 +255,7 @@ Gammal brödtext för begäran (används av `2018-11-01-preview` ):
 ```
 
 Uppdaterad begär ande text (används av `2020-07-31` ):
+
 ```JSON
 {
   "getSeries": {
@@ -280,10 +284,12 @@ Uppdaterad begär ande text (används av `2020-07-31` ):
 }
 ```
 
-Alternativt `value` kan även vara `$event['Bar-Pressure-Offset'].Double` . Om ingen datatyp anges antas data typen alltid vara dubbel. Klammerns notation måste användas för att undvika specialtecknet ( `-` ). 
+Alternativt `value` kan även vara `$event['Bar-Pressure-Offset'].Double` . Om ingen datatyp anges antas data typen alltid vara dubbel. Klammerns notation måste användas för att undvika specialtecknet ( `-` ).
 
 #### <a name="getaggregateseries"></a>GetAggregateSeries
-Gammal brödtext för begäran (används av `2018-11-01-preview` ): 
+
+Gammal brödtext för begäran (används av `2018-11-01-preview` ):
+
 ```JSON
 {
   "aggregateSeries": {
@@ -314,6 +320,7 @@ Gammal brödtext för begäran (används av `2018-11-01-preview` ):
 ```
 
 Uppdaterad begär ande text (används av `2020-07-31` ):
+
 ```JSON
   "aggregateSeries": {
     "timeSeriesId": [

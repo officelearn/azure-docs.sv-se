@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 3a6162bb381f4e54114e3cabbf138f5b1c6aaae0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e28fc3c5779f2c31abbb48a7ced448cd8f92d1a2
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80373021"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171843"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Säkerhets kopiering och återställning i Azure Database for MySQL
 
@@ -19,13 +19,30 @@ Azure Database for MySQL skapar automatiskt Server säkerhets kopior och lagrar 
 
 ## <a name="backups"></a>Säkerhetskopior
 
-Azure Database for MySQL säkerhetskopierar datafilerna och transaktions loggen. Beroende på den maximala lagrings storleken som stöds tar vi antingen fullständig och differentiell säkerhets kopiering (4 TB max lagrings servrar) eller säkerhets kopior av ögonblicks bilder (upp till 16 TB max lagrings servrar). Med dessa säkerhets kopieringar kan du återställa en server till alla tidpunkter inom den konfigurerade kvarhållningsperioden för säkerhets kopior. Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan [också konfigurera det](howto-restore-server-portal.md#set-backup-configuration) upp till 35 dagar. Alla säkerhets kopior krypteras med AES 256-bitars kryptering.
+Azure Database for MySQL säkerhetskopierar datafilerna och transaktions loggen. Beroende på den maximala lagrings storleken som stöds tar vi antingen fullständiga och differentiella säkerhets kopieringar (4 TB max lagrings servrar) eller säkerhets kopior av ögonblicks bilder (upp till 16 TB max lagrings servrar). Med dessa säkerhets kopieringar kan du återställa en server till alla tidpunkter inom den konfigurerade kvarhållningsperioden för säkerhets kopior. Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan [också konfigurera det](howto-restore-server-portal.md#set-backup-configuration) upp till 35 dagar. Alla säkerhets kopior krypteras med AES 256-bitars kryptering.
 
 De här säkerhetskopierade filerna är inte användare-exponerade och kan inte exporteras. Dessa säkerhets kopior kan bara användas för återställnings åtgärder i Azure Database for MySQL. Du kan använda [mysqldump](concepts-migrate-dump-restore.md) för att kopiera en databas.
 
 ### <a name="backup-frequency"></a>Säkerhetskopieringsfrekvens
 
-I allmänhet sker fullständiga säkerhets kopieringar varje vecka, differentiella säkerhets kopieringar sker två gånger per dag för servrar med en högsta lagring på 4 TB som stöds. Säkerhetskopiering av ögonblicksbilder görs minst en gång per dag för servrar som har stöd för upp till 16 TB lagringsutrymme. I båda fallen säkerhetskopieras transaktionsloggar var femte minut. Den första ögonblicks bilden av fullständig säkerhets kopiering schemaläggs direkt efter att en server har skapats. Den första fullständiga säkerhets kopieringen kan ta längre tid på en stor återställd Server. Den tidigaste tidpunkt som en ny server kan återställas till är den tid då den första fullständiga säkerhets kopieringen är klar. När ögonblicks bilder tas i gång kan servrar med stöd för upp till 16 TB lagrings utrymme återställas till skapande tiden igen.
+#### <a name="servers-with-up-to-4-tb-storage"></a>Servrar med upp till 4 TB lagrings utrymme
+
+För servrar som har stöd för upp till 4 TB högsta lagrings utrymme sker fullständiga säkerhets kopieringar varje vecka. Differentiella säkerhets kopieringar sker två gånger om dagen. Säkerhets kopieringar av transaktions loggar sker var femte minut.
+
+#### <a name="servers-with-up-to-16-tb-storage"></a>Servrar med upp till 16 TB lagring
+I en delmängd av [Azure-regioner](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)kan alla nyligen etablerade servrar stödja upp till 16 TB lagring. Säkerhets kopieringar på dessa stora lagrings servrar är Snapshot-baserade. Den första fullständiga säkerhets kopieringen schemaläggs omedelbart efter att en server har skapats. Den första fullständiga säkerhets kopieringen behålls som serverns grundläggande säkerhets kopiering. Efterföljande ögonblicks säkerhets kopieringar är bara differentiella säkerhets kopieringar. 
+
+Differentiella ögonblicks bild säkerhets kopieringar sker minst en gång per dag. Säkerhets kopiering av differentiella ögonblicks bilder sker inte enligt ett fast schema. Säkerhets kopiering av differentiella ögonblicks bilder sker var 24: e timme om transaktions loggen (BinLog i MySQL) överskrider 50 GB sedan den senaste differentiella säkerhets kopieringen. I en dag tillåts högst sex differentiella ögonblicks bilder. 
+
+Säkerhets kopieringar av transaktions loggar sker var femte minut. 
+
+### <a name="backup-retention"></a>Kvarhållning av säkerhetskopior
+
+Säkerhets kopior bevaras baserat på inställningen för kvarhållning av säkerhets kopior på servern. Du kan välja en kvarhållningsperiod på 7 till 35 dagar. Standard kvarhållningsperioden är 7 dagar. Du kan ställa in kvarhållningsperioden när servern skapas eller senare genom att uppdatera säkerhets kopierings konfigurationen med [Azure Portal](https://docs.microsoft.com/azure/mysql/howto-restore-server-portal#set-backup-configuration) eller [Azure CLI](https://docs.microsoft.com/azure/mysql/howto-restore-server-cli#set-backup-configuration). 
+
+Kvarhållningsperioden för säkerhets kopior styr hur långt tillbaka i tiden en tidpunkts återställning kan hämtas, eftersom den baseras på tillgängliga säkerhets kopior. Kvarhållningsperioden för säkerhets kopior kan också behandlas som ett återställnings fönster från ett återställnings perspektiv. Alla säkerhets kopior som krävs för att utföra en återställning efter en viss tidpunkt inom kvarhållning av säkerhets kopior bevaras i säkerhets kopierings lagringen. Om säkerhets kopierings perioden till exempel är 7 dagar, betraktas återställnings fönstret de senaste 7 dagarna. I det här scenariot behålls alla säkerhets kopior som krävs för att återställa servern under de senaste 7 dagarna. Med ett fönster för kvarhållning av säkerhets kopior av sju dagar:
+- Äldre servrar med 4 TB lagrings utrymme behåller upp till 2 fullständiga säkerhets kopieringar av databaser, alla differentiella säkerhets kopieringar och säkerhets kopieringar av transaktions loggar som utförs sedan den tidigaste fullständiga säkerhets kopieringen
+-   Servrar med stor lagring (16 TB) behåller den fullständiga ögonblicks bilden av databasen, alla differentiella ögonblicks bilder och säkerhets kopieringar av transaktions loggar de senaste 8 dagarna.
 
 ### <a name="backup-redundancy-options"></a>Alternativ för redundans för säkerhets kopiering
 
@@ -36,9 +53,11 @@ Azure Database for MySQL ger flexibiliteten att välja mellan lokalt redundant e
 
 ### <a name="backup-storage-cost"></a>Reserv lagrings kostnad
 
-Azure Database for MySQL tillhandahåller upp till 100% av din etablerade Server lagring som säkerhets kopierings lagring utan extra kostnad. Detta är vanligt vis lämpligt för kvarhållning av säkerhets kopior på sju dagar. Ytterligare lagrings utrymme för säkerhets kopior debiteras i GB-månad.
+Azure Database for MySQL tillhandahåller upp till 100% av din etablerade Server lagring som säkerhets kopierings lagring utan extra kostnad. Ytterligare lagrings utrymme för säkerhets kopior debiteras i GB per månad. Om du till exempel har etablerad en server med 250 GB lagrings utrymme har du 250 GB ytterligare lagrings utrymme för Server säkerhets kopior utan extra kostnad. Förbrukad lagring för säkerhets kopieringar över 250 GB debiteras enligt [pris sättnings modellen](https://azure.microsoft.com/pricing/details/mysql/). 
 
-Om du till exempel har etablerad en server med 250 GB har du 250 GB lagring av säkerhets kopior utan extra kostnad. Lagring som överstiger 250 GB debiteras.
+Du kan använda måttet [säkerhets kopierings lagring som används](concepts-monitoring.md) i Azure Monitor tillgängligt via Azure Portal för att övervaka säkerhets kopierings lagringen som används av en server. Måttet mått för säkerhets kopierings lagring representerar summan av lagrings utrymme som förbrukas av alla fullständiga säkerhets kopior av databasen, differentiella säkerhets kopior och logg säkerhets kopior som bevaras baserat på den kvarhållna säkerhets kopierings perioden för servern. Säkerhets kopierings frekvensen är tjänsten hanterad och förklaras tidigare. Tung transaktions aktivitet på servern kan orsaka att lagrings användningen av säkerhets kopieringen ökar oberoende av databasens totala storlek. För Geo-redundant lagring är lagrings utrymmet för säkerhets kopiering två gånger för det lokalt redundanta lagrings utrymmet. 
+
+Det främsta sättet att kontrol lera lagrings kostnaden för säkerhets kopiering är genom att ställa in lämplig kvarhållningsperiod för säkerhets kopior och välja rätt alternativ för säkerhets kopiering för att uppfylla önskade återställnings mål. Du kan välja en kvarhållningsperiod från mellan 7 och 35 dagar. Generell användning-och Minnesoptimerade servrar kan välja att ha Geo-redundant lagring för säkerhets kopiering.
 
 ## <a name="restore"></a>Återställ
 

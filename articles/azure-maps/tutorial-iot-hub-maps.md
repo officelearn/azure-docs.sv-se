@@ -1,20 +1,20 @@
 ---
 title: 'Självstudie: implementera IoT spatial Analytics | Microsoft Azure Maps'
 description: 'Integrera IoT Hub med Microsoft Azure Maps-tjänst-API: er.'
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 1f0668a897f5bc88fbaeb770bc045e56dae2d48f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2bb5876424730e55d15cc52aeb98aa04af040821
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075497"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133409"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Självstudie: implementera IoT spatial Analytics med hjälp av Azure Maps
 
@@ -83,7 +83,7 @@ Följande bild visar det yt avgränsnings områden som marker ATS i blått. Hyre
   ![Netstängsel-väg](./media/tutorial-iot-hub-maps/geofence-route.png)
 
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

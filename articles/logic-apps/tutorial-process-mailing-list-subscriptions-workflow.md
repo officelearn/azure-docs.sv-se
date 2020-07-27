@@ -3,16 +3,16 @@ title: Bygg godkännande-baserade automatiserade arbets flöden
 description: Självstudie – Skapa ett godkännande baserat automatiserat arbets flöde som bearbetar prenumerationer på e-postlistor med hjälp av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: c1ed32a95864c20690607912bc32c01e3e597a65
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d9d2f29ffc34c203e5f3b3ebf094e73fb9cdfb75
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048592"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132406"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Självstudie: skapa automatiska godkännande-baserade arbets flöden med hjälp av Azure Logic Apps
 
@@ -21,6 +21,7 @@ Den här självstudien visar hur du skapar en Logi Kap [par som automatiserar et
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
+>
 > * Skapa en tom logikapp.
 > * Lägg till en utlösare som övervakar och söker efter prenumerationsbegäranden.
 > * Lägg till en åtgärd som skickar e-postmeddelanden för att godkänna och avvisa förfrågningar.
@@ -41,11 +42,9 @@ När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
 * Ett e-postkonto i Office 365 Outlook eller Outlook.com, som stöder arbets flöden för godkännande. Den här artikeln använder Office 365 Outlook. Om du använder ett annat e-postkonto är stegen desamma, men användargränssnittet kan vara lite annorlunda.
 
-## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
-
-Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
-
 ## <a name="create-your-logic-app"></a>Skapa en logikapp
+
+1. Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
 
 1. Från huvud menyn i Azure väljer du **skapa en app för resurs**  >  **integrerings**  >  **logik**.
 
@@ -205,9 +204,9 @@ Lägg nu till en åtgärd som lägger till den godkända medlemmen i din distrib
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **List Id** | Yes | `test-members-ML` | Namnet på MailChimp-e-postlistan. I det här exemplet används "test-members-ML". |
-   | **Status** | Yes | `subscribed` | Välj prenumerations status för den nya medlemmen. I det här exemplet används "prenumererar". <p>Mer information finns i dokumentationen om att [hantera prenumeranter med MailChimp-API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/). |
-   | **E-postadress** | Yes | <*ny medlem – e-postadress*> | Från listan med dynamiskt innehåll väljer du **från** under **när ett nytt e-postmeddelande kommer**, vilket skickar e-postadressen för den nya medlemmen. |
+   | **List Id** | Ja | `test-members-ML` | Namnet på MailChimp-e-postlistan. I det här exemplet används "test-members-ML". |
+   | **Status** | Ja | `subscribed` | Välj prenumerations status för den nya medlemmen. I det här exemplet används "prenumererar". <p>Mer information finns i dokumentationen om att [hantera prenumeranter med MailChimp-API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/). |
+   | **E-postadress** | Ja | <*ny medlem – e-postadress*> | Från listan med dynamiskt innehåll väljer du **från** under **när ett nytt e-postmeddelande kommer**, vilket skickar e-postadressen för den nya medlemmen. |
    ||||
 
    Mer information om den här åtgärdens egenskaper finns i [referens för MailChimp-koppling](/connectors/mailchimp/).
@@ -260,9 +259,9 @@ Skapa de meddelanden som skickas om den godkända medlemmen lyckas eller misslyc
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Att** | Yes | <*din-e-postadress*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. |
-   | **Ämne** | Yes | <*ämne – för-lyckad-e-post*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`Success! Member added to "test-members-ML": ` <p>I listan med dynamiskt innehåll, under **Lägg till medlem i listan**, väljer du egenskapen **e-postadress** . |
-   | **Brödtext** | Yes | <*brödtext – för klar ande – e-post*> | Brödtext i e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`New member has joined "test-members-ML":` <p>Välj egenskapen **e-postadress** i listan med dynamiskt innehåll. <p>På nästa rad anger du den här texten:`Member opt-in status: ` <p> Välj egenskapen **status** under **Lägg till medlem i listan**i listan med dynamiskt innehåll. |
+   | **Att** | Ja | <*din-e-postadress*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. |
+   | **Ämne** | Ja | <*ämne – för-lyckad-e-post*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`Success! Member added to "test-members-ML": ` <p>I listan med dynamiskt innehåll, under **Lägg till medlem i listan**, väljer du egenskapen **e-postadress** . |
+   | **Brödtext** | Ja | <*brödtext – för klar ande – e-post*> | Brödtext i e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`New member has joined "test-members-ML":` <p>Välj egenskapen **e-postadress** i listan med dynamiskt innehåll. <p>På nästa rad anger du den här texten:`Member opt-in status: ` <p> Välj egenskapen **status** under **Lägg till medlem i listan**i listan med dynamiskt innehåll. |
    |||||
 
 1. Spara logikappen.
@@ -285,9 +284,9 @@ Skapa de meddelanden som skickas om den godkända medlemmen lyckas eller misslyc
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Att** | Yes | <*din-e-postadress*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. |
-   | **Ämne** | Yes | <*Subject-för-Failure-e-post*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`Failed, member not added to "test-members-ML": ` <p>I listan med dynamiskt innehåll, under **Lägg till medlem i listan**, väljer du egenskapen **e-postadress** . |
-   | **Brödtext** | Yes | <*Body-för-Failure-e-post*> | Brödtext i e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`Member might already exist. Check your MailChimp account.` |
+   | **Att** | Ja | <*din-e-postadress*> | E-postadress att skicka e-postmeddelandet till. I testsyfte kan du använda din egen e-postadress. |
+   | **Ämne** | Ja | <*Subject-för-Failure-e-post*> | Ämnesraden för e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`Failed, member not added to "test-members-ML": ` <p>I listan med dynamiskt innehåll, under **Lägg till medlem i listan**, väljer du egenskapen **e-postadress** . |
+   | **Brödtext** | Ja | <*Body-för-Failure-e-post*> | Brödtext i e-postmeddelandet. För den här självstudiekursen anger du den här texten: <p>`Member might already exist. Check your MailChimp account.` |
    |||||
 
 1. Spara logikappen. 

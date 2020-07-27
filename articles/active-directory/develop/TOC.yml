@@ -618,6 +618,14 @@
           href: vs-active-directory-webapi-what-happened.md
         - name: Diagnostisera fel under autentisering
           href: vs-active-directory-error.md
+    - name: Publicera en app på marknaden
+      items:
+        - name: Publicera i App Source
+          href: v2-howto-get-appsource-certified.md
+        - name: Publicera i Azure AD-appgalleri
+          href: v2-howto-app-gallery-listing.md
+        - name: Publicera i Office 365-instrumentpanel för försäljning
+          href: 'https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store'
 - name: Referens
   items:
     - name: Programmanifest

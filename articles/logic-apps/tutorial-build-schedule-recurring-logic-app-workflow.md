@@ -3,16 +3,16 @@ title: Bygg schemabaserade automatiserade arbets flöden
 description: Självstudie – Skapa ett schema baserat, återkommande, automatiserat arbets flöde med hjälp av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: 977f138fad1f2eb1eae95049d2bd8a730ba5687e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 41f7b1309a9c7fa9a5f2abb3e2e59f08ef31382d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048738"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124858"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Självstudie: skapa automatiserade, schemabaserade, återkommande arbets flöden med hjälp av Azure Logic Apps
 
@@ -43,11 +43,9 @@ När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
 * För att kunna hämta restiden för en resväg behöver du en åtkomstnyckel för Bing Maps-API:t. Hämta nyckeln genom att följa anvisningarna för [hur du hämtar en Bing Maps-nyckel](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
 
-## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
-
-Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
-
 ## <a name="create-your-logic-app"></a>Skapa en logikapp
+
+1. Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
 
 1. Från huvud menyn i Azure väljer du **skapa en app för resurs**  >  **integrerings**  >  **logik**.
 
@@ -94,8 +92,8 @@ Lägg sedan till upprepnings [utlösaren, som aktive](../logic-apps/logic-apps-o
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Intervall** | Yes | 1 | Antalet intervaller som ska förflyta mellan kontrollerna |
-   | **Frekvens** | Yes | Vecka | Den tidsenhet som används för upprepningen |
+   | **Intervall** | Ja | 1 | Antalet intervaller som ska förflyta mellan kontrollerna |
+   | **Frekvens** | Ja | Vecka | Den tidsenhet som används för upprepningen |
    |||||
 
 1. Under **intervall** och **frekvens**, öppna listan **Lägg till ny parameter** och välj de egenskaper som ska läggas till i utlösaren.
@@ -143,8 +141,8 @@ Nu när du har en utlösare lägger du till en [åtgärd](../logic-apps/logic-ap
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Anslutnings namn** | Yes | BingMapsConnection | Ange ett namn på anslutningen. I det här exemplet används "BingMapsConnection". |
-   | **API-nyckel** | Yes | <*din-Bing-Maps-nyckel*> | Ange Bing Maps-nyckeln som du fick tidigare. Om du inte har en Bing Maps-nyckel tar du reda på [hur du hämtar en nyckel](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key). |
+   | **Anslutnings namn** | Ja | BingMapsConnection | Ange ett namn på anslutningen. I det här exemplet används "BingMapsConnection". |
+   | **API-nyckel** | Ja | <*din-Bing-Maps-nyckel*> | Ange Bing Maps-nyckeln som du fick tidigare. Om du inte har en Bing Maps-nyckel tar du reda på [hur du hämtar en nyckel](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key). |
    |||||
 
 1. Byt namn på åtgärden med den här beskrivningen: `Get route and travel time with traffic`
@@ -163,11 +161,11 @@ Nu när du har en utlösare lägger du till en [åtgärd](../logic-apps/logic-ap
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Waypoint 1** (Platsmarkör 1) | Yes | <*Start-location*> | Startpunkt för resvägen |
-   | **Waypoint 2** (Platsmarkör 2) | Yes | <*slut punkt*> | Slutpunkten för resvägen |
-   | **Optimera** | No | timeWithTraffic | En parameter för att optimera färdvägen, till exempel avstånd, restid med aktuell trafik med mera. Välj parametern "timeWithTraffic". |
-   | **Avståndsenhet** | No | <*dina inställningar*> | Avståndsenhet för din resväg. I det här exemplet används "mil" som enhet. |
-   | **Travel mode** (Färdsätt) | No | Driving (Bil) | Färdsättet för din resväg. Välj "kör"-läge. |
+   | **Waypoint 1** (Platsmarkör 1) | Ja | <*Start-location*> | Startpunkt för resvägen |
+   | **Waypoint 2** (Platsmarkör 2) | Ja | <*slut punkt*> | Slutpunkten för resvägen |
+   | **Optimera** | Nej | timeWithTraffic | En parameter för att optimera färdvägen, till exempel avstånd, restid med aktuell trafik med mera. Välj parametern "timeWithTraffic". |
+   | **Avståndsenhet** | Nej | <*dina inställningar*> | Avståndsenhet för din resväg. I det här exemplet används "mil" som enhet. |
+   | **Travel mode** (Färdsätt) | Nej | Driving (Bil) | Färdsättet för din resväg. Välj "kör"-läge. |
    ||||
 
    Mer information om dessa parametrar finns [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route) (Beräkna en resväg).
@@ -194,9 +192,9 @@ Som standard returnerar den föregående åtgärden **Hämta väg** den aktuella
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Namn** | Yes | travelTime | Namnet på variabeln. I det här exemplet används "travelTime". |
-   | **Typ** | Yes | Heltal | Datatypen för variabeln |
-   | **Värde** | No| Ett uttryck som omvandlar den aktuella restiden från sekunder till minuter (se stegen under den här tabellen). | Det inledande värdet för variabeln |
+   | **Namn** | Ja | travelTime | Namnet på variabeln. I det här exemplet används "travelTime". |
+   | **Typ** | Ja | Integer | Datatypen för variabeln |
+   | **Värde** | Nej| Ett uttryck som omvandlar den aktuella restiden från sekunder till minuter (se stegen under den här tabellen). | Det inledande värdet för variabeln |
    ||||
 
    1. Skapa uttrycket för egenskapen **Value** genom att klicka i rutan så att listan med dynamiskt innehåll visas. Du kan behöva öka webbläsarens bredd för att kunna se listan. I listan med dynamiskt innehåll väljer du **uttryck**.

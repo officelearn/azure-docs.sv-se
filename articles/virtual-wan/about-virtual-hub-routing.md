@@ -8,16 +8,17 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4949d5f2621957d6830625fe798601db4472a75d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 8c52b2141d2f29303939facf89d4a59fb3d333fd
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064916"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171876"
 ---
 # <a name="about-virtual-hub-routing"></a>Om routning av virtuell hubb
 
-Routningsfunktioner i en virtuell hubb tillhandahålls av en router som hanterar all routning mellan gateways med hjälp av Border Gateway Protocol (BGP). En virtuell hubb kan innehålla flera gatewayer som en plats-till-plats-VPN-gateway, ExpressRoute Gateway, punkt-till-plats-Gateway, Azure-brandvägg. Den här routern tillhandahåller även överförings anslutning mellan virtuella nätverk som ansluter till en virtuell hubb och har stöd för upp till ett sammanställt data flöde på 50 Gbit/s. Dessa routningsfunktioner gäller för virtuella standard WAN-kunder.
+Routningsfunktioner i en virtuell hubb tillhandahålls av en router som hanterar all routning mellan gateways med hjälp av Border Gateway Protocol (BGP). En virtuell hubb kan innehålla flera gatewayer som en plats-till-plats-VPN-gateway, ExpressRoute Gateway, punkt-till-plats-Gateway, Azure-brandvägg. Den här routern tillhandahåller även överförings anslutning mellan virtuella nätverk som ansluter till en virtuell hubb och har stöd för upp till ett sammanställt data flöde på 50 Gbit/s. Dessa routningsfunktioner gäller för virtuella standard WAN-kunder. 
 
 Information om hur du konfigurerar routning finns i [så här konfigurerar du routning av virtuell hubb](how-to-virtual-hub-routing.md).
 
@@ -79,6 +80,15 @@ Routningstabeller har nu funktioner för Association och spridning. En fördefin
 Om du vill använda nya funktioner i en routningstabell, vänta till en vecka om den tredje för distributionen i Azure ska slutföras. Om du har befintliga vägar i avsnittet routning för hubben i Azure Portal måste du först ta bort dem och sedan försöka skapa nya routningstabeller (finns i avsnittet Route tables för hubben i Azure Portal)
 
 * **Grundläggande virtuella WAN-kunder med befintliga vägar i virtuell hubb**: om du vill använda de nya funktionerna i en routningstabell väntar du tills veckan på den tredje för distributionen i Azure ska slutföras. Om du har redan befintliga vägar i avsnittet routning för hubben i Azure Portal måste du först ta bort dem och sedan **Uppgradera** ditt grundläggande virtuella WAN-nätverk till standard. Se [uppgradera ett virtuellt WAN från Basic till standard](upgrade-virtual-wan.md).
+
+## <a name="virtual-wan-routing-considerations"></a><a name="considerations"></a>Överväganden för virtuella WAN-routning
+
+Tänk på följande när du konfigurerar virtuell WAN-routning:
+
+* Alla förgrenings anslutningar (punkt-till-plats, plats-till-plats och ExpressRoute) måste kopplas till standard väg tabellen. På så sätt kommer alla grenar att lära sig samma prefix.
+* Alla förgrenings anslutningar måste sprida sina vägar till samma uppsättning rutt tabeller. Om du till exempel bestämmer att grenar ska spridas till standard väg tabellen, ska den här konfigurationen vara konsekvent i alla grenar. Därför kommer alla anslutningar som är kopplade till standard väg tabellen att kunna komma åt alla grenar.
+* Gren-till-gren via Azure Firewall stöds inte för närvarande.
+* När du använder Azure-brandväggen i flera regioner måste alla ekrar i ekrar vara kopplade till samma routningstabell. Om du till exempel har en delmängd av virtuella nätverk som går genom Azure-brandväggen medan andra virtuella nätverk inte kan kringgå Azure-brandväggen i samma virtuella hubb är det inte möjligt.
 
 ## <a name="next-steps"></a>Nästa steg
 

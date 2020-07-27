@@ -1,20 +1,20 @@
 ---
 title: 'Självstudie: koppla sensor data med väder prognos data med hjälp av Azure Notebooks (python) | Microsoft Azure Maps'
 description: Den här självstudien visar hur du kopplar sensor data med väder prognos data från Microsoft Azure Maps väder tjänst med Azure Notebooks (python).
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/29/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 9d35ed0ee657e90ebc77c16ed654d32975ed9580
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5a262c95328fef772c9158082f554de9f7ac5f81
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024851"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133239"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Självstudie: koppla sensor data med väder prognos data med hjälp av Azure Notebooks (python)
 
@@ -31,7 +31,7 @@ I de här självstudierna får du:
 > * Rita prognos data i grafer.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien måste du först:
 

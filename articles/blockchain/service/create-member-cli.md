@@ -1,16 +1,16 @@
 ---
 title: Skapa en Azure blockchain service-medlem – Azure CLI
 description: Skapa en Azure blockchain service-medlem för ett blockchain-konsortium med hjälp av Azure CLI.
-ms.date: 07/16/2020
+ms.date: 07/23/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
 ms.custom: references_regions
-ms.openlocfilehash: f459c9f577ac806c9121a46a200dd9f04ea5481a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2514447eaceb83da0bee81c1475a3137f0d1af07
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075231"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87170661"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Snabb start: skapa en Azure blockchain-tjänst blockchain-medlem med Azure CLI
 
@@ -20,7 +20,7 @@ I den här snabb starten distribuerar du en ny blockchain-medlem och konsortiet 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Inget.
+Inga.
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
@@ -30,15 +30,39 @@ Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra h
 
 Om du föredrar att installera och använda CLI lokalt kräver den här snabb starten Azure CLI version 2.0.51 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Skapa en resursgrupp
+## <a name="prepare-your-environment"></a>Förbereda din miljö
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel skapas en resurs grupp med namnet *myResourceGroup* på platsen för *öster* :
+1. Logga in.
 
-```azurecli-interactive
-az group create \
-                 --name myResourceGroup \
-                 --location westus2
-```
+    Logga in med kommandot [AZ login](/cli/azure/reference-index#az-login) om du använder en lokal installation av cli.
+
+    ```azurecli
+    az login
+    ```
+
+    Slutför autentiseringsprocessen genom att följa stegen som visas i terminalen.
+
+1. Installera Azure CLI-tillägget.
+
+    När du arbetar med tilläggs referenser för Azure CLI måste du först installera tillägget.  Azure CLI-tillägg ger dig till gång till experiment-och för hands versions kommandon som ännu inte har levererats som en del av kärn-CLI.  Läs mer om tillägg, inklusive uppdatering och avinstallation, i [använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview).
+
+    Installera [tillägget för Azure blockchain-tjänsten](/cli/azure/ext/blockchain/blockchain) genom att köra följande kommando:
+
+    ```azurecli-interactive
+    az extension add --name blockchain
+    ```
+
+1. Skapa en resursgrupp.
+
+    Azure blockchain-tjänsten, till exempel alla Azure-resurser, måste distribueras till en resurs grupp. Resursgrupper gör det enkelt att organisera och hantera relaterade Azure-resurser.
+
+    I den här snabb starten skapar du en resurs grupp med namnet _myResourceGroup_ på den _östra_ platsen med följande [AZ Group Create](/cli/azure/group#az-group-create) -kommando:
+
+    ```azurecli-interactive
+    az group create \
+                     --name "myResourceGroup" \
+                     --location "eastus"
+    ```
 
 ## <a name="create-a-blockchain-member"></a>Skapa en blockchain-medlem
 
@@ -47,23 +71,27 @@ En Azure blockchain-tjänst medlem är en blockchain-nod i ett privat konsortium
 Det finns flera parametrar och egenskaper som du måste skicka. Ersätt exempel parametrarna med dina värden.
 
 ```azurecli-interactive
-az resource create \
-                    --resource-group myResourceGroup \
-                    --name myblockchainmember \
-                    --resource-type Microsoft.Blockchain/blockchainMembers \
-                    --is-full-object \
-                    --properties '{"location":"westus2", "properties":{"password":"strongMemberAccountPassword@1", "protocol":"Quorum", "consortium":"myConsortiumName", "consortiumManagementAccountPassword":"strongConsortiumManagementPassword@1"}, "sku":{"name":"S0"}}'
+az blockchain member create \
+                            --resource-group "MyResourceGroup" \
+                            --name "myblockchainmember" \
+                            --location "eastus" \
+                            --password "strongMemberAccountPassword@1" \
+                            --protocol "Quorum" \
+                            --consortium "myconsortium" \
+                            --consortium-management-account-password "strongConsortiumManagementPassword@1" \
+                            --sku "Basic"
 ```
 
 | Parameter | Beskrivning |
 |---------|-------------|
 | **resurs grupp** | Resurs grupp namn där Azure blockchain service-resurser skapas. Använd den resurs grupp som du skapade i föregående avsnitt.
-| **Namn** | Ett unikt namn som identifierar din Azure blockchain service blockchain-medlem. Namnet används för den offentliga slut punktens adress. Till exempel `myblockchainmember.blockchain.azure.com`.
-| **sökvägen** | Azure-region där blockchain-medlemmen skapas. Till exempel `westus2`. Välj den plats som är närmast dina användare eller dina andra Azure-program. Funktioner kanske inte är tillgängliga i vissa regioner. Azure blockchain Data Manager finns i följande Azure-regioner: USA, östra och Västeuropa.
+| **name** | Ett unikt namn som identifierar din Azure blockchain service blockchain-medlem. Namnet används för den offentliga slut punktens adress. Exempelvis `myblockchainmember.blockchain.azure.com`.
+| **sökvägen** | Azure-region där blockchain-medlemmen skapas. Exempelvis `westus2`. Välj den plats som är närmast dina användare eller dina andra Azure-program. Funktioner kanske inte är tillgängliga i vissa regioner. Azure blockchain Data Manager finns i följande Azure-regioner: USA, östra och Västeuropa.
 | **lösenord** | Lösen ordet för medlemmens standard transaktions nod. Använd lösen ordet för grundläggande autentisering vid anslutning till blockchain-medlemmens offentliga standard transaktions nod.
+| **protokollhanterare** | Blockchain-protokoll. För närvarande stöds *kvorum* protokoll.
 | **Consortium** | Namnet på konsortiet att ansluta till eller skapa. Mer information om konsortier finns i [Azure blockchain service Consortium](consortium.md).
-| **consortiumAccountPassword** | Konto lösen ordet för konsortiet kallas även medlems kontots lösen ord. Medlems kontots lösen ord används för att kryptera den privata nyckeln för det Ethereum-konto som skapas för din medlem. Du använder medlems kontot och medlems kontots lösen ord för hantering av konsortier.
-| **skuName** | Nivå typ. Använd S0 för standard och B0 för Basic. Använd *Basic* -nivån för utveckling, testning och bevis på koncept. Använd *standard* nivån för distributioner av produktions nivåer. Du bör också använda *standard* nivån om du använder blockchain Data Manager eller när du skickar en stor mängd privata transaktioner. Det finns inte stöd för att ändra pris nivån mellan Basic och standard när medlems skapande har skapats.
+| **konsortiet-Management-Account-Password** | Konto lösen ordet för konsortiet kallas även medlems kontots lösen ord. Medlems kontots lösen ord används för att kryptera den privata nyckeln för det Ethereum-konto som skapas för din medlem. Du använder medlems kontot och medlems kontots lösen ord för hantering av konsortier.
+| **SKU** | Nivå typ. *Standard* eller *Basic*. Använd *Basic* -nivån för utveckling, testning och bevis på koncept. Använd *standard* nivån för distributioner av produktions nivåer. Du bör också använda *standard* nivån om du använder blockchain Data Manager eller när du skickar en stor mängd privata transaktioner. Det finns inte stöd för att ändra pris nivån mellan Basic och standard när medlems skapande har skapats.
 
 Det tar cirka 10 minuter att skapa blockchain-medlemmen och de resurser som stöds.
 

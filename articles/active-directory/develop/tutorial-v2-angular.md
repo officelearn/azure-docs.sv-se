@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ee7c95cc25e911ba0ffe1e2815f219e040aaca31
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: aaddev, identityplatformtop40, devx-track-javascript
+ms.openlocfilehash: eefc8f1e9dcf6744e276d3cd911f325a8759fa30
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058268"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129125"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Självstudie: Logga in användare och anropa Microsoft Graph-API: et från ett särskilt program på en sida
 
@@ -49,7 +49,7 @@ I den här självstudien används följande bibliotek:
 
 Du hittar käll koden för MSAL.js bibliotek i [AzureAD/Microsoft-Authentication-Library-for-JS](https://github.com/AzureAD/microsoft-authentication-library-for-js) -lagringsplatsen på GitHub.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna köra den här självstudien behöver du:
 
@@ -264,14 +264,14 @@ this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 
 I den koden `scopes` innehåller omfattningar som begärs att returneras i åtkomsttoken för API: et.
 
-Exempel:
+Till exempel:
 
 * `["user.read"]`för Microsoft Graph
 * `["<Application ID URL>/scope"]`för anpassade webb-API: er (dvs. `api://<Application ID>/access_as_user` )
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Ibland behöver du användaren för att kunna interagera med Microsoft Identity Platform-slutpunkten. Exempel:
+Ibland behöver du användaren för att kunna interagera med Microsoft Identity Platform-slutpunkten. Till exempel:
 
 * Användare kan behöva ange sina autentiseringsuppgifter på grund av att deras lösen ord har upphört att gälla.
 * Ditt program begär åtkomst till ytterligare resurs omfattningar som användaren behöver godkänna.

@@ -1,20 +1,20 @@
 ---
 title: 'Självstudie: dirigera elektriska bilar med Azure Notebooks (python) | Microsoft Azure Maps'
 description: 'Dirigera elektriska fordon med Microsoft Azure mappar API: er för Routning och Azure Notebooks.'
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 32a3ec0caae303c37cad771b2bbbd1b7840512a9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f341179d121af2fa4e5b198aeee2ea65bc6c378c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075435"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133324"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Självstudie: dirigera elektriska bilar med Azure Notebooks (python)
 
@@ -35,7 +35,7 @@ I de här självstudierna får du:
 > * Hitta och visualisera en väg till närmaste elektriska fordons laddnings Station baserat på enhets tid.
 
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 För att slutföra den här självstudien måste du först skapa ett Azure Maps konto och hämta din primär nyckel (prenumerations nyckel). 
 

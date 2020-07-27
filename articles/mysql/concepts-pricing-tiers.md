@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: b9cf070e1431c04a7e899a3b8875c8db796608d3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 163f440c9f98a1d53793fddab2590f7345944fda
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119896"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171017"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL pris nivåer
 
@@ -83,9 +83,9 @@ Om du till exempel har allokerat 1000 GB lagrings utrymme och den faktiska anvä
 
 Kom ihåg att lagringen bara kan skalas upp, inte nedåt.
 
-## <a name="backup"></a>Backup
+## <a name="backup-storage"></a>Lagring av säkerhets kopior 
 
-Tjänsten tar automatiskt säkerhets kopior av servern. Du kan välja en kvarhållningsperiod från mellan 7 och 35 dagar. Generell användning-och Minnesoptimerade servrar kan välja att ha Geo-redundant lagring för säkerhets kopiering. Läs mer om säkerhets kopieringar i [artikeln begrepp](concepts-backup.md).
+Azure Database for MySQL tillhandahåller upp till 100% av din etablerade Server lagring som säkerhets kopierings lagring utan extra kostnad. Alla säkerhets kopierings lagringar som du använder utöver detta belopp debiteras i GB per månad. Om du till exempel etablerar en server med 250 GB lagrings utrymme, kommer du att ha 250 GB ytterligare lagrings utrymme för Server säkerhets kopior utan kostnad. Lagring för säkerhets kopieringar utöver 250 GB debiteras enligt [pris sättnings modellen](https://azure.microsoft.com/pricing/details/mysql/). Om du vill förstå faktorer som påverkar lagrings användningen av säkerhets kopior, övervakar och kontrollerar lagrings kostnaden för säkerhets kopiering kan du läsa [dokumentationen för säkerhets kopiering](concepts-backup.md).
 
 ## <a name="scale-resources"></a>Skala resurser
 

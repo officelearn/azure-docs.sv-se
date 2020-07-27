@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 6bd6ddc8b75b83355f6761ef0567ea949c86b61a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 848a5779538f4754ef038a1e88be63c33177bc82
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483711"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169972"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
@@ -206,7 +206,7 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
 
         Det virtuella nätverk du anger måste ha ett undernät delegerat till Azure NetApp Files. Azure NetApp Filess tjänsten kan endast nås från samma VNet eller från ett VNet som finns i samma region som volymen via VNet-peering. Du kan också komma åt volymen från det lokala nätverket via Express Route.   
 
-    * **Delnät**  
+    * **Undernät**  
         Ange det undernät som du vill använda för volymen.  
         Det undernät som du anger måste delegeras till Azure NetApp Files. 
         
@@ -215,6 +215,12 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
         ![Skapa en volym](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Skapa undernät](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * Om du vill använda en befintlig ögonblicks bild princip på volymen klickar du på **Visa Avancerat avsnitt** för att expandera den och väljer en ögonblicks bilds princip på den nedrullningsbara menyn. 
+
+        Information om hur du skapar en ögonblicks bilds princip finns i [Hantera ögonblicks bilder](azure-netapp-files-manage-snapshots.md).
+
+        ![Visa avancerad markering](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
 4. Klicka på **protokoll** och Slutför följande information:  
     * Välj **SMB** som protokoll typ för volymen. 

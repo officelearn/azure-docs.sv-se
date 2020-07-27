@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ade9e3200909c781dc00cf4e3713395f55f173d
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 718d51c94d05e8e18f2b254b5e81e346a67205a1
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253765"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87170542"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med GitHub
 
@@ -87,7 +87,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://github.com/orgs/<Organization ID>`
 
-    c. I **svars-URL** -textox skriver du en URL med följande mönster:`https://github.com/orgs/<Organization ID>/saml/consume`
+    c. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://github.com/orgs/<Organization ID>/saml/consume`
 
 
     > [!NOTE]

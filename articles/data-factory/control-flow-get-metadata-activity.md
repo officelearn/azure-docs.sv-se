@@ -10,13 +10,14 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 07/24/2020
 ms.author: jingwang
-ms.openlocfilehash: a59d9291d1eaa4aa87d40914679e39c9cbf29cee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5d203664520aebadefd16c19813d7957dd37fc4
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84112645"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171252"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Hämta metadata-aktivitet i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -40,7 +41,7 @@ Aktiviteten hämta metadata tar en data uppsättning som indata och returnerar m
 
 ### <a name="supported-connectors"></a>Anslutningar som stöds
 
-**Fil lagring**
+**File Storage**
 
 | Koppling/metadata | itemName<br>(fil/mapp) | itemType<br>(fil/mapp) | ikoner<br>Arkiv | Create<br>(fil/mapp) | lastModified<br>(fil/mapp) |childItems<br>projektbevakningsmappen |contentMD5<br>Arkiv | hierarkistruktur<br/>Arkiv | Antal<br>Arkiv | finns<br>(fil/mapp) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -59,6 +60,7 @@ Aktiviteten hämta metadata tar en data uppsättning som indata och returnerar m
 - För Azure Blob Storage `lastModified` gäller för behållaren och blobben, men inte i den virtuella mappen.
 - `lastModified`filtret används för närvarande för att filtrera underordnade objekt, men inte den angivna mappen/filen.
 - Wildcard-filter i mappar/filer stöds inte för aktiviteten hämta metadata.
+- `structure`och `columnCount` stöds inte när metadata hämtas från binära, JSON-eller XML-filer.
 
 **Relationsdatabas**
 
@@ -110,7 +112,7 @@ Du kan ange följande typer av metadata i listan Hämta metadata aktivitet fält
 }
 ```
 
-**Data uppsättning**
+**Datamängd**
 
 ```json
 {
@@ -136,12 +138,12 @@ Du kan ange följande typer av metadata i listan Hämta metadata aktivitet fält
 
 För närvarande kan aktiviteten hämta metadata returnera följande typer av metadatainformation:
 
-Egenskap | Beskrivning | Obligatorisk
+Egenskap | Beskrivning | Krävs
 -------- | ----------- | --------
 Fält lista | De typer av metadatainformation som krävs. Mer information om metadata som stöds finns i avsnittet [metadata-alternativ](#metadata-options) i den här artikeln. | Ja 
 data uppsättning | Referens data uppsättningen vars metadata ska hämtas av aktiviteten hämta metadata. I avsnittet [funktioner](#capabilities) finns information om anslutnings program som stöds. Information om syntax för data uppsättning finns i specifika anslutnings avsnitt. | Ja
-formatSettings | Använd när du använder data uppsättning för format typ. | No
-storeSettings | Använd när du använder data uppsättning för format typ. | No
+formatSettings | Använd när du använder data uppsättning för format typ. | Nej
+storeSettings | Använd när du använder data uppsättning för format typ. | Nej
 
 ## <a name="sample-output"></a>Exempel på utdata
 

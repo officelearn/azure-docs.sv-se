@@ -1,15 +1,16 @@
 ---
 title: Konfigurera Windows Node.js-appar
 description: Lär dig hur du konfigurerar en Node.js-app i de interna Windows-instanserna av App Service. Den här artikeln visar de vanligaste konfigurations åtgärderna.
+ms.custom: devx-track-javascript
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 9f4ccdd04b8d57784f452dc28fa4507fb7ea94c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fc6ed5cb090653e381d82f484d355a514520c62
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84908144"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87170916"
 ---
 # <a name="configure-a-windows-nodejs-app-for-azure-app-service"></a>Konfigurera en Windows Node.js-app för Azure App Service
 
@@ -56,7 +57,7 @@ process.env.NODE_ENV
 
 App Service Bygg automatisering körs som standard `npm install --production` när den identifierar en Node.js-app distribueras via git (eller zip-distribution med build-automatisering aktiverat). Om din app kräver något av de populära automatiserings verktygen, till exempel grunt, Bower eller Gulp, måste du ange ett [anpassat distributions skript](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) för att köra det.
 
-Om du vill göra det möjligt för lagrings platsen att köra dessa verktyg måste du lägga till dem i beroenden i *package.jspå.* Ett exempel:
+Om du vill göra det möjligt för lagrings platsen att köra dessa verktyg måste du lägga till dem i beroenden i *package.jspå.* Till exempel:
 
 ```json
 "dependencies": {
@@ -135,7 +136,7 @@ fi
 
 I App Service sker [SSL-avslutning](https://wikipedia.org/wiki/TLS_termination_proxy) på lastbalanserare för nätverk, så alla HTTPS-begäranden når din app som okrypterade HTTP-begäranden. Om din applogik behöver kontrollera om användarbegäranden är krypterade eller inte kan du kontrollera `X-Forwarded-Proto`-rubriken.
 
-Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standardappens mönster. I [Express](https://expressjs.com/)kan du använda [betrodda proxyservrar](https://expressjs.com/guide/behind-proxies.html). Ett exempel:
+Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standardappens mönster. I [Express](https://expressjs.com/)kan du använda [betrodda proxyservrar](https://expressjs.com/guide/behind-proxies.html). Till exempel:
 
 ```javascript
 app.set('trust proxy', 1)
@@ -154,7 +155,7 @@ if (req.secure) {
 Prova följande när en fungerande Node.js-app fungerar annorlunda i App Service eller innehåller fel:
 
 - [Åtkomst till logg strömmen](#access-diagnostic-logs).
-- Testa appen lokalt i produktions läge. App Service kör dina Node.js appar i produktions läge, så du måste se till att projektet fungerar som förväntat i produktions läge lokalt. Ett exempel:
+- Testa appen lokalt i produktions läge. App Service kör dina Node.js appar i produktions läge, så du måste se till att projektet fungerar som förväntat i produktions läge lokalt. Till exempel:
     - Beroende på din *package.js*kan olika paket installeras i produktions läge ( `dependencies` vs. `devDependencies` ).
     - Vissa webb ramverk kan distribuera statiska filer på ett annat sätt i produktions läge.
     - Vissa webb ramverk kan använda anpassade Start skript när de körs i produktions läge.

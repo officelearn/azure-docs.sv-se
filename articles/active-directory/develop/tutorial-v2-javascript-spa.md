@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 573aef4f0d340d0d32dc4977e0937bca9c6d3cef
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.custom: aaddev, identityplatformtop40, devx-track-javascript
+ms.openlocfilehash: 745132284ee48270b46b6bd2f785d8bec19404fb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84338932"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129686"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Logga in användare och anropa Microsoft Graph-API: et från ett Java Script (Single-Side Application)
 
@@ -40,9 +40,9 @@ Det exempel program som skapats av den här guiden gör det möjligt för ett Ja
 
 I den här guiden används följande bibliotek:
 
-|Bibliotek|Description|
+|Bibliotek|Beskrivning|
 |---|---|
-|[msal. js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library för Java Script|
+|[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library för Java Script|
 
 ## <a name="set-up-your-web-server-or-project"></a>Konfigurera din webb server eller ditt projekt
 
@@ -50,17 +50,17 @@ I den här guiden används följande bibliotek:
 >
 > Om du vill konfigurera kod exemplet innan du kör det går du vidare till [konfigurations steget](#register-your-application).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* För att kunna köra den här självstudien behöver du en lokal webb server, till exempel [Node. js](https://nodejs.org/en/download/), [.net Core](https://www.microsoft.com/net/core)eller IIS Express-integrering med [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* För att kunna köra den här självstudien behöver du en lokal webb server, till exempel [Node.js](https://nodejs.org/en/download/), [.net Core](https://www.microsoft.com/net/core)eller IIS Express-integrering med [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 
-* Anvisningarna i den här guiden baseras på en webb server som skapats i Node. js. Vi rekommenderar att du använder [Visual Studio Code](https://code.visualstudio.com/download) som Integrated Development Environment (IDE).
+* Anvisningarna i den här guiden baseras på en webb server som skapats i Node.js. Vi rekommenderar att du använder [Visual Studio Code](https://code.visualstudio.com/download) som Integrated Development Environment (IDE).
 
 * En modern webbläsare. I detta JavaScript-exempel används [ES6](http://www.ecma-international.org/ecma-262/6.0/) -konventioner och därför stöder **not** den inte **Internet Explorer**.
 
-## <a name="create-your-project"></a>Skapa ditt projekt
+## <a name="create-your-project"></a>Skapa projektet
 
-Kontrol lera att du har [Node. js](https://nodejs.org/en/download/) installerat och skapa sedan en mapp som är värd för ditt program. Där ska vi implementera en enkel [Express](https://expressjs.com/) -webbserver för att hantera din `index.html` fil.
+Kontrol lera att du har [Node.js](https://nodejs.org/en/download/) installerat och skapa sedan en mapp som är värd för ditt program. Där ska vi implementera en enkel [Express](https://expressjs.com/) -webbserver för att hantera din `index.html` fil.
 
 1. Använd en Terminal (till exempel Visual Studio Code Integrated Terminal), leta upp projektmappen och skriv:
 
@@ -190,7 +190,7 @@ Nu har du en enkel server som kan hantera din SPA. Den avsedda mappstrukturen i 
    ```
 
    > [!TIP]
-   > Du kan ersätta versionen av MSAL. js i skriptet ovan med den senaste utgivna versionen under [MSAL. js-versioner](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
+   > Du kan ersätta den tidigare versionen av MSAL.js i skriptet med den senaste versionen under [MSAL.js versioner](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
 2. Nu ska du skapa en. js-fil med namnet `ui.js` , som kommer att få åtkomst till och uppdatera dom-element och lägga till följande kod:
 
@@ -280,9 +280,9 @@ Registrera ditt program på **Azure Active Directory**innan du fortsätter med a
 1. I **Avancerade inställningar**, under **implicit tilldelning**, markerar du kryss rutorna **ID-token** och **åtkomst-token** . ID-token och åtkomsttoken krävs eftersom den här appen måste logga in användare och anropa ett API.
 1. Välj **Spara**.
 
-> ### <a name="set-a-redirect-url-for-nodejs"></a>Ange en omdirigerings-URL för Node. js
+> ### <a name="set-a-redirect-url-for-nodejs"></a>Ange en omdirigerings-URL för Node.js
 >
-> För Node. js kan du ange webb Server porten i filen *index. js* . I den här självstudien används port 3000, men du kan använda någon annan tillgänglig port.
+> För Node.js kan du ange webb Server porten i *index.js* -filen. I den här självstudien används port 3000, men du kan använda någon annan tillgänglig port.
 >
 > Om du vill konfigurera en omdirigerings-URL i program registrerings informationen växlar du tillbaka till fönstret för **program registrering** och gör något av följande:
 >
@@ -409,7 +409,7 @@ Skapa en ny. js-fil med namnet `authPopup.js` , som innehåller din autentiserin
 
 ### <a name="more-information"></a>Mer information
 
-När en användare väljer knappen **Logga in** för första gången, `signIn` anropar metoden `loginPopup` för att logga in användaren. Den här metoden öppnar ett popup-fönster med *Microsoft Identity Platform-slutpunkten* för att fråga och verifiera användarens autentiseringsuppgifter. Efter en lyckad inloggning omdirigeras användaren tillbaka till den ursprungliga *index. html-* sidan. En token tas emot, bearbetas av `msal.js` och den information som finns i token cachelagras. Denna token kallas *ID-token* och innehåller grundläggande information om användaren, t. ex. användarens visnings namn. Om du planerar att använda data som tillhandahålls av denna token i något syfte, måste du se till att denna token verifieras av backend-servern för att garantera att token har utfärdats till en giltig användare för ditt program.
+När en användare väljer knappen **Logga in** för första gången, `signIn` anropar metoden `loginPopup` för att logga in användaren. Den här metoden öppnar ett popup-fönster med *Microsoft Identity Platform-slutpunkten* för att fråga och verifiera användarens autentiseringsuppgifter. Efter en lyckad inloggning omdirigeras användaren tillbaka till den ursprungliga *index.html* -sidan. En token tas emot, bearbetas av `msal.js` och den information som finns i token cachelagras. Denna token kallas *ID-token* och innehåller grundläggande information om användaren, t. ex. användarens visnings namn. Om du planerar att använda data som tillhandahålls av denna token i något syfte, måste du se till att denna token verifieras av backend-servern för att garantera att token har utfärdats till en giltig användare för ditt program.
 
 Det SPA som genereras av den här guiden anropar `acquireTokenSilent` och/eller `acquireTokenPopup` hämtar en *åtkomsttoken som* används för att fråga Microsoft Graph-API: t för användar profil information. Ta en titt på [det här](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub Active-Directory-JavaScript-singlepageapp-dotNet-WebAPI-v2-exempel") exempel programmet i GitHub om du behöver ett exempel som VALIDERAR ID-token. Exemplet använder ett ASP.NET webb-API för verifiering av token.
 
@@ -477,17 +477,17 @@ I det exempel program som skapats av den här guiden `callMSGraph()` används me
 
 ## <a name="test-your-code"></a>Testa koden
 
-1. Konfigurera servern så att den lyssnar på en TCP-port som är baserad på platsen för din *index. html-* fil. För Node. js startar du webb servern för att lyssna på porten genom att köra följande kommandon i kommando tolken från programmappen:
+1. Konfigurera servern så att den lyssnar på en TCP-port som är baserad på platsen för din *index.html* -fil. För Node.js startar du webb servern för att lyssna på porten genom att köra följande kommandon i kommando tolken från programmappen:
 
    ```bash
    npm install
    npm start
    ```
-1. I webbläsaren anger **http://localhost:3000** eller **http://localhost:{port}** , där *port* är den port som webb servern lyssnar på. Du bör se innehållet i filen *index. html* och knappen **Logga in** .
+1. I webbläsaren anger **http://localhost:3000** eller **http://localhost:{port}** , där *port* är den port som webb servern lyssnar på. Du bör se innehållet i *index.html* -filen och knappen **Logga in** .
 
 ## <a name="test-your-application"></a>Testa ditt program
 
-När webbläsaren har läst in filen *index. html* väljer du **Logga**in. Du uppmanas att logga in med Microsoft Identity Platform-slutpunkten:
+När webbläsaren har läst in *index.html* -filen väljer du **Logga**in. Du uppmanas att logga in med Microsoft Identity Platform-slutpunkten:
 
 ![Inloggnings fönstret för Java scripts SPA-konto](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 

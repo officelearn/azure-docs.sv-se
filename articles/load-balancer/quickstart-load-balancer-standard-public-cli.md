@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f8da00e531a9712b7bbb459378e3c0448e3c028f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 40af7a7d3bcc4584260735ddbcbf84ac0936ce15
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131526"
+ms.locfileid: "87172098"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Snabbstart: Skapa en offentlig lastbalanserare som lastbalanserar virtuella datorer med Azure CLI
 
 Kom igång med Azure Load Balancer med hjälp av Azure CLI och skapa en offentlig belastningsutjämnare och tre virtuella datorer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure CLI installerat lokalt eller Azure Cloud Shell
@@ -504,14 +504,14 @@ Lägg till nätverks gränssnitten för virtuella datorer i belastningsutjämnar
 #### <a name="vm1"></a>VM1
 * I backend-adresspoolen **myBackEndPoolOutbound**.
 * I resurs gruppen **myResourceGroupLB**.
-* Associerad med nätverks gränssnittet **myVMNic1** och **ipconfig1**.
+* Associerad med nätverks gränssnittet **myNicVM1** och **ipconfig1**.
 * Kopplad till belastningsutjämnare **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
    --address-pool myBackendPoolOutbound \
    --ip-config-name ipconfig1 \
-   --nic-name myVMNic1 \
+   --nic-name myNicVM1 \
    --resource-group myResourceGroupLB \
    --lb-name myLoadBalancer
 ```
@@ -519,14 +519,14 @@ Lägg till nätverks gränssnitten för virtuella datorer i belastningsutjämnar
 #### <a name="vm2"></a>VM2
 * I backend-adresspoolen **myBackEndPoolOutbound**.
 * I resurs gruppen **myResourceGroupLB**.
-* Associerad med nätverks gränssnittet **myVMNic2** och **ipconfig1**.
+* Associerad med nätverks gränssnittet **myNicVM2** och **ipconfig1**.
 * Kopplad till belastningsutjämnare **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
    --address-pool myBackendPoolOutbound \
    --ip-config-name ipconfig1 \
-   --nic-name myVMNic2 \
+   --nic-name myNicVM2 \
    --resource-group myResourceGroupLB \
    --lb-name myLoadBalancer
 ```
@@ -534,14 +534,14 @@ Lägg till nätverks gränssnitten för virtuella datorer i belastningsutjämnar
 #### <a name="vm3"></a>VM3
 * I backend-adresspoolen **myBackEndPoolOutbound**.
 * I resurs gruppen **myResourceGroupLB**.
-* Associerad med nätverks gränssnittet **myVMNic3** och **ipconfig1**.
+* Associerad med nätverks gränssnittet **myNicVM3** och **ipconfig1**.
 * Kopplad till belastningsutjämnare **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
    --address-pool myBackendPoolOutbound \
    --ip-config-name ipconfig1 \
-   --nic-name myVMNic3 \
+   --nic-name myNicVM3 \
    --resource-group myResourceGroupLB \
    --lb-name myLoadBalancer
 ```

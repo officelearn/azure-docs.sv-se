@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: bd1c41f23164d8dda2712ef2c361498cdaed6105
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aae1797f7f1a252a4f094ee9f1b079fb60ba72f3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032312"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131760"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Bygg ut en lösning från slut punkt till slut punkt
 
@@ -93,7 +93,7 @@ Nästa steg är att konfigurera en [Azure Functions-app](../azure-functions/func
 * *ProcessHubToDTEvents*: bearbetar inkommande IoT Hub data och uppdaterar Azure Digitals på motsvarande sätt
 * *ProcessDTRoutedData*: bearbetar data från digitala dubbla och uppdaterar de överordnade i Azures digitala dubbla
 
-I det här avsnittet ska du publicera den fördefinierade Function-appen och se till att Function-appen kan komma åt Azures digitala dubbla, genom att tilldela den en Azure Active Directory identitet (AAD). Genom att slutföra de här stegen får resten av självstudien att använda funktionerna i Function-appen. 
+I det här avsnittet ska du publicera den fördefinierade Function-appen och se till att Function-appen kan komma åt Azures digitala dubbla, genom att tilldela den en Azure Active Directory (Azure AD)-identitet. Genom att slutföra de här stegen får resten av självstudien att använda funktionerna i Function-appen. 
 
 ### <a name="publish-the-app"></a>Publicera appen
 
@@ -141,7 +141,7 @@ I fönstret *publicera* som öppnas i huvud fönstret i Visual Studio kontroller
 
 ### <a name="assign-permissions-to-the-function-app"></a>Tilldela behörigheter till Function-appen
 
-Om du vill göra det möjligt för Function-appen att komma åt Azure Digitals, är nästa steg att konfigurera en app-inställning, tilldela appen en Systemhanterad AAD-identitet och ge identitets *ägarens* behörigheter i Azure Digitals-instansen.
+Om du vill göra det möjligt för Function-appen att komma åt Azure Digitals, är nästa steg att konfigurera en app-inställning, tilldela appen en Systemhanterad Azure AD-identitet och ge den här identiteten *ägar* behörighet i Azure Digitals-instansen.
 
 I Azure Cloud Shell använder du följande kommando för att ange en program inställning som din Function-app ska använda för att referera till Digitals-instansen.
 
@@ -423,7 +423,7 @@ Med hjälp av Azure Cloud Shell kan du ta bort alla Azure-resurser i en resurs g
 az group delete --name <your-resource-group>
 ```
 
-Ta sedan bort AAD-appen som du skapade för din klient app med det här kommandot:
+Ta sedan bort den Azure AD App-registrering som du skapade för din klient app med det här kommandot:
 
 ```azurecli
 az ad app delete --id <your-application-ID>

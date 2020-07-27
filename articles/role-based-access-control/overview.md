@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 07/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3846a4669cc2a77862e73dbb8e7743b19740e8a4
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 45601e820bc03b263fbf664a43ce34266dc4a488
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996499"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171577"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC)?
 
@@ -27,14 +27,18 @@ ms.locfileid: "82996499"
 
 Azure RBAC är ett auktoriserings system som bygger på [Azure Resource Manager](../azure-resource-manager/management/overview.md) som ger detaljerad åtkomst hantering av Azure-resurser.
 
+Den här videon ger en snabb översikt över Azure RBAC.
+
+>[!VIDEO https://www.youtube.com/embed/Dzhm-garKBM]
+
 ## <a name="what-can-i-do-with-azure-rbac"></a>Vad kan jag göra med Azure RBAC?
 
 Här följer några exempel på vad du kan göra med Azure RBAC:
 
-- Tillåta en användare att hantera virtuella datorer i en prenumeration och en annan användare att hantera virtuella nätverk
+- Tillåt en användare att hantera virtuella datorer i en prenumeration och en annan användare att hantera virtuella nätverk
 - Tillåta en DBA-grupp att hantera SQL-databaser i en prenumeration
-- Tillåta en användare att hantera alla resurser i en resursgrupp, till exempel virtuella datorer, webbplatser och undernät
-- Tillåta att ett program får åtkomst till alla resurser i en resursgrupp
+- Tillåt en användare att hantera alla resurser i en resursgrupp, till exempel virtuella datorer, webbplatser och undernät
+- Tillåt att ett program får åtkomst till alla resurser i en resursgrupp
 
 ## <a name="how-azure-rbac-works"></a>Så här fungerar Azure RBAC
 
@@ -53,30 +57,34 @@ En *säkerhetsobjekt* är ett objekt som representerar en användare, en grupp, 
 
 ### <a name="role-definition"></a>Rolldefinition
 
-En *rolldefinition* är en uppsättning behörigheter. Den brukar bara kallas en *roll*. En rolldefinition listar de åtgärder som kan utföras, till exempel läsa, skriva och ta bort. Roller kan vara på hög nivå, som ägare, eller specifika, som läsare för virtuell dator.
+En *rolldefinition* är en samling behörigheter. Den brukar bara kallas en *roll*. En rolldefinition listar de åtgärder som kan utföras, till exempel läsa, skriva och ta bort. Roller kan vara på hög nivå, som ägare, eller specifika, som läsare för virtuell dator.
 
 ![Rolldefinition för en rolltilldelning](./media/overview/rbac-role-definition.png)
 
 Azure innehåller flera [inbyggda roller](built-in-roles.md) som du kan använda. Följande listar fyra grundläggande inbyggda roller. De första tre gäller för alla resurstyper.
 
-- [Ägare](built-in-roles.md#owner) – har fullständig åtkomst till alla resurser inklusive rätten att delegera åtkomst till andra.
+- [Owner](built-in-roles.md#owner) -har fullständig åtkomst till alla resurser, inklusive rätten att delegera åtkomst till andra.
 - [Deltagare](built-in-roles.md#contributor) – kan skapa och hantera alla typer av Azure-resurser, men kan inte bevilja åtkomst till andra.
-- [Läsare](built-in-roles.md#reader) – kan visa befintliga Azure-resurser.
-- [Administratör för användaråtkomst](built-in-roles.md#user-access-administrator) – gör att du kan hantera användarnas åtkomst till Azure-resurser.
+- [Reader](built-in-roles.md#reader) – kan visa befintliga Azure-resurser.
+- [Administratör för användar åtkomst](built-in-roles.md#user-access-administrator) – låter dig hantera användar åtkomst till Azure-resurser.
 
 Resten av de inbyggda rollerna tillåter hantering av specifika Azure-resurser. Till exempel tillåter rollen [Virtuell datordeltagare](built-in-roles.md#virtual-machine-contributor) att en användare skapar och hanterar virtuella datorer. Om de inbyggda rollerna inte uppfyller organisationens specifika behov kan du skapa egna [Azure-anpassade roller](custom-roles.md).
+
+Den här videon ger en snabb översikt över inbyggda roller och anpassade roller.
+
+>[!VIDEO https://www.youtube.com/embed/I1mefHptRgo]
 
 Azure har data åtgärder som gör att du kan bevilja åtkomst till data i ett objekt. Till exempel kan en användare med dataläsningsåtkomst till ett lagringskonto läsa blobar eller meddelanden i det lagringskontot. Mer information finns i [förstå definitioner av Azure-roller](role-definitions.md).
 
 ### <a name="scope"></a>Omfång
 
-*Omfång* är den uppsättning resurser som åtkomsten som gäller för. När du tilldelar en roll kan du ytterligare begränsa de åtgärder som tillåts genom att definiera ett omfång. Det här är användbart om du vill göra någon till en [Webbplatsdeltagare](built-in-roles.md#website-contributor) men endast för en resursgrupp.
+*Omfång* är den uppsättning resurser som åtkomsten som gäller för. När du tilldelar en roll kan du ytterligare begränsa de åtgärder som tillåts genom att definiera ett omfång. Detta är användbart om du vill göra någon till en [webbplats deltagare](built-in-roles.md#website-contributor), men bara för en resurs grupp.
 
-I Azure kan du ange ett omfång på flera nivåer: [hanteringsgrupp](../governance/management-groups/overview.md), prenumeration, resursgrupp eller resurs. Omfång är strukturerade i en överordnad/underordnad-relation.
+I Azure kan du ange ett omfång på flera nivåer: [hanterings grupp](../governance/management-groups/overview.md), prenumeration, resurs grupp eller resurs. Omfång är strukturerade i en överordnad/underordnad relation.
 
 ![Omfång för en rolltilldelning](./media/overview/rbac-scope.png)
 
-När du beviljar åtkomst i ett överordnat omfång ärvs dessa behörigheter av underordnade omfång. Ett exempel:
+När du beviljar åtkomst i ett överordnat omfång ärvs dessa behörigheter av underordnade omfång. Till exempel:
 
 - Om du tilldelar rollen [Ägare](built-in-roles.md#owner) till en användare i hanteringsgruppsomfånget kan den användaren hantera allt i alla prenumerationer i hanteringsgruppen.
 - Om du tilldelar rollen [Läsare](built-in-roles.md#reader) till en grupp i prenumerationsomfånget kan medlemmarna i den gruppen visa alla resursgrupper och resurser i prenumerationen.

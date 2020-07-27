@@ -3,12 +3,12 @@ title: Utvärdera fysiska servrar för migrering till Azure med Azure Migrate Se
 description: Beskriver hur du bedömer lokala fysiska servrar för migrering till Azure med hjälp av Azure Migrate Server bedömning.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 2c0662c6ccf66f09413891c99da789c50847277e
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 5b4d5241e4236d4c11f2e2a5a8feb7c73258cba0
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080773"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171391"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Utvärdera fysiska servrar med Azure Migrate: Server utvärdering
 
@@ -16,7 +16,7 @@ Den här artikeln visar hur du kan utvärdera lokala fysiska servrar med hjälp 
 
 [Azure Migrate](migrate-services-overview.md) innehåller en hubb med verktyg som hjälper dig att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. Hubben omfattar Azure Migrate-verktyg och oberoende program varu leverantörer från tredje part (ISV).
 
-Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar fysiska servrar till Azure. I de här självstudierna får du lära dig att
+Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar fysiska servrar till Azure. I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Konfigurera ett Azure Migrate-projekt.
 > * Konfigurera en Azure Migrate-apparat som körs lokalt för att utvärdera fysiska servrar.
@@ -179,13 +179,14 @@ Konfigurera enheten för första gången.
 Anslut nu från installationen till de fysiska servrarna som ska identifieras och starta identifieringen.
 
 1. Klicka på **Lägg till autentiseringsuppgifter** för att ange de kontoautentiseringsuppgifter som installationen ska använda för att identifiera servrar.  
-2. Ange **operativ systemet**, ett eget namn för autentiseringsuppgifterna och användar namn och lösen ord. Klicka sedan på **Lägg till**.
+2. Logga in med användar namn och lösen ord. Det finns inte stöd för att logga in med en nyckel. Användaren måste också vara en rot inloggning eller en del av den lokala administratörs gruppen.
+3. Ange **operativ systemet**, ett eget namn för autentiseringsuppgifterna och användar namn och lösen ord. Klicka sedan på **Lägg till**.
 Du kan lägga till flera autentiseringsuppgifter för Windows-och Linux-servrar.
 4. Klicka på **Lägg till Server**och ange Server information – FQDN/IP-adress och eget namn på autentiseringsuppgifter (en post per rad) för att ansluta till servern.
-3. Klicka på **Validate** (Validera). Efter verifieringen visas en lista över de servrar som kan identifieras.
+5. Klicka på **Validate** (Validera). Efter verifieringen visas en lista över de servrar som kan identifieras.
     - Om verifieringen Miss lyckas för en server kan du granska felet genom att hovra över ikonen i kolumnen **status** . Åtgärda problem och verifiera igen.
     - Om du vill ta bort en server väljer du > **ta bort**.
-4. Efter verifieringen klickar du på **Spara och starta identifiering** för att starta identifierings processen.
+6. Efter verifieringen klickar du på **Spara och starta identifiering** för att starta identifierings processen.
 
 Detta startar identifieringen. Det tar cirka 1,5 minuter per server för metadata om identifierad server som visas i Azure Portal.
 
@@ -200,7 +201,7 @@ Efter identifieringen kan du kontrol lera att servrarna visas i Azure Portal.
 
 Det finns två typer av utvärderingar som du kan skapa med hjälp av Azure Migrate: Server utvärdering.
 
-**Beskrivningar** | **Information** | **Data**
+**Utvärdering** | **Information** | **Data**
 --- | --- | ---
 **Prestanda-baserade** | Utvärderingar baserade på insamlade prestanda data | **Rekommenderad VM-storlek**: baserat på processor-och minnes användnings data.<br/><br/> **Rekommenderad disktyp (standard-eller Premium-hanterad disk)**: baserat på IOPS och data flödet för lokala diskar.
 **Som lokalt** | Utvärderingar baserade på lokal storlek. | **Rekommenderad VM-storlek**: baserat på den lokala server storleken<br/><br> **Rekommenderad disktyp**: baserat på den inställning för lagrings typ som du väljer för utvärderingen.

@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fd1b815a56a21e502decb440806040c626c13d2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a7153200bc80f6e27a99123a1bba676d0188f607
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019649"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129040"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudie: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory
 
@@ -87,9 +87,6 @@ Aktivera TLS 1.2:
    ```
 
 1. Starta om servern.
-
-> [!IMPORTANT]
-> För att tillhandahålla den bästa krypteringen till våra kunder begränsar Application Proxy-tjänsten åtkomst till endast TLS 1,2-protokoll. Dessa ändringar uppnåddes gradvis och gällde sedan den 31 augusti 2019. Kontrol lera att alla kombinationer av klient-server och webb läsar Server har uppdaterats för att använda TLS 1,2 för att upprätthålla anslutningen till Application Proxy-tjänsten. Detta inkluderar klienter som användarna använder för att få åtkomst till program som publicerats via programproxy. Se förbereda för [TLS 1,2 i Office 365](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365) för användbara referenser och resurser.
 
 ## <a name="prepare-your-on-premises-environment"></a>Förbered din lokala miljö
 

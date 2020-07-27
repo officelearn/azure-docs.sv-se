@@ -3,13 +3,12 @@ title: Använda Personanpassaren i chatt robot – Personanpassare
 description: Anpassa en C# .NET chatt-robot med en anpassad-slinga för att ge rätt innehåll till en användare baserat på åtgärder (med funktioner) och kontext funktioner.
 ms.topic: tutorial
 ms.date: 07/17/2020
-ms.author: diberry
-ms.openlocfilehash: d269dbf95356d1d8d0fb7c2f27e0828d016d0ac6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8e936b4017ad50434bc7d6b05b4217f82a9080e0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101717"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131675"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Självstudie: använda Personanpassaren i .NET Chat-robot
 

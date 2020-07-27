@@ -5,50 +5,55 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: sample
-ms.date: 04/05/2018
+ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.custom: tracking-python
-ms.openlocfilehash: 0d24f5621786ce292d98ae1fc6dd8fafc5b69c55
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 3e21cc7a66f09b5e759b3d3a53ab95dd9710900d
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84556224"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171958"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Komma igång med Azure Table Storage och Azure Cosmos DB Table-API:et med hjälp av Python
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-Tjänsterna Azure Table Storage och Azure Cosmos DB lagrar strukturerade NoSQL-data i molnet och tillhandahåller ett nyckel-/attributlager med en schemalös design. Eftersom Table Storage och Azure Cosmos DB är schemalösa kan du enkelt anpassa dina data baserat på hur ditt program utvecklas. Åtkomsten till data i Table Storage och Table-API:et är snabb och kostnadseffektiv för många typer av program, och medför normalt lägre kostnad än traditionell SQL för liknande datavolymer.
+Azure Table Storage och Azure Cosmos DB är tjänster som lagrar strukturerade NoSQL-data i molnet, vilket ger ett nyckel-attributarkiv med en schema lös design. Eftersom Table Storage och Azure Cosmos DB är schemalösa kan du enkelt anpassa dina data baserat på hur ditt program utvecklas. Åtkomst till tabellerna Storage och table API data är snabb och kostnads effektiv för många typer av program och är vanligt vis lägre än traditionell SQL för liknande data volymer.
 
-Du kan använda Table Storage eller Azure Cosmos DB för att lagra flexibla datauppsättningar som användardata för webbprogram, adressböcker, enhetsinformation eller andra typer av metadata som din tjänst behöver. Du kan lagra valfritt antal enheter i en tabell, och ett lagringskonto kan innehålla valfritt antal tabeller, upp till lagringskontots kapacitetsgräns.
+Du kan använda Table Storage eller Azure Cosmos DB för att lagra flexibla data uppsättningar som användar data för webb program, adress böcker, enhets information eller andra typer av metadata som din tjänst kräver. Du kan lagra valfritt antal enheter i en tabell, och ett lagringskonto kan innehålla valfritt antal tabeller, upp till lagringskontots kapacitetsgräns.
 
 ### <a name="about-this-sample"></a>Om det här exemplet
+
 Det här exemplet beskriver hur du använder [Azure Cosmos DB Table SDK för Python](https://pypi.python.org/pypi/azure-cosmosdb-table/) i vanliga Azure Table Storage-scenarier. SDK-paketets namn indikerar att det ska användas med Azure Cosmos DB, men det fungerar med både Azure Cosmos DB och Azure Table Storage. Enda skillnaden är att tjänsterna har unika slutpunkter. De olika scenarierna utforskas med hjälp av Python-baserade exempel som beskriver hur du:
+
 * Skapar och tar bort tabeller
 * Infogar och kör frågor mot entiteter
 * Ändrar entiteter
 
 Vi rekommenderar att du använder [referensen för Azure Cosmos DB SDK för Python API](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python) när du går igenom scenarierna i det här exemplet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att kunna följa med i det här exemplet:
 
-- [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 eller 3.6
-- [Azure Cosmos DB Table SDK för python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Detta SDK fungerar med både Azure Table Storage och Azure Cosmos DB Table-API:et.
-- Ett [Azure Storage-konto](../storage/common/storage-account-create.md) eller [Azure Cosmos DB-konto](https://azure.microsoft.com/try/cosmosdb/)
+* [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 eller 3.6
+* [Azure Cosmos DB Table SDK för python](https://pypi.python.org/pypi/azure-cosmosdb-table/). Detta SDK fungerar med både Azure Table Storage och Azure Cosmos DB Table-API:et.
+* Ett [Azure Storage-konto](../storage/common/storage-account-create.md) eller [Azure Cosmos DB-konto](https://azure.microsoft.com/try/cosmosdb/)
 
 ## <a name="create-an-azure-service-account"></a>Skapa ett Azure-tjänstkonto
+
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
+**Skapa ett Azure Storage-konto**
+
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett Azure Cosmos DB Table API-konto
+**Skapa ett Azure Cosmos DB Table API-konto**
+
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="install-the-azure-cosmos-db-table-sdk-for-python"></a>Installera Azure Cosmos DB Table SDK för Python

@@ -11,7 +11,7 @@
 - name: Anvisningar
   items:
     - name: Krav
-      href: hpc-cache-prereqs.md
+      href: hpc-cache-prerequisites.md
     - name: Skapa cachen
       href: hpc-cache-create.md
     - name: Lägg till lagringsutrymme
@@ -46,6 +46,8 @@
   items:
     - name: Öppna en supportbegäran
       href: hpc-cache-support-ticket.md
+    - name: Konfigurera Azure CLI för Azure HPC Cache
+      href: az-cli-prerequisites.md
     - name: Gå runt brandväggsinställningar för bloblagringskonto
       href: hpc-cache-blob-firewall-fix.md
     - name: Felsöka skapande av NFS-lagringsmål
@@ -56,5 +58,5 @@
       href: customer-keys.md
     - name: Använda Azure NetApp Files med Azure HPC Cache
       href: hpc-cache-netapp.md
-    - name: Videoklipp
+    - name: Video
       href: 'https://azure.microsoft.com/resources/videos/index/?service=hpc-cache'

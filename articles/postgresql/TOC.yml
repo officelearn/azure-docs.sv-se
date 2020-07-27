@@ -46,7 +46,7 @@
       items:
         - name: 1 – Utforma en databas
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: tutorial-design-database-using-azure-portal.md
             - name: Azure CLI
               href: tutorial-design-database-using-azure-cli.md
@@ -231,13 +231,13 @@
               href: howto-optimize-query-time-with-toast-table-storage-strategy.md
         - name: Hantera brandväggen
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: howto-manage-firewall-using-portal.md
             - name: Azure CLI
               href: howto-manage-firewall-using-cli.md
         - name: Återställ en server
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: howto-restore-server-portal.md
             - name: Azure CLI
               href: howto-restore-server-cli.md
@@ -257,7 +257,7 @@
               href: howto-tls-configurations.md
         - name: Konfigurera serverparametrar
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: howto-configure-server-parameters-using-portal.md
             - name: Azure CLI
               href: howto-configure-server-parameters-using-cli.md
@@ -265,7 +265,7 @@
               href: howto-configure-server-parameters-using-powershell.md
         - name: Lagring som växer automatiskt
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: howto-auto-grow-storage-portal.md
             - name: Azure CLI
               href: howto-auto-grow-storage-cli.md
@@ -273,7 +273,7 @@
               href: howto-auto-grow-storage-powershell.md
         - name: Åtkomstloggar
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: howto-configure-server-logs-in-portal.md
             - name: Azure CLI
               href: howto-configure-server-logs-using-cli.md
@@ -293,19 +293,19 @@
               href: howto-database-threat-protection-portal.md
         - name: Virtual Network
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: howto-manage-vnet-using-portal.md
             - name: Azure CLI
               href: howto-manage-vnet-using-cli.md
         - name: Private Link
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: howto-configure-privatelink-portal.md
             - name: Azure CLI
               href: howto-configure-privatelink-cli.md
         - name: Datakryptering
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: howto-data-encryption-portal.md
             - name: Azure CLI
               href: howto-data-encryption-cli.md
@@ -317,7 +317,7 @@
               href: howto-double-encryption.md
         - name: Starta om servern
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: howto-restart-server-portal.md
             - name: Azure CLI
               href: howto-restart-server-cli.md
@@ -351,6 +351,8 @@
           items:
             - name: Skapa aviseringar för mått
               href: howto-hyperscale-alert-on-metric.md
+            - name: Komma åt databasloggar
+              href: howto-hyperscale-logging.md
         - name: Felsöka
           items:
             - name: Felsöka anslutningsfel

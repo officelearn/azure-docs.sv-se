@@ -124,6 +124,9 @@
           href: network-security.md
         - name: Inbyggda säkerhetskontroller
           href: event-hubs-security-controls.md
+        - name: Säkerhetskontroller av Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Säkerhetsbaslinje
           href: security-baseline.md
     - name: AMQP 1.0-protokollguide
@@ -196,7 +199,7 @@
         - name: Konfigurera diagnostikloggar
           href: event-hubs-diagnostic-logs.md
         - name: Strömma Azure Diagnostics-data med Event Hubs
-          href: event-hubs-streaming-azure-diags-data.md
+          href: ../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md
         - name: Skala dataflödesenheter automatiskt
           href: event-hubs-auto-inflate.md
         - name: Event Hubs-hanteringsbibliotek
@@ -289,6 +292,8 @@
       href: /azure/templates/microsoft.eventhub/allversions
     - name: Kvoter
       href: event-hubs-quotas.md
+    - name: Apache Kafka-konfigurationer
+      href: apache-kafka-configurations.md
 - name: Resurser
   items:
     - name: Utveckla dina färdigheter med Microsoft Learn

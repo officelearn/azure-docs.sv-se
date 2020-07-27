@@ -83,10 +83,10 @@
       href: application-provisioning-config-problem-scim-compatibility.md
     - name: SCIM- och Graph-scenarier
       href: scim-graph-scenarios.md
-    - name: Välj en etableringsmetod
-      href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: Etablering av HR Cloud
       items:
+        - name: SuccessFactors-integrering
+          href: sap-successfactors-integration-reference.md
         - name: SuccessFactors-attributreferens
           href: sap-successfactors-attribute-reference.md
         - name: Workday-attributreferens

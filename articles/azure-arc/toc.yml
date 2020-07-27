@@ -2,43 +2,45 @@
   href: index.yml
 - name: Översikt
   items:
-    - name: Om Arc för Kubernetes
+    - name: Om Arc-aktiverat Kubernetes
       href: ./kubernetes/overview.md
-    - name: Om Azure Arc för servrar
+    - name: Om Azure Arc-aktiverade servrar
       href: ./servers/overview.md
 - name: Exempel
   items:
     - name: Inbyggda Azure Policy-program
       items:
-        - name: Arc för Kubernetes
+        - name: Arc-aktiverat Kubernetes
           href: ./kubernetes/policy-samples.md
-        - name: Arc för servrar
+        - name: Arc-aktiverade servrar
           href: ./servers/policy-samples.md
 - name: Anvisningar
   items:
-    - name: Arc för Kubernetes
+    - name: Arc-aktiverat Kubernetes
       items:
-        - name: Klusteråtgärder
+        - name: Ansluta till Azure Arc
           items:
             - name: Anslut kluster
               href: ./kubernetes/connect-cluster.md
-            - name: Använd GitOps för anslutna kluster
+            - name: Huvudnamn för registreringstjänst
+              href: ./kubernetes/create-onboarding-service-principal.md
+        - name: Hantera
+          items:
+            - name: Distribuera konfigurationer med GitOps
               href: ./kubernetes/use-gitops-connected-cluster.md
-            - name: Använd GitOps med Helm
+            - name: Distribuera Helm-diagram med GitOps
               href: ./kubernetes/use-gitops-with-helm.md
             - name: Framtvinga GitOps med hjälp av Azure Policy
               href: ./kubernetes/use-azure-policy.md
-            - name: Övervaka med Azure Monitor för containrar
-              href: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
+            - name: Övervaka med hjälp av Azure Monitor för containrar
+              href: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/toc.json
             - name: Principer för åtkomstkontroll med hjälp av Azure Policy
-              href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
+              href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/toc.json
             - name: Distribuera IoT-arbetsbelastningar
               href: ./kubernetes/deploy-azure-iot-edge-workloads.md
-            - name: Huvudnamn för registreringstjänst
-              href: ./kubernetes/create-onboarding-service-principal.md
-            - name: Felsökning
-              href: ./kubernetes/Troubleshooting.md
-    - name: Arc för servrar
+        - name: Felsökning
+          href: ./kubernetes/Troubleshooting.md
+    - name: Arc-aktiverade servrar
       items:
         - name: Ansluta till Azure Arc
           items:

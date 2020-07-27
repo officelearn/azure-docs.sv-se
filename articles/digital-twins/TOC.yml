@@ -40,9 +40,11 @@
       items:
         - name: Använda Azure Digital Twins CLI
           href: how-to-use-cli.md
-        - name: Skapa en Azure Digital Twins-instans
-          href: how-to-set-up-instance.md
-        - name: Autentisera ett klientprogram
+        - name: Konfigurera en instans och autentisering (skript)
+          href: how-to-set-up-instance-scripted.md
+        - name: Konfigurera en instans och autentisering (manuell)
+          href: how-to-set-up-instance-manual.md
+        - name: Skriva appautentiseringskod
           href: how-to-authenticate-client.md
     - name: Utforma modeller
       items:
@@ -50,6 +52,8 @@
           href: how-to-manage-model.md
         - name: Parsa och verifiera modeller
           href: how-to-use-parser.md
+        - name: Lägga till taggar
+          href: how-to-use-tags.md
     - name: Använda en live-körningsmiljö
       items:
         - name: Hantera digitala tvillingar
@@ -72,10 +76,16 @@
           href: how-to-manage-routes.md
         - name: Integrera med Azure Maps
           href: how-to-integrate-maps.md
+        - name: Integrera med Azure Time Series Insights
+          href: how-to-integrate-time-series-insights.md
     - name: Felsöka
       items:
         - name: Kända problem
           href: troubleshoot-known-issues.md
+        - name: Problemlösning
+          items:
+            - name: 403 (Förbjudet)
+              href: troubleshoot-error-403.md
 - name: Referens
   items:
     - name: Digital Twins-tjänstbegränsningar
@@ -145,7 +155,7 @@
         - name: Azure Digital Twins-exempel
           href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/'
         - name: Azure Digital Twins-utforskare (exempel)
-          href: 'https://github.com/Azure-Samples/digital-twins-explorer'
+          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/'
         - name: DTDL-verifierare (exempel)
           href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
     - name: Azure-verktyg

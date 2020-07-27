@@ -68,10 +68,14 @@
           href: boosted-decision-tree-regression.md
         - name: Regression för beslutsskog
           href: decision-forest-regression.md
+        - name: Fast Forest Quantile Regression
+          href: fast-forest-quantile-regression.md
         - name: Linjär regression
           href: linear-regression.md
         - name: Regression för Neural Network
           href: neural-network-regression.md
+        - name: Poisson-regression
+          href: poisson-regression.md
     - name: Klustring
       items:
         - name: K-means-klustring

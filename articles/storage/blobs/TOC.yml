@@ -280,6 +280,8 @@
           href: storage-blob-pageblob-overview.md
         - name: Statiska webbplatser
           href: storage-blob-static-website.md
+        - name: Stöd för protokollet NFS 3.0
+          href: network-file-system-protocol-support.md
     - name: Gör så här för att
       items:
         - name: Skapa och hantera lagringskonton
@@ -469,12 +471,12 @@
                   href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Azure Data Factory
               href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Montera Blob Storage som ett filsystem i Linux
+            - name: Montera lagring från Linux med NFS
+              href: network-file-system-protocol-support-how-to.md
+            - name: Montera lagring från Linux med blobfuse
               href: storage-how-to-mount-container-linux.md
             - name: Överföra data med dataflyttbiblioteket
               href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Vanliga frågor och svar om lagringsmigrering
-              href: ../common/storage-migration-faq.md
         - name: Utveckla med blobar
           items:
             - name: C++
@@ -662,6 +664,9 @@
               href: security-recommendations.md
             - name: Åtkomstkontroll (kataloger och filer)
               href: data-lake-storage-access-control.md
+            - name: Säkerhetskontroller av Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
         - name: Kompatibilitet
           items:
             - name: Åtkomst för flera protokoll

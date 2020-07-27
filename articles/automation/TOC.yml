@@ -14,6 +14,9 @@
       href: automation-quickstart-create-runbook.md
     - name: Aktivera Desired State Configuration för en dator
       href: automation-quickstart-dsc-configuration.md
+    - name: Skapa Automation-konto
+      displayName: Resource Manager
+      href: quickstart-create-automation-account-template.md
 - name: Självstudier
   items:
     - name: Skapa en grafisk runbook
@@ -51,14 +54,14 @@
           href: automation-secure-asset-encryption.md
         - name: Hantera Azure Automation-data
           href: automation-managing-data.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Automation-konto
       items:
         - name: Skapa ett Automation-konto med Microsoft Azure-portalen
           href: automation-create-standalone-account.md
         - name: Skapa ett Automation-konto med en Resource Manager-mall
-          href: automation-create-account-template.md
+          href: quickstart-create-automation-account-template.md
         - name: Konfigurera autentisering med Amazon Web Services
           href: automation-config-aws-account.md
         - name: Konfigurera autentisering med Azure AD
@@ -177,6 +180,18 @@
               href: automation-dsc-extension-history.md
             - name: Felsöka problem med State Configuration
               href: troubleshoot/desired-state-configuration.md
+            - name: Scenarier
+              items:
+                - name: Konfigurera data baserat på STIG
+                  href: automation-dsc-configuration-based-on-stig.md
+                - name: Konfigurera data i stor skala
+                  href: automation-dsc-config-data-at-scale.md
+                - name: Skapa konfiguration från befintliga servrar
+                  href: automation-dsc-config-from-server.md
+                - name: Konvertera konfigurationer till sammansatta resurser
+                  href: automation-dsc-create-composite.md
+                - name: Åtgärda icke-kompatibla servrar
+                  href: automation-dsc-remediate.md
         - name: Ändringsspårning och inventering
           items:
             - name: Översikt

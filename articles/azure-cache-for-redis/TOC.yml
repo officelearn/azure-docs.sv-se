@@ -54,18 +54,20 @@
       href: cache-best-practices.md
     - name: Metodtips för cachelagring på arkitektur
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Planera
       items:
         - name: Välja en cache-nivå
-          href: 'cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use'
+          href: cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use
         - name: Distribuera din cache med klustring
           href: cache-how-to-premium-clustering.md
         - name: Bevara din cache med Redis-datapersistence
           href: cache-how-to-premium-persistence.md
         - name: Skydda din cache med ett virtuellt nätverk
           href: cache-how-to-premium-vnet.md
+        - name: Ansluta privat till en cache
+          href: cache-private-link.md
         - name: Konfigurera geo-replikering
           href: cache-how-to-geo-replication.md
         - name: Spara pengar med reserverad kapacitet
@@ -101,9 +103,9 @@
         - name: Importera/exportera data
           href: cache-how-to-import-export-data.md
         - name: Starta om
-          href: 'cache-administration.md#reboot'
+          href: cache-administration.md#reboot
         - name: Schemauppdateringar
-          href: 'cache-administration.md#schedule-updates'
+          href: cache-administration.md#schedule-updates
         - name: Konfigurera åtkomst till redis-cli.exe
           href: cache-how-to-redis-cli-tool.md
         - name: Ta bort TLS 1.0 och 1.1
@@ -113,7 +115,7 @@
         - name: Övervaka i Azure Portal
           href: cache-how-to-monitor.md
         - name: Ställ in aviseringar för undantag
-          href: 'cache-how-to-monitor.md#operations-and-alerts'
+          href: cache-how-to-monitor.md#operations-and-alerts
     - name: Diagnostisera och felsöka
       items:
         - name: Felsöka Redis-server

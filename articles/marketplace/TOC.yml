@@ -60,6 +60,8 @@
         - name: Dina Marketplace-förmåner
           href: ./gtm-your-marketplace-benefits.md
           items:
+            - name: Azure-förbrukningsåtagandeförmån
+              href: ./azure-consumption-commitment-benefit.md
             - name: Deltagande i partnersäljsamarbete
               href: ./marketplace-co-sell.md
             - name: Önskade lösningar

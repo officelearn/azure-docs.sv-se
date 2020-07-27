@@ -2,19 +2,19 @@
 title: Azure Arc
 summary: Azure Arc utökar Azure Resource Manager-funktioner till Linux- och Windows-servrar samt Kubernetes-kluster på infrastrukturer – för lokala enheter, molnöverskridande enheter och nätverksgränsen. Med Azure Arc kan kunder också köra Azure-datatjänster var som helst, tack vare molnets alla fördelar, däribland ständigt uppdaterade datafunktioner, distribution på några sekunder (i stället för några timmar) och dynamisk skalbarhet på alla infrastrukturer.
 metadata:
-  title: Azure Arc för servrar
+  title: Azure Arc
   description: Läs mer om hur du hanterar lokala datorer i Azure
   author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
   ms.date: 06/26/2020
   ms.author: magoedte
-  ms.openlocfilehash: 8493a5d90656206c5498fafbc2b0a2743cd973a7
-  ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+  ms.openlocfilehash: f9d4da85185d3a8541c165b407d276af0a25ccc6
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 06/27/2020
-  ms.locfileid: "85482351"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87008497"
 landingContent:
 - title: Översikt över Azure Arc
   linkLists:
@@ -22,11 +22,11 @@ landingContent:
     links:
     - text: Läs mer om Azure Arc
       url: https://aka.ms/Azure-Arc-Info
-- title: Ansluta datorer till Azure med Azure Arc för servrar
+- title: Ansluta datorer till Azure med Azure Arc-aktiverade servrar
   linkLists:
   - linkListType: overview
     links:
-    - text: Vad är Azure Arc för servrar?
+    - text: Vad är Azure Arc-aktiverade servrar?
       url: ./servers/overview.md
   - linkListType: quickstart
     links:
@@ -42,19 +42,21 @@ landingContent:
     links:
     - text: Vad är Azure Arc-aktiverade Kubernetes?
       url: ./kubernetes/overview.md
-  - linkListType: how-to-guide
+  - linkListType: quickstart
     links:
     - text: Anslut kluster
       url: ./kubernetes/connect-cluster.md
-    - text: Använd GitOps i ett anslutet kluster
+  - linkListType: how-to-guide
+    links:
+    - text: Distribuera konfigurationer med GitOps
       url: ./kubernetes/use-gitops-connected-cluster.md
-    - text: Använd GitOps med Helm
+    - text: Distribuera Helm-diagram med GitOps
       url: ./kubernetes/use-gitops-with-helm.md
-    - text: Använd Azure Monitor för containrar
-      url: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
-    - text: Använd Azure-policy
+    - text: Framtvinga GitOps med hjälp av Azure Policy
       url: ./kubernetes/use-azure-policy.md
+    - text: Övervaka med hjälp av Azure Monitor för containrar
+      url: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/toc.json
+    - text: Principer för åtkomstkontroll med hjälp av Azure Policy
+      url: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/toc.json
     - text: Distribuera Azure IoT Edge-arbetsbelastningar
       url: ./kubernetes/deploy-azure-iot-edge-workloads.md
-    - text: Huvudnamn för registreringstjänst
-      url: ./kubernetes/create-onboarding-service-principal.md

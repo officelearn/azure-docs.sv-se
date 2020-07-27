@@ -46,6 +46,8 @@
           href: expand-existing-host-pool.md
         - name: Hantera appgrupper med PowerShell
           href: manage-app-groups-powershell.md
+    - name: Ta bort en värdpool
+      href: delete-host-pool.md
     - name: Skapa en profilcontainer
       items:
         - name: Använda en VM-baserad filresurs
@@ -72,6 +74,8 @@
           href: set-up-customize-master-image.md
         - name: Installera Office på en VHD-huvudavbildning
           href: install-office-on-wvd-master-image.md
+    - name: Skala sessionsvärdar automatiskt
+      href: set-up-scaling-script.md
     - name: Anpassa flöde
       href: customize-feed-for-virtual-desktop-users.md
     - name: Använda tjänstdiagnostik
@@ -108,6 +112,8 @@
       href: store-fslogix-profile.md
     - name: Partnerintegrering
       href: partners.md
+    - name: Vanliga frågor och svar om Windows Virtual Desktop
+      href: faq.md
     - name: Vanliga frågor och svar om flera sessioner för Windows 10 Enterprise
       href: windows-10-multisession-faq.md
     - name: Dataplatser

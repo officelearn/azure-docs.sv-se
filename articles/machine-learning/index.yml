@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Dokumentation om Azure Machine Learning
-summary: Lär dig hur du tränar, distribuerar och hanterar maskininlärningsmodeller, AutoML-experiment och pipelines i stor skala med Azure Machine Learning. Det finns självstudier, kodexempel, API-referenser och annat som visar hur det går till.
+summary: Lär dig hur du tränar, distribuerar och hanterar maskininlärningsmodeller, använder AutoML och kör pipelines i stor skala med Azure Machine Learning.  Det finns självstudier, kodexempel, API-referenser och annat som visar hur det går till.
 metadata:
   title: Dokumentation om Azure Machine Learning
-  description: Lär dig hur du tränar, distribuerar och hanterar maskininlärningsmodeller, AutoML-experiment och pipelines i stor skala med Azure Machine Learning. Det finns självstudier, kodexempel, API-referenser och annat som visar hur det går till.
+  description: Lär dig hur du tränar, distribuerar och hanterar maskininlärningsmodeller, använder AutoML och kör pipelines i stor skala med Azure Machine Learning. Det finns självstudier, kodexempel, API-referenser och annat som visar hur det går till.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 04/30/2020
-  ms.openlocfilehash: 57a16ca35699f11c55e12c494a4cbb93bac8a334
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.date: 07/30/2020
+  ms.openlocfilehash: 1006874272fa4798d9e56cbc76d7b039e697c413
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83593009"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87047793"
 landingContent:
 - title: Kom igång med maskininlärning
   linkLists:
@@ -31,14 +31,14 @@ landingContent:
       url: tutorial-first-experiment-automated-ml.md
     - text: RStudio
       url: tutorial-1st-r-experiment.md
-- title: Använda Studio-webbupplevelsen
+- title: Använda designern och AutoML i studio
   linkLists:
   - linkListType: overview
     links:
+    - text: Vad är automatiserad maskininlärning (AutoML)?
+      url: concept-automated-ml.md
     - text: Vad är designern (dra och släpp)?
       url: concept-designer.md
-    - text: Vad är automatiserad maskininlärning?
-      url: concept-automated-ml.md
     - text: Välja en algoritm
       url: how-to-select-algorithms.md
   - linkListType: tutorial
@@ -51,7 +51,7 @@ landingContent:
       url: tutorial-designer-automobile-price-train-score.md
     - text: Skapa etiketteringsprojekt för avbildningar
       url: tutorial-labeling.md
-- title: Använda Python SDK
+- title: Träna med Python SDK
   linkLists:
   - linkListType: tutorial
     links:
@@ -71,19 +71,19 @@ landingContent:
       url: how-to-machine-learning-interpretability.md
     - text: Djupinlärning eller ML
       url: concept-deep-learning-vs-machine-learning.md
-    - text: Träna med Scikit-learn
+    - text: Träna och registrera Scikit-learn-modeller
       url: how-to-train-scikit-learn.md
-    - text: Träna med TensorFlow
+    - text: Träna och registrera TensorFlow-modeller
       url: how-to-train-tensorflow.md
-    - text: Träna med PyTorch
+    - text: Träna och registrera PyTorch-modeller
       url: how-to-train-pytorch.md
-    - text: Träna med Keras
+    - text: Träna och registrera Keras-modeller
       url: how-to-train-keras.md
     - text: Kunskapsförmedling
       url: how-to-use-reinforcement-learning.md
     - text: Vad är ML-pipelines?
       url: concept-ml-pipelines.md
-- title: Distribuera och hantera modeller (MLOps)
+- title: 'MLOps: Distribuera och hantera modeller'
   linkLists:
   - linkListType: how-to-guide
     links:

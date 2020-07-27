@@ -16,7 +16,11 @@
       href: tutorial-access-private-cloud.md
     - name: 5 - Skala ett privat moln
       href: tutorial-scale-private-cloud.md
-    - name: 6 – Skapa ett innehållsbibliotek
+    - name: 6 - Skapa ett NSX-T-nätverkssegment
+      href: tutorial-nsx-t-network-segment.md
+    - name: 7 - Lokal peer till privat moln
+      href: tutorial-expressroute-global-reach-private-cloud.md
+    - name: 8 - Distribuera virtuell dator via innehållsbibliotek
       href: tutorial-deploy-vm-content-library.md
 - name: Begrepp
   items:
@@ -34,6 +38,8 @@
       href: concepts-upgrades.md
 - name: Anvisningar
   items:
+    - name: AVS-migreringsutvärdering
+      href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
     - name: Konfigurera HCX
       href: hybrid-cloud-extension-installation.md
     - name: Hantera DHCP

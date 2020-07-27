@@ -68,8 +68,8 @@
           href: url-route-overview.md
         - name: Omdirigering
           href: redirect-overview.md
-        - name: Återskapa HTTP-huvuden
-          href: rewrite-http-headers.md
+        - name: Skriva om HTTP-huvuden och URL
+          href: rewrite-http-headers-url.md
     - name: SSL
       items:
         - name: SSL-avslut och slutpunkt till slutpunkt över SSL
@@ -104,7 +104,7 @@
           href: tutorial-manage-web-traffic-cli.md
     - name: Konfigurera intern lastbalanserare
       items:
-        - name: Azure Portal
+        - name: Azure-portalen
           href: configure-application-gateway-with-private-frontend-ip.md
         - name: Azure PowerShell
           href: application-gateway-ilb-arm.md
@@ -198,14 +198,20 @@
               href: redirect-internal-site-cli.md
         - name: Omdirigera webbtrafik med hjälp av Azure PowerShell
           href: tutorial-url-redirect-powershell.md
-    - name: Återskapa HTTP-huvuden
+    - name: Skriva om HTTP-huvuden och URL
       items:
-        - name: Azure Portal
-          href: rewrite-http-headers-portal.md
-        - name: Azure PowerShell
-          href: add-http-header-rewrite-rule-powershell.md
-        - name: Skapa och skriva om HTTP-huvuden
-          href: tutorial-http-header-rewrite-powershell.md
+        - name: Skriva om huvud
+          items:
+            - name: Azure-portalen
+              href: rewrite-http-headers-portal.md
+            - name: Azure PowerShell
+              href: add-http-header-rewrite-rule-powershell.md
+            - name: Skapa och skriva om HTTP-huvuden
+              href: tutorial-http-header-rewrite-powershell.md
+        - name: URL-omskrivning
+          items:
+            - name: Azure Portal
+              href: rewrite-url-portal.md
     - name: Konfigurera App Service-webbapp och tjänst för flera innehavare
       items:
         - name: Portalen
@@ -249,7 +255,7 @@
     - name: Azure CLI
       href: /cli/azure/network/application-gateway
     - name: Azure PowerShell
-      href: /powershell/azure/overview
+      href: /powershell/azure/
     - name: .NET
       href: /dotnet/api
     - name: Java

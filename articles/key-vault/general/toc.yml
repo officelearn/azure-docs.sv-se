@@ -1,20 +1,28 @@
 - name: Allmänt
   href: index.yml
 - name: Översikt
-  expanded: true
   items:
     - name: Om Azure Key Vault
       href: overview.md
     - name: 'Om nycklar, hemligheter och certifikat'
       href: about-keys-secrets-certificates.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: CLI
+      href: quick-create-cli.md
+    - name: PowerShell
+      href: quick-create-powershell.md
+    - name: Portalen
+      href: quick-create-portal.md
 - name: Självstudier
   items:
     - name: Virtuell Azure-dator
       items:
-        - name: Använda Azure Key Vault med en virtuell Windows-dator i .NET
-          href: tutorial-net-windows-virtual-machine.md
-        - name: Använda Azure Key Vault med en virtuell Windows-dator i Python
-          href: tutorial-python-windows-virtual-machine.md
+        - name: Använda Azure Key Vault med en virtuell dator i .NET
+          href: tutorial-net-virtual-machine.md
+        - name: Använda Azure Key Vault med en virtuell dator i Python
+          href: tutorial-python-virtual-machine.md
     - name: Azure Kubernetes Service
       items:
         - name: Integrera Azure Key Vault med Kubernetes
@@ -117,15 +125,11 @@
     - name: Flytta nyckelvalv
       items:
         - name: Flytta nyckelvalv till en annan resursgrupp
-          href: keyvault-moveresourcegroup.md
+          href: move-resourcegroup.md
         - name: Flytta nyckelvalv till en annan prenumeration
-          href: keyvault-move-subscription.md
+          href: move-subscription.md
         - name: Flytta nyckelvalv till en annan region
-          href: keyvault-moveregion.md
-    - name: Felsöka
-      items:
-        - name: 'Ändra klient-ID:t för nyckelvalv efter en prenumerationsflytt'
-          href: subscription-move-fix.md
+          href: move-region.md
 - name: Referens
   items:
     - name: REST API-felkoder – Azure Key Vault

@@ -75,6 +75,8 @@
           href: enterprise-state-roaming-faqs.md
 - name: Referens
   items:
+    - name: Aktivera TLS 1.2
+      href: reference-device-registration-tls-1-2.md
     - name: GPO-inställningar för Enterprise State Roaming
       href: enterprise-state-roaming-group-policy-settings.md
     - name: Windows-inställningar för Enterprise State Roaming

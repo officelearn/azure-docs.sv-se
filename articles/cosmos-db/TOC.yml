@@ -726,7 +726,7 @@
               href: mongodb-feature-support.md
             - name: VANLIGA FRÅGOR OCH SVAR
               href: mongodb-api-faq.md
-        - name: Anvisningar
+        - name: Instruktionsguider
           items:
             - name: Guide före migrering
               href: mongodb-pre-migration.md
@@ -796,7 +796,7 @@
           items:
             - name: VANLIGA FRÅGOR OCH SVAR
               href: gremlin-api-faq.md
-        - name: Anvisningar
+        - name: Instruktionsguider
           items:
             - name: Diagramdatamodellering
               href: graph-modeling.md
@@ -881,7 +881,7 @@
           items:
             - name: VANLIGA FRÅGOR OCH SVAR
               href: table-api-faq.md
-        - name: Anvisningar
+        - name: Instruktionsguider
           items:
             - name: Skapa appar med tabell-API
               href: table-support.md
@@ -1104,6 +1104,8 @@
       items:
         - name: Återställa data från en säkerhetskopia
           href: how-to-backup-and-restore.md
+        - name: Begära kvotökning
+          href: create-support-request-quota-increase.md
     - name: Övervaka
       items:
         - name: Övervaka Cosmos DB
@@ -1112,6 +1114,8 @@
           items:
             - name: Azure Monitor för Cosmos (förhandsversion)
               href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Scenarier att övervaka
+              href: use-metrics.md
             - name: Övervaka svarstiden på serversidan
               href: monitor-server-side-latency.md
             - name: Övervaka användning av enheter för programbegäran
@@ -1124,8 +1128,8 @@
               href: cosmosdb-monitor-resource-logs.md
             - name: Granska kontrollplansloggar
               href: audit-control-plane-logs.md
-        - name: Visa mått från Cosmos DB-kontot
-          href: use-metrics.md
+        - name: Konfigurera varningar
+          href: create-alerts.md
         - name: Övervaka datareferens
           href: monitor-cosmos-db-reference.md
         - name: Programloggning med Logic Apps

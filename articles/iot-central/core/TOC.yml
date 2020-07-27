@@ -67,6 +67,8 @@
       href: concepts-app-templates.md
     - name: Vad är enhetsmallar?
       href: concepts-device-templates.md
+    - name: Nyttolaster för meddelanden
+      href: concepts-telemetry-properties-commands.md
     - name: Enhetsanslutning
       href: concepts-get-connected.md
     - name: Ansluta IoT Edge-enheter

@@ -170,7 +170,7 @@
     - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Regioner
-      href: regions.md
+      href: ../regions.md
     - name: Tillägg
       items:
         - name: Om Azure-tillägg
@@ -182,7 +182,7 @@
     - name: Tillgänglighet och prestanda
       items:
         - name: Tillgänglighet
-          href: availability.md
+          href: ../availability.md
         - name: Samlokalisering
           href: co-location.md
         - name: Nätverksprestanda
@@ -290,7 +290,7 @@
             - name: Förskottsbetala för Dedicated Host
               href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Vad är Azure-reservationer?
-              href: ../../billing/billing-save-compute-costs-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md?toc=/azure/virtual-machines/linux/toc.json
             - name: Flexibilitet för VM-instansstorlek
               href: reserved-vm-instance-size-flexibility.md
         - name: Virtuella Spot-datorer
@@ -298,10 +298,12 @@
           displayName: 'pre-empt, preempt'
         - name: Virtuella Azure-datorer utan temporär disk
           href: ../azure-vms-no-temp-disk.md
+        - name: Namnkonventioner för Azure VM-storlekar
+          href: ../vm-naming-conventions.md
         - name: Tidigare generationer
           href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Isolerade storlekar
-          href: isolation.md
+          href: ../isolation.md
         - name: Azure-beräkningsenheter (ACU)
           href: ../acu.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: vCPU-kvoter
@@ -311,7 +313,7 @@
             - name: Förskottsbetala för virtuella datorer
               href: prepay-reserved-vm-instances.md
             - name: Vad är Azure-reservationer?
-              href: ../../billing/billing-save-compute-costs-reservations.md
+              href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
             - name: Flexibilitet för VM-instansstorlek
               href: reserved-vm-instance-size-flexibility.md
         - name: Benchmark-poäng
@@ -345,17 +347,22 @@
         - name: Tillfälliga operativsystemdiskar
           href: ephemeral-os-disks.md
     - name: Nätverk
-      href: network-overview.md
+      href: ../network-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Skalningsuppsättningar
       href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Infrastruktur för automatisering
-      href: infrastructure-automation.md
+      href: ../infrastructure-automation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Säkerhet
       items:
         - name: Säkerhet och principer
           href: security-policy.md
         - name: Azure Disk Encryption
           href: disk-encryption-overview.md
+        - name: Säkerhetskontroller av Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ../security-controls-policy.md
+        - name: Säkerhetsbaslinje för Azure Security Benchmark
+          href: security-baseline.md
         - name: Inbyggda säkerhetskontroller
           href: virtual-machines-linux-security-controls.md
         - name: Bastion
@@ -367,9 +374,9 @@
     - name: Säkerhetskopiering och återställning
       href: backup-recovery.md
     - name: Ramverk för molnimplementering
-      href: 'https://docs.microsoft.com/azure/cloud-adoption-framework/get-started/'
+      href: /azure/cloud-adoption-framework/get-started/
     - name: Arkitekturcenter
-      href: 'https://docs.microsoft.com/azure/architecture/'
+      href: /azure/architecture/
     - name: Riktlinjer för infrastruktur
       href: infrastructure-example.md
 - name: Anvisningar
@@ -427,22 +434,24 @@
           items:
             - name: Allmänna steg
               href: create-upload-generic.md
-            - name: Ubuntu
-              href: create-upload-ubuntu.md
             - name: CentOS
               href: create-upload-centos.md
-            - name: Red Hat
-              href: redhat-create-upload-vhd.md
             - name: Debian
               href: debian-create-upload-vhd.md
-            - name: SUSE
-              href: suse-create-upload-vhd.md
+            - name: Flatcar Container Linux
+              href: flatcar-create-upload-vhd.md
+            - name: FreeBSD
+              href: freebsd-intro-on-azure.md
             - name: Oracle Linux
               href: oracle-create-upload-vhd.md
             - name: OpenBSD
               href: create-upload-openbsd.md
-            - name: FreeBSD
-              href: freebsd-intro-on-azure.md
+            - name: Red Hat
+              href: redhat-create-upload-vhd.md
+            - name: SUSE
+              href: suse-create-upload-vhd.md
+            - name: Ubuntu
+              href: create-upload-ubuntu.md
         - name: Använd cloud-init
           items:
             - name: Översikt över Cloud-init
@@ -632,7 +641,7 @@
         - name: Haveriberedskap
           href: ../virtual-machines-disaster-recovery-guidance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Säkerhetskopiera virtuella datorer
-          href: ../../backup/backup-introduction-to-azure-backup.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../backup/backup-overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
           items:
             - name: Säkerhetskopiera en enskild virtuell dator
               href: ../../backup/quick-backup-vm-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -694,7 +703,7 @@
             - name: Översikt
               href: ../extensions/agent-linux.md
             - name: Agentuppdatering
-              href: update-agent.md
+              href: ../extensions/update-linux-agent.md
         - name: Minimera spekulativ körning
           href: mitigate-se.md
         - name: Övervaka metadata
@@ -726,7 +735,6 @@
         - name: Schemalagda händelser
           href: scheduled-events.md
     - name: Övervaka virtuella datorer
-      href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       items:
         - name: Agenter
           items:
@@ -763,7 +771,7 @@
                       href: ../../azure-monitor/platform/agent-data-sources.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
                     - name: Anpassade JSON-data
                       href: ../../azure-monitor/platform/data-sources-json.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-                    - name: CollectD-prestandadata
+                    - name: collectd-prestandadata
                       href: ../../azure-monitor/platform/data-sources-collectd.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
                     - name: Syslog
                       href: ../../azure-monitor/platform/data-sources-syslog.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -820,7 +828,7 @@
     - name: Tillgänglighet och skalning
       items:
         - name: Automatisk skalning
-          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../virtual-machine-scale-sets/overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
         - name: Hög tillgänglighet
           href: manage-availability.md
         - name: Ändra tillgänglighetsuppsättning
@@ -865,7 +873,7 @@
     - name: Köra containrar
       items:
         - name: Skapa Docker-värd
-          href: dockerextension.md
+          href: 'https://github.com/Azure/azure-docker-extension/blob/master/README.md'
         - name: Använda Docker Machine
           href: docker-machine.md
         - name: Använda Docker Compose
@@ -873,9 +881,9 @@
     - name: Köra program
       items:
         - name: Cloud Foundry
-          href: 'https://docs.microsoft.com/azure/cloudfoundry/'
+          href: ../../cloudfoundry/index.yml
         - name: Cassandra
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json'
+          href: /azure/architecture/reference-architectures/n-tier/n-tier-cassandra?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: OpenShift
           items:
             - name: Översikt över OpenShift
@@ -913,7 +921,7 @@
             - name: MS SQL på Linux
               href: /sql/linux/sql-server-linux-azure-virtual-machine
         - name: Databehandling med höga prestanda (HPC)
-          href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
+          href: /azure/architecture/topics/high-performance-computing/
         - name: IBM Db2 pureScale
           items:
             - name: Arkitektur
@@ -937,6 +945,10 @@
           href: disks-shared-enable.md
         - name: Ladda upp en virtuell hårddisk till en disk – CLI
           href: disks-upload-vhd-to-managed-disk-cli.md
+        - name: Importera/exportera en disk på säkert sätt – CLI
+          href: disks-export-import-private-links-cli.md
+        - name: Importera/exportera en disk på säkert sätt – portalen
+          href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Ändra storlek på en disk
           href: expand-disks.md
         - name: Använda Storage Explorer för att hantera diskar
@@ -955,12 +967,16 @@
           items:
             - name: Aktivera kryptering på värddator – CLI
               href: disks-enable-host-based-encryption-cli.md
+            - name: Aktivera kryptering på värddator – portalen
+              href: disks-enable-host-based-encryption-portal.md
             - name: Aktivera kundhanterade nycklar – CLI
               href: disks-enable-customer-managed-keys-cli.md
             - name: Aktivera kundhanterade nycklar – Portal
               href: disks-enable-customer-managed-keys-portal.md
-            - name: Aktivera dubbel kryptering i vila
+            - name: Aktivera dubbel kryptering i vila – CLI
               href: disks-enable-double-encryption-at-rest-cli.md
+            - name: Aktivera dubbel kryptering i vila – portalen
+              href: disks-enable-double-encryption-at-rest-portal.md
         - name: Migrering och konvertering
           items:
             - name: Migrera till Premium Storage med Azure Site Recovery
@@ -996,7 +1012,7 @@
     - name: Hantera nätverk
       items:
         - name: Skapa det virtuella nätverket
-          href: ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../virtual-network/quick-create-cli.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
         - name: Öppna portar till en virtuell dator
           href: nsg-quickstart.md
         - name: Tilldela offentlig IP-adress
@@ -1017,18 +1033,18 @@
     - name: Konfigurera hanterade identiteter
       items:
         - name: Portalen
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: CLI
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: PowerShell
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Azure Resource Manager-mall
           displayName: ARM
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: REST
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 'Azure-SDK:er'
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Använd VM-tillägg
       items:
         - name: Begränsa installation av tillägg
@@ -1098,13 +1114,13 @@
             - name: Ladda upp lokala virtuella datorer
               href: upload-vhd.md
             - name: Använda Azure Site Recovery
-              href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+              href: ../../site-recovery/migrate-overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
 - name: Referens
   items:
     - name: Azure CLI
       href: /cli/azure/vm
     - name: PowerShell
-      href: /powershell/azureps-cmdlets-docs
+      href: /powershell/azure/
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.compute
     - name: Java
@@ -1121,10 +1137,10 @@
 - name: Resurser
   items:
     - name: Vanliga frågor och svar
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-machines.html'
+      href: /answers/topics/azure-virtual-machines.html
     - name: Skapa ARM-mallar
       displayName: 'Azure Resource Manager, ARM'
-      href: /azure/azure-resource-manager/
+      href: ../../azure-resource-manager/index.yml
     - name: Utveckla dina färdigheter med Microsoft Learn
       href: /learn/browse/?products=azure-virtual-machines
     - name: Azure-översikt

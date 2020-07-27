@@ -10,6 +10,8 @@
       href: quickstart-create-templates-use-the-portal.md
     - name: Skapa mallar – VS Code
       href: quickstart-create-templates-use-visual-studio-code.md
+    - name: Skapa och distribuera mallspecifikation
+      href: quickstart-create-template-specs.md
     - name: Azure-tjänster
       items:
         - name: AI och Azure Machine Learning
@@ -28,6 +30,8 @@
               href: ../../analysis-services/analysis-services-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Databricks
               href: /azure/databricks/scenarios/quickstart-create-databricks-workspace-resource-manager-template?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Data Factory
+              href: ../../data-factory/quickstart-create-data-factory-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Event Hubs
               href: ../../event-hubs/event-hubs-resource-manager-namespace-event-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: HDInsight – Hadoop
@@ -114,6 +118,8 @@
           items:
             - name: Advisor
               href: ../../advisor/advisor-alerts-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Automation
+              href: ../../automation/quickstart-create-automation-account-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Backup
               href: ../../backup/quick-backup-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Cost Management och fakturering
@@ -201,6 +207,12 @@
         - name: 3 – Skapa en pipeline
           displayName: Devop
           href: deployment-tutorial-pipeline.md
+    - name: Mallspecifikationer
+      items:
+        - name: Skapa med länkade mallar
+          href: template-specs-create-linked.md
+        - name: Distribuera som länkad mall
+          href: template-specs-deploy-linked-template.md
     - name: Avancerade mallar
       items:
         - name: Använda mallreferens
@@ -240,6 +252,8 @@
       href: template-best-practices.md
     - name: Vanliga frågor och svar
       href: frequently-asked-questions.md
+    - name: Mallspecifikationer
+      href: template-specs.md
     - name: Mallar för molnkonsekvens
       href: templates-cloud-consistency.md
     - name: Distributionsmodeller

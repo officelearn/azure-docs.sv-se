@@ -123,8 +123,10 @@
           href: azure-stack-edge-contact-microsoft-support.md
         - name: Övervaka
           href: azure-stack-edge-monitor.md
-        - name: Returnera eller byt ut enhet
+        - name: Returnera enheten
           href: azure-stack-edge-return-device.md
+        - name: Ersätta enhet
+          href: azure-stack-edge-replace-device.md
     - name: Viktig information
       items:
         - name: 2007 – Aktuell
@@ -137,6 +139,14 @@
           href: data-box-gateway-1905-release-notes.md
         - name: Allmän tillgänglighet (GA)
           href: data-box-gateway-release-notes.md
+    - name: Referens
+      items:
+        - name: Azure PowerShell
+          href: 'https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge'
+        - name: REST-API
+          href: 'https://docs.microsoft.com/rest/api/databoxedgegateway'
+        - name: .NET SDK
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet'
 - name: Resurser
   items:
     - name: Exempel på Azure Stack Edge C#-moduler (.NET)

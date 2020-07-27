@@ -53,6 +53,9 @@
       href: develop-locally.md
     - name: Säkerhet
       items:
+        - name: Säkerhetskontroller av Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Säkerhetsbaslinje
           href: security-baseline.md
     - name: Indatatyper för ett jobb

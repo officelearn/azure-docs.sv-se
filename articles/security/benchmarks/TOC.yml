@@ -53,8 +53,10 @@
       href: ../../mysql/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Database for MariaDB
       href: ../../mariadb/security-baseline.md
-    - name: Säkerhetsbaslinje för Azure Database for PostgreSQL
+    - name: Säkerhetsbaslinje för Azure Database for PostgreSQL – enskild server
       href: ../../postgresql/security-baseline.md
+    - name: Säkerhetsbaslinje för Azure Database for PostgreSQL – hyperskala
+      href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Säkerhetsbaslinje för Azure Databricks
       href: ../../azure-databricks/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Functions
@@ -79,6 +81,8 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Säkerhetsbaslinje för Customer Lockbox
       href: ../fundamentals/customer-lockbox-security-baseline.md
+    - name: Säkerhetsbaslinje för Data Lake Analytics
+      href: ../../data-lake-analytics/security-baseline.md
     - name: Säkerhetsbaslinje för Event Hubs
       href: ../../event-hubs/security-baseline.md
     - name: ExpressRoute-säkerhetsbaslinje
@@ -91,7 +95,15 @@
       href: ../../logic-apps/security-baseline.md
     - name: Network Watcher-säkerhetsbaslinje
       href: ../../network-watcher/security-baseline.md
+    - name: Baslinje för Service Fabric
+      href: ../../service-fabric/security-baseline.md
     - name: Baslinje för Stream Analytics
       href: ../../stream-analytics/security-baseline.md
     - name: Synapse Analytics-säkerhetsbaslinje
       href: ../../synapse-analytics/security-baseline.md
+    - name: Säkerhetsbaslinje för skalningsuppsättningar för virtuella datorer
+      href: ../../virtual-machine-scale-sets/security-baseline.md
+    - name: Säkerhetsbaslinje för skalningsuppsättningar för virtuella Linux-datorer
+      href: ../../virtual-machines/linux/security-baseline.md
+    - name: Säkerhetsbaslinje för skalningsuppsättningar för virtuella Windows-datorer
+      href: ../../virtual-machines/windows/security-baseline.md

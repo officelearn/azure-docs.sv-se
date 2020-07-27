@@ -6,6 +6,24 @@
   items:
     - name: Vad är Azure Synapse Analytics?
       href: overview-what-is.md
+    - name: Kom igång
+      items:
+        - name: Introduktion
+          href: get-started.md
+        - name: Steg 1 – Skapa en Synapse-arbetsyta
+          href: get-started-create-workspace.md
+        - name: Steg 2 – Analysera med hjälp av en SQL-pool
+          href: get-started-analyze-sql-pool.md
+        - name: Steg 3 – Analysera med hjälp av Spark
+          href: get-started-analyze-spark.md
+        - name: Steg 4 – Analysera med SQL på begäran
+          href: get-started-analyze-sql-on-demand.md
+        - name: Steg 5 – Analysera data i ett lagringskonto
+          href: get-started-analyze-storage.md
+        - name: Steg 6 – Orkestrera med pipelines
+          href: get-started-pipelines.md
+        - name: Steg 7 – Visualisera med Power BI
+          href: get-started-visualize-power-bi.md
     - name: Översiktsblad
       href: overview-cheat-sheet.md
     - name: VANLIGA FRÅGOR OCH SVAR
@@ -46,8 +64,6 @@
       href: quickstart-connect-synapse-link-cosmos-db.md
 - name: Självstudier
   items:
-    - name: Kom igång
-      href: get-started.md
     - name: Köra Apache Spark-program för Spark-pooler
       href: ./spark/intellij-tool-synapse.md
     - name: Spark-jobbdefinitioner
@@ -698,6 +714,8 @@
               href: ../data-factory/connector-web-table.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Xero
               href: ../data-factory/connector-xero.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: XML-format
+              href: ../data-factory/format-xml.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Zoho
               href: ../data-factory/connector-zoho.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Flytta data
@@ -755,9 +773,11 @@
               href: ../data-factory/transform-data-using-spark.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: HDInsight-strömningsaktivitet
               href: ../data-factory/transform-data-using-hadoop-streaming.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: ML-batchkörningsaktivitet
+            - name: Aktiviteten Kör pipeline i Machine Learning
+              href: ../data-factory/transform-data-machine-learning-service.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Batch-körningsaktivitet i Machine Learning Studio (klassisk)
               href: ../data-factory/transform-data-using-machine-learning.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: ML-uppdateringsresursaktivitet
+            - name: Uppdateringsresursaktivitet i Machine Learning Studio (klassisk)
               href: ../data-factory/update-machine-learning-models.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Lagrad proceduraktivitet
               href: ../data-factory/transform-data-using-stored-procedure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -856,7 +876,7 @@
     - name: PowerShell
       href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: 'REST API:er'
-      href: ./sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      href: /rest/api/synapse/
     - name: Systemvyer
       href: sql/reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: T-SQL

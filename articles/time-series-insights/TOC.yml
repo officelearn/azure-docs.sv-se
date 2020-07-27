@@ -2,32 +2,58 @@
   href: index.yml
 - name: Översikt
   items:
-    - name: Om Time Series Insights
-      href: time-series-insights-update-overview.md
+    - name: Vad är Time Series Insights Gen2?
+      href: overview-what-is-tsi.md
+    - name: Användningsfall
+      href: overview-use-cases.md
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Allmän tillgänglighet för Azure Time Series Insights
-      items:
-        - name: Utforska Time Series Insights
-          href: time-series-quickstart.md
-    - name: Förhandsversion av Azure Time Series Insights
-      items:
-        - name: Utforska förhandsversionen av Time Series Insights
-          href: time-series-insights-update-quickstart.md
+    - name: Utforska Time Series Insights Gen2
+      href: quickstart-explore-tsi.md
 - name: Självstudier
   items:
-    - name: Allmän tillgänglighet för Azure Time Series Insights
-      items:
-        - name: Skapa en Time Series Insights-miljö
-          href: tutorial-create-populate-tsi-environment.md
-    - name: Förhandsversion av Azure Time Series Insights
-      items:
-        - name: Konfigurera en förhandsversionsmiljö
-          href: time-series-insights-update-create-environment.md
+    - name: Konfigurera en Time Series Insights Gen2-miljö
+      href: tutorials-set-up-tsi-environment.md
 - name: Begrepp
   items:
-    - name: Allmän tillgänglighet för Azure Time Series Insights
+    - name: Azure Time Series Insights Gen2
+      items:
+        - name: Inkommande och lagring
+          items:
+            - name: Översikt över datainmatning
+              href: concepts-ingestion-overview.md
+            - name: Datatyper som stöds
+              href: concepts-supported-data-types.md
+            - name: Strömningsinmatning – händelsekällor
+              href: concepts-streaming-ingestion-event-sources.md
+            - name: Regler för att platta ut JSON och undantagsregler
+              href: concepts-json-flattening-escaping-rules.md
+            - name: Dataflödesbegränsningar för strömning av inkommande data
+              href: concepts-streaming-ingress-throughput-limits.md
+            - name: Storage
+              href: concepts-storage.md
+        - name: Modell
+          items:
+            - name: Översikt över modell
+              href: concepts-model-overview.md
+            - name: Variabler
+              href: concepts-variables.md
+        - name: Söka i data
+          items:
+            - name: Översikt över fråga
+              href: concepts-query-overview.md
+        - name: Visualisera i Explorer
+          items:
+            - name: UX-paneler
+              href: concepts-ux-panels.md
+        - name: Icke-bakåtkompatibla ändringar
+          items:
+            - name: Lägga till stöd för datatypen Long
+              href: breaking-changes-long-data-type.md
+            - name: Ändringar i utplattning och lagring av JSON
+              href: ingestion-rules-update.md
+    - name: Azure Time Series Insights Gen1
       items:
         - name: Om Time Series Insights
           href: time-series-insights-overview.md
@@ -37,61 +63,61 @@
           href: time-series-insights-explorer.md
         - name: Förstå datakvarhållning
           href: time-series-insights-concepts-retention.md
-        - name: Utveckla
-          items:
-            - name: Autentisera och auktorisera
-              href: time-series-insights-authentication-and-authorization.md
-            - name: Fråga data med hjälp av C#
-              href: time-series-insights-query-data-csharp.md
-            - name: Hantera referensdata med C#
-              href: time-series-insights-manage-reference-data-csharp.md
-            - name: Dela en anpassad vy
-              href: time-series-insights-parameterized-urls.md
-    - name: Förhandsversion av Azure Time Series Insights
+    - name: Utveckla
       items:
-        - name: Användningsfall
-          href: time-series-insights-update-use-cases.md
-        - name: Planera din miljö
-          href: time-series-insights-update-plan.md
-        - name: Översikt över datainmatning
-          href: concepts-ingestion-overview.md
-        - name: Datatyper som stöds
-          href: concepts-supported-data-types.md
-        - name: Strömningsinmatning – händelsekällor
-          href: concepts-streaming-ingestion-event-sources.md
-        - name: Regler för att platta ut JSON och undantagsregler
-          href: concepts-json-flattening-escaping-rules.md
-        - name: Strömningsinkommande – dataflödesbegränsningar
-          href: concepts-streaming-throughput-limitations.md
-        - name: Storage
-          href: concepts-storage.md
-        - name: Time Series-modell
-          href: concepts-model-overview.md
-        - name: Time Series-fråga
-          href: concepts-query-overview.md
-        - name: Visualisera data i utforskaren (förhandsversion)
-          href: time-series-insights-update-explorer.md
-        - name: Utveckla
-          items:
-            - name: Autentisera och auktorisera
-              href: time-series-insights-authentication-and-authorization.md
-            - name: Fråga data med hjälp av C#
-              href: time-series-insights-update-query-data-csharp.md
-            - name: Power BI-integrering
-              href: concepts-power-bi.md
+        - name: Autentisera och auktorisera
+          href: time-series-insights-authentication-and-authorization.md
+        - name: Fråga data med hjälp av C#
+          href: time-series-insights-query-data-csharp.md
+        - name: Hantera referensdata med C#
+          href: time-series-insights-manage-reference-data-csharp.md
+        - name: Dela en anpassad vy
+          href: time-series-insights-parameterized-urls.md
 - name: Anvisningar
   items:
     - name: Bevilja åtkomst till data
-      href: time-series-insights-data-access.md
+      href: concepts-access-policies.md
     - name: Ansluta till Event Hubs
       href: time-series-insights-how-to-add-an-event-source-eventhub.md
     - name: Ansluta till IoT Hub
       href: time-series-insights-how-to-add-an-event-source-iothub.md
     - name: Hantera resurser med hjälp av mallar
       href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
-    - name: Allmän tillgänglighet för Azure Time Series Insights
+    - name: Azure Time Series Insights Gen2
       items:
-        - name: Skapa en miljö
+        - name: Bästa praxis
+          items:
+            - name: Planera din miljö
+              href: how-to-plan-your-environment.md
+        - name: Miljöhantering
+          items:
+            - name: Etablera och hantera
+              href: how-to-provision-manage.md
+            - name: Diagnostisera och felsöka
+              href: how-to-diagnose-troubleshoot.md
+        - name: Inkommande och lagring
+          items:
+            - name: Välja ett TSID
+              href: how-to-select-tsid.md
+        - name: Modell
+          items:
+            - name: Redigera din modell
+              href: how-to-edit-your-model.md
+        - name: Anslutningar
+          items:
+            - name: Ansluta till Power BI
+              href: how-to-connect-power-bi.md
+        - name: Migreringar
+          items:
+            - name: Migrera till nya API-versioner
+              href: how-to-api-migration.md
+    - name: Azure Time Series Insights Gen1
+      items:
+        - name: Utforska Time Series Insights
+          href: time-series-quickstart.md
+        - name: Skapa och fylla i en miljö
+          href: tutorial-create-populate-tsi-environment.md
+        - name: Skapa en miljö i Azure-portalen
           href: time-series-insights-get-started.md
         - name: Konfigurera datakvarhållning
           href: time-series-insights-how-to-configure-retention.md
@@ -107,60 +133,86 @@
           href: time-series-insights-environment-mitigate-latency.md
         - name: Diagnostisera och felsöka
           href: time-series-insights-diagnose-and-solve-problems.md
-    - name: Förhandsversion av Azure Time Series Insights
-      items:
-        - name: Etablera och hantera
-          href: time-series-insights-update-how-to-manage.md
-        - name: Välj ett Time Series-ID
-          href: time-series-insights-update-how-to-id.md
-        - name: Diagnostisera och felsöka
-          href: time-series-insights-update-how-to-troubleshoot.md
-        - name: Datamodellering
-          href: time-series-insights-update-how-to-tsm.md
-        - name: Forma JSON för ingress och frågor
-          href: time-series-insights-update-how-to-shape-events.md
-        - name: Ansluta till Power BI
-          href: how-to-connect-power-bi.md
-- name: Icke-bakåtkompatibla ändringar
-  items:
-    - name: Förhandsversion av Azure Time Series Insights
-      items:
-        - name: Stöd för datatypen Long läggs till
-          href: time-series-insights-long-data-type.md
-        - name: Ändringar i utplattning och lagring av JSON
-          href: ingestion-rules-update.md
 - name: Referens
   items:
     - name: Time Series Insights
       items:
-        - name: Azure Time Series Insights
-          href: /rest/api/time-series-insights/index
-        - name: Dataåtkomst (Allmänt tillgänglig)
-          href: /rest/api/time-series-insights/ga
+        - name: 'Översikt över REST-API:er'
+          href: 'https://docs.microsoft.com/rest/api/time-series-insights/'
+        - name: Data Access Gen2
           items:
-            - name: Söka i data
-              href: /rest/api/time-series-insights/ga-query
+            - name: Översikt
+              href: 'https://docs.microsoft.com/rest/api/time-series-insights/preview'
+            - name: Modellinställningar
               items:
+                - name: Översikt
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings'
+                - name: Hämta
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/get'
+                - name: Uppdatera
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/update'
+            - name: Söka i data
+              items:
+                - name: Översikt
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query'
+                - name: Genomförande
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute'
+                - name: Hämta tillgänglighet
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/getavailability'
+                - name: Hämta händelseschema
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/geteventschema'
+            - name: Time Series-hierarkier
+              items:
+                - name: Översikt
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies'
+                - name: Köra Batch
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch'
+                - name: Hämta
+                  href: 'https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list'
+            - name: Tidsserieinstanser
+              items:
+                - name: Översikt
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances'
+                - name: Köra Batch
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch'
+                - name: Hämta
+                  href: 'https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list'
+                - name: Search
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search'
+                - name: Föreslå
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/suggest'
+            - name: Tidsserietyper
+              items:
+                - name: Översikt
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes'
+                - name: Köra Batch
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch'
+                - name: Hämta
+                  href: 'https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list'
+        - name: Data Access Gen1
+          items:
+            - name: Översikt
+              href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga'
+            - name: Söka i data
+              items:
+                - name: Söka i data
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga-query'
                 - name: API
-                  href: /rest/api/time-series-insights/ga-query-api
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api'
                 - name: Syntax
-                  href: /rest/api/time-series-insights/ga-query-syntax
+                  href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax'
             - name: API för referensdata
-              href: /rest/api/time-series-insights/ga-reference-data-api
-        - name: Förhandsversion av koncept för dataåtkomst
-          href: /rest/api/time-series-insights/preview
+              href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api'
     - name: Client SDK
       items:
         - name: JavaScript Client SDK
           href: 'https://github.com/microsoft/tsiclient/blob/master/docs/API.md'
     - name: Azure CLI
-      href: /cli/azure/ext/timeseriesinsights/timeseriesinsights
-      displayName: az iot
+      href: 'https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/timeseriesinsights?view=azure-cli-latest'
 - name: Resurser
-  expanded: true
   items:
     - name: Alternativ för support och hjälp
-      href: /azure/iot-fundamentals/iot-support-help
+      href: 'https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help'
     - name: Kunddataförfrågningar
       href: time-series-insights-customer-data-requests.md
     - name: Resurser för utvecklare
@@ -181,6 +233,22 @@
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Regional tillgänglighet
           href: 'https://azure.microsoft.com/regions/services/'
+    - name: Alternativ för support och hjälp
+      items:
+        - name: Supportalternativ för Azure
+          href: 'https://azure.microsoft.com/support/options/'
+        - name: Support och hjälp för Azure IoT
+          href: 'https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help'
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
+        - name: MSDN-forum
+          href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights'
+    - name: Feedback och forum
+      items:
+        - name: MSDN-forum
+          href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights'
+        - name: Förslag och önskemål kring produkter
+          href: 'https://feedback.azure.com/forums/906859-azure-time-series-insights'
     - name: Azure-videor
       href: 'https://azure.microsoft.com/resources/videos/index/?services=time-series-insights'
     - name: Channel 9-video

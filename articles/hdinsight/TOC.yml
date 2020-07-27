@@ -939,8 +939,6 @@
           href: ./control-network-traffic.md
         - name: IP-adresser som krävs för nätverkssäkerhetsgrupper och användardefinierade vägar
           href: ./hdinsight-management-ip-addresses.md
-        - name: Tjänsttaggar för Azure-brandvägg
-          href: ./hdinsight-service-tags.md
         - name: Kundhanterad nyckeldiskkryptering
           href: ./disk-encryption.md
         - name: LDAP-synkronisering i Ranger och Apache Ambari
@@ -967,8 +965,12 @@
           href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
         - name: Använda brandväggen för att begränsa utgående trafik
           href: ./hdinsight-restrict-outbound-traffic.md
+        - name: Skapa principer för tjänstslutpunkter
+          href: ./service-endpoint-policies.md
         - name: Konfigurera virtuell nätverksinstallation
           href: ./network-virtual-appliance.md
+        - name: Tjänsttaggar för Azure-brandvägg
+          href: ./hdinsight-service-tags.md
         - name: Felsöka
           items:
             - name: ESP-autentiseringsproblem

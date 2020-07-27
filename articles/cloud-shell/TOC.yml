@@ -20,7 +20,7 @@
       items:
         - name: Skapa en körningsplan
           href: example-terraform-bash.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: PowerShell Cloud Shell för Windows-användare
       href: cloud-shell-windows-users.md
@@ -32,6 +32,8 @@
       href: msi-authorization.md
     - name: Bädda in Cloud Shell
       href: embed-cloud-shell.md
+    - name: Cloud Shell i Azure Virtual Network
+      href: private-vnet.md
 - name: Använda Cloud Shell-redigeringsverktyget
   href: using-cloud-shell-editor.md
 - name: Felsökning och begränsningar

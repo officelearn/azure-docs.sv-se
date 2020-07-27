@@ -84,6 +84,8 @@
           href: troubleshoot-missing-data-download.md
         - name: 'Det går inte att komma åt Graph API:er för rapportering'
           href: troubleshoot-graph-api.md
+        - name: Granska data om ändringar i verifierad domän
+          href: troubleshoot-audit-data-verified-domain.md
 - name: Referens
   expanded: true
   items:

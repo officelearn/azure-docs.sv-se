@@ -44,7 +44,7 @@
       href: migrate-to-policy.md
     - name: DNS-inställningar
       href: dns-settings.md
-    - name: Distribuera flera offentliga IP-adresser
+    - name: Distribuera flera offentliga IP-adresser – PowerShell
       href: multiple-public-ip-powershell.md
 - name: Referens
   items:

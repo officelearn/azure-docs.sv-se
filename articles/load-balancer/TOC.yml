@@ -18,17 +18,19 @@
       href: quickstart-create-standard-load-balancer-powershell.md
     - name: Skapa lastbalanserare – ARM-mall
       href: quickstart-load-balancer-standard-public-template.md
-    - name: Skapa en intern lastbalanserare – portalen
-      href: tutorial-load-balancer-standard-internal-portal.md
-    - name: Skapa en intern lastbalanserare – Azure CLI
-      href: load-balancer-get-started-ilb-arm-cli.md
-    - name: Skapa en intern lastbalanserare – Azure PowerShell
-      href: load-balancer-get-started-ilb-arm-ps.md
-    - name: Skapa en intern lastbalanserare – ARM-mall
-      href: load-balancer-get-started-ilb-arm-template.md
   expanded: true
 - name: Självstudier
   items:
+    - name: Intern lastbalanserare
+      items:
+        - name: Skapa en intern lastbalanserare – portalen
+          href: tutorial-load-balancer-standard-internal-portal.md
+        - name: Skapa en intern lastbalanserare – Azure CLI
+          href: load-balancer-get-started-ilb-arm-cli.md
+        - name: Skapa en intern lastbalanserare – Azure PowerShell
+          href: load-balancer-get-started-ilb-arm-ps.md
+        - name: Skapa en intern lastbalanserare – ARM-mall
+          href: load-balancer-get-started-ilb-arm-template.md
     - name: Belastningsutjämna virtuella datorer mellan tillgänglighetszoner
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Belastningsutjämna virtuella datorer i en specifik tillgänglighetszon
@@ -73,6 +75,8 @@
       href: load-balancer-security-controls.md
     - name: Hantering av serverdelspooler
       href: backend-pool-management.md
+    - name: Standard Load Balancer och skalningsuppsättningar för virtuella datorer
+      href: load-balancer-standard-virtual-machine-scale-sets.md
 - name: Gör så här för att
   items:
     - name: Skalningsuppsättningar för virtuella datorer

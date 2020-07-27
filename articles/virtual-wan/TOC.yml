@@ -38,6 +38,8 @@
           href: virtual-wan-configure-automation-providers.md
     - name: Prissättningsbegrepp
       href: pricing-concepts.md
+    - name: Om NVA i den virtuell hubb
+      href: about-nva-hub.md
     - name: Routning
       items:
         - name: Om routning av virtuell hubb
@@ -60,6 +62,10 @@
               href: scenario-route-between-hubs-firewall.md
             - name: Azure Firewall – anpassad
               href: scenario-route-between-vnets-firewall.md
+    - name: Övervakning
+      items:
+        - name: Om Azure Monitor Insights for Virtual WAN (förhandsversion)
+          href: azure-monitor-insights.md
     - name: Plats-till-plats
       items:
         - name: Om IPSec-principer
@@ -70,6 +76,8 @@
   items:
     - name: Uppgradera en Virtual WAN-SKU
       href: upgrade-virtual-wan.md
+    - name: Skapa NVA i en virtuell hubb (förhandsversion)
+      href: How-to-nva-hub.md
     - name: ExpressRoute
       items:
         - name: Skapa en ExpressRoute-anslutning

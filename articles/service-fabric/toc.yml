@@ -143,6 +143,9 @@
           href: cluster-security-certificates.md
         - name: Certifikathantering i Service Fabric
           href: cluster-security-certificate-management.md
+        - name: Säkerhetskontroller av Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Säkerhetsbaslinje för Azure Security Benchmark
           href: security-baseline.md
     - name: Terminologi

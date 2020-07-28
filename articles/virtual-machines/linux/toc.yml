@@ -345,7 +345,7 @@
         - name: Delade diskar
           href: disks-shared.md
         - name: Tillfälliga operativsystemdiskar
-          href: ephemeral-os-disks.md
+          href: ../ephemeral-os-disks.md
     - name: Nätverk
       href: ../network-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Skalningsuppsättningar

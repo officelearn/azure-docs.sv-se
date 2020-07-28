@@ -173,7 +173,7 @@ Skapa en privat DNS-zon som tillåter Site Recovery-providern (för Hyper-V-dato
 
    1. Sök efter "Privat DNS zon" i Sök fältet **alla tjänster** och välj "privat DNS zoner" i list rutan.
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Visar sökning efter "privat DNS-zon" på nya resurser på sidan Azure Portal.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Visar sökning efter privat DNS-zon på nya resurser på sidan Azure Portal.":::
 
    1. På sidan Privat DNS zoner väljer du knappen ** \+ Lägg till** för att börja skapa en ny zon.
 

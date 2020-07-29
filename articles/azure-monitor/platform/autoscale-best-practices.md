@@ -4,12 +4,12 @@ description: Autoskalning av mönster i Azure för Web Apps, skalnings uppsättn
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 47da813498ef2cd4d16aeaa5ab31eff24b1db267
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 414716fbbb36167e52c4f3b98c70ae7696ffea8f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539542"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327063"
 ---
 # <a name="best-practices-for-autoscale"></a>Bästa metoder för autoskalning
 Azure Monitor autoskalning gäller endast för [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)-, [Cloud Services](https://azure.microsoft.com/services/cloud-services/)-, [App Service-Web Apps-](https://azure.microsoft.com/services/app-service/web/)och [API Management-tjänster](../../api-management/api-management-key-concepts.md).
@@ -22,7 +22,7 @@ Azure Monitor autoskalning gäller endast för [Virtual Machine Scale Sets](http
   En autoskalning-inställning har ett högsta, lägsta och standardvärde för instanser.
 * Ett jobb för autoskalning läser alltid det associerade måttet som ska skalas genom att kontrol lera om det har överskridit det konfigurerade tröskelvärdet för skala ut eller skala in. Du kan visa en lista över mått som autoskalning kan skalas med vid [Azure Monitor autoskalning av vanliga mått](autoscale-common-metrics.md).
 * Alla tröskelvärden beräknas på en instans nivå. Till exempel, "skala ut efter en instans när genomsnitts processor > 80% när antalet instanser är 2", innebär att skala ut när genomsnitts processor över alla instanser är större än 80%.
-* Alla autoskalning-avbrott loggas i aktivitets loggen. Du kan sedan konfigurera en [aktivitets logg avisering](./../../azure-monitor/platform/activity-log-alerts.md) så att du kan meddela dig via e-post, SMS eller webhookar när det uppstår ett automatiskt skalnings haveri.
+* Alla autoskalning-avbrott loggas i aktivitets loggen. Du kan sedan konfigurera en [aktivitets logg avisering](./activity-log-alerts.md) så att du kan meddela dig via e-post, SMS eller webhookar när det uppstår ett automatiskt skalnings haveri.
 * På samma sätt publiceras alla lyckade skalnings åtgärder i aktivitets loggen. Du kan sedan konfigurera en aktivitets logg avisering så att du kan meddela dig via e-post, SMS eller Webhooks när det finns en slutförd autoskalning-åtgärd. Du kan också konfigurera e-post-eller webhook-meddelanden för att få meddelanden om lyckade skalnings åtgärder via fliken meddelanden i den automatiska skalnings inställningen.
 
 ## <a name="autoscale-best-practices"></a>Metod tips för autoskalning
@@ -151,3 +151,4 @@ Förutom att använda aktivitets logg aviseringar kan du också konfigurera e-po
 ## <a name="next-steps"></a>Nästa steg
 - [Skapa en aktivitets logg avisering för att övervaka alla åtgärder för autoskalning av motorn i din prenumeration.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Skapa en aktivitets logg avisering för att övervaka alla misslyckade skalnings åtgärder för autoskalning i/skala ut i din prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+

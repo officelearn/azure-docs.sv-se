@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 4e5d4af74ab54479a49963369cb99dbc19fca848
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 413616034dfe7d1f13612ba12ba86014af62c704
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505286"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325635"
 ---
 # <a name="logs-in-azure-monitor"></a>Loggar i Azure Monitor
 
@@ -42,14 +42,14 @@ I följande tabell visas de olika sätt som du kan använda för att logga in Az
 |  | Beskrivning |
 |:---|:---|
 | **Analysera** | Använd [Log Analytics](../log-query/get-started-portal.md) i Azure Portal för att skriva [logg frågor](../log-query/log-query-overview.md) och analysera logg data interaktivt med hjälp av den kraftfulla datautforskaren analys motorn.<br>Använd [Application Insights Analytics-konsolen](../log-query/log-query-overview.md) i Azure Portal om du vill skriva logg frågor och analysera loggdata interaktivt från Application Insights. |
-| **Visualisera** | Fäst frågeresultaten som återges som tabeller eller diagram på en [Azure-instrumentpanel](../../azure-portal/azure-portal-dashboards.md).<br>Skapa en [arbets bok](../platform/workbooks-overview.md) som ska kombineras med flera data uppsättningar i en interaktiv rapport. <br>Exportera resultatet av en fråga för att [Power BI](powerbi.md) att använda olika visualiseringar och dela med användare utanför Azure.<br>Exportera resultatet av en fråga till [Grafana](grafana-plugin.md) för att dra nytta av dess instrument panel och kombinera med andra data källor.|
+| **Visualisera** | Fäst frågeresultaten som återges som tabeller eller diagram på en [Azure-instrumentpanel](../../azure-portal/azure-portal-dashboards.md).<br>Skapa en [arbets bok](./workbooks-overview.md) som ska kombineras med flera data uppsättningar i en interaktiv rapport. <br>Exportera resultatet av en fråga för att [Power BI](powerbi.md) att använda olika visualiseringar och dela med användare utanför Azure.<br>Exportera resultatet av en fråga till [Grafana](grafana-plugin.md) för att dra nytta av dess instrument panel och kombinera med andra data källor.|
 | **Varning** | Konfigurera en [logg varnings regel](alerts-log.md) som skickar ett meddelande eller [automatiserar en åtgärd](action-groups.md) när resultatet av frågan matchar ett visst resultat.<br>Konfigurera en [mått varnings regel](alerts-metric-logs.md) för vissa logg data loggar som extraheras som mått. |
 | **Hämta** | Få åtkomst till logg frågeresultat från en kommando rad med hjälp av [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Kom åt logg frågeresultaten från en kommando rad med [PowerShell-cmdletar](/powershell/module/az.operationalinsights).<br>Få åtkomst till logg frågeresultaten från ett anpassat program med hjälp av [REST API](https://dev.loganalytics.io/). |
-| **Export** | Bygg ett arbets flöde för att hämta loggdata och kopiera det till en extern plats med hjälp av [Logic Apps](~/articles/logic-apps/index.yml). |
+| **Export** | Bygg ett arbets flöde för att hämta loggdata och kopiera det till en extern plats med hjälp av [Logic Apps](../../logic-apps/index.yml). |
 
 
 ## <a name="how-is-data-in-azure-monitor-logs-structured"></a>Hur är data i Azure Monitor-loggar strukturerade?
-Data som samlas in av Azure Monitor loggar lagras i en [Log Analytics arbets yta](../platform/design-logs-deployment.md). Varje arbets yta innehåller flera tabeller som lagrar data från en viss källa. Alla tabeller har samma [gemensamma egenskaper](log-standard-properties.md), men varje har en unik uppsättning egenskaper beroende på vilken typ av data som lagras. En ny arbets yta kommer att ha en standard uppsättning tabeller och fler tabeller läggs till av olika övervaknings lösningar och andra tjänster som skriver till arbets ytan.
+Data som samlas in av Azure Monitor loggar lagras i en [Log Analytics arbets yta](./design-logs-deployment.md). Varje arbets yta innehåller flera tabeller som lagrar data från en viss källa. Alla tabeller har samma [gemensamma egenskaper](log-standard-properties.md), men varje har en unik uppsättning egenskaper beroende på vilken typ av data som lagras. En ny arbets yta kommer att ha en standard uppsättning tabeller och fler tabeller läggs till av olika övervaknings lösningar och andra tjänster som skriver till arbets ytan.
 
 Loggdata från Application Insights använder samma Log Analytics motor som arbets ytor, men lagras separat för varje övervakat program. Varje program har en standard uppsättning tabeller för att lagra data, till exempel program begär Anden, undantag och sid visningar.
 
@@ -88,7 +88,7 @@ Azure Monitor kan samla in loggdata från olika källor både i Azure och från 
 | Mått | Skicka plattforms mått för Azure Monitor resurser till en Log Analytics arbets yta för att spara loggdata under längre perioder och för att utföra komplex analys med andra data typer med hjälp av [Kusto-frågespråket](/azure/kusto/query/). Se [strömma Azure-resurshanteraren till Log Analytics](./resource-logs.md#send-to-azure-storage). |
 | Azure Table Storage | Samla in data från Azure Storage där vissa Azure-resurser skriver övervaknings data. Se [använda Azure Blob Storage för IIS och Azure Table Storage för händelser med Log Analytics](diagnostics-extension-logs.md). |
 
-### <a name="virtual-machines"></a>Virtual Machines
+### <a name="virtual-machines"></a>Virtuella datorer
 
 | Data | Beskrivning |
 |:---|:---|
@@ -133,3 +133,4 @@ Azure Monitor kan samla in loggdata från olika källor både i Azure och från 
 - Läs mer om [Azure Monitor data plattform](data-platform.md).
 - Lär dig mer om [mått i Azure Monitor](data-platform-metrics.md).
 - Lär dig mer om [övervaknings data som är tillgängliga](data-sources.md) för olika resurser i Azure.
+

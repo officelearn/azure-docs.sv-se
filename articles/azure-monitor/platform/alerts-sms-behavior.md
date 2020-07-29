@@ -7,11 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.subservice: alerts
-ms.openlocfilehash: b75bda626f887f1224c1b0f18a80887983a2367d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff3d055840d69623234a799c62b1d8a6efd96ec5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77665314"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327097"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Aviserings beteende i SMS i åtgärds grupper
 
@@ -43,5 +44,5 @@ En SMS-mottagare som kon figurer ATS som en del av en åtgärds grupp får ett S
 ## <a name="next-steps"></a>Nästa steg
 Få en [Översikt över aktivitets logg aviseringar](alerts-overview.md) och lär dig hur du får aviseringar  
 Läs mer om [begränsning av SMS-hastighet](alerts-rate-limiting.md)  
-Läs mer om [Åtgärds grupper](../../azure-monitor/platform/action-groups.md)
+Läs mer om [Åtgärds grupper](./action-groups.md)
 

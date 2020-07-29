@@ -12,11 +12,13 @@ ms.date: 06/28/2017
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: f0753827fe5f7f2b866726683d4cb1f205da4599
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- devx-track-java
+ms.openlocfilehash: 38816b616179ec16e06e987f82b498085c34ba3f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732470"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327590"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>Ladda upp filer från enheten till molnet med IoT Hub (Java)
 
@@ -28,7 +30,7 @@ Den här självstudien bygger på koden i [skicka meddelanden från moln till en
 
 * Använd IoT Hub fil överförings meddelanden för att utlösa bearbetning av filen i Server delen av din app.
 
-[Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-java.md) snabb start och [skicka meddelanden från molnet till enheten med IoT Hub](iot-hub-java-java-c2d.md) själv studie kursen Visa de grundläggande meddelande funktionerna från enhet till moln och meddelanden från moln till enhet i IoT Hub. I självstudien [Konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) beskrivs ett tillförlitligt sätt att lagra meddelanden från enheten till molnet i Azure Blob Storage. I vissa fall kan du dock inte enkelt mappa de data som enheterna skickar till de relativt små enhets-till-moln-meddelanden som IoT Hub accepterar. Ett exempel:
+[Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-java.md) snabb start och [skicka meddelanden från molnet till enheten med IoT Hub](iot-hub-java-java-c2d.md) själv studie kursen Visa de grundläggande meddelande funktionerna från enhet till moln och meddelanden från moln till enhet i IoT Hub. I självstudien [Konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) beskrivs ett tillförlitligt sätt att lagra meddelanden från enheten till molnet i Azure Blob Storage. I vissa fall kan du dock inte enkelt mappa de data som enheterna skickar till de relativt små enhets-till-moln-meddelanden som IoT Hub accepterar. Till exempel:
 
 * Stora filer som innehåller bilder
 * Videoklipp

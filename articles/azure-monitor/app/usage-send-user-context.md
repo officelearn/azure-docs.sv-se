@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: a3a59b6658e6ea0229f65492b20b5f5f2882d12a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 46b7479df6d087915cfe81895a786a528da6b9bb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499247"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327913"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Skicka användar kontext-ID: n för att aktivera användnings upplevelser i Azure Application Insights
 
@@ -30,7 +30,7 @@ För att kunna spåra vad en användare använder med tiden behöver Application
 - Sessioner: ta med sessions-ID.
 
 > [!NOTE]
-> Det här är en avancerad artikel som beskriver de manuella stegen för att spåra användar aktivitet med Application Insights. Med många webb program behöver **de här stegen inte utföras**eftersom standard-SDK: er för Server sidan tillsammans med [klient-och webb läsar sidans JavaScript SDK](../../azure-monitor/app/website-monitoring.md )är ofta tillräckliga för att automatiskt spåra användar aktivitet. Om du inte har konfigurerat [övervakning på klient sidan](../../azure-monitor/app/website-monitoring.md ) utöver SDK för Server sidan, gör du det först och testar för att se om verktygen för användar beteende analys fungerar som förväntat.
+> Det här är en avancerad artikel som beskriver de manuella stegen för att spåra användar aktivitet med Application Insights. Med många webb program behöver **de här stegen inte utföras**eftersom standard-SDK: er för Server sidan tillsammans med [klient-och webb läsar sidans JavaScript SDK](./website-monitoring.md)är ofta tillräckliga för att automatiskt spåra användar aktivitet. Om du inte har konfigurerat [övervakning på klient sidan](./website-monitoring.md) utöver SDK för Server sidan, gör du det först och testar för att se om verktygen för användar beteende analys fungerar som förväntat.
 
 ## <a name="choosing-user-ids"></a>Välja användar-ID
 
@@ -134,4 +134,5 @@ namespace MvcWebRole.Telemetry
     - [Användare, sessioner och händelser](usage-segmentation.md)
     - [Trattar](usage-funnels.md)
     - [Kvarhållning](usage-retention.md)
-    - [Arbetsböcker](../../azure-monitor/platform/workbooks-overview.md)
+    - [Arbetsböcker](../platform/workbooks-overview.md)
+

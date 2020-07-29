@@ -9,12 +9,13 @@ ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 6ebf7d35529a9bf0f6d9caca35b7429a803fed2f
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.custom: devx-track-java
+ms.openlocfilehash: 993dff37f9bde5e674dbe5d41d6d4c6da92f0bc9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562208"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327539"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Java med hjälp av REST API: er
 > [!div class="op_single_selector"]
@@ -28,7 +29,7 @@ ms.locfileid: "85562208"
 
 Skapa ett Java-konsolprogram som skapar, läser in och skickar frågor till ett Sök index med hjälp av [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)och [Azure kognitiv sökning REST API](/rest/api/searchservice/). Den här artikeln innehåller stegvisa instruktioner för att skapa programmet. Du kan också [Hämta och köra hela programmet](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -819,7 +820,7 @@ Nu när du har läst in hotell dokumenten kan du skapa Sök frågor för att få
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 

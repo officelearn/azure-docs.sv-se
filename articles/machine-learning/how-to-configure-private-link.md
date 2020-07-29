@@ -5,17 +5,18 @@ description: Använd Azures privata länk för att få säker åtkomst till din 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/14/2020
-ms.openlocfilehash: 4e76a7adf7435cc1bdee3bb4e64f8cc699a16724
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a723c76f04c85bffd7ae4d1d1e8bf5b65ad4619
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031226"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326502"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Konfigurera en privat Azure-länk för en Azure Machine Learning arbets yta (förhands granskning)
 
@@ -30,6 +31,8 @@ Med Azures privata länk kan du ansluta till din arbets yta med en privat slut p
 > Azures privata länk påverkar inte Azures kontroll plan (hanterings åtgärder) som att ta bort arbets ytan eller hantera beräknings resurser. Till exempel skapa, uppdatera eller ta bort ett beräknings mål. De här åtgärderna utförs via det offentliga Internet som normalt.
 >
 > För hands versionen av Azure Machine Learning Compute instances stöds inte i en arbets yta där privat länk är aktive rad.
+>
+> Du kan stöta på problem vid försök att komma åt den privata slut punkten för din arbets yta om du använder Mozilla Firefox. Det här problemet kan vara relaterat till DNS via HTTPS i Mozilla. Vi rekommenderar att du använder Microsoft Edge av Google Chrome som en lösning.
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Skapa en arbets yta som använder en privat slut punkt
 

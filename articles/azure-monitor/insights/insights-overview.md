@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/22/2019
-ms.openlocfilehash: ecd66500fdf968a773d3bc4f3d93363bfe86c763
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3eefb97c85b3865abbf116b9912dc45f6db8ce8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836047"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326876"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Översikt över insikter i Azure Monitor
 Insikter ger en anpassad övervaknings miljö för specifika program och tjänster. De lagrar data i [Azure Monitor data plattform](../platform/data-platform.md) och använder andra Azure Monitor funktioner för analys och avisering, men kan samla in ytterligare data och ge en unik användar upplevelse i Azure Portal. Få till gång till insikter från avsnittet om **insikter** på Azure Monitor-menyn i Azure Portal.
@@ -28,14 +29,14 @@ Se [Vad är Application Insights?](../app/app-insights-overview.md).
 ## <a name="azure-monitor-for-containers"></a>Azure Monitor för containrar
 Azure Monitor för behållare övervakar prestanda för behållar arbets belastningar som distribueras till antingen Azure Container Instances eller hanterade Kubernetes-kluster som finns i Azure Kubernetes service (AKS). Övervakning av behållare är avgörande, särskilt när du kör ett produktions kluster, i skala med flera program.
 
-Se [Översikt över Azure Monitor för behållare](../insights/container-insights-overview.md).
+Se [Översikt över Azure Monitor för behållare](./container-insights-overview.md).
 
 ![Azure Monitor för containrar](media/insights-overview/container-insights.png)
 
 ## <a name="azure-monitor-for-resource-groups-preview"></a>Azure Monitor för resurs grupper (förhands granskning)
 Azure Monitor för resurs grupper hjälper till att prioritering och diagnostisera eventuella problem som kan uppstå för enskilda resurser, samtidigt som den erbjuder kontexten och prestandan för resurs gruppen som helhet.
 
-Se [övervaka resurs grupper med Azure Monitor (för hands version)](../insights/resource-group-insights.md).
+Se [övervaka resurs grupper med Azure Monitor (för hands version)](./resource-group-insights.md).
 
 ![Azure Monitor för resurs grupper](media/insights-overview/resource-group-insights.png)
 
@@ -54,3 +55,4 @@ Se [Vad är Azure Monitor for VMS?](vminsights-overview.md)
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om den [Azure Monitor data plattform](../platform/data-platform.md) som utnyttjas av insikter.
 * Lär dig mer om de olika [data källor som används av Azure Monitor](../platform/data-sources.md) och de olika typer av data som samlas in av var och en av insikterna.
+

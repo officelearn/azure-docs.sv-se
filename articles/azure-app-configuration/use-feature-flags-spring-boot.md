@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 09/26/2019
 ms.author: mametcal
-ms.custom: mvc
-ms.openlocfilehash: d924975d852320fcddd5ae988f1d52f10d366f81
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.custom: mvc, devx-track-java
+ms.openlocfilehash: 83c437cb613e3dad04dee17f0f67040532066c3b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790753"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326604"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Självstudie: använda funktions flaggor i en våren Boot-app
 
@@ -73,7 +73,7 @@ Det enklaste sättet att ansluta ditt våren Boot-program till app-konfiguration
 
 ## <a name="feature-flag-declaration"></a>Deklaration för funktions flagga
 
-Varje funktions flagga har två delar: ett namn och en lista med ett eller flera filter som används för att utvärdera om en funktions status är *på* (det vill säga när dess värde är `True`). Ett filter definierar ett användnings fall för när en funktion ska aktive ras.
+Varje funktions flagga har två delar: ett namn och en lista med ett eller flera filter som används för att utvärdera om en funktions status är *på* (det vill säga när dess värde är `True` ). Ett filter definierar ett användnings fall för när en funktion ska aktive ras.
 
 När en funktions flagga har flera filter, så genomsöks filter listan i ordning tills ett av filtren bestämmer att funktionen ska aktive ras. Nu är funktions flaggan *på*och eventuella kvarvarande filter resultat hoppas över. Om inget filter anger att funktionen ska aktive ras, är funktions flaggan *avstängd*.
 
@@ -92,15 +92,15 @@ feature-management:
             value: 50
 ```
 
-Efter konvention används `feature-management` avsnittet i det här YML-dokumentet som inställningar för funktions flagga. I föregående exempel visas tre funktions flaggor med de filter som definierats `EnabledFor` i egenskapen:
+Efter konvention `feature-management` används avsnittet i det här YML-dokumentet som inställningar för funktions flagga. I föregående exempel visas tre funktions flaggor med de filter som definierats i `EnabledFor` egenskapen:
 
 * `feature-a`är *på*.
 * `feature-b`är *avstängd*.
-* `feature-c`anger ett filter med `Percentage` namnet med `parameters` en egenskap. `Percentage`är ett konfigurerbart filter. I det här exemplet `Percentage` anger en sannolikhet på 50 procent för att `feature-c` flaggan ska vara *på*.
+* `feature-c`anger ett filter med namnet `Percentage` med en `parameters` egenskap. `Percentage`är ett konfigurerbart filter. I det här exemplet `Percentage` anger en sannolikhet på 50 procent för att `feature-c` flaggan ska vara *på*.
 
 ## <a name="feature-flag-checks"></a>Funktions flagga kontrollerar
 
-Det grundläggande mönstret för funktions hantering är att först kontrol lera om en funktions flagga har angetts till *på*. I så fall kör funktions hanteraren de åtgärder som funktionen innehåller. Exempel:
+Det grundläggande mönstret för funktions hantering är att först kontrol lera om en funktions flagga har angetts till *på*. I så fall kör funktions hanteraren de åtgärder som funktionen innehåller. Till exempel:
 
 ```java
 private FeatureManager featureManager;
@@ -128,7 +128,7 @@ public class HomeController {
 
 ## <a name="controller-actions"></a>Åtgärder för styrenhet
 
-I MVC-styrenheter använder du `@FeatureGate` attributet för att kontrol lera om en speciell åtgärd är aktive rad. Följande `Index` åtgärd `feature-a` *måste finnas innan* den kan köras:
+I MVC-styrenheter använder du `@FeatureGate` attributet för att kontrol lera om en speciell åtgärd är aktive rad. Följande `Index` åtgärd måste `feature-a` finnas innan den *on* kan köras:
 
 ```java
 @GetMapping("/")
@@ -138,11 +138,11 @@ public String index(Model model) {
 }
 ```
 
-När en MVC-styrenhet eller-åtgärd blockeras eftersom kontroll funktions flaggan är *inaktive rad*, anropas ett registrerat `IDisabledFeaturesHandler` gränssnitt. Standard `IDisabledFeaturesHandler` gränssnittet returnerar en 404 status kod till klienten utan svars text.
+När en MVC-styrenhet eller-åtgärd blockeras eftersom kontroll funktions flaggan är *inaktive rad*, `IDisabledFeaturesHandler` anropas ett registrerat gränssnitt. Standard `IDisabledFeaturesHandler` gränssnittet returnerar en 404 status kod till klienten utan svars text.
 
 ## <a name="mvc-filters"></a>MVC-filter
 
-Du kan konfigurera MVC-filter så att de aktive ras baserat på status för en funktions flagga. Följande kod lägger till ett MVC-filter `FeatureFlagFilter`med namnet. Det här filtret utlöses endast i MVC-pipeline om `feature-a` är aktiverat.
+Du kan konfigurera MVC-filter så att de aktive ras baserat på status för en funktions flagga. Följande kod lägger till ett MVC-filter med namnet `FeatureFlagFilter` . Det här filtret utlöses endast i MVC-pipeline om `feature-a` är aktiverat.
 
 ```java
 @Component
@@ -183,7 +183,7 @@ public String getOldFeature() {
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du implementerar funktions flaggor i ditt våren `spring-cloud-azure-feature-management-web` Boot-program med hjälp av biblioteken. Mer information om stöd för funktions hantering i vår start-och app-konfiguration finns i följande resurser:
+I den här självstudien har du lärt dig hur du implementerar funktions flaggor i ditt våren Boot-program med hjälp av `spring-cloud-azure-feature-management-web` biblioteken. Mer information om stöd för funktions hantering i vår start-och app-konfiguration finns i följande resurser:
 
 * [Exempel kod för vår start funktion flagga](/azure/azure-app-configuration/quickstart-feature-flag-spring-boot)
 * [Hantera funktionsflaggor](./manage-feature-flags.md)

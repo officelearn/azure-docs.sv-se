@@ -6,11 +6,12 @@ author: brahmnes
 ms.author: bfung
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 194a2da23c8fb405c492df8f6ee173cc97fde4ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1cc9893a309dcdf7ac575494d164052bb0c617c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671359"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325686"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Aktivera Snapshot Debugger för .NET-appar i Azure Service Fabric, moln tjänster och Virtual Machines
 
@@ -20,11 +21,11 @@ Om ditt program körs i Azure Service Fabric, moln tjänst, Virtual Machines ell
     
 ## <a name="configure-snapshot-collection-for-aspnet-applications"></a>Konfigurera ögonblicks bild samling för ASP.NET-program
 
-1. [Aktivera Application Insights i din](../../azure-monitor/app/asp-net.md)webbapp, om du inte har gjort det än.
+1. [Aktivera Application Insights i din](./asp-net.md)webbapp, om du inte har gjort det än.
 
 2. Ta med NuGet-paketet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) i appen.
 
-3. Vid behov kan du anpassa Snapshot Debugger-konfigurationen som har lagts till i [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Standard konfigurationen för Snapshot Debugger är oftast Tom och alla inställningar är valfria. Här är ett exempel som visar en konfiguration som motsvarar standard konfigurationen:
+3. Vid behov kan du anpassa Snapshot Debugger-konfigurationen som har lagts till i [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Standard konfigurationen för Snapshot Debugger är oftast Tom och alla inställningar är valfria. Här är ett exempel som visar en konfiguration som motsvarar standard konfigurationen:
 
     ```xml
     <TelemetryProcessors>
@@ -58,12 +59,12 @@ Om ditt program körs i Azure Service Fabric, moln tjänst, Virtual Machines ell
     </TelemetryProcessors>
     ```
 
-4. Ögonblicks bilder samlas endast in på undantag som rapporteras till Application Insights. I vissa fall (till exempel äldre versioner av .NET-plattformen) kan du behöva [Konfigurera undantags samling](../../azure-monitor/app/asp-net-exceptions.md#exceptions) för att se undantag med ögonblicks bilder i portalen.
+4. Ögonblicks bilder samlas endast in på undantag som rapporteras till Application Insights. I vissa fall (till exempel äldre versioner av .NET-plattformen) kan du behöva [Konfigurera undantags samling](./asp-net-exceptions.md#exceptions) för att se undantag med ögonblicks bilder i portalen.
 
 
 ## <a name="configure-snapshot-collection-for-applications-using-aspnet-core-20-or-above"></a>Konfigurera ögonblicks bild samling för program som använder ASP.NET Core 2,0 eller senare
 
-1. [Aktivera Application Insights i din ASP.net Core webbapp](../../azure-monitor/app/asp-net-core.md), om du inte har gjort det än.
+1. [Aktivera Application Insights i din ASP.net Core webbapp](./asp-net-core.md), om du inte har gjort det än.
 
     > [!NOTE]
     > Se till att programmet refererar till version 2.1.1 eller senare av paketet Microsoft. ApplicationInsights. AspNetCore.
@@ -150,7 +151,7 @@ Om ditt program körs i Azure Service Fabric, moln tjänst, Virtual Machines ell
 
 ## <a name="configure-snapshot-collection-for-other-net-applications"></a>Konfigurera ögonblicks bild samling för andra .NET-program
 
-1. Kom igång genom att [aktivera Application Insights och ställa in Instrumentation-tangenten](../../azure-monitor/app/windows-desktop.md)om ditt program inte redan har instrumenterats med Application Insights.
+1. Kom igång genom att [aktivera Application Insights och ställa in Instrumentation-tangenten](./windows-desktop.md)om ditt program inte redan har instrumenterats med Application Insights.
 
 2. Lägg till NuGet-paketet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) i appen.
 
@@ -179,3 +180,4 @@ Om ditt program körs i Azure Service Fabric, moln tjänst, Virtual Machines ell
 - Generera trafik till ditt program som kan utlösa ett undantag. Vänta sedan 10 till 15 minuter för ögonblicks bilder som ska skickas till Application Insights-instansen.
 - Se [ögonblicks bilder](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) i Azure Portal.
 - Hjälp med fel sökning Snapshot Debugger problem finns i [Snapshot debugger fel sökning](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
+

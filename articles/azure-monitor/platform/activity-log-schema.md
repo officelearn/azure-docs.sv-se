@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/09/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 3d7085f54634ab1175fc0f916e24b7f03dc1bc9b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e50d6b6fe88cbad42d238ee2779abfe10e752f0e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073669"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327284"
 ---
 # <a name="azure-activity-log-event-schema"></a>Händelse schema för Azure aktivitets logg
 [Azure aktivitets loggen](platform-logs-overview.md) ger inblick i alla händelser på prenumerations nivå som har inträffat i Azure. I den här artikeln beskrivs aktivitets logg kategorier och schemat för var och en. 
@@ -137,7 +137,7 @@ Den här kategorin innehåller posten över alla åtgärder för att skapa, uppd
 | kanal |Ett av följande värden: "admin", "åtgärd" |
 | gällande |JWT-token som används av Active Directory för att autentisera användaren eller programmet för att utföra den här åtgärden i Resource Manager. |
 | correlationId |Vanligt vis ett GUID i sträng formatet. Händelser som delar ett correlationId tillhör samma Uber-åtgärd. |
-| description |Statisk text Beskrivning av en händelse. |
+| beskrivning |Statisk text Beskrivning av en händelse. |
 | eventDataId |Unikt ID för en händelse. |
 | eventName | Eget namn på den administrativa händelsen. |
 | category | Alltid "administrativ" |
@@ -281,7 +281,7 @@ Den här kategorin innehåller posten för eventuella resurs hälso händelser s
 | --- | --- |
 | kanal | Always "admin, operation" |
 | correlationId | Ett GUID i sträng formatet. |
-| description |Statisk text Beskrivning av aviserings händelsen. |
+| beskrivning |Statisk text Beskrivning av aviserings händelsen. |
 | eventDataId |Unikt ID för aviserings händelsen. |
 | category | Always "ResourceHealth" |
 | eventTimestamp |Tidsstämpel när händelsen genererades av Azure-tjänsten som bearbetar begäran som motsvarar händelsen. |
@@ -376,7 +376,7 @@ Den här kategorin innehåller posten över alla aktiveringar av klassiska Azure
 | kanal | Always "admin, operation" |
 | gällande | JSON-BLOB med SPN (tjänstens huvud namn) eller resurs typ för aviserings motorn. |
 | correlationId | Ett GUID i sträng formatet. |
-| description |Statisk text Beskrivning av aviserings händelsen. |
+| beskrivning |Statisk text Beskrivning av aviserings händelsen. |
 | eventDataId |Unikt ID för aviserings händelsen. |
 | category | Alltid "varning" |
 | nivå |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning" och "information" |
@@ -486,7 +486,7 @@ Den här kategorin innehåller posten för alla händelser som rör driften av a
 | kanal | Always "admin, operation" |
 | gällande | JSON-BLOB med SPN (tjänstens huvud namn) eller resurs typ för den automatiska skalnings motorn. |
 | correlationId | Ett GUID i sträng formatet. |
-| description |Statisk text Beskrivning av händelsen autoskalning. |
+| beskrivning |Statisk text Beskrivning av händelsen autoskalning. |
 | eventDataId |Unikt ID för autoskalning-händelsen. |
 | nivå |Händelsens nivå. Ett av följande värden: "kritisk", "fel", "varning" och "information" |
 | resourceGroupName |Namnet på resurs gruppen för den automatiska skalnings inställningen. |
@@ -574,7 +574,7 @@ Den här kategorin innehåller de aviseringar som genererats av Azure Security C
 | --- | --- |
 | kanal | Always "operation" |
 | correlationId | Ett GUID i sträng formatet. |
-| description |Statisk text Beskrivning av säkerhets händelsen. |
+| beskrivning |Statisk text Beskrivning av säkerhets händelsen. |
 | eventDataId |Unik identifierare för säkerhets händelsen. |
 | eventName |Eget namn på säkerhets händelsen. |
 | category | Alltid "säkerhet" |
@@ -655,7 +655,7 @@ Den här kategorin innehåller posten för eventuella nya rekommendationer som g
 | --- | --- |
 | kanal | Always "operation" |
 | correlationId | Ett GUID i sträng formatet. |
-| description |Statisk text Beskrivning av rekommendations händelsen |
+| beskrivning |Statisk text Beskrivning av rekommendations händelsen |
 | eventDataId | Unikt ID för rekommendations händelsen. |
 | category | Alltid "rekommendation" |
 | ID |Unikt resurs-ID för rekommendations händelsen. |
@@ -768,7 +768,7 @@ Den här kategorin innehåller poster med åtgärder som utförs av alla åtgär
 | kanal | Princip händelser använder bara kanalen "åtgärd". |
 | gällande | JWT-token som används av Active Directory för att autentisera användaren eller programmet för att utföra den här åtgärden i Resource Manager. |
 | correlationId | Vanligt vis ett GUID i sträng formatet. Händelser som delar ett correlationId tillhör samma Uber-åtgärd. |
-| description | Det här fältet är tomt för princip händelser. |
+| beskrivning | Det här fältet är tomt för princip händelser. |
 | eventDataId | Unikt ID för en händelse. |
 | eventName | Antingen "BeginRequest" eller "EndRequest". "BeginRequest" används för fördröjda auditIfNotExists-och deployIfNotExists-utvärderingar och när en deployIfNotExists-påverkan startar en mall-distribution. Alla andra åtgärder returnerar "EndRequest". |
 | category | Deklarerar aktivitets logg händelsen som tillhöra "princip". |
@@ -796,10 +796,10 @@ Den här kategorin innehåller poster med åtgärder som utförs av alla åtgär
 När du strömmar Azure-aktivitets loggen till ett lagrings konto eller en händelsehubben, följer data [schemat för resurs loggen](./resource-logs-schema.md). Tabellen nedan innehåller en mappning av egenskaper från ovanstående scheman till resursens loggar schema.
 
 > [!IMPORTANT]
-> Formatet på de aktivitets logg data som skrivs till ett lagrings konto har ändrats till JSON-linjer på nov. 1st, 2018. Se [förbereda för format ändring till Azure Monitor resurs loggar arkiverade på ett lagrings konto](./resource-logs-append-blobs.md) för information om det här formatet.
+> Formatet på de aktivitets logg data som skrivs till ett lagrings konto har ändrats till JSON-linjer på nov. 1st, 2018. Se [förbereda för format ändring till Azure Monitor resurs loggar arkiverade på ett lagrings konto](/azure/azure-monitor/platform/resource-logs-blob-format) för information om det här formatet.
 
 
-| Schema egenskap för resurs loggar | Aktivitets logg REST API schema egenskap | Kommentarer |
+| Schema egenskap för resurs loggar | Aktivitets logg REST API schema egenskap | Obs! |
 | --- | --- | --- |
 | time | eventTimestamp |  |
 | resourceId | resourceId | subscriptionId, resourceType, resourceGroupName är härledda från resourceId. |
@@ -807,13 +807,13 @@ När du strömmar Azure-aktivitets loggen till ett lagrings konto eller en händ
 | category | Del av åtgärds namn | Grupp av åtgärds typen-"Skriv"/"ta bort"/"åtgärd" |
 | resultType | status. Value | |
 | resultSignature | under status. värde | |
-| resultDescription | description |  |
-| durationMs | Ej tillämpligt | Alltid 0 |
+| resultDescription | beskrivning |  |
+| durationMs | E.t. | Alltid 0 |
 | callerIpAddress | httpRequest. clientIpAddress |  |
 | correlationId | correlationId |  |
 | identity | anspråk och egenskaper för auktorisering |  |
 | Nivå | Nivå |  |
-| location | Ej tillämpligt | Platsen där händelsen bearbetades. *Detta är inte platsen för resursen, utan i stället där händelsen bearbetades. Den här egenskapen tas bort i en framtida uppdatering.* |
+| location | E.t. | Platsen där händelsen bearbetades. *Detta är inte platsen för resursen, utan i stället där händelsen bearbetades. Den här egenskapen tas bort i en framtida uppdatering.* |
 | Egenskaper | egenskaper. eventProperties |  |
 | egenskaper. eventCategory | category | Om Properties. eventCategory inte finns är kategorin "administrativ" |
 | egenskaper. eventName | eventName |  |
@@ -885,3 +885,4 @@ Följande är ett exempel på en händelse som använder det här schemat..
 ## <a name="next-steps"></a>Nästa steg
 * [Läs mer om aktivitets loggen](platform-logs-overview.md)
 * [Skapa en diagnostisk inställning för att skicka aktivitets loggen till Log Analytics arbets yta, Azure Storage eller Event Hub](diagnostic-settings.md)
+

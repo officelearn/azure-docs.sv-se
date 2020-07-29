@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 28bbf9749375a4523237e840c217977853cd4ddd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4e2557b114b5eb90b03e59dc64cbd6e69c7dd9a4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539830"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326587"
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
-Sampling är en funktion i [Azure Application insikter](../../azure-monitor/app/app-insights-overview.md). Det är det rekommenderade sättet att minska telemetri-trafik, data kostnader och lagrings kostnader, samtidigt som en statistisk korrekt analys av program data bevaras. Genom att använda sampling kan du också undvika Application Insights begränsning av din telemetri. Samplings filtret väljer objekt som är relaterade, så att du kan navigera mellan objekt när du gör diagnostiska undersökningar.
+Sampling är en funktion i [Azure Application insikter](./app-insights-overview.md). Det är det rekommenderade sättet att minska telemetri-trafik, data kostnader och lagrings kostnader, samtidigt som en statistisk korrekt analys av program data bevaras. Genom att använda sampling kan du också undvika Application Insights begränsning av din telemetri. Samplings filtret väljer objekt som är relaterade, så att du kan navigera mellan objekt när du gör diagnostiska undersökningar.
 
 När antalet mått visas i portalen, är de omnormaliserade för att ta hänsyn till konto insamlingen. Detta minimerar eventuell påverkan på statistiken.
 
@@ -25,7 +25,7 @@ När antalet mått visas i portalen, är de omnormaliserade för att ta hänsyn 
 * Fast pris sampling är tillgängligt i de senaste versionerna av Application Insights SDK: er för ASP.NET, ASP.NET Core, Java (både agenten och SDK) och python.
 * Provtagnings samplingen fungerar på Application Insights tjänstens slut punkt. Den gäller endast när ingen annan sampling tillämpas. Om SDK-exemplen för telemetri inaktive ras inmatnings sampling.
 * För webb program, om du loggar anpassade händelser och måste se till att en uppsättning händelser behålls eller ignoreras tillsammans, måste händelserna ha samma `OperationId` värde.
-* Om du skriver analys frågor bör du [ta hänsyn till sampling](../../azure-monitor/log-query/aggregations.md). I stället för att helt enkelt räkna poster bör du använda `summarize sum(itemCount)` .
+* Om du skriver analys frågor bör du [ta hänsyn till sampling](../log-query/aggregations.md). I stället för att helt enkelt räkna poster bör du använda `summarize sum(itemCount)` .
 * Vissa typer av telemetri, inklusive prestanda mått och anpassade mått, hålls alltid oavsett om sampling är aktiverat eller inte.
 
 I följande tabell sammanfattas de samplings typer som är tillgängliga för varje SDK och typ av program:
@@ -72,9 +72,9 @@ Mått, till exempel begär ande frekvens och undantags frekvens justeras för at
 ### <a name="configuring-adaptive-sampling-for-aspnet-applications"></a>Konfigurera adaptiv sampling för ASP.NET-program
 
 > [!NOTE]
-> Det här avsnittet gäller för ASP.NET-program, inte för att ASP.NET Core program. [Läs mer om hur du konfigurerar adaptiv sampling för ASP.NET Core program senare i det här dokumentet.](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications)
+> Det här avsnittet gäller för ASP.NET-program, inte för att ASP.NET Core program. [Läs mer om hur du konfigurerar adaptiv sampling för ASP.NET Core program senare i det här dokumentet.](#configuring-adaptive-sampling-for-aspnet-core-applications)
 
-I [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md) kan du justera flera parametrar i `AdaptiveSamplingTelemetryProcessor` noden. De siffror som visas är standardvärden:
+I [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md) kan du justera flera parametrar i `AdaptiveSamplingTelemetryProcessor` noden. De siffror som visas är standardvärden:
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
   
@@ -146,7 +146,7 @@ I stället för att ställa in parametern sampling i `.config` filen kan du konf
     builder.Build();
     ```
 
-    ([Läs mer om telemetri-processorer](../../azure-monitor/app/api-filtering-sampling.md#filtering).)
+    ([Läs mer om telemetri-processorer](./api-filtering-sampling.md#filtering).)
 
 Du kan också justera samplings frekvensen för varje typ av telemetri individuellt, eller så kan du till och med undanta vissa typer från att samplas över huvud taget:
 
@@ -222,7 +222,7 @@ I Metrics Explorer multipliceras priser som begäran och undantags antal med en 
 
 ### <a name="configuring-fixed-rate-sampling-for-aspnet-applications"></a>Konfigurera fast priss insamling för ASP.NET-program
 
-1. **Inaktivera adaptiv sampling**: i [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md) , ta bort eller kommentera ut `AdaptiveSamplingTelemetryProcessor` noden.
+1. **Inaktivera adaptiv sampling**: i [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md) , ta bort eller kommentera ut `AdaptiveSamplingTelemetryProcessor` noden.
 
     ```xml
     <TelemetryProcessors>
@@ -233,7 +233,7 @@ I Metrics Explorer multipliceras priser som begäran och undantags antal med en 
         -->
     ```
 
-2. **Aktivera samplings-modulen för fast pris.** Lägg till det här kodfragmentet i [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md) :
+2. **Aktivera samplings-modulen för fast pris.** Lägg till det här kodfragmentet i [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md) :
    
     ```XML
     <TelemetryProcessors>
@@ -265,7 +265,7 @@ I Metrics Explorer multipliceras priser som begäran och undantags antal med en 
     builder.Build();
     ```
 
-    ([Läs mer om telemetri-processorer](../../azure-monitor/app/api-filtering-sampling.md#filtering).)
+    ([Läs mer om telemetri-processorer](./api-filtering-sampling.md#filtering).)
 
 ### <a name="configuring-fixed-rate-sampling-for-aspnet-core-applications"></a>Konfigurera fast pris sampling för ASP.NET Core program
 
@@ -331,7 +331,7 @@ Som standard är ingen sampling aktive rad i Java-agenten och SDK. För närvara
 
 #### <a name="configuring-java-sdk"></a>Konfigurera Java SDK
 
-1. Hämta och konfigurera ditt webb program med de senaste [Application Insights Java SDK: n](../../azure-monitor/app/java-get-started.md).
+1. Hämta och konfigurera ditt webb program med de senaste [Application Insights Java SDK: n](./java-get-started.md).
 
 2. **Aktivera samplings-modulen med fast pris** genom att lägga till följande kodfragment till `ApplicationInsights.xml` filen:
 
@@ -366,7 +366,7 @@ De typer av telemetri som kan tas med eller undantas från sampling är: `Depend
 
 ### <a name="configuring-fixed-rate-sampling-for-opencensus-python-applications"></a>Konfigurera fast pris sampling för python-program för openräkning
 
-Instrumentera ditt program med de senaste [Azure Monitor exportörerna för openräkning](../../azure-monitor/app/opencensus-python.md).
+Instrumentera ditt program med de senaste [Azure Monitor exportörerna för openräkning](./opencensus-python.md).
 
 > [!NOTE]
 > Fast priss insamling är inte tillgängligt för export verktyget för mått. Det innebär att anpassade mått är de enda typerna av telemetri där sampling inte kan konfigureras. Mått export verktyget skickar all telemetri som den spårar.
@@ -446,7 +446,7 @@ Ange samplings frekvensen på sidan användning och uppskattade kostnader:
 
 I likhet med andra typer av sampling behåller algoritmen relaterade telemetri objekt. När du till exempel inspekterar Telemetrin i sökningen kommer du att kunna hitta begäran som är relaterad till ett visst undantag. Mått, till exempel begär ande frekvens och undantags frekvens, bevaras korrekt.
 
-Data punkter som tas bort från sampling är inte tillgängliga i någon Application Insights funktion som [kontinuerlig export](../../azure-monitor/app/export-telemetry.md).
+Data punkter som tas bort från sampling är inte tillgängliga i någon Application Insights funktion som [kontinuerlig export](./export-telemetry.md).
 
 Provtagnings samplingen fungerar inte medan adaptiv eller fast pris sampling är i drift. Adaptiv sampling är aktiverat som standard när ASP.NET SDK eller ASP.NET Core SDK används, eller när Application Insights har Aktiver ATS i [Azure App Service](azure-web-apps.md) eller med hjälp av statusövervakare. När telemetri tas emot av Application Insights tjänstens slut punkt, undersöker den Telemetrin och om samplings frekvensen rapporteras vara mindre än 100% (vilket betyder att telemetri samplas), ignoreras den inmatnings samplings frekvens som du har angett.
 
@@ -473,7 +473,7 @@ De största fördelarna med sampling är:
 
 **Använd sampling med fast pris om:**
 
-* Du vill ha synkroniserad sampling mellan klienten och servern så att när du undersöker händelser i [sökningen](../../azure-monitor/app/diagnostic-search.md)kan du navigera mellan relaterade händelser på klienten och servern, till exempel sidvyer och HTTP-begäranden.
+* Du vill ha synkroniserad sampling mellan klienten och servern så att när du undersöker händelser i [sökningen](./diagnostic-search.md)kan du navigera mellan relaterade händelser på klienten och servern, till exempel sidvyer och HTTP-begäranden.
 * Du är säker på rätt samplings procent för din app. Det bör vara tillräckligt högt för att få korrekta mått, men under den hastighet som överskrider din prissättnings kvot och begränsnings gränser.
 
 **Använd anpassningsbar sampling:**
@@ -561,7 +561,7 @@ Noggrannheten i uppskattningen beror i stor utsträckning på den konfigurerade 
 
 *Det finns vissa sällsynta händelser som jag alltid vill se. Hur kan jag få dem förbi samplings modulen?*
 
-* Det bästa sättet att åstadkomma detta är att skriva en anpassad [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer), som ställer in `SamplingPercentage` till 100 på det telemetridata som du vill ha kvar, enligt bilden nedan. Eftersom initierare är garanterat att köras före telemetri-processorer (inklusive sampling) ser detta till att alla samplings tekniker kommer att ignorera det här objektet från alla exempel på att tänka på. Anpassade telemetri-initierare är tillgängliga i ASP.NET SDK, ASP.NET Core SDK, Java Script SDK och Java SDK. Du kan till exempel konfigurera en telemetri-initierare med hjälp av ASP.NET SDK:
+* Det bästa sättet att åstadkomma detta är att skriva en anpassad [TelemetryInitializer](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer), som ställer in `SamplingPercentage` till 100 på det telemetridata som du vill ha kvar, enligt bilden nedan. Eftersom initierare är garanterat att köras före telemetri-processorer (inklusive sampling) ser detta till att alla samplings tekniker kommer att ignorera det här objektet från alla exempel på att tänka på. Anpassade telemetri-initierare är tillgängliga i ASP.NET SDK, ASP.NET Core SDK, Java Script SDK och Java SDK. Du kan till exempel konfigurera en telemetri-initierare med hjälp av ASP.NET SDK:
 
     ```csharp
     public class MyTelemetryInitializer : ITelemetryInitializer
@@ -586,5 +586,6 @@ Före v-2.5.0-beta2 av ASP.NET SDK och v 2.2.0-beta3 för ASP.NET Core SDK baser
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Filtrering](../../azure-monitor/app/api-filtering-sampling.md) kan ge mer strikt kontroll över vad din SDK skickar.
+* [Filtrering](./api-filtering-sampling.md) kan ge mer strikt kontroll över vad din SDK skickar.
 * Läs artikeln om Developer Network [optimera telemetri med Application Insights](/archive/msdn-magazine/2017/may/devops-optimize-telemetry-with-application-insights).
+

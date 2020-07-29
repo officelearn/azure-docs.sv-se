@@ -4,15 +4,15 @@ description: Så här skapar du ett nytt hanterat tjänst erbjudande för List p
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: JnHs
-ms.author: jenhayes
+author: Microsoft-BradleyWright
+ms.author: brwrigh
 ms.date: 07/07/2020
-ms.openlocfilehash: 3bb663dcdf007bf77d1b9f2b46af532774af22e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 193781e078f12dec553d98c15699c7e665966a87
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086395"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326637"
 ---
 # <a name="create-a-managed-service-offer"></a>Skapa ett erbjudande för hanterad tjänst
 
@@ -42,7 +42,7 @@ Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudand
 Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
 
 * Det här namnet används inte på Marketplace och skiljer sig från namnet på erbjudandet och andra värden som visas för kunderna.
-* Det går inte att ändra aliaset för erbjudandet när du har valt **skapa**.
+* Det går inte att ändra namnet på erbjudandet när du har valt **skapa**.
 
 Välj **skapa** för att generera erbjudandet och fortsätt.
 
@@ -155,7 +155,7 @@ Följ dessa rikt linjer för dina logo typer:
 
 Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Alla skärm dum par måste vara 1280 x 720 bild punkter.
 
-#### <a name="videos"></a>Video
+#### <a name="videos"></a>Videoklipp
 
 Du kan också lägga till upp till fem videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 pixlar).
 

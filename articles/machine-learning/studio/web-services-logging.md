@@ -1,6 +1,5 @@
 ---
-title: Aktivera loggning av webb tjänst
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klassisk): Aktivera loggning av webb tjänst – Azure'
 description: 'Lär dig hur du aktiverar loggning för Machine Learning Studio (klassiska) webb tjänster. Loggning ger ytterligare information som hjälper dig att felsöka API: erna.'
 services: machine-learning
 author: likebupt
@@ -11,13 +10,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: 71516641ab5110511d58f7e453759271aff9885a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: baaad137e4a5bc5268642addb5779961b7be3b04
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705839"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326247"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Aktivera loggning för webb tjänster för Azure Machine Learning Studio (klassisk)
+
+**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
+
 
 Det här dokumentet innehåller information om loggnings funktionerna i Machine Learning Studio (klassiska) webb tjänster. Loggning ger ytterligare information, utöver bara ett fel nummer och ett meddelande, som kan hjälpa dig att felsöka anrop till API: erna Machine Learning Studio (klassisk).  
 
@@ -49,7 +52,7 @@ Du aktiverar loggning från den [Azure Machine Learning Studio (klassiska) webb 
 
    1. I [Azure Portal](https://portal.azure.com)går du till det lagrings konto som är associerat med webb tjänsten.
 
-   2. Under **Blob Service** klickar du på **Containers**.
+   2. Under **BLOB service**klickar du på **behållare**.
 
    3. Om behållarens **ml-diagnostik** inte finns klickar du på **+ container**, ger behållaren namnet "ml-diagnostik" och väljer **åtkomst typen** som "BLOB". Klicka på **OK**.
 

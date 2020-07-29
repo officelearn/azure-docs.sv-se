@@ -2,15 +2,15 @@
 title: ARM-mall vanliga frågor och svar
 description: Vanliga frågor och svar om Azure Resource Manager mallar.
 ms.topic: conceptual
-ms.date: 05/30/2020
+ms.date: 07/27/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: fb4bac00c4d971e7b056c18fe609d77b077dbcbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e23334daf0f4f6d5a6917af49c786d47c4557375
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85296873"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327267"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Vanliga frågor om ARM-mallar
 
@@ -48,7 +48,7 @@ I den här artikeln får du svar på vanliga frågor om Azure Resource Manager (
 
   Om du vill veta mer om det nya mall språket registrerar du dig [för meddelanden](https://aka.ms/armLangUpdates).
 
-  [Gå till vänte listan](https://aka.ms/templateSpecsWaitlist)för att förhandsgranska mall-specifikationerna.
+  Mer information om specifikationer för mallar finns i [Azure Resource Manager mall-specifikationer (för hands version)](template-specs.md).
 
 ## <a name="creating-and-testing-templates"></a>Skapa och testa mallar
 
@@ -64,7 +64,7 @@ I den här artikeln får du svar på vanliga frågor om Azure Resource Manager (
 
 * **Kan jag skapa en resurs grupp i en ARM-mall och distribuera resurser till den?**
 
-  Ja, du kan skapa en resurs grupp i en mall när du distribuerar mallen på samma nivå som din Azure-prenumeration. Ett exempel på hur du skapar en resurs grupp och distribuerar resurser finns i [resurs grupp och resurser](deploy-to-subscription.md#resource-group-and-resources).
+  Ja, du kan skapa en resurs grupp i en mall när du distribuerar mallen på samma nivå som din Azure-prenumeration. Ett exempel på hur du skapar en resurs grupp och distribuerar resurser finns i [resurs grupp och resurser](deploy-to-subscription.md#resource-groups).
 
 * **Kan jag skapa en prenumeration i en ARM-mall?**
 
@@ -102,7 +102,7 @@ I den här artikeln får du svar på vanliga frågor om Azure Resource Manager (
 
   Ja.
 
-## <a name="template-specs"></a>Specifikationer för mall
+## <a name="template-specs"></a>Mallspecifikationer
 
 * **Hur kan jag få delta i för hands versionen av mall-specifikationer?**
 

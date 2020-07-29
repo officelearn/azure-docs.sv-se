@@ -8,13 +8,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
-ms.custom: mqtt
-ms.openlocfilehash: 1f61748a0a0d3d999670b6129e0e58758715ba3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- mqtt
+- 'Role: Cloud Development'
+ms.openlocfilehash: 4887315ddef3f15ee3f6ef5ad80cf8df8b1dcd34
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601861"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327777"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Förstå och Använd enheten dubbla i IoT Hub
 
@@ -120,7 +122,7 @@ I föregående exempel innehåller enheten dubbla en `batteryLevel` egenskap som
 
 ### <a name="desired-property-example"></a>Exempel på önskad egenskap
 
-I föregående exempel `telemetryConfig` används enhetens dubbla önskade och rapporterade egenskaper av lösningens Server del och Device-appen för att synkronisera telemetri-konfigurationen för den här enheten. Ett exempel:
+I föregående exempel `telemetryConfig` används enhetens dubbla önskade och rapporterade egenskaper av lösningens Server del och Device-appen för att synkronisera telemetri-konfigurationen för den här enheten. Till exempel:
 
 1. Server delen för lösningen anger önskad egenskap med det önskade konfiguration svärdet. Här är den del av dokumentet med önskad egenskaps uppsättning:
 
@@ -183,7 +185,7 @@ Lösningens Server del fungerar på enheten med dubbla med hjälp av följande a
 
   - Egenskaper
 
-    | Name | Värde |
+    | Namn | Värde |
     | --- | --- |
     $content-typ | application/json |
     $iothub-enqueuedtime |  Tid när meddelandet skickades |
@@ -308,7 +310,7 @@ IoT Hub avvisar alla åtgärder som skulle öka storleken på `tags` , `properti
 
 IoT Hub behåller tidsstämpeln för den senaste uppdateringen för varje JSON-objekt i enhetens dubbla önskade och rapporterade egenskaper. Tidsstämplar anges i UTC och kodas i [iso8601](https://en.wikipedia.org/wiki/ISO_8601) -format `YYYY-MM-DDTHH:MM:SS.mmmZ` .
 
-Ett exempel:
+Till exempel:
 
 ```json
 {

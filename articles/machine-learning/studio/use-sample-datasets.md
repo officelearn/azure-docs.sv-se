@@ -1,6 +1,5 @@
 ---
-title: Använd exempel data uppsättningarna
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klassisk): Använd exempel data uppsättningarna – Azure'
 description: Beskrivningar av de data uppsättningar som används i exempel modeller som ingår i Machine Learning Studio (klassisk). Du kan använda dessa exempel data uppsättningar för dina experiment.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 3cd7d880efaa5c69301c25c69d55f4b21dd97242
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43f26133cb7fe36a399e2d98ca3e2129b88f52e8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321834"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326315"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Använd exempel data uppsättningarna i Azure Machine Learning Studio (klassisk)
+
+**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
+
 
 [top]: #machine-learning-sample-datasets
 

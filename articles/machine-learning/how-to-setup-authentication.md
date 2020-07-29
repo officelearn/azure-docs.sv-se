@@ -8,15 +8,15 @@ ms.author: larryfr
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 06/17/2020
-ms.custom: has-adal-ref
-ms.openlocfilehash: 34641e7a883f6b07fe63595cf5750df2569640f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, has-adal-ref
+ms.openlocfilehash: 653ca578e9fafd245c22bcfd7db038d5c23da016
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84974695"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326961"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -46,7 +46,7 @@ De flesta exempel i dokumentationen och exemplen använder interaktiv autentiser
     ws = Workspace.from_config()
     ```
 
-    `from_config()`Funktionen söker efter en JSON-fil som innehåller din anslutnings information för arbets ytan.
+    Funktionen `from_config()` söker efter en JSON-fil som innehåller din anslutningsinformation för arbetsytan.
 
 * Om du använder `Workspace` konstruktorn för att tillhandahålla information om prenumeration, resurs grupp och arbets yta, kommer även att uppmanas att använda interaktiv autentisering.
 
@@ -328,7 +328,7 @@ Mer information om autentisering till en distribuerad modell finns i [skapa en k
 
 ### <a name="token-based-web-service-authentication"></a>Tokenbaserad autentisering av webb tjänst
 
-När du aktiverar token-autentisering för en webb tjänst måste användarna presentera en Azure Machine Learning JSON Web Token till webb tjänsten för att komma åt den. Token upphör att gälla efter en angiven tids period och måste uppdateras för att du ska kunna fortsätta att ringa.
+När du aktiverar token-autentisering för en webb tjänst måste användarna presentera en Azure Machine Learning JSON Web Token till webb tjänsten för att komma åt den. Token upphör att gälla efter en angiven tidsperiod och måste uppdateras för att anrop ska fortsätta att skickas.
 
 * Token-autentisering **inaktive ras som standard** när du distribuerar till Azure Kubernetes-tjänsten.
 * Token-autentisering **stöds inte** när du distribuerar till Azure Container instances.
@@ -370,7 +370,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Du måste begära en ny token efter det att token har `refresh_by` uppnåtts. Om du behöver uppdatera token utanför python SDK är ett alternativ att använda REST API med tjänstens huvudsakliga autentisering för att regelbundet `service.get_token()` anropa anropet, enligt beskrivningen ovan.
+> Du behöver begära en ny token efter tokens `refresh_by`-tid. Om du behöver uppdatera token utanför python SDK är ett alternativ att använda REST API med tjänstens huvudsakliga autentisering för att regelbundet `service.get_token()` anropa anropet, enligt beskrivningen ovan.
 >
 > Vi rekommenderar starkt att du skapar din Azure Machine Learning arbets yta i samma region som ditt Azure Kubernetes service-kluster.
 >

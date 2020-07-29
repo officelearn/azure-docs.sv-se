@@ -5,16 +5,18 @@ description: Lär dig hur du distribuerar dina Azure Machine Learning modeller s
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 16465ff823fab1b13f43aec33cb41f9b26b5c054
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c927015114bb0e7230dcb96cd16a81e7763f64d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392564"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325890"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuera en modell till ett Azure Kubernetes service-kluster
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,6 +37,11 @@ När du distribuerar till Azure Kubernetes-tjänsten distribuerar du till ett AK
 
 > [!IMPORTANT]
 > Processen för att skapa eller bifogad fil är en engångs uppgift. När ett AKS-kluster är anslutet till arbets ytan kan du använda det för distributioner. Du kan koppla bort eller ta bort AKS-klustret om du inte längre behöver det. När du har kopplats bort eller tagits bort kommer du inte längre att kunna distribuera till klustret.
+
+> [!IMPORTANT]
+> Vi rekommenderar starkt att felsöka lokalt innan du distribuerar till webb tjänsten. mer information finns i [Felsöka lokalt](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
+>
+> Du kan också se Azure Machine Learning- [Deploy till lokal Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
 ## <a name="prerequisites"></a>Krav
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2020
-ms.openlocfilehash: b4882ec9eb8b81ae27a1e8eed2e5b4349fbeac3f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4e36a21e9dbab6f9bf814cdeb86f175ded38ea8e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516200"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327301"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Struktur för Azure Monitor loggar
 Möjligheten att snabbt få insikter om dina data med hjälp av en [logg fråga](log-query-overview.md) är en kraftfull funktion i Azure Monitor. Om du vill skapa effektiva och användbara frågor bör du förstå några grundläggande begrepp, till exempel var de data du söker finns och hur de struktureras. Den här artikeln innehåller grundläggande begrepp som du behöver för att komma igång.
@@ -89,4 +89,5 @@ Varje tabell i Azure Monitor-loggar har ett eget schema, men det finns standard 
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om [att använda Log Analytics för att skapa och redigera loggs ökningar](./log-query-overview.md).
-- Kolla in en [själv studie kurs om hur du skriver frågor](../log-query/get-started-queries.md) med det nya frågespråket.
+- Kolla in en [själv studie kurs om hur du skriver frågor](./get-started-queries.md) med det nya frågespråket.
+

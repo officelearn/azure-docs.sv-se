@@ -6,17 +6,17 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 07/22/2019
 ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 4d33a47e0498c82dff967242cfbc12a89c94a3b5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: dd2b88d923d0398dc42362242b94b978ccd24252
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327743"
+ms.locfileid: "87336726"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Skapa och läsa IoT Hub-meddelanden
 
@@ -61,6 +61,8 @@ Mer information om hur du kodar och avkodar meddelanden som skickas med olika pr
 | iothub-Connection-module-ID |Ett ID som anges av IoT Hub för meddelanden från enhet till moln. Den innehåller **moduleId** för enheten som skickade meddelandet. | Nej | connectionModuleId |
 | iothub-Connection-auth-generation-ID |Ett ID som anges av IoT Hub för meddelanden från enhet till moln. Den innehåller **connectionDeviceGenerationId** (som per [enhets identitets egenskaper](iot-hub-devguide-identity-registry.md#device-identity-properties)) för enheten som skickade meddelandet. | Nej |connectionDeviceGenerationId |
 | iothub-anslutnings-auth-Method |En autentiseringsmetod som anges av IoT Hub för meddelanden från enhet till moln. Den här egenskapen innehåller information om autentiseringsmetoden som används för att autentisera enheten som skickar meddelandet.| Nej | connectionAuthMethod |
+| DT-dataschema | Det här värdet anges av IoT Hub på enhet-till-moln-meddelanden. Det innehåller det enhets modell-ID som angetts i enhets anslutningen. Den här funktionen är tillgänglig som en del av [IoT plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md). | Nej | E.t. |
+| DT-ämne | Namnet på komponenten som skickar meddelanden från enheten till molnet. Den här funktionen är tillgänglig som en del av [IoT plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md). | Ja | E.t. |
 
 ## <a name="system-properties-of-c2d-iot-hub-messages"></a>System egenskaper för **C2D** IoT Hub-meddelanden
 
@@ -89,8 +91,9 @@ Systemets egenskaps namn varierar beroende på slut punkten som meddelandena dir
 |Innehålls|innehålls typ|Innehålls|Innehålls|iothub – innehålls typ|
 |contentEncoding|innehålls kodning|contentEncoding|ContentEncoding|iothub – innehålls kodning|
 |iothub – enqueuedtime|iothub – enqueuedtime|enqueuedTime| E.t. |iothub – enqueuedtime|
-|iothub-gränssnitt-namn|iothub-gränssnitt-namn|Gränssnitt|Iothub-gränssnitt-namn|iothub-gränssnitt-namn|
 |CorrelationId|korrelations-id|correlationId|CorrelationId|korrelations-id|
+|DT-dataschema|DT-dataschema|DT-dataschema|DT-dataschema|DT-dataschema|
+|DT-ämne|DT-ämne|DT-ämne|DT-ämne|DT-ämne|
 
 ## <a name="message-size"></a>Meddelandestorlek
 

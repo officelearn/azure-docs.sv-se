@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop-miljö (hösten 2019) – Azure
-description: Lär dig mer om de grundläggande elementen i en Windows Virtual Desktop-miljö (hösten 2019 release) som klienter och värdar för pooler.
+title: Windows Virtual Desktop (klassisk)-miljö – Azure
+description: De grundläggande elementen i en Windows Virtual Desktop-miljö (klassisk).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8cb41b4f94b14a94c79b490e38889825fd9d8d1a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2c019dd187c0ccd7a63f71c0373a0388135afda9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082655"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285024"
 ---
-# <a name="windows-virtual-desktop-environment-fall-2019-release"></a>Windows Virtual Desktop-miljö (hösten 2019-utgåva)
+# <a name="windows-virtual-desktop-classic-environment"></a>Windows Virtual Desktop-miljö (klassisk)
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../environment-setup.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../environment-setup.md).
 
 Windows Virtual Desktop är en tjänst som ger användare enkel och säker åtkomst till sina virtualiserade skriv bord och RemoteApp-datorer. I det här avsnittet får du veta mer om den allmänna strukturen i Windows Virtual Desktop-miljön.
 

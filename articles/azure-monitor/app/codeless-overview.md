@@ -6,12 +6,12 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: b9be0808d4edc9662c1d3a4144f3102242560564
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 234f772b4a77b780f0b0c1faf307c93847e5caf2
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075353"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87310726"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>Vad är Auto-Instrumentation eller kod fast kopplings Azure Monitor Application Insights?
 
@@ -26,11 +26,11 @@ När vi lägger till fler och fler integreringar blir matrisen för automatiska 
 |Miljö/resurs-Provider | .NET            | .NET Core       | Java            | Node.js         |
 |------------------------------|-----------------|-----------------|-----------------|-----------------|
 |Azure App Service i Windows  | GA, OnBD *       | GA, Anmäl dig      | Privat för hands version | Privat för hands version |
-|Azure App Service på Linux    | Ej tillämpligt             | Stöds inte   | Offentlig för hands version  | Offentlig för hands version  |
-|Azure App Service på AKS      | Ej tillämpligt             | I design       | I design       | I design       |
+|Azure App Service på Linux    | E.t.             | Stöds inte   | Offentlig för hands version  | Offentlig för hands version  |
+|Azure App Service på AKS      | E.t.             | I design       | I design       | I design       |
 |Azure Functions-Basic       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       |
 |Azure Functions-Beroenden| Stöds inte   | Stöds inte   | Offentlig för hands version  | Stöds inte   |
-|Azure Kubernetes Service      | Ej tillämpligt             | I design       | Via agent   | I design       |
+|Azure Kubernetes Service      | E.t.             | I design       | Via agent   | I design       |
 |Azure VM-fönster             | Offentlig för hands version  | Stöds inte   | Stöds inte   | Stöds inte   |
 |Lokala virtuella dator fönster       | GA, Anmäl dig      | Stöds inte   | Via agent   | Stöds inte   |
 |Fristående agent – valfritt kuvert.   | Stöds inte   | Stöds inte   | Offentlig för hands version  | Stöds inte   |
@@ -68,5 +68,6 @@ Den mångsidiga, fristående Java-agenten fungerar i alla miljöer, men du behö
 ## <a name="next-steps"></a>Nästa steg
 
 * [Översikt över Application Insights](./app-insights-overview.md)
-* [Program karta](./../../azure-monitor/app/app-map.md)
-* [Prestanda övervakning från slut punkt till slut punkt](./../../azure-monitor/learn/tutorial-performance.md)
+* [Program karta](./app-map.md)
+* [Prestanda övervakning från slut punkt till slut punkt](../learn/tutorial-performance.md)
+

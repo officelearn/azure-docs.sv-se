@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 9363f400754a38d4cc6efd29ac48d7a0476de66f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0ed237debc2395ed307658b2d57a541574f9478a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524309"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284157"
 ---
 # <a name="add-parameters-to-commands"></a>Lägga till parametrar till kommandon
 
 I den här artikeln får du lära dig hur du lägger till parametrar till anpassade kommandon. Parametrar är information som krävs av kommandona för att slutföra en uppgift. I komplexa scenarier kan parametrar också användas för att definiera villkor som utlöser anpassade åtgärder.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 > [!div class="checklist"]
 > * [Så här: skapa program med enkla kommandon](./how-to-custom-commands-create-application-with-simple-commands.md)
@@ -47,25 +47,24 @@ Redigera det befintliga **TurnON** -kommandot för att aktivera och inaktivera f
        > [!div class="mx-imgBorder"]
        > ![Skapa nödvändigt parameter svar](media/custom-commands/add-required-on-off-parameter-response.png)
    
-   1. Nu konfigurerar vi parameter egenskaperna. Förklaringar av alla konfigurations egenskaper för ett kommando finns i [referenser](./custom-commands-references.md). Konfigurera resten av egenskaperna för parametern enligt följande:
+   1. Nu konfigurerar vi parameter egenskaperna. Förklaringar av alla konfigurations egenskaper för ett kommando finns i [referenser](./custom-commands-references.md). Konfigurera egenskaperna för parametern enligt följande:
       
 
        | Konfiguration      | Föreslaget värde     | Beskrivning                                                      |
        | ------------------ | ----------------| ---------------------------------------------------------------------|
-       | Name               | `OnOff`           | Ett beskrivande namn för parametern                                                                           |
+       | Namn               | `OnOff`           | Ett beskrivande namn för parametern                                                                           |
        | Är global          | avmarkerat       | Kryss ruta som anger om ett värde för den här parametern används globalt för alla kommandon i programmet|
-       | Obligatorisk           | analysera         | Kryss ruta som anger om ett värde för den här parametern krävs innan kommandot slutförs |
+       | Krävs           | analysera         | Kryss ruta som anger om ett värde för den här parametern krävs innan kommandot slutförs |
        | Svar för obligatorisk parameter      |Enkel redigerare >`On or Off?`      | En uppmaning om att fråga efter värdet för den här parametern när den inte är känd |
        | Typ               | Sträng          | Typ av parameter, till exempel Number, String, datum tid eller geografi   |
        | Konfiguration      | Acceptera fördefinierade indatavärden från intern katalog | För strängar begränsar detta indata till en uppsättning möjliga värden |
        | Fördefinierade indatavärden     | `on`, `off`           | Uppsättning möjliga värden och deras alias         |
        
         
-   1. Om du vill lägga till fördefinierade indatavärden väljer du **Lägg till ett fördefinierat indata** och i fönstret **nytt objekt** , skriver in **namnet** enligt vad som anges i tabellen ovan. I det här fallet använder vi inte alias, så du kan lämna det tomt. 
-
-    > [!div class="mx-imgBorder"]
-
-    > ![Skapa parameter](media/custom-commands/create-on-off-parameter.png)
+   1. Om du vill lägga till fördefinierade indatavärden väljer du **Lägg till ett fördefinierat indata** och i fönstret **nytt objekt** , skriver in **namnet** enligt vad som anges i tabellen ovan. I det här fallet använder vi inte alias, så du kan lämna det tomt.
+   
+      > [!div class="mx-imgBorder"]
+      > ![Skapa parameter](media/custom-commands/create-on-off-parameter.png)
 
    1. Välj **Spara** för att spara alla konfigurationer för parametern.
  
@@ -76,9 +75,9 @@ Redigera det befintliga **TurnON** -kommandot för att aktivera och inaktivera f
 
        | Inställning            | Föreslaget värde       |
        | ------------------ | --------------------- |
-       | Name               | `SubjectDevice`         |
+       | Namn               | `SubjectDevice`         |
        | Är global          | avmarkerat             |
-       | Obligatorisk           | analysera               |
+       | Krävs           | analysera               |
        | Svar för obligatorisk parameter     | Enkel redigerare >`Which device do you want to control?`    | 
        | Typ               | Sträng                |          |
        | Konfiguration      | Acceptera fördefinierade indatavärden från intern katalog | 
@@ -118,6 +117,7 @@ Välj **Spara**.
 
 1. I avsnittet **villkor** väljer du **Lägg till ett villkor**.
 1. I fönstret **nytt villkor** väljer du **nödvändiga parametrar**i listan **typ** . I check listan nedan kontrollerar du både **mikrofonen** och **SubjectDevice**.
+1. Låt **IsGlobal** vara avmarkerat.
 1. Välj **Skapa**.
 1. I avsnittet **åtgärder** redigerar du den befintliga **svars åtgärden skicka tal** genom att hovra över åtgärden och välja knappen Redigera. Den här gången ska du använda de nyligen skapade **mikrofonen** -och **SubjectDevice** -parametrarna
 
@@ -127,7 +127,7 @@ Välj **Spara**.
 1. Välj **Spara**.
 
 ### <a name="try-it-out"></a>Prova
-1. Välj **träna** ikon överst i den högra rutan.
+1. Välj **träna** -ikonen överst i den högra rutan.
 
 1. När inlärningen är klar väljer du **test**. Ett **test av** programfönstret visas.
  Prova några interaktioner.
@@ -149,8 +149,8 @@ Lägg till ny parameter **temperatur** med följande konfiguration
 
 | Konfiguration      | Föreslaget värde     |
 | ------------------ | ----------------|
-| Name               | `Temperature`           |
-| Obligatorisk           | analysera         |
+| Namn               | `Temperature`           |
+| Krävs           | analysera         |
 | Svar för obligatorisk parameter      | Enkel redigerare >`What temperature would you like?`
 | Typ               | Antal          |
 
@@ -186,8 +186,8 @@ Lägg till en parameter med namnet **datetime** med följande konfiguration.
 
    | Inställning                           | Föreslaget värde                     | 
    | --------------------------------- | ----------------------------------------|
-   | Name                              | `DateTime`                               |
-   | Obligatorisk                          | analysera                                 |
+   | Namn                              | `DateTime`                               |
+   | Krävs                          | analysera                                 |
    | Svar för obligatorisk parameter   | Enkel redigerare >`For what time?`            | 
    | Typ                              | DateTime                                |
    | Standardinställningar för datum                     | Om datumet saknas används idag            |

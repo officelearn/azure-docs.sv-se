@@ -3,16 +3,17 @@ title: Övervaka din Node.js-tjänster med Azure Application Insights | Microsof
 description: Övervaka prestanda- och diagnostiseringsproblem i Node.js-tjänster med Application Insights.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 80b4c4336a3e253e38790520a7eb4458ca36ff30
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: c6a1a030829f128c4369e99efcd56a416390afc6
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024392"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371625"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Övervaka dina Node-js-tjänster och -appar med Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) övervakar dina backend-tjänster och-komponenter efter distributionen för att hjälpa dig att upptäcka och snabbt diagnostisera prestanda och andra problem. Du kan använda Application Insights för Node.js tjänster som finns i ditt data Center, virtuella Azure-datorer och webbappar och även i andra offentliga moln.
+[Application Insights](./app-insights-overview.md) övervakar dina backend-tjänster och-komponenter efter distributionen för att hjälpa dig att upptäcka och snabbt diagnostisera prestanda och andra problem. Du kan använda Application Insights för Node.js tjänster som finns i ditt data Center, virtuella Azure-datorer och webbappar och även i andra offentliga moln.
 
 För att ta emot, lagra, och utforska dina övervakade data inkluderar du SKD:t i koden och konfigurerar en motsvarande Application Insights-resurs i Azure. SDK:t skickar data till den resursen för ytterligare analys och undersökning.
 
@@ -24,7 +25,7 @@ Med TelemetryClient API kan du manuellt instrumentera och övervaka ytterligare 
 
 Utför följande uppgifter för att konfigurera övervakning för en app eller tjänst.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att ha en Azure-prenumeration eller [så skaffar du en kostnadsfritt][azure-free-offer]. Om din organisation redan har en Azure-prenumeration kan en administratör följa [de här instruktionerna][add-aad-user] för att lägga till dig.
 
@@ -80,8 +81,8 @@ Eftersom SDK:n slår ihop data för sändning kan det uppstå en fördröjning i
 
 * Fortsätta att använda programmet. Vidta fler åtgärder för att generera mer telemetri.
 * Klicka på **Uppdatera** i portalens resursvy. Diagram uppdaterar sig själva regelbundet, men när du trycker på uppdateringsknappen manuellt tvingas de att uppdatera genast.
-* Verifiera att [nödvändiga utgående portar](../../azure-monitor/app/ip-addresses.md) är öppna.
-* Använd [Sök](../../azure-monitor/app/diagnostic-search.md) för att söka efter specifika händelser.
+* Verifiera att [nödvändiga utgående portar](./ip-addresses.md) är öppna.
+* Använd [Sök](./diagnostic-search.md) för att söka efter specifika händelser.
 * Se [Vanliga frågor][FAQ].
 
 ## <a name="basic-usage"></a>Grundläggande användning
@@ -216,7 +217,7 @@ appInsights
 
 ## <a name="telemetryclient-api"></a>TelemetryClient-API
 
-En fullständig beskrivning av TelemetryClient-API:n finns i [Application Insights API for custom events and metrics](../../azure-monitor/app/api-custom-events-metrics.md) (Application Insights-API för anpassade händelser och mått).
+En fullständig beskrivning av TelemetryClient-API:n finns i [Application Insights API for custom events and metrics](./api-custom-events-metrics.md) (Application Insights-API för anpassade händelser och mått).
 
 Du kan spåra valfri begäran, händelse, mått eller undantag med Node.js-SDK:n i Application Insights. I följande kodexempel visas några av de tillgängliga API:erna som du kan använda:
 
@@ -373,7 +374,7 @@ appInsights.defaultClient.addTelemetryProcessor(removeStackTraces);
 
 Du kan skapa flera Application Insights-resurser och skicka olika data till var och en genom att använda deras respektive instrument knappar ("iKey").
 
- Exempel:
+ Till exempel:
 
 ```javascript
 let appInsights = require("applicationinsights");
@@ -414,10 +415,11 @@ De här egenskaperna är klient särskilda, så du kan konfigurera `appInsights.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Övervaka din telemetri i portalen](../../azure-monitor/app/overview-dashboard.md)
-* [Skriv Analytics-frågor via din telemetri](../../azure-monitor/log-query/get-started-portal.md)
+* [Övervaka din telemetri i portalen](./overview-dashboard.md)
+* [Skriv Analytics-frågor via din telemetri](../log-query/get-started-portal.md)
 
 <!--references-->
 
 [portal]: https://portal.azure.com/
 [FAQ]: ../faq.md
+

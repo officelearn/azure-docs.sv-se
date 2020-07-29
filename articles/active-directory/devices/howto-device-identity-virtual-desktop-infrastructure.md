@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b431cee3b8e5fc168dec2766442d6f6b9869d1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 450f04c7de68bf6db282577fbc8e841f1f3c93fc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74900379"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284412"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Enhets identitet och skriv bords virtualisering
 
@@ -40,22 +41,22 @@ Den här artikeln beskriver Microsofts vägledning för administratörer om stö
 
 Innan du konfigurerar enhets identiteter i Azure AD för din VDI-miljö kan du bekanta dig med de scenarier som stöds. Tabellen nedan visar vilka etablerings scenarier som stöds. Etableringen i den här kontexten innebär att en administratör kan konfigurera enhets identiteter i skala utan att behöva göra någon slut användar interaktion.
 
-| Enhets identitets typ | Identitets infrastruktur | Windows-enheter | VDI-plattforms version | Stöds |
+| Enhets identitets typ | Infrastruktur för identiteter | Windows-enheter | VDI-plattforms version | Stöds |
 | --- | --- | --- | --- | --- |
 | Hybrid Azure AD-ansluten | Externt | Windows-aktuell * * * * och Windows-äldre * * * * | Permanent | Ja |
-|   |   | Windows-aktuell | Icke-beständig | No |
+|   |   | Windows-aktuell | Icke-beständig | Nej |
 |   |   | Äldre Windows-enheter | Icke-beständig | Ja |
 |   | Hanterad * * | Windows aktuella och Windows-äldre | Permanent | Ja |
-|   |   | Windows-aktuell | Icke-beständig | No |
+|   |   | Windows-aktuell | Icke-beständig | Nej |
 |   |   | Äldre Windows-enheter | Icke-beständig | Ja |
-| Azure AD-ansluten | Federerade | Windows-aktuell | Permanent | No |
-|   |   |   | Icke-beständig | No |
-|   | Hanterad | Windows-aktuell | Permanent | No |
-|   |   |   | Icke-beständig | No |
-| Azure AD-registrerad | Federerade | Windows-aktuell | Permanent | No |
-|   |   |   | Icke-beständig | No |
-|   | Hanterad | Windows-aktuell | Permanent | No |
-|   |   |   | Icke-beständig | No |
+| Azure AD-ansluten | Federerade | Windows-aktuell | Permanent | Nej |
+|   |   |   | Icke-beständig | Nej |
+|   | Hanterade | Windows-aktuell | Permanent | Nej |
+|   |   |   | Icke-beständig | Nej |
+| Azure AD-registrerad | Federerade | Windows-aktuell | Permanent | Ej tillämpligt |
+|   |   |   | Icke-beständig | Nej |
+|   | Hanterade | Windows-aktuell | Permanent | Ej tillämpligt |
+|   |   |   | Icke-beständig | Nej |
 
 \*En infrastruktur miljö för **federerade** identiteter representerar en miljö med en identitets leverantör som AD FS eller andra IdP från tredje part.
 

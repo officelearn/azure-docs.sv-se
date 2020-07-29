@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 7ca106e076bc789e8435b9e67d6bffa20af8a635
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 901ad08440cf1cfbbbab4779a08a87c89a72cc59
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539184"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281505"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Tjänstnivåer i en DTU-baserad inköpsmodell
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -59,7 +59,7 @@ Att välja en tjänst nivå beror främst på verksamhets kontinuitet, lagring o
 
 Beräknings storlekar uttrycks i databas transaktions enheter (DTU: er) för enskilda databaser och elastiska databas transaktions enheter (eDTU: er) för elastiska pooler. Mer information om DTU: er och eDTU: er finns i [DTU-baserad inköps modell](purchasing-models.md#dtu-based-purchasing-model).
 
-|Basic|Standard|Premium|
+||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
 | Maximal lagrings storlek | 2 GB | 1 TB | 4 TB  |
 | Maximalt DTU: er | 5 | 3000 | 4000 | 
@@ -70,7 +70,7 @@ Beräknings storlekar uttrycks i databas transaktions enheter (DTU: er) för ens
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>Gränser för eDTU-, lagrings-och databas i elastisk pool
 
-| **Basic** | **Standard** | **Premium** |
+|| **Basic** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
 | Maximal lagrings storlek per databas  | 2 GB | 1 TB | 1 TB |
 | Maximal lagrings storlek per pool | 156 GB | 4 TB | 4 TB |

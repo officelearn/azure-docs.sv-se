@@ -1,6 +1,6 @@
 ---
-title: Expandera den befintliga poolen med nya sessions-värdar hösten 2019 – Azure
-description: Hur du expanderar en befintlig adresspool med nya sessionsbaserade värdar i Windows Virtual Desktop.
+title: Expandera den befintliga Windows Virtual Desktop-poolen (klassisk) med nya sessionsbaserade värdar – Azure
+description: Hur du expanderar en befintlig adresspool med nya sessionsbaserade värdar i Windows Virtual Desktop (klassisk).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 291dc32453001dd1e188bacae8be372bb3645ece
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ecdd63b054fda7f973898b0b3a42a29fc94c03bb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527548"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285041"
 ---
-# <a name="expand-an-existing-host-pool-with-new-session-hosts-fall-2019"></a>Expandera en befintlig värdbaserad pool med nya sessionsbaserade värdar (falla 2019)
+# <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Expandera en befintlig adresspool med nya sessionsbaserade värdar i Windows Virtual Desktop (klassisk)
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../expand-existing-host-pool.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../expand-existing-host-pool.md).
 
 När du ramperar användningen i din värd pool kan du behöva expandera den befintliga poolen med nya sessionsbaserade värdar för att hantera den nya belastningen.
 
@@ -76,7 +76,7 @@ Så här distribuerar du om Azure Resource Manager-mallen för att expandera en 
 
 Följ anvisningarna i [skapa en adresspool med hjälp av Azure Marketplace](create-host-pools-azure-marketplace-2019.md) tills du har kommit [till att köra Azure Marketplace-erbjudandet för att etablera en ny adresspool](create-host-pools-azure-marketplace-2019.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). När du kommer till den punkten måste du ange följande information för varje flik:
 
-### <a name="basics"></a>Grunder
+### <a name="basics"></a>Grunderna
 
 Alla värden i det här avsnittet ska matcha det du angav när du först skapade värddatorn och de virtuella datorerna i sessionen, förutom användare som är *Standard användare*:
 

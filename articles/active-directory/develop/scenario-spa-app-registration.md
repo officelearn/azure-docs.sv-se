@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 238bcc6c706f2fab969c98b73ca879d064498693
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: efd51e90bb14f3d97b76eb6ac45b384192bb8da0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026517"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311576"
 ---
 # <a name="single-page-application-app-registration"></a>Program med en sida: app-registrering
 
 Utför följande steg för att registrera ett program med en enda sida (SPA) i Microsoft Identity Platform. Registrerings stegen skiljer sig mellan MSAL.js 1,0, som har stöd för det implicita tilldelnings flödet och MSAL.js 2,0, som stöder auktoriseringskod med PKCE.
+
+[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## <a name="create-the-app-registration"></a>Skapa registrerings appen
 
@@ -67,7 +69,7 @@ Följ dessa steg om du vill lägga till en omdirigerings-URI för en app med en 
 
 Du har nu slutfört registreringen av ett enda webb program (SPA) och konfigurerat en omdirigerings-URI som klienten ska omdirigeras till och eventuella säkerhetstoken kommer att skickas. Genom att välja en eller båda av **ID-tokens** och **åtkomsttoken**har du aktiverat det implicita tilldelnings flödet.
 
-Följ [själv studie kursen](tutorial-v2-javascript-spa.md) för ytterligare vägledning. 
+Följ [själv studie kursen](tutorial-v2-javascript-spa.md) för ytterligare vägledning.
 
 ## <a name="note-about-authorization-flows"></a>Information om auktoriserings flöden
 

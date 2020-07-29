@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 9c927015114bb0e7230dcb96cd16a81e7763f64d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ad34195e003e0ca2d73000d3482cc79c3dbe3ee0
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325890"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372118"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuera en modell till ett Azure Kubernetes service-kluster
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,6 +34,8 @@ När du distribuerar till Azure Kubernetes-tjänsten distribuerar du till ett AK
 
 * Skapa AKS-klustret med hjälp av Azure Machine Learning SDK, Machine Learning CLI eller [Azure Machine Learning Studio](https://ml.azure.com). Den här processen ansluter automatiskt klustret till arbets ytan.
 * Koppla ett befintligt AKS-kluster till din Azure Machine Learning-arbetsyta. Ett kluster kan kopplas med hjälp av Azure Machine Learning SDK, Machine Learning CLI eller Azure Machine Learning Studio.
+
+AKS-klustret och arbets ytan AML kan finnas i olika resurs grupper.
 
 > [!IMPORTANT]
 > Processen för att skapa eller bifogad fil är en engångs uppgift. När ett AKS-kluster är anslutet till arbets ytan kan du använda det för distributioner. Du kan koppla bort eller ta bort AKS-klustret om du inte längre behöver det. När du har kopplats bort eller tagits bort kommer du inte längre att kunna distribuera till klustret.
@@ -61,11 +63,28 @@ När du distribuerar till Azure Kubernetes-tjänsten distribuerar du till ett AK
 
 - __CLI__ -kodfragmenten i den här artikeln förutsätter att du har skapat ett `inferenceconfig.json` dokument. Mer information om hur du skapar det här dokumentet finns i [så här distribuerar du modeller](how-to-deploy-and-where.md).
 
+- Om du ansluter ett AKS-kluster, som har ett [auktoriserat IP-adressintervall som är aktiverat för att få åtkomst till API-servern](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), aktiverar du AML conto-planens IP-intervall för AKS-klustret. Kontroll planet för AML distribueras i kopplade regioner och distribuerar inferencing-poddar i AKS-klustret. Inferencing-poddar kan inte distribueras utan åtkomst till API-servern. Använd [IP-intervallen](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) för båda [kopplade regionerna]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) när du aktiverar IP-intervall i ett AKS-kluster
+ 
+ - Compute-namnet måste vara unikt inom en arbets yta
+   - Namnet måste vara mellan 3 och 24 tecken långt.
+   - Giltiga tecken är versaler, gemener, siffror och tecknet-Character.
+   - Namnet måste börja med en bokstav
+   - Namnet måste vara unikt för alla befintliga beräkningar i en Azure-region. En avisering visas om det namn du väljer inte är unikt
+   
+ - Om du vill distribuera modeller till GPU-noder eller FPGA-noder (eller vissa SKU: er) måste du skapa ett kluster med den angivna SKU: n. Det finns inget stöd för att skapa en sekundär Node-pool i ett befintligt kluster och distribuera modeller i den sekundära noden.
+ 
+ - Om du behöver ett Standard Load Balancer (SLB) distribuerat i klustret i stället för en grundläggande Load Balancer (BLB), skapar du ett kluster i AKS-portalen/CLI/SDK och kopplar det sedan till arbets ytan AML. 
+
+
+
 ## <a name="create-a-new-aks-cluster"></a>Skapa ett nytt AKS-kluster
 
-**Tids uppskattning**: cirka 20 minuter.
+**Tids uppskattning**: cirka 10 minuter.
 
 Att skapa eller ansluta ett AKS-kluster är en process för arbets ytan. Du kan återanvända det här klustret för flera distributioner. Om du tar bort klustret eller resurs gruppen som innehåller den måste du skapa ett nytt kluster nästa gången du behöver distribuera. Du kan ha flera AKS-kluster kopplade till din arbets yta.
+ 
+Azure Machine Learning har nu stöd för användning av en Azure Kubernetes-tjänst som har privat länk aktive rad.
+Så här skapar du ett privat AKS-kluster Följ dokumenten [här](https://docs.microsoft.com/azure/aks/private-clusters)
 
 > [!TIP]
 > Om du vill skydda ditt AKS-kluster med hjälp av ett Azure-Virtual Network måste du först skapa det virtuella nätverket. Mer information finns i [säker experimentering och härledning med Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).

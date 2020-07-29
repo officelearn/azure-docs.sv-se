@@ -3,15 +3,15 @@ title: Smart identifiering i Azure Application Insights | Microsoft Docs
 description: Application Insights utför automatisk djup analys av din app-telemetri och varnar dig om potentiella problem.
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: ad6580a0a62d331a7851c47d71b46d3ea6c81468
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 24ed8eefb7e07930cbd123fbe4081d555f0c27c3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516880"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305881"
 ---
 # <a name="smart-detection-in-application-insights"></a>Smart identifiering i Application Insights
- Smart identifiering varnar automatiskt om potentiella prestanda problem och fel avvikelser i ditt webb program. Den utför proaktiv analys av Telemetrin som din app skickar till [Application Insights](../../azure-monitor/app/app-insights-overview.md). Om det uppstår plötsliga ökningar i felfrekvenser eller onormala mönster i klient-eller server prestanda får du en avisering. Den här funktionen behöver ingen konfiguration. Det fungerar om ditt program skickar tillräckligt med telemetri.
+ Smart identifiering varnar automatiskt om potentiella prestanda problem och fel avvikelser i ditt webb program. Den utför proaktiv analys av Telemetrin som din app skickar till [Application Insights](./app-insights-overview.md). Om det uppstår plötsliga ökningar i felfrekvenser eller onormala mönster i klient-eller server prestanda får du en avisering. Den här funktionen behöver ingen konfiguration. Det fungerar om ditt program skickar tillräckligt med telemetri.
 
 Du kan komma åt identifieringar som utfärdats av Smart identifiering både från e-postmeddelanden som du får och från bladet Smart igenkänning.
 
@@ -32,8 +32,8 @@ Välj en identifiering om du vill se information om den.
 ## <a name="what-problems-are-detected"></a>Vilka problem har upptäckts?
 Smart identifiering identifierar och meddelar om en rad olika problem, till exempel:
 
-* [Smart identifiering – fel avvikelser](../../azure-monitor/app/proactive-failure-diagnostics.md). Vi använder Machine Learning för att ange den förväntade antalet misslyckade förfrågningar för din app, som korrelerar med belastning och andra faktorer. Om felen hamnar utanför det förväntade kuvertet skickar vi en avisering.
-* [Smart identifiering-prestanda avvikelser](../../azure-monitor/app/proactive-performance-diagnostics.md). Du får meddelanden om svars tiden för en åtgärd eller beroende varaktighet är långsammare jämfört med historisk bas linje eller om vi identifierar ett avvikande mönster i svars tid eller sid inläsnings tid.   
+* [Smart identifiering – fel avvikelser](./proactive-failure-diagnostics.md). Vi använder Machine Learning för att ange den förväntade antalet misslyckade förfrågningar för din app, som korrelerar med belastning och andra faktorer. Om felen hamnar utanför det förväntade kuvertet skickar vi en avisering.
+* [Smart identifiering-prestanda avvikelser](./proactive-performance-diagnostics.md). Du får meddelanden om svars tiden för en åtgärd eller beroende varaktighet är långsammare jämfört med historisk bas linje eller om vi identifierar ett avvikande mönster i svars tid eller sid inläsnings tid.   
 * Allmän försämring och problem, som [spårnings försämring](./proactive-trace-severity.md), [minnes läcka](./proactive-potential-memory-leak.md), [onormal ökning av undantags volym](./proactive-exception-volume.md) och [säkerhets mönster för säkerhet](./proactive-application-security-detection-pack.md).
 
 (Hjälp länkar i varje meddelande tar dig till relevanta artiklar.)
@@ -53,11 +53,12 @@ Alternativt kan du ändra konfigurationen med Azure Resource Manager mallar. Mer
 ## <a name="next-steps"></a>Nästa steg
 De här diagnostikverktygen hjälper dig att inspektera Telemetrin från din app:
 
-* [Metric Explorer](../../azure-monitor/platform/metrics-charts.md)
-* [Sök Utforskaren](../../azure-monitor/app/diagnostic-search.md)
-* [Analys-kraftfullt frågespråk](../../azure-monitor/log-query/get-started-portal.md)
+* [Metric Explorer](../platform/metrics-charts.md)
+* [Sök Utforskaren](./diagnostic-search.md)
+* [Analys-kraftfullt frågespråk](../log-query/get-started-portal.md)
 
 Smart identifiering är helt automatisk. Men kanske vill du konfigurera ytterligare aviseringar?
 
-* [Manuellt konfigurerade mått varningar](../../azure-monitor/platform/alerts-log.md)
-* [Webbtester för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md) 
+* [Manuellt konfigurerade mått varningar](../platform/alerts-log.md)
+* [Webbtester för tillgänglighet](./monitor-web-app-availability.md) 
+

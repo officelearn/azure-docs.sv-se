@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 550b4fb7ba17d911618e0b60d16c0a9f9d1f2cfa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 94c668e7ffaff81fed9c2e511bc38239069fa43e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077278"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305218"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Ansluta datorer utan Internet åtkomst med hjälp av Log Analytics gateway i Azure Monitor
 
@@ -89,7 +89,7 @@ Log Analytics Gateway finns på följande språk:
 
 Log Analytics Gateway stöder bara Transport Layer Security (TLS) 1,0, 1,1 och 1,2.  Den stöder inte Secure Sockets Layer (SSL).  Konfigurera gatewayen så att den använder minst TLS 1,2 för att säkerställa säkerheten för data som överförs till Log Analytics. Äldre versioner av TLS eller SSL är sårbara. Även om de för närvarande tillåter bakåtkompatibilitet, Undvik att använda dem.  
 
-Mer information finns i [skicka data på ett säkert sätt med TLS 1,2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
+Mer information finns i [skicka data på ett säkert sätt med TLS 1,2](./data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Antal agent anslutningar som stöds
 
@@ -153,7 +153,7 @@ Den hämtade filen för gatewayen är ett Windows Installer-paket som stöder ty
  
 I följande tabell beskrivs de parametrar som stöds av installations programmet.
 
-|Parametrar| Kommentarer|
+|Parametrar| Obs!|
 |----------|------| 
 |Port | TCP-portnummer för gateway att lyssna på |
 |PROGRAMPROXYFILEN | IP-adress för proxyserver |
@@ -305,13 +305,13 @@ Se avsnittet [Konfigurera ditt nätverk](../../automation/automation-hybrid-runb
 
 Om datorn är registrerad som en Hybrid Runbook Worker automatiskt, till exempel om Uppdateringshantering lösning är aktive rad för en eller flera virtuella datorer, följer du dessa steg:
 
-1. Lägg till URL: erna för jobb körnings data tjänsten i listan över tillåtna värdar på Log Analytics Gateway. Exempel: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Lägg till URL: erna för jobb körnings data tjänsten i listan över tillåtna värdar på Log Analytics Gateway. Exempelvis: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. Starta om tjänsten Log Analytics Gateway med hjälp av följande PowerShell-cmdlet:`Restart-Service OMSGatewayService`
 
 Följ dessa steg om datorn är ansluten till Azure Automation med hjälp av Hybrid Runbook Worker registrerings-cmdlet:
 
-1. Lägg till Agent tjänstens registrerings-URL i listan över tillåtna värdar på Log Analytics Gateway. Exempel: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-1. Lägg till URL: erna för jobb körnings data tjänsten i listan över tillåtna värdar på Log Analytics Gateway. Exempel: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Lägg till Agent tjänstens registrerings-URL i listan över tillåtna värdar på Log Analytics Gateway. Exempelvis: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
+1. Lägg till URL: erna för jobb körnings data tjänsten i listan över tillåtna värdar på Log Analytics Gateway. Exempelvis: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. Starta om tjänsten Log Analytics Gateway.
     `Restart-Service OMSGatewayService`
 
@@ -329,7 +329,7 @@ Ett fel i steg 3 innebär att modulen inte har importer ATS. Felet kan inträffa
 
 | **Cmdlet** | **Parametrar** | **Beskrivning** | **Exempel** |
 | --- | --- | --- | --- |  
-| `Get-OMSGatewayConfig` |Nyckel |Hämtar konfigurationen för tjänsten |`Get-OMSGatewayConfig` |  
+| `Get-OMSGatewayConfig` |Tangent |Hämtar konfigurationen för tjänsten |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Nyckel (obligatoriskt) <br> Värde |Ändrar konfigurationen för tjänsten |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Hämtar adressen för relä-proxyn (uppströms) |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |Adress<br> Användarnamn<br> Lösen ord (säker sträng) |Anger adressen (och autentiseringsuppgiften) för relä-proxyn (uppströms) |1. Ange en relä-proxy och autentiseringsuppgifter:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Ange en Relay proxy som inte behöver autentisering:`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Rensa proxyinställningar för relä:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
@@ -350,7 +350,7 @@ Om du vill samla in händelser som loggats av gatewayen bör du ha Log Analytics
 
 I följande tabell visas händelse-ID: n och beskrivningar för Log Analytics Gateway logg händelser.
 
-| **IDENTITET** | **Beskrivning** |
+| **ID** | **Beskrivning** |
 | --- | --- |
 | 400 |Alla program fel som inte har något angivet ID. |
 | 401 |Felaktig konfiguration. Till exempel List = "text" i stället för ett heltal. |
@@ -388,4 +388,5 @@ Om du vill ha hjälp väljer du frågetecknet i det övre högra hörnet i porta
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lägg till data källor](../../azure-monitor/platform/agent-data-sources.md) för att samla in data från anslutna källor och lagra data i Log Analytics-arbetsytan.
+[Lägg till data källor](./agent-data-sources.md) för att samla in data från anslutna källor och lagra data i Log Analytics-arbetsytan.
+

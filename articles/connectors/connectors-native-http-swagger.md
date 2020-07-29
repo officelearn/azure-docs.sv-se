@@ -7,17 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: a5c00dc64dd39ba2fdbb734f4e9749fbe42e246e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf32938b534272a13af5891d6a31e64b8136a528
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83831933"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281471"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Anropa REST-slutpunkter genom att använda Azure Logic Apps
 
 Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda http + Swagger-anslutningen kan du automatisera arbets flöden som regelbundet anropar en REST-slutpunkt via en [Swagger-fil](https://swagger.io) genom att skapa Logi Kap par. HTTP + Swagger-utlösare och åtgärder fungerar på samma sätt som [http-utlösaren och åtgärden,](connectors-native-http.md) men ger en bättre upplevelse i Logic App Designer genom att exponera API-strukturen och utdata som beskrivs av Swagger-filen. Om du vill implementera en avsöknings utlösare följer du det avsöknings mönster som beskrivs i [skapa anpassade API: er som anropar andra API: er, tjänster och system från Logic Apps](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -27,11 +28,11 @@ Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda ht
 
   * Swagger-filen måste finnas på en HTTPS-URL som är offentligt tillgänglig.
 
-  * Swagger-filen måste ha en aktive rad [resurs delning mellan ursprung (CORS)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) .
+  * Swagger-filen måste ha en aktive rad [resurs delning mellan ursprung (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) .
 
   Om du vill referera till en Swagger-fil som inte är värdbaserad eller som inte uppfyller kraven på säkerhet och kors ursprung kan du [överföra Swagger-filen till en BLOB-behållare i ett Azure Storage-konto](#host-swagger)och aktivera CORS på det lagrings kontot så att du kan referera till filen.
 
-  I exemplen i det här avsnittet används [Cognitive Services ansikts-API](https://docs.microsoft.com/azure/cognitive-services/face/overview), vilket kräver ett [Cognitive Services konto och en åtkomst nyckel](../cognitive-services/cognitive-services-apis-create-account.md).
+  I exemplen i det här avsnittet används [Cognitive Services ansikts-API](../cognitive-services/face/overview.md), vilket kräver ett [Cognitive Services konto och en åtkomst nyckel](../cognitive-services/cognitive-services-apis-create-account.md).
 
 * Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
@@ -117,7 +118,7 @@ Den här inbyggda åtgärden gör en HTTP-begäran till URL: en för Swagger-fil
 
 Du kan referera till en Swagger-fil som inte finns eller som inte uppfyller kraven på säkerhet och kors ursprung genom att överföra filen till BLOB-behållare i ett Azure Storage-konto och aktivera CORS på det lagrings kontot. Följ dessa steg för att skapa, konfigurera och lagra Swagger-filer i Azure Storage:
 
-1. [Skapa ett Azure Storage-konto](../storage/common/storage-create-storage-account.md).
+1. [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md).
 
 1. Aktivera nu CORS för blobben. På lagrings kontots meny väljer du **CORS**. På fliken **BLOB service** anger du dessa värden och väljer sedan **Spara**.
 
@@ -165,3 +166,4 @@ Här är mer information om utdata från en HTTP + Swagger-utlösare eller åtg�
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)
+

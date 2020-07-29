@@ -6,11 +6,12 @@ ms.author: jtoland
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 7f922275e5541baabc77a1efb19e48fa8be4c5ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f325280cb4b18def603410464a06fddaed09c78a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76289432"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285415"
 ---
 # <a name="azure-database-for-mysql-migration-partners"></a>Azure Database for MySQL migrations partner
 Om du vill ha stöd för din Azure Database for MySQL-lösning kan du välja bland en mängd olika branschledande partner och verktyg. I den här artikeln beskrivs Microsofts partner med migrations lösningar som har stöd för Azure Database for MySQL.
@@ -26,7 +27,7 @@ Om du vill ha stöd för din Azure Database for MySQL-lösning kan du välja bla
 | ![Pactera][6] |**Pactera**<br>PACTERA är ett globalt företag som erbjuder konsult-, Digital-, teknik-och drift tjänster till världens ledande företag. Från sina rötter i teknik till den senaste i den digitala omvandlingen ger de kunderna en konkurrens för gräns. Sina beprövade metoder och verktyg garanterar att dina data är säkra, autentiska och korrekta.|[Webbplats][pactera_website]<br>[Twitter][pactera_twitter]<br>[Kontakt][pactera_contact] | |
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om några av Microsofts andra partners finns på [webbplatsen för Microsoft-partner](https://partner.microsoft.com/en-US/).
+Mer information om några av Microsofts andra partners finns på [webbplatsen för Microsoft-partner](https://partner.microsoft.com/).
 
 <!--Image references-->
 [1]: ./media/partner-migration-mysql/SNP_Logo.png

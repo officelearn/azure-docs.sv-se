@@ -1,6 +1,6 @@
 ---
-title: Distribuera diagnostikverktyget för Windows Virtual Desktop – Azure
-description: Distribuera verktyget Diagnostics UX för Windows Virtual Desktop.
+title: Distribuera diagnostikverktyget för Windows Virtual Desktop (klassisk) – Azure
+description: Distribuera verktyget Diagnostics UX för Windows Virtual Desktop (klassisk).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 544610f4011f7ad12d5b311aab3afd4bc1373ac5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf05d495442a39b42fddf5f373fb2616bf0c6fbe
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362347"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285109"
 ---
-# <a name="deploy-the-diagnostics-tool"></a>Distribuera diagnostikverktyget
+# <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Distribuera diagnostikverktyget för Windows Virtual Desktop (klassiskt)
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt.
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows.
 
 >[!IMPORTANT]
 >Från och med den 16 mars 2020 har vi tillfälligt inaktiverat diagnostiska frågor som påverkat användar upplevelsen på grund av ökad efter frågan på tjänsten. Detta gör att verktyget slutar fungera eftersom det är beroende av de frågor som ska fungera. Vi uppdaterar den här artikeln när diagnostiska frågor är tillgängliga igen.
@@ -200,7 +200,7 @@ Ange omdirigerings-URI: n:
 
 8. Gå nu till dina Azure-resurser, Välj resursen Azure App tjänster med det namn som du angav i mallen och navigera till den URL som är kopplad till den. (Till exempel om namnet på appen som du använde i mallen var `contosoapp45` , är din associerade URL <https://contosoapp45.azurewebsites.net> ).
 9. Logga in med lämpligt Azure Active Directory användar konto.
-10.   Välj **Godkänn**.
+10.   Välj **Acceptera**.
 
 ## <a name="distribute-the-diagnostics-tool"></a>Distribuera diagnostikverktyget
 

@@ -3,12 +3,12 @@ title: Azure Event Hubs – Resource Manager-undantag | Microsoft Docs
 description: Lista över Azure Event Hubs-undantag som har Azure Resource Manager och föreslagna åtgärder.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: d8d52f0a0c58ee756afa4d5d8599e2981edb9cdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa1a3ca647bbf9e6590446549455a9853411fd7d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312516"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281046"
 ---
 # <a name="azure-event-hubs---resource-manager-exceptions"></a>Azure Event Hubs – Resource Manager-undantag
 Den här artikeln innehåller undantag som genereras när du interagerar med Azure Event Hubs att använda Azure Resource Manager via mallar eller direkta anrop.
@@ -44,7 +44,7 @@ I följande avsnitt finns olika undantag/fel som är anslutna till Azure Resourc
 | BadRequest | inget | Det går inte att uppdatera ett namn område som är sekundärt | Det går inte att uppdatera namn området eftersom det är ett sekundärt namn område i en [följande geodr-koppling](event-hubs-geo-dr.md). | Om det behövs gör du ändringen i det primära namn området i denna koppling i stället. Ta annars bort följande geodr-ihopparningen för att göra ändringen. |
 | BadRequest | inget | Det går inte att ställa in automatisk ökning i Basic SKU | Det går inte att aktivera automatisk ökning på Basic-nivå Event Hubs namn områden. | Om du vill [Aktivera automatisk](event-hubs-auto-inflate.md) ökning i ett namn område kontrollerar du att det är av standard nivån. |
 | BadRequest | inget | Det finns inte tillräckligt med kapacitet för att skapa namn området. Kontakta Event Hubs administratören. | Den valda regionen har en kapacitet och fler namn områden kan inte skapas. | Välj en annan region för att skriva ditt namn område. |
-| BadRequest | inget | Det går inte att utföra åtgärden på entitetstypen ConsumerGroup eftersom namn områdets namn områdes namn använder Basic-nivån.  | Basic-nivå Event Hubs namn områden har [quota] ((Event-Hub-kvoter. MD # Event-Hub-Basic-and-standard---kvoter och-gränser) för en konsument grupp (standard). Det finns inte stöd för att skapa fler konsument grupper. | Fortsätt att använda standard konsument gruppen ($Default), eller om det behövs, bör du överväga att använda ett standard-Event Hubs namn område i stället. | 
+| BadRequest | inget | Det går inte att utföra åtgärden på entitetstypen ConsumerGroup eftersom namn områdets namn områdes namn använder Basic-nivån.  | Basic-nivå Event Hubs namn områden har en [kvot](event-hubs-quotas.md#event-hubs-basic-and-standard---quotas-and-limits) på en konsument grupp (standard). Det finns inte stöd för att skapa fler konsument grupper. | Fortsätt att använda standard konsument gruppen ($Default), eller om det behövs, bör du överväga att använda ett standard-Event Hubs namn område i stället. | 
 | BadRequest | inget | Namn områdets namn område finns inte. | Det gick inte att hitta det angivna namn området. | Kontrol lera att namn rymds namnet är rätt och att det finns i din prenumeration. Om den inte är det [skapar du ett Event Hubs-namnområde](event-hubs-create.md). | 
 | BadRequest | inget | Resursens plats egenskap matchar inte den innehåll ande namn rymden. | Det gick inte att skapa en Event Hub i en angiven region eftersom den inte matchar regionen i namn området. | Försök att skapa händelsehubben i samma region som namn området. | 
 

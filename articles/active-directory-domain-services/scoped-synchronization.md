@@ -1,6 +1,6 @@
 ---
 title: Omfångs synkronisering för Azure AD Domain Services | Microsoft Docs
-description: Lär dig hur du konfigurerar omfångst synkronisering från Azure AD till en Azure Active Directory Domain Services hanterad domän
+description: Lär dig hur du använder Azure Portal för att konfigurera omfångst synkronisering från Azure AD till en Azure Active Directory Domain Services hanterad domän
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -9,66 +9,62 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 07/24/2020
 ms.author: iainfou
-ms.openlocfilehash: 097c894594987e92038beeaf4b17a3e67538fdad
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 97c561b2ae919799343abe844b57239d04c26d90
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046060"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283137"
 ---
-# <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Konfigurera omfångst synkronisering från Azure AD till Azure Active Directory Domain Services
+# <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-the-azure-portal"></a>Konfigurera omfångst synkronisering från Azure AD till Azure Active Directory Domain Services med hjälp av Azure Portal
 
-Azure Active Directory Domain Services (Azure AD DS) för att tillhandahålla Authentication Services synkroniserar användare och grupper från Azure AD. I en hybrid miljö kan användare och grupper från en lokal Active Directory Domain Services-miljö (AD DS) först synkroniseras till Azure AD med hjälp av Azure AD Connect och sedan synkroniseras till Azure AD DS.
+Azure Active Directory Domain Services (Azure AD DS) för att tillhandahålla Authentication Services synkroniserar användare och grupper från Azure AD. I en hybrid miljö kan användare och grupper från en lokal Active Directory Domain Services-miljö (AD DS) först synkroniseras till Azure AD med hjälp av Azure AD Connect och sedan synkroniseras till en hanterad Azure AD DS-domän.
 
-Som standard synkroniseras alla användare och grupper från en Azure AD-katalog till en hanterad Azure AD DS-domän. Om du har speciella behov kan du istället välja att bara synkronisera en definierad uppsättning användare.
+Som standard synkroniseras alla användare och grupper från en Azure AD-katalog till en hanterad domän. Om du har speciella behov kan du istället välja att bara synkronisera en definierad uppsättning användare.
 
-Den här artikeln visar hur du skapar en hanterad domän som använder omfångs synkronisering och sedan ändrar eller inaktiverar uppsättningen med begränsade användare.
+Den här artikeln visar hur du konfigurerar omfångst synkronisering och sedan ändrar eller inaktiverar uppsättningen med begränsade användare med hjälp av Azure Portal. Du kan också [utföra dessa steg med hjälp av PowerShell][scoped-sync-powershell].
+
+## <a name="before-you-begin"></a>Innan du börjar
+
+För att slutföra den här artikeln behöver du följande resurser och behörigheter:
+
+* En aktiv Azure-prenumeration.
+    * [Skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)om du inte har någon Azure-prenumeration.
+* En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
+    * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
+* En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
+    * Om det behövs, slutför du själv studie kursen för att [skapa och konfigurera en Azure Active Directory Domain Services hanterad domän][tutorial-create-instance].
+* Du behöver *Global administratörs* behörighet i Azure AD-klienten för att ändra synkroniserings omfånget för Azure AD DS.
 
 ## <a name="scoped-synchronization-overview"></a>Översikt över omfånget synkronisering
 
-Som standard synkroniseras alla användare och grupper från en Azure AD-katalog till en hanterad domän. Om bara några få användare behöver åtkomst till den hanterade domänen kan du bara synkronisera dessa användar konton. Den här omfånget är gruppbaserad. När du konfigurerar gruppbaserad omsynkronisering synkroniseras bara de användar konton som tillhör de grupper som du anger till den hanterade domänen.
+Som standard synkroniseras alla användare och grupper från en Azure AD-katalog till en hanterad domän. Om bara några få användare behöver åtkomst till den hanterade domänen kan du bara synkronisera dessa användar konton. Den här omfånget är gruppbaserad. När du konfigurerar gruppbaserad omsynkronisering synkroniseras bara de användar konton som tillhör de grupper som du anger till den hanterade domänen. Kapslade grupper är inte synkroniserade, bara de enskilda grupper som du väljer.
 
-I följande tabell beskrivs hur du använder omfångst synkronisering:
+Du kan ändra omfånget för synkronisering när du skapar den hanterade domänen eller när den har distribuerats. Du kan också ändra omfånget för synkroniseringen på en befintlig hanterad domän utan att behöva skapa den igen.
 
-| Nuvarande tillstånd | Önskat tillstånd | Obligatorisk konfiguration |
-| --- | --- | --- |
-| En befintlig hanterad domän är konfigurerad för att synkronisera alla användar konton och grupper. | Du vill bara synkronisera användar konton som tillhör vissa grupper. | Du kan inte ändra från att synkronisera alla användare till att använda omfångs synkronisering. [Ta bort den befintliga hanterade domänen](delete-aadds.md)och följ sedan stegen i den här artikeln för att återskapa en hanterad domän där omfångs-synkronisering har kon figurer ATS. |
-| Ingen befintlig hanterad domän. | Du vill skapa en ny hanterad domän och endast synkronisera användar konton som tillhör vissa grupper. | Följ stegen i den här artikeln för att skapa en hanterad domän med begränsad synkronisering konfigurerad. |
-| En befintlig hanterad domän är konfigurerad för att endast synkronisera konton som tillhör vissa grupper. | Du vill ändra listan över grupper vars användare ska synkroniseras till den hanterade domänen. | Följ stegen i den här artikeln för att ändra omfångs synkroniseringen. |
-
-Du kan använda Azure Portal eller PowerShell för att konfigurera inställningarna för omfånget synkronisering:
-
-| Åtgärd | Användning<br>Azure-portalen | Användning<br>PowerShell |
-| ------ | ------------------- | ----------------- |
-| Skapa en hanterad domän och konfigurera omfångs synkronisering | [Azure-portalen](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
-| Ändra omfångs synkronisering | [Azure-portalen](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
-| Inaktivera omfångs synkronisering | [Azure-portalen](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
+Läs mer om synkroniseringsprocessen i [förstå synkronisering i Azure AD Domain Services][concepts-sync].
 
 > [!WARNING]
 > Om du ändrar omfånget för synkroniseringen synkroniserar den hanterade domänen om alla data. Följande gäller:
-> 
+>
 >  * När du ändrar omfånget för synkronisering för en hanterad domän sker en fullständig omsynkronisering.
 >  * Objekt som inte längre behövs i den hanterade domänen tas bort. Nya objekt skapas i den hanterade domänen.
->  * Det kan ta lång tid att slutföra omsynkroniseringen. Tiden för synkronisering beror på antalet objekt, till exempel användare, grupper och grupp medlemskap i den hanterade domänen och Azure AD-katalogen. För stora kataloger med hundratals tusen objekt kan omsynkroniseringen ta några dagar.
 
-## <a name="enable-scoped-synchronization-using-the-azure-portal"></a>Aktivera omfångs synkronisering med hjälp av Azure Portal
+## <a name="enable-scoped-synchronization"></a>Aktivera omfångs synkronisering
 
-Om du vill aktivera omfångs synkronisering i Azure Portal utför du följande steg:
+Utför följande steg för att aktivera omfångs synkronisering i Azure Portal:
 
-1. Följ [själv studie kursen för att skapa och konfigurera en hanterad domän](tutorial-create-instance-advanced.md). Slutför alla nödvändiga komponenter och distributions steg förutom för omfånget synkronisering.
-1. Välj **omfång** i steget synkronisering och välj sedan de Azure AD-grupper som ska synkroniseras med den hanterade domänen.
+1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**. Välj din hanterade domän, till exempel *aaddscontoso.com*.
+1. Välj **synkronisering** på menyn till vänster.
+1. För *synkroniseringens typ*väljer du **omfattning**.
+1. Välj **Välj grupper**och Sök sedan efter och välj de grupper som ska läggas till.
+1. När alla ändringar görs väljer du **Spara omfånget för synkronisering**.
 
-Det kan ta upp till en timme att slutföra distributionen av den hanterade domänen. På sidan Azure Portal visar **översikts** sidan för din hanterade domän den aktuella statusen i den här distributions fasen.
+Om du ändrar omfånget för synkroniseringen synkroniserar den hanterade domänen om alla data. Objekt som inte längre behövs i den hanterade domänen tas bort och omsynkroniseringen kan ta lite tid att slutföra.
 
-När Azure Portal visar att den hanterade domänen har slutfört etableringen måste följande uppgifter utföras:
-
-* Uppdatera DNS-inställningarna för det virtuella nätverket så att virtuella datorer kan hitta den hanterade domänen för domän anslutning eller autentisering.
-    * Om du vill konfigurera DNS väljer du din hanterade domän i portalen. I **översikts** fönstret uppmanas du att konfigurera dessa DNS-inställningar automatiskt.
-* [Aktivera Lösenordssynkronisering till Azure AD Domain Services](tutorial-create-instance-advanced.md#enable-user-accounts-for-azure-ad-ds) så att slutanvändarna kan logga in på den hanterade domänen med sina företags uppgifter.
-
-## <a name="modify-scoped-synchronization-using-the-azure-portal"></a>Ändra omfångs synkronisering med Azure Portal
+## <a name="modify-scoped-synchronization"></a>Ändra omfångs synkronisering
 
 Utför följande steg om du vill ändra listan över grupper vars användare ska synkroniseras till den hanterade domänen:
 
@@ -78,184 +74,25 @@ Utför följande steg om du vill ändra listan över grupper vars användare ska
 1. Om du vill ta bort en grupp från omfånget synkronisering väljer du den i listan över synkroniserade grupper och väljer **ta bort grupper**.
 1. När alla ändringar görs väljer du **Spara omfånget för synkronisering**.
 
-Om du ändrar omfånget för synkroniseringen synkroniserar den hanterade domänen om alla data. Objekt som inte längre behövs i den hanterade domänen tas bort och omsynkroniseringen kan ta lång tid att slutföra.
+Om du ändrar omfånget för synkroniseringen synkroniserar den hanterade domänen om alla data. Objekt som inte längre behövs i den hanterade domänen tas bort och omsynkroniseringen kan ta lite tid att slutföra.
 
-## <a name="disable-scoped-synchronization-using-the-azure-portal"></a>Inaktivera omfångs synkronisering med Azure Portal
+## <a name="disable-scoped-synchronization"></a>Inaktivera omfångs synkronisering
 
 Utför följande steg för att inaktivera gruppbaserad omsynkronisering för en hanterad domän:
 
 1. I Azure Portal söker du efter och väljer **Azure AD Domain Services**. Välj din hanterade domän, till exempel *aaddscontoso.com*.
 1. Välj **synkronisering** på menyn till vänster.
-1. Ange omfånget för synkroniseringen från **omfång** till **alla**och välj sedan **Spara omfånget för synkronisering**.
+1. Ändra *synkroniseringens typ* från **omfång** till **alla**och välj sedan **Spara omfånget för synkronisering**.
 
-Om du ändrar omfånget för synkroniseringen synkroniserar den hanterade domänen om alla data. Objekt som inte längre behövs i den hanterade domänen tas bort och omsynkroniseringen kan ta lång tid att slutföra.
-
-## <a name="powershell-script-for-scoped-synchronization"></a>PowerShell-skript för omfångst synkronisering
-
-Om du vill konfigurera omfångs synkronisering med PowerShell måste du först spara följande skript till en fil med namnet `Select-GroupsToSync.ps1` . Det här skriptet konfigurerar Azure AD DS för att synkronisera valda grupper från Azure AD. Alla användar konton som ingår i de angivna grupperna synkroniseras med den hanterade domänen.
-
-Det här skriptet används i de ytterligare stegen i den här artikeln.
-
-```powershell
-param (
-    [Parameter(Position = 0)]
-    [String[]]$groupsToAdd
-)
-
-Connect-AzureAD
-$sp = Get-AzureADServicePrincipal -Filter "AppId eq '2565bd9d-da50-47d4-8b85-4c97f669dc36'"
-$role = $sp.AppRoles | where-object -FilterScript {$_.DisplayName -eq "User"}
-
-Write-Output "`n****************************************************************************"
-
-Write-Output "Total group-assignments need to be added: $($groupsToAdd.Count)"
-$newGroupIds = New-Object 'System.Collections.Generic.HashSet[string]'
-foreach ($groupName in $groupsToAdd)
-{
-    try
-    {
-        $group = Get-AzureADGroup -Filter "DisplayName eq '$groupName'"
-        $newGroupIds.Add($group.ObjectId)
-
-        Write-Output "Group-Name: $groupName, Id: $($group.ObjectId)"
-    }
-    catch
-    {
-        Write-Error "Failed to find group: $groupName. Exception: $($_.Exception)."
-    }
-}
-
-Write-Output "****************************************************************************`n"
-Write-Output "`n****************************************************************************"
-
-$currentAssignments = Get-AzureADServiceAppRoleAssignment -ObjectId $sp.ObjectId
-Write-Output "Total current group-assignments: $($currentAssignments.Count), SP-ObjectId: $($sp.ObjectId)"
-
-$currAssignedObjectIds = New-Object 'System.Collections.Generic.HashSet[string]'
-foreach ($assignment in $currentAssignments)
-{
-    Write-Output "Assignment-ObjectId: $($assignment.PrincipalId)"
-
-    if ($newGroupIds.Contains($assignment.PrincipalId) -eq $false)
-    {
-        Write-Output "This assignment is not needed anymore. Removing it! Assignment-ObjectId: $($assignment.PrincipalId)"
-        Remove-AzureADServiceAppRoleAssignment -ObjectId $sp.ObjectId -AppRoleAssignmentId $assignment.ObjectId
-    }
-    else
-    {
-        $currAssignedObjectIds.Add($assignment.PrincipalId)
-    }
-}
-
-Write-Output "****************************************************************************`n"
-Write-Output "`n****************************************************************************"
-
-foreach ($id in $newGroupIds)
-{
-    try
-    {
-        if ($currAssignedObjectIds.Contains($id) -eq $false)
-        {
-            Write-Output "Adding new group-assignment. Role-Id: $($role.Id), Group-Object-Id: $id, ResourceId: $($sp.ObjectId)"
-            New-AzureADGroupAppRoleAssignment -Id $role.Id -ObjectId $id -PrincipalId $id -ResourceId $sp.ObjectId
-        }
-        else
-        {
-            Write-Output "Group-ObjectId: $id is already assigned."
-        }
-    }
-    catch
-    {
-        Write-Error "Exception occurred assigning Object-ID: $id. Exception: $($_.Exception)."
-    }
-}
-
-Write-Output "****************************************************************************`n"
-```
-
-## <a name="enable-scoped-synchronization-using-powershell"></a>Aktivera omfångs synkronisering med PowerShell
-
-Använd PowerShell för att slutföra följande steg. Läs anvisningarna för att [aktivera Azure Active Directory Domain Services med hjälp av PowerShell](powershell-create-instance.md). Ett par steg i den här artikeln har ändrats något för att konfigurera omfångst synkronisering.
-
-1. Utför följande åtgärder från artikeln för att aktivera Azure AD DS med hjälp av PowerShell. Stoppa i steget för att skapa den hanterade domänen. Du konfigurerar den omfångs synkronisering som du skapar den hanterade domänen.
-
-   * [Installera de PowerShell-moduler som krävs](powershell-create-instance.md#prerequisites).
-   * [Skapa den nödvändiga tjänstens huvud namn och Azure AD-grupp för administrativ åtkomst](powershell-create-instance.md#create-required-azure-ad-resources).
-   * [Skapa stöd för Azure-resurser som ett virtuellt nätverk och undernät](powershell-create-instance.md#create-supporting-azure-resources).
-
-1. Bestäm vilka grupper och användare de innehåller som du vill synkronisera från Azure AD. Skapa en lista över visnings namnen för de grupper som ska synkroniseras till Azure AD DS.
-
-1. Kör [skriptet från föregående avsnitt](#powershell-script-for-scoped-synchronization) och Använd parametern *-groupsToAdd* för att skicka listan över grupper som ska synkroniseras.
-
-   > [!WARNING]
-   > Du måste inkludera *Administratörs gruppen för AAD-domänkontrollanten* i listan över grupper för omfångs synkronisering. Om du inte tar med den här gruppen går det inte att använda den hanterade domänen.
-
-   ```powershell
-   .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
-   ```
-
-1. Skapa nu den hanterade domänen och aktivera gruppbaserad synkronisering av omfång. Inkludera *"filteredSync" = "Enabled"* i parametern *-Properties* .
-
-    Ange ditt ID för Azure-prenumerationen och ange sedan ett namn för den hanterade domänen, till exempel *aaddscontoso.com*. Du kan hämta ditt prenumerations-ID med hjälp av cmdleten [Get-AzSubscription][Get-AzSubscription] . Ange resurs gruppens namn, det virtuella nätverks namnet och regionen till de värden som användes i föregående steg för att skapa de stödda Azure-resurserna:
-
-   ```powershell
-   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-   $ManagedDomainName = "aaddscontoso.com"
-   $ResourceGroupName = "myResourceGroup"
-   $VnetName = "myVnet"
-   $AzureLocation = "westus"
-
-   # Enable Azure AD Domain Services for the directory.
-   New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-   -Location $AzureLocation `
-   -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
-    "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-   -Force -Verbose
-   ```
-
-Det tar några minuter att skapa resursen och returnera kontrollen till PowerShell-prompten. Den hanterade domänen fortsätter att tillhandahållas i bakgrunden och kan ta upp till en timme att slutföra distributionen. På sidan Azure Portal visar **översikts** sidan för din hanterade domän den aktuella statusen i den här distributions fasen.
-
-När Azure Portal visar att den hanterade domänen har slutfört etableringen måste följande uppgifter utföras:
-
-* Uppdatera DNS-inställningarna för det virtuella nätverket så att virtuella datorer kan hitta den hanterade domänen för domän anslutning eller autentisering.
-    * Om du vill konfigurera DNS väljer du din hanterade domän i portalen. I **översikts** fönstret uppmanas du att konfigurera dessa DNS-inställningar automatiskt.
-* Om du har skapat en hanterad domän i en region som stöder Tillgänglighetszoner skapar du en nätverks säkerhets grupp för att begränsa trafiken i det virtuella nätverket för den hanterade domänen. En Azure standard Load Balancer skapas som kräver att dessa regler placeras. Den här nätverks säkerhets gruppen säkrar Azure AD DS och krävs för att den hanterade domänen ska fungera korrekt.
-    * Om du vill skapa en nätverks säkerhets grupp och regler som krävs väljer du din hanterade domän i portalen. I **översikts** fönstret uppmanas du att automatiskt skapa och konfigurera nätverks säkerhets gruppen.
-* [Aktivera Lösenordssynkronisering till Azure AD Domain Services](tutorial-create-instance-advanced.md#enable-user-accounts-for-azure-ad-ds) så att slutanvändarna kan logga in på den hanterade domänen med sina företags uppgifter.
-
-## <a name="modify-scoped-synchronization-using-powershell"></a>Ändra omfångs synkronisering med PowerShell
-
-Om du vill ändra listan över grupper vars användare ska synkroniseras till den hanterade domänen kör du [PowerShell-skriptet](#powershell-script-for-scoped-synchronization) igen och anger den nya listan över grupper. I följande exempel innehåller grupperna för synkronisering inte längre *GroupName2*och innehåller nu *GroupName3*.
-
-> [!WARNING]
-> Du måste inkludera *Administratörs gruppen för AAD-domänkontrollanten* i listan över grupper för omfångs synkronisering. Om du inte tar med den här gruppen går det inte att använda den hanterade domänen.
-
-```powershell
-.\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName3")
-```
-
-Om du ändrar omfånget för synkroniseringen synkroniserar den hanterade domänen om alla data. Objekt som inte längre behövs i den hanterade domänen tas bort och omsynkroniseringen kan ta lång tid att slutföra.
-
-## <a name="disable-scoped-synchronization-using-powershell"></a>Inaktivera omfångs synkronisering med PowerShell
-
-Om du vill inaktivera gruppbaserad omsynkronisering för en hanterad domän anger du *"filteredSync" = "inaktive rad"* på Azure AD DS-resursen och uppdaterar sedan den hanterade domänen. När det är klart är alla användare och grupper inställda för synkronisering från Azure AD.
-
-```powershell
-// Retrieve the Azure AD DS resource.
-$DomainServicesResource = Get-AzResource -ResourceType "Microsoft.AAD/DomainServices"
-
-// Disable group-based scoped synchronization.
-$disableScopedSync = @{"filteredSync" = "Disabled"}
-
-// Update the Azure AD DS resource
-Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $disableScopedSync
-```
-
-Om du ändrar omfånget för synkroniseringen synkroniserar den hanterade domänen om alla data. Objekt som inte längre behövs i den hanterade domänen tas bort och omsynkroniseringen kan ta lång tid att slutföra.
+Om du ändrar omfånget för synkroniseringen synkroniserar den hanterade domänen om alla data. Objekt som inte längre behövs i den hanterade domänen tas bort och omsynkroniseringen kan ta lite tid att slutföra.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om synkroniseringsprocessen i [förstå synkronisering i Azure AD Domain Services](synchronization.md).
+Läs mer om synkroniseringsprocessen i [förstå synkronisering i Azure AD Domain Services][concepts-sync].
 
-<!-- EXTERNAL LINKS -->
-[Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription
+<!-- INTERNAL LINKS -->
+[scoped-sync-powershell]: powershell-scoped-synchronization.md
+[concepts-sync]: synchronization.md
+[tutorial-create-instance]: tutorial-create-instance.md
+[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md

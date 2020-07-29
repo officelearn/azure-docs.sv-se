@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
-ms.openlocfilehash: b490b4304dd74d8266b24d0ea5af58726b14d747
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 57be62d0f74f19e35eedf8720e2a6f5cbd3b45d4
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125823"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87335807"
 ---
 Det är möjligt att organisationen kräver ytterligare åtgärder från prenumerations ägare för att kunna konfigurera en registrering av appen (och därmed slutföra konfigurationen av en användbar Azure Digital-instans). De steg som krävs kan variera beroende på organisationens aktuella inställningar.
 
@@ -21,7 +21,6 @@ Här följer några vanliga potentiella aktiviteter som en ägare kan behöva ut
   - Om medgivande har beviljats bör posten för Azure Digital-dubbla, Visa ett *status* värde för _beviljat **(ditt företag)** _
    
     :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/granted-admin-consent.png" alt-text="Portal visning av administrativt medgivande som beviljats för företaget under API-behörigheter":::
-  - Ägaren kanske föredrar att upprepa den här processen för varje app-registrering som skapas, eller att göra det en gång och upprätta en enda delad app-registrering för alla Azure Digital-instanser i prenumerationen som ska användas. I det andra scenariot bör ägaren dela *klient-ID* och klient *-ID* för appens registrering med utvecklare som behöver använda appens registrering. (Detta är hur det sker i Microsofts egen klient organisation).
 * Aktivera offentlig klient åtkomst
 * Ange vissa svars-URL: er för webb-och skriv bords åtkomst
 * Tillåt för implicita OAuth2-autentiserings flöden

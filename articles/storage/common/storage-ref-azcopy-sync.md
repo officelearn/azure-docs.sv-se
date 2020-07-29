@@ -4,15 +4,16 @@ description: Den här artikeln innehåller referensinformation för kommandot Az
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d4b43b590b147335a70877a7c3c0b07f8b818e3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04b87f8d0dd6a8fff35e3ae769652b50e7d0ef34
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84221065"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285211"
 ---
 # <a name="azcopy-sync"></a>azcopy synkronisering
 
@@ -32,13 +33,13 @@ Kommandot Sync skiljer sig från kommandot Copy på flera sätt:
 
 1. Som standard är den rekursiva flaggan True och Sync kopierar alla under kataloger. Sync kopierar endast filer på den översta nivån i en katalog om den rekursiva flaggan är falsk.
 2. När du synkroniserar mellan virtuella kataloger lägger du till ett avslutande snedstreck till sökvägen (se exemplen) om det finns en blob med samma namn som en av de virtuella katalogerna.
-3. Om flaggan ' deleteDestination ' har angetts till true eller prompt, kommer synkronisering att ta bort filer och blobbar på det mål som inte finns på källan.
+3. Om `deleteDestination` flaggan är inställd på True eller prompt kommer synkronisering att ta bort filer och blobbar på det mål som inte finns på källan.
 
 ## <a name="related-conceptual-articles"></a>Relaterade konceptuella artiklar
 
 - [Kom igång med AzCopy](storage-use-azcopy-v10.md)
 - [Överföra data med AzCopy och Blob Storage](storage-use-azcopy-blobs.md)
-- [Överföra data med AzCopy och fil lagring](storage-use-azcopy-files.md)
+- [Överföra data med AzCopy och fillagring](storage-use-azcopy-files.md)
 - [Konfigurera, optimera och felsöka AzCopy](storage-use-azcopy-configure.md)
 
 ### <a name="advanced"></a>Avancerat
@@ -65,10 +66,7 @@ Synkronisera en enskild fil:
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
 ```
 
-> [!NOTE]
-> Mål-bloben *måste* finnas. Används `azcopy copy` för att kopiera en enskild fil som ännu inte finns i målet. Annars inträffar följande fel: `Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container` .
-
-Samma som ovan, men den här gången kan du också beräkna MD5-hashen för fil innehållet och spara den som blobens Content-MD5-egenskap:
+Samma som ovan, men beräkna även en MD5-hash av fil innehållet och spara sedan MD5-hash som blobens Content-MD5-egenskap. 
 
 ```azcopy
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --put-md5
@@ -86,22 +84,22 @@ eller
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --put-md5
 ```
 
-Synkronisera enbart de översta filerna i en katalog, men inte dess under kataloger:
+Synkronisera endast filerna inuti en katalog, men inte under kataloger eller filer i under kataloger:
 
 ```azcopy
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=false
 ```
 
-Synkronisera en delmängd av filer i en katalog (till exempel: endast jpg-och PDF-filer, eller om fil namnet är "exactName"):
+Synkronisera en delmängd av filer i en katalog (till exempel: endast jpg-och PDF-filer, eller om fil namnet är `exactName` ):
 
 ```azcopy
-azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --include="*.jpg;*.pdf;exactName"
+azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --include-pattern="*.jpg;*.pdf;exactName"
 ```
 
-Synkronisera en hel katalog, men undanta vissa filer från omfånget (till exempel: varje fil som börjar med foo eller slutar med bar):
+Synkronisera en hel katalog men undanta vissa filer från omfånget (till exempel: varje fil som börjar med foo eller slutar med bar):
 
 ```azcopy
-azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --exclude="foo*;*bar"
+azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --exclude-pattern="foo*;*bar"
 ```
 
 Synkronisera en enskild BLOB:
@@ -133,29 +131,31 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 ## <a name="options"></a>Alternativ
 
-**--block-size-MB** float Använd den här block storleken (anges i MIB) vid överföring till Azure Storage eller nedladdning från Azure Storage. Standardvärdet beräknas automatiskt baserat på fil storlek. Decimal tal tillåts (till exempel: 0,25).
+**--block-size-MB** float Använd den här block storleken (anges i MIB) vid överföring till Azure Storage eller nedladdning från Azure Storage. Standardvärdet beräknas automatiskt baserat på fil storlek. Decimal tal tillåts (till exempel: `0.25` ).
 
-**--kontrol lera-MD5-** sträng anger hur strikt MD5-hashar ska verifieras vid hämtning. Det här alternativet är endast tillgängligt vid hämtning. Tillgängliga värden är: nocheck, inloggning, FailIfDifferent, FailIfDifferentOrMissing. (standard ' FailIfDifferent '). (standard "FailIfDifferent")
+**--kontrol lera-MD5-** sträng anger hur strikt MD5-hashar ska verifieras vid hämtning. Det här alternativet är endast tillgängligt vid hämtning. Tillgängliga värden är: `NoCheck` , `LogOnly` , `FailIfDifferent` , `FailIfDifferentOrMissing` . (standard `FailIfDifferent` ). (standard `FailIfDifferent` )
 
-**--Delete-destinations** sträng anger om du vill ta bort extra filer från målet som inte finns på källan. Kan anges till true, false eller prompt. Om alternativet är inställt uppmanas användaren att ange en fråga innan de schemalägger filer och blobbar för borttagning. (standard är falskt). (standard "falskt")
+**--Delete-destinations** sträng anger om du vill ta bort extra filer från målet som inte finns på källan. Kan anges till `true` , `false` , eller `prompt` . Om detta är inställt på `prompt` , uppmanas användaren att ange en fråga innan de schemalägger filer och blobbar för borttagning. (standard `false` ). (standard `false` )
 
-**--sträng för exkludera attribut** (endast Windows) Uteslut filer vars attribut matchar attributlistan. Till exempel: A; Na R
+**--sträng för exkludera attribut** (endast Windows) utesluter filer vars attribut matchar attributlistan. Exempelvis: `A;S;R`
 
-**--sträng för exkluderings Sök väg** undantar dessa sökvägar vid kopiering. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg (till exempel: mappen folder, mappen subDirName/file.pdf). När de används i kombination med konto Traversal inkluderar inte sökvägar namnet på behållaren.
+**--sträng med exkludera Sök** vägar utesluter dessa sökvägar när källan jämförs mot målet. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg (till exempel: `myFolder;myFolder/subDirName/file.pdf` ).
 
-**--exkludera-mönster** sträng exkludera filer där namnet matchar mönster listan. Till exempel: \* . jpg; \* . PDF; exactName
+**--exkludera-mönster** sträng exkludera filer där namnet matchar mönster listan. Exempelvis: `*.jpg;*.pdf;exactName`
 
-**-h,--hjälp** hjälp för synkronisering
+**--Hjälp** för synkronisering.
 
-**--include-attribut** sträng (endast Windows) inkludera endast filer vars attribut stämmer överens med attributlistan. Till exempel: A; Na R
+**--include-attribut** sträng (endast Windows) innehåller bara filer vars attribut matchar attributlistan. Exempelvis: `A;S;R`
 
-**--Inkludera-mönster** sträng inkludera bara filer där namnet matchar mönster listan. Till exempel: \* . jpg; \* . PDF; exactName
+**--Inkludera-mönster** sträng inkludera bara filer där namnet matchar mönster listan. Exempelvis: `*.jpg;*.pdf;exactName`
 
-**--sträng på loggnivå** definierar loggens utförlighet för logg filen, tillgängliga nivåer: info (alla begär Anden och svar), varning (långsamma svar), fel (endast misslyckade förfrågningar) och ingen (inga utgående loggar). (standard information). (standard information)
+**--sträng på loggnivå** definierar loggens utförlighet för logg filen, tillgängliga nivåer: `INFO` (alla begär Anden och svar) `WARNING` (långsamma svar), `ERROR` (endast misslyckade förfrågningar) och `NONE` (inga utgående loggar). (standard `INFO` ). 
 
-**--Skicka-MD5**                     Skapa en MD5-hash av varje fil och spara hashen som Content-MD5-egenskapen för Målmatrisen eller-filen. (Som standard skapas inte hashen.) Endast tillgängligt vid uppladdning.
+**--Skicka-MD5**     Skapa en MD5-hash av varje fil och spara hashen som Content-MD5-egenskapen för Målmatrisen eller-filen. (Som standard skapas inte hashen.) Endast tillgängligt vid uppladdning.
 
-**--rekursivt**                   Sant som standard tittar du på under kataloger rekursivt vid synkronisering mellan kataloger. (standard är sant). (standard sant)
+**--rekursivt** `True` som standard tittar du i under kataloger rekursivt vid synkronisering mellan kataloger.     (standard `True` ). 
+
+**--S2S-konserver-Access-Tier**  Bevara åtkomst nivån under tjänst-till-tjänst-kopiering. Se [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) lag rings nivå för att säkerställa att mål lagrings kontot har stöd för att ange åtkomst nivå. I de fall då det inte finns stöd för att ange åtkomst nivå kan du använda s2sPreserveAccessTier = false för att kringgå kopiering av åtkomst nivå. (standard `true` ). 
 
 ## <a name="options-inherited-from-parent-commands"></a>Alternativ som ärvts från överordnade kommandon
 
@@ -167,4 +167,4 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 ## <a name="see-also"></a>Se även
 
-- [AzCopy](storage-ref-azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

@@ -7,26 +7,27 @@ ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
-ms.openlocfilehash: 98da7e959e4b59ad2d0f3f3f79364391b4ceddbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8cce90a8a65a7f070459e220e6d92ef0be57e909
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82997105"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284123"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Skapa och hantera poster i Common Data Service med Azure Logic Apps
 
-Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [common data service Connector](https://docs.microsoft.com/connectors/commondataservice/)kan du bygga automatiserade arbets flöden som hanterar poster i din [common data service](https://docs.microsoft.com/powerapps/maker/common-data-service/data-platform-intro) databas. Dessa arbets flöden kan skapa poster, uppdatera poster och utföra andra åtgärder. Du kan också hämta information från Common Data Service-databasen och göra utdata tillgängliga för andra åtgärder som ska användas i din Logic app. När en post till exempel uppdateras i Common Data Service-databasen kan du skicka ett e-postmeddelande med hjälp av Office 365 Outlook Connector.
+Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [common data service Connector](/connectors/commondataservice/)kan du bygga automatiserade arbets flöden som hanterar poster i din [common data service](/powerapps/maker/common-data-service/data-platform-intro) databas. Dessa arbets flöden kan skapa poster, uppdatera poster och utföra andra åtgärder. Du kan också hämta information från Common Data Service-databasen och göra utdata tillgängliga för andra åtgärder som ska användas i din Logic app. När en post till exempel uppdateras i Common Data Service-databasen kan du skicka ett e-postmeddelande med hjälp av Office 365 Outlook Connector.
 
 Den här artikeln visar hur du kan skapa en Logic app som skapar en uppgifts post när en ny leadpost skapas.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* En [common data service miljö](https://docs.microsoft.com/power-platform/admin/environments-overview), som är ett utrymme där din organisation lagrar, hanterar och delar affärs data och en common data service databas. Mer information finns i följande resurser:<p>
+* En [common data service miljö](/power-platform/admin/environments-overview), som är ett utrymme där din organisation lagrar, hanterar och delar affärs data och en common data service databas. Mer information finns i följande resurser:<p>
 
-  * [Lär dig: kom igång med Common Data Service](https://docs.microsoft.com/learn/modules/get-started-with-powerapps-common-data-service/)
-  * [Översikt över Power Platform-miljöer](https://docs.microsoft.com/power-platform/admin/environments-overview)
+  * [Lär dig: kom igång med Common Data Service](/learn/modules/get-started-with-powerapps-common-data-service/)
+  * [Översikt över Power Platform-miljöer](/power-platform/admin/environments-overview)
 
 * Grundläggande information om [hur du skapar](../logic-apps/quickstart-create-first-logic-app-workflow.md) Logi Kap par och vilken Logic-app du vill använda för att komma åt posterna i din common data service databas. Om du vill starta din Logic app med en Common Data Service utlösare behöver du en tom Logic-app. Om du inte har använt Azure Logic Apps bör du gå igenom [snabb starten: skapa ditt första arbets flöde med hjälp av Azure Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -50,7 +51,7 @@ I det här exemplet lägger du till den Common Data Service utlösare som utlös
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Miljö** | Ja | Miljön som ska övervakas, till exempel "Fabrikam Sales Production". Mer information finns i [Översikt över Power Platform-miljöer](https://docs.microsoft.com/power-platform/admin/environments-overview). |
+   | **Miljö** | Ja | Miljön som ska övervakas, till exempel "Fabrikam Sales Production". Mer information finns i [Översikt över Power Platform-miljöer](/power-platform/admin/environments-overview). |
    | **Entitetsnamn** | Ja | Entiteten som ska övervakas, till exempel "leads" |
    | **Omfång** | Ja | Källan som skapade den nya posten, till exempel en användare i din affär senhet eller någon annan användare i din organisation. I det här exemplet används "affär senhet". |
    ||||
@@ -71,7 +72,7 @@ Lägg nu till en Common Data Service-åtgärd som skapar en uppgifts post för e
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Organisations namn** | Ja | Miljön där du vill skapa posten, som inte behöver vara samma miljö i utlösaren, men är "Fabrikam Sales Production" i det här exemplet |
+   | **Organisationsnamn** | Ja | Miljön där du vill skapa posten, som inte behöver vara samma miljö i utlösaren, men är "Fabrikam Sales Production" i det här exemplet |
    | **Entitetsnamn** | Ja | Entiteten där du vill skapa posten, till exempel "aktiviteter" |
    | **Ämne** | Ja, baserat på den entitet som valts i det här exemplet | En kort beskrivning av målet för den här uppgiften |
    ||||
@@ -97,7 +98,7 @@ Lägg nu till en Common Data Service-åtgärd som skapar en uppgifts post för e
 
    ![Åtgärden att skapa en ny post har skapats](./media/connect-common-data-service/finished-create-record-action-details.png)
 
-1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
+1. Spara logikappen. I verktygsfältet designer väljer du **Spara**.
 
 1. Starta Logic-appen manuellt genom att klicka på **Kör**i verktygsfältet i designern. Om du vill testa din Logic-app skapar du en ny "leads"-post.
 
@@ -125,7 +126,7 @@ För åtgärder som returnerar poster, till exempel åtgärden **lista poster** 
 
    ![Ange ODATA filter fråga för att filtrera poster](./media/connect-common-data-service/list-records-action-filter-query-value.png)
 
-Mer information om `$filter` alternativ för system frågor finns i [common data service-filter resultat](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
+Mer information om `$filter` alternativ för system frågor finns i [common data service-filter resultat](/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
 
 ## <a name="list-records-based-on-an-order"></a>Lista poster baserat på en order
 
@@ -139,7 +140,7 @@ För åtgärder som returnerar poster, till exempel åtgärden **lista poster** 
 
    ![Ange ODATA filter-fråga för att ordna poster](./media/connect-common-data-service/list-records-action-order-by-value.png)
 
-Mer information om `$orderby` alternativ för system frågor finns i [common data service-order-resultat](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
+Mer information om `$orderby` alternativ för system frågor finns i [common data service-order-resultat](/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
 
 ## <a name="field-data-types"></a>Fält data typer
 
@@ -165,7 +166,7 @@ I det här exemplet visas hur åtgärden **skapa en ny post** skapar en ny "task
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information som baseras på kopplingens Swagger beskrivning, till exempel utlösare, åtgärder, gränser och annan information finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/commondataservice/).
+Teknisk information som baseras på kopplingens Swagger beskrivning, till exempel utlösare, åtgärder, gränser och annan information finns på [kopplingens referens sida](/connectors/commondataservice/).
 
 ## <a name="next-steps"></a>Nästa steg
 

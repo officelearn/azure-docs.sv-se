@@ -1,6 +1,6 @@
 ---
-title: Distribuera ett hanterings verktyg för virtuella Windows-datorer med tjänstens huvud namn – Azure
-description: Distribuera hanterings verktyget för virtuella Windows-datorer med hjälp av PowerShell.
+title: Distribuera ett hanterings verktyg för Windows Virtual Desktop (klassisk) med tjänstens huvud namn – Azure
+description: Distribuera hanterings verktyget för Windows Virtual Desktop (klassisk) med hjälp av PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,16 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0ae3bb87bfee681aa518a4dfef064677ffa97119
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6947e5ebf91ee65145c7a5042fb1ee6968c19c9b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513404"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284973"
 ---
-# <a name="deploy-a-management-tool-with-powershell"></a>Distribuera ett hanterings verktyg med PowerShell
+# <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-powershell"></a>Distribuera ett hanterings verktyg för Windows Virtual Desktop (klassiskt) med PowerShell
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt.
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows.
 
 I den här artikeln visas hur du distribuerar hanterings verktyget med PowerShell.
 

@@ -13,12 +13,12 @@ ms.date: 07/16/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ea207a4584d9f4fad5dee45b3633c306a8d98b3d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c4274292dfbd53abed09dfeae77ec976afe9ebc0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025923"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282967"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft Identity Platform och OAuth 2,0 på uppdrag av Flow
 
@@ -64,11 +64,11 @@ När du använder en delad hemlighet innehåller en begäran om tjänst-till-tj�
 | Parameter | Typ | Beskrivning |
 | --- | --- | --- |
 | `grant_type` | Krävs | Typ av Tokenbegäran. För en begäran som använder en JWT måste värdet vara `urn:ietf:params:oauth:grant-type:jwt-bearer` . |
-| `client_id` | Obligatorisk | Program-ID: t (klienten) som [Azure Portal-Appregistreringar-](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. |
-| `client_secret` | Obligatorisk | Den klient hemlighet som du genererade för din app på sidan Azure Portal-Appregistreringar. |
-| `assertion` | Obligatorisk | Den åtkomsttoken som skickades till API: t mellan nivå.  Denna token måste ha en Audience ( `aud` )-anspråks ansökan () för att appen ska kunna utföra denna OBO-begäran (appen avgränsade med `client-id` fältet). Program kan inte lösa in en token för en annan app (så t. ex. om en klient skickar en API till en token som är avsedd för MS Graph kan API: t inte lösa det med OBO.  Den bör istället avvisa token.  |
-| `scope` | Obligatorisk | En blankstegsavgränsad lista över omfång för Tokenbegäran. Mer information finns i [omfattningar](v2-permissions-and-consent.md). |
-| `requested_token_use` | Obligatorisk | Anger hur begäran ska bearbetas. I OBO-flödet måste värdet anges till `on_behalf_of` . |
+| `client_id` | Krävs | Program-ID: t (klienten) som [Azure Portal-Appregistreringar-](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. |
+| `client_secret` | Krävs | Den klient hemlighet som du genererade för din app på sidan Azure Portal-Appregistreringar. |
+| `assertion` | Krävs | Den åtkomsttoken som skickades till API: t mellan nivå.  Denna token måste ha en Audience ( `aud` )-anspråks ansökan () för att appen ska kunna utföra denna OBO-begäran (appen avgränsade med `client-id` fältet). Program kan inte lösa in en token för en annan app (så t. ex. om en klient skickar en API till en token som är avsedd för MS Graph kan API: t inte lösa det med OBO.  Den bör istället avvisa token.  |
+| `scope` | Krävs | En blankstegsavgränsad lista över omfång för Tokenbegäran. Mer information finns i [omfattningar](v2-permissions-and-consent.md). |
+| `requested_token_use` | Krävs | Anger hur begäran ska bearbetas. I OBO-flödet måste värdet anges till `on_behalf_of` . |
 
 #### <a name="example"></a>Exempel
 
@@ -96,12 +96,12 @@ En Tokenbegäran för tjänst-till-tjänst-begäran med ett certifikat innehåll
 | Parameter | Typ | Beskrivning |
 | --- | --- | --- |
 | `grant_type` | Krävs | Typ av Tokenbegäran. För en begäran som använder en JWT måste värdet vara `urn:ietf:params:oauth:grant-type:jwt-bearer` . |
-| `client_id` | Obligatorisk |  Program-ID: t (klienten) som [Azure Portal-Appregistreringar-](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. |
-| `client_assertion_type` | Obligatorisk | Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` . |
-| `client_assertion` | Obligatorisk | En kontroll (en JSON-webbtoken) som du måste skapa och signera med det certifikat som du har registrerat som autentiseringsuppgifter för ditt program. Information om hur du registrerar ditt certifikat och formatet på intyget finns i autentiseringsuppgifter för [certifikat](active-directory-certificate-credentials.md). |
-| `assertion` | Obligatorisk |  Den åtkomsttoken som skickades till API: t mellan nivå.  Denna token måste ha en Audience ( `aud` )-anspråks ansökan () för att appen ska kunna utföra denna OBO-begäran (appen avgränsade med `client-id` fältet). Program kan inte lösa in en token för en annan app (så t. ex. om en klient skickar en API till en token som är avsedd för MS Graph kan API: t inte lösa det med OBO.  Den bör istället avvisa token.  |
-| `requested_token_use` | Obligatorisk | Anger hur begäran ska bearbetas. I OBO-flödet måste värdet anges till `on_behalf_of` . |
-| `scope` | Obligatorisk | En blankstegsavgränsad lista över omfång för Tokenbegäran. Mer information finns i [omfattningar](v2-permissions-and-consent.md).|
+| `client_id` | Krävs |  Program-ID: t (klienten) som [Azure Portal-Appregistreringar-](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. |
+| `client_assertion_type` | Krävs | Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` . |
+| `client_assertion` | Krävs | En kontroll (en JSON-webbtoken) som du måste skapa och signera med det certifikat som du har registrerat som autentiseringsuppgifter för ditt program. Information om hur du registrerar ditt certifikat och formatet på intyget finns i autentiseringsuppgifter för [certifikat](active-directory-certificate-credentials.md). |
+| `assertion` | Krävs |  Den åtkomsttoken som skickades till API: t mellan nivå.  Denna token måste ha en Audience ( `aud` )-anspråks ansökan () för att appen ska kunna utföra denna OBO-begäran (appen avgränsade med `client-id` fältet). Program kan inte lösa in en token för en annan app (så t. ex. om en klient skickar en API till en token som är avsedd för MS Graph kan API: t inte lösa det med OBO.  Den bör istället avvisa token.  |
+| `requested_token_use` | Krävs | Anger hur begäran ska bearbetas. I OBO-flödet måste värdet anges till `on_behalf_of` . |
+| `scope` | Krävs | En blankstegsavgränsad lista över omfång för Tokenbegäran. Mer information finns i [omfattningar](v2-permissions-and-consent.md).|
 
 Observera att parametrarna är nästan desamma som i fallet med delad hemlighet, förutom att `client_secret` parametern ersätts av två parametrar: a `client_assertion_type` och `client_assertion` .
 
@@ -184,6 +184,59 @@ GET /v1.0/me HTTP/1.1
 Host: graph.microsoft.com
 Authorization: Bearer eyJ0eXAiO ... 0X2tnSQLEANnSPHY0gKcgw
 ```
+
+## <a name="saml-assertions-obtained-with-an-oauth20-obo-flow"></a>SAML-kontroller som hämtats med ett OAuth 2.0 OBO-flöde
+
+Vissa OAuth-baserade webb tjänster behöver åtkomst till andra webb tjänst-API: er som accepterar SAML-kontroller i icke-interaktiva flöden. Azure Active Directory kan tillhandahålla en SAML-kontroll som svar på ett ingångs flöde som använder en SAML-baserad webb tjänst som mål resurs.
+
+>[!NOTE]
+>Det här är ett tillägg som inte är standard för OAuth 2,0 på ett flöde som gör det möjligt för ett OAuth2 program att få åtkomst till webb tjänstens API-slutpunkter som använder SAML-token.
+
+> [!TIP]
+> När du anropar en SAML-skyddad webb tjänst från ett klient webb program kan du bara anropa API: et och initiera ett normalt interaktivt autentiseringsschema med användarens befintliga session. Du behöver bara använda ett OBO-flöde när ett tjänst-till-tjänst-anrop kräver en SAML-token för att tillhandahålla användar kontext.
+
+### <a name="obtain-a-saml-token-by-using-an-obo-request-with-a-shared-secret"></a>Hämta en SAML-token genom att använda en OBO-begäran med en delad hemlighet
+
+En tjänst-till-tjänst-begäran för en SAML-kontroll innehåller följande parametrar:
+
+| Parameter | Typ | Description |
+| --- | --- | --- |
+| grant_type |krävs | Typ av Tokenbegäran. För en begäran som använder en JWT måste värdet vara **urn: IETF: params: OAuth: Grant-Type: JWT-Bearer**. |
+| Assertion |krävs | Värdet för den åtkomsttoken som används i begäran.|
+| client_id |krävs | App-ID som tilldelats den anropande tjänsten under registreringen med Azure AD. Om du vill hitta app-ID: t i Azure Portal väljer du **Active Directory**, väljer katalogen och väljer sedan program namnet. |
+| client_secret |krävs | Nyckeln som registrerats för den anropande tjänsten i Azure AD. Det här värdet bör ha noterats vid tidpunkten för registreringen. |
+| resource |krävs | App-ID-URI för den mottagande tjänsten (skyddad resurs). Detta är den resurs som ska vara mål gruppen för SAML-token. Om du vill hitta app-ID-URI: n i Azure Portal väljer du **Active Directory** och väljer katalogen. Välj program namnet, Välj **alla inställningar**och välj sedan **Egenskaper**. |
+| requested_token_use |krävs | Anger hur begäran ska bearbetas. I flödets räkning måste värdet vara **on_behalf_of**. |
+| requested_token_type | krävs | Anger vilken typ av token som begärdes. Värdet kan vara **urn: IETF: params: OAuth: token-Type: SAML2** eller **urn: IETF: params: OAuth: token-Type: saml1** beroende på kraven för den åtkomst resursen. |
+
+Svaret innehåller en SAML-token som är kodad i UTF8 och Base64url.
+
+- **SubjectConfirmationData för en SAML-kontroll från ett OBO-anrop**: om mål programmet kräver ett mottagar värde i **SubjectConfirmationData**måste värdet vara en svars-URL som inte är jokertecken i resurs programmets konfiguration.
+- **SubjectConfirmationData-noden**: noden får inte innehålla ett **InResponseTo** -attribut eftersom den inte är en del av ett SAML-svar. Programmet som tar emot SAML-token måste kunna acceptera SAML-kontrollen utan ett **InResponseTo** -attribut.
+
+- **Medgivande**: medgivande måste ha beviljats för att ta emot en SAML-token som innehåller användar data i ett OAuth-flöde. Information om behörigheter och hur du får administratörs tillstånd finns [i behörigheter och medgivande i Azure Active Directory v 1.0-slutpunkten](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent).
+
+### <a name="response-with-saml-assertion"></a>Svar med SAML-kontroll
+
+| Parameter | Beskrivning |
+| --- | --- |
+| token_type |Anger värdet för token-typ. Den enda typ som Azure AD stöder är **Bearer**. Mer information om Bearer-token finns i [OAuth 2,0 Authorization Framework: syntax för användning av token (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| omfång |Omfattningen av åtkomst som beviljats i token. |
+| expires_in |Hur lång tid som åtkomsttoken är giltig (i sekunder). |
+| expires_on |Tiden då åtkomsttoken upphör att gälla. Datumet visas som antalet sekunder från 1970-01-01T0:0: 0Z UTC fram till förfallo tiden. Det här värdet används för att fastställa livs längden för cachelagrade token. |
+| resource |App-ID-URI för den mottagande tjänsten (skyddad resurs). |
+| access_token |Den parameter som returnerar SAML Assertion. |
+| refresh_token |Refresh-token. Anrops tjänsten kan använda denna token för att begära en annan åtkomsttoken när den aktuella SAML-kontrollen upphör att gälla. |
+
+- token_type: Bearer
+- expires_in: 3296
+- ext_expires_in: 0
+- expires_on: 1529627844
+- klusterresursen`https://api.contoso.com`
+- access_token:\<SAML assertion\>
+- issued_token_type: urn: IETF: params: OAuth: token-Type: SAML2
+- refresh_token:\<Refresh token\>
+
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Få medgivande för program på mellan nivå
 

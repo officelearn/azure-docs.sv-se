@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: 757dd7280867e9b31fdc0750fc0848de8f266770
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: fff44617a5621d4edd84bee8f9b1e6b6e6924cd8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045628"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305932"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Använda hanterade identiteter för att få åtkomst till Azure SQL Database från ett Azure Stream Analytics jobb (förhands granskning)
 
@@ -102,7 +102,7 @@ Därefter skapar du en innesluten databas användare i SQL Database som är mapp
 
 ## <a name="grant-stream-analytics-job-permissions"></a>Bevilja Stream Analytics jobb behörigheter
 
-När du har skapat en innesluten databas användare och fått åtkomst till Azure-tjänster i portalen enligt beskrivningen i föregående avsnitt, har ditt Stream Analytics-jobb behörighet från hanterad identitet för att **ansluta** till din SQL Database resurs via hanterad identitet. Vi rekommenderar att du beviljar behörigheterna Välj och infoga för Stream Analyticss jobbet eftersom de behövs senare i arbets flödet Stream Analytics. Med **Select** -behörighet kan jobbet testa anslutningen till tabellen i SQL Database. **Insert** -behörigheten gör det möjligt att testa Stream Analytics från slut punkt till slut punkt när du har konfigurerat en indata och SQL Database utdata. Du kan bevilja dessa behörigheter till Stream Analytics jobb med SQL Server Management Studio. Mer information finns i [Grant (Transact-SQL)-](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql?view=sql-server-ver15) referensen.
+När du har skapat en innesluten databas användare och fått åtkomst till Azure-tjänster i portalen enligt beskrivningen i föregående avsnitt, har ditt Stream Analytics-jobb behörighet från hanterad identitet för att **ansluta** till din SQL Database resurs via hanterad identitet. Vi rekommenderar att du beviljar behörigheterna Välj och infoga för Stream Analyticss jobbet eftersom de behövs senare i arbets flödet Stream Analytics. Med **Select** -behörighet kan jobbet testa anslutningen till tabellen i SQL Database. **Insert** -behörigheten gör det möjligt att testa Stream Analytics från slut punkt till slut punkt när du har konfigurerat en indata och SQL Database utdata. Du kan bevilja dessa behörigheter till Stream Analytics jobb med SQL Server Management Studio. Mer information finns i GRANT (Transact-SQL)-referensen.
 
 Om du bara vill bevilja behörighet till en viss tabell eller ett visst objekt i databasen använder du följande T-SQL-syntax och kör frågan. 
 

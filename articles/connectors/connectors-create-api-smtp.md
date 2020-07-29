@@ -7,17 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: 1cfc53dcd730262101c0e879e0419ba3f2db4d38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9989d0ebd95bfe5ee49be2ba76b73e07630b519a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80657002"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283953"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Skicka e-post från ditt SMTP-konto med Azure Logic Apps
 
 Med Azure Logic Apps och Simple Mail Transfer Protocol-anslutningen (SMTP) kan du skapa automatiserade uppgifter och arbets flöden som skickar e-post från ditt SMTP-konto. Du kan också använda andra åtgärder för att använda utdata från SMTP-åtgärder. När din SMTP till exempel skickar ett e-postmeddelande kan du meddela ditt team i slack med slack-kopplingen. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
@@ -52,10 +53,10 @@ Med Azure Logic Apps och Simple Mail Transfer Protocol-anslutningen (SMTP) kan d
    |----------|----------|-------------|
    | **Anslutnings namn** | Ja | Ett namn på anslutningen till SMTP-servern | 
    | **SMTP-serveradress** | Ja | Adressen till SMTP-servern | 
-   | **Användar namn** | Ja | Ditt användar namn för ditt SMTP-konto | 
+   | **Användarnamn** | Ja | Ditt användar namn för ditt SMTP-konto | 
    | **Lösenord** | Ja | Ditt lösen ord för ditt SMTP-konto | 
-   | **SMTP-serverport** | No | En speciell port på SMTP-servern som du vill använda | 
-   | **Vill du aktivera SSL?** | No | Aktivera eller inaktivera TLS/SSL-kryptering. | 
+   | **SMTP-serverport** | Nej | En speciell port på SMTP-servern som du vill använda | 
+   | **Vill du aktivera SSL?** | Nej | Aktivera eller inaktivera TLS/SSL-kryptering. | 
    |||| 
 
 1. Ange nödvändig information för den valda åtgärden. 
@@ -64,7 +65,7 @@ Med Azure Logic Apps och Simple Mail Transfer Protocol-anslutningen (SMTP) kan d
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Mer teknisk information om den här anslutningen, till exempel utlösare, åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/smtpconnector/).
+Mer teknisk information om den här anslutningen, till exempel utlösare, åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil finns på [kopplingens referens sida](/connectors/smtpconnector/).
 
 > [!NOTE]
 > För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ISE-märkta version [ISE-meddelandets gränser](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.

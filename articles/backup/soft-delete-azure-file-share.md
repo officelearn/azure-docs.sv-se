@@ -4,18 +4,16 @@ description: Lär dig hur du kan använda mjuk borttagning för att skydda dina 
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7070cb1ee3881fbec2c6f44eae18f3bc51f8051d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ec2d3bf84aed19b608a92b6f21cd1674ba5b7cf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054382"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282712"
 ---
 # <a name="accidental-delete-protection-for-azure-file-shares-using-azure-backup"></a>Oavsiktligt borttagnings skydd för Azure-filresurser med hjälp av Azure Backup
 
-För att skydda mot cyberattacker eller oavsiktlig borttagning aktive ras [mjuk borttagning](../storage/files/storage-files-prevent-file-share-deletion.md) för alla fil resurser i ett lagrings konto när du konfigurerar säkerhets kopiering för alla fil resurser i respektive lagrings konto. Med mjuk borttagning, även om en skadlig aktör tar bort fil resursen, behålls fil resursens innehåll och återställnings punkter (ögonblicks bilder) i minst 14 ytterligare dagar, vilket gör det möjligt att återställa fil resurser utan data förlust.  
-
-Mjuk borttagning stöds endast för standard-och Premium lagrings konton och aktive ras från Azure Backup sidan i [dessa regioner](azure-file-share-support-matrix.md).
+För att skydda mot cyberattacker eller oavsiktlig borttagning aktive ras [mjuk borttagning](../storage/files/storage-files-prevent-file-share-deletion.md) för alla fil resurser i ett lagrings konto när du konfigurerar säkerhets kopiering för alla fil resurser i respektive lagrings konto. Med mjuk borttagning, även om en skadlig aktör tar bort fil resursen, behålls fil resursens innehåll och återställnings punkter (ögonblicks bilder) i minst 14 ytterligare dagar, vilket gör det möjligt att återställa fil resurser utan data förlust.  Mjuk borttagning stöds för standard-och Premium lagrings konton och inställningen aktive ras av Azure Backup för alla lagrings konton som är värdar för säkerhets kopiering av fil resurser.
 
 I följande flödes diagram visas de olika stegen och tillstånden för ett säkerhets kopierings objekt när mjuk borttagning har Aktiver ATS för fil resurser i ett lagrings konto:
 

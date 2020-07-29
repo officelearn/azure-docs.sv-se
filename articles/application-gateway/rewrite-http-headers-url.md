@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
-ms.openlocfilehash: 46cb4d0d099cd21db3ce51c337d3b059206bb425
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2ee34e1a7959aafa5db949b443fd58cca58719c6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100362"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281199"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Skriv om HTTP-sidhuvuden och URL: en med Application Gateway
 
@@ -109,25 +109,25 @@ Application Gateway stöder följande servervariabler:
 | add_x_forwarded_for_proxy | Det X-vidarebefordrade – för fältet för klient begär ande huvud med `client_ip` variabeln (se förklaringen senare i den här tabellen) som läggs till i formatet IP1, IP2, IP3 och så vidare. Om fältet X-forwarded inte finns i klient begär ande huvudet `add_x_forwarded_for_proxy` är variabeln lika med `$client_ip` variabeln.   Den här variabeln är särskilt användbar när du vill skriva om den X-vidarebefordrade-för-rubrik som angetts av Application Gateway så att sidhuvudet endast innehåller IP-adressen utan portinformation. |
 | ciphers_supported         | En lista över de chiffer som stöds av klienten.               |
 | ciphers_used              | Den sträng med chiffer som används för en upprättad TLS-anslutning. |
-| client_ip                 | IP-adressen för den klient som Application Gateway tog emot begäran från. Om det finns en omvänd proxy före programgatewayen och den ursprungliga klienten kommer *client_ip* att returnera IP-adressen för den omvända proxyn. |
+| client_ip                 | IP-adressen för den klient som Application Gateway tog emot begäran från. Om det finns en omvänd proxy före programgatewayen och den ursprungliga klienten, `client_ip` returnerar IP-adressen för den omvända proxyn. |
 | client_port               | Klient porten.                                             |
 | client_tcp_rtt            | Information om klientens TCP-anslutning. Tillgängligt på system som har stöd för alternativet TCP_INFO socket. |
 | client_user               | När HTTP-autentisering används anges användar namnet för autentisering. |
-| värd                      | I den här prioritetsordningen: värd namnet från begär ande raden, värd namnet från fältet värd begär ande huvud eller Server namnet som matchar en begäran. Exempel: i begäran *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* är värd värdet *contoso.com* |
+| värd                      | I den här prioritetsordningen: värd namnet från begär ande raden, värd namnet från fältet värd begär ande huvud eller Server namnet som matchar en begäran. Exempel: i begäran `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` är värd värdet`contoso.com` |
 | cookie_*namn*             | Cookie- *namn* .                                           |
 | http_method               | Den metod som används för att göra URL-begäran. Till exempel GET eller POST. |
 | http_status               | Sessionens status. Till exempel 200, 400 eller 403.           |
 | http_version              | Protokollet för begäran. Vanligt vis HTTP/1.0, HTTP/1.1 eller HTTP/2.0. |
-| query_string              | Listan över variabel/värde-par som följer "?" i den begärda URL: en. Exempel: i begäran blir *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* QUERY_STRING värde *ID = 123&title = Fabrikam* |
+| query_string              | Listan över variabel/värde-par som följer "?" i den begärda URL: en. Exempel: i begäran `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` visas QUERY_STRING värde`id=123&title=fabrikam` |
 | received_bytes            | Längden på begäran (inklusive raden för begäran, sidhuvud och brödtext). |
 | request_query             | Argumenten på raden för begäran.                           |
 | request_scheme            | Begär ande schema: http eller https.                           |
-| request_uri               | Fullständig URI för ursprunglig begäran (med argument). Exempel: i begäran *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* kommer REQUEST_URI värde att */article.aspx? id = 123&title = Fabrikam* |
+| request_uri               | Fullständig URI för ursprunglig begäran (med argument). Exempel: i begäran `http://contoso.com:8080/article.aspx?id=123&title=fabrikam*` visas REQUEST_URI värde`/article.aspx?id=123&title=fabrikam` |
 | sent_bytes                | Antalet byte som har skickats till en klient.                        |
 | server_port               | Porten för den server som godkände en begäran.              |
 | ssl_connection_protocol   | Protokollet för en etablerad TLS-anslutning.               |
 | ssl_enabled               | "On" om anslutningen fungerar i TLS-läge. Annars är en tom sträng. |
-| uri_path                  | Identifierar den angivna resursen i värden som webb klienten vill ha åtkomst till. Detta är en del av URI: n för begäran utan argumenten. Exempel: i begäran blir *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* uri_path värde */article.aspx* |
+| uri_path                  | Identifierar den angivna resursen i värden som webb klienten vill ha åtkomst till. Detta är en del av URI: n för begäran utan argumenten. Exempel: i begäran `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` visas uri_path värde`/article.aspx` |
 
  
 
@@ -230,7 +230,7 @@ Om användaren begär *contoso.com/Listing?Category=any*matchas den nu med stand
 
 Överväg ett scenario för en shopping webbplats där den synliga länken för användaren bör vara enkel och läslig, men backend-servern behöver parametrarna för frågesträngen för att visa rätt innehåll.
 
-I så fall kan Application Gateway avbilda parametrar från URL: en och lägga till frågesträngar nyckel/värde-par från URL: en. Anta till exempel att användaren vill skriva om, https://www.contoso.com/fashion/shirts till https://www.contoso.com/buy.aspx?category=fashion&product=shirts , det kan uppnås genom följande URL-omskrivning av konfigurationen.
+I så fall kan Application Gateway avbilda parametrar från URL: en och lägga till frågesträngar nyckel/värde-par från URL: en. Anta till exempel att användaren vill skriva om, `https://www.contoso.com/fashion/shirts` till `https://www.contoso.com/buy.aspx?category=fashion&product=shirts` , det kan uppnås genom följande URL-omskrivning av konfigurationen.
 
 **Villkor** – om Server variabeln `uri_path` är lika med mönstret`/(.+)/(.+)`
 

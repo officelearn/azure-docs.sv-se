@@ -3,12 +3,12 @@ title: Visa månads vis uppskattad labb kostnads trend i Azure DevTest Labs
 description: Den här artikeln innehåller information om hur du spårar kostnaden för ditt labb (månatligt uppskattat kostnads trend) i Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b8bf8b1db82983cd7e1ecc5a45bf2d47a2787cc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 220cbd1bc793e4bcfdf03a184d7463114506e6e0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482776"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283834"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Spåra kostnader som är associerade med ett labb i Azure DevTest Labs
 Den här artikeln innehåller information om hur du spårar kostnaden för ditt labb. Det visar dig hur du visar den uppskattade kostnads trenden för den aktuella kalender månaden för labbet. Artikeln visar också hur du visar månads-till-datum-kostnader per resurs i labbet.
@@ -28,7 +28,7 @@ Följ de här stegen om du vill visa ett uppskattat månatligt kostnads trend di
 
     Det **beräknade kostnad** svärdet är den aktuella kalender månadens uppskattade kostnad hittills. Projektkostnaden **är den** uppskattade kostnaden för hela den aktuella kalender månaden, beräknad med hjälp av labb kostnaden för de föregående fem dagarna.
 
-    Kostnads beloppen avrundas uppåt till närmaste heltal. Ett exempel: 
+    Kostnads beloppen avrundas uppåt till närmaste heltal. Till exempel: 
 
    * 5,01 avrundar upp till 6 
    * 5,50 avrundar upp till 6
@@ -69,7 +69,7 @@ Med DevTest Labs kan du bättre hantera kostnaderna i labbet genom att ange ett 
      - Om du definierar en webhook-URL måste du ange ett **meddelande** **till i** fönstret kostnads tröskel.
      - Du måste skapa en webhook innan du anger den här.  
 
-       Mer information om Webhooks finns i [skapa en webhook eller API Azure-funktion](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+       Mer information om Webhooks finns i [skapa en webhook eller API Azure-funktion](../azure-functions/functions-bindings-http-webhook.md). 
 
 ## <a name="view-cost-by-resource"></a>Visa kostnad per resurs 
 Med funktionen för månatlig kostnads trend i labbet kan du se hur mycket du har spenderat under den aktuella kalender månaden. Den visar även projektionen av utgifterna fram till slutet av månaden, baserat på dina utgifter under de senaste sju dagarna. För att hjälpa dig att förstå varför utgifterna i labbet uppfyller tröskelvärdena tidigt i, kan du använda funktionen **kostnad per resurs** som visar den månads aktuella kostnaden **per resurs** i en tabell.
@@ -93,4 +93,3 @@ Här är några saker du kan prova härnäst:
 * [Skapa anpassad avbildning](devtest-lab-create-template.md) – när du skapar en virtuell dator anger du en bas, som kan vara antingen en anpassad avbildning eller en Marketplace-avbildning. Den här artikeln visar hur du skapar en anpassad avbildning från en VHD-fil.
 * [Konfigurera Marketplace-avbildningar](devtest-lab-configure-marketplace-images.md) – DevTest Labs har stöd för att skapa virtuella datorer baserat på Azure Marketplace-avbildningar. Den här artikeln beskriver hur du anger vilka Azure Marketplace-avbildningar som kan användas när du skapar virtuella datorer i ett labb.
 * [Skapa en virtuell dator i ett labb](devtest-lab-add-vm.md) – visar hur du skapar en virtuell dator från en bas avbildning (antingen anpassad eller Marketplace) och hur du arbetar med artefakter på den virtuella datorn.
-

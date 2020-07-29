@@ -4,14 +4,15 @@ description: Specifikationer för virtuella datorer med NV-serien.
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e7fdc232d698e3eb2038bb6ec7a4c47a9c49944a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6dd912313176eecce1973849875234149700c5e6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84726607"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284786"
 ---
 # <a name="nv-series"></a>NV-serien
 
@@ -47,7 +48,7 @@ Om du väljer att installera NVIDIA GPU-drivrutiner manuellt, se [N-seriens inst
 
 ## <a name="other-sizes"></a>Andra storlekar
 
-- [Generellt syfte](sizes-general.md)
+- [Generell användning](sizes-general.md)
 - [Minnesoptimerad](sizes-memory.md)
 - [Lagringsoptimerad](sizes-storage.md)
 - [GPU-optimerad](sizes-gpu.md)

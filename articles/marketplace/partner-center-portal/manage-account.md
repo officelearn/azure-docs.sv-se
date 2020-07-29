@@ -4,15 +4,15 @@ description: Lär dig hur du hanterar ett kommersiellt marknads plats konto i Mi
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
-ms.author: mingshen
+author: parthpandyaMSFT
+ms.author: parthp
 ms.date: 04/27/2020
-ms.openlocfilehash: 90ce9e48515213460fdb3db4fed57fd6f5d2688a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8362019365aab002929cc3414e6ca742952fc8ae
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112858"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320025"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Hantera ditt kommersiella Marketplace-konto i Partner Center
 
@@ -225,7 +225,7 @@ Om du väljer fler än en grupp som ska läggas till i ditt partner Center-konto
 
 När du lägger till en befintlig grupp kommer alla användare som är medlemmar i gruppen att kunna komma åt ditt partner Center-konto, med de behörigheter som är kopplade till gruppens tilldelade roll.
 
-### <a name="add-a-new-group"></a>Lägg till en ny grupp
+### <a name="add-a-new-group"></a>Lägga till en ny grupp
 
 Så här lägger du till en helt ny grupp till ditt partner Center-konto:
 
@@ -316,7 +316,7 @@ Koppla en annan Azure AD-klient till ditt partner Center-konto:
 
 Om kopplingen lyckas är du redo att lägga till och hantera konto användare i avsnittet **användare** i Partner Center.
 
-### <a name="create-a-new-tenant"></a>Skapa en ny klient
+### <a name="create-a-new-tenant"></a>Skapa en ny klientorganisation
 
 För att skapa en helt ny Azure AD-klient med ditt partner Center-konto:
 

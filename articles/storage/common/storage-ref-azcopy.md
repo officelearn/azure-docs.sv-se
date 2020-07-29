@@ -4,15 +4,16 @@ description: Den här artikeln innehåller referensinformation för kommandot Az
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 5da3a2e5d003a191bff66af6599cae4d34ab60c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18972e991f08db7fa9548454a5c5cdc3ff0f552f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74038096"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285194"
 ---
 # <a name="azcopy"></a>azcopy
 
@@ -28,16 +29,18 @@ Information om hur du rapporterar problem eller Lär dig mer om verktyget finns 
 
 - [Kom igång med AzCopy](storage-use-azcopy-v10.md)
 - [Överföra data med AzCopy och Blob Storage](storage-use-azcopy-blobs.md)
-- [Överföra data med AzCopy och fil lagring](storage-use-azcopy-files.md)
+- [Överföra data med AzCopy och fillagring](storage-use-azcopy-files.md)
 - [Konfigurera, optimera och felsöka AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="options"></a>Alternativ
 
-**--Cap-Mbit/s UInt32**   CAPS överföringshastigheten i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.
+**--Cap (float-Mbit/s) –** CAPS-överföringshastighet, i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.
 
-**-h,--hjälp** Hjälp för AzCopy
+**--Hjälp** Hjälp för AzCopy
       
-**--typ av utdata**  Formatet på kommandots utdata. Alternativen är: text, JSON. Standardvärdet är ' text '. (standard text)
+**--** format (sträng) för kommandots utdata. Alternativen är: text, JSON. Standardvärdet är `text`. (standard `text` )
+
+**--Trusted-Microsoft-suffix** (sträng) anger ytterligare domänsuffix där Azure Active Directory inloggnings-token kan skickas.  Standardvärdet är '*. Core.Windows.net;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. De som anges här läggs till i standardvärdet. För säkerhet ska du bara placeras Microsoft Azure domäner här. Avgränsa flera poster med semikolon.
 
 ## <a name="see-also"></a>Se även
 

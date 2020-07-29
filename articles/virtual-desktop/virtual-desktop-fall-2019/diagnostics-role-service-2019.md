@@ -1,6 +1,6 @@
 ---
-title: Diagnostisera problem i Windows Virtual Desktop – falla 2019 – Azure
-description: Så här använder du funktionen Windows Virtual Desktop Diagnostics för att diagnosticera problem.
+title: Windows Virtual Desktop (klassisk) diagnostisera problem – Azure
+description: Så här använder du funktionen Windows Virtual Desktop (klassisk) för att diagnosticera problem.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0aad1c780c6695c771d3cfea04509acde65c051e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 257ad5aa11bfaece70f676b452119d7800e2d1e2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085868"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285058"
 ---
-# <a name="identify-and-diagnose-issues"></a>Identifiera och diagnostisera problem
+# <a name="identify-and-diagnose-issues-in-windows-virtual-desktop-classic"></a>Identifiera och diagnostisera problem i Windows Virtual Desktop (klassisk)
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../diagnostics-role-service.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../diagnostics-role-service.md).
 
 Windows Virtual Desktop erbjuder en diagnostisk funktion som gör det möjligt för administratören att identifiera problem via ett enda gränssnitt. Windows Virtual Desktop-roller loggar en diagnostisk aktivitet när en användare interagerar med systemet. Varje logg innehåller relevant information, till exempel de Windows-roller för virtuella skriv bord som ingår i transaktionen, fel meddelanden, klient information och användar information. Diagnostiska aktiviteter skapas av både slutanvändare och administrativa åtgärder och kan kategoriseras i tre huvud buckets:
 

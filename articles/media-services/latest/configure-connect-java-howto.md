@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
+ms.custom: devx-track-java
 ms.author: juliako
-ms.openlocfilehash: 2337a7543f84d7eba5f565d875129cf22e8b27ed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 098e1db7470124dc7c15b3ee65d6ab9cb3fadabd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001221"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319838"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Ansluta till Media Services v3 API-Java
 
@@ -26,7 +27,7 @@ Den här artikeln visar hur du ansluter till Azure Media Services v3 Java SDK me
 
 I den här artikeln används Visual Studio Code för att utveckla exempel appen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Följ [Skriv Java med Visual Studio Code](https://code.visualstudio.com/docs/java/java-tutorial) för att installera:
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 07/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 29ecd2e90812da533eb59db71a876b6d23f20918
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 018fe9b97b343bc07cf3c04a1d0e84edaf6cc7ac
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067028"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283868"
 ---
 # <a name="return-your-azure-stack-edge-device"></a>Returnera din Azure Stack Edge-enhet
 
@@ -117,14 +117,14 @@ Följ stegen nedan om du vill schemalägga en upphämtning.
 
 När enheten har tagits emot i Azure-datacentret, inspekteras enheten efter skada eller tecken på manipulation.
 
-- Om enheten anländer och är i en lämplig form stoppas fakturerings mätaren för den resursen. Microsoft Support kommer att kontakta dig för att bekräfta att enheten returnerades. Du kan sedan ta bort resursen som är kopplad till enheten i Azure Portal.
+- Om enheten anländer och är i en lämplig form stoppas fakturerings mätaren för den resursen. Azure Stack Edge Operations-teamet kommer att kontakta dig för att bekräfta att enheten returnerades. Du kan sedan ta bort resursen som är kopplad till enheten i Azure Portal.
 - Om enheten kommer kraftigt skadas kan böter gälla. Mer information finns i [vanliga frågor och svar om förlorade eller skadade enhets](https://azure.microsoft.com/pricing/details/databox/edge/) [-och produkt villkor](https://www.microsoft.com/licensing/product-licensing/products).  
 
 
 Du kan ta bort enheten i Azure Portal:
 
 - När du har placerat beställningen och innan enheten förbereds av Microsoft.
-- När du har returnerat enheten till Microsoft, skickar den fysisk inspektion i Azure-datacentret och Microsoft Support anrop för att bekräfta att enheten har returnerats.
+- När du har returnerat enheten till Microsoft, skickas den fysiska kontrollen till Azure-datacentret och Azure Stack Edge Operations-team anropar för att bekräfta att enheten returnerades.
 
 Om du har aktiverat enheten mot en annan prenumeration eller plats flyttar Microsoft din beställning till den nya prenumerationen eller platsen inom en arbets dag. När ordningen har flyttats kan du ta bort den här resursen.
 

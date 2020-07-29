@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/19/2016
-ms.openlocfilehash: 39f564bea8d300d2966afe27ff0239c527f038cf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5af0eb20f9766369caa7351719b63b213c394e5d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092821"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305813"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Skicka data från moln tjänst, virtuell dator eller Service Fabric diagnostikdata till Application Insights
 Cloud Services, Virtual Machines, Virtual Machine Scale Sets och Service Fabric alla använder Azure-diagnostik-tillägget för att samla in data.  Azure Diagnostics skickar data till Azure Storage tabeller.  Du kan dock också skicka vidare alla eller en delmängd av data till andra platser med Azure-diagnostik-tillägget 1,5 eller senare.
@@ -59,8 +59,8 @@ Exempel på konfiguration av en mottagare för Application Insights:
 - **Mottagar** *namnets* attribut är ett sträng värde som unikt identifierar mottagaren.
 
 - **ApplicationInsights** -elementet anger Instrumentation-nyckeln till Application Insights-resursen där Azure Diagnostics-data skickas.
-    - Om du inte har en befintlig Application Insights resurs, se [skapa en ny Application Insights resurs](../../azure-monitor/app/create-new-resource.md ) för mer information om hur du skapar en resurs och hämtar Instrumentation-nyckeln.
-    - Om du utvecklar en moln tjänst med Azure SDK 2,8 och senare fylls den här instrument ande nyckeln i automatiskt. Värdet baseras på **APPINSIGHTS_INSTRUMENTATIONKEY** tjänst konfigurations inställningen när Cloud Service-projektet paketeras. Se [använda Application Insights med Cloud Services](../../azure-monitor/app/cloudservices.md).
+    - Om du inte har en befintlig Application Insights resurs, se [skapa en ny Application Insights resurs](../app/create-new-resource.md) för mer information om hur du skapar en resurs och hämtar Instrumentation-nyckeln.
+    - Om du utvecklar en moln tjänst med Azure SDK 2,8 och senare fylls den här instrument ande nyckeln i automatiskt. Värdet baseras på **APPINSIGHTS_INSTRUMENTATIONKEY** tjänst konfigurations inställningen när Cloud Service-projektet paketeras. Se [använda Application Insights med Cloud Services](../app/cloudservices.md).
 
 - Elementet **Channels** innehåller ett eller flera **kanal** element.
     - Namnattributet *avser en unik* kanal.
@@ -216,3 +216,4 @@ I den tidigare konfigurationen har följande rader följande betydelser:
 * Lär dig hur du [visar Azure Diagnostics-information](../app/cloudservices.md) i Application Insights.
 * Använd [PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) för att aktivera Azure Diagnostics-tillägget för ditt program.
 * Använd [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) för att aktivera Azure Diagnostics-tillägget för ditt program
+

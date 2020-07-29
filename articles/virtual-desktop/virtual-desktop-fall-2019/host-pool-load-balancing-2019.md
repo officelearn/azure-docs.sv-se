@@ -1,6 +1,6 @@
 ---
-title: Belastnings utjämning för Windows-adresspoolen för virtuella skriv bord (hösten 2019) – Azure
-description: Lär dig mer om belastnings Utjämnings metoder för värdar för en Windows Virtual Desktop-miljö (hösten 2019 release).
+title: Belastnings utjämning för Windows Virtual Desktop (klassisk) – Azure
+description: Belastnings Utjämnings metoder för värdbaserade pooler för en Windows-miljö med virtuella skriv bord.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 50819fc6b1e13aeb1c0eddf306ecdfbe8147a44f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3854471b2e74bd7c3315ae622a36588af0270d8c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046269"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285007"
 ---
-# <a name="host-pool-load-balancing-methods-fall-2019-release"></a>Belastnings Utjämnings metoder för värd pool (hösten 2019-version)
+# <a name="host-pool-load-balancing-methods-in-windows-virtual-desktop-classic"></a>Belastnings Utjämnings metoder för värdbaserade pooler i Windows Virtual Desktop (klassisk)
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../host-pool-load-balancing.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../host-pool-load-balancing.md).
 
 Windows Virtual Desktop stöder två metoder för belastnings utjämning. Varje metod bestämmer vilken värddator som ska vara värd för en användares session när de ansluter till en resurs i en adresspool.
 

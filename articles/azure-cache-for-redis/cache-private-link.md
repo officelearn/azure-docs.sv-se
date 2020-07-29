@@ -6,19 +6,19 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: 59d5c6c4a9c3af70eb08e9d5a05d516f4b8b8bdd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d85fe36bb948ae9a0c81fa25f87450c7f5fe93b7
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100583"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337270"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-preview"></a>Azure cache för Redis med Azure Private Link (för hands version)
 Den privata Azure-slutpunkten är ett nätverks gränssnitt som ansluter privat och säkert till Azure cache för Redis som drivs av en privat Azure-länk. 
 
 I den här artikeln får du lära dig hur du skapar en Azure-cache, ett virtuellt Azure-nätverk och en privat slut punkt med hjälp av Azure Portal.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 
 > [!NOTE]
@@ -149,3 +149,9 @@ I det här avsnittet ska du skapa en privat slut punkt och ansluta den till cach
 11. Välj **Granska + skapa**. Du kommer till fliken **Granska + skapa**   där Azure verifierar konfigurationen.
 
 12. När meddelandet grön **verifiering har skickats** visas väljer du **skapa**.
+
+
+## <a name="next-steps"></a>Nästa steg
+
+Mer information om privat länk finns i dokumentationen till [Azures privata länkar](https://docs.microsoft.com/azure/private-link/private-link-overview). 
+

@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 51a25b66968f43facddb9187a6793b2e39e0fdbd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e6678eb2e738c206bbe67151361b594679d97b35
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536631"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281029"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Hämta väder data från väder partner
 
@@ -26,7 +26,7 @@ Se till att du har [installerat FarmBeats](https://aka.ms/farmbeatsinstalldocume
 
 För att komma igång med väder data på din FarmBeats-Datahub:
 
-1. Gå till din FarmBeats Datahub- [Swagger](https://farmbeatswebsite-api.azurewebsites.net/swagger).
+1. Gå till din FarmBeats Datahub-Swagger `https://farmbeatswebsite-api.azurewebsites.net/swagger` .
 
 2. Gå till/partner-API: et och gör sedan en POST-begäran. Använd följande nytto last:
 

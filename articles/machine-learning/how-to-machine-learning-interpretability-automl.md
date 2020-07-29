@@ -5,16 +5,17 @@ description: Lär dig hur du får förklaringar för hur din automatiserade ML-m
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 13fd9aaa58032f4fc4d2e31c1341001109b09e6d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ddfb0c9b10d96acd511b7bfaee4c6ef85d04812
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072259"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87306425"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Tolkning: modell förklaringar i automatiserad Machine Learning (för hands version)
 
@@ -30,7 +31,7 @@ I den här artikeln kan du se hur du:
 - Aktivera visualiseringar så att du kan se mönster i data och förklaringar.
 - Implementera tolkning under härledning eller poängsättning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Tolknings funktioner. Kör `pip install azureml-interpret azureml-contrib-interpret` för att hämta de nödvändiga paketen.
 - Kunskap om att skapa automatiserade ML-experiment. Mer information om hur du använder Azure Machine Learning SDK finns i [själv studie kursen om regressions modell](tutorial-auto-train-models.md) eller hur du [konfigurerar automatiserade ml-experiment](how-to-configure-auto-train.md).

@@ -3,12 +3,12 @@ title: Starta datorer med Automation-runbooks i Azure DevTest Labs
 description: Lär dig hur du startar virtuella datorer i ett labb i Azure DevTest Labs genom att använda Azure Automation runbooks.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 72ce964b451fb6bcd1e93d75e6ae674c7608d63a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 231e79d594aab7c59fa21f9ee512abaa9ac67043
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481909"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282270"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Starta virtuella datorer i ett labb i ordning genom att använda Azure Automation runbooks
 Med funktionen [Autostart](devtest-lab-set-lab-policy.md#set-autostart) i DevTest Labs kan du konfigurera virtuella datorer så att de startar automatiskt vid en viss tidpunkt. Den här funktionen stöder dock inte att datorer startar i en speciell ordning. Det finns flera scenarier där den här typen av automatisering skulle vara användbar.  Ett scenario är var du måste starta en virtuell dator i ett labb innan du börjar med de andra virtuella datorerna, eftersom hoppet används som åtkomst punkt till de andra virtuella datorerna.  Den här artikeln visar hur du konfigurerar ett Azure Automation-konto med en PowerShell-Runbook som kör ett skript. Skriptet använder taggar på virtuella datorer i labbet för att kontrol lera start ordningen utan att behöva ändra skriptet.
@@ -20,7 +20,7 @@ I det här exemplet måste de virtuella datorerna i labbet ha taggen **StartupOr
 Skapa ett Azure Automation-konto genom att följa anvisningarna i [den här artikeln](../automation/automation-create-standalone-account.md). Välj alternativet **Kör som-konton** när du skapar kontot. När Automation-kontot har skapats öppnar du sidan **moduler** och väljer **Uppdatera Azure-moduler** på Meny raden. Standardmodulerna är flera äldre versioner och utan uppdateringen kanske inte skriptet fungerar.
 
 ## <a name="add-a-runbook"></a>Lägg till en Runbook
-Om du nu vill lägga till en Runbook i Automation-kontot väljer du **Runbooks** på den vänstra menyn. Välj **Lägg till en Runbook** på menyn och följ instruktionerna för att [skapa en PowerShell-Runbook](../automation/automation-first-runbook-textual-powershell.md).
+Om du nu vill lägga till en Runbook i Automation-kontot väljer du **Runbooks** på den vänstra menyn. Välj **Lägg till en Runbook** på menyn och följ instruktionerna för att [skapa en PowerShell-Runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md).
 
 ## <a name="powershell-script"></a>PowerShell-skript
 Följande skript tar prenumerations namnet, labb namnet som parametrar. Skriptets flöde är att hämta alla de virtuella datorerna i labbet och sedan analysera taggs informationen för att skapa en lista över de virtuella dator namnen och deras start ordning. Skriptet vägleder dig genom de virtuella datorerna i ordning och startar de virtuella datorerna. Om det finns flera virtuella datorer i ett särskilt ordnings nummer startas de asynkront med hjälp av PowerShell-jobb. För de virtuella datorer som inte har en-tagg anger du att startvärdet är det sista (10). de kommer att startas sist som standard.  Om labbet inte vill att den virtuella datorn ska startas automatiskt anger du värdet 11 och ignoreras.

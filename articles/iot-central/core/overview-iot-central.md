@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 5fe8d261cb6804ffdf2cbe4f543db29336c4c78b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c8cd789b16f839c60249b36f570ca1c945ef4e01
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656411"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337185"
 ---
 # <a name="what-is-azure-iot-central"></a>Vad är Azure IoT Central?
 
@@ -63,11 +63,8 @@ Den här enhets mal len innehåller:
 
 ### <a name="create-device-templates"></a>Skapa mallar för enheter
 
-[IoT plug and Play (för hands version)](../../iot-pnp/overview-iot-plug-and-play.md) gör att IoT Central integrera enheter utan att du behöver skriva någon inbäddad enhets kod. I IoT-Plug and Play (för hands version) är ett modell schema för enhets kapacitet som beskriver enhets funktioner. I ett IoT Central-program använder Device Template dessa modeller av enhets kapacitet för IoT Plug and Play (för hands version).
-
 Som Solution Builder har du flera alternativ för att skapa enhets mallar:
 
-- Importera en enhets kapacitets modell från [Azure-certifierad för IoT-katalogen](https://aka.ms/iotdevcat) och Lägg sedan till eventuella moln egenskaper, anpassningar och instrument paneler som ditt IoT Central program behöver.
 - Utforma enhets mal len i IoT Central och implementera sedan dess enhets kapacitets modell i enhets koden.
 - Skapa en enhets kapacitets modell med Visual Studio Code och publicera modellen till en lagrings plats. Implementera din enhets kod från modellen och Anslut enheten till IoT Central-programmet. IoT Central hittar enhetens kapacitets modell från lagrings platsen och skapar en enkel enhets mall åt dig.
 - Skapa en enhets kapacitets modell med Visual Studio Code. Implementera din enhets kod från modellen. Importera enhetens kapacitets modell manuellt till ditt IoT Central program och Lägg sedan till eventuella moln egenskaper, anpassningar och instrument paneler som ditt IoT Central program behöver.
@@ -145,11 +142,10 @@ Varje Azure-prenumeration har standard kvoter som kan påverka omfånget för di
 - Interjson stöds inte för närvarande.
 - Kart panelen stöds inte för närvarande.
 - Mat ris schema typer stöds inte.
-- Endast C-enhetens SDK och Node. js-enhet och tjänst-SDK: er stöds.
+- Endast C-enhetens SDK och Node.js enhets-och tjänst-SDK: er stöds.
 - IoT Central är för närvarande tillgängligt på platserna USA, Europa, Asien och stillahavsområdet, Australien, Storbritannien och Japan.
 - Du kan inte använda program mal len **anpassad tillämpning (bakåtkompatibelt)** på platser i Storbritannien och Japan.
 - Enhets kapacitets modeller måste ha alla gränssnitt definierade infogade i samma fil.
-- Stöd för [IoT plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) är i för hands version och endast stöds i valda regioner.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -158,7 +154,6 @@ Nu när du har en översikt över IoT Central finns några förslag på nästa s
 - Förstå tillgängliga [Azure-tekniker och-tjänster för att skapa IoT-lösningar](../../iot-fundamentals/iot-services-and-technologies.md).
 - bekanta dig med [Azure IoT Central-användargränssnittet](overview-iot-central-tour.md)
 - kom igång genom att [skapa ett Azure IoT Central-program](quick-deploy-iot-central.md).
-- Lär dig mer om [IoT plug and Play (för hands version)](../../iot-pnp/overview-iot-plug-and-play.md).
 - Lär dig hur du [ansluter en Azure IoT Edge enhet](./tutorial-add-edge-as-leaf-device.md).
 - Lär dig mer om [Azure IoT-tekniker och-tjänster](../../iot-fundamentals/iot-services-and-technologies.md).
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: ricarlse
 ms.custom: seodec18
-ms.openlocfilehash: a3bd48f32dfcee1a666ff842cfcab2384a5459ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5bf7a1e3cc2bfa8ccf42d05e199c58b8c9314fce
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67849253"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281709"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute för Cloud Solution Providers (CSP)
 Microsoft tillhandahåller storskaliga tjänster för traditionella återförsäljare och distributörer (CSP), för att de snabbt ska kunna etablera nya tjänster och lösningar för sina kunder utan att behöva investera i att utveckla dessa nya tjänster. Om du vill ge CSP:n (Cloud Solution Provider) möjlighet att direkt hantera dessa nya tjänster, erbjuder Microsoft program och API:er som tillåter CSP:n att hantera Microsoft Azure-resurser åt dina kunder. En av resurserna är ExpressRoute. Med ExpressRoute kan CSP:n ansluta befintliga kundresurser till Azure-tjänster. ExpressRoute är en privat kommunikationslänk med hög hastighet till tjänster i Azure. 
@@ -130,5 +130,5 @@ Med Cloud Solution Provider-tjänsten kan du öka värdet för kunderna utan att
 Mer information finns i följande länkar:
 
 [Azure i Cloud Solution Provider-program](https://docs.microsoft.com/azure/cloud-solution-provider).  
-[Bli redo att agera som en Cloud Solution Provider](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
-[Microsoft Cloud Solution Provider-resurser](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).
+[Bli redo att agera som en Cloud Solution Provider](https://partner.microsoft.com/solutions/cloud-reseller-pre-launch).  
+[Microsoft Cloud Solution Provider-resurser](https://partner.microsoft.com/solutions/cloud-reseller-resources).

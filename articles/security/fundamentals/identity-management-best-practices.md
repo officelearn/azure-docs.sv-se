@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 35fd95272530ed31f8ee197679e9368ca74ebef1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 852a8c8eb7e6a87739c58967eefd6c18e996b225
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089676"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367409"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Rekommenderade säkerhets metoder för Azure Identity Management och åtkomst kontroll
 
@@ -204,7 +204,7 @@ Ditt säkerhets team behöver insyn i dina Azure-resurser för att utvärdera oc
 Du kan använda [RBAC](/azure/role-based-access-control/overview) för att tilldela behörigheter till användare, grupper och program i ett visst omfång. Omfånget för en rolltilldelning kan vara en prenumeration, en resursgrupp eller en enskild resurs.
 
 **Bästa praxis**: åtskiljer uppgifter i teamet och ge endast åtkomst till de användare som de behöver för att utföra sina jobb. I stället för att ge alla obegränsade behörigheter i din Azure-prenumeration eller resurser kan du bara tillåta vissa åtgärder i ett visst omfång.
-**Information**: Använd [Inbyggda RBAC-roller](/azure/role-based-access-control/built-in-roles) i Azure för att tilldela behörigheter till användare.
+**Information**: Använd [inbyggda Azure-roller](/azure/role-based-access-control/built-in-roles) i Azure för att tilldela behörigheter till användare.
 
 > [!Note]
 > Vissa behörigheter skapar onödiga komplexitetar och förvirring, ackumulerar en "äldre" konfiguration som är svår att åtgärda utan att du behöver bryta något. Undvik resursspecifika behörigheter. Använd i stället hanterings grupper för behörigheter och resurs grupper i hela företaget för behörigheter i prenumerationer. Undvik användarspecifika behörigheter. Tilldela istället åtkomst till grupper i Azure AD.

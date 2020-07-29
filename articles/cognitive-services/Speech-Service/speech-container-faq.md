@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/24/2020
 ms.author: aahi
-ms.openlocfilehash: 17582244aef173da6ac700c980f7bd7fb0fec307
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e6b90e17c96f7636fa509e31354f9413b312803f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81383083"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289031"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Vanliga frågor och svar om tjänsten för tal tjänst behållare
 
@@ -30,7 +30,7 @@ När du använder tal tjänsten med behållare, förlitar du dig på den här sa
 
 **Svar:** När du ställer in produktions klustret finns det flera saker att tänka på. För det första måste du konfigurera ett enskilt språk, flera behållare på samma dator, inte vara ett stort problem. Om det uppstår problem kan det vara ett maskin varu problem – så vi skulle först titta på resursen, det vill säga. Specifikationer för processor och minne.
 
-Ta en stund, behållare och `ja-JP` den senaste modellen. Den akustiska modellen är den mest krävande delen av processor, medan språk modellen kräver mest minne. När vi har förbrukat användningen tar det cirka 0,6 CPU-kärnor för att bearbeta en enda tal-till-text-begäran när ljudet flödar i real tid (som från mikrofonen). Om du matar in ljud snabbare än i real tid (t. ex. från en fil) kan användningen vara dubbel (1,2 x kärnor). Under tiden är minnet som anges nedan operativ minne för avkodning av tal. Den tar *inte* hänsyn till den faktiska fulla storleken på språk modellen, som kommer att finnas i fil-cachen. För `ja-JP` det är ytterligare 2 GB. för `en-US`, kan det vara mer (6-7 GB).
+Ta en stund, `ja-JP` behållare och den senaste modellen. Den akustiska modellen är den mest krävande delen av processor, medan språk modellen kräver mest minne. När vi har förbrukat användningen tar det cirka 0,6 CPU-kärnor för att bearbeta en enda tal-till-text-begäran när ljudet flödar i real tid (som från mikrofonen). Om du matar in ljud snabbare än i real tid (t. ex. från en fil) kan användningen vara dubbel (1,2 x kärnor). Under tiden är minnet som anges nedan operativ minne för avkodning av tal. Den tar *inte* hänsyn till den faktiska fulla storleken på språk modellen, som kommer att finnas i fil-cachen. För det här `ja-JP` är ytterligare 2 GB. för `en-US` , kan det vara mer (6-7 GB).
 
 Om du har en dator där minnet är begränsade och du försöker distribuera flera språk, är det möjligt att filcachen är full och att operativ systemet tvingas att placera modeller i och ut. För en pågående avskrift, som kan vara katastrofal, och kan leda till långsammare och andra prestanda konsekvenser.
 
@@ -49,7 +49,7 @@ Slutligen kan du ange antalet avkodare som du vill ha i en *enda* behållare med
 
 <details>
 <summary>
-<b>Kan du hjälpa till med kapacitets planering och kostnads uppskattning av lokal tal behållare?</b>
+<b>Kan du hjälpa till med kapacitets planering och kostnads uppskattning av lokal-behållare från tal till text?</b>
 </summary>
 
 **Svar:** För container kapacitet i batch-bearbetnings läge kan varje avkodare hantera 2-3x i real tid, med två processor kärnor, för ett enda igenkännings resultat. Vi rekommenderar inte att du behåller fler än två samtidiga igenkänningar per behållar instans, men rekommenderar att du kör fler instanser av behållare för Tillförlitlighets-/tillgänglighets skäl, bakom en belastningsutjämnare.
@@ -95,9 +95,9 @@ De underhålls kostnader som betalas ut till Microsoft beror på tjänst nivå o
 <b>Varför saknas skiljetecken i avskriften?</b>
 </summary>
 
-**Svar:** `speech_recognition_language=<YOUR_LANGUAGE>` Ska konfigureras explicit i begäran om de använder en kol-klient.
+**Svar:** `speech_recognition_language=<YOUR_LANGUAGE>`Ska konfigureras explicit i begäran om de använder en kol-klient.
 
-Ett exempel:
+Till exempel:
 
 ```python
 if not recognize_once(
@@ -168,7 +168,7 @@ StatusCode: InvalidArgument,
 Details: Voice does not match.
 ```
 
-**Svar 2:** Du måste ange rätt röst namn i begäran, vilket är Skift läges känsligt. Läs den fullständiga tjänst namns mappningen. Du måste använda `en-US-JessaRUS`, som `en-US-JessaNeural` inte är tillgänglig just nu i behållar versionen av text till tal.
+**Svar 2:** Du måste ange rätt röst namn i begäran, vilket är Skift läges känsligt. Läs den fullständiga tjänst namns mappningen. Du måste använda `en-US-JessaRUS` , som `en-US-JessaNeural` inte är tillgänglig just nu i behållar versionen av text till tal.
 
 **Fel 3:**
 
@@ -299,7 +299,7 @@ Kan du fylla i följande test mått, inklusive vilka funktioner som ska testas o
 **Svar:** Detta är en fusion av:
 - Personer som försöker köra dikteringens slut punkt för behållare (jag är inte säker på hur de får den URL: en)
 - Slut punkten för 1<sup>St</sup> -parten som är en i en behållare.
-- Slut punkten för 1<sup>St</sup> -parten returnerar tal. fragment-meddelanden `speech.hypothesis` i stället för e-postmeddelandena för att returnera slut<sup>punkten för slut</sup> punkterna för slutpunkten.
+- Slut punkten för 1<sup>St</sup> -parten returnerar tal. fragment-meddelanden i stället för `speech.hypothesis` e-<sup>rd</sup> postmeddelandena för att returnera slut punkten för slut punkterna för slutpunkten.
 - Snabb starter alla använder `RecognizeOnce` (interaktivt läge)
 - Kol har en kontroll att för `speech.fragment` meddelanden som kräver att de inte returneras i interaktivt läge.
 - Kol som har utgångs punkt i versions utlösare (avslutar processen).
@@ -366,7 +366,7 @@ Min nuvarande plan är att ta en befintlig ljudfil och dela upp den i 10 andra s
 
 Dokumentet säger att du vill exponera en annan port, vilket jag gör, men LUIS-behållaren lyssnar fortfarande på port 5000?
 
-**Svar:** Försök `-p <outside_unique_port>:5000`. Till exempel `-p 5001:5000`.
+**Svar:** Försök `-p <outside_unique_port>:5000` . Exempelvis `-p 5001:5000`.
 
 
 <br>
@@ -376,10 +376,10 @@ Dokumentet säger att du vill exponera en annan port, vilket jag gör, men LUIS-
 
 <details>
 <summary>
-<b>Hur kan jag få API: er som inte är batch &lt;-grupper för att hantera ljud 15 sekunder längre?</b>
+<b>Hur kan jag få API: er som inte är batch-grupper för att hantera ljud &lt; 15 sekunder längre?</b>
 </summary>
 
-**Svar:** `RecognizeOnce()` i interaktivt läge körs bara upp till 15 sekunders ljud, eftersom läget är avsett för tal kommando, där yttranden förväntas vara kort. Om du använder `StartContinuousRecognition()` för diktering eller konversation finns det ingen gräns på 15 sekunder.
+**Svar:** `RecognizeOnce()` i interaktivt läge körs bara upp till 15 sekunders ljud, eftersom läget är avsett för tal kommando, där yttranden förväntas vara korta. Om du använder `StartContinuousRecognition()` för diktering eller konversation finns det ingen gräns på 15 sekunder.
 
 
 <br>
@@ -392,7 +392,7 @@ Dokumentet säger att du vill exponera en annan port, vilket jag gör, men LUIS-
 
 Hur många samtidiga begär Anden kommer 4 kärnor, 4 GB RAM-referens? Om vi till exempel måste betjäna 50 samtidiga förfrågningar, hur många kärnor och RAM-minne rekommenderas?
 
-**Svar:** I real tid `en-US`rekommenderar vi att du använder fler Docker-behållare utöver 6 samtidiga begär Anden. Den får Crazier bortom 16 kärnor och den blir icke-enhetlig, icke-enhetlig minnes åtkomst (NUMA)-nod känslig. I följande tabell beskrivs den lägsta och rekommenderade fördelningen av resurser för varje tal behållare.
+**Svar:** I real tid `en-US` rekommenderar vi att du använder fler Docker-behållare utöver 6 samtidiga begär Anden. Den får Crazier bortom 16 kärnor och den blir icke-enhetlig, icke-enhetlig minnes åtkomst (NUMA)-nod känslig. I följande tabell beskrivs den lägsta och rekommenderade fördelningen av resurser för varje tal behållare.
 
 # <a name="speech-to-text"></a>[Tal till text](#tab/stt)
 
@@ -422,7 +422,7 @@ Hur många samtidiga begär Anden kommer 4 kärnor, 4 GB RAM-referens? Om vi til
 
 - Varje kärna måste vara minst 2,6 GHz eller snabbare.
 - För filer är begränsningen i talet SDK, i 2x (de första 5 sekunderna ljudet är inte begränsat).
-- Avkodaren kan utföra cirka 2 – tre gånger i real tid. För detta är den totala processor användningen nära två kärnor för ett enda igenkänning. Därför rekommenderar vi inte att du behåller fler än två aktiva anslutningar per behållar instans. Den yttersta sidan skulle vara att lagra 10 avkodare i 2x real tid på en åtta kärnor som `DS13_V2`. För container version 1,3 och senare finns det en param som du kan prova att ställa `DECODER_MAX_COUNT=20`in.
+- Avkodaren kan utföra cirka 2 – tre gånger i real tid. För detta är den totala processor användningen nära två kärnor för ett enda igenkänning. Därför rekommenderar vi inte att du behåller fler än två aktiva anslutningar per behållar instans. Den yttersta sidan skulle vara att lagra 10 avkodare i 2x real tid på en åtta kärnor som `DS13_V2` . För container version 1,3 och senare finns det en param som du kan prova att ställa in `DECODER_MAX_COUNT=20` .
 - För mikrofonen är den på 1x real tid. Den övergripande användningen bör vara på ungefär en kärna för en enda igenkänning.
 
 Ta hänsyn till det totala antalet timmar av ljudet som du har. Om talet är stort, rekommenderar vi att du kör fler instanser av behållare, antingen i en enda ruta eller i flera rutor, bakom en belastningsutjämnare. Dirigering kan utföras med hjälp av Kubernetes (K8S) och Helm, eller med Docker Compose.
@@ -439,7 +439,7 @@ Som exempel, för att hantera 1000 timmar/24 timmar, har vi försökt konfigurer
 
 **Svar:** Vi har versaler (REDUNDANSVÄXLINGAR) tillgängliga i lokal-behållaren. Interpunktion är språk beroende och stöds inte för vissa språk, inklusive kinesiska och japanska.
 
-Vi *har* stöd för implicit och grundläggande interpunktion för befintliga behållare, men är `off` som standard. Det innebär att du kan hämta `.` specialtecknet i ditt exempel, men inte på `。` -tecknen. För att aktivera den här implicita logiken är här ett exempel på hur du gör i python med vårt tal-SDK (det skulle vara detsamma på andra språk):
+Vi *har* stöd för implicit och grundläggande interpunktion för befintliga behållare, men är `off` som standard. Det innebär att du kan hämta `.` specialtecknet i ditt exempel, men inte på- `。` tecknen. För att aktivera den här implicita logiken är här ett exempel på hur du gör i python med vårt tal-SDK (det skulle vara detsamma på andra språk):
 
 ```python
 speech_config.set_service_property(
@@ -514,7 +514,7 @@ auto synthesizer = SpeechSynthesizer::FromConfig(config);
 auto result = synthesizer->SpeakTextAsync("{{{text1}}}").get();
 ```
 
-Äldre behållare har inte den nödvändiga slut punkten för att kol ska fungera `FromHost` med API: et. Om de behållare som används för version 1,3 ska den här koden användas:
+Äldre behållare har inte den nödvändiga slut punkten för att kol ska fungera med `FromHost` API: et. Om de behållare som används för version 1,3 ska den här koden användas:
 
 ```cpp
 const auto host = "http://localhost:5000";
@@ -525,7 +525,7 @@ auto synthesizer = SpeechSynthesizer::FromConfig(config);
 auto result = synthesizer->SpeakTextAsync("{{{text1}}}").get();
 ```
 
-Nedan visas ett exempel på hur du `FromEndpoint` använder API: et:
+Nedan visas ett exempel på hur du använder `FromEndpoint` API: et:
 
 ```cpp
 const auto endpoint = "http://localhost:5000/cognitiveservices/v1";
@@ -536,7 +536,7 @@ auto synthesizer = SpeechSynthesizer::FromConfig(config);
 auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 ```
 
- `SetSpeechSynthesisVoiceName` Funktionen anropas eftersom det krävs röst namnet för behållarna med en uppdaterad text till tal-motor.
+ `SetSpeechSynthesisVoiceName`Funktionen anropas eftersom det krävs röst namnet för behållarna med en uppdaterad text till tal-motor.
 
 <br>
 </details>
@@ -553,9 +553,9 @@ auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 De är av olika syfte och används på olika sätt.
 
 Python- [exempel](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py):
-- För enkel igenkänning (interaktivt läge) med en anpassad slut punkt (det vill säga `SpeechConfig` med en slut punkts parameter) `speech_recognize_once_from_file_with_custom_endpoint_parameters()`, se.
-- För kontinuerlig igenkänning (konversations läge) och bara ändra för att använda en anpassad slut punkt som ovan `speech_recognize_continuous_from_file()`, se.
-- Om du vill aktivera diktering i exempel som ovan (endast om du verkligen behöver det), högerklickar du `speech_config`efter att du `speech_config.enable_dictation()`har skapat, lagt till kod.
+- För enkel igenkänning (interaktivt läge) med en anpassad slut punkt (det vill säga `SpeechConfig` med en slut punkt parameter), se `speech_recognize_once_from_file_with_custom_endpoint_parameters()` .
+- För kontinuerlig igenkänning (konversations läge) och bara ändra för att använda en anpassad slut punkt som ovan, se `speech_recognize_continuous_from_file()` .
+- Om du vill aktivera diktering i exempel som ovan (endast om du verkligen behöver det), högerklickar du efter att du `speech_config` har skapat, lagt till kod `speech_config.enable_dictation()` .
 
 I C# för att aktivera diktering anropar du `SpeechConfig.EnableDictation()` funktionen.
 
@@ -593,14 +593,14 @@ I C# för att aktivera diktering anropar du `SpeechConfig.EnableDictation()` fun
 > Parametrar: Host (obligatorisk), prenumerations nyckel (valfritt, om du kan använda tjänsten utan den).
 
 Formatet för värden är `protocol://hostname:port` där `:port` är det valfria (se nedan):
-- Om behållaren körs lokalt är `localhost`värd namnet.
+- Om behållaren körs lokalt är värd namnet `localhost` .
 - Om behållaren körs på en fjärrserver använder du värd namnet eller IPv4-adressen för den servern.
 
 Värd parameter exempel för tal till text:
 - `ws://localhost:5000`-osäker anslutning till en lokal behållare med port 5000
 - `ws://some.host.com:5000`-osäker anslutning till en behållare som körs på en fjärrserver
 
-Python-exempel från ovan, men `host` Använd parameter i `endpoint`stället för:
+Python-exempel från ovan, men Använd `host` parameter i stället för `endpoint` :
 
 ```python
 speech_config = speechsdk.SpeechConfig(host="ws://localhost:5000")

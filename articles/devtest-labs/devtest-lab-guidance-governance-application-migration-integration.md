@@ -4,12 +4,12 @@ description: Den här artikeln innehåller rikt linjer för styrning av Azure De
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: cebc32edf78df1fa6a72876f8c8e5d23525942b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d86728eefc46c74b49ac610e2207ce5e7ae6a9d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481586"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289352"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Styrning av Azure DevTest Labs infrastruktur – migrering och integrering av program
 När din utvecklings-/test labb miljö har upprättats måste du tänka på följande frågor:
@@ -50,14 +50,14 @@ En extra faktor att notera är dock frekvensen av ändringar i ditt program varu
 Hur kan jag skapa en lätt upprepnings bar process för att överföra mina anpassade organisations bilder till en DevTest Labs-miljö?
 
 ### <a name="answer"></a>Svar
-Se [det här videoklippet om bild fabriks mönster](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). Det här scenariot är ett avancerat scenario och de angivna skripten är endast exempel skript. Om det krävs några ändringar måste du hantera och underhålla skripten som används i din miljö.
+Se [det här videoklippet om bild fabriks mönster](./devtest-lab-faq.md#blog-post). Det här scenariot är ett avancerat scenario och de angivna skripten är endast exempel skript. Om det krävs några ändringar måste du hantera och underhålla skripten som används i din miljö.
 
 Använda DevTest Labs för att skapa en anpassad avbildnings pipeline i Azure-pipelines:
 
-- [Introduktion: Hämta virtuella datorer på några minuter genom att konfigurera en avbildnings fabrik i Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
-- [Bild fabrik – del 2! Konfigurera Azure-pipelines och Factory Lab för att skapa virtuella datorer](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
-- [Bild fabrik – del 3: Spara anpassade bilder och distribuera dem till flera labb](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
-- [Video: anpassad avbildnings fabrik med Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
+- [Introduktion: Hämta virtuella datorer på några minuter genom att konfigurera en avbildnings fabrik i Azure DevTest Labs](./devtest-lab-faq.md#blog-post)
+- [Bild fabrik – del 2! Konfigurera Azure-pipelines och Factory Lab för att skapa virtuella datorer](./devtest-lab-faq.md#blog-post)
+- [Bild fabrik – del 3: Spara anpassade bilder och distribuera dem till flera labb](./devtest-lab-faq.md#blog-post)
+- [Video: anpassad avbildnings fabrik med Azure DevTest Labs](./devtest-lab-faq.md#blog-post)
 
 ## <a name="patterns-to-set-up-network-configuration"></a>Mönster för att konfigurera nätverks konfiguration
 

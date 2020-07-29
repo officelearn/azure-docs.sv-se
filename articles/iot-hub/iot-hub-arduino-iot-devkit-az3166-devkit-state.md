@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: deb1ea8c7b41ad48bddebfbed1b15c667ee0071a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d8e10a18436b0b52820dd0bf15ad0b2de969b79
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73483939"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337950"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -26,7 +26,7 @@ Du kan använda det här exemplet för att övervaka MXChip IoT DevKit WiFi-info
 
 - Så här använder du Azure-enheten för att styra färgen på DevKit RGB-LED.
 
-## <a name="what-you-need"></a>Vad du behöver
+## <a name="what-you-need"></a>Detta behöver du
 
 - Konfigurera utvecklings miljön genom att följa [komma igång guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
 
@@ -114,7 +114,4 @@ Du har lärt dig att:
 - Anslut en MXChip IoT DevKit-enhet till din Azure IoT-lösning för övervakning av fjärrstyrning.
 - Använd Azure IoT-enheten för att förstå och kontrol lera färgen på DevKit RGB-LED.
 
-Här är de föreslagna nästa stegen:
-
-* [Översikt över Azure IoT Remote Monitoring Solution Accelerator](https://docs.microsoft.com/azure/iot-suite/)
-* [Ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program](/azure/iot-central/core/howto-connect-devkit)
+Här är det föreslagna nästa steg: [Översikt över Azure IoT Remote Monitoring Solution Accelerator](https://docs.microsoft.com/azure/iot-suite/)

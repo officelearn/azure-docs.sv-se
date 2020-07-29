@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/08/2020
-ms.openlocfilehash: fe0d3819701e062fa2253bc6dd0c3a28eaeaadfb
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 07/27/2020
+ms.openlocfilehash: 7f37a598c31f340e66437a6478512fad1f79121f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171131"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285959"
 ---
 # <a name="evaluate-model-module"></a>Utvärdera modell modul
 
@@ -80,9 +80,9 @@ Följande mått rapporteras när du utvärderar binära klassificerings modeller
   
 -   **Noggrannhet** mäter en klassificerings modells lämplighet som andel sanna resultat av totalt antal fall.  
   
--   **Precision** är förhållandet mellan faktiska resultat och alla positiva resultat.  
+-   **Precision** är förhållandet mellan faktiska resultat och alla positiva resultat. Precision = TP/(TP + RP)  
   
--   **Återkallande** är bråk delen av alla korrekta resultat som returneras av modellen.  
+-   **Återkallande** är den totala mängden av relevanta instanser som faktiskt hämtades. Återkallande = TP/(TP + FN)  
   
 -   **F1-poängen** beräknas som viktat medelvärde för precision och återkallande mellan 0 och 1, där det idealiska värdet för F1 är 1.  
   

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f93a25854bc8b93e9bd75ea71037f6363d143914
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 79d80a5b94a753b43715c1ccd8fc2059ff84cfca
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145718"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87338035"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: lägga till ett program till din Azure Active Directory-klient (Azure AD)
 
@@ -28,7 +28,7 @@ När ett program har lagts till Azure AD-klienten kan du:
 - Hantera användar åtkomst till appen med en princip för villkorlig åtkomst.
 - Konfigurera enkel inloggning så att användarna kan logga in i appen med sina autentiseringsuppgifter för Azure AD.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill lägga till ett program i Azure AD-klienten behöver du:
 
@@ -53,7 +53,7 @@ Så här lägger du till ett program i Azure AD-klienten:
 6. Du kan bläddra i galleriet för det program som du vill lägga till eller söka efter programmet genom att ange dess namn i sökrutan. Välj sedan programmet från resultaten. I formuläret kan du redigera namnet på programmet så att det matchar organisationens behov. I det här exemplet har vi valt GitHub och ändrat namnet till **GitHub-test**.
     ![Visar hur du lägger till ett program från galleriet](media/add-application-portal/create-application.png)
     >[!TIP]
-    >Om det program som du söker efter inte finns i galleriet kan du klicka på länken **skapa ditt eget program**. Microsoft har redan arbetat med många programutvecklare för att förkonfigurera dem att fungera med Azure AD. Detta är de appar som visas i galleriet. Men om den app som du vill lägga till inte visas i listan kan du skapa en ny, allmän app och sedan konfigurera den själv eller med hjälp av den utvecklare som skapade den.
+    >Om det program som du söker efter inte finns i galleriet kan du klicka på länken **skapa ditt eget program** och under **vad vill du göra med ditt program?** Välj **integrera andra program som du inte hittar i galleriet**. Microsoft har redan arbetat med många programutvecklare för att förkonfigurera dem att fungera med Azure AD. Detta är de appar som visas i galleriet. Men om den app som du vill lägga till inte visas i listan kan du skapa en ny, allmän app och sedan konfigurera den själv eller med hjälp av den utvecklare som skapade den.
 7. Välj **Skapa**. En komma igång-sida visas med alternativ för att konfigurera programmet för din organisation.
 
 Du har lagt till ett program. Nästa snabb start visar hur du ändrar logo typen och redigerar andra egenskaper för programmet.

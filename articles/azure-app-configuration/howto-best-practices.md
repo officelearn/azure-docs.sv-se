@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: df56f53b64a35737700529b80c004efeb31eaabc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4da024eb4eb3747b8e0d6b291ca5b00df12aaeab
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80348667"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367528"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Metod tips för Azure App konfiguration
 
@@ -42,7 +42,7 @@ Ett viktigt att tänka på är att nycklarna är vad din program kod refererar t
 
 App Configuration behandlar alla nycklar som lagras med den som oberoende entiteter. App-konfigurationen försöker inte härleda någon relation mellan nycklar eller ärva nyckel värden baserat på deras hierarki. Du kan använda flera uppsättningar med nycklar, men med hjälp av etiketter tillsammans med korrekt konfigurations stack i program koden.
 
-Nu ska vi titta på ett exempel. Anta att du har en inställning med namnet **Asset1**, vars värde kan variera beroende på utvecklings miljön. Du skapar en nyckel med namnet "Asset1" med en tom etikett och en etikett med namnet "Development". I den första etiketten sätter du standardvärdet för **Asset1**och du anger ett särskilt värde för "utveckling" i den senare.
+Låt oss ta en titt på ett exempel. Anta att du har en inställning med namnet **Asset1**, vars värde kan variera beroende på utvecklings miljön. Du skapar en nyckel med namnet "Asset1" med en tom etikett och en etikett med namnet "Development". I den första etiketten sätter du standardvärdet för **Asset1**och du anger ett särskilt värde för "utveckling" i den senare.
 
 I din kod hämtar du först nyckel värden utan några etiketter, och sedan hämtar du samma uppsättning nyckel värden en andra gång med etiketten "utveckling". När du hämtar värdena den andra gången skrivs de tidigare värdena i nycklarna över. Med konfigurations systemet för .NET Core kan du "stacka" flera uppsättningar konfigurations data ovanpå varandra. Om det finns en nyckel i fler än en uppsättning används den sista uppsättningen som innehåller den. Med ett modernt programmerings ramverk, till exempel .NET Core, får du den här stack funktionen kostnads fritt om du använder en inbyggd Konfigurationsprovider för att komma åt appens konfiguration. Följande kodfragment visar hur du kan implementera stackning i ett .NET Core-program:
 

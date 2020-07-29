@@ -1,29 +1,31 @@
 ---
-title: Välj rätt pris nivå | Microsoft Azure Maps
+title: Välj rätt pris nivå för Microsoft Azure Maps
 description: I den här artikeln får du lära dig om pris nivåer som erbjuds av Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/15/2020
+ms.date: 07/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: ''
-ms.openlocfilehash: 4b32706822ff16780388f4acb5d59bf3d91e6d91
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+manager: philmea
+ms.openlocfilehash: 359c2270f3de269adae13ce976cedeb4248935d2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133341"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285772"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Välj rätt pris nivå i Azure Maps
 
-Azure Maps erbjuder två pris nivåer, S0 och S1. Syftet med den här artikeln är att hjälpa dig att välja rätt pris nivå för dina behov. Du kan välja rätt pris nivå genom att ställa följande två frågor.
+Azure Maps erbjuder två pris nivåer: S0 och S1. Syftet med den här artikeln är att hjälpa dig att välja rätt pris nivå för dina behov. Du kan välja rätt pris nivå genom att ställa följande två frågor.
 
-## <a name="how-many-concurrent-users-do-i-plan-to-support"></a>Hur många samtidiga användare planerar jag att stödja? 
+## <a name="how-many-concurrent-users-do-i-plan-to-support"></a>Hur många samtidiga användare planerar jag att stödja?
+
 Pris nivåerna S0 och S1 hanterar olika mängder data genom strömning. Pris nivån S0 hanterar upp till **50 frågor per sekund**. S1-nivån hanterar **fler än 50 frågor per sekund**.
 
 ## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>Vilka geospatiala funktioner planerar jag att använda?
-Pris nivån för S0 är rätt för dig, om de geospatiala geospatiala API: erna uppfyller tjänst kraven. Om du vill ha mer avancerade funktioner för ditt program bör du tänka på väljer för pris nivån S1. Avancerade funktioner är: flyg-plus hybrid bilder, hämtning av väg intervall och grupp-och-kod. Gå igenom tabellen med **pris nivå funktioner** och välj den pris nivå som passar bäst för ditt program.
+
+Om de grundläggande geospatiala API: erna uppfyller tjänst kraven väljer du pris nivån S0. Om du vill ha mer avancerade funktioner för ditt program kan du välja att använda pris nivån S1. Avancerade funktioner är: flyg-plus hybrid bilder, hämtning av väg intervall och grupp-och-kod. Om du vill välja den pris nivå som passar bäst för ditt program går du igenom tabellen med **pris nivå funktioner** nedan:
 
 ### <a name="pricing-tier-capabilities"></a>Pris nivå funktioner
 
@@ -31,7 +33,7 @@ Pris nivån för S0 är rätt för dig, om de geospatiala geospatiala API: erna 
 |-----------------------------------------|:-------------------:|:--------:|
 | Mappa åter givning                              | ✓                   | ✓       |
 | Satellit bilder                       |                     | ✓        |
-| Sök                                  | ✓                    | ✓        |
+| Search                                  | ✓                    | ✓        |
 | Batch-sökning                            |                     | ✓        |
 | Väg                                   | ✓                    |✓        |
 | Batchbearbetning                            |                    | ✓        |
@@ -47,6 +49,7 @@ Pris nivån för S0 är rätt för dig, om de geospatiala geospatiala API: erna 
 | Väder (för hands version)                        |✓                    |✓        |
 
 Överväg följande ytterligare punkter:
+
 * Vilken typ av företag har du?
 * Hur kritiskt är ditt program?
 
@@ -56,12 +59,12 @@ Se **pris nivån riktade kunder** för att få en bättre uppfattning om pris ni
 
 | Prisnivå  |     Riktad kund                                                                |
 |-----------------|:-----------------------------------------------------------------------------------------|
-| S0            |    <p>Pris nivån S0 används för program i alla stadier av produktion: från koncept koncept utveckling och tidigt test till program produktion och distribution. Den här nivån är dock utformad för storskalig utveckling eller kunder med låga samtidiga användare eller både och. <p>|
-| S1            |    <p>Pris nivån S1 är för kunder med storskaliga företags program, verksamhets kritiska program eller stora volymer av samtidiga användare. Det är också för de kunder som behöver avancerade geospatiala tjänster.</p>|
+| S0            |    Pris nivån S0 används för program i alla stadier av produktion: från koncept koncept utveckling och tidigt test till program produktion och distribution. Den här nivån är dock utformad för storskalig utveckling eller kunder med låga samtidiga användare eller både och. 
+| S1            |    Pris nivån S1 är för kunder med storskaliga företags program, verksamhets kritiska program eller stora volymer av samtidiga användare. Det är också för de kunder som behöver avancerade geospatiala tjänster.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig mer om att visa och ändra pris nivåer:
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Hantera en pris nivå](how-to-manage-pricing-tier.md)

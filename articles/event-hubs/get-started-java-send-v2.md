@@ -3,12 +3,13 @@ title: Skicka eller ta emot händelser från Azure Event Hubs med Java (senaste)
 description: Den här artikeln innehåller en genom gång av hur du skapar ett Java-program som skickar/tar emot händelser till/från Azure Event Hubs med det senaste paketet Azure-Messaging-eventhubs.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: ab28b3d434c1e44fb173655c6414412ceda1101f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-java
+ms.openlocfilehash: b1e18942e1e39c4238d73c6689c5de21d0d390db
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537096"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366797"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-messaging-eventhubs"></a>Använda Java för att skicka händelser till eller ta emot händelser från Azure Event Hubs (Azure-Messaging-eventhubs)
 Den här snabb starten visar hur du skickar händelser till och tar emot händelser från en händelsehubben med hjälp av Java **-paketet Azure-Messaging-eventhubs** .
@@ -17,7 +18,7 @@ Den här snabb starten visar hur du skickar händelser till och tar emot händel
 > I den här snabb starten används det nya paketet **Azure-Messaging-eventhubs** . En snabb start som använder gamla **Azure-eventhubs** -och **Azure-eventhubs-EPH-** paket finns i [skicka och ta emot händelser med Azure-eventhubs och Azure-eventhubs-EPH](event-hubs-java-get-started-send.md). 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du inte har använt Azure Event Hubs tidigare, se [Event Hubs översikt](event-hubs-about.md) innan du gör den här snabb starten. 
 
 För att slutföra den här snabbstarten, behöver du följande förhandskrav:
@@ -143,7 +144,7 @@ I den här snabb starten använder du Azure Storage (särskilt Blob Storage) som
 
 Följ dessa steg om du vill skapa ett Azure Storage-konto. 
 
-1. [Skapa ett Azure Storage konto](../storage/common/storage-account-create.md?tabs=azure-portal)
+1. [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md?tabs=azure-portal)
 2. [Skapa en blobcontainer](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 3. [Hämta anslutnings strängen till lagrings kontot](../storage/common/storage-configure-connection-string.md)
 

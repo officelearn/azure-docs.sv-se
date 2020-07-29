@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 94724ea44b52ae885594fe55b67d74a03e339dab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 723c30856593044c91220b4e3ab267ab140c5ffd
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012930"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366935"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
 
@@ -44,7 +44,7 @@ Azure Machine Learning stöder två typer av autentisering för webb tjänster: 
 
 |Autentiseringsmetod|Beskrivning|Azure Container Instances|AKS|
 |---|---|---|---|
-|Nyckel|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverat som standard|
+|Tangent|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverat som standard|
 |Token|Token upphör att gälla efter en viss tids period och behöver uppdateras.| Inte tillgängligt| Inaktiverat som standard |
 
 Kod exempel finns i [avsnittet Web-Service Authentication](how-to-setup-authentication.md#web-service-authentication).
@@ -75,7 +75,7 @@ I följande tabell visas några av de viktigaste Azure Machine Learning åtgärd
 | Visa modeller/bilder | ✓ | ✓ | ✓ |
 | Anropa webb tjänst | ✓ | ✓ | ✓ |
 
-Om de inbyggda rollerna inte uppfyller dina behov kan du skapa anpassade roller. Anpassade roller stöds bara för åtgärder på arbets ytan och Machine Learning-beräkning. Anpassade roller kan ha behörigheterna läsa, skriva eller ta bort på arbets ytan och på beräknings resursen på arbets ytan. Du kan göra rollen tillgänglig på en speciell arbets yta, en bestämd resurs grupps nivå eller en speciell prenumerations nivå. Mer information finns i [Hantera användare och roller i en Azure Machine Learning-arbetsyta](how-to-assign-roles.md).
+Om de inbyggda rollerna inte uppfyller dina behov kan du skapa anpassade roller. Anpassade roller stöds för att kontrol lera alla åtgärder i en arbets yta, till exempel skapa en beräkning, skicka in en körning, registrera ett data lager eller distribuera en modell. Anpassade roller kan ha behörigheterna läsa, skriva eller ta bort för de olika resurserna i en arbets yta, till exempel kluster, data lager, modeller och slut punkter. Du kan göra rollen tillgänglig på en speciell arbets yta, en bestämd resurs grupps nivå eller en speciell prenumerations nivå. Mer information finns i [Hantera användare och roller i en Azure Machine Learning-arbetsyta](how-to-assign-roles.md).
 
 > [!WARNING]
 > Azure Machine Learning stöds med Azure Active Directory Business-to-Business-samarbete, men stöds för närvarande inte med Azure Active Directory samarbete mellan företag.
@@ -154,10 +154,6 @@ Om du vill använda egna (Kundhanterade) nycklar för att kryptera Azure Cosmos 
 Om du vill aktivera etablering av en Cosmos DB instans i din prenumeration med Kundhanterade nycklar utför du följande åtgärder:
 
 * Registrera Microsoft. MachineLearning-och Microsoft.DocumentDB-resurs leverantörerna i din prenumeration, om de inte redan har gjort det.
-
-* Auktorisera Machine Learning-appen (i identitets-och åtkomst hantering) med deltagar behörigheter för din prenumeration.
-
-    ![Auktorisera Azure Machine Learning app i identitets-och åtkomst hantering i portalen](./media/concept-enterprise-security/authorize-azure-machine-learning.png)
 
 * Använd följande parametrar när du skapar arbets ytan Azure Machine Learning. Båda parametrarna är obligatoriska och stöds i SDK, CLI, REST API: er och Resource Manager-mallar.
 

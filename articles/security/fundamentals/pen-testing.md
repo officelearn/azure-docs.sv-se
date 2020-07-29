@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2018
 ms.author: terrylan
-ms.openlocfilehash: 413ec8b121838a4ffac4119421ec3266e141618b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db6e25b6304ee9ac41ca95d5a3a6eac0e91eb41b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80549256"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287778"
 ---
 # <a name="penetration-testing"></a>Testning av inträngning
 En av fördelarna med att använda Azure för program testning och distribution är att du snabbt kan hämta miljöer som skapats. Du behöver inte bekymra dig om rekvisitioner, förvärv och "rackering och stapling" av din egen lokala maskin vara.
@@ -41,8 +41,6 @@ Standard test som du kan utföra är:
 * Tester på dina slut punkter för att få fram de [10 viktigaste säkerhets problemen i det öppna webb programmet säkerhets projekt (OWASP)](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
 * [Fuzz-testning](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) av dina slut punkter
 * [Port genomsökning](https://en.wikipedia.org/wiki/Port_scanner) av dina slut punkter
-
-En typ av test som du inte kan utföra är någon typ av dos [-attack (Denial of Service)](https://en.wikipedia.org/wiki/Denial-of-service_attack) . Detta innefattar att initiera en DoS-attack eller utföra relaterade tester som kan fastställa, demonstrera eller simulera alla typer av DoS-attacker.
 
 ## <a name="next-steps"></a>Nästa steg
 

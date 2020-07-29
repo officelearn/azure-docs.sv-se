@@ -3,12 +3,12 @@ title: Lägga till taggar i ett labb i Azure DevTest Labs | Microsoft Docs
 description: Lär dig hur du lägger till en tagg i ett labb i Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: bf835cee705012fd175a3132edde1d241311c576
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30f0f2ed4b8cc98985326db652371b8ceb16bfb4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483014"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287582"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Lägga till taggar i ett labb i Azure DevTest Labs
 
@@ -52,7 +52,7 @@ Följande begränsningar gäller för taggar:
 * Taggnamnet är begränsat till 512 tecken och taggvärdet är begränsat till 256 tecken. För lagringskonton är taggnamnet begränsat till 128 tecken och taggvärdet till 256 tecken.
 * Taggar som lagts till för en resursgrupp ärvs inte av resurserna i den resursgruppen.
 
-[Använd taggar för att organisera dina Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) ger mer information om hur du använder taggar i Azure, inklusive hur du hanterar Taggar med PowerShell eller Azure CLI.
+[Använd taggar för att organisera dina Azure-resurser](../azure-resource-manager/management/tag-resources.md) ger mer information om hur du använder taggar i Azure, inklusive hur du hanterar Taggar med PowerShell eller Azure CLI.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

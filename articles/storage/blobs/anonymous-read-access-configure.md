@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: a153a3735bbc46dbbce7e58374e1015ac1ec0bfb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: daf4eb4492f723b049dc62a16351e04ffc252337
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133188"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289249"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Konfigurera anonym offentlig Läs behörighet för behållare och blobbar
 
-Azure Storage stöder valfri anonym offentlig Läs behörighet för behållare och blobbar. Anonym åtkomst till dina data tillåts som standard aldrig. Om du inte uttryckligen aktiverar anonym åtkomst måste alla begär anden till en behållare och dess blobbar verifieras med hjälp av antingen Azure Active Directory (Azure AD) eller autentisering med delad nyckel. När du konfigurerar en behållares inställning för offentlig åtkomst nivå för att tillåta anonym åtkomst, kan klienterna läsa data i den behållaren utan att auktorisera begäran.
+Azure Storage stöder valfri anonym offentlig Läs behörighet för behållare och blobbar. Anonym åtkomst till dina data tillåts som standard aldrig. Om du inte uttryckligen aktiverar anonym åtkomst måste alla begär anden till en behållare och dess blobbar vara auktoriserade. När du konfigurerar en behållares inställning för offentlig åtkomst nivå för att tillåta anonym åtkomst, kan klienterna läsa data i den behållaren utan att auktorisera begäran.
 
 > [!WARNING]
 > När en behållare har kon figurer ATS för offentlig åtkomst kan alla klienter läsa data i behållaren. Offentlig åtkomst innebär en potentiell säkerhets risk, så om ditt scenario inte kräver det rekommenderar Microsoft att du inte tillåter det för lagrings kontot. Mer information finns i [förhindra anonym offentlig Läs behörighet till behållare och blobbar](anonymous-read-access-prevent.md).
@@ -41,7 +41,7 @@ I följande tabell sammanfattas hur båda inställningarna påverkar den offentl
 
 ## <a name="allow-or-disallow-public-read-access-for-a-storage-account"></a>Tillåt eller neka offentlig Läs behörighet för ett lagrings konto
 
-Som standard tillåts offentlig åtkomst för enskilda behållare i ett lagrings konto. När offentlig åtkomst tillåts kan en användare med rätt behörighet ändra en behållares offentliga åtkomst inställning för att aktivera anonym offentlig åtkomst till data i den behållaren.
+Som standard konfigureras ett lagrings konto så att en användare med rätt behörighet kan aktivera offentlig åtkomst till en behållare. När offentlig åtkomst tillåts kan en användare med rätt behörighet ändra en behållares offentliga åtkomst inställning för att aktivera anonym offentlig åtkomst till data i den behållaren. BLOB-data är aldrig tillgängliga för offentlig åtkomst om inte användaren vidtar ytterligare steg för att konfigurera behållarens offentliga åtkomst inställning explicit.
 
 Tänk på att offentlig åtkomst till en behållare alltid stängs av som standard och måste konfigureras uttryckligen för att tillåta anonyma begär Anden. Oavsett inställningen på lagrings kontot kommer dina data aldrig att vara tillgängliga för offentlig åtkomst, såvida inte en användare med rätt behörighet tar detta ytterligare steg för att aktivera offentlig åtkomst på behållaren.
 

@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: b40b1f23673b589cfea40bddc3f0497860a86ae3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: edd424d7d64e484f3b42084d1aa0744ec522bf92
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326825"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366825"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Hantera Azure-resurser med hjälp av Azure CLI
 
@@ -60,7 +60,7 @@ Du kan skapa en resurs grupp och distribuera resurser till gruppen. Mer informat
 
 ## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>Distribuera resurser till flera prenumerationer eller resurs grupper
 
-Normalt distribuerar du alla resurser i mallen till en enda resurs grupp. Det finns dock scenarier där du vill distribuera en uppsättning resurser tillsammans, men placera dem i olika resurs grupper eller prenumerationer. Mer information finns i [Distribuera Azure-resurser till flera prenumerationer eller resurs grupper](../templates/cross-resource-group-deployment.md).
+Normalt distribuerar du alla resurser i mallen till en enda resurs grupp. Det finns dock scenarier där du vill distribuera en uppsättning resurser tillsammans, men placera dem i olika resurs grupper eller prenumerationer. Mer information finns i [Distribuera Azure-resurser till flera prenumerationer eller resurs grupper](../templates/cross-scope-deployment.md).
 
 ## <a name="delete-resources"></a>Ta bort resurser
 

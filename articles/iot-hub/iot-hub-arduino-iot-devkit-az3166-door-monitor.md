@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 6bebe8ac6b9869466938600d6267fd0062c84477
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dae797e73d52391288a5e8b7cf4a5c6ab2a122fc
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75977303"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337882"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Dörr övervakare – använda Azure Functions och SendGrid, skicka e-post när en dörr öppnas           
 
@@ -29,7 +30,7 @@ I det här projektet får du lära dig:
 > - Montera en magnet till en dörrs kant.
 > - Montera DevKit på dörren Jamb nära magneten. När du öppnar eller stänger dörren utlöses sensorn, vilket innebär att du får ett e-postmeddelande om händelsen.
 
-## <a name="what-you-need"></a>Vad du behöver
+## <a name="what-you-need"></a>Detta behöver du
 
 Slutför [komma igång guiden](iot-hub-arduino-iot-devkit-az3166-get-started.md) för att:
 
@@ -172,7 +173,7 @@ VS Code börjar sedan verifiera och ladda upp Arduino-skissen till DevKit.
 
 ![enhet – Ladda upp](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
 
-DevKit startar om och börjar köra koden.
+DevKit startas om och börjar köra koden.
 
 > [!NOTE]
 > Ibland kan fel meddelandet "Error: AZ3166: unknowed Package" visas. Det här felet uppstår när tavla-paketets index inte har uppdaterats på rätt sätt. För att lösa det här felet, se [avsnittet utveckling i vanliga frågor och svar om IoT-DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
@@ -196,7 +197,4 @@ Om det uppstår problem kan du läsa [vanliga frågor och svar om IoT-DevKit](ht
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har lärt dig hur du ansluter en DevKit-enhet till din lösnings Accelerator för Azure IoT-fjärrövervakning och använde tjänsten SendGrid för att skicka ett e-postmeddelande. Här är de föreslagna nästa stegen:
-
-* [Översikt över Azure IoT Remote Monitoring Solution Accelerator](https://docs.microsoft.com/azure/iot-suite/)
-* [Ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program](/azure/iot-central/core/howto-connect-devkit)
+Du har lärt dig hur du ansluter en DevKit-enhet till din lösnings Accelerator för Azure IoT-fjärrövervakning och använde tjänsten SendGrid för att skicka ett e-postmeddelande. Här är det föreslagna nästa steg:[Översikt över Azure IoT Remote Monitoring Solution Accelerator](https://docs.microsoft.com/azure/iot-suite/)

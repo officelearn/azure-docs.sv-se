@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/27/2020
-ms.openlocfilehash: 3559ae5c246129aa369cb49e7749e499002f1dc6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: 873f0d7d2aa4493e77a10f62b0646f4f8233f6b9
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048185"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337848"
 ---
 # <a name="execute-r-script-module"></a>Kör R-skript-modul
 
@@ -119,6 +119,22 @@ När pipeline-körningen är färdig kan du förhandsgranska bilden i den högra
 > [!div class="mx-imgBorder"]
 > ![Förhands granskning av Uppladdad bild](media/module/upload-image-in-r-script.png)
 
+## <a name="access-to-registered-dataset"></a>Åtkomst till registrerad data uppsättning
+
+Du kan referera till följande exempel kod för att [få åtkomst till registrerade data uppsättningar](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script) på din arbets yta:
+
+```R
+        azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+  run = get_current_run()
+  ws = run$experiment$workspace
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
+  dataframe2 <- dataset$to_pandas_dataframe()
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
 ## <a name="how-to-configure-execute-r-script"></a>Så här konfigurerar du kör R-skript
 
 Skriptet kör R-skript innehåller exempel kod som du kan använda som utgångs punkt. Om du vill konfigurera modulen kör R-skript anger du en uppsättning indata och kod att köra.
@@ -177,6 +193,25 @@ Data uppsättningar som lagras i designern konverteras automatiskt till en R dat
  
     > [!NOTE]
     > Befintlig R-kod kan behöva mindre ändringar för att köras i en designer-pipeline. Indata som du anger i CSV-format ska till exempel uttryckligen konverteras till en data uppsättning innan du kan använda den i din kod. Data-och kolumn typer som används i R-språket skiljer sig också på vissa sätt från data-och kolumn typer som används i designern.
+
+    Om skriptet är större än 16 KB använder du **Skriptets paket** port för att undvika fel som *kommando raden är längre än 16597 tecken*. 
+    
+    Paketera skriptet och andra anpassade resurser i en zip-fil och överför zip-filen som en **fil data uppsättning** till Studio. Sedan kan du dra data uppsättnings modulen från listan *mina data uppsättningar* i den vänstra rutan på design sidan i designern. Anslut data uppsättnings modulen till **skript paket** porten för **Kör R-skript** -modulen.
+    
+    Följande är exempel koden för att använda skriptet i skript paketet:
+
+    ```R
+    azureml_main <- function(dataframe1, dataframe2){
+    # Source the custom R script: my_script.R
+    source("./Script Bundle/my_script.R")
+
+    # Use the function that defined in my_script.R
+    dataframe1 <- my_func(dataframe1)
+
+    sample <- readLines("./Script Bundle/my_sample.txt")
+    return (list(dataset1=dataframe1, dataset2=data.frame("Sample"=sample)))
+    }
+    ```
 
 1.  För **slumpmässigt utsäde**anger du ett värde som ska användas i R-miljön som det slumpmässiga startvärdet. Den här parametern motsvarar anrop `set.seed(value)` i R-kod.  
 

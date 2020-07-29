@@ -14,12 +14,12 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: aca2e0a878470a644aff3a42411b69da9096fc78
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: af554b2055102b12a8c0e89c6301400f76021ede
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170520"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87313344"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft Identity Platform ID-token
 
@@ -27,11 +27,11 @@ ms.locfileid: "87170520"
 
 ## <a name="using-the-id_token"></a>Använda id_token
 
-ID-token ska användas för att verifiera att en användare är den som han eller hon ansöker för att få ytterligare värdefull information om dem – den bör inte användas för auktorisering i stället för en [åtkomsttoken](access-tokens.md). Anspråken som det tillhandahåller kan användas för UX i ditt program, som nycklar i en databas och för att ge åtkomst till klient programmet.  När du skapar nycklar för en databas `idp` bör du inte använda den, eftersom den kan förstöra gäst scenarier.  Nycklar bör utföras `sub` separat (som alltid är unika), med `tid` används för routning om det behövs.  Om du behöver dela data mellan tjänster `oid` + `sub` + `tid` fungerar det eftersom flera tjänster kommer att fungera `oid` .
+ID-token ska användas för att verifiera att en användare är den som han eller hon ansöker för att få ytterligare värdefull information om dem – den bör inte användas för auktorisering i stället för en [åtkomsttoken](access-tokens.md). Anspråken som det tillhandahåller kan användas för UX i ditt program, som [nycklar i en databas](#using-claims-to-reliably-identify-a-user-subject-and-object-id)och för att ge åtkomst till klient programmet.  
 
 ## <a name="claims-in-an-id_token"></a>Anspråk i en id_token
 
-`id_tokens`för en Microsoft-identitet är [JWTs](https://tools.ietf.org/html/rfc7519) (JSON Web tokens), vilket innebär att de består av en rubrik, en nytto last och en signatur. Du kan använda rubriken och signaturen för att verifiera tokens äkthet, medan nytto lasten innehåller information om användaren som begärdes av din klient. Om inget annat anges visas alla JWT-anspråk som anges här i både v 1.0-och v 2.0-token.
+`id_tokens`är [JWTs](https://tools.ietf.org/html/rfc7519) (JSON Web tokens), vilket innebär att de består av en rubrik, en nytto last och en signatur. Du kan använda rubriken och signaturen för att verifiera tokens äkthet, medan nytto lasten innehåller information om användaren som begärdes av din klient. Om inget annat anges visas alla JWT-anspråk som anges här i både v 1.0-och v 2.0-token.
 
 ### <a name="v10"></a>V1.0
 
@@ -87,14 +87,25 @@ I den här listan visas de JWT-anspråk som är i de flesta id_tokens som standa
 |`ver` | Sträng, antingen 1,0 eller 2,0 | Anger versionen för id_token. |
 
 > [!NOTE]
-> V 1.0-och v 2.0-id_token har skillnader i mängden information som de kommer att ha som visas i exemplen ovan. Versionen anger i princip slut punkten för Azure AD-plattformen varifrån den utfärdades. [Azure AD OAuth-implementeringen](about-microsoft-identity-platform.md) har utvecklats genom åren. Det finns för närvarande två olika outh-slutpunkter för Azure AD-program. Du kan använda någon av de nya slut punkterna som kategoriseras som v 2.0 eller v 1.0. OAuth-slutpunkter för båda dessa är olika. V 2.0-slutpunkten är nyare och funktionerna i v 1.0-slutpunkten migreras till den här slut punkten. Nya utvecklare bör använda v 2.0-slutpunkten.
+> V 1.0-och v 2.0-id_token har skillnader i mängden information som de kommer att ha som visas i exemplen ovan. Versionen baseras på slut punkten varifrån den begärdes. Även om befintliga program ofta använder Azure AD-slutpunkten, ska nya program använda "Microsoft Identity Platform"-slutpunkten för v 2.0.
 >
 > - v 1.0: Azure AD-slut punkter:`https://login.microsoftonline.com/common/oauth2/authorize`
-> - v 2.0: Microsoft identitypPlatform-slutpunkter:`https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
+> - v 2.0: slut punkter för Microsoft Identity Platform:`https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
+
+### <a name="using-claims-to-reliably-identify-a-user-subject-and-object-id"></a>Använda anspråk för att identifiera en användare på ett tillförlitligt sätt (ämne och objekt-ID)
+
+När du identifierar en användare (t. ex. genom att titta på dem i en databas eller bestämma vilka behörigheter de har) är det viktigt att du använder information som är konstant och unik över tid.  Äldre program använder ibland fält som e-postadress, telefonnummer eller UPN.  Alla dessa kan ändras över tid och kan också återanvändas över tid – när en anställd ändrar sitt namn eller om en medarbetare får en e-postadress som matchar den tidigare, inte längre är anställd). Det är därför **viktigt** att ditt program inte använder data som kan läsas av människor för att identifiera en användare som är mänskligt läsbar, vilket innebär att någon kommer att läsa det och vill ändra det.  Använd i stället de anspråk som tillhandahålls av OIDC-standarden eller de tillägg anspråk som tillhandahålls av Microsoft-- `sub` och- `oid` anspråk.
+
+För att korrekt lagra information per användare, använder `sub` eller `oid` ensamma (som GUID: er är unika), med `tid` används för routning eller horisontell partitionering vid behov.  Om du behöver dela data mellan tjänster `oid` + `tid` är det bäst att alla appar får samma `oid` och `tid` anspråk för en specifik användare.  `sub`Anspråket i Microsoft Identity Platform är "par-klokt" – det är unikt baserat på en kombination av token mottagare, klient organisation och användare.  Därför får två appar som begär ID-token för en specifik användare olika `sub` anspråk, men samma `oid` anspråk för den användaren.
+
+>[!NOTE]
+> Använd inte `idp` anspråket för att lagra information om en användare i ett försök att korrelera användare mellan klienter.  Det kommer inte att fungera, eftersom `oid` `sub` anspråk för en användare ändras mellan klienter, efter design, för att säkerställa att program inte kan spåra användare mellan klienter.  
+>
+> Gäst scenarier, där en användare är i bostaden och autentiseras i en annan, ska behandla användaren som om de är en helt ny användare i tjänsten.  Dina dokument och behörigheter i Contoso-klienten bör inte gälla i Fabrikam-klienten. Detta är viktigt för att förhindra oavsiktlig data läckage mellan klienter.
 
 ## <a name="validating-an-id_token"></a>Verifiera en id_token
 
-Verifiering `id_token` av en liknar det första steget i att [Verifiera en åtkomsttoken](access-tokens.md#validating-tokens) – klienten bör verifiera att rätt utfärdare har skickat tillbaka token och att den inte har manipulerats. Eftersom `id_tokens` är alltid en JWT-token finns det många bibliotek för att validera dessa tokens – vi rekommenderar att du använder någon av dessa i stället för att göra det själv.
+Validering `id_token` av en liknar det första steget i att [Verifiera en åtkomsttoken](access-tokens.md#validating-tokens) – din klient kan verifiera att rätt utfärdare har skickat tillbaka token och att den inte har manipulerats. Eftersom `id_tokens` är alltid en JWT-token finns det många bibliotek för att validera dessa tokens – vi rekommenderar att du använder någon av dessa i stället för att göra det själv.  Observera att endast konfidentiella klienter (de med en hemlighet) ska validera ID-token.  Offentliga program (kod som körs helt på en enhet eller nätverk som du inte kontrollerar – till exempel en användares webbläsare eller sitt hem nätverk) drar inte nytta av att validera ID-token, eftersom en obehörig användare kan avlyssna och redigera nycklar som används för verifiering av token.
 
 Information om hur du validerar token manuellt finns i avsnittet om hur du [verifierar en](access-tokens.md#validating-tokens)åtkomsttoken. När signaturen för token har verifierats ska följande JWT-anspråk val IDE ras i id_token (de kan också utföras av ditt verifierings bibliotek för token):
 

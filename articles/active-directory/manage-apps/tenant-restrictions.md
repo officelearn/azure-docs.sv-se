@@ -12,12 +12,12 @@ ms.date: 03/28/2019
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae90a682ea2d1abb8159ec28ed02ed122494f512
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0f45cc2444a14fc138d201e3d7f81e687f53d3ac
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019258"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285908"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Använd klient begränsningar för att hantera åtkomst till SaaS-molnprogram
 
@@ -57,7 +57,7 @@ Om du vill använda klient begränsningar måste klienterna kunna ansluta till f
 
 Följande konfiguration krävs för att aktivera klient begränsningar via proxyservern för infrastrukturen. Den här vägledningen är generisk, så du bör läsa dokumentationen för proxy-leverantören för att få detaljerade implementerings steg.
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
 - Proxyn måste kunna utföra TLS-avlyssning, infoga HTTP-huvud och filtrera mål med hjälp av FQDN/URL: er.
 
@@ -68,6 +68,11 @@ Följande konfiguration krävs för att aktivera klient begränsningar via proxy
 #### <a name="configuration"></a>Konfiguration
 
 Infoga två HTTP-huvuden för varje inkommande begäran till login.microsoftonline.com, login.microsoft.com och login.windows.net: *begränsning-åtkomst-till-innehavare* och *begränsa åtkomst-kontext*.
+
+> [!NOTE]
+> När du konfigurerar SSL-avlyssning och rubrik inmatning, se till att trafik till https://device.login.microsoftonline.com undantas. Den här URL: en används för enhetsautentisering och för att utföra TLS-och-inspektera kan störa autentisering av klient certifikat, vilket kan orsaka problem med enhets registrering och enhets-baserad villkorlig åtkomst.
+
+
 
 Rubrikerna måste innehålla följande element:
 
@@ -81,6 +86,9 @@ Rubrikerna måste innehålla följande element:
 För att förhindra att användare infogar sin egen HTTP-rubrik med icke-godkända innehavare, måste proxyn ersätta huvudet *begränsning-åtkomst-till-innehavare* om den redan finns i den inkommande begäran.
 
 Klienter måste tvingas att använda proxyn för alla begär anden till login.microsoftonline.com, login.microsoft.com och login.windows.net. Om till exempel PAC-filer används för att dirigera klienter till att använda proxyn, bör slutanvändare inte kunna redigera eller inaktivera PAC-filerna.
+
+> [!NOTE]
+> Ta inte med under domäner under *. login.microsoftonline.com i proxykonfigurationen. Detta inkluderar Device.login.microsoftonline.com och kan störa autentisering av klient certifikat, som används i enhets registrering och enhets villkorliga åtkomst scenarier. Konfigurera proxyservern så att den utesluter device.login.microsoftonline.com från TLS-och-granska och rubrik inmatning.
 
 ## <a name="the-user-experience"></a>Användar upplevelsen
 
@@ -166,7 +174,7 @@ Fiddler är en kostnads fri webb fel söknings proxy som kan användas för att 
       }
       ```
 
-      Om du behöver tillåta flera klienter kan du använda ett kommatecken för att avgränsa klient namnen. Exempel:
+      Om du behöver tillåta flera klienter kan du använda ett kommatecken för att avgränsa klient namnen. Till exempel:
 
       `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 

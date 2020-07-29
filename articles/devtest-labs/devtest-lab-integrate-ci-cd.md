@@ -3,12 +3,12 @@ title: Integrera Azure DevTest Labs i dina Azure-pipeliner
 description: Lär dig hur du integrerar Azure DevTest Labs i dina Azure-pipeliner kontinuerlig integrering och leverans pipelines
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 080577a74a1cb168453c6a027d77ae395072ccc1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 96f99d41d0a7ea07bf3854292f9c3bd6245414b3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480583"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288934"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>Integrera Azure DevTest Labs i din Azure-pipeline CI/CD-pipeline
 
@@ -109,7 +109,7 @@ Så här lägger du till variabler för värdena:
    
 1. För varje variabel väljer du **Lägg till** och anger namn och värde:
    
-   |Name|Värde|
+   |Namn|Värde|
    |---|---|
    |*vmName*|VM-namn som du har tilldelat i Resource Manager-mallen|
    |*Användar*|Användar namn för att komma åt den virtuella datorn|
@@ -127,7 +127,7 @@ Nästa steg är att skapa en virtuell dator i den gyllene avbildningen som ska a
 
 1. I den högra rutan fyller du i formuläret enligt följande:
    
-   |Field|Värde|
+   |Fält|Värde|
    |---|---|
    |**Azure RM-prenumeration**|Välj en tjänst anslutning eller prenumeration från **tillgängliga Azure-tjänst anslutningar** eller **tillgängliga Azure-prenumerationer** i list rutan och välj **auktorisera** vid behov.<br /><br />**Obs:** Information om hur du skapar en mer begränsad behörighets anslutning till din Azure-prenumeration finns i [Azure Resource Manager tjänstens slut punkt](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).|
    |**Labb namn**|Välj namnet på ett befintligt labb där den virtuella labb datorn ska skapas.|
@@ -147,10 +147,10 @@ Kör skriptet som du skapade tidigare för att samla in information om den virtu
    
 1. I den högra rutan fyller du i formuläret enligt följande:
    
-   |Field|Värde|
+   |Fält|Värde|
    |---|---|
    |**Typ av Azure-anslutning**|Välj **Azure Resource Manager**.|
-   |**Azure-prenumeration**|Välj din tjänst anslutning eller prenumeration.| 
+   |**Azure Subscription (Azure-prenumeration)**|Välj din tjänst anslutning eller prenumeration.| 
    |**Skript typ**|Välj **sökväg till skript fil**.|
    |**Skript Sök väg**|Ange den fullständiga sökvägen och namnet på det PowerShell-skript som du sparade i din käll kods lagrings plats. Du kan använda inbyggda egenskaper för att förenkla sökvägen, till exempel:<br /><br />`$(System.DefaultWorkingDirectory/Scripts/GetLabVMParams.ps1`|
    |**Skript argument**|Ange namnet på *labVmId* -variabeln som har fyllts i med föregående uppgift, till exempel:<br /><br />`-labVmId '$(labVMId)'`|
@@ -167,7 +167,7 @@ Nästa uppgift är att skapa en avbildning av den nyligen distribuerade virtuell
    
 1. Konfigurera uppgiften enligt följande:
    
-   |Field|Värde|
+   |Fält|Värde|
    |---|---|
    |**Azure RM-prenumeration**|Välj din tjänst anslutning eller prenumeration.|
    |**Labb namn**|Välj namnet på ett befintligt labb där bilden ska skapas.|
@@ -218,5 +218,5 @@ Du kan använda den anpassade avbildningen för att skapa virtuella datorer när
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du [skapar miljöer för flera virtuella datorer med Resource Manager-mallar](devtest-lab-create-environment-from-arm.md).
 - Utforska fler starter Resource Manager-mallar för DevTest Labs automation från den [offentliga DevTest Labs GitHub lagrings platsen](https://github.com/Azure/azure-quickstart-templates).
-- Om det behövs går du till [fel söknings sidan för Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/troubleshooting) .
+- Om det behövs går du till [fel söknings sidan för Azure DevOps](/azure/devops/pipelines/troubleshooting) .
  

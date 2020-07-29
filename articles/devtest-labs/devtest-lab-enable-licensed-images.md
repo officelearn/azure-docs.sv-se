@@ -3,12 +3,12 @@ title: Aktivera en licensierad avbildning i ditt labb i Azure DevTest Labs | Mic
 description: Lär dig hur du aktiverar en licensierad avbildning i Azure DevTest Labs att använda Azure Portal
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6a4023a0107acf5aa4cabc2178d17f7be40301f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a043679e27580254c56fe118838dd355be5a58de
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481025"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286520"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Aktivera en licensierad avbildning i labbet i Azure DevTest Labs
 
@@ -50,7 +50,7 @@ Du kan aktivera program distribution för en licensierad avbildning genom att f�
     ![Fönstret Konfigurera program mässig distribution](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
-   > Virtuella datorer för data vetenskap är avbildningar av virtuella Azure-datorer, förinstallerade, konfigurerade och testade med flera populära verktyg som ofta används för data analys, Machine Learning och AI-utbildning. [Introduktion till Azure Data Science Virtual Machine för Linux och Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) innehåller en fantastisk information om dsvm.
+   > Virtuella datorer för data vetenskap är avbildningar av virtuella Azure-datorer, förinstallerade, konfigurerade och testade med flera populära verktyg som ofta används för data analys, Machine Learning och AI-utbildning. [Introduktion till Azure Data Science Virtual Machine för Linux och Windows](../machine-learning/data-science-virtual-machine/overview.md) innehåller en fantastisk information om dsvm.
    >
    >
 
@@ -78,7 +78,7 @@ Du kan aktivera program distribution för en licensierad avbildning genom att f�
 
 ## <a name="related-blog-posts"></a>Relaterade blogg inlägg
 
-- [Anpassade bilder eller formler?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Anpassade bilder eller formler?](./devtest-lab-faq.md#blog-post)
 - [Kopiera anpassade bilder mellan Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Nästa steg

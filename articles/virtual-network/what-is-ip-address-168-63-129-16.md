@@ -1,6 +1,6 @@
 ---
 title: Vad är IP-168.63.129.16? | Microsoft Docs
-description: Lär dig mer om IP-168.63.129.16 och hur det fungerar med dina resurser.
+description: Lär dig mer om IP-168.63.129.16, särskilt att den används för att under lätta en kommunikations kanal till Azures plattforms resurser.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: bae1fbc89564ca17938e6a630146be5e5fb5b11f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f0bfa693086a3a097df219132d696a1d04e6f56
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550860"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286044"
 ---
 # <a name="what-is-ip-address-1686312916"></a>Vad är IP-168.63.129.16?
 
@@ -44,5 +44,5 @@ I ett icke-virtuellt nätverks scenario (klassisk) kommer hälso avsökningen fr
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Säkerhetsgrupper](security-overview.md)
+- [Säkerhets grupper](security-overview.md)
 - [Skapa, ändra eller ta bort en nätverkssäkerhetsgrupp](manage-network-security-group.md)

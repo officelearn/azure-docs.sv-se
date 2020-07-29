@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 279ba2ca5b82d7bad5b55736179f92a0146bdc84
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/28/2020
+ms.openlocfilehash: 904b3ce1c2d05d713ee1ae99662148217f2a358e
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048151"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337831"
 ---
 # <a name="export-data-module"></a>Exportera datamodul
 
@@ -41,6 +41,9 @@ Innan du exporterar dina data måste du först registrera ett data lager på din
 1. Välj **Exportera data** för att öppna fönstret **Egenskaper** .
 
 1. För **data lager**väljer du ett befintligt data lager i list rutan. Du kan också skapa ett nytt data lager. Se hur du [använder åtkomst data i Azure Storage-tjänster](../how-to-access-data.md).
+
+    > [!NOTE]
+    > Export av data för en viss datatyp till en SQL Database-kolumn som har angetts som en annan datatyp stöds inte.
 
 1. Kryss rutan **skapa utdata**igen, bestämmer om modulen ska köras för att återskapa utdata vid körning. 
 

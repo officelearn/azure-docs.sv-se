@@ -10,11 +10,12 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
 ms.custom: mqtt
-ms.openlocfilehash: 600e64ef5bc3329f0116359066bdcdaf42c13e2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3a8c065c226d1cc94d79b44d16f288fab205a56
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733494"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337865"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Skicka meddelanden till en MQTT-Server
 
@@ -28,7 +29,7 @@ I det här projektet får du lära dig:
 - Så här använder du klient biblioteket MQTT för att skicka meddelanden till en MQTT-Broker.
 - Så här konfigurerar du din MXChip IoT-DevKit som en MQTT-klient.
 
-## <a name="what-you-need"></a>Vad du behöver
+## <a name="what-you-need"></a>Detta behöver du
 
 Slutför [komma igång guiden](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) för att:
 
@@ -87,7 +88,4 @@ Om det uppstår problem kan du läsa [vanliga frågor och svar om IoT-DevKit](ht
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du konfigurerar din MXChip IoT-DevKit som en MQTT-klient och använder MQTT-klient biblioteket för att skicka meddelanden till en MQTT-Broker, så är det förslag på nästa steg:
-
-* [Översikt över Azure IoT Remote Monitoring Solution Accelerator](https://docs.microsoft.com/azure/iot-suite/)
-* [Ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program](/azure/iot-central/core/howto-connect-devkit)
+Nu när du har lärt dig hur du konfigurerar din MXChip IoT-DevKit som en MQTT-klient och använder MQTT-klient biblioteket för att skicka meddelanden till en MQTT-Broker, är här det föreslagna nästa steg: [Översikt över Azure IoT Remote Monitoring Solution Accelerator](https://docs.microsoft.com/azure/iot-suite/)

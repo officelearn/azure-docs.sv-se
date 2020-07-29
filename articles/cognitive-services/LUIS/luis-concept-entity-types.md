@@ -3,12 +3,12 @@ title: Entitetstyper – LUIS
 description: En entitet hämtar data från en användare uttryck vid förutsägelse körning. Ett _valfritt_, sekundärt syfte är att öka förutsägelsen för avsikten eller andra entiteter genom att använda entiteten som en funktion.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 61dc0688cd304a672321f846a3ae5798c271345d
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: ced4a3e23b8e532b54d0b3cf974dab233b81b375
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676496"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337627"
 ---
 # <a name="extract-data-with-entities"></a>Extrahera data med entiteter
 
@@ -77,6 +77,12 @@ Så här skapar du den inlärda enheten effektivt:
 * Dina etiketter ska vara konsekventa för alla syften. Detta inkluderar även yttranden som du anger i **ingen** avsikt som inkluderar den här entiteten. Annars kommer modellen inte att kunna fastställa sekvenserarna effektivt.
 * Om du har en dator som är inlärd med underentiteter, se till att de olika order och varianter av entiteten och underentiteter visas i den märkta yttranden. Etiketterat exempel yttranden ska innehålla alla giltiga formulär och innehålla entiteter som visas och som inte finns och som också beordnas i uttryck.
 * Du bör undvika att övermontera entiteterna till en mycket fast uppsättning. **Överanpassning** sker när modellen inte generaliserar bra, och är ett vanligt problem i Machine Learning-modeller. Detta innebär att appen inte fungerar med nya data på ett korrekt sätt. I sin tur bör du variera det märkta exemplet yttranden så att appen kan generaliseras utöver de begränsade exempel som du anger. Du bör variera olika underentiteter med tillräckligt stor förändring för modellen för att se mer av konceptet i stället för bara exemplen som visas.
+
+## <a name="effective-prebuilt-entities"></a>Effektiva, inbyggda entiteter
+
+För att skapa effektiva entiteter som extraherar gemensamma data, till exempel de som tillhandahålls av de [fördefinierade enheterna](luis-reference-prebuilt-entities.md), rekommenderar vi följande process.
+
+Förbättra data extraheringen genom att överföra dina egna data till en entitet som en funktion. På så sätt kan alla ytterligare etiketter från dina data lära sig kontexten där personens namn finns i ditt program.
 
 <a name="composite-entity"></a>
 <a name="list-entity"></a>

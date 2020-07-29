@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 9d44c1da27a1440e105ce76436bc284a537503c7
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 3b1a0d646c05be0de83837b33e77e34969c9254c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054448"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287809"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Azure DDoS Protection – utforma elastiska lösningar
 
@@ -48,7 +48,7 @@ Att se till att ett program är tillräckligt flexibelt för att hantera en deni
 
 Skalbarhet är hur väl ett system kan hantera ökad belastning. Utforma dina program så att de kan [skalas horisontellt](/azure/architecture/guide/design-principles/scale-out) för att möta efter frågan på en förstärkt belastning, särskilt i händelse av en DDoS-attack. Om ditt program är beroende av en enda instans av en tjänst skapas en enskild felpunkt. Genom att tillhandahålla flera instanser blir systemet mer flexibelt och mer skalbart.
 
-För [Azure App Service](/azure/app-service/app-service-value-prop-what-is)väljer du en [App Service plan](/azure/app-service/overview-hosting-plans) som erbjuder flera instanser. För Azure Cloud Services konfigurerar du var och en av dina roller så att de använder [flera instanser](/azure/cloud-services/cloud-services-choose-me). För [Azure Virtual Machines](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)kontrollerar du att arkitekturen för virtuella datorer (VM) innehåller fler än en virtuell dator och att varje virtuell dator ingår i en [tillgänglighets uppsättning](/azure/virtual-machines/virtual-machines-windows-manage-availability). Vi rekommenderar att du använder [skalnings uppsättningar för virtuella datorer](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) för funktioner för automatisk skalning.
+För [Azure App Service](/azure/app-service/app-service-value-prop-what-is)väljer du en [App Service plan](/azure/app-service/overview-hosting-plans) som erbjuder flera instanser. För Azure Cloud Services konfigurerar du var och en av dina roller så att de använder [flera instanser](/azure/cloud-services/cloud-services-choose-me). För [Azure Virtual Machines](../../virtual-machines/index.yml)kontrollerar du att arkitekturen för virtuella datorer (VM) innehåller fler än en virtuell dator och att varje virtuell dator ingår i en [tillgänglighets uppsättning](../../virtual-machines/windows/tutorial-availability-sets.md). Vi rekommenderar att du använder [skalnings uppsättningar för virtuella datorer](../../virtual-machine-scale-sets/overview.md) för funktioner för automatisk skalning.
 
 ### <a name="defense-in-depth"></a>Skydd på djupet
 

@@ -3,12 +3,12 @@ title: Så här skyddar du din resurs-hierarki – Azure-styrning
 description: Lär dig hur du skyddar din resurs-hierarki med hierarkiska inställningar som inkluderar inställning av standard hanterings gruppen.
 ms.date: 05/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 50b5ba1bccf3d603b6d273892d0c903d433786f3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 2f8d3d7ff85552fe18a49137450aefe91d0d02c9
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128004"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366780"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Så här skyddar du din resurs-hierarki
 
@@ -23,7 +23,7 @@ Om du konfigurerar någon av inställningarna för hierarkin krävs följande tv
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
 
-Dessa åtgärder låter bara en användare läsa och uppdatera inställningarna för hierarkin. Åtgärderna ger inte någon annan åtkomst till hanterings gruppens hierarki eller resurser i hierarkin. Båda dessa åtgärder är tillgängliga i den inbyggda **inställningarna administratör**för RBAC-rolltjänsten.
+Dessa åtgärder låter bara en användare läsa och uppdatera inställningarna för hierarkin. Åtgärderna ger inte någon annan åtkomst till hanterings gruppens hierarki eller resurser i hierarkin. Båda dessa åtgärder är tillgängliga i Azures inbyggda roll **hierarki inställningar administratör**.
 
 ## <a name="setting---default-management-group"></a>Inställning-standard hanterings grupp
 

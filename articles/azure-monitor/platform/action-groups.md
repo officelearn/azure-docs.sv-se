@@ -3,28 +3,26 @@ title: Skapa och hantera åtgärdsgrupper i Azure-portalen
 description: Lär dig hur du skapar och hanterar åtgärds grupper i Azure Portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 0c090238192b49af00856f6fcd002e95d154d2c0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a9d0fa9efaa07582212344e617d9a42f264b99ee
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321861"
+ms.locfileid: "87337791"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure-portalen
 En åtgärds grupp är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration. Azure Monitor-och Service Health-aviseringar använder åtgärds grupper för att meddela användare om att en avisering har utlösts. Olika aviseringar kan använda samma åtgärds grupp eller olika åtgärds grupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärds grupper i en prenumeration.
-
-Du konfigurerar en åtgärd för att meddela en person via e-post eller SMS, och de får en bekräftelse som anger att de har lagts till i åtgärds gruppen.
 
 Den här artikeln visar hur du skapar och hanterar åtgärds grupper i Azure Portal.
 
 Varje åtgärd består av följande egenskaper:
 
-* **Namn**: en unik identifierare i åtgärds gruppen.  
-* **Åtgärds typ**: åtgärden har utförts. Exempel på detta är att skicka ett röst samtal, SMS, e-post; eller utlöser olika typer av automatiserade åtgärder. Se typer längre fram i den här artikeln.
-* **Information**: motsvarande information som varierar beroende på *Åtgärds typ*.
+* **Typ**: meddelandet eller åtgärden som utförs. Exempel på detta är att skicka ett röst samtal, SMS, e-post; eller utlöser olika typer av automatiserade åtgärder. Se typer längre fram i den här artikeln.
+* **Namn**: en unik identifierare i åtgärds gruppen.
+* **Information**: motsvarande information som varierar efter *typ*.
 
 Information om hur du använder Azure Resource Manager mallar för att konfigurera åtgärds grupper finns i [Åtgärds grupp Resource Manager-mallar](./action-groups-create-resource-manager-template.md).
 
@@ -32,33 +30,75 @@ Information om hur du använder Azure Resource Manager mallar för att konfigure
 
 1. Sök efter och välj **övervaka**i [Azure Portal](https://portal.azure.com). I **övervaknings** fönstret samlas alla övervaknings inställningar och data i en vy.
 
-1. Välj **Aviseringar** och sedan **Hantera åtgärder**.
+1. Välj **aviseringar**och välj sedan **Hantera åtgärder**.
 
     ![Knappen hantera åtgärder](./media/action-groups/manage-action-groups.png)
     
-1. Välj **Lägg till åtgärds grupp**och fyll i fälten.
+1. Välj **Lägg till åtgärds grupp**och fyll i de relevanta fälten i guiden.
 
-    ![Kommandot Lägg till åtgärds grupp](./media/action-groups/add-action-group.png)
+    ![Kommandot Lägg till åtgärds grupp](./media/action-groups/add-action-group.PNG)
+
+### <a name="configure-basic-action-group-settings"></a>Konfigurera grundläggande inställningar för åtgärds grupp
+
+Under **projekt information**:
+
+Välj den **prenumeration** och **resurs grupp** där du vill spara åtgärds gruppen.
+
+Under **instans information**:
+
+1. Ange ett **namn på åtgärds gruppen**.
+
+1. Ange ett **visnings namn**. Visnings namnet används i stället för ett fullständigt åtgärds grupp namn när meddelanden skickas med hjälp av den här gruppen.
+
+      ![Dialog rutan Lägg till åtgärds grupp](./media/action-groups/action-group-1-basics.png)
+
+
+### <a name="configure-notifications"></a>Konfigurera meddelanden
+
+1. Klicka på **Nästa: meddelanden >** knappen för att gå till fliken **meddelanden** eller Välj fliken **meddelanden** överst på skärmen.
+
+1. Definiera en lista med meddelanden som ska skickas när en avisering utlöses. Ange följande för varje meddelande:
+
+    a. **Meddelande typ**: Välj den typ av meddelande som du vill skicka. De tillgängliga alternativen är:
+      * E-Azure Resource Manager roll – skicka ett e-postmeddelande till användare som tilldelats vissa ARM-roller på prenumerations nivå.
+      * E-post/SMS/push/röst – skicka dessa meddelande typer till vissa mottagare.
     
-1. Ange ett namn i rutan **Åtgärds grupp namn** och ange ett namn i rutan **kort namn** . Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
+    b. **Namn**: Ange ett unikt namn för meddelandet.
 
-      ![Dialog rutan Lägg till åtgärds grupp](./media/action-groups/action-group-define.png)
-
-1. **Prenumerations** rutan fylls med den aktuella prenumerationen. Den här prenumerationen är den som åtgärds gruppen sparas i.
-
-1. Välj den **resurs grupp** som åtgärds gruppen ska sparas i.
-
-1. Definiera en lista med åtgärder. Ange följande för varje åtgärd:
-
-    1. **Namn**: Ange en unik identifierare för den här åtgärden.
-
-    1. **Åtgärds typ**: Välj Automation-Runbook, Azure Function, e-Azure Resource Manager roll, e-post/SMS/push/röst, ITSM, Logic app, säker webhook, webhook.
-
-    1. **Information**: baserat på åtgärds typ anger du ett telefonnummer, en e-postadress, en webhook-URI, en Azure-app, en ITSM-anslutning eller en Automation-Runbook. För ITSM-åtgärd anger du även **arbets objekt** och andra fält som ditt ITSM-verktyg kräver.
+    c. **Information**: baserat på vald meddelande typ anger du en e-postadress, telefonnummer osv.
     
-    1. **Vanligt aviserings schema**: du kan välja att aktivera det [vanliga aviserings schemat](https://aka.ms/commonAlertSchemaDocs), vilket ger fördelen att ha en enda utöknings bar och enhetlig aviserings nytto last för alla aviserings tjänster i Azure Monitor.
+    d. **Vanligt aviserings schema**: du kan välja att aktivera det [vanliga aviserings schemat](https://aka.ms/commonAlertSchemaDocs), vilket ger fördelen att ha en enda utöknings bar och enhetlig aviserings nytto last för alla aviserings tjänster i Azure Monitor.
 
-1. Välj **OK** för att skapa åtgärds gruppen.
+    ![Fliken meddelanden](./media/action-groups/action-group-2-notifications.png)
+    
+### <a name="configure-actions"></a>Konfigurera åtgärder
+
+1. Klicka på **Nästa: åtgärder >** knappen för att gå till fliken **åtgärder** , eller Välj fliken **åtgärder** överst på skärmen.
+
+1. Definiera en lista med åtgärder som ska utlösas när en avisering utlöses. Ange följande för varje åtgärd:
+
+    a. **Åtgärds typ**: Välj Automation Runbook, Azure Function, ITSM, Logic app, säker webhook, webhook.
+    
+    b. **Namn**: Ange ett unikt namn för åtgärden.
+
+    c. **Information**: baserat på åtgärds typ anger du en webhook-URI, Azure app, ITSM-anslutning eller Automation-Runbook. För ITSM-åtgärd anger du även **arbets objekt** och andra fält som ditt ITSM-verktyg kräver.
+    
+    d. **Vanligt aviserings schema**: du kan välja att aktivera det [vanliga aviserings schemat](https://aka.ms/commonAlertSchemaDocs), vilket ger fördelen att ha en enda utöknings bar och enhetlig aviserings nytto last för alla aviserings tjänster i Azure Monitor.
+    
+    ![Fliken åtgärder](./media/action-groups/action-group-3-actions.png)
+
+### <a name="create-the-action-group"></a>Skapa åtgärds gruppen
+
+1. Du kan utforska inställningarna **Taggar** om du vill. På så sätt kan du koppla nyckel/värde-par till åtgärds gruppen för din kategorisering och är en funktion som är tillgänglig för alla Azure-resurser.
+
+    ![Fliken Taggar](./media/action-groups/action-group-4-tags.png)
+    
+1. Klicka på **Granska + skapa** för att granska dina inställningar. Detta gör att du snabbt kan verifiera dina indata och se till att alla obligatoriska fält är markerade. Om det finns problem, kommer de att rapporteras här. När du har granskat inställningarna klickar du på **skapa** för att etablera åtgärds gruppen.
+    
+    ![Fliken Granska och skapa](./media/action-groups/action-group-5-review.png)
+
+> [!NOTE]
+> När du konfigurerar en åtgärd för att meddela en person via e-post eller SMS får användaren en bekräftelse som anger att de har lagts till i åtgärds gruppen.
 
 ## <a name="manage-your-action-groups"></a>Hantera dina åtgärds grupper
 

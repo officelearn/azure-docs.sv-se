@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: f37109cc2677ad5ef18c5677bda9308a78cebccf
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 7d6c0928196c9e8e1abf6aa7f724a58753ce3d2a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851311"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289044"
 ---
 # <a name="add-interaction-rules"></a>Lägga till interaktionsregler
 
-I den här artikeln får du lära dig om *interaktions regler*. Dessa ytterligare regler hanterar mer detaljerade eller komplexa situationer. Du kan skapa egna anpassade interaktions regler, men i den här artikeln använder du interaktions regler för följande mål scenarier:
+I den här artikeln får du lära dig mer om **interaktions regler**. Detta är ytterligare regler för att hantera mer detaljerade eller komplexa situationer. Även om du är kostnads fri att skapa egna anpassade interaktions regler, i den här artikeln, använder du interaktions regler för följande mål scenarier:
 
 * Bekräfta kommandon
 * Lägga till en enstaka stegs korrigering i kommandon
@@ -30,8 +30,8 @@ Om du vill veta mer om interaktions regler går du till avsnittet [referenser](.
 
 Du måste ha utfört stegen i följande artiklar:
 > [!div class="checklist"]
-> * [Skapa program med enkla kommandon](./how-to-custom-commands-create-application-with-simple-commands.md)
-> * [Lägga till parametrar till kommandon](./how-to-custom-commands-add-parameters-to-commands.md)
+> * [Så här: skapa program med enkla kommandon](./how-to-custom-commands-create-application-with-simple-commands.md)
+> * [Gör så här: lägga till parametrar till kommandon](./how-to-custom-commands-add-parameters-to-commands.md)
 
 ## <a name="add-confirmations-to-a-command"></a>Lägg till bekräftelser i ett kommando
 
@@ -40,7 +40,7 @@ Om du vill lägga till en bekräftelse använder du kommandot **SetTemperature**
 1. Välj kommandot **SetTemperature** i det vänstra fönstret.
 1. Lägg till interaktions regler genom att välja **Lägg till** i fönstret i mitten. Välj sedan **interaktions regler**  >  **Bekräfta kommando**.
 
-    Den här åtgärden lägger till tre interaktions regler. Den här regeln uppmanar användaren att bekräfta datum och tid för larmet och förväntar sig en bekräftelse (Ja/Nej) för nästa turn.
+    Den här åtgärden lägger till tre interaktions regler som ber användaren att bekräfta datum och tid för larmet och förväntar sig en bekräftelse (Ja/Nej) för nästa turn.
 
     1. Ändra den **bekräftade kommando** interaktions regeln enligt följande konfiguration:
         1. Byt namn på **namn** för att **Bekräfta temperatur**.
@@ -75,14 +75,14 @@ Om du vill lägga till en bekräftelse använder du kommandot **SetTemperature**
 
 Välj **träna**, vänta tills utbildningen är klar och välj **test**.
 
-- **Inmatade**: Ange temperatur till 80 grader.
-- **Utdata**: OK 80?
-- **Inmatade**: Nej.
+- **Inmatade**: Ange temperatur till 80 grader
+- **Utdata**: är du säker på att du vill ställa in temperaturen som 80 grader?
+- **Inmatade**: Nej
 - **Utdata**: inga problem. Vilken temperatur sedan?
-- **Inmatade**: 83 grader.
-- **Utdata**: OK 83?
-- **Inmatade**: Ja.
-- **Utdata**: OK, ställer in temperatur på 83 grader.
+- **Inmatade**: 72 grader
+- **Utdata**: är du säker på att du vill ställa in temperaturen som 72 grader?
+- **Inmatade**: Ja
+- **Utdata**: OK, ställa in temperatur på 83 grader
 
 
 ## <a name="implement-corrections-in-a-command"></a>Implementera korrigeringar i ett kommando

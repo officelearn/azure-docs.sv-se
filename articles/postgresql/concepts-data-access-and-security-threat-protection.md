@@ -6,11 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 3d86c76472580567c95d285924761e1714465d6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 390f44ffebb6531fde2f819fad0d4e9399cba218
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768749"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287523"
 ---
 # <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Avancerat skydd i Azure Database for PostgreSQL-enskild server
 
@@ -19,7 +20,7 @@ Advanced Threat Protection för Azure Database for PostgreSQL identifierar avvik
 > [!NOTE]
 > Avancerat skydd är i offentlig för hands version.
 
-Skydd mot hot är en del av erbjudandet för avancerat skydd (ATP), som är ett enhetligt paket för avancerade säkerhetsfunktioner. Avancerat skydd kan nås och hanteras via [Azure Portal](https://portal.azure.com) eller med [REST API](/rest/api/postgresql/serversecurityalertpolicies). Funktionen är tillgänglig för Generell användning och minnesoptimerade servrar.
+Skydd mot hot är en del av erbjudandet för avancerat skydd (ATP), som är ett enhetligt paket för avancerade säkerhetsfunktioner. Avancerat skydd kan nås och hanteras via [Azure Portal](https://portal.azure.com) eller med [REST API](/rest/api/postgresql). Funktionen är tillgänglig för Generell användning och minnesoptimerade servrar.
 
 > [!NOTE]
 > Funktionen för avancerat skydd är **inte** tillgänglig i följande Azure-myndigheter och suveräna moln regioner: US Gov, Texas, US Gov, Arizona, US gov, IOWA, US, Gov Virginia, US DoD, östra, US DoD, centrala, Tyskland Central, Tyskland, norra, Kina, östra, Kina, östra 2. Besök [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/) om du vill ha allmän produkt tillgänglighet.

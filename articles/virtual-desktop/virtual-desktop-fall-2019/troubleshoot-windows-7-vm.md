@@ -1,6 +1,6 @@
 ---
-title: Windows 7 Virtual Machines Windows Virtual Desktop – Azure
-description: Så här löser du problem med virtuella Windows 7-datorer (VM) i en Windows Virtual Desktop-miljö.
+title: Windows 7 Virtual Machines Windows Virtual Desktop (klassisk) – Azure
+description: 'Lösa problem för virtuella Windows 7-datorer (VM: ar) i en Windows Virtual Desktop-miljö (klassisk).'
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 74f2e22bcc9d75070e4f7af304f92d9c5640ca7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7f433668c34fb5edc35889adcd604023202ada4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82615284"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286350"
 ---
-# <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Felsöka en virtuell Windows 7-dator i Windows Virtual Desktop
+# <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop-classic"></a>Felsöka virtuella Windows 7-datorer i Windows Virtual Desktop (klassisk)
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt.
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows.
 
 Använd den här artikeln för att felsöka problem som du har med när du konfigurerar virtuella Windows-sessioner för fjärrskrivbordssessioner värd för virtuella datorer (VM).
 
@@ -43,7 +43,7 @@ Om det inte går att hitta dig eller dina användares autentiseringsuppgifter i 
 
 Du kan åtgärda det här felet genom att lägga till användaren i användar gruppen fjärr skrivbord:
 
-1. Öppna Azure Portal.
+1. Öppna Azure-portalen.
 2. Välj den virtuella dator som du såg fel meddelandet på.
 3. Välj **kör ett kommando**.
 4. Kör följande kommando och `<username>` Ersätt med namnet på den användare som du vill lägga till:

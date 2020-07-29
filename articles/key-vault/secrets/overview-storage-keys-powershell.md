@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 77cbd5a3c293b137f49a11263580ef45407c6c2b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3dea4c0f63b6c4e76c2289e6c3d930ea32cf2880
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090475"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373223"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Hantera lagrings konto nycklar med Key Vault och Azure PowerShell
 
@@ -43,13 +43,13 @@ En Azure AD-klient tillhandahåller varje registrerat program med ett [huvud nam
 
 Key Vault är ett Microsoft-program som är förregistrerat i alla Azure AD-klienter. Key Vault registreras under samma program-ID i varje Azure-moln.
 
-| Klientorganisationer | Molnet | Program-ID |
+| Klientorganisationer | Moln | Program-ID |
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Azure, offentlig | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Övrigt  | Valfri | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Annat  | Valfri | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här guiden måste du först göra följande:
 
@@ -99,7 +99,7 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -St
 
 ### <a name="give-key-vault-access-to-your-storage-account"></a>Ge Key Vault åtkomst till ditt lagrings konto
 
-Innan Key Vault kan komma åt och hantera dina lagrings konto nycklar måste du ge åtkomst till ditt lagrings konto. Key Vault programmet måste ha behörighet att *lista* och *Återskapa* nycklar för ditt lagrings konto. Dessa behörigheter aktive ras via den inbyggda RBAC-rollen [lagrings konto nyckel operatörs tjänst roll](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
+Innan Key Vault kan komma åt och hantera dina lagrings konto nycklar måste du ge åtkomst till ditt lagrings konto. Key Vault programmet måste ha behörighet att *lista* och *Återskapa* nycklar för ditt lagrings konto. Dessa behörigheter aktive ras via den inbyggda Azure-rollen [lagrings konto nyckel operatör](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
 
 Tilldela den här rollen till Key Vault tjänstens huvud namn, begränsa omfattningen till ditt lagrings konto med hjälp Azure PowerShell av cmdleten [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment?view=azps-2.6.0) .
 

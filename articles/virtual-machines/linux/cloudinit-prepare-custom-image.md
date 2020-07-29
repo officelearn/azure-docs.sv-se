@@ -4,14 +4,15 @@ description: Förbereda en befintlig Azure VM-avbildning för distribution med C
 author: danis
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: danis
-ms.openlocfilehash: c41368b311708d5ead36d589cf9c320787e596ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6785bb1f5ebde4f746dc8aa1ea9f586f406f8431
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792317"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373682"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Förbered en befintlig Linux Azure VM-avbildning för användning med Cloud-Init
 Den här artikeln visar hur du tar en befintlig virtuell Azure-dator och förbereder den för distribution och redo att använda Cloud-init. Den resulterande avbildningen kan användas för att distribuera en ny virtuell dator eller skalnings uppsättningar för virtuella datorer – någon av dessa kan sedan anpassas ytterligare genom Cloud-Init vid distributions tillfället.  Dessa Cloud-Init-skript körs vid första start när resurserna har etablerats av Azure. Mer information om hur Cloud-Init fungerar internt i Azure och vilka Linux-distributioner som stöds finns i [Översikt över Cloud-Init](using-cloud-init.md)

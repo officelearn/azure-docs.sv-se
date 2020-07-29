@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 34a02de8a6789a028c776e784ea4aa9692f53d9d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 867c32203d8f780b307ede2ba2916ad4e82e1136
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079160"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373256"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Använda Azure Digital Twins-API:er och -SDK:er
 
@@ -284,7 +284,7 @@ API-mått som förfrågningar, svars tid och felgrader kan visas i [Azure Portal
 
 Från portalens start sida söker du efter din Azure Digital-instansen för att hämta information. Välj alternativet **mått** från Azure Digitals instansen meny för att öppna sidan *mått* .
 
-:::image type="content" source="media/how-to-use-apis-sdks/metrics.png" alt-text="Sidan mått för en digital Azure-instans i Azure Portal":::
+:::image type="content" source="media/how-to-view-metrics/azure-digital-twins-metrics.png" alt-text="Skärm bild som visar mått sidan för Azure Digitals dubbla":::
 
 Härifrån kan du visa måtten för din instans och skapa anpassade vyer.
 

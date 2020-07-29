@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: 6d82446a915863e6aa95cc79a421f86b8c4dd3a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/25/2020
+ms.openlocfilehash: bc7410325bbcf3086c4ac2054b7bc663629a29e5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252652"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373121"
 ---
 # <a name="connect-and-query-azure-sql-edge-preview"></a>Anslut och fråga Azure SQL Edge (för hands version)
 
@@ -29,10 +29,10 @@ När du har distribuerat en behållare i Azure SQL Edge kan du ansluta till data
 
 Du kan ansluta till en instans av Azure SQL Edge-instansen från något av dessa vanliga verktyg:
 
-* [SQLCMD](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools): SQLCMD-klient verktyg ingår redan i behållar avbildningen av Azure SQL Edge. Om du ansluter till en behållare som körs med ett interaktivt bash-gränssnitt kan du köra verktygen lokalt.
+* [SQLCMD](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools): SQLCMD-klient verktyg ingår redan i behållar avbildningen av Azure SQL Edge. Om du ansluter till en behållare som körs med ett interaktivt bash-gränssnitt kan du köra verktygen lokalt. SQL-klient verktyg är inte tillgängliga på ARM64-plattformen, eftersom de inte ingår i ARM64-versionen av SQL Edge-behållare. 
 * [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)
 * [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)
-* [Visuell Studio-kod](https://docs.microsoft.com/sql/visual-studio-code/sql-server-develop-use-vscode)
+* [Visual Studio Code](https://docs.microsoft.com/sql/visual-studio-code/sql-server-develop-use-vscode)
 
 Om du vill ansluta till en Azure SQL Edge-databasmotor från en nätverks dator behöver du följande:
 
@@ -55,7 +55,7 @@ Om du vill ansluta till en Azure SQL Edge-databasmotor från en nätverks dator 
 
 ## <a name="connect-to-the-database-engine-from-within-the-container"></a>Ansluta till databas motorn inifrån behållaren
 
-[Kommando rads verktygen för SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) ingår i behållar avbildningen av Azure SQL Edge. Om du ansluter till behållaren med en interaktiv kommando tolk kan du köra verktygen lokalt.
+[Kommando rads verktygen för SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) ingår i behållar avbildningen av Azure SQL Edge. Om du ansluter till behållaren med en interaktiv kommando tolk kan du köra verktygen lokalt. SQL-klient verktyg är inte tillgängliga på ARM64-plattformen, eftersom de inte ingår i ARM64-versionen av SQL Edge-behållare. 
 
 1. Använd `docker exec -it` kommandot för att starta ett interaktivt bash-gränssnitt i den behållare som körs. I följande exempel `e69e056c702d` är container-ID: t.
 

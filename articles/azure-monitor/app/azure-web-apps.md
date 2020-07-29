@@ -3,12 +3,13 @@ title: Övervaka Azure App Services-prestanda | Microsoft Docs
 description: Övervakning av program prestanda för Azure App Services. Diagrammets inläsnings-och svars tid, beroende information och ange aviseringar för prestanda.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 042dd67c0e1e5a0ba2f81d5678e191dbfdd60a43
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f96d994f9f88a0debf110de2ca4f6da60e8ea3bc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067891"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373172"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service-prestanda
 
@@ -64,7 +65,7 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
 | Samlar in användningstrender och aktiverar korrelation från tillgänglighetsresultat till transaktioner | Ja |Ja |
 | Samlar in undantag som hanteras av värdprocessen | Ja |Ja |
 | Förbättrar precisionen för APM-mått under belastning när sampling används | Ja |Ja |
-| Korrelerar mikrotjänster över begärande-/beroendegränser | Inga (endast Single-Instance APM-funktioner) |Yes |
+| Korrelerar mikrotjänster över begärande-/beroendegränser | Inga (endast Single-Instance APM-funktioner) |Ja |
 
 3. Om du vill konfigurera inställningar som sampling, som du tidigare kan kontrol lera via applicationinsights.config-filen kan du nu interagera med samma inställningar via program inställningar med ett motsvarande prefix. 
 
@@ -405,10 +406,11 @@ PHP-och WordPress-platser stöds inte. Det finns för närvarande inget officiel
 När kod enbart övervakning används krävs bara anslutnings strängen. Vi rekommenderar dock fortfarande att ställa in Instrumentation-nyckeln för att bevara bakåtkompatibilitet med äldre versioner av SDK när manuell Instrumentation utförs.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Kör profileraren för din live-app](../app/profiler.md).
+* [Kör profileraren för din live-app](./profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) – övervaka Azure Functions med Application Insights
 * [Aktivera Azure Diagnostics](../platform/diagnostics-extension-to-application-insights.md) så att den skickas till Application Insights.
 * [Övervaka mätvärden för tjänstens hälsotillstånd](../platform/data-platform.md) för att se till att tjänsten är tillgänglig och svarar.
 * [Få aviseringar](../platform/alerts-overview.md) när drifthändelser inträffar eller när mätvärden överskrider ett tröskelvärde.
 * Använd [Application Insights för JavaScript-appar och webbsidor](javascript.md) för att hämta klienttelemetri från webbläsare som besöker en webbsida.
 * [Konfigurera tillgänglighetswebbtester](monitor-web-app-availability.md) så att du aviseras om webbplatsen inte fungerar.
+

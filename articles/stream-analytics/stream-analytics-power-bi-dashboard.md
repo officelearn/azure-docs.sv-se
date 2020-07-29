@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/05/2019
-ms.openlocfilehash: 1b508a6b4fa8a541381ea8b74046adb2f79034d3
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 4d0ee48a42814ab2c4229c5f8f239aa1a1c28544
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044149"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87314228"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics och Power BI: en real tids analys instrument panel för strömmande data
 
@@ -184,16 +184,6 @@ Ditt strömnings analys jobb börjar söka efter bedrägliga anrop i den inkomma
 
      ![Har Power BI instrument panelen visar två paneler för bedrägliga samtal](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
 
-
-## <a name="learn-more-about-power-bi"></a>Läs mer om Power BI
-
-Den här självstudien visar hur du skapar bara några typer av visualiseringar för en data uppsättning. Power BI kan hjälpa dig att skapa andra kund Business Intelligence verktyg för din organisation. Fler idéer finns i följande resurser:
-
-* Ett annat exempel på en Power BI instrument panel finns på [komma igång med Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) video.
-* Mer information om hur du konfigurerar utdata från Stream Analytics-jobb till Power BI och använder Power BI grupper finns i avsnittet [Power BI](stream-analytics-define-outputs.md#power-bi) i artikeln [Stream Analytics utdata](stream-analytics-define-outputs.md) . 
-* Information om hur du använder Power BI vanligt vis finns [i instrument paneler i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
-
-
 ## <a name="learn-about-limitations-and-best-practices"></a>Lär dig mer om begränsningar och bästa praxis
 För närvarande kan Power BI anropas ungefär en gång per sekund. Stöd paket för direkt uppspelning av visualiseringar på 15 KB. Utöver det fungerar strömmande visuella objekt (men push fortsätter att fungera). På grund av de här begränsningarna är Power BI bäst i de fall där Azure Stream Analytics gör en betydande data inläsnings minskning. Vi rekommenderar att du använder ett rullande-fönster eller ett hoppande-fönster för att säkerställa att data-push är högst en push per sekund och att frågan omfattas av data flödes kraven.
 
@@ -201,7 +191,7 @@ Du kan använda följande ekvation för att beräkna värdet för att ge ditt f�
 
 ![Ekvation till beräknings värde för att ge fönster på några sekunder](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
 
-Ett exempel:
+Till exempel:
 
 * Du har 1 000 enheter som skickar data med en sekunds intervall.
 * Du använder den Power BI Pro SKU som stöder 1 000 000 rader per timme.
@@ -234,12 +224,9 @@ Om ett jobb startar efter att token har gått ut, uppstår ett fel och jobbet Mi
 
 När auktoriseringen har uppdaterats med Power BI visas en grön avisering i avsnittet Authorization som visar att problemet har lösts.
 
-## <a name="get-help"></a>Få hjälp
-Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
-
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
+* [Stream Analytics utdata](stream-analytics-define-outputs.md)
 * [Språk referens för Azure Stream Analytics-fråga](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referens för Azure Stream Analytics hanterings REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)

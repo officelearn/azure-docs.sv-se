@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 6ffc81f7fc5cf36ff4e9bada8f72cfef013afcbc
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 94ffe2852380d238e9829a8ab0cc69ebe82b74fe
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982806"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373512"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Aktivera automatisk justering i Azure Portal för att övervaka frågor och förbättra arbets Belastningens prestanda
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -117,7 +117,7 @@ Automatisk justering övervakar alla åtgärder som det tar i databasen och i vi
 
 ## <a name="permissions"></a>Behörigheter
 
-Eftersom automatisk justering är en Azure-funktion måste du använda Azures inbyggda RBAC-roller för att använda den. Att endast använda SQL-autentisering är inte tillräckligt för att använda funktionen från Azure Portal.
+Eftersom automatisk justering är en Azure-funktion måste du använda Azures inbyggda roller för att använda den. Att endast använda SQL-autentisering är inte tillräckligt för att använda funktionen från Azure Portal.
 
 För att kunna använda automatisk justering är den minsta behörighet som krävs för att bevilja användaren Azure: s inbyggda [SQL Database deltagar](../../role-based-access-control/built-in-roles.md#sql-db-contributor) roll. Du kan också överväga att använda högre behörighets roller som SQL Server deltagare, SQL-hanterad instans deltagare, deltagare och ägare.
 

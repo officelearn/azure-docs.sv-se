@@ -4,14 +4,15 @@ description: Lär dig mer om rikt linjerna för nyckel design och implementering
 author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 6040bf8862131f5a8a5564cd2f5d845fa0490a95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 500de3f89bd041adf0b73e21762495d8c89e19c8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78944909"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286299"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Exempel genom gång av Azure-infrastruktur för virtuella Linux-datorer
 Den här artikeln vägleder dig genom att skapa en exempel program infrastruktur. Vi beskriver hur du utformar en infrastruktur för en enkel online-butik som samlar alla rikt linjer och beslut kring namngivnings konventioner, tillgänglighets uppsättningar, virtuella nätverk och belastningsutjämnare och distribuerar sedan dina virtuella datorer (VM).

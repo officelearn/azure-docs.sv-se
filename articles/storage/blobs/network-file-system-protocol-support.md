@@ -9,12 +9,12 @@ ms.date: 07/21/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: b76e25b2961bf3fb268da6622cbfcce3a50a3396
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab8d262e4eac08ce21b7ad01402c3608d52a1aab
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100553"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372900"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>NFS (Network File System) 3,0 protokoll stöd i Azure Blob Storage (för hands version)
 
@@ -87,10 +87,8 @@ Följande Azure Storage funktioner stöds inte när du aktiverar NFS 3,0-protoko
 
 - Möjligheten att inaktivera NFS 3,0-stöd i ett lagrings konto (när du har aktiverat det)
 
-- Möjlighet att skriva till blobbar med både NFS 3,0 och andra REST-API: er eller SDK: er. 
-
-  Om du vill använda REST-API: er eller SDK: er för att skriva till en BLOB ska du kontrol lera att du bara använder NFS 3,0 för att utföra Läs åtgärder, annars kan blobbar skadas.
-
+- Möjlighet att skriva till blobbar med hjälp av REST-API: er eller SDK: er. 
+  
 ## <a name="nfs-30-features-not-yet-supported"></a>NFS 3,0-funktioner stöds ännu inte
 
 Följande NFS 3,0-funktioner stöds ännu inte med Azure Data Lake Storage Gen2.

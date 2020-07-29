@@ -3,12 +3,12 @@ title: För hands version – lär dig Azure Policy för Kubernetes
 description: Lär dig hur Azure Policy använder Rego och öppna princip agenten för att hantera kluster som kör Kubernetes i Azure eller lokalt. Det här är en förhandsversion av funktionen.
 ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: a044ea33f1a7710c4bb97d30cf8f11d4de2838b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 461dd467ecda2764c6753ed6eeee0405f8420bbc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373632"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373767"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Förstå Azure Policy för Kubernetes-kluster (för hands version)
 
@@ -371,9 +371,9 @@ Azure Policy språk strukturen för att hantera Kubernetes följer de befintliga
 
 Som en del av egenskaperna _details. constraintTemplate_ och _information. constraint_ i princip definitionen, Azure policy skickar URI: erna för dessa [CustomResourceDefinitions](https://github.com/open-policy-agent/gatekeeper#constraint-templates) (CRD) till tillägget. Rego är det språk som OPA och Gatekeeper stöder för att verifiera en begäran till Kubernetes-klustret. Genom att stödja en befintlig standard för Kubernetes-hantering gör Azure Policy att du kan återanvända befintliga regler och koppla dem till Azure Policy för en enhetlig rapporterings upplevelse för moln efterlevnad. Mer information finns i [Vad är Rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
 
-## <a name="assign-a-built-in-policy-definition"></a>Tilldela en inbyggd princip definition
+## <a name="assign-a-built-in-policy-definition"></a>Tilldela en inbyggd principdefinition
 
-Om du vill tilldela en princip definition till ditt Kubernetes-kluster måste du ha tilldelats lämpliga princip tilldelnings åtgärder för rollbaserad åtkomst kontroll (RBAC). De inbyggda RBAC-rollerna **deltagare i resurs princip deltagare** och **ägare** har dessa åtgärder. Mer information finns i [RBAC-behörigheter i Azure policy](../overview.md#rbac-permissions-in-azure-policy).
+Om du vill tilldela en princip definition till ditt Kubernetes-kluster måste du ha tilldelats lämpliga princip tilldelnings åtgärder för rollbaserad åtkomst kontroll (RBAC). De inbyggda rollerna **resurs princip deltagare** och **ägare** i Azure är de här åtgärderna. Mer information finns i [RBAC-behörigheter i Azure policy](../overview.md#rbac-permissions-in-azure-policy).
 
 Hitta de inbyggda princip definitionerna för att hantera klustret med hjälp av Azure Portal med följande steg:
 

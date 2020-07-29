@@ -9,12 +9,12 @@ ms.date: 07/21/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 8f4ef046221ae50d2b05525d6cea2d268282551c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d3907967572b22e7a70316080b08a4368a9805ce
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100554"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372917"
 ---
 # <a name="mount-blob-storage-on-linux-using-the-network-file-system-nfs-30-protocol-preview"></a>Montera Blob Storage i Linux med hjälp av Network File System (NFS) 3,0-protokollet (för hands version)
 
@@ -90,9 +90,9 @@ I för hands versionen av den här funktionen stöds NFS 3,0-protokollet endast 
 
 När du konfigurerar kontot väljer du dessa värden:
 
-|Inställning | Värde|
+|Inställningen | Värde|
 |----|---|
-|Plats|En av följande regioner: USA, östra, USA, centrala och Kanada, centrala |
+|Position|En av följande regioner: USA, östra, USA, centrala och Kanada, centrala |
 |Prestanda|Premium|
 |Typ av konto|BlockBlobStorage|
 |Replikering|Lokalt redundant lagring (LRS)|
@@ -113,7 +113,7 @@ Skapa en behållare i ditt lagrings konto genom att använda något av dessa ver
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
-||[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
+|[Azure-portalen](https://portal.azure.com)|[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
 
 ## <a name="step-7-mount-the-container"></a>Steg 7: montera behållaren
 
@@ -139,7 +139,6 @@ Skapa en behållare i ditt lagrings konto genom att använda något av dessa ver
 |---|---|
 |`Access denied by server while mounting`|Kontrol lera att klienten körs inom ett undernät som stöds. Se de [nätverks platser som stöds](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Se till att den behållare som du monterade har skapats efter att du verifierat att funktionen har registrerats. Se [steg 2: kontrol lera att funktionen har registrerats](#step-2-verify-that-the-feature-is-registered). Se också till att ange monterings kommandot och dess parametrar direkt i terminalen. Om du kopierar och klistrar in någon del av det här kommandot i terminalen från ett annat program kan dolda tecken i inklistrad information orsaka att det här felet visas.|
-|Filer som laddats upp med icke-NFS-3,0-verktyg visas inte i katalogen. | Demontera behållaren och montera sedan behållaren igen. |
 
 ## <a name="see-also"></a>Se även
 

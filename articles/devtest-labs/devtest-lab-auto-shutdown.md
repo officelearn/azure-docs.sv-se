@@ -3,12 +3,12 @@ title: Hantera principer för automatisk avstängning i Azure DevTest Labs | Mic
 description: Lär dig hur du ställer in en princip för automatisk avstängning för ett labb så att virtuella datorer automatiskt stängs av när de inte används.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a865d178bd4bcf9715cefc7c5a01b31a6d6a9435
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a30070470f9a75ec5c56d448cd09ca82dd0cbce7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482742"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287554"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Konfigurera automatisk avstängning för labb-och beräknings virtuella datorer i Azure DevTest Labs
 
@@ -71,7 +71,7 @@ När automatisk avstängning har kon figurer ATS av labb ägaren skickas meddela
 - Hoppa över automatisk avstängning för den här tiden
 - Använd automatisk avstängning för en timme eller två timmar så att de kan fortsätta att arbeta på den virtuella datorn.
 
-Meddelandet skickas via den konfigurerade webhook-slutpunkten eller en e-postadress som anges av labb ägare i inställningarna för automatisk avstängning. Med Webhooks kan du skapa eller konfigurera integreringar som prenumererar på vissa händelser. När en av dessa händelser aktive ras skickar DevTest Labs en HTTP POST-nytto Last till webhookens konfigurerade URL. Mer information om Webhooks finns i [skapa en webhook eller API Azure-funktion](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+Meddelandet skickas via den konfigurerade webhook-slutpunkten eller en e-postadress som anges av labb ägare i inställningarna för automatisk avstängning. Med Webhooks kan du skapa eller konfigurera integreringar som prenumererar på vissa händelser. När en av dessa händelser aktive ras skickar DevTest Labs en HTTP POST-nytto Last till webhookens konfigurerade URL. Mer information om Webhooks finns i [skapa en webhook eller API Azure-funktion](../azure-functions/functions-bindings-http-webhook.md). 
 
 Vi rekommenderar att du använder Webhooks eftersom de stöds av olika appar (till exempel slack, Azure Logic Apps och så vidare) och gör att du kan använda ditt eget sätt för att skicka meddelanden. I den här artikeln får du ett exempel på hur du kan få meddelanden om automatisk avstängning från e-postmeddelanden med hjälp av Azure Logic Apps. Först ska vi gå igenom de grundläggande stegen för att aktivera meddelanden om automatisk avstängning i labbet.   
 
@@ -211,4 +211,3 @@ När du uppdaterar inställningen för automatisk avstängning visas den aktivit
 
 ## <a name="next-steps"></a>Nästa steg
 Information om hur du anger alla principer finns [i definiera labb principer i Azure DevTest Labs](devtest-lab-set-lab-policy.md).
-

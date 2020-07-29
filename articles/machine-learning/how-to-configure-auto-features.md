@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 950f258e7380d7fbd25e1a5fe2dd4673ba122c52
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b01d6c36b31ef4f03522d03ca327439cfa31be8d
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321599"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373750"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Funktionalisering i Automatisk maskin inlärning
 
@@ -114,13 +114,13 @@ Guardrail|Status|Villkor &nbsp; för &nbsp; utlösare
 
 Du kan anpassa dina funktionalisering-inställningar för att säkerställa att de data och funktioner som används för att träna din ML-modell leder till relevanta förutsägelser.
 
-Om du vill anpassa featurizations anger du  `"featurization": FeaturizationConfig` i ditt `AutoMLConfig` objekt. Om du använder Azure Machine Learning Studio för experimentet går du till [instruktions artikeln](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+Om du vill anpassa featurizations anger du  `"featurization": FeaturizationConfig` i ditt `AutoMLConfig` objekt. Om du använder Azure Machine Learning Studio för experimentet går du till [instruktions artikeln](how-to-use-automated-ml-for-ml-models.md#customize-featurization). Information om hur du anpassar funktionalisering för olika typer av prognoser finns i [prognosen How-to](how-to-auto-train-forecast.md#customize-featurization).
 
 Anpassningar som stöds är:
 
 |Anpassning|Definition|
 |--|--|
-|**Uppdatering av kolumn syfte**|Åsidosätt funktions typen för den angivna kolumnen.|
+|**Uppdatering av kolumn syfte**|Åsidosätt den automatiska identifierade funktions typen för den angivna kolumnen.|
 |**Transformering av parameter uppdatering** |Uppdatera parametrarna för den angivna transformeraren. Stöder för närvarande *imputerade* (medel, mest frekventa och median) och *HashOneHotEncoder*.|
 |**Släpp kolumner** |Anger kolumner som ska släppas från att bearbetas.|
 |**Block transformatorer**| Anger block-transformatorer som ska användas i funktionalisering-processen.|

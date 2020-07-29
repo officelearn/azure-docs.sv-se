@@ -3,22 +3,22 @@ title: Koppla eller koppla från en datadisk till en virtuell dator i Azure DevT
 description: Lär dig hur du ansluter eller kopplar från en datadisk till en virtuell dator i Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 164c2335f0aadc08a447dd61e259786d5bfb104d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5faae56307639e369130ec7443c8bceab2f794d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482980"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287570"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Koppla eller koppla från en datadisk till en virtuell dator i Azure DevTest Labs
-[Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) hanterar de lagrings konton som är kopplade till data diskar för virtuella datorer. En användare bifogar en ny datadisk till en virtuell dator, anger typen och storleken på den disk som behövs, och Azure skapar och hanterar disken automatiskt. Data disken kan sedan frånkopplas från den virtuella datorn och antingen anslutas senare till samma virtuella dator eller anslutas till en annan virtuell dator som tillhör samma användare.
+[Azure Managed disks](../virtual-machines/windows/managed-disks-overview.md) hanterar de lagrings konton som är kopplade till data diskar för virtuella datorer. En användare bifogar en ny datadisk till en virtuell dator, anger typen och storleken på den disk som behövs, och Azure skapar och hanterar disken automatiskt. Data disken kan sedan frånkopplas från den virtuella datorn och antingen anslutas senare till samma virtuella dator eller anslutas till en annan virtuell dator som tillhör samma användare.
 
 Den här funktionen är praktisk för att hantera lagrings-eller program vara utanför varje enskild virtuell dator. Om lagrings-eller program varan redan finns i en datadisk, kan den enkelt anslutas, kopplas från och återanslutas till en virtuell dator som ägs av den användare som äger den data disken.
 
 ## <a name="attach-a-data-disk"></a>Anslut en datadisk
 Innan du ansluter en datadisk till en virtuell dator bör du läsa följande tips:
 
-- Storleken på den virtuella datorn styr hur många data diskar du kan koppla. Mer information finns i [storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+- Storleken på den virtuella datorn styr hur många data diskar du kan koppla. Mer information finns i [storlekar för virtuella datorer](../virtual-machines/sizes.md).
 - Du kan endast ansluta en datadisk till en virtuell dator som kör. Kontrol lera att den virtuella datorn körs innan du försöker ansluta en datadisk.
 
 ### <a name="attach-a-new-disk"></a>Koppla en ny disk
@@ -90,4 +90,3 @@ Om du vill uppgradera en ohanterad data disk följer du stegen som beskrivs i de
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig hur du hanterar data diskar för [virtuella datorer som kan krävas](devtest-lab-add-claimable-vm.md#unclaim-a-vm).
-

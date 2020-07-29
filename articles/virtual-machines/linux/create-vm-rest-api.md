@@ -3,15 +3,15 @@ title: Skapa en virtuell Linux-dator med REST API
 description: Lär dig hur du skapar en virtuell Linux-dator i Azure som använder Managed Disks och SSH-autentisering med Azure REST API.
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 78b11a4d900b8c9cf30a1d37a2b7e6380d6b989a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d6e5195f43991f4d40af57c1ab4b87aaca475b64
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082570"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373410"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Skapa en virtuell Linux-dator som använder SSH-autentisering med REST API
 

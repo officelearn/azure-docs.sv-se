@@ -10,15 +10,15 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: e9bf1f06b1ec1f99da1ce653b4bc72f4638ba451
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 22bfab5b9f00a392054fa1aef6a93195180fd968
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084978"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373495"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database trafikmigrering till nyare gateways
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 När Azure-infrastrukturen förbättras kommer Microsoft regelbundet att uppdatera maskin varan så att vi ger bästa möjliga kund upplevelse. Under de kommande månaderna planerar vi att lägga till gatewayer som skapats på nyare maskin varu generationer, migrera trafik till dem och sedan göra inprovisionade gatewayer byggda på äldre maskin vara i vissa regioner.  
 
@@ -27,6 +27,19 @@ Kunderna får ett meddelande via e-post och i Azure Portal väl i förväg om ev
 ## <a name="status-updates"></a>Status uppdateringar
 
 # <a name="in-progress"></a>[Pågår](#tab/in-progress-ip)
+### <a name="september-2020"></a>September 2020
+
+Nya SQL-gatewayer läggs till i följande regioner:
+
+- Nord Europa: 13.74.104.113 
+- Västra 2; USA: 40.78.248.10 
+- Västeuropa: 52.236.184.163 
+- Södra centrala USA: 20.45.121.1, 20.49.88.1 
+
+Befintliga SQL-gatewayer börjar att acceptera trafik i följande regioner:
+- Japan, öst: 40.79.184.8, 40.79.192.5
+
+Dessa SQL-gatewayer ska börja acceptera kund trafik den 1 september 2020. 
 
 ### <a name="august-2020"></a>2020 augusti
 
@@ -38,7 +51,7 @@ Nya SQL-gatewayer läggs till i följande regioner:
 
 Dessa SQL-gatewayer ska börja acceptera kund trafik den 10 augusti 2020. 
 
-# <a name="completed"></a>[Slutförd](#tab/completed-ip)
+# <a name="completed"></a>[Slutfört](#tab/completed-ip)
 
 Följande Gateway-migreringar har slutförts: 
 
@@ -46,11 +59,11 @@ Följande Gateway-migreringar har slutförts:
 - Brasilien, södra
 - USA, västra
 - Europa, västra
-- USA, östra
-- USA, centrala
+- East US
+- Central US
 - Sydostasien
 - USA, södra centrala
-- Europa, norra
+- Norra Europa
 - USA, norra centrala
 - Japan, västra
 - Japan, östra

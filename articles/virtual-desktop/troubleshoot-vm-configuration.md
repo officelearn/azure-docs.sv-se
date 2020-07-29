@@ -1,5 +1,5 @@
 ---
-title: Felsök Windows Virtual Desktop-fjärrskrivbordssession fjäder 2020 – Azure
+title: Felsök Windows Virtual Desktop-Session värd – Azure
 description: Så här löser du problem när du konfigurerar virtuella Windows-datorer för fjärrskrivbordssessioner-värd.
 services: virtual-desktop
 author: Heidilohr
@@ -8,20 +8,17 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6d1e155dc850143ee252effe5ec9d8ef2d716611
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f0665aa8427371fa458039d73297fa0e02b4eb4d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091325"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286384"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Session för konfiguration av virtuell värddator
 
 >[!IMPORTANT]
->Det här innehållet gäller för våren 2020-uppdateringen med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder den virtuella Windows-datorn med version 2019 utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
->
-> Den virtuella Windows-skrivbordets våren 2020-uppdateringen är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. 
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Det här innehållet gäller för virtuella Windows-datorer med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder Windows Virtual Desktop (klassisk) utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
 
 Använd den här artikeln för att felsöka problem som du har med när du konfigurerar virtuella Windows-sessioner för fjärrskrivbordssessioner värd för virtuella datorer (VM).
 

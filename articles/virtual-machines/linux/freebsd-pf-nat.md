@@ -3,16 +3,17 @@ title: Använd FreeBSD paket filter för att skapa en brand vägg i Azure
 description: Lär dig hur du distribuerar en NAT-brandvägg med FreeBSD-PF i Azure.
 author: KylieLiang
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: eeeb60cc41f96edbf8733468ca0cfd18d2939af7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85804e0f9293ec2e63aa319854e9559da11c8be1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83652537"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286282"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Så här använder du FreeBSD Packet filter för att skapa en säker brand vägg i Azure
 Den här artikeln beskriver hur du distribuerar en NAT-brandvägg med hjälp av FreeBSD-filter genom Azure Resource Manager mall för vanliga webb server scenarier.

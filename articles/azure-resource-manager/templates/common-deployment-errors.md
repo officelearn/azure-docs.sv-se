@@ -4,12 +4,12 @@ description: Beskriver hur du löser vanliga fel när du distribuerar resurser t
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 06/25/2020
-ms.openlocfilehash: 9914cf8267624cd05db860e7dd8eb8d8c5831f7e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 652e4ec3c7f0de982b973733d75d736949b97bcc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055672"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374005"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga fel i Azure-distributioner med Azure Resource Manager
 
@@ -78,7 +78,7 @@ Om du letar efter information om en felkod och informationen inte finns i den h�
 | SubnetsNotInSameVnet | En virtuell dator kan bara ha ett virtuellt nätverk. När du distribuerar flera nätverkskort ser du till att de tillhör samma virtuella nätverk. | [Flera nätverkskort](../../virtual-machines/windows/multiple-nics.md) |
 | SubscriptionNotRegistered | När du distribuerar nätverks resurser registreras Microsoft. Network Resource-providern automatiskt i prenumerationen. Ibland slutförs inte den automatiska registreringen i tid. För att undvika det här tillfälliga felet registrerar du Microsoft. Network Resource-providern innan du distribuerar. | [Lös registrering](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Ta bort onödiga beroenden. | [Lös cirkulära beroenden](error-invalid-template.md#circular-dependency) |
-| TooManyTargetResourceGroups | Minska antalet resurs grupper för en enskild distribution. | [Distribution mellan resursgrupper](cross-resource-group-deployment.md) |
+| TooManyTargetResourceGroups | Minska antalet resurs grupper för en enskild distribution. | [Distribution över omfång](cross-scope-deployment.md) |
 
 ## <a name="find-error-code"></a>Hitta felkod
 

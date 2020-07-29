@@ -8,12 +8,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/20/2020
 tags: connectors
-ms.openlocfilehash: a277c6205dfb9dfa04565fb3ebcb3da589669764
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f3de582ff69dbd57aa4692fd5c3901602569cf9e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087891"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286622"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av SSH och Azure Logic Apps
 
@@ -39,7 +39,7 @@ Du kan använda utlösare som övervakar händelser på din SFTP-server och gör
 
 Mer skillnader mellan SFTP-SSH-anslutningsprogrammet och SFTP-anslutningen finns i avsnittet [jämföra SFTP – SSH och SFTP](#comparison) senare i det här avsnittet.
 
-## <a name="limits"></a>Gränser
+## <a name="limits"></a>Begränsningar
 
 * SFTP – SSH-åtgärder som stöder [segment](../logic-apps/logic-apps-handle-large-messages.md) hantering kan hantera filer på upp till 1 GB, medan SFTP-SSH-åtgärder som inte stöder segment hantering kan hantera filer upp till 50 MB. Även om standard segment storleken är 15 MB, kan den här storleken dynamiskt ändra, med start från 5 MB och gradvis öka till 50 MB, baserat på faktorer som nätverks fördröjning, Server svars tid och så vidare.
 
@@ -52,7 +52,7 @@ Mer skillnader mellan SFTP-SSH-anslutningsprogrammet och SFTP-anslutningen finns
 
   | Åtgärd | Segment stöd | Åsidosätt stöd för segment storlek |
   |--------|------------------|-----------------------------|
-  | **Kopiera fil** | No | Inte tillämpligt |
+  | **Kopiera fil** | Nej | Inte tillämpligt |
   | **Skapa fil** | Ja | Ja |
   | **Skapa mapp** | Inte tillämpligt | Inte tillämpligt |
   | **Ta bort panel** | Inte tillämpligt | Inte tillämpligt |
@@ -63,7 +63,7 @@ Mer skillnader mellan SFTP-SSH-anslutningsprogrammet och SFTP-anslutningen finns
   | **Hämta metadata för fil med hjälp av sökväg** | Inte tillämpligt | Inte tillämpligt |
   | **Lista filer i mappen** | Inte tillämpligt | Inte tillämpligt |
   | **Byt namn på fil** | Inte tillämpligt | Inte tillämpligt |
-  | **Uppdatera fil** | No | Inte tillämpligt |
+  | **Uppdatera fil** | Nej | Inte tillämpligt |
   ||||
 
 * SFTP – SSH-utlösare stöder inte meddelande segment. När du begär fil innehåll väljer utlösare endast filer som är 15 MB eller mindre. Om du vill hämta filer som är större än 15 MB följer du detta mönster i stället:
@@ -137,7 +137,7 @@ Om den privata nyckeln är i formatet SparaTillFil, som använder fil namns till
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   Exempel:
+   Till exempel:
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -255,7 +255,7 @@ Om du inte kan undvika eller försena flyttningen av filen kan du hoppa över at
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Mer teknisk information om den här anslutningen, till exempel utlösare, åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/sftpwithssh/).
+Mer teknisk information om den här anslutningen, till exempel utlösare, åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil finns på [kopplingens referens sida](/connectors/sftpwithssh/).
 
 > [!NOTE]
 > För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)måste den här anslutningens ISE-märkta version innehålla segment för att använda [meddelande gränserna för ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.
@@ -263,3 +263,4 @@ Mer teknisk information om den här anslutningen, till exempel utlösare, åtgä
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)
+

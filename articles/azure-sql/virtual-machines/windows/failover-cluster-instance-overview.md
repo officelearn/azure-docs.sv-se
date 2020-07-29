@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: a40c5512da40ede84251ec16345a3957c391bb71
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 00c9482eab74003f6a667d52440d4cb6dd21fcfc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965653"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287356"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instanser av kluster för växling vid fel med SQL Server på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -48,10 +48,10 @@ SQL Server på virtuella Azure-datorer erbjuder olika alternativ som en lösning
 
 ||[Delade diskar i Azure](../../../virtual-machines/windows/disks-shared.md)|[Premium fil resurser](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Lagringsdirigering (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
-|**Lägsta version av operativsystemet**| Windows Server 2016|Windows Server 2012|Windows Server 2016|
-|**Lägsta SQL Server-version**|SQL Server 2019|SQL Server 2012|SQL Server 2016|
+|**Lägsta version av operativsystemet**| Alla |Windows Server 2012|Windows Server 2016|
+|**Lägsta SQL Server-version**|Alla|SQL Server 2012|SQL Server 2016|
 |**Tillgänglighet för VM som stöds** |Tillgänglighets uppsättningar med närhets placerings grupper |Tillgänglighets uppsättningar och tillgänglighets zoner|Tillgänglighetsuppsättningar |
-|**Stöder FileStream**|Nej|Nej|Ja |
+|**Stöder FileStream**|Ja|Nej|Ja |
 |**Azure Blob-cache**|Nej|Nej|Ja|
 
 Resten av det här avsnittet visar fördelarna och begränsningarna för varje lagrings alternativ som är tillgängligt för SQL Server på virtuella Azure-datorer. 
@@ -60,18 +60,18 @@ Resten av det här avsnittet visar fördelarna och begränsningarna för varje l
 
 [Azure delade diskar](../../../virtual-machines/windows/disks-shared.md) är en funktion i [Azure Managed disks](../../../virtual-machines/windows/managed-disks-overview.md). Windows Server-redundanskluster stöder användning av Azure delade diskar med en instans av redundanskluster. 
 
-**Operativ system som stöds**: Windows Server 2019   
-**SQL-version som stöds**: SQL Server 2019   
+**Operativ system som stöds**: alla   
+**SQL-version som stöds**: alla     
 
 **Fördelar**: 
 - Användbart för program som vill migrera till Azure samtidigt som du behåller HADR-arkitekturen (hög tillgänglighet och haveri beredskap) som är. 
 - Kan migrera klustrade program till Azure på grund av stödet för SCSI-PR (SCSI persistent reservation). 
 - Har stöd för delade Azure-Premium SSD för alla versioner av SQL Server och delade Azure Ultra-Disklagring för SQL Server 2019. 
 - Kan använda en enda delad disk eller Stripa flera delade diskar för att skapa en delad lagringspool. 
+- Stöder FILESTREAM.
 
 
 **Begränsningar**: 
-- Endast tillgängligt för SQL Server 2019 och Windows Server 2019 i för hands versionen. 
 - Virtuella datorer måste placeras i samma tillgänglighets uppsättning och närhets placerings grupp.
 - Tillgänglighets zoner stöds inte.
 - Premium SSD diskcachelagring stöds inte.

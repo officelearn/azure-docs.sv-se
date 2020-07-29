@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: b3ad8fdce873b31c8ea6b1c8176ed41587b4b298
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a210098652a18959debfeabe36b390d1bdfca7fc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507105"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287462"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Säkerhetsbegrepp för program och kluster i AKS (Azure Kubernetes Service)
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver de viktigaste begreppen som skyddar dina program i A
     - [Beräknings isolering](#compute-isolation)
   - [Kluster uppgraderingar](#cluster-upgrades)
     - [Cordon och dränering](#cordon-and-drain)
-  - [Nätverks säkerhet](#network-security)
+  - [Nätverkssäkerhet](#network-security)
     - [Azure-nätverkssäkerhetsgrupper](#azure-network-security-groups)
   - [Kubernetes hemligheter](#kubernetes-secrets)
   - [Nästa steg](#next-steps)
@@ -50,7 +50,7 @@ Noder distribueras till ett privat virtuellt nätverk under nät, utan att någr
 
 Noderna använder Azure Managed Disks för att tillhandahålla lagring. För de flesta VM-storlekar är dessa Premium diskar som backas upp av SSD med höga prestanda. Data som lagras på hanterade diskar krypteras automatiskt i vila på Azure-plattformen. För att förbättra redundans replikeras även dessa diskar på ett säkert sätt i Azure-datacentret.
 
-Kubernetes-miljöer, i AKS eller någon annan stans, är för närvarande inte helt säkra för att skydda användningen av flera klienter. Ytterligare säkerhetsfunktioner, till exempel *Pod säkerhets principer* eller mer detaljerade rollbaserade åtkomst kontroller (RBAC) för noder gör det svårare att utnyttja dem. Men för verklig säkerhet när du kör en skydds arbets belastning med flera innehavare, är en hypervisor den enda säkerhets nivå som du bör lita på. Säkerhets domänen för Kubernetes blir hela klustret, inte en enskild nod. För dessa typer av farliga arbets belastningar med flera klienter bör du använda fysiskt isolerade kluster. Mer information om hur du isolerar arbets belastningar finns i [metod tips för kluster isolering i AKS][cluster-isolation].
+Kubernetes-miljöer, i AKS eller någon annan stans, är för närvarande inte helt säkra för att skydda användningen av flera klienter. Ytterligare säkerhetsfunktioner som *Pod säkerhets principer*, eller mer detaljerade rollbaserade åtkomst kontroller (RBAC) för noder, gör det svårare att utnyttja dem. Men för verklig säkerhet när du kör en skydds arbets belastning med flera innehavare, är en hypervisor den enda säkerhets nivå som du bör lita på. Säkerhets domänen för Kubernetes blir hela klustret, inte en enskild nod. För dessa typer av farliga arbets belastningar med flera klienter bör du använda fysiskt isolerade kluster. Mer information om hur du isolerar arbets belastningar finns i [metod tips för kluster isolering i AKS][cluster-isolation].
 
 ### <a name="compute-isolation"></a>Beräknings isolering
 

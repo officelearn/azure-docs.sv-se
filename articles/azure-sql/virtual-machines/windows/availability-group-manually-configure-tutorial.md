@@ -3,7 +3,7 @@ title: 'Självstudie: Konfigurera en SQL Server Always on-tillgänglighetsgruppe
 description: I den här självstudien visas hur du skapar en SQL Server Always on-tillgänglighetsgrupper på Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0b98838441325245b3f4322a32eb5e2376557313
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 22240c61b2341999528dcb477308990133042fa0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960749"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286851"
 ---
 # <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>Självstudie: Konfigurera en SQL Server tillgänglighets grupp på Azure Virtual Machines manuellt
 
@@ -375,11 +375,11 @@ En belastningsutjämnare i Azure kan vara antingen en Standard Load Balancer ell
    | **Namn** |Använd ett text namn för belastningsutjämnaren, till exempel **sqlLB**. |
    | **Typ** |Intern |
    | **Virtuellt nätverk** |Använd namnet på det virtuella Azure-nätverket. |
-   | **Delnät** |Använd namnet på det undernät som den virtuella datorn finns i.  |
+   | **Undernät** |Använd namnet på det undernät som den virtuella datorn finns i.  |
    | **Tilldelning av IP-adress** |Statisk |
    | **IP-adress** |Använd en tillgänglig adress från under nätet. Använd den här adressen för tillgänglighets gruppens lyssnare. Observera att detta skiljer sig från klustrets IP-adress.  |
    | **Prenumeration** |Använd samma prenumeration som den virtuella datorn. |
-   | **Position** |Använd samma plats som den virtuella datorn. |
+   | **Plats** |Använd samma plats som den virtuella datorn. |
 
    Bladet Azure Portal bör se ut så här:
 
@@ -433,13 +433,13 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en backend-pool, e
    | Inställningen | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | SQLAlwaysOnEndPointListener |
-   | **IP-adress för klient del** | Välj en adress |Använd adressen som du skapade när du skapade belastningsutjämnaren. |
+   | **Klientdelens IP-adress** | Välj en adress |Använd adressen som du skapade när du skapade belastningsutjämnaren. |
    | **Protokoll** | Välj TCP |TCP |
    | **Port** | Använd porten för tillgänglighets gruppens lyssnare | 1433 |
    | **Backend-port** | Det här fältet används inte när flytande IP anges för direkt Server retur | 1433 |
    | **Avsökning** |Det namn som du har angett för avsökningen | SQLAlwaysOnEndPointProbe |
    | **Beständig session** | Nedrullningsbar listruta | **Inga** |
-   | **Tidsgräns för inaktivitet** | Minuter för att hålla en TCP-anslutning öppen | 4 |
+   | **Timeout för inaktivitet** | Minuter för att hålla en TCP-anslutning öppen | 4 |
    | **Flytande IP (direkt Server retur)** | |Enabled |
 
    > [!WARNING]
@@ -475,13 +475,13 @@ WSFC-IP-adressen måste också finnas i belastningsutjämnaren.
    | Inställningen | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | WSFCEndPoint |
-   | **IP-adress för klient del** | Välj en adress |Använd adressen som du skapade när du konfigurerade WSFC-IP-adressen. Detta skiljer sig från IP-adressen för lyssnaren |
+   | **Klientdelens IP-adress** | Välj en adress |Använd adressen som du skapade när du konfigurerade WSFC-IP-adressen. Detta skiljer sig från IP-adressen för lyssnaren |
    | **Protokoll** | Välj TCP |TCP |
    | **Port** | Använd porten för klustrets IP-adress. Det här är en tillgänglig port som inte används för avsöknings porten för lyssnaren. | 58888 |
    | **Backend-port** | Det här fältet används inte när flytande IP anges för direkt Server retur | 58888 |
    | **Avsökning** |Det namn som du har angett för avsökningen | WSFCEndPointProbe |
    | **Beständig session** | Nedrullningsbar listruta | **Inga** |
-   | **Tidsgräns för inaktivitet** | Minuter för att hålla en TCP-anslutning öppen | 4 |
+   | **Timeout för inaktivitet** | Minuter för att hålla en TCP-anslutning öppen | 4 |
    | **Flytande IP (direkt Server retur)** | |Enabled |
 
    > [!WARNING]

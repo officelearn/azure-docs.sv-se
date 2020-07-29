@@ -3,16 +3,16 @@ title: Azure DevTest Labs användning över flera labb och prenumerationer
 description: Lär dig hur du rapporterar Azure DevTest Labs användning över flera labb och prenumerationer.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8650244df4c8eb08d4ccc87b1e23fe1e3d047c54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d2663113e929145308f5a5712b968f3551668c2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483439"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287285"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Rapportera Azure DevTest Labs användning över flera labb och prenumerationer
 
-De flesta stora organisationer vill spåra resursanvändningen så att de blir mer effektiva med dessa resurser genom att visualisera trender och avviker i användningen. Baserat på resursanvändning kan labb ägare och chefer anpassa labben för att [förbättra resursanvändningen och kostnaderna](https://docs.microsoft.com/azure/billing/billing-getting-started). I Azure DevTest Labs kan du hämta resursanvändning per labb och på så sätt få djupare historik i användnings mönstren. Dessa användnings mönster kan hjälpa dig att hitta ändringar för att förbättra effektiviteten. De flesta företag vill ha både individuell labb användning och övergripande användning för [flera labb och prenumerationer](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
+De flesta stora organisationer vill spåra resursanvändningen så att de blir mer effektiva med dessa resurser genom att visualisera trender och avviker i användningen. Baserat på resursanvändning kan labb ägare och chefer anpassa labben för att [förbättra resursanvändningen och kostnaderna](../cost-management-billing/manage/getting-started.md). I Azure DevTest Labs kan du hämta resursanvändning per labb och på så sätt få djupare historik i användnings mönstren. Dessa användnings mönster kan hjälpa dig att hitta ändringar för att förbättra effektiviteten. De flesta företag vill ha både individuell labb användning och övergripande användning för [flera labb och prenumerationer](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
 
 Den här artikeln beskriver hur du hanterar resursanvändnings information över flera labb och prenumerationer.
 
@@ -24,8 +24,8 @@ I det här avsnittet beskrivs hur du exporterar resursanvändning för ett enda 
 
 Innan du kan exportera resursanvändningen för DevTest Labs måste du konfigurera ett Azure Storage-konto så att de olika filer som innehåller de användnings data som ska lagras. Det finns två vanliga sätt att köra exporten av data:
 
-* [DevTest Labs REST API](https://docs.microsoft.com/rest/api/dtl/labs/exportresourceusage) 
-* PowerShell-AZ. Resource-modulen [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) med åtgärden `exportResourceUsage` , Lab-resurs-ID: t och de nödvändiga parametrarna. 
+* [DevTest Labs REST API](/rest/api/dtl/labs/exportresourceusage) 
+* PowerShell-AZ. Resource-modulen [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) med åtgärden `exportResourceUsage` , Lab-resurs-ID: t och de nödvändiga parametrarna. 
 
     Artikeln [Exportera eller ta bort personliga data](personal-data-delete-export.md) innehåller ett exempel på ett PowerShell-skript med detaljerad information om de data som exporteras. 
 
@@ -48,8 +48,8 @@ De här filerna lagras i *labresourceusage* -BLOB-behållaren under labb namnet,
 
 Om du vill exportera användnings informationen för flera labb bör du använda 
 
-* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/), som är tillgängligt på många språk, inklusive PowerShell, eller 
-* [Azure Automation Runbook](https://docs.microsoft.com/azure/automation/), Använd PowerShell, python eller en anpassad grafisk designer för att skriva export koden.
+* [Azure Functions](../azure-functions/index.yml), som är tillgängligt på många språk, inklusive PowerShell, eller 
+* [Azure Automation Runbook](../automation/index.yml), Använd PowerShell, python eller en anpassad grafisk designer för att skriva export koden.
 
 Med hjälp av dessa tekniker kan du köra enskilda labb exporter i alla labb vid ett visst datum och en viss tidpunkt. 
 
@@ -69,13 +69,13 @@ Några vanliga lagrings lösningar är: [SQL Server](https://azure.microsoft.com
 
 ## <a name="visualizing-data-and-gathering-insights"></a>Visualisera data och samla in insikter
 
-Använd ett data visualiserings verktyg som du väljer för att ansluta till långsiktig lagring för att Visa användnings data och samla in insikter för att kontrol lera användnings effektiviteten. [Power BI](https://docs.microsoft.com/power-bi/power-bi-overview) kan till exempel användas för att ordna och Visa användnings data. 
+Använd ett data visualiserings verktyg som du väljer för att ansluta till långsiktig lagring för att Visa användnings data och samla in insikter för att kontrol lera användnings effektiviteten. [Power BI](/power-bi/power-bi-overview) kan till exempel användas för att ordna och Visa användnings data. 
 
 Du kan använda [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) för att skapa, länka och hantera dina resurser inom ett enda plats gränssnitt. Om du behöver mer kontroll kan du skapa en enskild resurs i en enda resurs grupp och hanterad oberoende av den Data Factory tjänsten.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-När systemet har kon figurer ATS och data flyttas till långsiktig lagring, är nästa steg att följa de frågor som data behöver för att besvara. Ett exempel: 
+När systemet har kon figurer ATS och data flyttas till långsiktig lagring, är nästa steg att följa de frågor som data behöver för att besvara. Till exempel: 
 
 -   Vilken storlek används för virtuella datorer?
 

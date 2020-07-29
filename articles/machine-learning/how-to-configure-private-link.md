@@ -10,20 +10,20 @@ ms.custom: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/14/2020
-ms.openlocfilehash: 4a723c76f04c85bffd7ae4d1d1e8bf5b65ad4619
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 07/28/2020
+ms.openlocfilehash: 59a82b8d7037fb9f2ca03b99b9e797920644fbd6
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326502"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373733"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Konfigurera en privat Azure-länk för en Azure Machine Learning arbets yta (förhands granskning)
 
 I det här dokumentet får du lära dig hur du använder en privat Azure-länk med din Azure Machine Learning-arbetsyta. 
 
 > [!IMPORTANT]
-> Att använda Azures privata länk med Azure Machine Learning-arbetsytan är för närvarande en offentlig för hands version. Den här funktionen är endast tillgänglig i regionerna **USA, östra**, USA, **västra 2**och **USA, södra centrala** . Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Att använda Azures privata länk med Azure Machine Learning-arbetsytan är för närvarande en offentlig för hands version. Den här funktionen är endast tillgänglig i regionerna **USA, östra** och USA, **västra 2** . Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Med Azures privata länk kan du ansluta till din arbets yta med en privat slut punkt. Den privata slut punkten är en uppsättning privata IP-adresser i det virtuella nätverket. Du kan sedan begränsa åtkomsten till din arbets yta så att den bara sker över de privata IP-adresserna. Privat länk hjälper till att minska risken för data exfiltrering. Mer information om privata slut punkter finns i artikeln [Azure Private Link](/azure/private-link/private-link-overview) .
 
@@ -134,8 +134,8 @@ Information om hur du aktiverar privat länk för nyckel valvet finns i [integre
 
 Om du vill skydda de Azure Kubernetes-tjänster som används av din arbets yta, så Lägg till den i ett virtuellt nätverk. Mer information finns i [använda Azure Kubernetes Services med din arbets yta](how-to-enable-virtual-network.md#aksvnet).
 
-> [!WARNING]
-> Azure Machine Learning stöder inte användning av en Azure Kubernetes-tjänst som har privat länk aktive rad.
+Azure Machine Learning har nu stöd för användning av en Azure Kubernetes-tjänst som har privat länk aktive rad.
+Så här skapar du ett privat AKS-kluster Följ dokumenten [här](https://docs.microsoft.com/azure/aks/private-clusters)
 
 ## <a name="azure-container-registry"></a>Azure Container Registry
 

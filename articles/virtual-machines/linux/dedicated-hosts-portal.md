@@ -3,16 +3,16 @@ title: Distribuera Azure-dedikerade värdar med hjälp av Azure Portal
 description: Distribuera virtuella datorer till dedikerade värdar med hjälp av Azure Portal.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: cynthn
-ms.openlocfilehash: 068f6e85a0b2a56bb20c8581ec4fa59d50009088
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 19bd7960c4a6a02566d86d51ff7e21f4e570c34d
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080326"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373648"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Distribuera virtuella datorer till dedikerade värdar med hjälp av portalen
 

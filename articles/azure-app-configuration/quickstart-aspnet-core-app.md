@@ -8,11 +8,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 2dc2143619594c8fd46fa4e838b97a3ecde95653
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 069bce6f2f8e46679cbc82dd92c9fd73bfecde85
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027723"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373529"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Snabb start: skapa en ASP.NET Core-app med Azure App konfiguration
 
@@ -34,9 +35,9 @@ I den här snabb starten ska du använda Azure App konfiguration för att centra
 
     | Tangent | Värde |
     |---|---|
-    | TestApp:Settings:BackgroundColor | Vit |
+    | TestApp:Settings:BackgroundColor | Vita |
     | TestApp:Settings:FontSize | 24 |
-    | TestApp:Settings:FontColor | Svart |
+    | TestApp:Settings:FontColor | Svarta |
     | TestApp:Settings:Message | Data från Azure App Configuration |
 
     Lämna **etiketten** och **innehålls typen** tom för tillfället. Välj **Använd**.
@@ -241,6 +242,8 @@ Om du arbetar i Azure Cloud Shell väljer du knappen för *förhands granskning*
 ![Leta upp knappen Förhandsgranska för webben](./media/quickstarts/cloud-shell-web-preview.png)
 
 När du uppmanas att konfigurera porten för förhands granskning anger du "5000" och väljer *öppna och bläddra*.  Webb sidan kommer att läsa "data från Azure App-konfiguration."
+
+![Startar snabb starts appen](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

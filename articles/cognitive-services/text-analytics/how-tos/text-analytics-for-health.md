@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: cbc950647dc2f7102f20766c22f434526ab66639
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dbd0699924268b38d69bc576a5886e8d31fa1208
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122382"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373478"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Gör så här: använda Textanalys för hälsa (för hands version)
 
@@ -23,7 +23,7 @@ ms.locfileid: "86122382"
 > Textanalys för hälsa är en förhands gransknings funktion som tillhandahålls "i befintligt skick" och "med alla fel". Därför **bör textanalys för hälsa (för hands version) inte implementeras eller distribueras i produktions användningen.** Textanalys för hälsa är inte avsedd eller görs tillgänglig för användning som medicinsk enhet, klinisk support, diagnostikverktyg eller annan teknik som är avsedd att användas i diagnosen, härdning, minskning, behandling eller förebyggande av sjukdom eller andra villkor, och ingen licens eller rättighet beviljas av Microsoft för att använda den här funktionen i sådana syften. Den här funktionen är inte utformad eller avsedd att implementeras eller distribueras som en ersättning för yrkes rådgivning eller hälso besked, diagnos, behandling eller klinisk dom från en sjukvårds expert och bör inte användas som sådan. Kunden är ensam ansvarig för all användning av Textanalys för hälsa. Microsoft garanterar inte att Textanalys för hälsa eller material som tillhandahålls i samband med funktionen kommer att vara tillräckligt för medicinska skäl eller på annat sätt uppfylla hälso tillståndet eller hälso tillståndet för en person. 
 
 
-Azure Textanalys för hälsa är en behållare tjänst som extraherar och namnger relevant medicinsk information från ostrukturerade texter som läkares anteckningar, Utskicks sammanfattning, kliniska dokument och elektroniska hälso poster.  
+Textanalys för hälsa är en behållar tjänst som extraherar och namnger relevant medicinsk information från ostrukturerade texter som läkares anteckningar, Utskicks sammanfattning, kliniska dokument och elektroniska hälso poster.  
 
 ## <a name="features"></a>Funktioner
 
@@ -62,7 +62,7 @@ Innebörden av medicinskt innehåll påverkas starkt av modifierare, till exempe
 
 ---
 
-Se [entitets kategorier](../named-entity-types.md?tabs=health) som returneras av textanalys för hälso vård för en fullständig lista över enheter som stöds.
+Se [entitets kategorier](../named-entity-types.md?tabs=health) som returneras av textanalys för hälsan för en fullständig lista över entiteter som stöds.
 
 ## <a name="supported-languages"></a>Språk som stöds
 
@@ -80,8 +80,8 @@ Fyll i och skicka [fråge formuläret för Cognitive Services containers](https:
 
 Det finns flera sätt att installera och köra behållaren. 
 
-1. Skapa en Textanalys resurs med hjälp av [Azure Portal](text-analytics-how-to-install-containers.md?tabs=healthcare) och Använd Docker för att hämta din behållare.
-2. Använd PowerShell-och [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) -skript för att automatisera konfigurationen av resurs distributions behållare.
+- Använd [Azure Portal](text-analytics-how-to-install-containers.md?tabs=healthcare) för att skapa en textanalys resurs och Använd Docker för att hämta din behållare.
+- Använd följande PowerShell-och [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) -skript för att automatisera konfigurationen av resurs distributions behållare.
 
 ### <a name="install-the-container-using-azure-web-app-for-containers"></a>Installera behållaren med Azure Web App for Containers
 
@@ -223,7 +223,7 @@ Mer information finns i NGINX-dokumentationen om [nginx SSL-avslutning](https://
 
 
 ## <a name="example-api-request"></a>Exempel på API-begäran
-Behållaren innehåller REST-baserade slut punkts-API: er för frågor förutsägelse.
+Containern innehåller REST-baserade slutpunkts-API:er för frågeförutsägelse.
 
 Använd exemplet nedan för att skicka en fråga till behållaren som du har distribuerat och som ersätter `serverURL` variabeln med lämpligt värde.
 

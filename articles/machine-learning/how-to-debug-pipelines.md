@@ -5,16 +5,17 @@ description: Felsöka Azure Machine Learning pipelines i python. Lär dig vanlig
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 3eb0cf85dce02595f3679a96b497e286682840bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: troubleshooting, tracking-python
+ms.openlocfilehash: 6fa75c0c6ec6146ca59f6eaf4593b4912ae823c1
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557438"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372968"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Felsöka pipelines för maskininlärning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +27,7 @@ I den här artikeln får du lära dig att felsöka och felsöka [maskin inlärni
 * Felsöka med hjälp av Application Insights
 * Felsöka interaktivt med Visual Studio Code (VS Code) och Python Tools for Visual Studio (PTVSD)
 
-## <a name="debug-and-troubleshoot-in-the-azure-machine-learning-sdk"></a>Felsöka och Felsök i Azure Machine Learning SDK
+## <a name="azure-machine-learning-sdk"></a>Azure Machine Learning SDK
 I följande avsnitt får du en översikt över vanliga fall GRO par när du skapar pipelines och olika strategier för fel sökning av kod som körs i en pipeline. Använd följande tips när du har problem med att få en pipeline att köras som förväntat.
 
 ### <a name="testing-scripts-locally"></a>Testa skript lokalt
@@ -91,8 +92,8 @@ Tabellen nedan innehåller information om olika fel söknings alternativ för pi
 | Bibliotek                    | Typ   | Exempel                                                          | Mål                                  | Resurser                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure Machine Learning SDK | Mått | `run.log(name, val)`                                             | Azure Machine Learning portalens användar gränssnitt             | [Spåra experiment](how-to-track-experiments.md#available-metrics-to-track)<br>[azureml. Core. Run-klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
-| Python-utskrift/-loggning    | Logga    | `print(val)`<br>`logging.info(message)`                          | Driv rutins loggar, Azure Machine Learning designer | [Spåra experiment](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Python-loggning](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
-| Python-räkningar          | Logga    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights-spår                | [Felsöka pipelines i Application Insights.](how-to-debug-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor-exportörer](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Cookbook för python-loggning](https://docs.python.org/3/howto/logging-cookbook.html) |
+| Python-utskrift/-loggning    | Loggas    | `print(val)`<br>`logging.info(message)`                          | Driv rutins loggar, Azure Machine Learning designer | [Spåra experiment](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Python-loggning](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
+| Python-räkningar          | Loggas    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights-spår                | [Felsöka pipelines i Application Insights.](how-to-debug-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor-exportörer](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Cookbook för python-loggning](https://docs.python.org/3/howto/logging-cookbook.html) |
 
 #### <a name="logging-options-example"></a>Exempel på loggnings alternativ
 
@@ -126,9 +127,13 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer-preview"></a>Felsöka och Felsök i Azure Machine Learning designer (för hands version)
+## <a name="azure-machine-learning-designer-preview"></a>Azure Machine Learning designer (för hands version)
 
 Det här avsnittet innehåller en översikt över hur du felsöker pipelines i designern. För pipeliner som skapats i designern kan du hitta **70_driver_log** -filen på antingen sidan redigering eller på sidan körnings information för pipelinen.
+
+### <a name="enable-logging-for-real-time-endpoints"></a>Aktivera loggning för slut punkter i real tid
+
+För att felsöka och felsöka real tids slut punkter i designern måste du aktivera program insikts loggning med hjälp av SDK. Med loggning kan du felsöka och felsöka problem med distribution och användning av modeller. Mer information finns i [Logga in för distribuerade modeller](how-to-enable-logging.md#logging-for-deployed-models). 
 
 ### <a name="get-logs-from-the-authoring-page"></a>Hämta loggar från sidan redigering
 
@@ -155,10 +160,10 @@ Du kan också hitta loggfilerna för vissa körningar på sidan körnings inform
 > [!IMPORTANT]
 > Om du vill uppdatera en pipeline från sidan körnings information för pipelinen måste du **klona** pipeline-körningen till ett nytt pipeline-utkast. En pipeline-körning är en ögonblicks bild av pipelinen. Det liknar en loggfil och kan inte ändras. 
 
-## <a name="debug-and-troubleshoot-in-application-insights"></a>Felsöka och Felsök i Application Insights
+## <a name="application-insights"></a>Application Insights
 Mer information om hur du använder python-biblioteket för openräkning på det här sättet finns i den här guiden: [Felsöka och Felsök maskin inlärnings pipeliner i Application Insights](how-to-debug-pipelines-application-insights.md)
 
-## <a name="debug-and-troubleshoot-in-visual-studio-code"></a>Felsöka och felsöka i Visual Studio Code
+## <a name="visual-studio-code"></a>Visual Studio-koden
 
 I vissa fall kan du behöva interaktivt felsöka python-koden som används i ML-pipeline. Genom att använda Visual Studio Code (VS Code) och Python Tools for Visual Studio (PTVSD) kan du koppla till koden när den körs i tränings miljön.
 

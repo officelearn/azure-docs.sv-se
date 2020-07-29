@@ -6,22 +6,22 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: b51a79027ce834190a4fae5d893e47f2be16abf7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 01a256e17b1101782eaee9bebd85f5e7093773d3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102199"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287782"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-postgresql-single-server-using-azure-portal"></a>Neka offentlig nätverks åtkomst i Azure Database for PostgreSQL enskild server med Azure Portal
 
 I den här artikeln beskrivs hur du kan konfigurera en Azure Database for PostgreSQL enskild server för att neka alla offentliga konfigurationer och bara tillåta anslutningar via privata slut punkter för att ytterligare förbättra nätverks säkerheten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här instruktions guiden behöver du:
 
-* En [Azure Database for PostgreSQL enskild server](quickstart-create-PostgreSQL Single server-server-database-using-azure-portal.md)
+* En [Azure Database for PostgreSQL enskild server](quickstart-create-server-database-portal.md)
 
 ## <a name="set-deny-public-network-access"></a>Ange neka offentlig nätverks åtkomst
 

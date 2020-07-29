@@ -4,15 +4,16 @@ description: Den här artikeln innehåller referensinformation om kommandot AzCo
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: a06e428908777c526602166f127a28304b595ba0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3e9d70ced0d2974a66717436c28c5b6914f6745
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84220085"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287135"
 ---
 # <a name="azcopy-jobs-clean"></a>azcopy jobs clean
 
@@ -26,7 +27,7 @@ azcopy jobs clean [flags]
 
 - [Kom igång med AzCopy](storage-use-azcopy-v10.md)
 - [Överföra data med AzCopy och Blob Storage](storage-use-azcopy-blobs.md)
-- [Överföra data med AzCopy och fil lagring](storage-use-azcopy-files.md)
+- [Överföra data med AzCopy och fillagring](storage-use-azcopy-files.md)
 - [Konfigurera, optimera och felsöka AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Exempel
@@ -37,13 +38,13 @@ azcopy jobs clean [flags]
 
 ## <a name="options"></a>Alternativ
 
-**-h,--hjälp**                Hjälp för ren.
+**--Hjälp**                Hjälp för ren.
 
-**--med-status** sträng ta bara bort jobben med denna status, tillgängliga värden: avbruten, slutförd, misslyckad, pågående, alla (standard)
+**--med-status** sträng ta endast bort jobb med denna status, tillgängliga värden: `Canceled` , `Completed` , `Failed` , `InProgress` , `All` (standard `All` )
 
 ## <a name="options-inherited-from-parent-commands"></a>Alternativ som ärvts från överordnade kommandon
 
-**--Cap-Mbit/s UInt32**      CAPS överföringshastigheten i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.
+**--Cap-Mbit/s float**      CAPS överföringshastigheten i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.
 
 **--Skriv** sträng format för kommandots utdata. Alternativen är: text, JSON. Standardvärdet är ' text '. (standard text)
 

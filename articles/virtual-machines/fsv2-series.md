@@ -4,15 +4,15 @@ description: Specifikationer för virtuella datorer i Fsv2-serien.
 author: brbell
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 44f9261c8054ea0575f2fcab0dc8bb6c0d6f0ce4
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: e838a91ba6f985094d061351b1701696a2e5d88a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058273"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286333"
 ---
 # <a name="fsv2-series"></a>Fsv2-serien
 
@@ -30,16 +30,16 @@ Direktmigrering: stöds
 
 Minnes bebetjänings uppdateringar: stöds
 
-| Storlek | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt antal cachelagrade diskar: IOPS/MBps | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
-|---|---|---|---|---|---|---|---|
-| Standard_F2s_v2  | 2  | 4   | 16  | 4  | 4000/31 (32)       | 3200/47    | 2/875   |
-| Standard_F4s_v2  | 4  | 8   | 32  | 8  | 8000/63 (64)       | 6400/95    | 2/1750  |
-| Standard_F8s_v2  | 8  | 16  | 64  | 16 | 16000/127 (128)    | 12800/190  | 4/3500  |
-| Standard_F16s_v2 | 16 | 32  | 128 | 32 | 32000/255 (256)    | 25600/380  | 4/7000  |
-| Standard_F32s_v2 | 32 | 64  | 256 | 32 | 64000/512 (512)    | 51200/750  | 8/14000 |
-| Standard_F48s_v2 | 48 | 96  | 384 | 32 | 96000/768 (768)    | 76800/1100 | 8/21000 |
-| Standard_F64s_v2 | 64 | 128 | 512 | 32 | 128000/1024 (1024) | 80000/1100 | 8/28000 |
-| Standard_F72s_v2<sup>1, 2</sup> | 72 | 144 | 576 | 32 | 144000/1152 (1520) | 80000/1100 | 8/30000 |
+| Storlek | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt antal cachelagrade diskar: IOPS/MBps | Maximalt antal nätverkskort|Förväntad nätverks bandbredd (Mbit/s) |
+|---|---|---|---|---|---|---|---|---|
+| Standard_F2s_v2  | 2  | 4   | 16  | 4  | 4000/31 (32)       | 3200/47    | 2|875   |
+| Standard_F4s_v2  | 4  | 8   | 32  | 8  | 8000/63 (64)       | 6400/95    | 2|1750  |
+| Standard_F8s_v2  | 8  | 16  | 64  | 16 | 16000/127 (128)    | 12800/190  | 4|3500  |
+| Standard_F16s_v2 | 16 | 32  | 128 | 32 | 32000/255 (256)    | 25600/380  | 4|7000  |
+| Standard_F32s_v2 | 32 | 64  | 256 | 32 | 64000/512 (512)    | 51200/750  | 8|14000 |
+| Standard_F48s_v2 | 48 | 96  | 384 | 32 | 96000/768 (768)    | 76800/1100 | 8|21000 |
+| Standard_F64s_v2 | 64 | 128 | 512 | 32 | 128000/1024 (1024) | 80000/1100 | 8|28000 |
+| Standard_F72s_v2<sup>1, 2</sup> | 72 | 144 | 576 | 32 | 144000/1152 (1520) | 80000/1100 | 8|30000 |
 
 <sup>1</sup> användningen av mer än 64 vCPU kräver ett av dessa gäst operativ system som stöds:
 
@@ -57,14 +57,19 @@ Minnes bebetjänings uppdateringar: stöds
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="other-sizes"></a>Andra storlekar
+## <a name="other-sizes-and-information"></a>Andra storlekar och information
 
-- [Generellt syfte](sizes-general.md)
+- [Generell användning](sizes-general.md)
 - [Minnesoptimerad](sizes-memory.md)
 - [Lagringsoptimerad](sizes-storage.md)
 - [GPU-optimerad](sizes-gpu.md)
 - [Databehandling med höga prestanda](sizes-hpc.md)
 - [Tidigare generationer](sizes-previous-gen.md)
+
+Pris kalkylator: [pris kalkylator](https://azure.microsoft.com/pricing/calculator/)
+
+Mer information om disk typer: [disk typer](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,12 +3,12 @@ title: Ogiltiga mal linne fel
 description: Beskriver hur du löser ogiltiga fel i mallar när du distribuerar Azure Resource Manager-mallar.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: a3589f42f707240272a411a985adefd5e6c5539c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3e68d4634d0092d05222348ca0db0116422faec3
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118893"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373818"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Åtgärda fel med en ogiltig mall
 
@@ -130,7 +130,7 @@ Kontrol lera de tillåtna värdena i mallen och ange en under distribution. Mer 
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>Lösning 4-för många mål resurs grupper
 
-Du kan se det här felet i tidigare distributioner eftersom du var begränsad till fem mål resurs grupper i en enda distribution. I maj 2020 ökade gränsen till 800 resurs grupper. Mer information finns i [Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp](cross-resource-group-deployment.md).
+Du kan se det här felet i tidigare distributioner eftersom du var begränsad till fem mål resurs grupper i en enda distribution. I maj 2020 ökade gränsen till 800 resurs grupper. Mer information finns i [Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp](cross-scope-deployment.md).
 
 <a id="circular-dependency"></a>
 
@@ -150,7 +150,7 @@ Att ta bort värden från **dependsOn** -egenskapen kan orsaka fel när du distr
 
 Om den metoden inte löser det cirkulära beroendet bör du överväga att flytta en del av distributions logiken till underordnade resurser (till exempel tillägg eller konfigurations inställningar). Konfigurera de underordnade resurserna som ska distribueras efter de resurser som ingår i det cirkulära beroendet. Anta till exempel att du distribuerar två virtuella datorer, men du måste ange egenskaper för var och en som refererar till den andra. Du kan distribuera dem i följande ordning:
 
-1. VM1
+1. vm1
 2. VM2
 3. Tillägget på VM1 är beroende av VM1 och VM2. Tillägget anger värden för VM1 som hämtas från VM2.
 4. Tillägget på VM2 är beroende av VM1 och VM2. Tillägget anger värden för VM2 som hämtas från VM1.

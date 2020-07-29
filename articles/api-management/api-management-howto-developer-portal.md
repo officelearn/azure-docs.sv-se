@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 7d479f18e8764a69cdc81f99d723534e4895b0e4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f5f4df58a4b147ccb73c7d69f5307a8328803442
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025089"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373155"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Översikt över Azure API Management Developer-portalen
 
@@ -105,7 +105,19 @@ Du kan program mässigt komma åt och hantera Developer portalens innehåll via 
 
 API: et finns dokumenterat i [GitHub-lagringsplatsens wiki-avsnitt][2]. Den kan användas för att automatisera migrering av Portal innehåll mellan miljöer, till exempel från en test miljö till produktions miljön. Du kan lära dig mer om den här processen [i den här dokumentations artikeln](https://aka.ms/apimdocs/migrateportal) på GitHub.
 
+### <a name="how-do-i-move-from-the-managed-to-the-self-hosted-version"></a>Hur gör jag för att flytta från hanterad till den själv värdbaserade versionen?
+
+Se den detaljerade artikeln i [wiki-avsnittet i databasen för Developer-portalen på GitHub][2].
+
+### <a name="can-i-have-multiple-developer-portals-in-one-api-management-service"></a>Kan jag ha flera utvecklares portaler i en API Management-tjänst?
+
+Du kan ha en hanterad Portal och flera egen värdbaserade portaler. Innehållet i alla portaler lagras i samma API Management tjänst, så att de blir identiska. Om du vill skilja ut portalernas utseende och funktioner kan du själv vara värd för dem med dina egna anpassade widgetar som dynamiskt anpassar sidor på körning, till exempel baserat på URL: en.
+
 ### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>Stöder portalen Azure Resource Manager mallar och/eller är den kompatibel med API Management DevOps Resource Kit?
+
+Nej.
+
+### <a name="is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management"></a>Sparas portalens innehåll med säkerhets kopierings-/återställnings funktionen i API Management?
 
 Nej.
 
@@ -205,7 +217,7 @@ Anrops felen kan också orsakas av ett TLS/SSL-certifikat, som är tilldelat en 
 | Apple Safari                | Ja<sup>1</sup> |
 | Google Chrome               | Ja<sup>1</sup> |
 | Microsoft Edge              | Ja<sup>1</sup> |
-| Microsoft Internet Explorer | No              |
+| Microsoft Internet Explorer | Nej              |
 | Mozilla Firefox             | Ja<sup>1</sup> |
 
  <small><sup>1</sup> stöds i de två senaste produktions versionerna.</small>

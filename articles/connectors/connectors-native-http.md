@@ -7,11 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/09/2020
 tags: connectors
-ms.openlocfilehash: 23c6a555909d43f640fb5089fb60da8bac065886
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c7a0ddb80ba28548fc1821cc2063e500af0fa66
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609543"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286639"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Anropa tjänstslutpunkter via HTTP eller HTTPS från Azure Logic Apps
 
@@ -23,7 +24,7 @@ Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda ht
 
 Den här artikeln visar hur du lägger till en HTTP-utlösare eller åtgärd i din Logic app-arbetsflöde.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -161,7 +162,7 @@ Här är samma exempel som visar HTTP-åtgärdens JSON-definition i den underlig
 
 ## <a name="asynchronous-request-response-behavior"></a>Svars beteende för asynkron begäran
 
-Som standard följer alla HTTP-baserade åtgärder i Azure Logic Apps standard mönstret för [asynkron åtgärd](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply). Det här mönstret anger att efter att en HTTP-åtgärd anropar eller skickar en begäran till en slut punkt, tjänst, system eller API, returnerar mottagaren omedelbart ett ["202 godkänt"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) -svar. Den här koden bekräftar att mottagaren har accepterat begäran men inte avslutat bearbetning. Svaret kan innehålla ett `location` huvud som anger URL: en och ett uppdaterings-ID som anroparen kan använda för att avsöka eller kontrol lera status för den asynkrona begäran tills mottagaren slutar bearbeta och returnerar svaret ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) eller något annat icke-202-svar. Anroparen behöver dock inte vänta på begäran att slutföra bearbetningen och kan fortsätta att köra nästa åtgärd. Mer information finns i avsnittet om [asynkron mikrotjänst integrering framtvingar sig oberoende av mikrotjänster](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+Som standard följer alla HTTP-baserade åtgärder i Azure Logic Apps standard mönstret för [asynkron åtgärd](/azure/architecture/patterns/async-request-reply). Det här mönstret anger att efter att en HTTP-åtgärd anropar eller skickar en begäran till en slut punkt, tjänst, system eller API, returnerar mottagaren omedelbart ett ["202 godkänt"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) -svar. Den här koden bekräftar att mottagaren har accepterat begäran men inte avslutat bearbetning. Svaret kan innehålla ett `location` huvud som anger URL: en och ett uppdaterings-ID som anroparen kan använda för att avsöka eller kontrol lera status för den asynkrona begäran tills mottagaren slutar bearbeta och returnerar svaret ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) eller något annat icke-202-svar. Anroparen behöver dock inte vänta på begäran att slutföra bearbetningen och kan fortsätta att köra nästa åtgärd. Mer information finns i avsnittet om [asynkron mikrotjänst integrering framtvingar sig oberoende av mikrotjänster](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
 
 * I Logic Apps designer har HTTP-åtgärden, men inte utlösaren, en **asynkron mönster** inställning som är aktive rad som standard. Den här inställningen anger att anroparen inte väntar på att bearbetningen ska slutföras och kan gå vidare till nästa åtgärd, men fortsätter att kontrol lera statusen tills bearbetningen stoppas. Om inställningen är inaktive rad anger den här inställningen att anroparen väntar på att bearbetningen ska slutföras innan den går vidare till nästa åtgärd.
 
@@ -256,7 +257,7 @@ Här är mer information om utdata från en HTTP-utlösare eller åtgärd som re
 |----------|------|-------------|
 | `headers` | JSON-objekt | Huvudena från begäran |
 | `body` | JSON-objekt | Objektet med bröd text innehållet från begäran |
-| `status code` | Integer | Status koden från begäran |
+| `status code` | Heltal | Status koden från begäran |
 |||
 
 | Statuskod | Beskrivning |
@@ -273,3 +274,4 @@ Här är mer information om utdata från en HTTP-utlösare eller åtgärd som re
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)
+

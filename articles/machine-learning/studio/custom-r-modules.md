@@ -1,6 +1,5 @@
 ---
-title: Skapa & distribuera anpassade R-moduler
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klassisk): skapa & distribuera anpassade R-moduler – Azure'
 description: Lär dig hur du skapar och distribuerar anpassade R-moduler i ML Studio (klassisk).
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 389290b01848d598ada9ca49bee932a764854088
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 4b4251a426d33c0a3b8cc7584d2bf6375dcd0f79
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957332"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287241"
 ---
-# <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Definiera anpassade R-moduler för Azure Machine Learning Studio (klassisk)
+# <a name="define-custom-r-modules-for-machine-learning-studio-classic"></a>Definiera anpassade R-moduler för Machine Learning Studio (klassisk)
+
+**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
 
 I det här avsnittet beskrivs hur du skapar och distribuerar en anpassad R Studio (klassisk). Det förklarar vilka anpassade R-moduler som är och vilka filer som används för att definiera dem. Den illustrerar hur du skapar filerna som definierar en modul och hur du registrerar modulen för distribution i en Machine Learning-arbetsyta. De element och attribut som används i definitionen av den anpassade modulen beskrivs sedan i detalj. Information om hur du använder extra funktioner och filer och flera utdata beskrivs också. 
 

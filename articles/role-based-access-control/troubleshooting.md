@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/01/2020
+ms.date: 07/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 8d6c9ab2bacf94b3a27bfd1de0189d8b89b5efaf
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: bf8fa174611c7173c957ded49ff9135f90cebc08
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129448"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287204"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Felsöka Azure RBAC
 
@@ -52,6 +52,22 @@ $ras.Count
 ## <a name="problems-with-azure-role-assignments"></a>Problem med Azure Role-tilldelningar
 
 - Om du inte kan lägga till en roll tilldelning i Azure Portal på **åtkomst kontroll (IAM)** eftersom alternativet **Lägg**till  >  **roll tilldelning** är inaktiverat eller om du får behörighets felet "klienten med objekt-ID har inte behörighet att utföra åtgärden", kontrol lera att du är inloggad med en användare som har `Microsoft.Authorization/roleAssignments/write` behörighet som [ägare](built-in-roles.md#owner) eller [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) i den omfattning som du försöker tilldela rollen.
+- Om du använder ett huvud namn för tjänsten för att tilldela roller kan du få fel meddelandet "otillräcklig behörighet för att slutföra åtgärden". Anta till exempel att du har ett huvud namn för tjänsten som har tilldelats ägar rollen och du försöker skapa följande roll tilldelning som tjänstens huvud namn med Azure CLI:
+
+    ```azurecli
+    az login --service-principal --username "SPNid" --password "password" --tenant "tenantid"
+    az role assignment create --assignee "userupn" --role "Contributor"  --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
+    ```
+
+    Om du får fel meddelandet "otillräcklig behörighet för att slutföra åtgärden" är det troligt att Azure CLI försöker söka efter den tilldelas identiteten i Azure AD och tjänstens huvud namn kan inte läsa Azure AD som standard.
+
+    Det finns två sätt att eventuellt lösa det här felet. Det första sättet är att tilldela [katalog läsar](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) rollen till tjänstens huvud namn, så att den kan läsa data i katalogen. Du kan också ge [katalogen. Read. all behörighet](https://docs.microsoft.com/graph/permissions-reference) i Microsoft Graph.
+
+    Det andra sättet att lösa det här felet är att skapa roll tilldelningen med hjälp av- `--assignee-object-id` parametern i stället för `--assignee` . Genom `--assignee-object-id` att använda, hoppar Azure CLI över Azure AD-sökningen. Du måste hämta objekt-ID: t för den användare, grupp eller det program som du vill tilldela rollen till. Mer information finns i [lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure CLI](role-assignments-cli.md#new-service-principal).
+
+    ```azurecli
+    az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
+    ```
 
 ## <a name="problems-with-custom-roles"></a>Problem med anpassade roller
 

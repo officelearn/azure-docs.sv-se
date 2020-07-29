@@ -5,14 +5,15 @@ author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 09/19/2017
+ms.custom: devx-track-java
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 54f545c2d4f897f85ab3e5fd10d07666e93e4f41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1edc13888a42086cdcd3c3c7756491bd5f43241
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509684"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87314483"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Utveckla för Azure Files med Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -165,7 +166,7 @@ for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 }
 ```
 
-## <a name="upload-a-file"></a>Överför en fil
+## <a name="upload-a-file"></a>Ladda upp en fil
 I det här avsnittet får du lära dig hur du laddar upp en fil från lokal lagring till rot katalogen för en resurs.
 
 Det första steget när du laddar upp en fil är att hämta en referens till den katalog där den ska finnas. Det gör du genom att anropa **getRootDirectoryReference** -metoden för Share-objektet.
@@ -185,7 +186,7 @@ Nu när du har en referens till resursens rot Katalog kan du ladda upp en fil ti
         cloudFile.uploadFromFile(filePath);
 ```
 
-## <a name="download-a-file"></a>Hämta en fil
+## <a name="download-a-file"></a>Ladda ned en fil
 En av de vanligaste åtgärderna som du utför för Azure Files är att ladda ned filer. I följande exempel hämtar koden SampleFile.txt och visar dess innehåll.
 
 ```java

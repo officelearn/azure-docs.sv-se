@@ -7,6 +7,7 @@ description: Beskriver nätverks kraven för att köra Azure dev Spaces i Azure 
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, CNI, Kubernetes, SDN, Network
 ms.openlocfilehash: c3ee84819172fe28aef779493d01e2433ccca336
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300699"

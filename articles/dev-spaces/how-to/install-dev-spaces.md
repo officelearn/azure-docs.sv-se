@@ -7,6 +7,7 @@ description: Lär dig hur du aktiverar Azure dev Spaces i ett AKS-kluster och in
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 ms.openlocfilehash: b62c4a4861529c19363f159b8cc64a32a0ba11e8
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83996269"

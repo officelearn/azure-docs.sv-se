@@ -10,6 +10,7 @@ ms.author: antchu
 ms.custom: tracking-python
 ms.openlocfilehash: d77faf8cf4f859c0ef933d28119bd024ace86ac8
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/01/2020
 ms.locfileid: "85832499"

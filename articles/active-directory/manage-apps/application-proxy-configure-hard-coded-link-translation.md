@@ -16,13 +16,14 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e8d6f97870699cea7f55abe42290acdc82c385e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 563e5e811eec907ba286bdfb264fc51d32137e96
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764850"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282933"
 ---
-# <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Omdirigera hårdkodad-Länkar för appar som publicerats med Azure AD-programproxy
+# <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Omdirigera hårdkodade länkar för appar som publicerats med Azure AD-programproxy
 
 Azure AD-programproxy gör dina lokala appar tillgängliga för användare som är fjärranslutna eller på sina egna enheter. Vissa appar har dock utvecklats med lokala länkar som är inbäddade i HTML. Dessa länkar fungerar inte korrekt när appen används via fjärr anslutning. När du har flera lokala program som pekar på varandra, förväntar användarna att länkarna ska fortsätta att fungera när de inte är på kontoret. 
 
@@ -34,11 +35,11 @@ Om du inte kan använda anpassade domäner i din klient organisation finns det f
 > [!NOTE]
 > Länk översättning stöds inte för hårdkodade interna URL: er som genereras via Java Script.
 
-**Alternativ 1: använd Managed Browser eller Microsoft Edge** – den här lösningen är bara tillgänglig om du planerar att rekommendera eller kräva att användarna får åtkomst till programmet via Intune Managed Browser eller Microsoft Edge-webbläsaren. Den hanterar alla publicerade URL: er. 
+**Alternativ 1: Använd Microsoft Edge** – den här lösningen kan bara användas om du planerar att rekommendera eller kräva att användarna får åtkomst till programmet via Microsoft Edge-webbläsaren. Den hanterar alla publicerade URL: er. 
 
 **Alternativ 2: Använd tillägget för appar** – den här lösningen kräver att användare installerar ett webb läsar tillägg på klient sidan, men hanterar alla publicerade URL: er och fungerar med de flesta populära webbläsare. 
 
-**Alternativ 3: Använd inställningen länk översättning** – det här är en inställning för administratörs sidan som är dold för användare. Det kommer dock bara att hantera URL: er i HTML och CSS.   
+**Alternativ 3: Använd inställningen länk översättning** – det här är en inställning för administratörs sidan som är dold för användare. Det kommer dock att hantera URL: er endast i HTML och CSS.   
 
 De här tre funktionerna gör att dina länkar fungerar oavsett var dina användare finns. När du har appar som pekar direkt till interna slut punkter eller portar kan du mappa dessa interna URL: er till URL: erna för publicerade externa programproxy. 
 
@@ -49,11 +50,11 @@ De här tre funktionerna gör att dina länkar fungerar oavsett var dina använd
 > Eller, om programmet du behöver konfigurera med länk översättning är SharePoint, se [Konfigurera alternativa åtkomst mappningar för SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) för en annan metod för att mappa länkar. 
 
  
-### <a name="option-1-intune-managed-browser-and-microsoft-edge-integration"></a>Alternativ 1: Intune Managed Browser och Microsoft Edge-integration 
+### <a name="option-1-microsoft-edge-integration"></a>Alternativ 1: Microsoft Edge-integration 
 
-Du kan använda Intune Managed Browser eller Microsoft Edge för att ytterligare skydda ditt program och ditt innehåll. Om du vill använda den här lösningen måste du kräva/rekommendera användares åtkomst till programmet via Intune Managed Browser. Alla interna URL: er som publicerats med programproxyn kommer att identifieras av Managed Browser och omdirigeras till motsvarande externa URL. Detta säkerställer att alla hårdkodade interna URL: er fungerar, och om en användare går till webbläsaren och direkt skriver den interna URL: en, fungerar den även om användaren är fjärran sluten.  
+Du kan använda Microsoft Edge för att ytterligare skydda ditt program och ditt innehåll. Om du vill använda den här lösningen måste du kräva/rekommendera användares åtkomst till programmet via Microsoft Edge. Alla interna URL: er som publiceras med programproxyn kommer att identifieras av Edge och omdirigeras till motsvarande externa URL. Detta säkerställer att alla hårdkodade interna URL: er fungerar, och om en användare går till webbläsaren och direkt skriver den interna URL: en, fungerar den även om användaren är fjärran sluten.  
 
-Mer information, inklusive hur du konfigurerar det här alternativet finns i [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser) -dokumentationen.  
+Mer information, inklusive hur du konfigurerar det här alternativet finns i [Hantera webb åtkomst med hjälp av Edge för iOS och Android med Microsoft Intune](https://docs.microsoft.com/mem/intune/apps/manage-microsoft-edge) -dokumentationen.  
 
 ### <a name="option-2-myapps-browser-extension"></a>Alternativ 2: webb läsar tillägget för appar 
 
@@ -72,7 +73,7 @@ När länk översättning är aktiverat söker Application Proxy-tjänsten igeno
 
 ## <a name="how-link-translation-works"></a>Så här fungerar länk Översättning
 
-Efter autentiseringen, när proxyservern skickar program data till användaren, genomsöker Application Proxy programmet efter hårdkodad-länkar och ersätter dem med deras respektive publicerade externa URL: er.
+Efter autentiseringen, när proxyservern skickar program data till användaren, genomsöker Application Proxy programmet efter hårdkodade länkar och ersätter dem med deras respektive publicerade externa URL: er.
 
 Programproxyn förutsätter att programmen kodas i UTF-8. Om så inte är fallet, anger du kodnings typen i ett HTTP-svarshuvuden, som `Content-Type:text/html;charset=utf-8` .
 
@@ -83,7 +84,7 @@ Funktionen länk översättning söker bara efter länkar som finns i kodmoduler
 Det finns två vanliga typer av interna länkar i lokala program:
 
 - **Relativa interna länkar** som pekar på en delad resurs i en lokal fil struktur som `/claims/claims.html` . Dessa länkar fungerar automatiskt i appar som publiceras via programproxy och fortsätter att arbeta med eller utan länk översättning. 
-- **Hårdkodad interna länkar** till andra lokala appar som `http://expenses` eller publicerade filer som `http://expenses/logo.jpg` . Funktionen länk översättning fungerar på hårdkodad interna länkar och ändrar dem så att de pekar på de externa URL: er som fjärran vändarna måste gå igenom.
+- **Hårdkodade interna länkar** till andra lokala appar som `http://expenses` eller publicerade filer som `http://expenses/logo.jpg` . Funktionen länk översättning fungerar på hårdkodade interna länkar och ändrar dem så att de pekar på de externa URL: er som fjärran vändarna måste gå igenom.
 
 Den fullständiga listan med HTML-taggar som Application Proxy stöder för länk översättning för inkluderar:
 * a

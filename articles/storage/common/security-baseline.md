@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: cd7e7df5c789743cf6bd84c6150fd901490bdedd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e10843eab8ac2ccbda3d6876f51c88a598d7139
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751638"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371693"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Azures säkerhets bas linje för Azure Storage
 
@@ -240,7 +240,7 @@ Aktivera också Avancerat skydd för ditt Azure Storage-konto. Avancerat skydd f
 
 - [Så här aviserar du om Log Analytics-loggdata](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
 
-- [Analysloggning i Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Loggning med Azure-lagringsanalys](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 **Azure Security Center övervakning**: Ja
 
@@ -428,7 +428,7 @@ Ett effektivt sätt att minska risken för obehörig åtkomst till användar kon
 
 Skapa diagnostikinställningar för Azure Active Directory användar konton, skicka gransknings loggar och inloggnings loggar till en Log Analytics arbets yta. Du kan konfigurera önskade aviseringar i Log Analytics arbets ytan. Om du vill övervaka autentiseringsfel mot Azure Storage-konton kan du skapa aviseringar som meddelar dig när vissa tröskelvärden har nåtts för lagrings resurs mått. Använd dessutom Azure Monitor för att varna vid anonym åtkomst för lagrings konton med anonymt autentiserings villkor.
 
-- [Analysloggning i Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Loggning med Azure-lagringsanalys](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 - [Så här integrerar du Azures aktivitets loggar i Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
@@ -534,7 +534,7 @@ Använd dessutom tjänst slut punkts principer för virtuella nätverk för att 
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: Azure Active Directory (Azure AD) tillåter åtkomst rättigheter till skyddade resurser via rollbaserad åtkomst kontroll (RBAC). Azure Storage definierar en uppsättning inbyggda RBAC-roller som omfattar vanliga uppsättningar av behörigheter som används för att få åtkomst till BLOB-eller Queue data. 
+**Vägledning**: Azure Active Directory (Azure AD) tillåter åtkomst rättigheter till skyddade resurser via rollbaserad åtkomst kontroll (RBAC). Azure Storage definierar en uppsättning inbyggda Azure-roller som omfattar vanliga uppsättningar behörigheter som används för att få åtkomst till BLOB-eller Queue-data. 
 
 - [Tilldela RBAC-roller för Azure Storage konto](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal)
 
@@ -574,7 +574,7 @@ Använd dessutom tjänst slut punkts principer för virtuella nätverk för att 
 
 - [Så här skapar du aviseringar för Azure aktivitets logg händelser](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-- [Analysloggning i Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Loggning med Azure-lagringsanalys](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 - [Konfigurera mått varningar för Azure Storage konton](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)
 
@@ -1049,7 +1049,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 - [Säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
 
-- [Använd taggar för att organisera dina Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Använd taggar till att organisera dina Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center övervakning**: Ja
 

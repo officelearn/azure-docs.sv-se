@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: b71c6d8e0890bde377fae761f4486803229ceff4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 97d7d21374062462248e1b86f2bde2fef2d25331
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045688"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326060"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimera din miljö med System Center Operations Manager-hälsokontrollösningen (förhandsversion)
 
@@ -203,7 +203,7 @@ Varje rekommendation innehåller vägledning om varför det är viktigt. Använd
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Använd rekommendationer för fokus området för hälso kontroll
 
-Innan du kan använda en hälso kontroll lösning i Log Analytics måste du ha lösningen installerad. Läs mer om hur du installerar lösningar i [installera en hanterings lösning](../../azure-monitor/insights/solutions.md). När den har installerats kan du Visa en sammanfattning av rekommendationerna med hjälp av panelen System Center Operations Manager-hälsokontroll på sidan **Översikt** för din arbets yta i Azure Portal.
+Innan du kan använda en hälso kontroll lösning i Log Analytics måste du ha lösningen installerad. Läs mer om hur du installerar lösningar i [installera en hanterings lösning](./solutions.md). När den har installerats kan du Visa en sammanfattning av rekommendationerna med hjälp av panelen System Center Operations Manager-hälsokontroll på sidan **Översikt** för din arbets yta i Azure Portal.
 
 Visa de sammanfattade efterlevnadarna för din infrastruktur och gå sedan till rekommendationer.
 
@@ -229,7 +229,7 @@ Om du har rekommendationer som du vill ignorera kan du skapa en textfil som Log 
     ```
 
     >[!NOTE]
-    > Om din arbets yta har uppgraderats till det [nya Log Analytics frågespråket](../../azure-monitor/log-query/log-query-overview.md), ändras ovanstående fråga till följande.
+    > Om din arbets yta har uppgraderats till det [nya Log Analytics frågespråket](../log-query/log-query-overview.md), ändras ovanstående fråga till följande.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -254,7 +254,7 @@ Om du har rekommendationer som du vill ignorera kan du skapa en textfil som Log 
     ```
 
     >[!NOTE]
-    > Om din arbets yta har uppgraderats till det [nya Log Analytics frågespråket](../../azure-monitor/log-query/log-query-overview.md), ändras ovanstående fråga till följande.
+    > Om din arbets yta har uppgraderats till det [nya Log Analytics frågespråket](../log-query/log-query-overview.md), ändras ovanstående fråga till följande.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -295,4 +295,5 @@ Om du har rekommendationer som du vill ignorera kan du skapa en textfil som Log 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Sök i loggar](../../azure-monitor/log-query/log-query-overview.md) för att lära dig hur du analyserar detaljerade System Center Operations Manager-hälsokontroll data och rekommendationer.
+- [Sök i loggar](../log-query/log-query-overview.md) för att lära dig hur du analyserar detaljerade System Center Operations Manager-hälsokontroll data och rekommendationer.
+

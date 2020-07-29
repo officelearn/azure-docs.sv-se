@@ -4,15 +4,15 @@ description: I den här artikeln beskrivs vanliga fel meddelanden för VM-avbild
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
-author: v-miegge
-ms.author: v-krmall
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: e73ff612aa07016f69c717a74678d5d1923e87b8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 594a47f397ca78476ed987ac0e06a3cacc79ec3b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120661"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319906"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problem och lösningar under certifiering av virtuella datorer 
 
@@ -63,7 +63,7 @@ Kontrol lera att du har följt den virtuella dator etablerings processen noggran
 
 Etablerings problem kan omfatta följande fel scenarier:
 
-|Scenario|Fel|Anledning|Lösning|
+|Scenario|Fel|Orsak|Lösning|
 |---|---|---|---|
 |1|Ogiltig virtuell hård disk (VHD)|Om det angivna cookie-värdet i VHD-foten är felaktigt anses den virtuella hård disken vara ogiltig.|Återskapa avbildningen och skicka begäran.|
 |2|Ogiltig Blob-typ|VM-etableringen misslyckades eftersom det använda blocket är en Blob-typ i stället för en typ av sida.|Återskapa avbildningen och skicka begäran.|
@@ -261,7 +261,7 @@ Kontrol lera om rätt åtkomst är aktive rad för det konto som självtest-fall
     
 I följande tabell finns några problem som kan uppstå när du hämtar den virtuella dator avbildningen med hjälp av en URL för signatur för delad åtkomst (SAS).
 
-|Scenario|Fel|Anledning|Lösning|
+|Scenario|Fel|Orsak|Lösning|
 |---|---|---|---|
 |1|Blobben hittades inte|Den virtuella hård disken kan antingen tas bort eller flyttas från den angivna platsen.|| 
 |2|BLOB som används|Den virtuella hård disken används av en annan intern process.|Den virtuella hård disken ska vara i ett använt tillstånd när du laddar ned den med hjälp av en SAS-URL.|
@@ -304,7 +304,7 @@ Mer information om det här verktyget finns i [Översikt över system förberede
 
 Använd följande tabell för lösningar på fel som är relaterade till data disken:
 
-|Fel|Anledning|Lösning|
+|Fel|Orsak|Lösning|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|Det här felet kan inträffa på grund av ett ogiltigt antal som angetts för Logical Unit Number (LUN) när erbjudandet skickas.|Kontrol lera att LUN-nummersekvensen för data disken är i Partner Center.|
 |`DataDisk- NotFound:`|Det här felet kan inträffa på grund av att en datadisk inte finns på en angiven SAS-URL.|Kontrol lera att data disken finns på SAS-URL: en som anges i begäran.|

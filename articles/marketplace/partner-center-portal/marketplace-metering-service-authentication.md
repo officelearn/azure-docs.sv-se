@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: e24dcdc2de94fe73f6bb83dcc03bbd1139503784
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 42a76a2cf583a57ae5b38fe051ee48d16d705dd2
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120763"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319974"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Strategier för att autentisera service för Marketplace-mätning
 
@@ -42,7 +44,7 @@ Mer information om dessa tokens finns [Azure Active Directory åtkomsttoken](../
 
 #### <a name="http-method"></a>HTTP-metod
 
-**EFTER**
+**POST**
 
 #### <a name="request-url"></a>*Begärans-URL*
 
@@ -64,7 +66,7 @@ Mer information om dessa tokens finns [Azure Active Directory åtkomsttoken](../
 
 #### <a name="request-body"></a>*Brödtext i begäran*
 
-|  **Egenskaps namn**  |  **Obligatoriskt**  |  **Beskrivning**          |
+|  **Egenskapsnamn**  |  **Obligatoriskt**  |  **Beskrivning**          |
 |  ------------------ |--------------- | ------------------------  |
 |  `Grant_type`       |   Sant         | Typ av beviljande. Använd `client_credentials`. |
 |  `Client_id`        |   Sant         | Klient/app-identifierare som är associerad med Azure AD-appen.|
@@ -72,7 +74,7 @@ Mer information om dessa tokens finns [Azure Active Directory åtkomsttoken](../
 |  `Resource`         |   Sant         | Mål resurs för vilken token begärs. Använd `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`. |
 | | | |
 
-#### <a name="response"></a>*Svar*
+#### <a name="response"></a>*Response*
 
 |  **Namn**    |  **Typ**  |  **Beskrivning**          |
 |  ------------------ |--------------- | ----------------------  |

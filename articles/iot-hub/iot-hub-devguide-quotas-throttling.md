@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 675391a92c991f80faadf8b75abc79dcb4cd19d7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bee22391664250888816dc2b4bbb93622cab7942
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322966"
+ms.locfileid: "87335570"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens – IoT Hub kvoter och begränsning
 
@@ -30,9 +30,9 @@ Varje IoT-hubb etableras med ett visst antal enheter på en specifik nivå. Niv�
 
 Nivån avgör också de begränsnings gränser som IoT Hub tillämpas på alla åtgärder.
 
-### <a name="iot-plug-and-play"></a>IoT Plug and Play
+## <a name="iot-plug-and-play"></a>IoT Plug and Play
 
-Under den allmänt tillgängliga för hands versionen kommer IoT Plug and Play-enheter att skicka separata meddelanden per gränssnitt, vilket kan öka antalet meddelanden som räknas mot din meddelande kvot.
+IoT Plug and Play-enheter skickar minst ett telemetri-meddelande för varje gränssnitt, inklusive roten, vilket kan öka antalet meddelanden som räknas mot din meddelande kvot.
 
 ## <a name="operation-throttles"></a>Åtgärds begränsningar
 

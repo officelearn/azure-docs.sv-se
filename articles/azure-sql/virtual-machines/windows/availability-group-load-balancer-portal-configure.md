@@ -3,7 +3,7 @@ title: Konfigurera tillgänglighets grupps lyssnare & belastningsutjämnare (Azu
 description: Stegvisa instruktioner för att skapa en lyssnare för en Always on-tillgänglighets grupp för SQL Server på virtuella Azure-datorer
 services: virtual-machines
 documentationcenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
@@ -11,13 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a2eb6278a9e796c33178f895eede6fd8f2144e9a
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: a83755a08a3579484796cd56623cb3401d03d874
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921689"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284293"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Konfigurera en belastningsutjämnare för en SQL Server Always on-tillgänglighetsgrupper i Azure Virtual Machines
 
@@ -71,12 +72,12 @@ Skapa först belastningsutjämnaren.
    | **Namn** |Ett text namn som representerar belastningsutjämnaren. Till exempel **sqlLB**. |
    | **Typ** |**Internt**: de flesta implementeringar använder en intern belastningsutjämnare som gör det möjligt för program i samma virtuella nätverk att ansluta till tillgänglighets gruppen.  </br> **Externt**: tillåter att program ansluter till tillgänglighets gruppen via en offentlig Internet anslutning. |
    | **Virtuellt nätverk** |Välj det virtuella nätverk som SQL Servers instanserna finns i. |
-   | **Delnät** |Välj det undernät som de SQL Server instanserna finns i. |
-   | **Tilldelning av IP-adress** |**Statisk** |
+   | **Undernät** |Välj det undernät som de SQL Server instanserna finns i. |
+   | **Tilldelning av IP-adress** |**Statiskt** |
    | **Privat IP-adress** |Ange en tillgänglig IP-adress från under nätet. Använd den här IP-adressen när du skapar en lyssnare i klustret. I ett PowerShell-skript längre fram i den här artikeln använder du den här adressen för `$ILBIP` variabeln. |
    | **Prenumeration** |Om du har flera prenumerationer kan det här fältet visas. Välj den prenumeration som du vill koppla till den här resursen. Det är normalt samma prenumeration som alla resurser för tillgänglighets gruppen. |
    | **Resursgrupp** |Välj den resurs grupp som SQL Server instanserna finns i. |
-   | **Position** |Välj den Azure-plats som SQL Server instanserna finns i. |
+   | **Plats** |Välj den Azure-plats som SQL Server instanserna finns i. |
 
 6. Välj **Skapa**. 
 
@@ -249,11 +250,11 @@ Gör så här om du vill lägga till en IP-adress till en belastningsutjämnare 
     |Inställningen |Värde
     |:-----|:----
     |**Namn** |Ett namn som identifierar belastnings Utjämnings regeln. 
-    |**IP-adress för klient del** |Välj den IP-adress som du skapade. 
+    |**Klientdelens IP-adress** |Välj den IP-adress som du skapade. 
     |**Protokoll** |TCP
     |**Port** |Använd porten som SQL Server instanser använder. En standard instans använder port 1433, om du inte har ändrat den. 
-    |**Backend-port** |Använd samma värde som **port**.
-    |**Backend-pool** |Poolen som innehåller de virtuella datorerna med SQL Server instanser. 
+    |**Serverdelsport** |Använd samma värde som **port**.
+    |**Serverdelspool** |Poolen som innehåller de virtuella datorerna med SQL Server instanser. 
     |**Hälsoavsökning** |Välj den avsökning som du har skapat.
     |**Sessionspermanens** |Ingen
     |**Tids gräns för inaktivitet (minuter)** |Standard (4)
@@ -298,11 +299,11 @@ Om en tillgänglighets grupp deltar i en distribuerad tillgänglighets grupp beh
    |Inställningen |Värde
    |:-----|:----
    |**Namn** |Ett namn som identifierar belastnings Utjämnings regeln för den distribuerade tillgänglighets gruppen. 
-   |**IP-adress för klient del** |Använd samma IP-adress för klient delen som tillgänglighets gruppen.
+   |**Klientdelens IP-adress** |Använd samma IP-adress för klient delen som tillgänglighets gruppen.
    |**Protokoll** |TCP
    |**Port** |5022 – porten för [slut punkten för den distribuerade tillgänglighets gruppen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Kan vara vilken tillgänglig port som helst.  
-   |**Backend-port** | 5022 – Använd samma värde som **port**.
-   |**Backend-pool** |Poolen som innehåller de virtuella datorerna med SQL Server instanser. 
+   |**Serverdelsport** | 5022 – Använd samma värde som **port**.
+   |**Serverdelspool** |Poolen som innehåller de virtuella datorerna med SQL Server instanser. 
    |**Hälsoavsökning** |Välj den avsökning som du har skapat.
    |**Sessionspermanens** |Ingen
    |**Tids gräns för inaktivitet (minuter)** |Standard (4)

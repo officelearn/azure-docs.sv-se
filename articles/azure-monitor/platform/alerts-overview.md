@@ -4,12 +4,12 @@ description: Översikt över aviseringar i Azure. Aviseringar, klassiska aviseri
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: 37980f3cebdee2754a9741a8a45ec6932e7e98ce
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e0741a23d7e5ece0898d83c53782afc353d9a7e5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327131"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371608"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Översikt över aviseringar i Microsoft Azure 
 
@@ -178,7 +178,7 @@ Sidan aviserings information innehåller följande avsnitt:
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Rollbaserad åtkomst kontroll (RBAC) för dina aviserings instanser
 
-Användningen och hanteringen av varnings instanser kräver att användaren har de inbyggda RBAC-rollerna för övervakning av [deltagare](../../role-based-access-control/built-in-roles.md#monitoring-contributor) eller [övervaknings läsare](../../role-based-access-control/built-in-roles.md#monitoring-reader). De här rollerna stöds på alla Azure Resource Managers omfång, från prenumerations nivån till detaljerade tilldelningar på en resurs nivå. Om en användare till exempel bara har övervaknings deltagar åtkomst för den virtuella datorn `ContosoVM1` kan användaren använda och hantera enbart aviseringar som genereras `ContosoVM1` .
+Användningen och hanteringen av varnings instanser kräver att användaren har de inbyggda Azure-rollerna för övervakning av [deltagare](../../role-based-access-control/built-in-roles.md#monitoring-contributor) eller [övervaknings läsare](../../role-based-access-control/built-in-roles.md#monitoring-reader). De här rollerna stöds på alla Azure Resource Managers omfång, från prenumerations nivån till detaljerade tilldelningar på en resurs nivå. Om en användare till exempel bara har övervaknings deltagar åtkomst för den virtuella datorn `ContosoVM1` kan användaren använda och hantera enbart aviseringar som genereras `ContosoVM1` .
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Hantera aviserings instanser program mässigt
 
@@ -212,4 +212,3 @@ Använd [Aviseringshantering REST API](https://aka.ms/alert-management-api) för
 - [Hantera dina varnings instanser i Azure](https://aka.ms/managing-alert-instances)
 - [Hantera smarta grupper](https://aka.ms/managing-smart-groups)
 - [Läs mer om priser för Azure-aviseringar](https://azure.microsoft.com/pricing/details/monitor/)
-

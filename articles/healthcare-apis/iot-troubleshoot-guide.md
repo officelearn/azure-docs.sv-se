@@ -8,18 +8,18 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: e74e3475256858955a5ab0dc99e7b858548e2485
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eff1272318413da7855134b0a8a44dd0a0711a6c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100421"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285585"
 ---
-# <a name="iot-connector-preview-troubleshooting-guide-and-how-to"></a>IoT Connector (för hands version) fel söknings guide och anvisningar
+# <a name="iot-connector-preview-troubleshooting-guide"></a>IoT Connector (för hands version) fel söknings guide
 
-I den här artikeln får du lära dig hur du felsöker vanliga IoT Connector (för hands version) fel meddelanden och villkor.
+Den här artikeln innehåller steg för att felsöka vanliga IoT Connector (för hands version) fel meddelanden och villkor.  
 
-Du lär dig också hur du skapar kopior av IoT Connector (för hands version) JSON-mappning.
+Du lär dig också hur du skapar kopior av IoT Connector (Preview) JSON-mappning av filer för redigering och arkivering utanför Azure Portal.
 
 ## <a name="error-messages-and-fixes"></a>Fel meddelanden och korrigeringar
 
@@ -59,11 +59,11 @@ Du lär dig också hur du skapar kopior av IoT Connector (för hands version) JS
 > [!NOTE]
 > Den här processen kan också användas för att kopiera/spara innehållet i JSON för **"Konfigurera FHIR-mappning"** .
 
-4. Välj innehållet i JSON och utför en kopierings åtgärd (till exempel: Välj CTRL + c). 
+4. Välj innehållet i JSON och gör en kopierings åtgärd (till exempel: Välj CTRL + c). 
 
    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT-koppling" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
-5. Utföra en Inklistrings åtgärd (till exempel: Välj Ctrl + v) i en ny fil i en redigerare (till exempel Visual Studio Code, Notepad) och spara filen med ett *. JSON-tillägg.
+5. Gör en Inklistrings åtgärd (till exempel: Välj Ctrl + v) i en ny fil i en redigerare (till exempel Visual Studio Code, Notepad) och spara filen med ett *. JSON-tillägg.
 
 > [!TIP]
 > Om du kommer att öppna ett [Azure-tekniskt support](https://azure.microsoft.com/support/create-ticket/) ärende för IoT-anslutningsprogrammet, måste du ta med kopior av dina mappnings filer för att kunna felsöka processen.

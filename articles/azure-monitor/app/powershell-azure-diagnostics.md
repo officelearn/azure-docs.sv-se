@@ -3,16 +3,16 @@ title: Ställa in Application Insights i en Azure med hjälp av PowerShell | Mic
 description: Automatisera konfiguration av Azure-diagnostik för att skicka pipe-data till Application Insights.
 ms.topic: conceptual
 ms.date: 08/06/2019
-ms.openlocfilehash: 20f5a5c61c65b476a98c59b24283a2d15c39ddae
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3d0b7d1e8d4a164d517834eae877844d85b9a256
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111192"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320365"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>Konfigurera Application Insights för Azure-Cloud Services med hjälp av PowerShell
 
-[Microsoft Azure](https://azure.com) kan [konfigureras att skicka Azure Diagnostics-data](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md) till [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Diagnostiken gäller Azure Cloud Services och virtuella datorer i Azure. De kompletterar telemetrin som du skickar inifrån appen med hjälp av Application Insights SDK. Som en del av automatiseringen av processen för att skapa nya resurser i Azure kan du konfigurera diagnostik med hjälp av PowerShell.
+[Microsoft Azure](https://azure.com) kan [konfigureras att skicka Azure Diagnostics-data](../platform/diagnostics-extension-to-application-insights.md) till [Azure Application Insights](./app-insights-overview.md). Diagnostiken gäller Azure Cloud Services och virtuella datorer i Azure. De kompletterar telemetrin som du skickar inifrån appen med hjälp av Application Insights SDK. Som en del av automatiseringen av processen för att skapa nya resurser i Azure kan du konfigurera diagnostik med hjälp av PowerShell.
 
 ## <a name="azure-template"></a>Azure-mall
 Om webbappen finns i Azure och du skapar dina resurser med hjälp av en Azure Resource Manager-mall kan du konfigurera Application Insights genom att lägga till följande till resursnoden:
@@ -40,7 +40,7 @@ Om webbappen finns i Azure och du skapar dina resurser med hjälp av en Azure Re
 * `myWebAppName`– webbappens ID
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Aktivera diagnostiktillägget som en del av distributionen av en molntjänst
-`New-AzureDeployment`-cmdleten har en parameter, `ExtensionConfiguration`, som stöder en rad diagnostikkonfigurationer. Dessa kan skapas med hjälp av cmdleten `New-AzureServiceDiagnosticsExtensionConfig`. Ett exempel:
+`New-AzureDeployment`-cmdleten har en parameter, `ExtensionConfiguration`, som stöder en rad diagnostikkonfigurationer. Dessa kan skapas med hjälp av cmdleten `New-AzureServiceDiagnosticsExtensionConfig`. Till exempel:
 
 ```azurepowershell
 $service_package = "CloudService.cspkg"
@@ -124,7 +124,7 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 
 
 ## <a name="see-also"></a>Se även
-* [Övervaka Azure Cloud Services-appar med Application Insights](../../azure-monitor/app/cloudservices.md)
-* [Skicka Azure Diagnostics-data till Application Insights](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
+* [Övervaka Azure Cloud Services-appar med Application Insights](./cloudservices.md)
+* [Skicka Azure Diagnostics-data till Application Insights](../platform/diagnostics-extension-to-application-insights.md)
 * [Automatisera konfigurationen av aviseringar](powershell-alerts.md)
 

@@ -12,17 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 16191dfd33d5211fbd082bc1f7e458a238bb2138
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: fae8e4d57f8b0fc1b89309d68bf7e21dce86f3fa
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224238"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317526"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>Självstudie: skicka push-meddelanden till vissa Android-appar med hjälp av Azure Notification Hubs
 
@@ -37,7 +37,7 @@ I den här självstudien gör du följande:
 > * Uppdatera Android-programmet.
 > * Testa appen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför [självstudien: push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md) innan du gör den här kursen.
 
@@ -261,7 +261,7 @@ Nästa steg är att uppdatera det Android-program som skapats i [självstudien: 
     ```
 
     Den här komponenten implementerar de REST-anrop som krävs för att kontakta appens Server del för att registrera sig för push-meddelanden. Den lagrar även lokalt de *registrationIds* som skapas av meddelandehubben som anges i [Registrering från din apps serverdel](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Den använder en autentiseringstoken som lagras i lokal lagring när du klickar på knappen **Logga in** .
-4. I din `MainActivity` klass och lägga till ett fält för `RegisterClient` klassen och en sträng för din ASP.net-backend-slutpunkt. Kom ihåg att ersätta `<Enter Your Backend Endpoint>` med din faktiska serverdelsslutpunkt som hämtades tidigare. Ett exempel är `http://mybackend.azurewebsites.net`.
+4. I din `MainActivity` klass och lägga till ett fält för `RegisterClient` klassen och en sträng för din ASP.net-backend-slutpunkt. Kom ihåg att ersätta `<Enter Your Backend Endpoint>` med din faktiska serverdelsslutpunkt som hämtades tidigare. Exempelvis `http://mybackend.azurewebsites.net`.
 
     ```java
     private RegisterClient registerClient;

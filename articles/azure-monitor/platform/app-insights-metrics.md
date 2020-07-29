@@ -7,19 +7,19 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: ca8aa62c4119b9b0b7bbed53cf722c694696ef5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9ea98df4b6cd8572412e7082b451feac3736919c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073577"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327080"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights log-baserade mått
 
 Med Application Insights loggbaserade mått kan du analysera hälso tillståndet för dina övervakade appar, skapa kraftfulla instrument paneler och konfigurera aviseringar. Det finns två typer av mått:
 
-* [Loggbaserade mått](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) bakom scenen översätts till Kusto- [frågor](/azure/kusto/query/) från lagrade händelser.
-* [Standard mått](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) lagras som församlade tids serier.
+* [Loggbaserade mått](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) bakom scenen översätts till Kusto- [frågor](/azure/kusto/query/) från lagrade händelser.
+* [Standard mått](../app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) lagras som församlade tids serier.
 
 Eftersom *standard mått* är församlade under samlingen har de bättre prestanda vid tidpunkten för frågan. Detta gör dem till ett bättre alternativ för instrument paneler och i real tids aviseringar. De *loggbaserade måtten* har fler dimensioner, vilket gör dem till det överordnade alternativet för data analys och ad hoc-diagnostik. Använd [namn områdes väljaren](metrics-getting-started.md#create-your-first-metric-chart) för att växla mellan log-baserade och standard mått i [Metrics Explorer](metrics-getting-started.md).
 
@@ -38,18 +38,18 @@ När du ritar samma mått i [Metrics Explorer](metrics-getting-started.md)finns 
 - Den markerade dimensionen för **delad diagram** översätts till en extra sammanfattnings egenskap. Om du till exempel delar diagrammet efter *plats*och ritar med en tids kornig het på 5 minuter sammanfattas *sammanfattnings* satsen *... per Bing (tidsstämpel, 5 m), plats*.
 
 > [!NOTE]
-> Om du är nybörjare på Kusto-frågespråket börjar du med att kopiera och klistra in Kusto-uttryck i rutan Log Analytics fråga utan att göra några ändringar. Klicka på **Kör** för att visa det grundläggande diagrammet. När du börjar förstå syntaxen för frågespråket kan du börja göra små ändringar och se hur ändringen påverkar. Att utforska dina egna data är ett bra sätt att börja realisera den fulla kraften hos [Log Analytics](../../azure-monitor/log-query/get-started-portal.md) och [Azure Monitor](../../azure-monitor/overview.md).
+> Om du är nybörjare på Kusto-frågespråket börjar du med att kopiera och klistra in Kusto-uttryck i rutan Log Analytics fråga utan att göra några ändringar. Klicka på **Kör** för att visa det grundläggande diagrammet. När du börjar förstå syntaxen för frågespråket kan du börja göra små ändringar och se hur ändringen påverkar. Att utforska dina egna data är ett bra sätt att börja realisera den fulla kraften hos [Log Analytics](../log-query/get-started-portal.md) och [Azure Monitor](../overview.md).
 
 ## <a name="availability-metrics"></a>Tillgänglighets mått
 
-Mått i kategorin tillgänglighet gör att du kan se hälso tillståndet för ditt webb program som observerats från platser runtom i världen. [Konfigurera tillgänglighets testerna](../../azure-monitor/app/monitor-web-app-availability.md) för att börja använda mått från den här kategorin.
+Mått i kategorin tillgänglighet gör att du kan se hälso tillståndet för ditt webb program som observerats från platser runtom i världen. [Konfigurera tillgänglighets testerna](../app/monitor-web-app-availability.md) för att börja använda mått från den här kategorin.
 
 ### <a name="availability-availabilityresultsavailabilitypercentage"></a>Tillgänglighet (availabilityResults/availabilityPercentage)
 *Tillgänglighets* måttet visar procent andelen av de webb test körningar som inte identifierade några problem. Det lägsta möjliga värdet är 0, vilket innebär att alla webb test körningar har misslyckats. Värdet 100 innebär att alla webbtester körs och att verifierings villkoren har körts.
 
 |Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
 |---|---|---|---|---|---|
-|Procent|Medelvärde|Körnings plats, test namn|
+|Procent|Genomsnitt|Körnings plats, test namn|
 
 ```Kusto
 availabilityResults 
@@ -59,7 +59,7 @@ availabilityResults
 
 ### <a name="availability-test-duration-availabilityresultsduration"></a>Tillgänglighets testets varaktighet (availabilityResults/duration)
 
-Måttet för *tillgänglighets testets varaktighet* visar hur lång tid det tog för webb testet att köras. För [webbtester med flera steg](../../azure-monitor/app/availability-multistep.md)återspeglar måttet den totala körnings tiden för alla steg.
+Måttet för *tillgänglighets testets varaktighet* visar hur lång tid det tog för webb testet att köras. För [webbtester med flera steg](../app/availability-multistep.md)återspeglar måttet den totala körnings tiden för alla steg.
 
 |Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
 |---|---|---|---|---|---|
@@ -92,7 +92,7 @@ availabilityResults
 Webb läsar mått samlas in av Application Insights JavaScript SDK från verkliga webbläsare för slutanvändare. De ger fantastiska insikter om användarnas upplevelse med din webbapp. Webb läsar måtten samplas vanligt vis inte, vilket innebär att de ger högre precision av användnings numren jämfört med mått på Server sidan som kan skevas genom sampling.
 
 > [!NOTE]
-> För att samla in webb läsar mått måste ditt program instrumenteras med [Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md).
+> För att samla in webb läsar mått måste ditt program instrumenteras med [Application Insights JavaScript SDK](../app/javascript.md).
 
 ### <a name="browser-page-load-time-browsertimingstotalduration"></a>Sid inläsnings tid för webbläsare (browserTimings/totalDuration)
 
@@ -182,7 +182,7 @@ Måtten i **fel** visar problem med bearbetnings begär Anden, beroende anrop oc
 
 Det här måttet visar antalet utlösta undantag från din program kod som körs i webbläsaren. Endast undantag som spåras med ett ```trackException()``` Application Insights API-anrop ingår i måttet.
 
-|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Kommentarer|
+|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Obs!|
 |---|---|---|---|
 |Antal|Antal|Ingen|Log-baserad version använder **Summa** agg regering|
 
@@ -197,7 +197,7 @@ exceptions
 
 Antalet misslyckade beroende anrop.
 
-|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Kommentarer|
+|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Obs!|
 |---|---|---|---|
 |Antal|Antal|Ingen|Log-baserad version använder **Summa** agg regering|
 
@@ -210,9 +210,9 @@ dependencies
 
 ### <a name="exceptions-exceptionscount"></a>Undantag (undantag/antal)
 
-Varje gång du loggar ett undantag till Application Insights finns det ett anrop till [trackException ()-metoden](../../azure-monitor/app/api-custom-events-metrics.md#trackexception) i SDK: n. Undantags måttet visar antalet loggade undantag.
+Varje gång du loggar ett undantag till Application Insights finns det ett anrop till [trackException ()-metoden](../app/api-custom-events-metrics.md#trackexception) i SDK: n. Undantags måttet visar antalet loggade undantag.
 
-|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Kommentarer|
+|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Obs!|
 |---|---|---|---|
 |Antal|Antal|Moln roll namn, moln roll instans, enhets typ|Log-baserad version använder **Summa** agg regering|
 
@@ -224,9 +224,9 @@ exceptions
 
 ### <a name="failed-requests-requestsfailed"></a>Misslyckade förfrågningar (begär Anden/misslyckade)
 
-Antalet spårade server begär Anden som marker ATS som *misslyckade*. Som standard märker Application Insights SDK automatiskt varje serverbegäran som returnerade HTTP-svarskod 5xx eller 4xx som en misslyckad begäran. Du kan anpassa den här logiken genom att ändra egenskapen *lyckades* för objektet begär telemetri i en [anpassad telemetri-initierare](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
+Antalet spårade server begär Anden som marker ATS som *misslyckade*. Som standard märker Application Insights SDK automatiskt varje serverbegäran som returnerade HTTP-svarskod 5xx eller 4xx som en misslyckad begäran. Du kan anpassa den här logiken genom att ändra egenskapen *lyckades* för objektet begär telemetri i en [anpassad telemetri-initierare](../app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
-|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Kommentarer|
+|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Obs!|
 |---|---|---|---|
 |Antal|Antal|Moln roll instans, moln roll namn, verklig eller syntetisk trafik, prestanda för begäran, svarskod|Log-baserad version använder **Summa** agg regering|
 
@@ -241,7 +241,7 @@ requests
 
 Det här måttet visar antalet Server undantag.
 
-|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Kommentarer|
+|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Obs!|
 |---|---|---|---|
 |Antal|Antal|Moln roll namn, moln roll instans|Log-baserad version använder **Summa** agg regering|
 
@@ -254,7 +254,7 @@ exceptions
 
 ## <a name="performance-counters"></a>Prestandaräknare
 
-Använd mått i kategorin **prestanda räknare** för att få åtkomst till [system prestanda räknare som samlats in av Application Insights](../../azure-monitor/app/performance-counters.md).
+Använd mått i kategorin **prestanda räknare** för att få åtkomst till [system prestanda räknare som samlats in av Application Insights](../app/performance-counters.md).
 
 ### <a name="available-memory-performancecountersavailablememory"></a>Tillgängligt minne (performanceCounters/availableMemory)
 
@@ -492,3 +492,4 @@ union traces, requests, pageViews, dependencies, customEvents, availabilityResul
 | summarize dcount(user_AuthenticatedId) by bin(timestamp, 1h)
 | render barchart
 ```
+

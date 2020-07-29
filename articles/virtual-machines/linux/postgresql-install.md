@@ -4,17 +4,17 @@ description: Lär dig hur du installerar och konfigurerar PostgreSQL på en virt
 author: cynthn
 ms.service: virtual-machines-linux
 ms.subservice: workloads
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: 6efc8a7e6478ed874caf925e10ef43c04343d254
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 321f6bd6324613967001139e365d96521217d50b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133236"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87267259"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Installera och konfigurera PostgreSQL på Azure
 PostgreSQL är en avancerad databas med öppen källkod som liknar Oracle och DB2. Den innehåller företags klara funktioner som full syra efterlevnad, tillförlitlig transaktions bearbetning och samtidighet med flera versioner. Det stöder också standarder som ANSI SQL och SQL/with (inklusive externa data omslutningar för Oracle, MySQL, MongoDB och många andra). Den är mycket utöknings bar med stöd för över 12 procedur språk, GIN-och register index, spatiala data stöd och flera NoSQL-liknande funktioner för JSON-eller nyckel värdebaserade program.

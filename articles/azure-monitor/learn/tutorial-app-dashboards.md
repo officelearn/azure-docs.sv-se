@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: caf8b1899cad95ade6297e78e8f2cf35939ef189
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a08e00b2debce970bdbd385b785806c8636e5946
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77661642"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318427"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Skapa anpassade KPI-instrumentpaneler med Azure Application Insights
 
@@ -31,7 +31,7 @@ Du kan skapa flera instrumentpaneler i Azure-portalen som var och en inkluderar 
 
 För att slutföra den här kursen behöver du:
 
-- Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](../../azure-monitor/app/asp-net.md).
+- Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](../app/asp-net.md).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
@@ -57,7 +57,7 @@ En instrument panel med statisk text är inte mycket intressant, så nu lägger 
 
 
 1. Välj din **Application Insights**-resurs på startsidan.
-2. I **översikts** fönstret klickar du på PIN- ![ikonen PIN](media/tutorial-app-dashboards/pushpin.png) -ikon för att lägga till panelen till den senaste instrument panelen som du visade.  
+2. I **översikts** fönstret klickar du på PIN-ikonen PIN-ikon ![ ](media/tutorial-app-dashboards/pushpin.png) för att lägga till panelen till den senaste instrument panelen som du visade.  
  
 3. I det övre högra hörnet visas ett meddelande om att din panel har fästs på instrument panelen. Klicka på **Fäst på instrumentpanelen** i meddelandet för att återgå till instrumentpanelen eller använda fönstret instrumentpanelen.
 4. Panelen läggs nu till i instrumentpanelen. Välj **Redigera** för att ändra placeringen av panelen. Klicka och dra den på plats och klicka sedan på **Anpassningen är klar**. Instrumentpanelen har nu en panel med lite användbar information.
@@ -127,4 +127,5 @@ Eftersom Azure Applications Insights-loggar (Analytics) är en separat tjänst m
 Nu när du har lärt dig att skapa anpassade instrumentpaneler kan du ta en titt på resten av Application Insights-dokumentationen, som innehåller en fallstudie.
 
 > [!div class="nextstepaction"]
-> [Djupgående diagnostik](../../azure-monitor/app/devops.md)
+> [Djupgående diagnostik](../app/devops.md)
+

@@ -1,6 +1,6 @@
 ---
 title: Containernätverk med Azure Virtual Network | Microsoft Docs
-description: Läs om hur du gör det möjligt för containrar att använda Azure Virtual Network.
+description: Lär dig mer om CNI-plugin-programmet (Azure Virtual Network container Network Interface) och hur du aktiverar behållare för att använda en Azure-Virtual Network.
 services: virtual-network
 documentationcenter: na
 author: aanandr
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: b2a0a0527ffaedacbabcf19435fbc1772b632816
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd86b2ec803b2327d3daa2d4274f13328fec8c27
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707505"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283222"
 ---
 # <a name="enable-containers-to-use-azure-virtual-network-capabilities"></a>Göra så att containrar kan använda Azure Virtual Network-funktioner
 
@@ -51,7 +51,7 @@ Poddar finns i en virtuell dator som är en del av ett virtuellt nätverk. En po
 
 Om du vill aktivera poddåtkomst till internet konfigurerar plugin-programmet *iptables*-regler för att nätadressöversätta (NAT) internet-bunden trafik från poddar. IP-källadressen för paketet översätts till den primära IP-adressen på den virtuella datorns nätverksgränssnitt. Virtuella Windows-datorer identifierar automatiskt källan för NAT-trafik (SNAT) IP-adresser som är utanför det undernät som den virtuell datorn tillhör som mål. Normalt översätts all trafik till en IP-adress utanför IP-adressintervallet för det virtuella nätverket.
 
-## <a name="limits"></a>Gränser
+## <a name="limits"></a>Begränsningar
 
 Plugin-programmet stöder upp till 250 poddar per virtuell dator och upp till 16 000 poddar i ett virtuellt nätverk. Dessa gränser är olika för [Azure Kubernetes Service](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-kubernetes-service-limits).
 

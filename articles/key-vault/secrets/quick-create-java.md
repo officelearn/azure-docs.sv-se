@@ -2,17 +2,18 @@
 title: Snabb start – Azure Key Vault klient bibliotek för Java
 description: Innehåller format och innehålls kriterier för att skriva snabb starter för klient bibliotek i Azure SDK.
 author: msmbaldwin
+ms.custom: devx-track-java
 ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 54e11724a2dbb0f70fe10b8bb3e8074ba275214d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6c29141a2e255588ffa581b84ffeb4ddd7fdb703
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87013154"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324717"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-java"></a>Snabb start: Azure Key Vault klient bibliotek för Java
 
@@ -33,7 +34,7 @@ Ytterligare resurser:
 * [Produktdokumentation](index.yml)
 * [Exempel](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) version 8 eller senare

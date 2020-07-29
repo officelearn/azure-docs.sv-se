@@ -7,12 +7,12 @@ ms.author: lechen
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
 ms.custom: tracking-python
-ms.openlocfilehash: 35d56c5318046a0f9ffc52f61fac886c473cf0bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eec4a46596b9cd39a43b6bb1f8969d41e99916b6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024375"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322558"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurera Azure Monitor för ditt python-program
 
@@ -20,7 +20,7 @@ Azure Monitor stöder distribuerad spårning, Metric-insamling och loggning av p
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - Python-installation. I den här artikeln används [python-3.7.0](https://www.python.org/downloads/release/python-370/), även om andra versioner sannolikt kommer att fungera med mindre ändringar. SDK: n stöder bara python v 2.7 och v 3.4 – v 3.7.
 - Skapa en Application Insights- [resurs](./create-new-resource.md). Du tilldelas din egen Instrumentation-nyckel (iKey) för din resurs.
 
@@ -474,13 +474,14 @@ Mer detaljerad information om hur du använder frågor och loggar finns [i logga
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Spåra inkommande begär Anden](./../../azure-monitor/app/opencensus-python-dependency.md)
-* [Spåra pågående förfrågningar](./../../azure-monitor/app/opencensus-python-request.md)
-* [Program karta](./../../azure-monitor/app/app-map.md)
-* [Prestanda övervakning från slut punkt till slut punkt](./../../azure-monitor/learn/tutorial-performance.md)
+* [Spåra inkommande begär Anden](./opencensus-python-dependency.md)
+* [Spåra pågående förfrågningar](./opencensus-python-request.md)
+* [Program karta](./app-map.md)
+* [Prestanda övervakning från slut punkt till slut punkt](../learn/tutorial-performance.md)
 
 ### <a name="alerts"></a>Aviseringar
 
-* [Tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md): Skapa tester som kan användas för att kontrollera att webbplatsen visas på webben.
-* [Smart diagnostik](../../azure-monitor/app/proactive-diagnostics.md): De här testerna körs automatiskt, så du behöver inte göra något för att konfigurera dem. De berättar om din app har ett ovanligt antal misslyckade begäranden.
-* [Mått aviseringar](../../azure-monitor/platform/alerts-log.md): Ställ in aviseringar för att varna dig om ett mått överskrider ett tröskelvärde. Du kan ställa in dem för anpassade mätningar som du kodar i din app.
+* [Tillgänglighetstester](./monitor-web-app-availability.md): Skapa tester som kan användas för att kontrollera att webbplatsen visas på webben.
+* [Smart diagnostik](./proactive-diagnostics.md): De här testerna körs automatiskt, så du behöver inte göra något för att konfigurera dem. De berättar om din app har ett ovanligt antal misslyckade begäranden.
+* [Mått aviseringar](../platform/alerts-log.md): Ställ in aviseringar för att varna dig om ett mått överskrider ett tröskelvärde. Du kan ställa in dem för anpassade mätningar som du kodar i din app.
+

@@ -9,19 +9,20 @@ ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
+ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: d1c2da10270747aa09ecbcfdc537df567b4cdfc9
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 4850daf8544129e29333be6a807c91106cc11f05
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929663"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321096"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och Java
 
 Följ den här snabb starten om du vill lära dig att ringa till API för automatiska förslag i Bing och läsa JSON-svaret. Det här enkla Java-programmet skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i Java, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 * [Gson-biblioteket](https://github.com/google/gson)

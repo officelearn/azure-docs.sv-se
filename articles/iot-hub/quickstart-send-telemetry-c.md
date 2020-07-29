@@ -10,14 +10,15 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mqtt
+- 'Role: Cloud Development'
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: 4fbebfe2ec554c7c9c2f85a5657daeeee8dae31a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: ecc3c4e97ea533f19e570db21eceb6f759969a8f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83727088"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317951"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Snabb start: skicka telemetri från en enhet till en IoT-hubb och Läs den med ett Server dels program (C)
 
@@ -31,7 +32,7 @@ Den här artikeln är skriven för Windows, men du kan även slutföra den här 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -42,7 +43,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 * Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här snabb starten använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 
-* Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IoT-tillägget lägger till IoT Hub-, IoT Edge-och IoT Device Provisioning-tjänst (DPS)-kommandon i Azure CLI.
+* Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IoT-tillägget lägger till kommandon specifika för IoT Hub, IoT Edge och IoT Device Provisioning Service (DPS) i Azure CLI.
 
    ```azurecli-interactive
    az extension add --name azure-iot
@@ -139,7 +140,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I det h
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyCDevice --output table
     ```
 
-    Anteckna enhetsanslutningssträngen. Den ser ut ungefär som:
+    Anteckna enhetens anslutningssträng, som ser ut så här:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyCDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -186,7 +187,7 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
 
     ![Kör den simulerade enheten](media/quickstart-send-telemetry-c/simulated-device-app.png)
 
-## <a name="read-the-telemetry-from-your-hub"></a>Läsa telemetrin från din hubb
+## <a name="read-the-telemetry-from-your-hub"></a>Läs telemetrin från din hubb
 
 I det här avsnittet ska du använda Azure Cloud Shell med IoT- [tillägget](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) för att övervaka enhets meddelanden som skickas av den simulerade enheten.
 

@@ -6,27 +6,27 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 0b18c34f8c0378d22d138b865d72fa4f351d7b8f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 80e87d6fdab6ecf15c241581f8c19d36b30d7e30
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073633"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327114"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights-anslutningsprogram hanterings lösning (inaktuell)
 
 ![Application Insights symbol](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> Med stöd för [frågor över olika resurser](../../azure-monitor/log-query/cross-workspace-query.md)krävs inte längre den Application Insights-anslutningsprogram hanterings lösningen. Den har ersatts och tagits bort från Azure Marketplace, tillsammans med OMS-portalen som officiellt förbrukades den 15 januari 2019 för Azures kommersiella moln. Den kommer att dras tillbaka den 30 mars 2019 för Azures moln för amerikanska myndigheter.
+> Med stöd för [frågor över olika resurser](../log-query/cross-workspace-query.md)krävs inte längre den Application Insights-anslutningsprogram hanterings lösningen. Den har ersatts och tagits bort från Azure Marketplace, tillsammans med OMS-portalen som officiellt förbrukades den 15 januari 2019 för Azures kommersiella moln. Den kommer att dras tillbaka den 30 mars 2019 för Azures moln för amerikanska myndigheter.
 >
 >Befintliga anslutningar fortsätter att fungera fram till den 30 juni 2019.  Med OMS-portalen är det inte möjligt att konfigurera och ta bort befintliga anslutningar från portalen. Se [ta bort anslutningen med PowerShell](#removing-the-connector-with-powershell) nedan för ett skript på att använda PowerShell för att ta bort befintliga anslutningar.
 >
->Anvisningar om hur du frågar Application Insights loggdata för flera program finns i [förena flera Azure Monitor Application Insights resurser](../log-query/unify-app-resource-data.md). Mer information om utfasningen av OMS-portalen finns i [OMS-portalen flytta till Azure](../../azure-monitor/platform/oms-portal-transition.md).
+>Anvisningar om hur du frågar Application Insights loggdata för flera program finns i [förena flera Azure Monitor Application Insights resurser](../log-query/unify-app-resource-data.md). Mer information om utfasningen av OMS-portalen finns i [OMS-portalen flytta till Azure](./oms-portal-transition.md).
 >
 > 
 
-Med program insikts kopplings lösningen kan du diagnostisera prestanda problem och förstå vad användarna gör med din app när den övervakas med [Application Insights](../../azure-monitor/app/app-insights-overview.md). Vyer av samma programtelemetri som utvecklarna ser i Application Insights finns tillgängliga i Log Analytics. När du integrerar dina Application Insights-appar med Log Analytics ökas emellertid synligheten för dina program genom att ha åtgärds-och program data på ett och samma ställe. Med samma vyer kan du samar beta med dina Apps-utvecklare. Vanliga vyer kan hjälpa till att minska tiden för att upptäcka och lösa både program-och plattforms problem.
+Med program insikts kopplings lösningen kan du diagnostisera prestanda problem och förstå vad användarna gör med din app när den övervakas med [Application Insights](../app/app-insights-overview.md). Vyer av samma programtelemetri som utvecklarna ser i Application Insights finns tillgängliga i Log Analytics. När du integrerar dina Application Insights-appar med Log Analytics ökas emellertid synligheten för dina program genom att ha åtgärds-och program data på ett och samma ställe. Med samma vyer kan du samar beta med dina Apps-utvecklare. Vanliga vyer kan hjälpa till att minska tiden för att upptäcka och lösa både program-och plattforms problem.
 
 När du använder lösningen kan du:
 
@@ -44,12 +44,12 @@ Till skillnad från de flesta andra Log Analytics lösningar samlas data inte in
 
 | Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
-| [Windows-agenter](../../azure-monitor/platform/agent-windows.md) | No | Lösningen samlar inte in information från Windows-agenter. |
-| [Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) | No | Lösningen samlar inte in information från Linux-agenter. |
-| [SCOM-hanterings grupp](../../azure-monitor/platform/om-agents.md) | No | Lösningen samlar inte in information från agenter i en ansluten SCOM Management Group. |
-| [Azure Storage-konto](./resource-logs.md#send-to-log-analytics-workspace) | No | Lösningen samlar inte in information från Azure Storage. |
+| [Windows-agenter](./agent-windows.md) | Nej | Lösningen samlar inte in information från Windows-agenter. |
+| [Linux-agenter](../learn/quick-collect-linux-computer.md) | Nej | Lösningen samlar inte in information från Linux-agenter. |
+| [SCOM-hanterings grupp](./om-agents.md) | Nej | Lösningen samlar inte in information från agenter i en ansluten SCOM Management Group. |
+| [Azure Storage-konto](./resource-logs.md#send-to-log-analytics-workspace) | Nej | Lösningen samlar inte in information från Azure Storage. |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Du måste ha en Azure-prenumeration för att få åtkomst till Application Insights-anslutningsprogram information
 - Du måste ha minst en konfigurerad Application Insights-resurs.
@@ -57,7 +57,7 @@ Till skillnad från de flesta andra Log Analytics lösningar samlas data inte in
 
 ## <a name="configuration"></a>Konfiguration
 
-1. Aktivera Azure Web Apps-analys-lösningen från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) eller genom att använda processen som beskrivs i [Lägg till Log Analytics lösningar från Lösningsgalleriet](../../azure-monitor/insights/solutions.md).
+1. Aktivera Azure Web Apps-analys-lösningen från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) eller genom att använda processen som beskrivs i [Lägg till Log Analytics lösningar från Lösningsgalleriet](../insights/solutions.md).
 2. Bläddra till [Azure Portal](https://portal.azure.com). Välj **alla tjänster** för att öppna Application Insights. Sök sedan efter Application Insights. 
 3. Under **prenumerationer**väljer du en prenumeration som har Application Insights resurser och väljer sedan ett eller flera program under **namn**.
 4. Klicka på **Spara**.
@@ -144,7 +144,7 @@ Du kan pivotera genom att klicka på ellipserna (**...**) som visas i slutet av 
 
 ### <a name="sample-corrected-data"></a>Exempel – korrigerade data
 
-Application Insights tillhandahåller *[provtagnings korrigering](../../azure-monitor/app/sampling.md)* som hjälper till att minska telemetri trafiken. När du aktiverar sampling i Application Insights-appen får du ett minskat antal poster som lagras både i Application Insights och i Log Analytics. Medan data konsekvens bevaras på **Application Insights-anslutningsprogram** sida och perspektiv, bör du manuellt korrigera exempel data för dina anpassade frågor.
+Application Insights tillhandahåller *[provtagnings korrigering](../app/sampling.md)* som hjälper till att minska telemetri trafiken. När du aktiverar sampling i Application Insights-appen får du ett minskat antal poster som lagras både i Application Insights och i Log Analytics. Medan data konsekvens bevaras på **Application Insights-anslutningsprogram** sida och perspektiv, bör du manuellt korrigera exempel data för dina anpassade frågor.
 
 Här är ett exempel på hur du kan sampla om korrigering i en loggs öknings fråga:
 
@@ -163,8 +163,8 @@ Lösningen tar emot följande typer av telemetri från dina anslutna Application
 - Tillgänglighet
 - Undantag
 - Begäranden
-- Sid visningar – för att din arbets yta ska kunna ta emot sidvyer måste du konfigurera dina appar för att samla in informationen. Mer information finns i [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views).
-- Anpassade händelser – för att din arbets yta ska kunna ta emot anpassade händelser måste du konfigurera dina appar för att samla in informationen. Mer information finns i [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
+- Sid visningar – för att din arbets yta ska kunna ta emot sidvyer måste du konfigurera dina appar för att samla in informationen. Mer information finns i [PageViews](../app/api-custom-events-metrics.md#page-views).
+- Anpassade händelser – för att din arbets yta ska kunna ta emot anpassade händelser måste du konfigurera dina appar för att samla in informationen. Mer information finns i [TrackEvent](../app/api-custom-events-metrics.md#trackevent).
 
 Data tas emot av Log Analytics från Application Insights när de blir tillgängliga.
 
@@ -245,7 +245,7 @@ En post med en *typ* av *ApplicationInsights* skapas för varje typ av indata. A
 | Egenskap | Beskrivning |
 | --- | --- |
 | Typ | ApplicationInsights |
-| TelemetryType | Begäran |
+| TelemetryType | Förfrågan |
 | ResponseCode | HTTP-svar som skickats till klienten |
 | RequestSuccess | Visar att åtgärden lyckades eller misslyckades. Sant eller falskt. |
 | RequestID | ID för att unikt identifiera begäran |
@@ -318,4 +318,5 @@ ApplicationInsights | summarize by ApplicationName
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Använd [loggs ökningen](../../azure-monitor/log-query/log-query-overview.md) för att visa detaljerad information om dina Application Insights-appar.
+- Använd [loggs ökningen](../log-query/log-query-overview.md) för att visa detaljerad information om dina Application Insights-appar.
+

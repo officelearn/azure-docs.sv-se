@@ -6,11 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 09c1899004bd93d0f2365c3bbc000c37459e8d89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a81c4f32385cf06238f36ca0162923f93d682807
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797821"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323731"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Upptäck hur kunder använder ditt program med Application Insights-trattar
 
@@ -36,7 +37,7 @@ Följande skärm bild visar ett exempel på vilken typ av data som skapas av tra
 ### <a name="funnels-features"></a>Trattens funktioner
 Föregående skärm bild innehåller fem markerade områden. Dessa är funktioner i trattar. I följande lista beskrivs mer om varje motsvarande del i skärm bilden:
 1. Om din app är samplad visas en banderoll. Om du väljer banderollen öppnas ett kontext fönster som förklarar hur du inaktiverar sampling. 
-2. Du kan exportera din tratt till [Power BI](../../azure-monitor/app/export-power-bi.md ).
+2. Du kan exportera din tratt till [Power BI](./export-power-bi.md).
 3. Välj ett steg om du vill visa mer information till höger. 
 4. Det historiska konverterings diagrammet visar konverterings kurserna under de senaste 90 dagarna. 
 5. Förstå användarna bättre genom att komma åt användar verktyget. Du kan använda filter i varje steg. 
@@ -45,7 +46,7 @@ Föregående skärm bild innehåller fem markerade områden. Dessa är funktione
   * [Översikt över användning](usage-overview.md)
   * [Användare, sessioner och händelser](usage-segmentation.md)
   * [Kvarhållning](usage-retention.md)
-  * [Arbetsböcker](../../azure-monitor/platform/workbooks-overview.md)
+  * [Arbetsböcker](../platform/workbooks-overview.md)
   * [Lägg till användar kontext](usage-send-user-context.md)
-  * [Exportera till Power BI](../../azure-monitor/app/export-power-bi.md )
+  * [Exportera till Power BI](./export-power-bi.md)
 

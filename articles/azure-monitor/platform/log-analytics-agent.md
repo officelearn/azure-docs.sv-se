@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 9f8850b83b2af7f0d3007cd716f9e077361a02e2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 409a119804354b85e3af380d33a4801549ef8133
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091121"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325295"
 ---
 # <a name="log-analytics-agent-overview"></a>Översikt över Log Analytics agent
 Azure Log Analytics-agenten har utvecklats för omfattande hantering av virtuella datorer i alla moln, lokala datorer och de som övervakas av [System Center Operations Manager](/system-center/scom/). Windows-och Linux-agenterna skickar insamlade data från olika källor till din Log Analytics arbets yta i Azure Monitor, samt alla unika loggar eller mått som definierats i en övervaknings lösning. Log Analytics agenten stöder också insikter och andra tjänster i Azure Monitor som [Azure Monitor for VMS](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml)och [Azure Automation](../../automation/automation-intro.md).
@@ -72,15 +72,15 @@ Det finns flera metoder för att installera Log Analytics-agenten och ansluta da
 
 |Källa | Metod | Beskrivning|
 |-------|-------------|-------------|
-|Azure VM| [Manuellt från Azure Portal](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json) | Ange de virtuella datorer som ska distribueras från arbets ytan Log Analytics. |
+|Azure VM| [Manuellt från Azure Portal](../learn/quick-collect-azurevm.md?toc=%2fazure%2fazure-monitor%2ftoc.json) | Ange de virtuella datorer som ska distribueras från arbets ytan Log Analytics. |
 | | Log Analytics VM-tillägg för [Windows](../../virtual-machines/extensions/oms-windows.md) eller [Linux](../../virtual-machines/extensions/oms-linux.md) med hjälp av Azure CLI eller med en Azure Resource Manager-mall | Tillägget installerar Log Analytics agent på virtuella Azure-datorer och registrerar dem i en befintlig Azure Monitor arbets yta. |
 | | [Azure Monitor för virtuella datorer](../insights/vminsights-enable-overview.md) | När du aktiverar övervakning med Azure Monitor for VMs installeras Log Analytics-tillägget och agenten. |
 | | [Azure Security Center automatisk etablering](../../security-center/security-center-enable-data-collection.md) | Azure Security Center kan etablera Log Analytics-agenten på alla virtuella Azure-datorer som stöds och eventuella nya som skapas om du aktiverar den för att övervaka säkerhets problem och hot. Om den aktive ras kommer alla nya eller befintliga virtuella datorer utan en installerad agent att tillhandahållas. |
 | Windows-hybriddator| [Manuell installation](agent-windows.md) | Installera Microsoft Monitoring Agent från kommando raden. |
 | | [Azure Automation DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation) | Automatisera installationen med Azure Automation DSC. |
 | | [Resource Manager-mall med Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) | Använd en Azure Resource Manager mall om du har distribuerat Microsoft Azure Stack i ditt data Center.| 
-| Linux-hybriddator| [Manuell installation](../../azure-monitor/learn/quick-collect-linux-computer.md)|Installera agenten för Linux som anropar ett omslutnings skript som finns på GitHub. | 
-| System Center Operations Manager|[Integrera Operations Manager med Log Analytics](../../azure-monitor/platform/om-agents.md) | Konfigurera integration mellan Operations Manager och Azure Monitor loggar för att vidarebefordra insamlade data från Windows-datorer som rapporterar till en hanterings grupp.|  
+| Linux-hybriddator| [Manuell installation](../learn/quick-collect-linux-computer.md)|Installera agenten för Linux som anropar ett omslutnings skript som finns på GitHub. | 
+| System Center Operations Manager|[Integrera Operations Manager med Log Analytics](./om-agents.md) | Konfigurera integration mellan Operations Manager och Azure Monitor loggar för att vidarebefordra insamlade data från Windows-datorer som rapporterar till en hanterings grupp.|  
 
 
 ## <a name="supported-windows-operating-systems"></a>Windows-operativsystem som stöds
@@ -189,10 +189,10 @@ I följande tabell visas den konfigurations information för proxy och brand vä
 
 |Agentresurs|Portar |Riktning |Kringgå HTTPS-kontroll|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Port 443 |Utgående|Yes |  
-|*.oms.opinsights.azure.com |Port 443 |Utgående|Yes |  
-|*.blob.core.windows.net |Port 443 |Utgående|Yes |
-|*.azure-automation.net |Port 443 |Utgående|Yes |
+|*.ods.opinsights.azure.com |Port 443 |Utgående|Ja |  
+|*.oms.opinsights.azure.com |Port 443 |Utgående|Ja |  
+|*.blob.core.windows.net |Port 443 |Utgående|Ja |
+|*.azure-automation.net |Port 443 |Utgående|Ja |
 
 För brand Väggs information som krävs för Azure Government, se [Azure Government hantering](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). 
 
@@ -217,7 +217,7 @@ För Linux-agenten anges proxyservern under installationen eller [efter installa
 |proxyhost | Adress eller FQDN för proxyservern/Log Analytics Gateway |
 |port | Valfritt port nummer för proxyservern/Log Analytics Gateway |
 
-Exempel: `https://user01:password@proxy01.contoso.com:30443`
+Exempelvis: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
 > Om du använder specialtecken som " \@ " i ditt lösen ord får du ett anslutnings fel på grund av att värdet parsas felaktigt.  Undvik det här problemet genom att koda lösen ordet i URL: en med ett verktyg som [URLDecode](https://www.urldecoder.org/).  
@@ -229,3 +229,4 @@ Exempel: `https://user01:password@proxy01.contoso.com:30443`
 * Granska [data källorna](agent-data-sources.md) för att förstå de data källor som är tillgängliga för att samla in data från Windows-eller Linux-systemet. 
 * Lär dig mer om [logg frågor](../log-query/log-query-overview.md) för att analysera data som samlas in från data källor och lösningar. 
 * Lär dig mer om att [övervaka lösningar](../insights/solutions.md) som lägger till funktioner i Azure Monitor och även samla in data i arbets ytan Log Analytics.
+

@@ -1,7 +1,7 @@
 ---
 title: Skapa ett virtuellt nätverk – snabbstart – Azure PowerShell
 titlesuffix: Azure Virtual Network
-description: I den här snabbstarten får du lära dig hur du skapar ett virtuellt nätverk med hjälp av Azure Portal. Med ett virtuellt nätverk kan Azure-resurser, till exempel virtuella datorer, kommunicera privat med varandra och med Internet.
+description: I den här snabb starten skapar du ett virtuellt nätverk med hjälp av Azure Portal. Ett virtuellt nätverk gör att Azure-resurser kan kommunicera med varandra och med Internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 1d30b35264707c59c899cc3a224e4affa2a4696e
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: e547da3d1a26a7dcc110a8349dbae3c7e3f29e0b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707471"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291941"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Snabbstart: Skapa ett virtuellt nätverk med hjälp av PowerShell
 
@@ -37,7 +37,7 @@ Till sist, om du kör PowerShell lokalt måste du även köra `Connect-AzAccount
 
 Det finns en handfull steg du måste gå igenom för att konfigurera din resursgrupp och virtuella nätverk.
 
-### <a name="create-the-resource-group"></a>Skapa en resursgrupp
+### <a name="create-the-resource-group"></a>Skapa resursgruppen
 
 Innan du kan skapa ett virtuellt nätverk måste du skapa en resursgrupp som ska vara värd för det virtuella nätverket. Skapa en resursgrupp med [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 

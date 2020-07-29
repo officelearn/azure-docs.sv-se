@@ -4,14 +4,15 @@ description: Specifikationer för virtuella datorer i H-serien.
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: jushiman
-ms.openlocfilehash: f79dcb8886985d60a1ed82e1a77d231cf7d3ad24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34f89656fc56b27edafeff0e60874a00139266dd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678689"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87268959"
 ---
 # <a name="h-series"></a>H-serien
 
@@ -88,7 +89,7 @@ Azure Marketplace har många Linux-distributioner som stöder RDMA-anslutning:
 
 ## <a name="other-sizes"></a>Andra storlekar
 
-- [Generellt syfte](sizes-general.md)
+- [Generell användning](sizes-general.md)
 - [Minnesoptimerad](sizes-memory.md)
 - [Lagringsoptimerad](sizes-storage.md)
 - [GPU-optimerad](sizes-gpu.md)

@@ -2,13 +2,13 @@
 title: Distribuera resurser till klient organisationen
 description: Beskriver hur du distribuerar resurser i klient omfånget i en Azure Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.openlocfilehash: 45541bcbea5a80e55dbc9f80e1eae8e17189bf6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: a6523ff70dc7307713bb6aecf90e2ea9f8e2bfdd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945451"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321759"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Skapa resurser på klient nivå
 
@@ -16,15 +16,32 @@ När din organisation är vuxen kan du behöva definiera och tilldela [principer
 
 ## <a name="supported-resources"></a>Resurser som stöds
 
-Du kan distribuera följande resurs typer på klient nivå:
+Alla resurs typer kan inte distribueras till klient nivån. I det här avsnittet listas vilka resurs typer som stöds.
 
-* [distributioner](/azure/templates/microsoft.resources/deployments) – för kapslade mallar som distribueras till hanterings grupper eller prenumerationer.
-* [managementGroups](/azure/templates/microsoft.management/managementgroups)
+Använd följande för Azure-principer:
+
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+
+Använd följande för rollbaserad åtkomst kontroll:
+
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+
+För kapslade mallar som distribuerar till hanterings grupper, prenumerationer eller resurs grupper, använder du:
+
+* [distributioner](/azure/templates/microsoft.resources/deployments)
+
+Använd följande för att skapa hanterings grupper:
+
+* [managementGroups](/azure/templates/microsoft.management/managementgroups)
+
+För att hantera kostnader använder du:
+
+* [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
+* [problemlösning](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
+* [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
 
 ### <a name="schema"></a>Schema
 
@@ -94,6 +111,56 @@ Du kan ange ett namn för distributionen eller använda standard distributions n
 
 För varje distributions namn är platsen oföränderlig. Du kan inte skapa en distribution på en plats om det finns en befintlig distribution med samma namn på en annan plats. Om du får fel koden `InvalidDeploymentLocation` använder du antingen ett annat namn eller samma plats som den tidigare distributionen för det namnet.
 
+## <a name="deployment-scopes"></a>Distributions omfång
+
+När du distribuerar till en klient kan du rikta in klient-eller hanterings grupper, prenumerationer och resurs grupper i klient organisationen. Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
+
+De resurser som definieras i avsnittet resurser i mallen tillämpas på klienten.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        tenant-level-resources
+    ],
+    "outputs": {}
+}
+```
+
+Om du vill rikta en hanterings grupp inom klienten lägger du till en kapslad distribution och anger `scope` egenskapen.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "nestedMG",
+            "scope": "[variables('mgId')]",
+            "location": "eastus",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    nested-template
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
 ## <a name="use-template-functions"></a>Använda mall funktioner
 
 För klient distributioner finns det några viktiga saker att tänka på när du använder mall-funktioner:
@@ -141,7 +208,7 @@ För klient distributioner finns det några viktiga saker att tänka på när du
 }
 ```
 
-## <a name="assign-role"></a>Tilldela roll
+## <a name="assign-role"></a>Tilldela rollen
 
 [Följande mall](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/tenant-role-assignment) tilldelar en roll i klient omfånget.
 

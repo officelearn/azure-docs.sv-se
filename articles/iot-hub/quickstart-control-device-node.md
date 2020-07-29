@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: styra en enhet från Azure IoT (Node. js)'
+title: 'Snabb start: styra en enhet från Azure IoT (Node.js)'
 description: I den här snabbstarten kör du två Node.js-exempelprogram. Ett program är en serverdelsprogram som kan fjärrstyra enheter som är anslutna till hubben. Det andra programmet simulerar en enhet ansluten till din hubb och som kan fjärrstyras.
 author: wesmc7777
 manager: philmea
@@ -13,27 +13,28 @@ ms.custom:
 - seo-javascript-september2019
 - seo-javascript-october2019
 - mqtt
+- 'Role: Cloud Development'
 ms.date: 06/21/2019
-ms.openlocfilehash: 39d136815e3808c907e190773b9303075a5093e6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d8e63ccae81b7de41a38f362c55309729243d9cb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769366"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315163"
 ---
-# <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>Snabb start: Använd Node. js för att styra en enhet som är ansluten till en Azure IoT Hub
+# <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>Snabb start: använda Node.js för att kontrol lera en enhet som är ansluten till en Azure IoT Hub
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-I den här snabb starten använder du en direkt metod för att styra en simulerad enhet som är ansluten till Azure IoT Hub. IoT Hub är en Azure-tjänst som gör att du kan hantera dina IoT-enheter från molnet och mata in stora mängder enhets telemetri till molnet för lagring eller bearbetning. Du kan använda direktmetoder för att fjärrändra beteendet hos en enhet ansluten till IoT Hub. I den här snabb starten används två Node. js-program: ett simulerat enhets program som svarar på direkta metoder som anropas från ett Server dels program och ett Server dels program som anropar de direkta metoderna på den simulerade enheten.
+I den här snabb starten använder du en direkt metod för att styra en simulerad enhet som är ansluten till Azure IoT Hub. IoT Hub är en Azure-tjänst som gör att du kan hantera dina IoT-enheter från molnet och mata in stora mängder enhets telemetri till molnet för lagring eller bearbetning. Du kan använda direktmetoder för att fjärrändra beteendet hos en enhet ansluten till IoT Hub. I den här snabb starten används två Node.js program: ett simulerat enhets program som svarar på direkta metoder som anropas från ett Server dels program och ett Server dels program som anropar de direkta metoderna på den simulerade enheten.
 
 ## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Node. js 10 +](https://nodejs.org).
+* [Node.js 10 +](https://nodejs.org).
 
-* [Ett exempel på Node. js-projekt](https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip).
+* [Ett exempel på ett Node.js projekt](https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip).
 
 * Port 8883 öppna i brand väggen. Enhets exemplet i den här snabb starten använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -47,7 +48,7 @@ node --version
 
 ### <a name="add-azure-iot-extension"></a>Lägg till Azure IoT-tillägg
 
-Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IoT-tillägget lägger till IoT Hub-, IoT Edge-och IoT Device Provisioning-tjänst (DPS)-kommandon i Azure CLI.
+Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IoT-tillägget lägger till kommandon specifika för IoT Hub, IoT Edge och IoT Device Provisioning Service (DPS) i Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-iot
@@ -89,7 +90,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
       --output table
     ```
 
-    Anteckna enhetsanslutningssträngen. Den ser ut ungefär som:
+    Anteckna enhetens anslutningssträng, som ser ut så här:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -119,7 +120,7 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
 
 2. Öppna filen **SimulatedDevice.js** i en valfri textredigerare.
 
-    Ersätt värdet för `connectionString` variabeln med enhets anslutnings strängen som du antecknade tidigare. Spara sedan ändringarna i **SimulatedDevice. js**.
+    Ersätt värdet för `connectionString` variabeln med enhets anslutnings strängen som du antecknade tidigare. Spara sedan ändringarna i **SimulatedDevice.js**.
 
 3. Installera de lokala bibliotek som krävs för det simulerade enhetsprogrammet genom att köra följande kommandon i terminalfönstret:
 
@@ -140,7 +141,7 @@ Serverdelsprogrammet ansluter till en slutpunkt på tjänstsidan på din IoT-hub
 
 2. Öppna filen **BackEndApplication.js** i en valfri textredigerare.
 
-    Ersätt värdet för `connectionString` variabeln med tjänst anslutnings strängen som du gjorde en anteckning om tidigare. Spara sedan ändringarna i **BackEndApplication. js**.
+    Ersätt värdet för `connectionString` variabeln med tjänst anslutnings strängen som du gjorde en anteckning om tidigare. Spara sedan ändringarna i **BackEndApplication.js**.
 
 3. Installera de bibliotek som krävs för serverdelsprogrammet genom att köra följande kommandon i det lokala terminalfönstret:
 

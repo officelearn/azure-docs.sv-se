@@ -4,12 +4,12 @@ description: Automatisera anpassade dagliga/veckovis/månads Visa rapporter med 
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 4eb580b90c0bf9acafc4e8f805c2eef7eaae06d3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: abd87af1a9cf61aba21e9231350aabc661e5091b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540085"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320416"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatisera anpassade rapporter med Azure Application Insights-data
 
@@ -150,7 +150,8 @@ De här stegen gäller endast om du inte redan har ett SendGrid-konto konfigurer
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om att skapa [analys frågor](../../azure-monitor/log-query/get-started-queries.md).
+* Lär dig mer om att skapa [analys frågor](../log-query/get-started-queries.md).
 * Lär dig mer om att [fråga Application Insights data](https://dev.applicationinsights.io/) på ett program
 * Läs mer om [Logic Apps](../../logic-apps/logic-apps-overview.md).
 * Läs mer om [Microsoft Flow](https://ms.flow.microsoft.com).
+

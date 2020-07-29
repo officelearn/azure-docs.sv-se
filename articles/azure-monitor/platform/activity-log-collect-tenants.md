@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: 07c38cbd2d77a3cca594acd974705af35d8189b9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7718bd5cbc3c3fc3c9632818f769c05cd1617361
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516353"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321878"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Samla in Azure-aktivitets loggar i Azure Monitor över Azure Active Directory klienter (äldre)
 
@@ -124,9 +124,9 @@ Om du vill hämta händelsehubbens namn och anslutningssträng följer du stegen
 
     ![Skapa en logikapp](media/collect-activity-logs-subscriptions/create-logic-app.png)
 
-   |Inställning | Beskrivning  |
+   |Inställningen | Beskrivning  |
    |:---|:---|
-   | Name           | Unikt namn för logikappen. |
+   | Namn           | Unikt namn för logikappen. |
    | Prenumeration   | Välj den Azure-prenumeration som ska innehålla logikappen. |
    | Resursgrupp | Välj en befintlig Azure-resursgrupp eller skapa en ny för logikappen. |
    | Position       | Välj datacenterregion för att distribuera logikappen. |
@@ -299,7 +299,7 @@ Utdatan från händelsehubben innehåller en JSON-nyttolast med en matris med po
 
     ![Konfigurera åtgärden Skicka data](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-configuration.png)
 
-   |Inställning        | Värde           | Beskrivning  |
+   |Inställningen        | Värde           | Beskrivning  |
    |---------------|---------------------------|--------------|
    |Brödtext i JSON-begäran  | **Utdata** från åtgärden **Skriv** | Hämtar posterna från brödtexten i åtgärden Skriv. |
    | Anpassat loggnamn | AzureActivity | Namnet på den anpassade logg tabell som ska skapas i Log Analytics-arbetsytan för att lagra importerade data. |
@@ -340,4 +340,5 @@ Det sista steget är att kontrollera Log Analytics-arbetsytan för att säkerst�
 I den här artikeln har du skapat en Logic app för att läsa Azures aktivitets loggar från en Händelsehubben och skicka dem till Log Analytics arbets yta för analys. Läs mer om visualisering av data i en arbets yta, inklusive hur du skapar instrument paneler, i självstudien för att visualisera data.
 
 > [!div class="nextstepaction"]
-> [Självstudien Visualisera loggsökningsdata](./../../azure-monitor/learn/tutorial-logs-dashboards.md)
+> [Självstudien Visualisera loggsökningsdata](../learn/tutorial-logs-dashboards.md)
+

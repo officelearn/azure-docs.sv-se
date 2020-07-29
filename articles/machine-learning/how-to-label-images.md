@@ -7,13 +7,13 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/09/2020
-ms.openlocfilehash: a9c9dee94dd50462109a8864ffb413ce991c8dbd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: a71b4096e791221057fdcc5d14351ceccab720fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072401"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307207"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Tagga bilder i ett etikett projekt 
 
@@ -24,7 +24,7 @@ När projekt administratören har [skapat ett etikett projekt](https://docs.micr
 > * Etikett verktygen
 > * Så här använder du verktygen för vissa etikett uppgifter
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett [Microsoft-konto](https://account.microsoft.com/account) eller ett Azure Active Directory konto för organisationen och projektet
 * Deltagar nivå åtkomst till arbets ytan som innehåller ett etikett projekt.
@@ -37,11 +37,9 @@ När projekt administratören har [skapat ett etikett projekt](https://docs.micr
 
 1. Välj **data etiketter** till vänster för att hitta projektet.  
 
-1. Välj projekt namnet i listan.
-
 ## <a name="understand-the-labeling-task"></a>Förstå etikettens uppgift
 
-När du har valt projektet väljer du **etikett data**längst upp på sidan.
+I tabellen med data märknings projekt väljer du **etikett länk** för projektet.
 
 Du ser anvisningar som är speciella för ditt projekt. De förklarar vilken typ av data du använder, hur du ska fatta beslut och annan relevant information. När du har läst den här informationen går du till början av sidan och väljer **aktiviteter**.  Eller på sidans nederkant väljer du **Starta etikettering**.
 

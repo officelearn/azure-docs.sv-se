@@ -4,16 +4,16 @@ description: Få en översikt över vad du kan göra med mått aviseringar och h
 ms.date: 07/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 05e25a67279786ef4679552503e577b1b1a382ea
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9ac034eb144e5873f8f73ab7b1d7459394ce4775
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539439"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327148"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur måttaviseringar fungerar i Azure Monitor
 
-Mått varningar i Azure Monitor fungerar ovanpå flerdimensionella mått. Dessa mått kan vara [plattforms mått](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [anpassade mått](../../azure-monitor/platform/metrics-custom-overview.md), [populära loggar från Azure Monitor konverteras till mått](../../azure-monitor/platform/alerts-metric-logs.md) och Application Insights mått. Mått varningar utvärderas med jämna mellanrum för att kontrol lera om villkoren på en eller flera metriska tids serier är sanna och meddelar dig när utvärderingarna är uppfyllda. Mått varningar är tillstånds känsliga, det vill säga de skickar bara meddelanden när tillstånd ändras.
+Mått varningar i Azure Monitor fungerar ovanpå flerdimensionella mått. Dessa mått kan vara [plattforms mått](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [anpassade mått](./metrics-custom-overview.md), [populära loggar från Azure Monitor konverteras till mått](./alerts-metric-logs.md) och Application Insights mått. Mått varningar utvärderas med jämna mellanrum för att kontrol lera om villkoren på en eller flera metriska tids serier är sanna och meddelar dig när utvärderingarna är uppfyllda. Mått varningar är tillstånds känsliga, det vill säga de skickar bara meddelanden när tillstånd ändras.
 
 ## <a name="how-do-metric-alerts-work"></a>Hur fungerar mått varningar?
 
@@ -135,7 +135,7 @@ Hittills har du sett hur du kan använda en enda mått avisering för att överv
 
 Den här funktionen stöds för närvarande för plattforms mått (inte anpassade mått) för följande tjänster i följande Azure-moln:
 
-| Tjänst | Offentlig Azure | Myndigheter | Kina |
+| Tjänst | Offentlig Azure | Government | Kina |
 |:--------|:--------|:--------|:--------|
 | Virtuella datorer  | **Ja** | Nej | Nej |
 | SQL Server-databaser | **Ja** | **Ja** | Nej |
@@ -152,7 +152,7 @@ Du kan ange omfattningen för övervakning av en regel för en enskild måtts av
 >
 > Omfattningen för en varnings regel för flera resurser måste innehålla minst en resurs av den valda resurs typen.
 
-Skapa mått varnings regler som övervakar flera resurser, till exempel att [skapa alla andra mått varningar](alerts-metric.md) som övervakar en enskild resurs. Den enda skillnaden är att du väljer alla resurser som du vill övervaka. Du kan också skapa dessa regler genom att [Azure Resource Manager mallar](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Du får enskilda meddelanden för varje övervakad resurs.
+Skapa mått varnings regler som övervakar flera resurser, till exempel att [skapa alla andra mått varningar](alerts-metric.md) som övervakar en enskild resurs. Den enda skillnaden är att du väljer alla resurser som du vill övervaka. Du kan också skapa dessa regler genom att [Azure Resource Manager mallar](./alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Du får enskilda meddelanden för varje övervakad resurs.
 
 > [!NOTE]
 >
@@ -164,12 +164,13 @@ För mått aviseringar visas vanligt vis att du får ett meddelande under 5 minu
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>Resurs typer som stöds för mått aviseringar
 
-Du hittar en fullständig lista över resurs typer som stöds i den här [artikeln](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+Du hittar en fullständig lista över resurs typer som stöds i den här [artikeln](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Lär dig hur du skapar, visar och hanterar mått varningar i Azure](alerts-metric.md)
-- [Lär dig hur du distribuerar mått aviseringar med hjälp av Azure Resource Manager mallar](../../azure-monitor/platform/alerts-metric-create-templates.md)
+- [Lär dig hur du distribuerar mått aviseringar med hjälp av Azure Resource Manager mallar](./alerts-metric-create-templates.md)
 - [Läs mer om åtgärds grupper](action-groups.md)
 - [Läs mer om villkors typen för dynamiska tröskelvärden](alerts-dynamic-thresholds.md)
+

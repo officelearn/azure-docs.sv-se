@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2017
 ms.custom: mvc
-ms.openlocfilehash: ae4a7335394f0e2f0bd0e3ac47c36b1f61026428
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ce9bf6fe6d130cf8511db2b2351c0de01b753d81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079595"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318410"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Använda Azure Application Insights till att förstå hur kunderna använder din app
 
@@ -28,7 +28,7 @@ Azure Application Insights samlar in användningsinformation för att hjälpa di
 > * Inspekterar hur användarna navigerar genom appen
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -36,8 +36,8 @@ För att slutföra den här kursen behöver du:
     - ASP.NET och webbutveckling
     - Azure Development
 - Ladda ned och installera [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
-- Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](../../azure-monitor/app/asp-net.md). 
-- [Skicka telemetridata från appen](../../azure-monitor/app/usage-overview.md#send-telemetry-from-your-app) för att lägga till anpassade händelser/sidvisningar
+- Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](../app/asp-net.md). 
+- [Skicka telemetridata från appen](../app/usage-overview.md#send-telemetry-from-your-app) för att lägga till anpassade händelser/sidvisningar
 - Skicka [användarkontext](../app/usage-send-user-context.md) för att spåra vad en användare gör över tid och utnyttja användningsfunktionerna fullt ut.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
@@ -164,4 +164,5 @@ Ett **användarflöde** visualiserar hur användare navigerar mellan sidorna och
 Nu när du har lärt dig hur du analyserar dina användare kan du gå vidare till nästa självstudie och lära dig hur du skapar anpassade instrumentpaneler som kombinerar den här informationen med andra användbara data om din app.
 
 > [!div class="nextstepaction"]
-> [Skapa anpassade instrumentpaneler](../../azure-monitor/learn/tutorial-app-dashboards.md)
+> [Skapa anpassade instrumentpaneler](./tutorial-app-dashboards.md)
+

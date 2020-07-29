@@ -11,12 +11,14 @@ ms.date: 06/28/2019
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 2eec96eee943d6fe291d054e1d73876e38f61d6d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: cc5c7193914f02cf52956481f22553dcabdd6520
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769961"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324530"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Självstudie: Implementera en uppdateringsprocess för enhetens inbyggda programvara
 
@@ -36,13 +38,13 @@ I den här självstudien slutför du följande uppgifter:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver Node. js v10. x. x eller senare på din utvecklings dator.
+De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver Node.js v10. x. x eller senare på din utvecklings dator.
 
-Du kan hämta Node. js för flera plattformar från [NodeJS.org](https://nodejs.org).
+Du kan hämta Node.js för flera plattformar från [NodeJS.org](https://nodejs.org).
 
 Du kan kontrollera den aktuella versionen av Node.js på utvecklingsdatorn med följande kommando:
 

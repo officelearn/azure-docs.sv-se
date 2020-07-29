@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 08c7a5b977534e6c2852f8095ce14c44bda71bf1
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 15b96a8bb5460064d6f50f81809f7e3850b30a4c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331542"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281930"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Teknisk och funktions översikt över Azure Active Directory B2C
 
@@ -75,7 +75,7 @@ Du kan konfigurera Azure AD B2C så att användarna kan logga in till ditt progr
 
 Med extern Identity Provider Federation kan du erbjuda konsumenterna möjlighet att logga in med sina befintliga sociala konton eller företags konton, utan att behöva skapa ett nytt konto för ditt program.
 
-På sidan för registrering eller inloggning visar Azure AD B2C en lista över externa identitets leverantörer som användaren kan välja för inloggning. När de har valt en av de externa identitets leverantörerna tas de (omdirigeras) till den valda providerns webbplats för att slutföra inloggnings processen. När användaren har loggat in returneras de tillbaka till Azure AD B2C för autentisering av kontot i ditt program.
+På sidan för registrering eller inloggning visar Azure AD B2C en lista över externa identitets leverantörer som användaren kan välja för inloggning. När de har valt en av de externa identitets leverantörerna tas de (omdirigeras) till den valda providerns webbplats för att slutföra inloggnings processen. När användaren har loggat in returneras de till Azure AD B2C för autentisering av kontot i ditt program.
 
 ![Mobilt inloggnings exempel med ett socialt konto (Facebook)](media/technical-overview/external-idp.png)
 
@@ -115,7 +115,7 @@ Lär dig mer om användar flöden i [användar flöden i Azure Active Directory 
 
 Anpassade principer låser upp åtkomst till den fulla kraften i IEF-Orchestration-motorn (Identity Experience Framework). Med anpassade principer kan du använda IEF för att bygga nästan all autentisering, användar registrering eller profil redigerings upplevelse som du kan föreställa dig.
 
-Med Identity Experience Framework kan du skapa användar resor med valfri kombination av steg. Ett exempel:
+Med Identity Experience Framework kan du skapa användar resor med valfri kombination av steg. Till exempel:
 
 * Federera med andra identitets leverantörer
 * Krav för MFA (Multi-Factor Authentication) för första och tredje part

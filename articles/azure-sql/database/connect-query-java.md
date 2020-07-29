@@ -9,12 +9,13 @@ ms.subservice: development
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 06/26/2020
-ms.openlocfilehash: 59124928e9bfb75265e3556e37d65a3b30c851d3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-java
+ms.openlocfilehash: 829a106a643c10626a65855152375c349cd76f9a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515083"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325142"
 ---
 # <a name="use-java-and-jdbc-with--azure-sql-database"></a>Använda Java och JDBC med Azure SQL Database
 
@@ -22,7 +23,7 @@ Det här avsnittet visar hur du skapar ett exempel program som använder Java oc
 
 JDBC är standard Java-API: et för att ansluta till traditionella Relations databaser.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto. Om du inte har någon kan du [få en kostnads fri utvärderings version](https://azure.microsoft.com/free/).
 - [Azure Cloud Shell](/azure/cloud-shell/quickstart) eller [Azure CLI](/cli/azure/install-azure-cli). Vi rekommenderar Azure Cloud Shell så att du loggas in automatiskt och har åtkomst till alla verktyg du behöver.

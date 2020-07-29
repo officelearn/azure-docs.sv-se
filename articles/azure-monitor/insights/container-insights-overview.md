@@ -3,12 +3,12 @@ title: Översikt över Azure Monitor för behållare | Microsoft Docs
 description: I den här artikeln beskrivs Azure Monitor för behållare som övervakar AKS container Insights-lösning och det värde den ger genom att övervaka hälso tillståndet för dina AKS-kluster och Container Instances i Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: c5fcdd3bfc42e298791e1ab761fa4db432a93dd7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 85adae1b79609f13be6bb73eb4e57000beda6d77
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091172"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320280"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Översikt över Azure Monitor för containrar
 
@@ -66,8 +66,9 @@ Du kan komma åt Azure Monitor för behållare på två sätt, från Azure Monit
 
 ![Översikt över metoder för att komma åt Azure Monitor för behållare](./media/container-insights-overview/azmon-containers-experience.png)
 
-Om du är intresse rad av att övervaka och hantera dina Docker-och Windows-behållarobjekt som körs utanför AKS för att Visa konfigurations-, gransknings-och resursutnyttjande, se [lösningen för övervakning av behållare](../../azure-monitor/insights/containers.md).
+Om du är intresse rad av att övervaka och hantera dina Docker-och Windows-behållarobjekt som körs utanför AKS för att Visa konfigurations-, gransknings-och resursutnyttjande, se [lösningen för övervakning av behållare](./containers.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Om du vill börja övervaka ditt Kubernetes-kluster läser du [så här aktiverar du Azure Monitor för behållare](container-insights-onboard.md) för att förstå kraven och tillgängliga metoder för att aktivera övervakning.
+

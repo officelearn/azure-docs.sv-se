@@ -1,28 +1,31 @@
 ---
 title: 'Snabb start: klient biblioteket för Azure Blob Storage-v10 för Java Script'
-description: Skapa, ladda upp och ta bort blobbar och behållare i Node. js med Azure Storage klient bibliotek v10 för Java Script
+description: Skapa, ladda upp och ta bort blobbar och behållare i Node.js med Azure Storage klient bibliotek v10 för Java Script
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 01/24/2020
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: c2bf401713dc7ae3b060181f1df56d0915f68aed
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 01d9c2e2b822af607d7473206461b97dfa627c17
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78269507"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282032"
 ---
-# <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Snabb start: hantera blobbar med Java Script v10 SDK i Node. js
+# <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Snabb start: hantera blobbar med Java Script v10 SDK i Node.js
 
-I den här snabb starten lär du dig att hantera blobbar med hjälp av Node. js. Blobbar är objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. Du överför, laddar ned, listar och tar bort blobbar och hanterar behållare.
+I den här snabb starten lär du dig att hantera blobbar med hjälp av Node.js. Blobbar är objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. Du överför, laddar ned, listar och tar bort blobbar och hanterar behållare.
+
+> [!NOTE]
+> I den här snabb starten används en äldre version av klient biblioteket för Azure Blob Storage. Information om hur du kommer igång med den senaste versionen finns i [snabb start: hantera blobbar med Java Script V12 SDK i Node.js](storage-quickstart-blobs-nodejs.md).
 
 ## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Ett Azure Storage-konto. [Skapa ett lagrings konto](../common/storage-account-create.md).
-- [Node. js](https://nodejs.org/en/download/).
+- [Node.js](https://nodejs.org/en/download/).
 
 ## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
 
@@ -408,5 +411,5 @@ Alla data som skrivits till lagringskontot tas bort automatiskt i slutet av kode
 Den här snabbstarten visar hur du hanterar blobar och containrar i Azure Blob Storage med hjälp av Node.js. Mer information om hur du arbetar med detta SDK finns på GitHub-lagringsplatsen.
 
 > [!div class="nextstepaction"]
-> [Azure Storage v10 SDK för JavaScript-lagringsplats](https://github.com/Azure/azure-storage-js)
-> [Azure Storage Java Script API-referens](/javascript/api/overview/azure/storage-overview)
+> [Azure Storage v10 SDK för Java Script-lagringsplats](https://github.com/Azure/azure-storage-js) 
+>  [Azure Storage Java Script API-referens](/javascript/api/overview/azure/storage-overview)

@@ -3,14 +3,14 @@ title: 'Snabbstart: Få svar från kunskapsbas – REST, Java – QnA Maker'
 description: Denna Java REST-baserade snabbstart vägleder dig genom att hämta ett svar från en kunskapsbas programmässigt.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
+ms.custom: RESTCURL2020FEB27, devx-track-java
 ms.topic: how-to
-ms.openlocfilehash: f162276044e63c9deb46a60033ffe9904366f777
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 3b193473ea20880c4efcf8747a129680008e3c9f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342807"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325941"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Snabb start: få svar på en fråga från en kunskaps bas med Java
 
@@ -18,14 +18,14 @@ Den här snabbstarten vägleder dig genom att programmatiskt hämta ett svar fr�
 
 [Referens dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/get-answer/GetAnswer.java)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)
 * I det här exemplet används Apache [HTTP-klient](https://hc.apache.org/httpcomponents-client-ga/) från HTTP Components. Du behöver lägga till följande Apache HTTP-klientbibliotek i projektet:
     * httpclient-4.5.3.jar
     * httpcore-4.4.6.jar
     * commons-logging-1.2.jar
-* [Visual Studio-koden](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Hämta nyckeln genom att välja **Nycklar** under **Resurshantering** på Azure-instrumentpanelen för din QnA Maker-resurs.
 * **Publicera** sidinställningar. Om du inte har en publicerad kunskapsbas skapar du en tom kunskapsbas, importerar en kunskapsbas på sidan **Inställningar** och publicerar sedan. Du kan ladda ned och använda [den här grundläggande kunskapsbasen](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv).
 

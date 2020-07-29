@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
-ms.openlocfilehash: acb96984a49e4ad8535f87a41da11b3b63ae207b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3227585b62583d0a05f8dbc0444ee5bb4a27df77
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80283862"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320518"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Använd kart funktionen i Azure Monitor for VMs för att förstå program komponenter
 I Azure Monitor for VMs kan du Visa identifierade program komponenter på virtuella Windows-och Linux-datorer (VM: ar) som körs i Azure eller i din miljö. Du kan titta på de virtuella datorerna på två sätt. Visa en karta direkt från en virtuell dator eller Visa en karta från Azure Monitor för att se komponenterna mellan grupper av virtuella datorer. Den här artikeln hjälper dig att förstå de här två visnings metoderna och hur du använder kart funktionen. 
@@ -49,7 +49,7 @@ Om du vill att kart funktionen ska visa relevanta aviseringar skapar du en varni
 - Inkludera en sats för att gruppera aviseringar efter dator (till exempel **efter dator intervall 1 minut**).
 - Basera aviseringen på ett mått.
 
-Mer information om Azure-aviseringar och hur du skapar aviserings regler finns [i enhetliga aviseringar i Azure Monitor](../../azure-monitor/platform/alerts-overview.md).
+Mer information om Azure-aviseringar och hur du skapar aviserings regler finns [i enhetliga aviseringar i Azure Monitor](../platform/alerts-overview.md).
 
 I det övre högra hörnet beskriver **förklarings** alternativet symboler och roller på kartan. Titta närmare på kartan och flytta den runt genom att använda zoomnings kontrollerna i det nedre högra hörnet. Du kan ställa in zoomnings nivån och passa kartan på sidans storlek.  
 
@@ -128,10 +128,11 @@ I Azure Monitor tillhandahåller Map-funktionen en global vy över dina virtuell
 
 Välj en arbets yta genom att använda **arbets ytans** väljare överst på sidan. Om du har fler än en arbets yta för Log Analytics väljer du den arbets yta som är aktive rad med lösningen och som har virtuella datorer som rapporterar till den. 
 
-**Grupp** väljaren returnerar prenumerationer, resurs grupper, [dator grupper](../../azure-monitor/platform/computer-groups.md)och virtuella datorers skalnings uppsättningar för datorer som är relaterade till den valda arbets ytan. Ditt val gäller endast för kart funktionen och kan inte överföras till prestanda eller hälsa.
+**Grupp** väljaren returnerar prenumerationer, resurs grupper, [dator grupper](../platform/computer-groups.md)och virtuella datorers skalnings uppsättningar för datorer som är relaterade till den valda arbets ytan. Ditt val gäller endast för kart funktionen och kan inte överföras till prestanda eller hälsa.
 
 Som standard visar kartan de senaste 30 minuterna. Om du vill se hur beroenden som såg ut tidigare kan du fråga efter historiska tidsintervall på upp till en timme. Använd **TimeRange** -väljaren för att köra frågan. Du kan köra en fråga, till exempel under en incident eller för att se status innan en ändring.  
 
 ## <a name="next-steps"></a>Nästa steg
 
 För att identifiera Flask halsar, kontrol lera prestanda och förstå den övergripande användningen av dina virtuella datorer, se [Visa prestanda status för Azure Monitor for VMS](vminsights-performance.md). 
+

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: b6b32f9eadc6677bad591f4040981c4c95bf1f76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98caca31e172f54c3e37f33c5a463790d9d27032
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82871239"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325992"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Optimera din SQL-miljö med SQL Server Health Check-lösning i Azure Monitor
 
@@ -43,9 +44,9 @@ När du har lagt till lösningen och en utvärdering har slutförts visas samman
 
 För att utföra hälso kontrollen mot dina SQL Server-servrar, kräver de en agent och anslutning för att Azure Monitor med någon av följande metoder som stöds:
 
-1. Installera [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) om servern inte redan övervakas av System Center 2016-Operations Manager eller Operations Manager 2012 R2.
+1. Installera [Microsoft Monitoring Agent (MMA)](../platform/agent-windows.md) om servern inte redan övervakas av System Center 2016-Operations Manager eller Operations Manager 2012 R2.
 2. Om den övervakas med System Center 2016-Operations Manager eller Operations Manager 2012 R2 och hanterings gruppen inte är integrerad med Azure Monitor, kan servern ha flera hem med Log Analytics för att samla in data och vidarebefordra till tjänsten och fortfarande övervakas av Operations Manager.  
-3. Annars, om din Operations Manager hanterings grupp är integrerad med tjänsten, måste du lägga till domän kontrol Lanterna för data insamling av tjänsten genom att följa stegen under [Lägg till agenter-hanterade datorer](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) när du har aktiverat lösningen i din arbets yta.  
+3. Annars, om din Operations Manager hanterings grupp är integrerad med tjänsten, måste du lägga till domän kontrol Lanterna för data insamling av tjänsten genom att följa stegen under [Lägg till agenter-hanterade datorer](../platform/om-agents.md#connecting-operations-manager-to-azure-monitor) när du har aktiverat lösningen i din arbets yta.  
 
 Agenten på SQL Server som rapporterar till en Operations Manager hanterings grupp, samlar in data, vidarebefordrar till den tilldelade hanterings servern och sedan skickas direkt från en hanterings server till Azure Monitor.  Data skrivs inte till Operations Manager-databaser.  
 
@@ -257,3 +258,4 @@ Resultaten kan sedan exporteras till Excel för ytterligare granskning.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Logga frågor](../log-query/log-query-overview.md) för att lära dig hur du analyserar detaljerade SQL Health Check-data och rekommendationer.
+

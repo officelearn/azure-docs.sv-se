@@ -3,21 +3,24 @@ title: 'Snabb start: Använd Azure Storage V11 för .NET för att hantera en kö
 description: I den här snabbstarten lär du dig hur du använder Azure Storage-klientbiblioteket för .NET för att skapa en kö och lägga till meddelanden i den. Därefter får du lära dig hur du läser och bearbetar meddelanden från kön.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/06/2018
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
-ms.openlocfilehash: 807765aea66561abb5a8764f119d2be4632a56d5
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 71700efecfc173392562327f6d150d79d1a9c84f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84807552"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292682"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Snabb start: Använd Azure Storage SDK-V11 för .NET för att hantera en kö
 
 I den här snabb starten får du lära dig hur du använder Azure Storage klient bibliotek version 11 för .NET för att skapa en kö och lägga till meddelanden till den. Därefter får du lära dig hur du läser och bearbetar meddelanden från kön. 
+
+> [!NOTE]
+> I den här snabb starten används en äldre version av klient biblioteket för Azure Queue Storage. För att komma igång med den senaste versionen, se [snabb start: Azure Queue Storage klient bibliotek V12 för .net](storage-quickstart-queues-dotnet.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -220,7 +223,7 @@ Console.WriteLine("Contents of peeked message '{0}': {1}", peekedMessage.Id, pee
 Console.WriteLine();
 ```
 
-### <a name="dequeue-a-message"></a>Ta bort ett meddelande från en kö
+### <a name="dequeue-a-message"></a>Ta bort ett meddelande från kön
 
 Exemplet visar också hur du tar bort ett meddelande från kön. När du tar bort ett meddelande från kön hämtar du meddelandet från början av kön och gör det tillfälligt osynligt för andra klienter. Som standard förblir ett meddelande osynligt i 30 sekunder. Under den tiden kan din kod bearbeta meddelandet. För att slutföra borttagningen av meddelandet i kön tar du bort meddelandet omedelbart efter bearbetningen, så att en annan klient inte tar bort samma meddelande från kön.
 

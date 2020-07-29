@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 07/24/2020
 ms.author: jingwang
-ms.openlocfilehash: d37a9bd4cc29ee60f9833ffbcb5a2701a19bbaa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bac673f5c8c8d6a4e2b368938a0c08c893518022
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416831"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171261"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiera data från och till Oracle med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -52,7 +52,7 @@ Mer specifikt stöder den här Oracle-anslutningen:
 > [!Note]
 > Oracle-proxyservern stöds inte.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
 
@@ -68,7 +68,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Den länkade Oracle-tjänsten stöder följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till **Oracle**. | Ja |
 | Begär | Anger den information som krävs för att ansluta till Oracle Database-instansen. <br/>Du kan också ange ett lösen ord i Azure Key Vault och hämta `password` konfigurationen från anslutnings strängen. Läs följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) med mer information. <br><br>**Anslutnings typ som stöds**: du kan använda **Oracle sid** eller **Oracle-tjänstens namn** för att identifiera databasen:<br>-Om du använder SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>– Om du använder tjänst namn:`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>För avancerade Oracle-anslutnings alternativ kan du välja att lägga till en post i [Tnsnames. ORA](http://www.orafaq.com/wiki/Tnsnames.ora) -fil på Oracle-servern och i ADF Oracle-länkad tjänst väljer du att använda anslutnings typen Oracle service Name och konfigurerar motsvarande tjänst namn. | Ja |
@@ -76,6 +76,8 @@ Den länkade Oracle-tjänsten stöder följande egenskaper:
 
 >[!TIP]
 >Om du får ett fel meddelande, "ORA-01025: UPI-parameter utanför intervallet", och din Oracle-version är 8i, Lägg till `WireProtocolMode=1` i anslutnings strängen. Försök sedan igen.
+
+Om du har flera Oracle-instanser för redundans kan du skapa Oracle-länkade tjänster och fylla i den primära värden, port, användar namn, lösen ord och så vidare och lägga till en ny "**ytterligare anslutnings egenskap**" med egenskaps namn som `AlternateServers` och värde som `(HostName=<secondary host>:PortNumber=<secondary port>:ServiceName=<secondary service name>)` – saknar hakparenteser och ta hänsyn till kolon ( `:` ) som avgränsare. Följande värde för alternativa servrar definierar till exempel två alternativa databas servrar för redundans av anslutning: `(HostName=AccountingOracleServer:PortNumber=1521:SID=Accounting,HostName=255.201.11.24:PortNumber=1522:ServiceName=ABackup.NA.MyCompany)` .
 
 Fler anslutnings egenskaper som du kan ange i anslutnings strängen per ärende:
 
@@ -122,7 +124,7 @@ Om du vill aktivera kryptering på Oracle-anslutning har du två alternativ:
         ```
 
     3.  Placera `truststore` filen på IR-datorn med egen värd. Placera till exempel filen på C:\MyTrustStoreFile.
-    4.  I Azure Data Factory konfigurerar du Oracle-anslutningssträngen med `EncryptionMethod=1` och motsvarande `TrustStore` / `TrustStorePassword` värde. Till exempel `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
+    4.  I Azure Data Factory konfigurerar du Oracle-anslutningssträngen med `EncryptionMethod=1` och motsvarande `TrustStore` / `TrustStorePassword` värde. Exempelvis `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
 
 **Exempel:**
 
@@ -173,7 +175,7 @@ Det här avsnittet innehåller en lista över egenskaper som stöds av Oracle-da
 
 Om du vill kopiera data från och till Oracle anger du egenskapen type för data uppsättningen till `OracleTable` . Följande egenskaper stöds.
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type för data mängden måste anges till `OracleTable` . | Ja |
 | schema | Schemats namn. |Nej för källa, Ja för mottagare  |
@@ -212,7 +214,7 @@ Det här avsnittet innehåller en lista över egenskaper som stöds av Oracle-k�
 
 Om du vill kopiera data från Oracle anger du käll typen i kopierings aktiviteten till `OracleSource` . Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** .
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste vara inställd på `OracleSource` . | Ja |
 | oracleReaderQuery | Använd den anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`.<br>När du aktiverar partitionerad belastning måste du koppla alla motsvarande inbyggda partitionsalternativ i frågan. Exempel finns i avsnittet [parallell kopiering från Oracle](#parallel-copy-from-oracle) . | Nej |
@@ -259,7 +261,7 @@ Om du vill kopiera data från Oracle anger du käll typen i kopierings aktivitet
 
 Om du vill kopiera data till Oracle ställer du in mottagar typen i kopierings aktiviteten till `OracleSink` . Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** .
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type för kopierings aktivitetens Sink måste anges till `OracleSink` . | Ja |
 | writeBatchSize | Infogar data i SQL-tabellen när buffertstorleken når sig `writeBatchSize` .<br/>Tillåtna värden är heltal (antal rader). |Nej (standard är 10 000) |

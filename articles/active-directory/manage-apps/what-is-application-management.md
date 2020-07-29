@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aae292d97457ebe1d36a839b779b9233037ea60
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 53c4e3e3e3b6aaca2f861a8c5aba528541dc4854
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055213"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322201"
 ---
 # <a name="what-is-application-management"></a>Vad är programhantering?
 
@@ -93,8 +93,6 @@ För program som riktar sig till mänsklig personal eller andra program med en s
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Visa program som redan har kon figurer ATS i din Azure AD-klient](view-applications-portal.md)
-- [Snabb start: lägga till ett galleri program i Azure AD-klienten](add-application-portal.md)
-- [Lägg till en Galleri-app i Azure AD-organisationen](add-gallery-app.md)
+- [Snabb starts serie på App-Managemement i Azure AD](view-applications-portal.md)
 - [Kom igång med program integrering](plan-an-application-integration.md)
 - [Lär dig hur du automatiserar etablering](../app-provisioning/user-provisioning.md)

@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
-ms.custom: mvc
-ms.openlocfilehash: d6cb3af134ff272d79cfc440047a3d90733ee9e8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-java
+ms.openlocfilehash: 43ae9bd0e844a23adabf52e7fbb4b8cd077d23bd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74976816"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326723"
 ---
 # <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Självstudie: skapa och etablera en simulerad X. 509-enhet med Java-enhets-och tjänst-SDK och grupp registreringar för IoT Hub Device Provisioning Service
 
@@ -48,11 +48,11 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
             - Välj filen **_RootCA.pem_** som du skapade.
             - Klicka på knappen **Spara** när det är klart.
 
-           ![Lägg till certifikat](./media/tutorial-group-enrollments/add-certificate.png)
+           ![Lägga till certifikat](./media/tutorial-group-enrollments/add-certificate.png)
 
         1. Välj det nya certifikatet:
-            - Klicka på **Skapa verifieringskod**. Kopiera den skapade koden.
-            - Kör verifieringsstegen. Ange _verifieringskoden_ eller högerklicka för att klistra in PowerShell-fönstret som körs.  Tryck på **RETUR**.
+            - Klicka på **Generera en verifieringskod**. Kopiera den skapade koden.
+            - Kör verifieringsstegen. Ange _verifieringskoden_ eller högerklicka för att klistra in PowerShell-fönstret som körs.   Tryck på **Retur**.
             - Välj den nyligen skapade filen **_verifyCert4.pem_** i Azure-portalen. Klicka på **Verifiera**.
 
               ![Validera certifikat](./media/tutorial-group-enrollments/validate-certificate.png)

@@ -5,20 +5,20 @@ description: Lär dig hur du anropar en webb tjänst slut punkt som genererades 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/17/2020
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: ced9453982615485e25b56be9b7a36dc8f6ce988
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 991ad3afc51cc2f6dc1853a6b26f53bcb2fd1503
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84974678"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326417"
 ---
-# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använda en Azure Machine Learning modell som distribueras som en webb tjänst
+# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Konsumera en Azure Machine Learning-modell som distribuerats som en webbtjänst
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Om du distribuerar en Azure Machine Learning modell som en webb tjänst skapas en REST API-slutpunkt. Du kan skicka data till den här slut punkten och ta emot den förutsägelse som returneras av modellen. I det här dokumentet får du lära dig hur du skapar klienter för webb tjänsten med hjälp av C#, go, Java och python.

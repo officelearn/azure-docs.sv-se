@@ -4,12 +4,12 @@ description: Lär dig hur du skapar en logisk app som använder det gemensamma a
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/27/2019
-ms.openlocfilehash: 05349554f4c5e076562a75d48d58e0849986d6cc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a7893f41e3e4cce737853fc168c1931f3bf7b532
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539507"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322099"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Så här integrerar du det vanliga aviserings schemat med Logic Apps
 
@@ -20,7 +20,7 @@ Den här artikeln visar hur du skapar en Logi Kap par som utnyttjar det gemensam
 Det [vanliga aviserings schemat](https://aka.ms/commonAlertSchemaDocs) innehåller ett standardiserat och utöknings Bart JSON-schema över alla dina olika aviserings typer. Det vanliga aviserings schemat är mest användbart när du använder program mässigt – via Webhooks, Runbooks och Logic Apps. I den här artikeln visar vi hur du kan använda en enda Logic-app för att hantera alla aviseringar. Samma principer kan tillämpas på andra programmerings metoder. Logic-appen som beskrivs i den här artikeln skapar väldefinierade variabler för [fälten "viktigt"](alerts-common-schema-definitions.md#essentials)och beskriver hur du kan hantera en viss logik för [aviserings typen](alerts-common-schema-definitions.md#alert-context) .
 
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 Den här artikeln förutsätter att läsaren är bekant med 
 * Konfigurera aviserings regler ([mått](./alerts-metric.md), [logg](./alerts-log.md), [aktivitets logg](./alerts-activity-log.md))
@@ -137,5 +137,6 @@ Den här artikeln förutsätter att läsaren är bekant med
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs mer om åtgärds grupper](../../azure-monitor/platform/action-groups.md).
+* [Läs mer om åtgärds grupper](./action-groups.md).
 * [Läs mer om det vanliga aviserings schemat](https://aka.ms/commonAlertSchemaDocs).
+

@@ -6,18 +6,18 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: tracking-python
-ms.openlocfilehash: e99ea1d5a90455a4c470346fbbe5d1095c426e81
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c5f78535a3bd5ab93d3020d14a6242257c492297
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499468"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321300"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>Spåra beroenden med python-räkning python
 
 Ett beroende är en extern komponent som anropas av ditt program. Beroende data samlas in med hjälp av openräkningar python och dess olika integreringar. Data skickas sedan till Application Insights under Azure Monitor som `dependencies` telemetri.
 
-Börja med att Instrumenta din python-app med senaste [Openräkning python SDK](../../azure-monitor/app/opencensus-python.md).
+Börja med att Instrumenta din python-app med senaste [Openräkning python SDK](./opencensus-python.md).
 
 ## <a name="in-process-dependencies"></a>Pågående beroenden
 
@@ -170,8 +170,9 @@ config_integration.trace_integrations(['sqlalchemy'])
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Programkarta](../../azure-monitor/app/app-map.md)
-* [Tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Sök](../../azure-monitor/app/diagnostic-search.md)
-* [Logg (analys) fråga](../../azure-monitor/log-query/log-query-overview.md)
-* [Transaktionsdiagnostik](../../azure-monitor/app/transaction-diagnostics.md)
+* [Programkarta](./app-map.md)
+* [Tillgänglighet](./monitor-web-app-availability.md)
+* [Sök](./diagnostic-search.md)
+* [Logg (analys) fråga](../log-query/log-query-overview.md)
+* [Transaktionsdiagnostik](./transaction-diagnostics.md)
+

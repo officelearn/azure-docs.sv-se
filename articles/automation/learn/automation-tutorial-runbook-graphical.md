@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: 53031efa831f788fe0fe58146496b427f4cfb4db
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: fa92cd4f4cba63eee09714813954af9fa9c9c4ea
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185542"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290951"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Självstudie: skapa en grafisk Runbook
 
@@ -25,13 +25,14 @@ I den här guiden får du lära dig att:
 > * Kör och spåra statusen för Runbook-jobbet
 > * Uppdatera runbooken för att starta en virtuell Azure-dator med Runbook-parametrar och villkorliga länkar
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna genomföra den här kursen behöver du följande:
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Ett [Automation-konto för Azure](../index.yml) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser. Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
 * En virtuell dator i Azure. Eftersom du stoppar och startar den här datorn bör den inte vara en virtuell produktions dator.
+* Om det behövs [importerar du Azure-moduler](../shared-resources/modules.md) eller [uppdaterar moduler](../automation-update-azure-modules.md) baserat på de cmdletar som du använder.
 
 ## <a name="step-1---create-runbook"></a>Steg 1 – Skapa en runbook
 

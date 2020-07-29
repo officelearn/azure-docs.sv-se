@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop PowerShell (hösten 2019) – Azure
-description: Så här felsöker du problem med PowerShell när du konfigurerar en Windows Virtual Desktop (hösten 2019 release)-klient miljö.
+title: Windows Virtual Desktop (klassisk) PowerShell – Azure
+description: Så här felsöker du problem med PowerShell när du konfigurerar en Windows Virtual Desktop (klassisk) klient miljö.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3171cc54de57b70a18a3f1b9ee3317cf29f79d4b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 04ef12d6de8820740be687bd09ffaa5a8e69eb86
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085817"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87269622"
 ---
-# <a name="windows-virtual-desktop-powershell-fall-2019-release"></a>Windows Virtual Desktop PowerShell (hösten 2019-utgåva)
+# <a name="windows-virtual-desktop-classic-powershell"></a>Windows Virtual Desktop (klassisk) PowerShell
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../troubleshoot-powershell.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../troubleshoot-powershell.md).
 
 Använd den här artikeln för att lösa fel och problem när du använder PowerShell med Windows Virtual Desktop. Mer information om Fjärrskrivbordstjänster PowerShell finns i [Windows Virtual Desktop PowerShell](/powershell/module/windowsvirtualdesktop/).
 

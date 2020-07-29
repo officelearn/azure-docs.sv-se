@@ -4,19 +4,19 @@ description: Lär dig mer om schemat för JSON som publiceras i en webhook-URL n
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: 1db12f352ec79a3112eada68d82279c9e0343a04
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 018bf7ac9c24669df798e9ba05c667dcb72d94a6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516166"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321844"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhookar för Azure aktivitets logg aviseringar
 Som en del av definitionen av en åtgärds grupp kan du konfigurera webhook-slutpunkter för att ta emot aviseringar om aktivitets logg aviseringar. Med Webhooks kan du dirigera dessa meddelanden till andra system för efter bearbetning eller anpassade åtgärder. Den här artikeln visar vad nytto lasten för HTTP-inlägget till en webhook ser ut.
 
 Mer information om aktivitets logg aviseringar finns i så här [skapar du Azure aktivitets logg aviseringar](activity-log-alerts.md).
 
-Information om åtgärds grupper finns i så här [skapar du åtgärds grupper](../../azure-monitor/platform/action-groups.md).
+Information om åtgärds grupper finns i så här [skapar du åtgärds grupper](./action-groups.md).
 
 > [!NOTE]
 > Du kan också använda det [vanliga aviserings schemat](https://aka.ms/commonAlertSchemaDocs), vilket ger fördelarna med att ha en enda utöknings bar och enhetlig aviserings nytto Last i alla aviserings tjänster i Azure Monitor, för dina webhook-integrationer. [Lär dig mer om vanliga aviserings schema definitioner.](https://aka.ms/commonAlertSchemaDefinitions)
@@ -284,11 +284,12 @@ Information om en detaljerad schema information om logg aviseringar för tjänst
 | status |Sträng. Status för åtgärden. Vanliga värden är startad, pågår, lyckades, misslyckades, aktivt och löst. |
 | subStatus |Innehåller vanligt vis HTTP-statuskod för motsvarande REST-anrop. Det kan också innehålla andra strängar som beskriver en under status. Vanliga under status värden är OK (HTTP-status kod: 200), skapad (HTTP-status kod: 201), godkänd (HTTP-status kod: 202), inget innehåll (HTTP-status kod: 204), felaktig begäran (HTTP-status kod: 400), hittades inte (HTTP-status kod: 404), konflikt (HTTP-status kod: 409), internt Server fel (HTTP-status kod: 500), tjänsten är inte tillgänglig (HTTP-status kod: 503) : 504). |
 
-En detaljerad schema information om alla andra aktivitets logg aviseringar finns i [Översikt över Azure aktivitets loggen](../../azure-monitor/platform/platform-logs-overview.md).
+En detaljerad schema information om alla andra aktivitets logg aviseringar finns i [Översikt över Azure aktivitets loggen](./platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Läs mer om aktivitets loggen](../../azure-monitor/platform/platform-logs-overview.md).
+* [Läs mer om aktivitets loggen](./platform-logs-overview.md).
 * [Köra Azure Automation-skript (Runbooks) på Azure-aviseringar](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Använd en Logic app för att skicka ett SMS via Twilio från en Azure-avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Det här exemplet är för mått varningar, men det kan ändras för att fungera med en aktivitets logg avisering.
 * [Använd en Logic app för att skicka ett slack-meddelande från en Azure-avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Det här exemplet är för mått varningar, men det kan ändras för att fungera med en aktivitets logg avisering.
 * [Använd en Logic app för att skicka ett meddelande till en Azure-kö från en Azure-avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Det här exemplet är för mått varningar, men det kan ändras för att fungera med en aktivitets logg avisering.
+

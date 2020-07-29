@@ -3,14 +3,15 @@ title: 'Snabb start: Java Web App Analytics med Azure Application Insights'
 description: 'Övervakning av programprestanda för Java-webbappar med Application Insights. '
 ms.topic: conceptual
 author: lgayhardt
+ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: d3835f88eb581693d10f68a9a495329466a657a2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 464bf650cbcaa99e947a21f5a87a5872f7b11178
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014498"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326927"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Snabb start: kom igång med Application Insights i ett Java-webbprojekt
 
@@ -18,7 +19,7 @@ I den här snabb starten använder du Application Insights för att automatiskt 
 
 Application Insights är en utökningsbar analystjänst för webbutvecklare som hjälper dig att förstå prestanda och användningen av ditt liveprogram. Application Insights har stöd för Java-appar som körs på Linux, Unix eller Windows.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Ett fungerande Java-program.
@@ -131,7 +132,7 @@ Application Insights SDK:n söker efter nyckeln i följande ordning:
 2. Miljö variabel: APPINSIGHTS_INSTRUMENTATIONKEY
 3. Konfigurations fil: *ApplicationInsights.xml*
 
-Du kan också [ange den i koden](../../azure-monitor/app/api-custom-events-metrics.md#ikey):
+Du kan också [ange den i koden](./api-custom-events-metrics.md#ikey):
 
 ```java
     String instrumentationKey = "00000000-0000-0000-0000-000000000000";
@@ -307,16 +308,17 @@ Application Insights kan testa din webbplats med jämna mellanrum för att kontr
 * [Övervaka beroende anrop](java-agent.md)
 * [Övervaka Unix-prestandaräknare](java-collectd.md)
 * Lägg till [övervakning till dina webbsidor](javascript.md) för att övervaka sidans belastning, AJAX-anrop, webbläsarundantag.
-* Skriv [anpassad telemetri](../../azure-monitor/app/api-custom-events-metrics.md) att spåra användningen i webbläsaren eller på servern.
+* Skriv [anpassad telemetri](./api-custom-events-metrics.md) att spåra användningen i webbläsaren eller på servern.
 * Använda [analyser](../log-query/log-query-overview.md) för kraftfulla frågor via telemetri från din app
 * Mer information finns i [Azure för Java-utvecklare](/java/azure).
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#trackexception
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[api]: ./api-custom-events-metrics.md
+[apiexceptions]: ./api-custom-events-metrics.md#trackexception
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
+[metrics]: ../platform/metrics-charts.md
 [usage]: javascript.md
+

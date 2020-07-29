@@ -64,6 +64,8 @@
       href: manage-recording-policy-how-to.md
     - name: Analysera livevideo med valfri AI
       href: analyze-with-ai-your-choice-how-to.md
+    - name: Anropa direkta metoder med portalen
+      href: use-azure-portal-to-invoke-direct-methods.md
     - name: Felsöka
       href: troubleshoot-how-to.md
 - name: Referens

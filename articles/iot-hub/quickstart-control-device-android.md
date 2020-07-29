@@ -10,14 +10,15 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mqtt
+- devx-track-java
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 3e5afae9421d13d986ad6c891c8e889f590f04a2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2a12c916b6f81f21574c4b9dc748a279c22f199f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044727"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315627"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Snabbstart: Kontrollera en enhet ansluten till en IoT Hub (Android)
 
@@ -43,7 +44,7 @@ I den här snabb starten använder du en direkt metod för att styra en simulera
 
 ### <a name="add-azure-iot-extension"></a>Lägg till Azure IoT-tillägg
 
-Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IoT-tillägget lägger till IoT Hub-, IoT Edge-och IoT Device Provisioning-tjänst (DPS)-kommandon i Azure CLI.
+Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IoT-tillägget lägger till kommandon specifika för IoT Hub, IoT Edge och IoT Device Provisioning Service (DPS) i Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-iot
@@ -85,7 +86,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
       --output table
     ```
 
-    Anteckna enhetsanslutningssträngen. Den ser ut ungefär som:
+    Anteckna enhetens anslutningssträng, som ser ut så här:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -137,7 +138,7 @@ Exempelprogrammet för enhets-SDK kan köras på en fysisk Android-enhet eller e
 
 Den här appen måste köras på en fysisk enhet eller emulator när du kör Service SDK-exemplet för att uppdatera telemetri-intervallet under körningen.
 
-## <a name="read-the-telemetry-from-your-hub"></a>Läsa telemetrin från din hubb
+## <a name="read-the-telemetry-from-your-hub"></a>Läs telemetrin från din hubb
 
 I det här avsnittet ska du använda Azure Cloud Shell med IoT- [tillägget](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) för att övervaka de meddelanden som skickas av Android-enheten.
 

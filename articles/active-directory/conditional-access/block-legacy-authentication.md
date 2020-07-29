@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd66bc742d0832cba5d6f302bfe30c85e2d82716
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d3df4eee14e5ce2f0638058efde0f80d0e5b051
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253349"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275487"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Gör så här: blockera äldre autentisering till Azure AD med villkorlig åtkomst   
 
@@ -85,7 +85,7 @@ Innan du kan blockera äldre autentisering i din katalog måste du först först
 
 1. Navigera till **Azure Portal**  >  **Azure Active Directory**  >  **inloggningar**.
 1. Lägg till kolumnen klient program om den inte visas genom att klicka på **kolumner**  >  **klient program**.
-1. **Lägg till filter**  >  **Klient program** > väljer alla bakåtkompatibla autentiseringsprotokoll och klickar på **Använd**.
+1. **Lägg till filter**  >  **Klient program** > väljer alla bakåtkompatibla autentiseringsprotokoll. Välj utanför filter dialog Blox för att tillämpa dina val och stänga dialog rutan.
 
 Vid filtrering visas bara inloggnings försök som gjorts av äldre autentiseringsprotokoll. Om du klickar på varje enskilt inloggnings försök visas ytterligare information. Fältet **klient app** på fliken **grundläggande information** visar vilket äldre autentiseringsprotokoll som användes.
 

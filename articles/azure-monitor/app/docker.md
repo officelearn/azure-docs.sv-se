@@ -3,12 +3,12 @@ title: Övervaka Docker-program i Azure Application Insights | Microsoft Docs
 description: Docker perf-räknare, händelser och undantag kan visas på Application Insights, tillsammans med telemetri från appar i behållare.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 6af39db68c2020e578fe6fbd39870b2e00a16e07
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1cbb2968fec68eb750ce3c9b6cac09f23a1d36c5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539932"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324428"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Övervaka Docker-program i Application Insights (inaktuell)
 
@@ -23,15 +23,15 @@ När du kör [Application Insights avbildningen](https://hub.docker.com/r/micros
 
 * Telemetri för livscykler om alla behållare som körs på värd Start, stopp och så vidare.
 * Prestanda räknare för alla behållare. PROCESSOR, minne, nätverks användning och mycket annat.
-* Om du har [installerat Application Insights SDK för Java](../../azure-monitor/app/java-get-started.md) i apparna som körs i behållarna, kommer all telemetri för dessa appar att ha ytterligare egenskaper som identifierar behållaren och värddatorn. Om du till exempel har instanser av en app som körs på fler än en värd kan du enkelt filtrera din app-telemetri efter värd.
+* Om du har [installerat Application Insights SDK för Java](./java-get-started.md) i apparna som körs i behållarna, kommer all telemetri för dessa appar att ha ytterligare egenskaper som identifierar behållaren och värddatorn. Om du till exempel har instanser av en app som körs på fler än en värd kan du enkelt filtrera din app-telemetri efter värd.
 
 ## <a name="set-up-your-application-insights-resource"></a>Konfigurera din Application Insights-resurs
 
-1. Logga in på [Microsoft Azure-portalen](https://azure.com) och öppna Application Insights resurs för din app. eller [skapa en ny](../../azure-monitor/app/create-new-resource.md ). 
+1. Logga in på [Microsoft Azure-portalen](https://azure.com) och öppna Application Insights resurs för din app. eller [skapa en ny](./create-new-resource.md). 
    
-    *Vilken resurs ska jag använda?* Om de appar som du kör på värden har utvecklats av någon annan måste du [skapa en ny Application Insights-resurs](../../azure-monitor/app/create-new-resource.md ). Här kan du Visa och analysera telemetri. (Välj Allmänt för typ av app.)
+    *Vilken resurs ska jag använda?* Om de appar som du kör på värden har utvecklats av någon annan måste du [skapa en ny Application Insights-resurs](./create-new-resource.md). Här kan du Visa och analysera telemetri. (Välj Allmänt för typ av app.)
    
-    Men om du är utvecklare av appar hoppas vi att du [har lagt till Application Insights SDK](../../azure-monitor/app/java-get-started.md) till var och en av dem. Om de verkligen är komponenter i ett enda affärs program kan du konfigurera alla som ska skicka telemetri till en resurs, och du använder samma resurs för att Visa Docker-livscykel och prestanda data. 
+    Men om du är utvecklare av appar hoppas vi att du [har lagt till Application Insights SDK](./java-get-started.md) till var och en av dem. Om de verkligen är komponenter i ett enda affärs program kan du konfigurera alla som ska skicka telemetri till en resurs, och du använder samma resurs för att Visa Docker-livscykel och prestanda data. 
    
     Ett tredje scenario är att du har utvecklat de flesta appar, men du använder separata resurser för att visa sin telemetri. I så fall vill du förmodligen också skapa en separat resurs för Docker-data.
 
@@ -54,7 +54,7 @@ Nu när du har lärt dig att Visa Telemetrin kan du konfigurera den behållare s
 Endast en Application Insights avbildning krävs per Docker-värd. Om ditt program har distribuerats på flera Docker-värdar upprepar du kommandot på varje värd.
 
 ## <a name="update-your-app"></a>Uppdatera din app
-Om ditt program är instrumenterat med [Application Insights SDK för Java](../../azure-monitor/app/java-get-started.md)lägger du till följande rad i ApplicationInsights.xml-filen i projektet under `<TelemetryInitializers>` elementet:
+Om ditt program är instrumenterat med [Application Insights SDK för Java](./java-get-started.md)lägger du till följande rad i ApplicationInsights.xml-filen i projektet under `<TelemetryInitializers>` elementet:
 
 ```xml
 
@@ -73,7 +73,7 @@ Du kommer snart att se data som kommer från Docker-appen, särskilt om du har a
 ### <a name="docker-container-events"></a>Docker-behållar händelser
 ![exempel](./media/docker/13.png)
 
-Om du vill undersöka enskilda händelser klickar du på [Sök](../../azure-monitor/app/diagnostic-search.md). Sök och filtrera efter de händelser som du vill ha. Klicka på en händelse om du vill ha mer information.
+Om du vill undersöka enskilda händelser klickar du på [Sök](./diagnostic-search.md). Sök och filtrera efter de händelser som du vill ha. Klicka på en händelse om du vill ha mer information.
 
 ### <a name="exceptions-by-container-name"></a>Undantag per behållar namn
 ![exempel](./media/docker/14.png)
@@ -90,7 +90,7 @@ Telemetri för begäran som skickas från det program som är instrumenterat med
 
 *Hur gör jag för att hämta telemetri från själva appen?*
 
-* Installera Application Insights SDK i appen. Lär dig mer om: [Java-webbappar](../../azure-monitor/app/java-get-started.md), [Windows Web Apps](../../azure-monitor/app/asp-net.md).
+* Installera Application Insights SDK i appen. Lär dig mer om: [Java-webbappar](./java-get-started.md), [Windows Web Apps](./asp-net.md).
 
 ## <a name="video"></a>Video
 
@@ -98,6 +98,7 @@ Telemetri för begäran som skickas från det program som är instrumenterat med
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Application Insights för Java](../../azure-monitor/app/java-get-started.md)
-* [Application Insights för Node.js](../../azure-monitor/app/nodejs.md)
-* [Application Insights för ASP.NET](../../azure-monitor/app/asp-net.md)
+* [Application Insights för Java](./java-get-started.md)
+* [Application Insights för Node.js](./nodejs.md)
+* [Application Insights för ASP.NET](./asp-net.md)
+

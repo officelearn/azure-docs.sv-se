@@ -4,18 +4,18 @@ description: Application Performance Management och användningsspårning av dit
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 9e89de2af252ed6c4e2fcd23559bfbf871b0f99d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f80322e8cde27ea48ca343ca8eee5985cba23ceb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079646"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321453"
 ---
 # <a name="what-is-application-insights"></a>Vad är Application Insights?
 Application Insights är en funktion i [Azure Monitor](../overview.md), är en utöknings bar APM-tjänst (Application Performance Management) för utvecklare och DevOps-proffs. Använd den för att övervaka dina Live-program. Prestanda avvikelser identifieras automatiskt och det finns kraftfulla analys verktyg som hjälper dig att diagnostisera problem och förstå vad användare faktiskt gör med din app.  Den hjälper dig att kontinuerligt förbättra prestanda och användbarhet. Det fungerar för appar på en mängd olika plattformar, inklusive .NET, Node.js, Java och python lokalt, hybrid eller något offentligt moln. Den integrerar med din DevOps-process och kan användas med en rad olika utvecklingsverktyg. Den kan övervaka och analysera telemetri från mobilappar genom integrering med Visual Studio App Center.
 
 ## <a name="how-does-application-insights-work"></a>Hur fungerar Application Insights?
-Du installerar ett litet instrumentande paket (SDK) i programmet eller aktiverar Application Insights med hjälp av Application Insights agenten när det [stöds](../../azure-monitor/app/platforms.md). Instrumentation övervakar din app och dirigerar telemetri-data till en Azure Application Insights-resurs med hjälp av ett unikt GUID som vi refererar till som en Instrumentation-nyckel.
+Du installerar ett litet instrumentande paket (SDK) i programmet eller aktiverar Application Insights med hjälp av Application Insights agenten när det [stöds](./platforms.md). Instrumentation övervakar din app och dirigerar telemetri-data till en Azure Application Insights-resurs med hjälp av ett unikt GUID som vi refererar till som en Instrumentation-nyckel.
 
 Förutom att instrumentera webbtjänstprogrammet kan du även instrumentera bakgrundskomponenter och JavaScript-koden på själva webbsidorna. Programmet och dess komponenter kan köras var som helst – det behöver inte vara värd i Azure.
 
@@ -49,29 +49,29 @@ Du kan utforska dina data på många sätt. Läs dessa artiklar:
 
 |  |  |
 | --- | --- |
-| [**Smart identifiering och manuella aviseringar**](../../azure-monitor/app/proactive-diagnostics.md)<br/>Konfigurera automatiska aviseringar som anpassas efter appens normala mönster för telemetri och utlöses när det finns något utanför det vanliga mönstret. Du kan också [ställa in aviseringar](../../azure-monitor/platform/alerts-log.md) på särskilda nivåer av anpassade eller standard mått. |![Aviseringsexempel](./media/app-insights-overview/alerts-tn.png) |
-| [**Program karta**](../../azure-monitor/app/app-map.md)<br/>Utforska komponenterna i appen med viktiga mått och aviseringar. |![Programkarta](./media/app-insights-overview/appmap-tn.png)  |
-| [**Profilerare**](../../azure-monitor/app/profiler.md)<br/>Granska körningsprofilerna för exempelbegäranden. |![Profilerare](./media/app-insights-overview/profiler.png) |
-| [**Användnings analys**](../../azure-monitor/app/usage-overview.md)<br/>Analysera användarsegment och kvarhållning.|![Kvarhållningsverktyg](./media/app-insights-overview/retention.png) |
-| [**Diagnostiksökning efter instansdata**](../../azure-monitor/app/diagnostic-search.md)<br/>Sök efter och filtrera händelser, till exempel begäranden, undantag, beroendeanrop, loggspårningar och sidvyer.  |![Telemetrisökning](./media/app-insights-overview/search-tn.png) |
-| [**Metrics Explorer för aggregerade data**](../../azure-monitor/platform/metrics-charts.md)<br/>Utforska, filtrera och segmentera aggregerade data, till exempel begärande-, fel- och undantagsfrekvens, svarstider och sidinläsningstider. |![Mått](./media/app-insights-overview/metrics-tn.png) |
-| [**Instrumentpaneler**](../../azure-monitor/app/overview-dashboard.md)<br/>Kombinera data från flera resurser och dela med andra. Perfekt för program med flera komponenter och för kontinuerlig visning i teamutrymmet. |![Exempel på instrumentpaneler](./media/app-insights-overview/dashboard-tn.png) |
-| [**Live-ström med mätvärden**](../../azure-monitor/app/live-stream.md)<br/>När du distribuerar en ny version kan du titta på dessa prestandaindikatorer som visas i realtid för att kontrollera att allt fungerar som förväntat. |![Exempel på live-mätvärden](./media/app-insights-overview/live-metrics-tn.png) |
+| [**Smart identifiering och manuella aviseringar**](./proactive-diagnostics.md)<br/>Konfigurera automatiska aviseringar som anpassas efter appens normala mönster för telemetri och utlöses när det finns något utanför det vanliga mönstret. Du kan också [ställa in aviseringar](../platform/alerts-log.md) på särskilda nivåer av anpassade eller standard mått. |![Aviseringsexempel](./media/app-insights-overview/alerts-tn.png) |
+| [**Program karta**](./app-map.md)<br/>Utforska komponenterna i appen med viktiga mått och aviseringar. |![Programkarta](./media/app-insights-overview/appmap-tn.png)  |
+| [**Profilerare**](./profiler.md)<br/>Granska körningsprofilerna för exempelbegäranden. |![Profilerare](./media/app-insights-overview/profiler.png) |
+| [**Användnings analys**](./usage-overview.md)<br/>Analysera användarsegment och kvarhållning.|![Kvarhållningsverktyg](./media/app-insights-overview/retention.png) |
+| [**Diagnostiksökning efter instansdata**](./diagnostic-search.md)<br/>Sök efter och filtrera händelser, till exempel begäranden, undantag, beroendeanrop, loggspårningar och sidvyer.  |![Telemetrisökning](./media/app-insights-overview/search-tn.png) |
+| [**Metrics Explorer för aggregerade data**](../platform/metrics-charts.md)<br/>Utforska, filtrera och segmentera aggregerade data, till exempel begärande-, fel- och undantagsfrekvens, svarstider och sidinläsningstider. |![Mått](./media/app-insights-overview/metrics-tn.png) |
+| [**Instrumentpaneler**](./overview-dashboard.md)<br/>Kombinera data från flera resurser och dela med andra. Perfekt för program med flera komponenter och för kontinuerlig visning i teamutrymmet. |![Exempel på instrumentpaneler](./media/app-insights-overview/dashboard-tn.png) |
+| [**Live-ström med mätvärden**](./live-stream.md)<br/>När du distribuerar en ny version kan du titta på dessa prestandaindikatorer som visas i realtid för att kontrollera att allt fungerar som förväntat. |![Exempel på live-mätvärden](./media/app-insights-overview/live-metrics-tn.png) |
 | [**Analytics**](../log-query/log-query-overview.md)<br/>Besvara svåra frågor om appens prestanda och användning med hjälp av det här kraftfulla frågespråket. |![Analytics-exempel](./media/app-insights-overview/analytics-tn.png) |
-| [**Visual Studio**](../../azure-monitor/app/visual-studio.md)<br/>Visa prestandadata i koden. Gå till kod från stackspårningar.|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
-| [**Fel sökning av ögonblicks bild**](../../azure-monitor/app/snapshot-debugger.md)<br/>Felsök ögonblicksbilder från program som körs med parametervärden.|![Visual Studio](./media/app-insights-overview/snapshot.png) |
-| [**Power BI**](../../azure-monitor/app/export-power-bi.md )<br/>Integrera användningsmätvärden med annan Business Intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
+| [**Visual Studio**](./visual-studio.md)<br/>Visa prestandadata i koden. Gå till kod från stackspårningar.|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
+| [**Fel sökning av ögonblicks bild**](./snapshot-debugger.md)<br/>Felsök ögonblicksbilder från program som körs med parametervärden.|![Visual Studio](./media/app-insights-overview/snapshot.png) |
+| [**Power BI**](./export-power-bi.md)<br/>Integrera användningsmätvärden med annan Business Intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**REST-API**](https://dev.applicationinsights.io/)<br/>Skriv kod för att köra frågor mot dina mätvärden och rådata.| ![REST-API](./media/app-insights-overview/rest-tn.png) |
-| [**Löpande export**](../../azure-monitor/app/export-telemetry.md)<br/>Massexportera rådata till lagring så fort de anländer. |![Exportera](./media/app-insights-overview/export-tn.png) |
+| [**Löpande export**](./export-telemetry.md)<br/>Massexportera rådata till lagring så fort de anländer. |![Exportera](./media/app-insights-overview/export-tn.png) |
 
 ## <a name="how-do-i-use-application-insights"></a>Hur använder jag Application Insights?
 
 ### <a name="monitor"></a>Övervaka
-Installera Application Insights i din app, konfigurera [webbtester för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md) och:
+Installera Application Insights i din app, konfigurera [webbtester för tillgänglighet](./monitor-web-app-availability.md) och:
 
-* Kolla in standard [instrument panelen](../../azure-monitor/app/overview-dashboard.md) för ditt teamrum för att hålla ett öga på belastning, svars tider och prestanda för dina beroenden, sid inläsningar och AJAX-anrop.
+* Kolla in standard [instrument panelen](./overview-dashboard.md) för ditt teamrum för att hålla ett öga på belastning, svars tider och prestanda för dina beroenden, sid inläsningar och AJAX-anrop.
 * Identifiera de begäranden som är långsammast och som misslyckas oftast.
-* Titta på [Live Stream](../../azure-monitor/app/live-stream.md) när du distribuerar en ny version så att du genast kan upptäcka en eventuell försämring.
+* Titta på [Live Stream](./live-stream.md) när du distribuerar en ny version så att du genast kan upptäcka en eventuell försämring.
 
 ### <a name="detect-diagnose"></a>Identifiera och diagnostisera
 När du får en avisering eller identifierar ett problem:
@@ -81,7 +81,7 @@ När du får en avisering eller identifierar ett problem:
 * Undersök profilerare, ögonblicksbilder, stackdumpar och spårningsloggar.
 
 ### <a name="build-measure-learn"></a>Bygg, mät och lär
-[Mät effektiviteten](../../azure-monitor/app/usage-overview.md) för varje ny funktion som du distribuerar.
+[Mät effektiviteten](./usage-overview.md) för varje ny funktion som du distribuerar.
 
 * Mät hur kunder använder nya användargränssnitts- eller företagsfunktioner.
 * Skriv in anpassad telemetri i din kod.
@@ -93,35 +93,35 @@ Application Insights är en av de många tjänsterna som finns i Microsoft Azure
 Det finns flera sätt att komma igång. Börja på det sätt som passar dig bäst. Du kan fortsätta med de andra senare.
 
 * **Vid körning: instrumentera webbappen på servern.** Perfekt för program som redan har distribuerats. Undviker uppdateringar av koden.
-  * [**ASP.NET eller ASP.NET Core program som finns på Azure Web Apps**](../../azure-monitor/app/azure-web-apps.md)
-  * [**ASP.NET program som finns i IIS på en virtuell Azure-dator eller skalnings uppsättning för virtuella Azure-datorer**](../../azure-monitor/app/azure-vm-vmss-apps.md)
-  * [**ASP.NET program som finns i den lokala IIS-datorn**](../../azure-monitor/app/monitor-performance-live-website-now.md)
+  * [**ASP.NET eller ASP.NET Core program som finns på Azure Web Apps**](./azure-web-apps.md)
+  * [**ASP.NET program som finns i IIS på en virtuell Azure-dator eller skalnings uppsättning för virtuella Azure-datorer**](./azure-vm-vmss-apps.md)
+  * [**ASP.NET program som finns i den lokala IIS-datorn**](./monitor-performance-live-website-now.md)
 * **Vid utveckling: lägg till Application Insights i din kod.** Gör att du kan anpassa telemetri-samlingen och skicka ytterligare telemetri.
-  * [ASP.NET-program](../../azure-monitor/app/asp-net.md)
-  * [ASP.NET Core program](../../azure-monitor/app/asp-net-core.md)
-  * [.NET-konsol program](../../azure-monitor/app/console.md)
-  * [Java](../../azure-monitor/app/java-get-started.md)
-  * [Node.js](../../azure-monitor/app/nodejs.md)
-  * [Python](../../azure-monitor/app/opencensus-python.md)
-  * [Andra plattformar](../../azure-monitor/app/platforms.md)
-* **[Instrumentera dina webbplatser](../../azure-monitor/app/javascript.md)** för sidvisning, AJAX och annan telemetri på klientsidan.
-* **[Analysera mobilappsanvändning](../../azure-monitor/learn/mobile-center-quickstart.md)** genom integrering med Visual Studio App Center.
-* **[Tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md)** –pinga din webbplats regelbundet från våra servrar.
+  * [ASP.NET-program](./asp-net.md)
+  * [ASP.NET Core program](./asp-net-core.md)
+  * [.NET-konsol program](./console.md)
+  * [Java](./java-get-started.md)
+  * [Node.js](./nodejs.md)
+  * [Python](./opencensus-python.md)
+  * [Andra plattformar](./platforms.md)
+* **[Instrumentera dina webbplatser](./javascript.md)** för sidvisning, AJAX och annan telemetri på klientsidan.
+* **[Analysera mobilappsanvändning](../learn/mobile-center-quickstart.md)** genom integrering med Visual Studio App Center.
+* **[Tillgänglighetstester](./monitor-web-app-availability.md)** –pinga din webbplats regelbundet från våra servrar.
 
 ## <a name="next-steps"></a>Nästa steg
 Kom igång under körningsfasen med:
 
-* [Virtuella Azure-datorer och skalnings uppsättningar i IIS-värdbaserade appar](../../azure-monitor/app/azure-vm-vmss-apps.md)
-* [IIS-server](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
+* [Virtuella Azure-datorer och skalnings uppsättningar i IIS-värdbaserade appar](./azure-vm-vmss-apps.md)
+* [IIS-server](./monitor-performance-live-website-now.md)
+* [Azure Web Apps](./azure-web-apps.md)
 
 Kom igång under utvecklingsfasen med:
 
-* [ASP.NET](../../azure-monitor/app/asp-net.md)
-* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
-* [Java](../../azure-monitor/app/java-get-started.md)
-* [Node.js](../../azure-monitor/app/nodejs.md)
-* [Python](../../azure-monitor/app/opencensus-python.md)
+* [ASP.NET](./asp-net.md)
+* [ASP.NET Core](./asp-net-core.md)
+* [Java](./java-get-started.md)
+* [Node.js](./nodejs.md)
+* [Python](./opencensus-python.md)
 
 
 ## <a name="support-and-feedback"></a>Support och feedback
@@ -136,15 +136,16 @@ Kom igång under utvecklingsfasen med:
 
 <!--Link references-->
 
-[android]: ../../azure-monitor/learn/mobile-center-quickstart.md
+[android]: ../learn/mobile-center-quickstart.md
 [azure]: ../../insights-perf-analytics.md
-[client]: ../../azure-monitor/app/javascript.md
-[desktop]: ../../azure-monitor/app/windows-desktop.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
-[ios]: ../../azure-monitor/learn/mobile-center-quickstart.md
-[java]: ../../azure-monitor/app/java-get-started.md
+[client]: ./javascript.md
+[desktop]: ./windows-desktop.md
+[greenbrown]: ./asp-net.md
+[ios]: ../learn/mobile-center-quickstart.md
+[java]: ./java-get-started.md
 [knowUsers]: app-insights-web-track-usage.md
-[platforms]: ../../azure-monitor/app/platforms.md
+[platforms]: ./platforms.md
 [portal]: https://portal.azure.com/
 [qna]: ../faq.md
-[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
+[redfield]: ./monitor-performance-live-website-now.md
+

@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 1665bc42578c189ed27208eb31cc4bdb2e27bbb9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60dd9631df0b997ce39134002bdb6ed9f69336ed
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536172"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319277"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Självstudie: skapa ett etikett projekt för bild klassificering med flera klasser 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -114,7 +114,7 @@ Nu när du har åtkomst till de data som du vill ha med etikett, skapar du ett e
 
 Om du planerar att lägga till nya avbildningar i din data uppsättning kommer den stegvisa uppdateringen att hitta dessa nya avbildningar och lägga till dem i projektet.  När du aktiverar den här funktionen kommer projektet att regelbundet söka efter nya avbildningar.  Du kommer inte att lägga till nya avbildningar i data lagret för den här själv studie kursen, så lämna den här funktionen omarkerad.
 
-Välj **Nästa** för att fortsätta.
+Fortsätt genom att välja **Nästa**.
 
 ### <a name="label-classes"></a>Etikett klasser
 
@@ -146,9 +146,7 @@ I den här delen av självstudien byter du roller från *projekt administratöre
 
 1. I [Machine Learning Studio](https://ml.azure.com)väljer du **data etiketter** till vänster för att hitta ditt projekt.  
 
-1. Välj projekt namnet i listan.
-
-1. Under projekt namnet väljer du **etikett data**.
+1. Välj **etikett länk** för projektet.
 
 1. Läs anvisningarna och välj sedan **uppgifter**.
 

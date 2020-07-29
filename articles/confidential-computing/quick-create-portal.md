@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/23/2020
 ms.author: JenCook
-ms.openlocfilehash: 3cf772fb10ee41887d76976b30e9bebaba51a2f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 476b93400b69063590c12ed38037c0bf6c6d1714
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85830476"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281080"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Snabb start: Distribuera en virtuell Azure-dator med konfidentiella data behandling i Azure Portal
 
@@ -22,7 +22,7 @@ Kom igång med Azures konfidentiella data behandling genom att använda Azure Po
 Den här själv studie kursen rekommenderas för dig om du är intresse rad av att distribuera en konfidentiell virtuell dator med anpassad konfiguration. I annat fall rekommenderar vi att du följer [distributions stegen för den virtuella datorn för den konfidentiella beräkningen för Microsofts kommersiella marknads](quick-create-marketplace.md)plats.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) innan du börjar.
 
@@ -84,7 +84,7 @@ Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.mi
    * **Autentiseringstyp**: Välj **Offentlig SSH-nyckel** om du skapar en virtuell Linux-dator. 
 
         > [!NOTE]
-        > Du kan välja mellan offentlig SSH-nyckel eller lösenord för autentisering. SSH är säkrare. Instruktioner om hur du genererar en SSH-nyckel finns i [Skapa SSH-nycklar på Linux och Mac för virtuella Linux-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+        > Du kan välja mellan offentlig SSH-nyckel eller lösenord för autentisering. SSH är säkrare. Instruktioner om hur du genererar en SSH-nyckel finns i [Skapa SSH-nycklar på Linux och Mac för virtuella Linux-datorer i Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
     * **Användar namn**: Ange administratörs namnet för den virtuella datorn.
 

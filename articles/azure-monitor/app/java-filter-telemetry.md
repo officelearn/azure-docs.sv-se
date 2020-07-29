@@ -3,11 +3,12 @@ title: Filtrera Azure Application Insights-telemetri i din Java-webbapp
 description: Minska telemetri trafiken genom att filtrera bort händelserna som du inte behöver övervaka.
 ms.topic: conceptual
 ms.date: 3/14/2019
-ms.openlocfilehash: 020e54132e0ca0a9f9ccf0236f94515877015637
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd53a0e02eb43bdf7cde4952ed4835c6d1cdd126
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659925"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322592"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrera telemetri i din Java-webbapp
 
@@ -22,7 +23,7 @@ De färdiga filtren är:
 
 > [!NOTE]
 > Filter skevar måtten för din app. Du kan till exempel bestämma att du ska ta bort snabba svars tider genom att ange ett filter för att diagnostisera långsamma svar. Men du måste vara medveten om att den genomsnittliga svars tiden som rapporteras av Application Insights kommer att bli långsammare än den sanna hastigheten och antalet begär Anden blir mindre än det faktiska antalet.
-> Om detta är ett problem kan du använda [sampling](../../azure-monitor/app/sampling.md) i stället.
+> Om detta är ett problem kan du använda [sampling](./sampling.md) i stället.
 
 ## <a name="setting-filters"></a>Ange filter
 
@@ -151,7 +152,7 @@ Filtrera bort telemetri för vissa syntetiska källor:
 
 ### <a name="telemetry-event-filter"></a>Händelse filter för telemetri
 
-Filtrerar anpassade händelser (loggas med [TrackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)).
+Filtrerar anpassade händelser (loggas med [TrackEvent ()](./api-custom-events-metrics.md#trackevent)).
 
 
 ```XML
@@ -167,7 +168,7 @@ Filtrerar anpassade händelser (loggas med [TrackEvent ()](../../azure-monitor/a
 
 ### <a name="trace-telemetry-filter"></a>Filter för trace-telemetri
 
-Filtrerar logg spårningar (loggas med [TrackTrace ()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) eller en [insamlare för loggnings ramverk](java-trace-logs.md)).
+Filtrerar logg spårningar (loggas med [TrackTrace ()](./api-custom-events-metrics.md#tracktrace) eller en [insamlare för loggnings ramverk](java-trace-logs.md)).
 
 ```XML
 
@@ -267,4 +268,5 @@ Du måste skapa dina egna filter parametrar i och använda `application.properti
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Sampling](../../azure-monitor/app/sampling.md) – Överväg att använda sampling som ett alternativ som inte snedställer dina mått.
+* [Sampling](./sampling.md) – Överväg att använda sampling som ett alternativ som inte snedställer dina mått.
+

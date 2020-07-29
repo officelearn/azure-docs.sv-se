@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 205f96a6ce9b730f98a0c676c3c0a289680e36f2
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: d8cf93d8945d6597f3c7276e83df0b837490c57d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057542"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326859"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Hantera Azure Resource Manager resurs grupper med hjälp av Azure CLI
 
@@ -25,7 +25,7 @@ Andra artiklar om att hantera resurs grupper:
 
 En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Resursgruppen kan innehålla alla resurser för lösningen, eller endast de resurser som du vill hantera som en grupp. Du bestämmer hur du vill allokera resurser till resursgrupper baserat på vad som är lämpligast för din organisation. Lägg vanligt vis till resurser som delar samma livs cykel i samma resurs grupp så att du enkelt kan distribuera, uppdatera och ta bort dem som en grupp.
 
-Resursgruppen lagrar metadata om resurserna. När du anger en plats för resursgruppen anger du därför var metadatan ska lagras. På grund av regelefterlevnadsskäl kan du behöva säkerställa att din data lagras inom en viss region.
+Resursgruppen lagrar metadata om resurserna. När du anger en plats för resursgruppen anger du därför var metadatan ska lagras. På grund av regelefterlevnadsskäl kan du behöva säkerställa att dina data lagras inom en viss region.
 
 Resursgruppen lagrar metadata om resurserna. När du anger en plats för resurs gruppen anger du var metadata lagras.
 
@@ -75,7 +75,7 @@ Se [distribuera resurser till en befintlig resurs grupp](manage-resources-cli.md
 
 ## <a name="deploy-a-resource-group-and-resources"></a>Distribuera en resurs grupp och resurser
 
-Du kan skapa en resurs grupp och distribuera resurser till gruppen med hjälp av en Resource Manager-mall. Mer information finns i [skapa resurs grupp och distribuera resurser](../templates/deploy-to-subscription.md#resource-group-and-resources).
+Du kan skapa en resurs grupp och distribuera resurser till gruppen med hjälp av en Resource Manager-mall. Mer information finns i [skapa resurs grupp och distribuera resurser](../templates/deploy-to-subscription.md#resource-groups).
 
 ## <a name="redeploy-when-deployment-fails"></a>Distribuera om när distributionen Miss lyckas
 

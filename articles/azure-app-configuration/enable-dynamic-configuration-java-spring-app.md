@@ -7,19 +7,20 @@ author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 3/5/2020
+ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: 37c832e3b6d1430da0b45558c9632f0486a7233b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a2864d610d71c6b3a86c131dabb3c0b9ed138bec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79216763"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327930"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>Självstudie: Använd dynamisk konfiguration i en Java våren-app
 
 App-konfigurationen för att starta klient biblioteket stöder uppdatering av en uppsättning konfigurations inställningar på begäran, utan att ett program startas om. Klient biblioteket cachelagrar varje inställning för att undvika för många anrop till konfigurations arkivet. Uppdaterings åtgärden uppdaterar inte värdet förrän det cachelagrade värdet har upphört att gälla, även om värdet har ändrats i konfigurations arkivet. Standard förfallo tiden för varje begäran är 30 sekunder. Den kan åsidosättas om det behövs.
 
-Du kan kontrol lera om det finns uppdaterade inställningar på `AppConfigurationRefresh`begäran `refreshConfigurations()` genom att anropa metoden.
+Du kan kontrol lera om det finns uppdaterade inställningar på begäran genom att anropa `AppConfigurationRefresh` `refreshConfigurations()` metoden.
 
 Du kan också använda `spring-cloud-azure-appconfiguration-config-web` paketet, som tar ett beroende på `spring-web` för att hantera automatisk uppdatering.
 
@@ -27,7 +28,7 @@ Du kan också använda `spring-cloud-azure-appconfiguration-config-web` paketet,
 
 Om du vill använda automatisk uppdatering börjar du med en våren Boot-app som använder appens konfiguration, till exempel den app som du skapar genom att följa [Start programmet för att starta snabb start för appar](quickstart-java-spring-app.md).
 
-Öppna sedan filen *Pom. XML* i en text redigerare och Lägg till en `<dependency>` for. `spring-cloud-azure-appconfiguration-config-web`
+Öppna sedan *pom.xml* -filen i en text redigerare och Lägg till en `<dependency>` for `spring-cloud-azure-appconfiguration-config-web` .
 
 **Våren Cloud 1.1. x**
 

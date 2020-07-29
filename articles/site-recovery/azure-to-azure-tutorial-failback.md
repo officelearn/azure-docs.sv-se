@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e6257311473987ee053caeade6bfe14533353b73
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: f73d20c19e8fc26c553490772f5374e8a88a77b2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134447"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289300"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Återställa en virtuell Azure-dator mellan Azure-regioner
 
@@ -58,7 +58,7 @@ När de virtuella datorerna har återskyddats kan du växla tillbaka till den pr
     ![VM i primär och sekundär region](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
 
 > [!NOTE]
-> För datorer som kör Site Recovery Extension-versionen 9.28. x. x och med [Samlad uppdatering 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) Site Recovery rensar datorer i den sekundära katastrof återställnings regionen efter att återställning efter fel har slutförts och virtuella datorer skyddas på nytt. Det finns inget behov av att manuellt ta bort virtuella datorer och nätverkskort i den sekundära regionen. Om du inaktiverar replikeringen helt efter att du har återställt igen rensar Site Recovery diskarna i Disaster Recovery-regionen, utöver de virtuella datorerna och nätverkskorten.
+> För datorer som använder hanterade diskar och kör Site Recovery Extension-versionen 9.28. x. x och med [Samlad uppdatering 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) Site Recovery rensar datorer i den sekundära Disaster Recovery-regionen efter att återställning efter fel har slutförts och virtuella datorer skyddas på nytt. Det finns inget behov av att manuellt ta bort virtuella datorer och nätverkskort i den sekundära regionen. Observera att virtuella datorer med ohanterade diskar inte rensas. Om du inaktiverar replikeringen helt efter att du har återställt igen rensar Site Recovery diskarna i Disaster Recovery-regionen, utöver de virtuella datorerna och nätverkskorten.
 
 ## <a name="next-steps"></a>Nästa steg
 

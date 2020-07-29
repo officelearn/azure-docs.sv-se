@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 771cfa11375e97f2f6a94fc65cbd72306b12cd7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64884f07bc59e5ff2b29eac645ddb469ef3db465
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84803973"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325193"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Så här frågar du efter loggar från Azure Monitor for VMs
 
-Azure Monitor for VMs samlar in prestanda-och anslutnings mått, dator-och process inventerings data och hälso tillstånds information och vidarebefordrar den till arbets ytan Log Analytics i Azure Monitor.  Dessa data är tillgängliga för [fråga](../../azure-monitor/log-query/log-query-overview.md) i Azure Monitor. Du kan använda dessa data i scenarier som omfattar migrerings planering, kapacitets analys, identifiering och prestanda fel sökning på begäran.
+Azure Monitor for VMs samlar in prestanda-och anslutnings mått, dator-och process inventerings data och hälso tillstånds information och vidarebefordrar den till arbets ytan Log Analytics i Azure Monitor.  Dessa data är tillgängliga för [fråga](../log-query/log-query-overview.md) i Azure Monitor. Du kan använda dessa data i scenarier som omfattar migrerings planering, kapacitets analys, identifiering och prestanda fel sökning på begäran.
 
 ## <a name="map-records"></a>Mappa poster
 
@@ -115,7 +115,7 @@ Varje RemoteIp-egenskap i *VMConnection* -tabellen kontrol leras mot en uppsätt
 |Beskrivning |Beskrivning av det observerade hotet. |
 |TLPLevel |TLP-nivån (trafik ljus protokoll) är en av de definierade värdena, *vitt*, *grönt*, *gult*, *rött*. |
 |Konfidensbedömning |Värdena är *0 – 100*. |
-|Severity |Värdena är *0 – 5*, där *5* är det allvarligaste och *0* inte är allvarligt. Standardvärdet är *3*.  |
+|Allvarlighetsgrad |Värdena är *0 – 5*, där *5* är det allvarligaste och *0* inte är allvarligt. Standardvärdet är *3*.  |
 |FirstReportedDateTime |Första gången som providern rapporterade indikatorn. |
 |LastReportedDateTime |Den senaste gången indikatorn visades vid ett flöde. |
 |IsActive |Anger att indikatorer inaktive ras med värdet *True* eller *false* . |
@@ -166,7 +166,7 @@ Poster med en typ av *VMComputer* har inventerings data för servrar med beroend
 |Dator | Namnet på Azure Resource Manager resursen för den dator som exponeras av ServiceMap. Det har formatet *m-{GUID}*, där *GUID* är samma GUID som AgentId. | 
 |DisplayName | Visningsnamn | 
 |FullDisplayName | Fullständigt visnings namn | 
-|Värdnamn | Namnet på datorn utan domän namn |
+|HostName | Namnet på datorn utan domän namn |
 |BootTime | Datorns start tid (UTC) |
 |TimeZone | Normaliserad tidszon |
 |VirtualizationState | *virtuell*, *hypervisor*, *fysisk* |
@@ -243,7 +243,7 @@ Poster med en typ av *VMProcess* har inventerings data för TCP-anslutna process
 |Raden | Kommando raden |
 |WorkingDirectory | Arbets katalogen |
 |Tjänster | En matris med tjänster som processen körs under |
-|UserName | Kontot under vilket processen körs |
+|Användarnamn | Kontot under vilket processen körs |
 |UserDomain | Domänen som processen körs under |
 |_ResourceId | Den unika identifieraren för en process inom arbets ytan |
 
@@ -442,7 +442,7 @@ Poster med en typ av *InsightsMetrics* har prestanda data från gäst operativ s
 |Dator | Datorns FQDN | 
 |Ursprung | *vm.azm.ms* |
 |Namnområde | Prestanda räknarens kategori | 
-|Name | Namn på prestanda räknaren |
+|Namn | Namn på prestanda räknaren |
 |Ang | Insamlat värde | 
 |Taggar | Relaterad information om posten. Se tabellen nedan för taggar som används med olika post typer.  |
 |AgentId | Unik identifierare för varje dators agent |
@@ -451,7 +451,7 @@ Poster med en typ av *InsightsMetrics* har prestanda data från gäst operativ s
 
 De prestanda räknare som för närvarande samlas in i tabellen *InsightsMetrics* visas i följande tabell:
 
-| Namnområde | Name | Beskrivning | Enhet | Taggar |
+| Namnområde | Namn | Beskrivning | Enhet | Taggar |
 |:---|:---|:---|:---|:---|
 | Dator    | Pulsslag             | Datorns pulsslag                        | | |
 | Minne      | AvailableMB           | Tillgängliga byte för minne                    | Megabyte      | memorySizeMB – total minnes storlek|
@@ -473,6 +473,7 @@ De prestanda räknare som för närvarande samlas in i tabellen *InsightsMetrics
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du inte har använt att skriva logg frågor i Azure Monitor kan du läsa om [hur du använder Log Analytics](../../azure-monitor/log-query/get-started-portal.md) i Azure Portal för att skriva logg frågor.
+* Om du inte har använt att skriva logg frågor i Azure Monitor kan du läsa om [hur du använder Log Analytics](../log-query/get-started-portal.md) i Azure Portal för att skriva logg frågor.
 
-* Lär dig mer om att [skriva Sök frågor](../../azure-monitor/log-query/search-queries.md).
+* Lär dig mer om att [skriva Sök frågor](../log-query/search-queries.md).
+

@@ -4,15 +4,15 @@ description: Lär dig mer om steg och överväganden för att skapa ett nytt Azu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: qianw211
-ms.author: dsindona
+author: AarathiN
+ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 6789e32cbbb1257a668e7be87a8b73a0511b6fb0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f9d7e88e78800df07dfe82d7336324eef38b92d5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127442"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326688"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
@@ -260,7 +260,7 @@ Alla tre logo typer krävs och används på olika platser i listan.
 
 Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Varje skärm bild måste vara 1280 x 720 bild punkter i storlek och i PNG-format. Varje skärm bild måste innehålla en beskrivning.
 
-#### <a name="videos"></a>Video
+#### <a name="videos"></a>Videoklipp
 
 Lägg till upp till fem videor som demonstrerar ditt erbjudande. De ska vara värd för en extern video tjänst. Ange varje video namn, webb adress och en miniatyr bild av videon med 1280 x 720 pixlar.
 

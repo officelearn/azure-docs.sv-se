@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/12/2020
-ms.openlocfilehash: 2da00b44be7018bef80e466231efb75a8eb99754
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a2ece33974e5bb4d8cb6257d3ca68a258f9b8c81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081550"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326009"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Övervaknings lösningar i Azure Monitor
 
@@ -125,7 +125,7 @@ Medlemmar i communityn kan skicka in hanterings lösningar till Azures snabb sta
 
 ### <a name="install-a-solution-with-the-azure-cli"></a>Installera en lösning med Azure CLI
 
-När du installerar en lösning måste du välja en [Log Analytics arbets yta](/azure/azure-monitor/platform/manage-access) där lösningen ska installeras och var data ska samlas in.  Med Azure CLI kan du hantera arbets ytor med hjälp av referens kommandon för [arbets ytan AZ Monitor Log-Analytics](/cli/azure/monitor/log-analytics/workspace) .  Följ processen som beskrivs i [Log Analytics arbets yta och Automation-konto](#log-analytics-workspace-and-automation-account) för att länka en arbets yta och ett konto.
+När du installerar en lösning måste du välja en [Log Analytics arbets yta](../platform/manage-access.md) där lösningen ska installeras och var data ska samlas in.  Med Azure CLI kan du hantera arbets ytor med hjälp av referens kommandon för [arbets ytan AZ Monitor Log-Analytics](/cli/azure/monitor/log-analytics/workspace) .  Följ processen som beskrivs i [Log Analytics arbets yta och Automation-konto](#log-analytics-workspace-and-automation-account) för att länka en arbets yta och ett konto.
 
 Använd [AZ Monitors Log-Analytics-lösning skapa](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution) för att installera en övervaknings lösning.  Parametrar i hakparenteser är valfria.
 
@@ -192,6 +192,7 @@ az monitor log-analytics solution delete --name
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Hämta en [lista över övervaknings lösningar från Microsoft](solutions-inventory.md).
+* Hämta en [lista över övervaknings lösningar från Microsoft](/azure/azure-monitor/monitor-reference).
 * Lär dig hur du [skapar frågor](../log-query/log-query-overview.md) för att analysera data som samlas in av övervaknings lösningar.
 * Se alla [Azure CLI-kommandon för Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
+

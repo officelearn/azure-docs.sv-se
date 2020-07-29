@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 07/07/2020
+ms.date: 07/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8db3a5292af2d53945c60a7b4ec1eb3c78381b9b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 83cf8ca47774713ca8dbfd493d7aa16bf65fb6b7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101855"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286469"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Självstudie: Konfigurera en Azure Time Series Insights Gen2-miljö
 
@@ -36,7 +36,7 @@ I den här guiden får du lära dig att:
 
 Registrera dig för en [kostnads fri Azure-prenumeration](https://azure.microsoft.com/free/) om du inte redan har en.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Du måste minst ha **deltagar** rollen för Azure-prenumerationen. Mer information finns i [Hantera åtkomst med hjälp av rollbaserad åtkomst kontroll och Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
@@ -48,7 +48,7 @@ I det här avsnittet ska du skapa tre simulerade enheter som skickar data till e
 
    [![Sidan Azure IoT Solution Accelerators.](media/v2-update-provision/iot-solution-accelerators-landing-page.png)](media/v2-update-provision/iot-solution-accelerators-landing-page.png#lightbox)
 
-1. Välj **Testa nu**på nästa sida. Ange sedan de nödvändiga parametrarna på sidan **skapa lösning för enhets simulering** .
+1. Ange den prenumeration där du vill skapa enhets simuleringen.
 
    Parameter|Beskrivning
    ---|---
@@ -61,7 +61,7 @@ I det här avsnittet ska du skapa tre simulerade enheter som skickar data till e
 
    [![Etablera lösningen för enhets simulering.](media/v2-update-provision/iot-solution-accelerators-configuration.png)](media/v2-update-provision/iot-solution-accelerators-configuration.png#lightbox)
 
-1. När etableringen har slutförts visas två meddelanden som visar att distributions statusen har flyttats från **etableringen** till **klar**. 
+1. När etableringen har slutförts visas två meddelanden som visar att distributions statusen har flyttats från **etableringen** till **klar**.
 
    >[!IMPORTANT]
    > Ange inte Solution Accelerator ännu! Behåll den här webb sidan öppen eftersom du kommer tillbaka till den senare.
@@ -76,9 +76,9 @@ I det här avsnittet ska du skapa tre simulerade enheter som skickar data till e
 
 I det här avsnittet beskrivs hur du skapar en Azure Time Series Insights Gen2-miljö och ansluter den till IoT Hub som skapats av IoT Solution Accelerator med hjälp av [Azure Portal](https://portal.azure.com/).
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-prenumerations konto. 
-1. Välj **+ skapa en resurs** i det övre vänstra hörnet. 
-1. Välj kategorin **Sakernas Internet** och välj sedan **Time Series Insights**. 
+1. Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-prenumerations konto.
+1. Välj **+ skapa en resurs** i det övre vänstra hörnet.
+1. Välj kategorin **Sakernas Internet** och välj sedan **Time Series Insights**.
 
    [![Välj Time Series Insights miljö resurs.](media/v2-update-provision/tsi-create-new-environment.png)](media/v2-update-provision/tsi-create-new-environment.png#lightbox)
 
@@ -91,14 +91,14 @@ I det här avsnittet beskrivs hur du skapar en Azure Time Series Insights Gen2-m
     | **Resursgrupp** | Välj en befintlig resurs grupp eller skapa en ny resurs grupp för resursen Azure Time Series Insights Gen2-miljö. En resursgrupp är en container för Azure-resurser. Ett bra tips är att använda samma resurs grupp som andra IoT-resurser som skapas av enhets simulatorn. |
     | **Plats** | Välj en data Center region för din Azure Time Series Insights Gen2-miljö. För att undvika ytterligare svars tid är det bäst att skapa din Azure Time Series Insights Gen2-miljö i samma region som din IoT-hubb som skapats av enhets simulatorn. |
     | **Nivå** |  Välj **Gen2 (L1)**. Detta är SKU: n för den Azure Time Series Insights Gen2-produkten. |
-    | **Egenskapsnamn** | Ange ett värde som unikt identifierar tids serie instansen. Det värde som du anger i rutan **egenskaps-ID** kan inte ändras senare. I den här självstudien anger du ***iothub-Connection-Device-ID***. Läs mer om Time Series ID i [metod tips för att välja ett Time Series-ID](./time-series-insights-update-how-to-id.md). |
+    | **Egenskaps namn för Time Series ID** | Ange ett namn på en egenskap som innehåller värden som unikt identifierar tids serie instanserna. Det värde som du anger i rutan **egenskaps namn** som Time Series ID kan inte ändras senare. I den här självstudien anger du ***iothub-Connection-Device-ID***. Om du vill veta mer om Time Series ID inklusive sammansatt Time Series ID, Läs [metod tips för att välja ett Time Series-ID](./time-series-insights-update-how-to-id.md). |
     | **Namn på lagringskonto** | Ange ett globalt unikt namn för ett nytt lagrings konto.|
     | **Typ av lagrings konto** | Välj lagrings typ för ett nytt lagrings konto. Vi rekommenderar StorageV2|
-    | **Replikering av lagrings konto** | Välj lagrings typ för ett nytt lagrings konto. Utifrån val av plats kan du välja mellan LRS, GRS och ZRS. För den här tuorial kan du välja LRS|
+    | **Replikering av lagrings konto** | Välj lagrings typ för ett nytt lagrings konto. Utifrån val av plats kan du välja mellan LRS, GRS och ZRS. I den här självstudien kan du välja LRS|
     | **Hierarkiskt namn område** |Det här alternativet kan väljas när du har valt den lagrings typ som ska StorageV2. Som standard är den inaktive rad. I den här självstudien kan du lämna den i *inaktiverat* standard läge|
-    |**Aktivera varmt Arkiv**|Välj **Ja** om du vill aktivera varmt arkiv. Du kan komma tillbaka senare och aktivera eller inaktivera den här inställningen. |
+    |**Aktivera varmt Arkiv**|Välj **Ja** om du vill aktivera varmt arkiv. Den här inställningen kan inaktive ras och aktive ras igen efter att miljön har skapats. |
     |**Data lagring (i dagar)**|Välj standard alternativet 7 dagar. |
-    
+
     [![Ny Time Series Insights miljö konfiguration.](media/v2-update-provision/tsi-environment-configuration.png)](media/v2-update-provision/tsi-environment-configuration.png#lightbox)
 
 1. Välj **Nästa: händelse källa**.
@@ -133,7 +133,7 @@ I det här avsnittet beskrivs hur du skapar en Azure Time Series Insights Gen2-m
 
 1. Du har åtkomst till din Azure Time Series Insights Gen2-miljö som standard om du är ägare till Azure-prenumerationen. Kontrol lera att du har åtkomst:
 
-   1. Sök efter din resurs grupp och välj sedan den nyligen skapade Azure Time Series Insights Gen2-miljön. 
+   1. Sök efter din resurs grupp och välj sedan den nyligen skapade Azure Time Series Insights Gen2-miljön.
 
       [![Välj och visa din miljö.](media/v2-update-provision/verify-tsi-resource-in-group.png)](media/v2-update-provision/verify-tsi-resource-in-group.png#lightbox)
 
@@ -157,7 +157,7 @@ Nu när du har distribuerat din Azure Time Series Insights Gen2-miljö börjar d
 
    [![Godkännande av webb program för enhets simulering.](media/v2-update-provision/sawa-signin-consent.png)](media/v2-update-provision/sawa-signin-consent.png#lightbox)
 
-1. Välj **+ ny simulering**. 
+1. Välj **+ ny simulering**.
 
     1. Ange de parametrar som krävs efter att installations sidan för **simulering** har lästs in.
 
@@ -222,7 +222,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
     | **Namn** | Ange **hiss** |
     | **Beskrivning** | Ange **Detta är en typ definition för hissen** |
 
-1. Välj sedan fliken **variabler** . 
+1. Välj sedan fliken **variabler** .
 
     1. Välj **+ Lägg till variabel** och fyll i följande värden för den första variabeln i hiss typen. Du kommer att skriva tre variabler totalt.
 
@@ -260,19 +260,19 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
         [![När du har lagt till typen granskar du den i vyn modell.](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
 
 1. Välj fliken **hierarkier** . Välj sedan **+ Lägg till**.
-   
+
    1. I fönstret **Redigera hierarki** anger du följande parametrar:
 
         | Parameter | Åtgärd |
         | --- | ---|
         | **Namn** | Ange **Platshierarkin**. |
-        |**Nivåer**| Ange **land** som namn på den första nivån <br> Välj **+ Lägg till nivå** <br> Ange **stad** för den andra nivån och välj sedan **+ Lägg till nivå** <br> Ange **build** som namn på den tredje och den slutgiltiga nivån |
+        |**Nivåer**| Ange **land** som namn på den första nivån <br /> Välj **+ Lägg till nivå** <br /> Ange **stad** för den andra nivån och välj sedan **+ Lägg till nivå** <br /> Ange **build** som namn på den tredje och den slutgiltiga nivån |
 
-    1. Välj **Spara**.
+   1. Välj **Spara**.
 
         [![Visa din nya hierarki i vyn modell.](media/v2-update-provision/tsi-add-hierarchy-and-view.png)](media/v2-update-provision/tsi-add-hierarchy-and-view.png#lightbox)
 
-1. Navigera till **instanser**. 
+1. Navigera till **instanser**.
 
     1. Under **åtgärder** längst till höger, och välj Penn ikonen för att redigera den första instansen med följande värden:
 

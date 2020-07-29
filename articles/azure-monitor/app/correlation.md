@@ -7,26 +7,26 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: tracking-python
-ms.openlocfilehash: 432ff655ef072d491227d297e620612203f73d3f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b4facaee44a0bc5c7d64376ca80e5aaf8d0768d0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092991"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323170"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetri korrelation i Application Insights
 
-I världen för mikrotjänster kräver varje logisk åtgärd att arbete utförs i olika komponenter i tjänsten. Du kan övervaka var och en av dessa komponenter separat genom att använda [Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights stöder korrelation med distribuerad telemetri, som du använder för att identifiera vilken komponent som ansvarar för misslyckanden eller prestanda försämring.
+I världen för mikrotjänster kräver varje logisk åtgärd att arbete utförs i olika komponenter i tjänsten. Du kan övervaka var och en av dessa komponenter separat genom att använda [Application Insights](./app-insights-overview.md). Application Insights stöder korrelation med distribuerad telemetri, som du använder för att identifiera vilken komponent som ansvarar för misslyckanden eller prestanda försämring.
 
 I den här artikeln förklaras data modellen som används av Application Insights för att korrelera telemetri som skickas av flera komponenter. Den täcker tekniker och protokoll för kontext spridning. Den omfattar också implementeringen av korrelations-taktiker på olika språk och plattformar.
 
 ## <a name="data-model-for-telemetry-correlation"></a>Data modell för telemetri-korrelation
 
-Application Insights definierar en [data modell](../../azure-monitor/app/data-model.md) för korrelation med distribuerad telemetri. För att associera telemetri med en logisk åtgärd, har varje telemetri-objekt ett kontext fält som kallas `operation_Id` . Den här identifieraren delas av varje telemetri-objekt i den distribuerade spårningen. Så även om du förlorar telemetri från ett enda lager, kan du fortfarande associera telemetri som rapporteras av andra komponenter.
+Application Insights definierar en [data modell](./data-model.md) för korrelation med distribuerad telemetri. För att associera telemetri med en logisk åtgärd, har varje telemetri-objekt ett kontext fält som kallas `operation_Id` . Den här identifieraren delas av varje telemetri-objekt i den distribuerade spårningen. Så även om du förlorar telemetri från ett enda lager, kan du fortfarande associera telemetri som rapporteras av andra komponenter.
 
-En distribuerad logisk åtgärd består vanligt vis av en uppsättning mindre åtgärder som begär Anden bearbetas av en av komponenterna. De här åtgärderna definieras av [telemetri för begäran](../../azure-monitor/app/data-model-request-telemetry.md). Varje begär ande telemetri-objekt har en egen `id` som identifierar det unikt och globalt. Och alla telemetri-objekt (till exempel spår och undantag) som är associerade med begäran ska ställas in på `operation_parentId` värdet för begäran `id` .
+En distribuerad logisk åtgärd består vanligt vis av en uppsättning mindre åtgärder som begär Anden bearbetas av en av komponenterna. De här åtgärderna definieras av [telemetri för begäran](./data-model-request-telemetry.md). Varje begär ande telemetri-objekt har en egen `id` som identifierar det unikt och globalt. Och alla telemetri-objekt (till exempel spår och undantag) som är associerade med begäran ska ställas in på `operation_parentId` värdet för begäran `id` .
 
-Varje utgående åtgärd, till exempel ett HTTP-anrop till en annan komponent, representeras av [beroende telemetri](../../azure-monitor/app/data-model-dependency-telemetry.md). Beroende telemetri definierar också den egna `id` som är globalt unik. Telemetri för begäran, som initieras av det här beroende anropet, använder detta `id` som dess `operation_parentId` .
+Varje utgående åtgärd, till exempel ett HTTP-anrop till en annan komponent, representeras av [beroende telemetri](./data-model-dependency-telemetry.md). Beroende telemetri definierar också den egna `id` som är globalt unik. Telemetri för begäran, som initieras av det här beroende anropet, använder detta `id` som dess `operation_parentId` .
 
 Du kan bygga en vy av den distribuerade logiska åtgärden genom att använda `operation_Id` , `operation_parentId` , och `request.id` med `dependency.id` . Dessa fält definierar också orsakssambandet för telemetri samtal.
 
@@ -216,7 +216,7 @@ Den här funktionen finns i `Microsoft.ApplicationInsights.JavaScript` . Den är
 | `Operation_Id`                         | `TraceId`                                           |
 | `Operation_ParentId`                   | `Reference`av typen `ChildOf` (det överordnade intervallet)     |
 
-Mer information finns i [Application Insights telemetri data Model](../../azure-monitor/app/data-model.md).
+Mer information finns i [Application Insights telemetri data Model](./data-model.md).
 
 Definitioner av opentracing-koncept finns i opentracing [Specification](https://github.com/opentracing/specification/blob/master/specification.md) och [semantiska konventioner](https://github.com/opentracing/specification/blob/master/semantic_conventions.md).
 
@@ -372,10 +372,11 @@ Du kanske vill anpassa hur komponent namn visas i [program kartan](../../azure-m
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Skriv [anpassad telemetri](../../azure-monitor/app/api-custom-events-metrics.md).
+- Skriv [anpassad telemetri](./api-custom-events-metrics.md).
 - Avancerade korrelations scenarier i ASP.NET Core-och ASP.NET finns i [spåra anpassade åtgärder](custom-operations-tracking.md).
-- Läs mer om hur du [ställer in cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud-role-name) för andra SDK: er.
-- Publicera alla komponenter i mikrotjänsten på Application Insights. Kolla in de [plattformar som stöds](../../azure-monitor/app/platforms.md).
-- Se [data modellen](../../azure-monitor/app/data-model.md) för Application Insights typer.
-- Lär dig hur du [utökar och filtrerar telemetri](../../azure-monitor/app/api-filtering-sampling.md).
+- Läs mer om hur du [ställer in cloud_RoleName](./app-map.md#set-cloud-role-name) för andra SDK: er.
+- Publicera alla komponenter i mikrotjänsten på Application Insights. Kolla in de [plattformar som stöds](./platforms.md).
+- Se [data modellen](./data-model.md) för Application Insights typer.
+- Lär dig hur du [utökar och filtrerar telemetri](./api-filtering-sampling.md).
 - Granska [Application Insights config-referensen](configuration-with-applicationinsights-config.md).
+

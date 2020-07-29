@@ -7,13 +7,13 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/09/2020
-ms.openlocfilehash: 277e478ca1cbb63200bdea14b1c02ea016af78ba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: 1ba293890f6a6fd165e03486d7da375f2ac53ab1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031209"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326473"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Skapa ett projekt med data etiketter och exportera etiketter 
 
@@ -21,11 +21,11 @@ ms.locfileid: "87031209"
 
 Att märka Voluminous-data i Machine Learning-projekt är ofta ett problem. Projekt som har en dator vision komponent, till exempel bild klassificering eller objekt identifiering, kräver vanligt vis etiketter för tusentals avbildningar.
  
-[Azure Machine Learning](https://ml.azure.com/) ger dig en central plats för att skapa, hantera och övervaka etikett projekt (offentlig för hands version). Använd den för att koordinera data, etiketter och team medlemmar för att effektivt hantera etikett uppgifter. Machine Learning stöder bild klassificering, antingen flera etiketter eller flera klasser och objekt identifiering med gränser rutor.
+Med [Azure Machine Learning](https://ml.azure.com/) data etiketter får du en central plats för att skapa, hantera och övervaka projekt etiketter. Använd den för att koordinera data, etiketter och team medlemmar för att effektivt hantera etikett uppgifter. Machine Learning stöder bild klassificering, antingen flera etiketter eller flera klasser och objekt identifiering med gränser rutor.
 
-Azure Machine Learning spårar förloppet och underhåller kön med ofullständiga etikett uppgifter.
+Data etiketter spårar förloppet och underhåller kön med ofullständiga etikett uppgifter.
 
-Du kan starta och stoppa projektet och övervaka etikettens förlopp. Du kan exportera märkta data i COCO-format eller som en Azure Machine Learning data uppsättning.
+Du kan starta och stoppa projektet och styra etikettens förlopp. Du kan granska etiketterade data och exportera etiketterade i COCO-format eller som en Azure Machine Learning data uppsättning.
 
 > [!Important]
 > Det finns för närvarande stöd för att märka projekt med bild klassificering och objekt identifiering. Dessutom måste data avbildningarna vara tillgängliga i ett Azure Blob-datalager. (Om du inte har ett befintligt data lager kan du ladda upp bilder när projektet skapas.)
@@ -39,12 +39,12 @@ I den här artikeln får du lära dig att:
 > * Exportera etiketterna
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * De data som du vill märka, antingen i lokala filer eller i Azure Blob Storage.
 * Den uppsättning etiketter som du vill använda.
 * Anvisningarna för att märka.
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
 * En Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
 ## <a name="create-a-labeling-project"></a>Skapa ett etikett projekt
@@ -57,9 +57,9 @@ Välj **Lägg till projekt**om du vill skapa ett projekt. Ge projektet ett lämp
 
 :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Guiden skapa etikett för projekt":::
 
-* Välj **bild klassificering flera klasser** för projekt när du bara vill använda en *enda klass* från en uppsättning klasser till en avbildning.
-* Välj **bild klassificering med flera etiketter** för projekt om du vill tillämpa *en eller flera* etiketter från en uppsättning klasser i en bild. Till exempel kan ett foto av en hund vara märkt med både *hund* och *dagtid*.
-* Välj **objekt identifiering (markerings ram)** för projekt när du vill tilldela en klass och en avgränsnings ruta till varje objekt i en bild.
+* Välj **bild klassificering flera klasser** för projekt när du bara vill använda en *enda etikett* från en uppsättning etiketter till en bild.
+* Välj **bild klassificering med flera** etiketter för projekt om du vill tillämpa *en eller flera* etiketter från en uppsättning etiketter till en bild. Till exempel kan ett foto av en hund vara märkt med både *hund* och *dagtid*.
+* Välj **objekt identifiering (markerings ram)** för projekt när du vill tilldela en etikett och en avgränsnings ruta till varje objekt i en bild.
 
 Välj **Nästa** när du är redo att fortsätta.
 
@@ -187,14 +187,54 @@ När du har initierat projektet är vissa delar av projektet oföränderliga. Du
 > Den här sidan kanske inte uppdateras automatiskt. Efter en paus uppdaterar du sidan manuellt för att se projektets status som **skapats**.
 
 ## <a name="run-and-monitor-the-project"></a>Köra och övervaka projektet
+När du har initierat projektet börjar Azure att köra det. Välj projektet på huvud sidan för **data etiketter** för att se information om projektet
 
-När du har initierat projektet börjar Azure att köra det. Välj projektet på huvud sidan för **data etiketter** för att gå till **projekt information**. Fliken **instrument panel** visar förloppet för etikett uppgiften.
+Om du vill pausa eller starta om projektet kan du växla **körnings** status längst upp till höger. Du kan bara märka data när projektet körs.
+
+### <a name="dashboard"></a>Instrumentpanel
+
+Fliken **instrument panel** visar förloppet för etikett uppgiften.
+
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Instrument panel för data etiketter":::
+
+I förlopps diagrammet visas hur många objekt som har märkts och hur många som ännu inte har gjorts.  Objekt som väntar kan vara:
+
+* Har ännu inte lagts till i en aktivitet
+* Ingår i en uppgift som har tilldelats en Labeler men ännu inte slutförts 
+* I en kö med aktiviteter som ännu ska tilldelas
+
+I området i mitten visas en kö med aktiviteter som ännu inte har tilldelats. När ML-etiketter är inaktiverat visar det här avsnittet antalet manuella uppgifter som ska tilldelas. När ML-etikettering är på visas även följande:
+
+* Uppgifter som innehåller klustrade objekt i kön
+* Uppgifter som innehåller förmärkta objekt i kön
+
+När ML-etikettering är aktive rad visas dessutom en liten förlopps indikator när nästa övnings körning sker.  Avsnittet experiment innehåller länkar för var och en av Machine Learning-körningarna.
+
+* Öva – tågen en modell för att förutsäga etiketterna
+* Verifiering – bestämmer om den här modellens förutsägelse ska användas för att före etikettera objekten 
+* Härledning – förutsägelse körning för nya objekt
+* Funktionalisering-kluster objekt (endast för bild klassificerings projekt)
+
+På den högra sidan finns en fördelning av etiketterna för de aktiviteter som är slutförda.  Kom ihåg att i vissa projekt typer kan ett objekt ha flera etiketter, vilket innebär att det totala antalet etiketter kan vara större än det totala antalet objekt.
+
+### <a name="data-tab"></a>Fliken data
 
 På fliken **data** kan du se din data uppsättning och granska etiketterade data. Om du ser felaktigt märkta data markerar du den och väljer **avvisa**, vilket tar bort etiketterna och sätter tillbaka dem i den omärkta kön.
 
-Om du vill pausa eller starta om projektet väljer du knappen **pausa** / **Start** . Du kan bara märka data när projektet körs.
+### <a name="details-tab"></a>Fliken information
 
-Du kan märka data direkt från sidan **projekt information** genom att välja **etikett data**.
+Visa information om projektet.  På den här fliken kan du:
+
+* Visa projekt information och indata-datauppsättningar
+* Aktivera stegvis uppdatering
+* Visa information om den lagrings behållare som används för att lagra etiketterade utdata i projektet
+* Lägg till etiketter i projektet
+* Redigera instruktioner som du ger dina etiketter
+* Redigera information om ML-etiketter, inklusive aktivera/inaktivera
+
+### <a name="access-for-labelers"></a>Åtkomst för etiketter
+
+Alla som har åtkomst till din arbets yta kan märka data i projektet.  Du kan också anpassa behörigheterna för dina etiketter så att du kan komma åt etiketter, men inte andra delar av arbets ytan eller att märka projektet.  Mer information finns i [Hantera åtkomst till en Azure Machine Learning-arbetsyta](how-to-assign-roles.md)och lär dig hur du skapar den [anpassade rollen Labeler](how-to-assign-roles.md#labeler).
 
 ## <a name="add-new-label-class-to-a-project"></a>Lägg till en ny etikett klass i ett projekt
 
@@ -203,7 +243,7 @@ Under märkningen kanske du upptäcker att ytterligare etiketter behövs för at
 Följ dessa steg om du vill lägga till en eller flera etiketter i ett projekt:
 
 1. Välj projektet på huvud sidan för **data etiketter** .
-1. Längst upp på sidan väljer du **pausa** för att stoppa etiketter från deras aktivitet.
+1. Längst upp till höger på sidan växlar du **igång** till **pausad** för att stoppa etiketter från deras aktivitet.
 1. Välj fliken **Information**.
 1. I listan till vänster väljer du **etikett klasser**.
 1. Överst i listan väljer du **+ Lägg till etiketter** ![ Lägg till en etikett](media/how-to-create-labeling-projects/add-label.png)
@@ -212,7 +252,7 @@ Följ dessa steg om du vill lägga till en eller flera etiketter i ett projekt:
     * Börja om och Behåll alla befintliga etiketter.  Välj det här alternativet om du vill markera alla data som omärkta, men Behåll de befintliga etiketterna som en standardtagg för bilder som tidigare har märkts.
     * Fortsätt och Behåll alla befintliga etiketter. Välj det här alternativet om du vill behålla alla data som redan är märkta som de är och börja använda den nya etiketten för data som ännu inte har märkts.
 1. Ändra sidan instruktioner efter behov för de nya etiketterna.
-1. När du har lagt till alla nya etiketter överst på sidan väljer du **Starta** för att starta om projektet.  
+1. När du har lagt till alla nya etiketter visas **överst till höger på sid växlingen** till **Kör** för att starta om projektet.  
 
 ## <a name="export-the-labels"></a>Exportera etiketterna
 

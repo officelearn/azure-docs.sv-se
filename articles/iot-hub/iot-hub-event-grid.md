@@ -11,15 +11,17 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: a67d90a0888c39938f07c294f8e161ce98fd945a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+ms.openlocfilehash: a5707ef266f3d49bdcbff9793a0b90e6c3f4cb68
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732502"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327658"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagera på IoT Hub händelser genom att använda Event Grid för att utlösa åtgärder
 
-Azure IoT Hub integreras med Azure Event Grid så att du kan skicka händelse meddelanden till andra tjänster och utlösa efterföljande processer. Konfigurera dina affärs program så att de lyssnar efter IoT Hub händelser så att du kan reagera på kritiska händelser på ett tillförlitligt, skalbart och säkert sätt.Du kan till exempel skapa ett program som uppdaterar en databas, skapar en arbets biljett och levererar ett e-postmeddelande varje gång en ny IoT-enhet registreras på IoT-hubben.
+Du kan integrera Azure IoT Hub med Azure Event Grid så att du kan skicka händelseaviseringar till andra tjänster och aktivera underordnade processer. Konfigurera dina företagsprogram så att de lyssnar efter IoT Hub-händelser. Då kan du reagera på kritiska händelser på ett tillförlitligt, skalbart och säkert sätt.Du kan till exempel skapa ett program som uppdaterar en databas, skapar ett arbetsärende och levererar en e-postavisering varje gång en ny IoT-enhet registreras i din IoT-hubb.
 
 [Azure Event Grid](../event-grid/overview.md) är en helt hanterad tjänst för händelse dirigering som använder en publicerings prenumerations modell. Event Grid har inbyggt stöd för Azure-tjänster som [Azure Functions](../azure-functions/functions-overview.md) och [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)och kan leverera händelse aviseringar till icke-Azure-tjänster med hjälp av Webhooks. En fullständig lista över de händelse hanterare som Event Grid stöder finns i [en introduktion till Azure Event Grid](../event-grid/overview.md).
 
@@ -35,17 +37,17 @@ IoT Hub publicerar följande händelse typer:
 
 | Händelsetyp | Beskrivning |
 | ---------- | ----------- |
-| Microsoft. devices. DeviceCreated | Publicerad när en enhet registreras i en IoT-hubb. |
-| Microsoft. devices. DeviceDeleted | Publicerad när en enhet tas bort från en IoT-hubb. |
-| Microsoft. devices. DeviceConnected | Publicerad när en enhet är ansluten till en IoT-hubb. |
-| Microsoft. devices. DeviceDisconnected | Publicerad när en enhet kopplas från en IoT-hubb. |
-| Microsoft. devices. DeviceTelemetry | Publicerad när ett meddelande om telemetri skickas till en IoT-hubb |
+| Microsoft.Devices.DeviceCreated | Publicerad när en enhet registreras i en IoT-hubb. |
+| Microsoft.Devices.DeviceDeleted | Publicerad när en enhet tas bort från en IoT-hubb. |
+| Microsoft.Devices.DeviceConnected | Publicerad när en enhet är ansluten till en IoT-hubb. |
+| Microsoft.Devices.DeviceDisconnected | Publicerad när en enhet kopplas från en IoT-hubb. |
+| Microsoft.Devices.DeviceTelemetry | Publiceras när ett meddelande med enhetstelemetri skickas till en IoT-hubb |
 
 Använd antingen Azure Portal eller Azure CLI för att konfigurera vilka händelser som ska publiceras från varje IoT-hubb. För ett exempel kan du prova självstudien [skicka e-postaviseringar om Azure IoT Hub händelser med Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).
 
 ## <a name="event-schema"></a>Händelseschema
 
-IoT Hub händelser innehåller all information som du behöver för att svara på ändringar i enhetens livs cykel. Du kan identifiera en IoT Hub händelse genom att kontrol lera att egenskapen eventType börjar med **Microsoft. Devices**. Mer information om hur du använder Event Grid händelse egenskaper finns i [Event Grid händelse schema](../event-grid/event-schema.md).
+IoT Hub händelser innehåller all information som du behöver för att svara på ändringar i enhetens livs cykel. Du kan identifiera en IoT Hub-händelse genom att kontrollera att egenskapen eventType börjar med **Microsoft.Devices**. Mer information om hur du använder Event Grid händelse egenskaper finns i [Event Grid händelse schema](../event-grid/event-schema.md).
 
 ### <a name="device-connected-schema"></a>Enhetens anslutna schema
 
@@ -192,15 +194,15 @@ D2C-länken är öppen om du skickar telemetri.
 
 Om enhets anslutningen flimrar, vilket innebär att enheten ansluter och kopplar från ofta, kommer vi inte att skicka varje enskilt anslutnings tillstånd, men kommer att publicera det aktuella anslutnings läget på en periodisk ögonblicks bild, tills flimmen fortsätter. Om du tar emot antingen samma anslutnings tillstånds händelse med olika sekvensnummer eller olika anslutnings tillstånds händelser innebär det att du har ändrat enhetens anslutnings tillstånd.
 
-## <a name="tips-for-consuming-events"></a>Tips för att konsumera händelser
+## <a name="tips-for-consuming-events"></a>Tips om att använda händelser
 
-Program som hanterar IoT Hub händelser bör följa de här rekommendationerna:
+Program som hanterar IoT Hub-händelser bör följa de här rekommendationerna:
 
-* Flera prenumerationer kan konfigureras för att dirigera händelser till samma händelse hanterare, så anta inte att händelser kommer från en viss källa. Kontrol lera alltid meddelandet för att se till att det kommer från den IoT-hubb som du förväntar dig.
+* Flera prenumerationer kan konfigureras för att dirigera händelser till samma händelsehanterare, så anta inte att händelser kommer från en viss källa. Kontrollera alltid meddelandets ämne för att se till att det kommer från den IoT-hubb som du förväntar dig.
 
-* Anta inte att alla händelser som du tar emot är de typer som du förväntar dig. Kontrol lera alltid eventType innan du bearbetar meddelandet.
+* Anta inte att alla händelser du tar emot är av de typer du förväntar dig. Kontrol lera alltid eventType innan du bearbetar meddelandet.
 
-* Meddelanden kan tas emot i rätt ordning eller efter en fördröjning. Använd etag-fältet för att ta reda på om din information om objekt är uppdaterad för enhet som skapats eller enhets borttagnings händelser.
+* Meddelanden kan tas emot i annan ordning eller med fördröjning. Använd etag-fältet för att ta reda på om din information om objekt är uppdaterad för enhet som skapats eller enhets borttagnings händelser.
 
 ## <a name="next-steps"></a>Nästa steg
 

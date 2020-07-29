@@ -1,17 +1,18 @@
 ---
 title: Utbetalnings information per region – Microsofts handels marknads plats
 description: Ta reda på hur den uppskattade tiden det tar att överföra betalningar och vilka Microsoft-butiker du kan få betalningar från, beroende på ditt land/din region och konto typen utbetalning.
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 33c4286c5a3fa8be68c1e6ec3bd331aa1e804cb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44246fa122b7c602e47c44e48c43c2a42d01de77
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83745018"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327335"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Betalningströsklar, metoder och tidsramar
 
@@ -37,70 +38,70 @@ Vi skickar vanligt vis all betalning som förfaller under en månad den 15: e da
 
 Detta är de länder och regioner där betalnings metoderna ovan används för varje Marketplace. Betalnings tröskeln i samtliga fall är $50 USD.
 
-| Land/region | Azure Marketplace | Butik, annonsering, mixer och Minecraft | Office | PayPal-betalningar  |
+| Land/region | Azure Marketplace | Butik, annonsering, mixer och Minecraft | Kontor | PayPal-betalningar  |
 | --- | --- | --- | --- | --- |
 | Afghanistan | Ja | Ja | Nej | Nej |
 | Albanien | Ja | Ja | Ja | Ja |
 | Algeriet | Ja | Ja | Ja | Ja |
 | Andorra | Nej | Nej | Ja | Ja |
-| Angola | Ja | Ja | Ja | No |
-| Antigua och Barbuda | Ja | Ja | No | Ja |
+| Angola | Ja | Ja | Ja | Nej |
+| Antigua och Barbuda | Ja | Ja | Nej | Ja |
 | Argentina | Ja | Ja | Ja | Ja |
 | Armenien | Ja | Ja | Nej | Nej |
 | Australien | Ja | Ja | Ja | Ja |
 | Österrike | Ja | Ja | Ja | Ja |
-| Azerbajdzjan | Ja | Ja | Ja | No |
+| Azerbajdzjan | Ja | Ja | Ja | Nej |
 | Bahrain | Ja | Ja | Ja | Ja |
-| Bangladesh | Ja | Ja | Ja | No |
-| Vitryssland | Ja | Ja | Ja | No |
+| Bangladesh | Ja | Ja | Ja | Nej |
+| Vitryssland | Ja | Ja | Ja | Nej |
 | Belgien | Ja | Ja | Ja | Ja |
-| Benin | Ja | Ja | Ja | No |
-| Bolivia | Ja | Ja | Ja | No |
+| Benin | Ja | Ja | Ja | Nej |
+| Bolivia | Ja | Ja | Ja | Nej |
 | Bosnien och Hercegovina | Ja | Ja | Ja | Ja |
-| Botswana | Ja | Ja | No | Ja |
+| Botswana | Ja | Ja | Nej | Ja |
 | Brasilien | Ja | Ja | Ja | Ja |
 | Bulgarien | Ja | Ja | Ja | Ja |
-| Burkina Faso | Ja | Ja | Ja | No |
-| Burundi | Ja | Ja | Ja | No |
-| Kambodja | Ja | Ja | Ja | No |
-| Kamerun | Ja | Ja | Ja | No |
+| Burkina Faso | Ja | Ja | Ja | Nej |
+| Burundi | Ja | Ja | Ja | Nej |
+| Kambodja | Ja | Ja | Ja | Nej |
+| Kamerun | Ja | Ja | Ja | Nej |
 | Kanada | Ja | Ja | Ja | Ja |
-| Centralafrikanska Republiken | Ja | Ja | Ja | No |
-| Tchad | Ja | Ja | Ja | No |
+| Centralafrikanska Republiken | Ja | Ja | Ja | Nej |
+| Tchad | Ja | Ja | Ja | Nej |
 | Chile | Ja | Ja | Ja | Ja |
-| Kina | No | Ja | Ja | Ja |
+| Kina | Nej | Ja | Ja | Ja |
 | Colombia | Ja | Ja | Ja | Ja |
 | Komorerna | Ja | Ja | Nej | Nej |
-| Kongo (DR) | Ja | Ja | Ja | No |
-| Republiken Kongo | Ja | Ja | Ja | No |
+| Kongo (DR) | Ja | Ja | Ja | Nej |
+| Republiken Kongo | Ja | Ja | Ja | Nej |
 | Costa Rica | Ja | Ja | Ja | Ja |
-| Elfenbenskusten | Ja | Ja | Ja | No |
-| Kroatien | Ja | Ja | Ja | No |
+| Côte d’Ivoire | Ja | Ja | Ja | Nej |
+| Kroatien | Ja | Ja | Ja | Nej |
 | Cypern | Ja | Ja | Ja | Ja |
 | Tjeckien | Ja | Ja | Ja | Ja |
 | Danmark | Ja | Ja | Ja | Ja |
-| Dominica | Ja | Ja | No | Ja |
+| Dominica | Ja | Ja | Nej | Ja |
 | Dominikanska republiken | Ja | Ja | Ja | Ja |
 | Ecuador | Ja | Ja | Ja | Ja |
 | Egypten | Ja | Ja | Ja | Ja |
 | El Salvador | Ja | Ja | Ja | Ja |
-| Eritrea | Ja | Ja | Ja | No |
+| Eritrea | Ja | Ja | Ja | Nej |
 | Estland | Ja | Ja | Ja | Ja |
-| Etiopien | Ja | Ja | Ja | No |
+| Etiopien | Ja | Ja | Ja | Nej |
 | Fiji | Ja | Ja | Nej | Nej |
 | Finland | Ja | Ja | Ja | Ja |
 | Frankrike | Ja | Ja | Ja | Ja |
 | Georgia | Ja | Ja | Ja | Ja |
 | Tyskland | Ja | Ja | Ja | Ja |
-| Ghana | Ja | Ja | Ja | No |
+| Ghana | Ja | Ja | Ja | Nej |
 | Grekland | Ja | Ja | Ja | Ja |
 | Guatemala | Ja | Ja | Ja | Ja |
-| Guinea | Ja | Ja | Ja | No |
-| Haiti | Ja | Ja | Ja | No |
+| Guinea | Ja | Ja | Ja | Nej |
+| Haiti | Ja | Ja | Ja | Nej |
 | Honduras | Ja | Ja | Ja | Ja |
 | Hongkong | Ja | Ja | Ja | Ja |
 | Ungern | Ja | Ja | Ja | Ja |
-| Island | Ja | Ja | Ja | No |
+| Island | Ja | Ja | Ja | Nej |
 | Indien | Ja | Ja | Ja | Ja |
 | Indonesien | Ja | Ja | Ja | Ja |
 | Irak | Ja | Ja | Nej | Nej |
@@ -112,75 +113,75 @@ Detta är de länder och regioner där betalnings metoderna ovan används för v
 | Jordanien | Ja | Ja | Ja | Ja |
 | Kazakstan | Ja | Ja | Ja | Ja |
 | Kenya | Ja | Ja | Ja | Ja |
-| Korea (södra) | Ja | Ja | Ja | No |
+| Korea (södra) | Ja | Ja | Ja | Nej |
 | Kuwait | Ja | Ja | Ja | Ja |
-| Kirgizistan | Nej | Nej | Ja | No |
-| Laos | Ja | Ja | Ja | No |
-| Lettland | Ja | Ja | Ja | No |
+| Kirgizistan | Nej | Nej | Ja | Nej |
+| Laos | Ja | Ja | Ja | Nej |
+| Lettland | Ja | Ja | Ja | Nej |
 | Libanon | Ja | Ja | Nej | Nej |
-| Liberia | Ja | Ja | Ja | No |
+| Liberia | Ja | Ja | Ja | Nej |
 | Liechtenstein | Ja | Ja | Ja | Ja |
-| Litauen | Ja | Ja | Ja | No |
+| Litauen | Ja | Ja | Ja | Nej |
 | Luxemburg | Ja | Ja | Ja | Ja |
-| Makedonien | No | Ja | Ja | No |
-| Madagaskar | Ja | Ja | Ja | No |
+| Makedonien | Nej | Ja | Ja | Nej |
+| Madagaskar | Ja | Ja | Ja | Nej |
 | Malawi | Ja | Ja | Ja | Ja |
 | Malaysia | Ja | Ja | Ja | Ja |
-| Mali | Ja | Ja | Ja | No |
+| Mali | Ja | Ja | Ja | Nej |
 | Malta | Ja | Ja | Ja | Ja |
-| Mauritius | Ja | Ja | No | Ja |
+| Mauritius | Ja | Ja | Nej | Ja |
 | Mexico | Ja | Ja | Ja | Ja |
 | Monaco | Ja | Ja | Nej | Nej |
-| Mongoliet | Ja | Ja | Ja | No |
-| Montenegro | Ja | Ja | Ja | No |
-| Marocko | Ja | Ja | Ja | No |
+| Mongoliet | Ja | Ja | Ja | Nej |
+| Montenegro | Ja | Ja | Ja | Nej |
+| Marocko | Ja | Ja | Ja | Nej |
 | Moçambique | Ja | Ja | Ja | Ja |
-| Nepal | Ja | Ja | Ja | No |
+| Nepal | Ja | Ja | Ja | Nej |
 | Nederländerna | Ja | Ja | Ja | Ja |
 | Nya Zeeland | Ja | Ja | Ja | Ja |
 | Nicaragua | Ja | Ja | Ja | Ja |
-| Niger | Ja | Ja | Ja | No |
-| Nigeria | Ja | Ja | Ja | No |
+| Niger | Ja | Ja | Ja | Nej |
+| Nigeria | Ja | Ja | Ja | Nej |
 | Norge | Ja | Ja | Ja | Ja |
 | Oman | Ja | Ja | Ja | Ja |
-| Pakistan | Ja | Ja | Ja | No |
+| Pakistan | Ja | Ja | Ja | Nej |
 | Panama | Ja | Ja | Ja | Ja |
-| Paraguay | Ja | Ja | Ja | No |
+| Paraguay | Ja | Ja | Ja | Nej |
 | Peru | Ja | Ja | Ja | Ja |
 | Filippinerna | Ja | Ja | Ja | Ja |
 | Polen | Ja | Ja | Ja | Ja |
 | Portugal | Ja | Ja | Ja | Ja |
-| Puerto Rico | Nej | Nej | Ja | No |
+| Puerto Rico | Nej | Nej | Ja | Nej |
 | Qatar | Ja | Ja | Ja | Ja |
-| Rumänien | Ja | Ja | Ja | No |
-| Ryssland | Ja | Ja | No | Ja |
-| Rwanda | Ja | Ja | Ja | No |
-| Saint Vincent och Grenadinerna | No | Ja | Nej | Nej |
+| Rumänien | Ja | Ja | Ja | Nej |
+| Ryssland | Ja | Ja | Nej | Ja |
+| Rwanda | Ja | Ja | Ja | Nej |
+| Saint Vincent och Grenadinerna | Nej | Ja | Nej | Nej |
 | Saudiarabien | Ja | Ja | Ja | Ja |
-| Senegal | Ja | Ja | Ja | No |
-| Serbien | Ja | Ja | Ja | No |
-| Sierra Leone | Ja | Ja | Ja | No |
+| Senegal | Ja | Ja | Ja | Nej |
+| Serbien | Ja | Ja | Ja | Nej |
+| Sierra Leone | Ja | Ja | Ja | Nej |
 | Singapore | Ja | Ja | Ja | Ja |
 | Slovakien | Ja | Ja | Ja | Ja |
 | Slovenien | Ja | Ja | Ja | Ja |
-| Somalia | Ja | Ja | Ja | No |
+| Somalia | Ja | Ja | Ja | Nej |
 | Sydafrika | Ja | Ja | Ja | Ja |
 | Spanien | Ja | Ja | Ja | Ja |
-| Sri Lanka | Ja | Ja | Ja | No |
+| Sri Lanka | Ja | Ja | Ja | Nej |
 | Sverige | Ja | Ja | Ja | Ja |
-| Schweiz | Ja | Ja | Ja | No |
-| Taiwan | No | Ja | Ja | Ja |
+| Schweiz | Ja | Ja | Ja | Nej |
+| Taiwan | Nej | Ja | Ja | Ja |
 | Tadzjikistan | Ja | Ja | Nej | Nej |
-| Tanzania | Ja | Ja | Ja | No |
+| Tanzania | Ja | Ja | Ja | Nej |
 | Thailand | Ja | Ja | Ja | Ja |
-| Timor-Leste | Ja | Ja | Ja | No |
-| Togo | Ja | Ja | Ja | No |
+| Timor-Leste | Ja | Ja | Ja | Nej |
+| Togo | Ja | Ja | Ja | Nej |
 | Tonga | Ja | Ja | Nej | Nej |
 | Trinidad och Tobago | Ja | Ja | Ja | Ja |
-| Tunisien | Ja | Ja | Ja | No |
-| Turkiet | Ja | Ja | Ja | No |
+| Tunisien | Ja | Ja | Ja | Nej |
+| Turkiet | Ja | Ja | Ja | Nej |
 | Turkmenistan | Ja | Ja | Nej | Nej |
-| Uganda | Ja | Ja | Ja | No |
+| Uganda | Ja | Ja | Ja | Nej |
 | Ukraina | Ja | Ja | Nej | Nej |
 | Förenade Arabemiraten | Ja | Ja | Ja | Ja |
 | Storbritannien | Ja | Ja | Ja | Ja |
@@ -189,8 +190,8 @@ Detta är de länder och regioner där betalnings metoderna ovan används för v
 | Uzbekistan | Ja | Ja | Nej | Nej |
 | Venezuela | Ja | Ja | Ja | Ja |
 | Vietnam | Ja | Ja | Ja | Ja |
-| Zambia | Ja | Ja | Ja | No |
-| Zimbabwe | Ja | Ja | Ja | No |
+| Zambia | Ja | Ja | Ja | Nej |
+| Zimbabwe | Ja | Ja | Ja | Nej |
 | | |
 
 ## <a name="next-step"></a>Nästa steg

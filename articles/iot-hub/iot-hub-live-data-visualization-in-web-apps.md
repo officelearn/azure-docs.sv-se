@@ -8,11 +8,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
-ms.openlocfilehash: 5e27cf51d50b3094adca6ce8d3846ef358f78482
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: Data Analytics'
+ms.openlocfilehash: 6a8f39ae5d73bade2c86a7e15efe75956c2aed24
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201532"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327573"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualisera real tids sensor data från din Azure IoT Hub i ett webb program
 
@@ -34,7 +38,7 @@ I den här självstudien får du lära dig att visualisera real tids sensor data
 * Öppna en webb sida om du vill se temperatur-och fuktighets data i real tid från din IoT Hub
 * Valfritt Använd Azure CLI för att vara värd för din webbapp i Azure App Service
 
-## <a name="what-you-need"></a>Vad du behöver
+## <a name="what-you-need"></a>Detta behöver du
 
 * Slutför själv studie kursen om [Raspberry Pi online Simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) eller någon av enhets självstudierna. till exempel [Raspberry Pi med node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Detta beskriver följande krav:
 

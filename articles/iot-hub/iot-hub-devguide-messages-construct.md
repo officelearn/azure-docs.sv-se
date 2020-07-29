@@ -8,11 +8,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: asrastog
-ms.openlocfilehash: 3b32468c9795f603ac38854415bca9d653d7c101
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: 4d33a47e0498c82dff967242cfbc12a89c94a3b5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674985"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327743"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Skapa och läsa IoT Hub-meddelanden
 
@@ -51,21 +55,21 @@ Mer information om hur du kodar och avkodar meddelanden som skickas med olika pr
 | Egenskap | Beskrivning  |Anges användaren?|Nyckelord för </br>routnings fråga|
 | --- | --- | --- | --- |
 | meddelande-ID |En användardefinierad identifierare för meddelandet som används för svar på begäran-svar. Format: en Skift läges känslig sträng (upp till 128 tecken) av ASCII 7-bitars alfanumeriska tecken + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}` .  | Ja | messageId |
-| iothub – enqueuedtime |Datum och tid då meddelandet från [enhet till molnet](iot-hub-devguide-d2c-guidance.md) togs emot av IoT Hub. | No | enqueuedTime |
+| iothub – enqueuedtime |Datum och tid då meddelandet från [enhet till molnet](iot-hub-devguide-d2c-guidance.md) togs emot av IoT Hub. | Nej | enqueuedTime |
 | användar-id |Ett ID som används för att ange ursprung för meddelanden. När meddelanden genereras av IoT Hub har den angetts till `{iot hub name}` . | Ja | userId |
-| iothub-Connection-Device-ID |Ett ID som anges av IoT Hub för meddelanden från enhet till moln. Den innehåller **deviceId** för enheten som skickade meddelandet. | No | connectionDeviceId |
-| iothub-Connection-module-ID |Ett ID som anges av IoT Hub för meddelanden från enhet till moln. Den innehåller **moduleId** för enheten som skickade meddelandet. | No | connectionModuleId |
-| iothub-Connection-auth-generation-ID |Ett ID som anges av IoT Hub för meddelanden från enhet till moln. Den innehåller **connectionDeviceGenerationId** (som per [enhets identitets egenskaper](iot-hub-devguide-identity-registry.md#device-identity-properties)) för enheten som skickade meddelandet. | No |connectionDeviceGenerationId |
-| iothub-anslutnings-auth-Method |En autentiseringsmetod som anges av IoT Hub för meddelanden från enhet till moln. Den här egenskapen innehåller information om autentiseringsmetoden som används för att autentisera enheten som skickar meddelandet.| No | connectionAuthMethod |
+| iothub-Connection-Device-ID |Ett ID som anges av IoT Hub för meddelanden från enhet till moln. Den innehåller **deviceId** för enheten som skickade meddelandet. | Nej | connectionDeviceId |
+| iothub-Connection-module-ID |Ett ID som anges av IoT Hub för meddelanden från enhet till moln. Den innehåller **moduleId** för enheten som skickade meddelandet. | Nej | connectionModuleId |
+| iothub-Connection-auth-generation-ID |Ett ID som anges av IoT Hub för meddelanden från enhet till moln. Den innehåller **connectionDeviceGenerationId** (som per [enhets identitets egenskaper](iot-hub-devguide-identity-registry.md#device-identity-properties)) för enheten som skickade meddelandet. | Nej |connectionDeviceGenerationId |
+| iothub-anslutnings-auth-Method |En autentiseringsmetod som anges av IoT Hub för meddelanden från enhet till moln. Den här egenskapen innehåller information om autentiseringsmetoden som används för att autentisera enheten som skickar meddelandet.| Nej | connectionAuthMethod |
 
 ## <a name="system-properties-of-c2d-iot-hub-messages"></a>System egenskaper för **C2D** IoT Hub-meddelanden
 
 | Egenskap | Beskrivning  |Anges användaren?|
 | --- | --- | --- |
 | meddelande-ID |En användardefinierad identifierare för meddelandet som används för svar på begäran-svar. Format: en Skift läges känslig sträng (upp till 128 tecken) av ASCII 7-bitars alfanumeriska tecken + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}` .  |Ja|
-| sekvens-nummer |Ett tal (unikt per enhets kön) som tilldelas av IoT Hub till varje moln-till-enhet-meddelande. |No|
-| till |Ett mål som anges i meddelanden från [moln till enhet](iot-hub-devguide-c2d-guidance.md) . |No|
-| absolut-förfallo tid |Datum och tid då meddelandet upphör att gälla. |No|   |
+| sekvens-nummer |Ett tal (unikt per enhets kön) som tilldelas av IoT Hub till varje moln-till-enhet-meddelande. |Nej|
+| till |Ett mål som anges i meddelanden från [moln till enhet](iot-hub-devguide-c2d-guidance.md) . |Nej|
+| absolut-förfallo tid |Datum och tid då meddelandet upphör att gälla. |Nej|   |
 | korrelations-id |En sträng egenskap i ett svarsmeddelande som vanligt vis innehåller MessageId för begäran, i mönster för begäran-svar. |Ja|
 | användar-id |Ett ID som används för att ange ursprung för meddelanden. När meddelanden genereras av IoT Hub har den angetts till `{iot hub name}` . |Ja|
 | iothub – ack |En generator för feedback-meddelande. Den här egenskapen används i meddelanden från molnet till enheten för att begära IoT Hub att generera återkopplings meddelanden som ett resultat av att meddelandet har använts av enheten. Möjliga värden: **ingen** (standard): inget feedback-meddelande har genererats, **positivt**: ta emot ett feedback-meddelande om meddelandet har slutförts, **negativt**: ta emot ett feedback-meddelande om meddelandet har upphört att gälla (eller maximalt antal leveranser nåddes) utan att ha slutförts av enheten, eller **full**: både positiva och negativa. |Ja|

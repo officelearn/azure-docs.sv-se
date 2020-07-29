@@ -2,13 +2,13 @@
 title: Tagga resurser, resurs grupper och prenumerationer för logisk organisation
 description: Visar hur du använder taggar för att organisera Azure-resurser för fakturering och hantering.
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 9dd025818a64a8ece1f4218a8341a40ecc617829
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/27/2020
+ms.openlocfilehash: fa56fac79855b438a0cd1c10ed1008d69ca3e2fe
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056930"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323884"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Använd taggar för att ordna dina Azure-resurser och-hanterings hierarki
 
@@ -438,7 +438,7 @@ Du kan lagra flera värden i en enskild tagg genom att använda en JSON-sträng 
 
 ### <a name="apply-tags-from-resource-group"></a>Använd taggar från resurs gruppen
 
-Använd funktionen [resourceGroup](../templates/template-functions-resource.md#resourcegroup) för att lägga till taggar från en resurs grupp till en resurs. När du hämtar taggvärde använder du `tags[tag-name]` syntaxen i stället för `tags.tag-name` syntaxen, eftersom vissa tecken inte tolkas korrekt i punkt notationen.
+Använd funktionen [resourceGroup ()](../templates/template-functions-resource.md#resourcegroup) om du vill använda taggar från en resurs grupp till en resurs. När du hämtar taggvärde använder du `tags[tag-name]` syntaxen i stället för `tags.tag-name` syntaxen, eftersom vissa tecken inte tolkas korrekt i punkt notationen.
 
 ```json
 {
@@ -578,7 +578,7 @@ Taggar som används för resurs gruppen eller prenumerationen ärvs inte av resu
 
 Du kan till exempel använda taggar för att gruppera faktureringsinformation. Om du till exempel har flera virtuella datorer för olika organisationer kan du använda taggar för att gruppera användningen efter kostnadsställe. Du kan också använda taggar för att kategorisera kostnader efter körningsmiljö, till exempel användningen (som faktureras) för virtuella datorer som körs i produktionsmiljö.
 
-Du kan hämta information om Taggar via [Azures resursanvändning och ratecard-API: er](../../cost-management-billing/manage/usage-rate-card-overview.md) eller CSV-fil (fil med kommaavgränsade värden). Du hämtar användnings filen från [Azure-kontocenter](https://account.azure.com/Subscriptions) eller Azure Portal. Mer information finns i [Hämta eller Visa din fakturerings faktura för Azure och användnings data per dag](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). När du laddar ned användnings filen från Azure-kontocenter väljer du **version 2**. För tjänster som stöder taggar med fakturering visas taggarna i kolumnen **taggar** .
+Du kan hämta information om Taggar via [API: er för Azure-resursanvändning och Rate-kort](../../cost-management-billing/manage/usage-rate-card-overview.md) eller filen med kommaavgränsade värden (CSV). Du hämtar användnings filen från [Azure-kontocenter](https://account.azure.com/Subscriptions) eller Azure Portal. Mer information finns i [Hämta eller Visa din fakturerings faktura för Azure och användnings data per dag](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). När du laddar ned användnings filen från Azure-kontocenter väljer du **version 2**. För tjänster som stöder taggar med fakturering visas taggarna i kolumnen **taggar** .
 
 REST API åtgärder finns i [referens för Azure-fakturerings REST API](/rest/api/billing/).
 
@@ -596,6 +596,8 @@ Följande begränsningar gäller för taggar:
    > För närvarande är Azure DNS zoner och Traffic Manager-tjänster inte heller att använda blank steg i taggen.
    >
    > Azures front dörr stöder inte användning av `#` i taggnamn.
+   >
+   > Azure Automation och Azure CDN bara stödja 15 taggar på resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 

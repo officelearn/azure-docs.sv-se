@@ -8,11 +8,13 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: 6dcfdc63946bcc2a9ffe4c5c767e81ca3b32107b
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: devx-track-java
+ms.openlocfilehash: eeac1c3cb7f92a7e407511c6436fe9d0723b2648
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025292"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87308788"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Självstudie: bygga ett Java-webbprogram med Azure Cosmos DB och SQL API
 
@@ -41,7 +43,7 @@ I den här självstudien om Java visar vi hur du skapar en webbaserad aktivitets
 
 Innan du påbörjar den här självstudien om apputveckling måste du ha följande:
 
-* Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -51,7 +53,7 @@ Innan du påbörjar den här självstudien om apputveckling måste du ha följan
 
 Om du installerar de här verktygen för första gången ger coreservlets.com en genom gång av installations processen i avsnittet snabb start i [självstudierna: installerar TomCat7 och använder den med Sol förmörkelse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) -artikeln.
 
-## <a name="create-an-azure-cosmos-db-account"></a><a id="CreateDB"></a>Skapa ett Azure Cosmos DB konto
+## <a name="create-an-azure-cosmos-db-account"></a><a id="CreateDB"></a>Skapa ett Azure Cosmos DB-konto
 
 Vi ska börja med att skapa ett Azure Cosmos DB-konto. Om du redan har ett konto eller om du använder Azure Cosmos DB-emulatorn för den här kursen kan du gå vidare till [Steg 2: Skapa Java JSP-programmet](#CreateJSP).
 

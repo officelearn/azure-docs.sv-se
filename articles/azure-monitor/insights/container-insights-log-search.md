@@ -3,15 +3,16 @@ title: Så här frågar du efter loggar från Azure Monitor för behållare | Mi
 description: Azure Monitor för behållare samlar in Mät värden och loggdata och den här artikeln beskriver posterna och innehåller exempel frågor.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 392aac8f81ac3894fca8b6f70570834a5af16ade
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12c32c84f2c2aef5d6d0817c11e1ef010f30ffcb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84298311"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320297"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Så här frågar du efter loggar från Azure Monitor för behållare
 
-Azure Monitor för behållare samlar in prestanda statistik, inventerings data och hälso tillstånds information från behållar värdar och behållare. Data samlas in var tredje minut och vidarebefordras till Log Analytics arbets ytan i Azure Monitor. Dessa data är tillgängliga för [fråga](../../azure-monitor/log-query/log-query-overview.md) i Azure Monitor. Du kan använda dessa data i scenarier som omfattar migrerings planering, kapacitets analys, identifiering och prestanda fel sökning på begäran.
+Azure Monitor för behållare samlar in prestanda statistik, inventerings data och hälso tillstånds information från behållar värdar och behållare. Data samlas in var tredje minut och vidarebefordras till Log Analytics arbets ytan i Azure Monitor. Dessa data är tillgängliga för [fråga](../log-query/log-query-overview.md) i Azure Monitor. Du kan använda dessa data i scenarier som omfattar migrerings planering, kapacitets analys, identifiering och prestanda fel sökning på begäran.
 
 ## <a name="container-records"></a>Container poster
 
@@ -111,3 +112,4 @@ Resultatet visar resultat som liknar följande exempel:
 ## <a name="next-steps"></a>Nästa steg
 
 Azure Monitor för behållare innehåller inte en fördefinierad uppsättning aviseringar. Mer information om hur du skapar rekommenderade aviseringar för hög processor-och minnes användning finns i avsnittet [skapa prestanda aviseringar med Azure Monitor för behållare](container-insights-alerts.md) som stöder DevOps eller operativa processer och procedurer 
+

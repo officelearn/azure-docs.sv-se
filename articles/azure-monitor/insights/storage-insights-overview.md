@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: d71201da0c4af35720a309fe0dfa068cd2c69630
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7daba35b9247443c84cedad03f252ea6858da236
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081618"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327352"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Övervaka lagrings tjänsten med Azure Monitor för lagring
 
@@ -242,7 +242,7 @@ Antalet valda lagrings konton har en gräns på 200, oavsett hur många prenumer
 
 ### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>Hur ändrar du färg och tröskel för tillgänglighet?
 
-I avsnittet [ändra tröskeln för tillgänglighet](storage-insights-overview.md#modify-the-availability-threshold) finns detaljerade anvisningar om hur du ändrar färg och tröskelvärden för tillgänglighet.
+I avsnittet [ändra tröskeln för tillgänglighet](#modify-the-availability-threshold) finns detaljerade anvisningar om hur du ändrar färg och tröskelvärden för tillgänglighet.
 
 ### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>Hur analyserar och felsöker du data som visas i Azure Monitor för lagring?
 
@@ -274,3 +274,4 @@ Varje arbets bok sparas i det lagrings konto som du sparade det i. Försök att 
 * Lär dig mer om arbets böckerna i scenarier är utformade för att stödja, hur du skapar nya och anpassar befintliga rapporter och mer genom att granska [skapa interaktiva rapporter med Azure Monitor arbets böcker](../platform/workbooks-overview.md).
 
 * En djupgående guide om hur du använder Lagringsanalys och andra verktyg för att identifiera, diagnostisera och felsöka Azure Storage-relaterade problem finns i [övervaka, diagnostisera och felsöka Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
+

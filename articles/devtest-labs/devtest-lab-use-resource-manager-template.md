@@ -3,12 +3,12 @@ title: Visa och använda en virtuell dators Azure Resource Manager mall
 description: Lär dig hur du använder Azure Resource Manager-mallen från en virtuell dator för att skapa andra virtuella datorer
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a53a6ad44cac59bd925e6d200ca50074a2fcd963
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e58b54d61653f1edba3c3893edb902a94fbf9f2b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476622"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87272699"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Skapa virtuella datorer med hjälp av en Azure Resource Manager mall 
 
@@ -35,7 +35,7 @@ Det finns två sätt att skapa virtuella datorer i DevTest Labs med en Resource 
 
 I resten av den här artikeln beskrivs Resource Manager-mallar som använder Microsoft. DevTestLab/Labs/virtualmachines. Dessa används av labb administratörer för att automatisera skapandet av virtuella labb datorer (till exempel virtuella datorer som kan krävas) eller en gyllene avbildnings generation (till exempel bild fabrik).
 
-[Metod tips för att skapa Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) ger många rikt linjer och förslag som hjälper dig att skapa Azure Resource Manager mallar som är pålitliga och enkla att använda.
+[Metod tips för att skapa Azure Resource Manager mallar](../azure-resource-manager/templates/template-best-practices.md) ger många rikt linjer och förslag som hjälper dig att skapa Azure Resource Manager mallar som är pålitliga och enkla att använda.
 
 ## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>Visa och spara en virtuell dators Resource Manager-mall
 1. Följ stegen i [skapa din första virtuella dator i ett labb](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) för att börja skapa en virtuell dator.

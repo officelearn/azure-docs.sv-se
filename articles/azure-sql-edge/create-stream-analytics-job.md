@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: 2e1f98cffd17d0a8823cc5849830667fcdad1212
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/27/2020
+ms.openlocfilehash: 346a59f085e766fef09d73b9e7baa03dad510148
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515231"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321725"
 ---
 # <a name="create-an-azure-stream-analytics-job-in-azure-sql-edge-preview"></a>Skapa ett Azure Stream Analytics jobb i Azure SQL Edge (för hands version) 
 
@@ -43,7 +43,6 @@ Azure SQL Edge stöder för närvarande endast följande data källor som indata
 |------------------|-------|--------|------------------|
 | Azure IoT Edge hubb | Y | Y | Data källa för att läsa och skriva strömmande data till en Azure IoT Edge hubb. Mer information finns i [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
 | SQL Database | N | J | Anslutning till data källa för att skriva strömmande data till SQL Database. Databasen kan vara en lokal databas i Azure SQL Edge eller en fjärrdatabas i SQL Server eller Azure SQL Database.|
-| Azure Blob Storage | N | J | Data källa för att skriva data till en BLOB på ett Azure Storage-konto. |
 | Kafka | J | N | Data källa för att läsa strömmande data från ett Kafka-ämne. Det här kortet är för närvarande endast tillgängligt för Intel-eller AMD-versioner av Azure SQL Edge. Den är inte tillgänglig för ARM64-versionen av Azure SQL Edge.|
 
 ### <a name="example-create-an-external-stream-inputoutput-object-for-azure-iot-edge-hub"></a>Exempel: skapa ett externt Stream-indata/utdata-objekt för Azure IoT Edge hubb
@@ -54,7 +53,8 @@ I följande exempel skapas ett externt Stream-objekt för Azure IoT Edge Hub. Om
 
     ```sql
     Create External file format InputFileFormat
-    WITH (  
+    WITH 
+    (  
        format_type = JSON,
     )
     go
@@ -63,8 +63,10 @@ I följande exempel skapas ett externt Stream-objekt för Azure IoT Edge Hub. Om
 2. Skapa en extern data källa för Azure IoT Edge Hub. Följande T-SQL-skript skapar en anslutning till en data källa till en IoT Edge hubb som körs på samma Docker-värd som Azure SQL Edge.
 
     ```sql
-    CREATE EXTERNAL DATA SOURCE EdgeHubInput WITH (
-    LOCATION = 'edgehub://'
+    CREATE EXTERNAL DATA SOURCE EdgeHubInput 
+    WITH 
+    (
+        LOCATION = 'edgehub://'
     )
     go
     ```
@@ -72,13 +74,15 @@ I följande exempel skapas ett externt Stream-objekt för Azure IoT Edge Hub. Om
 3. Skapa det externa Stream-objektet för Azure IoT Edge Hub. Följande T-SQL-skript skapar ett Stream-objekt för IoT Edge Hub. Om det är ett IoT Edge Hub Stream-objekt är parametern LOCATION namnet på det IoT Edge Hub-ämne eller-kanal som läses eller skrivs till.
 
     ```sql
-    CREATE EXTERNAL STREAM MyTempSensors WITH (
-    DATA_SOURCE = EdgeHubInput,
-    FILE_FORMAT = InputFileFormat,
-    LOCATION = N'TemperatureSensors',
-    INPUT_OPTIONS = N'',
-    OUTPUT_OPTIONS = N''
-    )
+    CREATE EXTERNAL STREAM MyTempSensors 
+    WITH 
+    (
+        DATA_SOURCE = EdgeHubInput,
+        FILE_FORMAT = InputFileFormat,
+        LOCATION = N'TemperatureSensors',
+        INPUT_OPTIONS = N'',
+        OUTPUT_OPTIONS = N''
+    );
     go
     ```
 
@@ -107,9 +111,11 @@ I följande exempel skapas ett externt Stream-objekt till den lokala databasen i
     * Använder de autentiseringsuppgifter som skapades tidigare.
 
     ```sql
-    CREATE EXTERNAL DATA SOURCE LocalSQLOutput WITH (
-    LOCATION = 'sqlserver://tcp:.,1433'
-    ,CREDENTIAL = SQLCredential
+    CREATE EXTERNAL DATA SOURCE LocalSQLOutput 
+    WITH 
+    (
+        LOCATION = 'sqlserver://tcp:.,1433',
+        CREDENTIAL = SQLCredential
     )
     go
     ```
@@ -117,12 +123,52 @@ I följande exempel skapas ett externt Stream-objekt till den lokala databasen i
 4. Skapa det externa Stream-objektet. I följande exempel skapas ett externt Stream-objekt som pekar på en tabell *dbo. TemperatureMeasurements*, i databasen *MySQLDatabase*.
 
     ```sql
-    CREATE EXTERNAL STREAM TemperatureMeasurements WITH (
-    DATA_SOURCE = LocalSQLOutput,
-    LOCATION = N'MySQLDatabase.dbo.TemperatureMeasurements',
-    INPUT_OPTIONS = N'',
-    OUTPUT_OPTIONS = N''
+    CREATE EXTERNAL STREAM TemperatureMeasurements 
+    WITH 
+    (
+        DATA_SOURCE = LocalSQLOutput,
+        LOCATION = N'MySQLDatabase.dbo.TemperatureMeasurements',
+        INPUT_OPTIONS = N'',
+        OUTPUT_OPTIONS = N''
+    );
+    ```
+
+### <a name="example-create-an-external-stream-object-for-kafka"></a>Exempel: skapa ett externt Stream-objekt för Kafka
+
+I följande exempel skapas ett externt Stream-objekt till den lokala databasen i Azure SQL Edge. Det här exemplet förutsätter att Kafka-servern har kon figurer ATS för anonym åtkomst. 
+
+1. Skapa en extern data källa med skapa extern DATA källa. Följande exempel:
+
+    ```sql
+    Create EXTERNAL DATA SOURCE [KafkaInput] 
+    With
+    (
+        LOCATION = N'kafka://<kafka_bootstrap_server_name_ip>:<port_number>'
     )
+    GO
+    ```
+2. Skapa ett externt fil format för Kafka-indata. I följande exempel skapades ett JSON-filformat med GZipped-komprimering. 
+
+   ```sql
+   CREATE EXTERNAL FILE FORMAT JsonGzipped  
+    WITH 
+    (  
+        FORMAT_TYPE = JSON , 
+        DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' 
+    )
+   ```
+    
+3. Skapa det externa Stream-objektet. I följande exempel skapas ett externt Stream-objekt som pekar på Kafka-ämnet `*TemperatureMeasurement*` .
+
+    ```sql
+    CREATE EXTERNAL STREAM TemperatureMeasurement 
+    WITH 
+    (  
+        DATA_SOURCE = KafkaInput, 
+        FILE_FORMAT = JsonGzipped,
+        LOCATION = 'TemperatureMeasurement',     
+        INPUT_OPTIONS = 'PARTITIONS: 10' 
+    ); 
     ```
 
 ## <a name="create-the-streaming-job-and-the-streaming-queries"></a>Skapa direkt uppspelnings jobbet och strömmande frågor

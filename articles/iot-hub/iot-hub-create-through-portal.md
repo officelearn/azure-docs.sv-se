@@ -7,11 +7,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
-ms.openlocfilehash: c43c142b22709d42416b2dd14dfc78812970916a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+ms.openlocfilehash: 8f7555129f5f514d1954ac56cf87872a85ca91d0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708118"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326740"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Skapa en IoT-hubb med hjälp av Azure Portal
 
@@ -19,7 +22,7 @@ ms.locfileid: "84708118"
 
 Den här artikeln beskriver hur du skapar och hanterar IoT-hubbar med hjälp av [Azure Portal](https://portal.azure.com).
 
-Du behöver en Azure-prenumeration för att kunna använda stegen i den här självstudien. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Du behöver en Azure-prenumeration för att kunna använda stegen i den här självstudien. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 

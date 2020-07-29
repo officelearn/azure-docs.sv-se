@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/06/2020
-ms.openlocfilehash: 14fa6859a16dc173e75091983abee717bf813220
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b681e3fa4963a8fe899ccbad8dbf1bbdfbe452ce
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499030"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326910"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Lösning för övervakning av behållare i Azure Monitor
 
@@ -31,7 +31,7 @@ Lösningen visar vilka behållare som körs, vilken behållar avbildning de kör
 
 Om du har behållare som distribuerats i [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)rekommenderar vi att du aktiverar både [Service Fabric lösning](../../service-fabric/service-fabric-diagnostics-oms-setup.md) och den här lösningen för att ta med övervakning av kluster händelser. Innan du aktiverar Service Fabric-lösningen kan du läsa mer i [använda Service Fabric-lösningen](../../service-fabric/service-fabric-diagnostics-event-analysis-oms.md) för att förstå vad den innehåller och hur du använder den.
 
-Om du är intresse rad av att övervaka prestanda för dina arbets belastningar som distribueras till Kubernetes-miljöer som finns i Azure Kubernetes service (AKS), se [övervaka Azure Kubernetes-tjänsten](../../azure-monitor/insights/container-insights-overview.md). Övervaknings lösningen för behållare stöder inte övervakning av den plattformen.  
+Om du är intresse rad av att övervaka prestanda för dina arbets belastningar som distribueras till Kubernetes-miljöer som finns i Azure Kubernetes service (AKS), se [övervaka Azure Kubernetes-tjänsten](./container-insights-overview.md). Övervaknings lösningen för behållare stöder inte övervakning av den plattformen.  
 
 Följande diagram visar relationerna mellan olika behållar värdar och agenter med Azure Monitor.
 
@@ -92,11 +92,11 @@ I följande tabell beskrivs stödet för Docker-dirigering och operativ system �
 
 Använd följande information för att installera och konfigurera lösningen.
 
-1. Lägg till lösningen för övervakning av behållare till din Log Analytics-arbetsyta från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) eller genom att använda processen som beskrivs i [Lägg till övervaknings lösningar från Lösningsgalleriet](../../azure-monitor/insights/solutions.md).
+1. Lägg till lösningen för övervakning av behållare till din Log Analytics-arbetsyta från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) eller genom att använda processen som beskrivs i [Lägg till övervaknings lösningar från Lösningsgalleriet](./solutions.md).
 
 2. Installera och Använd Docker med en Log Analytics-agent. Du kan använda följande metoder för att konfigurera agenten baserat på operativ system och Docker Orchestrator.
    - För fristående värdar:
-     - På Linux-operativsystem som stöds installerar du och kör Docker och installerar och konfigurerar sedan [Log Analytics-agenten för Linux](../../azure-monitor/learn/quick-collect-linux-computer.md).  
+     - På Linux-operativsystem som stöds installerar du och kör Docker och installerar och konfigurerar sedan [Log Analytics-agenten för Linux](../learn/quick-collect-linux-computer.md).  
      - I Core kan du inte köra Log Analytics agent för Linux. I stället kör du en behållar version av Log Analytics agent för Linux. Granska Linux container-värdar inklusive Core-eller Azure Government Linux container-värdar, inklusive Core, om du arbetar med behållare i Azure Government molnet.
      - På Windows Server 2016 och Windows 10 installerar du Docker-motorn och-klienten och ansluter sedan en agent för att samla in information och skicka den till Azure Monitor. Granska [Installera och konfigurera Windows container hosts](#install-and-configure-windows-container-hosts) om du har en Windows-miljö.
    - För Docker multi-Host-dirigering:
@@ -112,7 +112,7 @@ Använd följande information för att installera och konfigurera lösningen.
 Läs avsnittet [Docker-motorn i Windows](/virtualization/windowscontainers/manage-docker/configure-docker-daemon) om du vill ha mer information om hur du installerar och konfigurerar Docker-motorer på datorer som kör Windows.
 
 > [!IMPORTANT]
-> Docker måste köras **innan** du installerar [Log Analytics agent för Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) på behållar värdarna. Om du redan har installerat agenten innan du installerar Docker måste du installera om Log Analytics-agenten för Linux. Mer information om Docker finns på [Docker-webbplatsen](https://www.docker.com).
+> Docker måste köras **innan** du installerar [Log Analytics agent för Linux](../learn/quick-collect-linux-computer.md) på behållar värdarna. Om du redan har installerat agenten innan du installerar Docker måste du installera om Log Analytics-agenten för Linux. Mer information om Docker finns på [Docker-webbplatsen](https://www.docker.com).
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Installera och konfigurera Linux container hosts
 
@@ -120,7 +120,7 @@ När du har installerat docker använder du följande inställningar för din be
 
 **För alla Linux container-värdar förutom Core:**
 
-- Mer information och anvisningar om hur du installerar Log Analytics agent för Linux finns i [Översikt över Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md).
+- Mer information och anvisningar om hur du installerar Log Analytics agent för Linux finns i [Översikt över Log Analytics-agenten](../platform/log-analytics-agent.md).
 
 **För alla Linux container-värdar inklusive Core:**
 
@@ -140,7 +140,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **Växla från att använda en installerad Linux-Agent till en i en behållare**
 
-Om du tidigare använde den direkt installerade agenten och vill använda en agent som körs i en behållare måste du först ta bort den Log Analytics agenten för Linux. Mer information om hur du avinstallerar agenten finns i Avinstallera [Log Analytics agent för Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) .  
+Om du tidigare använde den direkt installerade agenten och vill använda en agent som körs i en behållare måste du först ta bort den Log Analytics agenten för Linux. Mer information om hur du avinstallerar agenten finns i Avinstallera [Log Analytics agent för Linux](../learn/quick-collect-linux-computer.md) .  
 
 #### <a name="configure-a-log-analytics-agent-for-docker-swarm"></a>Konfigurera en Log Analytics agent för Docker Swarm
 
@@ -185,8 +185,8 @@ För Docker Swarm, när hemligheten för arbetsyte-ID och primär nyckel har ska
 
 Det finns tre sätt att lägga till Log Analytics agent i Red Hat OpenShift för att börja samla in övervaknings data för behållare.
 
-* [Installera Log Analytics agent för Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) direkt på varje OpenShift-nod  
-* [Aktivera Log Analytics VM-tillägg](../../azure-monitor/learn/quick-collect-azurevm.md) på varje OpenShift-nod i Azure  
+* [Installera Log Analytics agent för Linux](../learn/quick-collect-linux-computer.md) direkt på varje OpenShift-nod  
+* [Aktivera Log Analytics VM-tillägg](../learn/quick-collect-azurevm.md) på varje OpenShift-nod i Azure  
 * Installera Log Analytics agenten som OpenShift daemon-uppsättning  
 
 I det här avsnittet beskriver vi de steg som krävs för att installera Log Analytics agenten som OpenShift daemon-uppsättning.  
@@ -509,9 +509,9 @@ Mer information om konfiguration av Docker daemon som används med Windows-behå
 
 #### <a name="install-windows-agents"></a>Installera Windows-agenter
 
-Om du vill aktivera övervakning av Windows-och Hyper-V-behållare installerar du Microsoft Monitoring Agent (MMA) på Windows-datorer som är behållar värdar. För datorer som kör Windows i din lokala miljö, se [Anslut Windows-datorer till Azure Monitor](../../azure-monitor/platform/agent-windows.md). För virtuella datorer som körs i Azure kan du ansluta dem till Azure Monitor med hjälp av [tillägget för virtuell dator](../../azure-monitor/learn/quick-collect-azurevm.md).
+Om du vill aktivera övervakning av Windows-och Hyper-V-behållare installerar du Microsoft Monitoring Agent (MMA) på Windows-datorer som är behållar värdar. För datorer som kör Windows i din lokala miljö, se [Anslut Windows-datorer till Azure Monitor](../platform/agent-windows.md). För virtuella datorer som körs i Azure kan du ansluta dem till Azure Monitor med hjälp av [tillägget för virtuell dator](../learn/quick-collect-azurevm.md).
 
-Du kan övervaka Windows-behållare som körs på Service Fabric. Det är dock bara [virtuella datorer som körs i Azure](../../azure-monitor/learn/quick-collect-azurevm.md) och [datorer som kör Windows i din lokala miljö](../../azure-monitor/platform/agent-windows.md) som stöds för Service Fabric.
+Du kan övervaka Windows-behållare som körs på Service Fabric. Det är dock bara [virtuella datorer som körs i Azure](../learn/quick-collect-azurevm.md) och [datorer som kör Windows i din lokala miljö](../platform/agent-windows.md) som stöds för Service Fabric.
 
 Du kan kontrol lera att lösningen för övervakning av behållare är korrekt inställd för Windows. Du kan kontrol lera om hanterings paketet har laddats ned korrekt genom att leta efter *ContainerManagement.xxx*. Filerna bör finnas i mappen C:\Program Files\Microsoft Monitoring Agent\Agent\Health service State\Management Packs.
 
@@ -527,9 +527,9 @@ Lösningen för övervakning av behållare samlar in olika prestanda mått och l
 
 Data samlas in var tredje minut av följande agent typer.
 
-- [Log Analytics agent för Linux](../../azure-monitor/learn/quick-collect-linux-computer.md)
-- [Windows-agent](../../azure-monitor/platform/agent-windows.md)
-- [Log Analytics VM-tillägg](../../azure-monitor/learn/quick-collect-azurevm.md)
+- [Log Analytics agent för Linux](../learn/quick-collect-linux-computer.md)
+- [Windows-agent](../platform/agent-windows.md)
+- [Log Analytics VM-tillägg](../learn/quick-collect-azurevm.md)
 
 ### <a name="container-records"></a>Container poster
 
@@ -640,3 +640,4 @@ När du har skapat en fråga som du tycker är användbar sparar du den genom at
 ## <a name="next-steps"></a>Nästa steg
 
 [Fråga loggar](../log-query/log-query-overview.md) om du vill visa detaljerade data poster för behållare.
+

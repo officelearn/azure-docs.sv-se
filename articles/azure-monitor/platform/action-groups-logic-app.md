@@ -6,12 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
-ms.openlocfilehash: f592c42bc06c6bcd33ce6e10c506f8af0d8e0cf2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f6d5cbfc8d781e96a4d348f31f4a5d175ebd5a3d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008395"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321895"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Så här utlöser du komplexa åtgärder med Azure Monitor aviseringar
 
@@ -19,7 +19,7 @@ Den här artikeln visar hur du konfigurerar och utlöser en Logic app för att s
 
 ## <a name="overview"></a>Översikt
 
-När en Azure Monitor-avisering utlöses anropar den en [Åtgärds grupp](../../azure-monitor/platform/action-groups.md). Med åtgärds grupper kan du utlösa en eller flera åtgärder för att meddela andra om en avisering och även åtgärda det.
+När en Azure Monitor-avisering utlöses anropar den en [Åtgärds grupp](./action-groups.md). Med åtgärds grupper kan du utlösa en eller flera åtgärder för att meddela andra om en avisering och även åtgärda det.
 
 Den allmänna processen är:
 
@@ -294,6 +294,7 @@ Processen för att skapa en måtta aviseringar liknar att [skapa en aktivitets l
 Logic Apps har flera olika anslutningar som gör att du kan utlösa åtgärder i en mängd olika program och databaser. Slack, SQL Server, Oracle, Salesforce, är bara några exempel. Mer information om anslutningar finns i [Logic app-kopplingar](../../connectors/apis-list.md).  
 
 ## <a name="next-steps"></a>Nästa steg
-* Få en [Översikt över Azure aktivitets logg aviseringar](../../azure-monitor/platform/alerts-overview.md) och lär dig hur du tar emot aviseringar.  
+* Få en [Översikt över Azure aktivitets logg aviseringar](./alerts-overview.md) och lär dig hur du tar emot aviseringar.  
 * Lär dig hur du [konfigurerar aviseringar när ett Azure Service Health-meddelande publiceras](../../service-health/alerts-activity-log-service-notifications-portal.md).
-* Läs mer om [Åtgärds grupper](../../azure-monitor/platform/action-groups.md).
+* Läs mer om [Åtgärds grupper](./action-groups.md).
+

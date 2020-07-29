@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 88856a16dbc197be29ddd88311063df4473a1e40
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bba634fa20c3bab6e3763f6cedcbeb77f4546098
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007885"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327879"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor loggar    
 
@@ -52,9 +52,9 @@ Reservations nivån för kluster kapaciteten konfigureras via program mässigt m
 
 Det finns två fakturerings lägen för användning i ett kluster. Dessa kan anges av- `billingType` parametern när [du konfigurerar klustret](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#cmk-manage). De två lägena är: 
 
-1. **Kluster**: i det här fallet (som är standard) görs faktureringen för inmatade data på kluster nivå. De inmatade data mängderna från varje arbets yta som är kopplad till ett kluster sammanställs för att beräkna den dagliga fakturan för klustret. Observera att tilldelningar per nod från [Azure Security Center](https://docs.microsoft.com/azure/security-center/) tillämpas på arbets ytans nivå före denna agg regering av sammanställda data för alla arbets ytor i klustret. 
+1. **Kluster**: i det här fallet (som är standard) görs faktureringen för inmatade data på kluster nivå. De inmatade data mängderna från varje arbets yta som är kopplad till ett kluster sammanställs för att beräkna den dagliga fakturan för klustret. Observera att tilldelningar per nod från [Azure Security Center](../../security-center/index.yml) tillämpas på arbets ytans nivå före denna agg regering av sammanställda data för alla arbets ytor i klustret. 
 
-2. **Arbets ytor**: kostnaderna för kapacitets reservationen för klustret anges i proportion till arbets ytorna i klustret (efter redovisningen av tilldelningar per nod från [Azure Security Center](https://docs.microsoft.com/azure/security-center/) för varje arbets yta.) Om den totala data volymen som matas in i en arbets yta för en dag är lägre än kapacitets reservationen debiteras varje arbets yta för sina inmatade data med den effektiva reservations taxan per GB som faktureras en bråkdel av kapacitets reservationen och den oanvända delen av kapacitets reservationen debiteras till kluster resursen. Om den totala data volymen som matas in på en arbets yta för en dag är mer än kapacitets reservationen debiteras varje arbets yta för en bråkdel av kapacitets reservationen baserat på den inmatade data dagen och varje arbets yta för en bråkdel av inmatade data ovanför kapacitets reservationen. Det finns inget debiteras för kluster resursen om den totala data volymen som matas in på en arbets yta för en dag är över kapacitets reservationen.
+2. **Arbets ytor**: kostnaderna för kapacitets reservationen för klustret anges i proportion till arbets ytorna i klustret (efter redovisningen av tilldelningar per nod från [Azure Security Center](../../security-center/index.yml) för varje arbets yta.) Om den totala data volymen som matas in i en arbets yta för en dag är lägre än kapacitets reservationen debiteras varje arbets yta för sina inmatade data med den effektiva reservations taxan per GB som faktureras en bråkdel av kapacitets reservationen och den oanvända delen av kapacitets reservationen debiteras till kluster resursen. Om den totala data volymen som matas in på en arbets yta för en dag är mer än kapacitets reservationen debiteras varje arbets yta för en bråkdel av kapacitets reservationen baserat på den inmatade data dagen och varje arbets yta för en bråkdel av inmatade data ovanför kapacitets reservationen. Det finns inget debiteras för kluster resursen om den totala data volymen som matas in på en arbets yta för en dag är över kapacitets reservationen.
 
 I kluster fakturerings alternativ faktureras data lagring på arbets ytans nivå. Observera att kluster faktureringen startar när klustret skapas, oavsett om arbets ytorna har kopplats till klustret. Observera också att arbets ytor som är kopplade till ett kluster inte längre har en pris nivå.
 
@@ -78,9 +78,9 @@ Log Analytics avgifter läggs till på din Azure-faktura. Du kan se information 
 
 ## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Visa Log Analytics användning på din Azure-faktura 
 
-Azure ger en fantastisk mängd användbara funktioner i [Azure Cost Management + fakturerings](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) hubben. Med funktionen "cost Analysis" kan du till exempel Visa dina utgifter för Azure-resurser. Lägg först till ett filter efter "resurs typ" (till Microsoft. operationalinsights/Workspace för Log Analytics och Microsoft. operationalinsights/Workspace för Log Analytics kluster) så att du kan spåra dina Log Analytics utgifter. Välj sedan "mäta kategori" eller "mätare" för "Gruppera efter".  Observera att andra tjänster, till exempel Azure Security Center och Azure Sentinel, också fakturerar användningen mot Log Analytics arbets ytans resurser. Om du vill se mappningen till tjänst namnet kan du välja tabellvy i stället för ett diagram. 
+Azure ger en fantastisk mängd användbara funktioner i [Azure Cost Management + fakturerings](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) hubben. Med funktionen "cost Analysis" kan du till exempel Visa dina utgifter för Azure-resurser. Lägg först till ett filter efter "resurs typ" (till Microsoft. operationalinsights/Workspace för Log Analytics och Microsoft. operationalinsights/Workspace för Log Analytics kluster) så att du kan spåra dina Log Analytics utgifter. Välj sedan "mäta kategori" eller "mätare" för "Gruppera efter".  Observera att andra tjänster, till exempel Azure Security Center och Azure Sentinel, också fakturerar användningen mot Log Analytics arbets ytans resurser. Om du vill se mappningen till tjänst namnet kan du välja tabellvy i stället för ett diagram. 
 
-Om du vill ha mer information om din användning kan du [ladda ned information om din användning från Azure-portalen](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). I det nedladdade kalkylbladet visas användning per Azure-resurs (till exempel Log Analytics-arbetsytan) per dag. I det här Excel-kalkylbladet hittar du användning från dina Log Analytics-arbetsytor genom att först filtrera fram kolumnen "mätar kategori" för att Visa "Log Analytics", "insikter och analyser" (används av några av de äldre pris nivåerna) och "Azure Monitor" (används av pris nivåer för kapacitets reservationer) och lägger sedan till ett filter i kolumnen "instance ID", som är "innehåller arbets yta" eller "innehåller kluster" (den senare för att inkludera Log Analytics kluster användning). Användningen visas i kolumnen "Förbrukat antal" och enheten för varje post visas i kolumnen "enhets mått".  Mer information som hjälper dig att [förstå Microsoft Azure-fakturan](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
+Om du vill ha mer information om din användning kan du [ladda ned information om din användning från Azure-portalen](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). I det nedladdade kalkylbladet visas användning per Azure-resurs (till exempel Log Analytics-arbetsytan) per dag. I det här Excel-kalkylbladet hittar du användning från dina Log Analytics-arbetsytor genom att först filtrera fram kolumnen "mätar kategori" för att Visa "Log Analytics", "insikter och analyser" (används av några av de äldre pris nivåerna) och "Azure Monitor" (används av pris nivåer för kapacitets reservationer) och lägger sedan till ett filter i kolumnen "instance ID", som är "innehåller arbets yta" eller "innehåller kluster" (den senare för att inkludera Log Analytics kluster användning). Användningen visas i kolumnen "Förbrukat antal" och enheten för varje post visas i kolumnen "enhets mått".  Mer information som hjälper dig att [förstå Microsoft Azure-fakturan](../../cost-management-billing/understand/review-individual-bill.md). 
 
 ## <a name="changing-pricing-tier"></a>Ändra pris nivå
 
@@ -98,7 +98,7 @@ Du kan också [ställa in pris nivån via Azure Resource Manager](https://docs.m
 
 ## <a name="legacy-pricing-tiers"></a>Äldre pris nivåer
 
-Prenumerationer som hade en Log Analytics arbets yta eller Application Insights resurs i den 2 april 2018, eller som är kopplade till en Enterprise-avtal som startades före den 1 februari 2019, fortsätter att ha åtkomst till de äldre pris nivåerna: **kostnads fri**, **fristående (per GB)** och **per nod (OMS)**.  Arbets ytor i den kostnads fria pris nivån har en daglig data inmatning som är begränsad till 500 MB (förutom säkerhets data typer som samlas in av [Azure Security Center](https://docs.microsoft.com/azure/security-center/)) och datakvarhållning är begränsad till 7 dagar. Den kostnads fria pris nivån är endast avsedd för utvärderings ändamål. Arbets ytorna i de fristående eller per-nodens pris nivåer har användar konfigurerbar kvarhållning från 30 till 730 dagar.
+Prenumerationer som hade en Log Analytics arbets yta eller Application Insights resurs i den 2 april 2018, eller som är kopplade till en Enterprise-avtal som startades före den 1 februari 2019, fortsätter att ha åtkomst till de äldre pris nivåerna: **kostnads fri**, **fristående (per GB)** och **per nod (OMS)**.  Arbets ytor i den kostnads fria pris nivån har en daglig data inmatning som är begränsad till 500 MB (förutom säkerhets data typer som samlas in av [Azure Security Center](../../security-center/index.yml)) och datakvarhållning är begränsad till 7 dagar. Den kostnads fria pris nivån är endast avsedd för utvärderings ändamål. Arbets ytorna i de fristående eller per-nodens pris nivåer har användar konfigurerbar kvarhållning från 30 till 730 dagar.
 
 Användningen på den fristående pris nivån debiteras av den inmatade data volymen. Den rapporteras i **log Analyticss** tjänsten och mätaren heter "data analysed". 
 
@@ -113,7 +113,7 @@ Pris nivå avgifter per nod per övervakad virtuell dator (nod) på en tids korn
 
 Arbets ytor som skapats före april 2016 kan också komma åt de ursprungliga pris nivåerna **standard** och **Premium** som har en fast data lagring på 30 respektive 365 dagar. Det går inte att skapa nya arbets ytor på pris nivåerna **standard** eller **Premium** , och om en arbets yta flyttas ut från dessa nivåer går det inte att flytta tillbaka den. Mätare för data inmatning för dessa äldre nivåer kallas "data analyseras".
 
-Det finns även vissa beteenden mellan användningen av äldre Log Analyticss nivåer och hur användning faktureras för [Azure Security Center](https://docs.microsoft.com/azure/security-center/). 
+Det finns även vissa beteenden mellan användningen av äldre Log Analyticss nivåer och hur användning faktureras för [Azure Security Center](../../security-center/index.yml). 
 
 1. Om arbets ytan finns på den äldre standard-eller Premium-nivån faktureras Azure Security Center bara för Log Analytics data inmatning, inte per nod.
 2. Om arbets ytan är i bakåtkompatibelt läge per nod kommer Azure Security Center att faktureras med den aktuella [Azure Security Center-nodens pris modell](https://azure.microsoft.com/pricing/details/security-center/). 
@@ -150,7 +150,7 @@ Data typer från arbets ytans baserade Application Insights resurser (,,,,,,,, `
 
 ### <a name="retention-by-data-type"></a>Kvarhållning efter datatyp
 
-Det är också möjligt att ange olika inställningar för kvarhållning för enskilda data typer från 30 till 730 dagar (förutom för arbets ytor på den äldre kostnads fria pris nivån). Varje datatyp är en under resurs till arbets ytan. Till exempel kan SecurityEvent-tabellen åtgärdas i [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) som:
+Det är också möjligt att ange olika inställningar för kvarhållning för enskilda data typer från 30 till 730 dagar (förutom för arbets ytor på den äldre kostnads fria pris nivån). Varje datatyp är en under resurs till arbets ytan. Till exempel kan SecurityEvent-tabellen åtgärdas i [Azure Resource Manager](/azure/azure-resource-manager/management/overview) som:
 
 ```
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
@@ -221,7 +221,7 @@ Följande steg beskriver hur du konfigurerar en gräns för att hantera den data
 
     ![Log Analytics konfigurera data gräns](media/manage-cost-storage/set-daily-volume-cap-01.png)
     
-Den dagliga begränsningen kan konfigureras via ARM genom att ange `dailyQuotaGb` parametern under `WorkspaceCapping` som beskrivs [här](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate#workspacecapping). 
+Den dagliga begränsningen kan konfigureras via ARM genom att ange `dailyQuotaGb` parametern under `WorkspaceCapping` som beskrivs [här](/rest/api/loganalytics/workspaces/createorupdate#workspacecapping). 
 
 ### <a name="alert-when-daily-cap-reached"></a>Avisering när dagligt hölje uppnås
 
@@ -442,7 +442,7 @@ Några förslag på hur du minskar mängden loggar som samlas in är:
 | Källan för hög datavolym | Hur du minskar datavolym |
 | -------------------------- | ------------------------- |
 | Container Insights         | [Konfigurera behållar insikter](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-cost#controlling-ingestion-to-reduce-cost) för att endast samla in de data du behöver. |
-| Säkerhetshändelser            | Välj [vanliga eller minimala säkerhetshändelser](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier) <br> Ändra principen för säkerhetsgranskning för att endast samla in händelser som behövs. Du kan särskilt se över behovet att samla in händelser för att <br> - [granska filtreringplattform](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [granska register](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [granska filsystem](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [granska kernelobjekt](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [granska hantering av manipulering](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> – granska flyttbara lagrings enheter |
+| Säkerhetshändelser            | Välj [vanliga eller minimala säkerhetshändelser](../../security-center/security-center-enable-data-collection.md#data-collection-tier) <br> Ändra principen för säkerhetsgranskning för att endast samla in händelser som behövs. Du kan särskilt se över behovet att samla in händelser för att <br> - [granska filtreringplattform](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772749(v=ws.10)) <br> - [granska register](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v=ws.10))<br> - [granska filsystem](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v=ws.10))<br> - [granska kernelobjekt](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v=ws.10))<br> - [granska hantering av manipulering](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v=ws.10))<br> – granska flyttbara lagrings enheter |
 | Prestandaräknare       | Ändra [prestandaräknarens konfiguration](data-sources-performance-counters.md) för att: <br> - Minska insamlingsfrekvensen <br> - Minska antalet prestandaräknare |
 | Händelseloggar                 | Ändra [händelseloggens konfiguration](data-sources-windows-events.md) för att: <br> - Minska antalet händelseloggar som samlas in <br> - Endast samla in obligatoriska händelsenivåer. Till exempel, samla inte in händelser på *Informationsnivå* |
 | Syslog                     | Ändra [systemloggkonfigurationen](data-sources-syslog.md) för att: <br> - Minska antalet anläggningar som samlas in <br> - Endast samla in obligatoriska händelsenivåer. Till exempel, samla inte in händelser på *Informations-* eller *Felsökningsnivå* |
@@ -627,3 +627,4 @@ Det finns ytterligare Log Analytics gränser, varav vissa är beroende av Log An
 - Ändra [prestandaräknarens konfiguration](data-sources-performance-counters.md).
 - Om du vill ändra inställningarna för händelse samlingen granskar du [händelse logg konfigurationen](data-sources-windows-events.md).
 - Om du vill ändra inställningarna för syslog-samlingen granskar du [syslog-konfigurationen](data-sources-syslog.md).
+

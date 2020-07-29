@@ -4,16 +4,16 @@ description: Den här artikeln innehåller fel söknings tips för Microsoft Azu
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: troubleshooting
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a4d16edae3b41bc9c3b4a849935fe8c6f94504ae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b3b83899ad21cf125105881a7ffb526f5c607c6d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088435"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322218"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk Encryption fel söknings guide
 
@@ -24,8 +24,6 @@ Innan du vidtar stegen nedan måste du först se till att de virtuella datorer s
 - [Nätverks krav](disk-encryption-overview.md#networking-requirements)
 - [Grup princip krav](disk-encryption-overview.md#group-policy-requirements)
 - [Lagrings krav för krypterings nyckel](disk-encryption-overview.md#encryption-key-storage-requirements)
-
- 
 
 ## <a name="troubleshooting-azure-disk-encryption-behind-a-firewall"></a>Felsöka Azure Disk Encryption bakom en brand vägg
 
@@ -64,7 +62,7 @@ Undvik det här problemet genom att kopiera följande fyra filer från en virtue
 
 1. Använd DiskPart för att kontrol lera volymerna och fortsätt sedan.  
 
-Exempel:
+Till exempel:
 
 ```
 DISKPART> list vol
@@ -78,11 +76,15 @@ DISKPART> list vol
 
 ## <a name="troubleshooting-encryption-status"></a>Felsöka krypterings status 
 
-Portalen kan visa en disk som krypterad även efter att den har krypterats på den virtuella datorn.  Detta kan inträffa när lågnivå kommandon används för att direkt dekryptera disken inifrån den virtuella datorn, i stället för att använda Azure Disk Encryption hanterings kommandon på högre nivå.  Med kommandona på högre nivå kan du inte bara dekryptera disken inifrån den virtuella datorn, men utanför den virtuella datorn uppdaterar de också viktiga krypterings inställningar och tilläggs inställningar som är associerade med den virtuella datorn.  Om dessa inte behålls i justeringen kommer plattformen inte att kunna rapportera krypterings status eller upprätta den virtuella datorn korrekt.   
+Portalen kan visa en disk som krypterad även efter att den har krypterats på den virtuella datorn.  Detta kan inträffa när lågnivå kommandon används för att direkt dekryptera disken inifrån den virtuella datorn, i stället för att använda Azure Disk Encryption hanterings kommandon på högre nivå.  Med kommandona på högre nivå kan du inte bara dekryptera disken inifrån den virtuella datorn, men utanför den virtuella datorn uppdaterar de också viktiga krypterings inställningar och tilläggs inställningar som är associerade med den virtuella datorn.  Om dessa inte behålls i justeringen kommer plattformen inte att kunna rapportera krypterings status eller upprätta den virtuella datorn korrekt.
 
 Om du vill inaktivera Azure Disk Encryption med PowerShell använder du [disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) följt av [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Det går inte att köra Remove-AzVMDiskEncryptionExtension innan krypteringen inaktive ras.
 
 Om du vill inaktivera Azure Disk Encryption med CLI använder du [inaktivera AZ VM-kryptering](/cli/azure/vm/encryption). 
+
+## 
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

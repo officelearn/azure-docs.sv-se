@@ -3,16 +3,16 @@ title: 'Snabb start: Azure Blob Storage-bibliotek V12 – java script i en webbl
 description: I den här snabb starten får du lära dig hur du använder Azure Blob Storage klient bibliotek version 12 för Java Script i en webbläsare. Du skapar en behållare och ett objekt i Blob Storage. Härnäst får du lära dig hur du visar alla blobar i en behållare. Slutligen får du lära dig hur du tar bort blobbar och tar bort en behållare.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 04/18/2020
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: f884e6d3cbc2e1f3127b251818f4617fccb6a999
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 039aea76e5e59d43078c2fa884e192922ec50035
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011336"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87277000"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -27,10 +27,7 @@ Ytterligare resurser:
 * [Paket (NPM)](https://www.npmjs.com/package/@azure/storage-blob)
 * [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
-> [!NOTE]
-> För att komma igång med den tidigare SDK-versionen, se [snabb start: hantera blobbar med Java Script v10 SDK i Node.js](storage-quickstart-blobs-nodejs-legacy.md).
-
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Ett Azure-konto med en aktiv prenumeration](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 * [Ett Azure Storage konto](../common/storage-account-create.md)
@@ -76,7 +73,7 @@ I Azure Portal väljer du ditt lagrings konto. Om du vill definiera en ny CORS-r
 
 I följande tabell beskrivs varje CORS-inställning och de värden som används för att definiera regeln.
 
-|Inställning  |Värde  | Beskrivning |
+|Inställningen  |Värde  | Beskrivning |
 |---------|---------|---------|
 | **TILLÅTNA URSPRUNG** | **\*** | Accepterar en kommaavgränsad lista över domäner som är inställda som godkänt ursprung. Om du anger värdet till `*` ges alla domäner åtkomst till lagringskontot. |
 | **TILLÅTNA METODER** | **Ta bort**, **Hämta**, **huvud**, **slå samman**, **anslå**, **alternativ**och **Placera** | Listar de HTTP-verb som kan köras mot lagringskontot. För den här snabbstarten väljer du alla tillgängliga alternativ. |

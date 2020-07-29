@@ -6,13 +6,14 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: b0ae621791fb989fbb1fdab6a045bc8e9707bc74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 989399bcc86547b914deb442fa9793f6d79d0606
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83846536"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325329"
 ---
-# <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ansluta Azure till ITSM-verktyg med anslutningsprogrammet för hantering av IT-tjänster (ITSM)
+# <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Anslut Azure till ITSM-verktyg med hjälp av Hantering av IT-tjänster (ITSM)
 
 ![Anslutningsprogram för hantering av IT-tjänster (ITSM) symbol](media/itsmc-overview/itsmc-symbol.png)
 
@@ -77,10 +78,10 @@ För att skapa en anslutning måste du använda ITSM-verktyget för att tillåta
 
 Använd följande steg beroende på vilken ITSM-produkt du ansluter till:
 
-- [System Center Service Manager (SCSM)](../../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
-- [ServiceNow](../../azure-monitor/platform/itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
-- [Styrka](../../azure-monitor/platform/itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
-- [Cherwell](../../azure-monitor/platform/itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
+- [System Center Service Manager (SCSM)](./itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
+- [ServiceNow](./itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
+- [Styrka](./itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
+- [Cherwell](./itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
 
 När du har beredd dina ITSM-verktyg följer du stegen nedan för att skapa en anslutning:
 
@@ -93,7 +94,7 @@ När du har beredd dina ITSM-verktyg följer du stegen nedan för att skapa en a
 
    ![Lägg till ITSM-anslutning](media/itsmc-overview/add-new-itsm-connection.png)
 
-4. Ange anslutnings inställningarna enligt beskrivningen i [Konfigurera ITSMC-anslutningen med dina ITSM produkter/tjänster-artikeln](../../azure-monitor/platform/itsmc-connections.md).
+4. Ange anslutnings inställningarna enligt beskrivningen i [Konfigurera ITSMC-anslutningen med dina ITSM produkter/tjänster-artikeln](./itsmc-connections.md).
 
    > [!NOTE]
    >
@@ -150,13 +151,13 @@ Instrument panelen innehåller också information om anslutnings status som kan 
 
 Du kan också visualisera de incidenter som synkroniseras mot de påverkade datorerna i Tjänstkarta-lösningen.
 
-Tjänstkarta identifierar automatiskt program komponenterna i Windows-och Linux-system och mappar kommunikationen mellan tjänsterna. Du kan se dina servrar så som du tänker på dem: ett sammankopplat system som levererar viktiga tjänster. Med Service Map ser du anslutningarna mellan olika servrar, processer och portar i alla typer av TCP-anslutna arkitekturer, och den enda konfiguration som behövs är att installera en agent. [Läs mer](../../azure-monitor/insights/service-map.md).
+Tjänstkarta identifierar automatiskt program komponenterna i Windows-och Linux-system och mappar kommunikationen mellan tjänsterna. Du kan se dina servrar så som du tänker på dem: ett sammankopplat system som levererar viktiga tjänster. Med Service Map ser du anslutningarna mellan olika servrar, processer och portar i alla typer av TCP-anslutna arkitekturer, och den enda konfiguration som behövs är att installera en agent. [Läs mer](../insights/service-map.md).
 
 Om du använder Tjänstkarta-lösningen kan du Visa Service Desk-objekten som skapats i ITSM-lösningarna som visas i följande exempel:
 
 ![Log Analytics skärm](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-Mer information: [tjänstkarta](../../azure-monitor/insights/service-map.md)
+Mer information: [tjänstkarta](../insights/service-map.md)
 
 
 ## <a name="additional-information"></a>Ytterligare information
@@ -177,7 +178,7 @@ ServiceDeskWorkItemType_s = "incident"
 
 - ServiceDeskConnectionName
 - Service Desk-ID
-- Status
+- Tillstånd
 - Angelägenhetsgrad
 - Påverkan
 - Prioritet
@@ -188,7 +189,7 @@ ServiceDeskWorkItemType_s = "incident"
 - Källa
 - Tilldelad till
 - Kategori
-- Titel
+- Rubrik
 - Beskrivning
 - Skapad datum
 - Stängningsdatum
@@ -211,7 +212,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 - Rubrik
 - Typ
 - Kategori
-- Status
+- Tillstånd
 - Eskalering
 - Konflikt status
 - Angelägenhetsgrad
@@ -235,7 +236,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 | Log Analytics fält | ServiceNow-fält |
 |:--- |:--- |
 | ServiceDeskId_s| Antal |
-| IncidentState_s | Status |
+| IncidentState_s | Tillstånd |
 | Urgency_s |Angelägenhetsgrad |
 | Impact_s |Påverkan|
 | Priority_s | Prioritet |
@@ -263,7 +264,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 | Title_s|  Kort beskrivning |
 | Type_s|  Typ |
 | Category_s|  Kategori |
-| CRState_s|  Status|
+| CRState_s|  Tillstånd|
 | Urgency_s|  Angelägenhetsgrad |
 | Priority_s| Prioritet|
 | Risk_s| Risk|
@@ -284,7 +285,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
    - kontrol lera att du har angett användar namn, lösen ord, klient-ID och klient hemlighet korrekt för varje anslutning.  
    - kontrol lera att du har tillräcklig behörighet i motsvarande ITSM-produkt för att upprätta anslutningen.  
    - För Service Manager anslutningar  
-   - kontrol lera att webbappen har distribuerats och att hybrid anslutningen har skapats. Du kan kontrol lera att anslutningen har upprättats med den lokala Service Manager datorn genom att gå till webbappens URL enligt beskrivningen i dokumentationen för att skapa en [hybrid anslutning](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
+   - kontrol lera att webbappen har distribuerats och att hybrid anslutningen har skapats. Du kan kontrol lera att anslutningen har upprättats med den lokala Service Manager datorn genom att gå till webbappens URL enligt beskrivningen i dokumentationen för att skapa en [hybrid anslutning](./itsmc-connections.md#configure-the-hybrid-connection).  
 
 2. Om data från ServiceNow inte kommer att synkroniseras till Log Analytics, se till att ServiceNow-instansen inte är i vilo läge. ServiceNow dev-instanser går ibland till ström spar läge när de är inaktiva under en längre tid. Annars kan du rapportera problemet.
 3. Om Log Analytics-aviseringar om brand, men arbets objekt inte skapas i ITSM-produkten eller om konfigurations objekt inte skapas/länkas till arbets objekt eller för någon annan allmän information, tittar du på följande platser:
@@ -294,7 +295,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Felsöka Service Manager Web App-distribution
 1.  Om det uppstår problem med distributionen av webbappar kontrollerar du att du har tillräcklig behörighet i prenumerationen som nämns skapa/distribuera resurser.
 2.  Om du får fel meddelandet **"objekt referens som inte har angetts till en instans av ett objekt"** visas när du kör [skriptet](itsmc-service-manager-script.md), se till att du har angett giltiga värden under **användar konfiguration** .
-3.  Om du inte kan skapa Service Bus Relay-namnrymden måste du kontrol lera att den nödvändiga resurs leverantören är registrerad i prenumerationen. Om detta inte är registrerat skapar du Service Bus Relay-namnrymden manuellt från Azure Portal. Du kan också skapa den när du [skapar hybrid anslutningen](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) från Azure Portal.
+3.  Om du inte kan skapa Service Bus Relay-namnrymden måste du kontrol lera att den nödvändiga resurs leverantören är registrerad i prenumerationen. Om detta inte är registrerat skapar du Service Bus Relay-namnrymden manuellt från Azure Portal. Du kan också skapa den när du [skapar hybrid anslutningen](./itsmc-connections.md#configure-the-hybrid-connection) från Azure Portal.
 
 
 ## <a name="contact-us"></a>Kontakta oss
@@ -302,4 +303,5 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 Om du har frågor eller feedback på Anslutningsprogram för hantering av IT-tjänster (ITSM) kan du kontakta oss på [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com) .
 
 ## <a name="next-steps"></a>Nästa steg
-[Lägg till ITSM produkter/tjänster i anslutningsprogram för hantering av IT-tjänster (ITSM)](../../azure-monitor/platform/itsmc-connections.md).
+[Lägg till ITSM produkter/tjänster i anslutningsprogram för hantering av IT-tjänster (ITSM)](./itsmc-connections.md).
+

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: b0ec666f2cfadc3a1571f3ed1d26c92bcbbca3a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c7e6733a9149008f6ed98ae7a7e0103f92f79f5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196239"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325278"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Standard egenskaper i Azure Monitor loggar
 Data i Azure Monitor loggar [lagras som en uppsättning poster i antingen en Log Analytics arbets yta eller ett Application Insights program](../log-query/logs-structure.md), var och en med en viss datatyp som har en unik uppsättning egenskaper. Många data typer har standard egenskaper som är gemensamma för flera typer. Den här artikeln beskriver dessa egenskaper och innehåller exempel på hur du kan använda dem i frågor.
@@ -210,5 +211,6 @@ union withsource = tt *
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om hur [Azure Monitor loggdata lagras](../log-query/log-query-overview.md).
-- Få en lektion om att [skriva logg frågor](../../azure-monitor/log-query/get-started-queries.md).
-- Få en lektion om att [koppla tabeller i logg frågor](../../azure-monitor/log-query/joins.md).
+- Få en lektion om att [skriva logg frågor](../log-query/get-started-queries.md).
+- Få en lektion om att [koppla tabeller i logg frågor](../log-query/joins.md).
+

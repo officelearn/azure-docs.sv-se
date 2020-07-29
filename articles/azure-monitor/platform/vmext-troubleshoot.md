@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/06/2019
-ms.openlocfilehash: e16531484505f055c1383aff5adb40518719d98a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 873f6beaa88e1631397827a94161ce4427b5f0bb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80054586"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323391"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Felsöka Log Analytics-tillägget för virtuella datorer i Azure Monitor
 Den här artikeln innehåller fel söknings fel som kan uppstå i Log Analytics VM-tillägget för virtuella Windows-och Linux-datorer som körs på Microsoft Azure och ger förslag på möjliga lösningar för att lösa dem.
 
 För att kontrol lera status för tillägget, utför följande steg från Azure Portal.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Klicka på **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **virtuella datorer**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Virtuella datorer**.
 3. Leta upp och markera den i listan över virtuella datorer.
 3. Klicka på **tillägg**på den virtuella datorn.
@@ -37,7 +37,7 @@ Om VM-tillägget för *Microsoft Monitoring Agent* inte installeras eller rappor
 1. Kontrol lera om Azure VM-agenten är installerad och fungerar korrekt med hjälp av stegen i [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
    * Du kan också granska logg filen för VM-agenten`C:\WindowsAzure\logs\WaAppAgent.log`
    * Om loggen inte finns installeras inte VM-agenten.
-   * [Installera Azure VM-agenten](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+   * [Installera Azure VM-agenten](../learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 2. Granska loggfilerna för VM-tillägg för Microsoft Monitoring Agent i`C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
 3. Se till att den virtuella datorn kan köra PowerShell-skript
 4. Se till att behörigheter för C:\Windows\temp inte har ändrats
@@ -52,7 +52,7 @@ Om *Log Analytics agent för* VM-tillägget för Linux inte installeras eller ra
 
 1. Om tilläggets status är *okänd* kontrollerar du om Azure VM-agenten är installerad och fungerar korrekt genom att granska logg filen för VM-agenten`/var/log/waagent.log`
    * Om loggen inte finns installeras inte VM-agenten.
-   * [Installera Azure VM-agenten på virtuella Linux-datorer](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+   * [Installera Azure VM-agenten på virtuella Linux-datorer](../learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 2. Om du har andra statusar som inte är felfria kontrollerar du Log Analytics agent för Linux VM-tillägg loggfiler i `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` och`/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
 3. Om tilläggets status är felfri, men data inte överförs, granska Log Analytics agent för Linux-loggfiler i`/var/opt/microsoft/omsagent/log/omsagent.log`
 
@@ -61,3 +61,4 @@ Mer information finns i [Felsöka Linux-tillägg](../../virtual-machines/extensi
 ## <a name="next-steps"></a>Nästa steg
 
 Ytterligare fel söknings anvisningar som rör Log Analytics-agenten för Linux som finns på datorer utanför Azure finns i [Felsöka Azure Log Analytics Linux-agenten](agent-linux-troubleshoot.md).  
+

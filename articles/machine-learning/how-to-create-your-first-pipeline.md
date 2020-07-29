@@ -5,18 +5,18 @@ description: Skapa och kör en pipeline för maskin inlärning med Azure Machine
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
 ms.date: 12/05/2019
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 069f18d6ef94dd7570cdd506823ef22a17594795
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: dff86176bac56063c9b588fb27e3549069ed380e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031141"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326366"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Skapa och kör maskin inlärnings pipeliner med Azure Machine Learning SDK
 
@@ -32,9 +32,9 @@ De ML-pipeliner som du skapar visas för medlemmarna i din Azure Machine Learnin
 
 ML pipelines använder fjärrberäknings mål för beräkning och lagring av mellanliggande och slutliga data som är kopplade till den pipelinen. De kan läsa och skriva data till och från [Azure Storage](https://docs.microsoft.com/azure/storage/) platser som stöds.
 
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto  innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Skapa en [Azure Machine Learning arbets yta](how-to-manage-workspace.md) för att lagra alla dina pipeline-resurser.
 

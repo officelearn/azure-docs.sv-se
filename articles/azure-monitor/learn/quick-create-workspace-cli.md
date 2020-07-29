@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: d7c3613a0ddce217e9d07c3fc2eba55b78c53a1b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7421162ed68a879d9f935a3efd5c6267e159a648
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516574"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324309"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Skapa en Log Analytics arbets yta med Azure CLI 2,0
 
@@ -24,8 +24,8 @@ Azure CLI 2.0 används för att skapa och hantera Azure-resurser från kommandor
 
 För andra källor, till exempel virtuella Azure-datorer och virtuella Windows-eller Linux-datorer i din miljö, se följande avsnitt:
 
-* [Samla in data från virtuella Azure-datorer](../learn/quick-collect-azurevm.md)
-* [Samla in data från hybrid Linux-datorer](../learn/quick-collect-linux-computer.md)
+* [Samla in data från virtuella Azure-datorer](./quick-collect-azurevm.md)
+* [Samla in data från hybrid Linux-datorer](./quick-collect-linux-computer.md)
 * [Samla in data från hybrid Windows-dator](quick-collect-windows-computer.md)
 
 Om du inte har en Azure-prenumeration kan du skapa [ett kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -133,3 +133,4 @@ Nu när du har en arbets yta tillgänglig kan du konfigurera insamling av överv
 * Lägg till [System Center Operations Manager som en data källa](../platform/om-agents.md) för att samla in data från agenter som rapporterar din Operations Manager hanterings grupp och lagra den i din Log Analytics-arbetsyta.  
 * Anslut [Configuration Manager](../platform/collect-sccm.md) för att importera datorer som är medlemmar i samlingar i hierarkin.  
 * Granska de tillgängliga [övervaknings lösningarna](../insights/solutions.md) och Lägg till eller ta bort en lösning från din arbets yta.
+

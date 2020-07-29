@@ -4,12 +4,12 @@ description: Lär dig hur du aktiverar övervakning för ett nytt Azure Kubernet
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 86ace49ea60bf1bd11633b5a883401f678ecaf8d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7706df4f457167f5bb4d17f1d506594615364380
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516642"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320331"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Aktivera övervakning av ett nytt Azure Kubernetes service-kluster (AKS)
 
@@ -29,7 +29,7 @@ Om du vill aktivera övervakning av ett nytt AKS-kluster som skapats med Azure C
 
 ## <a name="enable-using-terraform"></a>Aktivera med terraform
 
-Om du [distribuerar ett nytt AKS-kluster med terraform](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)anger du de argument som krävs i profilen [för att skapa en Log Analytics arbets yta](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) om du inte väljer att ange en befintlig. 
+Om du [distribuerar ett nytt AKS-kluster med terraform](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks)anger du de argument som krävs i profilen [för att skapa en Log Analytics arbets yta](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) om du inte väljer att ange en befintlig. 
 
 >[!NOTE]
 >Om du väljer att använda terraform måste du köra terraform Azure RM-providerns version 1.17.0 eller senare.
@@ -118,3 +118,4 @@ Efter några minuter slutförs kommandot och returnerar JSON-formaterad informat
 * Läs [fel söknings guiden](container-insights-troubleshoot.md) om du får problem när du försöker publicera lösningen
 
 * När övervakning har Aktiver ATS för att samla in hälso-och resursutnyttjande för ditt AKS-kluster och arbets belastningar som körs på dem, lär [du dig hur du använder](container-insights-analyze.md) Azure Monitor för behållare.
+

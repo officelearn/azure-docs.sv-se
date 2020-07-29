@@ -5,13 +5,13 @@ author: suhuruli
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: suhuruli
-ms.custom: mvc
-ms.openlocfilehash: b283982e11449d234da966f15b86cc5b638a026c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-java
+ms.openlocfilehash: b27711158c10b0f7fa78875aec7f9c63c166258c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75376670"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327182"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Självstudie: Övervaka dina Service Fabric-program med ELK
 
@@ -35,7 +35,7 @@ I den här självstudieserien får du lära du dig att:
 
 Innan du börjar den här självstudien:
 
-* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Konfigurera programmet så att det genererar loggar för den plats som anges i [del två](service-fabric-tutorial-debug-log-local-cluster.md).
 * Genomför [del tre](service-fabric-tutorial-java-deploy-azure.md) och se till att du har ett Service Fabric-kluster som är konfigurerat för att skicka loggar till Event Hubs.
 * Principen i Event Hubs som har behörigheten 'Lyssna' och den associerade primärnyckeln från serie tre.
@@ -140,7 +140,7 @@ Du kan använda en förkonfigurerad ELK-miljö för den här självstudiekursen,
     curl 'localhost:9200/_cat/indices?v'
     ```
 
-8. Öppna Kibana-instrumentpanelen på **http\/:/Server-IP** och ange användar namn och lösen ord för Kibana. Har du använt ELK-avbildningen i Azure så är standardanvändarnamnet 'user', och lösenordet är det som du hämtade från **Startdiagnostik**.
+8. Öppna Kibana-instrumentpanelen på **http: \/ /Server-IP** och ange användar namn och lösen ord för Kibana. Har du använt ELK-avbildningen i Azure så är standardanvändarnamnet 'user', och lösenordet är det som du hämtade från **Startdiagnostik**.
 
     ![Kibana](./media/service-fabric-tutorial-java-elk/kibana.png)
 

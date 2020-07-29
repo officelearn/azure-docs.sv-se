@@ -6,21 +6,21 @@ author: cweining
 ms.author: cweining
 ms.date: 11/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8beb1d60ca8dcc18978ffeb523a7d63f90ca6c01
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f514dd7b54ac091535aeab43a8a7d2a645b50a09
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049805"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315843"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Profilera webbappar som körs på en virtuell Azure-dator eller en virtuell dators skalnings uppsättning med hjälp av Application Insights Profiler
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Du kan också Distribuera Azure Application Insights profiler på följande tjänster:
-* [Azure App Service](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](./profiler.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Service Fabric](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Service Fabric](?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Distribuera profiler på en virtuell dator eller en skalnings uppsättning för virtuella datorer
 Den här artikeln visar hur du kan få Application Insights Profiler som körs på din virtuella Azure-dator (VM) eller skalnings uppsättning för virtuella Azure-datorer. Profiler installeras med Azure-diagnostik-tillägget för virtuella datorer. Konfigurera tillägget för att köra profiler och skapa Application Insights SDK i ditt program.
@@ -67,7 +67,7 @@ Den här artikeln visar hur du kan få Application Insights Profiler som körs p
 
 1. Aktivera Windows-funktionen om det avsedda [IIS](https://www.microsoft.com/web/downloads/platform.aspx)programmet körs via IIS `IIS Http Tracing` .
 
-   a. Upprätta fjärråtkomst till miljön och Använd sedan fönstret [Lägg till Windows-funktioner]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) . Eller kör följande kommando i PowerShell (som administratör):  
+   a. Upprätta fjärråtkomst till miljön och Använd sedan fönstret [Lägg till Windows-funktioner](/iis/configuration/system.webserver/tracing/) . Eller kör följande kommando i PowerShell (som administratör):  
 
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
@@ -117,3 +117,4 @@ Vi har ingen plan för att stödja Application Insights Profiler för lokala ser
 [resourceexplorerput]: ./media/profiler-vm/resource-explorer-put.png
 [resourceexplorersinksconfig]: ./media/profiler-vm/resource-explorer-sinks-config.png
 [wadextension]: ./media/profiler-vm/wad-extension.png
+

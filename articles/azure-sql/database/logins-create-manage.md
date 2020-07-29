@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: fbcec1ace45927561c56449cd8ca0c8d3306b3bd
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 8408025478e2776423b0d1f10cc70828e408f87e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986291"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290092"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Auktorisera databas åtkomst till SQL Database, SQL-hanterad instans och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -110,7 +110,7 @@ Du kan skapa konton för icke-administratörer på något av två sätt:
   Skapa en SQL-inloggning i huvud databasen. Skapa sedan ett användar konto i varje databas som användaren behöver åtkomst till och koppla användar kontot till den inloggningen. Den här metoden rekommenderas när användaren måste ha åtkomst till flera databaser och du vill synkronisera lösen orden. Den här metoden har dock komplicerade metoder när de används med geo-replikering eftersom inloggningen måste skapas på både den primära servern och de sekundära servrarna. Mer information finns i [Konfigurera och hantera Azure SQL Database säkerhet för geo-återställning eller redundans](active-geo-replication-security-configure.md).
 - **Skapa ett användarkonto**
 
-  Skapa ett användar konto i databasen som en användare behöver åtkomst till (kallas även för en [innesluten användare](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
+  Skapa ett användar konto i databasen som en användare behöver åtkomst till (kallas även för en [innesluten användare](/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
 
   - Med SQL Database kan du alltid skapa den här typen av användar konto.
   - Med SQL-hanterad instans som stöder [Azure AD server-huvudobjekt](authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)kan du skapa användar konton för att autentisera till den SQL-hanterade instansen utan att databas användare måste skapas som en innesluten databas användare.

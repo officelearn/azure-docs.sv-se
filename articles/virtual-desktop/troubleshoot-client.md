@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0efff05f84bf02908dfc8b966b80539d309f491d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f91e68ec2bd4b0b5400ee3e8e380d91ea6f31f36
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059142"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291331"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Felsöka fjärr skrivbords klienten
 
@@ -64,7 +64,7 @@ Om webbläsaren startar eller slutar fungera när du använder webb klienten fö
 
 Börja med att kontrol lera Azure Active Directory kontot som du använder. Om du redan har loggat in med ett annat Azure Active Directory konto än det som du vill använda för det virtuella Windows-skrivbordet, måste du antingen signera vårt eller använda ett privat webbläsarfönster.
 
-Om du använder Windows Virtual Desktop hösten 2019-versionen använder du länken webb klient i [den här artikeln](./virtual-desktop-fall-2019/connect-web-2019.md) för att ansluta till dina resurser.
+Om du använder den virtuella Windows-datorn (klassisk) använder du länken webb klient i [den här artikeln](./virtual-desktop-fall-2019/connect-web-2019.md) för att ansluta till dina resurser.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>Webb klienten slutar svara eller kopplas från
 

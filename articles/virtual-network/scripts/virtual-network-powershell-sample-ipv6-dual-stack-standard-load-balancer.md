@@ -1,7 +1,7 @@
 ---
 title: Azure PowerShell skript exempel – konfigurera IPv6-frontend med Standard Load Balancer (förhands granskning)
 titlesuffix: Azure Virtual Network
-description: Aktivera IPv6-slutpunkter med PowerShell i Azure Virtual Network
+description: Läs mer om hur du konfigurerar en IPv6-frontend i ett virtuellt nätverks skript exempel med Standard Load Balancer.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 2de93f66bdb2647bcc612322d90eb9197e0ad63e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24057c494d76cf9435ed60ecf2a13db4eab36fbf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068674"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291903"
 ---
 # <a name="configure-ipv6-frontend-in-virtual-network-script-sample-with-standard-load-balancerpreview"></a>Konfigurera IPv6-frontend i skript exempel för virtuella nätverk med Standard Load Balancer (för hands version)
 
@@ -26,7 +26,7 @@ Du kan köra skriptet från Azure [Cloud Shell](https://shell.azure.com/powershe
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Innan du distribuerar ett program med dubbla stackar i Azure måste du konfigurera din prenumeration bara en gång för för hands versions funktionen med följande Azure PowerShell:
 
 Registrera på följande sätt:
@@ -249,7 +249,7 @@ Remove-AzResourceGroup -Name <resourcegroupname> -Force
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, virtuell dator, tillgänglighetsuppsättning, lastbalanserare och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Skapar en undernätskonfiguration. Den här konfigurationen används med skapandeprocessen för virtuella nätverk. |

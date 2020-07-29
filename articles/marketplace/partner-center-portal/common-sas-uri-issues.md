@@ -4,21 +4,21 @@ description: Vanliga problem påträffades och föreslagna lösningar när du ar
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
-ms.author: mingshen
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 04/09/2020
-ms.openlocfilehash: 95ce37d92adc3d09c5a09944b094df7971831198
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4eb3c3e893a276aed10807a13a0f2d6d3bc4e71d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110733"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87316846"
 ---
 # <a name="common-sas-uri-issues-and-fixes"></a>Vanliga SAS URI-problem och korrigeringar
 
 Följande är vanliga problem som uppstår när du arbetar med signaturer för delad åtkomst (som används för att identifiera och dela de uppladdade virtuella hård diskarna för din lösning), tillsammans med föreslagna lösningar.
 
-| **Problem** | **Fel meddelande** | **Snabbkorrigering** |
+| **Problem** | **Fel meddelande** | **Åtgärda** |
 | --------- | ------------------- | ------- |
 | *Det gick inte att kopiera avbildningar* |  |  |
 | "?" finns inte i SAS-URI | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Uppdatera SAS-URI med rekommenderade verktyg. |

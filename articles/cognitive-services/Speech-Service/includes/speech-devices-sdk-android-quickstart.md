@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 04c31a12348fe0059bcfd417682647676dbc8948
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: abc9a42c7ced6a71f93c00968eb825f28f720843
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84637503"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87375745"
 ---
 I den här snabb starten lär du dig att använda tal enheter SDK för Android för att bygga en tal aktive rad produkt eller använda den som en [Avskrifts](../conversation-transcription-service.md) enhet för konversation.
 
@@ -35,7 +35,7 @@ Innan du börjar använda tal enheter SDK måste du:
 
 - Om du planerar att använda tal tjänsten för att identifiera avsikter (eller åtgärder) från användarens yttranden behöver du en [Luis-prenumeration (Language Understanding service)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) . Om du vill veta mer om LUIS och avsikts igenkänning läser du [känna igen tal avsikter med Luis, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
-  Du kan [skapa en enkel Luis-modell](https://docs.microsoft.com/azure/cognitive-services/luis/) eller använda exempel Luis-modellen Luis-example. JSON. Exempel modellen för LUIS finns på [hämtnings platsen för tal enheter SDK](https://aka.ms/sdsdk-luis). Om du vill överföra modellens JSON-fil till [Luis-portalen](https://www.luis.ai/home)väljer du **Importera ny app**och väljer sedan JSON-filen.
+  Du kan [skapa en enkel Luis-modell](https://docs.microsoft.com/azure/cognitive-services/luis/) eller använda exempel Luis-modellen LUIS-example.jspå. Exempel modellen för LUIS finns på [hämtnings platsen för tal enheter SDK](https://aka.ms/sdsdk-luis). Om du vill överföra modellens JSON-fil till [Luis-portalen](https://www.luis.ai/home)väljer du **Importera ny app**och väljer sedan JSON-filen.
 
 - Installera [Android Studio](https://developer.android.com/studio/) och [VYSOR](https://vysor.io/download/) på din dator.
 
@@ -96,7 +96,7 @@ Om du vill verifiera installationen av Development Kit, skapa och installera exe
     Uppdatera **build. gradle (modulen: app)** genom att lägga till den här raden i avsnittet beroenden. 
     
     ```xml
-    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.12.1'
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.13.0'
     ```
     
 1. Lägg till din tal prenumerations nyckel i käll koden. Om du vill prova avsikts igenkänning lägger du också till din [language Understanding tjänst](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) prenumerations nyckel och program-ID.
@@ -124,7 +124,7 @@ Om du vill verifiera installationen av Development Kit, skapa och installera exe
    > [!TIP]
    > Du kan också [skapa ett anpassat nyckelord](../speech-devices-sdk-create-kws.md).
 
-   Om du vill använda ett nytt nyckelord uppdaterar du följande två rader i `MainActivity.java` och kopierar nyckelords paketet till din app. Om du till exempel vill använda nyckelordet "dator" från nyckelords paketet KWS-Machine. zip:
+   Om du vill använda ett nytt nyckelord uppdaterar du följande två rader i `MainActivity.java` och kopierar nyckelords paketet till din app. Om du till exempel vill använda nyckelordet "dator" från nyckelords paketet kws-machine.zip:
 
    - Kopiera nyckelords paketet till mappen "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\".
    - Uppdatera `MainActivity.java` med nyckelordet och paket namnet:
@@ -143,7 +143,7 @@ Om du vill verifiera installationen av Development Kit, skapa och installera exe
 
    I den här tabellen visas de värden som stöds:
 
-   | Variabel | Innebörd | Tillgängliga värden |
+   | Variabel | Betydelse | Tillgängliga värden |
    | -------- | ------- | ---------------- |
    | `DeviceGeometry` | Konfiguration av fysisk mikrofon | För ett cirkulärt dev-paket:`Circular6+1` |
    |          |         | För en linjär dev-sats:`Linear4` |
@@ -177,6 +177,6 @@ Om du inte kan ansluta till tal enheten. Skriv följande kommando i kommando tol
 ```
 
 > [!NOTE]
-> Det här kommandot använder Android fel söknings bryggan, `adb.exe` som är en del av den Android Studio installationen. Det här verktyget finns i C:\Users \[ användar namn] \AppData\Local\Android\Sdk\platform-tools. Du kan lägga till den här katalogen i sökvägen så att det blir enklare att anropa `adb` . Annars måste du ange den fullständiga sökvägen till din installation av ADB. exe i varje kommando som anropar `adb` .
+> Det här kommandot använder Android fel söknings bryggan, `adb.exe` som är en del av den Android Studio installationen. Det här verktyget finns i C:\Users \[ användar namn] \AppData\Local\Android\Sdk\platform-tools. Du kan lägga till den här katalogen i sökvägen så att det blir enklare att anropa `adb` . Annars måste du ange den fullständiga sökvägen till din installation av adb.exe i varje kommando som anropar `adb` .
 >
 > Om du ser ett fel `no devices/emulators found` kan du kontrol lera att USB-kabeln är ansluten och se till att en hög kvalitets kabel används.

@@ -1,6 +1,6 @@
 ---
-title: Felsök Windows Virtual Desktop Session Host hösten 2019 – Azure
-description: Så här löser du problem när du konfigurerar virtuella Windows-datorer för fjärrskrivbordssessioner-värd.
+title: Felsöka Windows Virtual Desktop (klassisk) Session Host-Azure
+description: Lösa problem när du konfigurerar virtuella Windows-sessioner för virtuella skriv bord (klassisk).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b2f4a288ab83ca9f20434c55a180c2d9b30be5d4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0155c9cf6b5d9df8a6a8831896093c4c6b074cd6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527667"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291253"
 ---
-# <a name="troubleshoot-session-host-virtual-machine-configuration"></a>Felsök konfiguration av virtuell dator i Session Host
+# <a name="windows-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Konfiguration av virtuell dator för virtuella Windows-datorer (klassisk)
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../troubleshoot-vm-configuration.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../troubleshoot-vm-configuration.md).
 
 Använd den här artikeln för att felsöka problem som du har med när du konfigurerar virtuella Windows-sessioner för fjärrskrivbordssessioner värd för virtuella datorer (VM).
 

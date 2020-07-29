@@ -7,22 +7,22 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b77eb136b8415e5a6e4596dc0b192ea426f378f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60461027"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292838"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Konfigurera VMware haveri beredskap i en miljö med flera organisationer med Cloud Solution Provider (CSP)-programmet
 
-[CSP-programmet](https://partner.microsoft.com/en-US/cloud-solution-provider) utvecklar bättre berättelser för Microsofts moln tjänster, inklusive Office 365, Enterprise Mobility Suite och Microsoft Azure. Med CSP äger partner relationen från slut punkt till slut punkt med kunder och blir den primära Relations kontakt punkten. Partner kan distribuera Azure-prenumerationer för kunder och kombinera prenumerationerna med sina egna mervärdes anpassade erbjudanden.
+[CSP-programmet](https://partner.microsoft.com/cloud-solution-provider) utvecklar bättre berättelser för Microsofts moln tjänster, inklusive Office 365, Enterprise Mobility Suite och Microsoft Azure. Med CSP äger partner relationen från slut punkt till slut punkt med kunder och blir den primära Relations kontakt punkten. Partner kan distribuera Azure-prenumerationer för kunder och kombinera prenumerationerna med sina egna mervärdes anpassade erbjudanden.
 
 Med [Azure Site Recovery](site-recovery-overview.md)kan du, som partner, hantera haveri beredskap för kunder direkt via CSP. Alternativt kan du använda CSP för att konfigurera Site Recovery-miljöer och låta kunderna hantera sina egna haveri beredskaps behov på ett självbetjänings sätt. I båda scenarierna är partners sambandet mellan Site Recovery och deras kunder. Partner tjänsterar kund relationen och fakturerar kunder för Site Recovery användning.
 
 Den här artikeln beskriver hur du som partner kan skapa och hantera klient prenumerationer via CSP, för ett scenario med VMware-replikering för flera innehavare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera VMware-replikering måste du göra följande:
 

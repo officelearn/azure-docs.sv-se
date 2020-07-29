@@ -3,12 +3,12 @@ title: Hantera labb principer i Azure DevTest Labs | Microsoft Docs
 description: Lär dig hur du definierar labb principer som VM-storlekar, maximalt antal virtuella datorer per användare och avstängnings automatisering.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 95d91cfc70d603187543e308d2b1355c549c88f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab2e2b1905a515d3a85339099f02d93d8e5c0424
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483405"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290417"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Hantera alla principer för ett labb i Azure DevTest Labs
 
@@ -70,7 +70,7 @@ Principen för automatisk avstängning hjälper till att minimera labb avfall ge
 
 1. Ange **Ja** eller **Nej** om du vill skicka ett meddelande 15 minuter före den angivna automatiska avstängnings tiden. Om du väljer **Ja**anger du en webhook-URL-slutpunkt eller en e-postadress som anger var du vill att meddelandet ska publiceras eller skickas. Användaren får ett meddelande och det ges möjlighet att skjuta upp avstängningen.
 
-   Mer information om Webhooks finns i [skapa en webhook eller API Azure-funktion](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+   Mer information om Webhooks finns i [skapa en webhook eller API Azure-funktion](../azure-functions/functions-bindings-http-webhook.md). 
 
 1. Välj **Spara**.
 
@@ -129,4 +129,3 @@ När du har definierat och tillämpat de olika princip inställningarna för vir
 * [Skapa anpassad avbildning](devtest-lab-create-template.md) – när du skapar en virtuell dator anger du en bas, som kan vara antingen en anpassad avbildning eller en Marketplace-avbildning. Den här artikeln visar hur du skapar en anpassad avbildning från en VHD-fil.
 * [Konfigurera Marketplace-avbildningar](devtest-lab-configure-marketplace-images.md) – Azure DevTest Labs har stöd för att skapa virtuella datorer baserat på Azure Marketplace-avbildningar. Den här artikeln beskriver hur du anger vilka Azure Marketplace-avbildningar som kan användas när du skapar virtuella datorer i ett labb.
 * [Skapa en virtuell dator i ett labb](devtest-lab-add-vm.md) – visar hur du skapar en virtuell dator från en bas avbildning (antingen anpassad eller Marketplace) och hur du arbetar med artefakter på den virtuella datorn.
-

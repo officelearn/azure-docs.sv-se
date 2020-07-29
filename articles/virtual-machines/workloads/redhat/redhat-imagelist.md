@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: 01c9c4389e2c950fe68c8be171b4c50d3d6271c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f4ebf433237193c0db7859b029bb224c72c92eae
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052033"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291013"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Red Hat Enterprise Linux-avbildningar (RHEL) som är tillgängliga i Azure
 Azure erbjuder en rad olika RHEL-avbildningar för olika användnings fall.
@@ -31,7 +31,7 @@ Det här är en lista över RHEL-avbildningar som är tillgängliga i Azure. Om 
 > [!NOTE]
 > RAW-avbildningar skapas inte längre i förmån för LVM-partitionerade avbildningar. LVM ger flera fördelar jämfört med den äldre RAW-partitionen (icke-LVM), inklusive avsevärt mer flexibla alternativ för att ändra storlek på partitioner.
 
-Erbjudande| SKU | Partitionering | Etablering | Kommentarer
+Erbjudande| SKU | Partitionering | Etablering | Obs!
 :----|:----|:-------------|:-------------|:-----
 RHEL          | 6.7      | OUTSPÄDD    | Linux-agent |
 |             | 6.8      | OUTSPÄDD    | Linux-agent |
@@ -88,9 +88,17 @@ RHEL – SAP-HA   | 7.4          | LVM    | Linux-agent | RHEL 7,4 för SAP med 
 RHEL – BYOS     |RHEL – lvm74| LVM    | Linux-agent | RHEL 7,4 BYOS-avbildningar, som inte är kopplade till någon källa med uppdateringar, tar inte betalt för en RHEL Premium.
 |             |RHEL – lvm75| LVM    | Linux-agent | RHEL 7,5 BYOS-avbildningar, som inte är kopplade till någon källa med uppdateringar, tar inte betalt för en RHEL Premium.
 |             |RHEL – lvm76| LVM    | Linux-agent | RHEL 7,6 BYOS-avbildningar, som inte är kopplade till någon källa med uppdateringar, tar inte betalt för en RHEL Premium.
+|             |RHEL-lvm76-Gen2| LVM    | Linux-agent | RHEL 7,6 generation 2 BYOS-avbildningar, som inte är kopplade till någon källa med uppdateringar, tar inte betalt för en RHEL Premium.
 |             |RHEL – lvm77| LVM    | Linux-agent | RHEL 7,7 BYOS-avbildningar, som inte är kopplade till någon källa med uppdateringar, tar inte betalt för en RHEL Premium.
+|             |RHEL-lvm77-Gen2| LVM    | Linux-agent | RHEL 7,7 generation 2 BYOS-avbildningar, som inte är kopplade till någon källa med uppdateringar, tar inte betalt för en RHEL Premium.
+|             |RHEL – lvm78| LVM    | Linux-agent | RHEL 7,8 BYOS-avbildningar, som inte är kopplade till någon källa med uppdateringar, tar inte betalt för en RHEL Premium.
+|             |RHEL-lvm78-Gen2| LVM    | Linux-agent | RHEL 7,8 generation 2 BYOS-avbildningar, som inte är kopplade till någon källa med uppdateringar, tar inte betalt för en RHEL Premium.
 |             |RHEL – lvm8 | LVM    | Linux-agent | RHEL 8,0 BYOS-avbildningar, som inte är kopplade till någon källa med uppdateringar, tar inte betalt för en RHEL Premium.
+|             |RHEL-lvm8-Gen2 | LVM    | Linux-agent | RHEL 8,0 generation 2 BYOS-avbildningar, som inte är kopplade till någon källa med uppdateringar, tar inte betalt för en RHEL Premium.
 |             |RHEL – lvm81 | LVM    | Linux-agent | RHEL 8,1 BYOS-avbildningar, som inte är kopplade till någon källa med uppdateringar, tar inte betalt för en RHEL Premium.
+|             |RHEL-lvm81-Gen2 | LVM    | Linux-agent | RHEL 8,1 generation 2 BYOS-avbildningar, som inte är kopplade till någon källa med uppdateringar, tar inte betalt för en RHEL Premium.
+|             |RHEL – lvm82 | LVM    | Linux-agent | RHEL 8,2 BYOS-avbildningar, som inte är kopplade till någon källa med uppdateringar, tar inte betalt för en RHEL Premium.
+|             |RHEL-lvm82-Gen2 | LVM    | Linux-agent | RHEL 8,2 generation 2 BYOS-avbildningar, som inte är kopplade till någon källa med uppdateringar, tar inte betalt för en RHEL Premium.
 
 > [!NOTE]
 > Produkt erbjudandet RHEL-SAP-HANA anses vara livs längd av Red Hat. Befintliga distributioner fortsätter att fungera normalt, men Red Hat rekommenderar att kunderna migrerar från RHEL-SAP-HANA-avbildningarna till RHEL-SAP-HA-avbildningarna som innehåller SAP HANA-lagringsplatser och HA-tillägget. Mer information om Red Hats SAP Cloud-erbjudanden finns [här](https://access.redhat.com/articles/3751271).

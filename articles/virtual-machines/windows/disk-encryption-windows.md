@@ -4,16 +4,16 @@ description: Den här artikeln innehåller anvisningar om hur du aktiverar Micro
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: edc52198208aa86772704bde7637a2801688da59
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b2a8d552a2b9a1d6d3bb02bf02be95af031a5e4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036139"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291974"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Azure Disk Encryption-scenarier på virtuella Windows-datorer
 
@@ -140,6 +140,33 @@ I följande tabell visas parametrarna för Resource Manager-mallen för befintli
 | resizeOSDisk | Vill du ändra storlek på operativ systemets partition så att den upptar full OS VHD innan du delar upp system volymen. |
 | location | Platser för alla resurser. |
 
+## <a name="enable-encryption-on-nvme-disks-for-lsv2-vms"></a>Aktivera kryptering på NVMe-diskar för virtuella Lsv2-datorer
+
+I det här scenariot beskrivs hur du aktiverar Azure Disk Encryption på NVMe-diskar för virtuella Lsv2-datorer.  Lsv2-seriens funktioner Local NVMe-lagring. Lokala NVMe-diskar är tillfälliga och data går förlorade på diskarna om du stoppar/frigör den virtuella datorn (se: [Lsv2-serien](../lsv2-series.md)).
+
+Aktivera kryptering på NVMe-diskar:
+
+1. Initiera NVMe-diskarna och skapa NTFS-volymer.
+1. Aktivera kryptering på den virtuella datorn med parametern VolumeType inställd på alla. Detta aktiverar kryptering för alla operativ system och data diskar, inklusive volymer som backas upp av NVMe-diskar. Mer information finns i [Aktivera kryptering på en befintlig eller Windows-VM som körs](#enable-encryption-on-an-existing-or-running-windows-vm).
+
+Krypteringen sparas på NVMe-diskarna i följande scenarier:
+- Omstart av virtuell dator
+- VMSS avbildning
+- Växla OS
+
+NVMe-diskar kommer att avinitieras i följande scenarier:
+
+- Starta virtuell dator efter avallokering
+- Tjänst återställning
+- Backup
+
+I dessa scenarier måste NVMe-diskarna initieras när den virtuella datorn har startats. Om du vill aktivera kryptering på NVMe-diskarna kör du kommandot för att aktivera Azure Disk Encryption igen när NVMe-diskarna har initierats.
+
+Förutom scenarier som anges i avsnittet scenarier som [inte stöds](#unsupported-scenarios) , stöds inte kryptering av NVMe-diskar för:
+
+- Virtuella datorer som krypterats med Azure Disk Encryption med AAD (tidigare version)
+- NVMe-diskar med lagrings utrymmen
+- Azure Site Recovery av SKU: er med NVMe-diskar (se [support mat ris för haveri beredskap för virtuella Azure-datorer mellan Azure-regioner: replikerade datorer-lagring](../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage)).
 
 ## <a name="new-iaas-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a>Nya virtuella IaaS-datorer som skapats från kund-krypterade VHD-och krypterings nycklar
 
@@ -236,7 +263,6 @@ Azure Disk Encryption fungerar inte för följande scenarier, funktioner och tek
 - Flytta en krypterad virtuell dator till en annan prenumeration eller region.
 - Skapa en avbildning eller ögonblicks bild av en krypterad virtuell dator och använda den för att distribuera ytterligare virtuella datorer.
 - Virtuella Gen2-datorer (se: [stöd för virtuella datorer i generation 2 på Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
-- Virtuella datorer i Lsv2-serien (se: [Lsv2-serien](../lsv2-series.md))
 - Virtuella datorer i M-serien med Skrivningsaccelerator diskar.
 - Använda ADE på en virtuell dator som har en datadisk krypterad med [kryptering på Server sidan med Kundhanterade nycklar](disk-encryption.md) (SSE + CMK) eller tillämpa SSE + CMK på en datadisk på en virtuell dator som har krypterats med ade.
 - Migrera en virtuell dator som har krypterats med ADE till [kryptering på Server sidan med Kundhanterade nycklar](disk-encryption.md).

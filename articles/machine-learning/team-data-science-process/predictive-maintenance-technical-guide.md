@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 6452a826cfb6f7ceb65e6e89cdd42d683ee463b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9520369861623e60a0118baa20a7871437433a4b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682714"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290712"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Teknisk guide till lösnings mal len för förutsägande underhåll i Aerospace
 
@@ -57,7 +58,7 @@ Tjänsten [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) ä
 Använd [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) för att tillhandahålla analys i nära real tid i indata-dataströmmen från tjänsten [Azure Event Hub](#azure-event-hub) . Sedan publicerar du resultaten på en [Power BI](https://powerbi.microsoft.com) instrument panel och arkiverar alla rå inkommande händelser till tjänsten [Azure Storage](https://azure.microsoft.com/services/storage/) för senare bearbetning av [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) -tjänsten.
 
 ### <a name="hdinsight-custom-aggregation"></a>Anpassad agg regering för HDInsight
-Kör [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) -skript (dirigerad av Azure Data Factory) med HDInsight för att tillhandahålla agg regeringar för de råa händelser som arkiveras med hjälp av Azure Stream Analytics resursen.
+Kör [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skript (dirigerad av Azure Data Factory) med HDInsight för att tillhandahålla agg regeringar för de råa händelser som arkiveras med hjälp av Azure Stream Analytics resursen.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 Gör förutsägelser för återstående livs längd (RUL) för en viss flyg Plans motor med hjälp av de indata som tagits emot med [Azure Machine Learning-tjänsten](https://azure.microsoft.com/services/machine-learning/) (dirigerad av Azure Data Factory). 
@@ -112,22 +113,22 @@ I det här avsnittet beskrivs nödvändiga [pipeliner och aktiviteter](../../dat
 
 ![Azure Data Factory](./media/predictive-maintenance-technical-guide/azure-data-factory.png)
 
-Två av pipelinen i den här fabriken innehåller [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) -skript som används för att partitionera och samla in data. När detta anges finns skripten i det [Azure Storage](https://azure.microsoft.com/services/storage/) konto som skapades under installationen. Deras plats är: maintenancesascript \\ \\ -Skriptets \\ \\ Hive \\ \\ (eller https://[ditt lösnings namn]. blob. Core. Windows. net/maintenancesascript).
+Två av pipelinen i den här fabriken innehåller [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skript som används för att partitionera och samla in data. När detta anges finns skripten i det [Azure Storage](https://azure.microsoft.com/services/storage/) konto som skapades under installationen. Deras plats är: maintenancesascript \\ \\ -Skriptets \\ \\ Hive \\ \\ (eller https://[ditt lösnings namn]. blob. Core. Windows. net/maintenancesascript).
 
-Precis som med [Azure Stream Analytics](#azure-stream-analytics-1) frågor, har [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) -skripten implicit kunskap om det inkommande data formatet och måste ändras baserat på ditt data format.
+Precis som med [Azure Stream Analytics](#azure-stream-analytics-1) frågor, har [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skripten implicit kunskap om det inkommande data formatet och måste ändras baserat på ditt data format.
 
 #### <a name="aggregateflightinfopipeline"></a>*AggregateFlightInfoPipeline*
-Den här [pipelinen](../../data-factory/concepts-pipelines-activities.md) innehåller en enskild aktivitet – en [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) -aktivitet som använder en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör ett [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) -skript för att partitionera data i [Azure Storage](https://azure.microsoft.com/services/storage/) under [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) jobbet.
+Den här [pipelinen](../../data-factory/concepts-pipelines-activities.md) innehåller en enskild aktivitet – en [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) -aktivitet som använder en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör ett [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skript för att partitionera data i [Azure Storage](https://azure.microsoft.com/services/storage/) under [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) jobbet.
 
-[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) -skriptet för den här partitionerings aktiviteten är ***AggregateFlightInfo. HQL***
+[Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skriptet för den här partitionerings aktiviteten är ***AggregateFlightInfo. HQL***
 
 #### <a name="mlscoringpipeline"></a>*MLScoringPipeline*
 Den här [pipelinen](../../data-factory/concepts-pipelines-activities.md) innehåller flera aktiviteter vars slut resultat är de poäng förutsägelser från det [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentet som är associerat med den här lösnings mal len.
 
 Följande aktiviteter ingår:
 
-* [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) -aktivitet med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör ett [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) -skript för att utföra agg regeringar och funktions teknik som krävs för [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentet.
-  [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) -skriptet för den här partitionerings aktiviteten är ***PrepareMLInput. HQL***.
+* [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) -aktivitet med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör ett [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skript för att utföra agg regeringar och funktions teknik som krävs för [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentet.
+  [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skriptet för den här partitionerings aktiviteten är ***PrepareMLInput. HQL***.
 * [Kopierings](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar resultatet från [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) -aktiviteten till en enda [Azure Storage](https://azure.microsoft.com/services/storage/) -blob som används av [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) -aktiviteten.
 * [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) -aktiviteten anropar [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentet med resultat som finns i en enda [Azure Storage](https://azure.microsoft.com/services/storage/) -blob.
 

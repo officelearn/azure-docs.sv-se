@@ -4,15 +4,15 @@ description: Specifikationer för virtuella datorer i DC-serien.
 author: susaxen
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 88aaa10bf84d0195cc22d11d7fa1cfdcd639d475
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c5074a81625f38cf94d5acd9751414bad4a9c3e8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207434"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292467"
 ---
 # <a name="dcsv2-series"></a>DCsv2-serien
 
@@ -47,7 +47,7 @@ Minnes bebetjänings uppdateringar: stöds inte
 
 
 
-## <a name="other-sizes"></a>Andra storlekar
+## <a name="other-sizes-and-information"></a>Andra storlekar och information
 
 - [Generell användning](sizes-general.md)
 - [Minnesoptimerad](sizes-memory.md)
@@ -55,6 +55,10 @@ Minnes bebetjänings uppdateringar: stöds inte
 - [GPU-optimerad](sizes-gpu.md)
 - [Databehandling med höga prestanda](sizes-hpc.md)
 - [Tidigare generationer](sizes-previous-gen.md)
+
+Pris kalkylator: [pris kalkylator](https://azure.microsoft.com/pricing/calculator/)
+
+Mer information om disk typer: [disk typer](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
 
 ## <a name="next-steps"></a>Nästa steg
 

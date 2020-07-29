@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: a0a17f28f2a87ae42b552bfa07732b8b8232ef5e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76e49393b1d26e6db85146a204911ba164d3ffc0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531950"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289916"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planera din Azure Time Series Insights Gen2-miljö
 
@@ -78,7 +78,7 @@ När värdet är tomt används händelsens tidsintervall för händelse källan 
 
 Nu kan du konfigurera din Azure Time Series Insights Miljös tids serie modell. Den nya modellen gör det enkelt att hitta och analysera IoT-data. Det möjliggör hantering, underhåll och anrikning av tids serie data och hjälper till att förbereda konsument klara data uppsättningar. Modellen använder Time Series-ID: n, som mappar till en instans som associerar den unika resursen med variabler, som kallas typer och hierarkier. Läs mer om [tids serie modell](./concepts-model-overview.md) översikten.
 
-Modellen är dynamisk, så den kan skapas när som helst. Kom igång snabbt genom att skapa och ladda upp den innan du överför data till Azure Time Series Insights. Om du vill bygga din modell läser du [använda tids serie modellen](./time-series-insights-update-how-to-tsm.md).
+Modellen är dynamisk, så den kan skapas när som helst. Kom igång snabbt genom att skapa och ladda upp den innan du överför data till Azure Time Series Insights. Om du vill bygga din modell läser du [använda tids serie modellen](/azure/time-series-insights/concepts-model-overview).
 
 För många kunder mappas Time Series-modellen till en befintlig till gångs modell eller ERP-system redan på plats. Om du inte har en befintlig modell [tillhandahålls](https://github.com/Microsoft/tsiclient) en fördefinierad användar upplevelse för att snabbt komma igång. Om du vill Envision hur en modell kan hjälpa dig kan du Visa [exempel demonstrations miljön](https://insights.timeseries.azure.com/preview/demo).
 

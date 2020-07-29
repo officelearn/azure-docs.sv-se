@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: a873a32aa8c12b535c06711ea7dc7a4aa920a27f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5081ad813d871db0f60284bca4a0c53ee5bbf6b2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257770"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287750"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Anslut och kommunicera med tjänster i Service Fabric
 I Service Fabric körs en tjänst någonstans i ett Service Fabric kluster, vanligt vis distribuerat över flera virtuella datorer. Den kan flyttas från en plats till en annan, antingen av tjänstens ägare eller automatiskt av Service Fabric. Tjänsterna är inte statiskt bundna till en viss dator eller adress.
@@ -58,7 +58,7 @@ Den omvända proxyn adresser tjänster i klustret som exponerar HTTP-slutpunkter
 Mer information om hur du använder tjänsten reverse proxy finns [i artikeln om omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy.md) .
 
 ## <a name="connections-from-external-clients"></a>Anslutningar från externa klienter
-Tjänster som ansluter till varandra i ett kluster kan i allmänhet direkt komma åt slut punkterna för andra tjänster eftersom noderna i ett kluster finns i samma lokala nätverk. I vissa miljöer kan ett kluster vara bakom en belastningsutjämnare som dirigerar extern inkommande trafik via en begränsad uppsättning portar. I dessa fall kan tjänsterna fortfarande kommunicera med varandra och lösa adresser med hjälp av Naming Service, men extra steg måste vidtas för att tillåta att externa klienter ansluter till tjänster.
+Tjänster som ansluter till varandra i ett kluster kan i allmänhet direkt komma åt slut punkterna för andra tjänster eftersom noderna i ett kluster finns i samma lokala nätverk. I vissa miljöer kan det dock finnas ett kluster bakom en belastningsutjämnare som dirigerar inkommande trafik via en begränsad uppsättning portar. I dessa fall kan tjänsterna fortfarande kommunicera med varandra och lösa adresser med hjälp av Naming Service, men extra steg måste vidtas för att tillåta att externa klienter ansluter till tjänster.
 
 ## <a name="service-fabric-in-azure"></a>Service Fabric i Azure
 Ett Service Fabric kluster i Azure placeras bakom ett Azure Load Balancer. All extern trafik till klustret måste passera belastnings utjämningen. Belastningsutjämnaren vidarebefordrar automatiskt inkommande trafik på en specifik port till en slumpmässig *nod* som har samma port öppen. Azure Load Balancer bara känner till om portarna är öppna på *noderna*, vet inte om portar som är öppna för enskilda *tjänster*.

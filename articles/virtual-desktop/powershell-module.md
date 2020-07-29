@@ -8,20 +8,17 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 67276f7dedccc20fb768e717c237d04aa4b4a1cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d5193cbaf759e513eb8d6e88e70abc74a2dd30d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212759"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291407"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Konfigurera PowerShell-modulen för virtuellt Windows-skrivbord
 
 >[!IMPORTANT]
->Det här innehållet gäller för våren 2020-uppdateringen med Azure Resource Manager virtuella Windows Desktop-objekt.
->
-> Den virtuella Windows-skrivbordets våren 2020-uppdateringen är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Det här innehållet gäller för virtuella Windows-datorer med Azure Resource Manager-integrering.
 
 Windows Virtual Desktop PowerShell-modulen är integrerad i Azure PowerShell-modulen. I den här artikeln får du lära dig hur du konfigurerar PowerShell-modulen så att du kan köra cmdlets för virtuella Windows-datorer.
 

@@ -8,11 +8,12 @@ ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 0eb5d9cd86be05e5ad69bc9543231987e3c1dd2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1dd6bdc66146eb7dfe155e7d1091eee5cca450a0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85799273"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290916"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnostisera och felsöka problem med Azure Cosmos DB .NET SDK
 
@@ -48,27 +49,40 @@ Se [avsnittet GitHub-problem](https://github.com/Azure/azure-cosmos-dotnet-v2/is
 * Du kan stöta på problem med anslutning/tillgänglighet på grund av bristande resurser på klient datorn. Vi rekommenderar att du övervakar CPU-belastningen på noder som kör Azure Cosmos DB-klienten och skalar upp/ut om de körs vid hög belastning.
 
 ### <a name="check-the-portal-metrics"></a>Kontrol lera Portal måtten
-Genom att kontrol lera [Portal måtten](monitor-accounts.md) kan du avgöra om det är problem med klient sidan eller om det är problem med tjänsten. Om måtten t. ex. innehåller en hög frekvens av avgiftsbelagda begär Anden (HTTP-statuskod 429), vilket innebär att begäran får en begränsning, kontrollerar du i avsnittet om [antalet begär Anden är för stort] . 
+Genom att kontrol lera [Portal måtten](monitor-accounts.md) kan du avgöra om det är problem med klient sidan eller om det är problem med tjänsten. Om måtten t. ex. innehåller en hög frekvens av avgiftsbelagda begär Anden (HTTP-statuskod 429), vilket innebär att begäran får en begränsning, kontrollerar du i avsnittet om [antalet begär Anden är för stort](troubleshoot-request-rate-too-large.md) . 
 
-### <a name="requests-timeouts"></a><a name="request-timeouts"></a>Timeout för begär Anden
-RequestTimeout sker vanligt vis när du använder direkt/TCP, men kan ske i Gateway-läge. Dessa fel är vanliga kända orsaker och förslag på hur du kan åtgärda problemet.
+## <a name="common-error-status-codes"></a>Vanliga fel status koder<a id="error-codes"></a>
 
-* PROCESSOR användningen är hög, vilket ger svars tid och/eller begär timeout. Kunden kan skala upp värddatorn för att ge den fler resurser, eller så kan belastningen distribueras på fler datorer.
-* Tillgängligheten för socket/port kan vara låg. När du kör i Azure kan klienter som använder .NET SDK nå ut till PAT-port (Azure SNAT). Du kan minska risken för att använda det här problemet genom att använda den senaste versionen 2. x eller 3. x av .NET SDK. Detta är ett exempel på varför det rekommenderas att alltid köra den senaste SDK-versionen.
-* Att skapa flera DocumentClient-instanser kan leda till problem med anslutningens innehåll och timeout. Följ [prestanda tipsen](performance-tips.md)och Använd en enda DocumentClient-instans i hela processen.
-* Användare kan ibland se förhöjd latens eller begära timeout eftersom deras samlingar har allokerats på ett otillräckligt sätt, begränsningar för backend-begäranden och klienten försöker igen internt. Kontrol lera [Portal måtten](monitor-accounts.md).
-* Azure Cosmos DB distribuerar det övergripande allokerade data flödet jämnt över fysiska partitioner. Kontrol lera Portal måtten för att se om arbets belastningen påträffar en [nyckel](partition-data.md)för en snabb partition. Detta leder till att det sammanlagda förbrukade data flödet (RU/s) visas under den etablerade ru: er, men en enda partition som används för förbrukat data flöde (RU/s) överskrider det etablerade data flödet. 
-* Dessutom lägger 2,0-SDK till kanal-semantik till direkta/TCP-anslutningar. En TCP-anslutning används för flera begär Anden samtidigt. Detta kan leda till två problem i vissa fall:
-    * En hög grad av samtidighet kan leda till konkurrens på kanalen.
-    * Stora begär Anden eller svar kan leda till att det finns en rad olika block i kanal-och exacerbate-konkurrens, även med en relativt låg grad av samtidighet.
-    * Om ärendet är i någon av dessa två kategorier (eller om hög CPU-användning misstänks vara misstänkt), så är det möjligt att minska problemen:
-        * Försök att skala programmet upp/ut.
-        * Dessutom kan SDK-loggar samlas in via [spårnings lyssnare](https://github.com/Azure/azure-cosmosdb-dotnet/blob/master/docs/documentdb-sdk_capture_etl.md) för att få mer information.
+| Statuskod | Beskrivning | 
+|----------|-------------|
+| 400 | Felaktig begäran (beror på fel meddelandet)| 
+| 401 | [Inte auktoriserad](troubleshoot-unauthorized.md) | 
+| 404 | [Resursen hittades inte](troubleshoot-not-found.md) |
+| 408 | [Tids gränsen nåddes för begäran](troubleshoot-dot-net-sdk-request-timeout.md) |
+| 409 | Ett konflikt haveri är när det ID som angetts för en resurs på en Skriv åtgärd har tagits av en befintlig resurs. Använd ett annat ID för resursen för att lösa problemet eftersom ID måste vara unikt i alla dokument med samma partitionsnyckel. |
+| 410 | Rest-undantag (tillfälligt fel som inte strider mot SLA) |
+| 412 | Ett annat villkor är att åtgärden angav en eTag som skiljer sig från den version som är tillgänglig på servern. Det är ett optimistiskt samtidighets fel. Försök att utföra åtgärden igen när du har läst in den senaste versionen av resursen och uppdaterat eTag i förfrågan.
+| 413 | [Begär ande enheten är för stor](concepts-limits.md#per-item-limits) |
+| 429 | [För många begär Anden](troubleshoot-request-rate-too-large.md) |
+| 449 | Tillfälligt fel som bara uppstår vid Skriv åtgärder och som är säkert att försöka igen |
+| 500 | Åtgärden kunde inte utföras på grund av ett oväntat tjänst fel. Kontakta supporten. Mer information finns i [Skicka ett support ärende till Azure](https://aka.ms/azure-support). |
+| 503 | [Tjänsten är inte tillgänglig](troubleshoot-service-unavailable.md) | 
+
+### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Port överbelastning för Azure SNAT (PAT)
+
+Om din app distribueras på [azure Virtual Machines utan en offentlig IP-adress](../load-balancer/load-balancer-outbound-connections.md), upprättar [Azure SNAT-portar](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) som standard anslutningar till en slut punkt utanför den virtuella datorn. Antalet anslutningar som tillåts från den virtuella datorn till Azure Cosmos DB slut punkten begränsas av [Azure SNAT-konfigurationen](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). Den här situationen kan leda till anslutningens begränsning, anslutningens slut för ande, eller de [tids gränser](troubleshoot-dot-net-sdk-request-timeout.md)som anges ovan.
+
+ Azure SNAT-portar används endast när den virtuella datorn har en privat IP-adress som ansluter till en offentlig IP-adress. Det finns två lösningar för att undvika begränsning av Azure SNAT (förutsatt att du redan använder en enda klient instans i hela programmet):
+
+* Lägg till din Azure Cosmos DB tjänst slut punkt i under nätet för ditt Azure Virtual Machines virtuella nätverk. Mer information finns i [Azure Virtual Network Service-slutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md). 
+
+    När tjänstens slut punkt Aktiver ATS skickas inte längre begär Anden från en offentlig IP-adress till Azure Cosmos DB. I stället skickas det virtuella nätverket och under nätets identitet. Den här ändringen kan leda till att brand väggen släpper om bara offentliga IP-adresser är tillåtna. Om du använder en brand vägg, när du aktiverar tjänstens slut punkt, lägger du till ett undernät i brand väggen med hjälp av [Virtual Network ACL: er](../virtual-network/virtual-networks-acl.md).
+* Tilldela en [offentlig IP-adress till din virtuella Azure-dator](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
 
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>Hög nätverks fördröjning
 Hög nätverks fördröjning kan identifieras med hjälp av den [diagnostiska strängen](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) i v2 SDK eller [diagnostik](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) i v3 SDK.
 
-Om det inte finns några [tids gränser](#request-timeouts) och diagnostiken visar enskilda förfrågningar där den höga svars tiden är tydlig på skillnaden mellan `ResponseTime` och `RequestStartTime` , t. ex. (>300 millisekunder i det här exemplet):
+Om det inte finns några [tids gränser](troubleshoot-dot-net-sdk-request-timeout.md) och diagnostiken visar enskilda förfrågningar där den höga svars tiden är tydlig på skillnaden mellan `ResponseTime` och `RequestStartTime` , t. ex. (>300 millisekunder i det här exemplet):
 
 ```bash
 RequestStartTime: 2020-03-09T22:44:49.5373624Z, RequestEndTime: 2020-03-09T22:44:49.9279906Z,  Number of regions attempted:1
@@ -84,59 +98,18 @@ Den här fördröjningen kan ha flera orsaker:
     * Aktivera [accelererat nätverk på en befintlig virtuell dator](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
     * Överväg att använda en [högre slut virtuell dator](../virtual-machines/windows/sizes.md).
 
-### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Port överbelastning för Azure SNAT (PAT)
-
-Om din app distribueras på [azure Virtual Machines utan en offentlig IP-adress](../load-balancer/load-balancer-outbound-connections.md), upprättar [Azure SNAT-portar](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) som standard anslutningar till en slut punkt utanför den virtuella datorn. Antalet anslutningar som tillåts från den virtuella datorn till Azure Cosmos DB slut punkten begränsas av [Azure SNAT-konfigurationen](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). Den här situationen kan leda till anslutningens begränsning, anslutningens slut för ande, eller de [tids gränser](#request-timeouts)som anges ovan.
-
- Azure SNAT-portar används endast när den virtuella datorn har en privat IP-adress som ansluter till en offentlig IP-adress. Det finns två lösningar för att undvika begränsning av Azure SNAT (förutsatt att du redan använder en enda klient instans i hela programmet):
-
-* Lägg till din Azure Cosmos DB tjänst slut punkt i under nätet för ditt Azure Virtual Machines virtuella nätverk. Mer information finns i [Azure Virtual Network Service-slutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md). 
-
-    När tjänstens slut punkt Aktiver ATS skickas inte längre begär Anden från en offentlig IP-adress till Azure Cosmos DB. I stället skickas det virtuella nätverket och under nätets identitet. Den här ändringen kan leda till att brand väggen släpper om bara offentliga IP-adresser är tillåtna. Om du använder en brand vägg, när du aktiverar tjänstens slut punkt, lägger du till ett undernät i brand väggen med hjälp av [Virtual Network ACL: er](../virtual-network/virtual-networks-acl.md).
-* Tilldela en [offentlig IP-adress till din virtuella Azure-dator](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
-
-### <a name="http-proxy"></a>HTTP-proxy
-Om du använder en HTTP-proxy kontrollerar du att den har stöd för det antal anslutningar som kon figurer ATS i SDK `ConnectionPolicy` .
-Annars är det problem med ansikts anslutning.
-
-### <a name="request-rate-too-large"></a><a name="request-rate-too-large"></a>Begäran kostar för stor
-"Begär ande frekvens för stor" eller felkod 429 anger att dina förfrågningar begränsas, eftersom det förbrukade data flödet (RU/s) har överskridit det [etablerade data flödet](set-throughput.md). SDK: n kommer automatiskt att försöka utföra begär anden igen baserat på den angivna [återförsöks principen](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions?view=azure-dotnet). Om du får det här felet ofta bör du överväga att öka data flödet för samlingen. Kontrol lera [portalens mått](use-metrics.md) för att se om du får 429 fel. Granska din [partitionsnyckel](partitioning-overview.md#choose-partitionkey) för att säkerställa att den resulterar i en jämn fördelning av lagrings utrymme och begär ande volym. 
-
 ### <a name="slow-query-performance"></a>Långsam frågans prestanda
 [Frågans mått](sql-api-query-metrics.md) hjälper till att avgöra var frågan kostar det mesta av tiden. Från frågans mått kan du se hur mycket av det som ägnas åt Server delen jämfört med klienten.
 * Om backend-frågan returnerar snabbt och ägnar en lång tid på klienten kontrollerar du belastningen på datorn. Det beror förmodligen på att det inte finns tillräckligt med resurser och att SDK väntar på att resurser ska kunna hantera svaret.
 * Om Server dels frågan är långsam försöker du [optimera frågan](optimize-cost-queries.md) och titta på den aktuella [indexerings principen](index-overview.md) 
 
-### <a name="http-401-the-mac-signature-found-in-the-http-request-is-not-the-same-as-the-computed-signature"></a>HTTP 401: MAC-signaturen som hittades i HTTP-begäran är inte samma som den beräknade signaturen
-Om du fick följande 401-felmeddelande: MAC-signaturen som hittades i HTTP-begäran är inte samma som den beräknade signaturen. Det kan orsakas av följande scenarier.
+## <a name="next-steps"></a>Nästa steg
 
-1. Nyckeln roterades och följer inte [metodtipsen](secure-access-to-data.md#key-rotation). Detta är vanligtvis fallet. Rotation av kontonycklar i Cosmos DB kan ta några sekunder och upp till några dagar, beroende på hur stort Cosmos DB-kontot är.
-   1. 401-felet för MAC-signaturen visas strax efter en nyckelrotation och upphör att gälla utan några ändringar. 
-1. Nyckeln är felkonfigurerad i programmet så att nyckeln inte matchar kontot.
-   1. 401-felet för MAC-signaturen är konsekvent och inträffar för alla anrop
-1. Programmet använder [skrivskyddade nycklar](secure-access-to-data.md#master-keys) för Skriv åtgärder.
-   1. 401-problemet för MAC-signatur inträffar bara när programmet utför skrivförfrågningar, men läsförfrågningar kommer att lyckas.
-1. Det finns ett konkurrenstillstånd för containerskapande. En programinstans försöker komma åt containern innan den har skapats. Det vanligaste scenariot för detta är om programmet körs och containern tas bort och återskapas med samma namn medan programmet körs. SDK:n kommer att försöka använda den nya containern, men containerskapandet pågår fortfarande och har inte nycklarna.
-   1. 401-problemet för MAC-signatur visas strax efter att en container har skapats och inträffar endast tills containerskapandet har slutförts.
- 
- ### <a name="http-error-400-the-size-of-the-request-headers-is-too-long"></a>HTTP-fel 400. Storleken på begärandehuvuden är för lång.
- Storleken på sidhuvudet har vuxit till stor och överskrider den maximalt tillåtna storleken. Vi rekommenderar alltid att du använder den senaste SDK: n. Se till att du använder minst version [3. x](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) eller [2. x](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md), som lägger till rubrik storleks spårning i undantags meddelandet.
-
-Orsaker
- 1. Sessionstoken har blivit för stor. Sessionstoken ökar när antalet partitioner ökar i behållaren.
- 2. Fortsättnings-token har vuxit till stor. Olika frågor har olika storlekar för att ändra token.
- 3. Det orsakas av en kombination av sessionstoken och fortsättnings-token.
-
-Lösning:
-   1. Följ [prestanda tipsen](performance-tips.md) och konvertera programmet till läget Direct + TCP-anslutning. Direct + TCP har inte begränsningar för huvud storlek, som HTTP, vilket undviker det här problemet.
-   2. Om sessionstoken är orsaken är en temporär lösning att starta om programmet. Om du startar om program instansen återställs sessionens token. Om undantagen slutar efter omstarten bekräftar den att sessionstoken är orsaken. Det kommer att växa tillbaka till den storlek som orsakar undantaget.
-   3. Om programmet inte kan konverteras till Direct + TCP och sessionstoken är orsaken kan du göra en minskning genom att ändra klientens [konsekvens nivå](consistency-levels.md). Sessionstoken används endast för konsekvens i sessionen som är standardvärdet för Cosmos DB. Andra konsekvens nivåer kommer inte att använda sessionstoken. 
-   4. Om programmet inte kan konverteras till Direct + TCP och fortsättnings-token är orsaken, kan du försöka att ange alternativet ResponseContinuationTokenLimitInKb. Du hittar alternativet i FeedOptions för v2 eller QueryRequestOptions i v3.
+* Lär dig mer om prestanda rikt linjer för [.net v3](performance-tips-dotnet-sdk-v3-sql.md) och [.NET v2](performance-tips.md)
+* Lär dig mer om de [reaktorbaserade Java SDK: erna](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md)
 
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #logging
-[Begäran kostar för stor]: #request-rate-too-large
-[Request Timeouts]: #request-timeouts
 [Azure SNAT (PAT) port exhaustion]: #snat
 [Production check list]: #production-check-list

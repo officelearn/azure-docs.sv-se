@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 9d6b912229b1365dd7bd8d466af18d1e81b5aa8e
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: f6c47d4cbfe6311333d95b07c0553afa2b3bb15c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132160"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287744"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -26,7 +26,7 @@ Du distribuerar en lokal konfigurations server när du använder [Azure Site Rec
 
 Konfigurations servern måste konfigureras som en virtuell VMware-dator med hög tillgänglighet och vissa minimi krav för maskin vara och storlek. För bekväm och enkel distribution tillhandahåller Site Recovery en hämtnings bar mall för öppen Virtualization-program (ägg) för att konfigurera konfigurations servern som uppfyller alla krav som anges här.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 De minsta maskin varu kraven för en konfigurations Server sammanfattas i följande avsnitt.
 
@@ -66,7 +66,7 @@ Du måste ha en användare med någon av följande behörigheter i Azure Active 
 
 ## <a name="import-the-template-in-vmware"></a>Importera mallen i VMware
 
-1. Logga in på VMware vCenter-servern eller vSphere ESXi-värden med hjälp av VMWare vSphere-klienten.
+1. Logga in på VMware vCenter-servern eller vSphere ESXi-värden med hjälp av VMware vSphere-klienten.
 2. I menyn **Arkiv** väljer du **distribuera OVF-mallen** för att starta guiden **distribuera OVF-mall** .
 
      ![Distribuera OVF-mall](./media/vmware-azure-deploy-configuration-server/vcenter-wizard.png)
@@ -92,17 +92,17 @@ Du måste ha en användare med någon av följande behörigheter i Azure Active 
 Om du vill lägga till ett extra nätverkskort i konfigurations servern lägger du till det innan du registrerar servern i valvet. Det går inte att lägga till fler adaptrar efter registreringen.
 
 1. I vSphere-klientlagret högerklickar du på den virtuella datorn och väljer **Redigera inställningar**.
-2. I **Maskinvara** väljer du **Lägg till** > **Ethernet-kort**. Välj **Nästa**.
+2. I **Maskinvara** väljer du **Lägg till** > **Ethernet-kort**. Välj sedan **Nästa**.
 3. Välj en adaptertyp och ett nätverk.
 4. Om du vill ansluta det virtuella NÄTVERKSKORTet när den virtuella datorn är aktive rad väljer du **Anslut vid start**. Välj sedan **Nästa**  >  **Slutför**  >  **OK**.
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Registrera konfigurations servern med Azure Site Recovery Services
 
-1. Sätt på den virtuella datorn från VMWare vSphere-klientkonsolen.
+1. I VMware vSphere klient konsolen aktiverar du den virtuella datorn.
 2. Den virtuella datorn startas med en Windows Server 2016-installation. Godkänn licensavtalet och ange ett administratörslösenord.
 3. När installationen är klar loggar du in på den virtuella datorn som administratör.
 4. Första gången du loggar in, inom några sekunder startas konfigurations verktyget för Azure Site Recovery.
-5. Ange det namn som ska användas för att registrera konfigurationsservern med Site Recovery. Välj **Nästa**.
+5. Ange det namn som ska användas för att registrera konfigurationsservern med Site Recovery. Välj sedan **Nästa**.
 6. Verktyget kontrollerar att den virtuella datorn kan ansluta till Azure. När anslutningen har upprättats väljer du **Logga in** för att logga in i din Azure-prenumeration.</br>
     a. Autentiseringsuppgifterna måste ha åtkomst till det valv där du vill registrera konfigurationsservern.</br>
     b. Se till att det valda användar kontot har behörighet att skapa ett program i Azure. Om du vill aktivera de behörigheter som krävs följer du rikt linjerna i avsnittet [Azure Active Directory behörighets krav](#azure-active-directory-permission-requirements).

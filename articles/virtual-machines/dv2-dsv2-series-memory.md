@@ -4,15 +4,15 @@ description: Specifikationer för virtuella datorer med Dv2 och DSv2-serien.
 author: joelpelley
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 12c6246af59172b303cebd2d3344469f88ce1966
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a7b81dc18af15e0928582fd8c1414e3401297c3d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085749"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291208"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Minnesoptimerade Dv2 och Dsv2-serien
 
@@ -32,13 +32,13 @@ Direktmigrering: stöds
 
 Minnes bebetjänings uppdateringar: stöds
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt data flöde för temporär lagring: IOPS/Read Mbit/s/Write Mbit/s | Maximalt antal data diskar/data flöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
-|---|---|---|---|---|---|---|
-| Standard_D11_v2 | 2  | 14  | 100 | 6 000/93/46    | 8/8x500   | 2/1500  |
-| Standard_D12_v2 | 4  | 28  | 200 | 12 000/187/93  | 16/16x500 | 4/3000  |
-| Standard_D13_v2 | 8  | 56  | 400 | 24 000/375/187 | 32/32x500 | 8/6000  |
-| Standard_D14_v2 | 16 | 112 | 800 | 48 000/750/375 | 64/64x500 | 8/12000 |
-| Standard_D15_v2 <sup>1</sup> | 20 | 140 | 1000 | 60000/937/468 | 64/64x500 | 8/25000 <sup>2</sup> |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt data flöde för temporär lagring: IOPS/Read Mbit/s/Write Mbit/s | Maximalt antal data diskar/data flöde: IOPS | Maximalt antal nätverkskort|Förväntad nätverks bandbredd (Mbit/s) |
+|---|---|---|---|---|---|---|---|
+| Standard_D11_v2 | 2  | 14  | 100 | 6 000/93/46    | 8/8x500   | 2|1500  |
+| Standard_D12_v2 | 4  | 28  | 200 | 12 000/187/93  | 16/16x500 | 4|3000  |
+| Standard_D13_v2 | 8  | 56  | 400 | 24 000/375/187 | 32/32x500 | 8|6000  |
+| Standard_D14_v2 | 16 | 112 | 800 | 48 000/750/375 | 64/64x500 | 8|12000 |
+| Standard_D15_v2 <sup>1</sup> | 20 | 140 | 1000 | 60000/937/468 | 64/64x500 | 8|25000 <sup>2</sup> |
 
 <sup>1</sup> instans är isolerad till maskin vara som är dedikerad till en enda kund.
 <sup>2</sup> 25000 Mbit/s med accelererat nätverk.
@@ -57,13 +57,13 @@ Direktmigrering: stöds
 
 Minnes bebetjänings uppdateringar: stöds
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt antal cachelagrade diskar: IOPS/MBps | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS11_v2 <sup>3</sup> | 2  | 14  | 28  | 8  | 8000/64 (72)    | 6400/96   | 2/1500  |
-| Standard_DS12_v2 <sup>3</sup> | 4  | 28  | 56  | 16 | 16000/128 (144) | 12800/192 | 4/3000  |
-| Standard_DS13_v2 <sup>3</sup> | 8  | 56  | 112 | 32 | 32000/256 (288) | 25600/384 | 8/6000  |
-| Standard_DS14_v2 <sup>3</sup> | 16 | 112 | 224 | 64 | 64000/512 (576) | 51200/768 | 8/12000 |
-| Standard_DS15_v2 <sup>2</sup> | 20 | 140 | 280 | 64 | 80000/640 (720) | 64000/960 | 8/25000 <sup>4</sup> |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt antal cachelagrade diskar: IOPS/MBps | Maximalt antal nätverkskort|Förväntad nätverks bandbredd (Mbit/s) |
+| --- | --- | --- | --- | --- | --- | --- | --- |---|
+| Standard_DS11_v2 <sup>3</sup> | 2  | 14  | 28  | 8  | 8000/64 (72)    | 6400/96   | 2|1500  |
+| Standard_DS12_v2 <sup>3</sup> | 4  | 28  | 56  | 16 | 16000/128 (144) | 12800/192 | 4|3000  |
+| Standard_DS13_v2 <sup>3</sup> | 8  | 56  | 112 | 32 | 32000/256 (288) | 25600/384 | 8|6000  |
+| Standard_DS14_v2 <sup>3</sup> | 16 | 112 | 224 | 64 | 64000/512 (576) | 51200/768 | 8|12000 |
+| Standard_DS15_v2 <sup>2</sup> | 20 | 140 | 280 | 64 | 80000/640 (720) | 64000/960 | 8|25000 <sup>4</sup> |
 
 <sup>1</sup> det maximala disk data flödet (IOPS eller Mbit/s) möjligt med en virtuell dator i DSv2-serien kan begränsas av antalet, storlek och striping av de anslutna diskarna.  Mer information finns i [utforma för hög prestanda](./windows/premium-storage-performance.md).
 <sup>2</sup> -instansen är isolerad till den Intel Haswell-baserade maskin varan och är dedikerad till en enda kund.  
@@ -72,7 +72,7 @@ Minnes bebetjänings uppdateringar: stöds
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="other-sizes"></a>Andra storlekar
+## <a name="other-sizes-and-information"></a>Andra storlekar och information
 
 - [Generell användning](sizes-general.md)
 - [Minnesoptimerad](sizes-memory.md)
@@ -80,6 +80,11 @@ Minnes bebetjänings uppdateringar: stöds
 - [GPU-optimerad](sizes-gpu.md)
 - [Databehandling med höga prestanda](sizes-hpc.md)
 - [Tidigare generationer](sizes-previous-gen.md)
+
+Pris kalkylator: [pris kalkylator](https://azure.microsoft.com/pricing/calculator/)
+
+Mer information om disk typer: [disk typer](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+
 
 ## <a name="next-steps"></a>Nästa steg
 

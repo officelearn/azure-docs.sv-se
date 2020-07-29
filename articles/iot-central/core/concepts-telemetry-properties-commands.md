@@ -7,12 +7,12 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 108a7940084e99348dc8fdfa0143d5c6855599df
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 554079ddec3332ced2817d18ea55ce1260d68817
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100313"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291612"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Telemetri, egenskaper och kommando nytto laster
 
@@ -30,6 +30,9 @@ Artikeln beskriver inte varje möjlig typ av telemetri, egenskaper och kommando 
 
 I varje exempel visas ett kodfragment från den enhets kapacitets modell (DCM) som definierar typ och exempel på JSON-nyttolaster för att illustrera hur enheten ska interagera med IoT Central-programmet.
 
+> [!NOTE]
+> IoT Central accepterar en giltig JSON-uppsättning, men den kan bara användas för visualiseringar om den matchar en definition i DCM. Du kan exportera data som inte matchar en definition, se [Exportera IoT-data till mål i Azure](howto-export-data.md).
+
 JSON-filen som definierar DCM använder sig av [DTDL (Digital Definition Language) v1](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/dtdlv1.md). I den här specifikationen ingår definitionen av `@id` egenskaps formatet.
 
 För exempel enhets kod som visar några av dessa nytto laster som används, se avsnittet [skapa och ansluta ett klient program till ditt azure IoT Central-program (Node.js)](tutorial-connect-device-nodejs.md) och [skapa och Anslut ett klient program till dina Azure IoT Central-program (python)](tutorial-connect-device-python.md) .
@@ -43,9 +46,8 @@ Med IoT Central kan du Visa rå data som en enhet skickar till ett program. Den 
 1. Välj fliken **rå data** :
 
     :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Vyn rå data":::
-    
-    I den här vyn kan du välja vilka kolumner som ska visas och ange ett tidsintervall som ska visas. I kolumnen för staplade **data** visas data från enheten som inte matchar några definitioner för egenskaper eller telemetri i enhets mal len.
 
+    I den här vyn kan du välja vilka kolumner som ska visas och ange ett tidsintervall som ska visas. I kolumnen för staplade **data** visas data från enheten som inte matchar några definitioner för egenskaper eller telemetri i enhets mal len.
 
 ## <a name="telemetry"></a>Telemetri
 

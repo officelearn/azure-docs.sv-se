@@ -4,12 +4,12 @@ description: Vanliga frågor och svar om Service Fabric, inklusive funktioner, a
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 056ff2475e0ae8c78887e24e07a3e33f12d7df88
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1655a8ed03b1f678cc5dba0a165e0bcca1d2517a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258935"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292855"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Vanliga frågor och svar om Service Fabric
 
@@ -36,7 +36,7 @@ Om du är intresse rad av det här scenariot, uppmuntrar vi dig att kontakta ant
 
 Några saker att tänka på: 
 
-1. Service Fabric kluster resursen i Azure är regional idag, precis som de virtuella datorernas skalnings uppsättningar som klustret bygger på. Det innebär att om ett regionalt fel uppstår kan du förlora möjligheten att hantera klustret via Azure Resource Manager eller Azure Portal. Detta kan inträffa även om klustret fortfarande körs och du kommer att kunna interagera med det direkt. Dessutom erbjuder Azure idag inte möjligheten att ha ett enda virtuellt nätverk som kan användas i olika regioner. Det innebär att ett kluster med flera regioner i Azure kräver antingen [offentliga IP-adresser för varje virtuell dator i VM Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) eller [Azure VPN-gatewayer](../vpn-gateway/vpn-gateway-about-vpngateways.md). De här nätverks valen har olika konsekvenser för kostnader, prestanda och en viss grad av program design, så noggrann analys och planering krävs innan du står inför en sådan miljö.
+1. Service Fabric kluster resursen i Azure är regional idag, precis som de virtuella datorernas skalnings uppsättningar som klustret bygger på. Det innebär att om ett regionalt fel uppstår kan du förlora möjligheten att hantera klustret via Azure Resource Manager eller Azure Portal. Detta kan inträffa även om klustret fortfarande körs och du kommer att kunna interagera med det direkt. Dessutom erbjuder Azure idag inte möjligheten att ha ett enda virtuellt nätverk som kan användas i olika regioner. Det innebär att ett kluster med flera regioner i Azure kräver antingen [offentliga IP-adresser för varje virtuell dator i skalnings uppsättningar för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) eller [Azure VPN-gatewayer](../vpn-gateway/vpn-gateway-about-vpngateways.md). De här nätverks valen har olika konsekvenser för kostnader, prestanda och en viss grad av program design, så noggrann analys och planering krävs innan du står inför en sådan miljö.
 2. Underhåll, hantering och övervakning av de här datorerna kan bli krångligt, särskilt när de sträcker sig över olika _typer_ av miljöer, till exempel mellan olika moln leverantörer eller mellan lokala resurser och Azure. Det måste vara viktigt att se till att uppgraderingar, övervakning, hantering och diagnostik förstås för både klustret och programmen innan du kör produktions arbets belastningar i en sådan miljö. Om du redan har erfarenhet av att lösa dessa problem i Azure eller i dina egna data Center, är det troligt att samma lösningar kan användas när du skapar eller kör Service Fabric klustret. 
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Får Service Fabric noder automatiskt uppdateringar av operativ systemet?
@@ -59,7 +59,7 @@ Det finns för närvarande andra problem med stora skalnings uppsättningar för
 
 Den minsta storlek som stöds för ett Service Fabric kluster som kör produktions arbets belastningar är fem noder. För utvecklings scenarier har vi stöd för en nod (optimerad för snabb utvecklings upplevelse i Visual Studio) och fem noder i klustret.
 
-Ett produktions kluster måste ha minst 5 noder på grund av följande tre orsaker:
+Ett produktions kluster måste ha minst fem noder på grund av följande tre orsaker:
 1. Även om inga användar tjänster körs kör ett Service Fabric-kluster en uppsättning tillstånds känsliga system tjänster, inklusive namngivnings tjänsten och tjänsten failover Manager. Dessa system tjänster är nödvändiga för att klustret ska fortsätta att fungera.
 2. Vi placerar alltid en replik av en tjänst per nod, så kluster storleken är den övre gränsen för antalet repliker som en tjänst (faktiskt en partition) kan ha.
 3. Eftersom en kluster uppgradering kommer att ta minst en nod, vill vi ha en buffert på minst en nod, och vi vill därför att ett produktions kluster ska ha minst två noder *förutom* det lägsta. Minimi kravet är kvorumresursens storlek på en system tjänst enligt beskrivningen nedan.  
@@ -122,11 +122,11 @@ Nej. Virtuella datorer med låg prioritet stöds inte.
 | FabricRM.exe |
 | FileStoreService.exe |
  
-### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Hur kan mitt program autentisera till nyckel valv för att få hemligheter?
-Följande innebär att ditt program kan hämta autentiseringsuppgifter för autentisering till nyckel valv:
+### <a name="how-can-my-application-authenticate-to-key-vault-to-get-secrets"></a>Hur kan mitt program autentisera till Key Vault för att få hemligheter?
+Följande innebär att ditt program kan hämta autentiseringsuppgifter för autentisering till Key Vault:
 
-A. Du kan hämta ett certifikat till ditt SF-programs data paket och använda det för att autentisera till nyckel valv under program bygget/packnings jobbet.
-B. För virtuella datorer i skalnings uppsättningen för virtuella datorer kan du utveckla en enkel PowerShell-SetupEntryPoint för din SF-app för att få [en åtkomsttoken från MSI-slutpunkten](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)och sedan [Hämta dina hemligheter från nyckel valvet](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
+A. Under program bygget/packnings jobbet kan du hämta ett certifikat till ditt SF-programs data paket och använda det för att autentisera till Key Vault.
+B. För virtuella datorer i skalnings uppsättningen för virtuella datorer kan du utveckla en enkel PowerShell-SetupEntryPoint för din SF-app för att få [en åtkomsttoken från MSI-slutpunkten](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)och sedan [Hämta dina hemligheter från Key Vault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Program design
 
@@ -155,7 +155,7 @@ Anta till exempel att du har en tillförlitlig samling i en tjänst med 100 part
 
 Om varje objekt måste lagras tre gånger (en primär och två repliker) skulle du ha tillräckligt med minne för cirka 35 000 000 objekt i din samling när du arbetar med full kapacitet. Vi rekommenderar dock att du överlappar den samtidiga förlusten av en feldomän och en uppgraderings domän som representerar cirka 1/3 av kapaciteten och minskar antalet till ungefär 23 000 000.
 
-Observera att denna beräkning även förutsätter:
+Den här beräkningen förutsätter även:
 
 - Att data fördelningen över partitionerna är ungefär enhetlig eller att du rapporterar inläsnings mått till kluster resurs hanteraren. Som standard är Service Fabric belastnings utjämning baserat på antalet repliker. I föregående exempel skulle det medföra 10 primära repliker och 20 sekundära repliker på varje nod i klustret. Det fungerar bra för belastning som är jämnt fördelat över partitionerna. Om belastningen inte är ens måste du rapportera belastningen så att Resource Manager kan packa mindre repliker tillsammans och tillåta större repliker att förbruka mer minne på en enskild nod.
 
@@ -166,6 +166,12 @@ Observera att denna beräkning även förutsätter:
 ### <a name="how-much-data-can-i-store-in-an-actor"></a>Hur mycket data kan jag lagra i en aktör?
 
 Precis som med Reliable Services begränsas mängden data som du kan lagra i en aktörs tjänst bara av det totala disk utrymmet och det tillgängliga minnet på noderna i klustret. Enskilda aktörer är dock mest effektiva när de används för att kapsla in en liten del av tillstånd och tillhör ande affärs logik. Som en allmän regel ska en enskild aktör ha ett tillstånd som mäts i kilobyte.
+
+
+### <a name="where-does-azure-service-fabric-resource-provider-store-customer-data"></a>Var lagrar Azure Service Fabric Resource Provider kund information?
+
+Azure Service Fabric Resource Provider flyttar eller lagrar inte kund information från den region som den har distribuerats i.
+
 
 ## <a name="other-questions"></a>Andra frågor
 

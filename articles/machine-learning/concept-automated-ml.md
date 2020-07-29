@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 8a951a4920f2f80a4b9738317bdb2da96c613d53
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8d94acabb434d0e722e352de46197a86e994e145
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87013053"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290030"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Vad är automatisk maskin inlärning (AutoML)?
 
@@ -136,7 +136,7 @@ Aktivera den här inställningen med:
 
 + Azure Machine Learning Studio: aktivera **Automatisk funktionalisering** i avsnittet **Visa ytterligare konfiguration** [med de här stegen](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
-+ Python SDK: ange `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` i [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) -objektet. Läs mer om hur du [aktiverar funktionalisering] ((How-to-Configure-Auto-features.md). 
++ Python SDK: ange `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` i [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) -objektet. Läs mer om hur du [aktiverar funktionalisering](how-to-configure-auto-features.md). 
 
 ## <a name="ensemble-models"></a><a name="ensemble"></a>Ensemble-modeller
 

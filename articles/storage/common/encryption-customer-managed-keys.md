@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d53818c91d32bc7435d1328c2ae73a8eb3172cd4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: af70b1746b2ac847d964975aaf1b2186aa89be01
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029798"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292730"
 ---
 # <a name="use-customer-managed-keys-with-azure-key-vault-to-manage-azure-storage-encryption"></a>Använda Kundhanterade nycklar med Azure Key Vault för att hantera Azure Storage kryptering
 
@@ -70,7 +70,7 @@ Om du vill aktivera Kundhanterade nycklar på ett lagrings konto måste du anvä
 
 Azure Storage-kryptering stöder RSA-och RSA-HSM-nycklar i storlekarna 2048, 3072 och 4096. Mer information om nycklar finns **Key Vault nycklar** i [om Azure Key Vault nycklar, hemligheter och certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
-Att använda Azure Key Vault har tillhör ande kostnader. Mer information finns i [Key Vault prissättning](/pricing/details/key-vault/).
+Att använda Azure Key Vault har tillhör ande kostnader. Mer information finns i [Key Vault prissättning](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="rotate-customer-managed-keys"></a>Rotera Kundhanterade nycklar
 

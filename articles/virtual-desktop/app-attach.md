@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 76edc88f127d7e52514ab72539f7212ac982b5e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f8e20f97ae19a33674631e4dee18901d54462b3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204481"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291511"
 ---
 # <a name="set-up-msix-app-attach"></a>Konfigurera MSIX-appbifogning
 
@@ -29,7 +29,7 @@ Det här avsnittet beskriver hur du konfigurerar MSIX app Attach i en Windows Vi
 Innan du börjar måste du konfigurera MSIX app Attach:
 
 - Åtkomst till Windows Insider-portalen för att hämta versionen av Windows 10 med stöd för MSIX-appen bifoga API: er.
-- En fungerande distribution av virtuella Windows-datorer. Information om hur du distribuerar den virtuella Windows-datorns version 2019 finns i [skapa en klient i Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Information om hur du distribuerar Windows Virtual Desktop fjäder 2020-versionen finns i [skapa en adresspool med Azure Portal](./create-host-pools-azure-marketplace.md).
+- En fungerande distribution av virtuella Windows-datorer. Information om hur du distribuerar virtuella Windows-datorer (klassisk) finns i [skapa en klient i Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Information om hur du distribuerar virtuella Windows-datorer med Azure Resource Manager-integrering finns i [skapa en adresspool med Azure Portal](./create-host-pools-azure-marketplace.md).
 - MSIX-packnings verktyget.
 - En nätverks resurs i Windows-distributionen för virtuella skriv bord där MSIX-paketet ska lagras.
 
@@ -235,7 +235,7 @@ Innan du uppdaterar PowerShell-skripten ser du till att du har volymens GUID fö
 
 4.  Öppna den överordnade mappen. Om den är korrekt expanderad visas en mapp med samma namn som paketet. Uppdatera variabeln **$PackageName** så att den matchar namnet på den här mappen.
 
-    Till exempel `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
+    Exempelvis `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
 
 5.  Öppna en kommando tolk och ange **mountvol**. Det här kommandot visar en lista över volymer och deras GUID. Kopiera GUID för volymen där enhets beteckningen matchar den enhet som du monterade din virtuella hård disk till i steg 2.
 

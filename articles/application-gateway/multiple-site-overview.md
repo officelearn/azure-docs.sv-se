@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 07/20/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: b3e6bc6d2dd5568dcc11a37c6ab44bd3b4089c66
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 23f76f18256ecadcbef59a498292222ea358008f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067939"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290982"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Flera webbplatser i Application Gateway
 
@@ -31,7 +31,7 @@ På samma sätt kan du vara värd för flera under domäner för samma överordn
 
 ## <a name="wildcard-host-names-in-listener-preview"></a>Jokertecken värd namn i lyssnare (förhands granskning)
 
-Application Gateway tillåter värdbaserad routning med HTTP (S)-lyssnare för flera platser. Nu kan du använda jokertecken som asterisk (*) och frågetecken (?) i värd namnet och upp till 5 värdnamn per HTTP (S)-lyssnare för flera platser. Till exempel `*.contoso.com`.
+Application Gateway tillåter värdbaserad routning med HTTP (S)-lyssnare för flera platser. Nu kan du använda jokertecken som asterisk (*) och frågetecken (?) i värd namnet och upp till 5 värdnamn per HTTP (S)-lyssnare för flera platser. Exempelvis `*.contoso.com`.
 
 Med ett jokertecken i värd namnet kan du matcha flera värdnamn i en enda lyssnare. Kan till exempel `*.contoso.com` Matcha med `ecom.contoso.com` , `b2b.contoso.com` `customer1.b2b.contoso.com` och så vidare. Med hjälp av en matris med värdnamn kan du konfigurera fler än ett värdnamn för en lyssnare, för att dirigera begär anden till en backend-pool. En lyssnare kan till exempel innehålla `contoso.com, fabrikam.com` som kommer att godkänna begär Anden för båda värd namnen.
 
@@ -40,16 +40,12 @@ Med ett jokertecken i värd namnet kan du matcha flera värdnamn i en enda lyssn
 >[!NOTE]
 > Den här funktionen är i för hands version och är endast tillgänglig för Standard_v2 och WAF_v2 SKU för Application Gateway. Läs mer om för hands versionerna i [användnings villkor här](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-I [Azure Portal](create-multiple-sites-portal.md)kan du definiera dem i separata text rutor som visas på skärm bilden nedan.
-
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-example.png" alt-text="Exempel på konfiguration av jokertecken jokertecken":::
-
 >[!NOTE]
->Om du skapar en ny lyssnare för flera platser eller lägger till fler än ett värdnamn till din befintliga lyssnare för flera platser från Azure Portal, läggs den som standard till i `HostNames` parametern för lyssnar konfigurationen, som lägger till fler funktioner till den befintliga `HostName` parametern i konfigurationen.
+>Den här funktionen är för närvarande endast tillgänglig via [Azure PowerShell](tutorial-multiple-sites-powershell.md) och [Azure CLI](tutorial-multiple-sites-cli.md). Portal support kommer snart.
 
-I [Azure PowerShell](tutorial-multiple-sites-powershell.md)måste du använda `-HostNames` i stället för `-HostName` . Med värd namn kan du nämna upp till 5 värdnamn som kommaavgränsade värden och använda jokertecken. Till exempel, `-HostNames "*.contoso.com,*.fabrikam.com"`
+I [Azure PowerShell](tutorial-multiple-sites-powershell.md)måste du använda `-HostNames` i stället för `-HostName` . Med värd namn kan du nämna upp till 5 värdnamn som kommaavgränsade värden och använda jokertecken. Till exempel `-HostNames "*.contoso.com,*.fabrikam.com"`
 
-I [Azure CLI](tutorial-multiple-sites-cli.md)måste du använda `--host-names` i stället för `--host-name` . Med värd namn kan du nämna upp till 5 värdnamn som kommaavgränsade värden och använda jokertecken. Till exempel, `--host-names "*.contoso.com,*.fabrikam.com"`
+I [Azure CLI](tutorial-multiple-sites-cli.md)måste du använda `--host-names` i stället för `--host-name` . Med värd namn kan du nämna upp till 5 värdnamn som kommaavgränsade värden och använda jokertecken. Till exempel `--host-names "*.contoso.com,*.fabrikam.com"`
 
 ### <a name="allowed-characters-in-the-host-names-field"></a>Tillåtna tecken i fältet värdnamn:
 
@@ -77,7 +73,7 @@ I [Azure CLI](tutorial-multiple-sites-cli.md)måste du använda `--host-names` i
 *   Egenskaperna "hostname" tar en sträng som indatamängd, där du endast kan ange ett domän namn som inte är jokertecken och "värdnamn" använder en sträng mat ris som indatamängd, där du kan nämna upp till fem domän namn med jokertecken. Men båda egenskaperna kan inte användas samtidigt.
 *   Det går inte att skapa en [omdirigerings](redirect-overview.md) regel med en mål lyssnare som använder jokertecken eller flera värdnamn.
 
-Se [skapa flera webbplatser med Azure Portal](create-multiple-sites-portal.md) eller [genom att Azure POWERSHELL använda](tutorial-multiple-sites-powershell.md) [Azure CLI](tutorial-multiple-sites-cli.md) för att få stegvisa anvisningar om hur du konfigurerar jokertecken i en lyssnare för flera platser.
+Se [skapa flera webbplatser med Azure PowerShell](tutorial-multiple-sites-powershell.md) eller [med Azure CLI](tutorial-multiple-sites-cli.md) för steg-för-steg-guide om hur du konfigurerar jokertecken i en lyssnare för flera platser.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Värdhuvuden och servernamnsindikator (SNI)
 
@@ -95,6 +91,9 @@ Application Gateway förlitar sig på HTTP 1.1 värdhuvuden för att ha mer än 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har lärt dig om flera plats värdar går du till [skapa flera platser med Azure Portal](create-multiple-sites-portal.md) eller [använder Azure PowerShell](tutorial-multiple-sites-powershell.md) eller [använder Azure CLI](tutorial-multiple-sites-cli.md) för att skapa en Application Gateway som värd för flera webbplatser.
+Lär dig hur du konfigurerar flera plats värdar i Application Gateway
+* [Använda Azure Portal](create-multiple-sites-portal.md)
+* [Använda Azure PowerShell](tutorial-multiple-sites-powershell.md) 
+* [Använda Azure CLI](tutorial-multiple-sites-cli.md)
 
 Du kan besöka [Resource Manager-mallen för flera webbplatser](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) för en slutpunkt-till-slutpunkts mallbaserad distribution.

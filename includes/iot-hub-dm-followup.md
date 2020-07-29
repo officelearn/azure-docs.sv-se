@@ -1,19 +1,19 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: iot-hub
 ms.service: iot-hub
-author: dominicbetts
+author: robinsh
 ms.topic: include
 ms.date: 02/17/2019
-ms.author: dobett
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 2514325c93f0f72aa979f871e86e465093479402
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f1f7d6f9ab6036fbcfcd1d19e175302bbd1a2a8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69558783"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298703"
 ---
 ## <a name="customize-and-extend-the-device-management-actions"></a>Anpassa och utöka enhets hanterings åtgärderna
 

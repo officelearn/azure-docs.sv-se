@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 04a25b6b0b243744cc81c8b71a1f03e7c7375a68
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4ad0cdedfa28e5b46f77d5e87f5bd48e25f11cc4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87103032"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292390"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Förstå omstarter av virtuella datorer – underhåll och driftavbrott
 Det finns tre scenarier som kan leda till att den virtuella datorn i Azure påverkas: oplanerat maskin varu underhåll, oväntad stillestånds tid och planerat underhåll.
@@ -32,7 +32,7 @@ För att undvika påverkan av den här typen av avbrott rekommenderar vi att du 
 
 * [Konfigurera flera virtuella datorer i en tillgänglighetsuppsättning för redundans]
 * [Använda hanterade diskar för virtuella datorer i en tillgänglighetsuppsättning]
-* [Använd schemalagda händelser för att proaktivt svara på händelser som påverkar virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Använd schemalagda händelser för att proaktivt svara på händelser som påverkar virtuella datorer](../articles/virtual-machines/linux/scheduled-events.md)
 * [Konfigurera varje program nivå i separata tillgänglighets uppsättningar]
 * [Kombinera en Load Balancer med tillgänglighets uppsättningar]
 * [Använda tillgänglighets zoner för att skydda från data center nivå problem]
@@ -95,7 +95,7 @@ Om du planerar att använda virtuella datorer med ohanterade diskar följer du r
 
 ## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>Använd schemalagda händelser för att proaktivt svara på händelser som påverkar virtuella datorer
 
-När du prenumererar på [schemalagda händelser](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events), meddelas din virtuella dator om kommande underhålls händelser som kan påverka den virtuella datorn. När schemalagda händelser aktive ras får den virtuella datorn en minimal tid innan underhålls aktiviteten utförs. Till exempel placeras värdar för OS-uppdateringar som kan påverka den virtuella datorn som händelser som anger påverkan, samt en tidpunkt då underhållet utförs om ingen åtgärd vidtas. Schema händelser köas också när Azure upptäcker ett överhäng ande maskin varu haveri som kan påverka den virtuella datorn, vilket gör att du kan bestämma när du vill utföra återställningen. Kunder kan använda händelsen för att utföra uppgifter före underhållet, till exempel spara status, redundansväxla till den sekundära och så vidare. När du har slutfört din logik för att hantera underhålls händelsen smidigt kan du godkänna den väntande schemalagda händelsen så att plattformen kan fortsätta med underhållet.
+När du prenumererar på [schemalagda händelser](../articles/virtual-machines/linux/scheduled-events.md), meddelas din virtuella dator om kommande underhålls händelser som kan påverka den virtuella datorn. När schemalagda händelser aktive ras får den virtuella datorn en minimal tid innan underhålls aktiviteten utförs. Till exempel placeras värdar för OS-uppdateringar som kan påverka den virtuella datorn som händelser som anger påverkan, samt en tidpunkt då underhållet utförs om ingen åtgärd vidtas. Schema händelser köas också när Azure upptäcker ett överhäng ande maskin varu haveri som kan påverka den virtuella datorn, vilket gör att du kan bestämma när du vill utföra återställningen. Kunder kan använda händelsen för att utföra uppgifter före underhållet, till exempel spara status, redundansväxla till den sekundära och så vidare. När du har slutfört din logik för att hantera underhålls händelsen smidigt kan du godkänna den väntande schemalagda händelsen så att plattformen kan fortsätta med underhållet.
 
 
 ## <a name="combine-a-load-balancer-with-availability-zones-or-sets"></a>Kombinera en belastningsutjämnare med tillgänglighets zoner eller uppsättningar

@@ -3,12 +3,12 @@ title: Exportera med hjälp av Stream Analytics från Azure Application Insights
 description: Stream Analytics kan kontinuerligt omvandla, filtrera och dirigera data som du exporterar från Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 70f952dcd6f8d942ac272afed58a7fe0f47d8a6e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d90b965ca65af0acf7032067c77591a2ac4d4b02
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539966"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324360"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Använd Stream Analytics för att bearbeta exporterade data från Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) är det perfekta verktyget för att bearbeta data som [exporter ATS från Application Insights](export-telemetry.md). Stream Analytics kan hämta data från flera olika källor. Den kan transformera och filtrera data och sedan dirigera den till en rad olika mottagare.
@@ -16,7 +16,7 @@ ms.locfileid: "86539966"
 I det här exemplet ska vi skapa en adapter som hämtar data från Application Insights, byter namn på och bearbetar några av fälten och kopplar den till Power BI.
 
 > [!WARNING]
-> Det finns mycket bättre och enklare [rekommenderade sätt att visa Application Insights data i Power BI](../../azure-monitor/app/export-power-bi.md ). Sökvägen som illustreras här är bara ett exempel på hur du kan bearbeta exporterade data.
+> Det finns mycket bättre och enklare [rekommenderade sätt att visa Application Insights data i Power BI](./export-power-bi.md). Sökvägen som illustreras här är bara ett exempel på hur du kan bearbeta exporterade data.
 > 
 > 
 
@@ -55,7 +55,7 @@ Kontinuerlig export matar alltid ut data till ett Azure Storage-konto, så du m�
 
     ![Välj händelse typer](./media/export-stream-analytics/080.png)
 
-1. Låt vissa data ackumuleras. Luta dig tillbaka och låt användarna använda programmet en stund. Telemetri kommer in och du ser statistik diagram i [Metric Explorer](../../azure-monitor/platform/metrics-charts.md) och enskilda händelser i [diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md). 
+1. Låt vissa data ackumuleras. Luta dig tillbaka och låt användarna använda programmet en stund. Telemetri kommer in och du ser statistik diagram i [Metric Explorer](../platform/metrics-charts.md) och enskilda händelser i [diagnostisk sökning](./diagnostic-search.md). 
    
     Informationen kommer också att exporteras till lagringen. 
 2. Granska exporterade data. I Visual Studio väljer du **Visa/Cloud Explorer**och öppna Azure/Storage. (Om du inte har det här meny alternativet måste du installera Azure SDK: öppna dialog rutan nytt projekt och öppna Visual C#/Cloud/Get Microsoft Azure SDK för .NET.)
@@ -186,7 +186,7 @@ Vänta tills jobbet körs.
 
 ## <a name="see-results-in-power-bi"></a>Se resultat i Power BI
 > [!WARNING]
-> Det finns mycket bättre och enklare [rekommenderade sätt att visa Application Insights data i Power BI](../../azure-monitor/app/export-power-bi.md ). Sökvägen som illustreras här är bara ett exempel på hur du kan bearbeta exporterade data.
+> Det finns mycket bättre och enklare [rekommenderade sätt att visa Application Insights data i Power BI](./export-power-bi.md). Sökvägen som illustreras här är bara ett exempel på hur du kan bearbeta exporterade data.
 > 
 > 
 
@@ -211,4 +211,5 @@ Noam ben Zeev visar hur du bearbetar exporterade data med hjälp av Stream Analy
 ## <a name="next-steps"></a>Nästa steg
 * [Löpande export](export-telemetry.md)
 * [Detaljerad data modell referens för egenskaps typerna och värdena.](export-data-model.md)
-* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
+* [Application Insights](./app-insights-overview.md)
+

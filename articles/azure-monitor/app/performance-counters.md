@@ -3,12 +3,12 @@ title: Prestanda räknare i Application Insights | Microsoft Docs
 description: Övervaka system-och anpassade .NET-prestanda räknare i Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: e60663d9e767db020fc93eba1f4c1c6babb32294
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb5e20403cc826619eb1f67de2fc4179e17b5aa4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024426"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322524"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>System prestanda räknare i Application Insights
 
@@ -131,7 +131,7 @@ Precis som andra telemetri innehåller **performanceCounters** också en kolumn 
 
 * *Undantags frekvensen* är en system prestanda räknare. CLR räknar alla hanterade och ohanterade undantag som genereras, och dividerar summan i ett samplings intervall med längden på intervallet. Application Insights SDK samlar in det här resultatet och skickar det till portalen.
 
-* *Undantag* är antalet TrackException-rapporter som tagits emot av portalen i diagrammets samplings intervall. Den innehåller bara de hanterade undantagen där du har skrivit TrackException-anrop i koden, och innehåller inte alla [ohanterade undantag](../../azure-monitor/app/asp-net-exceptions.md). 
+* *Undantag* är antalet TrackException-rapporter som tagits emot av portalen i diagrammets samplings intervall. Den innehåller bara de hanterade undantagen där du har skrivit TrackException-anrop i koden, och innehåller inte alla [ohanterade undantag](./asp-net-exceptions.md). 
 
 ## <a name="performance-counters-for-applications-running-in-azure-web-apps"></a>Prestanda räknare för program som körs i Azure Web Apps
 
@@ -147,9 +147,10 @@ Stöd för prestanda räknare i ASP.NET Core är begränsat:
 * SDK-versioner 2.8.0 och senare stöder CPU/minnes räknare i Linux. Ingen annan räknare stöds i Linux. Det rekommenderade sättet att hämta system räknare i Linux (och andra miljöer som inte kommer från Windows) är att använda [EventCounters](eventcounters.md)
 
 ## <a name="alerts"></a>Aviseringar
-Precis som med andra mått kan du [Ange en avisering](../../azure-monitor/platform/alerts-log.md) som varnar dig om en prestanda räknare går utanför en gräns som du anger. Öppna fönstret aviseringar och klicka på Lägg till avisering.
+Precis som med andra mått kan du [Ange en avisering](../platform/alerts-log.md) som varnar dig om en prestanda räknare går utanför en gräns som du anger. Öppna fönstret aviseringar och klicka på Lägg till avisering.
 
 ## <a name="next-steps"></a><a name="next"></a>Nästa steg
 
-* [Beroende spårning](../../azure-monitor/app/asp-net-dependencies.md)
-* [Undantags spårning](../../azure-monitor/app/asp-net-exceptions.md)
+* [Beroende spårning](./asp-net-dependencies.md)
+* [Undantags spårning](./asp-net-exceptions.md)
+

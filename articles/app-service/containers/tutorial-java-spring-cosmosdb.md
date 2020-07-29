@@ -6,13 +6,13 @@ ms.author: routlaw
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: d77b54d5dc20725ba93df82b0a475359c4dfa2b0
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: 760dcd4284ea1988f57b3f7913cbdc23c1415790
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84906385"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323255"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Självstudie: bygga en Java våren Boot Web-App med Azure App Service på Linux och Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Den här självstudien vägleder dig genom processen för att skapa, konfigurera
 
 ![Våren Boot Application lagrar data i Azure Cosmos DB](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en Cosmos DB-databas.
@@ -85,7 +85,7 @@ Följ dessa steg för att skapa en Azure Cosmos DB-databas i din prenumeration. 
 
 ## <a name="configure-the-todo-app-properties"></a>Konfigurera egenskaper för TODO-appen
 
-Öppna en terminal på din dator. Kopiera exempelskriptfilen i den klonade lagringsplatsen så att du kan anpassa den för din Cosmos DB-databas som du nyss skapade.
+Öppna en terminal på datorn. Kopiera exempelskriptfilen i den klonade lagringsplatsen så att du kan anpassa den för din Cosmos DB-databas som du nyss skapade.
 
 ```bash
 cd initial/spring-todo-app

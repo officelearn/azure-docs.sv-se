@@ -2,16 +2,15 @@
 title: Bästa praxis för utvecklare – Pod Security i Azure Kubernetes Services (AKS)
 description: Lär dig metod tips för utvecklare för att skydda poddar i Azure Kubernetes service (AKS)
 services: container-service
-author: zr-msft
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: 21ee65e6a4e51e91b23d9634917ec3f0267f1771
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: bd6891ff4d15dc326c846efbaa37aea997ef2e17
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115602"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320688"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Metod tips för Pod-säkerhet i Azure Kubernetes service (AKS)
 
@@ -52,15 +51,16 @@ kind: Pod
 metadata:
   name: security-context-demo
 spec:
+  securityContext:
+    fsGroup: 2000
   containers:
     - name: security-context-demo
       image: nginx:1.15.5
-    securityContext:
-      runAsUser: 1000
-      fsGroup: 2000
-      allowPrivilegeEscalation: false
-      capabilities:
-        add: ["NET_ADMIN", "SYS_TIME"]
+      securityContext:
+        runAsUser: 1000
+        allowPrivilegeEscalation: false
+        capabilities:
+          add: ["NET_ADMIN", "SYS_TIME"]
 ```
 
 Arbeta med din kluster operatör för att fastställa vilka säkerhets kontext inställningar du behöver. Försök att utforma dina program för att minimera ytterligare behörigheter och åtkomst till Pod kräver. Det finns ytterligare säkerhetsfunktioner för att begränsa åtkomsten med hjälp av AppArmor och seccomp (säker data behandling) som kan implementeras av kluster operatörer. Mer information finns i [skydda container åtkomst till resurser][apparmor-seccomp].

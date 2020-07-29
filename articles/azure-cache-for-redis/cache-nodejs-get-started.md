@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: Använd Azure cache för Redis med Node. js'
+title: 'Snabb start: Använd Azure cache för Redis med Node.js'
 description: I den här snabbstarten lär du dig att använda Azure Cache for Redis med Node.js och node_redis.
 author: yegu-ms
 ms.service: cache
@@ -7,22 +7,22 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: yegu
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 88703581c507b79c1b10e0f8741c99e64d204a7e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript
+ms.openlocfilehash: 89a5a911cc0de82afa704c43226d7dca0c9f98a9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81010876"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281182"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Snabb start: Använd Azure cache för Redis med Node. js
+# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Snabb start: Använd Azure cache för Redis med Node.js
 
-I den här snabb starten införlivar du Azure cache för Redis i en Node. js-app för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure.
+I den här snabb starten införlivar du Azure cache för Redis i en Node.js-app för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure.
 
 ## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-- [node_redis](https://github.com/mranney/node_redis), som du kan installera med kommandot `npm install redis`. 
+- [node_redis](https://github.com/mranney/node_redis), som du kan installera med kommandot `npm install redis` . 
 
 Exempel på användning av andra Node.js-klienter finns i dokumentationen till enskilda Node.js-klienter som anges i [Node.js Redis-klienter](https://redis.io/clients#nodejs).
 

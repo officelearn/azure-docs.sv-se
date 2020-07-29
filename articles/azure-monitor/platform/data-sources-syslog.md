@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/22/2019
-ms.openlocfilehash: 983091ac0d1f9fdcb33e64d2af521ec3442a040b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d9efdb11ffd30c68a0ac8ea8e8156fe707f188de
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515520"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322320"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Syslog-datakällor i Azure Monitor
 Syslog är ett händelse loggnings protokoll som är gemensamt för Linux. Program kommer att skicka meddelanden som kan lagras på den lokala datorn eller levereras till en syslog-insamlare. När Log Analytics-agenten för Linux installeras konfigureras den lokala syslog-daemonen för att vidarebefordra meddelanden till agenten. Agenten skickar sedan meddelandet till Azure Monitor där en motsvarande post skapas.  
@@ -54,7 +54,7 @@ Du kan lägga till en ny anläggning genom att först välja alternativet **Anv�
 Som standard flyttas alla konfigurations ändringar automatiskt till alla agenter. Om du vill konfigurera syslog manuellt på varje Linux-Agent avmarkerar du kryss rutan *Använd konfigurationen nedan för mina datorer*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Konfigurera syslog på Linux-agenten
-När [Log Analytics-agenten är installerad på en Linux-klient](../../azure-monitor/learn/quick-collect-linux-computer.md)installerar den en standard konfigurations fil för syslog som definierar funktionen och allvarlighets graden för de meddelanden som samlas in. Du kan ändra konfigurationen genom att ändra den här filen. Konfigurations filen är olika beroende på den syslog-daemon som klienten har installerat.
+När [Log Analytics-agenten är installerad på en Linux-klient](../learn/quick-collect-linux-computer.md)installerar den en standard konfigurations fil för syslog som definierar funktionen och allvarlighets graden för de meddelanden som samlas in. Du kan ändra konfigurationen genom att ändra den här filen. Konfigurations filen är olika beroende på den syslog-daemon som klienten har installerat.
 
 > [!NOTE]
 > Om du redigerar syslog-konfigurationen måste du starta om syslog-daemon för att ändringarna ska börja gälla.
@@ -227,6 +227,7 @@ Följande tabell innehåller olika exempel på logg frågor som hämtar syslog-p
 | Syslog &#124; sammanfatta AggregatedValue = Count () efter funktion |Antal syslog-poster per funktion. |
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [logg frågor](../../azure-monitor/log-query/log-query-overview.md) för att analysera data som samlas in från data källor och lösningar.
-* Använd [anpassade fält](../../azure-monitor/platform/custom-fields.md) för att parsa data från syslog-poster i enskilda fält.
-* [Konfigurera Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) för att samla in andra typer av data.
+* Lär dig mer om [logg frågor](../log-query/log-query-overview.md) för att analysera data som samlas in från data källor och lösningar.
+* Använd [anpassade fält](./custom-fields.md) för att parsa data från syslog-poster i enskilda fält.
+* [Konfigurera Linux-agenter](../learn/quick-collect-linux-computer.md) för att samla in andra typer av data.
+

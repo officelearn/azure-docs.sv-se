@@ -11,12 +11,15 @@ ms.date: 07/18/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2e1167c92dccdfa7600a4827c0081647c190d7d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+- 'Role: Operations'
+ms.openlocfilehash: be63cc2280691e85584ba4d6dd30fe751505a672
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252142"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325465"
 ---
 # <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
 
@@ -140,7 +143,7 @@ Här är de förväntade värdena:
 | Värde | Beskrivning |
 | --- | --- |
 | signatur |En HMAC-SHA256 signatur sträng i formatet: `{URL-encoded-resourceURI} + "\n" + expiry` . **Viktigt**: nyckeln avkodas från base64 och används som nyckel för att utföra den HMAC-SHA256 beräkningen. |
-| ResourceURI |URI-prefix (efter segment) för de slut punkter som kan nås med denna token, med början på värd namnet för IoT Hub (inget protokoll). Till exempel, `myHub.azure-devices.net/devices/device1` |
+| ResourceURI |URI-prefix (efter segment) för de slut punkter som kan nås med denna token, med början på värd namnet för IoT Hub (inget protokoll). Till exempel `myHub.azure-devices.net/devices/device1` |
 | förfallo |UTF8-strängar för antalet sekunder sedan 00:00:00 UTC på 1 januari 1970. |
 | {URL-kodad – resourceURI} |Gemen URL – kodning för den nedre fall resurs-URI: n |
 | PolicyName |Namnet på den princip för delad åtkomst som denna token refererar till. Frånvarande om token refererar till enhets register uppgifter. |

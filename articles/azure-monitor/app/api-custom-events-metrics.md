@@ -3,16 +3,16 @@ title: Application Insights-API för anpassade händelser och mått | Microsoft 
 description: Infoga några rader kod i din enhet eller Skriv bords app, webb sida eller tjänst, för att spåra användning och diagnostisera problem.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 43951a415256577144b93c7deea168e30e7a13ba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d263c99af7793acbe1f939f64c5cc2dcadd3a054
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014736"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323238"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API för Application Insights för anpassade händelser och mått
 
-Infoga några rader kod i ditt program för att ta reda på vad användarna gör med den, eller för att diagnostisera problem. Du kan skicka telemetri från enheter och skrivbordsappar, webb klienter och webb servrar. Använd API för [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) Core-telemetri för att skicka anpassade händelser och mått och dina egna versioner av standard telemetri. Detta API är samma API som standard Application Insights data insamlare använder.
+Infoga några rader kod i ditt program för att ta reda på vad användarna gör med den, eller för att diagnostisera problem. Du kan skicka telemetri från enheter och skrivbordsappar, webb klienter och webb servrar. Använd API för [Azure Application Insights](./app-insights-overview.md) Core-telemetri för att skicka anpassade händelser och mått och dina egna versioner av standard telemetri. Detta API är samma API som standard Application Insights data insamlare använder.
 
 ## <a name="api-summary"></a>API-sammanfattning
 
@@ -37,11 +37,11 @@ Om du inte har en referens på Application Insights SDK ännu:
 
 * Lägg till Application Insights SDK i projektet:
 
-  * [ASP.NET-projekt](../../azure-monitor/app/asp-net.md)
-  * [ASP.NET Core projekt](../../azure-monitor/app/asp-net-core.md)
-  * [Java-projekt](../../azure-monitor/app/java-get-started.md)
-  * [Node.js projekt](../../azure-monitor/app/nodejs.md)
-  * [Java Script på varje webb sida](../../azure-monitor/app/javascript.md) 
+  * [ASP.NET-projekt](./asp-net.md)
+  * [ASP.NET Core projekt](./asp-net-core.md)
+  * [Java-projekt](./java-get-started.md)
+  * [Node.js projekt](./nodejs.md)
+  * [Java Script på varje webb sida](./javascript.md) 
 * I enhets-eller webb server koden inkluderar du:
 
     *C#:*`using Microsoft.ApplicationInsights;`
@@ -107,7 +107,7 @@ I Node.js-projekt kan du använda `new applicationInsights.TelemetryClient(instr
 
 ## <a name="trackevent"></a>TrackEvent
 
-I Application Insights är en *Anpassad händelse* en data punkt som du kan visa i [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) som ett sammanställt antal och i [diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md) som enskilda förekomster. (Den är inte relaterad till MVC eller andra ramverk "händelser.")
+I Application Insights är en *Anpassad händelse* en data punkt som du kan visa i [Metrics Explorer](../platform/metrics-charts.md) som ett sammanställt antal och i [diagnostisk sökning](./diagnostic-search.md) som enskilda förekomster. (Den är inte relaterad till MVC eller andra ramverk "händelser.")
 
 Infoga `TrackEvent` anrop i koden för att räkna olika händelser. Hur ofta användarna väljer en viss funktion, hur ofta de uppnår särskilda mål eller hur ofta de kan göra särskilda typer av misstag.
 
@@ -147,11 +147,11 @@ telemetry.trackEvent({name: "WinGame"});
 
 Telemetrin är tillgänglig i `customEvents` tabellen i [Application Insights Analytics](../log-query/log-query-overview.md). Varje rad representerar ett anrop till `trackEvent(..)` i din app.
 
-Om [sampling](../../azure-monitor/app/sampling.md) är i drift, Visar egenskapen itemCount ett värde som är större än 1. Till exempel itemCount = = 10 betyder 10 anrop till trackEvent (), men samplings processen överför bara en av dem. För att få rätt antal anpassade händelser bör du därför använda kod som `customEvents | summarize sum(itemCount)` .
+Om [sampling](./sampling.md) är i drift, Visar egenskapen itemCount ett värde som är större än 1. Till exempel itemCount = = 10 betyder 10 anrop till trackEvent (), men samplings processen överför bara en av dem. För att få rätt antal anpassade händelser bör du därför använda kod som `customEvents | summarize sum(itemCount)` .
 
 ## <a name="getmetric"></a>GetMetric
 
-Om du vill lära dig hur du effektivt använder GetMetric ()-anropet för att avbilda lokalt församlade mått för .NET-och .NET Core-program går du till [GetMetric](../../azure-monitor/app/get-metric.md) -dokumentationen.
+Om du vill lära dig hur du effektivt använder GetMetric ()-anropet för att avbilda lokalt församlade mått för .NET-och .NET Core-program går du till [GetMetric](./get-metric.md) -dokumentationen.
 
 ## <a name="trackmetric"></a>TrackMetric
 
@@ -307,9 +307,9 @@ Det rekommenderade sättet att skicka telemetri för begäran är dock där beg�
 
 ## <a name="operation-context"></a>Åtgärds kontext
 
-Du kan korrelera telemetri-objekt tillsammans genom att associera dem med åtgärds kontext. Standardmodulen för fråge spårning gör detta för undantag och andra händelser som skickas medan en HTTP-begäran bearbetas. I [Sök](../../azure-monitor/app/diagnostic-search.md) och [analyser](../log-query/log-query-overview.md)kan du enkelt hitta händelser som är associerade med begäran med hjälp av dess åtgärds-ID.
+Du kan korrelera telemetri-objekt tillsammans genom att associera dem med åtgärds kontext. Standardmodulen för fråge spårning gör detta för undantag och andra händelser som skickas medan en HTTP-begäran bearbetas. I [Sök](./diagnostic-search.md) och [analyser](../log-query/log-query-overview.md)kan du enkelt hitta händelser som är associerade med begäran med hjälp av dess åtgärds-ID.
 
-Se [telemetri-korrelation i Application Insights](../../azure-monitor/app/correlation.md) för mer information om korrelation.
+Se [telemetri-korrelation i Application Insights](./correlation.md) för mer information om korrelation.
 
 När du spårar telemetri manuellt, är det enklaste sättet att garantera telemetri korrelation genom att använda det här mönstret:
 
@@ -341,13 +341,13 @@ I sökningen används åtgärds kontexten för att skapa listan över **relatera
 
 ![Relaterade objekt](./media/api-custom-events-metrics/21.png)
 
-Mer information om anpassad drift spårning finns i avsnittet [spåra anpassade åtgärder med Application Insights .NET SDK](../../azure-monitor/app/custom-operations-tracking.md) .
+Mer information om anpassad drift spårning finns i avsnittet [spåra anpassade åtgärder med Application Insights .NET SDK](./custom-operations-tracking.md) .
 
 ### <a name="requests-in-analytics"></a>Förfrågningar i analys
 
 I [Application Insights Analytics](../log-query/log-query-overview.md)visas begär anden i `requests` tabellen.
 
-Om [sampling](../../azure-monitor/app/sampling.md) är i drift visar egenskapen itemCount ett värde som är större än 1. Till exempel itemCount = = 10 betyder 10 anrop till trackRequest (), men samplings processen överför bara en av dem. Använd kod som till exempel för att få ett korrekt antal begär Anden och genomsnittlig varaktighet per beställnings namn:
+Om [sampling](./sampling.md) är i drift visar egenskapen itemCount ett värde som är större än 1. Till exempel itemCount = = 10 betyder 10 anrop till trackRequest (), men samplings processen överför bara en av dem. Använd kod som till exempel för att få ett korrekt antal begär Anden och genomsnittlig varaktighet per beställnings namn:
 
 ```kusto
 requests
@@ -358,8 +358,8 @@ requests
 
 Skicka undantag till Application Insights:
 
-* För att [räkna dem](../../azure-monitor/platform/metrics-charts.md), som en indikering av frekvensen för ett problem.
-* För att [granska enskilda förekomster](../../azure-monitor/app/diagnostic-search.md).
+* För att [räkna dem](../platform/metrics-charts.md), som en indikering av frekvensen för ett problem.
+* För att [granska enskilda förekomster](./diagnostic-search.md).
 
 Rapporterna innehåller stack spåren.
 
@@ -414,8 +414,8 @@ catch (ex)
 
 SDK: erna fångar många undantag automatiskt, så du behöver inte alltid anropa TrackException explicit.
 
-* ASP.NET: [Skriv kod till catch-undantag](../../azure-monitor/app/asp-net-exceptions.md).
-* Java EE: [undantag fångas automatiskt](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
+* ASP.NET: [Skriv kod till catch-undantag](./asp-net-exceptions.md).
+* Java EE: [undantag fångas automatiskt](./java-get-started.md#exceptions-and-request-failures).
 * Java Script: undantag fångas automatiskt. Om du vill inaktivera automatisk insamling lägger du till en rad i kodfragmentet som du infogar på dina webb sidor:
 
 ```javascript
@@ -429,14 +429,14 @@ SDK: erna fångar många undantag automatiskt, så du behöver inte alltid anrop
 
 I [Application Insights Analytics](../log-query/log-query-overview.md)visas undantagen i `exceptions` tabellen.
 
-Om [sampling](../../azure-monitor/app/sampling.md) är i drift `itemCount` Visar egenskapen ett värde som är större än 1. Till exempel itemCount = = 10 betyder 10 anrop till trackException (), men samplings processen överför bara en av dem. För att få rätt antal undantag segment av typen av undantag, Använd kod som:
+Om [sampling](./sampling.md) är i drift `itemCount` Visar egenskapen ett värde som är större än 1. Till exempel itemCount = = 10 betyder 10 anrop till trackException (), men samplings processen överför bara en av dem. För att få rätt antal undantag segment av typen av undantag, Använd kod som:
 
 ```kusto
 exceptions
 | summarize sum(itemCount) by type
 ```
 
-De flesta viktiga stack-uppgifter har redan extraherats i separata variabler, men du kan dra isär `details` strukturen för att få mer information. Eftersom den här strukturen är dynamisk bör du omvandla resultatet till den typ som du förväntar dig. Exempel:
+De flesta viktiga stack-uppgifter har redan extraherats i separata variabler, men du kan dra isär `details` strukturen för att få mer information. Eftersom den här strukturen är dynamisk bör du omvandla resultatet till den typ som du förväntar dig. Till exempel:
 
 ```kusto
 exceptions
@@ -452,11 +452,11 @@ exceptions
 
 ## <a name="tracktrace"></a>TrackTrace
 
-Använd TrackTrace för att diagnostisera problem genom att skicka ett "spårande spår" till Application Insights. Du kan skicka segment med diagnostikdata och granska dem i [diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md).
+Använd TrackTrace för att diagnostisera problem genom att skicka ett "spårande spår" till Application Insights. Du kan skicka segment med diagnostikdata och granska dem i [diagnostisk sökning](./diagnostic-search.md).
 
-I .NET [log-kort](../../azure-monitor/app/asp-net-trace-logs.md) använder du detta API för att skicka loggar från tredje part till portalen.
+I .NET [log-kort](./asp-net-trace-logs.md) använder du detta API för att skicka loggar från tredje part till portalen.
 
-I Java för [standard loggar som log4j använder Logback](../../azure-monitor/app/java-trace-logs.md) Application Insights log4j eller logback-tillägg för att skicka loggar från tredje part till portalen.
+I Java för [standard loggar som log4j använder Logback](./java-trace-logs.md) Application Insights log4j eller logback-tillägg för att skicka loggar från tredje part till portalen.
 
 *C#*
 
@@ -499,7 +499,7 @@ Du kan söka efter meddelande innehåll, men (till skillnad från egenskaps vär
 Storleks gränsen på `message` är mycket högre än gränsen för egenskaper.
 En fördel med TrackTrace är att du kan ställa in relativt långa data i meddelandet. Du kan till exempel koda POST-data där.  
 
-Dessutom kan du lägga till en allvarlighets grad i meddelandet. Liksom andra telemetri kan du lägga till egenskaps värden som hjälper dig att filtrera eller söka efter olika uppsättningar med spår. Exempel:
+Dessutom kan du lägga till en allvarlighets grad i meddelandet. Liksom andra telemetri kan du lägga till egenskaps värden som hjälper dig att filtrera eller söka efter olika uppsättningar med spår. Till exempel:
 
 *C#*
 
@@ -518,13 +518,13 @@ properties.put("Database", db.ID);
 telemetry.trackTrace("Slow Database response", SeverityLevel.Warning, properties);
 ```
 
-I [sökningen](../../azure-monitor/app/diagnostic-search.md)kan du sedan enkelt filtrera ut alla meddelanden med en viss allvarlighets grad som relaterar till en viss databas.
+I [sökningen](./diagnostic-search.md)kan du sedan enkelt filtrera ut alla meddelanden med en viss allvarlighets grad som relaterar till en viss databas.
 
 ### <a name="traces-in-analytics"></a>Spår i analys
 
 I [Application Insights Analytics](../log-query/log-query-overview.md)visas anrop till TrackTrace i `traces` tabellen.
 
-Om [sampling](../../azure-monitor/app/sampling.md) är i drift, Visar egenskapen itemCount ett värde som är större än 1. Till exempel itemCount = = 10 innebär att 10 anrop till `trackTrace()` , och att endast en av dem överförs av samplings processen. För att få ett korrekt antal spårnings anrop bör du använda kod som `traces | summarize sum(itemCount)` .
+Om [sampling](./sampling.md) är i drift, Visar egenskapen itemCount ett värde som är större än 1. Till exempel itemCount = = 10 innebär att 10 anrop till `trackTrace()` , och att endast en av dem överförs av samplings processen. För att få ett korrekt antal spårnings anrop bör du använda kod som `traces | summarize sum(itemCount)` .
 
 ## <a name="trackdependency"></a>TrackDependency
 
@@ -591,19 +591,19 @@ finally
 }
 ```
 
-Kom ihåg att Server-SDK: erna innehåller en [beroende modul](../../azure-monitor/app/asp-net-dependencies.md) som identifierar och spårar vissa beroende anrop automatiskt, till exempel till databaser och REST-API: er. Du måste installera en agent på servern för att modulen ska fungera. 
+Kom ihåg att Server-SDK: erna innehåller en [beroende modul](./asp-net-dependencies.md) som identifierar och spårar vissa beroende anrop automatiskt, till exempel till databaser och REST-API: er. Du måste installera en agent på servern för att modulen ska fungera. 
 
-I Java kan vissa beroende anrop spåras automatiskt med hjälp av [Java-agenten](../../azure-monitor/app/java-agent.md).
+I Java kan vissa beroende anrop spåras automatiskt med hjälp av [Java-agenten](./java-agent.md).
 
 Du använder det här anropet om du vill spåra anrop som den automatiska spårningen inte fångar eller om du inte vill installera agenten.
 
-Om du vill stänga av standard modulen för beroende spårning i C# redigerar du [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) och tar bort referensen till `DependencyCollector.DependencyTrackingTelemetryModule` . I Java ska du inte installera Java-agenten om du inte vill samla in standard beroenden automatiskt.
+Om du vill stänga av standard modulen för beroende spårning i C# redigerar du [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) och tar bort referensen till `DependencyCollector.DependencyTrackingTelemetryModule` . I Java ska du inte installera Java-agenten om du inte vill samla in standard beroenden automatiskt.
 
 ### <a name="dependencies-in-analytics"></a>Beroenden i analys
 
 I [Application Insights Analytics](../log-query/log-query-overview.md)visas trackDependency-anrop i `dependencies` tabellen.
 
-Om [sampling](../../azure-monitor/app/sampling.md) är i drift, Visar egenskapen itemCount ett värde som är större än 1. Till exempel itemCount = = 10 betyder 10 anrop till trackDependency (), men samplings processen överför bara en av dem. Använd kod som till exempel för att få rätt antal beroenden som segmenteras av mål komponenten:
+Om [sampling](./sampling.md) är i drift, Visar egenskapen itemCount ett värde som är större än 1. Till exempel itemCount = = 10 betyder 10 anrop till trackDependency (), men samplings processen överför bara en av dem. Använd kod som till exempel för att få rätt antal beroenden som segmenteras av mål komponenten:
 
 ```kusto
 dependencies
@@ -649,7 +649,7 @@ Den bästa metoden Flush () ska användas i programmets avstängnings aktivitet.
 
 ## <a name="authenticated-users"></a>Autentiserade användare
 
-I en webbapp identifieras användare (som standard) [av cookies](../../azure-monitor/app/usage-segmentation.md#the-users-sessions-and-events-segmentation-tool). En användare kan räknas mer än en gång om de får åtkomst till din app från en annan dator eller webbläsare, eller om de tar bort cookies.
+I en webbapp identifieras användare (som standard) [av cookies](./usage-segmentation.md#the-users-sessions-and-events-segmentation-tool). En användare kan räknas mer än en gång om de får åtkomst till din app från en annan dator eller webbläsare, eller om de tar bort cookies.
 
 Om användarna loggar in i din app kan du få ett mer exakt antal genom att ange det autentiserade användar-ID: t i webb läsar koden:
 
@@ -689,9 +689,9 @@ Om din app grupperar användare till konton kan du också skicka en identifierar
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-I [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md)kan du skapa ett diagram som räknar **användare, autentiserade**och **användar konton**.
+I [Metrics Explorer](../platform/metrics-charts.md)kan du skapa ett diagram som räknar **användare, autentiserade**och **användar konton**.
 
-Du kan också [söka](../../azure-monitor/app/diagnostic-search.md) efter klient data punkter med vissa användar namn och konton.
+Du kan också [söka](./diagnostic-search.md) efter klient data punkter med vissa användar namn och konton.
 
 ## <a name="filtering-searching-and-segmenting-your-data-by-using-properties"></a><a name="properties"></a>Filtrera, söka och segmentera dina data med hjälp av egenskaper
 
@@ -822,7 +822,7 @@ requests
 Observera att:
 
 * När du extraherar ett värde från customDimensions-eller customMeasurements-JSON har den dynamisk typ, så du måste konvertera det `tostring` eller `todouble` .
-* För att ta hänsyn till möjligheten till [samplingen](../../azure-monitor/app/sampling.md)bör du `sum(itemCount)` inte använda `count()` .
+* För att ta hänsyn till möjligheten till [samplingen](./sampling.md)bör du `sum(itemCount)` inte använda `count()` .
 
 ## <a name="timing-events"></a><a name="timed"></a>Tids händelser
 
@@ -919,19 +919,19 @@ Enskilda telemetri samtal kan åsidosätta standardvärdena i sina egenskaps ord
 
 *För JavaScript-webbklienter*använder du JavaScript-telemetri för att initiera.
 
-[Implementera `ITelemetryInitializer` ](../../azure-monitor/app/api-filtering-sampling.md#add-properties)om du *vill lägga till egenskaper till all telemetri*, inklusive data från standardsamlings-moduler.
+[Implementera `ITelemetryInitializer` ](./api-filtering-sampling.md#add-properties)om du *vill lägga till egenskaper till all telemetri*, inklusive data från standardsamlings-moduler.
 
 ## <a name="sampling-filtering-and-processing-telemetry"></a>Sampling, filtrering och bearbetning av telemetri
 
 Du kan skriva kod för att bearbeta din telemetri innan den skickas från SDK: n. Bearbetningen innehåller data som skickas från standardmodulerna för telemetri, till exempel insamling av HTTP-förfrågningar och beroende insamling.
 
-[Lägg till egenskaper](../../azure-monitor/app/api-filtering-sampling.md#add-properties) till telemetri genom att implementera `ITelemetryInitializer` . Du kan till exempel lägga till versions nummer eller värden som beräknas från andra egenskaper.
+[Lägg till egenskaper](./api-filtering-sampling.md#add-properties) till telemetri genom att implementera `ITelemetryInitializer` . Du kan till exempel lägga till versions nummer eller värden som beräknas från andra egenskaper.
 
-[Filtrering](../../azure-monitor/app/api-filtering-sampling.md#filtering) kan ändra eller ta bort telemetri innan det skickas från SDK: n genom att implementera `ITelemetryProcessor` . Du styr vad som skickas eller ignoreras, men du måste ta hänsyn till påverkan på dina mått. Beroende på hur du tar bort objekt kan du förlora möjligheten att navigera mellan relaterade objekt.
+[Filtrering](./api-filtering-sampling.md#filtering) kan ändra eller ta bort telemetri innan det skickas från SDK: n genom att implementera `ITelemetryProcessor` . Du styr vad som skickas eller ignoreras, men du måste ta hänsyn till påverkan på dina mått. Beroende på hur du tar bort objekt kan du förlora möjligheten att navigera mellan relaterade objekt.
 
-[Sampling](../../azure-monitor/app/api-filtering-sampling.md) är en paketerad lösning för att minska mängden data som skickas från din app till portalen. Det gör det utan att påverka de visade måtten. Och det gör det utan att påverka din möjlighet att diagnostisera problem genom att navigera mellan relaterade objekt, till exempel undantag, förfrågningar och sid visningar.
+[Sampling](./api-filtering-sampling.md) är en paketerad lösning för att minska mängden data som skickas från din app till portalen. Det gör det utan att påverka de visade måtten. Och det gör det utan att påverka din möjlighet att diagnostisera problem genom att navigera mellan relaterade objekt, till exempel undantag, förfrågningar och sid visningar.
 
-[Läs mer](../../azure-monitor/app/api-filtering-sampling.md).
+[Läs mer](./api-filtering-sampling.md).
 
 ## <a name="disabling-telemetry"></a>Inaktivera telemetri
 
@@ -951,7 +951,7 @@ TelemetryConfiguration.Active.DisableTelemetry = true;
 telemetry.getConfiguration().setTrackingDisabled(true);
 ```
 
-För att *inaktivera valda standard insamlare*– till exempel prestanda räknare, HTTP-begäranden eller beroenden – ta bort eller kommentera ut relevanta rader i [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Du kan göra detta, till exempel om du vill skicka dina egna TrackRequest-data.
+För att *inaktivera valda standard insamlare*– till exempel prestanda räknare, HTTP-begäranden eller beroenden – ta bort eller kommentera ut relevanta rader i [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Du kan göra detta, till exempel om du vill skicka dina egna TrackRequest-data.
 
 *Node.js*
 
@@ -1012,7 +1012,7 @@ telemetry.InstrumentationKey = "---my key---";
 
 ## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a>Dynamisk Instrumentation-nyckel
 
-För att undvika att kombinera telemetri från utvecklings-, test-och produktions miljöer, kan du [skapa separata Application Insights resurser](../../azure-monitor/app/create-new-resource.md ) och ändra deras nycklar, beroende på miljön.
+För att undvika att kombinera telemetri från utvecklings-, test-och produktions miljöer, kan du [skapa separata Application Insights resurser](./create-new-resource.md) och ändra deras nycklar, beroende på miljön.
 
 I stället för att hämta Instrumentation-nyckeln från konfigurations filen kan du ange den i din kod. Ange nyckeln i en initierings metod, till exempel global.aspx.cs i en ASP.NET-tjänst:
 
@@ -1062,13 +1062,13 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient har en kontext egenskap som innehåller värden som skickas tillsammans med alla telemetridata. De anges normalt av standardmodulerna för telemetri, men du kan också ställa in dem själv. Exempel:
+TelemetryClient har en kontext egenskap som innehåller värden som skickas tillsammans med alla telemetridata. De anges normalt av standardmodulerna för telemetri, men du kan också ställa in dem själv. Till exempel:
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";
 ```
 
-Om du anger något av dessa värden själv kan du ta bort den relevanta raden från [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), så att värdena och standardvärdena inte blir förvirrande.
+Om du anger något av dessa värden själv kan du ta bort den relevanta raden från [ApplicationInsights.config](./configuration-with-applicationinsights-config.md), så att värdena och standardvärdena inte blir förvirrande.
 
 * **Komponent**: appen och dess version.
 * **Enhet**: data om enheten där appen körs. (I Web Apps är detta den server eller klient enhet som telemetri skickas från.)
@@ -1082,13 +1082,13 @@ Om du anger något av dessa värden själv kan du ta bort den relevanta raden fr
 * **Session**: användarens session. ID: t har angetts till ett genererat värde, vilket ändras när användaren inte har varit aktiv under ett tag.
 * **Användare**: användar information.
 
-## <a name="limits"></a>Gränser
+## <a name="limits"></a>Begränsningar
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
-Använd [sampling](../../azure-monitor/app/sampling.md)för att undvika att använda data hastighets gränsen.
+Använd [sampling](./sampling.md)för att undvika att använda data hastighets gränsen.
 
-Se [data kvarhållning och sekretess](../../azure-monitor/app/data-retention-privacy.md)för att avgöra hur länge data lagras.
+Se [data kvarhållning och sekretess](./data-retention-privacy.md)för att avgöra hur länge data lagras.
 
 ## <a name="reference-docs"></a>Referens dokument
 
@@ -1109,12 +1109,13 @@ Se [data kvarhållning och sekretess](../../azure-monitor/app/data-retention-pri
 
 * *Vilka undantag kan Track_ ()-anropen Throw?*
 
-    Inget. Du behöver inte figursätta dem i try-catch-satser. Om SDK stöter på problem kommer den att logga meddelanden i fel söknings konsolens utdata och--om meddelandena går igenom i diagnostisk sökning.
+    Inga. Du behöver inte figursätta dem i try-catch-satser. Om SDK stöter på problem kommer den att logga meddelanden i fel söknings konsolens utdata och--om meddelandena går igenom i diagnostisk sökning.
 * *Finns det ett REST API för att hämta data från portalen?*
 
-    Ja, [API för data åtkomst](https://dev.applicationinsights.io/). Andra sätt att extrahera data är [att exportera från Analytics till Power BI](../../azure-monitor/app/export-power-bi.md ) och [löpande export](../../azure-monitor/app/export-telemetry.md).
+    Ja, [API för data åtkomst](https://dev.applicationinsights.io/). Andra sätt att extrahera data är [att exportera från Analytics till Power BI](./export-power-bi.md) och [löpande export](./export-telemetry.md).
 
 ## <a name="next-steps"></a><a name="next"></a>Nästa steg
 
-* [Sök efter händelser och loggar](../../azure-monitor/app/diagnostic-search.md)
+* [Sök efter händelser och loggar](./diagnostic-search.md)
 * [Felsökning](../faq.md)
+

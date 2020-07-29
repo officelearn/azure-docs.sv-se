@@ -8,19 +8,19 @@ ms.date: 10/28/2019
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 530ddf7af5b95cfec948270affbd13b6d61d08ff
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb96537f67c61fb31759da020068f784d0e89993
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081448"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323408"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Övervakning av användning och uppskattade kostnader i Azure Monitor
 
 > [!NOTE]
 > Den här artikeln beskriver hur du visar användning och uppskattade kostnader för flera Azure-övervakningsfunktioner. Relaterade artiklar för vissa komponenter i Azure Monitor är:
 > - [Hantera användning och kostnader med Azure Monitor loggar](manage-cost-storage.md) beskriver hur du styr dina kostnader genom att ändra din data lagrings period och hur du analyserar och varnar för din data användning.
-> - [Hantera användning och kostnader för Application Insights](../../azure-monitor/app/pricing.md) beskriver hur du analyserar data användningen i Application Insights.
+> - [Hantera användning och kostnader för Application Insights](../app/pricing.md) beskriver hur du analyserar data användningen i Application Insights.
 
 ## <a name="azure-monitor-pricing-model"></a>Azure Monitor pris modell
 
@@ -96,3 +96,4 @@ Beroende på antalet noder i serien som din organisation har köpt, kan det vara
 > [!WARNING]
 > Om din organisation har nuvarande Microsoft Operations Management Suite E1 och E2, är det oftast bäst att hålla dina Log Analytics arbets ytor i pris nivån "per nod (OMS)" per nod (OMS) och dina Application Insights resurser på pris nivån "Enterprise". 
 >
+

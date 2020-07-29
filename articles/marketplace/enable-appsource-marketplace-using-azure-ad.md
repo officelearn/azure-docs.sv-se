@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2020
-ms.openlocfilehash: eab7b556dc45d03bf440a3bc63aa6bf2d799face
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/24/2020
+ms.openlocfilehash: 4c700a61de80968b17585faf92e268fef8d86f0e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103631"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323272"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integrera din handels Marketplace-lista med Azure Active Directory
 
@@ -35,15 +35,16 @@ De olika [listorna över försäljnings platser och erbjudande typer](determine-
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
 | Virtuell dator | E.t. | Nej | Nej | Nej |
 | Azure-appar (lösnings mal len)  | E.t. | E.t. | E.t. | E.t. |
-| Hanterade appar  | E.t. | E.t. | E.t. | No |
-| SaaS  | No | Ja | Ja | Ja |
-| Containers  | E.t. | E.t. | E.t. | No |
-| Rådgivningstjänster  | No | E.t. | E.t. | E.t. |
+| Hanterade appar  | E.t. | E.t. | E.t. | Nej |
+| SaaS  | Nej | Ja | Ja | Ja |
+| Containrar  | E.t. | E.t. | E.t. | Nej |
+| Rådgivningstjänster  | Nej | E.t. | E.t. | E.t. |
 
-Mer information om tekniska krav för SaaS finns i [publicerings guiden för SaaS-program](marketplace-saas-applications-technical-publishing-guide.md).
+Mer information om tekniska krav för SaaS finns [i Azure AD och transactable SaaS-erbjudanden på den kommersiella marknaden](./azure-ad-saas.md).
 
 ## <a name="azure-ad-integration"></a>Azure AD-integrering
 
+- Mer information om hur du integrerar Azure AD för den program vara som en tjänst (SaaS) erbjuder finns i [Azure AD och transactable SaaS-erbjudanden på den kommersiella marknaden](./azure-ad-saas.md).
 - Information om hur du aktiverar enkel inloggning genom att integrera Azure AD i din lista finns [Azure Active Directory för utvecklare](../active-directory/develop/index.yml).
 - Information om enkel inloggning med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../active-directory/manage-apps/what-is-single-sign-on.md).
 

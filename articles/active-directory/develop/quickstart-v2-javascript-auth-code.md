@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: cf86e2b747975e18fc999949340207b618dd8864
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 02652243b3c25c0a02e325c8b7b1d7e7c226abcd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129805"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311950"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett Java Script SPA med auth Code Flow
 
@@ -25,7 +25,9 @@ I den här snabb starten kör du ett kod exempel som visar hur ett Java Script-p
 
 I den här snabb starten används MSAL.js 2,0 med Authorization Code Flow. En liknande snabb start som använder MSAL.js 1,0 med det implicita flödet finns i [snabb start: Logga in användare i Java Script-appar med en sida](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript).
 
-## <a name="prerequisites"></a>Förutsättningar
+[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
+
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en Azure-prenumeration kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.js](https://nodejs.org/en/download/)
@@ -112,7 +114,7 @@ I den här snabb starten används MSAL.js 2,0 med Authorization Code Flow. En li
 > - `Enter_the_Application_Id_Here`är **program-ID: t (Client)** för det program som du har registrerat.
 > - `Enter_the_Cloud_Instance_Id_Here`är instansen av Azure-molnet. För huvud-eller globala Azure-molnet anger du `https://login.microsoftonline.com/` . För **nationella** moln (till exempel Kina), se [nationella moln](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here`är inställt på något av följande:
->   - Om ditt program har stöd *för konton i den här organisations katalogen*ersätter du värdet med **klient-ID** eller **klient namn**. Till exempel `contoso.microsoft.com`.
+>   - Om ditt program har stöd *för konton i den här organisations katalogen*ersätter du värdet med **klient-ID** eller **klient namn**. Exempelvis `contoso.microsoft.com`.
 >   - Om ditt program har stöd *för konton i en organisations katalog*ersätter du värdet med `organizations` .
 >   - Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton*ersätter du värdet med `common` . **I den här snabb**starten använder du `common` .
 >   - Om du bara vill begränsa stödet till *personliga Microsoft-konton*ersätter du värdet med `consumers` .

@@ -416,6 +416,8 @@
                   href: how-to-custom-commands-add-interaction-rules.md
                 - name: Lägga till mallar för att skapa språk för talsvar
                   href: how-to-custom-commands-add-language-generation-templates.md
+                - name: Använda anpassad röst
+                  href: how-to-custom-commands-use-custom-voice.md
             - name: Integrera
               items:
                 - name: Integrera med en klientapp med hjälp av Speech SDK
@@ -452,6 +454,8 @@
               href: faq-voice-assistants.md
             - name: Speech SDK
               href: speech-sdk.md
+            - name: Anpassade kommandon för kryptering av vilande data
+              href: custom-commands-encryption-of-data-at-rest.md
     - name: Direct Line Speech
       items:
         - name: Vad är Direct Line Speech?

@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 793a4b3e8ea0dde2e4ad755cbff5a07a36c44cb9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dad4262520da1ec88c634c98aa2af2bf66bab936
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515384"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322303"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Exempel på Resource Manager-mallar för mått varnings regler i Azure Monitor
 
@@ -23,7 +23,7 @@ Den här artikeln innehåller exempel på hur du använder [Azure Resource Manag
 Se [resurser som stöds för mått aviseringar i Azure Monitor](../platform/alerts-metric-near-real-time.md) för en lista över resurser som kan användas med mått varnings regler. En förklaring av schema och egenskaper för en varnings regel finns på [mått aviseringar – skapa eller uppdatera](/rest/api/monitor/metricalerts/createorupdate).
 
 > [!NOTE]
-> Resurs mal len för att skapa mått aviseringar för resurs typen: Azure Log Analytics-arbetsyta (dvs.) `Microsoft.OperationalInsights/workspaces` kräver ytterligare steg. Mer information finns i [mått avisering för loggar – resurs mal len](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Resurs mal len för att skapa mått aviseringar för resurs typen: Azure Log Analytics-arbetsyta (dvs.) `Microsoft.OperationalInsights/workspaces` kräver ytterligare steg. Mer information finns i [mått avisering för loggar – resurs mal len](../platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 
 
@@ -3127,7 +3127,7 @@ Det här exemplet skapar en regel för dynamisk tröskelvärde som övervakar pr
 
 
 ## <a name="availability-test-with-metric-alert"></a>Tillgänglighets test med mått avisering
-Med [Application Insights tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md) kan du övervaka tillgängligheten för webbplatsen/programmet från olika platser världen över. Aviseringar om tillgänglighets test meddelar dig när tillgänglighets testen kraschar från ett visst antal platser. Tillgänglighets test aviseringar av samma resurs typ som mått varningar (Microsoft. Insights/metricAlerts). I följande exempel skapas ett enkelt tillgänglighets test och en associerad avisering.
+Med [Application Insights tillgänglighets test](../app/monitor-web-app-availability.md) kan du övervaka tillgängligheten för webbplatsen/programmet från olika platser världen över. Aviseringar om tillgänglighets test meddelar dig när tillgänglighets testen kraschar från ett visst antal platser. Tillgänglighets test aviseringar av samma resurs typ som mått varningar (Microsoft. Insights/metricAlerts). I följande exempel skapas ett enkelt tillgänglighets test och en associerad avisering.
 
 > [!NOTE]
 > `&amp`; är referensen till HTML-entiteten för &. URL-parametrar är fortfarande åtskilda av en enda &, men om du nämner URL: en i HTML måste du koda den. Så om du har några "&" i ditt pingURL-parameter värde måste du kringgå det med " `&amp` ;"
@@ -3266,3 +3266,4 @@ Med [Application Insights tillgänglighets test](../../azure-monitor/app/monitor
 - [Hämta andra exempel mallar för Azure Monitor](resource-manager-samples.md).
 - [Lär dig mer om aviseringar](../platform/alerts-overview.md).
 - [Hämta ett exempel för att skapa en åtgärds grupp med Resource Manager-mall](resource-manager-action-groups.md)
+

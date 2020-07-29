@@ -3,19 +3,19 @@ title: Utforska .NET-spårnings loggar i Application Insights
 description: Sök efter loggar som genereras av trace, NLog eller Log4Net.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: aad81855b58ee96789d097fbfbd3e7f9b17f6900
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c192ae8fad6cf463af892018fcac385b3bdcd345
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014583"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321334"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Utforska loggarna .NET/.NET Core och python i Application Insights
 
 Skicka diagnostiska spårnings loggar för ditt ASP.NET/ASP.NET Core-program från ILogger, NLog, log4Net eller system. Diagnostics. trace till [Azure Application insikter][start]. För python-program skickar du diagnostiska spårnings loggar med AzureLogHandler i openräkningar python för Azure Monitor. Du kan sedan utforska och söka i dem. Dessa loggar slås samman med de andra loggfilerna från ditt program, så att du kan identifiera spårningar som är associerade med varje Användarbegäran och korrelera dem med andra händelser och undantags rapporter.
 
 > [!NOTE]
-> Behöver du modulen för logg avbildning? Det är ett användbart kort för loggar från tredje part. Men om du inte redan använder NLog, log4Net eller system. Diagnostics. trace bör du överväga att bara anropa [**Application Insights TrackTrace ()**](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) direkt.
+> Behöver du modulen för logg avbildning? Det är ett användbart kort för loggar från tredje part. Men om du inte redan använder NLog, log4Net eller system. Diagnostics. trace bör du överväga att bara anropa [**Application Insights TrackTrace ()**](./api-custom-events-metrics.md#tracktrace) direkt.
 >
 >
 ## <a name="install-logging-on-your-app"></a>Installera loggning i din app
@@ -34,7 +34,7 @@ Installera det valda loggnings ramverket i projektet, vilket bör resultera i en
 ```
 
 ## <a name="configure-application-insights-to-collect-logs"></a>Konfigurera Application Insights för att samla in loggar
-[Lägg till Application Insights i projektet](../../azure-monitor/app/asp-net.md) om du inte har gjort det än. Du ser ett alternativ för att inkludera logg insamlaren.
+[Lägg till Application Insights i projektet](./asp-net.md) om du inte har gjort det än. Du ser ett alternativ för att inkludera logg insamlaren.
 
 Eller högerklicka på ditt projekt i Solution Explorer för att **konfigurera Application Insights**. Välj alternativet **Konfigurera spårnings samling** .
 
@@ -84,7 +84,7 @@ Om du föredrar log4net eller NLog använder du:
 ```
 
 ## <a name="use-eventsource-events"></a>Använda EventSource-händelser
-Du kan konfigurera [system. Diagnostics. tracing. EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) -händelser som ska skickas till Application Insights som spår. Installera först NuGet- `Microsoft.ApplicationInsights.EventSourceListener` paketet. Redigera sedan `TelemetryModules` avsnittet i [ApplicationInsights.configs](../../azure-monitor/app/configuration-with-applicationinsights-config.md) filen.
+Du kan konfigurera [system. Diagnostics. tracing. EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) -händelser som ska skickas till Application Insights som spår. Installera först NuGet- `Microsoft.ApplicationInsights.EventSourceListener` paketet. Redigera sedan `TelemetryModules` avsnittet i [ApplicationInsights.configs](./configuration-with-applicationinsights-config.md) filen.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -100,7 +100,7 @@ För varje källa kan du ange följande parametrar:
  * **Nyckelord** (valfritt) Ange heltal svärdet för nyckelords kombinationer som ska användas.
 
 ## <a name="use-diagnosticsource-events"></a>Använda DiagnosticSource-händelser
-Du kan konfigurera [system. Diagnostics. DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) -händelser som ska skickas till Application Insights som spår. Installera först NuGet- [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) paketet. Redigera sedan avsnittet "TelemetryModules" i [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) -filen.
+Du kan konfigurera [system. Diagnostics. DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) -händelser som ska skickas till Application Insights som spår. Installera först NuGet- [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) paketet. Redigera sedan avsnittet "TelemetryModules" i [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) -filen.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.DiagnosticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
@@ -113,7 +113,7 @@ Du kan konfigurera [system. Diagnostics. DiagnosticSource](https://github.com/do
 För varje DiagnosticSource som du vill spåra lägger du till en post med attributet **Name** angivet till namnet på din DiagnosticSource.
 
 ## <a name="use-etw-events"></a>Använda ETW-händelser
-Du kan konfigurera ETW (Event Tracing for Windows)-händelser (ETW) som ska skickas till Application Insights som spår. Installera först NuGet- `Microsoft.ApplicationInsights.EtwCollector` paketet. Redigera sedan avsnittet "TelemetryModules" i [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) -filen.
+Du kan konfigurera ETW (Event Tracing for Windows)-händelser (ETW) som ska skickas till Application Insights som spår. Installera först NuGet- `Microsoft.ApplicationInsights.EtwCollector` paketet. Redigera sedan avsnittet "TelemetryModules" i [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) -filen.
 
 > [!NOTE] 
 > ETW-händelser kan bara samlas in om processen som är värd för SDK: n körs under en identitet som är medlem i prestanda loggar användare eller administratörer.
@@ -135,7 +135,7 @@ För varje källa kan du ange följande parametrar:
 ## <a name="use-the-trace-api-directly"></a>Använda trace API direkt
 Du kan anropa API: et för Application Insights trace direkt. Loggnings korten använder detta API.
 
-Exempel:
+Till exempel:
 
 ```csharp
 var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
@@ -144,7 +144,7 @@ telemetry.TrackTrace("Slow response - database01");
 
 En fördel med TrackTrace är att du kan ställa in relativt långa data i meddelandet. Du kan till exempel koda POST-data där.
 
-Du kan också lägga till en allvarlighets grad i meddelandet. Liksom annan telemetri kan du lägga till egenskaps värden för att filtrera eller söka efter olika uppsättningar med spår. Exempel:
+Du kan också lägga till en allvarlighets grad i meddelandet. Liksom annan telemetri kan du lägga till egenskaps värden för att filtrera eller söka efter olika uppsättningar med spår. Till exempel:
 
   ```csharp
   var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
@@ -158,7 +158,7 @@ På så sätt kan du enkelt filtrera ut i [söka][diagnostic] alla meddelanden m
 ## <a name="azureloghandler-for-opencensus-python"></a>AzureLogHandler för openräkningar python
 Med Azure Monitor logg hanteraren kan du exportera python-loggar till Azure Monitor.
 
-Instrumentera ditt program med [python-SDK: n för openräkning](../../azure-monitor/app/opencensus-python.md) för Azure Monitor.
+Instrumentera ditt program med [python-SDK: n för openräkning](./opencensus-python.md) för Azure Monitor.
 
 I det här exemplet visas hur du skickar en varnings nivå logg till Azure Monitor.
 
@@ -185,14 +185,14 @@ Du kan till exempel:
 * Spara konfigurationen av en sida som en favorit.
 
 > [!NOTE]
->Om ditt program skickar mycket data och du använder Application Insights SDK för ASP.NET-version 2.0.0-beta3 eller senare, kan den *anpassningsbara samplings* funktionen hantera och bara skicka en del av din telemetri. [Läs mer om sampling.](../../azure-monitor/app/sampling.md)
+>Om ditt program skickar mycket data och du använder Application Insights SDK för ASP.NET-version 2.0.0-beta3 eller senare, kan den *anpassningsbara samplings* funktionen hantera och bara skicka en del av din telemetri. [Läs mer om sampling.](./sampling.md)
 >
 
 ## <a name="troubleshooting"></a>Felsökning
 ### <a name="how-do-i-do-this-for-java"></a>Hur gör jag för att gör du detta för Java?
 I Java codeal Instrumentation (rekommenderas) loggar samlas in direkt i rutan, använder du [java 3,0-agenten](./java-in-process-agent.md).
 
-Om du använder Java SDK använder du [Java log-nätverkskorten](../../azure-monitor/app/java-trace-logs.md).
+Om du använder Java SDK använder du [Java log-nätverkskorten](./java-trace-logs.md).
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>Det finns inget Application Insights alternativ på snabb menyn i Project
 * Se till att Developer Analytics Tools är installerat på utvecklings datorn. I Visual Studio **Tools**  >  -**tillägg och uppdateringar**kan du leta efter **Developer Analytics-verktyg**. Om den inte finns på fliken **installerad** öppnar du fliken **online** och installerar den.
@@ -210,10 +210,10 @@ Du har förmodligen installerat NuGet-paketet för loggnings kortet utan att ins
 Det kan ta en stund innan alla händelser och begär Anden kan gå igenom pipelinen.
 
 ### <a name="how-much-data-is-retained"></a><a name="limits"></a>Hur mycket data behålls?
-Flera faktorer påverkar mängden data som behålls. Mer information finns i avsnittet om [begränsningar](../../azure-monitor/app/api-custom-events-metrics.md#limits) på sidan för kundens händelse mått.
+Flera faktorer påverkar mängden data som behålls. Mer information finns i avsnittet om [begränsningar](./api-custom-events-metrics.md#limits) på sidan för kundens händelse mått.
 
 ### <a name="i-dont-see-some-log-entries-that-i-expected"></a>Jag ser inte några logg poster som jag förväntade mig
-Om ditt program skickar Voluminous data mängder och du använder Application Insights SDK för ASP.NET-version 2.0.0-beta3 eller senare, kan den anpassningsbara samplings funktionen hantera och bara skicka en del av din telemetri. [Läs mer om sampling.](../../azure-monitor/app/sampling.md)
+Om ditt program skickar Voluminous data mängder och du använder Application Insights SDK för ASP.NET-version 2.0.0-beta3 eller senare, kan den anpassningsbara samplings funktionen hantera och bara skicka en del av din telemetri. [Läs mer om sampling.](./sampling.md)
 
 ## <a name="next-steps"></a><a name="add"></a>Nästa steg
 
@@ -224,9 +224,10 @@ Om ditt program skickar Voluminous data mängder och du använder Application In
 
 <!--Link references-->
 
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
 [qna]: ../faq.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[start]: ./app-insights-overview.md
+

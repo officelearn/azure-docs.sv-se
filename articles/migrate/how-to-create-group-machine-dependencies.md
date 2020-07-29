@@ -3,12 +3,12 @@ title: Konfigurera agentbaserade beroende analyser i Azure Migrate Server utvär
 description: I den här artikeln beskrivs hur du konfigurerar en agent-baserad beroende analys i Azure Migrate Server bedömning.
 ms.topic: how-to
 ms.date: 6/09/2020
-ms.openlocfilehash: 1a656ec734ff098dd5835f653010c7f298c13b38
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 50061bead9b00ade0defba45691ea8a7c84625dd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110003"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321215"
 ---
 # <a name="set-up-dependency-visualization"></a>Konfigurera beroende visualisering
 
@@ -31,7 +31,7 @@ I den här artikeln beskrivs hur du konfigurerar en agent lös beroende analys i
     - Du kan bara koppla en arbets yta när du har konfigurerat Azure Migrate-installationen och identifierat datorer i Azure Migrate projektet.
     - Se till att du har en arbets yta i prenumerationen som innehåller det Azure Migrate projektet.
     - Arbets ytan måste ligga i regionerna östra USA, Sydostasien eller Västeuropa. Det går inte att koppla arbets ytor i andra regioner till ett projekt.
-    - Arbets ytan måste vara i en region där [tjänstkarta stöds](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).
+    - Arbets ytan måste vara i en region där [tjänstkarta stöds](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
     - Du kan associera en ny eller befintlig Log Analytics arbets yta med ett Azure Migrate-projekt.
     - Du ansluter arbets ytan första gången du ställer in beroende visualisering för en dator. Det går inte att ändra arbets ytan för ett Azure Migrate projekt när den har lagts till.
     - I Log Analytics taggas arbets ytan som är kopplad till Azure Migrate med projekt nyckeln för migreringen och projekt namnet.

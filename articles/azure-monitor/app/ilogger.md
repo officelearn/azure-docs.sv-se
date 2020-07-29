@@ -4,12 +4,12 @@ description: Exempel på användning av Azure Application Insights ILogger-provi
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 419813eba371def9eeeb43e45b51b38d1f20c607
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 171aaeb624bfedb9aa7408a736c11faca316b392
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014481"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322643"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider för .NET Core ILogger-loggar
 
@@ -218,7 +218,7 @@ Du kan fortfarande använda den gamla providern. (Den tas bara bort i en större
 ## <a name="console-application"></a>Konsol program
 
 > [!NOTE]
-> Det finns ett nytt Application Insights SDK som heter [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) som kan användas för att aktivera Application Insights (ILogger och annan Application Insights telemetri) för alla konsol program. Vi rekommenderar att du använder det här paketet och tillhör ande instruktioner [härifrån.](../../azure-monitor/app/worker-service.md)
+> Det finns ett nytt Application Insights SDK som heter [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) som kan användas för att aktivera Application Insights (ILogger och annan Application Insights telemetri) för alla konsol program. Vi rekommenderar att du använder det här paketet och tillhör ande instruktioner [härifrån.](./worker-service.md)
 
 Följande kod visar ett exempel på ett konsol program som har kon figurer ATS för att skicka ILogger-spår till Application Insights.
 
@@ -392,7 +392,7 @@ Om du får dubbel loggning när du felsöker från Visual Studio, anger `EnableD
 
 ### <a name="i-updated-to-microsoftapplicationinsightsaspnet-sdk-version-271-and-logs-from-ilogger-are-captured-automatically-how-do-i-turn-off-this-feature-completely"></a>Jag har uppdaterat till [Microsoft. ApplicationInsights. ASPNET SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.1 och loggar från ILogger samlas in automatiskt. Vill du Hur gör jag för att inaktivera funktionen helt?
 
-Se avsnittet [kontrol lera loggnings nivå](../../azure-monitor/app/ilogger.md#control-logging-level) för att se hur du filtrerar loggar i allmänhet. Om du vill inaktivera ApplicationInsightsLoggerProvider använder du `LogLevel.None` :
+Se avsnittet [kontrol lera loggnings nivå](#control-logging-level) för att se hur du filtrerar loggar i allmänhet. Om du vill inaktivera ApplicationInsightsLoggerProvider använder du `LogLevel.None` :
 
 **I kod:**
 
@@ -499,4 +499,5 @@ Den här koden krävs bara när du använder en fristående Logging-Provider. Vi
 Läs mer om:
 
 * [Logga in ASP.NET Core](/aspnet/core/fundamentals/logging)
-* [.NET-spårnings loggar i Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
+* [.NET-spårnings loggar i Application Insights](./asp-net-trace-logs.md)
+

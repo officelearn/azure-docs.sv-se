@@ -7,21 +7,21 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 7/9/2020
 ms.subservice: alerts
-ms.openlocfilehash: 043ecc07c521f9c1c79835bcd67ff1d81cacfa34
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3b0215ea2f02441f93e6eb9b672744638ae93b11
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539473"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321147"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en måttvarning med en Resource Manager-mall
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Den här artikeln visar hur du kan använda en [Azure Resource Manager mall](../../azure-resource-manager/templates/template-syntax.md) för att konfigurera [nya mått varningar](../../azure-monitor/platform/alerts-metric-near-real-time.md) i Azure Monitor. Med Resource Manager-mallar kan du konfigurera aviseringar via programmering på ett konsekvent och reproducerbart sätt i alla miljöer. Nya mått aviseringar är för närvarande tillgängliga i [den här uppsättningen resurs typer](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+Den här artikeln visar hur du kan använda en [Azure Resource Manager mall](../../azure-resource-manager/templates/template-syntax.md) för att konfigurera [nya mått varningar](./alerts-metric-near-real-time.md) i Azure Monitor. Med Resource Manager-mallar kan du konfigurera aviseringar via programmering på ett konsekvent och reproducerbart sätt i alla miljöer. Nya mått aviseringar är för närvarande tillgängliga i [den här uppsättningen resurs typer](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> Resurs mal len för att skapa mått aviseringar för resurs typen: Azure Log Analytics-arbetsyta (dvs.) `Microsoft.OperationalInsights/workspaces` kräver ytterligare steg. Mer information finns i artikeln om [mått avisering för loggar-resurs mal len](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Resurs mal len för att skapa mått aviseringar för resurs typen: Azure Log Analytics-arbetsyta (dvs.) `Microsoft.OperationalInsights/workspaces` kräver ytterligare steg. Mer information finns i artikeln om [mått avisering för loggar-resurs mal len](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 De grundläggande stegen är följande:
 
@@ -3464,7 +3464,7 @@ az group deployment create \
 
 ## <a name="template-for-an-availability-test-along-with-a-metric-alert"></a>Mall för ett tillgänglighets test tillsammans med en mått avisering
 
-Med [Application Insights tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md) kan du övervaka tillgängligheten för webbplatsen/programmet från olika platser världen över. Aviseringar om tillgänglighets test meddelar dig när tillgänglighets testen kraschar från ett visst antal platser.
+Med [Application Insights tillgänglighets test](../app/monitor-web-app-availability.md) kan du övervaka tillgängligheten för webbplatsen/programmet från olika platser världen över. Aviseringar om tillgänglighets test meddelar dig när tillgänglighets testen kraschar från ett visst antal platser.
 Tillgänglighets test aviseringar av samma resurs typ som mått varningar (Microsoft. Insights/metricAlerts). Följande exempel på Azure Resource Manager mall kan användas för att konfigurera ett enkelt tillgänglighets test och en associerad avisering.
 
 Spara JSON-filen nedan som availabilityalert.jsi för den här genom gången.
@@ -3628,3 +3628,4 @@ az group deployment create \
 - Läs mer om [aviseringar i Azure](alerts-overview.md)
 - Lär dig hur du [skapar en åtgärds grupp med Resource Manager-mallar](action-groups-create-resource-manager-template.md)
 - För JSON-syntax och egenskaper, se referens för [Microsoft. Insights/metricAlerts-](/azure/templates/microsoft.insights/metricalerts) mallen.
+

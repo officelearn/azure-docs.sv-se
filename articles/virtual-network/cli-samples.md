@@ -1,6 +1,6 @@
 ---
 title: Azure CLI-exempel för virtuellt nätverk
-description: Azure CLI-exempel för virtuellt nätverk.
+description: Lär dig mer om olika exempel skript som du kan använda för att slutföra uppgifter i Azure CLI, inklusive hur du skapar ett virtuellt nätverk för program på flera nivåer.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 03041f7c0172312828487d934ab540972dc5e2c9
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 6f8d0bf40ac1a9c54796964b186f8871de58f201
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232108"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291960"
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>Azure CLI-exempel för virtuellt nätverk
 

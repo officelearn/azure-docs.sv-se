@@ -5,17 +5,18 @@ author: normesta
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: b1134f5538663f5b04e77270fee1a715b32a4f3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 061c7f6a45b8667b7fd03d62bee67c695bec5e68
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83675918"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276796"
 ---
-# <a name="azure-storage-analytics-logging"></a>Analysloggning i Azure Storage
+# <a name="azure-storage-analytics-logging"></a>Azure Storage Analytics-loggning
 
 Lagringsanalys loggar detaljerad information om lyckade och misslyckade begäranden till en lagringstjänst. Den här informationen kan användas för att övervaka enskilda begäranden och för att diagnostisera problem med en lagringstjänst. Begär Anden loggas med bästa möjliga ansträngning.
 
@@ -63,7 +64,7 @@ Om du har en stor mängd loggdata med flera filer per timme kan du använda BLOB
 Med de flesta verktyg för lagrings surfning kan du visa metadata för blobbar. Du kan också läsa informationen med hjälp av PowerShell eller program mässigt. Följande PowerShell-kodfragment är ett exempel på hur du filtrerar listan över logg-blobar efter namn för att ange en tid, och efter metadata för att identifiera enbart de loggar som innehåller **Skriv** åtgärder.  
 
  ```powershell
- Get-AzureStorageBlob -Container '$logs' |  
+ Get-AzStorageBlob -Container '$logs' |  
  Where-Object {  
      $_.Name -match 'table/2014/05/21/05' -and   
      $_.ICloudBlob.Metadata.LogType -match 'write'  
@@ -89,12 +90,12 @@ Information om hur du registrerar blobbar program mässigt finns i [räkna upp B
 |Attribut|Beskrivning|
 |---------------|-----------------|
 |`<service-name>`|Namnet på lagrings tjänsten. Till exempel: `blob` , `table` eller`queue`|
-|`YYYY`|Årtalet med fyra siffror för loggen. Exempel: `2011`|
-|`MM`|Den två siffrorna i månaden för loggen. Exempel: `07`|
-|`DD`|Den två siffriga dagen för loggen. Exempel: `31`|
-|`hh`|Den två siffriga timmen som anger start timmen för loggarna, i UTC-format i 24 timmar. Exempel: `18`|
+|`YYYY`|Årtalet med fyra siffror för loggen. Exempelvis: `2011`|
+|`MM`|Den två siffrorna i månaden för loggen. Exempelvis: `07`|
+|`DD`|Den två siffriga dagen för loggen. Exempelvis: `31`|
+|`hh`|Den två siffriga timmen som anger start timmen för loggarna, i UTC-format i 24 timmar. Exempelvis: `18`|
 |`mm`|Det två siffer numret som anger start minuten för loggarna. **Obs:**  Värdet stöds inte i den aktuella versionen av Lagringsanalys och värdet är alltid `00` .|
-|`<counter>`|En noll-baserad räknare med sex siffror som anger antalet logg-blobar som har genererats för lagrings tjänsten under en tids period. Räknaren startar vid `000000` . Exempel: `000001`|
+|`<counter>`|En noll-baserad räknare med sex siffror som anger antalet logg-blobar som har genererats för lagrings tjänsten under en tids period. Räknaren startar vid `000000` . Exempelvis: `000001`|
 
  Följande är ett fullständigt exempel på logg namn som kombinerar exemplen ovan:
 
@@ -113,8 +114,8 @@ Information om hur du registrerar blobbar program mässigt finns i [räkna upp B
 |Attribut|Beskrivning|
 |---------------|-----------------|
 |`LogType`|Beskriver om loggen innehåller information som rör Läs-, Skriv-eller borttagnings åtgärder. Det här värdet kan innehålla en typ eller en kombination av alla tre, avgränsade med kommatecken.<br /><br /> Exempel 1:`write`<br /><br /> Exempel 2:`read,write`<br /><br /> Exempel 3:`read,write,delete`|
-|`StartTime`|Den tidigaste tiden för en post i loggen i form av `YYYY-MM-DDThh:mm:ssZ` . Exempel: `2011-07-31T18:21:46Z`|
-|`EndTime`|Den senaste tiden för en post i loggen i form av `YYYY-MM-DDThh:mm:ssZ` . Exempel: `2011-07-31T18:22:09Z`|
+|`StartTime`|Den tidigaste tiden för en post i loggen i form av `YYYY-MM-DDThh:mm:ssZ` . Exempelvis: `2011-07-31T18:21:46Z`|
+|`EndTime`|Den senaste tiden för en post i loggen i form av `YYYY-MM-DDThh:mm:ssZ` . Exempelvis: `2011-07-31T18:22:09Z`|
 |`LogVersion`|Versionen av logg formatet.|
 
  I följande lista visas kompletta exempel-metadata med hjälp av ovanstående exempel:
@@ -136,20 +137,20 @@ Du kan ange de lagrings tjänster som du vill logga och kvarhållningsperioden (
 
 ### <a name="enable-storage-logging-using-powershell"></a>Aktivera lagrings loggning med PowerShell  
 
- Du kan använda PowerShell på din lokala dator för att konfigurera lagrings loggning i ditt lagrings konto med hjälp av Azure PowerShell cmdlet **Get-AzureStorageServiceLoggingProperty** för att hämta de aktuella inställningarna och cmdleten **set-AzureStorageServiceLoggingProperty** för att ändra de aktuella inställningarna.  
+ Du kan använda PowerShell på din lokala dator för att konfigurera lagrings loggning i ditt lagrings konto med hjälp av Azure PowerShell cmdlet **Get-AzStorageServiceLoggingProperty** för att hämta de aktuella inställningarna och cmdleten **set-AzStorageServiceLoggingProperty** för att ändra de aktuella inställningarna.  
 
  De cmdletar som styr lagrings loggningen använder en **LoggingOperations** -parameter som är en sträng som innehåller en kommaavgränsad lista över begär ande typer som ska loggas. De tre möjliga typerna av begäran är **läsa**, **skriva**och **ta bort**. Om du vill stänga av loggning använder du värdet **none** för parametern **LoggingOperations** .  
 
  Följande kommando växlar vid loggning för läsnings-, skriv-och borttagnings begär anden i Kötjänst i ditt standard lagrings konto med kvarhållning inställt på fem dagar:  
 
 ```powershell
-Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
+Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
 ```  
 
  Följande kommando stänger av loggningen av tabell tjänsten på ditt standard lagrings konto:  
 
 ```powershell
-Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
+Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
  Information om hur du konfigurerar Azure PowerShell-cmdletar så att de fungerar med din Azure-prenumeration och hur du väljer det standard lagrings konto som ska användas finns i: [så här installerar och konfigurerar du Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  

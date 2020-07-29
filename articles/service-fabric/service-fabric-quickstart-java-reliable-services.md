@@ -5,13 +5,13 @@ author: suhuruli
 ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: suhuruli
-ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 833b8fff65de7e7fdfc36565e91d18a1644723d1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: ebed4ecd499702bae02a2b1891df15186c60b5b8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254324"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320433"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Snabb start: Distribuera en Java-app till Azure Service Fabric på Linux
 
@@ -34,7 +34,7 @@ Kör följande kommando i ett kommandofönster för att klona databasen för exe
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ```
 
-## <a name="run-the-application-locally"></a>Kör programmet lokalt
+## <a name="run-the-application-locally"></a>Köra appen lokalt
 
 1. Starta ditt lokala kluster genom att köra följande kommando:
 
@@ -68,11 +68,11 @@ Du kan nu lägga till en uppsättning röstningsalternativ och börja ta emot r�
 
 Tjänsterna kan enkelt skalas över ett kluster när belastningen på tjänsterna ändras. Du kan skala en tjänst genom att ändra antalet instanser som körs i klustret. Det finns många sätt att skala dina tjänster på. Du kan till exempel använda skript eller kommandon från Service Fabric CLI ( `sfctl` ). I följande steg använder du Service Fabric Explorer.
 
-Service Fabric Explorer körs i alla Service Fabric-kluster och kan nås från en webbläsare genom att bläddra till klustrets HTTP-hanterings port (19080). Ett exempel är `http://localhost:19080`.
+Service Fabric Explorer körs i alla Service Fabric-kluster och kan nås från en webbläsare genom att bläddra till klustrets HTTP-hanterings port (19080). Exempelvis `http://localhost:19080`.
 
 Så här skalar du webbklienttjänsten:
 
-1. Öppna Service Fabric Explorer i klustret. Ett exempel är `https://localhost:19080`.
+1. Öppna Service Fabric Explorer i klustret. Exempelvis `https://localhost:19080`.
 2. Välj ellipsen (**...**) bredvid noden **Fabric:/röstning/VotingWeb** i trädvyn och välj **Scale service (skala tjänst**).
 
     ![Skala en tjänst i Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-scale-service.png)

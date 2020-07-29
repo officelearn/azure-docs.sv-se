@@ -5,13 +5,13 @@ author: suhuruli
 ms.topic: tutorial
 ms.date: 09/01/2018
 ms.author: suhuruli
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: cf1ede2db8dbdc7557775cf7b22dde53b69280da
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: 0e1723854d18172f28a43aacb86ab9c29656cf0d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81314242"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322252"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Självstudie: skapa ett program med en Java API-frontend-tjänst och en tillstånds känslig Server dels tjänst på Azure Service Fabric
 
@@ -40,7 +40,7 @@ I del ett i den här serien lärde du dig att:
 
 Innan du börjar den här självstudien:
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Konfigurera din utvecklingsmiljö för [Mac](service-fabric-get-started-mac.md) eller [Linux](service-fabric-get-started-linux.md). Följ anvisningarna för att installera plugin-programmet Eclipse, Gradle, Service Fabric-SDK och Service Fabric CLI (sfctl).
 
 ## <a name="create-the-front-end-java-stateless-service"></a>Skapa en tillståndslös Java-tjänst för klientdelen
@@ -49,7 +49,7 @@ Skapa först webbklientdelen för röstningsprogrammet. Ett webbgränssnitt som 
 
 1. Öppna Eclipse.
 
-2. Skapa ett projekt med **File** > **ny** > **Other** > fil**Service Fabric** > **Service Fabric projekt**.
+2. Skapa ett projekt med **File**  >  **ny**fil  >  **Other**  >  **Service Fabric**  >  **Service Fabric projekt**.
 
     ![Nytt Service Fabric projekt i Sol förmörkelse](./media/service-fabric-tutorial-create-java-app/service-fabric-project-wizard.png)
 
@@ -82,7 +82,7 @@ För att lägga till ett gränssnitt som kan renderas av den tillståndslösa tj
 
 1. Expandera katalogen *VotingApplication* för att gå till katalogen *VotingApplication/VotingWebPkg/Code*.
 
-2. Högerklicka på *kod* katalogen och välj **ny** > **mapp**.
+2. Högerklicka på *kod* katalogen och välj **ny**  >  **mapp**.
 
 3. Ge mappen namnet *wwwroot* och välj **Slutför**.
 
@@ -219,7 +219,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 ### <a name="add-the-httpcommunicationlistenerjava-file"></a>Lägg till filen HTTPCommunicationListener.java
 
-HTTP-kommunikationslyssnaren fungerar som en kontrollant som konfigurerar HTTP-servern och gör de API:er som definierar röstningsåtgärder tillgängliga. Högerklicka på *statelessservice* -paketet i mappen *VotingWeb/src/statelessservice* och välj sedan **ny** > **fil**.  Ge filen namnet *HttpCommunicationListener. java* och välj **Slutför**.
+HTTP-kommunikationslyssnaren fungerar som en kontrollant som konfigurerar HTTP-servern och gör de API:er som definierar röstningsåtgärder tillgängliga. Högerklicka på *statelessservice* -paketet i mappen *VotingWeb/src/statelessservice* och välj sedan **ny**  >  **fil**.  Ge filen namnet *HttpCommunicationListener. java* och välj **Slutför**.
 
 Byt ut filens innehåll mot följande och spara sedan ändringarna.  Längre fram ändras den här filen till att rendera, läsa och skriva röstningsdata från serverdelstjänsten i Uppdatera filen HttpCommunicationListener.java.  För närvarande returnerar lyssnaren endast statisk HTML för röstningsappen.
 
@@ -399,7 +399,7 @@ Nu när stommen i Java Web API-tjänsten har slutförts, ska vi fortsätta med a
 
 I Service Fabric kan du konsekvent och tillförlitligt lagra dina data direkt i tjänsten med hjälp av tillförlitliga samlingar. Tillförlitliga samlingar är en uppsättning samlingsklasser för hög tillgänglighet och tillförlitlighet. Användningen av dessa klasser är välkänd för alla som har använt Java-samlingar.
 
-1. I Package Explorer högerklickar du på **röstning** i programprojektet och väljer **Service Fabric** > **Lägg till Service Fabric tjänst**.
+1. I Package Explorer högerklickar du på **röstning** i programprojektet och väljer **Service Fabric**  >  **Lägg till Service Fabric tjänst**.
 
 2. I dialog rutan **Lägg till tjänst** väljer du **tillstånds känslig tjänst** och namnger tjänsten **VotingDataService** och väljer **Lägg till tjänst**.
 
@@ -546,7 +546,7 @@ Stommen för den tillståndslösa tjänsten i klientdelen och serverdelstjänste
 
  Nästa steg är att ansluta den tillståndslösa tjänsten i klientdelen och serverdelstjänsten. Både tjänsterna använder ett gränssnitt som kallas VotingRPC, som definierar åtgärder för röstningsprogrammet. Det här gränssnittet implementeras av både klientdels- och serverdelstjänsterna för att aktivera RPC (Remote Procedure Calls) mellan de två tjänsterna. Tyvärr har Eclipse inte stöd för tillägg av Gradle-delprojekt, så det paket som innehåller gränssnittet måste läggas till manuellt.
 
-1. Högerklicka på **röstnings** projektet i Package Explorer och välj **ny** > **mapp**. Ge mappen namnet **VotingRPC/src/rpcmethods**.
+1. Högerklicka på **röstnings** projektet i Package Explorer och välj **ny**  >  **mapp**. Ge mappen namnet **VotingRPC/src/rpcmethods**.
 
     ![Skapa VotingRPC-paket i paket Utforskaren för Sol förmörkelse](./media/service-fabric-tutorial-create-java-app/create-voting-rpc-package-java.png)
 
@@ -882,7 +882,7 @@ I det här avsnittet konfigureras Gradle-skripten för projektet.
 
 Programmet är nu redo att distribueras till ett lokalt Service Fabric-kluster.
 
-1. Högerklicka på **röstnings** projektet i Package Explorer och välj **Service Fabric** > **build-program** för att bygga ditt program.
+1. Högerklicka på **röstnings** projektet i Package Explorer och välj **Service Fabric**  >  **build-program** för att bygga ditt program.
 
 2. Kör det lokala Service Fabric-klustret. Det här steget beror på vilken utvecklingsmiljö du har (Mac eller Linux).
 
@@ -900,9 +900,9 @@ Programmet är nu redo att distribueras till ett lokalt Service Fabric-kluster.
     ```
     Mer detaljerad information finns i [installationsguiden för Linux.](service-fabric-get-started-linux.md)
 
-4. I paket Utforskaren för Sol förmörkelse högerklickar du på **röstnings** projektet och väljer **Service Fabric** > **Publicera program** 
-5. I fönstret **Publicera program** väljer du **lokal. JSON** i list rutan och väljer **publicera**.
-6. Gå till webbläsaren och få åtkomst till http:\//localhost: 8080 för att visa det program som körs på det lokala Service Fabric klustret. 
+4. I paket Utforskaren för Sol förmörkelse högerklickar du på **röstnings** projektet och väljer **Service Fabric**  >  **Publicera program** 
+5. I fönstret **Publicera program** väljer du **Local.jsi** List rutan och väljer **publicera**.
+6. Gå till webbläsaren och få åtkomst till http: \/ /localhost: 8080 för att visa det program som körs på det lokala Service Fabric klustret. 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: d90f38f83bd4d2d5311f277fcc928e442d7ea793
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4680d989cc1befe50955af408aec79a14031481e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416381"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321249"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Ta bort i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -28,7 +28,7 @@ Du kan använda borttagnings aktiviteten i Azure Data Factory om du vill ta bort
 > [!WARNING]
 > Borttagna filer eller mappar kan inte återställas (om inte lagringen har mjuk borttagning aktive rad). Var försiktig när du använder aktiviteten Ta bort till att ta bort filer och mappar.
 
-## <a name="best-practices"></a>Metodtips
+## <a name="best-practices"></a>Bästa praxis
 
 Här följer några rekommendationer för att använda borttagnings aktiviteten:
 
@@ -46,10 +46,7 @@ Här följer några rekommendationer för att använda borttagnings aktiviteten:
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
 -   [Azure File Storage](connector-azure-file-storage.md)
-
-### <a name="file-system-data-stores"></a>Fil system data lager
-
--   [Fil system](connector-file-system.md)
+-   [Filsystem](connector-file-system.md)
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
 -   [Amazon S3](connector-amazon-simple-storage-service.md)
@@ -82,7 +79,7 @@ Här följer några rekommendationer för att använda borttagnings aktiviteten:
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | data uppsättning | Tillhandahåller data uppsättnings referensen för att avgöra vilka filer eller mappar som ska tas bort | Ja |
 | rekursiva | Anger om filerna tas bort rekursivt från undermapparna eller bara från den angivna mappen.  | Nej. Standardvärdet är `false`. |
@@ -118,7 +115,7 @@ Det finns två platser där du kan se och övervaka resultaten av aktiviteten Ta
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Exempel logg fil för borttagnings aktiviteten
 
-| Name | Kategori | Status | Fel |
+| Namn | Kategori | Status | Fel |
 |:--- |:--- |:--- |:--- |
 | TEST1/yyy.jspå | Fil | Borttagen |  |
 | TEST2/hello789.txt | Fil | Borttagen |  |

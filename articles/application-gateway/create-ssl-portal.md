@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 04/22/2019
+ms.date: 07/24/2020
 ms.author: victorh
-ms.openlocfilehash: 62f5375a0d468f5b137c4628c89c802d83dee102
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: baadd52a931a28e1502fe0da2286d541db9face4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82024501"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290136"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Självstudie: Konfigurera en Programgateway med TLS-avslutning med hjälp av Azure Portal
 
@@ -26,7 +26,7 @@ I den här guiden får du lära dig att:
 > * Skapa de virtuella datorer som används som backend-servrar
 > * Testa programgatewayen
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -158,7 +158,7 @@ På fliken **konfiguration** ansluter du klient dels-och backend-poolen som du s
 
 5. För **http-inställningen**väljer du **Skapa ny** för att skapa en ny http-inställning. HTTP-inställningen avgör hur routningsregler fungerar. I fönstret **Lägg till en HTTP-inställning** som öppnas anger du *myHTTPSetting* som **namn på http-inställningen**. Acceptera standardvärdena för de andra inställningarna i fönstret **Lägg till en HTTP-inställning** och välj sedan **Lägg till** för att återgå till fönstret **Lägg till regel för routning** . 
 
-   ![Skapa ny Application Gateway: HTTP-inställning](./media/create-ssl-portal/application-gateway-create-httpsetting.png)
+   :::image type="content" source="./media/create-ssl-portal/application-gateway-create-httpsetting.png" alt-text="Skapa ny Application Gateway: HTTP-inställning":::
 
 6. I fönstret **Lägg till regel för routning** väljer du **Lägg till** för att spara regeln för Routning och återgå till fliken **konfiguration** .
 
@@ -200,7 +200,7 @@ Det gör du genom att:
    Application Gateway kan kommunicera med instanser utanför det virtuella nätverk som det finns i, men du måste se till att det finns en IP-anslutning.
 1. På fliken **Hantering** anger du **Startdiagnostik** till **Av**. Acceptera de övriga standardinställningarna och välj sedan **Granska + skapa**.
 2. Gå igenom inställningarna på fliken **Granska + skapa** och åtgärda eventuella verifieringsfel och välj sedan **Skapa**.
-3. Vänta tills distributionen har slutförts innan du fortsätter.
+3. Vänta tills distributionen är klar innan du fortsätter.
 
 ### <a name="install-iis-for-testing"></a>Installera IIS för testning
 
@@ -250,7 +250,7 @@ I det här exemplet installerar du bara IIS på de virtuella datorerna för att 
 
     ![Registrera programgatewayens offentliga IP-adress](./media/create-ssl-portal/application-gateway-ag-address.png)
 
-2. Skriv *https://\<din Application Gateway-IP-adress\>* i webbläsarens Adress fält.
+2. Skriv *https:// \<your application gateway ip address\> *i adress fältet i webbläsaren.
 
    Om du vill acceptera säkerhets varningen om du använde ett självsignerat certifikat väljer du **information** (eller **Avancerat** på krom) och går sedan till webb sidan:
 

@@ -8,11 +8,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: 31a5d55d1067b9dd946c1667118d0bde5ee3d59e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+ms.openlocfilehash: b9d8f0c2a573ba1749b414a389cd7181ddd5f95a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81682501"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321691"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Använd Azure IoT-verktyg för Visual Studio Code för att skicka och ta emot meddelanden mellan enheten och IoT Hub
 
@@ -32,13 +35,13 @@ Du lär dig hur du använder Azure IoT-verktyg för Visual Studio Code för att 
 
 * Använd Azure IoT-verktyg för Visual Studio Code för att skicka meddelanden från molnet till enheten.
 
-## <a name="what-you-need"></a>Vad du behöver
+## <a name="what-you-need"></a>Detta behöver du
 
 * En aktiv Azure-prenumeration.
 
 * En Azure IoT-hubb under din prenumeration.
 
-* [Visuell Studio-kod](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 
 * [Azure IoT-verktyg för vs Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) eller kopiera och klistra in denna URL i ett webbläsarfönster:`vscode:extension/vsciot-vscode.azure-iot-tools`
 

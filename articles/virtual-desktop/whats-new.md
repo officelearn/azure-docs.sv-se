@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
-ms.openlocfilehash: 7052e9203532320a7de5197e983d40cb0a34b50d
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 9be1053600ab89a7879a04a7c08a44ddf3bc862a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374788"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291246"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Vad är nytt i det virtuella Windows-skrivbordet?
 
@@ -29,7 +29,7 @@ Den här artikeln uppdateras varje månad. Se till att kontrol lera igen ofta f�
 
 ## <a name="june-2020"></a>Juni 2020
 
-Förra månaden introducerade vi Windows Virtual Desktop våren 2020 Update i för hands versionen. Den här uppdateringen innehåller många spännande nya funktioner som vi älskar att berätta om. Här är what's nya för våren 2020-uppdateringen.
+Förra månaden introducerade vi Windows Virtual Desktop med Azure Resource Manager-integrering i för hands versionen. Den här uppdateringen innehåller många spännande nya funktioner som vi älskar att berätta om. Här är what's nya för den här versionen av det virtuella Windows-skrivbordet.
 
 ### <a name="windows-virtual-desktop-is-now-integrated-with-azure-resource-manager-preview"></a>Windows Virtual Desktop är nu integrerat med Azure Resource Manager (för hands version)
 
@@ -39,22 +39,22 @@ Den här ändringen gör du:
 
 - Det virtuella Windows-skrivbordet är nu integrerat med Azure Portal. Det innebär att du kan hantera allt direkt i portalen, inga PowerShell-, webbappar eller verktyg från tredje part krävs. Kom igång genom att titta på vår självstudie i [skapa en adresspool med Azure Portal](create-host-pools-azure-marketplace.md).
 
-- Innan våren 2020-uppdateringen kan du bara publicera RemoteApp-och skriv bord till enskilda användare. Med Azure Resource Manager kan du nu publicera resurser i Azure Active Directory grupper.
+- Innan den här uppdateringen kan du bara publicera RemoteApp-och skriv bord till enskilda användare. Med Azure Resource Manager kan du nu publicera resurser i Azure Active Directory grupper.
 
 - Den tidigare versionen av Windows Virtual Desktop hade fyra inbyggda administratörs roller som du kan tilldela till en klient eller adresspool. Dessa roller finns nu i [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md)i Azure. Du kan tillämpa dessa roller på alla virtuella Windows-datorer Azure Resource Manager objekt, vilket gör att du kan ha en fullständig, omfattande Delegerings modell.
 
-- I våren 2020-uppdateringen behöver du inte längre köra Azure Marketplace eller GitHub-mallen upprepade gånger för att expandera en adresspool. Allt du behöver för att expandera en adresspool är att gå till din värd-pool i Azure Portal och välja **+ Lägg** till för att distribuera ytterligare värdar för sessioner.
+- I den här uppdateringen behöver du inte längre köra Azure Marketplace eller GitHub-mallen upprepade gånger för att expandera en adresspool. Allt du behöver för att expandera en adresspool är att gå till din värd-pool i Azure Portal och välja **+ Lägg** till för att distribuera ytterligare värdar för sessioner.
 
 - Distribution av värd bassäng är nu fullständigt integrerat med [galleriet för Azures delade avbildningar](../virtual-machines/windows/shared-image-galleries.md). Delade avbildnings galleriet är en separat Azure-tjänst som lagrar definitioner av virtuella dator avbildningar, inklusive avbildnings versioner. Du kan också använda global replikering för att kopiera och skicka dina avbildningar till andra Azure-regioner för lokal distribution.
 
 - Övervakning av funktioner som används för att utföras via PowerShell eller diagnostik-webbappen har nu flyttats till Log Analytics i Azure Portal. Nu har du två alternativ för att visualisera dina rapporter. Du kan köra Kusto-frågor och använda arbets böcker för att skapa visuella rapporter.
 
-- Du behöver inte längre slutföra Azure Active Directory (Azure AD) medgivande för att använda Windows Virtual Desktop. I våren 2020-uppdateringen autentiserar Azure AD-klienten på din Azure-prenumeration användarna och tillhandahåller RBAC-kontroller för dina administratörer.
+- Du behöver inte längre slutföra Azure Active Directory (Azure AD) medgivande för att använda Windows Virtual Desktop. I den här uppdateringen autentiserar Azure AD-klienten på din Azure-prenumeration användarna och tillhandahåller RBAC-kontroller för dina administratörer.
 
 
 ### <a name="powershell-support"></a>Stöd för PowerShell
 
-Vi har lagt till nya AzWvd-cmdletar i modulen Azure PowerShell AZ med våren 2020-uppdateringen. Den här nya modulen stöds i PowerShell Core, som körs på .NET Core.
+Vi har lagt till nya AzWvd-cmdletar i modulen Azure PowerShell AZ med den här uppdateringen. Den här nya modulen stöds i PowerShell Core, som körs på .NET Core.
 
 Installera modulen genom att följa anvisningarna i [Konfigurera PowerShell-modulen för Windows Virtual Desktop](powershell-module.md).
 

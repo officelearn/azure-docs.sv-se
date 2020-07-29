@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: abd802f19917b048f6d006b8e3097b08efaf22e2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0e83d53122b3f80d73a573f0eff8c13888cbee11
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510488"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325210"
 ---
 # <a name="azure-disk-encryption-for-linux-vms-troubleshooting-guide"></a>Azure Disk Encryption för fel söknings guide för Linux-VM: ar
 
@@ -70,30 +70,54 @@ I vissa fall verkar Linux-diskkryptering vara fastnat vid "OS disk Encryption st
 
 Disk krypterings ordningen i Linux OS demonterar tillfälligt operativ system enheten. Den utför sedan block-för-block-kryptering av hela OS-disken innan den monteras på nytt i krypterat tillstånd. Linux Disk Encryption tillåter inte samtidig användning av den virtuella datorn medan krypteringen pågår. Prestanda egenskaperna för den virtuella datorn kan göra en betydande skillnad i den tid som krävs för att slutföra krypteringen. Dessa egenskaper inkluderar disk storleken och om lagrings kontot är standard-eller Premium-lagring (SSD).
 
-Om du vill kontrol lera krypterings statusen avsöker du fältet **ProgressMessage** som returnerades från kommandot [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) . Medan operativ system enheten krypteras, övergår den virtuella datorn till ett underhålls tillstånd och inaktiverar SSH för att förhindra eventuella avbrott i den pågående processen. **EncryptionInProgress** -meddelande rapporter för majoriteten av tiden medan kryptering pågår. Flera timmar senare visas ett **VMRestartPending** -meddelande där du ombeds att starta om den virtuella datorn. Till exempel:
-
+Medan operativ system enheten krypteras, övergår den virtuella datorn till ett underhålls tillstånd och inaktiverar SSH för att förhindra eventuella avbrott i den pågående processen.  Kontrol lera krypterings statusen med kommandot Azure PowerShell [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) och kontrol lera fältet **ProgressMessage** . **ProgressMessage** kommer att rapportera en serie med status som data och OS-diskar är krypterade:
 
 ```azurepowershell
-PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "VirtualMachineName"
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
+
+OsVolumeEncrypted          : EncryptionInProgress
+DataVolumesEncrypted       : EncryptionInProgress
+OsVolumeEncryptionSettings :
+ProgressMessage            : Transitioning
+
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
+
+OsVolumeEncrypted          : EncryptionInProgress
+DataVolumesEncrypted       : EncryptionInProgress
+OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
+ProgressMessage            : Encryption succeeded for data volumes
+
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
+
+OsVolumeEncrypted          : EncryptionInProgress
+DataVolumesEncrypted       : EncryptionInProgress
+OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
+ProgressMessage            : Provisioning succeeded
+
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
+
 OsVolumeEncrypted          : EncryptionInProgress
 DataVolumesEncrypted       : EncryptionInProgress
 OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
 ProgressMessage            : OS disk encryption started
-
-PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "VirtualMachineName"
-OsVolumeEncrypted          : VMRestartPending
-DataVolumesEncrypted       : Encrypted
-OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
-ProgressMessage            : OS disk successfully encrypted, please reboot the VM
 ```
 
-När du uppmanas att starta om den virtuella datorn och när den virtuella datorn har startats om, måste du vänta 2-3 minuter för omstart och för att de sista stegen ska utföras på målet. Status meddelandet ändras när krypteringen slutligen slutförs. När det här meddelandet är tillgängligt förväntas den krypterade OS-enheten vara klar för användning och den virtuella datorn är redo att användas igen.
+**ProgressMessage** kommer fortfarande att finnas kvar i **operativ systemets disk kryptering som har startats** för de flesta krypterings processen.  När krypteringen är klar och slutförd kommer **ProgressMessage** att returnera:
 
-I följande fall rekommenderar vi att du återställer den virtuella datorn till en ögonblicks bild eller säkerhets kopia som gjorts omedelbart före krypteringen:
-   - Om sekvensen för omstart, som beskrivs ovan, inte inträffar.
-   - Om start information, förlopps meddelandet eller andra fel indikatorer rapporterar att operativ system krypteringen har misslyckats i mitten av den här processen. Ett exempel på ett meddelande är fel meddelandet "Det gick inte att demontera" som beskrivs i den här hand boken.
+```azurepowershell
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
 
-Utvärdera egenskaperna för den virtuella datorn före nästa försök och kontrol lera att alla krav är uppfyllda.
+OsVolumeEncrypted          : Encrypted
+DataVolumesEncrypted       : NotMounted
+OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
+ProgressMessage            : Encryption succeeded for all volumes
+```
+
+När det här meddelandet är tillgängligt förväntas den krypterade OS-enheten vara klar för användning och den virtuella datorn är redo att användas igen.
+
+Om start informationen, förlopps meddelandet eller ett fel rapporterar att operativ system krypteringen har misslyckats i mitten av den här processen återställer du den virtuella datorn till ögonblicks bilden eller säkerhets kopian som gjorts omedelbart före krypteringen. Ett exempel på ett meddelande är fel meddelandet "Det gick inte att demontera" som beskrivs i den här hand boken.
+
+Innan du försöker utföra kryptering igen ska du utvärdera egenskaperna för den virtuella datorn och kontrol lera att alla krav är uppfyllda.
 
 ## <a name="troubleshooting-azure-disk-encryption-behind-a-firewall"></a>Felsöka Azure Disk Encryption bakom en brand vägg
 
@@ -101,11 +125,11 @@ Se [disk kryptering i ett isolerat nätverk](disk-encryption-isolated-network.md
 
 ## <a name="troubleshooting-encryption-status"></a>Felsöka krypterings status 
 
-Portalen kan visa en disk som krypterad även efter att den har krypterats på den virtuella datorn.  Detta kan inträffa när lågnivå kommandon används för att direkt dekryptera disken inifrån den virtuella datorn, i stället för att använda Azure Disk Encryption hanterings kommandon på högre nivå.  Med kommandona på högre nivå kan du inte bara dekryptera disken inifrån den virtuella datorn, men utanför den virtuella datorn uppdaterar de också viktiga krypterings inställningar och tilläggs inställningar som är associerade med den virtuella datorn.  Om dessa inte behålls i justeringen kommer plattformen inte att kunna rapportera krypterings status eller upprätta den virtuella datorn korrekt.   
+Portalen kan visa en disk som krypterad även efter att den har krypterats på den virtuella datorn.  Detta kan inträffa när lågnivå kommandon används för att direkt dekryptera disken inifrån den virtuella datorn, i stället för att använda Azure Disk Encryption hanterings kommandon på högre nivå.  Med kommandona på högre nivå kan du inte bara dekryptera disken inifrån den virtuella datorn, men utanför den virtuella datorn uppdaterar de också viktiga krypterings inställningar och tilläggs inställningar som är associerade med den virtuella datorn.  Om dessa inte behålls i justeringen kommer plattformen inte att kunna rapportera krypterings status eller upprätta den virtuella datorn korrekt.
 
 Om du vill inaktivera Azure Disk Encryption med PowerShell använder du [disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) följt av [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Det går inte att köra Remove-AzVMDiskEncryptionExtension innan krypteringen inaktive ras.
 
-Om du vill inaktivera Azure Disk Encryption med CLI använder du [inaktivera AZ VM-kryptering](/cli/azure/vm/encryption). 
+Om du vill inaktivera Azure Disk Encryption med CLI använder du [inaktivera AZ VM-kryptering](/cli/azure/vm/encryption).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
-title: Skapa en klient i Windows Virtual Desktop – Azure
-description: Beskriver hur du konfigurerar Windows virtuella Skriv bords klienter i Azure Active Directory.
+title: Skapa en klient i Windows Virtual Desktop (klassisk) – Azure
+description: Beskriver hur du konfigurerar Windows Virtual Desktop (klassiska) klienter i Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6a1e301b63eee348f59a1b9570c2c3ffcd78ecef
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: a1f2dbf1f7cfc8fbb6a29129c7e445ffef87b070
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362398"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286367"
 ---
-# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Självstudie: skapa en klient i Windows Virtual Desktop
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>Självstudie: skapa en klient i Windows Virtual Desktop (klassisk)
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt.
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows.
 
 Att skapa en klient i Windows Virtual Desktop är det första steget för att skapa din lösning för Skriv bords virtualisering. En klient organisation är en grupp med en eller flera värdar. Varje adresspool består av flera sessionsbaserade värdar, som körs som virtuella datorer i Azure och som är registrerade på Windows Virtual Desktop-tjänsten. Varje adresspool består också av en eller flera grupp grupper som används för att publicera fjärr skrivbord och fjärranslutna program resurser till användare. Med en klient kan du skapa värdar för pooler, skapa program grupper, tilldela användare och upprätta anslutningar via tjänsten.
 
@@ -58,7 +58,7 @@ Så här beviljar du tjänst behörigheter:
    >```
 
 2. Logga in på sidan Windows-godkännande för virtuella datorer med ett globalt administratörs konto. Om du till exempel har Contoso-organisationen kan ditt konto vara admin@contoso.com eller admin@contoso.onmicrosoft.com .
-3. Välj **Godkänn**.
+3. Välj **Acceptera**.
 4. Vänta en minut så att Azure AD kan registrera medgivande.
 5. Öppna en webbläsare och påbörja det administrativa godkännande flödet till [Windows-klienten för virtuella skriv bord](https://login.microsoftonline.com/common/adminconsent?client_id=fa4345a4-a730-4230-84a8-7d9651b86739&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback).
    >[!NOTE]
@@ -68,7 +68,7 @@ Så här beviljar du tjänst behörigheter:
    >```
 
 6. Logga in på sidan Windows-godkännande för virtuella skriv bord som global administratör, precis som du gjorde i steg 2.
-7. Välj **Godkänn**.
+7. Välj **Acceptera**.
 
 ## <a name="assign-the-tenantcreator-application-role"></a>Tilldela program rollen TenantCreator
 

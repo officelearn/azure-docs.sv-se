@@ -5,18 +5,18 @@ description: Lär dig hur du kommer åt en Azure Machine Learning-arbetsyta med 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.reviewer: jmartens
-ms.author: larryfr
-author: Blackmist
-ms.date: 06/30/2020
-ms.custom: seodec18
-ms.openlocfilehash: ff8d532bf1c19ded9567e8c1e4b63e674c01d0d8
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.topic: conceptual
+ms.reviewer: Blackmist
+ms.author: nigup
+author: nishankgu
+ms.date: 07/24/2020
+ms.custom: how-to, seodec18
+ms.openlocfilehash: 2e787bb494c1e919a235b762b4d8c5250c8cda61
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125181"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321623"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,14 +29,15 @@ En Azure Machine Learning-arbetsyta är en Azure-resurs. När en ny Azure Machin
 
 | Roll | Åtkomstnivå |
 | --- | --- |
-| **Läsare** | Skrivskyddade åtgärder på arbets ytan. Läsarna kan visa och Visa till gångar (inklusive autentiseringsuppgifter för [data lager](how-to-access-data.md) ) i en arbets yta, men kan inte skapa eller uppdatera dessa till gångar. |
+| **Läsare** | Skrivskyddade åtgärder på arbets ytan. Läsarna kan visa och Visa till gångar, inklusive autentiseringsuppgifter för [data lagret](how-to-access-data.md) , i en arbets yta. Läsarna kan inte skapa eller uppdatera dessa till gångar. |
 | **Deltagare** | Visa, skapa, redigera eller ta bort (om det är tillämpligt) till gångar i en arbets yta. Deltagare kan till exempel skapa ett experiment, skapa eller ansluta ett beräkningskluster, skicka in en körning och distribuera en webbtjänst. |
 | **Ägare** | Fullständig åtkomst till arbets ytan, inklusive möjligheten att visa, skapa, redigera eller ta bort (om tillämpligt) till gångar i en arbets yta. Dessutom kan du ändra rolltilldelningar. |
+| **Anpassad roll** | Gör att du kan anpassa åtkomsten till vissa kontroller eller data Plans åtgärder inom en arbets yta. Du kan till exempel skicka en körning, skapa en beräkning, distribuera en modell eller registrera en data uppsättning. |
 
 > [!IMPORTANT]
 > Roll åtkomsten kan begränsas till flera nivåer i Azure. Till exempel kanske någon med ägar åtkomst till en arbets yta saknar ägar åtkomst till den resurs grupp som innehåller arbets ytan. Mer information finns i [hur RBAC fungerar](/azure/role-based-access-control/overview#how-rbac-works).
 
-Mer information om de inbyggda rollerna finns i [inbyggda roller i Azure](/azure/role-based-access-control/built-in-roles).
+Mer information om de inbyggda rollerna finns i [inbyggda roller för Azure](/azure/role-based-access-control/built-in-roles).
 
 ## <a name="manage-workspace-access"></a>Hantera åtkomst till arbets ytan
 
@@ -45,9 +46,9 @@ Om du är ägare till en arbets yta kan du lägga till och ta bort roller för a
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
 - [REST-API](/azure/role-based-access-control/role-assignments-rest)
-- [Azure Resource Manager mallar](/azure/role-based-access-control/role-assignments-template)
+- [Azure Resource Manager-mallar](/azure/role-based-access-control/role-assignments-template)
 
-Om du har installerat [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md)kan du också använda ett CLI-kommando för att tilldela roller till användare.
+Om du har installerat [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md)kan du använda CLI-kommandon för att tilldela roller till användare:
 
 ```azurecli-interactive 
 az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
@@ -74,17 +75,18 @@ Om de inbyggda rollerna är otillräckliga kan du skapa anpassade roller. Anpass
 > [!NOTE]
 > Du måste vara ägare till resursen på den nivån för att skapa anpassade roller i resursen.
 
-Skapa en anpassad roll genom att skapa en JSON-fil för roll definition som anger behörigheten och omfånget för rollen. I följande exempel definieras en anpassad roll med namnet "data expert" på en speciell arbets ytans nivå:
+Skapa en anpassad roll genom att skapa en JSON-fil för roll definition som anger behörigheten och omfånget för rollen. I följande exempel definieras en anpassad roll med namnet "data expert Custom" som omfattas av en speciell arbets ytans nivå:
 
-`data_scientist_role.json` :
+`data_scientist_custom_role.json` :
 ```json
 {
-    "Name": "Data Scientist",
+    "Name": "Data Scientist Custom",
     "IsCustom": true,
     "Description": "Can run experiment but can't create or delete compute.",
     "Actions": ["*"],
     "NotActions": [
         "Microsoft.MachineLearningServices/workspaces/*/delete",
+        "Microsoft.MachineLearningServices/workspaces/write",
         "Microsoft.MachineLearningServices/workspaces/computes/*/write",
         "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
         "Microsoft.Authorization/*/write"
@@ -97,6 +99,7 @@ Skapa en anpassad roll genom att skapa en JSON-fil för roll definition som ange
 
 > [!TIP]
 > Du kan ändra `AssignableScopes` fältet för att ange omfånget för den här anpassade rollen på prenumerations nivå, resurs grupp nivå eller en speciell arbets ytans nivå.
+> Den anpassade rollen ovan är bara ett exempel, se vissa föreslagna [anpassade roller för tjänsten Azure Machine Learning](#customroles).
 
 Den här anpassade rollen kan göra allt på arbets ytan, förutom följande åtgärder:
 
@@ -117,23 +120,233 @@ Efter distributionen blir den här rollen tillgänglig på den angivna arbets yt
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-Mer information om anpassade roller finns i [Azure-anpassade roller](/azure/role-based-access-control/custom-roles).
+Mer information om anpassade roller finns i [Azure-anpassade roller](/azure/role-based-access-control/custom-roles). Mer information om åtgärder (åtgärder och inte åtgärder) kan användas med anpassade roller i [Resource Provider-åtgärder](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 
-### <a name="q-what-are-the-permissions-needed-to-perform-various-actions-in-the-azure-machine-learning-service"></a>F. Vilka är de behörigheter som krävs för att utföra olika åtgärder i Azure Machine Learnings tjänsten?
+### <a name="q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service"></a>F. Vilka är de behörigheter som krävs för att utföra några vanliga scenarier i Azure Machine Learnings tjänsten?
 
-Följande tabell är en sammanfattning av Azure Machine Learning aktiviteter och de behörigheter som krävs för att utföra dem med minsta möjliga omfattning. Exempel: om en aktivitet kan utföras med ett område för arbets ytor (kolumn 4), kommer alla högre omfång med den behörigheten också att fungera automatiskt. Alla sökvägar i den här tabellen är **relativa sökvägar** till `Microsoft.MachineLearningServices/` .
+Följande tabell är en sammanfattning av Azure Machine Learning aktiviteter och de behörigheter som krävs för att utföra dem med minsta möjliga omfattning. Om en aktivitet till exempel kan utföras med ett definitions område för arbets ytor (kolumn 4), kommer alla högre omfång med den behörigheten också att fungera automatiskt:
+
+> [!IMPORTANT]
+> Alla sökvägar i den här tabellen som börjar med `/` är **relativa sökvägar** till `Microsoft.MachineLearningServices/` :
 
 | Aktivitet | Omfång på prenumerations nivå | Omfång på resurs grupps nivå | Omfång på arbets ytans nivå |
-|---|---|---|---|
+| ----- | ----- | ----- | ----- |
 | Skapa ny arbets yta | Krävs inte | Ägare eller deltagare | Ej tillämpligt (blir ägare eller ärver högre omfattnings roll efter att det har skapats) |
-| Skapa nytt beräknings kluster | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`workspaces/computes/write` |
-| Skapa ny virtuell dator för Notebook | Krävs inte | Ägare eller deltagare | Inte möjligt |
-| Skapa en ny beräknings instans | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`workspaces/computes/write` |
-| Data Plans aktivitet som att skicka körning, komma åt data, distribuera modell eller publicera pipelines | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`workspaces/*/write` <br/> Du behöver också ett data lager som är registrerat på arbets ytan för att tillåta MSI att komma åt data i ditt lagrings konto. |
+| Uppdatera versionen av arbets ytan | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`/workspaces/write` |
+| Begär Amlcompute kvot för prenumerations nivå eller Ange gräns för arbets ytans kvot | Ägare, eller deltagare eller anpassad roll </br>tillåts`/locations/updateQuotas/action`</br> vid prenumerations omfång | Inte auktoriserad | Inte auktoriserad |
+| Skapa nytt beräknings kluster | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`/workspaces/computes/write` |
+| Skapa en ny beräknings instans | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`/workspaces/computes/write` |
+| Sändning av vilken typ av körning som helst | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
+| Publicera en pipeline-slutpunkt | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| Distribuera en registrerad modell på en AKS/ACI-resurs | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
+| Poäng till en distribuerad AKS-slutpunkt | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (när du inte använder AAD-autentisering) eller `"/workspaces/read"` (när du använder token auth) |
+| Åtkomst till lagring med interaktiva antecknings böcker | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
+| Skapa ny anpassad roll | Ägare, deltagare eller anpassad roll som tillåter`Microsoft.Authorization/roleDefinitions/write` | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`/workspaces/computes/write` |
 
+
+### <a name="q-are-we-publishing-azure-built-in-roles-for-the-machine-learning-service"></a>F. Publicerar vi de inbyggda Azure-rollerna för den Machine Learning tjänsten?
+
+Vi publicerar för närvarande inte [inbyggda Azure-roller](/azure/role-based-access-control/built-in-roles) för tjänsten Machine Learning. En inbyggd roll när den har publicerats kan inte uppdateras och vi bekräftar fortfarande roll definitionerna baserat på kund scenarier och feedback. 
+
+<a id="customroles"></a>
+
+### <a name="q-are-there-some-custom-role-templates-for-the-most-common-scenarios-in-machine-learning-service"></a>F. Finns det några mallar för anpassad roll för de vanligaste scenarierna i Machine Learning-tjänsten?
+
+Ja här är några vanliga scenarier med anpassade föreslagna roll definitioner som du kan använda som bas för att definiera egna anpassade roller:
+
+* __Data expert Custom__: gör att en data-expert kan utföra alla åtgärder inom en arbets yta **utom**:
+
+    * Skapa beräkning
+    * Distribuera modeller till ett AKS-kluster för produktion
+    * Distribuera en pipeline-slutpunkt i produktion
+
+    `data_scientist_custom_role.json` :
+    ```json
+    {
+        "Name": "Data Scientist Custom",
+        "IsCustom": true,
+        "Description": "Can run experiment but can't create or delete compute or deploy production endpoints.",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/*/read",
+            "Microsoft.MachineLearningServices/workspaces/*/action",
+            "Microsoft.MachineLearningServices/workspaces/*/delete",
+            "Microsoft.MachineLearningServices/workspaces/*/write"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
+            "Microsoft.Authorization/*",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/write",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
+            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```
+
+* __Data expert-begränsad anpassad__: en mer begränsad roll definition utan jokertecken i tillåtna åtgärder. Den kan utföra alla åtgärder inom en arbets yta **förutom**:
+
+    * Skapa beräkning
+    * Distribuera modeller till ett AKS-kluster för produktion
+    * Distribuera en pipeline-slutpunkt i produktion
+
+    `data_scientist_restricted_custom_role.json` :
+    ```json
+    {
+        "Name": "Data Scientist Restricted Custom",
+        "IsCustom": true,
+        "Description": "Can run experiment but can't create or delete compute or deploy production endpoints",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/*/read",
+            "Microsoft.MachineLearningServices/workspaces/computes/start/action",
+            "Microsoft.MachineLearningServices/workspaces/computes/stop/action",
+            "Microsoft.MachineLearningServices/workspaces/computes/restart/action",
+            "Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action",
+            "Microsoft.MachineLearningServices/workspaces/notebooks/storage/read",
+            "Microsoft.MachineLearningServices/workspaces/notebooks/storage/write",
+            "Microsoft.MachineLearningServices/workspaces/notebooks/storage/delete",
+            "Microsoft.MachineLearningServices/workspaces/notebooks/samples/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+            "Microsoft.MachineLearningServices/workspaces/experiments/write",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action",
+            "Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write",
+            "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
+            "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
+            "Microsoft.MachineLearningServices/workspaces/environments/write",
+            "Microsoft.MachineLearningServices/workspaces/models/write",
+            "Microsoft.MachineLearningServices/workspaces/modules/write",
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/write", 
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/delete",
+            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/write",
+            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/delete",
+            "Microsoft.MachineLearningServices/workspaces/computes/listNodes/action",
+            "Microsoft.MachineLearningServices/workspaces/environments/build/action"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/computes/write",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/delete",
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.Authorization/*",
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/profile/read",
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/preview/read",
+            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/profile/read",
+            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/preview/read",
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/schema/read",    
+            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/schema/read",
+            "Microsoft.MachineLearningServices/workspaces/datastores/write",
+            "Microsoft.MachineLearningServices/workspaces/datastores/delete"
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```
+
+* __MLOps anpassad__: gör att du kan tilldela en roll till ett huvud namn för tjänsten och använda det för att automatisera dina MLOps-pipeliner. Till exempel för att skicka körningar till en redan publicerad pipeline:
+
+    `mlops_custom_role.json` :
+    ```json
+    {
+        "Name": "MLOps Custom",
+        "IsCustom": true,
+        "Description": "Can run pipelines against a published pipeline endpoint",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/read",
+            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/read",
+            "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/read",
+            "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/read",
+            "Microsoft.MachineLearningServices/workspaces/environments/read",    
+            "Microsoft.MachineLearningServices/workspaces/metadata/secrets/read",
+            "Microsoft.MachineLearningServices/workspaces/modules/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/read",
+            "Microsoft.MachineLearningServices/workspaces/datastores/read",
+            "Microsoft.MachineLearningServices/workspaces/environments/write",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+            "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
+            "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
+            "Microsoft.MachineLearningServices/workspaces/environments/build/action",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/computes/write",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/delete",
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.Authorization/*"
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```
+
+* __Arbets ytans administratör__: gör att du kan utföra alla åtgärder inom en arbets ytans omfång, **förutom**:
+
+    * Skapa en ny arbets yta
+    * Tilldelar kvoter för prenumerations-eller arbets ytans nivå
+    * Uppgradera arbets ytans utgåva
+
+    Administratören för arbets ytan kan inte heller skapa en ny roll. Den kan bara tilldela befintliga inbyggda eller anpassade roller inom omfånget för deras arbets yta:
+
+    `workspace_admin_custom_role.json` :
+    ```json
+    {
+        "Name": "Workspace Admin Custom",
+        "IsCustom": true,
+        "Description": "Can perform all operations except quota management and upgrades",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/*/read",
+            "Microsoft.MachineLearningServices/workspaces/*/action",
+            "Microsoft.MachineLearningServices/workspaces/*/write",
+            "Microsoft.MachineLearningServices/workspaces/*/delete",
+            "Microsoft.Authorization/roleAssignments/*"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/write"
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```
+
+<a name="labeler"></a>
+* __Labeler anpassad__: låter dig definiera en roll som är begränsad till att etikettera data:
+
+    `labeler_custom_role.json` :
+    ```json
+    {
+        "Name": "Labeler Custom",
+        "IsCustom": true,
+        "Description": "Can label data for Labeling",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/read",
+            "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
+            "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```
 
 ### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>F. Hur gör jag för att lista alla anpassade roller i min prenumeration?
 
@@ -142,6 +355,39 @@ Kör följande kommando i Azure CLI.
 ```azurecli-interactive
 az role definition list --subscription <sub-id> --custom-role-only true
 ```
+
+### <a name="q-how-do-i-find-the-operations-supported-by-the-machine-learning-service"></a>F. Hur gör jag för att hittar du de åtgärder som stöds av Machine Learnings tjänsten?
+
+Kör följande kommando i Azure CLI.
+
+```azurecli-interactive
+az provider operation show –n Microsoft.MachineLearningServices
+```
+
+De kan även finnas i listan över [resurs leverantörs åtgärder](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+
+
+### <a name="q-what-are-some-common-gotchas-when-using-azure-rbac"></a>F. Vad är några vanliga information när du använder Azure RBAC?
+
+Här är några saker som du bör känna till när du använder Azure Role-baserade åtkomst kontroller:
+
+- När du skapar en resurs i Azure, t. ex. en arbets yta, är du inte direkt ägaren till arbets ytan. Rollen ärvs från den högsta omfattnings rollen som du har behörighet för i den prenumerationen. Om du till exempel är nätverks administratör och har behörighet att skapa en Machine Learning arbets yta, kan du tilldela rollen som nätverks administratör till arbets ytan och inte till ägar rollen.
+- Om det finns två roll tilldelningar till samma AAD-användare med motstridiga avsnitt i Actions/NotActions, kanske dina åtgärder som anges i NotActions från en roll inte börjar gälla om de också visas som åtgärder i en annan roll. Om du vill veta mer om hur Azure kan parsa roll tilldelningar läser du [hur Azure RBAC avgör om en användare har åtkomst till en resurs](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
+- Om du vill distribuera dina beräknings resurser i ett VNet måste du uttryckligen ha behörighet för "Microsoft. Network/virtualNetworks/Join/Action" på den virtuella nätverks resursen.
+- Det kan ibland ta upp till 1 timme innan dina nya roll tilldelningar börjar gälla för cachelagrade behörigheter i stacken.
+
+
+### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>F. Vilka behörigheter behöver jag för att använda en användardefinierad hanterad identitet med mina Amlcompute-kluster?
+
+För att tilldela en tilldelad identitet i Amlcompute-kluster, måste en ha Skriv behörighet för att skapa Compute och ha [rollen hanterad identitets operatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Mer information om RBAC med hanterade identiteter finns [i hantera användarens tilldelade identitet](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
+
+
+### <a name="q-do-we-support-role-based-access-controls-on-the-studio-portal"></a>F. Stöder vi rollbaserade åtkomst kontroller på Studio-portalen?
+
+Azure Machine Learning Studio stöder rollbaserade åtkomst kontroller. 
+
+> [!IMPORTANT]
+> När du har tilldelat en anpassad roll med vissa behörigheter till en data expert i din arbets yta, döljs motsvarande åtgärder (till exempel att lägga till en beräknings knapp) automatiskt från användarna. Om du döljer dessa objekt förhindras förvirring från att se kontroller som returnerar ett meddelande om obehörig åtkomst från tjänsten när det används.
 
 ### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>F. Hur gör jag för att hittar du roll definitionen för en roll i min prenumeration?
 

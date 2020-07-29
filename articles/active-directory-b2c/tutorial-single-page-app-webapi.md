@@ -1,26 +1,26 @@
 ---
-title: 'Självstudie: skydda ett Node. js-webb-API med Azure AD B2C och bevilja åtkomst till ett enda webb program (SPA)'
+title: 'Självstudie: skydda ett Node.js webb-API med Azure AD B2C och bevilja åtkomst till ett program med en enda sida (SPA)'
 titleSuffix: Azure AD B2C
-description: I den här självstudien får du lära dig hur du använder Active Directory B2C för att skydda ett Node. js-webb-API och anropa det från ett enda webb program.
+description: I den här självstudien får du lära dig hur du använder Active Directory B2C för att skydda ett Node.js webb-API och anropa det från ett enda webb program.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: mimart
 ms.date: 04/04/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-javascript
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 50524159186987b7a30015c878fa3fac949afc79
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f01ef1a4cf5bc5b805da3dd4d825ef17f81ce53e
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80875711"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87170196"
 ---
-# <a name="tutorial-protect-and-grant-access-to-a-nodejs-web-api-from-a-single-page-application-with-azure-ad-b2c"></a>Självstudie: skydda och bevilja åtkomst till ett Node. js-webb-API från ett program med en sida med Azure AD B2C
+# <a name="tutorial-protect-and-grant-access-to-a-nodejs-web-api-from-a-single-page-application-with-azure-ad-b2c"></a>Självstudie: skydda och bevilja åtkomst till ett Node.js webb-API från ett program med en sida med Azure AD B2C
 
-Den här självstudien visar hur du anropar en Azure Active Directory B2C (Azure AD B2C)-skyddad Node. js-webb-API från ett enda webb program.
+Den här självstudien visar hur du anropar ett Azure Active Directory B2C (Azure AD B2C)-skyddat Node.js webb-API från ett program på en enda sida.
 
 I den här självstudien finns den andra i en serie i två delar:
 
@@ -50,7 +50,7 @@ Omfång är ett sätt att styra åtkomsten till skyddade resurser. Omfång anvä
 
 [!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-Registrera värdet under **omfattningar** för `demo.read` omfånget som ska användas i ett senare steg när du konfigurerar ett program med en sida. Det fullständiga värdet för `https://contosob2c.onmicrosoft.com/api/demo.read`omfattning liknar.
+Registrera värdet under **omfattningar** för `demo.read` omfånget som ska användas i ett senare steg när du konfigurerar ett program med en sida. Det fullständiga värdet för omfattning liknar `https://contosob2c.onmicrosoft.com/api/demo.read` .
 
 ## <a name="grant-permissions"></a>Bevilja behörigheter
 
@@ -64,9 +64,9 @@ Webb programmet med en sida har nu beviljats behörigheter till det skyddade web
 
 ## <a name="configure-the-sample"></a>Konfigurera exemplet
 
-Nu när webb-API: et är registrerat och du har definierat omfattningar, konfigurerar du webb-API-koden så att den fungerar med din Azure AD B2C-klient. I den här självstudien konfigurerar du ett exempel på Node. js-webb-API som du hämtar från GitHub.
+Nu när webb-API: et är registrerat och du har definierat omfattningar, konfigurerar du webb-API-koden så att den fungerar med din Azure AD B2C-klient. I den här självstudien konfigurerar du ett exempel Node.js webb-API som du hämtar från GitHub.
 
-[Hämta ett \*zip-arkiv](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi/archive/master.zip) eller klona exempel webb-API-projektet från GitHub. Du kan också gå direkt till [Azure-samples/Active-Directory-B2C-JavaScript-NodeJS-WebAPI](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) -projektet på GitHub.
+[Hämta ett \* zip-arkiv](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi/archive/master.zip) eller klona exempel webb-API-projektet från GitHub. Du kan också gå direkt till [Azure-samples/Active-Directory-B2C-JavaScript-NodeJS-WebAPI](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) -projektet på GitHub.
 
 ```console
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi.git
@@ -74,7 +74,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### <a name="configure-the-web-api"></a>Konfigurera webb-API
 
-1. Öppna filen *config. js* i kod redigeraren.
+1. Öppna *config.js* -filen i kod redigeraren.
 1. Ändra variabel värden så att de motsvarar de program registreringar som du skapade tidigare. Uppdatera även `policyName` med det användar flöde som du skapade som en del av förutsättningarna. Till exempel *B2C_1_signupsignin1*.
 
     ```javascript
@@ -86,9 +86,9 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 #### <a name="enable-cors"></a>Aktivera CORS
 
-Du måste aktivera [CORS](https://expressjs.com/en/resources/middleware/cors.html) i webb-API: et för att det ska gå att använda webb-API för Node. js för att kunna anropa en enkel sida. I ett produktions program bör du vara försiktig med vilken domän som gör begäran, men i den här självstudien tillåter du begär Anden från valfri domän.
+Du måste aktivera [CORS](https://expressjs.com/en/resources/middleware/cors.html) i webb-API: et om du vill tillåta att ett program med en enda sida anropar Node.js webb-API. I ett produktions program bör du vara försiktig med vilken domän som gör begäran, men i den här självstudien tillåter du begär Anden från valfri domän.
 
-Om du vill aktivera CORS använder du följande mellanprogram. I exemplet Node. js-webb-API-kod i den här självstudien har den redan lagts till i filen *index. js* .
+Om du vill aktivera CORS använder du följande mellanprogram. I exemplet Node.js webb-API-kod i den här självstudien har den redan lagts till i *index.js* -filen.
 
 ```javascript
 app.use((req, res, next) => {
@@ -100,20 +100,20 @@ app.use((req, res, next) => {
 
 ### <a name="configure-the-single-page-application"></a>Konfigurera ett program med en sida
 
-En Enkels Ides applikation (SPA) från [föregående självstudie](tutorial-single-page-app.md) i serien använder Azure AD B2C för användarens registrering och inloggning, och som standard anropar det Node. js-webb-API som skyddas av *fabrikamb2c* demo-klienten.
+En Enkels Ides applikation (SPA) från [föregående självstudie](tutorial-single-page-app.md) i serien använder Azure AD B2C för användarens registrering och inloggning, och som standard anropar det Node.js webb-API som skyddas av *fabrikamb2c* demo-klienten.
 
-I det här avsnittet uppdaterar du webb programmet på en sida för att anropa det Node. js-webb-API som skyddas av *din* Azure AD B2C klient (och som du kör på den lokala datorn).
+I det här avsnittet uppdaterar du webb programmet på en sida för att anropa det Node.js webb-API som skyddas av *din* Azure AD B2C klient (och som du kör på den lokala datorn).
 
 Ändra inställningarna i SPA:
 
-1. I det [Active-Directory-B2C-JavaScript-msal-singlepageapp][github-js-spa] -projekt som du laddade ned eller klonade i föregående självstudie, öppnar du filen *apiConfig. js* i mappen *JavaScriptSPA* .
+1. I det [Active-Directory-B2C-JavaScript-msal-singlepageapp][github-js-spa] -projekt som du laddade ned eller klonade i föregående självstudie, öppnar du *apiConfig.js* -filen i mappen *JavaScriptSPA* .
 1. Konfigurera exemplet med URI: n för *demonstrationen. Läs* omfattning som du skapade tidigare och URL: en för webb-API: et.
     1. I `apiConfig` definitionen ersätter du `b2cScopes` värdet med fullständig URI för *demonstrationen. Läs* omfattning (det **omfattnings** värde som du registrerade tidigare).
     1. Ändra domänen i `webApi` värdet till den omdirigerings-URI som du lade till när du registrerade webb-API-programmet i ett tidigare steg.
 
     Eftersom API: et är tillgängligt i `/hello` slut punkten lämnar du */Hello* i URI: n.
 
-    `apiConfig` Definitionen bör likna följande kodblock, men med B2C-klientens namn i stället för `<your-tenant-name>`:
+    `apiConfig`Definitionen bör likna följande kodblock, men med B2C-klientens namn i stället för `<your-tenant-name>` :
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
@@ -125,13 +125,13 @@ I det här avsnittet uppdaterar du webb programmet på en sida för att anropa d
 
 ## <a name="run-the-spa-and-web-api"></a>Köra SPA-och webb-API: et
 
-Nu är du redo att testa programmets begränsade åtkomst till API: et. Kör både Node. js-webb-API och ett program med en enda sida i Java Script på den lokala datorn. Logga sedan in på den enda sidan och välj knappen **anropa API** för att initiera en begäran till det skyddade API: et.
+Nu är du redo att testa programmets begränsade åtkomst till API: et. Kör både webb-API: et för Node.js och ett program med en enda sida i Java Script på den lokala datorn. Logga sedan in på den enda sidan och välj knappen **anropa API** för att initiera en begäran till det skyddade API: et.
 
 Även om båda programmen körs lokalt när du följer den här själv studie kursen har du konfigurerat dem att använda Azure AD B2C för säker registrering/inloggning och för att bevilja åtkomst till det skyddade webb-API: et.
 
-### <a name="run-the-nodejs-web-api"></a>Kör webb-API för Node. js
+### <a name="run-the-nodejs-web-api"></a>Kör Node.js webb-API
 
-1. Öppna ett konsol fönster och ändra till den katalog som innehåller Node. js-webb-API-exemplet. Ett exempel:
+1. Öppna ett konsol fönster och ändra till den katalog som innehåller Node.js Web API-exemplet. Till exempel:
 
     ```console
     cd active-directory-b2c-javascript-nodejs-webapi
@@ -152,7 +152,7 @@ Nu är du redo att testa programmets begränsade åtkomst till API: et. Kör bå
 
 ### <a name="run-the-single-page-app"></a>Köra appen med en sida
 
-1. Öppna ett annat konsol fönster och ändra till den katalog som innehåller SPA-exemplet för Java Script. Ett exempel:
+1. Öppna ett annat konsol fönster och ändra till den katalog som innehåller SPA-exemplet för Java Script. Till exempel:
 
     ```console
     cd active-directory-b2c-javascript-msal-singlepageapp

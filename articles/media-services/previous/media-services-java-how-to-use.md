@@ -14,12 +14,13 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: e5978cff8da4697cf130e499c8d9273d75118963
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-java
+ms.openlocfilehash: 73dfa45361f2c111934ee7b938c44824112c6c8d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000626"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322694"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Kom igång med Java-klientens SDK för Azure Media Services  
 
@@ -28,7 +29,7 @@ ms.locfileid: "87000626"
 
 Den här självstudien beskriver steg för steg hur du implementerar en enkel leveranstjänst för videoinnehåll med Azure Media Services med hjälp av Java-klientens SDK.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att kunna genomföra kursen:
 

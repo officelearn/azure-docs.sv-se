@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 25d1cccdbd56db397fc444d1488c773515ad6553
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f7f6155d3230d234e1163ee12cd7685817331b93
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499315"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323544"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analys av användar kvarhållning för webb program med Application Insights
 
-Med funktionen kvarhållning i [Azure Application insikter](../../azure-monitor/app/app-insights-overview.md) kan du analysera hur många användare som kommer tillbaka till din app och hur ofta de utför specifika uppgifter eller uppnå mål. Om du till exempel kör en spel webbplats kan du jämföra antalet användare som återvänder till webbplatsen efter att ha förlorat ett spel med det antal som returneras efter att ha vunnit. Den här kunskapen kan hjälpa dig att förbättra både din användar upplevelse och din affärs strategi.
+Med funktionen kvarhållning i [Azure Application insikter](./app-insights-overview.md) kan du analysera hur många användare som kommer tillbaka till din app och hur ofta de utför specifika uppgifter eller uppnå mål. Om du till exempel kör en spel webbplats kan du jämföra antalet användare som återvänder till webbplatsen efter att ha förlorat ett spel med det antal som returneras efter att ha vunnit. Den här kunskapen kan hjälpa dig att förbättra både din användar upplevelse och din affärs strategi.
 
 ## <a name="get-started"></a>Kom igång
 
@@ -54,7 +54,7 @@ Eller i ASP.NET-Server kod:
    telemetry.TrackEvent("won game");
 ```
 
-[Läs mer om hur du skriver anpassade händelser](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
+[Läs mer om hur du skriver anpassade händelser](./api-custom-events-metrics.md#trackevent).
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -63,5 +63,6 @@ Eller i ASP.NET-Server kod:
     - [Användare, sessioner, händelser](usage-segmentation.md)
     - [Trattar](usage-funnels.md)
     - [Användarflöden](usage-flows.md)
-    - [Arbetsböcker](../../azure-monitor/platform/workbooks-overview.md)
+    - [Arbetsböcker](../platform/workbooks-overview.md)
     - [Lägg till användar kontext](usage-send-user-context.md)
+

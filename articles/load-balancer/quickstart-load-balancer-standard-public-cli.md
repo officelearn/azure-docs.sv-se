@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 40af7a7d3bcc4584260735ddbcbf84ac0936ce15
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: aa0d29c5c2a4cf8eebbf530b42a25d8924e031bc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172098"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290267"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Snabbstart: Skapa en offentlig lastbalanserare som lastbalanserar virtuella datorer med Azure CLI
 
@@ -418,11 +418,17 @@ Utgående regler för belastningsutjämnare konfigurerar utgående SNAT för vir
 
 Mer information om utgående anslutningar finns i [utgående anslutningar i Azure](load-balancer-outbound-connections.md).
 
-### <a name="create-outbound-public-ip-address"></a>Skapa utgående offentlig IP-adress
+### <a name="create-outbound-public-ip-address-or-public-ip-prefix"></a>Skapa utgående offentlig IP-adress eller offentligt IP-prefix.
 
-Använd [AZ Network Public-IP Create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) to:
+Använd [AZ Network Public-IP Create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) för att skapa en enskild IP-adress för utgående anslutningar.  
 
-* Skapa en standard zon för redundant offentlig IP-adress med namnet **myPublicIPOutbound**.
+Använd [AZ Network Public-IP prefix Create](https://docs.microsoft.com/cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-create) för att skapa ett offentligt IP-prefix för den utgående anslutningen.
+
+Mer information om skalning av utgående NAT och utgående anslutningar finns i [skala utgående NAT med flera IP-adresser](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scale).
+
+#### <a name="public-ip"></a>Offentlig IP-adress
+
+* Med namnet **myPublicIPOutbound**.
 * I **myResourceGroupLB**.
 
 ```azurecli-interactive
@@ -441,9 +447,35 @@ Så här skapar du en zonindelade redundant offentlig IP-adress i Zon 1:
     --sku Standard \
     --zone 1
 ```
+#### <a name="public-ip-prefix"></a>Offentligt IP-prefix
+
+* Med namnet **myPublicIPPrefixOutbound**.
+* I **myResourceGroupLB**.
+* Prefixlängden på **28**.
+
+```azurecli-interactive
+  az network public-ip prefix create \
+    --resource-group myResourceGroupLB \
+    --name myPublicIPPrefixOutbound \
+    --length 28
+```
+Så här skapar du ett zonindelade redundant offentlig IP-prefix i Zon 1:
+
+```azurecli-interactive
+  az network public-ip prefix create \
+    --resource-group myResourceGroupLB \
+    --name myPublicIPPrefixOutbound \
+    --length 28 \
+    --zone 1
+```
+
 ### <a name="create-outbound-frontend-ip-configuration"></a>Skapa utgående IP-konfiguration för klient delen
 
 Skapa en ny IP-konfiguration för klient delen med [AZ Network lb frontend-IP Create ](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create):
+
+Välj kommandona offentlig IP-adress eller offentlig IP-prefix baserat på beslut i föregående steg.
+
+#### <a name="public-ip"></a>Offentlig IP-adress
 
 * Med namnet **myFrontEndOutbound**.
 * I resurs gruppen **myResourceGroupLB**.
@@ -456,6 +488,21 @@ Skapa en ny IP-konfiguration för klient delen med [AZ Network lb frontend-IP Cr
     --name myFrontEndOutbound \
     --lb-name myLoadBalancer \
     --public-ip-address myPublicIPOutbound 
+```
+
+#### <a name="public-ip-prefix"></a>Offentligt IP-prefix
+
+* Med namnet **myFrontEndOutbound**.
+* I resurs gruppen **myResourceGroupLB**.
+* Associerat med det offentliga IP-prefixet **myPublicIPPrefixOutbound**.
+* Kopplad till belastningsutjämnare **myLoadBalancer**.
+
+```azurecli-interactive
+  az network lb frontend-ip create \
+    --resource-group myResourceGroupLB \
+    --name myFrontEndOutbound \
+    --lb-name myLoadBalancer \
+    --public-ip-prefix myPublicIPPrefixOutbound 
 ```
 
 ### <a name="create-outbound-pool"></a>Skapa utgående pool
@@ -498,7 +545,7 @@ Skapa en ny utgående regel för den utgående backend-poolen med [AZ Network lb
 ```
 ### <a name="add-virtual-machines-to-outbound-pool"></a>Lägg till virtuella datorer i utgående pool
 
-Lägg till nätverks gränssnitten för virtuella datorer i belastningsutjämnaren för belastningsutjämnaren med [AZ Network NIC IP-config Address-pool Add](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
+Lägg till de virtuella datorerna i den utgående poolen med [AZ Network NIC IP-config Address-pool Add](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
 
 
 #### <a name="vm1"></a>VM1

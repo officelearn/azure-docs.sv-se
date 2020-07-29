@@ -5,16 +5,16 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.openlocfilehash: 97c1819d665e6964343e853249a0d22aa07c3588
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 93a86bc035803517ff61c79ae4b8a7fc46dd811f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045593"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322388"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Skapa, Visa och hantera klassiska mått varningar med Azure Monitor
 
-Klassiska mått varningar i Azure Monitor ger ett sätt att få ett meddelande när ett av dina mått överskrider ett tröskelvärde. Klassiska mått varningar är en äldre funktion som endast tillåter aviseringar på icke-dimensionella mått. Det finns en befintlig ny funktion som kallas mått aviseringar som har förbättrade funktioner i klassiska mått varningar. Du kan lära dig mer om de nya funktionerna för mått varningar i [Översikt över mått aviseringar](../../azure-monitor/platform/alerts-metric-overview.md). I den här artikeln beskriver vi hur du skapar, visar och hanterar klassiska mått för aviserings regler via Azure Portal, Azure CLI och PowerShell.
+Klassiska mått varningar i Azure Monitor ger ett sätt att få ett meddelande när ett av dina mått överskrider ett tröskelvärde. Klassiska mått varningar är en äldre funktion som endast tillåter aviseringar på icke-dimensionella mått. Det finns en befintlig ny funktion som kallas mått aviseringar som har förbättrade funktioner i klassiska mått varningar. Du kan lära dig mer om de nya funktionerna för mått varningar i [Översikt över mått aviseringar](./alerts-metric-overview.md). I den här artikeln beskriver vi hur du skapar, visar och hanterar klassiska mått för aviserings regler via Azure Portal, Azure CLI och PowerShell.
 
 ## <a name="with-azure-portal"></a>Med Azure Portal
 
@@ -130,5 +130,6 @@ I det här avsnittet visas hur du använder PowerShell-kommandon för att skapa,
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en klassisk måtta-avisering med en Resource Manager-mall](../../azure-monitor/platform/alerts-enable-template.md).
-- [Ha en klassisk mått avisering som meddelar ett icke-Azure-system med en webhook](../../azure-monitor/platform/alerts-webhooks.md).
+- [Skapa en klassisk måtta-avisering med en Resource Manager-mall](./alerts-enable-template.md).
+- [Ha en klassisk mått avisering som meddelar ett icke-Azure-system med en webhook](./alerts-webhooks.md).
+

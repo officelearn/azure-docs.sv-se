@@ -1,6 +1,5 @@
 ---
-title: Lokala SQL Server
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klassisk): lokal SQL Server – Azure'
 description: Använd data från en SQL Server Database för att utföra avancerad analys med Azure Machine Learning Studio (klassisk).
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 49ec8916e03323bdf4263fe9ea6cfca323339dce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e654950360b7891e59f4f273efb7139a5223854a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706060"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324853"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Utföra analyser med Azure Machine Learning Studio (klassisk) med hjälp av en SQL Server databas
+
+**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
+
 
 Företag som arbetar med lokala data skulle till exempel kunna dra nytta av molnets skala och flexibilitet för sina arbets belastningar för Machine Learning. Men de vill inte störa sina aktuella affärs processer och arbets flöden genom att flytta sina lokala data till molnet. Azure Machine Learning Studio (klassisk) har nu stöd för att läsa data från en SQL Server-databas och sedan träna och värdera en modell med dessa data. Du behöver inte längre kopiera och synkronisera data mellan molnet och den lokala servern manuellt. I stället kan modulen **Importera data** i Azure Machine Learning Studio (klassisk) nu läsas direkt från din SQL Server databas för dina utbildnings-och Poäng jobb.
 

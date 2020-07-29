@@ -5,18 +5,18 @@ description: Övervaka webb tjänster som distribueras med Azure Machine Learnin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 06/09/2020
-ms.custom: tracking-python
-ms.openlocfilehash: d28cd3b1d8722970505eb313bd8e80589ce9ff87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/23/2020
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 2bc3eb72ff0c5d29fd72de848abf87dfe84e2a01
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743522"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320229"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Övervaka och samla in data från ML webb tjänst slut punkter
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,7 +36,7 @@ Förutom att samla in en slut punkts utdata och svar kan du övervaka:
 
 ## <a name="prerequisites"></a>Krav
 
-* Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag
+* Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag
 
 * En Azure Machine Learning arbets yta, en lokal katalog som innehåller dina skript och Azure Machine Learning SDK för python installerat. Information om hur du får dessa krav finns i så här [konfigurerar du en utvecklings miljö](how-to-configure-environment.md)
 
@@ -153,15 +153,20 @@ Du kan också aktivera Azure Application insikter från Azure Machine Learning S
 1. Välj **aktivera Application Insights diagnostik och data insamling**
 
     ![Aktivera App Insights](./media/how-to-enable-app-insights/enable-app-insights.png)
-## <a name="evaluate-data"></a>Utvärdera data
+
+## <a name="view-metrics-and-logs"></a>Visa mått och loggar
+
 Din tjänsts data lagras i ditt Azure Application Insights-konto inom samma resurs grupp som Azure Machine Learning.
 Så här visar du det:
 
-1. Gå till arbets ytan Azure Machine Learning i [Azure Portal](https://ms.portal.azure.com/) och klicka på Application Insights länken
+1. Gå till din Azure Machine Learning arbets yta i [Studio](https://ml.azure.com/).
+1. Välj **slut punkter**.
+1. Välj den distribuerade tjänsten.
+1. Rulla ned för att hitta **Application Insights URL** och klicka på länken.
 
-    [![AppInsightsLoc](./media/how-to-enable-app-insights/AppInsightsLoc.png)](././media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
+    [![Hitta Application Insights-URL](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. Välj __loggar__på fliken **Översikt** eller i avsnittet __övervakning__ i listan till vänster.
+1. I program Isights går du till fliken **Översikt** eller avsnittet __övervakning__ i listan till vänster och väljer __loggar__.
 
     [![Fliken Översikt för övervakning](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -186,7 +191,7 @@ Du kan använda Azure Application insightss [löpande export](https://docs.micro
 
 Azure Data Factory, Azure ML-pipeliner eller andra data bearbetnings verktyg kan användas för att transformera data vid behov. När du har transformerat data kan du registrera den med Azure Machine Learning arbets ytan som en data uppsättning. Det gör du i så [här skapar och registrerar du data uppsättningar](how-to-create-register-datasets.md).
 
-   [![Löpande export](./media/how-to-enable-app-insights/continuous-export-setup.png)](././media/how-to-enable-app-insights/continuous-export-setup.png)
+:::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Löpande export":::
 
 
 ## <a name="example-notebook"></a>Exempelnotebook-fil

@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
-ms.openlocfilehash: a5613198b404f629727f3040b308c030763a10b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7e1073817013d45558a9679a4f70db0c002cfaa9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515809"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324088"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Växla API-inställning för logg aviseringar
 
@@ -115,4 +115,5 @@ Annars, om den angivna logg analys arbets ytan ännu inte har växlats till att 
 
 - Lär dig mer om [Azure Monitor-logg aviseringar](alerts-unified-log.md).
 - Lär dig hur du skapar [logg aviseringar i Azure-aviseringar](alerts-log.md).
-- Lär dig mer om [Azures aviserings upplevelse](../../azure-monitor/platform/alerts-overview.md).
+- Lär dig mer om [Azures aviserings upplevelse](./alerts-overview.md).
+

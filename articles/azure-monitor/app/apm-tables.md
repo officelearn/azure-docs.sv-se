@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/09/2020
-ms.openlocfilehash: 3175e43a841334719de80f44a226b1c7b87690d9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1d7275c928b4d25e200a3a8d3d690c7575c056e7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540119"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323187"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Arbets ytans baserade resurs ändringar (för hands version)
 
@@ -68,7 +68,7 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |itemType|sträng|Typ|Sträng|
 |location|sträng|Position|sträng|
 |meddelande|sträng|Meddelande|sträng|
-|name|sträng|Name|sträng|
+|name|sträng|Namn|sträng|
 |operation_Id|sträng|OperationId|sträng|
 |operation_Name|sträng|OperationName|sträng|
 |operation_ParentId|sträng|OperationParentId|sträng|
@@ -77,7 +77,7 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |sdkVersion|sträng|SdkVersion|sträng|
 |session_Id|sträng|SessionId|sträng|
 |ikoner|real|Storlek|real|
-|lyckades|sträng|Success|Bool|
+|lyckades|sträng|Klart|Bool|
 |timestamp|datetime|TimeGenerated|datetime|
 |user_AccountId|sträng|UserAccountId|sträng|
 |user_AuthenticatedId|sträng|UserAuthenticatedId|sträng|
@@ -108,7 +108,7 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |itemCount|int|ItemCount|int|
 |itemId|sträng|\_ItemId|sträng|
 |itemType|sträng|Typ|sträng|
-|name|sträng|Name|datetime|
+|name|sträng|Namn|datetime|
 |networkDuration|real|NetworkDurationMs|real|
 |operation_Id|sträng|OperationId|sträng|
 |operation_Name|sträng|OperationName|sträng|
@@ -155,7 +155,7 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |itemCount|int|ItemCount|int|
 |itemId|sträng|\_ItemId|sträng|
 |itemType|sträng|Typ|Sträng|
-|name|sträng|Name|sträng|
+|name|sträng|Namn|sträng|
 |operation_Id|sträng|OperationId|sträng|
 |operation_Name|sträng|OperationName|sträng|
 |operation_ParentId|sträng|OperationParentId|sträng|
@@ -164,7 +164,7 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |resultCode|sträng|ResultCode|sträng|
 |sdkVersion|sträng|SdkVersion|sträng|
 |session_Id|sträng|SessionId|sträng|
-|lyckades|sträng|Success|Bool|
+|lyckades|sträng|Klart|Bool|
 |fokusera|sträng|Mål|sträng|
 |timestamp|datetime|TimeGenerated|datetime|
 |typ|sträng|DependencyType|sträng|
@@ -197,7 +197,7 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |itemCount|int|ItemCount|int|
 |itemId|sträng|\_ItemId|sträng|
 |itemType|sträng|Typ|sträng|
-|name|sträng|Name|sträng|
+|name|sträng|Namn|sträng|
 |operation_Id|sträng|OperationId|sträng|
 |operation_Name|sträng|OperationName|sträng|
 |operation_ParentId|sträng|OperationParentId|sträng|
@@ -232,7 +232,7 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |iKey|sträng|IKey|sträng|
 |itemId|sträng|\_ItemId|sträng|
 |itemType|sträng|Typ|sträng|
-|name|sträng|Name|sträng|
+|name|sträng|Namn|sträng|
 |operation_Id|sträng|OperationId|sträng|
 |operation_Name|sträng|OperationName|sträng|
 |operation_ParentId|sträng|OperationParentId|sträng|
@@ -277,7 +277,7 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |itemCount|int|ItemCount|int|
 |itemId|sträng|\_ItemId|sträng|
 |itemType|sträng|Typ|Sträng|
-|name|sträng|Name|sträng|
+|name|sträng|Namn|sträng|
 |operation_Id|sträng|OperationId|sträng|
 |operation_Name|sträng|OperationName|sträng|
 |operation_ParentId|sträng|OperationParentId|sträng|
@@ -317,7 +317,7 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |session|sträng|Instans|sträng|
 |itemId|sträng|\_ItemId|sträng|
 |itemType|sträng|Typ|sträng|
-|name|sträng|Name|sträng|
+|name|sträng|Namn|sträng|
 |operation_Id|sträng|OperationId|sträng|
 |operation_Name|sträng|OperationName|sträng|
 |operation_ParentId|sträng|OperationParentId|sträng|
@@ -357,7 +357,7 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |itemCount|int|ItemCount|int|
 |itemId|sträng|\_ItemId|sträng|
 |itemType|sträng|Typ|Sträng|
-|name|sträng|Name|Sträng|
+|name|sträng|Namn|Sträng|
 |operation_Id|sträng|OperationId|sträng|
 |operation_Name|sträng|OperationName|sträng|
 |operation_ParentId|sträng|OperationParentId|sträng|
@@ -367,7 +367,7 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 |sdkVersion|sträng|SdkVersion|sträng|
 |session_Id|sträng|SessionId|sträng|
 |källa|sträng|Källa|Sträng|
-|lyckades|sträng|Success|Bool|
+|lyckades|sträng|Klart|Bool|
 |timestamp|datetime|TimeGenerated|datetime|
 |url|sträng|URL|Sträng|
 |user_AccountId|sträng|UserAccountId|sträng|
@@ -466,5 +466,6 @@ De flesta av kolumnerna har samma namn med olika Skift läge. Eftersom KQL är S
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Utforska mått](../../azure-monitor/platform/metrics-charts.md)
+* [Utforska mått](../platform/metrics-charts.md)
 * [Skriv analysfrågor](../log-query/log-query-overview.md)
+

@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 35590fd8aefb8b6a90adeef52fabe773663403c2
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 2f25cab211d24facea7863c15b6d7671a9657ae9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85510981"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290674"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Självstudie: diagnostisera, reparera och genomför ändringar i din färdigheter
 
@@ -23,9 +23,9 @@ I den här artikeln ska du använda Azure Portal för att få åtkomst till fel 
 > Debug-sessioner är en förhands gransknings funktion utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!div class="checklist"]
 > * En Azure-prenumeration. Skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) eller Använd din nuvarande prenumeration
@@ -73,7 +73,7 @@ I det här avsnittet används Postman och en angiven samling för att skapa Sök
 1. Under **filer**  >  **nya**väljer du den samling som ska importeras.
 1. När samlingen har importer ATS expanderar du åtgärds listan (...).
 1. Klicka på **Redigera**.
-1. Ange namnet på din searchService (till exempel om slut punkten är https://mydemo.search.windows.net , är tjänstens namn "demo").
+1. Ange namnet på din searchService (till exempel om slut punkten är `https://mydemo.search.windows.net` , så är tjänstens namn " `mydemo` ").
 1. Ange apiKey med antingen den primära eller sekundära nyckeln för Sök tjänsten.
 1. Ange storageConnectionString på sidan nycklar i ditt Azure Storage-konto.
 1. Ange containerName för den behållare som du skapade i lagrings kontot.
@@ -249,7 +249,7 @@ När indexeraren har slutförts bör det vara en grön bock och ordet lyckades b
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 

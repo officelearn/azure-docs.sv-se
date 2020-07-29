@@ -5,15 +5,16 @@ author: mimckitt
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: mimckitt
-ms.openlocfilehash: 1e9cce7adc6dbc9062dd133d690fbce92c3190fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7cb2667f8e653b4e71844cd849e691a7c5bcd81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783324"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325448"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Generella storlekar för virtuella datorer
 
@@ -34,9 +35,9 @@ Generella storlekar för virtuella datorer ger balanserade förhållandet mellan
 
 - [Dv3 och Dsv3-serien](dv3-dsv3-series.md) De virtuella datorerna körs på den andra generationen Intel® Xeon® platina 8272CL (överlappar sjö), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) i en Hyper-Threading-konfiguration, vilket ger ett bättre värde för de flesta Minnet har utökats (från ~ 3,5 GiB/vCPU till 4 GiB/vCPU) medan disk-och nätverks gränser har justerats per kärna för att justeras efter flytta till hyperthreading. Dv3-serien har inte längre hög minnes storlek för virtuella datorer i D/Dv2-serien, de har flyttats till den minnesoptimerade [Ev3 och Esv3-serien](ev3-esv3-series.md).
 
-- [DV4 och Dsv4-serien](dv4-dsv4-series.md) De virtuella datorerna körs på den andra generationen Intel &reg; Xeon &reg; platina 8272CL-processorer (Cascade Lake), vilket ger ett bättre värde för de flesta allmänna arbets belastningar. DV4-och Dsv4 VM-serien är en ny kategori av virtuella datorer, som förlitar sig på fjärrdiskar och inte tillhandahåller tillfällig lokal lagring. Den har en allt högre klock hastighet på 3,4 GHz och har [Intel &reg; Turbo Boost-teknik 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading-teknik](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) och [Intel &reg; Advanced Vector-tillägg 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). 
+- [DV4 och Dsv4-serien](dv4-dsv4-series.md) DV4 och Dsv4-serien körs på Intel® Xeon-® platina 8272CL-processorer (Cascade Lake) i en Hyper-threadd konfiguration, vilket ger ett bättre värde för de flesta allmänna arbets belastningar. Den har en hållbar all Core Turbo klock hastighet på 3,4 GHz.
 
-- [Ddv4 och Ddsv4-serien](ddv4-ddsv4-series.md) De virtuella datorerna körs på den andra generationen Intel &reg; Xeon &reg; platina 8272CL-processorer (Cascade Lake), vilket ger ett bättre värde för de flesta allmänna arbets belastningar. Ddv4-och Ddsv4 VM-serien är en ny kategori av virtuella datorer som innehåller temporära lokala data diskar. Den har en allt högre klock hastighet på 3,4 GHz och har [Intel &reg; Turbo Boost-teknik 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading-teknik](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) och [Intel &reg; Advanced Vector-tillägg 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). 
+- [Ddv4 och Ddsv4-serien](ddv4-ddsv4-series.md) Ddv4 och Ddsv4-serien körs på Intel &reg; Xeon &reg; platina 8272CL-processorer (Cascade Lake) i en Hyper-threadd konfiguration, vilket ger ett bättre värde för de flesta allmänna arbets belastningar. Den har en allt högre klock hastighet på 3,4 GHz, [Intel &reg; Turbo Boost-teknik 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading-teknik](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) och [Intel &reg; Advanced Vector-tillägg 512 (Intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). De stöder också [Intel &reg; djup inlärnings förstärkning](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Dessa nya VM-storlekar kommer att ha 50% större lokal lagring, samt bättre IOPS för lokala diskar för både läsning och skrivning jämfört med [dv3-/Dsv3-](./dv3-dsv3-series.md) storlekarna med [Gen2-VM](./linux/generation-2.md): ar.
 
 ## <a name="other-sizes"></a>Andra storlekar
 

@@ -574,6 +574,9 @@
           href: role-based-access-control.md
         - href: cosmos-db-advanced-threat-protection.md
           name: Advanced Threat Protection
+        - name: Säkerhetskontroller av Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Säkerhetsbaslinje
           href: security-baseline.md
     - name: Företagsberedskap
@@ -988,7 +991,7 @@
           href: how-to-manage-indexing-policy.md
         - name: Definiera unika nycklar
           href: how-to-define-unique-keys.md
-    - name: Prestanda och felsökning
+    - name: Prestanda
       items:
         - name: Söka i data
           items:
@@ -996,28 +999,20 @@
               href: profile-sql-api-query.md
             - name: Justera prestanda för frågor
               href: sql-api-query-metrics.md
-            - name: Felsöka frågeprestanda
-              href: troubleshoot-query-performance.md
         - name: .NET
           items:
             - name: Prestandatips för .NET SDK v3
               href: performance-tips-dotnet-sdk-v3-sql.md
             - name: Prestandatips för .NET SDK v2
               href: performance-tips.md
-            - name: Felsöka .NET SDK
-              href: troubleshoot-dot-net-sdk.md
         - name: Java
           items:
             - name: Prestandatips för Java SDK v4
               href: performance-tips-java-sdk-v4-sql.md
-            - name: Felsöka Java-SDK v4
-              href: troubleshoot-java-sdk-v4-sql.md
             - name: Asynkron Java-SDK v2
               href: performance-tips-async-java.md
             - name: Synkron Java-SDK v2
               href: performance-tips-java.md
-            - name: Felsöka – asynkron Java SDK v2
-              href: troubleshoot-java-async-sdk.md
         - name: Prestandatest – exempelapp
           href: performance-testing.md
         - name: Kostnadseffektiva läsningar och skrivningar
@@ -1026,6 +1021,36 @@
       items:
         - name: Migrera till Java V4-SDK
           href: migrate-java-v4-sdk.md
+    - name: Felsökning
+      items:
+        - name: Vanliga fel
+          items:
+            - name: Felsöka frågeprestanda
+              href: troubleshoot-query-performance.md
+            - name: Felsöka timeout för tjänstbegäran
+              href: troubleshoot-request-timeout.md
+            - name: Felsöka för hög begärandefrekvens
+              href: troubleshoot-request-rate-too-large.md
+            - name: Felsöka hittades inte
+              href: troubleshoot-not-found.md
+            - name: Felsöka behörighet saknas
+              href: troubleshoot-unauthorized.md
+        - name: .NET
+          items:
+            - name: Allmän felsökning av .NET SDK
+              href: troubleshoot-dot-net-sdk.md
+            - name: Felsöka för stort begärandehuvud
+              href: troubleshoot-dot-net-sdk-request-header-too-large.md
+            - name: Felsöka timeout för begäran
+              href: troubleshoot-dot-net-sdk-request-timeout.md
+            - name: Felsöka tjänsten är inte tillgänglig
+              href: troubleshoot-service-unavailable.md
+        - name: .Java
+          items:
+            - name: Felsöka Java-SDK v4
+              href: troubleshoot-java-sdk-v4-sql.md
+            - name: Felsöka – asynkron Java SDK v2
+              href: troubleshoot-java-async-sdk.md
     - name: Ändringsflöde
       items:
         - name: Azure Cosmos DB-utlösarloggar

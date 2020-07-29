@@ -1,6 +1,6 @@
 ---
-title: Ansluta till Windows Virtual Desktop blir 2019 från macOS – Azure
-description: Ansluta till virtuella Windows-datorer med macOS-klienten.
+title: Ansluta till Windows Virtual Desktop (klassisk) från macOS – Azure
+description: Så här ansluter du till Windows Virtual Desktop (klassisk) med macOS-klienten.
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1d8f9e3a5f4c529e3574be7dbeae8bd385f85367
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a4aac80f7e4ef93b6503398c225b2aeffe566dbe
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087115"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270574"
 ---
-# <a name="connect-with-the-macos-client"></a>Ansluta med macOS-klienten
+# <a name="connect-to-windows-virtual-desktop-classic-with-the-macos-client"></a>Ansluta till Windows Virtual Desktop (klassisk) med macOS-klienten
 
 > Gäller för: macOS 10,12 eller senare
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../connect-macos.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../connect-macos.md).
 
 Du kan komma åt Windows virtuella Skriv bords resurser från dina macOS-enheter med vår nedladdnings bara klient. I den här guiden får du lära dig hur du konfigurerar-klienten.
 

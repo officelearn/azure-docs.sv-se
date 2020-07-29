@@ -3,12 +3,12 @@ title: Aktivera Azure Monitor för behållare | Microsoft Docs
 description: I den här artikeln beskrivs hur du aktiverar och konfigurerar Azure Monitor för behållare så att du kan förstå hur din behållare presterar och vilka prestandarelaterade problem som har identifierats.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 5131d7b8a357075345b5165398d5fa9fc06b5ad8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1cb393faded714593ce635669f585d5979ee69b8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499043"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320314"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Aktivera Azure Monitor för behållare
 
@@ -28,11 +28,11 @@ Du kan aktivera Azure Monitor för behållare för en ny distribution eller för
 - Azure Portal
 - Azure PowerShell
 - Azure CLI
-- [Terraform och AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
+- [Terraform och AKS](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar kontrollerar du att du uppfyller följande krav:
 
@@ -131,3 +131,4 @@ Om du vill aktivera Azure Monitor för behållare använder du en av de metoder 
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har aktiverat övervakning kan du börja analysera prestanda för dina Kubernetes-kluster som finns i Azure Kubernetes service (AKS), Azure Stack eller någon annan miljö. Information om hur du använder Azure Monitor för behållare finns i [Visa Kubernetes kluster prestanda](container-insights-analyze.md).
+

@@ -4,16 +4,16 @@ description: Application Insights data modell för telemetri av mått
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 44f0b070a7c0da416002d9bf7e509d643a96dc7a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f8e787b8a94987e7d68e12a0e4e69f4c63e21e19
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540017"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320586"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Mått telemetri: Application Insights data modell
 
-Det finns två typer av mått telemetri som stöds av [Application Insights](../../azure-monitor/app/app-insights-overview.md): enstaka mått och föraggregerade mått. Enstaka mått är bara ett namn och ett värde. Föraggregerade mått anger det lägsta och högsta värdet för måttet i agg regerings intervallet och standard avvikelsen för det.
+Det finns två typer av mått telemetri som stöds av [Application Insights](./app-insights-overview.md): enstaka mått och föraggregerade mått. Enstaka mått är bara ett namn och ett värde. Föraggregerade mått anger det lägsta och högsta värdet för måttet i agg regerings intervallet och standard avvikelsen för det.
 
 Telemetri för föraggregerade mått förutsätter att agg regerings perioden är en minut.
 
@@ -33,7 +33,7 @@ Mått som representerar system-och process räknare:
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | Pågående arbete... | [requestExecutionTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | genomsnittlig körnings tid för begär Anden
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | Pågående arbete... | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | antal begär Anden som väntar på bearbetning i en kö
 
-## <a name="name"></a>Name
+## <a name="name"></a>Namn
 
 Namnet på det mått som du vill se i Application Insights Portal och användar gränssnitt. 
 
@@ -41,7 +41,7 @@ Namnet på det mått som du vill se i Application Insights Portal och användar 
 
 Enskilt värde för mått. Summan av enskilda mått för aggregation.
 
-## <a name="count"></a>Count
+## <a name="count"></a>Antal
 
 Mått vikt för det aggregerade måttet. Ska inte anges för ett mått.
 
@@ -65,6 +65,7 @@ Mått med den anpassade egenskaps `CustomPerfCounter` uppsättningen som `true` 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du använder [Application Insights API för anpassade händelser och mått](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric).
+- Lär dig hur du använder [Application Insights API för anpassade händelser och mått](./api-custom-events-metrics.md#trackmetric).
 - Se [data modell](data-model.md) för Application Insights typer och data modell.
-- Kolla ut [plattformar](../../azure-monitor/app/platforms.md) som stöds av Application Insights.
+- Kolla ut [plattformar](./platforms.md) som stöds av Application Insights.
+

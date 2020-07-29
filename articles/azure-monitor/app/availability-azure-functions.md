@@ -5,16 +5,16 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: 1808623821d71169ec35beab1d33d4eb2c32c189
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e2603d921973aefdcc1a6f4a76bdf70d69dcb68f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008412"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320637"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Skapa och kör anpassade tillgänglighets test med Azure Functions
 
-Den här artikeln beskriver hur du skapar en Azure-funktion med TrackAvailability () som kommer att köras regelbundet enligt konfigurationen i TimerTrigger-funktionen med din egen affärs logik. Resultatet av det här testet skickas till din Application Insights-resurs, där du kan fråga efter och Avisera om tillgänglighets resultat data. På så sätt kan du skapa anpassade tester som liknar vad du kan göra via [tillgänglighets övervakning](../../azure-monitor/app/monitor-web-app-availability.md) i portalen. Med anpassade tester kan du skriva mer komplexa tillgänglighets test än vad som är möjligt med hjälp av Portal gränssnittet, övervaka en app inuti ditt Azure VNET, ändra slut punkts adressen eller skapa ett tillgänglighets test även om den här funktionen inte är tillgänglig i din region.
+Den här artikeln beskriver hur du skapar en Azure-funktion med TrackAvailability () som kommer att köras regelbundet enligt konfigurationen i TimerTrigger-funktionen med din egen affärs logik. Resultatet av det här testet skickas till din Application Insights-resurs, där du kan fråga efter och Avisera om tillgänglighets resultat data. På så sätt kan du skapa anpassade tester som liknar vad du kan göra via [tillgänglighets övervakning](./monitor-web-app-availability.md) i portalen. Med anpassade tester kan du skriva mer komplexa tillgänglighets test än vad som är möjligt med hjälp av Portal gränssnittet, övervaka en app inuti ditt Azure VNET, ändra slut punkts adressen eller skapa ett tillgänglighets test även om den här funktionen inte är tillgänglig i din region.
 
 > [!NOTE]
 > Det här exemplet är utformat enbart för att Visa Mechanics för hur API-anropet TrackAvailability () fungerar i en Azure-funktion. Det går inte att skriva den underliggande koden/affärs logiken för HTTP-test som krävs för att göra detta till ett fullständigt funktionellt tillgänglighets test. Som standard om du går igenom det här exemplet kommer du att skapa ett tillgänglighets test som alltid ska generera ett haveri.
@@ -177,7 +177,7 @@ Om du körde allting som det är (utan att lägga till affärs logik) ser du att
 
 ## <a name="query-in-logs-analytics"></a>Fråga i loggar (analys)
 
-Du kan använda loggar (analys) om du vill visa tillgänglighets resultat, beroenden och mer. Mer information om loggar finns i [Översikt över logg frågor](../../azure-monitor/log-query/log-query-overview.md).
+Du kan använda loggar (analys) om du vill visa tillgänglighets resultat, beroenden och mer. Mer information om loggar finns i [Översikt över logg frågor](../log-query/log-query-overview.md).
 
 >[!div class="mx-imgBorder"]
 >![Tillgänglighets resultat](media/availability-azure-functions/availabilityresults.png)
@@ -187,5 +187,6 @@ Du kan använda loggar (analys) om du vill visa tillgänglighets resultat, beroe
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Programkarta](../../azure-monitor/app/app-map.md)
-- [Transaktionsdiagnostik](../../azure-monitor/app/transaction-diagnostics.md)
+- [Programkarta](./app-map.md)
+- [Transaktionsdiagnostik](./transaction-diagnostics.md)
+

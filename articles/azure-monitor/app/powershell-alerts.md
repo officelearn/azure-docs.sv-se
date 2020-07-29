@@ -3,20 +3,20 @@ title: Använd PowerShell för att ställa in aviseringar i Application Insights
 description: Automatisera konfigurationen av Application Insights för att få e-postmeddelanden om mått ändringar.
 ms.topic: conceptual
 ms.date: 07/23/2016
-ms.openlocfilehash: 00212aa8783a6bfc8e46d325a882781e33b7de51
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 74d477b6660c0f7ec2ee32b34169bb85886936e5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117169"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322473"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Använd PowerShell för att ställa in aviseringar i Application Insights
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Du kan automatisera konfigurationen av [aviseringar](../../azure-monitor/platform/alerts-log.md) i [Application Insights](../../azure-monitor/app/app-insights-overview.md).
+Du kan automatisera konfigurationen av [aviseringar](../platform/alerts-log.md) i [Application Insights](./app-insights-overview.md).
 
-Dessutom kan du [ställa in Webhooks för att automatisera ditt svar på en avisering](../../azure-monitor/platform/alerts-webhooks.md).
+Dessutom kan du [ställa in Webhooks för att automatisera ditt svar på en avisering](../platform/alerts-webhooks.md).
 
 > [!NOTE]
 > Överväg att [använda en Azure Resource Manager mall](powershell.md)om du vill skapa resurser och aviseringar samtidigt.
@@ -82,7 +82,7 @@ Add-AzMetricAlertRule -Name "slow responses" `
 ```
 
 ## <a name="example-2"></a>Exempel 2
-Jag har ett program där jag använder [TrackMetric ()](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) för att rapportera ett mått med namnet "salesPerHour". Skicka ett e-postmeddelande till mina kollegor om "salesPerHour" sjunker under 100, i genomsnitt över 24 timmar.
+Jag har ett program där jag använder [TrackMetric ()](./api-custom-events-metrics.md#trackmetric) för att rapportera ett mått med namnet "salesPerHour". Skicka ett e-postmeddelande till mina kollegor om "salesPerHour" sjunker under 100, i genomsnitt över 24 timmar.
 
 ```azurepowershell
 Add-AzMetricAlertRule -Name "poor sales" `
@@ -98,7 +98,7 @@ Add-AzMetricAlertRule -Name "poor sales" `
   -RuleType Metric
 ```
 
-Samma regel kan användas för måttet som rapporteras med hjälp av [mått parametern](../../azure-monitor/app/api-custom-events-metrics.md#properties) för ett annat spårnings anrop, till exempel TrackEvent eller trackPageView.
+Samma regel kan användas för måttet som rapporteras med hjälp av [mått parametern](./api-custom-events-metrics.md#properties) för ett annat spårnings anrop, till exempel TrackEvent eller trackPageView.
 
 ## <a name="metric-names"></a>Mått namn
 | Måttnamn | Skärm namn | Beskrivning |
@@ -124,22 +124,23 @@ Samma regel kan användas för måttet som rapporteras med hjälp av [mått para
 | `request.rate` |Begär ande frekvens |Antal begär anden till programmet per sekund. |
 | `requestFailed.count` |Misslyckade förfrågningar |Antal HTTP-begäranden som resulterade i svars koden >= 400 |
 | `view.count` |Sid visningar |Antal klient användar förfrågningar för en webb sida. Syntetisk trafik filtreras bort. |
-| {ditt anpassade mått namn} |{Ditt mått namn} |Ditt Metric-värde som rapporteras av [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) eller i [parametern mätningar i ett spårnings anrop](../../azure-monitor/app/api-custom-events-metrics.md#properties). |
+| {ditt anpassade mått namn} |{Ditt mått namn} |Ditt Metric-värde som rapporteras av [TrackMetric](./api-custom-events-metrics.md#trackmetric) eller i [parametern mätningar i ett spårnings anrop](./api-custom-events-metrics.md#properties). |
 
 Måtten skickas av olika moduler för telemetri:
 
 | Mått grupp | Insamlings modul |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>visa |[Webb läsar skript](../../azure-monitor/app/javascript.md) |
-| performanceCounter |[Prestanda](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
-| remoteDependencyFailed |[Beroende](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
-| anmoda<br/>requestFailed |[Serverbegäran](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>visa |[Webb läsar skript](./javascript.md) |
+| performanceCounter |[Prestanda](./configuration-with-applicationinsights-config.md) |
+| remoteDependencyFailed |[Beroende](./configuration-with-applicationinsights-config.md) |
+| anmoda<br/>requestFailed |[Serverbegäran](./configuration-with-applicationinsights-config.md) |
 
 ## <a name="webhooks"></a>Webhooks
-Du kan [Automatisera ditt svar på en avisering](../../azure-monitor/platform/alerts-webhooks.md). Azure kommer att anropa en webb adress som du väljer när en avisering aktive ras.
+Du kan [Automatisera ditt svar på en avisering](../platform/alerts-webhooks.md). Azure kommer att anropa en webb adress som du väljer när en avisering aktive ras.
 
 ## <a name="see-also"></a>Se även
 * [Skript för att konfigurera Application Insights](./create-new-resource.md#creating-a-resource-automatically)
 * [Skapa Application Insights-och webb test resurser från mallar](powershell.md)
 * [Automatisera kopplings Microsoft Azure Diagnostics till Application Insights](powershell-azure-diagnostics.md)
-* [Automatisera ditt svar på en avisering](../../azure-monitor/platform/alerts-webhooks.md)
+* [Automatisera ditt svar på en avisering](../platform/alerts-webhooks.md)
+

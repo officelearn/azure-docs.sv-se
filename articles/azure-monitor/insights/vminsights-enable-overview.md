@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/25/2020
-ms.openlocfilehash: 072f8fd44fa45648afd15cb40cba26bb427c7b56
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/27/2020
+ms.openlocfilehash: 96783955eac6ade90a155236891307720616ed20
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539626"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323952"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Aktivera Azure Monitor for VMs översikt
 
@@ -30,7 +30,7 @@ Så här konfigurerar du Azure Monitor for VMs:
 * Aktivera flera virtuella Azure-datorer, virtuella Azure Arc-datorer, Azure-VMSS eller Azure Arc-datorer i en viss prenumeration eller resurs grupp med hjälp av PowerShell.
 * Aktivera Azure Monitor for VMs för att övervaka virtuella datorer eller fysiska datorer som finns i företagets nätverk eller i annan moln miljö.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att du förstår informationen i följande avsnitt. 
 
@@ -47,7 +47,7 @@ Azure Monitor for VMs stöder en Log Analytics arbets yta i följande regioner:
 - USA, södra centrala
 - East US
 - USA, östra 2
-- USA, centrala
+- Central US
 - USA, norra centrala
 - US Gov AZ
 - US Gov va
@@ -57,7 +57,7 @@ Azure Monitor for VMs stöder en Log Analytics arbets yta i följande regioner:
 - Europa, västra
 - Asien, östra
 - Sydostasien
-- Central India
+- Indien, centrala
 - Japan, östra
 - Australien, östra
 - Australien, sydöstra
@@ -67,26 +67,20 @@ Azure Monitor for VMs stöder en Log Analytics arbets yta i följande regioner:
 >
 
 Om du inte har en Log Analytics arbets yta kan du skapa en med hjälp av en av resurserna:
-* [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
+* [Azure CLI](../learn/quick-create-workspace-cli.md)
 * [PowerShell](../platform/powershell-workspace-configuration.md)
-* [Azure-portalen](../../azure-monitor/learn/quick-create-workspace.md)
-* [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
+* [Azure-portalen](../learn/quick-create-workspace.md)
+* [Azure Resource Manager](../platform/template-workspace-configuration.md)
 
-Du kan också skapa en arbets yta när du aktiverar övervakning för en enskild virtuell Azure-dator eller skalnings uppsättning för virtuella datorer i Azure Portal.
+- Virtuell Azure-dator
+- Skalnings uppsättning för virtuella Azure-datorer
+- Hybrid virtuell dator som är ansluten till Azure-bågen
 
-Om du vill konfigurera ett i skala-scenario som använder Azure Policy, Azure PowerShell eller Azure Resource Manager mallar måste du installera *VMInsights* -lösningen. Du kan göra detta med någon av följande metoder:
-
-* Använd [Azure PowerShell](vminsights-enable-at-scale-powershell.md#set-up-a-log-analytics-workspace).
-* På sidan Azure Monitor for VMs [**princip täckning**](vminsights-enable-at-scale-policy.md#manage-policy-coverage-feature-overview) väljer du **Konfigurera arbets yta**. 
-
-### <a name="azure-arc-machines"></a>Azure Arc-datorer
-Azure Monitor for VMs är tillgängligt för Azure Arc-aktiverade servrar i regioner där Arc-tillägget är tillgängligt. Användare måste köra version 0,9 eller senare av Arc-agenten för att aktivera Azure Monitor for VMs på deras Arc-aktiverade servrar.
-
-### <a name="supported-operating-systems"></a>Operativsystem som stöds
+## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
 I följande tabell visas de Windows-och Linux-operativsystem som Azure Monitor for VMs stöder. Senare i det här avsnittet finns en fullständig lista med information om de viktigaste och lägre Linux OS-versionerna och de kernel-versioner som stöds.
 
-|OS-version |Prestanda |Maps |
+|OS-version |Prestanda |Kartor |
 |-----------|------------|-----|
 |Windows Server 2019 | X | X |
 |Windows Server 2016 1803 | X | X |
@@ -158,54 +152,40 @@ I följande tabell visas de Windows-och Linux-operativsystem som Azure Monitor f
 |:--|:--|
 | 9 | 4,9 | 
 
-### <a name="the-microsoft-dependency-agent"></a>Microsofts beroende agent
-
-Kart funktionen i Azure Monitor for VMs hämtar data från Microsoft-beroende agenten. Beroende agenten använder den Log Analytics agenten för att ansluta till Log Analytics. Datorn måste ha Log Analytics-agenten installerad och konfigurerad med beroende agenten.
-
-Oavsett om du aktiverar Azure Monitor for VMs för en enskild virtuell Azure-dator eller om du använder distributions metoden vid vid skala, använder du tillägget Azure VM Dependency agent för [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) eller [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) för att installera agenten som en del av upplevelsen.
-
->[!NOTE]
->Följande information som beskrivs i det här avsnittet gäller även för den [tjänstkarta lösningen](service-map.md).  
-
-I en hybrid miljö kan du ladda ned och installera beroende agenten manuellt eller med en automatiserad metod.
-
-I följande tabell beskrivs de anslutna källor som kart funktionen stöder i en hybrid miljö.
+## <a name="supported-azure-arc-machines"></a>Azure Arc-datorer som stöds
+Azure Monitor for VMs är tillgängligt för Azure Arc-aktiverade servrar i regioner där Arc-tillägget är tillgängligt. Du måste köra version 0,9 eller senare av Arc-agenten.
 
 | Ansluten källa | Stöds | Beskrivning |
 |:--|:--|:--|
-| Windows-agenter | Ja | Tillsammans med [Log Analytics agent för Windows](../../azure-monitor/platform/log-analytics-agent.md), behöver Windows-agenter beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
-| Linux-agenter | Ja | Tillsammans med [Log Analytics-agenten för Linux](../../azure-monitor/platform/log-analytics-agent.md)behöver Linux-agenterna beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
+| Windows-agenter | Ja | Tillsammans med [Log Analytics agent för Windows](../platform/log-analytics-agent.md), behöver Windows-agenter beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
+| Linux-agenter | Ja | Tillsammans med [Log Analytics-agenten för Linux](../platform/log-analytics-agent.md)behöver Linux-agenterna beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
 | System Center Operations Manager-hanteringsgrupp | Nej | |
 
-Du kan ladda ned beroende agenten från följande platser:
+## <a name="agents"></a>Agenter
+Azure Monitor for VMs kräver att följande två agenter installeras på varje virtuell dator eller skalnings uppsättning för virtuella datorer som ska övervakas. Att installera dessa agenter och ansluta dem till arbets ytan är det enda kravet att publicera resursen.
 
-| Fil | Operativsystem | Version | SHA-256 |
-|:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.4.10090 | B4E1FF9C1E5CD254AA709AEF9723A81F04EC0763C327567C582CE99C0C5A0BAE  |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.4.10090 | A56E310D297CE3B343AE8F4A6F72980F1C3173862D6169F1C713C2CA09660A9F |
+- [Log Analytics agent](../platform/log-analytics-agent.md). Samlar in händelser och prestanda data från den virtuella datorn eller skalnings uppsättningen för den virtuella datorn och levererar den till Log Analytics arbets ytan. Distributions metoder för Log Analytics-agenten på Azure-resurser använder VM-tillägget för [Windows](../../virtual-machines/extensions/oms-windows.md) och [Linux](../../virtual-machines/extensions/oms-linux.md).
+- Beroende agent. Samlar in identifierade data om processer som körs på den virtuella datorn och externa process beroenden, som används av [Map-funktionen i Azure Monitor for VMS](vminsights-maps.md). Beroende agenten använder den Log Analytics agenten för att leverera data till Azure Monitor. Distributions metoder för beroende agenten på Azure-resurser använder VM-tillägget för [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) och [Linux](../../virtual-machines/extensions/agent-dependency-linux.md).
 
-## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
+> [!NOTE]
+> Log Analytics agenten är samma agent som används av System Center Operations Manager. Azure Monitor for VMs kan övervaka agenter som också övervakas av Operations Manager om de är direkt anslutna och du installerar beroende agenten på dem. Agenter som är anslutna till Azure Monitor via en anslutning till en [hanterings grupp](../tform/../platform/om-agents.md) kan inte övervakas av Azure Monitor for VMS.
 
-Om du vill aktivera och komma åt funktionerna i Azure Monitor for VMs måste du ha rollen *Log Analytics deltagare* . Om du vill visa prestanda-, hälso-och kart data måste du ha rollen *övervaknings läsare* för den virtuella Azure-datorn. Arbets ytan Log Analytics måste konfigureras för Azure Monitor for VMs.
+Följande är flera metoder för att distribuera dessa agenter. 
 
-Mer information om hur du styr åtkomsten till en Log Analytics arbets yta finns i [hantera arbets ytor](../../azure-monitor/platform/manage-access.md).
+| Metod | Beskrivning |
+|:---|:---|
+| [Azure-portalen](vminsights-enable-single-vm.md) | Installera båda agenterna på en enskild virtuell dator, skalnings uppsättning för virtuella datorer eller hybrid virtuella datorer som är anslutna till Azure-bågen. |
+| [Mallar för Resurshanteraren](vminsights-enable-powershell.md) | Installera båda agenterna med någon av de metoder som stöds för att distribuera en Resource Manager-mall, inklusive CLI och PowerShell. |
+| [Azure Policy](vminsights-enable-at-scale-policy.md) | Tilldela Azure Policy initiativ för att automatiskt installera agenterna när en virtuell dator eller skalnings uppsättning för virtuell dator skapas. |
+| [Manuell installation](vminsights-enable-hybrid-cloud.md) | Installera agenterna i gäst operativ systemet på datorer som ligger utanför Azure, inklusive i ditt data Center eller i andra moln miljöer. |
 
-## <a name="how-to-enable-azure-monitor-for-vms"></a>Så här aktiverar du Azure Monitor for VMs
 
-Aktivera Azure Monitor for VMs med någon av de metoder som beskrivs i den här tabellen:
 
-| Distributions tillstånd | Metod | Beskrivning |
-|------------------|--------|-------------|
-| Enskild virtuell Azure-dator, Azure-VMSS eller Azure Arc-dator | [Aktivera från portalen](vminsights-enable-single-vm.md) | Välj **insikter** direkt från menyn i Azure Portal. |
-| Flera virtuella Azure-datorer, Azure-VMSS eller Azure Arc-datorer | [Aktivera via Azure Policy](vminsights-enable-at-scale-policy.md) | Använd Azure Policy för att automatiskt aktivera när en virtuell dator eller VMSS skapas. |
-| | [Aktivera via Azure PowerShell eller Azure Resource Manager mallar](vminsights-enable-at-scale-powershell.md) | Använd Azure PowerShell-eller Azure Resource Manager mallar för att aktivera flera virtuella Azure-datorer, Azure Arc VM eller Azure-VMSS över en angiven prenumeration eller resurs grupp. |
-| Hybridmoln | [Aktivera för Hybrid miljön](vminsights-enable-hybrid-cloud.md) | Distribuera till virtuella datorer eller fysiska datorer som finns i ditt data Center eller i andra moln miljöer. |
 
 ## <a name="management-packs"></a>Hanteringspaket
+När en Log Analytics arbets yta har kon figurer ATS för Azure Monitor for VMs vidarebefordras två hanterings paket till alla Windows-datorer som är anslutna till den arbets ytan. Hanterings paketen heter *Microsoft. IntelligencePacks. ApplicationDependencyMonitor* och *Microsoft. IntelligencePacks. VMInsights* och skrivs till *%program%\Microsoft Monitoring Agent\Agent\Health service State\Management Packs \* . 
 
-När Azure Monitor for VMs har Aktiver ATS och kon figurer ATS med en Log Analytics arbets yta vidarebefordras ett hanterings paket till alla Windows-datorer som rapporterar till arbets ytan. Om du har [integrerat din System Center Operations Manager hanterings grupp](../../azure-monitor/platform/om-agents.md) med arbets ytan Log Analytics distribueras tjänstkarta hanterings paketet från hanterings gruppen till Windows-datorer som rapporterar till hanterings gruppen.  
-
-Hanterings paketet heter *Microsoft. IntelligencePacks. ApplicationDependencyMonitor*. Den skrivs till `%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\` mappen. Data källan som hanterings paketet använder är `%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll` .
+Data källan som används av *ApplicationDependencyMonitor* -hanterings paketet är **% Program Files%\Microsoft Monitoring Agent\Agent\Health service State\Resources \<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll*. Data källan som används av *VMInsights* -hanterings paketet är *% Program Files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources \<AutoGeneratedID> \ Microsoft.VirtualMachineMonitoringModule.dll*.
 
 ## <a name="diagnostic-and-usage-data"></a>Diagnostik-och användnings data
 
@@ -217,8 +197,7 @@ Mer information om insamling och användning av data finns i [sekretess policy f
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
-Nu när du har aktiverat övervakning av den virtuella datorn är övervaknings informationen tillgänglig för analys i Azure Monitor for VMs.
-
 ## <a name="next-steps"></a>Nästa steg
 
 Information om hur du använder funktionen för prestanda övervakning finns i [visa Azure Monitor for VMS prestanda](vminsights-performance.md). Information om hur du visar identifierade program beroenden finns i [visa Azure Monitor for VMS karta](vminsights-maps.md).
+

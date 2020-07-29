@@ -1,6 +1,6 @@
 ---
-title: Windows-värd pool för virtuella skriv bord Azure Marketplace – Azure
-description: Hur du skapar en Windows-pool för virtuella skriv bord med hjälp av Azure Marketplace.
+title: Windows Virtual Desktop (klassisk) Host pool Azure Marketplace – Azure
+description: Så här skapar du en Windows Virtual Desktop (klassisk)-värd pool med hjälp av Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b4472baa51bb0b8806c7ad617c0fc1001c800ff0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3f0db05459b8e81764915c5dffb373e7f19edbc4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256857"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291308"
 ---
-# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Självstudie: skapa en värdbaserad pool med Azure Marketplace
+# <a name="tutorial-create-a-host-pool-in-windows-virtual-desktop-classic"></a>Självstudie: skapa en värdbaserad pool i Windows Virtual Desktop (klassisk)
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../create-host-pools-azure-marketplace.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../create-host-pools-azure-marketplace.md).
 
 I den här självstudien får du lära dig hur du skapar en adresspool i en Windows-klient för virtuella skriv bord med hjälp av ett Microsoft Azure Marketplace erbjudande.
 
@@ -33,7 +33,7 @@ Uppgifterna i den här självstudien innehåller:
 > * Anslut de virtuella datorerna till Active Directory-domänen.
 > * Registrera de virtuella datorerna med det virtuella Windows-skrivbordet.
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Krav
 
 * En klient i virtuellt skriv bord. En tidigare [självstudie](tenant-setup-azure-active-directory.md) skapar en klient.
 * [PowerShell-modul för Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/).
@@ -58,7 +58,7 @@ Så här kör du Azure Marketplace-erbjudandet för att etablera en ny adresspoo
 
 Efter det följer du anvisningarna i nästa avsnitt för att ange informationen för lämpliga flikar.
 
-### <a name="basics"></a>Grunder
+### <a name="basics"></a>Grunderna
 
 Det här kan du göra på fliken **grundläggande** :
 

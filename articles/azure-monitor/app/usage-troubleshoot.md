@@ -6,11 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8d2e573f34895207a455838b5fc64f95560943d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02d1bd9d204d88ba90218b1254c66ac0da80be85
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670924"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323510"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Felsöka verktyg för användar beteende analys i Application Insights
 Har du frågor om [verktyg för användar beteende analys i Application Insights](usage-overview.md): [användare, sessioner, händelser](usage-segmentation.md), [trattar](usage-funnels.md), [användarflöden](usage-flows.md), [kvarhållning](usage-retention.md)eller kohorter? Här är några svar.
@@ -18,13 +19,13 @@ Har du frågor om [verktyg för användar beteende analys i Application Insights
 ## <a name="counting-users"></a>Inventering av användare
 **Analys verktygen för användar beteende visar att min app har en användare/session, men jag vet att min app har många användare/sessioner. Hur kan jag åtgärda dessa felaktiga antal?**
 
-Alla telemetri-händelser i Application Insights ha ett [anonymt användar-ID](../../azure-monitor/app/data-model-context.md) och ett [sessions-ID](../../azure-monitor/app/data-model-context.md) som två av deras standard egenskaper. Som standard räknar alla användnings analys verktyg användare och sessioner baserat på dessa ID: n. Om dessa standard egenskaper inte fylls med unika ID: n för varje användare och session av appen, ser du ett felaktigt antal användare och sessioner i verktygen för användnings analys.
+Alla telemetri-händelser i Application Insights ha ett [anonymt användar-ID](./data-model-context.md) och ett [sessions-ID](./data-model-context.md) som två av deras standard egenskaper. Som standard räknar alla användnings analys verktyg användare och sessioner baserat på dessa ID: n. Om dessa standard egenskaper inte fylls med unika ID: n för varje användare och session av appen, ser du ett felaktigt antal användare och sessioner i verktygen för användnings analys.
 
-Om du övervakar en webbapp är den enklaste lösningen att lägga till [Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md) till din app, och se till att skript kodfragmentet läses in på varje sida som du vill övervaka. Java Script SDK genererar automatiskt anonyma användar-och sessions-ID: n och fyller sedan i telemetri-händelser med dessa ID: n när de skickas från din app.
+Om du övervakar en webbapp är den enklaste lösningen att lägga till [Application Insights JavaScript SDK](./javascript.md) till din app, och se till att skript kodfragmentet läses in på varje sida som du vill övervaka. Java Script SDK genererar automatiskt anonyma användar-och sessions-ID: n och fyller sedan i telemetri-händelser med dessa ID: n när de skickas från din app.
 
 Om du övervakar en webb tjänst (inget användar gränssnitt) skapar du [en telemetri-initierare som fyller i egenskaperna anonym användar-ID och sessions-ID](usage-send-user-context.md) enligt din tjänsts begrepp för unika användare och sessioner.
 
-Om din app skickar [autentiserade användar-ID: n](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)kan du räkna utifrån autentiserade användar-ID: n i användar verktyget. Välj "autentiserade användare" i list rutan "Visa".
+Om din app skickar [autentiserade användar-ID: n](./api-custom-events-metrics.md#authenticated-users)kan du räkna utifrån autentiserade användar-ID: n i användar verktyget. Välj "autentiserade användare" i list rutan "Visa".
 
 Analys verktygen för användar beteende stöder för närvarande inte räkning av användare eller sessioner baserat på andra egenskaper än anonymt användar-ID, autentiserat användar-ID eller sessions-ID.
 

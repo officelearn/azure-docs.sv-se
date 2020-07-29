@@ -4,15 +4,16 @@ description: Application Insights data modell för trace-telemetri
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 31958b26cdb8a7897cf0051af6600014c07949fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8fea4bbf590816b2ef168a2ed16f197389ee282e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671961"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320552"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>Trace telemetri: Application Insights data modell
 
-Trace telemetri (i [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representerar `printf` format spårnings satser som är text-genomsökta. `Log4Net`, `NLog` och andra textbaserade logg fils poster översätts till instanser av den här typen. Spårningen har inte några mått som utöknings barhet.
+Trace telemetri (i [Application Insights](./app-insights-overview.md)) representerar `printf` format spårnings satser som är text-genomsökta. `Log4Net`, `NLog` och andra textbaserade logg fils poster översätts till instanser av den här typen. Spårningen har inte några mått som utöknings barhet.
 
 ## <a name="message"></a>Meddelande
 
@@ -30,8 +31,9 @@ Allvarlighets grad för spårning. Värdet kan vara `Verbose` ,,, `Information` 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Utforska .net-spårnings loggar i Application Insights](../../azure-monitor/app/asp-net-trace-logs.md).
-- [Utforska Java trace-loggar i Application Insights](../../azure-monitor/app/java-trace-logs.md).
+- [Utforska .net-spårnings loggar i Application Insights](./asp-net-trace-logs.md).
+- [Utforska Java trace-loggar i Application Insights](./java-trace-logs.md).
 - Se [data modell](data-model.md) för Application Insights typer och data modell.
-- [Skriv anpassad trace-telemetri](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)
-- Kolla ut [plattformar](../../azure-monitor/app/platforms.md) som stöds av Application Insights.
+- [Skriv anpassad trace-telemetri](./api-custom-events-metrics.md#tracktrace)
+- Kolla ut [plattformar](./platforms.md) som stöds av Application Insights.
+

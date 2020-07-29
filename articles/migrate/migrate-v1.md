@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5ea17edc61988f13df5137686d823a424f6752ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2defb00827e6f3ccf49c336007198b7d9ac176f6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080870"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87306119"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Arbeta med den tidigare versionen av Azure Migrate
 
@@ -85,7 +85,7 @@ En dator flyttas bara till ett senare steg om den tidigare har passerat. Om en d
 
 Vyn för Azure-beredskap i utvärderingen visar beredskapsstatus för varje virtuell dator.
 
-**Beredskap** | **Status** | **Detaljer**
+**Beredskap** | **Tillstånd** | **Information**
 --- | --- | ---
 Redo för Azure | Inga kompatibilitetsproblem. Datorn kan migreras med Azure, och den kommer att startas i Azure med fullständig support för Azure. | För förberedda virtuella datorer rekommenderar Azure Migrate en VM-storlek i Azure.
 Villkorligt redo för Azure | Datorn kan starta i Azure, men kanske inte har fullständig support för Azure. Till exempel en dator med en äldre version av Windows Server som inte stöds i Azure. | Azure Migrate förklarar beredskaps problemen och ger åtgärder.
@@ -97,7 +97,7 @@ Beredskap okänd | Azure Migrate kan inte identifiera Azure-beredskap, vanligt v
 Beredskapen tar hänsyn till ett antal VM-egenskaper, för att identifiera om den virtuella datorn kan köras i Azure.
 
 
-**Egenskap** | **Detaljer** | **Beredskap**
+**Egenskap** | **Information** | **Beredskap**
 --- | --- | ---
 **Start typ** | BIOS stöds. UEFI stöds inte. | Villkoret klart om start typen är UEFI.
 **Kärnor** | Datorer Core <= det maximala antalet kärnor (128) som stöds för en virtuell Azure-dator.<br/><br/> Om prestanda historiken är tillgänglig, Azure Migrate beakta de använda kärnorna.<br/>Om en bekvämlighets faktor anges i utvärderings inställningarna multipliceras antalet använda kärnor av den praktiska faktorn.<br/><br/> Om det inte finns någon prestanda historik använder Azure Migrate tilldelade kärnor, utan att använda den praktiska faktorn. | Redo om det är mindre än eller lika med begränsningar.
@@ -114,7 +114,7 @@ Tillsammans med VM-egenskaper tittar Azure Migrate också på gäst operativ sys
 
 Följande logik används.
 
-**Operativsystem** | **Detaljer** | **Beredskap**
+**Operativsystem** | **Information** | **Beredskap**
 --- | --- | ---
 Windows Server 2016 och alla SPs | Azure ger fullständig support. | Redo för Azure
 Windows Server 2012 R2 och alla SPs | Azure ger fullständig support. | Redo för Azure
@@ -127,7 +127,7 @@ Windows-klient 7, 8 och 10 | Azure har endast stöd för [Visual Studio-prenumer
 Windows 10 Pro Desktop | Azure har stöd för [värd rättigheter för flera innehavare.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Villkorligt redo för Azure
 Windows Vista, XP Professional | Out-of-support. Datorn kan starta i Azure, men det finns inget stöd för operativ systemet i Azure. | Villkorligt redo för Azure, vi rekommenderar att du uppgraderar operativ systemet innan du migrerar till Azure.
 Linux | Azure godkänner dessa [Linux-operativsystem](../virtual-machines/linux/endorsed-distros.md). Andra Linux-operativsystem kan starta i Azure, men vi rekommenderar att du uppgraderar operativ systemet till en godkänd version innan du migrerar till Azure. | Redo för Azure om versionen är påtecknad.<br/><br/>Villkorligt klar om versionen inte har påbörjats.
-Andra operativ system<br/><br/> Till exempel, Oracle Solaris, Apple Mac OS osv., FreeBSD osv. | Azure förser inte dessa operativ system. Datorn kan starta i Azure, men det finns inget stöd för operativ systemet i Azure. | Villkorligt redo för Azure, vi rekommenderar att du installerar ett operativ system som stöds innan du migrerar till Azure.  
+Andra operativ system<br/><br/> Till exempel Oracle Solaris, Apple macOS osv., FreeBSD osv. | Azure förser inte dessa operativ system. Datorn kan starta i Azure, men det finns inget stöd för operativ systemet i Azure. | Villkorligt redo för Azure, vi rekommenderar att du installerar ett operativ system som stöds innan du migrerar till Azure.  
 Operativ systemet har angetts som **annat** i vCenter Server | Azure Migrate kan inte identifiera operativ systemet i det här fallet. | Okänd beredskap. Kontrol lera att operativ systemet som körs i den virtuella datorn stöds i Azure.
 32-bitars operativ system | Datorn kan starta i Azure, men Azure har kanske inte fullständig support. | Villkorligt redo för Azure bör du överväga att uppgradera datorns operativ system från 32-bitars operativ system till 64-bitars operativ system innan du migrerar till Azure.
 
@@ -210,7 +210,7 @@ Om du vill använda beroende visualisering associerar du en Log Analytics arbets
 1. Om du vill bifoga en Log Analytics arbets yta till ett projekt i **översikt**> **Essentials**klickar du på **kräver konfiguration**.
 2. Du kan skapa en ny arbets yta eller bifoga en befintlig:
   - Ange ett namn för att skapa en ny arbets yta. Arbets ytan skapas i en region i samma Azure- [geografi](https://azure.microsoft.com/global-infrastructure/geographies/) som migreringsjobbet.
-  - När du ansluter en befintlig arbets yta kan du välja mellan alla tillgängliga arbets ytor i samma prenumeration som migreringsjobbet. Endast de arbets ytor som har skapats i en [tjänstkarta region som stöds](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites). Se till att du har "läsare"-åtkomst till arbets ytan för att koppla en arbets yta.
+  - När du ansluter en befintlig arbets yta kan du välja mellan alla tillgängliga arbets ytor i samma prenumeration som migreringsjobbet. Endast de arbets ytor som har skapats i en [tjänstkarta region som stöds](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions). Se till att du har "läsare"-åtkomst till arbets ytan för att koppla en arbets yta.
 
 > [!NOTE]
 > Du kan inte ändra arbets ytan som är associerad med ett migreringsjobb.

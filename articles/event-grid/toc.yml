@@ -8,6 +8,8 @@
       href: overview.md
     - name: Jämföra meddelandetjänster
       href: compare-messaging-services.md
+    - name: Viktig information
+      href: whats-new.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -236,7 +238,7 @@
           href: configure-private-endpoints.md
         - name: Konfigurera IP-brandvägg (förhandsversion)
           href: configure-firewall.md
-        - name: Säker WebHook med AAD
+        - name: Säker webhook med AAD
           href: secure-webhook-delivery.md
         - name: Händelseleverans med hanterad identitet
           href: managed-service-identity.md

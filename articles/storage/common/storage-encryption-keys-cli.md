@@ -10,12 +10,12 @@ ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d6fa4bbaf9b37c93ef4efbe405087c39395df63d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4d54a8bf9fb5a1f31a29e41ecea545b43dbe58cf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086021"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276694"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Konfigurera Kundhanterade nycklar med Azure Key Vault med hjälp av Azure CLI
 
@@ -97,7 +97,7 @@ När du konfigurerar kryptering med Kundhanterade nycklar kan du välja att auto
 
 ### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>Konfigurera kryptering för automatisk rotation av Kundhanterade nycklar
 
-Om du vill konfigurera kryptering för automatisk rotation av Kundhanterade nycklar, installerar du [Azure CLI version 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) eller senare. Mer information finns i [Installera Azure CLI](/azure/install-azure-cli).
+Om du vill konfigurera kryptering för automatisk rotation av Kundhanterade nycklar, installerar du [Azure CLI version 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) eller senare. Mer information finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Om du vill rotera Kundhanterade nycklar automatiskt, utelämnar du nyckel versionen när du konfigurerar Kundhanterade nycklar för lagrings kontot. Anropa [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) för att uppdatera lagrings kontots krypterings inställningar, som du ser i följande exempel. Inkludera `--encryption-key-source` parametern och Ställ in den på `Microsoft.Keyvault` för att aktivera Kundhanterade nycklar för kontot. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden.
 

@@ -8,21 +8,21 @@ ms.author: nilsp
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: how-to
 ms.date: 02/07/2020
-ms.custom: contperfq4
-ms.openlocfilehash: 7d6222b4ea0e30997b3b55adb887c839fef6e624
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, contperfq4
+ms.openlocfilehash: 6d54945ce026f91b27ce31ba82ada1b0cc49a260
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207422"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324258"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Utlösa en körning av en Machine Learning pipeline från en Logic app
 
 Utlös körning av Azure Machine Learning pipelinen när nya data visas. Du kanske exempelvis vill utlösa pipelinen för att träna en ny modell när nya data visas i Blob Storage-kontot. Konfigurera utlösaren med [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -67,7 +67,7 @@ När du har etablerat din Logi Kap par kan du använda de här stegen för att k
 
   Använd följande inställningar för att konfigurera din åtgärd:
 
-  | Inställning | Värde | 
+  | Inställningen | Värde | 
   |---|---|
   | HTTP-åtgärd | POST |
   | URI |slut punkten till den publicerade pipelinen som du hittade som en [förutsättning](#prerequisites) |

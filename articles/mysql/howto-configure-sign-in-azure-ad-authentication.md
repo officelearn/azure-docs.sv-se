@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
-ms.date: 01/22/2019
-ms.openlocfilehash: ff5d2e5546c8b29ed486c587a555f47fa2c7e31b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/23/2020
+ms.openlocfilehash: 6efe6392c32221f979a9ac319b4385b4b94b1235
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101434"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171312"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Använda Azure Active Directory för autentisering med MySQL
 
@@ -57,7 +57,7 @@ Vi har även testat de flesta vanliga program driv rutiner, men du kan se inform
 
 Detta är de steg som en användare/ett program behöver för att autentisera med Azure AD som beskrivs nedan:
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Du kan följa med i Azure Cloud Shell, en virtuell Azure-dator eller på den lokala datorn. Kontrol lera att du har [installerat Azure CLI](/cli/azure/install-azure-cli).
 

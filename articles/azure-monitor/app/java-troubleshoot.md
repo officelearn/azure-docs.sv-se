@@ -3,11 +3,12 @@ title: Felsöka Application Insights i ett Java-webbprojekt
 description: Fel söknings guide – övervakning av direktsända Java-appar med Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: ecc9a298d122919138683b48527574a1ff3e5edc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74b4bc009158d826955f851f22458e9570a58e7c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484784"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324156"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Felsökning och vanliga frågor och svar för Application Insights för Java
 Är du av frågor eller problem med [Azure Application Insights i Java][java]? Här följer några tips.
@@ -23,7 +24,7 @@ ms.locfileid: "84484784"
 * Vänta en minut och klicka på Uppdatera. Diagrammen uppdateras regelbundet, men du kan också uppdatera manuellt. Uppdaterings intervallet beror på diagrammets tidsintervall.
 * Kontrol lera att du har en Instrumentation-nyckel som har definierats i ApplicationInsights.xml-filen (i mappen resurser i projektet) eller konfigurerat som miljö variabel.
 * Kontrol lera att det inte finns någon `<DisableTelemetry>true</DisableTelemetry>` nod i XML-filen.
-* I brand väggen kan du behöva öppna TCP-portarna 80 och 443 för utgående trafik till dc.services.visualstudio.com. Se den [fullständiga listan över brand Väggs undantag](../../azure-monitor/app/ip-addresses.md)
+* I brand väggen kan du behöva öppna TCP-portarna 80 och 443 för utgående trafik till dc.services.visualstudio.com. Se den [fullständiga listan över brand Väggs undantag](./ip-addresses.md)
 * I Microsoft Azure start-tavlan tittar du på tjänst status kartan. Om det finns några aviserings indikationer väntar du tills de har kommit tillbaka till OK och stänger sedan och öppnar bladet Application Insights program igen.
 * [Aktivera loggning](#debug-data-from-the-sdk) genom att lägga till ett `<SDKLogger />` element under rotnoden i ApplicationInsights.xml-filen (i mappen resurser i projektet) och Sök efter poster som föregås av AI: info/warn/Error för eventuella misstänkta loggar. 
 * Kontrol lera att rätt ApplicationInsights.xml fil har lästs in av Java SDK genom att titta på konsolens utgående meddelanden för en "konfigurations fil" har hittats "-instruktionen.
@@ -37,7 +38,7 @@ ms.locfileid: "84484784"
 * Tittar du på rätt AI-resurs? Matcha iKey för ditt program till den resurs där du förväntar dig telemetri. De bör vara identiska.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>Jag ser inte alla data jag förväntar mig
-* Öppna sidan användning och uppskattad kostnad och kontrol lera om [samplingen](../../azure-monitor/app/sampling.md) är i drift. (100% överföring innebär att samplingen inte är i drift.) Application Insightss tjänsten kan ställas in så att den endast accepterar en bråkdel av Telemetrin som kommer från din app. Detta hjälper dig att hålla dig inom din månatliga kvot för telemetri.
+* Öppna sidan användning och uppskattad kostnad och kontrol lera om [samplingen](./sampling.md) är i drift. (100% överföring innebär att samplingen inte är i drift.) Application Insightss tjänsten kan ställas in så att den endast accepterar en bråkdel av Telemetrin som kommer från din app. Detta hjälper dig att hålla dig inom din månatliga kvot för telemetri.
 * Har SDK-sampling Aktiver ATS? Om ja, kommer data att samplas enligt den angivna frekvensen för alla tillämpliga typer.
 * Kör du en äldre version av Java SDK? Från och med version 2.0.1 har vi infört fel tolerans mekanism för att hantera tillfälliga nätverks-och Server dels fel samt data beständighet på lokala enheter.
 * Får du en begränsning på grund av överdriven telemetri? Om du aktiverar informations loggning visas ett meddelande om att "appen är begränsad". Vår aktuella gräns är 32k för telemetri-objekt per sekund.
@@ -192,11 +193,11 @@ Application Insights använder `org.apache.http` . Detta finns i Application Ins
 
 <!--Link references-->
 
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[data]: ../../azure-monitor/app/data-retention-privacy.md
+[availability]: ./monitor-web-app-availability.md
+[data]: ./data-retention-privacy.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[platforms]: ../../azure-monitor/app/platforms.md
-[track]: ../../azure-monitor/app/api-custom-events-metrics.md
+[platforms]: ./platforms.md
+[track]: ./api-custom-events-metrics.md
 [usage]: javascript.md
 

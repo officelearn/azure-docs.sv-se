@@ -7,14 +7,17 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
-ms.openlocfilehash: 276f115f579fbd1ab077722b220a4a0c6c571850
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: 6d3661128008c13e5d4d459f6f8e7925aa18a9a4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82025075"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322779"
 ---
-# <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Automatisk hantering av IoT-enheter och-modulen med hjälp av Azure Portal
+# <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Automatisk hantering av IoT-enheter och -moduler med Azure-portalen
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
@@ -127,7 +130,7 @@ SELECT deviceId, moduleId FROM devices.modules
   WHERE properties.reported.lastDesiredStatus.code = 200
 ```
 
-### <a name="target-devices"></a>Mål enheter
+### <a name="target-devices"></a>Målenheter
 
 Använd egenskapen taggar från dina enheter för att rikta in dig på specifika enheter eller moduler som ska ta emot den här konfigurationen. Du kan också ange dubbla rapporterade egenskaper.
 

@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: 317d5681ac3b09cb433cdc2bc3c83b6b1c8d37dc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b656774762f5930c5665166a701bda7333940307
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516370"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322439"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Hitta och diagnostisera körningsundantag med Azure Application Insights
 
@@ -27,7 +27,7 @@ Azure Application Insights samlar in telemetri från ditt program för att ident
 > * skapa ett nytt arbetsobjekt för att åtgärda den felaktiga koden.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -36,7 +36,7 @@ För att slutföra den här kursen behöver du:
     - Azure Development
 - Ladda ned och installera [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
 - Aktivera [Visual Studio Snapshot Debugger](../app/snapshot-debugger.md)
-- Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](../../azure-monitor/app/asp-net.md). 
+- Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](../app/asp-net.md). 
 - I självstudien spåras hur du identifierar ett undantag i ditt program, så ändra koden i din miljö för utveckling eller testning så att du genererar ett undantag. 
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
@@ -63,7 +63,7 @@ Application Insights samlar in eventuella fel i programmet, och du kan se frekve
 
     ![Exempel på misslyckade begäranden](media/tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. Informationen om den misslyckade begäran visar Gantt-diagrammet som visar att det uppstod två beroendefel i transaktionen. Det gav upphov till över 50 % av den totala varaktigheten för transaktionen. Den här upplevelsen visar all telemetri, för alla komponenter i ett distribuerat program, som är relaterade till det här åtgärds-ID:t. [Läs mer om den nya upplevelsen](../../azure-monitor/app/transaction-diagnostics.md) Du kan välja valfritt objekt och visa information om det på höger sida. 
+6. Informationen om den misslyckade begäran visar Gantt-diagrammet som visar att det uppstod två beroendefel i transaktionen. Det gav upphov till över 50 % av den totala varaktigheten för transaktionen. Den här upplevelsen visar all telemetri, för alla komponenter i ett distribuerat program, som är relaterade till det här åtgärds-ID:t. [Läs mer om den nya upplevelsen](../app/transaction-diagnostics.md) Du kan välja valfritt objekt och visa information om det på höger sida. 
 
     ![Information om misslyckade begäranden](media/tutorial-runtime-exceptions/failed-request-details.png)
 
@@ -112,4 +112,5 @@ Om du ansluter Application Insights till ett spårningssystem som Azure DevOps e
 Nu när du har lärt dig hur du identifierar körningsundantag går du vidare till nästa självstudie, där du får lära dig hur du identifierar och diagnostiserar prestandaproblem.
 
 > [!div class="nextstepaction"]
-> [Identifiera prestandaproblem](../../azure-monitor/learn/tutorial-performance.md)
+> [Identifiera prestandaproblem](./tutorial-performance.md)
+

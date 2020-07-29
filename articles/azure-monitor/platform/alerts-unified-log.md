@@ -6,34 +6,34 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 0d080c18a1af9549373750b787093fec03b32006
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1d3b3215fe05ef2f57805b5df2b441f360f45df2
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073606"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322354"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Logg aviseringar i Azure Monitor
 
-Logg aviseringar är en av de aviserings typer som stöds i [Azure-aviseringar](../../azure-monitor/platform/alerts-overview.md). Logg aviseringar gör att användarna kan använda Azure Analytics-plattformen som grund för aviseringar.
+Logg aviseringar är en av de aviserings typer som stöds i [Azure-aviseringar](./alerts-overview.md). Logg aviseringar gör att användarna kan använda Azure Analytics-plattformen som grund för aviseringar.
 
-Logg aviseringen består av loggs öknings regler som skapats för [Azure Monitor loggar](../log-query/get-started-portal.md) eller [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). Mer information om användningen finns i [Skapa logg aviseringar i Azure](../../azure-monitor/platform/alerts-log.md)
+Logg aviseringen består av loggs öknings regler som skapats för [Azure Monitor loggar](../log-query/get-started-portal.md) eller [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events). Mer information om användningen finns i [Skapa logg aviseringar i Azure](./alerts-log.md)
 
 > [!NOTE]
-> Populära loggdata från [Azure Monitor-loggar](../log-query/get-started-portal.md) är nu även tillgängliga på mått plattformen i Azure Monitor. Mer information finns i [Metric-aviseringar för loggar](../../azure-monitor/platform/alerts-metric-logs.md)
+> Populära loggdata från [Azure Monitor-loggar](../log-query/get-started-portal.md) är nu även tillgängliga på mått plattformen i Azure Monitor. Mer information finns i [Metric-aviseringar för loggar](./alerts-metric-logs.md)
 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Loggs ökning-aviserings regel – definition och typer
 
-Loggsökningsregler skapas av Azure-aviseringar för att automatiskt köra angivna loggfrågor med jämna mellanrum.  Om resultatet av loggfrågan matchar särskilda villkor skapas en aviseringspost. Regeln kan sedan automatiskt köra en eller flera åtgärder med hjälp av [Åtgärdsgrupper](../../azure-monitor/platform/action-groups.md). [Azure Monitoring Contributor](../../azure-monitor/platform/roles-permissions-security.md) -rollen för att skapa, ändra och uppdatera logg aviseringar kan krävas. tillsammans med åtkomst & frågekörning för analys mål i varnings regeln eller varnings frågan. Om användaren som skapar inte har åtkomst till alla analys mål i varnings regeln eller varnings frågan, kan det hända att regeln inte skapas eller att logg aviserings regeln körs med partiella resultat.
+Loggsökningsregler skapas av Azure-aviseringar för att automatiskt köra angivna loggfrågor med jämna mellanrum.  Om resultatet av loggfrågan matchar särskilda villkor skapas en aviseringspost. Regeln kan sedan automatiskt köra en eller flera åtgärder med hjälp av [Åtgärdsgrupper](./action-groups.md). [Azure Monitoring Contributor](./roles-permissions-security.md) -rollen för att skapa, ändra och uppdatera logg aviseringar kan krävas. tillsammans med åtkomst & frågekörning för analys mål i varnings regeln eller varnings frågan. Om användaren som skapar inte har åtkomst till alla analys mål i varnings regeln eller varnings frågan, kan det hända att regeln inte skapas eller att logg aviserings regeln körs med partiella resultat.
 
 Logg Sök regler definieras av följande information:
 
-- **Logg fråga**.  Den fråga som körs varje gång varningsregeln utlöses.  Posterna som returneras av den här frågan används för att avgöra om en avisering ska utlösas. Analytics-frågan kan vara avsedd för en speciell Log Analytics arbets yta eller Application Insights app och till och med sträcka sig över [flera Log Analytics och Application Insights resurser](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) förutsatt att användaren har åtkomst och behörighet till alla resurser. 
+- **Logg fråga**.  Den fråga som körs varje gång varningsregeln utlöses.  Posterna som returneras av den här frågan används för att avgöra om en avisering ska utlösas. Analytics-frågan kan vara avsedd för en speciell Log Analytics arbets yta eller Application Insights app och till och med sträcka sig över [flera Log Analytics och Application Insights resurser](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) förutsatt att användaren har åtkomst och behörighet till alla resurser. 
     > [!IMPORTANT]
-    > [frågor om kors resurser](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) i logg aviseringar för Application Insights-och logg aviseringar för [Log Analytics som kon figurer ATS med scheduledQueryRules-API: et](../../azure-monitor/platform/alerts-log-api-switch.md) .
+    > [frågor om kors resurser](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) i logg aviseringar för Application Insights-och logg aviseringar för [Log Analytics som kon figurer ATS med scheduledQueryRules-API: et](./alerts-log-api-switch.md) .
 
-    Vissa analys kommandon och kombinationer är inkompatibla med användning i logg aviseringar. Mer information finns [i Logga varnings frågor i Azure Monitor](../../azure-monitor/platform/alerts-log-query.md).
+    Vissa analys kommandon och kombinationer är inkompatibla med användning i logg aviseringar. Mer information finns [i Logga varnings frågor i Azure Monitor](./alerts-log-query.md).
 
 - **Tids period**.  Anger tidsintervallet för frågan. Frågan returnerar bara de poster som har skapats i det här intervallet för den aktuella tiden. Tids perioden begränsar de data som hämtas för logg frågan för att förhindra missbruk och kringgår eventuella tids kommandon (t. ex. sedan) som används i logg frågan. <br>*Om tids perioden till exempel är inställd på 60 minuter och frågan körs med 1:15 PM, returneras endast poster som skapats mellan 12:15 PM och 1:15 PM för att köra logg frågor. Nu om logg frågan använder Time-kommandot som sedan kör (7d), skulle logg frågan endast köras för data mellan 12:15 och 1:15 PM, som om data bara finns för de senaste 60 minuterna. Och inte för sju dagars data som anges i logg frågan.*
 
@@ -41,7 +41,7 @@ Logg Sök regler definieras av följande information:
 
 - **Tröskel**.  Resultaten av loggs ökningen utvärderas för att avgöra om en avisering ska skapas.  Tröskelvärdet skiljer sig för de olika typerna av loggs öknings aviserings regler.
 
-Logg Sök regler är den för [Azure Monitor loggar](../log-query/get-started-portal.md) eller [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events)kan vara av två typer. Var och en av dessa typer beskrivs i detalj i de avsnitt som följer.
+Logg Sök regler är den för [Azure Monitor loggar](../log-query/get-started-portal.md) eller [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events)kan vara av två typer. Var och en av dessa typer beskrivs i detalj i de avsnitt som följer.
 
 - **[Antal resultat](#number-of-results-alert-rules)**. En enda avisering skapas när antalet poster som returneras av loggs ökningen överskrider ett angivet tal.
 - **[Mått mått](#metric-measurement-alert-rules)**.  Avisering som skapats för varje objekt i resultatet av loggs ökningen med värden som överskrider det angivna tröskelvärdet.
@@ -81,7 +81,7 @@ Varnings regler för **mått mätning** skapa en avisering för varje objekt i e
 - **Grupp fält**: en post med ett aggregerat värde skapas för varje instans av det här fältet och en avisering kan genereras för varje instans.  Om du till exempel vill generera en avisering för varje dator använder du **datorn**. Om det finns flera grupp fält angivna i varnings frågan, kan användaren ange vilket fält som ska användas för att sortera resultaten med hjälp av parametern **agg regerings på** (metricColumn)
 
     > [!NOTE]
-    > Alternativet *aggregera på* (metricColumn) är tillgängligt för mått måtts typ logg aviseringar för Application Insights-och logg aviseringar för [Log Analytics som kon figurer ATS med scheduledQueryRules-API: et](../../azure-monitor/platform/alerts-log-api-switch.md) .
+    > Alternativet *aggregera på* (metricColumn) är tillgängligt för mått måtts typ logg aviseringar för Application Insights-och logg aviseringar för [Log Analytics som kon figurer ATS med scheduledQueryRules-API: et](./alerts-log-api-switch.md) .
 
 - **Interval**: definierar det tidsintervall under vilket data aggregeras.  Om du till exempel har angett **fem minuter**skapas en post för varje instans av grupp fältet som sammanställs med 5 minuters intervall under den angivna tids perioden för aviseringen.
 
@@ -152,22 +152,23 @@ Prissättningen som gäller för logg aviseringar anges på sidan för [Azure Mo
 - Logg aviseringar på Application Insights visas med exakt varnings namn tillsammans med resurs grupps-och aviserings egenskaper
 - Logga aviseringar på Log Analytics visas med ett exakt varnings namn tillsammans med resurs grupps-och aviserings egenskaper. När du skapar med [scheduledQueryRules-API](/rest/api/monitor/scheduledqueryrules)
 
-Det [äldre Log Analytics API: t](../../azure-monitor/platform/api-alerts.md) har varnings åtgärder och scheman som en del av Log Analytics sparade sökningar och inte rätt [Azure-resurser](../../azure-resource-manager/management/overview.md). Det innebär att du kan aktivera fakturering för sådana äldre logg aviseringar som skapats för Log Analytics att använda Azure Portal **utan** [att växla till nytt API](../../azure-monitor/platform/alerts-log-api-switch.md) eller via [äldre Log Analytics API](../../azure-monitor/platform/api-alerts.md) – dolda pseudo-aviserings regler skapas på `microsoft.insights/scheduledqueryrules` för fakturering i Azure. De dolda egenskaperna för att skapa en dold pseudo-avisering för fakturering på `microsoft.insights/scheduledqueryrules` som visas `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` tillsammans med resurs gruppens och aviserings egenskaper.
+Det [äldre Log Analytics API: t](./api-alerts.md) har varnings åtgärder och scheman som en del av Log Analytics sparade sökningar och inte rätt [Azure-resurser](../../azure-resource-manager/management/overview.md). Det innebär att du kan aktivera fakturering för sådana äldre logg aviseringar som skapats för Log Analytics att använda Azure Portal **utan** [att växla till nytt API](./alerts-log-api-switch.md) eller via [äldre Log Analytics API](./api-alerts.md) – dolda pseudo-aviserings regler skapas på `microsoft.insights/scheduledqueryrules` för fakturering i Azure. De dolda egenskaperna för att skapa en dold pseudo-avisering för fakturering på `microsoft.insights/scheduledqueryrules` som visas `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` tillsammans med resurs gruppens och aviserings egenskaper.
 
 > [!NOTE]
 > Om ogiltiga tecken, t. ex `<, >, %, &, \, ?, /` . finns, ersätts de med `_` i namnet på den dolda pseudo-aviserings regeln och därför också på Azure-fakturan.
 
 För att ta bort de dolda scheduleQueryRules-resurser som har skapats för fakturering av aviserings regler med hjälp av [äldre Log Analytics-API](api-alerts.md)kan användaren göra något av följande:
 
-- Antingen kan användaren [byta API-inställning för aviserings reglerna på Log Analytics arbets ytan](../../azure-monitor/platform/alerts-log-api-switch.md) och utan att förlora sina varnings regler eller övervaka över gången till Azure Resource Manager kompatibla [scheduledQueryRules-API](/rest/api/monitor/scheduledqueryrules). Eliminerar därmed behovet av att göra dolda aviserings regler för att fakturera.
-- Eller om användaren inte vill växla API-inställningen måste användaren **ta bort** det ursprungliga schemat och aviserings åtgärden med hjälp av [äldre Log Analytics-API](api-alerts.md) eller ta bort [Azure Portal den ursprungliga logg varnings regeln](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)
+- Antingen kan användaren [byta API-inställning för aviserings reglerna på Log Analytics arbets ytan](./alerts-log-api-switch.md) och utan att förlora sina varnings regler eller övervaka över gången till Azure Resource Manager kompatibla [scheduledQueryRules-API](/rest/api/monitor/scheduledqueryrules). Eliminerar därmed behovet av att göra dolda aviserings regler för att fakturera.
+- Eller om användaren inte vill växla API-inställningen måste användaren **ta bort** det ursprungliga schemat och aviserings åtgärden med hjälp av [äldre Log Analytics-API](api-alerts.md) eller ta bort [Azure Portal den ursprungliga logg varnings regeln](./alerts-log.md#view--manage-log-alerts-in-azure-portal)
 
-För de dolda scheduleQueryRules-resurser som har skapats för fakturering av aviserings regler med hjälp av [äldre Log Analytics-API](api-alerts.md), kommer eventuella ändringar som sker som det inte går att utföra. Som `microsoft.insights/scheduledqueryrules` typ av pseudo-regler är det syftet att fakturera aviserings reglerna som skapats med [äldre Log Analytics-API](api-alerts.md). Eventuella ändringar av varnings regeln bör utföras med hjälp av [äldre Log Analytics-API](api-alerts.md) (eller)-användare kan [byta API-inställning för aviserings reglerna](../../azure-monitor/platform/alerts-log-api-switch.md) för att använda [scheduledQueryRules-API](/rest/api/monitor/scheduledqueryrules) i stället.
+För de dolda scheduleQueryRules-resurser som har skapats för fakturering av aviserings regler med hjälp av [äldre Log Analytics-API](api-alerts.md), kommer eventuella ändringar som sker som det inte går att utföra. Som `microsoft.insights/scheduledqueryrules` typ av pseudo-regler är det syftet att fakturera aviserings reglerna som skapats med [äldre Log Analytics-API](api-alerts.md). Eventuella ändringar av varnings regeln bör utföras med hjälp av [äldre Log Analytics-API](api-alerts.md) (eller)-användare kan [byta API-inställning för aviserings reglerna](./alerts-log-api-switch.md) för att använda [scheduledQueryRules-API](/rest/api/monitor/scheduledqueryrules) i stället.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om att [skapa i logg aviseringar i Azure](../../azure-monitor/platform/alerts-log.md).
+* Lär dig mer om att [skapa i logg aviseringar i Azure](./alerts-log.md).
 * Förstå [webhookar i logg aviseringar i Azure](alerts-log-webhook.md).
-* Lär dig mer om [Azure-aviseringar](../../azure-monitor/platform/alerts-overview.md).
+* Lär dig mer om [Azure-aviseringar](./alerts-overview.md).
 * Läs mer om [Application Insights](../log-query/log-query-overview.md).
-* Läs mer om [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+* Läs mer om [Log Analytics](../log-query/log-query-overview.md).
+

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 473e3d52b1757faebd60c14966b425e9390a2685
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 26be41361a861795a9897442d9a0cc8bb14c1450
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248619"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292583"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
 
@@ -143,9 +143,9 @@ Tillgängliga alternativ för Automation och distribution beror på vilket opera
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du använder Windows Virtual Desktop hösten 2019-versionen kan du komma igång med vår självstudie i [skapa en klient i Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+Om du använder Windows Virtual Desktop (klassisk) kan du komma igång med vår självstudie i [skapa en klient i Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
 
-Om du använder Windows Virtual Desktop våren 2020-versionen måste du skapa en adresspool i stället. Gå till följande självstudie för att komma igång.
+Om du använder det virtuella Windows-skrivbordet med Azure Resource Manager-integrering måste du skapa en adresspool i stället. Gå till följande självstudie för att komma igång.
 
 > [!div class="nextstepaction"]
 > [Skapa en värdpool med Azure-portalen](create-host-pools-azure-marketplace.md)

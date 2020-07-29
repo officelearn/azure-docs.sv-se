@@ -1020,6 +1020,10 @@
           href: insights/resource-group-insights.md
         - name: Felsöka insikter
           href: insights/troubleshoot-workbooks.md
+    - name: Ändra analys
+      items:
+        - name: Ändra analys
+          href: app/change-analysis.md
     - name: Lösningar
       items:
         - name: Översikt
@@ -1073,30 +1077,6 @@
               href: insights/vmware.md
             - name: Wire Data-lösning
               href: insights/wire-data.md
-        - name: Vyer
-          items:
-            - name: Konvertera vyer till arbetsböcker
-              items:
-                - name: Översikt över konvertering
-                  href: platform/view-designer-conversion-overview.md
-                - name: Konverteringsalternativ
-                  href: platform/view-designer-conversion-options.md
-                - name: Översikt och åtkomst
-                  href: platform/view-designer-conversion-access.md
-                - name: Vanliga åtgärder
-                  href: platform/view-designer-conversion-tasks.md
-                - name: Panelkonverteringar
-                  href: platform/view-designer-conversion-tiles.md
-                - name: Exempel
-                  href: platform/view-designer-conversion-examples.md
-            - name: Vydesigner
-              href: platform/view-designer.md
-            - name: Panelreferens
-              href: platform/view-designer-tiles.md
-            - name: Referens för visualiseringsdel
-              href: platform/view-designer-parts.md
-            - name: Filter
-              href: platform/view-designer-filters.md
     - name: Arbetsböcker
       items:
         - name: Översikt
@@ -1124,6 +1104,20 @@
                   href: platform/workbooks-time.md
                 - name: Textparametrar
                   href: platform/workbooks-text.md
+        - name: Konvertera vyer till arbetsböcker
+          items:
+            - name: Översikt över konvertering
+              href: platform/view-designer-conversion-overview.md
+            - name: Konverteringsalternativ
+              href: platform/view-designer-conversion-options.md
+            - name: Översikt och åtkomst
+              href: platform/view-designer-conversion-access.md
+            - name: Vanliga åtgärder
+              href: platform/view-designer-conversion-tasks.md
+            - name: Panelkonverteringar
+              href: platform/view-designer-conversion-tiles.md
+            - name: Exempel
+              href: platform/view-designer-conversion-examples.md
     - name: Andra visualiseringar
       items:
         - name: Power BI
@@ -1217,6 +1211,8 @@
           href: app/azure-functions-supported-features.md
         - name: Viktig information
           items:
+            - name: 'SDK:er för kodbaserad övervakning'
+              href: app/release-notes.md
             - name: Webbappstillägg
               href: app/web-app-extension-release-notes.md
         - name: Datamodell
@@ -1297,6 +1293,16 @@
           href: platform/resource-logs-blob-format.md
         - name: Key Vault Analytics (inaktuellt)
           href: insights/azure-key-vault-deprecated.md
+        - name: Vyer
+          items:
+            - name: Vydesigner
+              href: platform/view-designer.md
+            - name: Panelreferens
+              href: platform/view-designer-tiles.md
+            - name: Referens för visualiseringsdel
+              href: platform/view-designer-parts.md
+            - name: Filter
+              href: platform/view-designer-filters.md
 - name: Resurser
   items:
     - name: Azure-översikt

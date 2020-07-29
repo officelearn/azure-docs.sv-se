@@ -1,6 +1,6 @@
 ---
-title: Självstudie – Skapa en Azure AD DS-hanterad domän med Avancerad konfiguration
-description: I den här självstudien får du lära dig hur du skapar och konfigurerar en Azure Active Directory Domain Services hanterad domän och anger avancerade konfigurations alternativ med hjälp av Azure Portal.
+title: Självstudie – Skapa en anpassad Azure Active Directory Domain Services hanterad domän | Microsoft Docs
+description: I den här självstudien får du lära dig hur du skapar och konfigurerar en anpassad Azure Active Directory Domain Services hanterad domän och anger avancerade konfigurations alternativ med hjälp av Azure Portal.
 author: iainfoulds
 manager: daveba
 ms.service: active-directory
@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: b8eece33e13fca9fdef6b860513368f6c47a4628
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ead20713752b4eb28700541b4314241d86b6cc27
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518529"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87278563"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain-with-advanced-configuration-options"></a>Självstudie: skapa och konfigurera en Azure Active Directory Domain Services hanterad domän med avancerade konfigurations alternativ
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -131,7 +131,7 @@ Fyll i fälten i fönstret *nätverk* enligt följande:
     1. Om du väljer att skapa ett virtuellt nätverk anger du ett namn för det virtuella nätverket, till exempel *myVnet*, och anger sedan ett adress intervall, t. ex. *10.0.1.0/24*.
     1. Skapa ett dedikerat undernät med ett tydligt namn, till exempel *DomainServices*. Ange ett adress intervall, t. ex. *10.0.1.0/24*.
 
-    [![](./media/tutorial-create-instance-advanced/create-vnet.png "Create a virtual network and subnet for use with Azure AD Domain Services")](./media/tutorial-create-instance-advanced/create-vnet-expanded.png#lightbox)
+    [![Skapa ett virtuellt nätverk och undernät som ska användas med Azure AD Domain Services](./media/tutorial-create-instance-advanced/create-vnet.png)](./media/tutorial-create-instance-advanced/create-vnet-expanded.png#lightbox)
 
     Se till att välja ett adress intervall som ligger inom ditt privata IP-adressintervall. IP-adressintervall som du inte äger som finns i det offentliga adress utrymmet orsakar fel i Azure AD DS.
 
@@ -159,7 +159,7 @@ Guiden skapar automatiskt gruppen *AAD DC-administratörer* i Azure AD-katalogen
 
 ## <a name="configure-synchronization"></a>Konfigurera synkronisering
 
-Med Azure AD DS kan du synkronisera *alla* användare och grupper som är tillgängliga i Azure AD, eller en *begränsad* synkronisering av enbart vissa grupper. Om du väljer att synkronisera *alla* användare och grupper kan du inte senare välja att bara utföra en omfångs synkronisering. Mer information om omfångs synkronisering finns i [Azure AD Domain Services omfångs synkronisering][scoped-sync].
+Med Azure AD DS kan du synkronisera *alla* användare och grupper som är tillgängliga i Azure AD, eller en *begränsad* synkronisering av enbart vissa grupper. Du kan ändra omfånget för synkronisering nu eller när den hanterade domänen har distribuerats. Mer information finns i [Azure AD Domain Services omfångs synkronisering][scoped-sync].
 
 1. I den här självstudien väljer du att synkronisera **alla** användare och grupper. Det här valet av synkronisering är standard alternativet.
 

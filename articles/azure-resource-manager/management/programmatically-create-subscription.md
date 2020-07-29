@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.openlocfilehash: 7fac201de2fd623058eb5771e194ae697f879ee8
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 20175e252d009620585e20cf76cdb634549b4f1d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224170"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323918"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>Skapa Azure-prenumerationer program mässigt (för hands version)
 
@@ -26,7 +26,7 @@ När du skapar en Azure-prenumeration via programmering, styrs prenumerationen a
 
 Använd informationen i följande avsnitt för att skapa EA-prenumerationer.
 
-### <a name="prerequisites"></a>Förhandskrav
+### <a name="prerequisites"></a>Krav
 
 Du måste ha en ägar roll på ett registrerings konto för att kunna skapa en prenumeration. Det finns två sätt att hämta rollen:
 
@@ -40,7 +40,7 @@ När du har lagt till ett registrerings konto som är kopplat till en konto äga
 
 Om du vill köra följande kommandon måste du vara inloggad på konto ägarens *Hem Katalog*, som är den katalog som prenumerationer skapas i som standard.
 
-### <a name="rest"></a>[FLESTA](#tab/rest)
+### <a name="rest"></a>[REST](#tab/rest)
 
 Begäran om att lista alla registrerings konton som du har åtkomst till:
 
@@ -129,7 +129,7 @@ Använd `principalName` egenskapen för att identifiera det konto som du vill de
 
 I följande exempel skapas en prenumeration med namnet *dev team-prenumeration* i det registrerings konto som valts i föregående steg. Prenumerations erbjudandet är *MS-AZR-0017P* (vanliga Microsoft Enterprise-avtal). Du kan också lägga till två användare som RBAC-ägare för prenumerationen.
 
-### <a name="rest"></a>[FLESTA](#tab/rest)
+### <a name="rest"></a>[REST](#tab/rest)
 
 Kör följande förfrågan och ersätt `<enrollmentAccountObjectId>` med värdet för `name` som du kopierade i första steget (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Om du vill ange ägare kan du läsa mer om [hur du hämtar användar objekt-ID: n](grant-access-to-create-subscription.md#userObjectId).
 
@@ -160,7 +160,7 @@ Som en del av sidhuvudet i svaret `Location` får du tillbaka en URL som du kan 
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Installera först den här förhands gransknings modulen genom att köra `Install-Module Az.Subscription -AllowPrerelease` . För att se till att `-AllowPrerelease` fungerar måste du installera en ny version av PowerShellGet från [Hämta PowerShellGet-modulen](/powershell/scripting/gallery/installing-psget).
+Om du vill installera den senaste versionen av modulen som innehåller `New-AzSubscription` cmdleten kör du `Install-Module Az.Subscription` . Om du vill installera en ny version av PowerShellGet läser du [Hämta PowerShellGet-modulen](/powershell/scripting/gallery/installing-psget).
 
 Kör kommandot [New-AzSubscription](/powershell/module/az.subscription) nedan och Ersätt `<enrollmentAccountObjectId>` det med den `ObjectId` insamlade informationen i det första steget ( ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` ). Om du vill ange ägare kan du läsa mer om [hur du hämtar användar objekt-ID: n](grant-access-to-create-subscription.md#userObjectId).
 
@@ -177,7 +177,8 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 | `OwnerSignInName`    | Nej       | Sträng | E-postadressen till en användare som du vill lägga till som en RBAC-ägare för prenumerationen när den skapas. Du kan använda den här parametern i stället för `OwnerObjectId` .|
 | `OwnerApplicationId` | Nej       | Sträng | Program-ID för alla tjänst objekt som du vill lägga till som en RBAC-ägare för prenumerationen när den skapas. Du kan använda den här parametern i stället för `OwnerObjectId` . När du använder den här parametern måste tjänstens huvud namn ha [Läs behörighet till katalogen](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
-Om du vill se en fullständig lista över alla parametrar, se [New-AzSubscription](/powershell/module/az.subscription).
+Om du vill se en fullständig lista över alla parametrar, se [New-AzSubscription](/powershell/module/az.subscription/New-AzSubscription).
+
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -212,7 +213,7 @@ Om du vill se en fullständig lista över alla parametrar, se [AZ Account Create
 
 ## <a name="create-subscriptions-for-an-mca-account"></a>Skapa prenumerationer för ett MCA-konto
 
-### <a name="prerequisites"></a>Förhandskrav
+### <a name="prerequisites"></a>Krav
 
 Du måste ha rollen ägare, deltagare eller Azure-prenumerations skapare i avsnittet faktura eller ägare eller deltagare i en fakturerings profil eller ett fakturerings konto för att skapa prenumerationer. Mer information finns i [Roller och uppgifter för prenumerationsfakturering](../../cost-management-billing/manage/understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
@@ -353,7 +354,7 @@ I svaret får du tillbaka ett `subscriptionCreationResult` objekt för övervakn
 
 ## <a name="create-subscriptions-for-an-mpa-billing-account"></a>Skapa prenumerationer för ett produkt aktiverings fakturerings konto
 
-### <a name="prerequisites"></a>Förhandskrav
+### <a name="prerequisites"></a>Krav
 
 Du måste ha en rollen global administratör eller administratör i din organisations konto för moln lösnings leverantör för att skapa en prenumeration för ditt fakturerings konto. Mer information finns i [partner Center – tilldela användare roller och behörigheter](/partner-center/permissions-overview).
 

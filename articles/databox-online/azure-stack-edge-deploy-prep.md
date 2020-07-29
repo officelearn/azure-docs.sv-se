@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/03/2019
+ms.date: 07/22/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e6b752eab3f6a8f40fad8b2f947a82f86a8ccfe5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c8f64bc81afb941e13dd310a7efd9432639ec281
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652058"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131845"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge"></a>Självstudie: förbereda för att distribuera Azure Stack Edge  
 
@@ -22,14 +22,14 @@ Det här är den första självstudien i serien med distributions kurser som kr�
 
 Du måste ha administratörsbehörighet för att utföra installationen och konfigurationen. Portalförberedelserna tar mindre än tio minuter.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
 > * Skapa en ny resurs
 > * Hämta aktiveringsnyckeln
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="get-started"></a>Kom igång
 
@@ -57,32 +57,35 @@ Innan du börjar ska du kontrollera att:
 
 * Du har ägar-eller deltagar åtkomst på resurs grupps nivå för Azure Stack Edge/Data Box Gateway, IoT Hub och Azure Storage resurser.
 
-  * Om du vill skapa en Azure Stack gräns-/Data Box Gateway-resurs, bör du ha behörighet som deltagare (eller högre) som är begränsade till resurs grupps nivå. Du måste också kontrol lera att `Microsoft.DataBoxEdge` providern är registrerad. Information om hur du registrerar finns i [Registrera resurs leverantör](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+  * Du bör vara **ägare** på prenumerations nivå för att bevilja deltagar åtkomst. Om du vill ge deltagare åtkomst till någon annan går du till **alla tjänster**för  >  **prenumerations**  >  **åtkomst kontroll (IAM)** i Azure Portal och lägger till  >  **+Add**  >  **roll tilldelning**. Mer information finns i [Självstudier: ge en användare åtkomst till Azure-resurser med hjälp av Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+
+  * Om du vill skapa en Azure Stack gräns-/Data Box Gateway-resurs, bör du ha behörighet som deltagare (eller högre) som är begränsade till resurs grupps nivå. Du måste också kontrol lera att `Microsoft.DataBoxEdge` resurs leverantören är registrerad. Information om hur du registrerar en resurs leverantör finns i [Registrera resurs leverantör](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
   * Om du vill skapa en IoT Hub resurs måste du kontrol lera att Microsoft. providers-providern är registrerad. Information om hur du registrerar finns i [Registrera resurs leverantör](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
   * Om du vill skapa en lagrings konto resurs måste du igen med deltagar-eller högre åtkomst omfång på resurs grupps nivå. Azure Storage är som standard en registrerad resurs leverantör.
 * Du har administratörs-eller användar åtkomst till Azure Active Directory Graph API. Mer information finns i [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 * Du har ditt Microsoft Azure lagringskonto med autentiseringsuppgifter.
+* Du blockeras inte av någon Azure-princip som kon figurer ATS av system administratören. Mer information om principer finns i [snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal).
 
 ### <a name="for-the-azure-stack-edge-device"></a>För Azure Stack Edge-enheten
 
 Innan du distribuerar en fysisk enhet kontrollerar du att:
 
-- Du har granskat säkerhets informationen som ingick i försändelse paketet.
-- Du har en 1U-plats som är tillgänglig i ett standardiserat 19-tums rack i ditt data Center för rack montering av enheten.
-- Du har tillgång till en plan, stabil och jämn arbetsyta där enheten kan stå på ett säkert sätt.
-- Platsen där du tänker konfigurera enheten har standardnätström från en oberoende källa eller en strömfördelare på racket (PDU) med en avbrottsfri kraftfälla (UPS).
-- Du har tillgång till en fysisk enhet.
+* Du har granskat säkerhets informationen som ingick i försändelse paketet.
+* Du har en 1U-plats som är tillgänglig i ett standardiserat 19-tums rack i ditt data Center för rack montering av enheten.
+* Du har tillgång till en plan, stabil och jämn arbetsyta där enheten kan stå på ett säkert sätt.
+* Platsen där du tänker konfigurera enheten har standardnätström från en oberoende källa eller en strömfördelare på racket (PDU) med en avbrottsfri kraftfälla (UPS).
+* Du har tillgång till en fysisk enhet.
 
 ### <a name="for-the-datacenter-network"></a>För datacenternätverket
 
 Innan du börjar ska du kontrollera att:
 
-- Nätverket i data centret konfigureras enligt nätverks kraven för din Azure Stack Edge-enhet. Mer information finns i [Azure Stack Edge system-krav](azure-stack-edge-system-requirements.md).
+* Nätverket i data centret konfigureras enligt nätverks kraven för din Azure Stack Edge-enhet. Mer information finns i [Azure Stack Edge system-krav](azure-stack-edge-system-requirements.md).
 
-- För normala drift villkor för Azure Stack Edge har du:
+* För normala drift villkor för Azure Stack Edge har du:
 
-    - Minst 10 Mbit/s Ladda ned bandbredd för att se till att enheten förblir uppdaterad.
-    - Minst 20 Mbit/s dedikerad överföring och nedladdning av bandbredd för överföring av filer.
+  * Minst 10 Mbit/s Ladda ned bandbredd för att se till att enheten förblir uppdaterad.
+  * Minst 20 Mbit/s dedikerad överföring och nedladdning av bandbredd för överföring av filer.
 
 ## <a name="create-a-new-resource"></a>Skapa en ny resurs
 
@@ -127,7 +130,7 @@ För att skapa en Azure Stack Edge-resurs, utför följande steg i Azure Portal.
 
     ![Leverans adress för ny enhet](media/azure-stack-edge-deploy-prep/data-box-edge-resource1.png)
 
-6. Välj **Nästa: granska + skapa**.
+6. Välj **Nästa: Granska + skapa**.
 
 7. På fliken **Granska + skapa** granskar du **pris informationen**, **användningsvillkor**och informationen för resursen. Välj kombinations rutan för **Jag har granskat sekretess villkoren**.
 
@@ -173,6 +176,3 @@ Gå vidare till nästa självstudie och lär dig hur du installerar Azure Stack 
 
 > [!div class="nextstepaction"]
 > [Installera Azure Stack Edge](./azure-stack-edge-deploy-install.md)
-
-
-

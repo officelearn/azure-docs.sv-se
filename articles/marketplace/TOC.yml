@@ -121,7 +121,7 @@
                   href: ./partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Vanliga frågor och svar om tekniska tillgångar för virtuella Azure-datorer
                   href: ./partner-center-portal/common-issues-during-vhd-creation.md
-                - name: Certifiera en Azure VM-avbildning
+                - name: Testa virtuell dator som distribuerats från VHD
                   href: ./partner-center-portal/azure-vm-image-certification.md
                 - name: SAS-URI
                   items:

@@ -11,12 +11,13 @@ ms.service: iot-edge
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: d8ea58dca8235b6dfc49c14c519dd44dabdf0592
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+- devx-track-java
+ms.openlocfilehash: d40ab7a7173265812483e29127e9f8fd919dc4a4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81733074"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323340"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Självstudie: utveckla en Java IoT Edge-modul för Linux-enheter
 
@@ -68,28 +69,28 @@ Följande steg skapar ett IoT Edge-modulprojekt som baseras på Maven-mallpakete
 
 Skapa en Java-lösningsmall som du kan anpassa med din egen kod.
 
-1. I Visual Studio Code väljer du **Visa** > **kommando-palett** för att öppna kommando paletten vs Code.
+1. I Visual Studio Code väljer du **Visa**  >  **kommando-palett** för att öppna kommando paletten vs Code.
 
 2. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) på kommandopaletten. Skapa lösningen genom att följ anvisningarna på kommandopaletten.
 
-   | Field | Värde |
+   | Fält | Värde |
    | ----- | ----- |
    | Välj mapp | Välj den plats på utvecklingsdatorn där Visual Studio Code ska skapa lösningsfilerna. |
    | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen eller acceptera standardnamnet **EdgeSolution**. |
    | Välj modulmall | Välj **Java-modul**. |
    | Ange ett värde för groupId | Ange ett grupp-ID-värde eller acceptera standardvärdet **com.edgemodule**. |
    | Ange ett modulnamn | Ge modulen namnet **JavaModule**. |
-   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen fylls i baserat på det namn du angav i föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. <br><br>Den slutliga avbildningslagringsplatsen ser ut så här: \<registernamn\>.azurecr.io/javamodule. |
+   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen fylls i baserat på det namn du angav i föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. <br><br>Den slutliga avbildnings lagrings platsen ser ut som \<registry name\> . azurecr.io/javamodule. |
 
    ![Ange lagringsplatsen för Docker-avbildningen](./media/tutorial-java-module/repository.png)
 
 Om det är första gången du skapar Java-modulen kan det ta flera minuter att ladda ned maven-paketen. När lösningen är klar läser fönstret VS Code in din IoT Edge lösnings arbets yta. Lösnings arbets ytan innehåller fem komponenter på översta nivån:
 
 * Mappen **moduler** innehåller Java-koden för modulen och Docker-filerna för att bygga modulen som en behållar avbildning.
-* Kuvert filen lagrar autentiseringsuppgifterna för behållar registret. ** \.**
+* ** \. Kuvert** filen lagrar autentiseringsuppgifterna för behållar registret.
 * Filen **deployment.template.json** innehåller informationen som IoT Edge-körningen använder för att distribuera moduler på en enhet.
-* Filen **Deployment. debug. template. JSON** File behållar fel söknings versionen av moduler.
-* Du kommer inte att ** \.redigera VSCode** -mappen eller ** \.gitignore** -filen i den här självstudien.
+* **deployment.debug.template.jspå** fil behållare till fel söknings versionen av moduler.
+* Du kommer inte att redigera ** \. VSCode** -mappen eller ** \. gitignore** -filen i den här självstudien.
 
 Om du inte angav ett containerregister när du skapade lösningen, men accepterade standardvärdet localhost:5000, har du ingen \.env-fil.
 
@@ -111,7 +112,7 @@ För närvarande kan Visual Studio Code utveckla Java-moduler för Linux AMD64-o
 
 ### <a name="update-the-module-with-custom-code"></a>Uppdatera modulen med anpassad kod
 
-1. I vs Code-Utforskaren öppnar du **moduler** > **JavaModule** > **src** > **main** > **Java** > **com** > **edgemodule** > **app. java**.
+1. I vs Code-Utforskaren öppnar du **moduler**  >  **JavaModule**  >  **src**  >  **main**  >  **Java**  >  **com**  >  **edgemodule**  >  **app. java**.
 
 2. Lägg till följande kod längst upp i filen för att importera nya refererade klasser.
 
@@ -214,7 +215,7 @@ För närvarande kan Visual Studio Code utveckla Java-moduler för Linux AMD64-o
 
 7. Spara App.java-filen.
 
-8. I VS Code-Utforskaren öppnar du filen **Deployment. template. JSON** i din IoT Edge lösnings arbets yta.
+8. I VS Code-Utforskaren öppnar du **deployment.template.js** filen i din IoT Edge lösnings arbets yta.
 
 9. Lägg till modultvillingen **JavaModule** i distributionsmanifestet. Infoga följande JSON-innehåll längst ned i avsnittet **moduleContent** efter **$edgeHub**-modultvillingen:
 
@@ -234,7 +235,7 @@ För närvarande kan Visual Studio Code utveckla Java-moduler för Linux AMD64-o
 
 I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **JavaModule** för att filtrera ut meddelanden om att temperaturen för den rapporterade datorn ligger under den godkända gränsen. Nu skapar du lösningen som en containeravbildning och push-överför den till ditt containerregister.
 
-1. Öppna den vs Code-integrerade terminalen genom att välja **Visa** > **Terminal**.
+1. Öppna den vs Code-integrerade terminalen genom att välja **Visa**  >  **Terminal**.
 
 1. Logga in på Docker genom att ange följande kommando i terminalen. Logga in med användar namnet, lösen ordet och inloggnings servern från Azure Container Registry. Du kan hämta dessa värden från avsnittet **åtkomst nycklar** i registret i Azure Portal.
 
@@ -242,15 +243,15 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **Jav
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   Du kan få en säkerhets varning som rekommenderar att du använder `--password-stdin`. Det bästa tillvägagångs sättet rekommenderas för produktions scenarier, men det ligger utanför omfånget för den här självstudien. Mer information finns i [inloggnings referens för Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
+   Du kan få en säkerhets varning som rekommenderar att du använder `--password-stdin` . Det bästa tillvägagångs sättet rekommenderas för produktions scenarier, men det ligger utanför omfånget för den här självstudien. Mer information finns i [inloggnings referens för Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
 
-1. I VS Code-Utforskaren högerklickar du på filen **Deployment. template. JSON** och väljer **Build och push IoT Edge-lösning**.
+1. I VS Code-Utforskaren högerklickar du på **deployment.template.jspå** filen och väljer **Build och push IoT Edge-lösning**.
 
-   Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** som innehåller det fullständiga distributions manifestet, som bygger på information i distributions mal len och andra lösningsfiler. Sedan körs `docker build` den för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs `docker push` den för att skicka avbildnings lagrings platsen till behållar registret.
+   Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** som innehåller det fullständiga distributions manifestet, som bygger på information i distributions mal len och andra lösningsfiler. Sedan körs den `docker build` för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs den `docker push` för att skicka avbildnings lagrings platsen till behållar registret.
 
 ## <a name="deploy-modules-to-device"></a>Distribuera moduler till enhet
 
-Använd Visual Studio Code Explorer och tillägget Azure IoT Tools för att distribuera modulfönstret till din IoT Edge-enhet. Du har redan ett distributions manifest som är för berett för ditt scenario, filen **Deployment. JSON** i mappen config. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
+Använd Visual Studio Code Explorer och tillägget Azure IoT Tools för att distribuera modulfönstret till din IoT Edge-enhet. Du har redan ett distributions manifest som är för berett för ditt scenario, **deployment.js** filen i mappen config. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
 
 Kontrol lera att din IoT Edges enhet är igång.
 
@@ -303,7 +304,7 @@ I den här självstudien har du skapat en IoT Edge-modul som filtrerar rå data 
 Fortsätt till nästa själv studie kurs och lär dig hur Azure IoT Edge hjälper dig att distribuera Azure Cloud Services för att bearbeta och analysera data i gränsen.
 
 > [!div class="nextstepaction"]
-> [Funktioner](tutorial-deploy-function.md)
-> [Stream Analytics](tutorial-deploy-stream-analytics.md)Stream Analytics
-> [Machine Learning](tutorial-deploy-machine-learning.md)Machine Learning
-> [Custom vision service](tutorial-deploy-custom-vision.md)
+> [Functions](tutorial-deploy-function.md) 
+>  [Stream Analytics](tutorial-deploy-stream-analytics.md) 
+>  [Machine Learning](tutorial-deploy-machine-learning.md) 
+>  [Custom vision service](tutorial-deploy-custom-vision.md)

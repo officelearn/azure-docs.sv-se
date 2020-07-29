@@ -4,14 +4,14 @@ description: Den här artikeln beskriver hur du använder rollbaserad åtkomst k
 keywords: automation rbac, rollbaserad åtkomstkontroll, azure rbac
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 05/17/2018
+ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9e997f80ceee54a1454128c1308032fefa603f5d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: a970122c5f034e6215d2e829657c9eec99f14371
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186154"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279890"
 ---
 # <a name="manage-role-permissions-and-security"></a>Hantera rollbehörigheter och säkerhet
 
@@ -69,7 +69,12 @@ En läsare kan visa alla resurser i ett Automation-konto, men kan inte göra nå
 
 ### <a name="automation-operator"></a>Automation-operatör
 
-En Automation-operatör kan skapa och hantera jobb och läsa Runbook-namn och egenskaper för alla Runbooks i ett Automation-konto.  Obs! Om du vill kontrol lera operatörs åtkomst till enskilda Runbooks anger du inte den här rollen och använder i stället rollerna "automatiserings jobb operatör" och "Automation Runbook-operatör" i kombination. Följande tabell visar de behörigheter som har beviljats för rollen:
+En Automation-operatör kan skapa och hantera jobb och läsa Runbook-namn och egenskaper för alla Runbooks i ett Automation-konto.
+
+>[!NOTE]
+>Om du vill kontrol lera operatörs åtkomst till enskilda Runbooks anger du inte den här rollen. Använd i stället operatorn för **automatiserings jobb operatör** och rollen **automatiserings Runbook-operator** i kombination.
+
+Följande tabell visar de behörigheter som har beviljats för rollen:
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
@@ -96,7 +101,9 @@ En Automation-operatör kan skapa och hantera jobb och läsa Runbook-namn och eg
 
 ### <a name="automation-job-operator"></a>Automatiserings jobb operatör
 
-En rollen automatiserings jobb operatör beviljas i omfånget Automation-konto.Detta gör det möjligt för operatörs behörighet att skapa och hantera jobb för alla Runbooks i kontot. Följande tabell visar de behörigheter som har beviljats för rollen:
+En rollen automatiserings jobb operatör beviljas i omfånget Automation-konto.Detta gör det möjligt för operatörs behörighet att skapa och hantera jobb för alla Runbooks i kontot. Om rollen jobb operatör beviljas Läs behörighet för resurs gruppen som innehåller Automation-kontot kan medlemmar i rollen starta Runbooks. De har dock inte möjlighet att skapa, redigera eller ta bort dem.
+
+Följande tabell visar de behörigheter som har beviljats för rollen:
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
@@ -114,7 +121,7 @@ En rollen automatiserings jobb operatör beviljas i omfånget Automation-konto.D
 
 ### <a name="automation-runbook-operator"></a>Automation Runbook-operator
 
-En rollen Automation Runbook-operatör beviljas i Runbook-omfånget. En Automation Runbook-operatör kan visa Runbooks namn och egenskaper.Den här rollen tillsammans med rollen automatiserings jobb operatör gör det möjligt för operatören att även skapa och hantera jobb för runbooken. Följande tabell visar de behörigheter som har beviljats för rollen:
+En rollen Automation Runbook-operatör beviljas i Runbook-omfånget. En Automation Runbook-operatör kan visa Runbooks namn och egenskaper.Den här rollen tillsammans med rollen **automatiserings jobb operatör** gör det möjligt för operatören att även skapa och hantera jobb för runbooken. Följande tabell visar de behörigheter som har beviljats för rollen:
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
@@ -283,13 +290,14 @@ I följande avsnitt visas hur du konfigurerar RBAC på ditt Automation-konto via
 
 3. Skriv namnet på den användare som du vill ge behörighet till i fältet **Välj** . Välj användaren i listan och klicka på **Spara**.
 
-   ![Lägg till användare](media/automation-role-based-access-control/automation-04-add-users.png)
+   ![Lägga till användare](media/automation-role-based-access-control/automation-04-add-users.png)
 
    Nu bör du se användaren som har lagts till på sidan användare med den valda rollen tilldelad.
 
    ![Visa användare](media/automation-role-based-access-control/automation-05-list-users.png)
 
    Du kan också tilldela en roll till användaren från sidan Roller.
+
 4. Öppna sidan roller genom att klicka på **roller** på sidan åtkomst kontroll (IAM). Du kan visa namnet på rollen och antalet användare och grupper som har tilldelats rollen.
 
     ![Tilldela en roll från sidan Användare](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
@@ -353,7 +361,7 @@ ObjectType         : User
 ```
 
 Använd [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) för att tilldela åtkomst till användare, grupper och program till ett visst omfång.
-    
+
 **Exempel:** Använd följande kommando för att tilldela rollen "Automation-operatör" för en användare i Automation-kontots omfattning.
 
 ```azurepowershell-interactive

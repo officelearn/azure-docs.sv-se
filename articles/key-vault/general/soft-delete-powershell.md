@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d281b8a438710cc98307e41210c3435b26483acd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2b01d88a097b8b05188242109c27c696be179eb5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87013376"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282236"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Så här använder du Key Vault mjuk borttagning med PowerShell
 
@@ -23,7 +23,7 @@ Azure Key Vault funktionen för mjuk borttagning tillåter återställning av bo
 - Stöd för rekonstruerbar borttagning av ett nyckel valv
 - Stöd för rekonstruerbar borttagning av Key Vault-objekt; nycklar, hemligheter och certifikat
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -36,7 +36,7 @@ Azure Key Vault funktionen för mjuk borttagning tillåter återställning av bo
 
 Key Vault detaljerad referensinformation för PowerShell finns i [Azure Key Vault PowerShell-referens](/powershell/module/az.keyvault).
 
-## <a name="required-permissions"></a>Nödvändiga behörigheter
+## <a name="required-permissions"></a>Behörigheter som krävs
 
 Key Vault åtgärder hanteras separat via RBAC-behörigheter (rollbaserad åtkomst kontroll) enligt följande:
 
@@ -206,7 +206,7 @@ Som nycklar hanteras hemligheter med sina egna kommandon:
 
 Du kan hantera certifikat med hjälp av följande kommandon:
 
-- Ta bort ett certifikat med namnet SQLPassword: 
+- Ta bort ett certifikat: 
   ```powershell
   Remove-AzKeyVaultCertificate -VaultName ContosoVault -Name 'MyCert'
   ```

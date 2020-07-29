@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4481e62fb15b5ec21b48deb00f1438abf01aa27a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fffb83fe680572c2448323a61b767a401c9a4834
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041477"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323714"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Effekt analys med Application Insights
 
@@ -28,7 +28,7 @@ Men att analysera prestanda är bara en del av Påverkanens funktioner. Eftersom
 ![Skärm bilds konvertering av webbläsare](./media/usage-impact/0004-browsers.png)
 
 > [!NOTE]
-> Din Application Insights-resurs måste innehålla sidvyer eller anpassade händelser för att kunna använda verktyget effekt. [Lär dig hur du konfigurerar din app för att samla in sid visningar automatiskt med Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md). Tänk också på att eftersom du analyserar korrelation, exempel storlek.
+> Din Application Insights-resurs måste innehålla sidvyer eller anpassade händelser för att kunna använda verktyget effekt. [Lär dig hur du konfigurerar din app för att samla in sid visningar automatiskt med Application Insights JavaScript SDK](./javascript.md). Tänk också på att eftersom du analyserar korrelation, exempel storlek.
 >
 >
 
@@ -85,5 +85,6 @@ Hur påverkan beräknas i slut ändan beroende på om vi analyserar av mått ell
     - [Trattar](usage-funnels.md)
     - [Kvarhållning](usage-retention.md)
     - [Användarflöden](usage-flows.md)
-    - [Arbetsböcker](../../azure-monitor/platform/workbooks-overview.md)
+    - [Arbetsböcker](../platform/workbooks-overview.md)
     - [Lägg till användar kontext](usage-send-user-context.md)
+

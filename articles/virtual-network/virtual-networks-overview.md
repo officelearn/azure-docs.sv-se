@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Network | Microsoft Docs
-description: Läs mer om Azure Virtual Network-koncept och -funktioner.
+description: Lär dig mer om Azure Virtual Network-koncept och-funktioner, inklusive adress utrymme, undernät, regioner och prenumerationer.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 3fd958ba1ef4ec4b8a198bcd5da497dc191be73d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 237361c6a519fea4dde7f1fe85f91d97ce0365b1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040613"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281590"
 ---
 # <a name="what-is-azure-virtual-network"></a>Vad är Azure Virtual Network?
 
@@ -46,7 +47,7 @@ Alla resurser i ett VNet kan som standard kommunicera utgående till Internet. D
 >[!NOTE]
 >Om du bara använder en intern [standardlastbalanserare](../load-balancer/load-balancer-standard-overview.md), är utgående anslutningar inte tillgängliga förrän du definierar hur du vill att [utgående anslutningar](../load-balancer/load-balancer-outbound-connections.md) ska fungera med en offentlig IP-adress på instansnivå eller en offentlig lastbalanserare.
 
-## <a name="communicate-between-azure-resources"></a>Kommunicera mellan Azure-resurser
+## <a name="communicate-between-azure-resources"></a>Kommunikation mellan Azure-resurser
 
 Azure-resurser kommunicerar säkert med varandra på något av följande sätt:
 
@@ -54,7 +55,7 @@ Azure-resurser kommunicerar säkert med varandra på något av följande sätt:
 - **Via en tjänst slut punkt för virtuella nätverk**: utöka det privata adress utrymmet för det virtuella nätverket och identiteten för ditt virtuella nätverk till Azures tjänst resurser, till exempel Azure Storage konton och Azure SQL Database, via en direkt anslutning. Med tjänstslutpunkter kan du skydda dina kritiska Azure-tjänstresurser till endast ett virtuellt nätverk. Läs mer i [Översikt över tjänstslutpunkter för virtuella nätverk](virtual-network-service-endpoints-overview.md).
 - **Genom VNet-peering**: du kan ansluta virtuella nätverk till varandra, vilket gör det möjligt för resurser i det virtuella nätverket att kommunicera med varandra, med hjälp av peering av virtuella nätverk. De virtuella nätverken du ansluter kan finnas i samma, eller olika, Azure-regioner. Läs mer i [Peerkoppling av virtuella nätverk](virtual-network-peering-overview.md).
 
-## <a name="communicate-with-on-premises-resources"></a>Kommunicera med lokala resurser
+## <a name="communicate-with-on-premises-resources"></a>Kommunikation med lokala resurser
 
 Du kan ansluta lokala datorer och nätverk till ett virtuellt nätverk med hjälp av valfri kombination av följande alternativ:
 
@@ -62,14 +63,14 @@ Du kan ansluta lokala datorer och nätverk till ett virtuellt nätverk med hjäl
 - **Plats-till-plats-VPN:** Upprättas mellan den lokala VPN-enheten och Azure VPN Gateway som distribueras i ett virtuellt nätverk. Med den här anslutningstypen kan alla lokala resurser som du ger behörighet få åtkomst till ett virtuellt nätverk. Kommunikationen mellan den lokala VPN-enheten och en Azure VPN-gateway skickas genom en krypterad tunnel via Internet. Läs mer i [Plats-till-plats-VPN](../vpn-gateway/design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti).
 - **Azure ExpressRoute:** Upprättas mellan ditt nätverk och Azure, via en ExpressRoute-partner. Den här anslutningen är privat. Trafiken går inte via Internet. Läs mer i [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="filter-network-traffic"></a>Filtrera nätverkstrafik
+## <a name="filter-network-traffic"></a>Filtrering av nätverkstrafik
 
 Du kan filtrera nätverkstrafik mellan undernät med ett eller båda av följande alternativ:
 
 - **Säkerhets grupper:** Nätverks säkerhets grupper och program säkerhets grupper kan innehålla flera inkommande och utgående säkerhets regler som gör att du kan filtrera trafik till och från resurser efter källans och målets IP-adress, port och protokoll. Mer information finns i [Nätverkssäkerhetsgrupper](security-overview.md#network-security-groups) eller [Programsäkerhetsgrupper](security-overview.md#application-security-groups).
 - **Virtuella nätverksinstallationer:** En virtuell nätverksinstallation är en virtuell dator som utför en nätverksfunktion, till exempel en brandvägg, WAN-optimering eller annan nätverksfunktion. En lista över tillgängliga virtuella nätverksinstallationer som du kan distribuera i ett virtuellt nätverk finns i [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
-## <a name="route-network-traffic"></a>Dirigera nätverkstrafik
+## <a name="route-network-traffic"></a>Dirigering av nätverkstrafik
 
 Azure dirigerar trafik mellan undernät, anslutna virtuella nätverk, lokala nätverk och Internet, som standard. Du kan implementera ett eller båda av följande alternativ för att åsidosätta de standardvägar som Azure skapar:
 

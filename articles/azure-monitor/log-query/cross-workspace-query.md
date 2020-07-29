@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: 5d16c62c14ff6f24e519173b979e11d21d997927
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7cfa3d5652e13ddc88db70674049069a5b391297
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505796"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322133"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Utföra kors resurs logg frågor i Azure Monitor  
 
@@ -120,7 +120,7 @@ app('Contoso-app5').requests
 
 
 
-Du kan nu [använda den här funktionen](../../azure-monitor/log-query/functions.md#use-a-function) i en kors resurs fråga som liknar följande. Funktions Ali Aset _applicationsScoping_ returnerar unionen av begär ande tabellen från alla definierade program. Frågan filtrerar sedan efter misslyckade förfrågningar och visualiserar trender efter program. Operatorn _parse_ är valfri i det här exemplet. Den extraherar program namnet från egenskapen _SourceApp_ .
+Du kan nu [använda den här funktionen](./functions.md#use-a-function) i en kors resurs fråga som liknar följande. Funktions Ali Aset _applicationsScoping_ returnerar unionen av begär ande tabellen från alla definierade program. Frågan filtrerar sedan efter misslyckade förfrågningar och visualiserar trender efter program. Operatorn _parse_ är valfri i det här exemplet. Den extraherar program namnet från egenskapen _SourceApp_ .
 
 ```Kusto
 applicationsScoping 
@@ -141,3 +141,4 @@ applicationsScoping
 
 - Granska [analysera loggdata i Azure Monitor](log-query-overview.md) om du vill ha en översikt över logg frågor och hur Azure Monitor loggdata är strukturerade.
 - Granska [Azure Monitor logg frågor](query-language.md) för att visa alla resurser för Azure Monitor logg frågor.
+

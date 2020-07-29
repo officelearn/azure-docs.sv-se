@@ -1,25 +1,25 @@
 ---
-title: 'Självstudie 3: Distribuera kredit risk modell'
-titleSuffix: Azure Machine Learning Studio (classic)
+title: 'ML Studio (klassisk) självstudie 3: Distribuera kredit risk modeller – Azure'
 description: En detaljerad självstudie som visar hur du skapar en förutsägelse analys för kredit riskbedömning i Azure Machine Learning Studio (klassisk). Självstudien är del tre i en självstudieserie i tre delar. Den visar hur du distribuerar en modell som en webbtjänst.
 keywords: kreditrisk, lösning för förutsägelseanalys, riskbedömning, distribuera, webbtjänst
-author: sdgilley
-ms.author: sgilley
+author: likebupt
+ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
-ms.date: 02/11/2019
-ms.openlocfilehash: 9fb0b59374edf322e5e2221b90e912ee2c665bac
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/27/2020
+ms.openlocfilehash: 21b2308fb931d1c0932184dcc7946e99d3551b13
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79204161"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324870"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Självstudie 3: Distribuera kredit risk modell – Azure Machine Learning Studio (klassisk)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
+
 
 I den här självstudien tittar vi närmare på hur du utvecklar en lösning för förutsägelseanalys. Du utvecklar en enkel modell i Machine Learning Studio (klassisk).  Därefter distribuerar du modellen som en Azure Machine Learning-webbtjänst.  Den här distribuerade modellen kan göra förutsägelser med nya data. Den här självstudien är **del tre i en själv studie serie i tre delar**.
 
@@ -227,7 +227,10 @@ Du har distribuerat en webbtjänst som använder din kreditriskförutsägelsemod
 Webbtjänsten är en Azure-webbtjänst som kan ta emot och returnera data med hjälp av REST API:er på ett av följande två sätt:  
 
 * **Begäran/svar** – Användaren skickar en eller flera rader med kreditdata till tjänsten med hjälp av ett HTTP-protokoll och tjänsten svarar med en eller flera resultatuppsättningar.
-* **Batchkörning** – Användaren lagrar en eller flera rader med kreditdata i en Azure-blob och skickar sedan blobplatsen till tjänsten. Tjänsten bedömer alla rader med data i indatabloben, lagrar resultatet i en annan blob och returnerar URL:en för containern.  
+* **Batchkörning** – Användaren lagrar en eller flera rader med kreditdata i en Azure-blob och skickar sedan blobplatsen till tjänsten. Tjänsten bedömer alla rader med data i indatabloben, lagrar resultatet i en annan blob och returnerar URL:en för containern. 
+
+> [!NOTE]
+> Funktions kolumn namn i Studio (klassisk) är **SKIFT läges känsliga**. Kontrol lera att indata för att anropa webb tjänsten har samma kolumn namn som i träning-datauppsättningen.
 
 Mer information om hur du kommer åt och använder webb tjänsten finns i [använda en Azure Machine Learning-webbtjänst med en mall för webbappar](/azure/machine-learning/studio/consume-web-services).
 

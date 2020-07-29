@@ -6,12 +6,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9eb753981821a6b53d81b1d03e65abf68e0064dc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 142daec93724fe4c25fd5c65dd387856dfb582c3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540000"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324445"
 ---
 # <a name="what-is-distributed-tracing"></a>Vad är distribuerad spårning?
 
@@ -55,5 +55,6 @@ Webbplatsen för opensite innehåller API-referens dokumentation för [python](h
 ## <a name="next-steps"></a>Nästa steg
 
 * [Användnings guide för openräkning python](https://opencensus.io/api/python/trace/usage.html)
-* [Program karta](./../../azure-monitor/app/app-map.md)
-* [Prestanda övervakning från slut punkt till slut punkt](./../../azure-monitor/learn/tutorial-performance.md)
+* [Program karta](./app-map.md)
+* [Prestanda övervakning från slut punkt till slut punkt](../learn/tutorial-performance.md)
+

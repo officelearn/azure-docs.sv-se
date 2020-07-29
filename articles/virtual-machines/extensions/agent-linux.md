@@ -1,26 +1,19 @@
 ---
 title: Översikt över Azure Linux VM-agent
 description: Lär dig hur du installerar och konfigurerar Linux-agenten (waagent) för att hantera den virtuella datorns interaktion med Azure Fabric Controller.
-services: virtual-machines-linux
-documentationcenter: ''
 author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-service-management,azure-resource-manager
-ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 560ae8d837cf57e471a9f39d5ccdcf152a156b1e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fda228f6a24e981bb848fbb106709aaa3d8e8613
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029084"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87269129"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Förstå och använda Azure Linux-agenten
 
@@ -72,7 +65,7 @@ Informations flödet från plattformen till agenten sker via två kanaler:
 Följande system har testats och är kända för att fungera med Azure Linux-agenten:
 
 > [!NOTE]
-> Den här listan kan skilja sig från den officiella listan över system som stöds på Microsoft Azures plattform, enligt beskrivningen här:[https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> Den här listan kan skilja sig från den officiella listan över [distributioner som stöds](../linux/endorsed-distros.md).
 > 
 > 
 

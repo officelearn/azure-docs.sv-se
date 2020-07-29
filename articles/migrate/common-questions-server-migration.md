@@ -3,12 +3,12 @@ title: Vanliga frågor om migrering av Azure Migrate Server
 description: Få svar på vanliga frågor om att använda Azure Migrate Server-migrering för att migrera datorer.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 282f7ab27eead59fc87a95ea7d397268177f4f2c
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: af40aecaa1614542074cf87ce95eb81492233bdc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224136"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321232"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migrering av Azure Migrate Server: vanliga frågor
 
@@ -27,7 +27,7 @@ Granska de geografiska områden som stöds för [offentliga moln](migrate-suppor
 
 Metoden för att lösa in utan agent för VMware använder VMware-ögonblicksbilder och VMware-KANALBINDNINGSTOKEN (changed block tracking).
 
-Så här gör du:
+Så här ser processen ut:
 
 1. När du startar replikering schemaläggs en inledande replikeringscykel. I den första cykeln tas en ögonblicks bild av den virtuella datorn. Ögonblicks bilden används för att replikera VM-VMDK: er (diskar). 
 2. När den inledande replikeringen har slutförts schemaläggs delta-replikering med jämna mellanrum.
@@ -80,7 +80,7 @@ Nej. Azure Migrate stöder endast migrering till hanterade diskar (Standard HDD,
 
 ## <a name="how-many-vms-can-i-replicate-at-one-time-by-using-agentless-migration"></a>Hur många virtuella datorer kan jag replikera på en gång med hjälp av en agent utan migrering?
 
-För närvarande kan du migrera 100-VM: ar per instans av vCenter Server samtidigt. Migrera i batchar med 10 virtuella datorer.
+För närvarande kan du migrera 300-VM: ar per instans av vCenter Server samtidigt. Migrera i batchar med 10 virtuella datorer.
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Hur gör jag för att begränsar du replikeringen i med Azure Migrate-utrustning för att kunna använda utan agent?  
 
@@ -106,7 +106,7 @@ Att migrera datorer genom att behandla dem som fysiska servrar är användbara i
 
 ## <a name="i-deployed-two-or-more-appliances-to-discover-vms-in-my-vcenter-server-however-when-i-try-to-migrate-the-vms-i-only-see-vms-corresponding-to-one-of-the-appliance"></a>Jag har distribuerat två (eller fler) enheter för att identifiera virtuella datorer i mina vCenter Server. Men när jag försöker migrera de virtuella datorerna ser jag bara virtuella datorer som motsvarar en av-enheten.
 
-Det kan vara ett användbart användnings fall, men vi stöder för närvarande inte det. Distribution av två (eller fler) enheter för att identifiera samma uppsättning virtuella datorer orsakar ett tjänst problem där den virtuella datorns ägarskap kommer att växla mellan de två enheterna. Detta är anledningen till att du ser att virtuella datorer visas och visas. I sådana fall måste du ta bort en installation och göra en hård uppdatering för att lösa problemet.
+Om det finns flera installerade enheter krävs det inga överlappande mellan de virtuella datorerna på de vCenter-konton som har angetts. En identifiering med sådan överlappning är ett scenario som inte stöds.
 
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>Behöver jag VMware vCenter för att migrera virtuella VMware-datorer?
 Om du vill [migrera virtuella VMware-datorer](server-migrate-overview.md) med hjälp av VMware agent-eller agent lös migrering måste ESXi-värdar som de virtuella datorerna finns på hanteras av vCenter Server. Om du inte har vCenter Server kan du migrera virtuella VMware-datorer genom att migrera dem som fysiska servrar. [Läs mer](migrate-support-matrix-physical-migration.md).

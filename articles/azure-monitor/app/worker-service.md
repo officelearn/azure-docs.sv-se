@@ -3,12 +3,12 @@ title: Application Insights för Worker service-appar (icke-HTTP-appar)
 description: Övervaka .NET Core/. NET Framework-appar som inte är HTTP-appar med Azure Monitor Application Insights.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 7ae146c6c010f067973c9fbae4c90bd1116d7c21
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d429a1e0515d24d1c9953af7815dadf2488be302
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499213"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325414"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights för Worker service-program (icke-HTTP-program)
 
@@ -20,7 +20,7 @@ Den nya SDK: n utför inte någon telemetri-samling. I stället finns det på an
 
 [Application Insights SDK för Worker-tjänsten](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) passar bäst för icke-http-program oavsett var eller hur de körs. Om ditt program körs och har nätverks anslutning till Azure, kan telemetri samlas in. Application Insights övervakning stöds överallt där .NET Core stöds. Det här paketet kan användas i den nyligen introducerade [.net Core 3,0 Worker-tjänsten](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances), [bakgrunds aktiviteter i ASP.net Core 2.1/2.2](/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2), konsol program (.net Core/.NET Framework) osv.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 En giltig Application Insights Instrumentation-nyckel. Den här nyckeln krävs för att skicka telemetri till Application Insights. Om du behöver skapa en ny Application Insights resurs för att hämta en Instrumentation-nyckel, se [skapa en Application Insights resurs](./create-new-resource.md).
 
@@ -123,7 +123,7 @@ Det fullständiga exemplet delas [här](https://github.com/microsoft/Application
 Alternativt kan du ange Instrumentation-nyckeln i någon av följande miljövariabler.
 `APPINSIGHTS_INSTRUMENTATIONKEY` eller `ApplicationInsights:InstrumentationKey`
 
-Exempel: `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
+Exempelvis: `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 ELLER`SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
 Normalt `APPINSIGHTS_INSTRUMENTATIONKEY` anger Instrumentation-nyckeln för program som distribueras till Web Apps som webb jobb.
@@ -351,7 +351,7 @@ Observera att `ApplicationInsightsServiceOptions` i det här SDK: n finns i namn
 
 Inställningar som används ofta i`ApplicationInsightsServiceOptions`
 
-|Inställning | Beskrivning | Standard
+|Inställningen | Beskrivning | Standard
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | Aktivera/inaktivera LiveMetrics-funktionen | true
 |EnableAdaptiveSampling | Aktivera/inaktivera adaptiv sampling | true
@@ -542,7 +542,8 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använd API: et](../../azure-monitor/app/api-custom-events-metrics.md) för att skicka egna händelser och mått för en detaljerad vy över appens prestanda och användning.
-* [Spåra ytterligare beroenden som inte spåras automatiskt](../../azure-monitor/app/auto-collect-dependencies.md).
-* [Utöka eller filtrera automatiskt insamlad telemetri](../../azure-monitor/app/api-filtering-sampling.md).
+* [Använd API: et](./api-custom-events-metrics.md) för att skicka egna händelser och mått för en detaljerad vy över appens prestanda och användning.
+* [Spåra ytterligare beroenden som inte spåras automatiskt](./auto-collect-dependencies.md).
+* [Utöka eller filtrera automatiskt insamlad telemetri](./api-filtering-sampling.md).
 * [Beroende inmatning i ASP.net Core](/aspnet/core/fundamentals/dependency-injection).
+

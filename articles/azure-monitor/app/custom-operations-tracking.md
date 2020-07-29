@@ -4,12 +4,12 @@ description: Spåra anpassade åtgärder med Azure Application Insights .NET SDK
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 49c2ad44dab5e4f57db2f11c17c269289e56d2d5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd30f60928df3644b215f185d620393d1edda8c7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540051"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320382"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Spåra anpassade åtgärder med Application Insights .NET SDK
 
@@ -206,7 +206,7 @@ public async Task Process(BrokeredMessage message)
 I följande exempel visas hur du spårar [Azure Storage Queue](../../storage/queues/storage-dotnet-how-to-use-queues.md) -åtgärder och korrelerar telemetri mellan tillverkare, konsument och Azure Storage. 
 
 Lagrings kön har ett HTTP-API. Alla anrop till kön spåras av den Application Insights beroende insamlaren för HTTP-begäranden.
-Den konfigureras som standard på ASP.NET och ASP.NET Core program, med andra typer av program, kan du läsa [dokumentationen om konsol program](../../azure-monitor/app/console.md)
+Den konfigureras som standard på ASP.NET och ASP.NET Core program, med andra typer av program, kan du läsa [dokumentationen om konsol program](./console.md)
 
 Du kanske också vill korrelera Application Insights åtgärds-ID med ID för begäran. Information om hur du ställer in och skaffar en begäran om lagrings begär ande klient och ett ID för serverbegäran finns i [övervaka, diagnostisera och felsöka Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
@@ -478,8 +478,9 @@ Varje Application Insights-åtgärd (Request eller Dependency) omfattar `Activit
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig grunderna för [telemetri-korrelation](correlation.md) i Application Insights.
-- Ta reda på hur korrelerade data potenser för [transaktions diagnostik](../../azure-monitor/app/transaction-diagnostics.md) och [program översikt](../../azure-monitor/app/app-map.md).
-- Se [data modellen](../../azure-monitor/app/data-model.md) för Application Insights typer och data modeller.
-- Rapportera anpassade [händelser och mått](../../azure-monitor/app/api-custom-events-metrics.md) till Application Insights.
+- Ta reda på hur korrelerade data potenser för [transaktions diagnostik](./transaction-diagnostics.md) och [program översikt](./app-map.md).
+- Se [data modellen](./data-model.md) för Application Insights typer och data modeller.
+- Rapportera anpassade [händelser och mått](./api-custom-events-metrics.md) till Application Insights.
 - Ta en titt på standard [konfigurationen](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) för samling med kontext egenskaper.
 - Kontrol lera [användar handboken för system. Diagnostics. Activity](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) för att se hur vi korrelerar telemetri.
+

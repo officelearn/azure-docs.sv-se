@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: bda1acde914aa068fe3a87d307a29583f87af34f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b9d27e602062ff2638d8eea23fe64497fd66512d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091189"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322915"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>VMware-övervakning (inaktuell) lösning i Azure Monitor
 
@@ -27,7 +27,7 @@ Lösningen använder interna syslog-funktioner i ESXi-värden för att skicka da
 ## <a name="install-and-configure-the-solution"></a>Installera och konfigurera lösningen
 Använd följande information för att installera och konfigurera lösningen.
 
-* Lägg till VMware-övervakning-lösningen i din prenumeration med hjälp av processen som beskrivs i [installera en övervaknings lösning](../insights/solutions.md#install-a-monitoring-solution).
+* Lägg till VMware-övervakning-lösningen i din prenumeration med hjälp av processen som beskrivs i [installera en övervaknings lösning](./solutions.md#install-a-monitoring-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>VMware ESXi värdar som stöds
 vSphere ESXi Host 5,5, 6,0 och 6,5
@@ -50,14 +50,14 @@ Skapa en virtuell Linux-operativ system version för att ta emot alla syslog-dat
     ![vspherefwproperties](./media/vmware/vsphere3.png)  
 1. Kontrol lera vSphere-konsolen för att kontrol lera att syslog har kon figurer ATS korrekt. Bekräfta att ESXI-värden som port **1514** är konfigurerad på.
 1. Ladda ned och installera Log Analytics-agenten för Linux på Linux-servern. Mer information finns i [dokumentationen för Log Analytics agent för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
-1. När Log Analytics-agenten för Linux har installerats går du till katalogen/etc/opt/Microsoft/omsagent/sysconf/omsagent.d och kopierar filen vmware_esxi. conf till katalogen/etc/opt/Microsoft/omsagent/conf/omsagent.d och ändrar ägare/grupp och behörigheter för filen. Exempel:
+1. När Log Analytics-agenten för Linux har installerats går du till katalogen/etc/opt/Microsoft/omsagent/sysconf/omsagent.d och kopierar filen vmware_esxi. conf till katalogen/etc/opt/Microsoft/omsagent/conf/omsagent.d och ändrar ägare/grupp och behörigheter för filen. Till exempel:
 
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
 1. Starta om Log Analytics agent för Linux genom att köra `sudo /opt/microsoft/omsagent/bin/service_control restart` .
-1. Testa anslutningen mellan Linux-servern och ESXi-värden med hjälp av `nc` kommandot på ESXi-värden. Exempel:
+1. Testa anslutningen mellan Linux-servern och ESXi-värden med hjälp av `nc` kommandot på ESXi-värden. Till exempel:
 
     ```
     [root@ESXiHost:~] nc -z 123.456.789.101 1514
@@ -83,7 +83,7 @@ I följande tabell visas metoder för data insamling och annan information om hu
 
 I följande tabell visas exempel på data fält som samlas in av VMware-övervakning-lösningen:
 
-| fält namn | description |
+| fält namn | beskrivning |
 | --- | --- |
 | Device_s |VMware Storage-enheter |
 | ESXIFailure_s |typer av problem |
@@ -202,3 +202,4 @@ Det kan finnas flera skäl:
 * Använd [logg frågor](../log-query/log-query-overview.md) i Log Analytics om du vill visa detaljerade VMware-värdar.
 * [Skapa dina egna instrument paneler](../learn/tutorial-logs-dashboards.md) som visar VMware-värd data.
 * [Skapa aviseringar](../platform/alerts-overview.md) när vissa VMware-värd händelser inträffar.
+

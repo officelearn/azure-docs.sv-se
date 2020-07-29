@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: e5dc290a40342e0797001dde6cab90e12dd5cf39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dba058dce09e958a2ae769d927a5569fb3e42113
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77662186"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324564"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Avancerade agg regeringar i Azure Monitor logg frågor
 
@@ -183,7 +184,8 @@ Se andra lektioner för att använda [Kusto-frågespråket](/azure/kusto/query/)
 - [Strängåtgärder](string-operations.md)
 - [Åtgärder för datum och tid](datetime-operations.md)
 - [Aggregeringsfunktioner](aggregations.md)
-- [Avancerade aggregeringar](advanced-aggregations.md)
+- [Avancerade aggregeringar]()
 - [JSON och datastrukturer](json-data-structures.md)
 - [Kopplingar](joins.md)
 - [Diagram](charts.md)
+

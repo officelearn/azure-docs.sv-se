@@ -7,12 +7,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: asrastog
-ms.openlocfilehash: ef622d950595752e616608ef56d8df66b8a9813f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: 81c5d410599edcbbb4e216b630709541be02c9fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610157"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323017"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Förstå och Använd modul dubbla i IoT Hub
 
@@ -113,7 +116,7 @@ I det föregående exemplet innehåller modul två en `batteryLevel` egenskap so
 
 ### <a name="desired-property-example"></a>Exempel på önskad egenskap
 
-I föregående exempel `telemetryConfig` används modulens dubbla önskade och rapporterade egenskaper av lösningens Server del och modulens app för att synkronisera telemetri-konfigurationen för den här modulen. Ett exempel:
+I föregående exempel `telemetryConfig` används modulens dubbla önskade och rapporterade egenskaper av lösningens Server del och modulens app för att synkronisera telemetri-konfigurationen för den här modulen. Till exempel:
 
 1. Server delen för lösningen anger önskad egenskap med det önskade konfiguration svärdet. Här är den del av dokumentet med önskad egenskaps uppsättning:
 
@@ -176,7 +179,7 @@ Lösningens Server del fungerar i modulen dubbla med hjälp av följande atomisk
 
   - Egenskaper
 
-    | Name | Värde |
+    | Namn | Värde |
     | --- | --- |
     $content-typ | application/json |
     $iothub-enqueuedtime |  Tid när meddelandet skickades |
@@ -297,7 +300,7 @@ IoT Hub avvisar alla åtgärder som skulle öka storleken på dokumenten över g
 ## <a name="module-twin-metadata"></a>Modul, dubbla metadata
 
 IoT Hub behåller tidsstämpeln för den senaste uppdateringen för varje JSON-objekt i modulen, och rapporterade egenskaper. Tidsstämplar anges i UTC och kodas i [iso8601](https://en.wikipedia.org/wiki/ISO_8601) -format `YYYY-MM-DDTHH:MM:SS.mmmZ` .
-Ett exempel:
+Till exempel:
 
 ```json
 {

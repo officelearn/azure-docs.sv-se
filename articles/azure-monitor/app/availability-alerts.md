@@ -6,16 +6,16 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 19a0e94206691dc741020374bf5c827ba423515d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c53b43d811e5e2b9cd8d70e3c8e05af444895154
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008361"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320654"
 ---
 # <a name="availability-alerts"></a>Tillgänglighetsaviseringar
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) skickar begäranden till ditt program med jämna mellanrum från platser över hela världen. Det kan varna dig om programmet inte svarar eller om det svarar för långsamt.
+[Azure Application Insights](./app-insights-overview.md) skickar begäranden till ditt program med jämna mellanrum från platser över hela världen. Det kan varna dig om programmet inte svarar eller om det svarar för långsamt.
 
 ## <a name="enable-alerts"></a>Aktivera aviseringar
 
@@ -65,7 +65,7 @@ Med hjälp av de [nya enhetliga aviseringarna](../platform/alerts-overview.md)ka
 
 ## <a name="automate-alerts"></a>Automatisera aviseringar
 
-Information om hur du automatiserar den här processen med Azure Resource Manager mallar finns i [skapa en Metric-avisering med Resource Manager-mallens](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) dokumentation.
+Information om hur du automatiserar den här processen med Azure Resource Manager mallar finns i [skapa en Metric-avisering med Resource Manager-mallens](../platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) dokumentation.
 
 ## <a name="troubleshooting"></a>Felsökning
 
@@ -75,3 +75,4 @@ Dedikerad [fel söknings artikel](troubleshoot-availability.md).
 
 * [Webbtester med flera steg](availability-multistep.md)
 * [Webb test för URL-ping](monitor-web-app-availability.md)
+

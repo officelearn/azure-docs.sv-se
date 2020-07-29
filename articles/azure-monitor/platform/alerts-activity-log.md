@@ -4,12 +4,12 @@ description: Skapa aktivitets logg aviseringar med hjälp av Azure Portal, en Az
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 5019c3111a6e04dd9b7ba6ecbb9f62c7969075ed
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b202e3d47b98c5e395b3a8b525b9b8c0a04c0f76
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516064"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322422"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Skapa, Visa och hantera aktivitets logg aviseringar med hjälp av Azure Monitor  
 
@@ -92,7 +92,7 @@ Använd följande procedur.
     - **Beskrivning**: beskrivningen av den nya varnings regeln.
     - **Spara avisering till resurs grupp**: Välj den resurs grupp där du vill spara den nya regeln.
 
-5. Under **Åtgärds grupp**i den nedrullningsbara menyn anger du den åtgärds grupp som du vill tilldela till den nya varnings regeln. Du kan också [skapa en ny åtgärds grupp](../../azure-monitor/platform/action-groups.md) och tilldela den till den nya regeln. Om du vill skapa en ny grupp väljer du **+ ny grupp**.
+5. Under **Åtgärds grupp**i den nedrullningsbara menyn anger du den åtgärds grupp som du vill tilldela till den nya varnings regeln. Du kan också [skapa en ny åtgärds grupp](./action-groups.md) och tilldela den till den nya regeln. Om du vill skapa en ny grupp väljer du **+ ny grupp**.
 
 6. Om du vill aktivera reglerna efter att du har skapat dem väljer du **Ja** för alternativet **Aktivera regel vid skapande** .
 7. Välj **Skapa aviseringsregel**.
@@ -285,7 +285,8 @@ Aktivitets logg aviserings regel resurser kan tas bort med hjälp av Azure CLI [
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [webhook-scheman för aktivitets loggar](../../azure-monitor/platform/activity-log-alerts-webhook.md).
-- Läs en [Översikt över aktivitets loggar](../../azure-monitor/platform/activity-log-alerts.md).
-- Läs mer om [Åtgärds grupper](../../azure-monitor/platform/action-groups.md).  
+- Lär dig mer om [webhook-scheman för aktivitets loggar](./activity-log-alerts-webhook.md).
+- Läs en [Översikt över aktivitets loggar](./activity-log-alerts.md).
+- Läs mer om [Åtgärds grupper](./action-groups.md).  
 - Läs mer om [meddelanden om tjänst hälsa](../../service-health/service-notifications.md).
+

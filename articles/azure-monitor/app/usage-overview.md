@@ -3,24 +3,24 @@ title: Användnings analys med Azure Application Insights | Microsoft-dokument
 description: Förstå dina användare och vad de gör med din app.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 1acc803d66bef29a77266d4e38e1605ffd75f36f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bd0b95fe92171d2c5a1515941dbf86a0e31e04be
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014073"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323561"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Användningsanalys med Application Insights
 
-Vilka funktioner i din webb-eller mobilapp är mest populära? Uppnår användarna sina mål med din app? Släpps de vid vissa tidpunkter och returnerar dem senare?  [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) hjälper dig att få kraftfulla insikter om hur användarna använder din app. Varje gång du uppdaterar din app kan du utvärdera hur väl den fungerar för användare. Med den här kunskapen kan du fatta data drivna beslut om dina nästa utvecklings cykler.
+Vilka funktioner i din webb-eller mobilapp är mest populära? Uppnår användarna sina mål med din app? Släpps de vid vissa tidpunkter och returnerar dem senare?  [Azure Application Insights](./app-insights-overview.md) hjälper dig att få kraftfulla insikter om hur användarna använder din app. Varje gång du uppdaterar din app kan du utvärdera hur väl den fungerar för användare. Med den här kunskapen kan du fatta data drivna beslut om dina nästa utvecklings cykler.
 
 ## <a name="send-telemetry-from-your-app"></a>Skicka telemetri från din app
 
 Den bästa upplevelsen erhålls genom att installera Application Insights både i appens Server kod och på dina webb sidor. Klient-och Server komponenterna i appen skickar telemetri tillbaka till Azure Portal för analys.
 
-1. **Server kod:** Installera lämplig modul för din [ASP.net](../../azure-monitor/app/asp-net.md), [Azure](../../azure-monitor/app/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md)eller [annan](../../azure-monitor/app/platforms.md) app.
+1. **Server kod:** Installera lämplig modul för din [ASP.net](./asp-net.md), [Azure](./app-insights-overview.md), [Java](./java-get-started.md), [Node.js](./nodejs.md)eller [annan](./platforms.md) app.
 
-    * *Vill du inte installera Server koden? [Skapa bara en Azure Application Insights-resurs](../../azure-monitor/app/create-new-resource.md ).*
+    * *Vill du inte installera Server koden? [Skapa bara en Azure Application Insights-resurs](./create-new-resource.md).*
 
 2. **Webbs Ides kod:** Lägg till följande skript på din webb sida före stängningen ``</head>`` . Ersätt Instrumentation-nyckeln med lämpligt värde för din Application Insights-resurs:
     
@@ -36,7 +36,7 @@ Den bästa upplevelsen erhålls genom att installera Application Insights både 
 
     Mer avancerade konfigurationer för övervakning av webbplatser finns i [referens artikeln för Java Script SDK](./javascript.md).
 
-3. **Kod för mobilapp:** Använd App Center SDK för att samla in händelser från din app och skicka sedan kopior av dessa händelser till Application Insights för analys genom att [följa den här hand boken](../../azure-monitor/learn/mobile-center-quickstart.md).
+3. **Kod för mobilapp:** Använd App Center SDK för att samla in händelser från din app och skicka sedan kopior av dessa händelser till Application Insights för analys genom att [följa den här hand boken](../learn/mobile-center-quickstart.md).
 
 4. **Hämta telemetri:** Kör ditt projekt i fel söknings läge under några minuter och leta sedan efter resultat på bladet översikt i Application Insights.
 
@@ -103,7 +103,7 @@ Eller från Server sidan:
 
 Du kan koppla egenskaps värden till dessa händelser så att du kan filtrera eller dela händelser när du inspekterar dem i portalen. Dessutom är en standard uppsättning egenskaper kopplad till varje händelse, till exempel anonymt användar-ID, som gör att du kan spåra sekvensen av en enskild användares aktiviteter.
 
-Läs mer om [anpassade händelser](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) och [Egenskaper](../../azure-monitor/app/api-custom-events-metrics.md#properties).
+Läs mer om [anpassade händelser](./api-custom-events-metrics.md#trackevent) och [Egenskaper](./api-custom-events-metrics.md#properties).
 
 ### <a name="slice-and-dice-events"></a>Händelser för segment och tärning
 
@@ -121,7 +121,7 @@ För den här metoden kopplar du distinkta egenskaps värden till all telemetri 
 
 Filtrera och dela data på egenskapsvärdena i Application Insights-portalen, så att du kan jämföra olika versioner.
 
-Det gör du genom att [Konfigurera en telemetri-initierare](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer):
+Det gör du genom att [Konfigurera en telemetri-initierare](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer):
 
 **ASP.NET-appar**
 
@@ -175,5 +175,6 @@ Alla nya TelemetryClients lägger automatiskt till det egenskaps värde som du a
    - [Trattar](usage-funnels.md)
    - [Kvarhållning](usage-retention.md)
    - [Användarflöden](usage-flows.md)
-   - [Arbetsböcker](../../azure-monitor/platform/workbooks-overview.md)
+   - [Arbetsböcker](../platform/workbooks-overview.md)
    - [Lägg till användar kontext](usage-send-user-context.md)
+

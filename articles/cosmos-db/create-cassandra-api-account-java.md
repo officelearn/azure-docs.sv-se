@@ -8,13 +8,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.custom: seodec18
-ms.openlocfilehash: e114bf3a87f3018cc51c5752d57ce5911053542f
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: seodec18, devx-track-java
+ms.openlocfilehash: fa25d07ff034cec50da515341bd9ca604ee28577
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118414"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319192"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Självstudie: skapa ett API för Cassandra konto i Azure Cosmos DB genom att använda ett Java-program för att lagra nyckel/värde-data
 
@@ -27,11 +27,11 @@ Den här självstudien omfattar följande uppgifter:
 > * Hämta kontoanslutningssträngen
 > * Skapa ett Maven-projekt och beroenden
 > * Lägga till en databas och en tabell
-> * Kör appen
+> * Köra appen
 
 ## <a name="prerequisites"></a>Krav 
 
-* Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar. 
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar. 
 
 * Skaffa den senaste versionen av [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable). 
 
@@ -46,13 +46,13 @@ Den här självstudien omfattar följande uppgifter:
 
 3. I fönstret **Nytt konto** anger du inställningarna för det nya Azure Cosmos-kontot. 
 
-   |Inställningen   |Föreslaget värde  |Beskrivning  |
+   |Inställning   |Föreslaget värde  |Beskrivning  |
    |---------|---------|---------|
    |ID   |   Ange ett unikt namn    | Ange ett unikt namn som identifierar Azure Cosmos-kontot. <br/><br/>Eftersomcassandra.cosmosdb.azure.com läggs till det ID du anger för att skapa din kontaktpunkt bör du använda ett unikt men identifierbart ID.         |
-   |API    |  Cassandra   |  API:n avgör vilken typ av konto som skapas. <br/> Välj **Cassandra**, eftersom du i den här artikeln skapar en databas med breda kolumner som kan frågas med hjälp av CQL-syntaxen (Cassandra Query Language).  |
+   |API    |  Cassandra   |  API:et avgör vilken typ av konto som skapas. <br/> Välj **Cassandra**, eftersom du i den här artikeln skapar en databas med breda kolumner som kan frågas med hjälp av CQL-syntaxen (Cassandra Query Language).  |
    |Prenumeration    |  Din prenumeration        |  Välj den Azure-prenumeration som ska användas för Azure Cosmos-kontot.        |
    |Resursgrupp   | Ange ett namn    |  Välj **Skapa ny** och ange sedan ett nytt resursgruppnamn för ditt konto. För enkelhetens skull kan du använda samma namn som för ditt ID.    |
-   |Location    |  Välj den region som är närmast dina användare    |  Välj den geografiska plats som ska vara värd för ditt Azure Cosmos-konto. Använd den plats som är närmast dina användare så att de får så snabb åtkomst till data som möjligt.    |
+   |Position    |  Välj den region som är närmast dina användare    |  Välj den geografiska plats som ska vara värd för ditt Azure Cosmos-konto. Använd den plats som är närmast dina användare så att de får så snabb åtkomst till data som möjligt.    |
 
    :::image type="content" source="./media/create-cassandra-api-account-java/create-account.png" alt-text="Skapa konto med portalen":::
 
@@ -203,7 +203,7 @@ Det här avsnittet beskriver hur du lägger till en databas (nyckelutrymme) och 
    } 
    ```
  
-## <a name="run-the-app"></a>Kör appen 
+## <a name="run-the-app"></a>Köra appen 
 
 1. Öppna en kommandotolk eller ett terminalfönster. Klistra in följande kodblock. 
 

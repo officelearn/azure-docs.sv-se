@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: bb711dc67df51edc569f23bd1e6c54eef55012d2
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: 474e8152341aeb5e05af1859e531810f2be31e7c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85115404"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322813"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Snabb start: bygga en Java-app för att hantera Azure Cosmos DB SQL API-data
 
@@ -146,7 +146,7 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 
 ---
 
-## <a name="run-the-app"></a>Kör appen
+## <a name="run-the-app"></a>Köra appen
 
 Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och starta appen med din slutpunktsinformation. På så vis kan appen kommunicera med den värdbaserade databasen.
 

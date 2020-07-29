@@ -10,11 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 4b1abe8efb4baaf260005df1a4ee5b6d1645715a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9bd2db8bcc427118a76f87e49ade422a74a11c1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84169227"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276932"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Haveri beredskap och redundans för lagrings konto
 
@@ -131,7 +132,7 @@ Eftersom Azure Storage Resource Provider inte växlar över, returnerar egenskap
 
 ### <a name="azure-virtual-machines"></a>Virtuella Azure-datorer
 
-Virtuella Azure-datorer (VM) växlar inte över som en del av en redundansväxling av kontot. Om den primära regionen blir otillgänglig och du växlar över till den sekundära regionen måste du återskapa alla virtuella datorer efter redundansväxlingen. Det finns också en potentiell data förlust som är associerad med kontots redundans. Microsoft rekommenderar följande rikt linjer för [hög tillgänglighet](../../virtual-machines/windows/manage-availability.md) och [katastrof återställning](../../virtual-machines/virtual-machines-disaster-recovery-guidance.md) som är särskilt tillgängliga för virtuella datorer i Azure.
+Virtuella Azure-datorer (VM) växlar inte över som en del av en redundansväxling av kontot. Om den primära regionen blir otillgänglig och du växlar över till den sekundära regionen måste du återskapa alla virtuella datorer efter redundansväxlingen. Det finns också en potentiell data förlust som är associerad med kontots redundans. Microsoft rekommenderar följande rikt linjer för [hög tillgänglighet](../../virtual-machines/windows/manage-availability.md) och [katastrof återställning](../../virtual-machines/windows/backup-recovery.md) som är särskilt tillgängliga för virtuella datorer i Azure.
 
 ### <a name="azure-unmanaged-disks"></a>Azure-ohanterade diskar
 

@@ -8,13 +8,16 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 03/12/2019
 ms.author: robinsh
-ms.custom: mvc
-ms.openlocfilehash: 38a40d628b883c0e7ada824d47d3fdf3d29caf93
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom:
+- mvc
+- 'Role: Cloud Development'
+- 'Role: Data Analytics'
+ms.openlocfilehash: 4af3d00c4f0096199cf914f57b51b04036cec7cf
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74084375"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317900"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Självstudie: Använd Azure CLI och Azure Portal för att konfigurera IoT Hub meddelanderoutning
 
@@ -31,7 +34,7 @@ Kopiera och klistra in skriptet nedan i Cloud Shell och tryck på RETUR. Den kö
 Det finns flera resurs namn som måste vara globalt unika, till exempel IoT Hub namn och lagrings konto namn. För att göra det enklare läggs dessa resurs namn till med ett slumpmässigt alfanumeriskt värde som kallas *randomValue*. RandomValue skapas en gång överst i skriptet och läggs till i resurs namnen vid behov i hela skriptet. Om du inte vill att den ska vara slumpmässig, kan du ange den som en tom sträng eller ett angivet värde.
 
 > [!TIP]
-> Ett tips om fel sökning: det här skriptet använder fortsättnings symbolen (det omvända snedstrecket `\`) för att göra skriptet mer läsbart. Om du har problem med att köra skriptet kontrollerar du att Cloud Shell-sessionen körs `bash` och att det inte finns några blank steg efter något av omvänt snedstrecken.
+> Ett tips om fel sökning: det här skriptet använder fortsättnings symbolen (det omvända snedstrecket `\` ) för att göra skriptet mer läsbart. Om du har problem med att köra skriptet kontrollerar du att Cloud Shell-sessionen körs `bash` och att det inte finns några blank steg efter något av omvänt snedstrecken.
 >
 
 ```azurecli-interactive
@@ -122,7 +125,7 @@ az servicebus queue create --name $sbQueueName \
 
 Nu när bas resurserna har kon figurer ATS kan du konfigurera meddelanderoutning i [Azure Portal](https://portal.azure.com).
 
-## <a name="set-up-message-routing"></a>Konfigurera meddelanderedigering
+## <a name="set-up-message-routing"></a>Konfigurera meddelandedirigering
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
@@ -168,7 +171,7 @@ Konfigurera nu routning för lagringskontot. Du gå till fönstret meddelanderou
 
    **Datakälla**: Välj **Enhetstelemetrimeddelanden** från listrutan.
 
-   **Aktivera väg**: se till att det här fältet är `enabled`inställt på.
+   **Aktivera väg**: se till att det här fältet är inställt på `enabled` .
    
    **Routningsfråga**: Ange `level="storage"` som frågesträng.
 

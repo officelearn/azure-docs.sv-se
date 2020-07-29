@@ -8,13 +8,13 @@ ms.service: application-gateway
 ms.topic: quickstart
 ms.date: 03/05/2020
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: f60b26756c0affffbd45c8596fdf73d11ffa8e81
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: b36b5b1700df1767ad4323fed72ee05fdb05321f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80239519"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290965"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure CLI
 
@@ -33,7 +33,7 @@ Du kan också slutföra den här snabb starten med [Azure PowerShell](quick-crea
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
-I Azure allokerar du relaterade resurser till en resursgrupp. Skapa en resurs grupp med hjälp `az group create`av. 
+I Azure allokerar du relaterade resurser till en resursgrupp. Skapa en resurs grupp med hjälp av `az group create` . 
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroupAG* på platsen *eastus*.
 
@@ -45,7 +45,7 @@ az group create --name myResourceGroupAG --location eastus
 
 För att Azure ska kunna kommunicera mellan resurserna som du skapar krävs ett virtuellt nätverk.  Undernätet för en programgateway kan endast innehålla programgatewayer. Inga andra resurser är tillåtna.  Du kan antingen skapa ett nytt undernät för Application Gateway eller använda ett befintligt. I det här exemplet skapar du två undernät: ett för programgatewayen och en annan för backend-servrarna. Du kan konfigurera klient delens IP för Application Gateway att vara offentlig eller privat enligt ditt användnings fall. I det här exemplet väljer du en offentlig IP-adress för klient delen.
 
-Använd `az network vnet create`för att skapa det virtuella nätverket och under nätet. Kör `az network public-ip create` för att skapa den offentliga IP-adressen.
+Använd för att skapa det virtuella nätverket och under nätet `az network vnet create` . Kör `az network public-ip create` för att skapa den offentliga IP-adressen.
 
 ```azurecli-interactive
 az network vnet create \
@@ -119,7 +119,7 @@ runcmd:
   - nodejs index.js
 ```
 
-Skapa nätverks gränssnitten med `az network nic create`. Använd `az vm create`för att skapa de virtuella datorerna.
+Skapa nätverks gränssnitten med `az network nic create` . Använd för att skapa de virtuella datorerna `az vm create` .
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -141,7 +141,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Skapa programgatewayen
 
-Skapa en Programgateway med `az network application-gateway create`hjälp av. När du skapar en programgateway med Azure CLI anger du konfigurationsinformation såsom kapacitet, SKU och HTTP-inställningar. Azure lägger sedan till de privata IP-adresserna för nätverksgränssnitten som servrar i serverdelspoolen för programgatewayen.
+Skapa en Programgateway med hjälp av `az network application-gateway create` . När du skapar en programgateway med Azure CLI anger du konfigurationsinformation såsom kapacitet, SKU och HTTP-inställningar. Azure lägger sedan till de privata IP-adresserna för nätverksgränssnitten som servrar i serverdelspoolen för programgatewayen.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
@@ -169,7 +169,7 @@ Det kan ta upp till 30 minuter för Azure att skapa programgatewayen. När den h
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Azure kräver inte en NGINX-webbserver för skapande av programgatewayen, men du installerade det i den här snabbstarten för att kontrollera om Azure lyckades skapa programgatewayen. Använd `az network public-ip show`för att hämta den offentliga IP-adressen för den nya Application Gateway. 
+Azure kräver inte en NGINX-webbserver för skapande av programgatewayen, men du installerade det i den här snabbstarten för att kontrollera om Azure lyckades skapa programgatewayen. Använd för att hämta den offentliga IP-adressen för den nya Application Gateway `az network public-ip show` . 
 
 ```azurecli-interactive
 az network public-ip show \

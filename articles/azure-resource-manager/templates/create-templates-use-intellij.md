@@ -4,12 +4,13 @@ description: Lär dig hur du skapar din första Azure Resource Manager-mall med 
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
-ms.openlocfilehash: bce3d8ff2662ff62e1493cb26d797619b65c2762
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-java
+ms.openlocfilehash: 4039a70bf90bc8f4b7932dbf40d8369e9773abf3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040735"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321827"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Skapa och distribuera ARM-mallar med hjälp av IntelliJ-idén
 
@@ -21,7 +22,7 @@ När du har slutfört självstudien kan du distribuera ett Azure Storage-konto. 
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa stegen i den här artikeln behöver du:
 

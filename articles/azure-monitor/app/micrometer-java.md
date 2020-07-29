@@ -3,14 +3,15 @@ title: Använda micrometer med Azure Application Insights Java SDK
 description: En steg-för-steg-guide om hur du använder micrometer med din Application Insights våren start-och icke-våren start program.
 ms.topic: conceptual
 author: lgayhardt
+ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: da75498d6e4616b287ddb11c69df2469baaf2655
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2fbdf4e267e0f9a479a89d6f31e72f09d9e11bb0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067633"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322575"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Använda micrometer med Azure Application Insights Java SDK
 Micrometer program övervakning mäter mått för JVM program kod och låter dig exportera data till dina favorit övervaknings system. I den här artikeln får du lära dig hur du använder micrometer med Application Insights för både våren boot-och non-våren Boot-program.
@@ -20,7 +21,7 @@ Lägg till följande beroenden i pom.xml-eller build. gradle-filen:
 * [Application Insights fjäder-start-](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter) starter 2.5.0 eller senare
 * Micrometer Azure Registry 1.1.0 eller senare
 * [Micrometer våren Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 eller senare (den här backports koden för AutoConfig i våren-ramverket).
-* [ApplicationInsights-resurs](../../azure-monitor/app/create-new-resource.md )
+* [ApplicationInsights-resurs](./create-new-resource.md)
 
 Steg
 
@@ -58,7 +59,7 @@ Lägg till följande beroenden i pom.xml-eller build. gradle-filen:
 
 * Application Insights fjäder-start-starter 2.1.2 eller senare
 * Azure-våren-Boot-Metrics-starter 2.0.7 eller senare
-* [Application Insights resurs](../../azure-monitor/app/create-new-resource.md )
+* [Application Insights resurs](./create-new-resource.md)
 
 Steg:
 
@@ -117,7 +118,7 @@ Lägg till följande beroenden i pom.xml-eller build. gradle-filen:
 
 * Application Insights Web Auto 2.5.0 eller senare
 * Micrometer Azure Registry 1.1.0 eller senare
-* [Application Insights resurs](../../azure-monitor/app/create-new-resource.md )
+* [Application Insights resurs](./create-new-resource.md)
 
 Steg:
 
@@ -272,3 +273,4 @@ Lägg till följande bindnings kod i konfigurations filen:
 
 * Mer information om micrometer finns i den officiella [micrometer-dokumentationen](https://micrometer.io/docs).
 * Mer information om våren på Azure finns i den officiella [vår dokumentation om Azure](/java/azure/spring-framework/?view=azure-java-stable).
+

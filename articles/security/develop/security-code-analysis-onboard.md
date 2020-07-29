@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a7fab9515051180fdb1b894602478768a60177ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd0057c5f5e365d6c91ae221a7add813855bb1ec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362065"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323595"
 ---
 # <a name="onboarding-and-installing"></a>Registrering och installation
 
@@ -50,7 +50,7 @@ Om du uppfyller ovanstående krav kontaktar du en partner i listan nedan för at
 
 - Zoner – kontakt information:cloudsupport@zones.com
 - Wortell – kontakt information:info@wortell.nl
-- Logisk kontakt – kontakt uppgifter:Matthew.Curtis@us.logicalis.com 
+- Logisk kontakt – kontakt uppgifter:logicalisleads@us.logicalis.com
 
 ### <a name="become-a-partner"></a>Bli en partner
 
@@ -63,7 +63,7 @@ Microsoft Security code Analysis-teamet kommer att titta på partners med en Pre
 1. Välj **delad**.
 1. Välj tillägget Microsoft säkerhets kod analys och välj **Installera**.
 1. I list rutan väljer du Azure DevOps-organisationen för att installera tillägget på.
-1. Välj **installera**. När installationen är klar kan du börja använda tillägget.
+1. Välj **Installera**. När installationen är klar kan du börja använda tillägget.
 
 >[!NOTE]
 > Även om du inte har åtkomst för att installera tillägget fortsätter du med installations stegen. Du kan begära åtkomst från din Azure DevOps-organisations administratör under installations processen.

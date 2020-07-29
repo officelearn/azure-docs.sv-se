@@ -1,6 +1,6 @@
 ---
-title: Skapa värd pool för Windows Virtual Desktop-innehavare – Azure
-description: Så här felsöker och löser du problem med klient-och värd pooler under installationen av en Windows-klient för virtuella skriv bord.
+title: Windows Virtual Desktop (klassisk) skapande av klient värd pool – Azure
+description: Så här felsöker och löser du problem med klient-och värd pooler under installationen av en Windows Virtual Desktop (klassisk) klient miljö.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aad3bffeba4395ba415fb99a3667d04d18769a47
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: bd9a6dd5d11ab69635d610eee3f92a90e942b576
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026703"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87269605"
 ---
-# <a name="tenant-and-host-pool-creation"></a>Skapa klient- och värdpool
+# <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Skapande av innehavare och värddator i Windows Virtual Desktop (klassisk)
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../troubleshoot-set-up-issues.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../troubleshoot-set-up-issues.md).
 
 Den här artikeln beskriver problem under den första installationen av Windows-klienten för virtuella skriv bord och den relaterade infrastrukturen för anslutningspoolen för värd.
 

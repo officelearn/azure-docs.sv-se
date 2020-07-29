@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03d0367b3794069908b31ee7af1250fd70f1bdf7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7319adfc88eedb007677a78693ab0b2e514e646f
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525219"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171651"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -104,6 +104,7 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 
 ## <a name="change-log"></a>Ändrings logg
 
+- 07/23/2020: lade till [Spara på SAP HANA – stora instanser med en Azure reservation](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) -artikel som förklarar vad du behöver veta innan du köper en SAP HANA – stora instanser reservation och hur du gör köpet
 - 07/16/2020: beskriver hur du använder Azure PowerShell för att installera nytt VM-tillägg för SAP i [distributions guiden](deployment-guide.md)
 - 7/04/2020: version av [Azure Monitor för SAP-lösningar (för hands version)](./azure-monitor-overview.md)
 - 07/01/2020: föreslår billigare lagrings konfiguration baserat på Azure Premium Storage burst-funktioner i dokument [SAP HANA lagrings konfiguration för virtuella Azure-datorer](./hana-vm-operations-storage.md) 

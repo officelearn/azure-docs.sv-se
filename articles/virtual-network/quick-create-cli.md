@@ -1,7 +1,7 @@
 ---
 title: Skapa ett virtuellt nätverk – snabbstart – Azure CLI
 titlesuffix: Azure Virtual Network
-description: I den här snabbstarten får du lära dig att skapa ett virtuellt nätverk med hjälp av Azure CLI. Med ett virtuellt nätverk kan Azure-resurser, till exempel virtuella datorer, kommunicera privat med varandra och med Internet.
+description: I den här snabb starten lär du dig att skapa ett virtuellt nätverk med hjälp av Azure CLI. Ett virtuellt nätverk gör att Azure-resurser kan kommunicera med varandra och med Internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 01/22/2019
 ms.author: kumud
-ms.openlocfilehash: 2a4c63aeaa303692fa0f2d115a3df0d80cfab0b1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ed535c76ae3c456c8aa7d2e14301b9cb9cb288be
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80235204"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283188"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>Snabbstart: Skapa ett virtuellt nätverk med hjälp av Azure CLI
 

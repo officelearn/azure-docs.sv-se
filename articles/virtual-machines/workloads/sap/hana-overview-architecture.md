@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d413b2babda4c73f9f29ce3750bf7d0461db43c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e1575ee02a520fd39a1c659eadaeda5822207539
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065109"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171124"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>Vad är SAP HANA på stora Azure-instanser?
 
@@ -56,6 +56,7 @@ De olika dokumenten i den här vägledningen HANA-stor instans tar upp följande
 - [SAP HANA (stora instanser) fel sökning och övervakning i Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Hög tillgänglighet har kon figurer ATS i SUSE med hjälp av STONITH](./ha-setup-with-stonith.md)
 - [Säkerhets kopiering och återställning av OS för typ II SKU: er av revision 3-stämplar](./os-backup-type-ii-skus.md)
+- [Spara på SAP HANA – stora instanser med en Azure-reservation](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)
 
 **Nästa steg**
 - Se mer information [om villkoren](hana-know-terms.md)

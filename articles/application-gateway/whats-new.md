@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 06/10/2020
 ms.author: victorh
-ms.openlocfilehash: a98a06dedf1d0ed9b92cc2028dfc208ff26df056
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6ea0b28f5e0f23e0f8bb30e8fe2b0f792bce0709
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517628"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287455"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Vad är nytt i Azure Application Gateway?
 
@@ -27,7 +27,7 @@ Azure Application Gateway uppdateras regelbundet. För att hålla dig uppdaterad
 
 |Funktion  |Beskrivning  |Tillagt den  |
 |---------|---------|---------|
-| Jokertecken värd namn i lyssnare (för hands version) | Nu kan du definiera jokertecken i en lyssnare för flera platser och upp till 5 värdnamn per lyssnare. Läs mer i avsnittet om [jokertecken i lyssnare (för hands version)](multiple-site-overview.md#wildcard-host-names-in-listener-preview) och var [värd för flera webbplatser i en Application Gateway med hjälp av Azure Portal](create-multiple-sites-portal.md) för steget. | Juli 2020 |
+| Jokertecken värd namn i lyssnare (för hands version) | Nu kan du definiera jokertecken i en lyssnare för flera platser och upp till 5 värdnamn per lyssnare. Mer information finns i [namn på jokertecken i lyssnare (för hands version)](multiple-site-overview.md#wildcard-host-names-in-listener-preview) | Juli 2020 |
 | URL-omskrivning (för hands version) | Du kan nu skriva om URL-sökvägen och fråga sträng parametrar med URL-omskrivning. Läs mer i [skriva om HTTP-huvuden och URL](rewrite-http-headers-url.md) för att läsa mer och se [omskrivning URL i Application Gateway att använda Azure Portal](rewrite-url-portal.md) för steg-för-steg-guiden. | Juli 2020 |
 | Anpassad port för hälso avsökningar | Application Gateway v2 SKU ger nu möjlighet att tillhandahålla en anpassad port i hälso avsöknings konfigurationen. Mer information finns i [Översikt över hälso avsökning](application-gateway-probe-overview.md) | Juli 2020 |
 | Application Gateway ingångs kontroll (AGIC) AKS-tillägg (för hands version) |Application Gateway ingress-kontrollanten kan nu distribueras som ett inbyggt AKS-tillägg på en rad via Azure CLI. Att vara ett AKS-tillägg gör det möjligt för AGIC att bli en fullständigt hanterad tjänst, samtidigt som den fortfarande körs i kundens AKS-kluster. Mer information finns i [AGIC-tilläggs skillnader](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on). |Juni 2020 |

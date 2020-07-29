@@ -1,6 +1,6 @@
 ---
 title: Filtrera VM-nätverkstrafik – skript exempel för Azure CLI
-description: Azure CLI-skriptexempel – Filtrera inkommande och utgående VM-nätverkstrafik.
+description: Filtrera inkommande och utgående virtuell dator (VM) nätverks trafik med hjälp av ett skript exempel för Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
-ms.openlocfilehash: d47678767bd73ab993cfd0e8d0bc9b532b2bfaaa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6832cf08abd179b6108f971227b5c054c5617337
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046107"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281641"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic-using-an-azure-cli-script-sample"></a>Filtrera inkommande och utgående VM-nätverkstrafik med hjälp av ett skript exempel för Azure CLI
 
@@ -43,7 +43,7 @@ az group delete --name MyResourceGroup --yes
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, ett virtuellt nätverk och nätverkssäkerhetsgrupper. Varje kommando i följande tabell länkar till kommandospecifik dokumentation:
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az network vnet create](/cli/azure/network/vnet) | Skapar ett virtuellt Azure-nätverk och klientdelsundernät. |

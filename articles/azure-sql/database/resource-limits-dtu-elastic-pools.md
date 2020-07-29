@@ -4,18 +4,19 @@ description: På den här sidan beskrivs några vanliga värden för DTU-resurse
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 04/17/2020
-ms.openlocfilehash: 10b792a642f6c22ab804d6c5e5c3f7f722f0d3be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4377be82dfdb66ab7186d4472c8b1f5453b47809
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84043116"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325125"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Resurs begränsningar för elastiska pooler med inköps modellen DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +30,7 @@ Den här artikeln innehåller detaljerade resurs gränser för databaser i Azure
 
 För Azure SQL Database elastiska pooler visar följande tabeller de resurser som är tillgängliga på varje tjänst nivå och beräknings storlek. Du kan ange tjänst nivå, beräknings storlek och lagrings belopp med:
 
-* [Azure Portal](elastic-pool-manage.md#azure-portal)
+* [Azure-portalen](elastic-pool-manage.md#azure-portal)
 * [PowerShell](elastic-pool-manage.md#powershell)
 * [Azure CLI](elastic-pool-manage.md#azure-cli)
 * [REST API](elastic-pool-manage.md#rest-api).
@@ -47,7 +48,7 @@ För Azure SQL Database elastiska pooler visar följande tabeller de resurser so
 | eDTU:er per pool | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Inkluderat lagrings utrymme per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Max lagrings alternativ per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
+| Högsta lagringsutrymme per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Högsta minnes intern OLTP-lagring per pool (GB) | E.t. | E.t. | E.t. | E.t. | E.t. | E.t. | E.t. | E.t. |
 | Max antal databaser per pool <sup>1</sup> | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Maximalt antal samtidiga arbetare (begär Anden) per pool <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
@@ -65,77 +66,85 @@ För Azure SQL Database elastiska pooler visar följande tabeller de resurser so
 
 | eDTU:er per pool | **50** | **100** | **200** | **300** | **400** | **800**|
 |:---|---:|---:|---:| ---: | ---: | ---: |
-| Inkluderat lagrings utrymme per pool (GB) | 50 | 100 | 200 | 300 | 400 | 800 |
-| Max lagrings alternativ per pool (GB) | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 |
+| Inkluderat lagrings utrymme per pool (GB) <sup>1</sup> | 50 | 100 | 200 | 300 | 400 | 800 |
+| Högsta lagringsutrymme per pool (GB) | 500 | 750 | 1024 | 1280 | 1536 | 2048 |
 | Högsta minnes intern OLTP-lagring per pool (GB) | E.t. | E.t. | E.t. | E.t. | E.t. | E.t. |
-| Max antal databaser per pool <sup>1</sup> | 100 | 200 | 500 | 500 | 500 | 500 |
-| Maximalt antal samtidiga arbetare (begär Anden) per pool <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1600 |
-| Maximalt antal samtidiga sessioner per pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Högsta antal databaser per pool <sup>2</sup> | 100 | 200 | 500 | 500 | 500 | 500 |
+| Maximalt antal samtidiga arbetare (begär Anden) per pool <sup>3</sup> | 100 | 200 | 400 | 600 | 800 | 1600 |
+| Maximalt antal samtidiga sessioner per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Minsta eDTU: er alternativ per databas | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
 | Max alternativ för eDTU: er per databas | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
 | Största lagringsutrymme per databas (GB) | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
 ||||||||
 
-<sup>1</sup> se [resurs hantering i tätare elastiska pooler](elastic-pool-resource-management.md) för ytterligare överväganden.
+<sup>1</sup> se [SQL Database pris alternativ](https://azure.microsoft.com/pricing/details/sql-database/elastic/) för mer information om ytterligare kostnader som uppstår på grund av ytterligare lagrings utrymme.
 
-<sup>2</sup> för maximalt antal samtidiga arbetare (begär Anden) för enskilda databaser, se [gränser för enskilda databas resurser](resource-limits-vcore-single-databases.md). Om den elastiska poolen exempelvis använder Gen5 och Max vCore per databas anges till 2, är värdet för Max samtidiga arbets tagare 200.  Om max vCore per databas är inställt på 0,5, är Max värdet för samtidiga arbetare 50 sedan på Gen5. det finns högst 100 samtidiga arbetare per vCore. För andra Max vCore-inställningar per databas som är mindre än 1 vCore eller mindre, skalas antalet samtidiga arbets tagare på samma sätt.
+<sup>2</sup> se [resurs hantering i tätare elastiska pooler](elastic-pool-resource-management.md) för ytterligare överväganden.
+
+<sup>3</sup> för maximalt antal samtidiga arbetare (begär Anden) för enskilda databaser, se [gränser för enskilda databas resurser](resource-limits-vcore-single-databases.md). Om den elastiska poolen exempelvis använder Gen5 och Max vCore per databas anges till 2, är värdet för Max samtidiga arbets tagare 200.  Om max vCore per databas är inställt på 0,5, är Max värdet för samtidiga arbetare 50 sedan på Gen5. det finns högst 100 samtidiga arbetare per vCore. För andra Max vCore-inställningar per databas som är mindre än 1 vCore eller mindre, skalas antalet samtidiga arbets tagare på samma sätt.
 
 ### <a name="standard-elastic-pool-limits-continued"></a>Standardgränser för elastisk pool (forts.)
 
 | eDTU:er per pool | **1200** | **1600** | **2000** | **2500** | **3000** |
 |:---|---:|---:|---:| ---: | ---: |
-| Inkluderat lagrings utrymme per pool (GB) | 1200 | 1600 | 2000 | 2500 | 3000 |
-| Max lagrings alternativ per pool (GB) | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
+| Inkluderat lagrings utrymme per pool (GB) <sup>1</sup> | 1200 | 1600 | 2000 | 2500 | 3000 |
+| Högsta lagringsutrymme per pool (GB) | 2560 | 3072 | 3584 | 4096 | 4096 |
 | Högsta minnes intern OLTP-lagring per pool (GB) | E.t. | E.t. | E.t. | E.t. | E.t. |
-| Max antal databaser per pool <sup>1</sup> | 500 | 500 | 500 | 500 | 500 |
-| Maximalt antal samtidiga arbetare (begär Anden) per pool <sup>2</sup> | 2400 | 3200 | 4000 | 5000 | 6000 |
-| Maximalt antal samtidiga sessioner per pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Högsta antal databaser per pool <sup>2</sup> | 500 | 500 | 500 | 500 | 500 |
+| Maximalt antal samtidiga arbetare (begär Anden) per pool <sup>3</sup> | 2400 | 3200 | 4000 | 5000 | 6000 |
+| Maximalt antal samtidiga sessioner per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Minsta eDTU: er alternativ per databas | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Max alternativ för eDTU: er per databas | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
-| Max lagrings alternativ per databas (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
+| Största lagringsutrymme per databas (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 
-<sup>1</sup> se [resurs hantering i tätare elastiska pooler](elastic-pool-resource-management.md) för ytterligare överväganden.
+<sup>1</sup> se [SQL Database pris alternativ](https://azure.microsoft.com/pricing/details/sql-database/elastic/) för mer information om ytterligare kostnader som uppstår på grund av ytterligare lagrings utrymme.
 
-<sup>2</sup> för maximalt antal samtidiga arbetare (begär Anden) för enskilda databaser, se [gränser för enskilda databas resurser](resource-limits-vcore-single-databases.md). Om den elastiska poolen exempelvis använder Gen5 och Max vCore per databas anges till 2, är värdet för Max samtidiga arbets tagare 200.  Om max vCore per databas är inställt på 0,5, är Max värdet för samtidiga arbetare 50 sedan på Gen5. det finns högst 100 samtidiga arbetare per vCore. För andra Max vCore-inställningar per databas som är mindre än 1 vCore eller mindre, skalas antalet samtidiga arbets tagare på samma sätt.
+<sup>2</sup> se [resurs hantering i tätare elastiska pooler](elastic-pool-resource-management.md) för ytterligare överväganden.
+
+<sup>3</sup> för maximalt antal samtidiga arbetare (begär Anden) för enskilda databaser, se [gränser för enskilda databas resurser](resource-limits-vcore-single-databases.md). Om den elastiska poolen exempelvis använder Gen5 och Max vCore per databas anges till 2, är värdet för Max samtidiga arbets tagare 200.  Om max vCore per databas är inställt på 0,5, är Max värdet för samtidiga arbetare 50 sedan på Gen5. det finns högst 100 samtidiga arbetare per vCore. För andra Max vCore-inställningar per databas som är mindre än 1 vCore eller mindre, skalas antalet samtidiga arbets tagare på samma sätt.
 
 ### <a name="premium-elastic-pool-limits"></a>Gränser för Premium elastisk pool
 
 | eDTU:er per pool | **125** | **250** | **500** | **1000** | **1500**|
 |:---|---:|---:|---:| ---: | ---: |
-| Inkluderat lagrings utrymme per pool (GB) | 250 | 500 | 750 | 1024 | 1536 |
-| Max lagrings alternativ per pool (GB) | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 1536 |
+| Inkluderat lagrings utrymme per pool (GB) <sup>1</sup> | 250 | 500 | 750 | 1024 | 1536 |
+| Högsta lagringsutrymme per pool (GB) | 1024 | 1024 | 1024 | 1024 | 1536 |
 | Högsta minnes intern OLTP-lagring per pool (GB) | 1 | 2 | 4 | 10 | 12 |
-| Max antal databaser per pool <sup>1</sup> | 50 | 100 | 100 | 100 | 100 |
-| Maximalt antal samtidiga arbetare per pool (begär Anden) <sup>2</sup> | 200 | 400 | 800 | 1600 | 2400 |
-| Maximalt antal samtidiga sessioner per pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Högsta antal databaser per pool <sup>2</sup> | 50 | 100 | 100 | 100 | 100 |
+| Maximalt antal samtidiga arbetare per pool (begär Anden) <sup>3</sup> | 200 | 400 | 800 | 1600 | 2400 |
+| Maximalt antal samtidiga sessioner per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Minimalt antal eDTU:er per databas | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000|
 | Maximalt antal eDTU:er per databas | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000|
 | Största lagringsutrymme per databas (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 
-<sup>1</sup> se [resurs hantering i tätare elastiska pooler](elastic-pool-resource-management.md) för ytterligare överväganden.
+<sup>1</sup> se [SQL Database pris alternativ](https://azure.microsoft.com/pricing/details/sql-database/elastic/) för mer information om ytterligare kostnader som uppstår på grund av ytterligare lagrings utrymme.
 
-<sup>2</sup> för maximalt antal samtidiga arbetare (begär Anden) för enskilda databaser, se [gränser för enskilda databas resurser](resource-limits-vcore-single-databases.md). Om den elastiska poolen exempelvis använder Gen5 och Max vCore per databas anges till 2, är värdet för Max samtidiga arbets tagare 200.  Om max vCore per databas är inställt på 0,5, är Max värdet för samtidiga arbetare 50 sedan på Gen5. det finns högst 100 samtidiga arbetare per vCore. För andra Max vCore-inställningar per databas som är mindre än 1 vCore eller mindre, skalas antalet samtidiga arbets tagare på samma sätt.
+<sup>2</sup> se [resurs hantering i tätare elastiska pooler](elastic-pool-resource-management.md) för ytterligare överväganden.
+
+<sup>3</sup> för maximalt antal samtidiga arbetare (begär Anden) för enskilda databaser, se [gränser för enskilda databas resurser](resource-limits-vcore-single-databases.md). Om den elastiska poolen exempelvis använder Gen5 och Max vCore per databas anges till 2, är värdet för Max samtidiga arbets tagare 200.  Om max vCore per databas är inställt på 0,5, är Max värdet för samtidiga arbetare 50 sedan på Gen5. det finns högst 100 samtidiga arbetare per vCore. För andra Max vCore-inställningar per databas som är mindre än 1 vCore eller mindre, skalas antalet samtidiga arbets tagare på samma sätt.
 
 ### <a name="premium-elastic-pool-limits-continued"></a>Premiumgränser för elastisk pool (forts.)
 
 | eDTU:er per pool | **2000** | **2500** | **3000** | **3500** | **4000**|
 |:---|---:|---:|---:| ---: | ---: |
-| Inkluderat lagrings utrymme per pool (GB) | 2048 | 2560 | 3072 | 3548 | 4096 |
-| Max lagrings alternativ per pool (GB) | 2048 | 2560 | 3072 | 3548 | 4096|
+| Inkluderat lagrings utrymme per pool (GB) <sup>1</sup> | 2048 | 2560 | 3072 | 3548 | 4096 |
+| Högsta lagringsutrymme per pool (GB) | 2048 | 2560 | 3072 | 3548 | 4096|
 | Högsta minnes intern OLTP-lagring per pool (GB) | 16 | 20 | 24 | 28 | 32 |
-| Max antal databaser per pool <sup>1</sup> | 100 | 100 | 100 | 100 | 100 |
-| Maximalt antal samtidiga arbetare (begär Anden) per pool <sup>2</sup> | 3200 | 4000 | 4800 | 5600 | 6400 |
-| Maximalt antal samtidiga sessioner per pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Högsta antal databaser per pool <sup>2</sup> | 100 | 100 | 100 | 100 | 100 |
+| Maximalt antal samtidiga arbetare (begär Anden) per pool <sup>3</sup> | 3200 | 4000 | 4800 | 5600 | 6400 |
+| Maximalt antal samtidiga sessioner per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Minsta eDTU: er alternativ per databas | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Max alternativ för eDTU: er per databas | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Största lagringsutrymme per databas (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 
-<sup>1</sup> se [resurs hantering i tätare elastiska pooler](elastic-pool-resource-management.md) för ytterligare överväganden.
+<sup>1</sup> se [SQL Database pris alternativ](https://azure.microsoft.com/pricing/details/sql-database/elastic/) för mer information om ytterligare kostnader som uppstår på grund av ytterligare lagrings utrymme.
 
-<sup>2</sup> för maximalt antal samtidiga arbetare (begär Anden) för enskilda databaser, se [gränser för enskilda databas resurser](resource-limits-vcore-single-databases.md). Om den elastiska poolen exempelvis använder Gen5 och Max vCore per databas anges till 2, är värdet för Max samtidiga arbets tagare 200.  Om max vCore per databas är inställt på 0,5, är Max värdet för samtidiga arbetare 50 sedan på Gen5. det finns högst 100 samtidiga arbetare per vCore. För andra Max vCore-inställningar per databas som är mindre än 1 vCore eller mindre, skalas antalet samtidiga arbets tagare på samma sätt.
+<sup>2</sup> se [resurs hantering i tätare elastiska pooler](elastic-pool-resource-management.md) för ytterligare överväganden.
+
+<sup>3</sup> för maximalt antal samtidiga arbetare (begär Anden) för enskilda databaser, se [gränser för enskilda databas resurser](resource-limits-vcore-single-databases.md). Om den elastiska poolen exempelvis använder Gen5 och Max vCore per databas anges till 2, är värdet för Max samtidiga arbets tagare 200.  Om max vCore per databas är inställt på 0,5, är Max värdet för samtidiga arbetare 50 sedan på Gen5. det finns högst 100 samtidiga arbetare per vCore. För andra Max vCore-inställningar per databas som är mindre än 1 vCore eller mindre, skalas antalet samtidiga arbets tagare på samma sätt.
 
 > [!IMPORTANT]
 > Mer än 1 TB lagrings utrymme på Premium-nivån är för närvarande tillgängligt i alla regioner utom: Kina, östra, Kina, norra, Tyskland, centrala, Tyskland nordöstra, västra centrala USA, US DoD regioner och USA, centrala. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i [Aktuella begränsningar för P11–P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).

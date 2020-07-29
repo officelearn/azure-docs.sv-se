@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad76835b0c72b691e1ef8810f2c58dedb8f597d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35669a7d80907e2335c68b1da9010f5879aa6c7c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78672377"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87274093"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Vanliga frågor och svar om inställningar och dataväxling
 
@@ -25,18 +26,18 @@ I den här artikeln besvaras några frågor som IT-administratörer kan ha om in
 
 **Windows-inställningar**: dator inställningar som är inbyggda i operativ systemet Windows. Detta är vanligt vis inställningar som anpassar din dator och de omfattar följande breda kategorier:
 
-* *Tema*, som innehåller funktioner som Skriv bords tema och inställningar i aktivitets fältet.
+* *Tema*, som inbegriper funktioner såsom skrivbordstema och inställningar för aktivitetsfältet.
 * *Internet Explorer-inställningar*, inklusive nyligen öppnade flikar och favoriter.
 * *Inställningar för Microsoft Edge-webbläsare*, till exempel favoriter och läslista.
 * *Lösen ord*, inklusive Internet lösen ord, Wi-Fi-profiler och andra.
-* *Språk inställningar*, som innehåller inställningar för tangentbordslayouter, system språk, datum och tid med mera.
-* *Hjälpmedels funktioner*, till exempel hög kontrast tema, skärm läsaren och förstorings glas.
-* *Andra Windows-inställningar*, till exempel mus inställningar.
+* *Språkinställningar* såsom inställningar för tangentbordslayouter, systemspråk, datum och tid med mera.
+* *Hjälpmedelsfunktioner* som högkontrasttema, skärmläsaren och förstoringsglaset.
+* *Andra Windows-inställningar*, till exempel musinställningar.
 
 > [!NOTE]
 > Den här artikeln gäller Microsoft Edge äldre HTML-baserad webbläsare lanserad med Windows 10 i juli 2015. Artikeln gäller inte den nya Microsoft Edge krom-baserade webbläsaren som lanserades den 15 januari 2020. Mer information om hur synkronisering fungerar för den nya Microsoft Edge finns i artikeln [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
-**Program data**: universella Windows-appar kan skriva inställnings data till en central mapp, och alla data som skrivs till den här mappen synkroniseras automatiskt. Det är upp till den enskilda appens utvecklare att utforma en app för att dra nytta av den här funktionen. Mer information om hur du utvecklar en universell Windows-app som använder roaming finns i [API för lagrings-API för AppData](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) och [Windows 8 AppData-Roaming-bloggen för utvecklare](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+**Program data**: universella Windows-appar kan skriva inställnings data till en central mapp, och alla data som skrivs till den här mappen synkroniseras automatiskt. Det är upp till den enskilda appens utvecklare att utforma en app för att dra nytta av den här funktionen. Mer information om hur du utvecklar en universell Windows-app som använder roaming finns i [API för lagrings-API för AppData](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) och [Windows 8 AppData-Roaming-bloggen för utvecklare](https://blogs.windows.com/windowsdeveloper/2016/05/04/roaming-app-data-and-the-user-experience/).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Vilket konto används för synkronisering av inställningar?
 

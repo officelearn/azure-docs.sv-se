@@ -4,15 +4,15 @@ description: API för att publicera det angivna erbjudandet.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 1dede788242f858468c00e9f30f70ebdbe60cd1b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 60e75aff79913896bdf1dcdc8754b6ecf5620b06
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086412"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87272053"
 ---
 # <a name="publish-an-offer"></a>Publicera ett erbjudande
 
@@ -46,7 +46,7 @@ Startar publicerings processen för det angivna erbjudandet. Det här anropet ä
 ## <a name="body-example"></a>Body-exempel
 ------------
 
-### <a name="request"></a>Begäran
+### <a name="request"></a>Förfrågan
 
 ``` json
   { 
@@ -78,7 +78,7 @@ Startar publicerings processen för det angivna erbjudandet. Det här anropet ä
 
 |  **Namn**             |    **Värde**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
-| Plats    | Den relativa sökvägen för att hämta den här åtgärdens status     |
+| Position    | Den relativa sökvägen för att hämta den här åtgärdens status     |
 |  |  |
 
 ### <a name="response-status-codes"></a>Svars status koder

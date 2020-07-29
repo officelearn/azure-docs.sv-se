@@ -4,20 +4,20 @@ description: Application Insights data modell för telemetri för begäran
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 57cc9c95137facaaf2ddf5bb212121f88e150f5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a352f4ce3528d395599a91b53031c74b0873152
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807663"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320569"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Begär telemetri: Application Insights data modell
 
-Ett objekt för telemetri (i [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representerar den logiska sekvensen för körning som utlöses av en extern begäran till ditt program. Varje begär ande körning identifieras av unika `ID` och `url` innehåller alla körnings parametrar. Du kan gruppera begär Anden efter logiska `name` och definiera `source` för denna begäran. Kod körning kan resultera i `success` eller `fail` och har en viss `duration` . Både lyckade och misslyckade körningar kan grupperas ytterligare av `resultCode` . Start tid för den begärda Telemetrin som definierats på kuvert nivån.
+Ett objekt för telemetri (i [Application Insights](./app-insights-overview.md)) representerar den logiska sekvensen för körning som utlöses av en extern begäran till ditt program. Varje begär ande körning identifieras av unika `ID` och `url` innehåller alla körnings parametrar. Du kan gruppera begär Anden efter logiska `name` och definiera `source` för denna begäran. Kod körning kan resultera i `success` eller `fail` och har en viss `duration` . Både lyckade och misslyckade körningar kan grupperas ytterligare av `resultCode` . Start tid för den begärda Telemetrin som definierats på kuvert nivån.
 
 Telemetri för begär ande stöder standard utöknings modellen med hjälp av anpassade `properties` och `measurements` .
 
-## <a name="name"></a>Name
+## <a name="name"></a>Namn
 
 Namnet på begäran representerar kod Sök vägen som krävs för att bearbeta begäran. Lågt kardinalitet för att tillåta en bättre gruppering av begär Anden. För HTTP-begäranden representerar den HTTP-metod och URL-sökväg som `GET /values/{id}` saknar det faktiska `id` värdet.
 
@@ -27,7 +27,7 @@ Maxlängd: 1024 tecken
 
 ## <a name="id"></a>ID
 
-Identifierare för en begär ande anrops instans. Används för korrelation mellan begäran och andra telemetri-objekt. ID måste vara globalt unikt. Mer information finns på sidan [korrelation](../../azure-monitor/app/correlation.md) .
+Identifierare för en begär ande anrops instans. Används för korrelation mellan begäran och andra telemetri-objekt. ID måste vara globalt unikt. Mer information finns på sidan [korrelation](./correlation.md) .
 
 Maxlängd: 128 tecken
 
@@ -39,7 +39,7 @@ Maxlängd: 2048 tecken
 
 ## <a name="source"></a>Källa
 
-Källa för begäran. Exempel är Instrumentation-nyckeln för anroparen eller IP-adressen för anroparen. Mer information finns på sidan [korrelation](../../azure-monitor/app/correlation.md) .
+Källa för begäran. Exempel är Instrumentation-nyckeln för anroparen eller IP-adressen för anroparen. Mer information finns på sidan [korrelation](./correlation.md) .
 
 Maxlängd: 1024 tecken
 
@@ -73,7 +73,8 @@ Du kan läsa mer om resultat kod och status kod för begäran i [blogg inlägget
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skriv telemetri för anpassad begäran](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)
+- [Skriv telemetri för anpassad begäran](./api-custom-events-metrics.md#trackrequest)
 - Se [data modell](data-model.md) för Application Insights typer och data modell.
-- Lär dig hur du [konfigurerar ASP.net Core](../../azure-monitor/app/asp-net.md) program med Application Insights.
-- Kolla ut [plattformar](../../azure-monitor/app/platforms.md) som stöds av Application Insights.
+- Lär dig hur du [konfigurerar ASP.net Core](./asp-net.md) program med Application Insights.
+- Kolla ut [plattformar](./platforms.md) som stöds av Application Insights.
+

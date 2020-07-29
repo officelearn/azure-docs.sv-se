@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2ad06a7583789a9f4db974251e7c2e7387b72549
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 317cc5222b3444ae2ed242df694d317503c72a87
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076093"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290657"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Konfigurera katastrofåterställning till Azure för lokala virtuella VMware-datorer
 
@@ -84,7 +84,7 @@ Alla dessa komponenter installeras tillsammans på de lokala datorer som är kä
 ## <a name="import-the-template-in-vmware"></a>Importera mallen i VMware
 
 
-1. Logga in på VMware vCenter-servern eller vSphere ESXi-värden med VMWare vSphere-klienten.
+1. Logga in på VMware vCenter-servern eller vSphere ESXi-värden med VMware vSphere-klienten.
 2. I menyn **Arkiv** väljer du **distribuera OVF-mallen** för att starta **guiden Distribuera OVF-mall**.
 
      ![OVF-mall](./media/vmware-azure-tutorial/vcenter-wizard.png)
@@ -113,7 +113,7 @@ Om du vill lägga till ett extra nätverkskort i konfigurations servern lägger 
 
 När konfigurations servern har kon figurer ATS kan du registrera den i valvet.
 
-1. Sätt på den virtuella datorn från VMWare vSphere-klientkonsolen.
+1. I VMware vSphere klient konsolen aktiverar du den virtuella datorn.
 2. Den virtuella datorn startas med en Windows Server 2016-installation. Godkänn licensavtalet och ange ett administratörslösenord.
 3. När installationen är klar loggar du in på den virtuella datorn som administratör.
 4. Första gången du loggar in startas Azure Site Recovery-konfigurationsverktyget inom några sekunder.

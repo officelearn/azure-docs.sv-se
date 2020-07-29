@@ -3,12 +3,12 @@ title: Prestanda övervakning av webbapp – Azure Application insikter
 description: Hur Application Insights passar i devOps-cykeln
 ms.topic: conceptual
 ms.date: 12/21/2018
-ms.openlocfilehash: fa62e8840c14e87d24db029d6bb7a215124a0511
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d2c3326c3f655d4bdfeaa42ac272658b251b7f82
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033690"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324496"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Djup diagnostik för webbappar och tjänster med Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Varför behöver jag Application Insights?
@@ -85,7 +85,7 @@ Real Madrid använder Power BI-modulen för att visa sin telemetri.
 ![Power BI vy av Application Insights telemetri](./media/devops/080.png)
 
 ## <a name="smart-detection"></a>Smart identifiering
-[Proaktiv diagnostik](../../azure-monitor/app/proactive-diagnostics.md) är en ny funktion. Utan någon speciell konfiguration av dig kan Application Insights automatiskt identifiera och varna dig om ovanliga ökningar i en felaktig frekvens i din app. Det är tillräckligt smart att ignorera en bakgrund med tillfälliga haverier, och kan också medföra att de bara står i proportion till en ökning i begär Anden. Till exempel, om det uppstår ett fel i en av de tjänster som du är beroende av, eller om den nya versionen som du precis har distribuerat inte fungerar så bra, så vet du om det så snart du tittar på din e-post. (Och det finns Webhooks så att du kan utlösa andra appar.)
+[Proaktiv diagnostik](./proactive-diagnostics.md) är en ny funktion. Utan någon speciell konfiguration av dig kan Application Insights automatiskt identifiera och varna dig om ovanliga ökningar i en felaktig frekvens i din app. Det är tillräckligt smart att ignorera en bakgrund med tillfälliga haverier, och kan också medföra att de bara står i proportion till en ökning i begär Anden. Till exempel, om det uppstår ett fel i en av de tjänster som du är beroende av, eller om den nya versionen som du precis har distribuerat inte fungerar så bra, så vet du om det så snart du tittar på din e-post. (Och det finns Webhooks så att du kan utlösa andra appar.)
 
 En annan aspekt av den här funktionen utför en daglig analys av din telemetri, som söker efter ovanliga mönster på prestanda som är svåra att upptäcka. Den kan till exempel hitta långsamma prestanda som är kopplade till ett visst geografiskt område eller med en viss webb läsar version.
 
@@ -145,9 +145,9 @@ Under fel sökning har du möjlighet att behålla Telemetrin i din utvecklings d
 När en avisering aktive ras kan Application Insights automatiskt skapa ett arbets objekt i ditt arbets spårnings system.
 
 ## <a name="but-what-about"></a>Men vad händer om...?
-* [Sekretess och lagring](../../azure-monitor/app/data-retention-privacy.md) – din telemetri sparas på Azures säkra servrar.
+* [Sekretess och lagring](./data-retention-privacy.md) – din telemetri sparas på Azures säkra servrar.
 * Prestanda – påverkan är mycket låg. Telemetri är satsvis.
-* [Priser](../../azure-monitor/app/pricing.md) – du kan sätta igång kostnads fritt och fortsätta när du befinner dig i låg volym.
+* [Priser](./pricing.md) – du kan sätta igång kostnads fritt och fortsätta när du befinner dig i låg volym.
 
 
 ## <a name="video"></a>Video
@@ -157,6 +157,7 @@ När en avisering aktive ras kan Application Insights automatiskt skapa ett arbe
 ## <a name="next-steps"></a>Nästa steg
 Det är enkelt att komma igång med Application Insights. Huvud alternativen är:
 
-* [IIS-servrar](../../azure-monitor/app/monitor-performance-live-website-now.md)och även för [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
-* Instrumentera ditt projekt under utveckling. Du kan göra detta för [ASP.net](../../azure-monitor/app/asp-net.md) -eller [Java](../../azure-monitor/app/java-get-started.md) -appar, samt [Node.js](../../azure-monitor/app/nodejs.md) och en värd av [andra typer](../../azure-monitor/app/platforms.md). 
-* Instrumentera en [webb sida](../../azure-monitor/app/javascript.md) genom att lägga till ett kort kodfragment.
+* [IIS-servrar](./monitor-performance-live-website-now.md)och även för [Azure App Service](./app-insights-overview.md).
+* Instrumentera ditt projekt under utveckling. Du kan göra detta för [ASP.net](./asp-net.md) -eller [Java](./java-get-started.md) -appar, samt [Node.js](./nodejs.md) och en värd av [andra typer](./platforms.md). 
+* Instrumentera en [webb sida](./javascript.md) genom att lägga till ett kort kodfragment.
+

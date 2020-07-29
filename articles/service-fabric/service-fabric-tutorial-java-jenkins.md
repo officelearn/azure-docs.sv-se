@@ -5,13 +5,13 @@ author: suhuruli
 ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: suhuruli
-ms.custom: mvc
-ms.openlocfilehash: 74c412ad4c62a5821890aa5602b521f3f63da925
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.custom: mvc, devx-track-java
+ms.openlocfilehash: 42efc13d37ccfdaf60896f338b1a38384ef06568
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594771"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320722"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Självstudie: Konfigurera en Jenkins-miljö och aktivera CI/CD för en Java-app i Service Fabric
 
@@ -85,11 +85,11 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följand
 
    a. Markera kryssrutan och ange URL:en för GitHub-projektet under **GitHub-projekt** i det allmänna avsnittet. Den här URL:en är värd för det Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet (t.ex. ``https://github.com/testaccount/dev_test``).
 
-   b. I avsnittet **Source Code Management** (Källkodshantering) väljer du **Git**. Ange den webb adress till databasen som är värd för Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet ( *`https://github.com/testaccount/dev_test.git`* t. ex.). Du kan också ange här vilken gren som ska byggas (t.ex. **/master**).
+   b. I avsnittet **Source Code Management** (Källkodshantering) väljer du **Git**. Ange den webb adress till databasen som är värd för Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet (t. ex. *`https://github.com/testaccount/dev_test.git`* ). Du kan också ange här vilken gren som ska byggas (t.ex. **/master**).
 
-1. Konfigurera din *GitHub* (som är värd för databasen) så att den kan kommunicera med Jenkins. Använd följande steg:
+1. Konfigurera din *GitHub* (som är värd för databasen) så att den kan kommunicera med Jenkins. Gör så här:
 
-   a. Gå till GitHub-lagringsplatssidan. Gå till **Inställningar** > **integreringar och tjänster**.
+   a. Gå till GitHub-lagringsplatssidan. Gå till **Inställningar**  >  **integreringar och tjänster**.
 
    b. Välj **Lägg till tjänst**, skriv **Jenkins** och välj **Jenkins GitHub-plugin-programmet**.
 
@@ -178,7 +178,7 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följand
 
     ![Uppgradering pågår](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
 
-1. Om du går till **http://\<Host-IP>:8080**  är röstningsprogrammet nu igång med alla funktioner.
+1. Om du har åtkomst till **http:// \<Host-IP> : 8080** röstnings programmet med fullständiga funktioner igång nu.
 
     ![Lokal röstningsapp](./media/service-fabric-tutorial-java-jenkins/votingv2.png)
 

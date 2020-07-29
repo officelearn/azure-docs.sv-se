@@ -4,16 +4,16 @@ description: Övervaka din webbapp i real tid med anpassade mått och diagnostis
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: e554595a7a88e1455f7426636dc69db99a7d3e94
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 4b84088c1213801e61a4c669bccb1a983c999310
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166492"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321946"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: övervaka & diagnostisera med en andra svars tid
 
-Övervaka din Live-, produktions webb tillämpning genom att använda Live Metrics Stream från [Application Insights](../../azure-monitor/app/app-insights-overview.md). Välj och filtrera mått och prestanda räknare för att se Real tid utan störningar på tjänsten. Undersök stack spårningar från exempel misslyckade förfrågningar och undantag. Tillsammans med [profiler](../../azure-monitor/app/profiler.md) och [fel sökning av ögonblicks bilder](../../azure-monitor/app/snapshot-debugger.md)tillhandahåller Live Metrics Stream ett kraftfullt och icke-invasivt diagnos verktyg för din Live-webbplats.
+Övervaka din Live-, produktions webb tillämpning genom att använda Live Metrics Stream från [Application Insights](./app-insights-overview.md). Välj och filtrera mått och prestanda räknare för att se Real tid utan störningar på tjänsten. Undersök stack spårningar från exempel misslyckade förfrågningar och undantag. Tillsammans med [profiler](./profiler.md) och [fel sökning av ögonblicks bilder](./snapshot-debugger.md)tillhandahåller Live Metrics Stream ett kraftfullt och icke-invasivt diagnos verktyg för din Live-webbplats.
 
 Med Live Metrics Stream kan du:
 
@@ -31,7 +31,7 @@ Live-mått stöds för närvarande för ASP.NET-, ASP.NET Core-, Azure Functions
 
 ## <a name="get-started"></a>Kom igång
 
-1. [Installera Application Insights](../../azure-monitor/azure-monitor-app-hub.yml) i ditt program.
+1. [Installera Application Insights](../azure-monitor-app-hub.yml) i ditt program.
 2. Förutom standard Application Insightss paketen [Microsoft. ApplicationInsights. PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) krävs för att aktivera Live Metrics Stream.
 3. **Uppdatera till den senaste versionen** av Application Insights-paketet. I Visual Studio högerklickar du på projektet och väljer **Hantera NuGet-paket**. Öppna fliken **uppdateringar** och markera alla Microsoft. ApplicationInsights. *-paket.
 
@@ -43,17 +43,17 @@ Live-mått stöds för närvarande för ASP.NET-, ASP.NET Core-, Azure Functions
 
 ### <a name="no-data-check-your-server-firewall"></a>Ser du inga data? Kontrol lera serverns brand vägg
 
-Kontrol lera att de [utgående portarna för Live Metrics Stream](../../azure-monitor/app/ip-addresses.md#outgoing-ports) är öppna i brand väggen för dina servrar.
+Kontrol lera att de [utgående portarna för Live Metrics Stream](./ip-addresses.md#outgoing-ports) är öppna i brand väggen för dina servrar.
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>Hur skiljer sig Live Metrics Stream från Metrics Explorer och analyser?
 
 | |Direktsänd ström | Metrics Explorer och analys |
 |---|---|---|
 |**Svarstid**|Data som visas inom en sekund|Sammanställt över minuter|
-|**Ingen kvarhållning**|Data sparas medan de finns i diagrammet och ignoreras sedan|[Data kvarhållna i 90 dagar](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
+|**Ingen kvarhållning**|Data sparas medan de finns i diagrammet och ignoreras sedan|[Data kvarhållna i 90 dagar](./data-retention-privacy.md#how-long-is-the-data-kept)|
 |**På begäran**|Data strömmas endast när Live Metrics-fönstret är öppet |Data skickas när SDK är installerat och aktiverat|
-|**Kostnadsfri**|Det kostar inget att Live Stream data|Omfattas av [prissättning](../../azure-monitor/app/pricing.md)
-|**Sampling**|Alla valda mått och räknare överförs. Felen och stack spåren samplas. TelemetryProcessors tillämpas inte.|Händelser kan [samplas](../../azure-monitor/app/api-filtering-sampling.md)|
+|**Kostnadsfri**|Det kostar inget att Live Stream data|Omfattas av [prissättning](./pricing.md)
+|**Sampling**|Alla valda mått och räknare överförs. Felen och stack spåren samplas. TelemetryProcessors tillämpas inte.|Händelser kan [samplas](./api-filtering-sampling.md)|
 |**Kontroll kanal**|Filter kontroll signaler skickas till SDK: n. Vi rekommenderar att du skyddar den här kanalen.|Kommunikation är ett sätt, till portalen|
 
 ## <a name="select-and-filter-your-metrics"></a>Välj och filtrera dina mått
@@ -64,7 +64,7 @@ Du kan övervaka anpassad KPI Live genom att använda godtyckliga filter på all
 
 ![Filter begär ande frekvens](./media/live-stream/filter-request.png)
 
-Du kan övervaka ett värde som skiljer sig från antalet. Vilka alternativ som är tillgängliga beror på vilken typ av data ström som kan vara en Application Insights telemetri: begär Anden, beroenden, spårningar, händelser eller mått. Det kan vara din egen [anpassade mått enhet](../../azure-monitor/app/api-custom-events-metrics.md#properties):
+Du kan övervaka ett värde som skiljer sig från antalet. Vilka alternativ som är tillgängliga beror på vilken typ av data ström som kan vara en Application Insights telemetri: begär Anden, beroenden, spårningar, händelser eller mått. Det kan vara din egen [anpassade mått enhet](./api-custom-events-metrics.md#properties):
 
 ![Frågeverktyg för begär ande frekvens med anpassat mått](./media/live-stream/query-builder-request.png)
 
@@ -206,10 +206,11 @@ Som standard är Live-måtten inaktiverade i Node.js SDK. Om du vill aktivera Li
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Ser du inga data? Om ditt program finns i ett skyddat nätverk: Live Metrics Stream använder andra IP-adresser än andra Application Insights telemetri. Kontrol lera att [de här IP-adresserna](../../azure-monitor/app/ip-addresses.md) är öppna i brand väggen.
+Ser du inga data? Om ditt program finns i ett skyddat nätverk: Live Metrics Stream använder andra IP-adresser än andra Application Insights telemetri. Kontrol lera att [de här IP-adresserna](./ip-addresses.md) är öppna i brand väggen.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Övervaka användning med Application Insights](../../azure-monitor/app/usage-overview.md)
-* [Använda diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md)
-* [Profilerare](../../azure-monitor/app/profiler.md)
-* [Fel sökning av ögonblicks bild](../../azure-monitor/app/snapshot-debugger.md)
+* [Övervaka användning med Application Insights](./usage-overview.md)
+* [Använda diagnostisk sökning](./diagnostic-search.md)
+* [Profilerare](./profiler.md)
+* [Fel sökning av ögonblicks bild](./snapshot-debugger.md)
+

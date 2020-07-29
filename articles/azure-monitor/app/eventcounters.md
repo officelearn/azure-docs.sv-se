@@ -3,12 +3,12 @@ title: Händelse räknare i Application Insights | Microsoft Docs
 description: Övervaka system och anpassade .NET/.NET Core-EventCounters i Application Insights.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 06bf15bf60b1ee5e2c301935a30b3981d5233a08
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 42140f68a5f383a2a60fe8327f5023754366e6b7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539949"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324411"
 ---
 # <a name="eventcounters-introduction"></a>Introduktion till EventCounters
 
@@ -124,7 +124,7 @@ customMetrics
 Precis som andra telemetri innehåller **customMetrics** också en kolumn `cloud_RoleInstance` som anger identiteten för den värd Server instans där appen körs. Frågan ovan visar räknar värdet per instans och kan användas för att jämföra prestanda för olika Server instanser.
 
 ## <a name="alerts"></a>Aviseringar
-Precis som med andra mått kan du [Ange en avisering](../../azure-monitor/platform/alerts-log.md) som varnar dig om en händelse räknare går utanför en gräns som du anger. Öppna fönstret aviseringar och klicka på Lägg till avisering.
+Precis som med andra mått kan du [Ange en avisering](../platform/alerts-log.md) som varnar dig om en händelse räknare går utanför en gräns som du anger. Öppna fönstret aviseringar och klicka på Lägg till avisering.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -148,4 +148,5 @@ EventCounter kräver inte några särskilda behörigheter och stöds i alla plat
 
 ## <a name="next-steps"></a><a name="next"></a>Nästa steg
 
-* [Beroende spårning](../../azure-monitor/app/asp-net-dependencies.md)
+* [Beroende spårning](./asp-net-dependencies.md)
+

@@ -5,15 +5,127 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 04/20/2020
-ms.openlocfilehash: fc8304fb068152c800d7b71f77fb601956fb6510
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: 113249f56c1f5f9c035ec2ff6ccb7309dd355763
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023407"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281352"
 ---
 # <a name="changelog"></a>Ändringslogg #
+
+## <a name="235-official-update-june-1-2020"></a>2.3.5 (officiell uppdatering juni 1 2020)
+
+### <a name="bug-fixes-235"></a>Fel korrigeringar 2.3.5
+
+- Tågen ESC Key Listener i alternativ fönstret är kopplad till dokumentet
+- Tågen Förhindra att Player-ANVÄNDARGRÄNSSNITTET visas om kontroll fältet eller alternativ-menyn har fokus
+- Kontroll fältet visar felaktig vägg Clock-tid när visnings inställningarna för väggens klock slag är aktiverat
+
+### <a name="changes-235"></a>Ändringar 2.3.5
+
+- Fel meddelande har lagts till för felkod 0x00400005 och dokumenteras
+
+## <a name="234-official-update-march-4-2020"></a>2.3.4 (officiell uppdatering mars 4 2020)
+
+### <a name="bug-fixes-234"></a>Fel korrigeringar i 2.3.4
+
+- Det går inte att ange PlayReady-overrideLicenseAcquistionUrl
+- Det gick inte att spela upp innehåll med discontinuities
+- Tågen Värdet för ID-attribut för skärm läsar avisering måste vara unikt
+- Tågen När du navigerar i dialog rutan inställningar för textning flyttar du bort från dialog rutan
+
+### <a name="changes-234"></a>Ändringar i 2.3.4
+
+- Logga innehålls längd efter en lyckad nedladdning för att analysera dekrypterings fel 2.3.3 (officiell uppdatering november 12 2019)
+
+### <a name="features-234"></a>Funktioner i 2.3.4
+
+- Stöd har lagts till för att Visa väggens Klock tid för en video som ett överlägg och i kontroll fältet
+
+### <a name="bug-fixes-234"></a>Fel korrigeringar i 2.3.4
+
+- Ljud spårs växeln fungerar men utdata har fel på IE11-och Windows7-objektet stöder inte egenskapen eller metoden Enabled
+- Ljud spårs växeln Miss lyckas när bufferten har lästs in helt
+- Ljud spårs växeln Miss lyckas när användaren pausar video och växlar mellan ljud spår snabbt
+- Tågen Knapp beskrivningar har inte definierats för video kontroll under Videos pelaren
+- Volym knappar saknas på HTML5 beroende på när ' loadstart ' tas emot
+- Tågen Det går inte att ange alternativ texten för affisch bilden
+- Tågen Program fokus försvinner när du har valt Slutför i dialog rutan inställningar för under texter
+- Tågen Felaktiga ARIA-attribut har definierats för video under segment Preview
+
+### <a name="changes-234"></a>Ändringar i 2.3.4
+
+- En tom beskrivnings etikett har tagits bort från HLS på iOS och MacOS Safari
+- Minska antalet 412s för IMSC1-beskrivningar
+- Varning om utdata i-konsolen för 10 på varandra följande tomma IMSC1-textning för att hjälpa till att använda Live-felsökning
+
+## <a name="232-official-update-october-9-2019"></a>2.3.2 (officiell uppdatering oktober 9 2019)
+
+### <a name="features"></a>Funktioner
+
+– PlayReady-stöd har lagts till för streck uppspelning för krom Edge-webbläsare
+
+### <a name="bug-fixes-232"></a>Fel korrigeringar 2.3.2
+
+- Den aktuella uppspelnings hastigheten visas inte visuellt i uppspelnings hastigheten om användaren inte anger den manuellt
+- Tågen Panelen Inställningar komprimeras inte med ESC-tangenten
+- Tågen Kortkommando kortkommandot ' ' fungerar inte när skärm läsaren är på
+
+### <a name="changes-232"></a>Ändringar 2.3.2
+
+- För webbläsare som inte stöder E-AC3 ljud-codec är E-AC3 ljud spår dolda på ljud spårs menyn
+- För webbläsare som stöder E-AC3 ljud-codec är ett E-AC3 ljud spår valt som standard
+- För webbläsare som inte stöder ljud-codec-växling är ljud spår med en annan codec från det valda spåret dolda på ljud spårs menyn
+
+## <a name="231-official-update-august-12-2019"></a>2.3.1 (officiell uppdatering augusti 12 2019)
+
+### <a name="features-231"></a>Funktioner 2.3.1
+
+- Signalerar en händelse när EMSG rutor tas emot i streck uppspelning – stöd för att Visa EG-3 ljud spår i ljud menyn i webbläsare som stöder EG-3 och för att växla ljud spår från AAC till EC3 och vice versa endast på den Chromimum-baserade Edge-webbläsaren
+
+### <a name="bug-fixes-231"></a>Fel korrigeringar 2.3.1
+
+- Ljud spårs menyn är skadad efter borttagning av EC-3-spår
+- Den aktuella tiden kan vara bra än videons varaktighet
+- Det fungerar inte att ställa in uppspelnings hastigheten via initialSpeed
+- Ibland efter en sökning verkar spelaren vara fastnad
+- På kant-och Internet Explorer på en touch-skärm, efter att ha zoomat in på en sida, så får du inte korrekt segment i videon genom att trycka eller hovra över SeekBar.
+- Tågen Aria-etiketten för Play/Pause är inte beskrivande för Video Player Map live segment kunde inte hittas fel meddelande för blixt till rätt amp-fel
+- Tågen ARIA-roller som används för Play/Pause måste följa giltiga värden (. VJS-text-Track-display)
+- Tågen Vissa ARIA-roller måste ingå i vissa föräldrar
+- Tågen Ingen knapp beskrivning har definierats för knappen Spela upp/pausa i Videos pelaren IMSC1-textning kan försvinna efter sökning i den aktuella video-/ljudbufferten
+
+### <a name="changes-231"></a>Ändringar 2.3.1
+
+- Vid hämtningen av en segmentDecryptError och spelaren redan finns på Live Edge uppdaterar spelaren nu manifestet i stället för att försöka med nästa segment
+- Ytterligare loggning för diagnostik har lagts till
+- Uppdaterad dokumentation till inkluderar FairPlay-stöd för iOS Safari
+- Ett exempel har lagts till för alternativet "srclang" i IMSC1
+- Utfyllnad, textPadding, boxShadow åsidosättningar har lagts till för text spår.
+- En felkod (0x0020025B) har lagts till för att skilja på att nedladdningen av segment misslyckades på grund av inget Internet snarare än att bara hämta 0x00200259
+
+## <a name="230-official-release-april-30-2019"></a>2.3.0 (officiella versionen april 30 2019)
+
+### <a name="features-230"></a>Funktioner 2.3.0
+
+- Stöd har lagts till för IMSC1-textning för streck
+- Stöd har lagts till för endast video till gångar för streck
+- API-presentationTimeOffsetInSec har lagts till
+
+### <a name="bug-fixes-230"></a>Fel korrigeringar 2.3.0
+
+- En heuristiks profil för AMP-LowLatency störs av iOS-videouppspelningen "mute" och "unmute" för vissa språk har fel översättningar
+- Aria-valuenow-värdet för skjutreglaget för förlopps indikatorn är ibland felaktigt
+- Aria för text spårets visning är felaktigt
+
+### <a name="changes-230"></a>Ändringar 2.3.0
+
+- Loggar innehåller nu storleken på hämtade medie fragment
+- Tog bort support för IE 9 och IE 10
+- Uppdaterat CEA708-exempel för att Visa Vänsterjustera text texter
+- Inkludera MediaError. Message i loggar för uppspelnings fel
 
 ## <a name="224-official-update-february-22-2019"></a>2.2.4 (officiell uppdatering februari 22 2019) ##
 
@@ -31,7 +143,7 @@ ms.locfileid: "87023407"
 
 ## <a name="223-official-update-january-9-2019"></a>2.2.3 (officiell uppdatering januari 9 2019) ##
 
-### <a name="features"></a>Funktioner ###
+### <a name="features-223"></a>Funktioner 2.2.3 ###
 
 - Zoomfunktionen HLS Ljud spårs menyn har lagts till för Safari HLS-uppspelning
 

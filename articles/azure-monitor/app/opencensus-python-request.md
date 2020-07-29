@@ -6,18 +6,18 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: tracking-python
-ms.openlocfilehash: c9d69c0f39d9cad52dc86c3ab33d202c88131ab0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6eae11e2157904b47582f78a601c8d2900e61247
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753213"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324598"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Spåra inkommande begär Anden med openräkningar python
 
 Inkommande begär ande data samlas in med hjälp av openräkningar python och dess olika integreringar. Spåra inkommande begär ande data som skickas till dina webb program som skapats ovanpå de populära webb ramverken `django` `flask` och `pyramid` . Data skickas sedan till Application Insights under Azure Monitor som `requests` telemetri.
 
-Börja med att Instrumenta din python-app med senaste [Openräkning python SDK](../../azure-monitor/app/opencensus-python.md).
+Börja med att Instrumenta din python-app med senaste [Openräkning python SDK](./opencensus-python.md).
 
 ## <a name="tracking-django-applications"></a>Spåra django-program
 
@@ -119,8 +119,9 @@ Börja med att Instrumenta din python-app med senaste [Openräkning python SDK](
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Programkarta](../../azure-monitor/app/app-map.md)
-* [Tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Sök](../../azure-monitor/app/diagnostic-search.md)
-* [Logg (analys) fråga](../../azure-monitor/log-query/log-query-overview.md)
-* [Transaktionsdiagnostik](../../azure-monitor/app/transaction-diagnostics.md)
+* [Programkarta](./app-map.md)
+* [Tillgänglighet](./monitor-web-app-availability.md)
+* [Sök](./diagnostic-search.md)
+* [Logg (analys) fråga](../log-query/log-query-overview.md)
+* [Transaktionsdiagnostik](./transaction-diagnostics.md)
+

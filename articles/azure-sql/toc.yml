@@ -78,6 +78,8 @@
                   href: database/authentication-mfa-ssms-configure.md
                 - name: Villkorlig åtkomst
                   href: database/conditional-access-configure.md
+                - name: Tjänsthuvudkonton (program)
+                  href: database/authentication-aad-service-principal.md
             - name: Transparent datakryptering (TDE)
               items:
                 - name: Översikt
@@ -141,6 +143,8 @@
               href: database/long-term-backup-retention-configure.md
         - name: Säkerhet
           items:
+            - name: Skapa Azure AD-gästanvändare och ange som Azure AD-administratör
+              href: database/authentication-aad-guest-users.md
             - name: Konfigurera TDE med BYOK
               href: database/transparent-data-encryption-byok-configure.md
             - name: Lagra sårbarhetsgenomsökningar i lagring
@@ -277,6 +281,8 @@
               href: database/transparent-data-encryption-byok-key-rotation.md
             - name: Ta bort TDE-skydd
               href: database/transparent-data-encryption-byok-remove-tde-protector.md
+            - name: Skapa användare med tjänsthuvudkonton
+              href: database/authentication-aad-service-principal-tutorial.md
         - name: Flytta data
           items:
             - name: Migrera med DMS

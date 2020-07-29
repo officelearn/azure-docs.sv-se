@@ -4,15 +4,16 @@ description: Application Insights data modell för telemetri för undantag
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: fa9bc4efd9549cbcb1d50439989c5dea79d9d60c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6732fb3dde79abd5c69e2b0a91710bdd2356d6aa
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671944"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320603"
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>Telemetri för undantag: Application Insights data modell
 
-I [Application Insights](../../azure-monitor/app/app-insights-overview.md)representerar en instans av undantag ett hanterat eller ohanterat undantag som uppstod under körningen av det övervakade programmet.
+I [Application Insights](./app-insights-overview.md)representerar en instans av undantag ett hanterat eller ohanterat undantag som uppstod under körningen av det övervakade programmet.
 
 ## <a name="problem-id"></a>Problem-ID
 
@@ -39,5 +40,6 @@ Allvarlighets grad för spårning. Värdet kan vara `Verbose` ,,, `Information` 
 ## <a name="next-steps"></a>Nästa steg
 
 - Se [data modell](data-model.md) för Application Insights typer och data modell.
-- Lär dig hur du [diagnostiserar undantag i dina webbappar med Application Insights](../../azure-monitor/app/asp-net-exceptions.md).
-- Kolla ut [plattformar](../../azure-monitor/app/platforms.md) som stöds av Application Insights.
+- Lär dig hur du [diagnostiserar undantag i dina webbappar med Application Insights](./asp-net-exceptions.md).
+- Kolla ut [plattformar](./platforms.md) som stöds av Application Insights.
+

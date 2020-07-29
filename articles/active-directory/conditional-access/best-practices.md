@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d63cb1d7e2b0086a3d9ef6e3917ebefa11c7ccba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60d72a98a22fa85e87eb8560ad968415ca70f9a5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253383"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275436"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Metod tips för villkorlig åtkomst i Azure Active Directory
 
@@ -39,7 +39,7 @@ För att principen ska fungera måste du konfigurera:
 | :--            | :--                                  | :-- |
 | **Molnappar** |Välj en eller flera appar.  | Målet med en princip för villkorlig åtkomst är att du ska kunna styra hur auktoriserade användare kan komma åt molnappar.|
 | **Användare och grupper** | Välj minst en användare eller grupp som har behörighet att komma åt dina valda molnappar. | En princip för villkorlig åtkomst som inte har några tilldelade användare och grupper utlöses aldrig. |
-| **Åtkomst kontroller** | Välj minst en åtkomst kontroll. | Om dina villkor är uppfyllda måste du veta vad du ska göra i princip processorn. |
+| **Åtkomstkontroller** | Välj minst en åtkomstkontroll. | Om dina villkor är uppfyllda måste din principbehandlare veta vad den ska göra. |
 
 ## <a name="what-you-should-know"></a>Det här bör du veta
 
@@ -49,14 +49,21 @@ Mer än en princip för villkorlig åtkomst kan gälla när du öppnar en molnba
 
 Alla principer tillämpas i två faser:
 
-- Fas 1: 
-   - Detalj insamling: samla in information för att identifiera principer som redan är uppfyllda.
-   - Under den här fasen kan användare se en certifikats tolk om enhetens efterlevnad är en del av dina principer för villkorlig åtkomst. Den här varningen kan inträffa för webb läsar appar när enhetens operativ system inte är Windows 10.
-   - Fas 1 av princip utvärderingen sker för alla aktiverade principer och principer i [endast rapport läge](concept-conditional-access-report-only.md).
-- Fas 2:
-   - Tvång: att ta hänsyn till den information som samlats in i fas 1, ber användaren att uppfylla eventuella ytterligare krav som inte har uppfyllts.
-   - Tillämpa resultatet på sessionen. 
-   - Fas 2 av princip utvärderingen sker för alla aktiverade principer.
+- Fas 1: samla in sessionsinformation 
+   - Samla in sessionsinformation, t. ex. användar plats och enhets identitet som krävs för utvärdering av principer. 
+   - Under den här fasen kan användare se en certifikats tolk om enhetens efterlevnad är en del av dina principer för villkorlig åtkomst. Den här varningen kan inträffa för webb läsar appar när enhetens operativ system inte är Windows 10. 
+   - Fas 1 av princip utvärderingen sker för aktiverade principer och principer i [endast rapport läge](concept-conditional-access-report-only.md).
+- Fas 2: tvång 
+   - Använd sessionsinformation som samlats in i fas 1 för att identifiera eventuella krav som inte har uppfyllts. 
+   - Om det finns en princip som har kon figurer ATS för att blockera åtkomst, med blockera beviljande kontroll, kommer tvång att stoppas här och användaren kommer att blockeras. 
+   - Användaren uppmanas sedan att slutföra ytterligare krav för beviljande kontroll som inte har uppfyllts under fas 1 i följande ordning, tills principen är nöjd:  
+      - Multi-Factor Authentication 
+      - Godkänd klient App/app-skydds princip 
+      - Hanterad enhet (kompatibel eller hybrid Azure AD-anslutning) 
+      - Villkor för användning 
+      - Anpassade kontroller  
+      - När beviljade kontroller har uppfyllts tillämpar du sessionsbaserade (appen tvingas, Microsoft Cloud App Security och token livs längd) 
+   - Fas 2 av princip utvärderingen sker för alla aktiverade principer. 
 
 ### <a name="how-are-assignments-evaluated"></a>Hur utvärderas tilldelningar?
 
@@ -71,7 +78,7 @@ Om du behöver konfigurera ett plats villkor som gäller för alla anslutningar 
 
 Om du är utelåst från Azure AD-portalen på grund av en felaktig inställning i en princip för villkorlig åtkomst:
 
-- Det finns andra administratörer i din organisation som inte har blockerats än. En administratör med åtkomst till Azure Portal kan inaktivera principen som påverkar inloggningen. 
+- Det finns andra administratörer i din organisation som inte har blockerats än. En administratör med åtkomst till Azure Portal kan inaktivera den princip som påverkar din inloggning. 
 - Om ingen av administratörerna i din organisation kan uppdatera principen måste du skicka in en support förfrågan. Microsoft support kan granska och uppdatera principer för villkorlig åtkomst som förhindrar åtkomst.
 
 ### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>Vad händer om du har principer i den klassiska Azure-portalen och Azure Portal har kon figurer ATS?  

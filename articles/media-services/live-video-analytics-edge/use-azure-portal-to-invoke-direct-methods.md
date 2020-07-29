@@ -1,5 +1,5 @@
 ---
-title: Använd Azure Portal för att anropa direkta metoder
+title: Använda Azure Portal för att anropa direkta metoder
 description: Den här artikeln är en översikt som använder Azure Portal för att anropa direkta metoder.
 services: media-services
 documentationcenter: ''
@@ -9,22 +9,22 @@ editor: ''
 ms.service: media-services
 ms.subservice: ''
 ms.workload: ''
-ms.topic: tutorial
+ms.topic: how-to
 ms.custom: ''
-ms.date: 07/21/2020
+ms.date: 07/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: 1fa25210bc8e4dc9f20e49e90b8e71082edb12c2
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 763dd82c8263a5e180468f9fbd7f86526295a80d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172742"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279295"
 ---
-# <a name="tutorial-use-azure-portal-to-invoke-direct-methods"></a>Självstudie: använda Azure Portal för att anropa direkta metoder
+# <a name="how-to-use-azure-portal-to-invoke-direct-methods"></a>Använda Azure Portal för att anropa direkta metoder
 
 IoT Hub ger dig möjlighet att anropa [direkta metoder](/azure/iot-hub/iot-hub-devguide-direct-methods#method-invocation-for-iot-edge-modules) på gräns enheter från molnet. LVA-modulen (live video analys i IoT Edge) visar flera [direkta metoder](/azure/media-services/live-video-analytics-edge/direct-methods) som kan användas för att definiera, distribuera och instansiera olika arbets flöden för att analysera direktsänd video.
 
-I den här självstudien får du lära dig att anropa direkt metod anrop i real tids video analys för en IoT Edge-modul via Azure Portal.
+I den här artikeln får du lära dig hur du anropar direkta metod anrop i real tids video analys för en IoT Edge modul via Azure Portal.
 
 ## <a name="prerequisites"></a>Krav
 

@@ -3,12 +3,12 @@ title: Versions anteckningar för Application Insights | Microsoft Docs
 description: Lägg till distribution eller skapa markörer i dina Metrics Explorer-diagram i Application Insights.
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: 8f6ffed8ae2039ec36ec8bd86518e6b359da65ec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8e9e0cb49343524e8a45831566cf802b1c8c5d9b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093042"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320671"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anteckningar på mått diagram i Application Insights
 
@@ -34,7 +34,7 @@ Du behöver bara installera tillägget en gång för din Azure DevOps-organisati
 
 Skapa en separat API-nyckel för var och en av dina mallar för Azure-pipeliner.
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och öppna den Application Insights resurs som övervakar ditt program. Eller om du inte har en sådan, [skapar du en ny Application Insights-resurs](../../azure-monitor/app/app-insights-overview.md).
+1. Logga in på [Azure Portal](https://portal.azure.com) och öppna den Application Insights resurs som övervakar ditt program. Eller om du inte har en sådan, [skapar du en ny Application Insights-resurs](./app-insights-overview.md).
    
 1. Öppna fliken **API-åtkomst** och kopiera **Application Insights-ID**.
    
@@ -115,5 +115,6 @@ Du kan ändra skriptet, till exempel för att skapa kommentarer som redan har in
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa arbetsuppgifter](../../azure-monitor/app/diagnostic-search.md#create-work-item)
-* [Automatisering med PowerShell](../../azure-monitor/app/powershell.md)
+* [Skapa arbetsuppgifter](./diagnostic-search.md#create-work-item)
+* [Automatisering med PowerShell](./powershell.md)
+

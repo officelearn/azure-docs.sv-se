@@ -3,12 +3,12 @@ title: Automatisera Azure Application insikter-processer med Logic Apps
 description: Lär dig hur du snabbt kan automatisera upprepade processer genom att lägga till Application Insights Connector i din Logic app.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: 76a199023ef37fbda27be59fdf70f6ca5d8481bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d023d774c130a9db513fbcf9452b05fa030a967a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079629"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323204"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatisera Application Insights processer med Logic Apps
 
@@ -130,9 +130,10 @@ När din Logic App körs får mottagarna du angav i e-postlistan ett e-postmedde
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om att skapa [analys frågor](../../azure-monitor/log-query/get-started-queries.md).
+- Lär dig mer om att skapa [analys frågor](../log-query/get-started-queries.md).
 - Läs mer om [Logic Apps](../../logic-apps/logic-apps-overview.md).
 
 
 
 <!--Link references-->
+

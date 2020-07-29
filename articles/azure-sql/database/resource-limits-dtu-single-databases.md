@@ -4,19 +4,19 @@ description: På den här sidan beskrivs några vanliga värden för DTU-resurse
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 099094338deba63f678337b7ea13dd9ce9800084
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fa8901f2a219b0693cee17bc4d0ab78da615c415
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517696"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325108"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>Resurs gränser för enskilda databaser med hjälp av inköps modellen DTU – Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,14 +38,14 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 | :--- | --: |
 | Maximala DTU:er | 5 |
 | Inkluderat lagrings utrymme (GB) | 2 |
-| Maximalt lagrings alternativ (GB) | 2 |
+| Högsta lagrings utrymme (GB) | 2 |
 | Maximal InMemory-OLTP-lagring (GB) |E.t. |
 | Maximalt antal samtidiga arbetare (begär Anden) | 30 |
 | Maximalt antal samtidiga sessioner | 300 |
 |||
 
 > [!IMPORTANT]
-> Den grundläggande tjänst nivån ger mindre än en vCore (CPU).  För CPU-intensiva arbets belastningar rekommenderas tjänst nivån S3 eller högre. 
+> Den grundläggande tjänst nivån ger mindre än en vCore (CPU).  För CPU-intensiva arbets belastningar rekommenderas tjänst nivån S3 eller högre.
 >
 >För data lagring placeras den grundläggande tjänst nivån på standard-sid-blobar. Med standard Page blobbar används hård diskbaserade lagrings medier som är bäst lämpade för utveckling, testning och andra arbets belastningar som inte används ofta och som är mindre känsliga för prestanda variationer.
 >
@@ -55,15 +55,17 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 | **Beräknings storlek** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|
 | Maximala DTU:er | 10 | 20 | 50 | 100 |
-| Inkluderat lagrings utrymme (GB) | 250 | 250 | 250 | 250 |
-| Maximalt lagrings alternativ (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
+| Inkluderat lagrings utrymme (GB) <sup>1</sup> | 250 | 250 | 250 | 250 |
+| Högsta lagrings utrymme (GB) | 250 | 250 | 250 | 1024 |
 | Maximal InMemory-OLTP-lagring (GB) | E.t. | E.t. | E.t. | E.t. |
 | Maximalt antal samtidiga arbetare (begär Anden)| 60 | 90 | 120 | 200 |
 | Maximalt antal samtidiga sessioner |600 | 900 | 1200 | 2400 |
 ||||||
 
+<sup>1</sup> se [SQL Database pris alternativ](https://azure.microsoft.com/pricing/details/sql-database/single/) för mer information om ytterligare kostnader som uppstår på grund av ytterligare lagrings utrymme.
+
 > [!IMPORTANT]
-> Standard S0, S1-och S2-nivåerna ger mindre än en vCore (CPU).  För CPU-intensiva arbets belastningar rekommenderas tjänst nivån S3 eller högre. 
+> Standard S0, S1-och S2-nivåerna ger mindre än en vCore (CPU).  För CPU-intensiva arbets belastningar rekommenderas tjänst nivån S3 eller högre.
 >
 >För data lagring, placeras Standard-S0 och S1-tjänst nivåerna på standard sid-blobar. Med standard Page blobbar används hård diskbaserade lagrings medier som är bäst lämpade för utveckling, testning och andra arbets belastningar som inte används ofta och som är mindre känsliga för prestanda variationer.
 >
@@ -73,29 +75,33 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 | **Beräknings storlek** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|
 | Maximala DTU:er | 200 | 400 | 800 | 1600 | 3000 |
-| Inkluderat lagrings utrymme (GB) | 250 | 250 | 250 | 250 | 250 |
-| Maximalt lagrings alternativ (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
+| Inkluderat lagrings utrymme (GB) <sup>1</sup> | 250 | 250 | 250 | 250 | 250 |
+| Högsta lagrings utrymme (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 | Maximal InMemory-OLTP-lagring (GB) | E.t. | E.t. | E.t. | E.t. |E.t. |
 | Maximalt antal samtidiga arbetare (begär Anden)| 400 | 800 | 1600 | 3200 |6000 |
 | Maximalt antal samtidiga sessioner |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
+
+<sup>1</sup> se [SQL Database pris alternativ](https://azure.microsoft.com/pricing/details/sql-database/single/) för mer information om ytterligare kostnader som uppstår på grund av ytterligare lagrings utrymme.
 
 ### <a name="premium-service-tier"></a>Premium tjänstnivån
 
 | **Beräknings storlek** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
 | Maximala DTU:er | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| Inkluderat lagrings utrymme (GB) | 500 | 500 | 500 | 500 | 4096 * | 4096 * |
-| Maximalt lagrings alternativ (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 * | 4096 * |
+| Inkluderat lagrings utrymme (GB) <sup>1</sup> | 500 | 500 | 500 | 500 | 4096 <sup>2</sup> | 4096 <sup>2</sup> |
+| Högsta lagrings utrymme (GB) | 1024 | 1024 | 1024 | 1024 | 4096 <sup>2</sup> | 4096 <sup>2</sup> |
 | Maximal InMemory-OLTP-lagring (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Maximalt antal samtidiga arbetare (begär Anden)| 200 | 400 | 800 | 1600 | 2800 | 6400 |
 | Maximalt antal samtidiga sessioner | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
-\*Från 1024 GB upp till 4096 GB i steg om 256 GB
+<sup>1</sup> se [SQL Database pris alternativ](https://azure.microsoft.com/pricing/details/sql-database/single/) för mer information om ytterligare kostnader som uppstår på grund av ytterligare lagrings utrymme.
+
+<sup>2</sup> från 1024 GB upp till 4096 GB i steg om 256 GB.
 
 > [!IMPORTANT]
-> Mer än 1 TB lagrings utrymme på Premium-nivån är för närvarande tillgängligt i alla regioner utom: Kina, östra, Kina, norra, Tyskland, centrala, Tyskland nordöstra, västra centrala USA, US DoD regioner och USA, centrala. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i [Aktuella begränsningar för P11–P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
+> Mer än 1 TB lagrings utrymme på Premium-nivån är för närvarande tillgängligt i alla regioner utom: Kina, östra, Kina, norra, Tyskland, centrala, Tyskland nordöstra, västra centrala USA, US DoD regioner och USA, centrala. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i [Aktuella begränsningar för P11–P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
 > [!NOTE]
 > För `tempdb` gränser, se [tempdb-gränser](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 

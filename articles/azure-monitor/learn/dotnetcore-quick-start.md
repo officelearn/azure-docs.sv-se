@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: e066ef1910373734d9a6607500e45e8a9ccc80b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c9787a88cba051dcfaa58a188bf43fb03cafe70a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539762"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325176"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Börja övervaka din ASP.NET Core-webbapp
 
@@ -20,7 +20,7 @@ Med Azure Application Insights kan du enkelt övervaka en webbapp för tillgäng
 
 I den här snabb starten får du hjälp med att lägga till Application Insights SDK i ett befintligt ASP.NET Core-webbprogram. Läs mer om hur du konfigurerar Application Insights utan Visual Studio checka in den här [artikeln](../app/asp-net-core.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -30,7 +30,7 @@ För att slutföra den här snabbstarten behöver du:
 - [Installera .NET Core 2.0 SDK](https://dotnet.microsoft.com/download)
 - Du behöver en Azure-prenumeration och en befintlig .NET Core-webbapp.
 
-Om du inte har ett ASP.NET Core webb program kan du använda vår steg-för-steg-guide för att [skapa en ASP.net Core-app och lägga till Application Insights.](../../azure-monitor/app/asp-net-core.md)
+Om du inte har ett ASP.NET Core webb program kan du använda vår steg-för-steg-guide för att [skapa en ASP.net Core-app och lägga till Application Insights.](../app/asp-net-core.md)
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -96,7 +96,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
    ![diagram med hälsotillståndsöversiktens tidslinje](./media/dotnetcore-quick-start/7kpidashboards.png)
 
-5. Klicka på **mått**till vänster. Använd Mät Utforskaren för att undersöka hälso tillståndet och användningen av resursen. Du kan klicka på **Lägg till nytt diagram** för att skapa ytterligare anpassade vyer eller välja **Redigera** för att ändra befintliga diagramtyper, höjd, färgpalett, grupperingar och mått. Du kan till exempel skapa ett diagram som visar den genomsnittliga webb sidans inläsnings tid genom att välja "webbläsarens sid inläsnings tid" från insamlingen mått och "AVG". Mer information om Azure Metrics Explorer finns i [komma igång med azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+5. Klicka på **mått**till vänster. Använd Mät Utforskaren för att undersöka hälso tillståndet och användningen av resursen. Du kan klicka på **Lägg till nytt diagram** för att skapa ytterligare anpassade vyer eller välja **Redigera** för att ändra befintliga diagramtyper, höjd, färgpalett, grupperingar och mått. Du kan till exempel skapa ett diagram som visar den genomsnittliga webb sidans inläsnings tid genom att välja "webbläsarens sid inläsnings tid" från insamlingen mått och "AVG". Mer information om Azure Metrics Explorer finns i [komma igång med azure Metrics Explorer](../platform/metrics-getting-started.md).
 
      ![Fliken mått: genomsnittlig sid inläsnings tid i webbläsaren](./media/dotnetcore-quick-start/8metrics.png)
 
@@ -113,3 +113,4 @@ När du är färdig med testningen kan du ta bort resurs gruppen och alla relate
 
 > [!div class="nextstepaction"]
 > [Hitta och diagnostisera körningsundantag](./tutorial-runtime-exceptions.md)
+

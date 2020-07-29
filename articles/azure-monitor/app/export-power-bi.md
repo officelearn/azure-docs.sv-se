@@ -3,19 +3,20 @@ title: Exportera till Power BI från Azure Application Insights | Microsoft Docs
 description: Analys frågor kan visas i Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 0e17ca6e07ec76f0a7a1cb04f7aa13619fb9970c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51a553452643fc979846ab4604762f11c5b7ff68
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77664005"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324377"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Flödes Power BI från Application Insights
-[Power BI](https://www.powerbi.com/) är en uppsättning affärs verktyg som hjälper dig att analysera data och dela insikter. Det finns omfattande instrument paneler på alla enheter. Du kan kombinera data från många källor, inklusive analys frågor från [Azure Application insikter](../../azure-monitor/app/app-insights-overview.md).
+[Power BI](https://www.powerbi.com/) är en uppsättning affärs verktyg som hjälper dig att analysera data och dela insikter. Det finns omfattande instrument paneler på alla enheter. Du kan kombinera data från många källor, inklusive analys frågor från [Azure Application insikter](./app-insights-overview.md).
 
 Det finns tre sätt att exportera Application Insights data till Power BI:
 
 * [**Exportera Analytics-frågor**](#export-analytics-queries). Detta är föredragen metod. Skriv en fråga som du vill ha och exportera den till Power BI. Du kan placera den här frågan på en instrument panel, tillsammans med andra data.
-* [**Löpande export och Azure Stream Analytics**](../../azure-monitor/app/export-stream-analytics.md). Den här metoden är användbar om du vill lagra dina data under långa tids perioder. Om du inte har ett krav för utökad data lagring använder du fråge metoden för export analys. Kontinuerlig export och Stream Analytics omfattar mer arbete för att konfigurera och ytterligare lagrings kostnader.
+* [**Löpande export och Azure Stream Analytics**](./export-stream-analytics.md). Den här metoden är användbar om du vill lagra dina data under långa tids perioder. Om du inte har ett krav för utökad data lagring använder du fråge metoden för export analys. Kontinuerlig export och Stream Analytics omfattar mer arbete för att konfigurera och ytterligare lagrings kostnader.
 * **Power BI adapter**. Uppsättningen med diagram är fördefinierad, men du kan lägga till egna frågor från andra källor.
 
 > [!NOTE]
@@ -30,7 +31,7 @@ Om du vill importera din Application Insights fråga använder du Skriv bords ve
 Installera [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Exportera en Analytics-fråga
-1. [Öppna Analytics och skriv frågan](../../azure-monitor/log-query/get-started-portal.md).
+1. [Öppna Analytics och skriv frågan](../log-query/get-started-portal.md).
 2. Testa och förfina frågan tills du är nöjd med resultatet. Kontrol lera att frågan körs korrekt i Analytics innan du exporterar den.
 3. På menyn **Exportera** väljer du **Power BI (M)**. Spara textfilen.
    
@@ -55,7 +56,7 @@ Installera [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 8. Uppdatera rapporten manuellt med intervall eller konfigurera en schemalagd uppdatering på sidan alternativ.
 
 ### <a name="export-a-funnel"></a>Exportera en tratt
-1. [Skapa din tratt](../../azure-monitor/app/usage-funnels.md).
+1. [Skapa din tratt](./usage-funnels.md).
 2. Välj **Power BI**.
 
    ![Skärm bild av knappen Power BI](./media/export-power-bi/button.png)
@@ -111,7 +112,7 @@ Om minska data uppsättningen som kommer från Analytics-frågan inte uppfyller 
  ```
 
 ## <a name="about-sampling"></a>Om sampling
-Beroende på hur mycket data som skickas av ditt program kanske du vill använda funktionen för anpassningsbar sampling, som bara skickar en procent andel av din telemetri. Samma sak gäller om du har angett sampling manuellt antingen i SDK eller vid inmatning. [Lär dig mer om sampling](../../azure-monitor/app/sampling.md).
+Beroende på hur mycket data som skickas av ditt program kanske du vill använda funktionen för anpassningsbar sampling, som bara skickar en procent andel av din telemetri. Samma sak gäller om du har angett sampling manuellt antingen i SDK eller vid inmatning. [Lär dig mer om sampling](./sampling.md).
 
 ## <a name="power-bi-adapter-deprecated"></a>Power BI kort (inaktuellt)
 Den här metoden skapar en komplett instrument panel för telemetri åt dig. Den ursprungliga data uppsättningen är fördefinierad, men du kan lägga till mer data i den.
@@ -145,5 +146,5 @@ Efter den första importen fortsätter instrument panelen och rapporterna att up
 
 ## <a name="next-steps"></a>Nästa steg
 * [Power BI – lär dig](https://www.powerbi.com/learning/)
-* [Självstudie för analys](../../azure-monitor/log-query/get-started-portal.md)
+* [Självstudie för analys](../log-query/get-started-portal.md)
 

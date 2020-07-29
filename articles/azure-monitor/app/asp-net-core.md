@@ -3,12 +3,12 @@ title: Azure Application insikter om ASP.NET Core program | Microsoft Docs
 description: Övervaka ASP.NET Core webb program för tillgänglighet, prestanda och användning.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 1d5ce4fe2a3ceb3235b77916aa408c681f81b0de
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 770cc3f34487f837631a98c6f652d8746ae2c2df
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517237"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321402"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights för ASP.NET Core program
 
@@ -30,7 +30,7 @@ Exemplet som vi ska använda här är ett [MVC-program](/aspnet/core/tutorials/f
 > [!NOTE]
 > ASP.NET Core 3. X kräver [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) eller senare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett fungerande ASP.NET Core program. Om du behöver skapa ett ASP.NET Core program följer du den här [ASP.net Core själv studie kursen](/aspnet/core/getting-started/).
 - En giltig Application Insights Instrumentation-nyckel. Den här nyckeln krävs för att skicka telemetri till Application Insights. Om du behöver skapa en ny Application Insights resurs för att hämta en Instrumentation-nyckel, se [skapa en Application Insights resurs](./create-new-resource.md).
@@ -201,7 +201,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Fullständig lista över inställningar i`ApplicationInsightsServiceOptions`
 
-|Inställning | Beskrivning | Standard
+|Inställningen | Beskrivning | Standard
 |---------------|-------|-------
 |EnablePerformanceCounterCollectionModule  | Aktivera/inaktivera`PerformanceCounterCollectionModule` | true
 |EnableRequestTrackingTelemetryModule   | Aktivera/inaktivera`RequestTrackingTelemetryModule` | true
@@ -221,7 +221,7 @@ Se de [konfigurerbara inställningarna i `ApplicationInsightsServiceOptions` ](h
 
 Application Insights SDK för ASP.NET Core stöder både fast priss ätt och anpassningsbar sampling. Adaptiv sampling är aktiverat som standard. 
 
-Mer information finns i [Konfigurera adaptiv sampling för ASP.net Core program](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
+Mer information finns i [Konfigurera adaptiv sampling för ASP.net Core program](./sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
 
 ### <a name="adding-telemetryinitializers"></a>Lägger till TelemetryInitializers
 
@@ -459,8 +459,9 @@ Detta SDK kräver `HttpContext` och fungerar därför inte i några icke-http-pr
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Utforska användar flöden](../../azure-monitor/app/usage-flows.md) för att förstå hur användare navigerar i din app.
+* [Utforska användar flöden](./usage-flows.md) för att förstå hur användare navigerar i din app.
 * [Konfigurera en ögonblicks bild samling](./snapshot-debugger.md) för att se status för källkod och variabler vid det tillfälle då ett undantag genereras.
-* [Använd API: et](../../azure-monitor/app/api-custom-events-metrics.md) för att skicka egna händelser och mått för en detaljerad vy över appens prestanda och användning.
-* Använd [tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md) för att kontrol lera att din app ständigt är i hela världen.
+* [Använd API: et](./api-custom-events-metrics.md) för att skicka egna händelser och mått för en detaljerad vy över appens prestanda och användning.
+* Använd [tillgänglighets test](./monitor-web-app-availability.md) för att kontrol lera att din app ständigt är i hela världen.
 * [Beroende inmatning i ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
+

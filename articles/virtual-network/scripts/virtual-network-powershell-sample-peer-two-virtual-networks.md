@@ -1,6 +1,6 @@
 ---
 title: Peer-två virtuella nätverk – Azure PowerShell skript exempel
-description: Skriptexempel för Azure PowerShell – Peering i två virtuella nätverk
+description: Skapa och Anslut två virtuella nätverk i samma region. Använd Azure-skriptet för två peer-virtuella nätverk för att ansluta nätverken via Azure-nätverket.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
-ms.openlocfilehash: 6efc96565714021b15eb0a44cb69f71fe78e817a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7cbcae51228e5bf722f3ea802a322483aed6c225
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068728"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286129"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>Peer-skriptexempel två virtuella nätverk
 
@@ -45,7 +45,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, en virtuell dator och alla relaterade resurser. Varje kommando i följande tabell länkar till kommandospecifik dokumentation:
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)| Skapar ett virtuellt Azure-nätverk och undernät. |

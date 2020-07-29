@@ -3,12 +3,12 @@ title: DevTest Labs-koncept | Microsoft Docs
 description: Lär dig de grundläggande begreppen i DevTest Labs och hur det kan göra det enkelt att skapa, hantera och övervaka virtuella Azure-datorer
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8f82f0484caf23d20092318b5bc2a32b0e6b1f1d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 43d62d637686a785cafd29aa311ccf20cb942721
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074966"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283851"
 ---
 # <a name="devtest-labs-concepts"></a>DevTest Labs-koncept
 ## <a name="overview"></a>Översikt
@@ -20,7 +20,7 @@ Ett labb är en infrastruktur som omfattar en grupp resurser, t. ex. Virtual Mac
 ## <a name="virtual-machine"></a>Virtuell dator
 En virtuell Azure-dator är en av flera olika typer av [skalbara dator resurser](/azure/architecture/guide/technology-choices/compute-decision-tree) som Azure erbjuder. Virtuella Azure-datorer ger dig flexibiliteten i virtualisering utan att behöva köpa och underhålla den fysiska maskin vara som kör den, även om du fortfarande behöver underhålla den virtuella datorn genom att utföra vissa uppgifter, till exempel konfigurera, korrigera och installera program varan som körs på den.
 
-[Översikt över virtuella Windows-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) ger dig information om vad du bör tänka på innan du skapar en virtuell dator, hur du skapar den och hur du hanterar den.
+[Översikt över virtuella Windows-datorer i Azure](../virtual-machines/windows/overview.md) ger dig information om vad du bör tänka på innan du skapar en virtuell dator, hur du skapar den och hur du hanterar den.
 
 ## <a name="claimable-vm"></a>Virtuell dator som går att frigöra
 En virtuell dator med Azure-anspråk är en virtuell dator som kan användas av alla labb användare med behörigheter. En labb administratör kan förbereda virtuella datorer med vissa bas avbildningar och artefakter och spara dem i en delad pool. En labb användare kan sedan begära en fungerande virtuell dator från poolen när de behöver en med den angivna konfigurationen.
@@ -28,7 +28,7 @@ En virtuell dator med Azure-anspråk är en virtuell dator som kan användas av 
 En virtuell dator som kan krävas är inte inlednings vis tilldelad en viss användare, men visas i varje användares lista under "anspråk bara virtuella datorer". När en virtuell dator har ansökts av en användare flyttas den till "mina virtuella datorer" och kan inte längre krävas av någon annan användare.
 
 ## <a name="environment"></a>Miljö
-I DevTest Labs refererar en miljö till en samling Azure-resurser i ett labb. [Det här blogg inlägget](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/) beskriver hur du skapar miljöer för flera virtuella datorer från Azure Resource Manager mallar.
+I DevTest Labs refererar en miljö till en samling Azure-resurser i ett labb. [Det här blogg inlägget](./devtest-lab-faq.md#blog-post) beskriver hur du skapar miljöer för flera virtuella datorer från Azure Resource Manager mallar.
 
 ## <a name="base-images"></a>Basavbildningar
 Bas avbildningar är VM-avbildningar med alla verktyg och inställningar förinstallerade och konfigurerade för att snabbt skapa en virtuell dator. Du kan etablera en virtuell dator genom att välja en befintlig bas och lägga till en artefakt för att installera test agenten. Du kan sedan spara den etablerade virtuella datorn som en bas så att basen kan användas utan att behöva installera om test agenten för varje etablering av den virtuella datorn.
@@ -74,7 +74,7 @@ Eftersom omfattningar är hierarkiska, beviljas de behörigheterna automatiskt v
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 Alla begrepp som diskuteras i den här artikeln kan konfigureras med hjälp av Azure Resource Manager mallar, som gör att du kan definiera infrastrukturen/konfigurationen för din Azure-lösning och distribuera den på ett konsekvent tillstånd.
 
-[Förstå strukturen och syntaxen för Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) beskriver strukturen för en Azure Resource Manager-mall och de egenskaper som är tillgängliga i de olika avsnitten i en mall.
+[Förstå strukturen och syntaxen för Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md#template-format) beskriver strukturen för en Azure Resource Manager-mall och de egenskaper som är tillgängliga i de olika avsnitten i en mall.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

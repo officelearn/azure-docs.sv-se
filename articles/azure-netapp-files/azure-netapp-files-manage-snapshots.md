@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: ebbf83e1abe6140614a45bfa89570cdf19283f8f
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: caa73b5a86c5c245aefd18de9b60ec49616b3b84
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169755"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281556"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Hantera ögonblicksbilder med hjälp av Azure NetApp Files
 
@@ -46,6 +46,9 @@ Du kan skapa ögonblicks bilder av volymen på begäran.
 ## <a name="manage-snapshot-policies"></a>Hantera ögonblicks bilds principer
 
 Du kan schemalägga att ögonblicks bilder av volymen ska tas automatiskt med hjälp av ögonblicks bilds principer. Du kan också ändra en ögonblicks bild princip efter behov eller ta bort en ögonblicks bild princip som du inte längre behöver.  
+
+> [!IMPORTANT] 
+> Om du använder funktionen för ögonblicks bilds principer krävs vit listning. Skicka e-post anffeedback@microsoft.com med ditt prenumerations-ID för att begära den här funktionen.
 
 ### <a name="create-a-snapshot-policy"></a>Skapa en ögonblicks bild princip 
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: c305a2513a5ace241fe697766b851cd2851e8b78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 029883ea1ac85bdd1ea256caaa711d6537c06a76
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536086"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287896"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Dina kommersiella marknads förmåner
 
@@ -41,7 +41,7 @@ Detaljerade beskrivningar av alla program förmåner finns i den här [Marketpla
 Det är enkelt att komma igång:
 
 1. Publicera ett erbjudande i antingen Microsoft AppSource eller Azure Marketplace.
-2. Gå till [Marketplace-förmåner](https://partner.microsoft.com/en-us/dashboard/mpn/program/commercialmarketplace) i Partner Center och välj **Registrera i Marketplace-program**.
+2. Gå till [Marketplace-förmåner](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) i Partner Center och välj **Registrera i Marketplace-program**.
 3. Om du vill aktivera försäljnings-och marknadsförings förmåner tilldelar du en företags marknadsförings kontakt. Den här kontakten får uppföljningskommunikation om dina Marketplace-förmåner.
 4. Om du vill lägga till eller uppdatera din marknadsförings kontakt information går du till början av fliken försäljnings-och marknadsförings förmåner på Marketplace-förmåner och väljer sedan **Lägg till, uppdatera eller ändra**.  Gör därefter något av följande:
 

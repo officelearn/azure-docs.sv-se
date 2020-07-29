@@ -5,15 +5,15 @@ author: rloutlaw
 ms.service: virtual-machines
 ms.subservice: monitoring
 ms.custom: REST
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: 1aa108d7f903ed791c534b2b88550eb8d022ef64
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 925246eb2adae59ca74e363c4d4a6952f11c3744
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502086"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292321"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Hämta användnings statistik för virtuella datorer med hjälp av REST API
 
@@ -40,7 +40,7 @@ Följande huvuden krävs:
 
 ### <a name="uri-parameters"></a>URI-parametrar
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 | :--- | :---------- |
 | subscriptionId | Det prenumerations-ID som identifierar en Azure-prenumeration. Om du har flera prenumerationer kan du läsa mer i [arbeta med flera prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | Namnet på den Azure-resurs grupp som är kopplad till resursen. Du kan hämta det här värdet från Azure Resource Manager API, CLI eller portalen. |

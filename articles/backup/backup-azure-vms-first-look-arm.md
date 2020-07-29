@@ -3,12 +3,12 @@ title: Säkerhetskopiera en virtuell Azure-dator från VM-inställningarna
 description: I den här artikeln lär du dig hur du säkerhetskopierar en valfri virtuell Azure-dator eller flera virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 580cb1ad5f611991212bc8cdb48c66339f14d8e8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 722c24ce87edc692156a86338521aa3b2f9c7562
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538895"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286753"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Säkerhetskopiera en virtuell Azure-dator från VM-inställningarna
 
@@ -39,15 +39,15 @@ För att kunna säkerhetskopiera virtuella Azure-datorer installerar Azure Backu
    - Om du redan har ett valv klickar du på **Välj befintlig**och väljer ett valv.
    - Om du inte har något valv klickar du på **Skapa nytt**. Ange ett namn för valvet. Den skapas i samma region och resurs grupp som den virtuella datorn. Du kan inte ändra de här inställningarna när du aktiverar säkerhets kopiering direkt från VM-inställningarna.
 
-   ![Guiden Aktivera säkerhetskopiering](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
+        ![Guiden Aktivera säkerhetskopiering](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
-6. I **Välj säkerhets kopierings policy**gör du följande:
+6. I **Välj säkerhets kopierings policy**gör du något av följande:
 
    - Lämna standard principen. Detta säkerhetskopierar den virtuella datorn en gång om dagen vid den angivna tidpunkten och behåller säkerhets kopiorna i valvet i 30 dagar.
    - Välj en befintlig säkerhets kopierings policy om du har en.
    - Skapa en ny princip och definiera princip inställningarna.  
 
-   ![Välja säkerhetskopieringspolicy](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
+       ![Välja säkerhetskopieringspolicy](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
 7. Klicka på **Aktivera säkerhets kopiering**. Detta associerar säkerhets kopierings principen med den virtuella datorn.
 

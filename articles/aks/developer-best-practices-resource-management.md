@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: d3fab2515bb15cce35070de9326cd6afcc034b20
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9f5fcbda93e4a31b4d328bffe4689a47a4eb89ff
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517761"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281573"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Metod tips för programutvecklare för att hantera resurser i Azure Kubernetes service (AKS)
 
@@ -35,7 +35,7 @@ Ett primärt sätt att hantera beräknings resurserna i ett AKS-kluster är att 
     * När Kubernetes Scheduler försöker placera en POD på en nod, används Pod-begäranden för att avgöra vilken nod som har tillräckligt med resurser tillgängliga för schemaläggning.
     * Om du inte anger en POD-begäran används den definierade gränsen som standard.
     * Det är mycket viktigt att övervaka programmets prestanda för att justera dessa förfrågningar. Om det inte finns tillräckligt med begär Anden kan programmet få försämrade prestanda på grund av att en nod har schemalagts över. Om begär Anden är överskattat kan ditt program ha fått bättre svårigheter att komma åt schemat.
-* **Pod CPU/minnes gränser** är den maximala mängd processor och minne som en POD kan använda. Dessa gränser hjälper dig att definiera vilka poddar som ska stoppas i händelse av instabilitet på noden på grund av otillräckliga resurser. Utan rätt gränser kommer poddar att avlivas tills resurs trycket lyfts upp.
+* **Pod CPU/minnes gränser** är den maximala mängd processor och minne som en POD kan använda. Minnes gränser hjälper dig att definiera vilka poddar som ska avlivas i händelse av instabilitet på noden på grund av otillräckliga resurser. Utan rätt gränser kommer poddar att avlivas tills resurs trycket lyfts upp. En POD kan eventuellt överskrida CPU-gränsen under en viss tids period, men Pod kommer inte att avlivas för att överskrida processor gränsen. 
     * Pod-gränser hjälper dig att definiera när en pod har förlorat kontrollen av resursförbrukning. När en gräns överskrids prioriteras Pod för avlivning för att upprätthålla nodens hälsa och minimera påverkan på poddar delning av noden.
     * Om du inte anger en POD begränsas den till det högsta tillgängliga värdet på en specifik nod.
     * Ange inte en POD-gräns som är högre än vad dina noder har stöd för. Varje AKS-nod reserverar en angiven mängd processor och minne för kärn komponenterna i Kubernetes. Ditt program kan försöka förbruka för många resurser på noden för att andra poddar ska kunna köras.

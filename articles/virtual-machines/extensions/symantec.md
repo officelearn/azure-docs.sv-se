@@ -1,25 +1,19 @@
 ---
 title: Installera Symantec Endpoint Protection på en virtuell Windows-dator i Azure
 description: Lär dig hur du installerar och konfigurerar Symantec-Endpoint Protection säkerhets tillägg på en ny eller befintlig virtuell Azure-dator som skapats med den klassiska distributions modellen.
-services: virtual-machines-windows
-documentationcenter: ''
 author: roiyz
-manager: gwallace
-editor: ''
 tags: azure-service-management
-ms.assetid: 19dcebc7-da6b-4510-907b-d64088e81fa2
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: akjosh
-ms.openlocfilehash: 985aa094a2761483e682cdfc576891affab68547
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a89ec99af02b32d452fba1dffb0387ae6013a7c8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080343"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292436"
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Så här installerar och konfigurerar du Symantec Endpoint Protection på en virtuell Windows-dator
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
@@ -81,4 +75,4 @@ Så här kontrollerar du att Symantecs säkerhets tillägg har installerats och 
 
 [Logon]:../windows/classic/connect-logon.md
 
-[Ext]: https://go.microsoft.com/fwlink/p/?linkid=390493
+[Ext]: features-windows.md

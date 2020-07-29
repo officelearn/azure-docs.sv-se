@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 64a6bf1fec61871d2787966a5b0af24d4f012032
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: d7d41a875d8e0c30085bafd346e316672359de26
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84637415"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87375417"
 ---
 :::row:::
     :::column span="3":::
-        Java SDK för Android paketeras som ett <a href="https://developer.android.com/studio/projects/android-library" target="_blank">AAR (Android-bibliotek) <span class="docon docon-navigate-external x-hidden-focus"></span> </a>, som innehåller nödvändiga bibliotek och nödvändiga Android-behörigheter. Den finns i en maven-lagringsplats på `https://csspeechstorage.blob.core.windows.net/maven/` som paket `com.microsoft.cognitiveservices.speech:client-sdk:1.12.1` .
+        Java SDK för Android paketeras som ett <a href="https://developer.android.com/studio/projects/android-library" target="_blank">AAR (Android-bibliotek) <span class="docon docon-navigate-external x-hidden-focus"></span> </a>, som innehåller nödvändiga bibliotek och nödvändiga Android-behörigheter. Den finns i en maven-lagringsplats på `https://csspeechstorage.blob.core.windows.net/maven/` som paket `com.microsoft.cognitiveservices.speech:client-sdk:1.13.0` .
     :::column-end:::
     :::column:::
         <br>
@@ -32,7 +32,7 @@ Om du vill använda paketet från Android Studio-projektet gör du följande än
 
 2. Lägg till följande i avsnittet i filen *build. gradle* för modulnivå `dependencies` :
   ```gradle
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.12.1'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.13.0'
   ```
 
 Java SDK är också en del av [tal enhets-SDK: n](../speech-devices-sdk.md).

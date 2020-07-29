@@ -3,12 +3,12 @@ title: Konfigurera ett labb att använda Fjärrskrivbordsgateway i Azure DevTest
 description: Lär dig hur du konfigurerar ett labb i Azure DevTest Labs med en Fjärrskrivbordsgateway för att säkerställa säker åtkomst till de virtuella labb datorerna utan att behöva exponera RDP-porten.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 68cb830c765a71b06f9732c4062be23d9e7f67d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc45a0c2953f8f84289fa01d4af72bf98544bd7f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483847"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288071"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Konfigurera ditt labb i Azure DevTest Labs att använda en Fjärrskrivbordsgateway
 I Azure DevTest Labs kan du konfigurera en Fjärrskrivbordsgateway för ditt labb för att säkerställa säker åtkomst till de virtuella datorerna i labbet (VM) utan att behöva exponera RDP-porten. Labbet är en central plats där dina labb användare kan visa och ansluta till alla virtuella datorer som de har åtkomst till. Knappen **Anslut** på sidan **virtuell dator** skapar en datorspecifik RDP-fil som du kan öppna för att ansluta till datorn. Du kan anpassa och säkra RDP-anslutningen ytterligare genom att ansluta ditt labb till en Fjärrskrivbordsgateway. 
@@ -36,7 +36,7 @@ För att arbeta med DevTest Labs token-autentisering finns det några konfigurat
 ### <a name="requirements-for-remote-desktop-gateway-machines"></a>Krav för datorer med Fjärrskrivbordsgateway
 - TLS/SSL-certifikatet måste vara installerat på gateway-datorn för att du ska kunna hantera HTTPS-trafik. Certifikatet måste matcha det fullständigt kvalificerade domän namnet (FQDN) för belastningsutjämnaren för gateway-servergruppen eller datorns FQDN om det bara finns en dator. Jokertecken för jokertecken/SSL-certifikat fungerar inte.  
 - Ett signerings certifikat som installerats på gateway-datorer. Skapa ett signerings certifikat med hjälp av [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1) skript.
-- Installera modulen för [pluggable-autentisering](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) som stöder token-autentisering för fjärrskrivbordsgateway. Ett exempel på en sådan modul är `RDGatewayFedAuth.msi` som medföljer [System Center Virtual Machine Manager (VMM) avbildningar](/system-center/vmm/install-console?view=sc-vmm-1807). Mer information om System Center finns i [dokumentationen för System Center](https://docs.microsoft.com/system-center/) och [pris information](https://www.microsoft.com/cloud-platform/system-center-pricing).  
+- Installera modulen för [pluggable-autentisering](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) som stöder token-autentisering för fjärrskrivbordsgateway. Ett exempel på en sådan modul är `RDGatewayFedAuth.msi` som medföljer [System Center Virtual Machine Manager (VMM) avbildningar](/system-center/vmm/install-console?view=sc-vmm-1807). Mer information om System Center finns i [dokumentationen för System Center](/system-center/) och [pris information](https://www.microsoft.com/cloud-platform/system-center-pricing).  
 - Gateway-servern kan hantera begär Anden som görs till `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` .
 
     Gateway-hostname är FQDN för belastningsutjämnaren för gateway-servergruppen eller FQDN för själva datorn om det bara finns en dator. `{lab-machine-name}`Är namnet på labb datorn som du försöker ansluta till och `{port-number}` är porten som anslutningen ska göras på.  Som standard är den här porten 3389.  Men om den virtuella datorn använder den [delade IP-](devtest-lab-shared-ip.md) funktionen i DevTest Labs är porten annorlunda.
@@ -159,5 +159,3 @@ Följ dessa steg om du vill konfigurera en exempel lösning för Server gruppen 
 
 ## <a name="next-steps"></a>Nästa steg
 I följande artikel finns mer information om Fjärrskrivbordstjänster: [Fjärrskrivbordstjänster dokumentation](/windows-server/remote/remote-desktop-services/Welcome-to-rds)
-
-

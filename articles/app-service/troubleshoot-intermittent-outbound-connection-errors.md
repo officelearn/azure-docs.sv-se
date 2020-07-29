@@ -4,14 +4,15 @@ description: Felsök tillfälliga anslutnings fel och relaterade prestanda probl
 author: v-miegge
 manager: barbkess
 ms.topic: troubleshooting
-ms.date: 03/24/2020
+ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations
-ms.openlocfilehash: 704c6b026ab656ce52b34e5ac70ba7e2087ccbcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d337c9cff4b0d7dbfb18a7ba0cf213265286017
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252448"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289152"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Felsöka återkommande utgående anslutnings fel i Azure App Service
 
@@ -37,6 +38,8 @@ När program eller funktioner snabbt öppnar en ny anslutning kan de snabbt för
 
 ## <a name="avoiding-the-problem"></a>Undvika problemet
 
+Om målet är en Azure-tjänst som stöder tjänst slut punkter kan du undvika problem med SNAT-portar genom att använda [VNet-integrering](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) och tjänst slut punkter. När du använder VNet-integrering och placerar tjänst slut punkter i integrations under nätet, kommer din app utgående trafik till dessa tjänster inte att ha några utgående SNAT-port begränsningar.
+
 Att undvika problem med SNAT-porten innebär att undvika att nya anslutningar skapas upprepade gånger till samma värd och port.
 
 Allmänna strategier för att minska antalet SNAT-portar beskrivs i avsnittet om [problemlösning](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#problemsolving) i de **utgående anslutningarna i Azure** -dokumentationen. Av dessa strategier gäller följande för appar och funktioner som finns på Azure App-tjänsten.
@@ -49,7 +52,7 @@ Allmänna strategier för att minska antalet SNAT-portar beskrivs i avsnittet om
 
 Här är en samling länkar för att implementera anslutningspoolen från en annan lösnings stack.
 
-#### <a name="node"></a>Node
+#### <a name="node"></a>Nod
 
 Som standard hålls inte anslutningar för NodeJS i livet. Nedan visas populära databaser och paket för anslutningspoolen som innehåller exempel på hur du implementerar dem.
 

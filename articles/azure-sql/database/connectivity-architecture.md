@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 3d8bf23dcb9bfc390b9e165bcf38bf8feea5135f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc96cc704533c2b4fb5dc25b41a2440c66849b53
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833680"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289082"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Anslutnings arkitektur för Azure SQL Database och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -83,13 +83,13 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Brasilien, södra         | 104.41.11.5, 191.233.200.14 |
 | Kanada, centrala       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | Kanada, östra          | 40.86.226.166      |
-| USA, centrala           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
+| Central US           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
 | Kina, östra           | 139.219.130.35     |
 | Kina, östra 2         | 40.73.82.1         |
 | Kina, norra          | 139.219.15.17      |
 | Kina, norra 2        | 40.73.50.0         |
 | Asien, östra            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
-| USA, östra              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| East US              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | USA, östra 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 |
 | Frankrike, centrala       | 40.79.137.0, 40.79.129.1 |
 | Tyskland, centrala      | 51.4.144.100       |
@@ -102,12 +102,12 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Sydkorea, centrala        | 52.231.32.42       |
 | Sydkorea, södra          | 52.231.200.86      |
 | USA, norra centrala     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
-| Europa, norra         | 40.113.93.91, 191.235.193.75, 52.138.224.1, 13.74.104.113 |
+| Norra Europa         | 40.113.93.91, 191.235.193.75, 52.138.224.1, 13.74.104.113 |
 | Östra Norge          | 51.120.96.0        |
 | Norge, väst          | 51.120.216.0       |
 | Sydafrika, norra   | 102.133.152.0      |
 | Sydafrika, västra    | 102.133.24.0       |
-| USA, södra centrala     | 13.66.62.124, 23.98.162.75, 104.214.16.32   |
+| USA, södra centrala     | 13.66.62.124, 23.98.162.75, 104.214.16.32, 20.45.121.1, 20.49.88.1   |
 | Sydostasien      | 104.43.15.0, 23.100.117.95, 40.78.232.3   |
 | Schweiz, norra    | 51.107.56.0, 51.107.57.0 |
 | Schweiz, västra     | 51.107.152.0, 51.107.153.0 |
@@ -116,9 +116,9 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Storbritannien, södra             | 51.140.184.11      |
 | Storbritannien, västra              | 51.141.8.11        |
 | USA, västra centrala      | 13.78.145.25       |
-| Europa, västra          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
+| Europa, västra          | 40.68.37.158, 191.237.232.75, 104.40.168.105, 52.236.184.163  |
 | USA, västra              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
-| USA, västra 2            | 13.66.226.202, 40.78.240.8  |
+| USA, västra 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
 |                      |                    |
 
 ## <a name="next-steps"></a>Nästa steg

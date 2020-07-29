@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: storage
 author: roygara
 ms.service: storage
@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f30518c3bfc9876cbddaf8295ff9e8b667a70200
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0832672cc848495f3d95d308071e0a8359ae4f1
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74014535"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87375716"
 ---
 ## <a name="overview"></a>Översikt
-Azure Storage ger möjlighet att ta ögonblicks bilder av blobbar. Ögonblicks bilder fångar BLOB-statusen vid den tidpunkten. I den här artikeln beskriver vi ett scenario där du kan underhålla säkerhets kopior av virtuella dator diskar med hjälp av ögonblicks bilder. Du kan använda den här metoden när du väljer att inte använda Azure Backup-och återställnings tjänst och vill skapa en anpassad säkerhets kopierings strategi för dina virtuella dator diskar.
+Azure Storage ger möjlighet att ta ögonblicks bilder av blobbar. Ögonblicks bilder fångar BLOB-statusen vid den tidpunkten. I den här artikeln beskriver vi ett scenario där du kan underhålla säkerhets kopior av virtuella dator diskar med hjälp av ögonblicks bilder. Du kan använda den här metoden när du väljer att inte använda Azure Backup-och återställnings tjänst och vill skapa en anpassad säkerhets kopierings strategi för dina virtuella dator diskar. För virtuella datorer som kör affärs-eller verksamhets kritiska arbets belastningar rekommenderar vi att du använder [Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) som en del av strategin för säkerhets kopiering.  
 
 Diskar för virtuella Azure-datorer lagras som Page blobbar i Azure Storage. Eftersom vi beskriver en säkerhets kopierings strategi för virtuella dator diskar i den här artikeln, refererar vi till ögonblicks bilder i kontexten för sid-blobar. Mer information om ögonblicks bilder finns i [skapa en ögonblicks bild av en BLOB](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
@@ -57,7 +57,8 @@ Under förutsättning att följande villkor är uppfyllda,
 * Blobben skapades på Jan-1-2016 eller senare.
 * Blobben skrevs inte över med [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) eller [Kopiera blobben](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) mellan två ögonblicks bilder.
 
-**Obs!** den här funktionen är tillgänglig för Azure Page-blobar med Premium och standard.
+>[!NOTE]
+>Den här funktionen är tillgänglig för Azure Page-blobar med Premium och standard.
 
 När du har en anpassad säkerhets kopierings strategi med hjälp av ögonblicks bilder kan det vara långsamt att kopiera ögonblicks bilderna från ett lagrings konto till ett annat, och det kan förbruka mycket lagrings utrymme. I stället för att kopiera hela ögonblicks bilden till ett lagrings konto för säkerhets kopiering kan du skriva skillnaden mellan flera ögonblicks bilder till en säkerhets kopierings sidans blob. På så sätt minskar tiden för kopiering och utrymmet för lagring av säkerhets kopior avsevärt.
 

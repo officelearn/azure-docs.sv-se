@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e96fc9af0aa4f362256a5f0fee9465441a1c3928
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62b969ebde1ab5d52968189a6f0865fdb646f6b2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210634"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374141"
 ---
 # <a name="data-warehouse-units-dwus"></a>Informations lager enheter (DWU: er)
 
@@ -44,7 +44,7 @@ Prestanda för informations lager enheter baseras på dessa data lager arbets be
 - Ökar antalet läsare och skribenter för PolyBase-inläsnings åtgärder
 - Ökar det maximala antalet samtidiga frågor och samtidiga platser.
 
-## <a name="service-level-objective"></a>Servicenivåmål
+## <a name="service-level-objective"></a>Service Level Objective (servicenivåmål)
 
 Service nivå målet (service nivå målet) är inställningen för skalbarhet som avgör data lagrets kostnad och prestanda nivå. Service nivåerna för Gen2 mäts i beräknings data lager enheter (cDWU), till exempel DW2000c. Gen1 service nivåer mäts i DWU: er, till exempel DW2000.
 
@@ -100,7 +100,7 @@ Om du vill se de verkliga funktionerna för skalning, särskilt vid större DWU:
 
 Om du ändrar data lagrets enheter krävs de behörigheter som beskrivs i [Alter Database](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-Inbyggda roller för Azure-resurser, till exempel SQL DB-deltagare och SQL Server deltagare kan ändra DWU-inställningar.
+Inbyggda Azure-roller som SQL DB-deltagare och SQL Server deltagare kan ändra DWU-inställningar.
 
 ## <a name="view-current-dwu-settings"></a>Visa aktuella inställningar för DWU
 

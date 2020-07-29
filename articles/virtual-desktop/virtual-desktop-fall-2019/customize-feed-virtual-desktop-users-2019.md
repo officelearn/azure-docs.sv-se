@@ -1,6 +1,6 @@
 ---
-title: Anpassa feed för Windows Virtual Desktop bli 2019 användare – Azure
-description: Anpassa feed för virtuella Windows-användare med PowerShell-cmdletar.
+title: Anpassa feed för Windows Virtual Desktop (klassiska) användare – Azure
+description: Så här anpassar du feed för Windows Virtual Desktop (klassiska) användare med PowerShell-cmdletar.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9c573fc1aa220b9301e51ef0ccb1190d9243250e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab1206a8963d9ba3b556a48b2e973eea663c9cb8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011234"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288651"
 ---
-# <a name="customize-feed-for-windows-virtual-desktop-users"></a>Anpassa feed för Windows Virtual Desktop-användare
+# <a name="customize-feed-for-windows-virtual-desktop-classic-users"></a>Anpassa feed för Windows Virtual Desktop (klassiska) användare
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../customize-feed-for-virtual-desktop-users.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../customize-feed-for-virtual-desktop-users.md).
 
 Du kan anpassa flödet så att RemoteApp-och fjärr skrivbords resurserna visas på ett igenkännbart sätt för dina användare.
 

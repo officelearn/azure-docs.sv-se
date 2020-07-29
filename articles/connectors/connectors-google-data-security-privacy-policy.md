@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: 384335898c7cd6b379c6107152b49e9931cf513a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b82b79d076871b961d5c496bc70beac1b5067b2d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194983"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288106"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Principer för data säkerhet och sekretess för Google-anslutningar i Azure Logic Apps
 
-Från och med den **1 maj 2020**kan ändringar på grund av Googles [principer för data säkerhet och sekretess](https://www.blog.google/technology/safety-security/project-strobe/) påverka dina Logic app-arbetsflöden som använder [Gmail-anslutningen](https://docs.microsoft.com/connectors/gmail/). Om dina Logi Kap par använder Gmail-anslutningen med ett Gmail-användarkonto (e-postadress som slutar med @gmail.com eller @googlemail.com ) kan dina Logi Kap par endast använda vissa [Google-godkända utlösare, åtgärder och anslutningar](#approved-connectors).
+Från och med den **1 maj 2020**kan ändringar på grund av Googles [principer för data säkerhet och sekretess](https://www.blog.google/technology/safety-security/project-strobe/) påverka dina Logic app-arbetsflöden som använder [Gmail-anslutningen](/connectors/gmail/). Om dina Logi Kap par använder Gmail-anslutningen med ett Gmail-användarkonto (e-postadress som slutar med @gmail.com eller @googlemail.com ) kan dina Logi Kap par endast använda vissa [Google-godkända utlösare, åtgärder och anslutningar](#approved-connectors).
 
 > [!NOTE]
 > Om dina Logi Kap par använder Gmail-anslutningen med ett företags konto i G-svit (e-postadress med en anpassad domän), påverkas inte dina Logi Kap par och har inga begränsningar för att använda Gmail-anslutningsprogrammet.
@@ -62,7 +62,7 @@ Här följer några exempel som använder Gmail Connector med inbyggda utlösare
 
   ![Icke-kompatibel Logic-app-exempel 3](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-3.png)
 
-Den senaste informationen finns i [Gmail Connectors tekniska referens dokumentation](https://docs.microsoft.com/connectors/gmail/).
+Den senaste informationen finns i [Gmail Connectors tekniska referens dokumentation](/connectors/gmail/).
 
 <a name="update-affected-workflows"></a>
 
@@ -74,11 +74,11 @@ Om du behöver använda Gmail-anslutaren med ett Gmail-konto och Google-icke-god
 
 1. I Gmail-anslutningsprogrammet använder du klient-ID och klientens hemliga värden från din Google client-app.
 
-Mer information finns i dokumentationen om [Gmail Connectors tekniska referenser](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application).
+Mer information finns i dokumentationen om [Gmail Connectors tekniska referenser](/connectors/gmail/#authentication-and-bring-your-own-application).
 
 ### <a name="create-google-client-app"></a>Skapa Google client-app
 
-Om du vill konfigurera ett projekt för din klient app använder du [guiden Google API-konsol](https://console.developers.google.com/start/api?id=gmail&credential=client_key) och följer anvisningarna. Alternativt kan du läsa anvisningarna i [Gmail Connectors tekniska referens dokumentation](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application).
+Om du vill konfigurera ett projekt för din klient app använder du [guiden Google API-konsol](https://console.developers.google.com/start/api?id=gmail&credential=client_key) och följer anvisningarna. Alternativt kan du läsa anvisningarna i [Gmail Connectors tekniska referens dokumentation](/connectors/gmail/#authentication-and-bring-your-own-application).
 
 När du är klar ser skärmen ut som i det här exemplet, förutom att du har dina egna **klient-ID** och värden för **klient hemlighet** , som du senare använder i din Logic-app.
 
@@ -102,7 +102,7 @@ Följ dessa steg om du vill använda klient-ID och klient hemlighet från din Go
    |----------|-------|-------------|
    | **Autentiseringstyp** | **Ta med ditt eget program** | Anger att du ska använda din egen klient-app för autentisering. |
    | **Klient-ID** | <*klient-ID*> | Klient-ID från din Google client-app |
-   | **Klienthemlighet** | <*klient hemlighet*> | Klient hemligheten från din Google client-app |
+   | **Client Secret (Klienthemlighet)** | <*klient hemlighet*> | Klient hemligheten från din Google client-app |
    ||||
 
 1. När du är klar väljer du **Logga**in.
@@ -117,4 +117,5 @@ Följ dessa steg om du vill använda klient-ID och klient hemlighet från din Go
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [Gmail Connector](https://docs.microsoft.com/connectors/gmail/)
+Läs mer om [Gmail Connector](/connectors/gmail/)
+

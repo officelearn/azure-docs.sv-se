@@ -4,15 +4,15 @@ description: AzCopy är ett kommando rads verktyg som du kan använda för att k
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/23/2019
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: bb18e2b0af6f04cee5b6be11afbb2d2aabdadb4b
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 08e70265399a67ee58ad66e06adffbfd30b20e10
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143006"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289233"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
@@ -57,7 +57,7 @@ För att hitta detaljerad referens dokumentation för varje kommando och kommand
 > [!NOTE] 
 > Som ägare till ditt Azure Storage-konto tilldelas du inte automatiskt behörigheter för åtkomst till data. Innan du kan göra allt meningsfullt med AzCopy måste du bestämma hur du ska ange autentiseringsuppgifter för lagrings tjänsten. 
 
-## <a name="choose-how-youll-provide-authorization-credentials"></a>Välj hur du ska ange autentiseringsuppgifter för auktorisering
+## <a name="choose-how-youll-provide-authorization-credentials"></a>Välj hur du tillhandahåller autentiseringsuppgifter
 
 Du kan ange autentiseringsuppgifter för auktorisering genom att använda Azure Active Directory (AD) eller genom att använda en SAS-token (signatur för delad åtkomst).
 
@@ -65,8 +65,8 @@ Använd den här tabellen som en guide:
 
 | Lagringstyp | För närvarande stöds metoden för auktorisering |
 |--|--|
-|**Blob Storage** | Azure AD & SAS |
-|**Blob Storage (hierarkiskt namn område)** | Azure AD & SAS |
+|**Blob Storage** | Azure AD och SAS |
+|**Blob Storage (hierarkiskt namn område)** | Azure AD och SAS |
 |**File Storage** | Endast SAS |
 
 ### <a name="option-1-use-azure-active-directory"></a>Alternativ 1: Använd Azure Active Directory
@@ -111,7 +111,7 @@ När du har kontrollerat att din användar identitet har fått den behörighet s
 azcopy login
 ```
 
-Om du tillhör fler än en organisation inkluderar du klient-ID för den organisation som lagrings kontot tillhör.
+Om du får ett fel meddelande kan du prova med klient-ID för den organisation som lagrings kontot tillhör.
 
 ```azcopy
 azcopy login --tenant-id=<tenant-id>

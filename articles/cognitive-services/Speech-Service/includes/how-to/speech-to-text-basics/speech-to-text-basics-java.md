@@ -3,12 +3,14 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
+ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: f827ea87598a88d399f836f5f412f181a32951ec
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 314617554abf8fee430e47eb4b0a0ca5db5bc75f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86035525"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87374861"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -241,7 +243,7 @@ phraseList.clear();
 
 ### <a name="other-options-to-improve-recognition-accuracy"></a>Andra alternativ för att förbättra igenkännings precisionen
 
-Fras listor är bara ett alternativ för att förbättra igenkännings precisionen. Du kan också: 
+Fras listor är bara ett alternativ för att förbättra igenkännings precisionen. Du kan även: 
 
 * [Förbättra noggrannheten med anpassat tal](../../../how-to-custom-speech.md)
 * [Förbättra noggrannheten med klientmodeller](../../../tutorial-tenant-model.md)

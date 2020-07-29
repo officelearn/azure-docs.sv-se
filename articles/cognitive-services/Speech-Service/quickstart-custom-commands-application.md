@@ -10,26 +10,36 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 2ea850acf0ef581ea66733b0293ba044c87bb3a0
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 05b47a786fe845460177b66b5bd54cdb140c246e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362150"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289412"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Skapa en röstassistent med Anpassade kommandon
 
 I den här snabb starten skapar du och testar ett grundläggande anpassat kommando program med tal Studio. Du kommer även att ha åtkomst till det här programmet från en Windows-klient. Med **anpassade kommandon** kan du enkelt bygga avancerade röst kommando program som är optimerade för röst-och första interaktions upplevelser. Det ger en enhetlig redigerings upplevelse, en automatisk värd modell och relativt lägre komplexitet, vilket hjälper dig att fokusera på att skapa den bästa lösningen för röst kommando scenarier.
 
+## <a name="region-availability"></a>Tillgänglighet för regioner
+För tillfället stöder anpassade kommandon tal prenumerationer som skapats i följande regioner:
+* USA, västra
+* USA, västra 2
+* East US
+* USA, östra 2
+* Norra Europa
+* Europa, västra
+* USA, västra centrala
+* Indien, centrala
+* Asien, östra
+* Sydostasien
+
 ## <a name="prerequisites"></a>Krav
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Skapa en Azure tal-resurs i en region som stöder anpassade kommandon.<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Skapa en Azure tal-resurs i en region som stöder anpassade kommandon.<span class="docon docon-navigate-external x-hidden-focus"></span></a> Se avsnittet **region tillgänglighet** ovan för att visa en lista över regioner som stöds.
 > * Ladda ned exempel filen [Smart Room lite](https://aka.ms/speech/cc-quickstart) JSON.
 > * Ladda ned den senaste versionen av [Windows Voice Assistant-klienten](https://aka.ms/speech/va-samples-wvac).
-
-> [!NOTE]
-> För tillfället stöder anpassade kommandon bara tal prenumerationer i regionerna väst, westus2 och europanorra.
 
 ## <a name="go-to-the-speech-studio-for-custom-commands"></a>Gå till tal Studio för anpassade kommandon
 
@@ -109,7 +119,7 @@ Du kan också hämta dessa värden genom att välja allmänna **Inställningar**
 
 ### <a name="access-application-from-client"></a>Kom åt program från klienten
 
-I den här artikeln kommer vi att använda Windows Voice Assistant-klienten som du laddade ned som en del av kraven. Zippa upp mappen.
+I den här artikeln kommer vi att använda Windows Voice Assistant-klienten som du laddade ned som en del av kraven. Packa upp mappen.
 1. Starta **VoiceAssistantClient.exe**.
 1. Skapa en ny publicerings profil och ange ett värde för **anslutnings profilen**. I avsnittet **allmänna inställningar** anger du **prenumerations nyckel** för värden (detta är samma som det **tal resurs nyckel** värde som du sparade vid publicering av programmet), **prenumerations nyckel region** och **anpassade kommandon app-ID**.
     > [!div class="mx-imgBorder"]

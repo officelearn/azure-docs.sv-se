@@ -6,18 +6,28 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/10/2019
-ms.openlocfilehash: 6e351abeede6d1057a9b37ab1f1cfb9021ccd06e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c0af92bdec6248a38040f972734764fa1bc10226
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505098"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289091"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Skapa anpassade vyer med hjälp av View Designer i Azure Monitor
 Med hjälp av View Designer i Azure Monitor kan du skapa en mängd olika anpassade vyer i Azure Portal som kan hjälpa dig att visualisera data i din Log Analytics-arbetsyta. Den här artikeln innehåller en översikt över Visa designer och procedurer för att skapa och redigera anpassade vyer.
 
 > [!IMPORTANT]
-> Vyer i Azure Monitor fasas ut och ersätts med [arbets böcker](workbooks-overview.md) som tillhandahåller ytterligare funktioner. Mer information om hur du konverterar befintliga vyer till arbets böcker finns i [Azure Monitor Visa designer till arbets böcker över gångs guide](view-designer-conversion-overview.md) .
+> Vyer i Azure Monitor fasas ut och ersätts med [arbets böcker](workbooks-overview.md) som tillhandahåller ytterligare funktioner. Mer information om hur du konverterar befintliga vyer till arbets böcker finns i [Azure Monitor Visa designer till arbets böcker över gångs guide](view-designer-conversion-overview.md) . Se följande tabell för de steg som kommer att vidtas under de kommande månaderna.
+> 
+> | Ändra | Vad det innebär | Förväntat datum |
+> |:---|:---|:---|
+> | Inaktivera skapandet av nya vyer som skapats via Visa designer. | Du kommer inte längre att kunna skapa och spara nya anpassade vyer i Azure Portal.| November 2020 |
+> | Inaktivera redigerings funktionen för befintliga vyer med View Designer. | Du kommer inte längre att kunna ändra och spara ändringar i dina befintliga anpassade vyer. | November 2020 |
+> | Inaktivera distribution av vyer till Log Analytics arbets ytor | Du kommer inte längre att kunna distribuera anpassade vyer med ARM to Log Analytics-arbetsytor. | Mars 2021 |
+> | Visa designer är inte längre tillgängligt i Azure Portal | Portal upplevelsen kommer inte längre att ha stöd för View Designer. | 2021 juni |
+> | Anpassade vyer tas bort från arbets ytans Sammanfattning | Du kommer inte längre att kunna komma åt dina anpassade visnings data. | December 2021 |
+ 
+
 
 Mer information om View Designer finns i:
 
@@ -38,7 +48,7 @@ Vyerna som du skapar med View Designer innehåller de element som beskrivs i fö
 | Anpassad vy | Visas när du väljer en panel. Varje vy innehåller en eller flera visualiserings delar. |
 | Visualiserings delar | Presentera en visualisering av data i Log Analytics arbets ytan baserat på en eller flera [logg frågor](../log-query/log-query-overview.md). De flesta delar innehåller ett sidhuvud, som innehåller en visualisering på hög nivå, och en lista som visar de främsta resultaten. Varje Deltyp innehåller en annan visualisering av posterna i arbets ytan Log Analytics. Du väljer element i delen för att utföra en logg fråga som innehåller detaljerade poster. |
 
-## <a name="required-permissions"></a>Nödvändiga behörigheter
+## <a name="required-permissions"></a>Behörigheter som krävs
 Du måste ha behörighet för minst [deltagar nivå](manage-access.md#manage-access-using-azure-permissions) på arbets ytan Log Analytics för att kunna skapa eller ändra vyer. Om du inte har den här behörigheten visas inte alternativet Visa designer i menyn.
 
 

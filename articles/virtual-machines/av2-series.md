@@ -4,15 +4,15 @@ description: Specifikationer för virtuella datorer i AV2-serien.
 author: migerdes
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 1b5b77bb9bdf679fe0fd8bf73966dd45acc80155
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cdcc26a8a22e9a1dc7af75667cdb33bb044c7858
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085783"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288594"
 ---
 # <a name="av2-series"></a>Av2-serien
 
@@ -28,7 +28,6 @@ Direktmigrering: stöds
 
 Minnes bebetjänings uppdateringar: stöds
 
-Pris kalkylator och tillgänglighets information för regioner: <a href="https://azure.microsoft.com/en-us/pricing/calculator/">pris kalkylator</a>
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt data flöde för temporär lagring: IOPS/Read Mbit/s/Write Mbit/s | Maximalt antal data diskar/data flöde: IOPS | Maximalt antal nätverkskort | Förväntad nätverks bandbredd (Mbit/s)
 |---|---|---|---|---|---|---|---|
@@ -51,9 +50,9 @@ Pris kalkylator och tillgänglighets information för regioner: <a href="https:/
 - [Databehandling med höga prestanda](sizes-hpc.md)
 - [Tidigare generationer](sizes-previous-gen.md)
 
-Pris kalkylator och tillgänglighets information för regioner: <a href="https://azure.microsoft.com/en-us/pricing/calculator/">pris kalkylator</a>
+Pris kalkylator: [pris kalkylator](https://azure.microsoft.com/pricing/calculator/)
 
-Mer information om disk typer: <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/">disk typer</a>
+Mer information om disk typer: [disk typer](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
 
 ## <a name="next-steps"></a>Nästa steg
 

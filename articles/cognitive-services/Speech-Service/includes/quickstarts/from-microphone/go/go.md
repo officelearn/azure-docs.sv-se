@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
-ms.openlocfilehash: c43194db6d1d629003079db7248223aee52ffa70
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 99540e8518aa31a2221844aa954ff665609d8217
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609647"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87375653"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -25,7 +25,7 @@ Innan du börjar:
 Uppdatera filen go. mod med den senaste SDK-versionen genom att lägga till den här raden
 ```sh
 require (
-    github.com/Microsoft/cognitive-services-speech-sdk-go v1.12.1
+    github.com/Microsoft/cognitive-services-speech-sdk-go v1.13.0
 )
 ```
 
@@ -109,7 +109,7 @@ Tal prenumerations nyckeln och regionen krävs för att skapa ett tal konfigurat
 
 Tolks instansen visar flera olika sätt att känna igen tal. I det här exemplet känns tal kontinuerligt igen. Den här funktionen gör att röst tjänsten vet att du skickar många fraser för igenkänning och när programmet slutar att känna igen tal. När resultatet har ställts in, kommer koden att skriva dem till-konsolen.
 
-## <a name="build-and-run"></a>Skapa och kör
+## <a name="build-and-run"></a>Skapa och köra
 Nu har du konfigurerat för att skapa projektet och testa tal igenkänning med hjälp av tal tjänsten.
 1. Bygg ditt projekt, t. ex. **"go Build"**
 2. Kör modulen och tala en fras eller mening i enhetens mikrofon. Talet skickas till tal tjänsten och överförs till text som visas i utdata.

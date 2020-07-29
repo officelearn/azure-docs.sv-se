@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/19/2020
-ms.openlocfilehash: 401ffaaa0fa8c8e298a3a1891d93f2c9039d7820
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.author: keferna
+author: keferna
+ms.openlocfilehash: 92fd4d629585ed465e2891be2dce1c1bdc8c88e6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102947"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287935"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager testen het
 
@@ -68,10 +70,10 @@ Du kan använda valfritt giltigt namn för parametrarna. test enheten känner ig
 
 ### <a name="accepted-parameter-metadata-types"></a>Godkända typer av metadata för parameter
 
-| Typ av metadata   | Parameter typ  | Description     | Exempel värde    |
+| Typ av metadata   | Parameter typ  | Beskrivning     | Exempel värde    |
 |---|---|---|---|
 | **BaseUri**     | sträng          | Distributions paketets bas-URI| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
-| **användar**    | sträng          | Nytt slumpmässigt användar namn.| admin68876      |
+| **användarnamn**    | sträng          | Nytt slumpmässigt användar namn.| admin68876      |
 | **lösenord**    | säker sträng    | Nytt slumpmässigt lösen ord | LP! ACS- \^ 2kh     |
 | **sessions-ID**   | sträng          | Unikt ID för test driven session-ID (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
@@ -343,7 +345,7 @@ Nu när alla test enhets fält är slutförda **publicerar** du om erbjudandet. 
 1. Öppna din Azure-prenumeration i Azure Portal.
 1. Kontrol lera att test enheten är korrekt distribuerad.
 
-   ![Azure-portalen](media/test-drive/azure-portal.png)
+   ![Azure Portal](media/test-drive/azure-portal.png)
 
 Ta inte bort några test enhets instanser som tillhandahålls för dina kunder. Test Drive-tjänsten rensar automatiskt dessa resurs grupper efter att en kund är klar.
 

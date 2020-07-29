@@ -1,25 +1,19 @@
 ---
 title: Installera Trend Micro djupgående säkerhet på en virtuell dator
 description: Den här artikeln beskriver hur du installerar och konfigurerar Trend Micro Security på en virtuell dator som har skapats med den klassiska distributions modellen i Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: axayjo
-manager: gwallace
-editor: ''
 tags: azure-service-management
-ms.assetid: e991b635-f1e2-483f-b7ca-9d53e7c22e2a
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
-ms.openlocfilehash: c4a4f641283a9a4771a236ba844cfe296b31c28c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bed1d567aa48a11c01ae952e6a4a2028e260e6e0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082686"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288526"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Så här installerar och konfigurerar du Trend Micro djupgående säkerhet som en tjänst på en virtuell Windows-dator
 
@@ -100,4 +94,4 @@ Det tar några minuter innan agenten börjar köras när den är installerad. D�
 
 <!-- Link references -->
 [Så här loggar du in på en virtuell dator som kör Windows Server]:../windows/classic/connect-logon.md
-[Azure VM-tillägg och-funktioner]: https://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Azure VM-tillägg och-funktioner]: features-windows.md

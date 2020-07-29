@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 34d2d96e28f90249ad25788f6994dac63f83b1f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6a686f6915e332893f619e66944591999063a07c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86262164"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288165"
 ---
-# <a name="add-a-bar-chart-layer"></a>Lägg till ett stapeldiagrams lager
+# <a name="add-a-bar-chart-layer"></a>Lägg till ett stapeldiagramslager
 
-**Liggande diagram lagret** är användbart för att ta data till nästa dimension genom att tillåta visualisering av plats data som 3D-staplar eller cylindrar på kartan. På samma sätt som Bubble-lagret kan stapeldiagrammet senare enkelt visualisera två mått samtidigt med hjälp av färg och relativ höjd. För att staplarna ska ha höjden måste ett mått läggas till i **storleks** Bucket för fönstret **fält** . Om ett mått inte anges, staplar utan höjd som enkla fyr kanter eller cirklar beroende på form alternativet för **stapel** .
+**Liggande diagram lagret** är användbart för att ta data till nästa dimension genom att tillåta visualisering av plats data som 3D-staplar eller cylindrar på kartan. På samma sätt som Bubble-lagret kan stapeldiagrammet senare enkelt visualisera två mått samtidigt med hjälp av färg och relativ höjd. För att staplarna ska ha höjden måste ett mått läggas till i **storleks** Bucket för fönstret **fält** . Om ett mått inte anges visas staplar utan höjd som enkla fyr kanter eller cirklar beroende på **form** -alternativet.
 
 > [!div class="mx-imgBorder"]
 > ![En karta som visar punkt data med hjälp av diagram lagret](media/power-bi-visual/bar-chart-layer-styled.png)
@@ -60,13 +60,13 @@ Följande är alla inställningar i rutan **format** som är tillgängliga i avs
 Lägg till mer kontext till kartan:
 
 > [!div class="nextstepaction"]
-> [Lägg till ett referens skikt](power-bi-visual-add-reference-layer.md)
+> [Lägg till ett referenslager](power-bi-visual-add-reference-layer.md)
 
 > [!div class="nextstepaction"]
 > [Lägga till ett panelskikt](power-bi-visual-add-tile-layer.md)
 
 > [!div class="nextstepaction"]
-> [Visa real tids trafik](power-bi-visual-show-real-time-traffic.md)
+> [Visa trafik i realtid](power-bi-visual-show-real-time-traffic.md)
 
 Anpassa det visuella objektet:
 

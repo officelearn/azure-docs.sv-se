@@ -3,12 +3,12 @@ title: Virtual Network tjänst slut punkter – Azure Event Hubs | Microsoft Doc
 description: Den här artikeln innehåller information om hur du lägger till en Microsoft. EventHub-tjänsteslutpunkt till ett virtuellt nätverk.
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 134e310e0859bb6c0a50630f467513e07e6ff390
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5d1f6bb8e1160a328c30cfd6ef1726e3cf011aee
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066694"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288016"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Använda Virtual Network tjänst slut punkter med Azure Event Hubs
 
@@ -25,7 +25,6 @@ Resultatet är en privat och isolerad relation mellan arbets belastningarna som 
 >
 > Vanliga Azure-scenarier som inte fungerar med virtuella nätverk (Observera att listan **inte** är fullständig) –
 > - Azure Stream Analytics
-> - Integrering med Azure Event Grid
 > - Azure IoT Hub vägar
 > - Azure IoT-Device Explorer
 >
@@ -60,7 +59,7 @@ Det här avsnittet visar hur du använder Azure Portal för att lägga till en t
 2. Välj alternativet **nätverk** på den vänstra menyn. Om du väljer alternativet **alla nätverk** , godkänner händelsehubben anslutningar från alla IP-adresser. Den här inställningen motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0. 
 
     ![Brand vägg – alternativet alla nätverk är valt](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. Om du vill restrct åtkomst till vissa nätverk väljer du alternativet **valda nätverk** överst på sidan.
+1. Om du vill begränsa åtkomsten till vissa nätverk väljer du alternativet **valda nätverk** överst på sidan.
 2. I avsnittet **Virtual Network** på sidan väljer du * * + Lägg till befintligt virtuellt nätverk * * *. Välj **+ skapa ett nytt virtuellt nätverk** om du vill skapa ett nytt VNet. 
 
     ![lägga till ett befintligt virtuellt nätverk](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
@@ -85,9 +84,9 @@ Följande Resource Manager-mall gör det möjligt att lägga till en virtuell n�
 
 Mallparametrar:
 
-* **namespaceName**: Event Hubs namnrymd.
-* **vnetRuleName**: namnet på den Virtual Networks regel som ska skapas.
-* **virtualNetworkingSubnetId**: fullständigt kvalificerad Resource Manager-sökväg för det virtuella nätverkets undernät; till exempel `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` för standard under nätet för ett virtuellt nätverk.
+* `namespaceName`: Event Hubs namn område.
+* `vnetRuleName`: Namnet på den Virtual Networks regel som ska skapas.
+* `virtualNetworkingSubnetId`: Fullständigt kvalificerad Resource Manager-sökväg för det virtuella nätverkets undernät; till exempel `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` för standard under nätet för ett virtuellt nätverk.
 
 > [!NOTE]
 > Även om det inte finns några tillåtna nekade regler, har Azure Resource Manager mal len standard åtgärden inställd på **Tillåt** , vilket inte begränsar anslutningar.

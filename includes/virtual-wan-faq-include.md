@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 28ea1e68441a57d67fef1e78153e00eb1bd09211
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: dececd066597682e240e737727d3bcaf8f8f3619
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143900"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375701"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Behöver användaren ha hubb och eker med SD-WAN/VPN-enheter för att kunna använda Azure Virtual WAN?
 
@@ -233,9 +233,17 @@ Om en virtuell hubb lär sig samma väg från flera fjärrhubbar, är ordningen 
 
 Överföring mellan ER-till-ER är alltid via global räckvidd. Gatewayer för virtuella hubbar distribueras i DC-eller Azure-regioner. När två ExpressRoute-kretsar ansluter via global räckvidd, behöver trafiken inte komma från gräns routrarna till den virtuella domänkontrollantens DC.
 
-### <a name="is-there-a-concept-of-weight-in-azure-virtual-wan-circuits-or-vpn-connections"></a>Är det ett koncept av vikt i virtuella Azure-kretsar eller VPN-anslutningar
+### <a name="is-there-a-concept-of-weight-in-azure-virtual-wan-expressroute-circuits-or-vpn-connections"></a>Är det en vikt i Azure Virtual WAN ExpressRoute-kretsar eller VPN-anslutningar
 
 När flera ExpressRoute-kretsar är anslutna till en virtuell hubb, tillhandahåller flödes viktningen för anslutningen en mekanism för ExpressRoute i den virtuella hubben för att föredra en krets över den andra. Det finns ingen mekanism för att ange en vikt på en VPN-anslutning. Azure föredrar alltid en ExpressRoute-anslutning via en VPN-anslutning inom ett enda nav.
+
+### <a name="does-virtual-wan-prefer-expressroute-over-vpn-for-traffic-egressing-azure"></a>Föredrar Virtual WAN ExpressRoute via VPN för trafik som utgående Azure
+
+Ja 
+
+### <a name="when-a-virtual-wan-hub-has-an-expressroute-circuit-and-a-vpn-site-connected-to-it-what-would-cause-a-vpn-connection-route-to-be-prefered-over-expressroute"></a>När en virtuell WAN-hubb har en ExpressRoute-krets och en VPN-plats som är ansluten till den, kan det som skulle orsaka att en anslutning till ett VPN-nätverk föredras över ExpressRoute?
+
+När en ExpressRoute-krets är ansluten till en virtuell hubb är Microsoft Edge-routrarna den första noden för kommunikation mellan lokala platser och Azure. Dessa gräns routrar kommunicerar med de virtuella WAN-ExpressRoute gateways som i sin tur lär sig vägar från den virtuella hubben som styr alla vägar mellan alla gateways i virtuella WAN. Microsoft Edge-routrarna bearbetar virtuella nav ExpressRoute-vägar med högre prioritet över vägar från lokala platser. På grund av varje orsak om VPN-anslutningen blir det primära mediet för virtuell hubb för att lära sig vägar från (t. ex. växlings scenarier mellan ExpressRoute och VPN), om inte VPN-platsen är längre än sökvägen, kommer den virtuella hubben fortsätta att dela VPN-arbetsvägar med ExpressRoute-Gateway, vilket gör att Microsoft Edge-routrarna föredrar VPN-vägar över lokala vägar. 
 
 ### <a name="when-two-hubs-hub-1-and-2-are-connected-and-there-is-an-expressroute-circuit-connected-as-a-bow-tie-to-both-the-hubs-what-is-the-path-for-a-vnet-connected-to-hub-1-to-reach-a-vnet-connected-in-hub-2"></a>När två hubbar (hubb 1 och 2) är anslutna och det finns en ExpressRoute-krets ansluten som en bog-bind till båda hubbarna, vilken är sökvägen för ett VNet som är anslutet till hubb 1 för att uppnå ett VNet som är anslutet i hubb 2?
 
@@ -244,6 +252,10 @@ Det aktuella beteendet är att föredra ExpressRoute krets Sök väg över hubb-
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Finns det stöd för IPv6 i virtuella WAN-nätverk?
 
 IPv6 stöds inte i Virtual WAN Hub och dess gatewayer. Om du har ett VNet som har stöd för IPv6 och du vill ansluta VNet till virtuellt WAN-nätverk stöds inte det här scenariot för närvarande.
+
+### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionality-"></a>Vilken är den rekommenderade API-versionen som ska användas av skript som automatiserar olika virtuella WAN-funktioner?
+
+En lägsta version av 05-01-2020 (kan 1 2020) krävs. 
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Vad är skillnaderna mellan de virtuella WAN-typerna (Basic och standard)?
 

@@ -1,6 +1,6 @@
 ---
-title: Skala sessioner värdar Azure Automation – Azure
-description: Hur du automatiskt skalar värdar för virtuella Windows-fjärrskrivbordssessioner med Azure Automation.
+title: Skala sessioner värdar Azure Automation Windows Virtual Desktop (klassisk) – Azure
+description: Så här skalar du automatiskt Windows Virtual Desktop (klassiska) värdar med Azure Automation.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 690f59c643f1fe8c8cfc74758a0f8f13b129f78a
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 4c09ce867a7d4dbc11c42485c39c40bd427fa451
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172059"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288631"
 ---
-# <a name="scale-session-hosts-using-azure-automation"></a>Skala sessionsbaserade värdar med hjälp av Azure Automation
+# <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Skala Windows Virtual Desktop (klassiska)-sessionsbaserade med Azure Automation
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt.
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows.
 
 Du kan minska din totala distributions kostnad för virtuella Windows-datorer genom att skala dina virtuella datorer (VM). Det innebär att du stänger av och avallokerar sessions värden för virtuella datorer vid låg belastnings tider, sedan aktiverar dem igen och omallokerar dem under hög belastnings tid.
 

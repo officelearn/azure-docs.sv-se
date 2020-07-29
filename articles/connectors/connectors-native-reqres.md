@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 25aafee59c7f5f7ae59aa2fd7871de8926907f68
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ae34840c04c3a1d2fb3646046792c97ed6f521a0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261376"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289444"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ta emot och svara på inkommande HTTPS-begäranden i Azure Logic Apps
 
@@ -24,7 +24,7 @@ Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda å
 
 * Ta emot och svara på ett HTTPS-anrop från en annan Logic app.
 
-Begär ande utlösare stöder [Azure Active Directory öppen autentisering](/azure/active-directory/develop/) (Azure AD OAuth) för att auktorisera inkommande samtal till din Logic app. Mer information om hur du aktiverar den här autentiseringen finns i [skydda åtkomst och data i Azure Logic Apps – aktivera Azure AD OAuth-autentisering](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+Begär ande utlösare stöder [Azure Active Directory öppen autentisering](../active-directory/develop/index.yml) (Azure AD OAuth) för att auktorisera inkommande samtal till din Logic app. Mer information om hur du aktiverar den här autentiseringen finns i [skydda åtkomst och data i Azure Logic Apps – aktivera Azure AD OAuth-autentisering](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -36,7 +36,7 @@ Begär ande utlösare stöder [Azure Active Directory öppen autentisering](/azu
 
 ## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
 
-* Inkommande anrop stöder *endast* Transport Layer Security (TLS) 1,2. Om du får TLS-handskakning, se till att du använder TLS 1,2. Mer information finns i [lösa problemet med TLS 1,0](https://docs.microsoft.com/security/solving-tls1-problem). Utgående anrop stöder TLS 1,0, 1,1 och 1,2, baserat på mål slut punktens funktion.
+* Inkommande anrop stöder *endast* Transport Layer Security (TLS) 1,2. Om du får TLS-handskakning, se till att du använder TLS 1,2. Mer information finns i [lösa problemet med TLS 1,0](/security/solving-tls1-problem). Utgående anrop stöder TLS 1,0, 1,1 och 1,2, baserat på mål slut punktens funktion.
 
 * Inkommande anrop stöder dessa chiffersviter:
 
@@ -287,3 +287,4 @@ Din Logi Kap par ser till att inkommande begäran endast öppnas under en [begr�
 ## <a name="next-steps"></a>Nästa steg
 
 * [Anslutningsappar för Logic Apps](../connectors/apis-list.md)
+

@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 98951dc29b7c8504cbf1654a810ebba933fef3a1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 74a20e46858aada48151809c5bedf1f93076827e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495388"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289963"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Tids serie modell i Azure Time Series Insights Gen2
 
@@ -24,7 +24,7 @@ I den här artikeln beskrivs tids serie modellen, funktionerna och hur du börja
 > [!TIP]
 >
 > * Gå till [Contosos demonstrations](https://insights.timeseries.azure.com/preview/samples) miljö för en real tids serie modell exempel.
-> * Lär dig [hur du arbetar med tids serie modellen](time-series-insights-update-how-to-tsm.md) med hjälp av Azure Time Series Insights Gen2 Explorer.
+> * Lär dig [hur du arbetar med tids serie modellen](/azure/time-series-insights/how-to-edit-your-model) med hjälp av Azure Time Series Insights Gen2 Explorer.
 
 ## <a name="summary"></a>Sammanfattning
 
@@ -75,7 +75,7 @@ Dessa komponenter kombineras för att ange en tids serie modell och organisera d
 
 [![Översikts diagram över tids serie modellen](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-En tids serie modell kan skapas och hanteras via [Azure Time Series Insights Gen2 Explorer](time-series-insights-update-how-to-tsm.md). Inställningarna för tids serie modellen kan hanteras via [API: t för modell inställningar](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
+En tids serie modell kan skapas och hanteras via [Azure Time Series Insights Gen2 Explorer](/azure/time-series-insights/concepts-model-overview). Inställningarna för tids serie modellen kan hanteras via [API: t för modell inställningar](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
 
 ## <a name="time-series-model-instances"></a>Tids serie modell instanser
 
@@ -283,12 +283,13 @@ Typerna följer följande JSON-exempel:
   ]
 }
 ```
+
 Tids serie modell typer kan ha många variabler som anger formel-och beräknings regler för händelser. Läs mer om [hur du definierar modell variabler för tids serier](./concepts-variables.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om hur du redigerar modellen via API: er finns i referens dokumentationen för [Time Series-modellen](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) .
+* Mer information om hur du redigerar modellen via API: er finns i referens dokumentationen för [Time Series-modellen](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) .
 
-- Utforska formler och beräkningar som du kan skapa med [tids serie modellens variabler](./concepts-variables.md)
+* Utforska formler och beräkningar som du kan skapa med [tids serie modellens variabler](./concepts-variables.md)
 
-- Lär dig mer om att [köra frågor mot data](concepts-query-overview.md) i Azure Time Series Insights Gen2
+* Lär dig mer om att [köra frågor mot data](concepts-query-overview.md) i Azure Time Series Insights Gen2

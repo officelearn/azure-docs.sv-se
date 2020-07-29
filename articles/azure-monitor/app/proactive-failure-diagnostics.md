@@ -4,19 +4,19 @@ description: Varnar dig om ovanliga ändringar av antalet misslyckade förfrågn
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 27cf38a1cfcf8a9f87582ab3e78b48e78f3c63c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 30bb95c4c47c02fe6b3d31d6e6763656aa96fdec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045802"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315945"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Smart identifiering – fel avvikelser
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) automatiskt varna dig i nära real tid om din webbapp upplever en onormal ökning av antalet misslyckade förfrågningar. Den identifierar en ovanlig ökning i frekvensen av HTTP-begäranden eller beroende anrop som rapporteras som misslyckade. För förfrågningar har misslyckade förfrågningar vanligt vis svars koder på 400 eller högre. För att hjälpa dig att prioritering och diagnostisera problemet finns en analys av egenskaperna för fel och relaterade program data i aviserings informationen. Det finns också länkar till Application Insights Portal för ytterligare diagnos. Funktionen behöver inte konfigureras eller konfigureras eftersom den använder Machine Learning-algoritmer för att förutsäga den normala felfrekvensen.
+[Application Insights](./app-insights-overview.md) automatiskt varna dig i nära real tid om din webbapp upplever en onormal ökning av antalet misslyckade förfrågningar. Den identifierar en ovanlig ökning i frekvensen av HTTP-begäranden eller beroende anrop som rapporteras som misslyckade. För förfrågningar har misslyckade förfrågningar vanligt vis svars koder på 400 eller högre. För att hjälpa dig att prioritering och diagnostisera problemet finns en analys av egenskaperna för fel och relaterade program data i aviserings informationen. Det finns också länkar till Application Insights Portal för ytterligare diagnos. Funktionen behöver inte konfigureras eller konfigureras eftersom den använder Machine Learning-algoritmer för att förutsäga den normala felfrekvensen.
 
-Den här funktionen fungerar för alla webb program, som finns i molnet eller på dina egna servrar, som genererar programbegäran eller beroende data. Om du till exempel har en arbets roll som anropar [TrackRequest ()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) eller [TrackDependency ()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
+Den här funktionen fungerar för alla webb program, som finns i molnet eller på dina egna servrar, som genererar programbegäran eller beroende data. Om du till exempel har en arbets roll som anropar [TrackRequest ()](./api-custom-events-metrics.md#trackrequest) eller [TrackDependency ()](./api-custom-events-metrics.md#trackdependency).
 
-När du har konfigurerat [Application Insights för projektet](../../azure-monitor/app/app-insights-overview.md), och om din app genererar en viss minsta mängd data, tar det en smart identifiering av fel avvikelser i 24 timmar att lära sig om appens normala beteende, innan den slås på och kan skicka aviseringar.
+När du har konfigurerat [Application Insights för projektet](./app-insights-overview.md), och om din app genererar en viss minsta mängd data, tar det en smart identifiering av fel avvikelser i 24 timmar att lära sig om appens normala beteende, innan den slås på och kan skicka aviseringar.
 
 Här är ett exempel på en avisering:
 
@@ -31,10 +31,10 @@ Aviserings informationen meddelar dig:
 * Länkar direkt till relevanta sökningar efter data i Application Insights.
 
 ## <a name="benefits-of-smart-detection"></a>Förmåner för smart identifiering
-Vanliga [mått aviseringar](../../azure-monitor/platform/alerts-log.md) visar att det kan finnas ett problem. Men smart identifiering startar diagnostiskt arbete åt dig, så att du kan utföra mycket analys som du annars skulle behöva göra själv. Du får de resultat som du kan paketera, vilket hjälper dig att snabbt komma till orsaken till problemet.
+Vanliga [mått aviseringar](../platform/alerts-log.md) visar att det kan finnas ett problem. Men smart identifiering startar diagnostiskt arbete åt dig, så att du kan utföra mycket analys som du annars skulle behöva göra själv. Du får de resultat som du kan paketera, vilket hjälper dig att snabbt komma till orsaken till problemet.
 
 ## <a name="how-it-works"></a>Så här fungerar det
-Smart identifiering övervakar de data som tas emot från din app och särskilt fel frekvensen. Den här regeln räknar antalet begär Anden som `Successful request` egenskapen är falsk till och antalet beroende anrop för vilka `Successful call` egenskapen är falsk. Som standard för förfrågningar `Successful request == (resultCode < 400)` (om du inte har skrivit anpassad kod för att [filtrera](../../azure-monitor/app/api-filtering-sampling.md#filtering) eller generera dina egna [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) -anrop). 
+Smart identifiering övervakar de data som tas emot från din app och särskilt fel frekvensen. Den här regeln räknar antalet begär Anden som `Successful request` egenskapen är falsk till och antalet beroende anrop för vilka `Successful call` egenskapen är falsk. Som standard för förfrågningar `Successful request == (resultCode < 400)` (om du inte har skrivit anpassad kod för att [filtrera](./api-filtering-sampling.md#filtering) eller generera dina egna [TrackRequest](./api-custom-events-metrics.md#trackrequest) -anrop). 
 
 Appens prestanda har ett typiskt beteende mönster. Vissa förfrågningar eller beroende anrop är svårare att Miss lyckas än andra. och den övergripande felfrekvensen kan gå upp när belastningen ökar. Smart identifiering använder Machine Learning för att hitta dessa avvikelser.
 
@@ -48,7 +48,7 @@ När din tjänst instrumenteras med dessa anrop, söker Analyzer efter ett undan
 
 Den resulterande analysen skickas till dig som avisering, om du inte har konfigurerat den inte till.
 
-Precis som [aviseringarna som du anger manuellt](../../azure-monitor/platform/alerts-log.md)kan du kontrol lera statusen för den utlöst aviseringen, som kan lösas om problemet är löst. Konfigurera varnings reglerna på sidan aviseringar i din Application Insights-resurs. Men till skillnad från andra aviseringar behöver du inte konfigurera eller konfigurera Smart identifiering. Om du vill kan du inaktivera den eller ändra dess mål-e-postadresser.
+Precis som [aviseringarna som du anger manuellt](../platform/alerts-log.md)kan du kontrol lera statusen för den utlöst aviseringen, som kan lösas om problemet är löst. Konfigurera varnings reglerna på sidan aviseringar i din Application Insights-resurs. Men till skillnad från andra aviseringar behöver du inte konfigurera eller konfigurera Smart identifiering. Om du vill kan du inaktivera den eller ändra dess mål-e-postadresser.
 
 ### <a name="alert-logic-details"></a>Information om aviserings logik
 
@@ -292,7 +292,7 @@ Observera att du kan inaktivera eller ta bort en varnings regel för fel avvikel
 
 En varning anger att en onormal ökning av frekvensen för misslyckade begär Anden upptäcktes. Det är troligt att det finns problem med din app eller dess miljö.
 
-Om du vill undersöka ytterligare klickar du på Visa fullständiga uppgifter i Application Insights. länkarna på den här sidan kommer att ta dig direkt till en [Sök sida](../../azure-monitor/app/diagnostic-search.md) som filtrerats efter relevanta begär Anden, undantag, beroenden eller spårningar. 
+Om du vill undersöka ytterligare klickar du på Visa fullständiga uppgifter i Application Insights. länkarna på den här sidan kommer att ta dig direkt till en [Sök sida](./diagnostic-search.md) som filtrerats efter relevanta begär Anden, undantag, beroenden eller spårningar. 
 
 Du kan också öppna [Azure Portal](https://portal.azure.com), navigera till Application Insights resurs för din app och öppna sidan med problem.
 
@@ -317,7 +317,7 @@ Klicka på **aviseringar** på sidan Application Insights resurs för att få de
 ## <a name="whats-the-difference-"></a>Vad är skillnaden...
 Smart identifiering av fel avvikelser kompletterar andra liknande, men distinkta funktioner i Application Insights.
 
-* [Mått varningar](../../azure-monitor/platform/alerts-log.md) anges av dig och kan övervaka en mängd olika mått, till exempel processor användning, begär ande frekvens, sid inläsnings tider och så vidare. Du kan använda dem för att varna dig, till exempel om du behöver lägga till fler resurser. Som kontrast täcker Smart identifiering av fel avvikelser ett litet antal kritiska mått (för närvarande endast misslyckade begär Anden), utformade för att meddela dig i nära real tid när webbappens misslyckade begär ande frekvens ökar jämfört med webbappens normala beteende. Till skillnad från mått aviseringar ställer Smart identifiering automatiskt in och uppdaterar tröskelvärden vid svars ändringar i beteendet. Smart identifiering startar också det diagnostiska arbetet åt dig, vilket sparar tid för att lösa problem.
+* [mått varningar](../platform/alerts-log.md) anges av dig och kan övervaka en mängd olika mått, till exempel processor användning, begär ande frekvens, sid inläsnings tider och så vidare. Du kan använda dem för att varna dig, till exempel om du behöver lägga till fler resurser. Som kontrast täcker Smart identifiering av fel avvikelser ett litet antal kritiska mått (för närvarande endast misslyckade begär Anden), utformade för att meddela dig i nära real tid när webbappens misslyckade begär ande frekvens ökar jämfört med webbappens normala beteende. Till skillnad från mått aviseringar ställer Smart identifiering automatiskt in och uppdaterar tröskelvärden vid svars ändringar i beteendet. Smart identifiering startar också det diagnostiska arbetet åt dig, vilket sparar tid för att lösa problem.
 
 * [Smart identifiering av prestanda avvikelser](proactive-performance-diagnostics.md) använder också Machine Intelligence för att identifiera ovanliga mönster i dina mått och ingen konfiguration krävs av dig. Men till skillnad från Smart identifiering av fel avvikelser är syftet med Smart identifiering av prestanda avvikelser att hitta segment i användnings grenen som kan vara dåligt Betjänad, till exempel genom vissa sidor i en speciell typ av webbläsare. Analysen utförs dagligen och om ett resultat hittas är det troligt vis mycket mindre brådskande än en avisering. I motsats sker analysen av fel avvikelser kontinuerligt på inkommande program data och du får ett meddelande inom några minuter om Server fel hastigheterna är större än förväntat.
 
@@ -332,7 +332,7 @@ Smart identifiering av fel avvikelser kompletterar andra liknande, men distinkta
 
 *Så tittar du på mina program data?*
 
-* Nej. Tjänsten är helt automatisk. Endast du får meddelanden. Dina data är [privata](../../azure-monitor/app/data-retention-privacy.md).
+* Nej. Tjänsten är helt automatisk. Endast du får meddelanden. Dina data är [privata](./data-retention-privacy.md).
 
 *Måste jag prenumerera på den här aviseringen?*
 
@@ -353,11 +353,12 @@ Smart identifiering av fel avvikelser kompletterar andra liknande, men distinkta
 ## <a name="next-steps"></a>Nästa steg
 De här diagnostikverktygen hjälper dig att inspektera data från din app:
 
-* [Metric Explorer](../../azure-monitor/platform/metrics-charts.md)
-* [Sök Utforskaren](../../azure-monitor/app/diagnostic-search.md)
-* [Analys-kraftfullt frågespråk](../../azure-monitor/log-query/get-started-portal.md)
+* [Metric Explorer](../platform/metrics-charts.md)
+* [Sök Utforskaren](./diagnostic-search.md)
+* [Analys-kraftfullt frågespråk](../log-query/get-started-portal.md)
 
 Smart identifiering är automatiskt. Men kanske vill du konfigurera ytterligare aviseringar?
 
-* [Manuellt konfigurerade mått varningar](../../azure-monitor/platform/alerts-log.md)
-* [Webbtester för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Manuellt konfigurerade mått varningar](../platform/alerts-log.md)
+* [Webbtester för tillgänglighet](./monitor-web-app-availability.md)
+

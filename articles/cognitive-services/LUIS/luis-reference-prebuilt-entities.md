@@ -9,20 +9,28 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 10/03/2019
+ms.date: 07/20/2020
 ms.author: diberry
-ms.openlocfilehash: 831e766fbb10d616b3fbaf8f878228a9a51ece37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7ec9cd8aade1edb7d2df2bab5cec8de445af7e44
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090951"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337984"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entiteter per kultur i din LUIS-modell
 
-Language Understanding (LUIS) tillhandahåller färdiga entiteter. När en fördefinierad entitet ingår i ditt program, innehåller LUIS motsvarande enhets förutsägelse i slut punkts svaret. Alla exempel-yttranden är också märkta med entiteten. Det **går inte** att ändra beteendet för förbyggda entiteter. Om inget annat anges är fördefinierade entiteter tillgängliga i alla LUIS program-språkområden (kulturer). I följande tabell visas de fördefinierade entiteter som stöds för varje kultur.
+Language Understanding (LUIS) tillhandahåller färdiga entiteter.
 
-|Culture (Kultur)|Underkulturer|Kommentarer|
+## <a name="entity-resolution"></a>Enhets matchning
+När en fördefinierad entitet ingår i ditt program, innehåller LUIS motsvarande enhets matchning i slut punkts svaret. Alla exempel-yttranden är också märkta med entiteten.
+
+Det går inte att ändra beteendet för förbyggda entiteter, men du kan förbättra lösningen genom [att lägga till den fördefinierade entiteten som en funktion i en enhet för maskin inlärning eller en underentitet](luis-concept-entity-types.md#effective-prebuilt-entities).
+
+## <a name="availability"></a>Tillgänglighet
+Om inget annat anges är fördefinierade entiteter tillgängliga i alla LUIS program-språkområden (kulturer). I följande tabell visas de fördefinierade entiteter som stöds för varje kultur.
+
+|Culture (Kultur)|Underkulturer|Obs!|
 |--|--|--|
 |Kinesiska|[zh-CN](#chinese-entity-support)||
 |Nederländska|[nl-NL](#dutch-entity-support)||

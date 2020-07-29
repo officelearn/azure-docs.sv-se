@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 598e361949b000724645c841910b1682a7bbb1a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d75e7e7b4870f46c978fd70039441c8851844082
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81258464"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337967"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Ansluta MXChip IoT DevKit till Azure IoT Remote Monitor Solution Accelerator
 
@@ -21,7 +22,7 @@ I den här självstudien får du lära dig hur du kör en exempel-app på din De
 
 [MXChip IoT-DevKit](https://aka.ms/iot-devkit) är en allt-i-ett-Arduino-kompatibelt kort med omfattande kring utrustning och sensorer. Du kan utveckla för den med hjälp av [Visual Studio Code Extension för Arduino](https://aka.ms/arduino). Och det levereras med en växande [projekt katalog](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) som hjälper dig att hjälpa dig att skapa prototyp sakernas internet (IoT)-lösningar som drar nytta av Microsoft Azure-tjänster.
 
-## <a name="what-you-need"></a>Vad du behöver
+## <a name="what-you-need"></a>Detta behöver du
 
 Slutför [komma igång guiden](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) för att:
 
@@ -105,7 +106,7 @@ I VS Code-terminalen guidar en interaktiv kommando rad dig genom etableringen av
   
    ![Verifiering och uppladdning av Arduino-skissen](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/arduino-upload.png)
 
-DevKit startar om och börjar köra koden.
+DevKit startas om och börjar köra koden.
 
 ## <a name="test-the-project"></a>Testa projektet
 
@@ -133,7 +134,5 @@ Om du stöter på problem kan du läsa [vanliga frågor och svar om IoT Develope
 Nu när du har lärt dig hur du ansluter en DevKit-enhet till din Azure IoT-lösning för fjärrövervakning och visualiserar sensor data, så är följande förslag på nästa steg:
 
 * [Översikt över Azure IoT Solution Accelerators](https://docs.microsoft.com/azure/iot-suite/)
-
-* [Ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program](/azure/iot-central/core/howto-connect-devkit)
 
 * [IoT Developer Kit](https://microsoft.github.io/azure-iot-developer-kit/) 

@@ -8,11 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7c83bc55a00774966681973b95d18cdc58dba19c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: ead175cbcaa9467cb5263ad95100facdda096991
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037213"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337814"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Felsöka Azure Stream Analytics frågor
 
@@ -27,9 +28,9 @@ I den här artikeln beskrivs vanliga problem med att utveckla Azure Stream Analy
     - På Azure Portal väljer du **test**på fliken **fråga** . Använd de hämtade exempel data för att [testa frågan](stream-analytics-test-query.md). Undersök eventuella fel och försök att åtgärda dem.   
     - Du kan också [testa din fråga lokalt](stream-analytics-live-data-local-testing.md) med Azure Stream Analytics verktyg för Visual Studio eller [Visual Studio Code](visual-studio-code-local-run-live-input.md). 
 
-2.  [Felsök frågor steg för steg lokalt med hjälp av jobb diagram](debug-locally-using-job-diagram.md) i Azure Stream Analytics verktyg för Visual Studio. Jobb diagrammet visar hur data flödar från inmatnings källor (Händelsehubben, IoT Hub osv.) genom flera fråge steg och slutligen för att generera mottagare. Varje fråge steg mappas till en temporär resultat uppsättning som definierats i skriptet med instruktionen WITH. Du kan visa informationen, samt mått, i varje mellanliggande resultat uppsättning för att hitta källan till problemet.
+2.  [Felsök frågor steg för steg lokalt med hjälp av jobb diagram](debug-locally-using-job-diagram-vs-code.md) i Azure Stream Analytics verktyg för Visual Studio Code. Jobb diagrammet visar hur data flödar från inmatnings källor (Händelsehubben, IoT Hub osv.) genom flera fråge steg och slutligen för att generera mottagare. Varje fråge steg mappas till en temporär resultat uppsättning som definierats i skriptet med instruktionen WITH. Du kan visa informationen, samt mått, i varje mellanliggande resultat uppsättning för att hitta källan till problemet.
 
-    ![Resultat för förhands granskning av jobb diagram](./media/debug-locally-using-job-diagram/preview-result.png)
+    ![Resultat för förhands granskning av jobb diagram](./media/debug-locally-using-job-diagram-vs-code/preview-result.png)
 
 3.  Om du använder [**timestamp by**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)kontrollerar du att händelserna har tidsstämplar som är större än [jobbets start tid](stream-analytics-out-of-order-and-late-events.md).
 

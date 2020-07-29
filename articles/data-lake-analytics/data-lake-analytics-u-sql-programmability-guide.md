@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: how-to
 ms.date: 06/30/2017
-ms.openlocfilehash: 80edafb9cffa43f7163c1b75c9faaaefbb97c616
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 1c22aa9fb91b0a86704b95586afc1779023e85b6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127425"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288941"
 ---
 # <a name="u-sql-programmability-guide"></a>Programmerings guide för U-SQL
 
@@ -125,7 +125,7 @@ Mer information finns i [anvisningarna för monterings registrering](https://blo
 
 
 ### <a name="use-assembly-versioning"></a>Använd sammansättnings version
-För närvarande använder U-SQL .NET Framework version 4,5. Se till att dina egna sammansättningar är kompatibla med den versionen av körnings miljön.
+För närvarande använder U-SQL .NET Framework-versionen 4.7.2. Se till att dina egna sammansättningar är kompatibla med den versionen av körnings miljön.
 
 Som tidigare nämnts kör U-SQL kod i ett 64-bitars format (x64). Se därför till att din kod kompileras för att köras på x64. Annars får du ett felaktigt format fel som visas tidigare.
 
@@ -941,7 +941,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 * T2: den andra parametern som ska samlas
 * TResult: retur typen Avbryt
 
-Exempel:
+Till exempel:
 
 ```csharp
 public class GuidAggregate : IAggregate<string, int, int>

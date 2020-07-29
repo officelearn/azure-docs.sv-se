@@ -5,11 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 63b7a8c58bb6d277233268ed4fc0bc870fdd337f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f41ad80e0e39d66020d039d6229a4b0fc62627f1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443408"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286010"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Konfigurera ett labb med virtuella GPU-datorer
 
@@ -31,7 +32,7 @@ Som det beskrivs i följande tabell är *beräkningens* GPU-storlek avsedd för 
 | ---- | ----- | --- | ----------- | 
 | Liten GPU (Compute) | -&nbsp;6 &nbsp; kärnor<br>-&nbsp;56 &nbsp; GB &nbsp; ram  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Den här storleken passar bäst för dator intensiva program, till exempel artificiell intelligens (AI) och djup inlärning. |
 
-GPU-storlekarna för *visualisering* är avsedda för grafik intensiva program.  [Klass typen solidworker Engineering](./class-type-solidworks.md) visar till exempel användningen av den **små GPU-storleken (visualisering)** .  GPU för visualisering är lämplig för den här typen av klass eftersom eleverna interagerar med SolidWorks-miljön 3D Computer-Aided Design (CAD) för att modellera och visualisera solida objekt.
+GPU-storlekarna för *visualisering* är avsedda för grafik intensiva program.  [Klass typen solidworker Engineering](./class-type-solidworks.md) visar till exempel användningen av den **små GPU-storleken (visualisering)** .  GPU för visualisering är lämplig för den här typen av klass eftersom eleverna interagerar med SOLIDWORKs-miljön 3D Computer-Aided Design (CAD) för att modellera och visualisera solida objekt.
 
 | Storlek | Kärnor | RAM | Beskrivning | 
 | ---- | ----- | --- | ----------- | 
@@ -44,7 +45,7 @@ För att dra nytta av GPU-funktionerna i dina virtuella labb datorer, se till at
 ![Skärm bild av "New Lab" som visar alternativet "installera GPU-drivrutiner"](./media/how-to-setup-gpu/lab-gpu-drivers.png)
 
 Som du ser i föregående bild är det här alternativet aktiverat som standard, vilket säkerställer att de *senaste* driv rutinerna är installerade för den typ av GPU och avbildning som du har valt.
-- När du väljer en *beräknings* -GPU-storlek drivs dina virtuella labb datorer av GPU för [NVIDIA-Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) .  I det här fallet installeras de senaste [CUDA-drivrutinerna (Compute Unified Device Architecture)](https://www.nvidia.com/object/io_69526.html) , vilket möjliggör data behandling med höga prestanda.
+- När du väljer en *beräknings* -GPU-storlek drivs dina virtuella labb datorer av GPU för [NVIDIA-Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) .  I det här fallet installeras de senaste [CUDA-drivrutinerna (Compute Unified Device Architecture)](http://developer.download.nvidia.com/compute/cuda/2_0/docs/CudaReferenceManual_2.0.pdf) , vilket möjliggör data behandling med höga prestanda.
 - När du väljer en GPU-storlek för *visualiseringen* drivs dina virtuella labb datorer av teknik för [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU och [Grid](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  I det här fallet installeras de senaste RUTNÄTs driv rutinerna, vilket möjliggör användning av grafik intensiva program.
 
 ### <a name="install-the-drivers-manually"></a>Installera driv rutinerna manuellt
@@ -112,7 +113,7 @@ Följ anvisningarna i avsnittet "verifiera driv rutins installation" i [Installe
 Se följande artiklar:
 
 - [Skapa och hantera klassrumslabb](how-to-manage-classroom-labs.md)
-- [SolidWorks-klass typ för Computer-Aided Design (CAD)](class-type-solidworks.md)
+- [SOLIDWORKs-klass typ för Computer-Aided Design (CAD)](class-type-solidworks.md)
 - [Klass typ för MATLAB (mat ris labb)](class-type-matlab.md)
 
 

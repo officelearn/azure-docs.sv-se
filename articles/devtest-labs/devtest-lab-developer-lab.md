@@ -3,12 +3,12 @@ title: Använda Azure DevTest Labs för utvecklare | Microsoft Docs
 description: Lär dig mer om Azure DevTest Labs funktioner som kan användas för att uppfylla kraven för utvecklare och detaljerade steg som du kan följa för att ställa in ett labb.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c6bb2c4d21ee6b6cb072c550c82c380b3a380f24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3fd8ae93c873d1450d4b09496dca3ad9014baa6d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481042"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87293025"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Använd Azure DevTest Labs för utvecklare
 Azure DevTest Labs kan användas för att implementera många viktiga scenarier, men ett av de primära involverar användning av DevTest Labs som värd för utvecklingsdatorer för utvecklare. I det här scenariot har DevTest Labs följande fördelar:
@@ -45,7 +45,7 @@ I den här artikeln får du lära dig mer om olika Azure DevTest Labs funktioner
    | --- | --- |
    | [Konfigurera Azure Marketplace-avbildningar](devtest-lab-configure-marketplace-images.md) |Lär dig hur du kan vitlista Azure Marketplace-avbildningar, vilket gör det möjligt att välja enbart de avbildningar som du vill använda för utvecklarna.|
    | [Skapa en anpassad avbildning](devtest-lab-create-template.md) |Skapa en anpassad avbildning genom att förinstallera den program vara du behöver så att utvecklare snabbt kan skapa en virtuell dator med hjälp av den anpassade avbildningen.|
-   | [Lär dig mer om image Factory](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Titta på en video som beskriver hur du konfigurerar och använder en avbildnings fabrik.|
+   | [Lär dig mer om image Factory](./devtest-lab-faq.md#blog-post) |Titta på en video som beskriver hur du konfigurerar och använder en avbildnings fabrik.|
 
 3. **Skapa åter användnings bara mallar för Developer Machines** 
    
@@ -124,4 +124,3 @@ I den här artikeln får du lära dig mer om olika Azure DevTest Labs funktioner
    | [Skapa ett labb med en Resource Manager-mall](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Skapa labb i Azure DevTest Labs med Resource Manager-mallar. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-

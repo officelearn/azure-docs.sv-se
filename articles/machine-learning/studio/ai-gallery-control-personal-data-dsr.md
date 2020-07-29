@@ -1,6 +1,5 @@
 ---
-title: Hantera Azure AI Gallery data
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klassisk): Hantera Azure AI Gallery data – Azure'
 description: Du kan exportera och ta bort användar data från en produkt från Azure AI Gallery med hjälp av gränssnitts-eller AI-galleriets katalog-API. Den här artikeln visar hur du gör.
 services: machine-learning
 ms.service: machine-learning
@@ -11,12 +10,12 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 6bf0d889d70272988c9d2b243ae255f9654656bd
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 8255a4c6556dc1a36d763e48f6bcc5eec012b553
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955598"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292997"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Visa och ta bort användar data i produkten från Azure AI Gallery
 
@@ -89,7 +88,7 @@ Om du vill visa publicerade entiteter går du till följande URL och ersätter `
 
 `https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'`
 
-Ett exempel:
+Till exempel:
 
 `https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'`
 

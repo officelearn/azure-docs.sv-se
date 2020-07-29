@@ -2,13 +2,13 @@
 title: Tagga stöd för resurser
 description: Visar vilka typer av Azure-resurs typer som stöder taggar. Innehåller information om alla Azure-tjänster.
 ms.topic: conceptual
-ms.date: 07/06/2020
-ms.openlocfilehash: f59e50e3eadb50db97756aa990f4de822a8ba089
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.date: 07/28/2020
+ms.openlocfilehash: 2ebf55a15233c401904460d459a118fc46142ac3
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026380"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87338001"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagga stöd för Azure-resurser
 I den här artikeln beskrivs om en resurs typ stöder [taggar](tag-resources.md). Den kolumn som har etiketten **stöder Taggar** anger om resurs typen har en egenskap för taggen. Kolumnen med etiketten **tagg i Cost** visar om den resurs typen skickar taggen till kostnads rapporten. Du kan visa kostnader efter taggar i [Cost Management kostnads analys](../../cost-management-billing/costs/group-filter.md) och Azure- [faktura och användnings data per dag](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -77,7 +77,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. DBforPostgreSQL](#microsoftdbforpostgresql)
 > - [Microsoft. DeploymentManager](#microsoftdeploymentmanager)
 > - [Microsoft. DesktopVirtualization](#microsoftdesktopvirtualization)
-> - [Microsoft. Devices](#microsoftdevices)
+> - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft. DevOps](#microsoftdevops)
 > - [Microsoft. DevSpaces](#microsoftdevspaces)
 > - [Microsoft. DevTestLab](#microsoftdevtestlab)
@@ -137,7 +137,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. OperationalInsights](#microsoftoperationalinsights)
 > - [Microsoft. OperationsManagement](#microsoftoperationsmanagement)
 > - [Microsoft. peering](#microsoftpeering)
-> - [Microsoft.PolicyInsights](#microsoftpolicyinsights)
+> - [Microsoft. PolicyInsights](#microsoftpolicyinsights)
 > - [Microsoft. Portal](#microsoftportal)
 > - [Microsoft. PowerBI](#microsoftpowerbi)
 > - [Microsoft. PowerBIDedicated](#microsoftpowerbidedicated)
@@ -323,6 +323,10 @@ Hoppa till ett namn område för en resurs leverantör:
 > | automationAccounts / softwareUpdateConfigurations | Nej | Nej |
 > | automationAccounts/Webhooks | Nej | Nej |
 
+>[!NOTE]
+>Azure Automation har endast stöd för att skapa högst 15 märkes namn/värdepar för varje Automation-resurs.
+> 
+
 ## <a name="microsoftavs"></a>Microsoft. AVS
 
 > [!div class="mx-tableFixed"]
@@ -348,7 +352,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | b2cDirectories | Ja | No |
+> | b2cDirectories | Ja | Nej |
 > | b2ctenants | Nej | Nej |
 
 ## <a name="microsoftazuredata"></a>Microsoft. AzureData
@@ -788,7 +792,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ----------- |
 > | register | Ja | Ja |
 > | register/agentPools | Ja | Ja |
-> | register/versioner | Inga | Nej |
+> | register/versioner | Nej | Nej |
 > | register/versioner/Avbryt | Nej | Nej |
 > | register/build/getLogLink | Nej | Nej |
 > | register/buildTasks | Ja | Ja |
@@ -898,7 +902,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | arbetsytor | Ja | No |
+> | arbetsytor | Ja | Nej |
 > | arbets ytor/dbWorkspaces | Nej | Nej |
 > | arbets ytor/storageEncryption | Nej | Nej |
 > | arbets ytor/virtualNetworkPeerings | Nej | Nej |
@@ -920,11 +924,11 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | dataFactories | Ja | No |
+> | dataFactories | Ja | Nej |
 > | dataFactories / diagnosticSettings | Nej | Nej |
 > | dataFactories / metricDefinitions | Nej | Nej |
 > | dataFactorySchema | Nej | Nej |
-> | fabriker | Ja | No |
+> | fabriker | Ja | Nej |
 > | fabriker/integrationRuntimes | Nej | Nej |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft. DataLakeAnalytics
@@ -1060,7 +1064,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | hostpools / usersessions | Nej | Nej |
 > | arbetsytor | Ja | Ja |
 
-## <a name="microsoftdevices"></a>Microsoft. Devices
+## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
@@ -1603,10 +1607,10 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | netAppAccounts | Ja | No |
+> | netAppAccounts | Ja | Nej |
 > | netAppAccounts / accountBackups | Nej | Nej |
-> | netAppAccounts / capacityPools | Ja | No |
-> | netAppAccounts/capacityPools/Volumes | Ja | No |
+> | netAppAccounts / capacityPools | Ja | Nej |
+> | netAppAccounts/capacityPools/Volumes | Ja | Nej |
 > | netAppAccounts/capacityPools/volym/ögonblicks bilder | Nej | Nej |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
@@ -1618,8 +1622,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | applicationGatewayWebApplicationFirewallPolicies | Ja | Ja |
 > | applicationSecurityGroups | Ja | Ja |
 > | azureFirewallFqdnTags | Nej | Nej |
-> | azureFirewalls | Ja | No |
-> | bastionHosts | Ja | No |
+> | azureFirewalls | Ja | Nej |
+> | bastionHosts | Ja | Nej |
 > | bgpServiceCommunities | Nej | Nej |
 > | anslutning | Ja | Ja |
 > | ddosCustomPolicies | Ja | Ja |
@@ -1645,7 +1649,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | expressRouteServiceProviders | Nej | Nej |
 > | firewallPolicies | Ja | Ja |
 > | frontdoors | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Ja |
-> | frontdoorWebApplicationFirewallManagedRuleSets | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | No |
+> | frontdoorWebApplicationFirewallManagedRuleSets | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Nej |
 > | frontdoorWebApplicationFirewallPolicies | Ja, men begränsat (se [Obs! nedan](#frontdoor)) | Ja |
 > | getDnsResourceReference | Nej | Nej |
 > | internalNotify | Nej | Nej |
@@ -1657,10 +1661,10 @@ Hoppa till ett namn område för en resurs leverantör:
 > | networkProfiles | Ja | Ja |
 > | networkSecurityGroups | Ja | Ja |
 > | networkWatchers | Ja | Ja |
-> | networkWatchers / connectionMonitors | Ja | No |
+> | networkWatchers / connectionMonitors | Ja | Nej |
 > | networkWatchers / flowLogs | Nej | Nej |
-> | networkWatchers/linser | Ja | No |
-> | networkWatchers / pingMeshes | Ja | No |
+> | networkWatchers/linser | Ja | Nej |
+> | networkWatchers / pingMeshes | Ja | Nej |
 > | p2sVpnGateways | Ja | Ja |
 > | privateDnsOperationStatuses | Nej | Nej |
 > | privateDnsZones | Ja | Ja |
@@ -1690,7 +1694,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | virtualNetworks | Ja | Ja |
 > | virtualNetworks/undernät | Nej | Nej |
 > | virtualNetworkTaps | Ja | Ja |
-> | virtualWans | Ja | No |
+> | virtualWans | Ja | Nej |
 > | vpnGateways | Ja | Ja |
 > | vpnSites | Ja | Ja |
 > | webApplicationFirewallPolicies | Ja | Ja |
@@ -1713,8 +1717,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | namn områden | Ja | No |
-> | namnrymder/notificationHubs | Ja | No |
+> | namn områden | Ja | Nej |
+> | namnrymder/notificationHubs | Ja | Nej |
 
 ## <a name="microsoftobjectstore"></a>Microsoft. ObjectStore
 
@@ -1773,7 +1777,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | peeringServiceProviders | Nej | Nej |
 > | peeringServices | Ja | Ja |
 
-## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
+## <a name="microsoftpolicyinsights"></a>Microsoft. PolicyInsights
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
@@ -1894,15 +1898,15 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | calculateTemplateHash | Nej | Nej |
-> | distributioner | Ja | No |
+> | distributioner | Ja | Nej |
 > | distributioner/åtgärder | Nej | Nej |
 > | deploymentScripts | Ja | Ja |
 > | deploymentScripts/loggar | Nej | Nej |
 > | Länkar | Nej | Nej |
 > | notifyResourceJobs | Nej | Nej |
 > | finansiär | Nej | Nej |
-> | resourceGroups | Ja | No |
-> | prenumerationer | Ja | No |
+> | resourceGroups | Ja | Nej |
+> | prenumerationer | Ja | Nej |
 > | templateSpecs | Ja | Ja |
 > | templateSpecs/versioner | Ja | Ja |
 > | klienter | Nej | Nej |
@@ -2246,10 +2250,10 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | utrymmen | Ja | No |
+> | utrymmen | Ja | Nej |
 > | miljöer/accessPolicies | Nej | Nej |
-> | miljöer/eventsources | Ja | No |
-> | miljöer/referenceDataSets | Ja | No |
+> | miljöer/eventsources | Ja | Nej |
+> | miljöer/referenceDataSets | Ja | Nej |
 
 ## <a name="microsofttoken"></a>Microsoft. token
 

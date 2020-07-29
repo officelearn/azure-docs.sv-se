@@ -3,15 +3,15 @@ title: Katastrof återställnings scenarier
 description: Lär dig hur du gör i händelse av att ett Azure-tjänst avbrott påverkar Azure Virtual Machines.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.openlocfilehash: 6481bfe265786ca8b79f96bbcac7fe4d58076911
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 43e7cb0906fc6008e8bdbfafec84ecfd8e8be6b6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525831"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289670"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>Vad händer om en Azure Service-störning påverkar virtuella Azure-datorer
 På Microsoft arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga när du behöver dem. Det kommer inte längre att påverka vår kontroll på sätt som orsakar oplanerade avbrott i tjänsten.

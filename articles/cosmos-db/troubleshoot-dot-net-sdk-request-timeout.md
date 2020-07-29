@@ -1,0 +1,71 @@
+---
+title: Felsök Azure Cosmos DB HTTP 408 eller begär timeout-problem med .NET SDK
+description: Så här diagnostiserar och åtgärdar du undantags tids gränsen för .NET SDK-begäran
+author: j82w
+ms.service: cosmos-db
+ms.date: 07/13/2020
+ms.author: jawilley
+ms.topic: troubleshooting
+ms.reviewer: sngun
+ms.openlocfilehash: 29b0c6237ae04ea5da9ec496498fc7c20890b173
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87294631"
+---
+# <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout"></a>Diagnostisera och Felsök Azure Cosmos DB timeout för .NET SDK-begäran
+HTTP 408-felet uppstår om SDK inte kunde slutföra begäran innan tids gränsen uppnåddes.
+
+## <a name="troubleshooting-steps"></a>Felsökningsanvisningar
+Följande lista innehåller kända orsaker och lösningar för timeout-undantag för begäran.
+
+### <a name="1-high-cpu-utilization-most-common-case"></a>1. hög processor användning (vanligt förekommande fall)
+För optimal latens rekommenderar vi att CPU-användningen är ungefär 40%. Vi rekommenderar att du använder 10 sekunder som intervall för att övervaka Max (inte genomsnittlig) processor belastning. CPU-toppar är vanligare med frågor om flera partitioner där det kan göra flera anslutningar för en enda fråga.
+
+#### <a name="solution"></a>Lösning:
+Klient programmet som använder SDK bör skalas upp/ut.
+
+### <a name="2-socket--port-availability-might-be-low"></a>2. tillgänglighet för socket/port kan vara låg
+När du kör i Azure kan klienter som använder .NET SDK nå ut till PAT-port (Azure SNAT).
+
+#### <a name="solution-1"></a>Lösning 1:
+Följ [port överbelastnings guide för SNAT](troubleshoot-dot-net-sdk.md#snat).
+
+#### <a name="solution-2"></a>Lösning 2:
+Om du använder en HTTP-proxy kontrollerar du att den har stöd för det antal anslutningar som kon figurer ATS i SDK `ConnectionPolicy` .
+Annars är det problem med ansikts anslutning.
+
+### <a name="3-creating-multiple-client-instances"></a>3. skapa flera klient instanser
+Att skapa flera klient instanser kan leda till problem med anslutningens innehåll och timeout.
+
+#### <a name="solution"></a>Lösning:
+Följ [prestanda tipsen](performance-tips-dotnet-sdk-v3-sql.md#sdk-usage)och Använd en enda CosmosClient-instans i hela processen.
+
+### <a name="4-hot-partition-key"></a>4. snabb partitionsnyckel
+Azure Cosmos DB distribuerar det övergripande allokerade data flödet jämnt över fysiska partitioner. När det finns en aktiv partition tar en eller flera logiska partitionsnyckel på en fysisk partition över alla den fysiska partitionen RU/s, medan RU/s på andra fysiska partitioner går in. Det totala antalet RU/s som förbrukas är mindre än den totala etablerade RU/s i databasen eller behållaren, men du kommer fortfarande att se begränsning (429s) i begär Anden mot den heta logiska partitionsnyckel. Använd [måttet normaliserad ru-förbrukning](monitor-normalized-request-units.md) för att se om arbets belastningen påträffar en aktiv partition. 
+
+#### <a name="solution"></a>Lösning:
+Välj en lämplig partitionsnyckel som jämnt distribuerar begär ande volym och lagring. Lär dig hur du [ändrar partitionsnyckel](https://devblogs.microsoft.com/cosmosdb/how-to-change-your-partition-key/).
+
+### <a name="5-high-degree-of-concurrency"></a>5. hög grad av samtidighet
+Programmet gör en hög nivå av samtidighet, vilket kan leda till konkurrens på kanalen
+
+#### <a name="solution"></a>Lösning:
+Klient programmet som använder SDK bör skalas upp/ut.
+
+### <a name="6-large-requests-andor-responses"></a>6. stora förfrågningar och/eller svar
+Stora begär Anden eller svar kan leda till att det finns en rad olika block i kanal-och exacerbate-konkurrens, även med en relativt låg grad av samtidighet.
+
+#### <a name="solution"></a>Lösning:
+Klient programmet som använder SDK bör skalas upp/ut.
+
+### <a name="7-failure-rate-is-within-cosmos-db-sla"></a>7. felfrekvensen är inom Cosmos DB SLA
+Programmet ska kunna hantera tillfälliga fel och försöka igen när det behövs. 408-undantag upprepas inte på grund av att det inte går att ta reda på om tjänsten skapade objektet, eller om det inte gick att skapa sökvägar. Om du skickar samma objekt igen för att skapa uppstår ett konflikt undantag. Affärs logik för användar program kan ha anpassad logik för att hantera konflikter, vilket skulle leda till att ett befintligt objekt är tvetydigt jämfört med en konflikt med ett nytt försök.
+
+### <a name="8-failure-rate-is-violating-the-cosmos-db-sla"></a>8. felfrekvensen bryter mot Cosmos DB SLA
+Kontakta Azure-supporten.
+
+## <a name="next-steps"></a>Nästa steg
+* [Diagnostisera och Felsök](troubleshoot-dot-net-sdk.md) problem när du använder Azure Cosmos dB .NET SDK
+* Lär dig mer om prestanda rikt linjer för [.net v3](performance-tips-dotnet-sdk-v3-sql.md) och [.NET v2](performance-tips.md)

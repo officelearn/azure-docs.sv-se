@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 09d2fb709e21b7c1251c2caf224f4d5c3ce6aea1
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: fd195fee513b2eed9049c7841f791d73a41b876b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026584"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366841"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Azures säkerhets bas linje för Azure Database for MariaDB
 
@@ -296,7 +296,7 @@ Publicera Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-on
 
 Förstå åtkomst hantering för MariaDB:https://docs.microsoft.com/azure/mariadb/concepts-security#access-management
 
-Förstå inbyggda RBAC-roller för Azure-prenumerationer:https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
+Förstå inbyggda Azure-roller för Azure-prenumerationer:https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
 
 
 **Azure Security Center övervakning**: Ja

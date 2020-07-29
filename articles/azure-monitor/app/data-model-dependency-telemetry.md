@@ -4,23 +4,24 @@ description: Application Insights data modell för beroende telemetri
 ms.topic: conceptual
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: ba0d848904d1ba885dc53e2941953d8dfb4864cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f9fc96479569c3411024068ed614d422035ab17
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671927"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315979"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Beroende telemetri: Application Insights data modell
 
-Beroende telemetri (i [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representerar en interaktion av den övervakade komponenten med en fjärrkomponent, till exempel SQL eller en http-slutpunkt.
+Beroende telemetri (i [Application Insights](./app-insights-overview.md)) representerar en interaktion av den övervakade komponenten med en fjärrkomponent, till exempel SQL eller en http-slutpunkt.
 
-## <a name="name"></a>Name
+## <a name="name"></a>Namn
 
 Namnet på kommandot som initierades med det här beroende anropet. Lågt kardinal värde. Exempel på lagrade procedurer för namn och URL-sökväg.
 
 ## <a name="id"></a>ID
 
-Identifierare för en beroende anrops instans. Används för korrelation med objektet begär telemetri som motsvarar det här beroende anropet. Mer information finns på sidan [korrelation](../../azure-monitor/app/correlation.md) .
+Identifierare för en beroende anrops instans. Används för korrelation med objektet begär telemetri som motsvarar det här beroende anropet. Mer information finns på sidan [korrelation](./correlation.md) .
 
 ## <a name="data"></a>Data
 
@@ -32,7 +33,7 @@ Namn på beroende typ. Lågt kardinal värde för logisk gruppering av beroenden
 
 ## <a name="target"></a>Mål
 
-Mål plats för ett beroende anrop. Exempel är Server namn, värd adress. Mer information finns på sidan [korrelation](../../azure-monitor/app/correlation.md) .
+Mål plats för ett beroende anrop. Exempel är Server namn, värd adress. Mer information finns på sidan [korrelation](./correlation.md) .
 
 ## <a name="duration"></a>Varaktighet
 
@@ -57,8 +58,9 @@ Indikering för lyckat eller misslyckat anrop.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Konfigurera beroende spårning för [.net](../../azure-monitor/app/asp-net-dependencies.md).
-- Konfigurera beroende spårning för [Java](../../azure-monitor/app/java-agent.md).
-- [Skriv anpassad beroende telemetri](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
+- Konfigurera beroende spårning för [.net](./asp-net-dependencies.md).
+- Konfigurera beroende spårning för [Java](./java-agent.md).
+- [Skriv anpassad beroende telemetri](./api-custom-events-metrics.md#trackdependency)
 - Se [data modell](data-model.md) för Application Insights typer och data modell.
-- Kolla ut [plattformar](../../azure-monitor/app/platforms.md) som stöds av Application Insights.
+- Kolla ut [plattformar](./platforms.md) som stöds av Application Insights.
+

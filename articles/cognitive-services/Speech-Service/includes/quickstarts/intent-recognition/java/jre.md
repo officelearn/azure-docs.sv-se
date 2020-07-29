@@ -6,18 +6,18 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 58f771120c5c81e27751af66b64e146c79bb6508
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 26b3b3bd061d3ec7c3efd5c613c5beec33867022
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81421789"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298818"
 ---
 ## <a name="prerequisites"></a>Krav
 
 Innan du börjar:
 
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java" target="_blank">Installera tal-SDK för utvecklings miljön och skapa ett tomt exempel projekt<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java" target="_blank">Installera tal-SDK för utvecklings miljön och skapa ett tomt exempel projekt <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Skapa en LUIS-app för avsikts igenkänning
 
@@ -26,7 +26,7 @@ Innan du börjar:
 ## <a name="open-your-project"></a>Öppna projektet
 
 1. Öppna önskad IDE.
-2. Läs in projektet och öppna `Main.java`.
+2. Läs in projektet och öppna `Main.java` .
 
 ## <a name="start-with-some-boilerplate-code"></a>Börja med viss exempel kod
 
@@ -38,7 +38,7 @@ Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt.
 
 Innan du kan initiera ett `IntentRecognizer` objekt måste du skapa en konfiguration som använder nyckeln och platsen för din Luis förutsägelse resurs.  
 
-Infoga den här koden i try/catch-blocket i `main()`. Se till att du uppdaterar dessa värden:
+Infoga den här koden i try/catch-blocket i `main()` . Se till att du uppdaterar dessa värden:
 
 * Ersätt `"YourLanguageUnderstandingSubscriptionKey"` med din Luis-förutsägelse nyckel.
 * Ersätt `"YourLanguageUnderstandingServiceRegion"` med din Luis-plats. Använd **regions identifierare** från [region](https://aka.ms/speech/sdkregion)
@@ -48,13 +48,13 @@ Infoga den här koden i try/catch-blocket i `main()`. Se till att du uppdaterar 
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=27)]
 
-I det här exemplet `FromSubscription()` används metoden för att `SpeechConfig`bygga. En fullständig lista över tillgängliga metoder finns i [SpeechConfig-klass](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+I det här exemplet används `FromSubscription()` metoden för att bygga `SpeechConfig` . En fullständig lista över tillgängliga metoder finns i [SpeechConfig-klass](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
 
 Tal-SDK: n kommer att känna igen med en-US för språket, se [Ange käll språk för tal till text](../../../../how-to-specify-source-language.md) om du vill ha information om hur du väljer käll språk.
 
 ## <a name="initialize-an-intentrecognizer"></a>Initiera en IntentRecognizer
 
-Nu ska vi skapa en `IntentRecognizer`. Infoga den här koden direkt under din tal konfiguration.
+Nu ska vi skapa en `IntentRecognizer` . Infoga den här koden direkt under din tal konfiguration.
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=30)]
 
@@ -62,16 +62,18 @@ Nu ska vi skapa en `IntentRecognizer`. Infoga den här koden direkt under din ta
 
 Du måste associera en `LanguageUnderstandingModel` med avsikts igenkänningen och lägga till de avsikter som du vill identifiera. Vi ska använda avsikter från den färdiga domänen för start automatisering.
 
-Infoga den här koden under `IntentRecognizer`din. Se till att du ersätter `"YourLanguageUnderstandingAppId"` med ditt Luis-app-ID.
+Infoga den här koden under din `IntentRecognizer` . Se till att du ersätter `"YourLanguageUnderstandingAppId"` med ditt Luis-app-ID.
 
 >[!TIP]
 > Om du behöver hjälp med att hitta det här värdet kan du läsa [skapa en Luis-app för avsikts igenkänning](#create-a-luis-app-for-intent-recognition).
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=33-35)]
 
+I det här exemplet används `addIntent()` funktionen för att individuellt lägga till avsikter. Använd och skicka modellen om du vill lägga till alla avsikter från en modell `addAllIntents(model)` .
+
 ## <a name="recognize-an-intent"></a>Identifiera en avsikt
 
-Från- `IntentRecognizer` objektet kommer du att anropa- `recognizeOnceAsync()` metoden. Med den här metoden kan röst tjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att sluta identifiera tal.
+Från `IntentRecognizer` -objektet kommer du att anropa- `recognizeOnceAsync()` metoden. Med den här metoden kan röst tjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att sluta identifiera tal.
 
 Infoga den här koden under din modell:
 
@@ -81,7 +83,7 @@ Infoga den här koden under din modell:
 
 När igenkännings resultatet returneras av tal tjänsten vill du göra något med det. Vi ska hålla det enkelt och skriva ut resultatet till-konsolen.
 
-Infoga den här koden under anropet `recognizeOnceAsync()`till.
+Infoga den här koden under anropet till `recognizeOnceAsync()` .
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=43-64)]
 
@@ -102,7 +104,7 @@ Nu bör din kod se ut så här:
 
 ## <a name="build-and-run-your-app"></a>Skapa och kör din app
 
-Tryck på <kbd>F11</kbd>eller Välj **Kör** > **fel sökning**.
+Tryck på <kbd>F11</kbd>eller Välj **Kör**  >  **fel sökning**.
 Följande 15 sekunder av talindata från mikrofonen identifieras och loggas i konsolfönstret.
 
 ## <a name="next-steps"></a>Nästa steg

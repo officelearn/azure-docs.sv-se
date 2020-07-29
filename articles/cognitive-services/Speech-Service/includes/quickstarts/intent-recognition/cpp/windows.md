@@ -6,18 +6,18 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 770e037641ac8fbf75989dc94b66fd1df0689e50
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9c0c2673acf12ddf80b77be57acc5af55e7f160c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81421751"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298748"
 ---
 ## <a name="prerequisites"></a>Krav
 
 Innan du börjar:
 
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp" target="_blank">Installera tal-SDK för utvecklings miljön och skapa ett tomt exempel projekt<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp" target="_blank">Installera tal-SDK för utvecklings miljön och skapa ett tomt exempel projekt <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Skapa en LUIS-app för avsikts igenkänning
 
@@ -28,11 +28,11 @@ Innan du börjar:
 Öppna sedan projektet i Visual Studio.
 
 1. Starta Visual Studio 2019.
-2. Läs in projektet och öppna `helloworld.cpp`.
+2. Läs in projektet och öppna `helloworld.cpp` .
 
 ## <a name="start-with-some-boilerplate-code"></a>Börja med viss exempel kod
 
-Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt. Observera att du har skapat en async-metod som `recognizeIntent()`kallas.
+Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt. Observera att du har skapat en async-metod som kallas `recognizeIntent()` .
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-16,72-80)]
 
@@ -43,7 +43,7 @@ Innan du kan initiera ett `IntentRecognizer` objekt måste du skapa en konfigura
 > [!IMPORTANT]
 > Start nyckeln och redigerings nycklarna fungerar inte. Du måste använda din förutsägelse nyckel och plats som du skapade tidigare. Mer information finns i [skapa en Luis-app för avsikts igenkänning](#create-a-luis-app-for-intent-recognition).
 
-Infoga den här koden i `recognizeIntent()` -metoden. Se till att du uppdaterar dessa värden:
+Infoga den här koden i- `recognizeIntent()` metoden. Se till att du uppdaterar dessa värden:
 
 * Ersätt `"YourLanguageUnderstandingSubscriptionKey"` med din Luis-förutsägelse nyckel.
 * Ersätt `"YourLanguageUnderstandingServiceRegion"` med din Luis-plats.  Använd **regions identifierare** från [region](https://aka.ms/speech/sdkregion).
@@ -53,13 +53,13 @@ Infoga den här koden i `recognizeIntent()` -metoden. Se till att du uppdaterar 
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=25)]
 
-I det här exemplet `FromSubscription()` används metoden för att `SpeechConfig`bygga. En fullständig lista över tillgängliga metoder finns i [SpeechConfig-klass](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig).
+I det här exemplet används `FromSubscription()` metoden för att bygga `SpeechConfig` . En fullständig lista över tillgängliga metoder finns i [SpeechConfig-klass](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig).
 
 Tal-SDK: n kommer att känna igen med en-US för språket, se [Ange käll språk för tal till text](../../../../how-to-specify-source-language.md) om du vill ha information om hur du väljer käll språk.
 
 ## <a name="initialize-an-intentrecognizer"></a>Initiera en IntentRecognizer
 
-Nu ska vi skapa en `IntentRecognizer`. Infoga den här koden i `recognizeIntent()` metoden, precis under din tal konfiguration.
+Nu ska vi skapa en `IntentRecognizer` . Infoga den här koden i `recognizeIntent()` metoden, precis under din tal konfiguration.
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=28)]
 
@@ -67,16 +67,18 @@ Nu ska vi skapa en `IntentRecognizer`. Infoga den här koden i `recognizeIntent(
 
 Du måste associera en `LanguageUnderstandingModel` med avsikts igenkänningen och lägga till de avsikter som du vill identifiera. Vi ska använda avsikter från den färdiga domänen för start automatisering.
 
-Infoga den här koden under `IntentRecognizer`din. Se till att du ersätter `"YourLanguageUnderstandingAppId"` med ditt Luis-app-ID.
+Infoga den här koden under din `IntentRecognizer` . Se till att du ersätter `"YourLanguageUnderstandingAppId"` med ditt Luis-app-ID.
 
 >[!TIP]
 > Om du behöver hjälp med att hitta det här värdet kan du läsa [skapa en Luis-app för avsikts igenkänning](#create-a-luis-app-for-intent-recognition).
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=31-33)]
 
+I det här exemplet används `AddIntent()` funktionen för att individuellt lägga till avsikter. Använd och skicka modellen om du vill lägga till alla avsikter från en modell `AddAllIntents(model)` .
+
 ## <a name="recognize-an-intent"></a>Identifiera en avsikt
 
-Från- `IntentRecognizer` objektet kommer du att anropa- `RecognizeOnceAsync()` metoden. Med den här metoden kan röst tjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att sluta identifiera tal. För enkelhetens skull väntar vi på att framtiden ska bli klar.
+Från `IntentRecognizer` -objektet kommer du att anropa- `RecognizeOnceAsync()` metoden. Med den här metoden kan röst tjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att sluta identifiera tal. För enkelhetens skull väntar vi på att framtiden ska bli klar.
 
 Infoga den här koden under din modell:
 
@@ -86,7 +88,7 @@ Infoga den här koden under din modell:
 
 När igenkännings resultatet returneras av tal tjänsten vill du göra något med det. Vi ska hålla det enkelt och skriva ut resultatet till-konsolen.
 
-Infoga den här koden `auto result = recognizer->RecognizeOnceAsync().get();`nedan:
+Infoga den här koden nedan `auto result = recognizer->RecognizeOnceAsync().get();` :
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=46-71)]
 
@@ -103,8 +105,8 @@ Nu bör din kod se ut så här:
 
 Nu är du redo att bygga din app och testa vår tal igenkänning med röst tjänsten.
 
-1. **Kompilera koden** – från meny raden i Visual Studio väljer du **bygge** > **build-lösning**.
-2. **Starta din app** – från meny raden väljer du **Felsök** > **Starta fel sökning** eller tryck på <kbd>F5</kbd>.
+1. **Kompilera koden** – från meny raden i Visual Studio väljer du **bygge**  >  **build-lösning**.
+2. **Starta din app** – från meny raden väljer du **Felsök**  >  **Starta fel sökning** eller tryck på <kbd>F5</kbd>.
 3. **Starta igenkänning** – du uppmanas att tala en fras på engelska. Ditt tal skickas till tal tjänsten, skrivs som text och återges i-konsolen.
 
 ## <a name="next-steps"></a>Nästa steg

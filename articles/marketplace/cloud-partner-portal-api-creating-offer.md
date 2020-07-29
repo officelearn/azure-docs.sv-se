@@ -4,15 +4,15 @@ description: API för att skapa ett nytt eller uppdatera ett befintligt erbjudan
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 249eb982ee701ea0a442121c02e55ad98e1f6fb9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 68416fa91f6b75fb3ef2b91c1297f13d84f2bdab
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011999"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292958"
 ---
 <a name="create-or-modify-an-offer"></a>Skapa eller ändra ett erbjudande
 =========================
@@ -50,7 +50,7 @@ Det här anropet uppdaterar ett enskilt erbjudande i utgivarens namnrymd eller s
 
 I följande exempel skapas ett erbjudande med offerID av `contosovirtualmachine` .
 
-### <a name="request"></a>Begäran
+### <a name="request"></a>Förfrågan
 
 ``` json
   {

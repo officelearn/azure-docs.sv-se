@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: aa3faad88fb5474b34ff6855690882141b2e4843
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1057bb908e973c74b6dfb70931469e27f77512de
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046295"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292661"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c"></a>Fråga efter data från Azure Time Series Insights Gen2-miljön med hjälp av C #
 
@@ -39,9 +39,9 @@ Exempel koden nedan visar följande funktioner:
     * [API för Gen2-fråga](https://docs.microsoft.com/rest/api/time-series-insights/preview#query-apis)
         * [Hämta händelse-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents), [Hämta serie-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)och [Hämta API för sammanställd serie](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
     * [API: er för Time Series-modellen](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
-        * [Hämta hierarkier API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/get) och [hierarkier batch-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
-        * [Hämta API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/get) och [typer batch API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
-        * [Hämta instanser API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/get) och [instanser batch-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
+        * [Hämta hierarkier API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies) och [hierarkier batch-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
+        * [Hämta API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes) och [typer batch API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
+        * [Hämta instanser API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances) och [instanser batch-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
 * Avancerade [Sök](https://docs.microsoft.com/rest/api/time-series-insights/preview#search-features) -och [TSX](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) -funktioner.
 
 ## <a name="prerequisites-and-setup"></a>Krav och installation
@@ -65,7 +65,7 @@ Exempel koden har flera obligatoriska beroenden som kan visas i [packages.config
 
 Ladda ned paketen i Visual Studio 2019 genom att välja alternativet **build**  >  **build-lösning** . 
 
-Du kan också lägga till varje paket med [NuGet 2.12 +](https://www.nuget.org/). Exempel:
+Du kan också lägga till varje paket med [NuGet 2.12 +](https://www.nuget.org/). Till exempel:
 
 * `dotnet add package Microsoft.IdentityModel.Clients.ActiveDirectory --version 4.5.1`
 

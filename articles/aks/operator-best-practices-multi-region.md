@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e4e2a1fc08851e4e625bfc59419fc274ebbce1c8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 578560eccb13ff4b9169e11b0674859acc1fc901
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251204"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285874"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Metod tips för verksamhets kontinuitet och haveri beredskap i Azure Kubernetes service (AKS)
 
@@ -57,9 +57,9 @@ Traffic Manager utför DNS-sökningar och returnerar en användares lämpligaste
 
 Information om hur du konfigurerar slut punkter och routning finns i [Konfigurera principen för geografisk trafik cirkulation med hjälp av Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md).
 
-### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Layer 7-programroutning med Azure-tjänsten för front dörr
+### <a name="application-routing-with-azure-front-door-service"></a>Application routing med Azure-tjänsten för front dörr
 
-Traffic Manager använder DNS (skikt 3) för att forma trafik. [Azure frontend-tjänsten](../frontdoor/front-door-overview.md) tillhandahåller ett alternativ för att dirigera http/https (Layer 7). Ytterligare funktioner i Azures frontend-tjänst omfattar TLS-terminering, anpassad domän, brand vägg för webb program, URL-omskrivning och tillhörighet mellan sessioner. Granska behoven hos din program trafik för att förstå vilken lösning som passar bäst.
+Med hjälp av delat TCP-baserat anycast [-protokoll ser Azure frontend-tjänsten](../frontdoor/front-door-overview.md) till att slutanvändarna kan ansluta till närmaste pop-dörr (punkt för närvaro). Ytterligare funktioner i Azures frontend-tjänst omfattar TLS-terminering, anpassad domän, brand vägg för webb program, URL-omskrivning och tillhörighet mellan sessioner. Granska behoven hos din program trafik för att förstå vilken lösning som passar bäst.
 
 ### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Interconnect-regioner med global peering för virtuella nätverk
 

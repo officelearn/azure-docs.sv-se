@@ -5,12 +5,12 @@ description: Lär dig hur du skapar och använder en intern belastningsutjämnar
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 58aadc4fadb93a4f6eb47214f580f7a2bebdf49c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec8fd1f1b32d5bba6dc4dc756e1f95f4a74f9a96
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056817"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285891"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Använda en intern belastningsutjämnare med Azure Kubernetes service (AKS)
 
@@ -25,7 +25,9 @@ Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du beh
 
 Du måste också ha Azure CLI-versionen 2.0.59 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
-AKS-kluster tjänstens huvud namn måste ha behörighet att hantera nätverks resurser om du använder ett befintligt undernät eller en befintlig resurs grupp. I allmänhet tilldelar du rollen *nätverks deltagare* till tjänstens huvud namn på de delegerade resurserna. I stället för ett huvud namn för tjänsten kan du använda systemtilldelad hanterad identitet för behörigheter. Mer information finns i [använda hanterade identiteter](use-managed-identity.md). Mer information om behörigheter finns i [delegera AKS-åtkomst till andra Azure-resurser][aks-sp].
+AKS-kluster tjänstens huvud namn måste ha behörighet att hantera nätverks resurser om du använder ett befintligt undernät eller en befintlig resurs grupp. Mer information finns i [använda Kubernetes-nätverk med dina egna IP-adressintervall i Azure Kubernetes service (AKS)][use-kubenet] eller [Konfigurera Azure cni-nätverk i Azure KUBERNETES service (AKS)][advanced-networking]. Om du konfigurerar belastningsutjämnaren att använda en [IP-adress i ett annat undernät][different-subnet], se till att AKS-kluster tjänstens huvud namn också har Läs behörighet till det under nätet.
+
+I stället för ett huvud namn för tjänsten kan du också använda systemtilldelad hanterad identitet för behörigheter. Mer information finns i [använda hanterade identiteter](use-managed-identity.md). Mer information om behörigheter finns i [delegera AKS-åtkomst till andra Azure-resurser][aks-sp].
 
 ## <a name="create-an-internal-load-balancer"></a>Skapa en intern lastbalanserare
 
@@ -65,7 +67,7 @@ internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 
 ## <a name="specify-an-ip-address"></a>Ange en IP-adress
 
-Om du vill använda en speciell IP-adress med den interna belastningsutjämnaren lägger du till egenskapen *loadBalancerIP* i yaml-manifestet för belastningsutjämnaren. Den angivna IP-adressen måste finnas i samma undernät som AKS-klustret och får inte redan tilldelas till en resurs. Du bör till exempel inte använda en IP-adress i intervallet som anges för Kubernetes-undernätet.
+Om du vill använda en speciell IP-adress med den interna belastningsutjämnaren lägger du till egenskapen *loadBalancerIP* i yaml-manifestet för belastningsutjämnaren. I det här scenariot måste den angivna IP-adressen finnas i samma undernät som AKS-klustret och får inte redan tilldelas till en resurs. Du bör till exempel inte använda en IP-adress i intervallet som anges för Kubernetes-undernätet.
 
 ```yaml
 apiVersion: v1
@@ -91,6 +93,8 @@ $ kubectl get service internal-app
 NAME           TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
 internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 ```
+
+Mer information om hur du konfigurerar belastningsutjämnaren i ett annat undernät finns i [Ange ett annat undernät][different-subnet]
 
 ## <a name="use-private-networks"></a>Använd privata nätverk
 
@@ -153,3 +157,4 @@ Läs mer om Kubernetes Services i [dokumentationen för Kubernetes Services][kub
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
+[different-subnet]: #specify-a-different-subnet

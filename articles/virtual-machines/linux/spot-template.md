@@ -4,15 +4,16 @@ description: Lär dig hur du använder en mall för att distribuera virtuella da
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 2d546e9154352ec90aa1b1a457eb5320979239d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e2810941248a7e1047aeac2fd6faf6ea08a5dda
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758344"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292206"
 ---
 # <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Distribuera virtuella datorer med hjälp av en Resource Manager-mall
 

@@ -1,6 +1,6 @@
 ---
-title: Skapa Windows Virtual Desktop hösten 2019 Host pool PowerShell – Azure
-description: Så här skapar du en adresspool i Windows Virtual Desktop med PowerShell-cmdletar.
+title: Skapa en Windows Virtual Desktop (klassisk)-värd pool PowerShell – Azure
+description: Så här skapar du en adresspool i Windows Virtual Desktop (klassisk) med PowerShell-cmdletar.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 552a3fdd20d67d81fe0c6a81a965fd3231da643d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7bc1e229711ef24b07641c5767f5f60c17a3b97c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527650"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291296"
 ---
-# <a name="create-a-host-pool-with-powershell"></a>Skapa en värdpool med PowerShell
+# <a name="create-a-host-pool-in-windows-virtual-desktop-classic-with-powershell"></a>Skapa en värdbaserad pool i Windows Virtual Desktop (klassisk) med PowerShell
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../create-host-pools-powershell.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../create-host-pools-powershell.md).
 
 Värdbaserade pooler är en samling av en eller flera identiska virtuella datorer i Windows-miljöer för virtuella Skriv bords klienter. Varje adresspool kan innehålla en app-grupp som användare kan interagera med på samma sätt som på ett fysiskt skriv bord.
 

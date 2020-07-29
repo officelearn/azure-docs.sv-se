@@ -11,18 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e134c2e49df5b53ed37acddd86e41af17f43a048
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54a6c455f3702433398035a2eb6398c39b609ce9
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84464172"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337457"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Gör så här: Konfigurera och aktivera risk principer
 
 Som vi lärt dig i föregående artikel har [identitets skydds principer](concept-identity-protection-policies.md) två risk principer som vi kan aktivera i vår katalog. 
 
-- Princip för inloggnings risk
-- Användar risk princip
+- Princip för inloggningsrisk
+- Princip för användarrisk
 
 ![Sidan säkerhets översikt för att aktivera användar-och inloggnings risk principer](./media/howto-identity-protection-configure-risk-policies/identity-protection-security-overview.png)
 
@@ -54,7 +55,7 @@ Utför följande steg för att aktivera användar risk-och inloggnings risk prin
 
 1. Navigera till [Azure Portal](https://portal.azure.com).
 1. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  **identitets skydd**  >  **– Översikt**.
-1. Välj **Konfigurera användar risk princip**.
+1. Välj **princip för användar risk**.
    1. Under **tilldelningar**
       1. **Användare** – Välj **alla användare** eller **Välj personer och grupper** om du vill begränsa distributionen.
          1. Du kan också välja att exkludera användare från principen.
@@ -63,7 +64,7 @@ Utför följande steg för att aktivera användar risk-och inloggnings risk prin
       1. **Åtkomst** – Microsofts rekommendation är att **tillåta åtkomst** och **Kräv lösen ords ändring**.
    1. **Tillämpa princip**  -  **På**
    1. **Spara** – den här åtgärden kommer att gå tillbaka till **översikts** sidan.
-1. Välj **Konfigurera inloggnings risk princip**.
+1. Välj **princip för inloggnings risk**.
    1. Under **tilldelningar**
       1. **Användare** – Välj **alla användare** eller **Välj personer och grupper** om du vill begränsa distributionen.
          1. Du kan också välja att exkludera användare från principen.

@@ -9,11 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: 6e9f9c89cf2e5e40d37a1532e688490aae294181
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed14d4cb79cb5794fa666f1bb96e062d69128d0f
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73888869"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337678"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Anslut en IoT DevKit-enhet till lösningen för fjärr styrnings lösning
 
@@ -129,4 +130,3 @@ Nu när du har lärt dig hur du ansluter en DevKit-enhet till din lösnings Acce
 
 * [Översikt över Azure IoT Solution Accelerators](https://docs.microsoft.com/azure/iot-accelerators/)
 * [Anpassa användargränssnittet](iot-accelerators-remote-monitoring-customize.md)
-* [Ansluta IoT-DevKit till ditt Azure IoT Central-program](../iot-central/core/howto-connect-devkit.md)

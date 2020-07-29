@@ -7,15 +7,16 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 93043874db6076b26d0fefe447db7acd83547442
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05bcbf8df695ba308a6eaff5e7401f0a6d638747
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725592"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337610"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Skicka frågor till Azure Digitals dubbla grafer
 
-Den här artikeln går djupgående om att använda [Azures digitala dubbla informations frågor](concepts-query-language.md) för att skicka frågor till den [dubbla grafen](concepts-twins-graph.md) . Du kör frågor i grafen med hjälp av Azures digitala dubbla [**API: er för frågor**](how-to-use-apis-sdks.md).
+Den här artikeln innehåller exempel och mer information om hur du använder [Azure Digitals frågor](concepts-query-language.md) för att skicka frågor till den [dubbla grafen](concepts-twins-graph.md) . Du kör frågor i grafen med hjälp av Azures digitala dubbla [**API: er för frågor**](how-to-use-apis-sdks.md).
 
 ## <a name="query-syntax"></a>Frågesyntax
 
@@ -40,6 +41,52 @@ AND T.roomSize > 50
 
 > [!TIP]
 > ID: t för en digital delad frågas med hjälp av fältet metadata `$dtId` .
+
+### <a name="query-based-on-relationships"></a>Fråga baserat på relationer
+
+När du frågar baserat på digitala dubbla relationer, har Azure Digitals frågor för Query Store en speciell syntax.
+
+Relationerna hämtas till fråge omfånget i- `FROM` satsen. En viktig skillnad från "klassiska" SQL-typ språk är att varje uttryck i den här `FROM` satsen inte är en tabell. i stället `FROM` uttrycker satsen en relation mellan olika enheter och är skriven med en digital Azure-version av `JOIN` . 
+
+Kom ihåg att med Azure Digitals dubbla [modell](concepts-models.md) funktioner, finns det inga relationer oberoende av varandra. Det innebär att Azures digitala dubbla band `JOIN` är lite annorlunda än den allmänna SQL `JOIN` , eftersom relationer här inte kan frågas separat och måste vara knutna till ett dubbel.
+För att ta med den här skillnaden `RELATED` används nyckelordet i- `JOIN` satsen för att referera till en grupp med dubbla relationer. 
+
+Följande avsnitt innehåller flera exempel på hur det ser ut.
+
+> [!TIP]
+> Den här funktionen imiterar den här funktionen de dokumentbaserade funktionerna i CosmosDB, där `JOIN` kan utföras på underordnade objekt i ett dokument. CosmosDB använder `IN` nyckelordet för att ange att `JOIN` är avsett att iterera över mat ris element i det aktuella Sammanhangs dokumentet.
+
+#### <a name="relationship-based-query-examples"></a>Exempel på Relations hip-baserade frågor
+
+Om du vill hämta en data uppsättning som inkluderar relationer använder `FROM` du ett enda uttryck följt av N `JOIN` -instruktioner, där `JOIN` uttrycken uttrycker relationer för resultatet av en tidigare `FROM` or- `JOIN` instruktion.
+
+Här är en exempel Relations hip-baserad fråga. Det här kodfragmentet väljer alla digitala, dubbla med *ID-* egenskapen för "ABC", och alla digitala garn som är relaterade till dessa Digitala flätar via en *contains* -relation. 
+
+```sql
+SELECT T, CT
+FROM DIGITALTWINS T
+JOIN CT RELATED T.contains
+WHERE T.$dtId = 'ABC' 
+```
+
+>[!NOTE] 
+> Utvecklaren behöver inte korrelera detta `JOIN` med ett nyckel värde i `WHERE` -satsen (eller ange ett nyckel värde infogat med `JOIN` definitionen). Den här korrelationen beräknas automatiskt av systemet, eftersom Relations egenskaperna identifierar målentiteten.
+
+#### <a name="query-the-properties-of-a-relationship"></a>Fråga egenskaperna för en relation
+
+På samma sätt som digitala dubbla har egenskaper som beskrivs via DTDL, kan relationer också ha egenskaper. Med Azures digitala dubbla frågor för Query Store kan du filtrera och projicera relationer genom att tilldela ett alias till relationen i- `JOIN` satsen. 
+
+Anta till exempel en *servicedBy* -relation som har en *reportedCondition* -egenskap. I nedanstående fråga får den här relationen ett alias för R för att referera till egenskapen.
+
+```sql
+SELECT T, SBT, R
+FROM DIGITALTWINS T
+JOIN SBT RELATED T.servicedBy R
+WHERE T.$dtId = 'ABC' 
+AND R.reportedCondition = 'clean'
+```
+
+I exemplet ovan noterar du hur *reportedCondition* är en egenskap hos *servicedBy* -relationen (inte av någon digital, som har en *servicedBy* -relation).
 
 ## <a name="run-queries-with-an-api-call"></a>Köra frågor med ett API-anrop
 
@@ -75,53 +122,7 @@ catch (RequestFailedException e)
 }
 ```
 
-## <a name="query-based-on-relationships"></a>Fråga baserat på relationer
-
-När du frågar baserat på digitala dubbla relationer, har Azure Digitals frågor för Query Store en speciell syntax.
-
-Relationerna hämtas till fråge omfånget i- `FROM` satsen. En viktig skillnad från "klassiska" SQL-typ språk är att varje uttryck i den här `FROM` satsen inte är en tabell. i stället `FROM` uttrycker satsen en relation mellan olika enheter och är skriven med en digital Azure-version av `JOIN` . 
-
-Kom ihåg att med Azure Digitals dubbla [modell](concepts-models.md) funktioner, finns det inga relationer oberoende av varandra. Det innebär att Azures digitala dubbla band `JOIN` är lite annorlunda än den allmänna SQL `JOIN` , eftersom relationer här inte kan frågas separat och måste vara knutna till ett dubbel.
-För att ta med den här skillnaden `RELATED` används nyckelordet i- `JOIN` satsen för att referera till en grupp med dubbla relationer. 
-
-Följande avsnitt innehåller flera exempel på hur det ser ut.
-
-> [!TIP]
-> Den här funktionen imiterar den här funktionen de dokumentbaserade funktionerna i CosmosDB, där `JOIN` kan utföras på underordnade objekt i ett dokument. CosmosDB använder `IN` nyckelordet för att ange att `JOIN` är avsett att iterera över mat ris element i det aktuella Sammanhangs dokumentet.
-
-### <a name="relationship-based-query-examples"></a>Exempel på Relations hip-baserade frågor
-
-Om du vill hämta en data uppsättning som inkluderar relationer använder `FROM` du ett enda uttryck följt av N `JOIN` -instruktioner, där `JOIN` uttrycken uttrycker relationer för resultatet av en tidigare `FROM` or- `JOIN` instruktion.
-
-Här är en exempel Relations hip-baserad fråga. Det här kodfragmentet väljer alla digitala, dubbla med *ID-* egenskapen för "ABC", och alla digitala garn som är relaterade till dessa Digitala flätar via en *contains* -relation. 
-
-```sql
-SELECT T, CT
-FROM DIGITALTWINS T
-JOIN CT RELATED T.contains
-WHERE T.$dtId = 'ABC' 
-```
-
->[!NOTE] 
-> Utvecklaren behöver inte korrelera detta `JOIN` med ett nyckel värde i `WHERE` -satsen (eller ange ett nyckel värde infogat med `JOIN` definitionen). Den här korrelationen beräknas automatiskt av systemet, eftersom Relations egenskaperna identifierar målentiteten.
-
-### <a name="query-the-properties-of-a-relationship"></a>Fråga egenskaperna för en relation
-
-På samma sätt som digitala dubbla har egenskaper som beskrivs via DTDL, kan relationer också ha egenskaper. Med Azures digitala dubbla frågor för Query Store kan du filtrera och projicera relationer genom att tilldela ett alias till relationen i- `JOIN` satsen. 
-
-Anta till exempel en *servicedBy* -relation som har en *reportedCondition* -egenskap. I nedanstående fråga får den här relationen ett alias för R för att referera till egenskapen.
-
-```sql
-SELECT T, SBT, R
-FROM DIGITALTWINS T
-JOIN SBT RELATED T.servicedBy R
-WHERE T.$dtId = 'ABC' 
-AND R.reportedCondition = 'clean'
-```
-
-I exemplet ovan noterar du hur *reportedCondition* är en egenskap hos *servicedBy* -relationen (inte av någon digital, som har en *servicedBy* -relation).
-
-### <a name="query-limitations"></a>Frågornas begränsningar
+## <a name="query-limitations"></a>Frågornas begränsningar
 
 Det kan finnas en fördröjning på upp till 10 sekunder innan ändringarna i instansen återspeglas i frågor. Om du till exempel utför en åtgärd som att skapa eller ta bort dubbla med DigitalTwins-API: t kan det hända att resultatet inte omedelbart avspeglas i frågor som API-begäranden. Det bör finnas tillräckligt med väntan på en kort period för att lösa problemet.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 939a2e67d6d2c215f7a575b6b9bd08660fc03b27
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3a6afd42c12a523523b45861b38b323fa680ecab
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008208"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317292"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Utforma en distribution med Azure Monitor-loggar
 
@@ -47,12 +47,12 @@ IT-organisationer idag modelleras efter antingen en centraliserad, decentraliser
 
 När du använder Log Analyticss agenter för att samla in data måste du förstå följande för att kunna planera agent distributionen:
 
-* Om du vill samla in data från Windows-agenter kan du [Konfigurera varje agent så att den rapporterar till en eller flera arbets ytor](../../azure-monitor/platform/agent-windows.md), även om den rapporterar till en System Center Operations Manager hanterings grupp. Windows-agenten kan rapportera upp till fyra arbets ytor.
+* Om du vill samla in data från Windows-agenter kan du [Konfigurera varje agent så att den rapporterar till en eller flera arbets ytor](./agent-windows.md), även om den rapporterar till en System Center Operations Manager hanterings grupp. Windows-agenten kan rapportera upp till fyra arbets ytor.
 * Linux-agenten stöder inte Multi-värdar och kan bara rapportera till en enda arbets yta.
 
 Om du använder System Center Operations Manager 2012 R2 eller senare:
 
-* Varje Operations Manager hanterings grupp kan [endast anslutas till en arbets yta](../platform/om-agents.md). 
+* Varje Operations Manager hanterings grupp kan [endast anslutas till en arbets yta](./om-agents.md). 
 * Linux-datorer som rapporterar till en hanterings grupp måste konfigureras att rapportera direkt till en Log Analytics-arbetsyta. Om Linux-datorerna redan rapporterar direkt till en arbets yta och du vill övervaka dem med Operations Manager följer du dessa steg för att [rapportera till en Operations Manager hanterings grupp](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
 * Du kan installera Log Analytics Windows-agenten på Windows-datorn och låta den rapportera till båda Operations Manager integrerade med en arbets yta och en annan arbets yta.
 
@@ -166,3 +166,4 @@ När du planerar migreringen till den här modellen bör du tänka på följande
 ## <a name="next-steps"></a>Nästa steg
 
 Om du vill implementera säkerhets behörigheter och kontroller som rekommenderas i den här guiden granskar du [Hantera åtkomst till loggar](manage-access.md).
+

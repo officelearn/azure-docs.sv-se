@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: fb216f164e02dfa4dbc4ad11774569b2e8ea970f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0173d324da4f6cf2a24b825fe44fc07b7fe50b84
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539694"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318138"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Kontinuerlig övervakning med Azure Monitor
 
@@ -26,9 +26,9 @@ I den här artikeln beskrivs de olika stegen för att använda Azure Monitor fö
 För att få till gång till hela din miljö måste du aktivera övervakning av alla dina webb program och-tjänster. På så sätt kan du enkelt visualisera slut punkt till slut punkts transaktioner och anslutningar i alla komponenter.
 
 - [Azure DevOps Projects](../devops-project/overview.md) ge dig en förenklad upplevelse med din befintliga kod och git-lagringsplats, eller Välj från ett av exempel programmen för att skapa en pipeline för kontinuerlig integrering (CI) och kontinuerlig leverans (CD) till Azure.
-- [Med kontinuerlig övervakning i din DevOps release-pipeline](../azure-monitor/app/continuous-monitoring.md) kan du Gate eller återställa distributionen baserat på övervaknings data.
-- Med [statusövervakare](../azure-monitor/app/monitor-performance-live-website-now.md) kan du instrumentera en Live .net-app i Windows med Azure Application Insights utan att behöva ändra eller distribuera om koden.
-- Om du har åtkomst till koden för ditt program kan du Aktivera fullständig övervakning med [Application Insights](../azure-monitor/app/app-insights-overview.md) genom att installera Azure Monitor Application Insights SDK för [.net](../azure-monitor/learn/quick-monitor-portal.md), [Java](../azure-monitor/app/java-get-started.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md)eller [något annat programmeringsspråk](../azure-monitor/app/platforms.md). På så sätt kan du ange anpassade händelser, mått eller sid visningar som är relevanta för ditt program och ditt företag.
+- [Med kontinuerlig övervakning i din DevOps release-pipeline](./app/continuous-monitoring.md) kan du Gate eller återställa distributionen baserat på övervaknings data.
+- Med [statusövervakare](./app/monitor-performance-live-website-now.md) kan du instrumentera en Live .net-app i Windows med Azure Application Insights utan att behöva ändra eller distribuera om koden.
+- Om du har åtkomst till koden för ditt program kan du Aktivera fullständig övervakning med [Application Insights](./app/app-insights-overview.md) genom att installera Azure Monitor Application Insights SDK för [.net](./learn/quick-monitor-portal.md), [Java](./app/java-get-started.md), [Node.js](./learn/nodejs-quick-start.md)eller [något annat programmeringsspråk](./app/platforms.md). På så sätt kan du ange anpassade händelser, mått eller sid visningar som är relevanta för ditt program och ditt företag.
 
 
 
@@ -50,7 +50,7 @@ Program är bara tillförlitliga som den underliggande infrastrukturen. Om du ha
 ##  <a name="combine-resources-in-azure-resource-groups"></a>Kombinera resurser i Azure-resurs grupper
 Ett typiskt program på Azure innehåller i dag flera resurser, till exempel virtuella datorer och App Services eller mikrotjänster som finns på Cloud Services, AKS-kluster eller Service Fabric. De här programmen använder ofta beroenden som Event Hubs, Storage, SQL och Service Bus.
 
-- Kombinera resurser i Azure-resurs grupper för att få fullständig insyn i alla resurser som utgör dina olika program. [Azure Monitor för resurs grupper](../azure-monitor/insights/resource-group-insights.md) är ett enkelt sätt att hålla koll på hela programmets prestanda och prestanda och göra det möjligt att gå djupare till respektive komponent för eventuella undersökningar eller fel sökning.
+- Kombinera resurser i Azure-resurs grupper för att få fullständig insyn i alla resurser som utgör dina olika program. [Azure Monitor för resurs grupper](./insights/resource-group-insights.md) är ett enkelt sätt att hålla koll på hela programmets prestanda och prestanda och göra det möjligt att gå djupare till respektive komponent för eventuella undersökningar eller fel sökning.
 
 ## <a name="ensure-quality-through-continuous-deployment"></a>Säkerställ kvalitet genom kontinuerlig distribution
 Kontinuerlig integrering/kontinuerlig distribution gör att du automatiskt kan integrera och distribuera kod ändringar i programmet baserat på resultaten av automatiserad testning. Det effektiviserar distributions processen och säkerställer kvaliteten på eventuella ändringar innan de flyttas till produktion.
@@ -58,32 +58,33 @@ Kontinuerlig integrering/kontinuerlig distribution gör att du automatiskt kan i
 
 - Använd [Azure-pipelines](/azure/devops/pipelines) för att implementera kontinuerlig distribution och automatisera hela processen från kod genomförande till produktion utifrån dina CI/CD-tester.
 - Använd [kvalitets grindar](/azure/devops/pipelines/release/approvals/gates) för att integrera övervakning i för distribution eller efter distribution. Detta säkerställer att du uppfyller KPI: erna (Key Health/prestanda mått) när dina program flyttas från dev till produktion och eventuella skillnader i infrastruktur miljön eller skalan inte påverkar dina KPI: er negativt.
-- [Upprätthålla separata övervaknings instanser](../azure-monitor/app/separate-resources.md) mellan dina olika distributions miljöer, till exempel dev, test, Kanarie och Prod. Detta säkerställer att insamlade data är relevanta för alla associerade program och infrastrukturer. Om du behöver korrelera data i olika miljöer kan du använda diagram med [flera resurser i Metrics Explorer](../azure-monitor/platform/metrics-charts.md) eller skapa [kors resurs frågor i Azure Monitor](log-query/cross-workspace-query.md).
+- [Upprätthålla separata övervaknings instanser](./app/separate-resources.md) mellan dina olika distributions miljöer, till exempel dev, test, Kanarie och Prod. Detta säkerställer att insamlade data är relevanta för alla associerade program och infrastrukturer. Om du behöver korrelera data i olika miljöer kan du använda diagram med [flera resurser i Metrics Explorer](./platform/metrics-charts.md) eller skapa [kors resurs frågor i Azure Monitor](log-query/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Skapa åtgärds bara aviseringar med åtgärder
 En viktig aspekt av övervakningen meddelar proaktivt administratörer om eventuella aktuella och förutsedda problem. 
 
-- Skapa [aviseringar i Azure Monitor](../azure-monitor/platform/alerts-overview.md) baserat på loggar och mått för att identifiera tillstånd för förutsägbara haverier. Du bör ha målet att göra alla aviseringar åtgärds bara, vilket innebär att de representerar faktiska kritiska villkor och söker för att minska antalet falska positiva identifieringar. Använd [dynamiska tröskelvärden](platform/alerts-dynamic-thresholds.md) för att automatiskt beräkna bas linjer för mått data i stället för att definiera egna statiska tröskelvärden. 
+- Skapa [aviseringar i Azure Monitor](./platform/alerts-overview.md) baserat på loggar och mått för att identifiera tillstånd för förutsägbara haverier. Du bör ha målet att göra alla aviseringar åtgärds bara, vilket innebär att de representerar faktiska kritiska villkor och söker för att minska antalet falska positiva identifieringar. Använd [dynamiska tröskelvärden](platform/alerts-dynamic-thresholds.md) för att automatiskt beräkna bas linjer för mått data i stället för att definiera egna statiska tröskelvärden. 
 - Definiera åtgärder för aviseringar för att använda det mest effektiva sättet att meddela dina administratörer. Tillgängliga [åtgärder för avisering](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) är SMS, e-post, push-meddelanden eller röst samtal.
 - Använd mer avancerade åtgärder för att [ansluta till ditt ITSM-verktyg](platform/itsmc-overview.md) eller andra aviserings hanterings system via [Webhooks](platform/activity-log-alerts-webhook.md).
 - Åtgärda situationer som identifieras i aviseringar och [Azure Automation runbooks](../automation/automation-webhooks.md) eller [Logic Apps](/connectors/custom-connectors/create-webhook-trigger) som kan startas från en avisering med hjälp av Webhooks. 
-- Använd automatisk [skalning](../azure-monitor/learn/tutorial-autoscale-performance-schedule.md) för att dynamiskt öka och minska dina beräknings resurser baserat på insamlade mått.
+- Använd automatisk [skalning](./learn/tutorial-autoscale-performance-schedule.md) för att dynamiskt öka och minska dina beräknings resurser baserat på insamlade mått.
 
 ## <a name="prepare-dashboards-and-workbooks"></a>Förbereda instrument paneler och arbets böcker
 Att se till att din utveckling och verksamhet har åtkomst till samma telemetri och verktyg, så att de kan visa mönster i hela din miljö och minimera genomsnitts tiden för att identifiera (MTTD) och genomsnittlig tid för att återställa (MTTR).
 
-- Förbered [anpassade instrument paneler](../azure-monitor/learn/tutorial-app-dashboards.md) baserat på vanliga mått och loggar för de olika rollerna i din organisation. Instrument paneler kan kombinera data från alla Azure-resurser.
-- Förbered [arbets böcker](../azure-monitor/platform/workbooks-overview.md) för att säkerställa kunskaps delning mellan utveckling och åtgärder. Dessa kan förberedas som dynamiska rapporter med mått diagram och logg frågor, eller till och med fel söknings guider som förbereds av utvecklare som hjälper kund support eller åtgärder för att hantera grundläggande problem.
+- Förbered [anpassade instrument paneler](./learn/tutorial-app-dashboards.md) baserat på vanliga mått och loggar för de olika rollerna i din organisation. Instrument paneler kan kombinera data från alla Azure-resurser.
+- Förbered [arbets böcker](./platform/workbooks-overview.md) för att säkerställa kunskaps delning mellan utveckling och åtgärder. Dessa kan förberedas som dynamiska rapporter med mått diagram och logg frågor, eller till och med fel söknings guider som förbereds av utvecklare som hjälper kund support eller åtgärder för att hantera grundläggande problem.
 
 ## <a name="continuously-optimize"></a>Optimera kontinuerligt
  Övervakning är en av de grundläggande aspekterna av populära bygge-mått – lär dig filosofi, som regelbundet rekommenderar att du kontinuerligt spårar dina KPI: er och användar beteende mått och sedan striving för att optimera dem genom att planera iterationer. Azure Monitor hjälper dig att samla in mått och loggar som är relevanta för din verksamhet och för att lägga till nya data punkter i nästa distribution vid behov.
 
-- Använd verktyg i Application Insights för att [spåra beteende och engagemang](../azure-monitor/learn/tutorial-users.md)för slutanvändare.
-- Använd [effekten analys](../azure-monitor/app/usage-impact.md) för att hjälpa dig att prioritera vilka områden som ska koncentreras till viktiga KPI: er.
+- Använd verktyg i Application Insights för att [spåra beteende och engagemang](./learn/tutorial-users.md)för slutanvändare.
+- Använd [effekten analys](./app/usage-impact.md) för att hjälpa dig att prioritera vilka områden som ska koncentreras till viktiga KPI: er.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om skillnads komponenterna i [Azure Monitor](overview.md).
-- [Lägg till kontinuerlig övervakning](../azure-monitor/app/continuous-monitoring.md) i din versions pipeline.
+- [Lägg till kontinuerlig övervakning](./app/continuous-monitoring.md) i din versions pipeline.
+

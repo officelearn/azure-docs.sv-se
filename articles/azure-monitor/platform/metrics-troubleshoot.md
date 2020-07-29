@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e1ad4e53596b8228bdef5beb18aa250a9512c49f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2f7e45c7f6092566314e6e4867bc0345683e4eb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659670"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318393"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Felsöka måttdiagram
 
@@ -67,7 +68,7 @@ Genom att [låsa gränserna för y-axeln i diagrammet](metrics-charts.md#lock-bo
 
 Insamling av mått för **gästoperativsystem** kräver att Azure Diagnostics-tillägget konfigureras eller aktiveras via panelen **Diagnostikinställningar** för din resurs.
 
-**Lösning:** Om Azure-diagnostik tillägget är aktiverat men du fortfarande inte kan se dina mått, följer du stegen som beskrivs i [fel söknings guiden för Azure-diagnostik-tillägg](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). Se även fel söknings stegen för [det går inte att välja namn område och mått för gäst operativ system](metrics-troubleshoot.md#cannot-pick-guest-os-namespace-and-metrics)
+**Lösning:** Om Azure-diagnostik tillägget är aktiverat men du fortfarande inte kan se dina mått, följer du stegen som beskrivs i [fel söknings guiden för Azure-diagnostik-tillägg](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). Se även fel söknings stegen för [det går inte att välja namn område och mått för gäst operativ system](#cannot-pick-guest-os-namespace-and-metrics)
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>Meddelandet "fel vid hämtning av data" på instrument panelen
 
@@ -105,7 +106,7 @@ Som standard lagras mått för gästoperativsystem i ett Azure Storage-konto, so
     > [!WARNING]
     > Du kan inte använda [Log Analytics-agenten](agents-overview.md#log-analytics-agent) (kallas även Microsoft Monitoring Agent eller MMA) för att skicka **Gästoperativsystem** till ett lagringskonto.
 
-1. Se till att **Microsoft. Insights** Resource provider har [registrerats för din prenumeration](metrics-troubleshoot.md#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
+1. Se till att **Microsoft. Insights** Resource provider har [registrerats för din prenumeration](#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
 
 1. Kontrollera att lagringskontot inte skyddas av brandväggen. Azure Portal behöver åtkomst till lagringskontot för att kunna hämta måttdata och rita diagrammen.
 
@@ -117,3 +118,4 @@ Som standard lagras mått för gästoperativsystem i ett Azure Storage-konto, so
 * [Lär dig mer om avancerade funktioner i Metric Explorer](metrics-charts.md)
 * [Visa en lista över tillgängliga mått för Azure-tjänster](metrics-supported.md)
 * [Visa exempel på konfigurerade diagram](metric-chart-samples.md)
+

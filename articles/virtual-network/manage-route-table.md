@@ -1,7 +1,7 @@
 ---
 title: Skapa, ändra eller ta bort en Azure route-tabell
 titlesuffix: Azure Virtual Network
-description: Lär dig hur du skapar, ändrar eller tar bort en routningstabell.
+description: Lär dig var du hittar information om routning av virtuella nätverks trafik och hur du skapar, ändrar eller tar bort en routningstabell.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: e694f29bb6f8e7c78c36ad2b8ee90d507529444f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 664e3851370be812cd7a0e58cf9beb1fddb5d991
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708271"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291005"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Skapa, ändra eller ta bort en routningstabell
 
@@ -40,7 +41,7 @@ Det konto som du loggar in på eller ansluta till Azure med måste tilldelas [ro
 
 Det finns en gräns för hur många väg tabeller du kan skapa per Azure-plats och prenumeration. Mer information finns i [nätverks gränser – Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-1. På [Azure Portal](https://portal.azure.com) -menyn eller på **Start** sidan väljer du **skapa en resurs**.
+1. I menyn i [Azure-portalen](https://portal.azure.com) eller på sidan **Start** väljer du **Skapa en resurs**.
 
 1. I rutan Sök anger du *routningstabellen*. När **routningstabellen** visas i Sök resultaten väljer du den.
 
@@ -87,7 +88,7 @@ Mer information om vanliga Azure-inställningar finns i följande information:
 - [Aktivitetslogg](../azure-monitor/platform/platform-logs-overview.md)
 - [Åtkomstkontroll (IAM)](../role-based-access-control/overview.md)
 - [Taggar](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Hålls](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Lås](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Automationsskript](../azure-resource-manager/templates/export-template-portal.md)
 
 ### <a name="view-details-of-route-table---commands"></a>Visa information om routningstabellen – kommandon
@@ -332,7 +333,7 @@ Efter en kort väntan meddelar Azure dig nästa hopp typ och ID för den väg so
 
 Om du vill utföra uppgifter i routningstabeller och vägar måste ditt konto tilldelas [rollen nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som har tilldelats lämpliga åtgärder i följande tabell:
 
-| Åtgärd                                                          |   Name                                                  |
+| Åtgärd                                                          |   Namn                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft. Network/routeTables/Read                              |   Läsa en routningstabell                                    |
 | Microsoft. Network/routeTables/Write                             |   Skapa eller uppdatera en routningstabell                        |

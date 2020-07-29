@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: a367e819ab9f12d9adcb448848c80eaeea73d113
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 095fd0b534c0dffaf80d2464fb9734f295335b84
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008038"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317186"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Samla in data från Azure Diagnostics-tillägget till Azure Monitor loggar
 Tillägget Azure Diagnostics är en [agent i Azure Monitor](agents-overview.md) som samlar in övervaknings data från gäst operativ systemet i Azure Compute-resurser, inklusive virtuella datorer. Den här artikeln beskriver hur du samlar in data som samlas in av diagnostikprogrammet från Azure Storage till Azure Monitor loggar.
@@ -19,18 +19,18 @@ Tillägget Azure Diagnostics är en [agent i Azure Monitor](agents-overview.md) 
 > [!NOTE]
 > Log Analytics agenten i Azure Monitor är vanligt vis den bästa metoden för att samla in data från gäst operativ systemet till Azure Monitor loggar. En detaljerad jämförelse av agenterna finns i [Översikt över Azure Monitors agenter](agents-overview.md) .
 
-## <a name="supported-data-types"></a>Data typer som stöds
+## <a name="supported-data-types"></a>Datatyper som stöds
 Azure Diagnostics-tillägget lagrar data i ett Azure Storage-konto. För att Azure Monitor loggar för att samla in dessa data måste de finnas på följande platser:
 
-| Loggtyp | Resurstyp | Plats |
+| Loggtyp | Resurstyp | Position |
 | --- | --- | --- |
-| IIS-loggar |Virtual Machines <br> Webb roller <br> Arbets roller |wad-IIS-loggfiler (Blob Storage) |
-| Syslog |Virtual Machines |LinuxsyslogVer2v0 (Table Storage) |
+| IIS-loggar |Virtuella datorer <br> Webb roller <br> Arbets roller |wad-IIS-loggfiler (Blob Storage) |
+| Syslog |Virtuella datorer |LinuxsyslogVer2v0 (Table Storage) |
 | Service Fabric operativa händelser |Service Fabric noder |WADServiceFabricSystemEventTable |
 | Service Fabric pålitliga aktörs händelser |Service Fabric noder |WADServiceFabricReliableActorEventTable |
 | Service Fabric Reliable service Events |Service Fabric noder |WADServiceFabricReliableServiceEventTable |
-| Händelse loggar i Windows |Service Fabric noder <br> Virtual Machines <br> Webb roller <br> Arbets roller |WADWindowsEventLogsTable (Table Storage) |
-| Windows ETW-loggar |Service Fabric noder <br> Virtual Machines <br> Webb roller <br> Arbets roller |WADETWEventTable (Table Storage) |
+| Händelse loggar i Windows |Service Fabric noder <br> Virtuella datorer <br> Webb roller <br> Arbets roller |WADWindowsEventLogsTable (Table Storage) |
+| Windows ETW-loggar |Service Fabric noder <br> Virtuella datorer <br> Webb roller <br> Arbets roller |WADETWEventTable (Table Storage) |
 
 ## <a name="data-types-not-supported"></a>Data typer stöds inte
 
@@ -64,5 +64,6 @@ På cirka 30 minuter kan du se data från lagrings kontot i Log Analytics-arbets
 ## <a name="next-steps"></a>Nästa steg
 
 * [Samla in loggar och mät värden för Azure-tjänster](./resource-logs.md#send-to-log-analytics-workspace) för Azure-tjänster som stöds.
-* [Aktivera lösningar](../../azure-monitor/insights/solutions.md) för att ge inblick i data.
-* [Använd Sök frågor](../../azure-monitor/log-query/log-query-overview.md) för att analysera data.
+* [Aktivera lösningar](../insights/solutions.md) för att ge inblick i data.
+* [Använd Sök frågor](../log-query/log-query-overview.md) för att analysera data.
+

@@ -4,12 +4,12 @@ description: Distribuera Azure Monitor funktioner i skala med Azure Policy.
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: fbfc0cafe83f53bd7cab2b93899e9c2cb02d52e3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 043edae04c6de5d42849cf43b947b9646f12f489
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505218"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317446"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Distribuera Azure Monitor i skala med Azure Policy
 Vissa Azure Monitor funktioner konfigureras en gång eller ett begränsat antal gånger, men andra måste upprepas för varje resurs som du vill övervaka. I den här artikeln beskrivs metoder för att använda Azure Policy för att implementera Azure Monitor i skala för att säkerställa att övervakningen är konsekvent och korrekt konfigurerad för alla dina Azure-resurser.
@@ -43,7 +43,7 @@ Om du vill visa de inbyggda princip definitionerna som är relaterade till över
 
 
 ## <a name="diagnostic-settings"></a>Diagnostikinställningar
-[Diagnostikinställningar](../platform/diagnostic-settings.md) samlar in resurs loggar och mått från Azure-resurser till flera platser, vanligt vis till en Log Analytics arbets yta som gör det möjligt att analysera data med [logg frågor](../log-query/log-query-overview.md) och [logg aviseringar](alerts-log.md). Använd principen för att automatiskt skapa en diagnostisk inställning varje gången du skapar en resurs.
+[Diagnostikinställningar](./diagnostic-settings.md) samlar in resurs loggar och mått från Azure-resurser till flera platser, vanligt vis till en Log Analytics arbets yta som gör det möjligt att analysera data med [logg frågor](../log-query/log-query-overview.md) och [logg aviseringar](alerts-log.md). Använd principen för att automatiskt skapa en diagnostisk inställning varje gången du skapar en resurs.
 
 Varje Azure-resurs har en unik uppsättning kategorier som måste visas i den diagnostiska inställningen. Därför kräver varje resurs typ en separat princip definition. Vissa resurs typer har inbyggda princip definitioner som du kan tilldela utan ändringar. För andra resurs typer måste du skapa en anpassad definition.
 
@@ -79,7 +79,7 @@ Skriptet [create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create
    Create-AzDiagPolicy.ps1 -SubscriptionID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ResourceType Microsoft.Sql/servers/databases  -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
    ```
 
-5. Skriptet skapar separata mappar för varje princip definition, där varje innehåller tre filer med namnet azurepolicy, JSON, azurepolicy.rules.jspå azurepolicy.parameters.jspå. Om du vill skapa principen manuellt i Azure Portal kan du kopiera och klistra in innehållet i azurepolicy.jspå eftersom det innehåller hela princip definitionen. Använd de andra två filerna med PowerShell eller CLI för att skapa princip definitionen från en kommando rad.
+5. Skriptet skapar separata mappar för varje princip definition, där varje innehåller tre filer som heter azurepolicy.jspå, azurepolicy.rules.jspå azurepolicy.parameters.jspå. Om du vill skapa principen manuellt i Azure Portal kan du kopiera och klistra in innehållet i azurepolicy.jspå eftersom det innehåller hela princip definitionen. Använd de andra två filerna med PowerShell eller CLI för att skapa princip definitionen från en kommando rad.
 
     I följande exempel visas hur du installerar princip definitionen från både PowerShell och CLI. Varje inkluderar metadata för att ange en kategori för **övervakning** för att gruppera den nya princip definitionen med de inbyggda princip definitionerna.
 
@@ -113,25 +113,71 @@ Genom att använda initiativ parametrar kan du ange arbets ytan eller någon ann
 
 ![Initiativparametrar](media/deploy-scale/initiative-parameters.png)
 
-### <a name="remediation"></a>Reparation
+### <a name="remediation"></a>Åtgärder
 Initiativet kommer att gälla för varje virtuell dator när den skapas. En [reparations uppgift](../../governance/policy/how-to/remediate-resources.md) distribuerar princip definitionerna i initiativet till befintliga resurser, så att du kan skapa diagnostikinställningar för alla resurser som redan har skapats. När du skapar tilldelningen med hjälp av Azure Portal har du möjlighet att skapa en reparations uppgift på samma gång. Se [Reparera icke-kompatibla resurser med Azure policy](../../governance/policy/how-to/remediate-resources.md) för information om reparationen.
 
 ![Initiativ reparation](media/deploy-scale/initiative-remediation.png)
 
 
-## <a name="azure-monitor-for-vms"></a>Azure Monitor för virtuella datorer
-[Azure Monitor for VMS](../insights/vminsights-overview.md) är det primära verktyget i Azure Monitor för övervakning av virtuella datorer. Om du aktiverar Azure Monitor for VMs installeras både Log Analytics-agenten och beroende agenten. Använd Azure Policy för att se till att varje virtuell dator har kon figurer ATS som du skapar i stället för att utföra dessa uppgifter manuellt.
+## <a name="azure-monitor-for-vms-and-virtual-machine-agents"></a>Azure Monitor for VMs och virtuella dator agenter
+[Azure Monitor for VMS](../insights/vminsights-overview.md) är det primära verktyget i Azure Monitor för övervakning av virtuella datorer och skalnings uppsättningar för virtuella datorer. Om du vill aktivera Azure Monitor for VMs måste du installera både Log Analytics-agenten och beroende agenten på varje klient. Du kan också installera Log Analytics agenten på egen hand så att den stöder andra övervaknings scenarier. Använd Azure Policy för att se till att varje virtuell dator har kon figurer ATS som du skapar i stället för att utföra dessa uppgifter manuellt.
 
-Azure Monitor for VMs innehåller två inbyggda initiativ som kallas **aktivera Azure Monitor for VMS** och **aktivera Azure Monitor för Virtual Machine Scale Sets**. Dessa initiativ innehåller en uppsättning princip definitioner som krävs för att installera Log Analytics agenten och beroende agenten som krävs för att aktivera Azure Monitor for VMs. 
+> [!NOTE]
+> Azure Monitor for VMs innehåller en funktion som kallas **Azure Monitor for VMS princip täckning** som gör att du kan identifiera och reparera icke-kompatibla virtuella datorer i din miljö. Du kan använda den här funktionen i stället för att arbeta direkt med Azure Policy för virtuella Azure-datorer och för virtuella hybrid datorer som är anslutna till Azure Arc. För skalnings uppsättningar för virtuella Azure-datorer måste du skapa tilldelningen med hjälp av Azure Policy.
+ 
 
+Azure Monitor for VMs innehåller följande inbyggda initiativ som installerar båda agenterna för att aktivera fullständig övervakning. 
+
+|Namn |Beskrivning |
+|:---|:---|
+|Aktivera Azure Monitor for VMs | Installerar Log Analytics agent och beroende agent på virtuella Azure-datorer och hybrid virtuella datorer som är anslutna till Azure Arc. |
+|Aktivera Azure Monitor för skalnings uppsättningar för virtuella datorer | Installerar den Log Analytics agenten och beroende agenten på skalnings uppsättningen för den virtuella Azure-datorn. |
+
+
+### <a name="virtual-machines"></a>Virtuella datorer
 I stället för att skapa tilldelningar för de här initiativen med hjälp av Azure Policy-gränssnittet innehåller Azure Monitor for VMs en funktion som gör att du kan kontrol lera antalet virtuella datorer i varje omfattning för att avgöra om initiativet har tillämpats. Du kan sedan konfigurera arbets ytan och skapa obligatoriska tilldelningar med det gränssnittet.
 
 Mer information om den här processen finns i [aktivera Azure Monitor for VMS med hjälp av Azure policy](../insights/vminsights-enable-at-scale-policy.md).
 
 ![Azure Monitor for VMs princip](../platform/media/deploy-scale/vminsights-policy.png)
 
+### <a name="virtual-machine-scale-sets"></a>Skalningsuppsättningar för virtuella datorer
+Om du vill använda Azure Policy för att aktivera övervakning av skalnings uppsättningar för virtuella datorer, tilldelar du initiativet **aktivera Azure Monitor för Virtual Machine Scale set** till en hanterings grupp, prenumeration eller resurs grupp i Azure beroende på vilka resurser som ska övervakas. En [hanterings grupp](../../governance/management-groups/overview.md) är särskilt användbart för en princip som är särskilt användbar om din organisation har flera prenumerationer.
+
+![Initiativtilldelning](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
+
+Välj arbets ytan som data ska skickas till. Den här arbets ytan måste ha *VMInsights* -lösningen installerad enligt beskrivningen i []() .
+
+![Välj arbetsyta](media/deploy-scale/virtual-machine-scale-set-workspace.png)
+
+Skapa en reparations uppgift om du har en befintlig virtuell dators skalnings uppsättning som måste tilldelas den här principen.
+
+![Reparations uppgift](media/deploy-scale/virtual-machine-scale-set-remediation.png)
+
+### <a name="log-analytics-agent"></a>Log Analytics-agent
+Du kan ha scenarier där du vill installera Log Analytics agenten men inte beroende agenten. Det finns inget inbyggt initiativ för bara agenten, men du kan skapa egna baserat på de inbyggda princip definitionerna som tillhandahålls av Azure Monitor for VMs.
+
+> [!NOTE]
+> Det kan inte finnas någon anledning att distribuera beroende agenten på egen hand eftersom den kräver att den Log Analytics agenten levererar sina data till Azure Monitor.
+
+
+|Namn |Beskrivning |
+|-----|------------|
+|Granska Log Analytics agent distribution – VM-avbildningen (OS) har inte listats |Rapporterar virtuella datorer som icke-kompatibla om VM-avbildningen (OS) inte är definierad i listan och agenten inte är installerad. |
+|Distribuera Log Analytics agent för virtuella Linux-datorer |Distribuera Log Analytics agent för virtuella Linux-datorer om VM-avbildningen (OS) definieras i listan och agenten inte är installerad. |
+|Distribuera Log Analytics agent för virtuella Windows-datorer |Distribuera Log Analytics agent för virtuella Windows-datorer om VM-avbildningen (OS) definieras i listan och agenten inte är installerad. |
+| [För hands version]: Log Analytics-agenten ska installeras på dina Linux Azure Arc-datorer |Rapporterar hybrid Azure Arc-datorer som icke-kompatibla för virtuella Linux-datorer om VM-avbildningen (OS) definieras i listan och agenten inte är installerad. |
+| [För hands version]: Log Analytics agent ska installeras på dina Windows Azure Arc-datorer |Rapporterar hybrid Azure Arc-datorer som inkompatibla för virtuella Windows-datorer om VM-avbildningen (OS) definieras i listan och agenten inte är installerad. |
+| [För hands version]: Distribuera Log Analytics agent till Linux Azure Arc-datorer |Distribuera Log Analytics agent för Linux hybrid Azure Arc-datorer om VM-avbildningen (OS) definieras i listan och agenten inte är installerad. |
+| [För hands version]: Distribuera Log Analytics agent till Windows Azure Arc-datorer |Distribuera Log Analytics agent för Windows hybrid Azure Arc-datorer om VM-avbildningen (OS) definieras i listan och agenten inte är installerad. |
+|Granska beroende agent distribution i virtuell dator skalnings uppsättningar – VM-avbildning (OS) har inte listats |Rapporterar skalnings uppsättning för virtuella datorer som icke-kompatibel om VM-avbildningen (OS) inte är definierad i listan och agenten inte är installerad. |
+|Granska Log Analytics agent distribution i Virtual Machine Scale Sets – VM-avbildning (OS) har inte listats |Rapporterar skalnings uppsättning för virtuella datorer som icke-kompatibel om VM-avbildningen (OS) inte är definierad i listan och agenten inte är installerad. |
+|Distribuera Log Analytics agent för skalnings uppsättningar för virtuella Linux-datorer |Distribuera Log Analytics agent för skalnings uppsättningar för virtuella Linux-datorer om VM-avbildningen (OS) definieras i listan och agenten inte är installerad. |
+|Distribuera Log Analytics agent för skalnings uppsättningar för virtuella Windows-datorer |Distribuera Log Analytics agent för skalnings uppsättningar för virtuella Windows-datorer om VM-avbildningen (OS) definieras i listan och agenten inte är installerad. |
+
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [Azure policy](../../governance/policy/overview.md).
 - Läs mer om [diagnostikinställningar](diagnostic-settings.md).
+

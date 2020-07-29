@@ -4,14 +4,15 @@ description: Specifikationer för virtuella datorer med Dav4 och Dasv4-serien.
 author: migerdes
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 5d8478d97ba2615836f3e121d9dd56d94fcd73fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06fe0cf14346b9a1a5a1f3c093abeec1d1be159a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678400"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292499"
 ---
 # <a name="dav4-and-dasv4-series"></a>Dav4- och Dasv4-serien
 
@@ -31,16 +32,16 @@ Minnes bebetjänings uppdateringar: stöds
 
 Dav4-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processorn som kan uppnå en högre högsta frekvens på 3.35 GHz. Storlekarna i Dav4-serien erbjuder en kombination av vCPU, minne och tillfällig lagring för de flesta produktions arbets belastningar. Datadisklagring faktureras separat från virtuella datorer. Om du vill använda Premium SSD använder du Dasv4-storlekarna. Pris-och debiterings mätare för Dasv4-storlekar är samma som för Dav4-serien.
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
-|-----|-----|-----|-----|-----|-----|-----|
-| Standard_D2a_v4 |  2  | 8  | 50  | 4  | 3 000 / 46 / 23   | 2/1 000 |
-| Standard_D4a_v4 |  4  | 16 | 100 | 8  | 6 000 / 93 / 46   | 2/2 000 |
-| Standard_D8a_v4 |  8  | 32 | 200 | 16 | 12 000 / 187 / 93 | 4 / 4000 |
-| Standard_D16a_v4|  16 | 64 | 400 |32  | 24 000 / 375 / 187 |8 / 8000 |
-| Standard_D32a_v4|  32 | 128| 800 | 32 | 48 000 / 750 / 375 |8/16 000 |
-| Standard_D48a_v4| 48 | 192| 1200 | 32 | 96000/1000/500 | 8 / 24000 |
-| Standard_D64a_v4| 64 | 256 | 1600 | 32 | 96000/1000/500 | 8 / 30000 |
-| Standard_D96a_v4| 96 | 384 | 2400 | 32 | 96000/1000/500 | 8 / 30000 |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal nätverkskort | Förväntad nätverks bandbredd (Mbit/s) |
+|-----|-----|-----|-----|-----|-----|-----|-----|
+| Standard_D2a_v4 |  2  | 8  | 50  | 4  | 3 000 / 46 / 23   | 2 | 1000 |
+| Standard_D4a_v4 |  4  | 16 | 100 | 8  | 6 000 / 93 / 46   | 2 | 2000 |
+| Standard_D8a_v4 |  8  | 32 | 200 | 16 | 12 000 / 187 / 93 | 4 | 4000 |
+| Standard_D16a_v4|  16 | 64 | 400 |32  | 24 000 / 375 / 187 |8 | 8000 |
+| Standard_D32a_v4|  32 | 128| 800 | 32 | 48 000 / 750 / 375 |8 | 16000 |
+| Standard_D48a_v4| 48 | 192| 1200 | 32 | 96000/1000/500 | 8 | 24000 |
+| Standard_D64a_v4| 64 | 256 | 1600 | 32 | 96000/1000/500 | 8 | 30000 |
+| Standard_D96a_v4| 96 | 384 | 2400 | 32 | 96000/1000/500 | 8 | 30000 |
 
 ## <a name="dasv4-series"></a>Dasv4-serien
 
@@ -56,27 +57,31 @@ Minnes bebetjänings uppdateringar: stöds
 
 Dasv4-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processorn som kan uppnå en högre högsta frekvens på 3.35 GHz och använder Premium SSD. Storlekarna i Dasv4-serien erbjuder en kombination av vCPU, minne och tillfällig lagring för de flesta produktions arbets belastningar.
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
-|-----|-----|-----|-----|-----|-----|-----|-----|
-| Standard_D2as_v4|2|8|16|4|4000/32 (50)|3200/48|2/1 000 |
-| Standard_D4as_v4|4|16|32|8|8000/64 (100)|6400/96|2/2 000 |
-| Standard_D8as_v4|8|32|64|16|16000/128 (200)|12800/192|4 / 4000 |
-| Standard_D16as_v4|16|64|128|32|32000/255 (400)|25600/384|8 / 8000 |
-| Standard_D32as_v4|32|128|256|32|64000/510 (800)|51200/768|8/16 000 |
-| Standard_D48as_v4|48|192|384|32|96000/1020 (1200)|76800/1148|8 / 24000 |
-| Standard_D64as_v4|64|256|512|32|128000/1020 (1600)|80000/1200|8 / 30000 | 
-| Standard_D96as_v4|96|384|768|32|192000/1020 (2400)|80000/1200|8 / 30000 |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort | Förväntad nätverks bandbredd (Mbit/s) |
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| Standard_D2as_v4|2|8|16|4|4000/32 (50)|3200/48|2 | 1000 |
+| Standard_D4as_v4|4|16|32|8|8000/64 (100)|6400/96|2 | 2000 |
+| Standard_D8as_v4|8|32|64|16|16000/128 (200)|12800/192|4 | 4000 |
+| Standard_D16as_v4|16|64|128|32|32000/255 (400)|25600/384|8 | 8000 |
+| Standard_D32as_v4|32|128|256|32|64000/510 (800)|51200/768|8 | 16000 |
+| Standard_D48as_v4|48|192|384|32|96000/1020 (1200)|76800/1148|8 | 24000 |
+| Standard_D64as_v4|64|256|512|32|128000/1020 (1600)|80000/1200|8 | 30000 | 
+| Standard_D96as_v4|96|384|768|32|192000/1020 (2400)|80000/1200|8 | 30000 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="other-sizes"></a>Andra storlekar
+## <a name="other-sizes-and-information"></a>Andra storlekar och information
 
-- [Generellt syfte](sizes-general.md)
+- [Generell användning](sizes-general.md)
 - [Minnesoptimerad](sizes-memory.md)
 - [Lagringsoptimerad](sizes-storage.md)
 - [GPU-optimerad](sizes-gpu.md)
 - [Databehandling med höga prestanda](sizes-hpc.md)
 - [Tidigare generationer](sizes-previous-gen.md)
+
+Pris kalkylator: [pris kalkylator](https://azure.microsoft.com/pricing/calculator/)
+
+Mer information om disk typer: [disk typer](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
 
 ## <a name="next-steps"></a>Nästa steg
 

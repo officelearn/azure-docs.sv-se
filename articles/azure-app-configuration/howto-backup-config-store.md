@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 6dd485adb71bf05be6499f2fc18572e8a28357d7
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0b057172c822f893e602d60f77a285f0867cf368
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209902"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367783"
 ---
 # <a name="backup-app-configuration-stores-automatically"></a>Säkerhetskopiera program konfigurations Arkiv automatiskt
 
@@ -32,7 +32,7 @@ Motivation bakom att säkerhetskopiera konfigurations lager för appar är att a
 
 I den här självstudien kommer du att skapa en sekundär butik i `centralus` region och alla andra resurser i `westus` regionen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/). Du kan också använda Azure Cloud Shell.
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) med arbets belastningen Azure Development.
@@ -130,7 +130,7 @@ För att göra det enklare för dig att börja säkerhetskopiera dina data har v
 Om den exempel kod som anges ovan inte uppfyller dina krav kan du också skapa en egen Azure Functions. Funktionen måste kunna utföra följande aktiviteter för att kunna slutföra säkerhets kopieringen:
 - Läs innehållet i lagrings kön med jämna mellanrum för att se om den innehåller några meddelanden från Event Grid. Se SDK för [lagrings kön](/azure/storage/queues/storage-quickstart-queues-dotnet) för implementerings information.
 - Om din lagrings kö innehåller [händelse meddelanden från Event Grid](/azure/azure-app-configuration/concept-app-configuration-event?branch=pr-en-us-112982#event-schema)extraherar du alla unika <-nycklar, etiketter> från händelse meddelanden. Kombinationen av nyckel och etikett är den unika identifieraren för nyckel värdes ändringar i primärt lager.
-- Läs alla inställningar från den primära lagrings platsen. Uppdatera endast de inställningar i den sekundära lagringen som har en motsvarande händelse i lagrings kön. Ta bort alla inställningar från den sekundära lagrings platsen som fanns i lagringspoolen men inte i den primära lagringen. Du kan använda [app Configuration SDK](https://github.com/Azure/AppConfiguration#sdks) för att få åtkomst till dina konfigurations lager program mässigt.
+- Läs alla inställningar från den primära lagrings platsen. Uppdatera endast de inställningar i sekundär lager som har en motsvarande händelse i lagrings kön. Ta bort alla inställningar från den sekundära lagrings platsen som fanns i lagringspoolen men inte i den primära lagringen. Du kan använda [app Configuration SDK](https://github.com/Azure/AppConfiguration#sdks) för att få åtkomst till dina konfigurations lager program mässigt.
 - Ta bort meddelanden från lagrings kön om det inte fanns några undantag under bearbetningen.
 - Se till att implementera fel hantering enligt dina behov. Du kan referera till kod exemplet ovan för att se några vanliga undantag som du kanske vill hantera.
 
@@ -145,9 +145,9 @@ Mer information om hur du skapar Azure Functions finns i: [skapa en funktion i A
 ## <a name="create-azure-function-app-settings"></a>Skapa inställningar för Azure-Funktionsapp
 
 Om du använder den Azure Functions vi har tillhandahållit, behöver du följande appinställningar i Azure-Funktionsapp:
-- `PrimaryStoreEndpoint`: Slut punkt för konfigurations arkivet för den primära appen. Till exempel, `https://{primary_appconfig_name}.azconfig.io`
-- `SecondaryStoreEndpoint`: Slut punkt för konfigurations arkivet för den sekundära appen. Till exempel, `https://{secondary_appconfig_name}.azconfig.io`
-- `StorageQueueUri`: URI för lagrings kön. Till exempel, `https://{unique_storage_name}.queue.core.windows.net/{queue_name}`
+- `PrimaryStoreEndpoint`: Slut punkt för konfigurations arkivet för den primära appen. Till exempel `https://{primary_appconfig_name}.azconfig.io`
+- `SecondaryStoreEndpoint`: Slut punkt för konfigurations arkivet för den sekundära appen. Till exempel `https://{secondary_appconfig_name}.azconfig.io`
+- `StorageQueueUri`: URI för lagrings kön. Till exempel `https://{unique_storage_name}.queue.core.windows.net/{queue_name}`
 
 Följande kommando skapar de nödvändiga inställningarna för appen i Azure-Funktionsapp. Ersätt `<function_app_name>` med namnet på din Azure-Funktionsapp.
 

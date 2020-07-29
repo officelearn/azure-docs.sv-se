@@ -4,15 +4,15 @@ description: Lär dig hur du skapar och konfigurerar tekniska till gångar för 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: dannyevers
-ms.author: mingshen
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 04/13/2020
-ms.openlocfilehash: 5bed073799521498efe5302ab9af616dcdf9f9ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 69458a7a3f2555a301c1266addfe7c49cb111ef6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053573"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317764"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Skapa tekniska till gångar för din virtuella Azure-dator
 
@@ -182,7 +182,7 @@ Skapa din avbildning med antingen Azure Portal eller Azure PowerShell.
     | Adminlösenord | Administratörs kontots lösen ord för ny virtuell dator |
     | Typ av operativsystem | Operativ system för virtuell dator: Windows eller Linux |
     | Prenumerations-ID:t | Identifierare för den valda prenumerationen |
-    | Plats | Distributionens geografiska plats |
+    | Position | Distributionens geografiska plats |
     | Storlek på virtuell dator | [Storlek på virtuell Azure-dator](../../virtual-machines/windows/sizes.md), till exempel Standard_A2 |
     | Namn på offentlig IP-adress | Namn på din offentliga IP-adress |
     | Namn på virtuell dator | Namn på den nya virtuella datorn |

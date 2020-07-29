@@ -1,6 +1,6 @@
 ---
-title: Felsök tjänst anslutning Windows Virtual Desktop sjunker 2019 – Azure
-description: Så här löser du problem när du konfigurerar klient anslutningar i en Windows-klient för virtuella skriv bord.
+title: Felsöka tjänst anslutning Windows Virtual Desktop (klassisk) – Azure
+description: Så här löser du problem när du konfigurerar klient anslutningar i en Windows Virtual Desktop (klassisk) klient miljö.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ad5e740a2874d398f3947fe755024bedc897ec73
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 213f7843e4896f8c7c9234e2c94433afbed1d565
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085800"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292520"
 ---
-# <a name="troubleshoot-windows-virtual-desktop-service-connections"></a>Felsök Windows Virtual Desktop Service-anslutningar
+# <a name="windows-virtual-desktop-classic-service-connections"></a>Windows Virtual Desktop (klassiska) tjänst anslutningar
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../troubleshoot-service-connection.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../troubleshoot-service-connection.md).
 
 Använd den här artikeln för att lösa problem med klient anslutningar för virtuella Windows-datorer.
 

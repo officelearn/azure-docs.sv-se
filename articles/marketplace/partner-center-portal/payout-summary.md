@@ -4,15 +4,15 @@ description: Utbetalnings rapporterna visar information om de pengar du har fåt
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: f524ef13af17054e52a94ac043546431b656203c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dc690e29129f5be68456e6a9dc075ba72f11b121
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120729"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318240"
 ---
 # <a name="payout-summaries"></a>Utbetalningssammanfattningar
 
@@ -66,20 +66,20 @@ Om du vill exportera någon av transaktions data på den här sidan väljer du *
 
 ## <a name="payment-status"></a>Betalningstatus
 
-| Status för att tjäna           | Anledning                                                                                                                                      | Krävs partner åtgärd?                                   |
+| Status för att tjäna           | Orsak                                                                                                                                      | Krävs partner åtgärd?                                   |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
-| Obearbetade              | Betalningen är berättigad till betalning. Den förblir i det här läget för en kylnings period som definieras i program guiden för stimulans programmet. | No                                                         |
-| Planer                 | Betalnings order som genererats som väntande interna granskningar innan betalningen bearbetas                                                               | No                                                         |
+| Obearbetade              | Betalningen är berättigad till betalning. Den förblir i det här läget för en kylnings period som definieras i program guiden för stimulans programmet. | Nej                                                         |
+| Planer                 | Betalnings order som genererats som väntande interna granskningar innan betalningen bearbetas                                                               | Nej                                                         |
 | Väntande moms faktura      | Din moms faktura är ofullständig eller ogiltig                                                                                                  | Du måste uppdatera din moms faktura innan du kan betala |
 | Avvisad under granskning   | Betalningen avvisades under granskningen                                                                                                     | Kontakta [Microsoft Support](https://developer.microsoft.com/windows/support) om du vill ha mer information                      |
-| Misslyckades                   | Betalningen misslyckades på grund av ett fel i Microsoft-systemet                                                                                         | Kontakta [Microsoft Support](https://developer.microsoft.com/windows/support) om du vill ha mer information                      |
-| Pågår              | Betalningen pågår                                                                                                                 | No                                                         |
-| Felaktig betalning        | Betalnings återkoppling pågår                                                                                                       | No                                                         |
-| Skickat                     | Betalningen har skickats till din bank                                                                                                     | No                                                         |
-| Ombearbetning             | Ett Microsoft-systemfel påträffades under betalningen och ombearbetas                                                                  | No                                                         |
-| Reversed                 | Betalningen återfördes av banken och skickas igen vid nästa betalnings cykel                                                     | No                                                         |
+| Misslyckad                   | Betalningen misslyckades på grund av ett fel i Microsoft-systemet                                                                                         | Kontakta [Microsoft Support](https://developer.microsoft.com/windows/support) om du vill ha mer information                      |
+| Pågår              | Betalningen pågår                                                                                                                 | Nej                                                         |
+| Felaktig betalning        | Betalnings återkoppling pågår                                                                                                       | Nej                                                         |
+| Skickat                     | Betalningen har skickats till din bank                                                                                                     | Nej                                                         |
+| Ombearbetning             | Ett Microsoft-systemfel påträffades under betalningen och ombearbetas                                                                  | Nej                                                         |
+| Reversed                 | Betalningen återfördes av banken och skickas igen vid nästa betalnings cykel                                                     | Nej                                                         |
 | Avvisad moms faktura     | Din moms faktura avvisades under granskningen. Alla väntande betalningar stoppas tills moms granskningen är klar.                 | Kontakta [Microsoft Support](https://developer.microsoft.com/windows/support) om du vill ha mer information                      |
-| Moms faktura under granskning | Din moms faktura granskas. Din betalning frigörs när moms fakturan har godkänts.                                   | No                                                         |
+| Moms faktura under granskning | Din moms faktura granskas. Din betalning frigörs när moms fakturan har godkänts.                                   | Nej                                                         |
 | Avslagen                 | Betalningen avvisades av din bank                                                                                                      | Kontakta din bank om du vill ha mer information.                             |
 |||
 
@@ -97,7 +97,7 @@ Filtret kan resultera i att det **inte finns några tillgängliga data** fel. De
 
 Med det här alternativet får du en hämtning av de betalningar som du har fått i din bank för ett visst program, tillhör ande skatt och aggregerat belopp. Den här rapporten används för många Partner Center-program, så vissa kolumner kan vara inaktuella för rapporten. Dessa kolumner markeras nedan.
 
-| Kolumnnamn              | Description                                                                                                                               |
+| Kolumnnamn              | Beskrivning                                                                                                                               |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------  |
 | participantID            | Den primära identiteten för partnern enligt programmet                                                                             |
 | participantIDType        | Vanligt vis program-ID för stimulans program och säljar-ID för Store-program                                                                |
@@ -123,7 +123,7 @@ Med det här alternativet får du en hämtning av de betalningar som du har fåt
 
 Det här alternativet innehåller en nedladdning av varje rad objekt som du ser på sidan transaktions historik, typ, datum, associerat transaktions belopp, kund, produkt och annan transaktionell information som gäller för dina program.
 
-| Kolumnnamn                    | Description                                                                                                                              | Tillämplighet för incitament/Store/Azure Marketplace           |
+| Kolumnnamn                    | Beskrivning                                                                                                                              | Tillämplighet för incitament/Store/Azure Marketplace           |
 |--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
 | earningId                      | Unikt ID för varje tilltjänande                                                                                                       | Alla                                                            |
 | participantId                  | Den primära identiteten för partnern enligt programmet                                                                            | Alla                                                            |
@@ -209,7 +209,7 @@ Transaktions historiken från före juli 1 2019 hanteras separat. Instruktioner 
 > [!NOTE]
 > Filter som 3M, 6 M eller 12M kommer inte att gälla för avsnittet **historiska instruktioner** .
 
-| Fältnamn              | Description                                                                                                                                                             |
+| Fältnamn              | Beskrivning                                                                                                                                                             |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Intäkts källa          | Källan till intäkterna baserat på var transaktionen ägde rum, till exempel Microsoft Store, Windows Phone butik, Windows Store 8 eller annonsering                  |
 | Order-ID                | Unikt order-ID. Med det här ID: t kan du identifiera inköps transaktioner med deras respektive icke-inköps transaktioner, till exempel åter betalningar eller åter betalningar. Båda kommer att ha samma order-ID. Om flera betalnings metoder används för ett enda köp kan du också länka inköps transaktionerna. det gäller även för en aktie avgift där flera betalnings metoder användes. |
@@ -220,7 +220,7 @@ Transaktions historiken från före juli 1 2019 hanteras separat. Instruktioner 
 | Namn på överordnad produkt     | Namnet på den överordnade produkten. Om det inte finns någon överordnad produkt för transaktionen får du ett överordnat produkt namn = produkt namn.                                  |
 | Produktnamn            | Produktens namn                                                                                                                                                    |
 | Produkttyp            | Typ av produkt, till exempel app, tillägg eller spel                                                                                                                       |
-| Kvantitet                | När intäkts källan är Microsoft Store för företag, representerar kvantiteten antalet licenser som har köpts. För alla andra intäkts källor är antalet alltid 1. Även om en enskild transaktion delas upp i två rad objekt eftersom två olika betalnings metoder användes, visar varje rad objekt en kvantitet på 1. |
+| Antal                | När intäkts källan är Microsoft Store för företag, representerar kvantiteten antalet licenser som har köpts. För alla andra intäkts källor är antalet alltid 1. Även om en enskild transaktion delas upp i två rad objekt eftersom två olika betalnings metoder användes, visar varje rad objekt en kvantitet på 1. |
 | Transaktionstyp        | Transaktions typ, till exempel köp, åter betalning, återföring eller åter betalning                                                                                              |
 | Betalnings metod          | Kund betalnings instrument som används för transaktionen, till exempel kort, fakturering av mobil företag eller PayPal                                                               |
 | Land/region        | Land/region där transaktionen ägde rum                                                                                                                          |

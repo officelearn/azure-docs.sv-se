@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 364f1676740106d57e61f94beaec53682656ef40
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a358052d5f3959a236f29461890c989e77edb4dc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089217"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369024"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse för SQL-resursförbrukning
 
@@ -99,7 +99,7 @@ SQL-poolen är ett skalbart system som kan etablera stora mängder data bearbetn
 
 Om du ändrar data lagrets enheter krävs de behörigheter som beskrivs i [Alter Database](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-Inbyggda roller för Azure-resurser, till exempel SQL DB-deltagare och SQL Server deltagare kan ändra DWU-inställningar.
+Inbyggda Azure-roller som SQL DB-deltagare och SQL Server deltagare kan ändra DWU-inställningar.
 
 #### <a name="view-current-dwu-settings"></a>Visa aktuella inställningar för DWU
 
@@ -120,7 +120,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 ### <a name="change-data-warehouse-units"></a>Ändra informations lager enheter
 
-#### <a name="azure-portal"></a>Azure-portalen
+#### <a name="azure-portal"></a>Azure Portal
 
 Ändra DWU: er:
 

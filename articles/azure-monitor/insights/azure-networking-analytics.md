@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 96df96fd6145d1c6e58eb5dfc672ec324da75202
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ccdf5885dd1199ff8ed8000e5feaf80662aae42a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041601"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318070"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Lösningar för övervakning av Azure-nätverk i Azure Monitor
 
@@ -79,7 +79,7 @@ Följande mått stöds för Application Gateway: igen
 ### <a name="install-and-configure-the-solution"></a>Installera och konfigurera lösningen
 Använd följande instruktioner för att installera och konfigurera Azure Application Gateway Analytics-lösningen:
 
-1. Aktivera lösningen Azure Application Gateway Analytics från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) eller genom att använda processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](../../azure-monitor/insights/solutions.md).
+1. Aktivera lösningen Azure Application Gateway Analytics från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) eller genom att använda processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](./solutions.md).
 2. Aktivera diagnostikloggning för de [programgatewayer](../../application-gateway/application-gateway-diagnostics.md) som du vill övervaka.
 
 #### <a name="enable-azure-application-gateway-diagnostics-in-the-portal"></a>Aktivera Azure Application Gateway-diagnostik i portalen
@@ -150,7 +150,7 @@ Följande loggar stöds för nätverks säkerhets grupper:
 ### <a name="install-and-configure-the-solution"></a>Installera och konfigurera lösningen
 Använd följande instruktioner för att installera och konfigurera Azure Networking Analytics-lösningen:
 
-1. Aktivera Azure Network Security Group Analytics-lösningen med hjälp av processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](../../azure-monitor/insights/solutions.md).
+1. Aktivera Azure Network Security Group Analytics-lösningen med hjälp av processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](./solutions.md).
 2. Aktivera diagnostikloggning för de [nätverks säkerhets grupps](../../virtual-network/virtual-network-nsg-manage-log.md) resurser som du vill övervaka.
 
 ### <a name="enable-azure-network-security-group-diagnostics-in-the-portal"></a>Aktivera diagnostik för Azure Network Security-gruppen i portalen
@@ -230,3 +230,4 @@ Data som samlas in innan ändringen visas inte i den nya lösningen. Du kan fort
 
 ## <a name="next-steps"></a>Nästa steg
 * Använd [logg frågor i Azure Monitor](../log-query/log-query-overview.md) om du vill visa detaljerade Azure Diagnostics-data.
+

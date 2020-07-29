@@ -4,15 +4,15 @@ description: Teknisk resurs och rikt linjer som hjälper dig att konfigurera ett
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
-ms.author: mingshen
+author: keferna
+ms.author: keferna
 ms.date: 04/09/2020
-ms.openlocfilehash: da0fa53567e5c58db8e8394ef5562255d8a7142d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 46102305e99c94fc71ad0934a2c0063fdcbeec4e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104280"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317798"
 ---
 # <a name="create-an-azure-container-offer"></a>Skapa ett erbjudande för Azure Container
 
@@ -44,7 +44,7 @@ Välj en eller båda av följande skript miljöer för att hantera din behållar
 Vi rekommenderar att du lägger till dessa verktyg i utvecklings miljön:
 
 - [Azure Lagringsutforskaren](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)
-- [Visuell Studio-kod](https://code.visualstudio.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
   - Tillägg: [Azure Resource Manager verktyg](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   - Tillägg: [beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
   - Tillägg: [PRETTIFY JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json).

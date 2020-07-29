@@ -6,18 +6,18 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 05/28/2020
+ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 6e240a0c5d5d77489c92862238c2e5041bdeabe3
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 6d805dfc15264a34abe1f177f688dae96d4a49f7
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171366"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369466"
 ---
-Använd det Language Understanding (LUIS) som redigerar klient biblioteket för Node. js för att:
+Använd Language Understanding (LUIS) Authoring Client library för Node.js till:
 
 * Skapa en app.
 * Lägg till avsikter, entiteter och exempel yttranden.
@@ -25,9 +25,9 @@ Använd det Language Understanding (LUIS) som redigerar klient biblioteket för 
 * Träna och publicera en app.
 * Ta bort app
 
-[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring)  |  NPM-, NPM-exempel ( [Authoring Package)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring), [runtime-paket ()](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)  |  [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
+[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring)  |  NPM-, NPM-exempel ( [Authoring Package)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring), [runtime-paket ()](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)  |  [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/node-sdk-authoring-prediction/luis_authoring_quickstart.js)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Language Understanding redigerings resurs: [skapa en i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 * [Node.js](https://nodejs.org)
@@ -36,46 +36,7 @@ Använd det Language Understanding (LUIS) som redigerar klient biblioteket för 
 
 ### <a name="get-your-language-understanding-luis-starter-key"></a>Hämta din Language Understandings start nyckel (LUIS)
 
-Hämta din [Start nyckel](../luis-how-to-azure-subscription.md#starter-key) genom att skapa en Luis Authoring-resurs. Behåll din nyckel och slut punkten för nyckeln för nästa steg.
-
-### <a name="create-an-environment-variable"></a>Skapa en miljö variabel
-
-Med din nyckel och region för nyckeln skapar du två miljövariabler för autentisering:
-
-* `LUIS_AUTHORING_KEY`– Resurs nyckeln för autentisering av dina begär Anden.
-* `LUIS_AUTHORING_ENDPOINT`– Slut punkten som är kopplad till din nyckel.
-
-Följ anvisningarna för ditt operativ system.
-
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-```console
-setx LUIS_AUTHORING_KEY <replace-with-your-luis-authoring-key
-setx LUIS_AUTHORING_ENDPOINT <replace-with-your-luis-authoring-endpoint>
-```
-
-Starta om konsol fönstret när du har lagt till miljövariabeln.
-
-#### <a name="linux"></a>[Linux](#tab/linux)
-
-```bash
-export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
-export LUIS_AUTHORING_ENDPOINT=<replace-with-your-luis-authoring-endpoint>
-```
-
-När du har lagt till miljövariabeln så kör `source ~/.bashrc` från konsolfönstret så att ändringarna träder i kraft.
-
-#### <a name="macos"></a>[macOS](#tab/unix)
-
-Redigera din `.bash_profile` och Lägg till miljövariabeln:
-
-```bash
-export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
-export LUIS_AUTHORING_ENDPOINT=<replace-with-your-luis-authoring-endpoint>
-```
-
-När du har lagt till miljövariabeln så kör `source .bash_profile` från konsolfönstret så att ändringarna träder i kraft.
-***
+Hämta din [redigerings nyckel](../luis-how-to-azure-subscription.md) genom att skapa en Luis Authoring-resurs. Behåll din nyckel och slut punkten för nyckeln. du måste lägga till dessa strängar överst i kod filen.
 
 ### <a name="install-the-npm-library-for-luis-authoring"></a>Installera NPM-biblioteket för LUIS-redigering
 
@@ -102,7 +63,7 @@ När klienten har skapats använder du den här klienten för att få åtkomst t
 
 ## <a name="code-examples"></a>Kodexempel
 
-Dessa kodfragment visar hur du gör följande med klient biblioteket Language Understanding (LUIS) Authoring för Node. js:
+De här kodfragmenten visar hur du gör följande med klient biblioteket Language Understanding (LUIS) för redigering av Node.js:
 
 * [Skapa en app](#create-a-luis-app)
 * [Lägg till entiteter](#create-entities-for-the-app)
@@ -118,8 +79,6 @@ Dessa kodfragment visar hur du gör följande med klient biblioteket Language Un
 Skapa en ny textfil i önskat redigerings program eller IDE-namn `luis_authoring_quickstart.js` . Lägg sedan till följande beroenden.
 
 [!code-javascript[Create a new application in your preferred editor or IDE.](~/cognitive-services-quickstart-code/javascript/LUIS/node-sdk-authoring-prediction/luis_authoring_quickstart.js?name=Dependencies)]
-
-Skapa variabler för resursens Azure-slutpunkt och nyckel. Om du har skapat miljövariabeln efter att du har startat programmet måste du stänga och öppna redigerings programmet, IDE eller gränssnittet som kör det för att få åtkomst till variabeln.
 
 [!code-javascript[Create variables for your resource's Azure endpoint and key.](~/cognitive-services-quickstart-code/javascript/LUIS/node-sdk-authoring-prediction/luis_authoring_quickstart.js?name=Variables)]
 
@@ -163,7 +122,7 @@ Appen behöver exempel på yttranden för att kunna fastställa en uttryck för 
 
 Lägg till exempel yttranden genom att skapa en lista över [ExampleLabelObject](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/examplelabelobject?view=azure-node-latest) -objekt, ett objekt för varje exempel uttryck. Varje exempel bör markera alla entiteter med en ord lista med namn/värde-par för enhets namn och enhets värde. Enhet svärdet bör vara exakt så som det visas i texten i exemplet uttryck.
 
-Anropa [exempel. batch](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/examples?view=azure-node-latest#batch-string--string--examplelabelobject----msrest-requestoptionsbase-) med app-ID, VERSIONS-ID och listan med exempel. Anropet svarar med en lista över resultat. Du måste kontrol lera varje exempels resultat för att se till att det har lagts till i modellen.
+Anropa [examples.batCH](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/examples?view=azure-node-latest#batch-string--string--examplelabelobject----msrest-requestoptionsbase-) med app-ID, VERSIONS-ID och listan med exempel. Anropet svarar med en lista över resultat. Du måste kontrol lera varje exempels resultat för att se till att det har lagts till i modellen.
 
 [!code-javascript[Add example utterance to intent](~/cognitive-services-quickstart-code/javascript/LUIS/node-sdk-authoring-prediction/luis_authoring_quickstart.js?name=AuthoringBatchAddUtterancesForIntent&highlight=52-56)]
 

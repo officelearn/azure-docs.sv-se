@@ -8,26 +8,23 @@ ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1010f89057d83a11fb2e156f01509e909270b044
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4622e64b585d3d4795b11d29e7bffdf9991203c6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083580"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292556"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Fel sökning – översikt, feedback och support för Windows Virtual Desktop
 
 >[!IMPORTANT]
->Det här innehållet gäller för våren 2020-uppdateringen med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder den virtuella Windows-datorn med version 2019 utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
->
-> Den virtuella Windows-skrivbordets våren 2020-uppdateringen är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. 
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Det här innehållet gäller för virtuella Windows-datorer med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder Windows Virtual Desktop (klassisk) utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
 
 Den här artikeln innehåller en översikt över de problem som du kan stöta på när du konfigurerar en Windows Virtual Desktop-miljö och ger möjlighet att lösa problemen.
 
-## <a name="report-issues-during-public-preview"></a>Rapportera problem under en offentlig för hands version
+## <a name="report-issues"></a>Rapportera problem
 
-Om du vill rapportera problem eller föreslå funktioner under en offentlig för hands version av våren 2020-versionen går du till [Windows Virtual Desktop-Tech-communityn](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). Du kan använda Tech-communityn för att diskutera bästa praxis eller föreslå och rösta på nya funktioner. När du rapporterar ett problem som rör den offentliga för hands versionen ska du se till att märka problem typen som **våren 2020 Update (för hands version)**.
+Om du vill rapportera problem eller föreslå funktioner för virtuella Windows-datorer med Azure Resource Manager-integrering kan du gå till [Windows Virtual Desktop-Tech-community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). Du kan använda Tech-communityn för att diskutera bästa praxis eller föreslå och rösta på nya funktioner.
 
 När du gör ett inlägg som ber om hjälp eller föreslår en ny funktion ska du se till att du beskriver ditt ämne i så mycket information som möjligt. Detaljerad information kan hjälpa andra användare att besvara din fråga eller förstå den funktion som du föreslår en röst för.
 

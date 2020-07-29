@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: 026b7dd0da393faef6bdce0e37a17ac54a382aaf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 94abdf8735fa487f46d423f17f7e1ff7bc853eb7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099972"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289878"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Metodtips för att välja Time Series ID-värde
 
@@ -75,8 +75,12 @@ Exempel på rå händelse:
 ```
 
 I Azure Portal kan du ange den sammansatta nyckeln enligt följande:
-
+ 
 [![Konfigurera Time Series-ID för miljön.](media/v2-how-to-tsid/configure-environment-key.png)](media/v2-how-to-tsid/configure-environment-key.png#lightbox)
+
+  > [!NOTE]
+  > I Azure Portal ska du inte ange kommaavgränsade namn på egenskaper i en texbox, annars behandlas det som ett enda egenskaps namn som innehåller kommatecken.
+  > Ange varje egenskaps namn i dess egna texbox.
 
 ## <a name="next-steps"></a>Nästa steg
 

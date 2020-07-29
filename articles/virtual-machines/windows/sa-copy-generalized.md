@@ -4,17 +4,17 @@ description: Skapa en unmanged avbildning av en generaliserad virtuell Windows-d
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
-ms.openlocfilehash: 8077689bce988124da34428842df8fd2ef757bf0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f83e2157fcf70eff90d7444d647552ba7e34c390
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020193"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291055"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Så här skapar du en ohanterad VM-avbildning från en virtuell Azure-dator
 

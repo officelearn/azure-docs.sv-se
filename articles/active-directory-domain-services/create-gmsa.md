@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 19b7962462e5cdb03bad0c6004b8c19f781ccc69
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 723b8cf7a71e5af672c8665040645d55645fe9f7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005284"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281862"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-in-azure-active-directory-domain-services"></a>Skapa ett grupphanterat tjänst konto (gMSA) i Azure Active Directory Domain Services
 
@@ -76,7 +76,7 @@ Skapa nu en gMSA med cmdleten [New-ADServiceAccount][New-ADServiceAccount] . Fö
 * **-Name** är inställt på *WebFarmSvc*
 * Parametern **-Path** anger den anpassade organisationsenheten för den gMSA som skapades i föregående steg.
 * DNS-poster och tjänst huvud namn har angetts för *WebFarmSvc.aaddscontoso.com*
-* Huvud konton i *AADDSCONTOSO-Server $* får hämta lösen ordet Använd identiteten.
+* Huvud konton i *AADDSCONTOSO-Server $* får hämta lösen ordet och använda identiteten.
 
 Ange egna namn och domän namn.
 

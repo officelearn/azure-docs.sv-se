@@ -3,12 +3,12 @@ title: Konfigurera ett virtuellt nätverk i Azure DevTest Labs | Microsoft Docs
 description: Lär dig hur du konfigurerar ett befintligt virtuellt nätverk och undernät och använder dem i en virtuell dator med Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0819527cfc2a9dfd4e93226542acb7cb0c6d7273
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21fe23b6be6fdc924c5502ff97f9c03a3f3e759d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482657"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283562"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Konfigurera ett virtuellt nätverk i Azure DevTest Labs
 Som förklaras i artikeln [lägga till en virtuell dator i ett labb](devtest-lab-add-vm.md), kan du ange ett konfigurerat virtuellt nätverk när du skapar en virtuell dator i ett labb. Du kan till exempel behöva komma åt dina Corpnet-resurser från dina virtuella datorer med hjälp av det virtuella nätverket som har kon figurer ATS med ExpressRoute eller VPN för plats till plats.
@@ -53,10 +53,9 @@ Följande steg beskriver hur du lägger till ett befintligt virtuellt nätverk (
 
 Nu när det virtuella nätverket har kon figurer ATS kan du välja det när du skapar en virtuell dator. Information om hur du skapar en virtuell dator och anger ett virtuellt nätverk finns i artikeln [lägga till en virtuell dator i ett labb](devtest-lab-add-vm.md). 
 
-Azures [Virtual Network dokumentation](https://docs.microsoft.com/azure/virtual-network) innehåller mer information om hur du använder virtuella nätverk, inklusive hur du konfigurerar och hanterar ett VNet och ansluter det till ditt lokala nätverk.
+Azures [Virtual Network dokumentation](../virtual-network/index.yml) innehåller mer information om hur du använder virtuella nätverk, inklusive hur du konfigurerar och hanterar ett VNet och ansluter det till ditt lokala nätverk.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 När du har lagt till önskat virtuellt nätverk i labbet är nästa steg att [lägga till en virtuell dator i labbet](devtest-lab-add-vm.md).
-

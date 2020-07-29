@@ -1,32 +1,32 @@
 ---
 title: Utbilda scikit – lär dig Machine Learning-modeller
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du kör dina scikit-utbildnings skript i företags skala med hjälp av Azure Machine Learning SKlearns uppskattnings klass. Exempel skripten klassificerar Iris blomma-bilder för att bygga en maskin inlärnings modell baserad på scikit-data uppsättning.
+description: Lär dig hur du kör scikit för att lära dig mer om att köra utbildnings skript på Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.author: maxluk
-author: maxluk
-ms.date: 03/09/2020
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 3669bfb10a990f042d1470fbabee19809a6785cc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: jordane
+author: jpe316
+ms.date: 07/24/2020
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: dfe3d0e7bf0d291807a5a051f834753c7816801a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060703"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320892"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Bygg scikit – lär dig modeller i stor skala med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du kör dina scikit i företags skala med hjälp av Azure Machine Learning [SKlearns uppskattnings](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) klass. 
+I den här artikeln får du lära dig hur du kör dina scikit-utbildnings skript med Azure Machine Learning.
 
 Exempel skripten i den här artikeln används för att klassificera Iris blomma-bilder för att bygga en maskin inlärnings modell baserad på scikit- [data uppsättningen](https://archive.ics.uci.edu/ml/datasets/iris).
 
 Oavsett om du tränar en Machine Learning-scikit – lär dig modell från grunden eller om du använder en befintlig modell i molnet, kan du använda Azure Machine Learning för att skala ut utbildnings jobb med öppen källkod med elastiska moln beräknings resurser. Du kan bygga, distribuera, hantera och övervaka modeller av produktions klass med Azure Machine Learning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kör den här koden i någon av följande miljöer:
  - Azure Machine Learning beräknings instans – inga hämtningar eller installationer behövs
@@ -38,31 +38,10 @@ Kör den här koden i någon av följande miljöer:
 
     - [Installera Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
     - [Skapa en konfigurations fil för arbets ytor](how-to-configure-environment.md#workspace).
-    - Hämta data uppsättningen och exempel skript filen 
-        - [Iris-datauppsättning](https://archive.ics.uci.edu/ml/datasets/iris)
-        - [train_iris. py](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn)
-    - Du kan också hitta en slutförd [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb) av den här guiden på sidan med GitHub-exempel. Antecknings boken innehåller ett expanderat avsnitt som täcker intelligenta parametrar för att justera och hämta den bästa modellen med primära mått.
 
 ## <a name="set-up-the-experiment"></a>Konfigurera experimentet
 
 I det här avsnittet anges övnings experimentet genom att läsa in de nödvändiga python-paketen, initiera en arbets yta, skapa ett experiment och ladda upp utbildnings data och utbildnings skript.
-
-### <a name="import-packages"></a>Importera paket
-
-Importera först de nödvändiga python-biblioteken.
-
-```Python
-import os
-import urllib
-import shutil
-import azureml
-
-from azureml.core import Experiment
-from azureml.core import Workspace, Run
-
-from azureml.core.compute import ComputeTarget, AmlCompute
-from azureml.core.compute_target import ComputeTargetException
-```
 
 ### <a name="initialize-a-workspace"></a>Initiera en arbets yta
 
@@ -71,81 +50,72 @@ from azureml.core.compute_target import ComputeTargetException
 Skapa ett objekt för arbets ytan från `config.json` filen som skapats i [avsnittet krav](#prerequisites).
 
 ```Python
+from azureml.core import Workspace
+
 ws = Workspace.from_config()
 ```
 
-### <a name="create-a-machine-learning-experiment"></a>Skapa ett maskininlärningsexperiment
 
-Skapa ett experiment och en mapp för att lagra dina utbildnings skript. I det här exemplet skapar du ett experiment med namnet "sklearn-Iris".
+### <a name="prepare-scripts"></a>Förbereda skript
 
-```Python
-project_folder = './sklearn-iris'
-os.makedirs(project_folder, exist_ok=True)
+I den här självstudien är utbildnings skriptet **train_iris. py** redan tillgängligt för [dig.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn/train_iris.py) I praktiken bör du kunna ta med ett anpassat tränings skript som är och köra det med Azure ML utan att behöva ändra koden.
 
-experiment = Experiment(workspace=ws, name='sklearn-iris')
+Obs!
+- Det tillhandahållna utbildnings skriptet visar hur du loggar vissa mått i Azure ML-körningen med hjälp av `Run` objektet i skriptet.
+- Det tillhandahållna utbildnings skriptet använder exempel data från `iris = datasets.load_iris()` funktionen.  För dina egna data kan du behöva använda steg som att [Ladda upp data uppsättning och skript](how-to-train-keras.md#data-upload) för att göra data tillgängliga under utbildningen.
+
+### <a name="define-your-environment"></a>Definiera din miljö.
+
+#### <a name="create-a-custom-environment"></a>Skapa en anpassad miljö.
+
+Redigera din Conda-miljö (sklearn-ENV. yml).
+Om du vill skriva Conda-miljön från en bärbar dator kan du lägga till linjen ```%%writefile sklearn-env.yml``` överst i cellen.
+
+```yaml
+name: sklearn-training-env
+dependencies:
+  - python=3.6.2
+  - scikit-learn
+  - numpy
+  - pip:
+    - azureml-defaults
 ```
 
-### <a name="prepare-training-script"></a>Förbered utbildnings skript
+Skapa en Azure ML-miljö från den här Conda-miljö specifikationen. Miljön kommer att paketeras i en Docker-behållare vid körning.
+```python
+from azureml.core import Environment
 
-I den här självstudien har utbildnings skriptet **train_iris. py** redan angetts för dig. I praktiken bör du kunna ta med ett anpassat tränings skript som är och köra det med Azure ML utan att behöva ändra koden.
-
-Om du vill använda funktionerna för Azure ML-spårning och-mått lägger du till en liten del av Azure ML-koden i utbildnings skriptet.  Övnings skriptet **train_iris. py** visar hur du loggar vissa mått i Azure ml-körningen med hjälp av `Run` objektet i skriptet.
-
-Det tillhandahållna utbildnings skriptet använder exempel data från `iris = datasets.load_iris()` funktionen.  För dina egna data kan du behöva använda steg som att [Ladda upp data uppsättning och skript](how-to-train-keras.md#data-upload) för att göra data tillgängliga under utbildningen.
-
-Kopiera övnings skriptet **train_iris. py** i projekt katalogen.
-
-```
-import shutil
-shutil.copy('./train_iris.py', project_folder)
+myenv = Environment.from_conda_specification(name = "myenv", file_path = "sklearn-env.yml")
 ```
 
-## <a name="create-or-get-a-compute-target"></a>Skapa eller hämta ett beräknings mål
+#### <a name="use-a-curated-environment"></a>Använda en granskad miljö
+Azure ML tillhandahåller färdiga, granskade behållar miljöer om du inte vill skapa en egen avbildning. Mer information finns [här](resource-curated-environments.md).
+Om du vill använda en granskad miljö kan du köra följande kommando i stället:
 
-Skapa ett beräknings mål för ditt scikit – Läs jobb att köra på. Scikit – Läs bara stöd för en nod, CPU-bearbetning.
-
-Följande kod skapar en Azure Machine Learning Managed Compute (AmlCompute) för beräknings resursen för Fjärrutbildning. Skapandet av AmlCompute tar cirka 5 minuter. Om AmlCompute med det namnet redan finns i din arbets yta hoppar den här koden över skapande processen.
-
-```Python
-cluster_name = "cpu-cluster"
-
-try:
-    compute_target = ComputeTarget(workspace=ws, name=cluster_name)
-    print('Found existing compute target')
-except ComputeTargetException:
-    print('Creating a new compute target...')
-    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2', 
-                                                           max_nodes=4)
-
-    compute_target = ComputeTarget.create(ws, cluster_name, compute_config)
-
-    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+```python
+env = Environment.get(workspace=ws, name="AzureML-Tutorial")
 ```
 
-[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+### <a name="create-a-scriptrunconfig"></a>Skapa en ScriptRunConfig
 
-Mer information om beräknings mål finns i artikeln [Vad är en Compute Target](concept-compute-target.md) -artikel.
+Den här ScriptRunConfig skickar jobbet för körning på det lokala beräknings målet.
 
-## <a name="create-a-scikit-learn-estimator"></a>Skapa en scikit – lär dig uppskattning
+```python
+from azureml.core import ScriptRunConfig
 
-[Scikit-lär dig uppskattnings](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn?view=azure-ml-py) tjänsten ger ett enkelt sätt att starta ett scikit utbildnings jobb på ett beräknings mål. Den implementeras via [`SKLearn`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) klassen, som kan användas för att stödja CPU-utbildning med en nod.
+sklearnconfig = ScriptRunConfig(source_directory='.', script='train_iris.py')
+src.run_config.environment = myenv
+```
 
-Om ditt utbildnings skript behöver ytterligare pip-eller Conda-paket för att kunna köras, kan du ha paketen installerade på den resulterande Docker-avbildningen genom att skicka namnen via `pip_packages` `conda_packages` argumenten och.
+Om du vill skicka ett fjärran slutet kluster kan du ändra run_config. Target till önskat beräknings mål.
 
-```Python
-from azureml.train.sklearn import SKLearn
+### <a name="submit-your-run"></a>Skicka in din körning
+```python
+from azureml.core import Experiment
 
-script_params = {
-    '--kernel': 'linear',
-    '--penalty': 1.0,
-}
+run = Experiment(ws,'train-sklearn').submit(config=sklearnconfig)
+run.wait_for_completion(show_output=True)
 
-estimator = SKLearn(source_directory=project_folder, 
-                    script_params=script_params,
-                    compute_target=compute_target,
-                    entry_script='train_iris.py',
-                    pip_packages=['joblib']
-                   )
 ```
 
 > [!WARNING]
@@ -153,15 +123,7 @@ estimator = SKLearn(source_directory=project_folder,
 
 Mer information om hur du anpassar din python-miljö finns i [skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md). 
 
-## <a name="submit-a-run"></a>Skicka in en körning
-
-[Kör-objektet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) tillhandahåller gränssnittet till körnings historiken medan jobbet körs och när det har slutförts.
-
-```Python
-run = experiment.submit(estimator)
-run.wait_for_completion(show_output=True)
-```
-
+## <a name="what-happens-during-run-execution"></a>Vad händer under körningen
 När körningen körs går den igenom följande steg:
 
 - **Förbereder**: en Docker-avbildning skapas enligt TensorFlow-uppskattningen. Avbildningen överförs till arbets ytans behållar register och cachelagras för senare körningar. Loggarna strömmas också till körnings historiken och kan visas för att övervaka förloppet.
@@ -184,7 +146,7 @@ import joblib
 joblib.dump(svm_model_linear, 'model.joblib')
 ```
 
-Registrera modellen på din arbets yta med följande kod. Genom att ange parametrarna `model_framework` , `model_framework_version` , och `resource_configuration` , blir modell distribution utan kod tillgängligt. På så sätt kan du distribuera din modell direkt som en webb tjänst från den registrerade modellen, och [`ResourceConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.resource_configuration.resourceconfiguration?view=azure-ml-py) objektet definierar beräknings resursen för webb tjänsten.
+Registrera modellen på din arbets yta med följande kod. Genom att ange parametrarna `model_framework` , `model_framework_version` , och `resource_configuration` , blir modell distribution utan kod tillgängligt. Med modell distribution utan kod kan du distribuera din modell direkt som en webb tjänst från den registrerade modellen, och [`ResourceConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.resource_configuration.resourceconfiguration?view=azure-ml-py) objektet definierar beräknings resursen för webb tjänsten.
 
 ```Python
 from azureml.core import Model

@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: c60d27cb75526d801880658846a6b61760f4bf7e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 154e4c9421d1c0a54b3d9b5f53424e7640fe62d8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508091"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323578"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Självstudie: övervaka en virtuell Windows-dator i Azure
 
@@ -93,7 +93,7 @@ Så här aktiverar du övervakning av den virtuella Azure-datorn med Azure Monit
     I listan förväljs standard arbets ytan och den plats där den virtuella datorn distribueras i prenumerationen. 
 
     >[!NOTE]
-    >Om du vill skapa en ny Log Analytics-arbetsyta för att lagra övervaknings data från den virtuella datorn, se [skapa en Log Analytics arbets yta](../../azure-monitor/learn/quick-create-workspace.md). Din Log Analytics-arbetsyta måste tillhöra en av de [regioner som stöds](../../azure-monitor/insights/vminsights-enable-overview.md#log-analytics).
+    >Om du vill skapa en ny Log Analytics-arbetsyta för att lagra övervaknings data från den virtuella datorn, se [skapa en Log Analytics arbets yta](../../azure-monitor/learn/quick-create-workspace.md). Arbets ytan måste tillhöra en av de [regioner som stöds](../../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
 
 När du har aktiverat övervakning kan du behöva vänta flera minuter innan du kan visa prestanda måtten för den virtuella datorn.
 

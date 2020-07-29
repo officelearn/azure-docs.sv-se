@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 68f7ec9aaffa2bad73d77d730749642a1b57f50b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 22eab216714d45e4b8a91fd58325424d4baef95e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044855"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87272954"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Vad är nytt i Formigenkänning?
 
@@ -26,7 +26,7 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 ## <a name="july-2020"></a>Juli 2020
 
 ### <a name="new-features"></a>Nya funktioner
-* **v 2.0-referensen är tillgänglig** Visa [v 2.0 API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) och de uppdaterade SDK: erna för [.net](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer), [python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer), [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)och [Java Script](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer).
+* **v 2.0-referensen är tillgänglig** Visa [v 2.0 API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) och de uppdaterade SDK: erna för [.net](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet), [python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)och [Java Script](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest).
 * Förbättringar av **tabell förbättringar och extraktioner** omfattar precisions förbättringar och förbättringar av tabell extrahering, särskilt möjligheten att lära tabell rubriker och strukturer i anpassade tåg utan etiketter. 
 * **Valuta stöd** Identifiering och extrahering av globala valuta symboler.
 * **Azure-gov** Formulär igenkänning är nu också tillgängligt i Azure gov.
@@ -50,10 +50,10 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 
 ### <a name="new-features"></a>Nya funktioner
 * **SDK-stöd för Forms IGENKÄNNING API v 2.0 offentlig för hands version** Den här månaden utökade vi vår tjänst support för att inkludera en för hands versions-SDK för formulär igenkännings versionen v 2.0 (för hands version). Använd länkarna nedan för att komma igång med ditt val av språk: 
-   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer)
+   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet)
    * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)
-   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/formrecognizer)
-   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer)
+   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
+   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
 
   Den nya SDK: n stöder alla funktioner i v 2.0-REST API för formulär igenkänning. Du kan till exempel träna en modell med eller utan etiketter och extrahera text, nyckel värde par och tabeller från dina formulär, extrahera data från kvitton med den förbyggda tjänsten för inaktuella inleveranser och extrahera text och tabeller med layout tjänsten från dina dokument. Du kan dela din feedback på SDK: erna via [feedback-formuläret för SDK](https://aka.ms/FR_SDK_v1_feedback).
  

@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c3d43bc20c31475a00a0ea81e4abdeb5405162a7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a1e72fba4ece24afffba573d954c7627af46a6cd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081805"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87273393"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -139,7 +139,7 @@ Azure Functions loggen innehåller också en *logg nivå* med varje logg. [LogLe
 |Loggnivå    |Kod|
 |------------|---|
 |Spårning       | 0 |
-|Felsöka       | 1 |
+|Felsökning       | 1 |
 |Information | 2 |
 |Varning     | 3 |
 |Fel       | 4 |
@@ -598,6 +598,9 @@ Du kan skriva anpassad kod för att Visa beroenden. Exempel finns i exempel kode
 
 ![Programkarta](./media/functions-monitoring/app-map.png)
 
+> [!NOTE]
+> Beroenden skrivs på informations nivå. Om du filtrerar vid varning eller över kan du inte se någon av dessa data. Dessutom sker automatisk insamling av beroenden i icke-användarens omfång. Se därför till att nivån har angetts till minst **information** utanför användar omfånget i host.js(D.v.s. utanför funktionen. <YOUR_FUNCTION_NAME>. Användar nyckel) om du vill att dessa beroenden ska fångas.
+
 ## <a name="enable-application-insights-integration"></a>Aktivera Application Insights-integrering
 
 För att en Function-app ska skicka data till Application Insights måste den känna till Instrumentation-nyckeln för en Application Insights resurs. Nyckeln måste vara i en app-inställning med namnet **APPINSIGHTS_INSTRUMENTATIONKEY**.
@@ -659,7 +662,7 @@ I Application Insights väljer du **Live Metrics Stream**. [Exempel logg poster]
 
 ![Visa Live Metrics Stream i portalen](./media/functions-monitoring/live-metrics-stream.png) 
 
-### <a name="visual-studio-code"></a>Visuell Studio-kod
+### <a name="visual-studio-code"></a>Visual Studio-koden
 
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 

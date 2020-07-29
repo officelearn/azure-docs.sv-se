@@ -3,12 +3,12 @@ title: Data kvarhållning och lagring i Azure Application Insights | Microsoft D
 description: Policy för kvarhållning och sekretess policy
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 16483c9417c08ea60853d7e70b7121cd0af9db71
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 039e86f964649441967dff82270a3a6c460612f0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540068"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324479"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Data insamling, kvarhållning och lagring i Application Insights
 
@@ -38,24 +38,24 @@ Application Insights SDK: er är tillgängliga för en mängd olika program type
 ## <a name="what-data-does-it-collect"></a>Vilka data samlas in?
 Det finns tre data Källor:
 
-* SDK, som du integrerar med din app, antingen [i utvecklings](../../azure-monitor/app/asp-net.md) -eller [körnings tid](../../azure-monitor/app/monitor-performance-live-website-now.md). Det finns olika SDK: er för olika program typer. Det finns också en [SDK för webb sidor](../../azure-monitor/app/javascript.md)som läses in i slutanvändarens webbläsare tillsammans med sidan.
+* SDK, som du integrerar med din app, antingen [i utvecklings](./asp-net.md) -eller [körnings tid](./monitor-performance-live-website-now.md). Det finns olika SDK: er för olika program typer. Det finns också en [SDK för webb sidor](./javascript.md)som läses in i slutanvändarens webbläsare tillsammans med sidan.
   
-  * Varje SDK har ett antal [moduler](../../azure-monitor/app/configuration-with-applicationinsights-config.md), som använder olika tekniker för att samla in olika typer av telemetri.
+  * Varje SDK har ett antal [moduler](./configuration-with-applicationinsights-config.md), som använder olika tekniker för att samla in olika typer av telemetri.
   * Om du installerar SDK i utvecklingen kan du använda dess API för att skicka din egen telemetri, förutom standardmodulerna. Den här anpassade Telemetrin kan innehålla alla data som du vill skicka.
-* I vissa webb servrar finns det även agenter som körs tillsammans med appen och skicka telemetri om processor, minne och nätverks användning. Till exempel kan virtuella Azure-datorer, Docker-värdar och [Java-EE-servrar](../../azure-monitor/app/java-agent.md) ha sådana agenter.
-* [Tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md) är processer som körs av Microsoft som skickar begär anden till din webbapp med jämna mellanrum. Resultaten skickas till Application Insights tjänsten.
+* I vissa webb servrar finns det även agenter som körs tillsammans med appen och skicka telemetri om processor, minne och nätverks användning. Till exempel kan virtuella Azure-datorer, Docker-värdar och [Java-EE-servrar](./java-agent.md) ha sådana agenter.
+* [Tillgänglighets test](./monitor-web-app-availability.md) är processer som körs av Microsoft som skickar begär anden till din webbapp med jämna mellanrum. Resultaten skickas till Application Insights tjänsten.
 
 ### <a name="what-kinds-of-data-are-collected"></a>Vilka typer av data samlas in?
 Huvud kategorierna är:
 
-* [Telemetri för webb server](../../azure-monitor/app/asp-net.md) – HTTP-begäranden.  URI, tids åtgång för att bearbeta begäran, svarskod, klientens IP-adress. `Session id`.
-* [Webb sidor](../../azure-monitor/app/javascript.md) – antal sidor, användare och sessioner. Sid inläsnings tider. Undantag. AJAX-anrop.
+* [Telemetri för webb server](./asp-net.md) – HTTP-begäranden.  URI, tids åtgång för att bearbeta begäran, svarskod, klientens IP-adress. `Session id`.
+* [Webb sidor](./javascript.md) – antal sidor, användare och sessioner. Sid inläsnings tider. Undantag. AJAX-anrop.
 * Prestanda räknare – minne, CPU, i/o, nätverks användning.
 * Klient-och Server kontext – operativ system, språk, enhets typ, webbläsare, skärmupplösning.
-* [Undantag](../../azure-monitor/app/asp-net-exceptions.md) och krascher – **stack dum par**, `build id` , CPU-typ. 
-* [Beroenden](../../azure-monitor/app/asp-net-dependencies.md) – anrop till externa tjänster som rest, SQL, Ajax. URI eller anslutnings sträng, varaktighet, lyckades, kommando.
-* [Tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md) – varaktighet för test och steg, svar.
-* [Spåra loggar](../../azure-monitor/app/asp-net-trace-logs.md) och [anpassad telemetri](../../azure-monitor/app/api-custom-events-metrics.md)  -  **allt du kodar till dina loggar eller telemetri**.
+* [Undantag](./asp-net-exceptions.md) och krascher – **stack dum par**, `build id` , CPU-typ. 
+* [Beroenden](./asp-net-dependencies.md) – anrop till externa tjänster som rest, SQL, Ajax. URI eller anslutnings sträng, varaktighet, lyckades, kommando.
+* [Tillgänglighets test](./monitor-web-app-availability.md) – varaktighet för test och steg, svar.
+* [Spåra loggar](./asp-net-trace-logs.md) och [anpassad telemetri](./api-custom-events-metrics.md)  -  **allt du kodar till dina loggar eller telemetri**.
 
 [Mer information](#data-sent-by-application-insights).
 
@@ -71,16 +71,16 @@ För webb sidor öppnar du webbläsarens fel söknings fönster.
 ![Tryck på F12 och öppna fliken nätverk.](./media/data-retention-privacy/08-browser.png)
 
 ### <a name="can-i-write-code-to-filter-the-telemetry-before-it-is-sent"></a>Kan jag skriva kod för att filtrera Telemetrin innan den skickas?
-Detta skulle vara möjligt genom att skriva ett [plugin-program för telemetri-processor](../../azure-monitor/app/api-filtering-sampling.md).
+Detta skulle vara möjligt genom att skriva ett [plugin-program för telemetri-processor](./api-filtering-sampling.md).
 
 ## <a name="how-long-is-the-data-kept"></a>Hur länge sparas data?
-Rå data punkter (det vill säga objekt som du kan fråga i analyser och granska i sökningen) bevaras i upp till 730 dagar. Du kan [välja en Retentions tid](./pricing.md#change-the-data-retention-period) på 30, 60, 90, 120, 180, 270, 365, 550 eller 730 dagar. Om du behöver behålla data längre än 730 dagar kan du använda [kontinuerlig export](../../azure-monitor/app/export-telemetry.md) för att kopiera den till ett lagrings konto under data inmatningen. 
+Rå data punkter (det vill säga objekt som du kan fråga i analyser och granska i sökningen) bevaras i upp till 730 dagar. Du kan [välja en Retentions tid](./pricing.md#change-the-data-retention-period) på 30, 60, 90, 120, 180, 270, 365, 550 eller 730 dagar. Om du behöver behålla data längre än 730 dagar kan du använda [kontinuerlig export](./export-telemetry.md) för att kopiera den till ett lagrings konto under data inmatningen. 
 
 Data som hålls längre än 90 dagar debiteras tilläggs avgifterna. Läs mer om Application Insights priser på [sidan för Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/).
 
 Sammanställda data (det vill säga antal, medelvärden och andra statistiska data som visas i Metric Explorer) behålls till en kornigt 1 minut i 90 dagar.
 
-[Fel söknings ögonblicks bilder](../../azure-monitor/app/snapshot-debugger.md) lagras i 15 dagar. Den här bevarande principen anges per tillämpning. Om du behöver öka det här värdet kan du begära en ökning genom att öppna ett support ärende i Azure Portal.
+[Fel söknings ögonblicks bilder](./snapshot-debugger.md) lagras i 15 dagar. Den här bevarande principen anges per tillämpning. Om du behöver öka det här värdet kan du begära en ökning genom att öppna ett support ärende i Azure Portal.
 
 ## <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 Informationen är synlig för dig och, om du har ett organisations konto, ditt team medlemmar. 
@@ -233,7 +233,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>Person uppgifter som lagras i Application Insights
 
-I [artikeln Application Insights personliga data](../../azure-monitor/platform/personal-data-mgmt.md) beskrivs det här problemet i djupet.
+I [artikeln Application Insights personliga data](../platform/personal-data-mgmt.md) beskrivs det här problemet i djupet.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Kan mina användare stänga av Application Insights?
 Inte direkt. Vi tillhandahåller inte en växel som användarna kan använda för att stänga av Application Insights.
@@ -249,7 +249,7 @@ SDK: erna varierar mellan olika plattformar och det finns flera komponenter som 
 | --- | --- |
 | [Lägga till Application Insights SDK i ett .NET-webbprojekt][greenbrown] |ServerContext<br/>Härleda<br/>Prestandaräknare<br/>Begäranden<br/>**Undantag**<br/>Session<br/>användare |
 | [Installera Statusövervakare på IIS][redfield] |Beroenden<br/>ServerContext<br/>Härleda<br/>Prestandaräknare |
-| [Lägga till Application Insights SDK i en Java-webbapp][java] |ServerContext<br/>Härleda<br/>Begäran<br/>Session<br/>användare |
+| [Lägga till Application Insights SDK i en Java-webbapp][java] |ServerContext<br/>Härleda<br/>Förfrågan<br/>Session<br/>användare |
 | [Lägg till Java Script SDK på webb sidan][client] |ClientContext <br/>Härleda<br/>Sida<br/>ClientPerf<br/>Ajax |
 | [Definiera standard egenskaper][apiproperties] |**Egenskaper** för alla standard-och anpassade händelser |
 | [Anropa TrackMetric][api] |Numeriska värden<br/>**Egenskaper** |
@@ -286,7 +286,7 @@ För [SDK: er för andra plattformar][platforms], se deras dokument.
 Du kan [stänga av vissa data genom att redigera ApplicationInsights.config][config]
 
 > [!NOTE]
-> Klientens IP-adress används för att härleda geografisk plats, men som standard är IP-data inte längre lagrade och alla nollor skrivs till det associerade fältet. Om du vill veta mer om personlig data hantering rekommenderar vi den här [artikeln](../../azure-monitor/platform/personal-data-mgmt.md#application-data). Om du behöver lagra IP-Datadata kommer vår [artikel för IP-adresser](./ip-collection.md) att vägleda dig genom dina alternativ.
+> Klientens IP-adress används för att härleda geografisk plats, men som standard är IP-data inte längre lagrade och alla nollor skrivs till det associerade fältet. Om du vill veta mer om personlig data hantering rekommenderar vi den här [artikeln](../platform/personal-data-mgmt.md#application-data). Om du behöver lagra IP-Datadata kommer vår [artikel för IP-adresser](./ip-collection.md) att vägleda dig genom dina alternativ.
 
 ## <a name="credits"></a>Krediter
 Den här produkten innehåller GeoLite2-data som skapats av MaxMind, som är tillgängliga från [https://www.maxmind.com](https://www.maxmind.com) .
@@ -295,13 +295,14 @@ Den här produkten innehåller GeoLite2-data som skapats av MaxMind, som är til
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiproperties]: ../../azure-monitor/app/api-custom-events-metrics.md#properties
-[client]: ../../azure-monitor/app/javascript.md
-[config]: ../../azure-monitor/app/configuration-with-applicationinsights-config.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
-[java]: ../../azure-monitor/app/java-get-started.md
-[platforms]: ../../azure-monitor/app/platforms.md
+[api]: ./api-custom-events-metrics.md
+[apiproperties]: ./api-custom-events-metrics.md#properties
+[client]: ./javascript.md
+[config]: ./configuration-with-applicationinsights-config.md
+[greenbrown]: ./asp-net.md
+[java]: ./java-get-started.md
+[platforms]: ./platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[redfield]: ./monitor-performance-live-website-now.md
+[start]: ./app-insights-overview.md
+

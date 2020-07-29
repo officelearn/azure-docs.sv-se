@@ -10,13 +10,13 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 0fa70cfb287cc4a68892ada1044283a996d8dd50
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: e6652d28da6bf142125e6ec284af16c849b00b1e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873918"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322065"
 ---
 # <a name="quickstart-use-java-to-search-the-web-with-the-bing-web-search-rest-api-an-azure-cognitive-service"></a>Snabb start: Använd Java för att söka på webben med Webbsökning i Bing REST API, en Azure-tjänst för inlärning
 
@@ -49,7 +49,7 @@ import com.google.gson.JsonParser;
 
 ### <a name="declare-gson-in-the-maven-pom-file"></a>Deklarera Gson i Maven POM-filen
 
-Om du använder maven deklarerar du Gson i POM. xml. Hoppa över det här steget om du har installerat Gson lokalt.
+Om du använder maven, deklarera Gson i POM.xml. Hoppa över det här steget om du har installerat Gson lokalt.
 
 ```xml
 <dependency>

@@ -7,11 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: d701a518dfa0bd21b33aa2f13f533ad6ef49430d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: de8b69cbe3117a3ec248cee4808b676b39c56658
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037825"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324802"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Konfigurera aviseringar för Azure Stream Analytics jobb
 
@@ -52,7 +53,7 @@ I följande exempel visas hur du konfigurerar aviseringar för när jobbet över
 
    ![Skapa Stream Analytics varnings regel](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
    
-## <a name="scenarios-to-monitor"></a>Scenarier som ska övervakas
+## <a name="scenarios-to-monitor"></a>Scenarier att övervaka
 
 Följande aviseringar rekommenderas för att övervaka Stream Analytics jobbets prestanda. Dessa mått bör utvärderas varje minut under den senaste 5-minuters perioden.
 
@@ -63,16 +64,8 @@ Följande aviseringar rekommenderas för att övervaka Stream Analytics jobbets 
 |Fördröjning för vattenstämpel|Större än|Maximal|När genomsnitts värdet för det här måttet under de senaste 15 minuterna är större än för sent tillkommer tolerans (i sekunder). Om du inte har ändrat den sena införsel toleransen är standardvärdet 5 sekunder.|Försök att öka antalet SUs-eller Parallel-frågor. Mer information om SUs finns i [förstå och justera strömnings enheter](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job). Mer information om hur du parallellt din fråga finns i använda [query parallellisering i Azure Stream Analytics](stream-analytics-parallelization.md).|
 |Fel vid deserialisering av indataport|Större än|Totalt|0|Granska aktivitets-eller resurs loggarna och gör lämpliga ändringar i indatamängden. Mer information om resurs loggar finns i [felsöka Azure Stream Analytics att använda resurs loggar](stream-analytics-job-diagnostic-logs.md)|
 
-## <a name="get-help"></a>Få hjälp
-
-Mer information om hur du konfigurerar aviseringar i Azure Portal finns i [ta emot aviseringar](../azure-monitor/platform/alerts-overview.md).  
-
-Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
-
 ## <a name="next-steps"></a>Nästa steg
-* [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
-* [Komma igång med Azure Stream Analytics](stream-analytics-get-started.md)
+
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
 * [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referens för Azure Stream Analytics Management REST-API:et](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

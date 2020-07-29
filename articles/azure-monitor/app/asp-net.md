@@ -3,16 +3,16 @@ title: Konfigurera webbappsanalyser för ASP.NET med Application Insights | Micr
 description: Konfigurera prestanda-, tillgänglighets-och användar beteende analys verktyg för din ASP.NET-webbplats, som finns lokalt eller i Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: 7dd60be0a3f2ee7e1a0d306fa007bed166746115
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e51fb43a9e088c991af2132b6a5d2257da8d78a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886821"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324224"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Konfigurera Application Insights för din ASP.NET-webbplats
 
-Den här proceduren konfigurerar din ASP.NET-webbapp för att skicka telemetri till tjänsten [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Den fungerar för ASP.NET-appar som antingen ligger på din egen IIS-server lokalt eller i molnet. Du får tillgång till diagram och ett kraftfullt frågespråket som hjälper dig att förstå hur din app presterar och hur människor använder den, plus automatiska aviseringar om fel eller prestandaproblem. Många utvecklare tycker att de här funktionerna är mycket bra som de är, men du kan också utöka och anpassa telemetrin om du behöver.
+Den här proceduren konfigurerar din ASP.NET-webbapp för att skicka telemetri till tjänsten [Azure Application Insights](./app-insights-overview.md). Den fungerar för ASP.NET-appar som antingen ligger på din egen IIS-server lokalt eller i molnet. Du får tillgång till diagram och ett kraftfullt frågespråket som hjälper dig att förstå hur din app presterar och hur människor använder den, plus automatiska aviseringar om fel eller prestandaproblem. Många utvecklare tycker att de här funktionerna är mycket bra som de är, men du kan också utöka och anpassa telemetrin om du behöver.
 
 Installationen kräver bara några klick i Visual Studio. Du har möjlighet att undvika kostnader genom att begränsa mängden telemetri. Med den här funktionen kan du experimentera och felsöka eller övervaka en webbplats med inte många användare. Om du sedan vill gå vidare och övervaka din produktionsplats, är det lätt att höja gränsen vid ett senare tillfälle.
 
@@ -54,7 +54,7 @@ Om du vill ange resursgruppen eller den plats där dina data är lagrade klickar
 
  Telemetri kommer att skickas till [Azure Portal](https://portal.azure.com), både under felsökningen och när du har publicerat din app.
 > [!NOTE]
-> Om du inte vill skicka telemetri till portalen medan du felsöker, lägger du bara till Application Insights SDK i din app men konfigurerar inte en resurs i portalen. Du kan se telemetrin i Visual Studio medan du felsöker. Du kan senare återvända till den här konfigurationssidan eller vänta tills du har distribuerat appen och [aktivera telemetri vid körtid](../../azure-monitor/app/status-monitor-v2-overview.md).
+> Om du inte vill skicka telemetri till portalen medan du felsöker, lägger du bara till Application Insights SDK i din app men konfigurerar inte en resurs i portalen. Du kan se telemetrin i Visual Studio medan du felsöker. Du kan senare återvända till den här konfigurationssidan eller vänta tills du har distribuerat appen och [aktivera telemetri vid körtid](./status-monitor-v2-overview.md).
 
 ## <a name="step-2-run-your-app"></a><a name="run"></a> Steg 2: Kör appen
 Kör din app med F5. Öppna olika sidor för att skapa viss telemetri.
@@ -77,7 +77,7 @@ I Visual Studio Application Insights-sökfönstret visas data från programmet f
 > [!Tip]
 > Om du inte ser några data kontrollerar du att tidsintervallet är korrekt och klickar på sökikonen.
 
-[Lär dig mer om Application Insights-verktygen i Visual Studio](../../azure-monitor/app/visual-studio.md).
+[Lär dig mer om Application Insights-verktygen i Visual Studio](./visual-studio.md).
 
 <a name="monitor"></a>
 ### <a name="see-telemetry-in-web-portal"></a>Visa telemetri i webbportalen
@@ -93,14 +93,14 @@ Portalen öppnas i en vy över telemetrin från appen.
 Klicka på valfri ikon eller valfritt diagram i portalen för att visa mer information.
 
 ## <a name="step-4-publish-your-app"></a>Steg 4: Publicera appen
-Publicera din app på din IIS-server eller i Azure. Bevaka [Live Metrics Stream](../../azure-monitor/app/live-stream.md) och se om allt fungerar som det ska.
+Publicera din app på din IIS-server eller i Azure. Bevaka [Live Metrics Stream](./live-stream.md) och se om allt fungerar som det ska.
 
 Din telemetri bygger upp i Application Insights Portal, där du kan övervaka mått, söka i din telemetri. Du kan också använda det kraftfulla [Kusto-frågespråket](/azure/kusto/query/) för att analysera användning och prestanda, eller för att hitta specifika händelser.
 
-Du kan också fortsätta att analysera din telemetri i [Visual Studio](../../azure-monitor/app/visual-studio.md) med verktyg som diagnossökning och [trender](../../azure-monitor/app/visual-studio-trends.md).
+Du kan också fortsätta att analysera din telemetri i [Visual Studio](./visual-studio.md) med verktyg som diagnossökning och [trender](./visual-studio-trends.md).
 
 > [!NOTE]
-> Om din app skickar så mycket telemetri att det närmar sig [begränsningsgränserna](../../azure-monitor/app/pricing.md#limits-summary) aktiveras [sampling](../../azure-monitor/app/sampling.md) automatiskt. Sampling minskar mängden telemetri som skickas från din app, samtidigt som korrelerade informationen bevaras i diagnossyfte.
+> Om din app skickar så mycket telemetri att det närmar sig [begränsningsgränserna](./pricing.md#limits-summary) aktiveras [sampling](./sampling.md) automatiskt. Sampling minskar mängden telemetri som skickas från din app, samtidigt som korrelerade informationen bevaras i diagnossyfte.
 >
 >
 
@@ -120,27 +120,28 @@ Om du har gjort anpassningar i ApplicationInsights.config sparar du en kopia av 
 
 Det finns andra artiklar som du kan läsa om du är intresserad av följande:
 
-* [Instrumentering av en webbapp under körning](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)
+* [Instrumentering av en webbapp under körning](./monitor-performance-live-website-now.md)
+* [Azure Cloud Services](./cloudservices.md)
 
 ### <a name="more-telemetry"></a>Mer telemetri
 
-* **[Webbläsare och webbsidesinläsning](../../azure-monitor/app/javascript.md)** – Infoga ett kodfragment på dina webbsidor.
-* **[Få mer detaljerad beroende- och undantagsövervakning](../../azure-monitor/app/monitor-performance-live-website-now.md)** – Installera Status Monitor på servern.
-* **[Koda anpassade händelser](../../azure-monitor/app/api-custom-events-metrics.md)** till antal-, tids-eller mått användar åtgärder.
-* **[Hämta loggdata](../../azure-monitor/app/asp-net-trace-logs.md)** – Korrelera loggdata med din telemetri.
+* **[Webbläsare och webbsidesinläsning](./javascript.md)** – Infoga ett kodfragment på dina webbsidor.
+* **[Få mer detaljerad beroende- och undantagsövervakning](./monitor-performance-live-website-now.md)** – Installera Status Monitor på servern.
+* **[Koda anpassade händelser](./api-custom-events-metrics.md)** till antal-, tids-eller mått användar åtgärder.
+* **[Hämta loggdata](./asp-net-trace-logs.md)** – Korrelera loggdata med din telemetri.
 
 ### <a name="analysis"></a>Analys
 
-* **[Arbeta med Application Insights i Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Innehåller information om att felsöka med telemetri, köra diagnostiksökningar och gå igenom koden.
-* **[Analytics](../../azure-monitor/log-query/get-started-portal.md)** – Kraftfullt frågespråk.
+* **[Arbeta med Application Insights i Visual Studio](./visual-studio.md)**<br/>Innehåller information om att felsöka med telemetri, köra diagnostiksökningar och gå igenom koden.
+* **[Analytics](../log-query/get-started-portal.md)** – Kraftfullt frågespråk.
 
 ### <a name="alerts"></a>Aviseringar
 
-* [Tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md): Skapa tester som kan användas för att kontrollera att webbplatsen visas på webben.
-* [Smart diagnostik](../../azure-monitor/app/proactive-diagnostics.md): De här testerna körs automatiskt, så du behöver inte göra något för att konfigurera dem. De berättar om din app har ett ovanligt antal misslyckade begäranden.
-* [Mått aviseringar](../../azure-monitor/platform/alerts-log.md): Ställ in aviseringar för att varna dig om ett mått överskrider ett tröskelvärde. Du kan ställa in dem för anpassade mätningar som du kodar i din app.
+* [Tillgänglighetstester](./monitor-web-app-availability.md): Skapa tester som kan användas för att kontrollera att webbplatsen visas på webben.
+* [Smart diagnostik](./proactive-diagnostics.md): De här testerna körs automatiskt, så du behöver inte göra något för att konfigurera dem. De berättar om din app har ett ovanligt antal misslyckade begäranden.
+* [Mått aviseringar](../platform/alerts-log.md): Ställ in aviseringar för att varna dig om ett mått överskrider ett tröskelvärde. Du kan ställa in dem för anpassade mätningar som du kodar i din app.
 
 ### <a name="automation"></a>Automation
 
-* [Automatisera skapandet av en Application Insights-resurs](../../azure-monitor/app/powershell.md)
+* [Automatisera skapandet av en Application Insights-resurs](./powershell.md)
+

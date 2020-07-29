@@ -2,17 +2,18 @@
 title: Azure Storage exempel med Java | Microsoft Docs
 description: Visa, ladda ned och kör exempel kod och program för Azure Storage. Upptäck kom igång-exempel för blobbar, köer, tabeller och filer med hjälp av klient biblioteken för Java-lagring.
 author: mhopkins-msft
+ms.custom: devx-track-java
 ms.author: mhopkins
 ms.date: 02/13/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 26fe0538548e13933e112e83bae6e6131f2a030d
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: b0e0588810fcac239a3647f9b750dd036341ab9f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594647"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322235"
 ---
 # <a name="azure-storage-samples-using-v12-java-client-libraries"></a>Azure Storage exempel med V12 Java-klient bibliotek
 
@@ -225,7 +226,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 
 :::row:::
    :::column span="":::
-      [Skapa fil resurser](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L31)
+      [Skapa filresurser](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L31)
    :::column-end:::
    :::column span="":::
       [Hämta egenskaper](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L40)
@@ -306,12 +307,12 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
       [Skapa en fil klient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L45)
    :::column-end:::
    :::column span="":::
-      [Överför en fil](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L90)
+      [Ladda upp en fil](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L90)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Hämta en fil](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L100)
+      [Ladda ned en fil](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L100)
    :::column-end:::
    :::column span="":::
       [Hämta filegenskaper](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L120)
@@ -451,5 +452,5 @@ Information om exempel för andra språk:
 
 * .NET: [Azure Storage exempel med .net](storage-samples-dotnet.md)
 * Python: [Azure Storage exempel med python](storage-samples-python.md)
-* Java Script/Node. js: [Azure Storage exempel med hjälp av Java Script](storage-samples-javascript.md)
+* Java Script/Node.js: [Azure Storage exempel med hjälp av Java Script](storage-samples-javascript.md)
 * Alla andra språk: [Azure Storage exempel](storage-samples.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 4cdb9390b3146df74f2cbe8eba7b170a5d11fb2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4f14280f38a2389809477b84461eb3174909316
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507066"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323901"
 ---
 # <a name="enable-azure-monitor-for-single-vm-or-vmss-in-the-azure-portal"></a>Aktivera Azure Monitor för en enskild virtuell dator eller VMSS i Azure Portal
 I den här artikeln beskrivs hur du aktiverar Azure Monitor for VMs för en enskild virtuell dator eller skalnings uppsättning för virtuella datorer med hjälp av Azure Portal. Den här proceduren kan användas för följande:
@@ -34,7 +34,7 @@ Innan du börjar [granskar du kraven och kontrollerar](vminsights-enable-overvie
 
     ![Aktivera Azure Monitor for VMs för en virtuell dator](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
-1. Om den virtuella datorn inte redan är ansluten till en Log Analytics arbets yta, uppmanas du att välja en. Om du inte redan har [skapat en arbets yta](../../azure-monitor/learn/quick-create-workspace.md)kan du välja ett standardvärde för den plats där den virtuella datorn eller VMSS distribueras i prenumerationen. Den här arbets ytan kommer att skapas och konfigureras om den inte redan finns.
+1. Om den virtuella datorn inte redan är ansluten till en Log Analytics arbets yta, uppmanas du att välja en. Om du inte redan har [skapat en arbets yta](../learn/quick-create-workspace.md)kan du välja ett standardvärde för den plats där den virtuella datorn eller VMSS distribueras i prenumerationen. Den här arbets ytan kommer att skapas och konfigureras om den inte redan finns.
 
 2. Du får status meddelanden när konfigurationen utförs.
 
@@ -49,3 +49,4 @@ Innan du börjar [granskar du kraven och kontrollerar](vminsights-enable-overvie
 
 * Om du vill visa identifierade program beroenden, se [använd Azure Monitor for VMS karta](vminsights-maps.md). 
 * Information om hur du identifierar Flask halsar, övergripande användning och den virtuella datorns prestanda finns i [Visa prestanda för virtuella Azure-datorer](vminsights-performance.md).
+

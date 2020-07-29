@@ -1,6 +1,6 @@
 ---
-title: Anslut Windows Virtual Desktop webb klient – Azure
-description: Ansluta till virtuella Windows-datorer med hjälp av webb klienten.
+title: Anslut Windows Virtual Desktop (klassisk) webb klient – Azure
+description: Så här ansluter du till Windows Virtual Desktop (klassisk) med hjälp av webb klienten.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e95498498fd15d7a6e73630e218f9bdd1b892f09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efe97c86ebfac8e130489b3105a97302866d6822
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204803"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270387"
 ---
-# <a name="connect-with-the-web-client"></a>Ansluta med webbklienten
+# <a name="connect-to-windows-virtual-desktop-classic-with-the-web-client"></a>Ansluta till Windows Virtual Desktop (klassisk) med webb klienten
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../connect-web.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../connect-web.md).
 
 Med webb klienten kan du komma åt dina Windows-resurser för virtuella skriv bord från en webbläsare utan den långa installations processen.
 
@@ -42,7 +42,7 @@ Med webb klienten kan du komma åt dina Windows-resurser för virtuella skriv bo
 I en webbläsare, navigerar du till Windows Virtual Desktop-webbklienten på <https://rdweb.wvd.microsoft.com/webclient> och loggar in med ditt användar konto.
 
 >[!NOTE]
->Om du använder Windows Virtual Desktop fjäder 2020-versionen med Azure Resource Manager-integrering ansluter du till dina resurser i <https://rdweb.wvd.microsoft.com/arm/webclient> stället.
+>Om du använder Windows Virtual Desktop med Azure Resource Manager-integrering ansluter du till dina resurser i <https://rdweb.wvd.microsoft.com/arm/webclient> stället.
 
 >[!NOTE]
 >Om du redan har loggat in med ett annat Azure Active Directory-konto än det som du vill använda för Windows Virtual Desktop, bör du antingen logga ut eller använda ett privat webbläsarfönster.

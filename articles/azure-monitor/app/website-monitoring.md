@@ -4,12 +4,12 @@ description: I den här snabb starten får du lära dig hur du konfigurerar öve
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: fa2ecd5d953ec0411a122dc7107ce23de1ae5bc6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb6c0a8319257949cee8f35be6cdfac22f1fe5d4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014056"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323442"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Snabb start: börja övervaka din webbplats med Azure Monitor Application Insights
 
@@ -17,7 +17,7 @@ I den här snabb starten lär du dig att lägga till Application Insights Java S
 
 Med Azure Monitor Application Insights kan du enkelt övervaka din webbplats med avseende på tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem. Application Insights tillhandahåller övervakning på både server sidan och klient-och webb läsar sidan.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * En webbplats där du kan lägga till Application Insights JavaScript SDK.
@@ -105,15 +105,15 @@ Application Insights kan samla in telemetridata från alla Internet-anslutna pro
 
    ![analysdiagram över användarbegäranden under en viss tidsperiod](./media/website-monitoring/analytics-query.png)
 
-1. Gå tillbaka till sidan **Översikt**. Under **Undersök** rubriken väljer du **webbläsare**och sedan **prestanda**.  Mått som rör webbplatsens prestanda visas. Det finns en motsvarande vy för att analysera fel och undantag på din webbplats. Du kan välja **exempel** för att få åtkomst till [slut punkt till slut punkts transaktions information](../../azure-monitor/app/transaction-diagnostics.md).
+1. Gå tillbaka till sidan **Översikt**. Under **Undersök** rubriken väljer du **webbläsare**och sedan **prestanda**.  Mått som rör webbplatsens prestanda visas. Det finns en motsvarande vy för att analysera fel och undantag på din webbplats. Du kan välja **exempel** för att få åtkomst till [slut punkt till slut punkts transaktions information](./transaction-diagnostics.md).
 
    ![Diagram för servermått](./media/website-monitoring/browser-performance.png)
 
-1. Gå till huvud Application Insights-menyn och välj [**användare**](../../azure-monitor/app/usage-segmentation.md) under **användnings** rubriken för att börja utforska [verktygen för analys av användar beteende](../../azure-monitor/app/usage-overview.md). Eftersom vi testar från en enda dator ser vi bara data för en användare. För en Live-webbplats kan distributionen av användare se ut så här:
+1. Gå till huvud Application Insights-menyn och välj [**användare**](./usage-segmentation.md) under **användnings** rubriken för att börja utforska [verktygen för analys av användar beteende](./usage-overview.md). Eftersom vi testar från en enda dator ser vi bara data för en användare. För en Live-webbplats kan distributionen av användare se ut så här:
 
      ![Användardiagram](./media/website-monitoring/usage-users.png)
 
-1. För en mer komplex webbplats med flera sidor kan du använda [**användarflöden**](../../azure-monitor/app/usage-flows.md) -verktyget för att spåra den väg besökarna tar genom de olika delarna av webbplatsen.
+1. För en mer komplex webbplats med flera sidor kan du använda [**användarflöden**](./usage-flows.md) -verktyget för att spåra den väg besökarna tar genom de olika delarna av webbplatsen.
 
    ![Visualisering av användarflöden](./media/website-monitoring/user-flows.png)
 
@@ -133,3 +133,4 @@ Om du planerar att fortsätta arbeta med ytterligare snabb starter eller självs
 
 > [!div class="nextstepaction"]
 > [Hitta och diagnostisera prestandaproblem](../log-query/log-query-overview.md)
+

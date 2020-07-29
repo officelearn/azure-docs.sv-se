@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
 ms.custom: tracking-python
-ms.openlocfilehash: 15f5ac1da6d24feceed3a9106b990ae31e3571e3
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 8d33756e1c28247c48d0b4c0a734e604c4e9eab0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851611"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280825"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Självstudie: Konfigurera Azure Cosmos DB global distribution med SQL-API: et
 
@@ -28,34 +28,35 @@ Den här artikeln beskriver följande uppgifter:
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-
 ## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a><a id="preferred-locations"></a>Ansluta till en önskad region med SQL-API: et
 
-I syfte att dra nytta av den [globala distributionen](distribute-data-globally.md) kan klientprogrammen ange den beställda listan med inställningar för regioner som ska användas för att utföra dokumentåtgärder. Detta gör du genom att konfigurera anslutningspolicyn. Utifrån Azure Cosmos DB-kontokonfigurationen, den aktuella regionala tillgängligheten och den angivna listan över inställningar, så väljs den mest optimala slutpunkten för genomförande av skriv- och läsåtgärder av SQL-SDK:n.
+I syfte att dra nytta av den [globala distributionen](distribute-data-globally.md) kan klientprogrammen ange den beställda listan med inställningar för regioner som ska användas för att utföra dokumentåtgärder. Utifrån Azure Cosmos DB-kontokonfigurationen, den aktuella regionala tillgängligheten och den angivna listan över inställningar, så väljs den mest optimala slutpunkten för genomförande av skriv- och läsåtgärder av SQL-SDK:n.
 
-Denna lista över inställningar anges när en anslutning initieras med SQL-SDK:erna. SDK:erna accepterar den valfria parametern PreferredLocations, som är en sorterad lista över Azure-regioner.
+Denna lista över inställningar anges när en anslutning initieras med SQL-SDK:erna. SDK: erna accepterar en valfri parameter `PreferredLocations` som är en ordnad lista över Azure-regioner.
 
-SDK:n skickar automatiskt alla skrivningar till den aktuella skrivregionen.
+SDK:n skickar automatiskt alla skrivningar till den aktuella skrivregionen. Alla läsningar skickas till den första tillgängliga regionen i listan över önskade platser. Om begäran Miss lyckas kommer klienten att Miss lyckas med att gå nedåt i listan till nästa region.
 
-Alla läsningar skickas till den första tillgängliga regionen i PreferredLocations-listan. Om begäran misslyckas går klienten nedåt i listan till nästa region osv.
+SDK försöker bara läsa från de regioner som anges i önskade platser. Om till exempel Azure Cosmos-kontot är tillgängligt i fyra regioner, men klienten endast anger två Läs-och icke-skrivbara regioner i `PreferredLocations` , kommer inga läsningar från den Läs region som inte anges i `PreferredLocations` . Om Läs regionerna som anges i `PreferredLocations` listan inte är tillgängliga, kommer läsningar att hanteras utanför Skriv regionen.
 
-SDK:erna försöker bara läsa från de regioner som anges i PreferredLocations. Så om databaskontot t.ex. är tillgängligt i fyra regioner, men klienten enbart specificerar två läsregioner (skrivskyddade) för PreferredLocations, så hanteras inga läsningar från den läsregion som inte anges i PreferredLocations. Om de läsregioner som anges i PreferredLocations inte är tillgängliga så hanteras läsningarna från skrivregionen.
+Programmet kan verifiera den aktuella Skriv slut punkten och den Läs slut punkt som valts av SDK: n genom att kontrol lera två egenskaper `WriteEndpoint` och `ReadEndpoint` tillgänglig i SDK version 1,8 och senare. Om `PreferredLocations` egenskapen inte anges kommer alla begär Anden att betjänas från den aktuella Skriv regionen.
 
-Programmet kan verifiera den aktuella skrivslutpunkt och lässlutpunkt som valts av SDK:n genom att kontrollera de två egenskaperna WriteEndpoint och ReadEndpoint, som är tillgängliga i SDK-version 1.8 och senare.
-
-Om egenskapen PreferredLocations inte har angetts hanteras alla förfrågningar från den aktuella skrivregionen.
+Om du inte anger önskade platser men använder `setCurrentLocation` -metoden fyller SDK: n automatiskt i de prioriterade platserna baserat på den aktuella region som klienten körs i. SDK: n beställer regionerna utifrån en regions närhet till den aktuella regionen.
 
 ## <a name="net-sdk"></a>.NET SDK
+
 SDK:n kan användas utan några kodändringar. I det här fallet styr SDK:n automatiskt både läsningar och skrivningar till den aktuella skrivregionen.
 
-Parametern ConnectionPolicy för DocumentClient-konstruktorn har en egenskap som kallas Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations i .NET SDK version 1.8 och senare. Den här egenskapen är av typen samling `<string>` och bör innehålla en lista med regionnamn. Strängvärdena formateras efter regionnamnskolumnen på sidan [Azure-regioner][regions], utan något blanksteg före det första tecknet eller efter det sista.
+Parametern ConnectionPolicy för DocumentClient-konstruktorn har en egenskap som kallas Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations i .NET SDK version 1.8 och senare. Den här egenskapen är av typen samling `<string>` och bör innehålla en lista med regionnamn. Sträng värdena formateras efter region namns kolumnen på sidan [Azure-regioner][regions] , utan blank steg före eller efter det första respektive sista.
 
 De aktuella skriv- och lässlutpunkterna är tillgängliga i DocumentClient.WriteEndpoint respektive DocumentClient.ReadEndpoint.
 
 > [!NOTE]
 > Slutpunkternas URL:er ska inte betraktas som långlivade konstanter. Tjänsten kan uppdatera dem när som helst. SDK:n hanterar sådana ändringar automatiskt.
 >
->
+
+# <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
+
+Om du använder .NET v2 SDK använder du `PreferredLocations` egenskapen för att ange önskad region.
 
 ```csharp
 // Getting endpoints from application settings or other configuration location
@@ -78,6 +79,54 @@ DocumentClient docClient = new DocumentClient(
 // connect to DocDB
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
+
+Du kan också använda- `SetCurrentLocation` egenskapen och låta SDK: n välja önskad plats baserat på närhet.
+
+```csharp
+// Getting endpoints from application settings or other configuration location
+Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
+string accountKey = Properties.Settings.Default.GlobalDatabaseKey;
+  
+ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+
+connectionPolicy.SetCurrentLocation("West US 2"); /
+
+// initialize connection
+DocumentClient docClient = new DocumentClient(
+    accountEndPoint,
+    accountKey,
+    connectionPolicy);
+
+// connect to DocDB
+await docClient.OpenAsync().ConfigureAwait(false);
+```
+
+# <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
+
+Om du använder .NET v3 SDK använder du `ApplicationPreferredRegions` egenskapen för att ange önskad region.
+
+```csharp
+
+CosmosClientOptions options = new CosmosClientOptions();
+options.ApplicationName = "MyApp";
+options.ApplicationPreferredRegions = new List<string> {Regions.WestUS, Regions.WestUS2};
+
+CosmosClient client = new CosmosClient(connectionString, options);
+
+```
+
+Du kan också använda- `ApplicationRegion` egenskapen och låta SDK: n välja önskad plats baserat på närhet.
+
+```csharp
+CosmosClientOptions options = new CosmosClientOptions();
+options.ApplicationName = "MyApp";
+// If the application is running in West US
+options.ApplicationRegion = Regions.WestUS;
+
+CosmosClient client = new CosmosClient(connectionString, options);
+```
+
+---
 
 ## <a name="nodejsjavascript"></a>Node.js/JavaScript
 

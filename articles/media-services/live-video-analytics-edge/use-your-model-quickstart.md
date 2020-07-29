@@ -3,12 +3,12 @@ title: Analysera direktsänd video med din egen modell – Azure
 description: I den här snabb starten ska du använda dator vision för att analysera direktsända video flöden från en (simulerad) IP-kamera.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 2ff618e275624bc46c6fc3221507c5584047c51c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dc8c2d1f0620a92a13cb1f4c0b83c2452f964fd6
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043201"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87170622"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-model"></a>Snabb start: analysera direktsänd video med din egen modell
 
@@ -16,7 +16,7 @@ Den här snabb starten visar hur du använder video analys i real tid för IoT E
 
 Den här snabb starten använder en virtuell Azure-dator som en IoT Edge enhet och använder en simulerad direktuppspelad video ström. Den baseras på exempel kod som skrivits i C# och bygger på snabb starten för att [identifiera rörelse och generera händelser](detect-motion-emit-events-quickstart.md) . 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto som innehåller en aktiv prenumeration. [Skapa ett konto utan kostnad](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) om du inte redan har ett.
 * [Visual Studio Code](https://code.visualstudio.com/)med följande tillägg:
@@ -283,6 +283,8 @@ Observera följande information i meddelandena:
 Om du tänker prova andra snabb starter behåller du de resurser som du har skapat. Annars går du till Azure Portal, går till dina resurs grupper, väljer den resurs grupp där du körde den här snabb starten och tar bort alla resurser.
 
 ## <a name="next-steps"></a>Nästa steg
+
+* Prova en [säker version av YOLOv3-modellen](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/tls-yolov3-onnx/readme.md) och distribuera den till IoT Edge-enheten. 
 
 Granska ytterligare utmaningar för avancerade användare:
 

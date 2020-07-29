@@ -10,11 +10,14 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: wesmc
-ms.openlocfilehash: 3175956e35603cc4ad3a938f3d316c0af8f2d227
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+ms.openlocfilehash: 1188c597b3e46af140173d59b2cbac972d0c018c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81640535"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324037"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Anslut Raspberry Pi till Azure IoT Hub (Node.js)
 
@@ -44,13 +47,13 @@ Har du inget paket än? Prova [Raspberry Pi online Simulator](iot-hub-raspberry-
 
 * Skicka sensor data till din IoT-hubb.
 
-## <a name="what-you-need"></a>Vad du behöver
+## <a name="what-you-need"></a>Detta behöver du
 
-![Vad du behöver](./media/iot-hub-raspberry-pi-kit-node-get-started/0-starter-kit.png)
+![Detta behöver du](./media/iot-hub-raspberry-pi-kit-node-get-started/0-starter-kit.png)
 
 * En Raspberry Pi 2 eller Raspberry Pi 3-tavla.
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 * En övervakare, ett USB-tangentbord och en mus som ansluter till Pi.
 

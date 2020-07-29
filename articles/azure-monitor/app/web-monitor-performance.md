@@ -4,12 +4,12 @@ description: Kom igång med Application Insights. Analysera användning, tillgä
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 2b93e7f0fdb909a40667b001fa99929b3cfe27ad
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d624286d214a86364fe85192bf5ede885d4b6a78
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014173"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323459"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Övervaka prestanda i webbprogram
 
@@ -23,9 +23,9 @@ På klient sidan kan Application Insights ta telemetri från webb sidor och en r
 ## <a name="set-up-performance-monitoring"></a><a name="setup"></a>Konfigurera prestanda övervakning
 Om du ännu inte har lagt till Application Insights i projektet (det vill säga om det inte har ApplicationInsights.config) väljer du något av följande sätt för att komma igång:
 
-* [ASP.NET-webbappar](../../azure-monitor/app/asp-net.md)
-  * [Lägg till undantags övervakning](../../azure-monitor/app/asp-net-exceptions.md)
-  * [Lägg till beroende övervakning](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [ASP.NET-webbappar](./asp-net.md)
+  * [Lägg till undantags övervakning](./asp-net-exceptions.md)
+  * [Lägg till beroende övervakning](./monitor-performance-live-website-now.md)
 * [Java EE-webbappar](./java-in-process-agent.md)
 
 ## <a name="exploring-performance-metrics"></a><a name="view"></a>Utforska prestanda mått
@@ -106,7 +106,7 @@ Här följer några tips för att hitta och diagnostisera prestanda problem:
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Hitta och åtgärda prestanda Flask halsar med prestanda undersökning
 
-Du kan använda prestanda gransknings upplevelsen för att granska långsamma drifts åtgärder i din webbapp. Du kan snabbt välja en enskild långsam åtgärd och använda [profiler](../../azure-monitor/app/profiler.md) för att leda till att de långsamma åtgärderna går ned till kod. Med den nya varaktighets fördelningen som visas för den valda åtgärden kan du snabbt och enkelt utvärdera hur dåligt upplevelsen är för dina kunder. Du kan se hur många av dina användar interaktioner som har påverkats för varje långsam åtgärd. I följande exempel har vi beslutat att ta en närmare titt på hur du kan hämta kunder/information. I varaktighets fördelningen ser vi att det finns tre toppar. Insamlad vänster-insamling är cirka 400 MS och representerar bra svars upplevelser. Mellan insamling är cirka 1,2 s och representerar en mediocre upplevelse. 3,6 slutligen har vi en annan liten insamling som representerar 99 percentilen, vilket sannolikt skulle göra att våra kunder lämnar missnöjda. Den här upplevelsen är tio gånger långsammare än den fantastiska upplevelsen av samma åtgärd. 
+Du kan använda prestanda gransknings upplevelsen för att granska långsamma drifts åtgärder i din webbapp. Du kan snabbt välja en enskild långsam åtgärd och använda [profiler](./profiler.md) för att leda till att de långsamma åtgärderna går ned till kod. Med den nya varaktighets fördelningen som visas för den valda åtgärden kan du snabbt och enkelt utvärdera hur dåligt upplevelsen är för dina kunder. Du kan se hur många av dina användar interaktioner som har påverkats för varje långsam åtgärd. I följande exempel har vi beslutat att ta en närmare titt på hur du kan hämta kunder/information. I varaktighets fördelningen ser vi att det finns tre toppar. Insamlad vänster-insamling är cirka 400 MS och representerar bra svars upplevelser. Mellan insamling är cirka 1,2 s och representerar en mediocre upplevelse. 3,6 slutligen har vi en annan liten insamling som representerar 99 percentilen, vilket sannolikt skulle göra att våra kunder lämnar missnöjda. Den här upplevelsen är tio gånger långsammare än den fantastiska upplevelsen av samma åtgärd. 
 
 ![Hämta kunder/information tre varaktighets toppar](./media/web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 
@@ -142,12 +142,13 @@ Prestanda undersöknings upplevelsen visar relevanta insikter längs den exempel
 
 <!--Link references-->
 
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
+[greenbrown]: ./asp-net.md
 [qna]: ../faq.md
-[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[redfield]: ./monitor-performance-live-website-now.md
+[start]: ./app-insights-overview.md
 [usage]: usage-overview.md
-[livestream]: ../../azure-monitor/app/live-stream.md
-[snapshot]: ../../azure-monitor/app/snapshot-debugger.md
+[livestream]: ./live-stream.md
+[snapshot]: ./snapshot-debugger.md
+

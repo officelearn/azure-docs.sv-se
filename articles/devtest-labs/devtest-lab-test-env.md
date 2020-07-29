@@ -3,12 +3,12 @@ title: Använd Azure DevTest Labs för VM-och PaaS-testmiljöer | Microsoft Docs
 description: Lär dig hur du använder Azure DevTest Labs för virtuella PaaS-och test miljö scenarier.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: f364c227c1b53b7887b34c8a3c92ad9045526328
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9207c070c13c5e276a6ab95e3bcf1bb8671dc382
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85484170"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87272911"
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Använd Azure DevTest Labs för VM-och PaaS-testmiljöer
 
@@ -48,7 +48,7 @@ I den här artikeln får du lära dig mer om olika Azure DevTest Labs funktioner
    | --- | --- |
    | [Konfigurera Azure Marketplace-avbildningar](devtest-lab-configure-marketplace-images.md) |Lär dig hur du kan vitlista Azure Marketplace-avbildningar, vilket gör det möjligt att välja enbart de avbildningar som du vill använda för testare.|
    | [Skapa en anpassad avbildning](devtest-lab-create-template.md) |Skapa en anpassad avbildning genom att förinstallera den program vara du behöver så att testare snabbt kan skapa en virtuell dator med hjälp av den anpassade avbildningen.|
-   | [Lär dig mer om image Factory](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Titta på en video som beskriver hur du konfigurerar och använder en avbildnings fabrik.|
+   | [Lär dig mer om image Factory](./devtest-lab-faq.md#blog-post) |Titta på en video som beskriver hur du konfigurerar och använder en avbildnings fabrik.|
 
 3. **Skapa åter användnings bara mallar för test datorer** 
    
@@ -139,4 +139,3 @@ I den här artikeln får du lära dig mer om olika Azure DevTest Labs funktioner
    | [Skapa ett labb med en Resource Manager-mall](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Skapa labb i Azure DevTest Labs med Resource Manager-mallar. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-

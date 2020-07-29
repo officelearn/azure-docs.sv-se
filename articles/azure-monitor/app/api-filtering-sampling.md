@@ -3,12 +3,12 @@ title: Filtrera och Förbearbeta i Application Insights SDK | Microsoft Docs
 description: Skriv telemetri och telemetri initierare för SDK för att filtrera eller lägga till egenskaper till data innan telemetri skickas till Application Insights portalen.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.openlocfilehash: adaada3589fd0db1c7d47b788ad50d570defe780
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a16dc7bc9f6f3c49640d320fbfbffaa7acbed6b9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014634"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323221"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtrera och Förbearbeta telemetri i Application Insights SDK
 
@@ -17,7 +17,7 @@ Du kan skriva och konfigurera plugin-program för Application Insights SDK för 
 * [Samplingen](sampling.md) minskar mängden telemetri utan att påverka din statistik. Den håller samman relaterade data punkter så att du kan navigera mellan dem när du diagnostiserar ett problem. I portalen multipliceras det totala antalet för att kompensera för samplingen.
 * Genom att filtrera med telemetri-processorer kan du filtrera bort telemetri i SDK innan det skickas till servern. Du kan till exempel minska mängden telemetri genom att undanta förfrågningar från robots. Filtrering är en grundläggande metod för att minska trafiken än sampling. Det ger dig större kontroll över vad som skickas, men det påverkar din statistik. Du kan till exempel filtrera ut alla lyckade förfrågningar.
 * [Telemetri initierare Lägg till eller ändra egenskaper](#add-properties) till all telemetri som skickas från din app, som innehåller telemetri från standardmodulerna. Du kan till exempel lägga till beräknade värden eller versions nummer för att filtrera data i portalen.
-* [SDK-API: et](../../azure-monitor/app/api-custom-events-metrics.md) används för att skicka anpassade händelser och mått.
+* [SDK-API: et](./api-custom-events-metrics.md) används för att skicka anpassade händelser och mått.
 
 Innan du börjar:
 
@@ -34,7 +34,7 @@ Om du vill filtrera telemetri skriver du en telemetri-processor och registrerar 
 > [!WARNING]
 > Filtrering av telemetri som skickas från SDK genom att använda processorer kan skeva statistiken som visas i portalen och göra det svårt att följa relaterade objekt.
 >
-> Överväg i stället att använda [sampling](../../azure-monitor/app/sampling.md).
+> Överväg i stället att använda [sampling](./sampling.md).
 >
 >
 
@@ -352,7 +352,7 @@ Infoga en telemetri-initierare direkt efter initierings koden som du fick från 
 </script>
 ```
 
-En sammanfattning av de egna egenskaper som är tillgängliga för objektet telemetri finns i [Application Insights exportera data modell](../../azure-monitor/app/export-data-model.md).
+En sammanfattning av de egna egenskaper som är tillgängliga för objektet telemetri finns i [Application Insights exportera data modell](./export-data-model.md).
 
 Du kan lägga till så många initierare som du vill. De anropas i den ordning som de har lagts till.
 
@@ -542,7 +542,7 @@ Vad är skillnaden mellan telemetri-processorer och telemetri-initierare?
 
 ## <a name="reference-docs"></a>Referens dokument
 
-* [API-översikt](../../azure-monitor/app/api-custom-events-metrics.md)
+* [API-översikt](./api-custom-events-metrics.md)
 * [ASP.NET-referens](/previous-versions/azure/dn817570(v=azure.100))
 
 ## <a name="sdk-code"></a>SDK-kod
@@ -552,6 +552,7 @@ Vad är skillnaden mellan telemetri-processorer och telemetri-initierare?
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next-steps"></a><a name="next"></a>Nästa steg
-* [Sök efter händelser och loggar](../../azure-monitor/app/diagnostic-search.md)
-* [Sampling](../../azure-monitor/app/sampling.md)
+* [Sök efter händelser och loggar](./diagnostic-search.md)
+* [ta](./sampling.md)
 * [Felsökning](../faq.md)
+

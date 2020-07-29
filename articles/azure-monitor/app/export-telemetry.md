@@ -3,18 +3,18 @@ title: Kontinuerlig export av telemetri från Application Insights | Microsoft D
 description: Exportera diagnostik-och användnings data till lagring i Microsoft Azure och ladda ned dem därifrån.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 54cd6db6de4aa9c1b8f8894c03a8803ee4aa2b00
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f67a5c555c438298cee701ca065aaf8c01c6406e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014532"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324343"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportera telemetri från Application Insights
 Vill du behålla din telemetri längre än standard kvarhållningsperioden? Eller bearbeta den på ett visst sätt? Kontinuerlig export är idealisk för detta. De händelser som visas i Application Insights-portalen kan exporteras till lagring i Microsoft Azure i JSON-format. Därifrån kan du hämta dina data och skriva vilken kod du behöver för att bearbeta den.  
 
 > [!NOTE]
-> Kontinuerlig export stöds endast för klassiska Application Insights-resurser. [Arbets ytans baserade Application Insights resurser](./create-workspace-resource.md) måste använda [diagnostikinställningar](./create-workspace-resource.md#export-telemetry).
+> Löpande export stöds bara för klassiska Application Insights-resurser. [Arbetsytebaserade Application Insights-resurser](./create-workspace-resource.md) måste använda [diagnostikinställningar](./create-workspace-resource.md#export-telemetry).
 >
 
 Innan du konfigurerar kontinuerlig export finns det några alternativ som du kanske vill tänka på:
@@ -22,11 +22,11 @@ Innan du konfigurerar kontinuerlig export finns det några alternativ som du kan
 * Med knappen Exportera högst upp på fliken mått eller Sök kan du överföra tabeller och diagram till ett Excel-kalkylblad.
 
 * [Analytics](../log-query/log-query-overview.md) har ett kraftfullt frågespråk för telemetri. Det kan också exportera resultat.
-* Om du vill [utforska dina data i Power BI](../../azure-monitor/app/export-power-bi.md )kan du göra det utan att använda kontinuerlig export.
+* Om du vill [utforska dina data i Power BI](./export-power-bi.md)kan du göra det utan att använda kontinuerlig export.
 * Med [data åtkomst REST API](https://dev.applicationinsights.io/) kan du komma åt telemetri program mässigt.
 * Du kan också komma åt konfigurations [kontinuerlig export via PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
-När kontinuerlig export kopierar dina data till lagrings utrymmet (där det kan fortsätta så länge som du vill), är det fortfarande tillgängligt i Application Insights för den normala [kvarhållningsperioden](../../azure-monitor/app/data-retention-privacy.md).
+När kontinuerlig export kopierar dina data till lagrings utrymmet (där det kan fortsätta så länge som du vill), är det fortfarande tillgängligt i Application Insights för den normala [kvarhållningsperioden](./data-retention-privacy.md).
 
 ## <a name="continuous-export-advanced-storage-configuration"></a>Kontinuerlig export, avancerad lagrings konfiguration
 
@@ -52,7 +52,7 @@ Kontinuerlig export **stöder inte** följande funktioner/konfigurationer för A
 4. Skapa eller Välj en behållare i lagrings utrymmet.
 
 > [!NOTE]
-> När du har skapat exporten kommer nyligen inmatade data att börja flöda till Azure Blob Storage. Vid kontinuerlig export överförs endast nya telemetri som skapas/matas in efter det att kontinuerlig export har Aktiver ATS. Alla data som fanns före aktiveringen av löpande export exporteras inte, och det finns inget stöd för att retroaktivt exportera tidigare skapade data med kontinuerlig export.
+> När du har skapat exporten kommer nyligen inmatade data att börja flöda till Azure Blob Storage. Vid kontinuerlig export överförs endast nya telemetri som skapas/matas in efter det att kontinuerlig export har Aktiver ATS. Data som fanns innan du aktiverade den löpande exporten exporteras inte, och det finns inget ordinarie sätt att exportera tidigare skapade data retroaktivt med löpande export.
 
 Det kan finnas en fördröjning på ungefär en timme innan data visas i lagrings utrymmet.
 
@@ -60,13 +60,13 @@ När den första exporten är klar hittar du en struktur som liknar följande i 
 
 |Namn | Beskrivning |
 |:----|:------|
-| [Tillgänglighet](export-data-model.md#availability) | Reports för [webb test för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md).  |
-| [Händelse](export-data-model.md#events) | Anpassade händelser som genererats av [TrackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
-| [Undantag](export-data-model.md#exceptions) |Rapporterar [undantag](../../azure-monitor/app/asp-net-exceptions.md) på servern och i webbläsaren.
-| [Meddelanden](export-data-model.md#trace-messages) | Skickas av [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)och av [loggnings korten](../../azure-monitor/app/asp-net-trace-logs.md).
+| [Tillgänglighet](export-data-model.md#availability) | Reports för [webb test för tillgänglighet](./monitor-web-app-availability.md).  |
+| [Händelse](export-data-model.md#events) | Anpassade händelser som genererats av [TrackEvent ()](./api-custom-events-metrics.md#trackevent). 
+| [Undantag](export-data-model.md#exceptions) |Rapporterar [undantag](./asp-net-exceptions.md) på servern och i webbläsaren.
+| [Meddelanden](export-data-model.md#trace-messages) | Skickas av [TrackTrace](./api-custom-events-metrics.md#tracktrace)och av [loggnings korten](./asp-net-trace-logs.md).
 | [Mått](export-data-model.md#metrics) | Genereras av Metric API-anrop.
 | [PerformanceCounters](export-data-model.md) | Prestanda räknare som samlats in av Application Insights.
-| [Begäranden](export-data-model.md#requests)| Skickat av [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Standardmodulerna använder detta för att rapportera Server svars tid, mätt på servern.| 
+| [Begäranden](export-data-model.md#requests)| Skickat av [TrackRequest](./api-custom-events-metrics.md#trackrequest). Standardmodulerna använder detta för att rapportera Server svars tid, mätt på servern.| 
 
 ### <a name="to-edit-continuous-export"></a>Redigera kontinuerlig export
 
@@ -79,19 +79,19 @@ Stoppa exporten genom att klicka på Inaktivera. När du klickar på Aktivera ig
 Om du vill stoppa exporten permanent tar du bort den. Om du gör det tas inte data bort från lagrings platsen.
 
 ### <a name="cant-add-or-change-an-export"></a>Kan du inte lägga till eller ändra en export?
-* Om du vill lägga till eller ändra exporter behöver du ägare, deltagare eller Application Insights deltagar behörighet. [Lär dig mer om roller][roles].
+* Om du vill lägga till eller ändra exporter behöver du åtkomstbehörighet som ägare, deltagare eller Application Insights-deltagare. [Lär dig mer om roller][roles].
 
 ## <a name="what-events-do-you-get"></a><a name="analyze"></a>Vilka händelser får du?
 Exporterade data är den råa telemetri som vi tar emot från ditt program, förutom att vi lägger till plats data som vi beräknar från klientens IP-adress.
 
-Data som har tagits bort från [sampling](../../azure-monitor/app/sampling.md) ingår inte i exporterade data.
+Data som har tagits bort från [sampling](./sampling.md) ingår inte i exporterade data.
 
 Andra beräknade mått tas inte med. Vi exporterar till exempel inte genomsnittlig processor användning, men vi exporterar den obehandlade som genomsnittet beräknas från.
 
-Datan innehåller även resultatet av alla [webb test för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md) som du har konfigurerat.
+Datan innehåller även resultatet av alla [webb test för tillgänglighet](./monitor-web-app-availability.md) som du har konfigurerat.
 
 > [!NOTE]
-> **Ta.** Om ditt program skickar mycket data kan samplings funktionen hantera och bara skicka en bråkdel av den genererade Telemetrin. [Läs mer om sampling.](../../azure-monitor/app/sampling.md)
+> **Ta.** Om ditt program skickar mycket data kan du använda samplingsfunktionen och bara skicka en delmängd av den telemetri som genereras. [Läs mer om sampling.](./sampling.md)
 >
 >
 
@@ -135,7 +135,7 @@ Tids längden är i Tick, där 10 000 Tick = 1 MS. Dessa värden visar till exem
 [Detaljerad data modell referens för egenskaps typerna och värdena.](export-data-model.md)
 
 ## <a name="processing-the-data"></a>Bearbetar data
-I en liten skala kan du skriva kod för att hämta data, läsa dem i ett kalkyl blad och så vidare. Exempel:
+I en liten skala kan du skriva kod för att hämta data, läsa dem i ett kalkyl blad och så vidare. Till exempel:
 
 ```csharp
 private IEnumerable<T> DeserializeMany<T>(string folderName)
@@ -162,9 +162,9 @@ Ett större kod exempel finns i [använda en arbets roll][exportasa].
 Du ansvarar för att hantera lagrings kapaciteten och ta bort gamla data vid behov.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Om du återskapar din lagrings nyckel...
-Om du ändrar nyckeln till lagringen slutar den löpande exporten att fungera. Du ser ett meddelande i ditt Azure-konto.
+Om du ändrar lagringsnyckel slutar den löpande exporten att fungera. Du ser ett meddelande i ditt Azure-konto.
 
-Öppna fliken kontinuerlig export och redigera exporten. Redigera export målet, men lämna bara samma lagring valt. Bekräfta genom att klicka på OK.
+Öppna fliken Löpande export och redigera exporten. Redigera exportmålet men använd samma lagring. Bekräfta med OK.
 
 Den löpande exporten startas om.
 
@@ -210,5 +210,6 @@ På större skalor bör du överväga [HDInsight](https://azure.microsoft.com/se
 
 <!--Link references-->
 
-[exportasa]: ../../azure-monitor/app/code-sample-export-sql-stream-analytics.md
-[roles]: ../../azure-monitor/app/resources-roles-access-control.md
+[exportasa]: ./code-sample-export-sql-stream-analytics.md
+[roles]: ./resources-roles-access-control.md
+

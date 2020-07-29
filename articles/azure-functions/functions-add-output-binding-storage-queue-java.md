@@ -2,16 +2,17 @@
 title: Anslut din Java-funktion till Azure Storage
 description: Lär dig hur du ansluter en HTTP-utlöst Java-funktion till Azure Storage med hjälp av en kö Storage utgående bindning.
 author: KarlErickson
+ms.custom: devx-track-java
 ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: e5b1250170830af24ddc1f2e3b78965ebcea051e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9f512e3bbf7947361fa9890e9514693610c9f99d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540323"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321963"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Anslut din Java-funktion till Azure Storage
 
@@ -21,7 +22,7 @@ Den här artikeln visar hur du integrerar funktionen som du skapade i [föregåe
 
 De flesta bindningar kräver en lagrad anslutnings sträng som används för att få åtkomst till den kopplade tjänsten. För att göra anslutningen enklare använder du det lagrings konto som du skapade med din Function-app. Anslutningen till det här kontot är redan lagrad i en app-inställning med namnet `AzureWebJobsStorage` .  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här artikeln slutför du stegen i [del 1 av Java-snabb](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)starten.
 

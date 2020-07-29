@@ -5,12 +5,12 @@ ms.topic: reference
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
-ms.openlocfilehash: ba7830cc1c0a3e6a563b4343b37ec07f7d508af4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2227facfcf469bc22034da0da504b390cc0deee1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087993"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324190"
 ---
 # <a name="dependency-auto-collection"></a>Automatisk insamling för beroenden
 
@@ -88,9 +88,10 @@ Nedan visas en lista över beroende anrop som identifieras automatiskt som beroe
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Konfigurera anpassad beroende spårning för [.net](../../azure-monitor/app/asp-net-dependencies.md).
-- Konfigurera anpassad beroende spårning för [Java](../../azure-monitor/app/java-agent.md).
-- Konfigurera anpassad beroende spårning för python- [räkningar](../../azure-monitor/app/opencensus-python-dependency.md).
-- [Skriv anpassad beroende telemetri](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
-- Se [data modell](../../azure-monitor/app/data-model.md) för Application Insights typer och data modell.
-- Kolla ut [plattformar](../../azure-monitor/app/platforms.md) som stöds av Application Insights.
+- Konfigurera anpassad beroende spårning för [.net](./asp-net-dependencies.md).
+- Konfigurera anpassad beroende spårning för [Java](./java-agent.md).
+- Konfigurera anpassad beroende spårning för python- [räkningar](./opencensus-python-dependency.md).
+- [Skriv anpassad beroende telemetri](./api-custom-events-metrics.md#trackdependency)
+- Se [data modell](./data-model.md) för Application Insights typer och data modell.
+- Kolla ut [plattformar](./platforms.md) som stöds av Application Insights.
+

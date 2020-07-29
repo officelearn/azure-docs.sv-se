@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 06/26/2020
-ms.openlocfilehash: 95177282ad5b07a600f11f72789e0fc08f4b52c0
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 07/27/2020
+ms.openlocfilehash: f8b532716e14a8a90b0be061f7d93abf43e55e38
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86199819"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321997"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräknings mål i Azure Machine Learning? 
 
@@ -50,10 +50,10 @@ En hanterad beräknings resurs skapas och hanteras av Azure Machine Learning. De
 
 Du kan skapa Azure Machine Learning beräknings instanser eller beräknings kluster från:
 * Azure Machine Learning-studio
-* Azure-portalen
+* Azure Portal
 * Python SDK- [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) och [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) -klasser
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (för hands version)
-* Resource Manager-mall
+* Resource Manager-mall. En exempel-mall finns i [create Azure Machine Learning Compute Template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
 * Machine Learning- [tillägget för Azure CLI](reference-azure-machine-learning-cli.md#resource-management).  
 
 När du skapar dessa beräknings resurser automatiskt en del av din arbets yta, till skillnad från andra typer av beräknings mål.
@@ -82,17 +82,17 @@ I följande tabell finns mer information om vilka serier och begränsningar som 
 
 | **VM-serien som stöds**  | **Begränsningar** |
 |------------|------------|
-| D | Inget |
-| Dv2 | Inget |  
-| DSv2 | Inget |  
-| FSv2 | Inget |  
+| D | Ingen |
+| Dv2 | Ingen |  
+| DSv2 | Ingen |  
+| FSv2 | Ingen |  
 | M | Godkännande krävs |
-| NC | Inget |    
+| NC | Ingen |    
 | NCsv2 | Godkännande krävs |
 | NCsv3 | Godkännande krävs |  
 | NDs | Godkännande krävs |
 | NDv2 | Godkännande krävs |
-| NV | Inget |
+| NV | Ingen |
 | NVv3 | Godkännande krävs | 
 
 

@@ -1,7 +1,7 @@
 ---
 title: Skapa, ändra eller ta bort ett virtuellt Azure-nätverk
 titlesuffix: Azure Virtual Network
-description: Lär dig hur du skapar, ändrar eller tar bort ett virtuellt nätverk i Azure.
+description: Skapa och ta bort ett virtuellt nätverk och ändra inställningar, t. ex. DNS-servrar och IP-adressutrymme, för ett befintligt virtuellt nätverk.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 3f0060944a2733c31c3bef67aa005e5476778ce2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a35576435780ee43d9f2aa99167b736f90799ab
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710039"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265253"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Skapa, ändra eller ta bort ett virtuellt nätverk
 
@@ -90,7 +91,7 @@ Utför följande åtgärder innan du slutför stegen i något avsnitt i den här
      - [Aktivitetslogg](../azure-monitor/platform/platform-logs-overview.md)
      - [Åtkomstkontroll (IAM)](../role-based-access-control/overview.md)
      - [Taggar](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-     - [Hålls](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+     - [Lås](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [Automationsskript](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 **Kommandon**
@@ -170,7 +171,7 @@ Du kan bara ta bort ett virtuellt nätverk om det inte finns några resurser ans
 
 Om du vill utföra uppgifter i virtuella nätverk måste ditt konto tilldelas rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller till en [anpassad](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roll som har tilldelats lämpliga åtgärder i följande tabell:
 
-| Åtgärd                                  |   Name                                |
+| Åtgärd                                  |   Namn                                |
 |---------------------------------------- |   --------------------------------    |
 |Microsoft. Network/virtualNetworks/Read   |   Läs ett virtuellt nätverk              |
 |Microsoft. Network/virtualNetworks/Write  |   Skapa eller uppdatera ett virtuellt nätverk  |

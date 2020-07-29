@@ -10,19 +10,19 @@
       items:
         - name: Introduktion
           href: get-started.md
-        - name: Steg 1 – Skapa en Synapse-arbetsyta
+        - name: 1 Skapa en Synapse-arbetsyta
           href: get-started-create-workspace.md
-        - name: Steg 2 – Analysera med hjälp av en SQL-pool
+        - name: 2 Analysera med hjälp av en SQL-pool
           href: get-started-analyze-sql-pool.md
-        - name: Steg 3 – Analysera med hjälp av Spark
+        - name: 3 Analysera med hjälp av Spark
           href: get-started-analyze-spark.md
-        - name: Steg 4 – Analysera med SQL på begäran
+        - name: 4 Analysera med SQL på begäran
           href: get-started-analyze-sql-on-demand.md
-        - name: Steg 5 – Analysera data i ett lagringskonto
+        - name: 5 Analysera data i ett lagringskonto
           href: get-started-analyze-storage.md
-        - name: Steg 6 – Orkestrera med pipelines
+        - name: 6 Orkestrera med pipelines
           href: get-started-pipelines.md
-        - name: Steg 7 – Visualisera med Power BI
+        - name: 7 Visualisera med Power BI
           href: get-started-visualize-power-bi.md
     - name: Översiktsblad
       href: overview-cheat-sheet.md
@@ -264,6 +264,8 @@
                   href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Cachelagring för resultatuppsättningar
               href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Maskininlärningsförutsägelser
+              href: ./sql-data-warehouse/sql-data-warehouse-predict.md
             - name: Tabeller
               items:
                 - name: Översikt

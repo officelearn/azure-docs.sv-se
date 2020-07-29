@@ -7,18 +7,19 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 84709c022631543101889f784231158ebb96b6f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c315cc8c9dfcfa66999ff263fab95f414061e54e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77662272"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321266"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Skicka anpassade mått för en Azure-resurs till Azure Monitor mått lagret med hjälp av en REST API
 
 Den här artikeln visar hur du skickar anpassade mått för Azure-resurser till Azure Monitor Mät lagring via en REST API. När måtten har Azure Monitor kan du göra allt detta med dem som du gör med standard mått. Exempel är diagram, aviseringar och vidarebefordrar dem till andra externa verktyg.  
 
 >[!NOTE]  
->REST API tillåter endast att du skickar anpassade mått för Azure-resurser. Om du vill skicka mått för resurser i olika miljöer eller lokalt kan du använda [Application Insights](../../azure-monitor/app/api-custom-events-metrics.md).    
+>REST API tillåter endast att du skickar anpassade mått för Azure-resurser. Om du vill skicka mått för resurser i olika miljöer eller lokalt kan du använda [Application Insights](../app/api-custom-events-metrics.md).    
 
 
 ## <a name="create-and-authorize-a-service-principal-to-emit-metrics"></a>Skapa och auktorisera ett huvud namn för tjänsten för att generera mått 
@@ -92,7 +93,7 @@ Om du får ett fel meddelande med en del av processen bör du tänka på följan
 1. Du kan inte utfärda mått mot en prenumeration eller resurs grupp som Azure-resurs. 
 1. Du kan inte placera ett mått i butiken som är över 20 minuter gammal. Mått lagret är optimerat för varningar och diagram i real tid. 
 2. Antalet dimensions namn ska matcha värdena och vice versa. Kontrol lera värdena. 
-2. Du kan överföra mått mot en region som inte stöder anpassade mått. Se [regioner som stöds](../../azure-monitor/platform/metrics-custom-overview.md#supported-regions). 
+2. Du kan överföra mått mot en region som inte stöder anpassade mått. Se [regioner som stöds](./metrics-custom-overview.md#supported-regions). 
 
 
 
@@ -116,5 +117,5 @@ Om du får ett fel meddelande med en del av processen bör du tänka på följan
 
  
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [anpassade mått](../../azure-monitor/platform/metrics-custom-overview.md).
+- Lär dig mer om [anpassade mått](./metrics-custom-overview.md).
 

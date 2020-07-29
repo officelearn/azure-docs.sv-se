@@ -1,6 +1,6 @@
 ---
-title: Roll tilldelning för tjänstens huvud namn för Windows Virtual Desktop – Azure
-description: Hur du skapar tjänstens huvud namn och tilldelar roller med PowerShell i Windows Virtual Desktop.
+title: Windows Virtual Desktop (klassisk) roll tilldelning för tjänstens huvud namn – Azure
+description: Hur du skapar tjänstens huvud namn och tilldelar roller med PowerShell i Windows Virtual Desktop (klassisk).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ad78fe2ce66511cb75e23a28a30c44b173da9020
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 015d0e0208b83cff3db3995383ce93ed6362ee49
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117729"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270098"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Självstudie: skapa tjänstens huvud namn och roll tilldelningar med hjälp av PowerShell
+# <a name="tutorial-create-service-principals-and-role-assignments-with-powershell-in-windows-virtual-desktop-classic"></a>Självstudie: skapa tjänstens huvud namn och roll tilldelningar med PowerShell i Windows Virtual Desktop (klassisk)
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt.
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows.
 
 Tjänstens huvud namn är identiteter som du kan skapa i Azure Active Directory för att tilldela roller och behörigheter för ett specifikt syfte. I Windows Virtual Desktop kan du skapa ett huvud namn för tjänsten för att:
 
@@ -32,7 +32,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Skapa en roll tilldelning i Windows Virtual Desktop.
 > * Logga in på Windows Virtual Desktop genom att använda tjänstens huvud namn.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du kan skapa tjänstens huvud namn och roll tilldelningar måste du göra tre saker:
 

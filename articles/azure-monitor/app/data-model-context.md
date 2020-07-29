@@ -4,11 +4,12 @@ description: Application Insights telemetri kontext data modell
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 8a2e3296643b13a54c4fceb11f044a2808cf2877
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25ff7d92da5ea0a6aba84aad1cfc98e5295e151e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671871"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322677"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Telemetri-kontext: Application Insights data modell
 
@@ -38,14 +39,14 @@ Max längd: 64
 
 ## <a name="operation-id"></a>Åtgärds-ID
 
-En unik identifierare för rot åtgärden. Den här identifieraren gör det möjligt att gruppera telemetri över flera komponenter. Se [korrelation för telemetri](../../azure-monitor/app/correlation.md) för mer information. Åtgärds-ID: t skapas antingen i en begäran eller i en sid visning. All annan telemetri anger det här fältet till värdet för den som innehåller begäran eller sid visning. 
+En unik identifierare för rot åtgärden. Den här identifieraren gör det möjligt att gruppera telemetri över flera komponenter. Se [korrelation för telemetri](./correlation.md) för mer information. Åtgärds-ID: t skapas antingen i en begäran eller i en sid visning. All annan telemetri anger det här fältet till värdet för den som innehåller begäran eller sid visning. 
 
 Max längd: 128
 
 
 ## <a name="parent-operation-id"></a>ID för överordnad åtgärd
 
-Den unika identifieraren för telemetri-objektets direkta överordnade objekt. Se [korrelation för telemetri](../../azure-monitor/app/correlation.md) för mer information.
+Den unika identifieraren för telemetri-objektets direkta överordnade objekt. Se [korrelation för telemetri](./correlation.md) för mer information.
 
 Max längd: 128
 
@@ -75,7 +76,7 @@ Max längd: 64
 
 Anonymt användar-ID. Representerar slutanvändaren för programmet. När telemetri skickas från en tjänst är användar kontexten för den användare som initierade åtgärden i tjänsten.
 
-[Sampling](../../azure-monitor/app/sampling.md) är en av metoderna för att minimera mängden insamlad telemetri. Samplings algoritmen försöker antingen ta ett prov i eller ut hela den korrelerade Telemetrin. Anonymt användar-ID används för generering av samplings poäng. Anonymt användar-ID bör vara ett slumpmässigt tillräckligt värde. 
+[Sampling](./sampling.md) är en av metoderna för att minimera mängden insamlad telemetri. Samplings algoritmen försöker antingen ta ett prov i eller ut hela den korrelerade Telemetrin. Anonymt användar-ID används för generering av samplings poäng. Anonymt användar-ID bör vara ett slumpmässigt tillräckligt värde. 
 
 Att använda anonymt användar-ID för att lagra användar namn är ett missbruk av fältet. Använd autentiserat användar-ID.
 
@@ -126,6 +127,7 @@ Max längd: 256
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [utökar och filtrerar telemetri](../../azure-monitor/app/api-filtering-sampling.md).
+- Lär dig hur du [utökar och filtrerar telemetri](./api-filtering-sampling.md).
 - Se [data modell](data-model.md) för Application Insights typer och data modell.
-- Kolla i [konfiguration](../../azure-monitor/app/configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet)av standard kontext egenskaper samling.
+- Kolla i [konfiguration](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet)av standard kontext egenskaper samling.
+

@@ -31,6 +31,8 @@
       href: powershell-create-instance.md
     - name: Skapa en hanterad domän med en mall
       href: template-create-instance.md
+    - name: Konfigurera omfångsbegränsad synkronisering med Azure AD PowerShell
+      href: powershell-scoped-synchronization.md
 - name: Begrepp
   items:
     - name: Grundläggande om administration

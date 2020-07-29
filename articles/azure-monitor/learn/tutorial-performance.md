@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 6e344908fff54a06f1885774c88b509096c26e08
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 3c7185e07190895dfcc97555c6603049ed41c18c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783154"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322507"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Hitta och diagnostisera prestandaproblem med Azure Application Insights
 
@@ -32,8 +32,8 @@ För att slutföra den här kursen behöver du:
 - Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbets belastningar:
     - ASP.NET och webbutveckling
     - Azure Development
-- Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](../../azure-monitor/app/asp-net.md).
-- [Aktivera Application Insights-profileraren](../../azure-monitor/app/profiler.md#installation) för ditt program.
+- Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](../app/asp-net.md).
+- [Aktivera Application Insights-profileraren](../app/profiler.md#installation) för ditt program.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com) .
@@ -56,12 +56,12 @@ Application Insights samlar in prestandainformation för de olika åtgärderna i
 
 4.  Prestandapanelen till höger visar fördelningen av varaktigheterna för olika begäranden för den valda åtgärden.  Minska fönstret för att starta runt den 95:e percentilen. Insiktskortet om de tre viktigaste beroendena ger en snabb överblick över de externa beroenden som sannolikt bidrar till de långsamma transaktionerna.  Klicka på knappen med antal exempel för att visa en lista över dem. Du kan välja valfritt exempel och visa transaktionsinformationen.
 
-5.  Överblicken visar att anropet till Fabrikamaccount Azure Table bidrar mest till åtgärdens totala varaktighet för transaktionen. Du kan också se att ett undantag orsakade felet. Du kan klicka på valfritt objekt i listan och visa information om det på höger sida. [Lär dig mer om transaktionsdiagnostiken](../../azure-monitor/app/transaction-diagnostics.md)
+5.  Överblicken visar att anropet till Fabrikamaccount Azure Table bidrar mest till åtgärdens totala varaktighet för transaktionen. Du kan också se att ett undantag orsakade felet. Du kan klicka på valfritt objekt i listan och visa information om det på höger sida. [Lär dig mer om transaktionsdiagnostiken](../app/transaction-diagnostics.md)
 
     ![Information om åtgärd från slut punkt till slut punkt](media/tutorial-performance/4-end-to-end.png)
     
 
-6.  [**Profileraren**](../../azure-monitor/app/profiler-overview.md) hjälper dig att komma igång med kod nivå diagnostik genom att visa den faktiska kod som kördes för åtgärden och den tid som krävs för varje steg. Vissa åtgärder kanske inte har någon spårning eftersom Profiler körs med jämna mellanrum.  Med tiden bör fler åtgärder ha spårningar.  Du startar Profiler för åtgärden genom att klicka på **Profiler traces** (Profiler-spårningar).
+6.  [**Profileraren**](../app/profiler-overview.md) hjälper dig att komma igång med kod nivå diagnostik genom att visa den faktiska kod som kördes för åtgärden och den tid som krävs för varje steg. Vissa åtgärder kanske inte har någon spårning eftersom Profiler körs med jämna mellanrum.  Med tiden bör fler åtgärder ha spårningar.  Du startar Profiler för åtgärden genom att klicka på **Profiler traces** (Profiler-spårningar).
 5.  I spårningen ser du enskilda händelser för varje åtgärd så att du kan diagnostisera vad som gör att åtgärden tar så lång tid att utföra.  Klicka på något av de översta exemplen som har den längsta varaktigheten.
 6.  Klicka på **aktiv sökväg** för att markera den angivna sökvägen till händelser som mest bidrar till den totala varaktigheten för åtgärden.  I det här exemplet ser du att det långsammaste anropet kommer från metoden *FabrikamFiberAzureStorage.GetStorageTableData*. Den del som tar mest tid är metoden *CloudTable.CreateIfNotExist*. Om den här raden med kod körs varje gång som funktionen anropas förbrukas onödigt många nätverksanrop och processorresurser. Det bästa sättet att åtgärda koden är att placera den här raden i någon startmetod som bara utförs en gång.
 
@@ -112,4 +112,5 @@ Precis som de data som samlas in för Server prestanda gör Application Insights
 Nu när du har lärt dig hur du identifierar körningsundantag går du vidare till nästa självstudie, där du får lära dig hur du skapar aviseringar som skickas när fel inträffar.
 
 > [!div class="nextstepaction"]
-> [Aviseringar om programmets hälsotillstånd](../../azure-monitor/learn/tutorial-alert.md)
+> [Aviseringar om programmets hälsotillstånd](./tutorial-alert.md)
+

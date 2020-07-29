@@ -9,13 +9,14 @@ ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
+ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 70ed795032c3d6d46aa57afaf5b5ece94bc74ea9
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 56a5215daea9289a481e0a51575ef0ee3cbdb3a0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995981"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322082"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och Java
 
@@ -23,7 +24,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 Även om det här programmet är skrivet i Java är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheck.java).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Java Development Kit (JDK) 7 eller senare.
 

@@ -1,10 +1,10 @@
-- name: Windows Virtual Desktop Fall 2019-versionen
+- name: Windows Virtual Desktop (klassisk)
   href: ../index.yml
 - name: Översikt
   items:
     - name: Vad är Windows Virtual Desktop?
       href: ../overview.md
-    - name: Dokumentation om Spring 2020-versionen
+    - name: Dokumentation om Windows Virtual Desktop
       href: ../create-host-pools-azure-marketplace.md
 - name: Självstudier
   items:

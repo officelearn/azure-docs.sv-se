@@ -1,6 +1,6 @@
 ---
-title: Ansluta till Windows Virtual Desktop blir 2019 från Android – Azure
-description: Ansluta till virtuella Windows-datorer med Android-klienten.
+title: Ansluta till Windows Virtual Desktop (klassisk) från Android – Azure
+description: Så här ansluter du till Windows Virtual Desktop (klassisk) med Android-klienten.
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ccea4e39146500cb9d3796c4ca99725e2e2ac429
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fd319c7a6b356052f91e779e2f2a67eff4c4b6de
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087160"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270761"
 ---
-# <a name="connect-with-the-android-client"></a>Ansluta med Android-klienten
+# <a name="connect-to-windows-virtual-desktop-classic-with-the-android-client"></a>Ansluta till Windows Virtual Desktop (klassisk) med Android-klienten
 
 > Gäller för: Android 4,1 och senare, Chromebooks med Chrome 53 och senare.
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../connect-android.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../connect-android.md).
 
 >[!NOTE]
 > Möjligheten att komma åt Windows-resurser för virtuella skriv bord från Android-klienten är för närvarande tillgänglig som för hands version.

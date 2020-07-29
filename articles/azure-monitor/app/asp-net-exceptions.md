@@ -3,24 +3,24 @@ title: Diagnostisera fel och undantag med Azure Application insikter
 description: Fånga undantag från ASP.NET-appar tillsammans med telemetri för begäran.
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 4d298b3b8541590387995898b0b9f067e8130c3d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c91ab4bcf8a0d2172c89fa04bd7a3b4999b2217e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517220"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321368"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostisera undantag i dina webbappar med Application Insights
-Undantag i din Live-webbapp rapporteras av [Application Insights](../../azure-monitor/app/app-insights-overview.md). Du kan korrelera misslyckade förfrågningar med undantag och andra händelser på både klienten och servern, så att du snabbt kan diagnostisera orsakerna.
+Undantag i din Live-webbapp rapporteras av [Application Insights](./app-insights-overview.md). Du kan korrelera misslyckade förfrågningar med undantag och andra händelser på både klienten och servern, så att du snabbt kan diagnostisera orsakerna.
 
 ## <a name="set-up-exception-reporting"></a>Konfigurera undantags rapportering
 * Så här har du undantag som rapporter ATS från din server app:
-  * Azure-Webbappar: Lägg till [Application Insights-tillägget](../../azure-monitor/app/azure-web-apps.md)
-  * Virtuella Azure-datorer och skalnings uppsättningar för virtuella Azure-datorer: Lägg till [tillägget för program övervakning](../../azure-monitor/app/azure-vm-vmss-apps.md)
-  * Installera [Application Insights SDK](../../azure-monitor/app/asp-net.md) i din app-kod eller
-  * IIS-webbservrar: kör [Application Insights agent](../../azure-monitor/app/monitor-performance-live-website-now.md); eller
+  * Azure-Webbappar: Lägg till [Application Insights-tillägget](./azure-web-apps.md)
+  * Virtuella Azure-datorer och skalnings uppsättningar för virtuella Azure-datorer: Lägg till [tillägget för program övervakning](./azure-vm-vmss-apps.md)
+  * Installera [Application Insights SDK](./asp-net.md) i din app-kod eller
+  * IIS-webbservrar: kör [Application Insights agent](./monitor-performance-live-website-now.md); eller
   * Java-webbappar: aktivera [Java-agenten](./java-in-process-agent.md)
-* Installera [JavaScript-kodfragmentet](../../azure-monitor/app/javascript.md) på dina webb sidor för att fånga webb läsar undantag.
+* Installera [JavaScript-kodfragmentet](./javascript.md) på dina webb sidor för att fånga webb läsar undantag.
 * I vissa program ramverk eller med vissa inställningar måste du vidta några extra steg för att fånga fler undantag:
   * [Webb formulär](#web-forms)
   * [MVC](#mvc)
@@ -70,29 +70,29 @@ Om du vill hämta diagnostikdata som är specifika för din app kan du infoga ko
 
 I det syftet har du flera alternativ:
 
-* [TrackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) används vanligt vis för att övervaka användnings mönster, men data som skickas visas också under anpassade händelser i diagnostisk sökning. Händelser namnges och kan innehålla sträng egenskaper och numeriska mått som du kan använda för [att filtrera diagnostiska sökningar](../../azure-monitor/app/diagnostic-search.md).
-* Med [TrackTrace ()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) kan du skicka längre data, till exempel post uppgifter.
+* [TrackEvent ()](./api-custom-events-metrics.md#trackevent) används vanligt vis för att övervaka användnings mönster, men data som skickas visas också under anpassade händelser i diagnostisk sökning. Händelser namnges och kan innehålla sträng egenskaper och numeriska mått som du kan använda för [att filtrera diagnostiska sökningar](./diagnostic-search.md).
+* Med [TrackTrace ()](./api-custom-events-metrics.md#tracktrace) kan du skicka längre data, till exempel post uppgifter.
 * [TrackException ()](#exceptions) skickar stack spår. [Mer om undantag](#exceptions).
 * Om du redan använder ett loggnings ramverk som Log4Net eller NLog kan du [samla in dessa loggar](asp-net-trace-logs.md) och se dem i diagnostisk sökning, tillsammans med förfrågningar och undantags data.
 
-Om du vill se de här händelserna öppnar du [Sök](../../azure-monitor/app/diagnostic-search.md) på menyn till vänster, väljer **händelse typerna**för List rutan och väljer sedan anpassad händelse, spårning eller undantag.
+Om du vill se de här händelserna öppnar du [Sök](./diagnostic-search.md) på menyn till vänster, väljer **händelse typerna**för List rutan och väljer sedan anpassad händelse, spårning eller undantag.
 
 ![Visa detaljerad information](./media/asp-net-exceptions/customevents.png)
 
 > [!NOTE]
-> Om din app genererar mycket telemetri minskar den anpassningsbara insamlingsmodulen automatiskt den mängd som skickas till portalen genom att bara skicka en representativ del av händelserna. Händelser som är en del av samma åtgärd markeras eller avmarkeras som en grupp, så att du kan navigera mellan relaterade händelser. [Lär dig mer om sampling.](../../azure-monitor/app/sampling.md)
+> Om din app genererar mycket telemetri minskar den anpassningsbara insamlingsmodulen automatiskt den mängd som skickas till portalen genom att bara skicka en representativ del av händelserna. Händelser som är en del av samma åtgärd markeras eller avmarkeras som en grupp, så att du kan navigera mellan relaterade händelser. [Lär dig mer om sampling.](./sampling.md)
 >
 >
 
 ### <a name="how-to-see-request-post-data"></a>Så här visar du begäran om att publicera data
 Information om begäran innehåller inte de data som skickas till din app i ett POST-anrop. För att dessa data ska rapporteras:
 
-* [Installera SDK](../../azure-monitor/app/asp-net.md) i ditt program projekt.
-* Infoga kod i programmet för att anropa [Microsoft. ApplicationInsights. TrackTrace ()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace). Skicka POST-data i meddelande parametern. Det finns en gräns för tillåten storlek, så du bör försöka skicka enbart viktiga data.
+* [Installera SDK](./asp-net.md) i ditt program projekt.
+* Infoga kod i programmet för att anropa [Microsoft. ApplicationInsights. TrackTrace ()](./api-custom-events-metrics.md#tracktrace). Skicka POST-data i meddelande parametern. Det finns en gräns för tillåten storlek, så du bör försöka skicka enbart viktiga data.
 * När du undersöker en misslyckad begäran hittar du de associerade spårningarna.
 
 ## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a>Fånga undantag och relaterade diagnostikdata
-Först visas inte i portalen alla undantag som orsakar fel i din app. Du ser eventuella webb läsar undantag (om du använder [JavaScript SDK](../../azure-monitor/app/javascript.md) på dina webb sidor). Men de flesta Server undantagen fångas av IIS och du måste skriva kod för att se dem.
+Först visas inte i portalen alla undantag som orsakar fel i din app. Du ser eventuella webb läsar undantag (om du använder [JavaScript SDK](./javascript.md) på dina webb sidor). Men de flesta Server undantagen fångas av IIS och du måste skriva kod för att se dem.
 
 Du kan:
 
@@ -152,7 +152,7 @@ Det enklaste sättet är att infoga ett anrop till TrackException () i en undant
     End Try
 ```
 
-Parametrarna för egenskaper och mätningar är valfria, men är användbara för [att filtrera och lägga till](../../azure-monitor/app/diagnostic-search.md) extra information. Om du till exempel har en app som kan köra flera spel kan du hitta alla undantags rapporter som är relaterade till ett visst spel. Du kan lägga till så många objekt som du vill i varje ord lista.
+Parametrarna för egenskaper och mätningar är valfria, men är användbara för [att filtrera och lägga till](./diagnostic-search.md) extra information. Om du till exempel har en app som kan köra flera spel kan du hitta alla undantags rapporter som är relaterade till ett visst spel. Du kan lägga till så många objekt som du vill i varje ord lista.
 
 ## <a name="browser-exceptions"></a>Webbläsarundantag
 De flesta webb läsar undantag rapporteras.
@@ -201,12 +201,12 @@ Från och med Application Insights Web SDK version 2,6 (beta3 och senare), samla
 
 Det finns ett antal fall som undantags filtren inte kan hantera. Till exempel:
 
-* Undantag som har utlösts av styrenhets konstruktörer.
-* Undantag som har utlösts av meddelande hanterare.
-* Undantag som har utlösts under dirigering.
-* Undantag utlöst under serialisering av svars innehåll.
-* Ett undantag uppstod när programmet startades.
-* Ett undantag utlöstes i bakgrunds aktiviteter.
+* Undantag som utlöses från styrenhetskonstruktörer.
+* Undantag som utlöses av meddelandehanterare.
+* Undantag som utlöses under routning.
+* Undantag som utlöses under serialisering av svarsinnehåll.
+* Undantag som utlöses vid programstart.
+* Undantag som utlöses i bakgrundsaktiviteter.
 
 Alla undantag som *hanteras* av programmet måste fortfarande spåras manuellt.
 Ohanterade undantag från kontrollanter resulterar vanligt vis i svar på 500 "internt Server fel". Om ett sådant svar manuellt konstrueras till följd av ett hanterat undantag (eller inget undantag alls) spåras det i motsvarande telemetri för begäran med `ResultCode` 500, men Application Insights SDK kan inte spåra motsvarande undantag.
@@ -293,12 +293,12 @@ Från och med Application Insights Web SDK version 2,6 (beta3 och senare) samlar
 
 Det finns ett antal fall som undantags filtren inte kan hantera. Till exempel:
 
-* Undantag som har utlösts av styrenhets konstruktörer.
-* Undantag som har utlösts av meddelande hanterare.
-* Undantag som har utlösts under dirigering.
-* Undantag utlöst under serialisering av svars innehåll.
-* Ett undantag uppstod när programmet startades.
-* Ett undantag utlöstes i bakgrunds aktiviteter.
+* Undantag som utlöses från styrenhetskonstruktörer.
+* Undantag som utlöses av meddelandehanterare.
+* Undantag som utlöses under routning.
+* Undantag som utlöses under serialisering av svarsinnehåll.
+* Undantag som utlöses vid programstart.
+* Undantag som utlöses i bakgrundsaktiviteter.
 
 Alla undantag som *hanteras* av programmet måste fortfarande spåras manuellt.
 Ohanterade undantag från kontrollanter resulterar vanligt vis i svar på 500 "internt Server fel". Om ett sådant svar manuellt konstrueras till följd av ett hanterat undantag (eller inget undantag alls) spåras det i en motsvarande begäran om telemetri med `ResultCode` 500, men Application Insights SDK kan inte spåra motsvarande undantag.
@@ -482,7 +482,7 @@ Add the attribute to the service implementations:
 [Exempel](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
 ## <a name="exception-performance-counters"></a>Prestanda räknare för undantag
-Om du har [installerat Application Insights agent](../../azure-monitor/app/monitor-performance-live-website-now.md) på servern kan du få ett diagram över undantags frekvensen, mätt av .net. Detta inkluderar både hanterade och ohanterade .NET-undantag.
+Om du har [installerat Application Insights agent](./monitor-performance-live-website-now.md) på servern kan du få ett diagram över undantags frekvensen, mätt av .net. Detta inkluderar både hanterade och ohanterade .NET-undantag.
 
 Öppna fliken Metric Explorer, Lägg till ett nytt diagram och välj **undantags frekvens**i listan under prestanda räknare.
 
@@ -491,6 +491,7 @@ Om du har [installerat Application Insights agent](../../azure-monitor/app/monit
 Detta skiljer sig från antalet undantag som beräknas av Application Insights portal som räknar TrackException-rapporter. Samplings intervallen är olika och SDK: n skickar inte TrackException-rapporter för alla hanterade och ohanterade undantag.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Övervaka REST, SQL och andra anrop till beroenden](../../azure-monitor/app/asp-net-dependencies.md)
-* [Övervaka sid inläsnings tider, webb läsar undantag och AJAX-anrop](../../azure-monitor/app/javascript.md)
-* [Övervaka prestanda räknare](../../azure-monitor/app/performance-counters.md)
+* [Övervaka REST, SQL och andra anrop till beroenden](./asp-net-dependencies.md)
+* [Övervaka sid inläsnings tider, webb läsar undantag och AJAX-anrop](./javascript.md)
+* [Övervaka prestanda räknare](./performance-counters.md)
+

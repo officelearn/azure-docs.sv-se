@@ -1,6 +1,6 @@
 ---
-title: Ansluta till Windows Virtual Desktop sjunker 2019 Windows 10 eller 7 – Azure
-description: Hur du ansluter till virtuella Windows-datorer med hjälp av Windows Skriv bords klienten.
+title: Ansluta till Windows Virtual Desktop (klassisk) Windows 10 eller 7 – Azure
+description: Så här ansluter du till Windows Virtual Desktop (klassisk) med hjälp av Windows Skriv bords klienten.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,24 +8,24 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3bddfe22f70c1044ca02fb41a1959884f41797bb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d420927727c2d2209c00f4852188c4a2d8e4342d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083556"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270336"
 ---
-# <a name="connect-with-the-windows-desktop-client---fall-2019"></a>Ansluta till Windows-skrivbordet client-hösten 2019
+# <a name="connect-with-the-windows-desktop-classic-client"></a>Ansluta till Windows Desktop-klienten (klassisk)
 
 > Gäller för: Windows 7, Windows 10 och Windows 10 IoT Enterprise
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../connect-windows-7-10.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../connect-windows-7-10.md).
 
 Du kan komma åt Windows-resurser för virtuella skriv bord på enheter med Windows 7, Windows 10 och Windows 10 IoT Enterprise med Windows Skriv bords klienten. Klienten har inte stöd för Windows 8 eller Windows 8,1.
 
 >[!NOTE]
->Windows-klienten har automatiskt standard versionen av Windows virtuella skriv bord 2019. Men om klienten upptäcker att användaren också har Azure Resource Manager resurser lägger den automatiskt till resurserna eller meddelar användaren om att de är tillgängliga.
+>Windows-klienten får automatiskt standard Windows Virtual Desktop (klassisk). Men om klienten upptäcker att användaren också har Azure Resource Manager resurser lägger den automatiskt till resurserna eller meddelar användaren om att de är tillgängliga.
 
 > [!IMPORTANT]
 > Windows Virtual Desktop stöder inte RADC-klienten (RemoteApp-och Desktop Connections) eller Anslutning till fjärrskrivbord-klienten (MSTSC).
@@ -63,8 +63,8 @@ Du kan prenumerera på en arbets yta på två sätt. Klienten kan försöka iden
 1. Från klientens huvud sida väljer du **Prenumerera med URL**.
 2. Ange arbets ytans URL eller din e-post adress:
    - Om du använder **URL: en för arbets ytan**använder du den som din administratör fick. Om du får åtkomst till resurser från virtuella Windows-datorer kan du använda någon av följande URL: er:
-     - Windows Virtual Desktop sjunker 2019:`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
-     - Windows Virtual Desktop fjäder 2020:`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+     - Windows Virtual Desktop (klassisk):`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
+     - Virtuellt Windows-skrivbord:`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
    - Om du använder **e-** postfältet i stället anger du din e-postadress. Detta instruerar klienten att söka efter en URL som är kopplad till din e-postadress om din administratör har konfigurerat [identifiering av e-post](/windows-server/remote/remote-desktop-services/rds-email-discovery).
 3. Välj **Nästa**.
 4. Logga in med ditt användar konto när du uppmanas till det.

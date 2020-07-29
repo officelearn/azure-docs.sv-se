@@ -1,22 +1,71 @@
 ---
 title: Felsök problem med agent och tillägg
 description: Symptom, orsaker och lösningar på Azure Backup fel som rör agent, tillägg och diskar.
-ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 55af4bddb5a963a831c1438400a7a243cca20573
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5bf52606e6fa5de6a122a65432da87de1491e17f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538827"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324751"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: problem med agenten eller tillägget
 
 Den här artikeln innehåller fel söknings steg som kan hjälpa dig att lösa Azure Backup fel som rör kommunikation med VM-agenten och tillägget.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+## <a name="step-by-step-guide-to-troubleshoot-backup-failures"></a>Steg-för-steg-guide för fel sökning av säkerhets kopierings fel
+
+De vanligaste säkerhets kopierings felen kan lösas själv genom att följa de fel söknings steg som anges nedan:
+
+### <a name="step-1-check-azure-vm-health"></a>Steg 1: kontrol lera Azure VM-hälsa
+
+- **Se till att etablerings statusen för Azure VM är igång**: om [etablerings status för virtuell dator](https://docs.microsoft.com/azure/virtual-machines/windows/states-lifecycle#provisioning-states) är i läget **stoppad/frigjord/uppdatering** störs säkerhets kopieringen. Öppna *Azure Portal > VM > översikt >* och kontrol lera VM-statusen för att kontrol lera att den **körs** och försök att säkerhetskopiera igen.
+- **Granska väntande OS-uppdateringar eller omstarter**: kontrol lera att det inte finns någon VÄNTAnde OS-uppdatering eller väntande omstarter på den virtuella datorn.
+
+### <a name="step-2-check-azure-vm-guest-agent-service-health"></a>Steg 2: kontrol lera hälsa för Azures gästa Gent tjänst
+
+- **Se till att Azure VM-tjänsten för gästa Gent är igång och uppdaterad**:
+  - På en virtuell Windows-dator:
+    - Navigera till **Services. msc** och se till att **tjänsten Windows Azures gästa Gent** är igång. Kontrol lera också att den [senaste versionen](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) är installerad. Mer information finns i [problem med Windows VM-gäst Gent](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).
+    - Azure VM-agenten installeras som standard på alla virtuella Windows-datorer som distribueras från Azure Marketplace-avbildningen från portalen, PowerShell, kommando rads gränssnittet eller en Azure Resource Manager mall. En [manuell installation av agenten](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows#manual-installation) kan vara nödvändig när du skapar en anpassad VM-avbildning som distribueras till Azure.
+    - Granska support mat ris för att kontrol lera om den virtuella datorn körs på [Windows-operativsystemet som stöds](backup-support-matrix-iaas.md#operating-system-support-windows).
+  - På virtuella Linux-datorer,
+    - Se till att Azure-tjänsten för gästa virtuella datorer körs genom att köra kommandot `ps-e` . Kontrol lera också att den [senaste versionen](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) är installerad. Läs mer i [Linux VM-problem med gästa Gent](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
+    - Se till att de [virtuella Linux-agenternas beroenden för system paket](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) har den konfiguration som stöds. Exempel: python-version som stöds är 2,6 och högre.
+    - Granska support mat ris för att kontrol lera om den virtuella datorn körs på det [Linux-operativsystem som stöds.](backup-support-matrix-iaas.md#operating-system-support-linux)
+
+### <a name="step-3-check-azure-vm-extension-health"></a>Steg 3: kontrol lera hälso tillståndet för Azure VM-tillägg
+
+- **Se till att alla virtuella Azure-tillägg är i läget etableringen lyckades**: om något tillägg är i ett felaktigt tillstånd kan det störa säkerhets kopieringen.
+- *Öppna Azure Portal > VM > inställningar > tillägg > tillägg status* och kontrol lera om alla tillägg har statusen **slutfört** .
+- Se till att alla [tilläggs problem](https://docs.microsoft.com/azure/virtual-machines/extensions/overview#troubleshoot-extensions) är lösta och försök att säkerhetskopiera igen.
+- **Se till att com+-system programmet** är igång. **Tjänsten koordinator för distribuerad transaktion** bör också köras som **nätverks tjänst konto**. Följ stegen i den här artikeln för att [Felsöka problem med com+ och MSDTC](backup-azure-vms-troubleshoot.md#extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error).
+
+### <a name="step-4-check-azure-backup-vm-extension-health"></a>Steg 4: kontrol lera Azure Backup VM-tilläggets hälsa
+
+Azure Backup använder VM Snapshot-tillägget för att göra en programkonsekvent säkerhets kopia av den virtuella Azure-datorn. Azure Backup installerar tillägget som en del av den första schemalagda säkerhets kopieringen som utlöses efter att säkerhets kopieringen Aktiver ATS.
+
+- **Se till att VMSnapshot-tillägget inte är i ett felaktigt tillstånd**: Följ stegen som beskrivs i det här [avsnittet](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) för att verifiera och se till att Azure Backup-tillägget är felfritt.
+
+- **Kontrol lera om antivirus programmet blockerar tillägget**: vissa antivirus program kan förhindra att tillägg körs.
+  
+  När säkerhets kopieringen Miss lyckas kontrollerar du om det finns logg poster i ***Loggboken program loggar*** med ***felaktigt program namn: IaaSBcdrExtension.exe***. Om du ser poster kan det vara antivirus programmet som kon figurer ATS i den virtuella datorn som begränsar körningen av säkerhets kopierings tillägget. Testa genom att undanta följande kataloger i Antivirus konfigurationen och försök att säkerhetskopiera igen.
+  - `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
+  - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
+
+- **Kontrol lera om nätverks åtkomst krävs**: tilläggen laddas ned från Azure Storage tilläggets lagrings plats och tilläggets status för överföring skickas till Azure Storage. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows#network-access).
+  - Om du har en version som inte stöds av agenten måste du tillåta utgående åtkomst till Azure Storage i den regionen från den virtuella datorn.
+  - Om du har blockerat åtkomst till `168.63.129.16` med hjälp av gäst brand väggen eller med en proxy, kommer tilläggen inte att fungera oavsett ovan. Portarna 80, 443 och 32526 krävs, [Läs mer](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows#network-access).
+
+- **Se till att DHCP är aktiverat i den virtuella gäst datorn**: detta krävs för att hämta värden eller infrastruktur resursen från DHCP för att IaaS VM-säkerhetskopiering ska fungera. Om du behöver en statisk privat IP-adress bör du konfigurera den via Azure Portal eller PowerShell och kontrol lera att DHCP-alternativet i den virtuella datorn är aktiverat, [Läs mer](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken).
+
+- **Se till att VSS Writer-tjänsten är**igång: Följ dessa steg för att [FELSÖKA problem med VSS-skrivaren](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state).
+- **Följ rikt linjerna för rekommendationer för säkerhets kopiering**: granska de [bästa metoderna för att aktivera säkerhets kopiering av virtuella Azure-datorer](backup-azure-vms-introduction.md#best-practices).
+- **Läs igenom rikt linjerna för krypterade diskar**: om du aktiverar säkerhets kopiering för virtuella datorer med krypterad disk kontrollerar du att du har angett alla behörigheter som krävs. Läs mer i [säkerhetskopiera och återställa krypterade virtuella Azure-datorer](backup-azure-vms-encryption.md#encryption-support).
 
 ## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable – Den virtuella datoragenten kunde inte kommunicera med Azure Backup
 

@@ -6,15 +6,15 @@ author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.author: mhopkins
-ms.date: 01/24/2020
+ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 920d3d6c1cfc928efa5daa2d6c0aa3a6b4e81375
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0db110d02211323f64e7ffe795f72e3a5003ec91
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82161133"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282049"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -22,11 +22,14 @@ ms.locfileid: "82161133"
 
 I den här snabb starten lär du dig att hantera blobbar med hjälp av JavaScript-kod som körs helt i webbläsaren. Blobbar är objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. Du använder nödvändiga säkerhets åtgärder för att säkerställa skyddad åtkomst till ditt Blob Storage-konto.
 
+> [!NOTE]
+> I den här snabb starten används en äldre version av klient biblioteket för Azure Blob Storage. Information om hur du kommer igång med den senaste versionen finns i [snabb start: hantera blobbar med Java Script V12 SDK i en webbläsare](quickstart-blobs-javascript-browser.md).
+
 ## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Ett Azure Storage-konto. [Skapa ett lagrings konto](../common/storage-account-create.md).
-- En lokal webb server. Den här artikeln använder [Node. js](https://nodejs.org) för att öppna en grundläggande Server.
+- En lokal webb server. Den här artikeln använder [Node.js](https://nodejs.org) för att öppna en grundläggande Server.
 - [Visual Studio Code](https://code.visualstudio.com).
 - Ett VS Code-tillägg för fel sökning av webbläsare, till exempel [fel sökning för Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) eller [fel sökning för Microsoft Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge).
 
@@ -40,7 +43,7 @@ Innan ditt webb program kan komma åt en blob-lagring från klienten måste du k
 
 I följande tabell beskrivs varje CORS-inställning och de värden som används för att definiera regeln.
 
-|Inställning  |Värde  | Beskrivning |
+|Inställningen  |Värde  | Beskrivning |
 |---------|---------|---------|
 | Tillåtna ursprung | * | Accepterar en kommaavgränsad lista över domäner som är inställda som godkänt ursprung. Om du anger värdet till `*` ges alla domäner åtkomst till lagringskontot. |
 | Tillåtna metoder     | delete, get, head, merge, post, options och put | Listar de HTTP-verb som kan köras mot lagringskontot. För den här snabbstarten väljer du alla tillgängliga alternativ. |
@@ -94,11 +97,11 @@ Nu när SAS har skapats kopierar du returvärdet och sparar det någonstans för
 
 ## <a name="implement-the-html-page"></a>Implementera HTML-sidan
 
-I det här avsnittet ska du skapa en grundläggande webb sida och konfigurera VS Code för att starta och felsöka sidan. Innan du kan starta måste du dock använda Node. js för att starta en lokal webb server och betjäna sidan när webbläsaren begär det. Härnäst ska du lägga till JavaScript-kod för att anropa olika Blob Storage-API: er och visa resultaten på sidan. Du kan också se resultatet av dessa anrop i [Azure Portal](https://portal.azure.com), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer)och [Azure Storage tillägget](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) för vs Code.
+I det här avsnittet ska du skapa en grundläggande webb sida och konfigurera VS Code för att starta och felsöka sidan. Innan du kan starta måste du dock använda Node.js för att starta en lokal webb server och betjäna sidan när webbläsaren begär det. Härnäst ska du lägga till JavaScript-kod för att anropa olika Blob Storage-API: er och visa resultaten på sidan. Du kan också se resultatet av dessa anrop i [Azure Portal](https://portal.azure.com), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer)och [Azure Storage tillägget](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) för vs Code.
 
 ### <a name="set-up-the-web-application"></a>Konfigurera webbprogrammet
 
-Börja med att skapa en ny mapp med namnet *Azure-blobs-Java Script* och öppna den i vs Code. Skapa sedan en ny fil i VS Code, Lägg till följande HTML och spara den som *index. html* i mappen *Azure-blobs-Java Script* .
+Börja med att skapa en ny mapp med namnet *Azure-blobs-Java Script* och öppna den i vs Code. Skapa sedan en ny fil i VS Code, Lägg till följande HTML och spara den som *index.html* i mappen *Azure-blobs-Java Script* .
 
 ```html
 <!DOCTYPE html>
@@ -124,9 +127,9 @@ Börja med att skapa en ny mapp med namnet *Azure-blobs-Java Script* och öppna 
 
 ### <a name="configure-the-debugger"></a>Konfigurera fel söknings programmet
 
-Om du vill ställa in tillägget för fel sökning i VS Code väljer du **felsök > Lägg till konfiguration...** och väljer sedan **Chrome** eller **Edge**, beroende på vilket tillägg du installerade i avsnittet krav ovan. Den här åtgärden skapar en *Launch. JSON* -fil och öppnar den i redigeraren.
+Om du vill ställa in tillägget för fel sökning i VS Code väljer du **felsök > Lägg till konfiguration...** och väljer sedan **Chrome** eller **Edge**, beroende på vilket tillägg du installerade i avsnittet krav ovan. Den här åtgärden skapar en *launch.jspå* filen och öppnar den i redigeraren.
 
-Sedan ändrar du filen *Launch. JSON* så att `url` värdet inkluderar `/index.html` :
+Ändra sedan *launch.jspå* filen så att `url` värdet inkluderar `/index.html` :
 
 ```json
 {
@@ -150,7 +153,7 @@ Den här konfigurationen talar om för VS Code vilken webbläsare som ska starta
 
 ### <a name="launch-the-web-server"></a>Starta webb servern
 
-Starta den lokala Node. js-webbservern genom att välja **visa > Terminal** för att öppna ett konsol fönster i vs Code, och ange sedan följande kommando.
+Starta den lokala Node.js webb servern genom att välja **visa > Terminal** för att öppna ett konsol fönster i vs Code, och ange sedan följande kommando.
 
 ```console
 npx http-server
@@ -160,17 +163,17 @@ Med det här kommandot installeras *http-server* -paketet och servern startas, o
 
 ### <a name="start-debugging"></a>Starta fel sökning
 
-Om du vill starta *index. html* i webbläsaren med vs Code-felsökaren ansluten, väljer du **Felsök > starta fel sökning** eller trycker på F5 i vs Code.
+Om du vill starta *index.html* i webbläsaren med vs Code-felsökaren, väljer du **Felsök > starta fel sökning** eller trycker på F5 i vs Code.
 
 Det användar gränssnitt som visas gör inte något än, men du kommer att lägga till JavaScript-kod i följande avsnitt för att implementera varje funktion som visas. Du kan sedan ange Bryt punkter och interagera med fel söknings programmet när det har pausats på din kod.
 
-När du gör ändringar i *index. html*måste du läsa in sidan igen för att se ändringarna i webbläsaren. I VS Code kan du också välja **felsök > starta om fel sökning** eller trycka på Ctrl + Shift + F5.
+När du gör ändringar i *index.html*måste du läsa in sidan igen för att se ändringarna i webbläsaren. I VS Code kan du också välja **felsök > starta om fel sökning** eller trycka på Ctrl + Shift + F5.
 
 ### <a name="add-the-blob-storage-client-library"></a>Lägg till klient biblioteket för Blob Storage
 
-Om du vill aktivera anrop till Blob Storage-API: et måste [du först hämta klient biblioteket Azure Storage SDK för Java Script-BLOB](https://aka.ms/downloadazurestoragejsblob), extrahera innehållet i zip-filen och placera filen *Azure-Storage-blob. js* i mappen *Azure-blobs-Java Script* .
+Om du vill aktivera anrop till Blob Storage-API: et måste [du först hämta klient biblioteket Azure Storage SDK för Java Script-BLOB](https://aka.ms/downloadazurestoragejsblob), extrahera innehållet i zip-filen och placera *azure-storage-blob.js* -filen i mappen *Azure-blobs-Java Script* .
 
-Klistra sedan in följande HTML i *index. html* efter den `</body>` avslutande taggen och ersätt plats hållaren.
+Klistra sedan in följande HTML i *index.html* efter den `</body>` avslutande taggen och ersätt plats hållaren.
 
 ```html
 <script src="azure-storage-blob.js" charset="utf-8"></script>
@@ -180,11 +183,11 @@ Klistra sedan in följande HTML i *index. html* efter den `</body>` avslutande t
 </script>
 ```
 
-Den här koden lägger till en referens till skript filen och ger en plats för din egen JavaScript-kod. I den här snabb starten använder vi skript filen *Azure-Storage-blob. js* så att du kan öppna den i vs Code, läsa dess innehåll och ange Bryt punkter. I produktion bör du använda den mer komprimerade *Azure-Storage. blob. min. js* -filen som också finns i zip-filen.
+Den här koden lägger till en referens till skript filen och ger en plats för din egen JavaScript-kod. I den här snabb starten använder vi *azure-storage-blob.js* skript filen så att du kan öppna den i vs Code, läsa dess innehåll och ange Bryt punkter. I produktion bör du använda den mer kompakta *azure-storage.blob.min.js* -filen som också finns i zip-filen.
 
-Du kan läsa mer om varje Blob Storage-funktion i [referens dokumentationen](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index). Observera att vissa funktioner i SDK: n endast är tillgängliga i Node. js eller bara är tillgängliga i webbläsaren.
+Du kan läsa mer om varje Blob Storage-funktion i [referens dokumentationen](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index). Observera att vissa av funktionerna i SDK: n endast är tillgängliga i Node.js eller endast är tillgängliga i webbläsaren.
 
-Koden i *Azure-Storage-blob. js* exporterar en global variabel som kallas `azblob`, som du kommer att använda i JavaScript-koden för att få åtkomst till API: erna för Blob Storage.
+Koden i *azure-storage-blob.js* exporterar en global variabel som kallas `azblob` , som du kommer att använda i JavaScript-koden för att få åtkomst till API: erna för Blob Storage.
 
 ### <a name="add-the-initial-javascript-code"></a>Lägg till den inledande JavaScript-koden
 
@@ -206,7 +209,7 @@ const reportStatus = message => {
 }
 ```
 
-Den här koden skapar fält för varje HTML-element som följande kod kommer att använda och implementerar `reportStatus` en funktion för att visa utdata.
+Den här koden skapar fält för varje HTML-element som följande kod kommer att använda och implementerar en `reportStatus` funktion för att visa utdata.
 
 I följande avsnitt lägger du till varje nytt block med JavaScript-kod efter föregående block.
 
@@ -318,9 +321,9 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", uploadFiles);
 ```
 
-Den här koden ansluter knappen **Välj och ladda upp filer** till det `file-input` dolda elementet. På så sätt utlöser knapp `click` händelsen fil indata `click` och visar fil väljaren. När du har valt filer och stängt dialog rutan inträffar `input` händelsen och `uploadFiles` funktionen anropas. Den här funktionen anropar den webbläsarbaserade [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) -funktionen för varje fil som du har valt. Varje anrop returnerar ett löfte, som läggs till i en lista så att alla kan vänta samtidigt, vilket gör att filerna överförs parallellt.
+Den här koden ansluter knappen **Välj och ladda upp filer** till det dolda `file-input` elementet. På så sätt `click` utlöser knapp händelsen fil indata `click` och visar fil väljaren. När du har valt filer och stängt dialog rutan `input` inträffar händelsen och `uploadFiles` funktionen anropas. Den här funktionen anropar den webbläsarbaserade [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) -funktionen för varje fil som du har valt. Varje anrop returnerar ett löfte, som läggs till i en lista så att alla kan vänta samtidigt, vilket gör att filerna överförs parallellt.
 
-### <a name="delete-blobs"></a>Ta bort blobbar
+### <a name="delete-blobs"></a>Ta bort blobar
 
 Lägg sedan till kod för att ta bort filer från lagrings behållaren när du trycker på knappen **ta bort markerade filer** .
 

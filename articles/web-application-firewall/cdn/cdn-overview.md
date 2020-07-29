@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 03/18/2020
 ms.author: victorh
-ms.openlocfilehash: 28cf8d9fd60cc6fc158812aa0a1dff3a4b0dced1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d56c57a12995e0ea94c10f371bf09a3b3f9733ba
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80754297"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87278632"
 ---
 # <a name="azure-web-application-firewall-on-azure-content-delivery-network"></a>Azure Web Application-brandvägg på Azure Content Delivery Network
 
@@ -45,7 +45,7 @@ Ett webb program som finns på Azure CDN kan bara ha en associerad WAF-princip i
 
 WAF-principen kan konfigureras att köras i följande två lägen:
 
-- *Identifierings läge*: vid körning i identifierings läge tar WAF inte med andra åtgärder än övervakare och loggar begäran och dess MATCHAde WAF-regel till WAF-loggar. Du kan aktivera loggning av diagnostik för front dörren. När du använder portalen går du till avsnittet **diagnostik** .
+- *Identifierings läge*: vid körning i identifierings läge tar WAF inte med andra åtgärder än övervakare och loggar begäran och dess MATCHAde WAF-regel till WAF-loggar. Du kan aktivera Logging Diagnostics för CDN. När du använder portalen går du till avsnittet **diagnostik** .
 
 - *Skydds läge*: i skydds läge tar WAF den angivna åtgärden om en begäran matchar en regel. Om en matchning hittas utvärderas inga ytterligare regler med lägre prioritet. Alla matchade begär Anden loggas också i WAF-loggarna.
 

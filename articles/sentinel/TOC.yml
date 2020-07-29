@@ -156,6 +156,8 @@
       href: customer-managed-keys.md
     - name: Skapa incidenter från aviseringar
       href: create-incidents-from-alerts.md
+    - name: Hantera SOC bättre med incidentmått
+      href: manage-soc-with-incident-metrics.md
     - name: Hotjakt
       href: hunting.md
       items:

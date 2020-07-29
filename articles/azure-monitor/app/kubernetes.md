@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: 4bb1af6ca2126b7ae58a6c836624ec78a071a5a5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3cd43963175594fcdc1c3c67d6b2493ce1ccd313
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075295"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321929"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications-with-istio---deprecated"></a>Övervakning av program vara utan instrumentering för Kubernetes-värdbaserade program med Istio-inaktuell
 
@@ -18,12 +18,12 @@ ms.locfileid: "87075295"
 > Den här funktionen är för närvarande inaktuell och kommer inte längre att stödjas efter den 1 augusti 2020.
 > För närvarande går det bara att aktivera den kodbaserade övervakningen för [Java via fristående agent](./java-in-process-agent.md). För andra språk använder du SDK: er för att övervaka dina appar på AKS: [ASP.net Core](./asp-net-core.md), [ASP.net](./asp-net.md), [Node.js](./nodejs.md), [Java Script](./javascript.md)och [python](./opencensus-python.md).
 
-Azure Monitor använder nu teknisk teknik för service nät på ditt Kubernetes-kluster för att tillhandahålla program övervakning för alla Kubernetes appar som körs. Med standardinställningar för program insikter som [program karta](../../azure-monitor/app/app-map.md) för att modellera dina beroenden [Live Metrics Stream](../../azure-monitor/app/live-stream.md) för real tids övervakning, kraftfulla visualiseringar med [standard instrument panelen](../../azure-monitor/app/overview-dashboard.md), [Metric Explorer](../../azure-monitor/platform/metrics-getting-started.md)och [arbets böcker](../../azure-monitor/platform/workbooks-overview.md). Med den här funktionen kan användarna upptäcka Flask halsar i prestanda och fel hotspots i alla sina Kubernetes-arbetsbelastningar inom ett valt Kubernetes-namnområde. Genom att dra nytta av dina befintliga service nät investeringar med tekniker som Azure Monitor Istio aktive ras automatiskt instrumenterad app Monitoring utan någon ändring av programmets kod.
+Azure Monitor använder nu teknisk teknik för service nät på ditt Kubernetes-kluster för att tillhandahålla program övervakning för alla Kubernetes appar som körs. Med standardinställningar för program insikter som [program karta](./app-map.md) för att modellera dina beroenden [Live Metrics Stream](./live-stream.md) för real tids övervakning, kraftfulla visualiseringar med [standard instrument panelen](./overview-dashboard.md), [Metric Explorer](../platform/metrics-getting-started.md)och [arbets böcker](../platform/workbooks-overview.md). Med den här funktionen kan användarna upptäcka Flask halsar i prestanda och fel hotspots i alla sina Kubernetes-arbetsbelastningar inom ett valt Kubernetes-namnområde. Genom att dra nytta av dina befintliga service nät investeringar med tekniker som Azure Monitor Istio aktive ras automatiskt instrumenterad app Monitoring utan någon ändring av programmets kod.
 
 > [!NOTE]
-> Det här är ett av många sätt att utföra program övervakning på Kubernetes.Du kan också instrumentera alla appar som finns i Kubernetes med hjälp av [Application Insights SDK](../../azure-monitor/azure-monitor-app-hub.yml) utan att det behövs något service nät. Om du vill övervaka Kubernetes utan att instrumentera programmet med ett SDK kan du använda metoden nedan.
+> Det här är ett av många sätt att utföra program övervakning på Kubernetes.Du kan också instrumentera alla appar som finns i Kubernetes med hjälp av [Application Insights SDK](../azure-monitor-app-hub.yml) utan att det behövs något service nät. Om du vill övervaka Kubernetes utan att instrumentera programmet med ett SDK kan du använda metoden nedan.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett [Kubernetes-kluster](../../aks/concepts-clusters-workloads.md).
 - Konsol åtkomst till klustret för att köra *kubectl*.
@@ -34,12 +34,12 @@ Azure Monitor använder nu teknisk teknik för service nät på ditt Kubernetes-
 
 Genom att använda program övervakning utan Instrumentation för Kubernetes värdbaserade appar kan du använda:
 
-- [Programkarta](../../azure-monitor/app/app-map.md)
-- [Live Stream mått](../../azure-monitor/app/live-stream.md)
-- [Instrumentpaneler](../../azure-monitor/app/overview-dashboard.md)
-- [Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md)
-- [Distribuerad spårning](../../azure-monitor/app/distributed-tracing.md)
-- [Transaktions övervakning från slut punkt till slut punkt](../../azure-monitor/learn/tutorial-performance.md#identify-slow-server-operations)
+- [Programkarta](./app-map.md)
+- [Live Stream mått](./live-stream.md)
+- [Instrumentpaneler](./overview-dashboard.md)
+- [Metrics Explorer](../platform/metrics-getting-started.md)
+- [Distribuerad spårning](./distributed-tracing.md)
+- [Transaktions övervakning från slut punkt till slut punkt](../learn/tutorial-performance.md#identify-slow-server-operations)
 
 ## <a name="installation-steps"></a>Installationssteg
 
@@ -126,7 +126,7 @@ Nedan visas fel söknings flödet som används när telemetri inte visas i Azure
    ```
    Sök efter eventuella fel, särskilt för kommunikation med *applicationinsightsadapter* -adaptern.
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 Den senaste informationen om förloppet för det här projektet finns på [Application Insights adapter för GitHub för Istio-mixer](https://github.com/Microsoft/Application-Insights-Istio-Adapter/blob/master/SETUP.md#faq).
 
@@ -141,4 +141,5 @@ kubectl delete -f <filename.yaml>
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om hur Azure Monitor och behållare arbetar tillsammans besöker [Azure Monitor för behållare översikt](../../azure-monitor/insights/container-insights-overview.md)
+Om du vill veta mer om hur Azure Monitor och behållare arbetar tillsammans besöker [Azure Monitor för behållare översikt](../insights/container-insights-overview.md)
+

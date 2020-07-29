@@ -10,12 +10,14 @@ ms.author: rezas
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 873f871625b812937d1e6ac360f7e0565121a4eb
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: 55472f16cefeca3b00bea79e71aee5d6588528d6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86046002"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323068"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Förstå och anropa direktmetoder från IoT Hub
 
@@ -115,7 +117,7 @@ Kör det ändrade kommandot för att anropa den angivna direkta metoden. Lyckade
 ```bash
 https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06-30
 ```
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Backend-appen tar emot ett svar som består av följande objekt:
 
@@ -166,7 +168,7 @@ Texten som enheten tar emot är i följande format:
 
 Metod begär Anden är QoS 0.
 
-#### <a name="response"></a>Svar
+#### <a name="response"></a>Svarsåtgärder
 
 Enheten skickar svar till `$iothub/methods/res/{status}/?$rid={request id}` , där:
 
@@ -192,7 +194,7 @@ AMQP-meddelandet anländer till Receive-länken som representerar metoden Reques
 
 * AMQP meddelande text som innehåller metodens nytto last som JSON.
 
-#### <a name="response"></a>Svar
+#### <a name="response"></a>Svarsåtgärder
 
 Enheten skapar en sändnings länk för att returnera metod svaret på adressen `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound` .
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: f34389785c0f4a43bfcab3e50f2dcd132b2cb629
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8abd9d7f33a07141418ad67cc2128af40ad0bd51
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505813"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324768"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Över gång från Log Analytics loggs ökning till Azure Monitor loggar
 Loggs ökningen i Log Analytics ersattes nyligen med en ny upplevelse för analys av Azure Monitors loggar. Sidan för loggs ökning är för närvarande fortfarande tillgänglig via meny alternativet **loggar (klassisk)** på sidan **Log Analytics arbets ytor** i Azure Portal men kommer att tas bort 15 februari 2019. I den här artikeln beskrivs skillnaderna mellan de två upplevelserna som hjälper dig att övergå från loggs ökning. 
@@ -44,7 +44,7 @@ Om du vill spara den aktuella frågan i Azure Monitor loggar väljer du **Spara*
 ![Spara logg fråga](media/log-search-transition/save-query-logs.png)
 
 ## <a name="saved-queries"></a>Sparade frågor
-I loggs ökningen är dina sparade frågor tillgängliga via åtgärds fältets **sparade sökningar**. I Azure Monitor loggar får du åtkomst till sparade frågor från [query Explorer](../log-query/get-started-portal.md#save-queries).
+I loggs ökningen är dina sparade frågor tillgängliga via åtgärds fältets **sparade sökningar**. I Azure Monitor loggar får du åtkomst till sparade frågor från [query Explorer](./get-started-portal.md#save-queries).
 
 ![Query Explorer](media/log-search-transition/query-explorer.png)
 
@@ -69,3 +69,4 @@ I Azure Monitor loggar [skapar du en avisering från logg frågan](../platform/a
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om den nya [upplevelsen av Azure Monitor loggar](get-started-portal.md).
+

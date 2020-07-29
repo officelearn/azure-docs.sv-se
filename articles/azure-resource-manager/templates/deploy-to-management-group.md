@@ -2,27 +2,48 @@
 title: Distribuera resurser till hanterings grupp
 description: Beskriver hur du distribuerar resurser i hanterings gruppens omfattning i en Azure Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: 863d1330412fa238b820eb0f1f05351fc723de6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: a17387aef4d35c042d1fe0b02f1c6fd447e4a918
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460321"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321810"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Skapa resurser på hanterings grupps nivå
 
-När din organisation är vuxen kan du behöva definiera och tilldela [principer](../../governance/policy/overview.md) eller [rollbaserade åtkomst kontroller](../../role-based-access-control/overview.md) för en hanterings grupp. Med mallar för hanterings grupps nivåer kan du tillämpa principer och tilldela roller på hanterings grupps nivån.
+När din organisation är vuxen kan du distribuera en Azure Resource Manager-mall (ARM-mall) för att skapa resurser på hanterings grupps nivå. Du kan till exempel behöva definiera och tilldela [principer](../../governance/policy/overview.md) eller [rollbaserade åtkomst kontroller](../../role-based-access-control/overview.md) för en hanterings grupp. Med mallar för hanterings grupps nivåer kan du tillämpa principer och tilldela roller på hanterings grupps nivån.
 
 ## <a name="supported-resources"></a>Resurser som stöds
 
-Du kan distribuera följande resurs typer på hanterings grupps nivån:
+Alla resurs typer kan inte distribueras till hanterings grupps nivån. I det här avsnittet listas vilka resurs typer som stöds.
 
-* [distributioner](/azure/templates/microsoft.resources/deployments) – för kapslade mallar som distribuerar till prenumerationer eller resurs grupper.
+För Azure-ritningar använder du:
+
+* [artefakter](/azure/templates/microsoft.blueprint/blueprints/artifacts)
+* [modeller](/azure/templates/microsoft.blueprint/blueprints)
+* [blueprintAssignments](/azure/templates/microsoft.blueprint/blueprintassignments)
+* [5](/azure/templates/microsoft.blueprint/blueprints/versions)
+
+Använd följande för Azure-principer:
+
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+* [reparationer](/azure/templates/microsoft.policyinsights/remediations)
+
+Använd följande för rollbaserad åtkomst kontroll:
+
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+
+För kapslade mallar som distribuerar till prenumerationer eller resurs grupper använder du:
+
+* [distributioner](/azure/templates/microsoft.resources/deployments)
+
+Använd följande för att hantera resurser:
+
+* [taggen](/azure/templates/microsoft.resources/tags)
 
 ### <a name="schema"></a>Schema
 
@@ -74,6 +95,95 @@ Du kan ange ett namn för distributionen eller använda standard distributions n
 
 För varje distributions namn är platsen oföränderlig. Du kan inte skapa en distribution på en plats om det finns en befintlig distribution med samma namn på en annan plats. Om du får fel koden `InvalidDeploymentLocation` använder du antingen ett annat namn eller samma plats som den tidigare distributionen för det namnet.
 
+## <a name="deployment-scopes"></a>Distributions omfång
+
+När du distribuerar till en hanterings grupp kan du rikta den hanterings grupp som anges i distributions kommandot eller andra hanterings grupper i klient organisationen. Du kan också rikta prenumerationer eller resurs grupper i en hanterings grupp. Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
+
+De resurser som definieras i avsnittet resurser i mallen tillämpas på hanterings gruppen från distributions kommandot.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        management-group-level-resources
+    ],
+    "outputs": {}
+}
+```
+
+Om du vill rikta en annan hanterings grupp lägger du till en kapslad distribution och anger `scope` egenskapen.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2019-10-01",
+            "name": "nestedDeployment",
+            "scope": "[variables('mgId')]",
+            "location": "eastus",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    nested-template
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Om du vill rikta en prenumeration inom hanterings gruppen använder du en kapslad distribution och `subscriptionId` egenskapen. Om du vill rikta en resurs grupp i den prenumerationen lägger du till en annan kapslad distribution och `resourceGroup` egenskapen.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      "name": "nestedSub",
+      "location": "westus2",
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Resources/deployments",
+              "apiVersion": "2020-06-01",
+              "name": "nestedRG",
+              "resourceGroup": "rg2",
+              "properties": {
+                "mode": "Incremental",
+                "template": {
+                  nested-template
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
 ## <a name="use-template-functions"></a>Använda mall funktioner
 
 För distributioner av hanterings grupper finns det några viktiga saker att tänka på när du använder mall-funktioner:
@@ -95,7 +205,7 @@ För distributioner av hanterings grupper finns det några viktiga saker att tä
   /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```
 
-## <a name="create-policies"></a>Skapa principer
+## <a name="azure-policy"></a>Azure Policy
 
 ### <a name="define-policy"></a>Definiera princip
 
@@ -165,9 +275,85 @@ I följande exempel tilldelas en befintlig princip definition till hanterings gr
 }
 ```
 
-## <a name="template-sample"></a>Mal Lav exempel
+## <a name="deploy-to-subscription-and-resource-group"></a>Distribuera till prenumeration och resurs grupp
 
-* [Skapa en resurs grupp, en princip och en princip tilldelning](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
+Från en distribution på hanterings grupp nivå kan du rikta en prenumeration i hanterings gruppen. I följande exempel skapas en resurs grupp i en prenumeration och ett lagrings konto distribueras till den resurs gruppen.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "nestedsubId": {
+      "type": "string"
+    },
+    "nestedRG": {
+      "type": "string"
+    },
+    "storageAccountName": {
+      "type": "string"
+    },
+    "nestedLocation": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      "name": "nestedSub",
+      "location": "[parameters('nestedLocation')]",
+      "subscriptionId": "[parameters('nestedSubId')]",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+          },
+          "variables": {
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Resources/resourceGroups",
+              "apiVersion": "2020-06-01",
+              "name": "[parameters('nestedRG')]",
+              "location": "[parameters('nestedLocation')]",
+            },
+            {
+              "type": "Microsoft.Resources/deployments",
+              "apiVersion": "2020-06-01",
+              "name": "nestedSubRG",
+              "resourceGroup": "[parameters('nestedRG')]",
+              "dependsOn": [
+                "[parameters('nestedRG')]"
+              ],
+              "properties": {
+                "mode": "Incremental",
+                "template": {
+                  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                  "contentVersion": "1.0.0.0",
+                  "resources": [
+                    {
+                      "type": "Microsoft.Storage/storageAccounts",
+                      "apiVersion": "2019-04-01",
+                      "name": "[parameters('storageAccountName')]",
+                      "location": "[parameters('nestedLocation')]",
+                      "sku": {
+                        "name": "Standard_LRS"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

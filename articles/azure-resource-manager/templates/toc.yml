@@ -302,6 +302,8 @@
         - name: Distributionsskript
           displayName: custom script
           href: deployment-script-template.md
+        - name: Skapa distributionsskript för utvecklingsmiljö
+          href: deployment-script-template-configure-dev.md
         - name: Modularisera mallar
           displayName: 'linked templates, nested templates'
           href: linked-templates.md

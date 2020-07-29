@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 7f5ad0b493f925ce34ffe19892fa432322995a9c
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 45b535db9fccb41542ee74cb28845d49211e16ec
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125215"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281063"
 ---
 # <a name="what-is-azure-digital-twins"></a>Vad är Azure Digital Twins?
 
-**Azure Digitals dubbla** är en IoT-plattform som gör det möjligt att skapa omfattande digitala modeller av hela miljöer. De här miljöerna kan vara byggnader, fabriker, anläggningar, energi nät, järnvägar, stadium med mera, även hela städer. Dessa digitala modeller kan användas för att få insikter om bättre produkter, optimerade åtgärder, lägre kostnader och revolutionerande kund upplevelser.
+**Azure Digitals dubbla** är ett PaaS-erbjudande (Platform as a Service) som gör det möjligt att skapa omfattande digitala modeller av hela miljöer. De här miljöerna kan vara byggnader, fabriker, anläggningar, energi nät, järnvägar, stadium med mera, även hela städer. Dessa digitala modeller kan användas för att få insikter om bättre produkter, optimerade åtgärder, lägre kostnader och revolutionerande kund upplevelser.
 
 Utnyttja dina domän expert kunskaper ovanpå Azure Digitals, för att bygga anpassade, anslutna lösningar som:
 * Modellera valfri miljö och få digitala längder på ett skalbart och säkert sätt

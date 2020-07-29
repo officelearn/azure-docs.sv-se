@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 07/21/2020
-ms.openlocfilehash: c54979efbbd164a11614b92d9a337a86e2f221fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24c7e0a3c9a7d3c28823db0418e17cb94bc101ec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007749"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325074"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Översikt över vCore-modellen – Azure SQL Database och Azure SQL-hanterad instans 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -83,7 +83,7 @@ För regioner där Gen4/Gen5 är tillgängligt, se [Gen4/Gen5-tillgänglighet](#
 - Beroende på arbets belastningen kan Fsv2-serien leverera mer processor prestanda per vCore än Gen5 och vCore-storleken 72 ger mer processor prestanda för mindre kostnad än 80 virtuella kärnor på Gen5. 
 - Fsv2 ger mindre minne och tempdb per vCore än annan maskin vara, så arbets belastningarna som är känsliga för dessa gränser kan vilja överväga Gen5 eller M-serien i stället.  
 
-Fsv2-serien stöds bara i Generell användning nivån. För regioner där Fsv2-serien är tillgänglig, se [tillgänglighet för Fsv2-serien](#fsv2-series).
+Fsv2-serien stöds bara i Generell användning nivån. För regioner där Fsv2-serien är tillgänglig, se [tillgänglighet för Fsv2-serien](#fsv2-series-1).
 
 
 ### <a name="m-series"></a>M-serien
@@ -91,7 +91,7 @@ Fsv2-serien stöds bara i Generell användning nivån. För regioner där Fsv2-s
 - M-serien är ett minnesoptimerade maskin varu alternativ för arbets belastningar som kräver mer minnes-och högre beräknings gränser än vad som anges i Gen5.
 - M-serien tillhandahåller 29 GB per vCore och upp till 128 virtuella kärnor, vilket ökar minnes gränsen i förhållande till Gen5 med 8x till nästan 4 TB.
 
-M-serien stöds endast på Affärskritisk nivå och stöder inte zon redundans.  Prenumerationen måste vara en betald erbjudande typ, inklusive betala per användning eller Enterprise-avtal (EA). För regioner där M-serien är tillgänglig, se [tillgänglighet för m-serien](#m-series).
+M-serien stöds endast på Affärskritisk nivå och stöder inte zon redundans.  Prenumerationen måste vara en betald erbjudande typ, inklusive betala per användning eller Enterprise-avtal (EA). För regioner där M-serien är tillgänglig, se [tillgänglighet för m-serien](#m-series-1).
 
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).

@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0d605286df70988852d1650be58cfb2c395de814
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d11b12ba37d543ec21985c52c4ffb3399bfc56d1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539813"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323527"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Användare, sessioner och händelse analys i Application Insights
 
-Ta reda på när användarna använder din webbapp, vilka sidor de är mest intresserade av, var dina användare finns och vilka webbläsare och operativ system de använder. Analysera affärs-och användnings telemetri med hjälp av [Azure Application insikter](../../azure-monitor/app/app-insights-overview.md).
+Ta reda på när användarna använder din webbapp, vilka sidor de är mest intresserade av, var dina användare finns och vilka webbläsare och operativ system de använder. Analysera affärs-och användnings telemetri med hjälp av [Azure Application insikter](./app-insights-overview.md).
 
 ![Skärm bild av Application Insights användare](./media/usage-segmentation/0001-users.png)
 
@@ -29,9 +29,9 @@ Tre av användnings bladen använder samma verktyg för att segmentera och tärn
 
 * **Användar verktyg**: hur många personer som använder din app och dess funktioner.  Användare räknas genom att använda anonyma ID: n som lagras i webbläsarens cookies. En enskild person som använder olika webbläsare eller datorer räknas som mer än en användare.
 * **Verktyg för sessioner**: hur många sessioner av användar aktivitet som har inkluderat vissa sidor och funktioner i din app. En session räknas efter en halvtimme av inaktivitet i användaren eller efter 24 timmar kontinuerlig användning.
-* **Events-verktyg**: hur ofta vissa sidor och funktioner i din app används. En sid visning räknas när en webbläsare läser in en sida från din app, förutsatt att du har [instrumenterat den](../../azure-monitor/app/javascript.md). 
+* **Events-verktyg**: hur ofta vissa sidor och funktioner i din app används. En sid visning räknas när en webbläsare läser in en sida från din app, förutsatt att du har [instrumenterat den](./javascript.md). 
 
-    En anpassad händelse representerar en förekomst av något som händer i din app, ofta en användar interaktion som en knapp för att klicka eller slutföra en uppgift. Du kan infoga kod i din app för att [skapa anpassade händelser](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
+    En anpassad händelse representerar en förekomst av något som händer i din app, ofta en användar interaktion som en knapp för att klicka eller slutföra en uppgift. Du kan infoga kod i din app för att [skapa anpassade händelser](./api-custom-events-metrics.md#trackevent).
 
 ## <a name="querying-for-certain-users"></a>Fråga efter vissa användare
 
@@ -62,5 +62,6 @@ Avsnittet om att **möta dina användare** visar information om fem exempel anv�
     - [Trattar](usage-funnels.md)
     - [Kvarhållning](usage-retention.md)
     - [Användarflöden](usage-flows.md)
-    - [Arbetsböcker](../../azure-monitor/platform/workbooks-overview.md)
+    - [Arbetsböcker](../platform/workbooks-overview.md)
     - [Lägg till användar kontext](usage-send-user-context.md)
+

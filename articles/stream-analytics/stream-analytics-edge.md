@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.topic: how-to
 ms.date: 03/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5213a13539ac028d3e2bfec3bc7476ac645f615b
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 136d0627e701104e9958d51b2e37256de5659f25
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043486"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271424"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics på IoT Edge
  
@@ -43,19 +43,20 @@ ASA använder IoT Hub för att distribuera Edge-jobb till enhet (er). Mer inform
 
 ### <a name="installation-instructions"></a>Installationsinstruktioner
 De övergripande stegen beskrivs i följande tabell. Mer information ges i följande avsnitt.
-|Steg   | Obs!   |
-| ---   |  ---      |
-| **Skapa en lagrings behållare**   | Lagrings behållare används för att spara din jobb definition där de kan nås av dina IoT-enheter. <br>  Du kan återanvända alla befintliga lagrings behållare.     |
-| **Skapa ett ASA Edge-jobb**   |  Skapa ett nytt jobb, Välj **Edge** som **värd miljö**. <br> De här jobben skapas/hanteras från molnet och körs på dina egna IoT Edge enheter.     |
-| **Konfigurera din IoT Edge-miljö på din enhet (er)**   | Instruktioner för [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) eller [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
-| **Distribuera ASA på IoT Edge enhet (er)**   |  Jobb definitionen för ASA exporteras till den lagrings behållare som skapades tidigare.       |
+
+| Steg | Obs! |
+| --- | --- |
+| **Skapa en lagringscontainer** | Lagrings behållare används för att spara din jobb definition där de kan nås av dina IoT-enheter. <br>  Du kan återanvända alla befintliga lagrings behållare. |
+| **Skapa ett ASA Edge-jobb** | Skapa ett nytt jobb, Välj **Edge** som **värd miljö**. <br> De här jobben skapas/hanteras från molnet och körs på dina egna IoT Edge enheter. |
+| **Konfigurera din IoT Edge-miljö på din enhet (er)** | Instruktioner för [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) eller [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).|
+| **Distribuera ASA på IoT Edge enhet (er)** | Jobb definitionen för ASA exporteras till den lagrings behållare som skapades tidigare. |
 
 Du kan följa de [här steg-för-steg-självstudierna](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) för att distribuera ditt första ASA-jobb på IoT Edge. Följande video bör hjälpa dig att förstå processen att köra ett Stream Analytics jobb på en IoT Edge-enhet:  
 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
 
-#### <a name="create-a-storage-container"></a>Skapa en lagrings behållare
+#### <a name="create-a-storage-container"></a>Skapa en lagringscontainer
 Det krävs en lagrings behållare för att exportera den kompilerade ASA-frågan och jobb konfigurationen. Den används för att konfigurera den Docker-avbildningen för ASA med din speciella fråga. 
 1. Följ [de här anvisningarna](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) för att skapa ett lagrings konto från Azure Portal. Du kan behålla alla standard alternativ för att använda det här kontot med ASA.
 2. Skapa en Blob Storage-behållare i det nyligen skapade lagrings kontot:

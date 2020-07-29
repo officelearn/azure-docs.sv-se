@@ -1,6 +1,6 @@
 ---
-title: Konfigurera tjänst aviseringar för Windows Virtual Desktop – hösten 2019 – Azure
-description: Konfigurera Azure Service Health för att ta emot tjänst meddelanden för virtuella Windows-datorer.
+title: Konfigurera tjänst aviseringar för Windows Virtual Desktop (klassisk) – Azure
+description: Så här konfigurerar du Azure Service Health att ta emot tjänst meddelanden för virtuella Windows-datorer (klassisk).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5b3a29e97fbdf2579e2ef6a86b8dadf91f679366
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a3f938c6e4c9bb13794ddd01092f0e79077a89cc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085834"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283392"
 ---
-# <a name="tutorial-set-up-service-alerts---fall-2019"></a>Självstudie: Konfigurera tjänst aviseringar – höst 2019
+# <a name="tutorial-set-up-service-alerts-for-windows-virtual-desktop-classic"></a>Självstudie: Konfigurera tjänst aviseringar för Windows Virtual Desktop (klassisk)
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../set-up-service-alerts.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../set-up-service-alerts.md).
 
 Du kan använda Azure Service Health för att övervaka tjänst problem och hälso rekommendationer för virtuella Windows-datorer. Azure Service Health kan meddela dig om olika typer av aviseringar (t. ex. e-post eller SMS), hjälpa dig att förstå resultatet av ett problem och hålla dig uppdaterad när problemet löses. Azure Service Health kan också hjälpa dig att minska stillestånds tiden och förbereda för planerat underhåll och ändringar som kan påverka tillgängligheten för dina resurser.
 
@@ -29,7 +29,7 @@ I den här självstudien får du lära dig att:
 
 Mer information om Azure Service Health finns i [Azure Health-dokumentationen](https://docs.microsoft.com/azure/service-health/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Självstudie: skapa en klient i Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
 - [Självstudie: skapa tjänstens huvud namn och roll tilldelningar med PowerShell](create-service-principal-role-powershell.md)

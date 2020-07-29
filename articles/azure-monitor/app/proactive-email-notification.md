@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 03/13/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 41298be1b0288f429647d8b38a1cc75dd2c40b0a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8e2bf4e451ebc3c9ebba2c01dae6703fc79aa606
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516761"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324139"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Ändra e-postavisering om Smart identifiering
 
@@ -44,6 +44,7 @@ Om du har några frågor eller problem med den här ändringen kan du inte ovill
 
 Läs mer om Smart identifiering:
 
-- [Felavvikelser](../../azure-monitor/app/proactive-failure-diagnostics.md)
-- [Minnes läckor](../../azure-monitor/app/proactive-potential-memory-leak.md)
-- [Prestandaavvikelser](../../azure-monitor/app/proactive-performance-diagnostics.md)
+- [Felavvikelser](./proactive-failure-diagnostics.md)
+- [Minnes läckor](./proactive-potential-memory-leak.md)
+- [Prestandaavvikelser](./proactive-performance-diagnostics.md)
+

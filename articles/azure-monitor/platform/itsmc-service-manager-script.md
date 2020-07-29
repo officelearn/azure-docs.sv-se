@@ -6,22 +6,22 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: bb21bcefa0f9fb6f691ebfb578177c64543c1403
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46c219a82d45129ed0856d22d88be819938e5240
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549658"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325312"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Skapa Service Manager-webbapp med det automatiserade skriptet
 
-Använd följande skript för att skapa webbappen för din Service Manager-instans. Mer information om Service Manager-anslutning finns här: [Service Manager webbappen](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Använd följande skript för att skapa webbappen för din Service Manager-instans. Mer information om Service Manager-anslutning finns här: [Service Manager webbappen](./itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
 Kör skriptet genom att ange följande obligatoriska information:
 
 - Information om Azure-prenumeration
 - Namn på resursgrupp
-- Location
+- Position
 - Service Manager Server information (Server namn, domän, användar namn och lösen ord)
 - Prefix för webbplats namn för din webbapp
 - Service Bus-namnrymd.
@@ -318,4 +318,5 @@ if(!$err)
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-[Konfigurera hybrid anslutningen](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).
+[Konfigurera hybrid anslutningen](./itsmc-connections.md#configure-the-hybrid-connection).
+

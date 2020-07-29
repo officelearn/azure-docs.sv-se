@@ -3,23 +3,20 @@ title: 'Snabb start: Azure Queue Storage-bibliotek V12-.NET'
 description: Lär dig hur du använder Azure Queue .NET V12-biblioteket för att skapa en kö och lägga till meddelanden i kön. Härnäst får du lära dig hur du läser och tar bort meddelanden från kön. Du lär dig också hur du tar bort en kö.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/22/2019
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 69e2c118ec298ebddf16d428ea2278de42e91309
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5931311368a6389386adb689a505feeeed03b29c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036700"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289186"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Snabb start: Azure Queue Storage klient bibliotek V12 för .NET
 
 Kom igång med Azure Queue Storage klient bibliotek version 12 för .NET. Azure Queue Storage är en tjänst för att lagra ett stort antal meddelanden för senare hämtning och bearbetning. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.
-
-> [!NOTE]
-> För att komma igång med den tidigare SDK-versionen, se [snabb start: använd Azure Storage SDK-V11 för .net för att hantera en kö](storage-quickstart-queues-dotnet-legacy.md).
 
 Använd klient biblioteket V12 i Azure Queue Storage för .NET för att:
 
@@ -38,7 +35,7 @@ Ytterligare resurser:
 * [Paket (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
 * [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Azure Storage-konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)

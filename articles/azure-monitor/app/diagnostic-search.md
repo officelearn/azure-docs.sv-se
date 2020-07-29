@@ -3,18 +3,18 @@ title: Använda search i Azure Application Insights | Microsoft Docs
 description: Sök och filtrera RAW-telemetri som skickas av din webbapp.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: 7a264f25f92bed1b93848c323fd59eafd7b09215
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f88e0fb8fbd7e9605635ede1e8f71b57de84b74e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033623"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324462"
 ---
 # <a name="using-search-in-application-insights"></a>Använda Sök i Application Insights
 
-Sök är en funktion i [Application Insights](../../azure-monitor/app/app-insights-overview.md) som du använder för att söka efter och utforska enskilda telemetri objekt, till exempel sidvyer, undantag eller webb förfrågningar. Du kan också Visa logg spårningar och händelser som du har kodat.
+Sök är en funktion i [Application Insights](./app-insights-overview.md) som du använder för att söka efter och utforska enskilda telemetri objekt, till exempel sidvyer, undantag eller webb förfrågningar. Du kan också Visa logg spårningar och händelser som du har kodat.
 
-(Om du vill ha mer komplexa frågor över dina data använder du [Analytics](../../azure-monitor/log-query/get-started-portal.md).)
+(Om du vill ha mer komplexa frågor över dina data använder du [Analytics](../log-query/get-started-portal.md).)
 
 ## <a name="where-do-you-see-search"></a>Var ser du sökningen?
 
@@ -56,13 +56,13 @@ Då startas vyn transaktions detaljer från slut punkt till slut punkt.
 
 Händelse typerna är:
 
-* **Spåra**  -  [Diagnostikloggar](../../azure-monitor/app/asp-net-trace-logs.md) , inklusive TrackTrace, Log4Net, NLog och system. Diagnostics. trace-anrop.
+* **Spåra**  -  [Diagnostikloggar](./asp-net-trace-logs.md) , inklusive TrackTrace, Log4Net, NLog och system. Diagnostics. trace-anrop.
 * **Begär** HTTP-förfrågningar som tagits emot av serverprogrammet, inklusive sidor, skript, bilder, formatfiler och data. Dessa händelser används för att skapa översikts diagram över förfrågningar och svar.
-* **Sid visning**  -  [Telemetri som skickas av webb klienten](../../azure-monitor/app/javascript.md), används för att skapa sid visnings rapporter.
-* **Anpassad händelse** – om du infogade anrop till TrackEvent () för att kunna [övervaka användningen](../../azure-monitor/app/api-custom-events-metrics.md)kan du söka efter dem här.
-* **Undantag** – ej fångade [undantag på servern](../../azure-monitor/app/asp-net-exceptions.md)och de som du loggar med hjälp av TrackException ().
-* **Beroende**  -  [Anropar från serverprogrammet](../../azure-monitor/app/asp-net-dependencies.md) till andra tjänster som REST-API: er eller databaser och AJAX-anrop från din [klient kod](../../azure-monitor/app/javascript.md).
-* **Tillgänglighet** – resultat av [tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md).
+* **Sid visning**  -  [Telemetri som skickas av webb klienten](./javascript.md), används för att skapa sid visnings rapporter.
+* **Anpassad händelse** – om du infogade anrop till TrackEvent () för att kunna [övervaka användningen](./api-custom-events-metrics.md)kan du söka efter dem här.
+* **Undantag** – ej fångade [undantag på servern](./asp-net-exceptions.md)och de som du loggar med hjälp av TrackException ().
+* **Beroende**  -  [Anropar från serverprogrammet](./asp-net-dependencies.md) till andra tjänster som REST-API: er eller databaser och AJAX-anrop från din [klient kod](./javascript.md).
+* **Tillgänglighet** – resultat av [tillgänglighets test](./monitor-web-app-availability.md).
 
 ## <a name="filter-on-property-values"></a>Filtrera efter egenskaps värden
 
@@ -81,10 +81,10 @@ Om du vill hitta alla objekt med samma egenskaps värde kan du antingen skriva d
 ## <a name="search-the-data"></a>Sök i data
 
 > [!NOTE]
-> Om du vill skriva mer komplexa frågor öppnar du [**loggar (analys)**](../../azure-monitor/log-query/get-started-portal.md) från början av bladet Sök.
+> Om du vill skriva mer komplexa frågor öppnar du [**loggar (analys)**](../log-query/get-started-portal.md) från början av bladet Sök.
 >
 
-Du kan söka efter villkor i alla egenskaps värden. Detta är användbart om du har skrivit [anpassade händelser](../../azure-monitor/app/api-custom-events-metrics.md) med egenskaps värden.
+Du kan söka efter villkor i alla egenskaps värden. Detta är användbart om du har skrivit [anpassade händelser](./api-custom-events-metrics.md) med egenskaps värden.
 
 Du kanske vill ange ett tidsintervall, eftersom sökningar över ett kortare intervall är snabbare.
 
@@ -110,7 +110,7 @@ Här följer de Sök uttryck som du kan använda:
 
 Om din app genererar en stor mängd telemetri (och du använder ASP.NET SDK-version 2.0.0-beta3 eller senare), minskar den anpassningsbara samplings-modulen automatiskt volymen som skickas till portalen genom att bara skicka en representativ del av händelserna. Händelser som är relaterade till samma begäran markeras eller avmarkeras som en grupp, så att du kan navigera mellan relaterade händelser.
 
-[Lär dig mer om insamling](../../azure-monitor/app/sampling.md).
+[Lär dig mer om insamling](./sampling.md).
 
 ## <a name="create-work-item"></a>Skapa arbets objekt
 
@@ -128,24 +128,25 @@ Första gången du gör detta uppmanas du att konfigurera en länk till din Azur
 
 Förutom den färdiga telemetri som skickas av Application Insights SDK kan du:
 
-* Avbilda logg spårningar från ditt favorit loggnings ramverk i [.net](../../azure-monitor/app/asp-net-trace-logs.md) eller [Java](../../azure-monitor/app/java-trace-logs.md). Det innebär att du kan söka igenom dina logg spårningar och korrelera dem med sidvyer, undantag och andra händelser.
-* [Skriv kod](../../azure-monitor/app/api-custom-events-metrics.md) för att skicka anpassade händelser, sid visningar och undantag.
+* Avbilda logg spårningar från ditt favorit loggnings ramverk i [.net](./asp-net-trace-logs.md) eller [Java](./java-trace-logs.md). Det innebär att du kan söka igenom dina logg spårningar och korrelera dem med sidvyer, undantag och andra händelser.
+* [Skriv kod](./api-custom-events-metrics.md) för att skicka anpassade händelser, sid visningar och undantag.
 
-[Lär dig hur du skickar loggar och anpassad telemetri till Application Insights](../../azure-monitor/app/asp-net-trace-logs.md).
+[Lär dig hur du skickar loggar och anpassad telemetri till Application Insights](./asp-net-trace-logs.md).
 
 ## <a name="q--a"></a><a name="questions"></a>F & A
 
 ### <a name="how-much-data-is-retained"></a><a name="limits"></a>Hur mycket data behålls?
 
-Se [Sammanfattning av gränser](../../azure-monitor/app/pricing.md#limits-summary).
+Se [Sammanfattning av gränser](./pricing.md#limits-summary).
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>Hur kan jag se POST-data i mina server förfrågningar?
 
-Vi loggar inte in POST-data automatiskt, men du kan använda [TrackTrace-eller log-anrop](../../azure-monitor/app/asp-net-trace-logs.md). Lägg till POST-data i meddelande parametern. Det går inte att filtrera på meddelandet på samma sätt som du kan filtrera efter egenskaper, men storleks gränsen är längre.
+Vi loggar inte in POST-data automatiskt, men du kan använda [TrackTrace-eller log-anrop](./asp-net-trace-logs.md). Lägg till POST-data i meddelande parametern. Det går inte att filtrera på meddelandet på samma sätt som du kan filtrera efter egenskaper, men storleks gränsen är längre.
 
 ## <a name="next-steps"></a><a name="add"></a>Nästa steg
 
-* [Skriv komplexa frågor i analys](../../azure-monitor/log-query/get-started-portal.md)
-* [Skicka loggar och anpassad telemetri till Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
-* [Ställ in tillgänglighets-och svars tider](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Skriv komplexa frågor i analys](../log-query/get-started-portal.md)
+* [Skicka loggar och anpassad telemetri till Application Insights](./asp-net-trace-logs.md)
+* [Ställ in tillgänglighets-och svars tider](./monitor-web-app-availability.md)
 * [Felsökning](../faq.md)
+

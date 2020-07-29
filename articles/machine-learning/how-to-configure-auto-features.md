@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 05/28/2020
-ms.custom: seodec18
-ms.openlocfilehash: 11bb692027d8a2e5033c7bdaf8eb2c565d1562b0
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 950f258e7380d7fbd25e1a5fe2dd4673ba122c52
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205703"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321599"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Funktionalisering i Automatisk maskin inlärning
 
@@ -64,7 +64,7 @@ I följande tabell sammanfattas de tekniker som automatiskt tillämpas på dina 
 | ------------- | ------------- |
 |**Släpp hög kardinalitet eller inga varians funktioner*** |Släpp dessa funktioner från utbildning och validerings uppsättningar. Gäller för funktioner med alla värden som saknas, med samma värde för alla rader eller med hög kardinalitet (till exempel hash-värden, ID: n eller GUID).|
 |**Imputerade värden som saknas*** |För numeriska funktioner måste du räkna ut med medelvärdet av värdena i kolumnen.<br/><br/>För kategoriska-funktioner ska du räkna med det vanligaste värdet.|
-|**Generera ytterligare funktioner*** |För DateTime-funktioner: år, månad, dag, veckodag, dag på år, kvartal, vecka på år, timme, minut och sekund.<br/><br/>För text funktioner: term frekvens baserat på unigrams, bigram och trigrams.|
+|**Generera ytterligare funktioner*** |För DateTime-funktioner: år, månad, dag, veckodag, dag på år, kvartal, vecka på år, timme, minut och sekund.<br/><br/>För text funktioner: term frekvens baserat på unigrams, bigram och trigrams. Läs mer om [hur detta görs med Bert.](#bert-integration)|
 |**Transformera och koda***|Transformera numeriska funktioner med några få unika värden i kategoriska-funktioner.<br/><br/>En-frekvent kodning används för kategoriska-funktioner med låg kardinalitet. En-frekvent-hash-kodning används för kategoriska-funktioner med hög kardinalitet.|
 |**Word-inbäddningar**|En text upplärda konverterar vektorer med text-token till menings vektorer med hjälp av en förtränad modell. Varje ords inbäddnings vektor i ett dokument sammanställs med resten för att skapa en dokument funktions vektor.|
 |**Mål kodningar**|För kategoriska-funktioner mappar det här steget varje kategori med ett genomsnittligt målvärde för Regressions problem, och till sannolikheten för varje klass för klassificerings problem. Frekvens-baserad viktning och n:te kors validering används för att minska överanpassningen av mappningen och bruset som orsakas av glesa data kategorier.|
@@ -138,6 +138,50 @@ featurization_config.add_transformer_params('Imputer', ['engine-size'], {"strate
 featurization_config.add_transformer_params('Imputer', ['city-mpg'], {"strategy": "median"})
 featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "most_frequent"})
 featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
+```
+
+## <a name="bert-integration"></a>BERT-integrering 
+[Bert](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) används i funktionalisering-lagret för automatisk ml. I det här skiktet upptäcker vi om en kolumn innehåller Fritext eller andra typer av data som tidsstämplar eller enkla nummer och vi funktionalisera i enlighet med detta. För BERT vi finjusterar/träna modellen genom att använda de etiketter som användaren tillhandahållit, och sedan skickar vi dokument inbäddningar (för BERT dessa är det slutliga dolda tillstånd som är associerat med den speciella [CLS]-token) som funktioner tillsammans med andra funktioner som tidsstämpel-baserade funktioner (t. ex. veckodag) eller siffror som många vanliga data uppsättningar har. 
+
+Om du vill aktivera BERT bör du använda GPU-beräkning för utbildning. Om en processor beräkning används, kommer AutoML att aktivera BiLSTM DNN upplärda i stället för BERT. För att kunna anropa BERT måste du ange "enable_dnn: true" i automl_settings och använda GPU Compute (t. ex. vm_size = "STANDARD_NC6" eller en högre GPU). Du hittar [ett exempel på den här antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+
+AutoML vidtar följande steg för BERT (Observera att du måste ange "enable_dnn: true" i automl_settings för att dessa objekt ska inträffa):
+
+1. Förbehandling inklusive tokenisering för alla text kolumner (du kommer att se "StringCast" transformera i den slutliga modellens funktionalisering-Sammanfattning. Besök [den här antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb) om du vill se ett exempel på hur du skapar modellens funktionalisering-Sammanfattning med hjälp av `get_featurization_summary()` metoden.
+
+```python
+text_transformations_used = []
+for column_group in fitted_model.named_steps['datatransformer'].get_featurization_summary():
+    text_transformations_used.extend(column_group['Transformations'])
+text_transformations_used
+```
+
+2. Sammanfogar alla text kolumner till en enskild text kolumn så att du ser "StringConcatTransformer" i den slutliga modellen. 
+
+> [!NOTE]
+> Vår implementering av BERT begränsar den totala text längden för ett utbildnings exempel till 128-token. Det innebär att alla text kolumner som är sammanfogade bör helst vara högst 128 tokens. Vi rekommenderar att varje kolumn rensas så att villkoret är uppfyllt, om det finns flera kolumner. Om det till exempel finns två text kolumner i data, ska båda text kolumnerna rensas till 64 tokens (förutsatt att du vill att båda kolumnerna ska vara jämnt representerade i den sista sammanfogade text kolumnen) innan du matar in data till AutoML. För sammansatta kolumner med längd >128-token, kommer BERT tokenizer-lagret att trunkera inmatarna till 128-token.
+
+3. I steget för funktions rensning jämför AutoML BERT mot bas linjen (säck med ord funktioner + förtränade ord inbäddningar) på ett exempel av data och avgör om BERT skulle ge precisions förbättringar. Om det fastställer att BERT fungerar bättre än bas linjen använder AutoML BERT för text funktionalisering som den optimala funktionalisering strategin och fortsätter med featurizing hela data. I så fall visas "PretrainedTextDNNTransformer" i den slutliga modellen.
+
+AutoML stöder för närvarande cirka 100 språk och, beroende på data uppsättningens språk, väljer AutoML lämplig BERT-modell. För tyska data använder vi den tyska BERT-modellen. För engelska använder vi den engelska BERT-modellen. För alla andra språk använder vi den flerspråkiga BERT-modellen.
+
+I följande kod utlöses den tyska BERT-modellen eftersom data uppsättnings språket anges till "deu", den tre bokstavs språk koden för tyska enligt [ISO-klassificering](https://iso639-3.sil.org/code/hbs):
+
+```python
+from azureml.automl.core.featurization import FeaturizationConfig
+
+featurization_config = FeaturizationConfig(dataset_language='deu')
+
+automl_settings = {
+    "experiment_timeout_minutes": 120,
+    "primary_metric": 'accuracy', 
+# All other settings you want to use 
+    "featurization": featurization_config,
+    
+  "enable_dnn": True, # This enables BERT DNN featurizer
+    "enable_voting_ensemble": False,
+    "enable_stack_ensemble": False
+}
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -7,13 +7,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: yegu
-ms.custom: mvc, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 02430e2dfa68ff0ce4bf116666d72a46e1120746
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: 3cd8b18358128c8566c0cde668c084a22dd261d0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848863"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320705"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Snabb start: Använd Azure cache för Redis med Java
 
@@ -59,7 +59,7 @@ mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -Darchetyp
     </dependency>
 ```
 
-Spara filen *Pom. XML* .
+Spara *pom.xml* -filen.
 
 Öppna *App.java* och ersätt koden med följande kod:
 
@@ -117,7 +117,7 @@ Den här koden visar hur du ansluter till en Azure Cache for Redis-instans med h
 
 Spara *App.java*.
 
-## <a name="build-and-run-the-app"></a>Skapa och kör appen
+## <a name="build-and-run-the-app"></a>Kompilera och köra appen
 
 Skapa och kör appen genom att köra följande Maven-kommando:
 

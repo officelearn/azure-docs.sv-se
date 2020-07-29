@@ -1,6 +1,6 @@
 ---
-title: Uppdateringar av tjänsten värd för virtuella Windows-datorer (sjunker 2019) – Azure
-description: Lär dig hur du skapar en pool för validering av värdar för att övervaka tjänst uppdateringar innan du distribuerar uppdateringar till produktion.
+title: Uppdateringar av tjänsten Host pool i Windows Virtual Desktop (klassisk) – Azure
+description: Så här skapar du en pool för validering av värdar för övervakning av tjänst uppdateringar innan uppdateringar distribueras till produktion.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 806c3396d9188ea6abc5f779a26d99247d802ebe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 448f02990798869e3dd5a804d1b0e0038b810a24
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527598"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288669"
 ---
-# <a name="tutorial-create-a-host-pool-to-validate-service-updates-fall-2019-release"></a>Självstudie: skapa en adresspool för att verifiera tjänst uppdateringar (hösten 2019-utgåva)
+# <a name="tutorial-create-a-host-pool-to-validate-service-updates-in-windows-virtual-desktop-classic"></a>Självstudie: skapa en värdbaserad pool för att verifiera tjänst uppdateringar i Windows Virtual Desktop (klassisk)
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../create-validation-host-pool.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../create-validation-host-pool.md).
 
 Värdbaserade pooler är en samling av en eller flera identiska virtuella datorer i Windows-miljöer för virtuella Skriv bords klienter. Innan du distribuerar lagringspooler till produktions miljön rekommenderar vi starkt att du skapar en pool för validerings värdar. Uppdateringar tillämpas först på verifiering av värdbaserade pooler, så att du kan övervaka tjänst uppdateringar innan du återställer dem till produktions miljön. Utan en verifierings värd kan du inte identifiera ändringar som innehåller fel, vilket kan leda till stillestånds tid för användare i produktions miljön.
 

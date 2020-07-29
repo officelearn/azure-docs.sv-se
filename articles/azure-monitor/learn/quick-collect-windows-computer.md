@@ -13,20 +13,20 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: d13a7cf87ba22dce96992c362f8b800ba79f6976
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 12d87d6d458d6cda21ca581337012e800a3d4bce
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539643"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324326"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Samla in data från en Windows-dator i en hybrid miljö med Azure Monitor
 
-[Azure Monitor](../overview.md) kan samla in data direkt från dina fysiska eller virtuella Windows-datorer i din miljö till en Log Analytics arbets yta för detaljerad analys och korrelation. Genom att installera [Log Analytics-agenten](../platform/log-analytics-agent.md) kan Azure Monitor samla in data från ett Data Center eller en annan moln miljö. Den här snabbstarten visar hur du konfigurerar och samlar in data från Windows-datorer med några enkla steg. Information om virtuella Azure Windows-datorer finns i [samla in data om Azure Virtual Machines](../../azure-monitor/learn/quick-collect-azurevm.md).  
+[Azure Monitor](../overview.md) kan samla in data direkt från dina fysiska eller virtuella Windows-datorer i din miljö till en Log Analytics arbets yta för detaljerad analys och korrelation. Genom att installera [Log Analytics-agenten](../platform/log-analytics-agent.md) kan Azure Monitor samla in data från ett Data Center eller en annan moln miljö. Den här snabbstarten visar hur du konfigurerar och samlar in data från Windows-datorer med några enkla steg. Information om virtuella Azure Windows-datorer finns i [samla in data om Azure Virtual Machines](./quick-collect-azurevm.md).  
 
-Information om vilka konfigurationer som stöds finns i [Windows operativ system](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) och [konfigurationen för nätverks brand väggen](../../azure-monitor/platform/log-analytics-agent.md#network-requirements).
+Information om vilka konfigurationer som stöds finns i [Windows operativ system](../platform/log-analytics-agent.md#supported-windows-operating-systems) och [konfigurationen för nätverks brand väggen](../platform/log-analytics-agent.md#network-requirements).
  
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
 
@@ -166,3 +166,4 @@ Om du vill veta mer om hur du visar och analyserar data fortsätter du till sjä
 
 > [!div class="nextstepaction"]
 > [Visa eller analysera data i Log Analytics](../log-query/get-started-portal.md)
+

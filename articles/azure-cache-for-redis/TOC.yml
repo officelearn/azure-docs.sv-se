@@ -54,7 +54,7 @@
       href: cache-best-practices.md
     - name: Metodtips för cachelagring på arkitektur
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Planera
       items:
@@ -72,7 +72,9 @@
           href: cache-how-to-geo-replication.md
         - name: Spara pengar med reserverad kapacitet
           href: cache-reserved-pricing.md
-        - name: Migrera från Managed Cache Service
+        - name: Migrera till Azure Cache for Redis
+          href: cache-migration-guide.md
+        - name: Migrera från Managed Cache Service (inaktuell)
           href: cache-migrate-to-redis.md
     - name: Automatisera
       items:

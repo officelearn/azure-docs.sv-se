@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: afcad5df1072f2eb474e54aaeca866735a12c5c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 340eb1a983f074a5ab934a30c55649852ec08b62
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424473"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325159"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Wire Data 2.0 (för hands version)-lösning i Azure Monitor
 
@@ -58,7 +59,7 @@ Wire Data hämtar sina data från Microsofts beroendeagent. Dependency Agent är
 | Windows-agenter | Ja | Wire Data analyserar och samlar in data från Windows-agentdatorer. <br><br> Utöver [Log Analytics agent för Windows](../platform/agent-windows.md)kräver Windows-agenter Microsoft-beroende agent. Se [Operativsystem som stöds](vminsights-enable-overview.md#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
 | Linux-agenter | Ja | Wire Data analyserar och samlar in data från Linux-agentdatorer.<br><br> Utöver [Log Analytics-agenten för Linux](../learn/quick-collect-linux-computer.md)kräver Linux-agenterna Microsofts beroende agent. Se [Operativsystem som stöds](vminsights-enable-overview.md#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
 | System Center Operations Manager-hanteringsgrupp | Ja | Wire Data analyserar och samlar in data från Windows- och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgrupp](../platform/om-agents.md). <br><br> En direkt anslutning från den System Center Operations Manager agent datorn till Azure Monitor krävs. |
-| Azure Storage-konto | No | Wire Data samlar in data från agentdatorer, så det finns inte några data att samla in från Azure Storage. |
+| Azure Storage-konto | Nej | Wire Data samlar in data från agentdatorer, så det finns inte några data att samla in från Azure Storage. |
 
 I Windows används Microsoft Monitoring Agent (MMA) av både System Center Operations Manager och Azure Monitor för att samla in och skicka data. Beroende på kontexten kallas agenten System Center Operations Manager agent, Log Analytics agent, MMA eller Direct agent. System Center Operations Manager och Azure Monitor ger något annorlunda versioner av MMA. Med dessa versioner kan varje rapport System Center Operations Manager till Azure Monitor eller till båda.
 
@@ -166,7 +167,7 @@ I följande avsnitt listas de operativ system som stöds för beroende agenten i
 
 Utför följande steg när du konfigurerar Wire Data-lösningen för dina arbetsytor.
 
-1. Aktivera Aktivitetslogganalys-lösningen från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) eller genom att använda processen som beskrivs i [Lägg till övervaknings lösningar från Lösningsgalleriet](../../azure-monitor/insights/solutions.md).
+1. Aktivera Aktivitetslogganalys-lösningen från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) eller genom att använda processen som beskrivs i [Lägg till övervaknings lösningar från Lösningsgalleriet](./solutions.md).
 2. Installera beroende agenten på varje dator där du vill hämta data. Beroende agenten kan övervaka anslutningar till omedelbara grannar, så du kanske inte behöver en agent på varje dator.
 
 > [!NOTE]
@@ -181,7 +182,7 @@ Beroende agenten installeras på datorer som kör Windows via InstallDependencyA
 
 Använd följande steg för att installera beroende agenten på varje dator som kör Windows:
 
-1. Installera Log Analytics agenten genom att följa stegen i [samla in data från Windows-datorer som finns i din miljö](../../azure-monitor/platform/agent-windows.md).
+1. Installera Log Analytics agenten genom att följa stegen i [samla in data från Windows-datorer som finns i din miljö](../platform/agent-windows.md).
 2. Hämta Windows beroende agent med hjälp av länken i föregående avsnitt och kör sedan den med hjälp av följande kommando:`InstallDependencyAgent-Windows.exe`
 3. Följ guiden för att installera agenten.
 4. Om det inte går att starta beroende agenten kontrollerar du om det finns detaljerad fel information i loggarna. Loggkatalogen för Windows-agenter är %Programfiles%\Microsoft Dependency Agent\logs.
@@ -207,7 +208,7 @@ Beroende agenten installeras på Linux-datorer via InstallDependencyAgent-Linux6
 
 Använd följande steg för att installera beroende agenten på varje Linux-dator:
 
-1. Installera Log Analytics agenten genom att följa stegen i [samla in data från Linux-datorer som finns i din miljö](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
+1. Installera Log Analytics agenten genom att följa stegen i [samla in data från Linux-datorer som finns i din miljö](../learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
 2. Hämta Linux-beroende agenten med hjälp av länken i föregående avsnitt och installera den som rot med hjälp av följande kommando: SH InstallDependencyAgent-Linux64. bin
 3. Om det inte går att starta beroende agenten kontrollerar du om det finns detaljerad fel information i loggarna. På Linux-agenter är loggkatalogen: /var/opt/microsoft/dependency-agent/log.
 
@@ -225,7 +226,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 Filer för beroende agenten placeras i följande kataloger:
 
-| **Files** | **Position** |
+| **Filer** | **Plats** |
 | --- | --- |
 | Kärnfiler | /opt/microsoft/dependency-agent |
 | Loggfiler | /var/opt/microsoft/dependency-agent/log |
@@ -394,7 +395,7 @@ En post av typen _WireData_ skapas för varje typ av indata. WireData-poster har
 | IPVersion | IP-version |
 | Riktning | Inkommande eller utgående |
 | MaliciousIP | IP-adressen för en känd skadlig källa |
-| Severity | Allvarlighetsgrad för misstänkt skadlig programvara |
+| Allvarlighetsgrad | Allvarlighetsgrad för misstänkt skadlig programvara |
 | RemoteIPCountry | Land/region för fjärr-IP-adressen |
 | ManagementGroupName | Namn på Operations Manager-hanteringsgrupp |
 | SourceSystem | Källa där data samlades in |
@@ -415,4 +416,5 @@ En post av typen _WireData_ skapas för varje typ av indata. WireData-poster har
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Sök i loggar](../../azure-monitor/log-query/log-query-overview.md) för att se detaljerade sökposter för wire-data.
+- [Sök i loggar](../log-query/log-query-overview.md) för att se detaljerade sökposter för wire-data.
+

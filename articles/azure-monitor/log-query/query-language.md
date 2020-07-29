@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: 1dda2df64dc116a950498aaf581ec39a86db72bb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 080af271870362e6e0633aaf590820f2fadb6144
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505745"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325397"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure Monitor-loggfrågor
 
@@ -26,15 +26,15 @@ Azure Monitor loggar bygger på Azure Datautforskaren och Azure Monitor logg fr�
 
 ## <a name="concepts"></a>Begrepp
 
-- [Analysera loggdata i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) ger en kort översikt över logg frågor och beskriver hur Azure Monitor loggdata struktureras.
+- [Analysera loggdata i Azure Monitor](./log-query-overview.md) ger en kort översikt över logg frågor och beskriver hur Azure Monitor loggdata struktureras.
 - Om du [visar och analyserar loggdata i Azure Monitor](./log-query-overview.md) beskrivs de portaler där du skapar och kör logg frågor.
 
 ## <a name="reference"></a>Referens
 
 - Språk [referens för frågor](/azure/kusto/query) är den fullständiga språk referensen för Kusto-frågespråket.
 - [Azure Monitor logg frågor språk skillnader](data-explorer-difference.md) beskriver skillnaderna mellan versioner av Kusto-frågespråket.
-- [Standard egenskaper i Azure Monitor logg poster](../../azure-monitor/platform/log-standard-properties.md) beskriver egenskaper som är standard för alla Azure Monitor loggdata.
-- [Utföra kors resurs logg frågor i Azure Monitor](../../azure-monitor/log-query/cross-workspace-query.md) beskriver hur du skriver logg frågor som använder data från flera Log Analytics arbets ytor och Application Insights program.
+- [Standard egenskaper i Azure Monitor logg poster](../platform/log-standard-properties.md) beskriver egenskaper som är standard för alla Azure Monitor loggdata.
+- [Utföra kors resurs logg frågor i Azure Monitor](./cross-workspace-query.md) beskriver hur du skriver logg frågor som använder data från flera Log Analytics arbets ytor och Application Insights program.
 
 ## <a name="examples"></a>Exempel
 
@@ -58,3 +58,4 @@ Azure Monitor loggar bygger på Azure Datautforskaren och Azure Monitor logg fr�
 ## <a name="next-steps"></a>Nästa steg
 
 - Få till gång till fullständig [referens dokumentation för Kusto-frågespråket](/azure/kusto/query/).
+

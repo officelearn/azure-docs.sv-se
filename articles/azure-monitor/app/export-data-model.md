@@ -3,17 +3,17 @@ title: Data modell för Azure Application Insights | Microsoft Docs
 description: Beskriver egenskaper som exporteras från löpande export i JSON och som används som filter.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 1577e56960edcb1941c5d7b73ef44c514706d4e3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 29ad999c307d1c11e7a584b61d85ed73b9448cb4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110257"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324394"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights exportera data modell
-Den här tabellen innehåller egenskaperna för telemetri som skickas från [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDK: er till portalen.
+Den här tabellen innehåller egenskaperna för telemetri som skickas från [Application Insights](./app-insights-overview.md) SDK: er till portalen.
 Du ser dessa egenskaper i data utdata från [kontinuerlig export](export-telemetry.md).
-De visas också i egenskaps filter i [Metric Explorer](../../azure-monitor/platform/metrics-charts.md) och [diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md).
+De visas också i egenskaps filter i [Metric Explorer](../platform/metrics-charts.md) och [diagnostisk sökning](./diagnostic-search.md).
 
 Poäng till Anmärkning:
 
@@ -107,7 +107,7 @@ Poäng till Anmärkning:
 ## <a name="context"></a>Kontext
 Alla typer av telemetri åtföljs av ett kontext avsnitt. Alla dessa fält överförs inte med varje data punkt.
 
-| Sökväg | Typ | Kommentarer |
+| Sökväg | Typ | Obs! |
 | --- | --- | --- |
 | Context. Custom. dimensions [0] |objekt [] |Nyckel/värde-värdepar som anges av parametern anpassade egenskaper. Nyckelns max längd 100, värdenas max längd 1024. Om det finns fler än 100 unika värden kan egenskapen sökas, men kan inte användas för segmentering. Högst 200 nycklar per iKey. |
 | Context. Custom. Metrics [0] |objekt [] |Nyckel/värde-par som anges av anpassade mått parametrar och av TrackMetrics. Nyckelns max längd 100, värdena kan vara numeriska. |
@@ -144,7 +144,7 @@ Alla typer av telemetri åtföljs av ett kontext avsnitt. Alla dessa fält över
 | Context. user. accountId |sträng | |
 | Context. user. anonAcquisitionDate |sträng | |
 | Context. user. anonId |sträng | |
-| Context. user. authAcquisitionDate |sträng |[Autentiserad användare](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
+| Context. user. authAcquisitionDate |sträng |[Autentiserad användare](./api-custom-events-metrics.md#authenticated-users) |
 | Context. user. authId |sträng | |
 | Context. user. isAuthenticated |boolean | |
 | Context. user. storeRegion |sträng | |
@@ -152,23 +152,23 @@ Alla typer av telemetri åtföljs av ett kontext avsnitt. Alla dessa fält över
 | internal.data.id |sträng | `Unique id`som tilldelas när ett objekt matas in till Application Insights |
 
 ## <a name="events"></a>Händelser
-Anpassade händelser som genererats av [TrackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
+Anpassade händelser som genererats av [TrackEvent ()](./api-custom-events-metrics.md#trackevent).
 
-| Sökväg | Typ | Kommentarer |
+| Sökväg | Typ | Obs! |
 | --- | --- | --- |
-| antal händelser [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
+| antal händelser [0] |heltal |100/([samplings](./sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
 | namn på händelse [0] |sträng |Händelse namn.  Maxlängd 250. |
 | URL för händelse [0] |sträng | |
 | händelse [0] urlData. Base |sträng | |
 | händelse [0] urlData. Host |sträng | |
 
 ## <a name="exceptions"></a>Undantag
-Rapporterar [undantag](../../azure-monitor/app/asp-net-exceptions.md) på servern och i webbläsaren.
+Rapporterar [undantag](./asp-net-exceptions.md) på servern och i webbläsaren.
 
-| Sökväg | Typ | Kommentarer |
+| Sökväg | Typ | Obs! |
 | --- | --- | --- |
 | basicException [0]-sammansättning |sträng | |
-| antal basicException [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
+| antal basicException [0] |heltal |100/([samplings](./sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
 | basicException [0] exceptionGroup |sträng | |
 | basicException [0] undantag |sträng | |
 | basicException [0] failedUserCodeMethod |sträng | |
@@ -192,9 +192,9 @@ Rapporterar [undantag](../../azure-monitor/app/asp-net-exceptions.md) på server
 | basicException [0] typeName |sträng | |
 
 ## <a name="trace-messages"></a>Spåra meddelanden
-Skickas av [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)och av [loggnings korten](../../azure-monitor/app/asp-net-trace-logs.md).
+Skickas av [TrackTrace](./api-custom-events-metrics.md#tracktrace)och av [loggnings korten](./asp-net-trace-logs.md).
 
-| Sökväg | Typ | Kommentarer |
+| Sökväg | Typ | Obs! |
 | --- | --- | --- |
 | meddelande [0] loggerName |sträng | |
 | meddelande [0] parametrar |sträng | |
@@ -202,14 +202,14 @@ Skickas av [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tra
 | meddelande [0] severityLevel |sträng | |
 
 ## <a name="remote-dependency"></a>Fjärrberoende
-Skickat av TrackDependency. Används för att rapportera prestanda och användning av [anrop till beroenden](../../azure-monitor/app/asp-net-dependencies.md) i servern och AJAX-anrop i webbläsaren.
+Skickat av TrackDependency. Används för att rapportera prestanda och användning av [anrop till beroenden](./asp-net-dependencies.md) i servern och AJAX-anrop i webbläsaren.
 
-| Sökväg | Typ | Kommentarer |
+| Sökväg | Typ | Obs! |
 | --- | --- | --- |
 | remoteDependency [0] asynkron |boolean | |
 | remoteDependency [0] baseName |sträng | |
 | remoteDependency [0] commandName |sträng |Till exempel "Start/index" |
-| antal remoteDependency [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
+| antal remoteDependency [0] |heltal |100/([samplings](./sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
 | remoteDependency [0] dependencyTypeName |sträng |HTTP, SQL,... |
 | remoteDependency [0] durationMetric. Value |nummer |Tid från anrop till slut för ande av svar genom beroende |
 | remoteDependency [0]`id` |sträng | |
@@ -223,11 +223,11 @@ Skickat av TrackDependency. Används för att rapportera prestanda och användni
 | remoteDependency [0] urlData. Host |sträng |Maxlängd 200 |
 
 ## <a name="requests"></a>Begäranden
-Skickat av [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Standardmodulerna använder detta för att rapportera Server svars tid, mätt på servern.
+Skickat av [TrackRequest](./api-custom-events-metrics.md#trackrequest). Standardmodulerna använder detta för att rapportera Server svars tid, mätt på servern.
 
-| Sökväg | Typ | Kommentarer |
+| Sökväg | Typ | Obs! |
 | --- | --- | --- |
-| antal begär Anden [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel: 4 = &gt; 25%. |
+| antal begär Anden [0] |heltal |100/([samplings](./sampling.md) frekvens). Till exempel: 4 = &gt; 25%. |
 | begäran [0] durationMetric. Value |nummer |Tid från begäran som kommer till svar. 1e7 = = 1s |
 | begäran [0]`id` |sträng |`Operation id` |
 | begär ande [0] namn |sträng |Hämta/publicera + URL-bas.  Maxlängd 250 |
@@ -243,7 +243,7 @@ Skickas av webbläsaren. Mäter tiden för bearbetning av en sida, från använd
 
 Kontext värden visar klientens OS och webbläsarens version.
 
-| Sökväg | Typ | Kommentarer |
+| Sökväg | Typ | Obs! |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess. Value |heltal |Tid från slutet av mottagning av HTML till visning av sidan. |
 | clientPerformance [0] namn |sträng | |
@@ -258,11 +258,11 @@ Kontext värden visar klientens OS och webbläsarens version.
 | clientPerformance [0] urlData. Protocol |sträng | |
 
 ## <a name="page-views"></a>Sidvisningar
-Skickat av trackPageView () eller [stopTrackPage](../../azure-monitor/app/api-custom-events-metrics.md#page-views)
+Skickat av trackPageView () eller [stopTrackPage](./api-custom-events-metrics.md#page-views)
 
-| Sökväg | Typ | Kommentarer |
+| Sökväg | Typ | Obs! |
 | --- | --- | --- |
-| Visa [0] antal |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
+| Visa [0] antal |heltal |100/([samplings](./sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
 | Visa [0] durationMetric. Value |heltal |Värdet kan anges i trackPageView () eller av startTrackPage ()-stopTrackPage (). Inte samma som clientPerformance-värden. |
 | Visa [0] namn |sträng |Sid rubrik.  Maxlängd 250 |
 | Visa [0] URL |sträng | |
@@ -271,13 +271,13 @@ Skickat av trackPageView () eller [stopTrackPage](../../azure-monitor/app/api-cu
 | Visa [0] urlData. Host |sträng | |
 
 ## <a name="availability"></a>Tillgänglighet
-Reports för [webb test för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md).
+Reports för [webb test för tillgänglighet](./monitor-web-app-availability.md).
 
-| Sökväg | Typ | Kommentarer |
+| Sökväg | Typ | Obs! |
 | --- | --- | --- |
 | tillgänglighet [0] availabilityMetric.name |sträng |availability |
 | tillgänglighet [0] availabilityMetric. Value |nummer |1,0 eller 0,0 |
-| antal tillgänglighets [0] |heltal |100/([samplings](../../azure-monitor/app/sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
+| antal tillgänglighets [0] |heltal |100/([samplings](./sampling.md) frekvens). Till exempel 4 = &gt; 25%. |
 | tillgänglighet [0] dataSizeMetric.name |sträng | |
 | tillgänglighet [0] dataSizeMetric. Value |heltal | |
 | tillgänglighet [0] durationMetric.name |sträng | |
@@ -294,7 +294,7 @@ Genererad av TrackMetric ().
 
 Metric-värdet finns i context. Custom. Metrics [0]
 
-Ett exempel:
+Till exempel:
 
 ```json
 {
@@ -324,7 +324,7 @@ Ett exempel:
 ```
 
 ## <a name="about-metric-values"></a>Om mått värden
-Metriska värden, både i mått rapporter och andra, rapporteras med en standard objekt struktur. Ett exempel:
+Metriska värden, både i mått rapporter och andra, rapporteras med en standard objekt struktur. Till exempel:
 
 ```json
 "durationMetric": {
@@ -345,12 +345,13 @@ Syftet med de andra fälten är att tillåta att måtten aggregeras i SDK, för 
 
 I tabellerna ovan har vi utelämnat antal sällan använda fält, min, Max, stdDev och sampledValue.
 
-I stället för att i förväg aggregera mått kan du använda [sampling](../../azure-monitor/app/sampling.md) om du behöver minska mängden telemetri.
+I stället för att i förväg aggregera mått kan du använda [sampling](./sampling.md) om du behöver minska mängden telemetri.
 
 ### <a name="durations"></a>Varaktigheter
 Om inget annat anges visas varaktigheterna i tiondelar av en mikrosekund, så att 10000000,0 betyder 1 sekund.
 
 ## <a name="see-also"></a>Se även
-* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
+* [Application Insights](./app-insights-overview.md)
 * [Löpande export](export-telemetry.md)
 * [Kodexempel](export-telemetry.md#code-samples)
+

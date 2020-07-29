@@ -71,6 +71,8 @@
       href: azure-netapp-files-manage-snapshots.md
     - name: Ändra storlek på en kapacitetspool eller en volym
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+    - name: Ändra tjänstnivå för en volym dynamiskt
+      href: dynamic-change-volume-service-level.md
     - name: Utveckla
       items:
         - name: REST-API

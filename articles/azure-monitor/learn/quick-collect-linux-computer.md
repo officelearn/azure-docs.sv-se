@@ -13,20 +13,20 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: d99af6965e4d2e73ed302530d76126e0e6e8a3ef
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a1adf167bb23b3d66f6dcbd07794145f7c817105
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505932"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322167"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Snabb start: samla in data från en Linux-dator i en hybrid miljö med Azure Monitor
 
-[Azure Monitor](../overview.md) kan samla in data direkt från fysiska eller virtuella Linux-datorer i din miljö till en Log Analytics arbets yta för detaljerad analys och korrelation. Genom att installera [Log Analytics-agenten](../platform/log-analytics-agent.md) kan Azure Monitor samla in data från ett Data Center eller en annan moln miljö. Den här snabb starten visar hur du konfigurerar och samlar in data från Linux-servern med några enkla steg. Information om virtuella Azure Linux-datorer finns i [samla in data om Azure Virtual Machines](../../azure-monitor/learn/quick-collect-azurevm.md).  
+[Azure Monitor](../overview.md) kan samla in data direkt från fysiska eller virtuella Linux-datorer i din miljö till en Log Analytics arbets yta för detaljerad analys och korrelation. Genom att installera [Log Analytics-agenten](../platform/log-analytics-agent.md) kan Azure Monitor samla in data från ett Data Center eller en annan moln miljö. Den här snabb starten visar hur du konfigurerar och samlar in data från Linux-servern med några enkla steg. Information om virtuella Azure Linux-datorer finns i [samla in data om Azure Virtual Machines](./quick-collect-azurevm.md).  
 
-Information om vilka konfigurationer som stöds finns i [Windows operativ system](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) och [konfigurationen för nätverks brand väggen](../../azure-monitor/platform/log-analytics-agent.md#network-requirements).
+Information om vilka konfigurationer som stöds finns i [Windows operativ system](../platform/log-analytics-agent.md#supported-linux-operating-systems) och [konfigurationen för nätverks brand väggen](../platform/log-analytics-agent.md#network-requirements).
  
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -79,7 +79,7 @@ Med följande steg konfigurerar du installationen av agenten för Log Analytics 
 
 Om Linux-datorn behöver kommunicera via en proxyserver till Log Analytics kan du ange proxykonfigurationen på kommandoraden genom att inkludera `-p [protocol://][user:password@]proxyhost[:port]`.  Egenskapen *proxyhost* accepterar ett fullständigt domännamn eller en fullständig IP-adress för proxyservern. 
 
-Exempel: `https://user01:password@proxy01.contoso.com:30443`
+Exempelvis: `https://user01:password@proxy01.contoso.com:30443`
 
 1. Om du vill konfigurera Linux-datorn att ansluta till en Log Analytics arbets yta kör du följande kommando för att ange arbetsyte-ID och primär nyckel som kopierats tidigare. Med följande kommando laddar du ned agenten, verifierar dess kontrollsumma och installerar den. 
     
@@ -169,3 +169,4 @@ Om du vill lära dig hur du visar och analyserar data kan du fortsätta till sj�
 
 > [!div class="nextstepaction"]
 > [Visa eller analysera data i Log Analytics](../log-query/get-started-portal.md)
+

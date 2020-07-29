@@ -9,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 8252c9bf899811163193c9ed21f1f81c9fd0502f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1b7b94f88653621c895ba8365651b78dcbf9d59f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080813"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325023"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Kom igång med Azure Machine Learning Studio (klassisk) i R
+
+**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
+
 
 <!-- Stephen F Elston, Ph.D. -->
 I den här självstudien får du lära dig hur du använder ML Studio (klassisk) för att skapa, testa och köra R-kod. I slutet kommer du att ha en fullständig prognos lösning.  
@@ -1335,7 +1338,7 @@ RStudio är väl väldokumenterat. Här följer några länkar till de viktigast
 Den här själv studie kursen beskriver grunderna om vad du behöver för att använda R-språket med Azure Machine Learning Studio (klassisk). Om du inte är bekant med R finns två introduktioner på CRAN:
 
 * [R för nybörjare](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) av Emmanuel paradis är en bra plats att börja på.  
-* [En introduktion till R](https://cran.r-project.org/doc/manuals/R-intro.html) med W. N. Venables et. Al. är lite mer djup.
+* [En introduktion till R](https://cran.r-project.org/doc/manuals/R-intro.html) med W. N. Venables et. flera är lite mer djup.
 
 Det finns många böcker på R som kan hjälpa dig att komma igång. Här är några saker som du kan hitta användbara:
 

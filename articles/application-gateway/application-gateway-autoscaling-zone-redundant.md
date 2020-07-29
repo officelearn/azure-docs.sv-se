@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 0a82a35f1736aa7908928cbca3397cbe9c705e5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f10bb1f4065f3bdb517fcad4f3eb6caa331c5233
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088114"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87273209"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisk skalning och zonredundant Application Gateway v2 
 
-Application Gateway och brand vägg för webbaserade program (WAF) är också tillgängliga under en Standard_v2 och WAF_v2 SKU. V2-SKU: n erbjuder prestanda förbättringar och ger stöd för viktiga nya funktioner som automatisk skalning, zon redundans och stöd för statiska VIP. Befintliga funktioner under standard-och WAF-SKU: n fortsätter att stödjas i den nya v2-SKU: n, med några undantag som anges i [jämförelse](#differences-from-v1-sku) avsnittet.
+Application Gateway är tillgängligt under en Standard_v2 SKU. Brand vägg för webbaserade program (WAF) är tillgänglig under en WAF_v2 SKU. V2-SKU: n erbjuder prestanda förbättringar och ger stöd för viktiga nya funktioner som automatisk skalning, zon redundans och stöd för statiska VIP. Befintliga funktioner under standard-och WAF-SKU: n fortsätter att stödjas i den nya v2-SKU: n, med några undantag som anges i [jämförelse](#differences-from-v1-sku) avsnittet.
 
 Den nya v2-SKU: n innehåller följande förbättringar:
 
@@ -178,15 +178,15 @@ I det här avsnittet beskrivs funktioner och begränsningar för v2-SKU: n som s
 
 |Differens|Information|
 |--|--|
-|Certifikat för autentisering|Stöds ej.<br>Mer information finns i [Översikt över TLS to end-TLS med Application Gateway](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
+|Certifikat för autentisering|Stöds inte.<br>Mer information finns i [Översikt över TLS to end-TLS med Application Gateway](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
 |Mixa Standard_v2 och standard Application Gateway i samma undernät|Stöds inte|
 |Användardefinierad väg (UDR) i Application Gateway undernät|Stöds (vissa scenarier). I för hands version.<br> Mer information om vilka scenarier som stöds finns i [Application Gateway konfigurations översikt](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).|
 |NSG för inkommande port intervall| – 65200 till 65535 för Standard_v2 SKU<br>– 65503 till 65534 för standard-SKU.<br>Mer information finns i [vanliga frågor och svar](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
-|Prestanda loggar i Azure Diagnostics|Stöds ej.<br>Azure-mått ska användas.|
+|Prestanda loggar i Azure Diagnostics|Stöds inte.<br>Azure-mått ska användas.|
 |Fakturering|Faktureringen är schemalagd för att starta den 1 juli 2019.|
 |FIPS-läge|Dessa stöds inte för närvarande.|
 |Läge för endast ILB|Detta stöds inte för närvarande. Offentliga och ILB läge stöds tillsammans.|
-|Net Watcher-integrering|Stöds ej.|
+|Net Watcher-integrering|Stöds inte.|
 |Azure Security Center-integration|Ännu inte tillgängligt.
 
 ## <a name="migrate-from-v1-to-v2"></a>Migrera från v1 till v2

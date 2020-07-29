@@ -7,13 +7,13 @@ ms.date: 12/27/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: c85763ffb12ac93f3aff667c4660afa22ca6a99f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, devx-track-java
+ms.openlocfilehash: 6400f36c12c8c579bcd019711242dd4edb8449b7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521266"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321028"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-java"></a>Snabb start: ansluta ett exempel på IoT Plug and Play Preview enhets program till IoT Hub (Java)
 
@@ -23,7 +23,7 @@ Den här snabb starten visar hur du skapar ett exempel på IoT Plug and Play Dev
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabb starten behöver du Java SE 8 på din utvecklings dator. Du måste också installera maven 3.
 

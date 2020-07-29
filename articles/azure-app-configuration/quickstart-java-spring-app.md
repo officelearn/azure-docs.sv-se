@@ -9,13 +9,14 @@ editor: ''
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 04/18/2020
+ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: 69b9733f4d79f5fc42fe86ca0f8a97305205aeef
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 51052994a4d00995910a85546cce57867b6143f6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085067"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324785"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Snabb start: skapa en Java våren-app med Azure App konfiguration
 
@@ -31,9 +32,9 @@ I den här snabb starten inkluderar du Azure App konfiguration i en Java våren-
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **Configuration Explorer** > **+ skapa** > **nyckel värde** om du vill lägga till följande nyckel/värde-par:
+6. Välj **Configuration Explorer**  >  **+ skapa**  >  **nyckel värde** om du vill lägga till följande nyckel/värde-par:
 
-    | Nyckel | Värde |
+    | Tangent | Värde |
     |---|---|
     | /application/config.message | Hello |
 
@@ -45,7 +46,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en Java våren-
 
 Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjäder Boot-projekt.
 
-1. Bläddra till <https://start.spring.io/>.
+1. Gå till <https://start.spring.io/>.
 
 1. Ange följande alternativ:
 
@@ -140,7 +141,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
     }
     ```
 
-1. Skapa en ny fil med `bootstrap.properties` namnet under katalogen resurser i din app och Lägg till följande rader i filen. Ersätt exempel värdena med lämpliga egenskaper för appens konfigurations arkiv.
+1. Skapa en ny fil med namnet `bootstrap.properties` under katalogen resurser i din app och Lägg till följande rader i filen. Ersätt exempel värdena med lämpliga egenskaper för appens konfigurations arkiv.
 
     ```CLI
     spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}

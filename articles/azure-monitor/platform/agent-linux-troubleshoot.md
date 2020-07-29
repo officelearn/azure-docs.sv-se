@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 2343de97d06abdefed2c2977a7341aa411429319
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98ef2b416c809789307f946ed90fb3138d9a20c1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80520744"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325380"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Felsöka problem med Log Analytics-agenten för Linux 
 
@@ -43,17 +43,17 @@ Om inget av dessa steg fungerar för dig, är följande Support kanaler också t
  Ytterligare konfigurationer | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/*.conf`
 
  >[!NOTE]
- >Att redigera konfigurationsfiler för prestanda räknare och syslog skrivs över om samlingen konfigureras från [Data-menyn Log Analytics avancerade inställningar](../../azure-monitor/platform/agent-data-sources.md#configuring-data-sources) i Azure Portal för din arbets yta. Om du vill inaktivera konfigurationen för alla agenter inaktiverar du samling från Log Analytics **Avancerade inställningar** eller för en enskild agent kör följande:  
+ >Att redigera konfigurationsfiler för prestanda räknare och syslog skrivs över om samlingen konfigureras från [Data-menyn Log Analytics avancerade inställningar](./agent-data-sources.md#configuring-data-sources) i Azure Portal för din arbets yta. Om du vill inaktivera konfigurationen för alla agenter inaktiverar du samling från Log Analytics **Avancerade inställningar** eller för en enskild agent kör följande:  
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
 ## <a name="installation-error-codes"></a>Installations fel koder
 
-| Felkod | Innebörd |
+| Felkod | Betydelse |
 | --- | --- |
 | NOT_DEFINED | Eftersom nödvändiga beroenden inte är installerade kommer auoms-granskade plugin-programmet inte att installeras | Det gick inte att installera auoms, installations paketet har granskats. |
 | 2 | Ett ogiltigt alternativ angavs för gränssnitts paketet. Kör `sudo sh ./omsagent-*.universal*.sh --help` för användning |
 | 3 | Inget alternativ angavs för gränssnitts paketet. Kör `sudo sh ./omsagent-*.universal*.sh --help` för användning. |
-| 4 | Ogiltig pakettyp eller ogiltiga proxyinställningar. omsagent-*rpm*. sh-paket kan bara installeras på RPM-baserade system och omsagent-*deb*. sh-paket kan bara installeras på Debian-baserade system. Vi rekommenderar att du använder det universella installations programmet från den [senaste versionen](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Se även till att verifiera proxyinställningarna. |
+| 4 | Ogiltig pakettyp eller ogiltiga proxyinställningar. omsagent-*rpm*. sh-paket kan bara installeras på RPM-baserade system och omsagent-*deb*. sh-paket kan bara installeras på Debian-baserade system. Vi rekommenderar att du använder det universella installations programmet från den [senaste versionen](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Se även till att verifiera proxyinställningarna. |
 | 5 | Shell-paketet måste köras som rot eller så uppstod ett 403-fel under inregistreringen. Kör kommandot med hjälp av `sudo` . |
 | 6 | Ogiltig paket arkitektur eller så uppstod fel 200 vid registrering. omsagent-*x64.sh-paket kan bara installeras på 64-bitars system, och omsagent-x86.sh-* paket kan bara installeras på 32-bitars system. Hämta rätt paket för din arkitektur från den [senaste versionen](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | Installationen av OMS-paketet misslyckades. Titta igenom kommandots utdata för rot felen. |
@@ -72,7 +72,7 @@ Om inget av dessa steg fungerar för dig, är följande Support kanaler också t
 
 ## <a name="onboarding-error-codes"></a>Fel koder för onboarding
 
-| Felkod | Innebörd |
+| Felkod | Betydelse |
 | --- | --- |
 | 2 | Ett ogiltigt alternativ har angetts för omsadmin-skriptet. Kör `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` för användning. |
 | 3 | En ogiltig konfiguration angavs för omsadmin-skriptet. Kör `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` för användning. |
@@ -228,7 +228,7 @@ Prestanda relaterade buggar sker inte hela tiden och de är mycket svåra att å
 * Antalet meddelanden som vidarebefordras per sekund är för bra för den grundläggande konfigurationen av Log Analytics agent för Linux att hantera
 
 ### <a name="resolution"></a>Lösning
-* Kontrol lera att konfigurationen i Log Analytics arbets ytan för syslog har alla funktioner och rätt logg nivåer. Granska [Konfigurera syslog-samling i Azure Portal](../../azure-monitor/platform/data-sources-syslog.md#configure-syslog-in-the-azure-portal)
+* Kontrol lera att konfigurationen i Log Analytics arbets ytan för syslog har alla funktioner och rätt logg nivåer. Granska [Konfigurera syslog-samling i Azure Portal](./data-sources-syslog.md#configure-syslog-in-the-azure-portal)
 * Verifiera att de inbyggda daemonarna för syslog-meddelanden ( `rsyslog` , `syslog-ng` ) kan ta emot vidarebefordrade meddelanden
 * Kontrol lera brand Väggs inställningarna på syslog-servern för att säkerställa att meddelanden inte blockeras
 * Simulera ett syslog-meddelande för att Log Analytics med `logger` kommandot
@@ -422,7 +422,7 @@ Du kan fortsätta att publicera igen när du har använt `--purge` alternativet
 ### <a name="resolution"></a>Lösning 
 Utför följande steg för att åtgärda problemet.
 1. Ta bort tillägget från Azure Portal.
-2. Installera agenten genom att följa [anvisningarna](../../azure-monitor/learn/quick-collect-linux-computer.md).
+2. Installera agenten genom att följa [anvisningarna](../learn/quick-collect-linux-computer.md).
 3. Starta om agenten genom att köra följande kommando: `sudo /opt/microsoft/omsagent/bin/service_control restart` .
 * Vänta några minuter och etablerings statusen ändras till **etableringen har slutförts**.
 
@@ -444,3 +444,4 @@ Utför följande steg för att åtgärda problemet.
     ```
 
 3. Uppgradera paketen genom att köra `sudo sh ./omsagent-*.universal.x64.sh --upgrade` .
+

@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: b535cda8fe7d98748eb0657a599a61ed1f8549d2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c040958d9518485bc5d583fc01aedd50d5c6e57a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045363"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321130"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera måttaviseringar med Azure Monitor
 
@@ -32,7 +32,7 @@ Följande procedur beskriver hur du skapar en regel för mått varningar i Azure
 
 3. Klicka på **Välj mål**, i kontext fönstret som läses in, väljer du en mål resurs som du vill Avisera om. Använd List rutorna **prenumeration** och **resurs typ** för att hitta den resurs som du vill övervaka. Du kan också använda Sök fältet för att hitta din resurs.
 
-4. Om den valda resursen har mått som du kan skapa aviseringar på, kommer **tillgängliga signaler** längst ned till höger att innehålla mått. Du kan visa en fullständig lista över resurs typer som stöds för mått aviseringar i den här [artikeln](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+4. Om den valda resursen har mått som du kan skapa aviseringar på, kommer **tillgängliga signaler** längst ned till höger att innehålla mått. Du kan visa en fullständig lista över resurs typer som stöds för mått aviseringar i den här [artikeln](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 5. När du har valt en mål resurs klickar du på **Lägg till villkor**.
 
@@ -136,7 +136,8 @@ I föregående avsnitt beskrivs hur du skapar, visar och hanterar aviserings reg
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa mått aviseringar med hjälp av Azure Resource Manager mallar](../../azure-monitor/platform/alerts-metric-create-templates.md).
+- [Skapa mått aviseringar med hjälp av Azure Resource Manager mallar](./alerts-metric-create-templates.md).
 - [Förstå hur mått aviseringar fungerar](alerts-metric-overview.md).
 - [Lär dig hur mått aviseringar med dynamiskt tröskelvärde fungerar](alerts-dynamic-thresholds.md).
-- [Förstå webbhook-schemat för mått varningar](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
+- [Förstå webbhook-schemat för mått varningar](./alerts-metric-near-real-time.md#payload-schema)
+

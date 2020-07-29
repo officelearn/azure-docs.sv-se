@@ -1,7 +1,7 @@
 ---
-title: Azure Virtual Network-peering
+title: Peering för virtuella nätverk i Azure
 titlesuffix: Azure Virtual Network
-description: Lär dig mer om virtuell nätverkspeering i Azure.
+description: Lär dig mer om peering i virtuella nätverk i Azure, inklusive hur du kan ansluta nätverk i Azure Virtual Network.
 services: virtual-network
 documentationcenter: na
 author: altambaw
@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: e1a2babef17e23457e1f41d8ec0a20a442452c23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ba0caa2546fdb9d4845e2c7adf87a06d906dd12
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84232956"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265168"
 ---
-# <a name="virtual-network-peering"></a>Virtuell nätverkspeering
+# <a name="virtual-network-peering"></a>Peering för virtuella nätverk
 
 Med peering för virtuella nätverk kan du sömlöst ansluta nätverk i [Azure Virtual Network](virtual-networks-overview.md). De virtuella nätverken visas som ett för anslutnings syfte. Trafiken mellan virtuella datorer använder Microsofts stamnät infrastruktur. Som trafik mellan virtuella datorer i samma nätverk dirigeras trafiken bara via Microsofts *privata* nätverk.
 
@@ -75,7 +76,7 @@ Gateway-överföring mellan virtuella nätverk som skapats via olika distributio
 
 När du använder virtuella peer-nätverk som delar en enda Azure ExpressRoute-anslutning går trafiken mellan dem genom peering-relationen. Trafiken använder Azure stamnät nätverket. Du kan fortfarande använda lokala gateways i varje virtuellt nätverk för att ansluta till den lokala kretsen. Annars kan du använda en delad gateway och konfigurera överföring för lokal anslutning.
 
-## <a name="troubleshoot"></a>Felsök
+## <a name="troubleshoot"></a>Felsöka
 
 För att bekräfta att virtuella nätverk är peer-kopplade kan du kontrol lera effektiva vägar. Kontrol lera vägar för ett nätverks gränssnitt i ett undernät i ett virtuellt nätverk. Om peer-koppling för virtuellt nätverk finns har alla undernät i det virtuella nätverket vägar med nästa hopp-typ *VNet-peering* för varje adressutrymme i varje peer-kopplat virtuellt nätverk. Mer information finns i [diagnostisera ett problem med en virtuell dator routning](diagnose-network-routing-problem.md).
 

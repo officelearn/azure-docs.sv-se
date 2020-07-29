@@ -3,23 +3,20 @@ title: 'Snabb start: Azure Blob Storage-bibliotek V12-.NET'
 description: I den här snabb starten får du lära dig hur du använder Azure Blob Storage klient bibliotek version 12 för .NET för att skapa en behållare och en BLOB i blob-lagring (objekt). Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/05/2019
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 26594486e1d98c0349fd41470c749109faf71b0b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d142206a9640ce53ea7463a2c68c5d1c8f64c354
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011421"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287198"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Snabbstart: Azure Blob Storage-klientbiblioteket v12 för .NET
 
 Kom igång med Azure Blob Storage-V12 för .NET. Azure Blob Storage är Microsofts objektlagringslösning för molnet. Följ stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Blob Storage är optimerad för lagring av enorma mängder ostrukturerade data.
-
-> [!NOTE]
-> För att komma igång med den tidigare SDK-versionen, se [snabb start: Azure Blob Storage klient bibliotek för .net](storage-quickstart-blobs-dotnet-legacy.md).
 
 Använd Azure Blob Storage-V12 för .NET för att:
 
@@ -38,7 +35,7 @@ Ytterligare resurser:
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Azure Storage-konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)

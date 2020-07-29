@@ -4,17 +4,17 @@ description: Visar en lista över de olika storlekar som är tillgängliga för 
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 041300efd9d756f2ef8145adb23d745b2345c7eb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ffbe61cd84d2c543f0db97a5d70ad13193f2a68d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058772"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87267123"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Datorer med hög prestanda beräknings storlek
 
@@ -96,7 +96,7 @@ Azure innehåller flera alternativ för att skapa kluster med virtuella Windows 
 
 - **Microsoft HPC Pack**  -  [HPC Pack](/powershell/high-performance-computing/overview) innehåller en körnings miljö för MS-MPI som använder Azure RDMA-nätverket när det distribueras på RDMA-kompatibla virtuella Linux-datorer. Exempel på distributioner finns i [Konfigurera ett Linux RDMA-kluster med HPC Pack för att köra MPI-program](/powershell/high-performance-computing/hpcpack-linux-openfoam).
 
-## <a name="deployment-considerations"></a>Överväganden för distribution
+## <a name="deployment-considerations"></a>Distributionsöverväganden
 
 - **Azure-prenumeration** – om du vill distribuera fler än några få beräknings intensiva instanser bör du överväga att betala per användning-prenumeration eller andra köp alternativ. Om du använder ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) kan du bara använda ett begränsat antal Azure Compute-kärnor.
 

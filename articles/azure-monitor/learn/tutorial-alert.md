@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/10/2019
 ms.custom: mvc
-ms.openlocfilehash: 1c39bfdbcfb924505473b20b3d56a28d54c84f93
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 706f3913e25eca6240c186e45709faf6c77620bf
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505881"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324581"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Övervaka och skicka aviseringar om programmets hälsotillstånd med Azure Application Insights
 
@@ -24,7 +24,7 @@ Lär dig att:
 > * Skapa tillgänglighetstest för att kontinuerligt kontrollera programmets respons
 > * Skicka e-post till administratörer när ett problem uppstår
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -73,4 +73,5 @@ Med tillgänglighetstester i Application Insights kan du automatiskt testa ditt 
 Nu när du har lärt dig hur du aviserar om problem går du vidare till nästa självstudie, där du lär dig att analyserar hur användare interagerar med ditt program.
 
 > [!div class="nextstepaction"]
-> [Förstå användare](../../azure-monitor/learn/tutorial-users.md)
+> [Förstå användare](./tutorial-users.md)
+

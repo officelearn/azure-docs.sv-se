@@ -1,6 +1,6 @@
 ---
 title: Anslut syslog-data till Azure Sentinel | Microsoft Docs
-description: Anslut alla lokala installationer som stöder Syslog till Azure Sentinel genom att använda en agent på en Linux-dator mellan enheten och Sentinel. 
+description: Anslut alla datorer och installationer som stöder Syslog till Azure Sentinel genom att använda en agent på en Linux-dator mellan-installationen och kontroll enheten. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,66 +12,90 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2019
+ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 38e47469723d767561dd778b8f175780ab181fd4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 27c1ad4907b0b16ce6830a6fe787b78f6129eadd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076255"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322847"
 ---
-# <a name="connect-your-external-solution-using-syslog"></a>Anslut din externa lösning med syslog
+# <a name="collect-data-from-linux-based-sources-using-syslog"></a>Samla in data från Linux-baserade källor med syslog
 
-Du kan ansluta alla lokala installationer som stöder Syslog till Azure Sentinel. Detta görs med hjälp av en agent som baseras på en Linux-dator mellan enheten och Azure Sentinel. Om Linux-datorn finns i Azure kan du strömma loggarna från din enhet eller ditt program till en dedikerad arbets yta som du skapar i Azure och ansluter den. Om Linux-datorn inte finns i Azure kan du strömma loggarna från din installation till en dedikerad lokal VM eller dator där du installerar agenten för Linux. 
+Du kan strömma händelser från Linux-baserade, syslog-stödjande datorer eller-enheter till Azure Sentinel, med hjälp av Log Analytics agent för Linux (tidigare kallat OMS-agenten). Du kan göra detta för alla datorer som gör att du kan installera Log Analytics agenten direkt på datorn. Datorns interna syslog-daemon samlar in lokala händelser av de angivna typerna och vidarebefordrar dem lokalt till agenten, som kommer att strömma dem till din Log Analytics-arbetsyta.
 
 > [!NOTE]
-> Om din installation stöder Syslog-CEF är anslutningen mer fullständig och du bör välja det här alternativet och följa anvisningarna i att [ansluta data från CEF](connect-common-event-format.md).
+> - Om din installation stöder **common Event format (CEF) över syslog**samlas en mer fullständig data uppsättning och data parsas i samlingen. Du bör välja det här alternativet och följa anvisningarna i [ansluta din externa lösning med CEF](connect-common-event-format.md).
+>
+> - Log Analytics stöder insamling av meddelanden som skickats av **rsyslog** **-eller syslog-ng-** daemon, där rsyslog är standardvärdet. Standard syslog-daemonen på version 5 av Red Hat Enterprise Linux (RHEL), CentOS och Oracle Linux version (**sysklog**) stöds inte för händelse insamling i syslog. Om du vill samla in syslog-data från den här versionen av dessa distributioner ska rsyslog daemon installeras och konfigureras för att ersätta sysklog.
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
-Syslog är ett händelse loggnings protokoll som är gemensamt för Linux. Program kommer att skicka meddelanden som kan lagras på den lokala datorn eller levereras till en syslog-insamlare. När Log Analytics-agenten för Linux installeras konfigureras den lokala syslog-daemonen för att vidarebefordra meddelanden till agenten. Agenten skickar sedan meddelandet till Azure Monitor där en motsvarande post skapas.
+**Syslog** är ett händelse loggnings protokoll som är gemensamt för Linux. När **Log Analytics agent för Linux** är installerad på din virtuella dator eller enhet konfigurerar installations rutinen lokalt syslog-daemon för att vidarebefordra meddelanden till agenten på TCP-port 25224. Agenten skickar sedan meddelandet till din Log Analytics-arbetsyta via HTTPS, där det parsas till en händelse logg post i syslog-tabellen i **Azure Sentinel >-loggar**.
 
 Mer information finns i [syslog-datakällor i Azure Monitor](../azure-monitor/platform/data-sources-syslog.md).
 
-> [!NOTE]
-> - Agenten kan samla in loggar från flera källor, men måste installeras på en dedikerad proxyserver.
-> - Om du vill ha stöd för anslutningar för både CEF och syslog på samma virtuella dator utför du följande steg för att undvika att duplicera data:
->    1. Följ anvisningarna för att [ansluta din CEF](connect-common-event-format.md).
->    2. Om du vill ansluta syslog-data går du till **Inställningar**  >  **arbets ytan**inställningar  >  **Avancerade inställningar**  >  **data**  >  **syslog** och anger funktionerna och deras prioriteringar så att de inte är samma funktioner och egenskaper som du använde i CEF-konfigurationen. <br></br>Om du väljer **Använd konfigurationen nedan för mina datorer**tillämpas dessa inställningarna på alla virtuella datorer som är anslutna till den här arbets ytan.
+## <a name="configure-syslog-collection"></a>Konfigurera syslog-samling
 
-
-## <a name="connect-your-syslog-appliance"></a>Anslut syslog-enheten
+### <a name="configure-your-linux-machine-or-appliance"></a>Konfigurera din Linux-dator eller-apparat
 
 1. I Azure Sentinel väljer du **data kopplingar** och väljer sedan **syslog** -anslutningsprogrammet.
 
-2. På bladet **syslog** väljer du **Öppna kopplings sida**.
+1. På bladet **syslog** väljer du **Öppna kopplings sida**.
 
-3. Installera Linux-agenten:
+1. Installera Linux-agenten. Under **Välj var du vill installera agenten:**
     
-    - Om din virtuella Linux-dator är i Azure väljer du **Ladda ned och installera agent på virtuell Azure Linux-dator**. På bladet **virtuella datorer** väljer du de virtuella datorer där du vill installera agenten och klickar sedan på **Anslut**.
-    - Om Linux-datorn inte finns i Azure väljer du **Ladda ned och installera agent på Linux-datorer som inte är Azure-datorer**. På bladet **Direct agent** kopierar du kommandot för att **Ladda ned och integrera agent för Linux** och köra det på din dator. 
+    **För en virtuell Azure Linux-dator:**
+      
+    1. Välj **Installera agent på virtuell Azure Linux-dator**.
+    
+    1. Klicka på länken **Ladda ned & installera agent för virtuella Azure Linux-datorer >** . 
+    
+    1. På bladet **virtuella datorer** klickar du på en virtuell dator för att installera agenten på och klickar sedan på **Anslut**. Upprepa det här steget för varje virtuell dator som du vill ansluta.
+    
+    **För alla andra Linux-datorer:**
+
+    1. Välj **Installera agent på en dator som inte är en Azure Linux-dator**
+
+    1. Klicka på länken **Ladda ned & installera agent för datorer som inte är Azure Linux-datorer >** . 
+
+    1. På bladet **hantering av agenter** klickar du på fliken **Linux-servrar** och kopierar sedan kommandot för att **Ladda ned och integrera agent för Linux** och köra det på Linux-datorn. 
     
    > [!NOTE]
    > Se till att konfigurera säkerhets inställningar för de här datorerna enligt din organisations säkerhets princip. Du kan till exempel konfigurera nätverks inställningarna så att de överensstämmer med organisationens nätverks säkerhets princip och ändra portarna och protokollen i daemonen så att de överensstämmer med säkerhets kraven.
 
-4. Välj **Öppna konfiguration av avancerade inställningar för arbets ytan**.
+### <a name="configure-the-log-analytics-agent"></a>Konfigurera Log Analytics agent
 
-5. På bladet **Avancerade inställningar** väljer du **data**  >  **syslog**. Lägg sedan till de anläggningar som ska samlas in av kopplingen.
+1. Längst ned på bladet syslog-koppling klickar du på länken **Öppna konfiguration av avancerade inställningar >på arbets ytan** .
+
+1. På bladet **Avancerade inställningar** väljer du **data**  >  **syslog**. Lägg sedan till de anläggningar som ska samlas in av kopplingen.
     
-    Lägg till de anläggningar som syslog-apparaten innehåller i sina logg rubriker. Du kan se den här konfigurationen i syslog-enheten i **syslog-d** i `/etc/rsyslog.d/security-config-omsagent.conf` mappen och i **r-syslog** från `/etc/syslog-ng/security-config-omsagent.conf` .
+    - Lägg till de anläggningar som syslog-apparaten innehåller i sina logg rubriker. 
     
-    Om du vill använda avvikande identifiering av SSH-inloggning med de data som du samlar in lägger du till **auth** och **authpriv**. Mer information finns i [följande avsnitt](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) .
+    - Om du vill använda avvikande identifiering av SSH-inloggning med de data som du samlar in lägger du till **auth** och **authpriv**. Mer information finns i [följande avsnitt](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) .
 
-6. När du har lagt till alla funktioner som du vill övervaka och justerat eventuella allvarlighets grad alternativ för var och en, markerar du kryss rutan **Använd konfigurationen nedan för mina datorer**.
+1. När du har lagt till alla funktioner som du vill övervaka och justerat eventuella allvarlighets grad alternativ för var och en, markerar du kryss rutan **Använd konfigurationen nedan för mina datorer**.
 
-7. Välj **Spara**. 
+1. Välj **Spara**. 
 
-8. Kontrol lera att du skickar de anläggningar som du har angett på syslog-enheten.
+1. Kontrol lera att du skickar de anläggningar som du har angett på din virtuella dator eller enhet.
 
-9. Om du vill använda det relevanta schemat i Azure Monitor för syslog-loggarna söker du efter **syslog**.
+1. Om du vill fråga syslog-loggdata i **loggar**skriver `Syslog` du i frågefönstret.
 
-10. Du kan använda funktionen Kusto som beskrivs i [använda funktioner i Azure Monitor logg frågor](../azure-monitor/log-query/functions.md) för att parsa syslog-meddelanden. Du kan sedan spara dem som en ny Log Analytics funktion som ska användas som ny datatyp.
+1. Du kan använda frågeparametrar som beskrivs i [använda funktioner i Azure Monitor logg frågor](../azure-monitor/log-query/functions.md) för att parsa syslog-meddelanden. Du kan sedan spara frågan som en ny Log Analytics-funktion och använda den som en ny datatyp.
+
+> [!NOTE]
+>
+> Du kan använda din befintliga [CEF log forwarder-dator](connect-cef-agent.md) för att samla in och vidarebefordra loggar från även vanliga syslog-källor. Du måste dock utföra följande steg för att undvika att skicka händelser i båda formaten till Azure Sentinel, eftersom det leder till duplicering av händelser.
+>
+>    Har redan konfigurerat [data insamling från dina CEF-källor](connect-common-event-format.md)och har konfigurerat Log Analytics-agenten enligt ovan:
+>
+> 1. På varje dator som skickar loggar i CEF-format måste du redigera syslog-konfigurationsfilen för att ta bort de anläggningar som används för att skicka CEF-meddelanden. På så sätt kommer inte de funktioner som skickas i CEF också att skickas i syslog. Mer information om hur du gör detta finns i [Konfigurera syslog på Linux-agenten](../azure-monitor/platform/data-sources-syslog.md#configure-syslog-on-linux-agent) .
+>
+> 1. Du måste köra följande kommando på de datorerna för att inaktivera synkroniseringen av agenten med syslog-konfigurationen i Azure Sentinel. Detta säkerställer att konfigurations ändringen du gjorde i föregående steg inte blir överskriven.<br>
+> `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
+
 
 ### <a name="configure-the-syslog-connector-for-anomalous-ssh-login-detection"></a>Konfigurera syslog-anslutningen för identifiering av avvikande SSH-inloggning
 
@@ -87,7 +111,7 @@ Azure Sentinel kan använda Machine Learning (ML) till syslog-data för att iden
  
 Den här identifieringen kräver en speciell konfiguration av syslog-datakopplingen: 
 
-1. I steg 5 i föregående procedur ser du till att både **auth** -och **authpriv** är markerade som anläggningar att övervaka. Behåll standardinställningarna för allvarlighets grad alternativen så att alla är markerade. Exempel:
+1. I steg 5 i föregående procedur ser du till att både **auth** -och **authpriv** är markerade som anläggningar att övervaka. Behåll standardinställningarna för allvarlighets grad alternativen så att alla är markerade. Till exempel:
     
     > [!div class="mx-imgBorder"]
     > ![Anläggningar som krävs för identifiering av avvikande SSH-inloggning](./media/connect-syslog/facilities-ssh-detection.png)

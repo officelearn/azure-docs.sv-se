@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 33c5db061860096b0411fbe91191f6c4a513e4c2
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: b8a95687b1567eb6e063ccc871a4a130c5f2db69
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172129"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290350"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Snabb start: skapa en offentlig belastningsutjämnare för att belastningsutjämna virtuella datorer med Azure PowerShell
 
@@ -635,7 +635,7 @@ New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
 Det tar några minuter att skapa och konfigurera de tre virtuella datorerna.
 
 ## <a name="create-outbound-rule-configuration"></a>Skapa utgående regel konfiguration
-Utgående regler för belastningsutjämnare konfigurerar utgående SNAT för virtuella datorer i backend-poolen. 
+Utgående regler för belastningsutjämnare konfigurera utgående käll Network Address Translation (SNAT) för virtuella datorer i backend-poolen. 
 
 Mer information om utgående anslutningar finns i [utgående anslutningar i Azure](load-balancer-outbound-connections.md).
 
@@ -690,7 +690,7 @@ Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg | Add-AzLoadBalancerFronten
 
 Skapa en ny utgående pool med [Add-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/add-azloadbalancerbackendaddresspoolconfig). 
 
-Använd pool-och klient delens IP-adress för belastningsutjämnaren med [set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer)::
+Använd pool-och klient delens IP-adress för belastningsutjämnaren med [set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer):
 
 * Med namnet **myBackEndPoolOutbound**.
 
@@ -1409,7 +1409,7 @@ Det tar några minuter att skapa och konfigurera de tre virtuella datorerna.
 
 Installera IIS med en anpassad webbsida på de båda virtuella datorerna på serverdelen enligt följande:
 
-1. Hämta de tre virtuella datorernas offentliga IP-adresser med hjälp av [Get-AzPublicIPAddress](/powershell/module/az.compute/get-azpublicipaddress).
+1. Hämta de tre virtuella datorernas offentliga IP-adresser med hjälp av [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress).
 
    ```azurepowershell-interactive
    ## Variables for commands. ##

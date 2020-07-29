@@ -3,12 +3,12 @@ title: Skapa en Azure DevTest Labs anpassad avbildning från en virtuell dator |
 description: Lär dig hur du skapar en anpassad avbildning i Azure DevTest Labs från en etablerad virtuell dator med hjälp av Azure Portal
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 597ef49b667cf613b721c645e09f8e6dcb157011
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad45ed6eb7f97e14ec0ca0bb89efb2967c90fc16
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476605"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87277035"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Skapa en anpassad avbildning från en virtuell dator
 
@@ -43,7 +43,7 @@ Du kan skapa en anpassad avbildning från en etablerad virtuell dator och sedan 
 
 ## <a name="related-blog-posts"></a>Relaterade blogg inlägg
 
-- [Anpassade bilder eller formler?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Anpassade bilder eller formler?](./devtest-lab-faq.md#blog-post)
 - [Kopiera anpassade bilder mellan Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Nästa steg

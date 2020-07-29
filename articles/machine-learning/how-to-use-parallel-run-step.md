@@ -11,12 +11,12 @@ ms.author: tracych
 author: tracychms
 ms.date: 07/16/2020
 ms.custom: Build2020, tracking-python
-ms.openlocfilehash: 23fe2704cb74a5dc1411d5556dd6f3bbbac8937a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 475c5b3073b25c79b57a2ab507af642a8af3547f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047982"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288870"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Kör batch-härledning på stora mängder data med hjälp av Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,15 +27,15 @@ Med ParallelRunStep är det enkelt att skala offline-inferences till stora klust
 
 I den här artikeln får du lära dig följande uppgifter:
 
-> * Konfigurera Machine Learning-resurser.
-> * Konfigurera indata och utdata för batch-datahärledning.
-> * Förbered den förtränade avbildnings klassificerings modellen baserat på [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) -datauppsättningen. 
-> * Skriv ditt härlednings skript.
-> * Skapa en [pipeline för maskin inlärning](concept-ml-pipelines.md) som innehåller ParallelRunStep och kör batch-härledning på MNIST-testavbildningar. 
-> * Skicka en ny körnings härledning igen med nya indata och parametrar. 
-> * Granska resultaten.
+> 1. Konfigurera Machine Learning-resurser.
+> 1. Konfigurera indata och utdata för batch-datahärledning.
+> 1. Förbered den förtränade avbildnings klassificerings modellen baserat på [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) -datauppsättningen. 
+> 1.  Skriv ditt härlednings skript.
+> 1. Skapa en [pipeline för maskin inlärning](concept-ml-pipelines.md) som innehåller ParallelRunStep och kör batch-härledning på MNIST-testavbildningar. 
+> 1. Skicka en ny körnings härledning igen med nya indata och parametrar. 
+> 1. Granska resultaten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -205,16 +205,16 @@ model = Model.register(model_path="models/",
 Skriptet *måste innehålla* två funktioner:
 - `init()`: Använd den här funktionen för eventuell kostsam eller vanlig förberedelse för senare härledning. Använd till exempel den för att läsa in modellen i ett globalt objekt. Den här funktionen kommer endast att anropas en gång i början av processen.
 -  `run(mini_batch)`: Funktionen kommer att köras för varje `mini_batch` instans.
-    -  `mini_batch`: ParallelRunStep kommer att anropa Run-metoden och skicka antingen en lista eller Pandas DataFrame som ett argument till metoden. Varje post i mini_batch blir en fil Sök väg om indata är en FileDataset, en Pandas DataFrame om indata är en TabularDataset.
-    -  `response`: Run ()-metoden ska returnera en Pandas-DataFrame eller en matris. För append_row output_action läggs dessa returnerade element till i den gemensamma utdatafilen. För summary_only ignoreras innehållet i elementen. För alla utdata-åtgärder anger varje returnerat utdata en lyckad körning av indata-element i mini-batch för indata. Se till att tillräckligt med data inkluderas i körnings resultatet för att mappa indata till att köra resultatet av utdata. Kör utdata skrivs i utdatafilen och är inte garanterat i ordning, du bör använda vissa nycklar i utdata för att mappa den till indata.
+    -  `mini_batch`: `ParallelRunStep` anropar Run-metoden och skickar antingen en lista eller en Pandas `DataFrame` som ett argument till metoden. Varje post i mini_batch är en fil Sök väg om indata är en `FileDataset` eller en Pandas `DataFrame` om indata är en `TabularDataset` .
+    -  `response`: Run ()-metoden ska returnera en Pandas `DataFrame` eller en matris. För append_row output_action läggs dessa returnerade element till i den gemensamma utdatafilen. För summary_only ignoreras innehållet i elementen. För alla utdata-åtgärder anger varje returnerat utdata en lyckad körning av indata-element i mini-batch för indata. Se till att tillräckligt med data inkluderas i körnings resultatet för att mappa indata till att köra resultatet av utdata. Kör utdata skrivs i utdatafilen och är inte garanterat i ordning, du bör använda vissa nycklar i utdata för att mappa den till indata.
 
 ```python
+%%writefile digit_identification.py
 # Snippets from a sample script.
 # Refer to the accompanying digit_identification.py
 # (https://aka.ms/batch-inference-notebooks)
 # for the implementation script.
 
-%%writefile digit_identification.py
 import os
 import numpy as np
 import tensorflow as tf
@@ -289,7 +289,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 
 `ParallelRunConfig`är den viktigaste konfigurationen för `ParallelRunStep` instansen i Azure Machine Learning pipelinen. Du använder den för att omsluta ditt skript och konfigurera nödvändiga parametrar, inklusive alla följande poster:
 - `entry_script`: Ett användar skript som en lokal fil Sök väg som ska köras parallellt på flera noder. Om `source_directory` det finns använder du en relativ sökväg. Annars använder du valfri sökväg som är tillgänglig på datorn.
-- `mini_batch_size`: Den mini-batch-storlek som skickas till ett enda `run()` anrop. (valfritt; standardvärdet är `10` filer för FileDataset och `1MB` för TabularDataset.)
+- `mini_batch_size`: Den mini-batch-storlek som skickas till ett enda `run()` anrop. (valfritt; standardvärdet är `10` filer för `FileDataset` och `1MB` for `TabularDataset` .)
     - För är `FileDataset` det antalet filer med minimivärdet `1` . Du kan kombinera flera filer i en mini-batch.
     - För är `TabularDataset` det data storleken. Exempel värden är `1024` , `1024KB` , `10MB` och `1GB` . Det rekommenderade värdet är `1MB` . Mini-batch från `TabularDataset` kommer aldrig att överskrida fil gränser. Om du till exempel har CSV-filer med olika storlekar är den minsta filen 100 KB och störst är 10 MB. Om du anger `mini_batch_size = 1MB` kommer filer med en storlek som är mindre än 1 MB att behandlas som en mini-batch. Filer med en storlek som är större än 1 MB delas upp i flera mini-batchar.
 - `error_threshold`: Antalet post-och fil haverier `TabularDataset` `FileDataset` som ska ignoreras under bearbetningen. Om antalet fel för hela inflödet överskrider det här värdet kommer jobbet att avbrytas. Fel tröskeln är för alla indatatyper och inte för enskilda mini-batchar som skickas till- `run()` metoden. Intervallet är `[-1, int.max]` . `-1`Delen indikerar att ignorera alla avbrott under bearbetningen.
@@ -306,7 +306,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 - `run_invocation_timeout`: `run()` Tids gränsen för metod anrop i sekunder. (valfritt; standardvärdet är `60` )
 - `run_max_try`: Maximalt antal försök `run()` för en mini-batch. A `run()` Miss lyckas om ett undantag genereras eller om inget returneras när `run_invocation_timeout` nås (valfritt `3` ). 
 
-Du kan ange `mini_batch_size` , `node_count` ,,, `process_count_per_node` `logging_level` `run_invocation_timeout` och `run_max_try` som `PipelineParameter` , så att du kan finjustera parametervärdena när du skickar om en pipeline-körning. I det här exemplet använder du PipelineParameter för `mini_batch_size` och `Process_count_per_node` och du kommer att ändra dessa värden när du skickar om en körning senare. 
+Du kan ange `mini_batch_size` , `node_count` ,,, `process_count_per_node` `logging_level` `run_invocation_timeout` och `run_max_try` som `PipelineParameter` , så att du kan finjustera parametervärdena när du skickar om en pipeline-körning. I det här exemplet använder du `PipelineParameter` för `mini_batch_size` och `Process_count_per_node` och du kommer att ändra dessa värden när du skickar om en körning senare. 
 
 I det här exemplet förutsätter vi att du använder `digit_identification.py` skriptet som diskuterades tidigare. Om du använder ett eget skript ändrar du `source_directory` parametrarna och `entry_script` .
 
@@ -396,7 +396,7 @@ pipeline_run_2.wait_for_completion(show_output=True)
 ```
 ## <a name="view-the-results"></a>Visa resultatet
 
-Resultaten från ovanstående körning skrivs till data lagret som anges i PipelineData-objektet som utdata, som i det här fallet kallas *inferences*. Resultaten lagras i standard-BLOB-behållaren, du kan navigera till ditt lagrings konto och Visa Storage Explorer, fil Sök vägen är azureml-blobstore-*GUID*/azureml/*RunId* / *output_dir*.
+Resultaten från ovanstående körning skrivs till den `DataStore` som anges i `PipelineData` objektet som utdata, som i det här fallet kallas *inferences*. Resultaten lagras i standard-BLOB-behållaren, du kan navigera till ditt lagrings konto och Visa Storage Explorer, fil Sök vägen är azureml-blobstore-*GUID*/azureml/*RunId* / *output_dir*.
 
 Du kan också hämta dessa data för att visa resultatet. Nedan visas exempel koden för att visa de första 10 raderna.
 

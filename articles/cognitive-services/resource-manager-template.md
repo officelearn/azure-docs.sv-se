@@ -6,15 +6,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: quickstart
-ms.date: 06/18/2020
+ms.date: 07/27/2020
 ms.author: aahi
 ms.custom: subject-armqs
-ms.openlocfilehash: fbaa10ec8a0b48d40644bb90144d89f53ab52563
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 9ecbd7778480d37fb0a0cf135d3cc5db48bf2add
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513530"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323663"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Snabb start: skapa en Cognitive Services resurs med en ARM-mall
 
@@ -24,7 +24,7 @@ Använd den här artikeln för att skapa och distribuera en Cognitive Services r
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
 
 [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cognitive-services-universalkey%2Fazuredeploy.json)
 
@@ -34,7 +34,7 @@ Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mall
 
 ## <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-cognitive-services-universalkey/).
+Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-cognitive-services-universalkey/).
 
 :::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json" highlight="27-41":::
 
@@ -43,7 +43,7 @@ En Azure-resurs har definierats i mallen:
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 1. Klicka på knappen **distribuera till Azure** .
 
@@ -57,13 +57,12 @@ En Azure-resurs har definierats i mallen:
     | **Resursgrupp** | Välj **Skapa ny**, ange ett unikt namn för resurs gruppen och klicka sedan på **OK**. |
     | **Region** | Välj en region.  Till exempel **USA, östra** |
     | **Kognitivt tjänst namn** | Ersätt med ett unikt namn för din resurs. Du kommer att behöva namnet i nästa avsnitt när du validerar distributionen. |
-    | **Position** | Ersätt med den region som används ovan. |
+    | **Plats** | Ersätt med den region som används ovan. |
     | **SKU** | [Pris nivån](https://azure.microsoft.com/pricing/details/cognitive-services/) för din resurs. |
     
     :::image type="content" source="media/arm-template/universal-key-portal-template.png" alt-text="Skärmen skapa resurs.":::
 
 3. Välj **Granska + skapa** och klicka sedan på **Skapa**. När resursen har slutfört distributionen markeras knappen **gå till resurs** .
-
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/CLI)
 
@@ -84,6 +83,8 @@ read
 ```
 
 ---
+
+[!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
 
 
 ## <a name="validate-the-deployment"></a>Verifiera distributionen
@@ -112,7 +113,7 @@ az cognitiveservices account list -g $resourceGroupName
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen tas även andra resurser som ingår i gruppen bort.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 1. I Azure-portalen expanderar du menyn på vänster sida för att öppna tjänstemenyn och väljer **Resursgrupper** för att visa listan över dina resursgrupper.
 2. Leta upp resurs gruppen som innehåller resursen som ska tas bort

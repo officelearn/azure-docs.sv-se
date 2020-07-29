@@ -6,17 +6,17 @@ ms.author: robb
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: fef975c9822cd44b94074874621e1c87a60ed27d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 380a1366994e970c208a6c3ad505414cb12bc0c2
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505456"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324105"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Skapa en klassisk måttavisering med en Resource Manager-mall
 > [!WARNING]
 > 
-> I den här artikeln beskrivs hur du skapar **klassiska mått varningar** med Resource Manager-mallar. De klassiska aviseringarna drogs tillbaka i augusti 2019 och ställdes in så att de var helt inaktuella i juni 2020. Du kan inte skapa nya klassiska offentliga aviseringar Azure. Vissa regionala versioner av Azure kan fortfarande ha alternativet, men vi föreslår att du i stället skapar [nya mått aviseringar](../../azure-monitor/platform/alerts-metric-near-real-time.md) med hjälp av mallar om det är möjligt. [Den här artikeln](alerts-metric-create-templates.md) innehåller information.
+> I den här artikeln beskrivs hur du skapar **klassiska mått varningar** med Resource Manager-mallar. De klassiska aviseringarna drogs tillbaka i augusti 2019 och ställdes in så att de var helt inaktuella i juni 2020. Du kan inte skapa nya klassiska offentliga aviseringar Azure. Vissa regionala versioner av Azure kan fortfarande ha alternativet, men vi föreslår att du i stället skapar [nya mått aviseringar](./alerts-metric-near-real-time.md) med hjälp av mallar om det är möjligt. [Den här artikeln](alerts-metric-create-templates.md) innehåller information.
 >
 
 Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/templates/template-syntax.md) för att konfigurera klassiska Azure-Metric-aviseringar. På så sätt kan du automatiskt konfigurera aviseringar för dina resurser när de skapas för att säkerställa att alla resurser övervakas korrekt.
@@ -400,5 +400,6 @@ En avisering i en Resource Manager-mall är oftast användbar när du skapar en 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Läs mer om aviseringar](alerts-overview.md)
-* [Lägg till diagnostikinställningar](../../azure-monitor/platform/diagnostic-settings-template.md) i Resource Manager-mallen
+* [Lägg till diagnostikinställningar](./diagnostic-settings-template.md) i Resource Manager-mallen
 * För JSON-syntax och egenskaper, se referens för [Microsoft. Insights/alertrules-](/azure/templates/microsoft.insights/alertrules) mallen.
+

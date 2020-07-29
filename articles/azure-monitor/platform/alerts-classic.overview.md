@@ -4,17 +4,17 @@ description: Klassiska varningar är inaktuella. Med aviseringar kan du övervak
 ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 7d120550d17dcac7410a259e131ad81feb0afdf9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 56dd601e8d961d65ec21eefcc2dd5fed5c75f9fe
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515962"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322371"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Vad är klassiska aviseringar i Microsoft Azure?
 
 > [!NOTE]
-> Den här artikeln beskriver hur du skapar äldre klassiska mått varningar. Azure Monitor har nu stöd för [nyare aviseringar i nästan real tid och nya aviserings upplevelser](../../azure-monitor/platform/alerts-overview.md). Klassiska aviseringar [dras tillbaka](./monitoring-classic-retirement.md), men fortfarande i begränsad användning för resurser som ännu inte stöder de nya aviseringarna. 
+> Den här artikeln beskriver hur du skapar äldre klassiska mått varningar. Azure Monitor har nu stöd för [nyare aviseringar i nästan real tid och nya aviserings upplevelser](./alerts-overview.md). Klassiska aviseringar [dras tillbaka](./monitoring-classic-retirement.md), men fortfarande i begränsad användning för resurser som ännu inte stöder de nya aviseringarna. 
 >
 
 Med aviseringar kan du konfigurera villkor över data och bli informerad när villkoren stämmer överens med de senaste övervaknings data.
@@ -40,8 +40,8 @@ De nyare mått aviseringarna har följande fördelar jämfört med de klassiska 
 - **Stöd för**flerdimensionella mått: du kan varna på dimensionella mått så att du kan övervaka ett intressant segment av måttet.
 - **Mer kontroll över mått villkor**: du kan definiera omfattande aviserings regler. De nya aviseringarna har stöd för övervakning av de högsta, lägsta, genomsnittliga och totala värdena för mått.
 - **Kombinerad övervakning av flera mått**: du kan övervaka flera mått (för närvarande upp till två mått) med en enda regel. En avisering utlöses om båda måtten bryter mot respektive tröskelvärde för den angivna tids perioden.
-- **Bättre meddelande system**: alla nyare aviseringar använder [Åtgärds grupper](../../azure-monitor/platform/action-groups.md), som heter grupper av meddelanden och åtgärder som kan återanvändas i flera aviseringar.  Klassiska mått varningar och äldre Log Analytics aviseringar använder inte åtgärds grupper. 
-- **Mått från loggar** (offentlig för hands version): loggdata som går till Log Analytics kan nu extraheras och omvandlas till Azure Monitor mått och sedan aviseras på precis som andra mått. Se [aviseringar (klassisk)](alerts-classic.overview.md) för terminologin som är speciell för klassiska aviseringar. 
+- **Bättre meddelande system**: alla nyare aviseringar använder [Åtgärds grupper](./action-groups.md), som heter grupper av meddelanden och åtgärder som kan återanvändas i flera aviseringar.  Klassiska mått varningar och äldre Log Analytics aviseringar använder inte åtgärds grupper. 
+- **Mått från loggar** (offentlig för hands version): loggdata som går till Log Analytics kan nu extraheras och omvandlas till Azure Monitor mått och sedan aviseras på precis som andra mått. Se [aviseringar (klassisk)]() för terminologin som är speciell för klassiska aviseringar. 
 
 
 ## <a name="classic-alerts-on-azure-monitor-data"></a>Klassiska varningar om Azure Monitor data
@@ -51,7 +51,7 @@ Det finns två typer av klassiska aviseringar tillgängliga – mått aviseringa
 
 * **Klassisk aktivitets logg aviseringar** – en strömmande logg avisering som utlöser en händelse post i aktivitets loggen som matchar filter villkoren. De här aviseringarna har bara ett tillstånd, "aktiverat". Aviserings motorn tillämpar bara filter villkoren för nya händelser. Den söker inte efter äldre poster. De här aviseringarna kan meddela dig när en ny Service Health incident inträffar eller när en användare eller ett program utför en åtgärd i din prenumeration, till exempel "ta bort virtuell dator".
 
-För resurs logg data som är tillgängliga via Azure Monitor dirigerar du data till Log Analytics och använder en logg frågas avisering. Log Analytics använder nu den [nya varnings metoden](../../azure-monitor/platform/alerts-overview.md) 
+För resurs logg data som är tillgängliga via Azure Monitor dirigerar du data till Log Analytics och använder en logg frågas avisering. Log Analytics använder nu den [nya varnings metoden](./alerts-overview.md) 
 
 I följande diagram sammanfattas data källor i Azure Monitor och hur du kan få aviseringar från dessa data.
 
@@ -68,7 +68,7 @@ Azure använder följande termer för att beskriva klassiska aviseringar och der
 ## <a name="how-do-i-receive-a-notification-from-an-azure-monitor-classic-alert"></a>Hur gör jag för att får du ett meddelande från en Azure Monitor klassisk avisering?
 Tidigare var Azure-aviseringar från olika tjänster använda sina egna inbyggda aviserings metoder. 
 
-Azure Monitor skapade en återanvändbar meddelande grupp som kallas *Åtgärds grupper*. Åtgärds grupper anger en uppsättning mottagare för ett meddelande. När en avisering aktive ras som refererar till åtgärds gruppen får alla mottagare den aviseringen. Med åtgärds grupper kan du återanvända en gruppering av mottagare (till exempel listan över samtals tekniker) över flera aviserings objekt. Åtgärds grupper har stöd för meddelanden genom att publicera till en webhook-URL förutom e-postadresser, SMS-nummer och ett antal andra åtgärder.  Mer information finns i [Åtgärds grupper](../../azure-monitor/platform/action-groups.md). 
+Azure Monitor skapade en återanvändbar meddelande grupp som kallas *Åtgärds grupper*. Åtgärds grupper anger en uppsättning mottagare för ett meddelande. När en avisering aktive ras som refererar till åtgärds gruppen får alla mottagare den aviseringen. Med åtgärds grupper kan du återanvända en gruppering av mottagare (till exempel listan över samtals tekniker) över flera aviserings objekt. Åtgärds grupper har stöd för meddelanden genom att publicera till en webhook-URL förutom e-postadresser, SMS-nummer och ett antal andra åtgärder.  Mer information finns i [Åtgärds grupper](./action-groups.md). 
 
 Äldre klassiska aktivitets logg varningar använder åtgärds grupper.
 
@@ -96,3 +96,4 @@ Hämta information om aviserings regler och konfigurera dem med hjälp av:
 * Granska [aktivitets logg aviseringens webhook-schema](activity-log-alerts-webhook.md)
 * Läs mer om [Åtgärds grupper](action-groups.md)
 * Konfigurera [nyare aviseringar](alerts-metric.md)
+

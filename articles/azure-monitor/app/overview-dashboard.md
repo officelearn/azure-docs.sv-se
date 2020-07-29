@@ -3,11 +3,12 @@ title: Översikts instrument panel för Azure Application Insights | Microsoft D
 description: Övervaka program med instrument panels funktionerna Azure Application insikter och översikt.
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: e5188972d9058b85a9765c7d33f6209b37245d7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c8aa4460a545f032eaa60560de00efff27ae1ef
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669904"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322541"
 ---
 # <a name="application-insights-overview-dashboard"></a>Instrument panel för Application Insights översikt
 
@@ -56,6 +57,7 @@ Om du väljer **Konfigurera panel inställningar** och anger ett anpassat tidsin
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Trattar](../../azure-monitor/app/usage-funnels.md)
-- [Kvarhållning](../../azure-monitor/app/usage-retention.md)
-- [Användarflöden](../../azure-monitor/app/usage-flows.md)
+- [Trattar](./usage-funnels.md)
+- [Kvarhållning](./usage-retention.md)
+- [Användarflöden](./usage-flows.md)
+

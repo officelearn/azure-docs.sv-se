@@ -6,35 +6,35 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: b8edbbc397a56f4fcf5b3ae070f04ca61659d98d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a66cb190309fb9e966392f57a251eff746bfa315
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045349"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321113"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Felsöka logg aviseringar i Azure Monitor  
 
 Den här artikeln visar hur du löser vanliga problem med logg aviseringar i Azure Monitor. Den innehåller också lösningar på vanliga problem med funktioner och konfiguration av logg aviseringar.
 
-Term *logg aviseringar* beskriver regler som utlöses baserat på en logg fråga i en [Azure Log Analytics-arbetsyta](../log-query/get-started-portal.md) eller i [Azure Application insikter](../log-query/log-query-overview.md). Lär dig mer om funktioner, terminologi och typer i [logg aviseringar i Azure Monitor](../platform/alerts-unified-log.md).
+Term *logg aviseringar* beskriver regler som utlöses baserat på en logg fråga i en [Azure Log Analytics-arbetsyta](../log-query/get-started-portal.md) eller i [Azure Application insikter](../log-query/log-query-overview.md). Lär dig mer om funktioner, terminologi och typer i [logg aviseringar i Azure Monitor](./alerts-unified-log.md).
 
 > [!NOTE]
-> Den här artikeln tar inte hänsyn till fall där Azure Portal visar en varnings regel som utlöses och en avisering inte utförs av en associerad åtgärds grupp. I sådana fall kan du läsa informationen i [skapa och hantera åtgärds grupper i Azure Portal](../platform/action-groups.md).
+> Den här artikeln tar inte hänsyn till fall där Azure Portal visar en varnings regel som utlöses och en avisering inte utförs av en associerad åtgärds grupp. I sådana fall kan du läsa informationen i [skapa och hantera åtgärds grupper i Azure Portal](./action-groups.md).
 
 ## <a name="log-alert-didnt-fire"></a>Logg aviseringen startades inte
 
-Här följer några vanliga orsaker till varför tillstånd för en konfigurerad [logg aviserings regel i Azure Monitor](../platform/alerts-log.md) inte visas [som *utlöst* när den förväntas](../platform/alerts-managing-alert-states.md).
+Här följer några vanliga orsaker till varför tillstånd för en konfigurerad [logg aviserings regel i Azure Monitor](./alerts-log.md) inte visas [som *utlöst* när den förväntas](./alerts-managing-alert-states.md).
 
 ### <a name="data-ingestion-time-for-logs"></a>Data hämtnings tid för loggar
 
-En logg avisering kör regelbundet din fråga baserat på [Log Analytics](../log-query/get-started-portal.md) eller [Application Insights](../log-query/log-query-overview.md). Eftersom Azure Monitor bearbetar många terabyte data från tusentals kunder från varierande källor över hela världen, är tjänsten sårbar för att variera tids fördröjningar. Mer information finns i data Inhämtnings [tid i Azure Monitor loggar](../platform/data-ingestion-time.md).
+En logg avisering kör regelbundet din fråga baserat på [Log Analytics](../log-query/get-started-portal.md) eller [Application Insights](../log-query/log-query-overview.md). Eftersom Azure Monitor bearbetar många terabyte data från tusentals kunder från varierande källor över hela världen, är tjänsten sårbar för att variera tids fördröjningar. Mer information finns i data Inhämtnings [tid i Azure Monitor loggar](./data-ingestion-time.md).
 
 För att undvika fördröjningar väntar systemet och gör om aviserings frågan flera gånger om den hittar nödvändiga data som inte har matats in ännu. Systemet har en exponentiellt ökande vänte tid. Logg aviseringen utlöses endast efter att data är tillgängliga, så fördröjningen kan bero på långsam inmatning av loggdata.
 
 ### <a name="incorrect-time-period-configured"></a>En felaktig tids period har kon figurer ATS
 
-Som det beskrivs i artikeln om [terminologi för logg aviseringar](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types)anger tids perioden som anges i konfigurationen tidsintervallet för frågan. Frågan returnerar endast poster som har skapats inom det här intervallet.
+Som det beskrivs i artikeln om [terminologi för logg aviseringar](./alerts-unified-log.md#log-search-alert-rule---definition-and-types)anger tids perioden som anges i konfigurationen tidsintervallet för frågan. Frågan returnerar endast poster som har skapats inom det här intervallet.
 
 Tids perioden begränsar de data som hämtas för en logg fråga för att förhindra missbruk, och den kringgår alla tids kommandon (t. ex. **sedan**) som används i en logg fråga. Om tids perioden till exempel är inställd på 60 minuter och frågan körs med 1:15 PM, används endast poster som skapats mellan 12:15 PM och 1:15 PM för logg frågan. Om logg frågan använder ett Time-kommando som **sedan används (1d)** använder frågan fortfarande data mellan 12:15 och 1:15 PM eftersom tids perioden har angetts till intervallet.
 
@@ -44,7 +44,7 @@ Kontrol lera att tids perioden i konfigurationen matchar din fråga. I exemplet 
 
 ### <a name="suppress-alerts-option-is-set"></a>Alternativet för att förhindra varningar har angetts
 
-Som beskrivs i steg 8 i artikeln om hur [du skapar en logg aviserings regel i Azure Portal](../platform/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal), visar logg aviseringar ett alternativ för att **förhindra** utlösare och meddelande åtgärder för en konfigurerad tids period. Därför kan du tänka på att en avisering inte har startats. Det var faktiskt Fire men undertryckdes.  
+Som beskrivs i steg 8 i artikeln om hur [du skapar en logg aviserings regel i Azure Portal](./alerts-log.md#create-a-log-alert-rule-with-the-azure-portal), visar logg aviseringar ett alternativ för att **förhindra** utlösare och meddelande åtgärder för en konfigurerad tids period. Därför kan du tänka på att en avisering inte har startats. Det var faktiskt Fire men undertryckdes.  
 
 ![Ignorera aviseringar](media/alert-log-troubleshoot/LogAlertSuppress.png)
 
@@ -83,11 +83,11 @@ Eftersom **aggregerad vid** har definierats för **timestamp**, sorteras data i 
 
 ## <a name="log-alert-fired-unnecessarily"></a>Logg aviseringen utlöstes i onödan
 
-En konfigurerad [logg aviserings regel i Azure Monitor](../platform/alerts-log.md) kan utlösas oväntad när du visar den i [Azure-aviseringar](../platform/alerts-managing-alert-states.md). I följande avsnitt beskrivs några vanliga orsaker.
+En konfigurerad [logg aviserings regel i Azure Monitor](./alerts-log.md) kan utlösas oväntad när du visar den i [Azure-aviseringar](./alerts-managing-alert-states.md). I följande avsnitt beskrivs några vanliga orsaker.
 
 ### <a name="alert-triggered-by-partial-data"></a>Avisering utlöst av partiella data
 
-Log Analytics och Application Insights utsätts för användnings fördröjning och bearbetning. När du kör en logg aviserings fråga kanske du upptäcker att inga data är tillgängliga eller att endast vissa data är tillgängliga. Mer information finns i logg data Inhämtnings [tid i Azure Monitor](../platform/data-ingestion-time.md).
+Log Analytics och Application Insights utsätts för användnings fördröjning och bearbetning. När du kör en logg aviserings fråga kanske du upptäcker att inga data är tillgängliga eller att endast vissa data är tillgängliga. Mer information finns i logg data Inhämtnings [tid i Azure Monitor](./data-ingestion-time.md).
 
 Beroende på hur du har konfigurerat varnings regeln kan fel utlösare inträffa om det inte finns några data eller ofullständiga data i loggar vid tidpunkten för aviserings körningen. I sådana fall rekommenderar vi att du ändrar aviserings frågan eller konfigurationen.
 
@@ -103,7 +103,7 @@ Rutan **fråga som ska utföras** är det som logg aviserings tjänsten körs p�
 
 ## <a name="log-alert-was-disabled"></a>Logg avisering har inaktiverats
 
-I följande avsnitt visas några orsaker till varför Azure Monitor kan inaktivera [logg varnings regeln](../platform/alerts-log.md).
+I följande avsnitt visas några orsaker till varför Azure Monitor kan inaktivera [logg varnings regeln](./alerts-log.md).
 
 ### <a name="resource-where-the-alert-was-created-no-longer-exists"></a>Resurs där aviseringen skapades finns inte längre
 
@@ -179,7 +179,7 @@ Följande exempel händelse i Azure aktivitets loggen är för en varnings regel
 Varje logg aviserings regel som skapas i Azure Monitor som en del av konfigurationen måste ange en analys fråga som aviserings tjänsten ska köras regelbundet. Analys frågan kan ha rätt syntax vid tidpunkten för att skapa eller uppdatera regeln. Men ibland under en viss tids period kan frågan som anges i logg aviserings regeln utveckla syntaxfel och orsaka att regel körningen inte fungerar. Några vanliga orsaker till varför en Analytics-fråga som finns i en logg aviserings regel kan utveckla fel:
 
 - Frågan skrivs för att [köras över flera resurser](../log-query/cross-workspace-query.md). Och en eller flera av de angivna resurserna finns inte längre.
-- [Måttet för mått mått typ logg aviseringen](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) som kon figurer ATS har en varnings fråga som inte överensstämmer med syntaxens norm
+- [Måttet för mått mått typ logg aviseringen](./alerts-unified-log.md#metric-measurement-alert-rules) som kon figurer ATS har en varnings fråga som inte överensstämmer med syntaxens norm
 - Det finns inget data flöde för analys plattformen. [Frågekörningen ger ett fel](https://dev.loganalytics.io/documentation/Using-the-API/Errors) eftersom det inte finns några data för den angivna frågan.
 - Ändringar i [frågespråket](/azure/kusto/query/) innehåller ett ändrat format för kommandon och funktioner. Den fråga som tillhandahölls tidigare i en varnings regel är inte längre giltig.
 
@@ -218,11 +218,12 @@ Om du har nått kvot gränsen kan följande steg hjälpa dig att lösa problemet
 
 #### <a name="from-api"></a>Från API
 
-- PowerShell- [Get-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule?view=azps-3.7.0)
-- REST API – [Lista efter prenumeration](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/listbysubscription)
+- PowerShell- [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule?view=azps-3.7.0)
+- REST API – [Lista efter prenumeration](/rest/api/monitor/scheduledqueryrules/listbysubscription)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [logg aviseringar i Azure](../platform/alerts-unified-log.md).
+- Lär dig mer om [logg aviseringar i Azure](./alerts-unified-log.md).
 - Läs mer om [Application Insights](../log-query/log-query-overview.md).
 - Läs mer om [logg frågor](../log-query/log-query-overview.md).
+

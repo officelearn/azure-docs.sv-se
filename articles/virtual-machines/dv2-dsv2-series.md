@@ -4,14 +4,15 @@ description: Specifikationer för virtuella datorer med Dv2 och Dsv2-serien.
 author: joelpelley
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 71d00da5cc0021aacbe849a541ff386cc6414ff2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5770a288ccf0ea540c4eef7277c4a8b70839ffc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84694645"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87269486"
 ---
 # <a name="dv2-and-dsv2-series"></a>Dv2- och DSv2-serien
 
@@ -31,13 +32,13 @@ Direktmigrering: stöds
 
 Minnes bebetjänings uppdateringar: stöds
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt data flöde för temporär lagring: IOPS/Read Mbit/s/Write Mbit/s | Maximalt antal datadiskar | Data flöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
-|---|---|---|---|---|---|---|---|
-| Standard_D1_v2 | 1  | 3.5 | 50  | 3 000/46/23    | 4  | 4 × 500  | 2/750   |
-| Standard_D2_v2 | 2  | 7   | 100 | 6 000/93/46    | 8  | 8 × 500  | 2/1500  |
-| Standard_D3_v2 | 4  | 14  | 200 | 12 000/187/93  | 16 | 16 × 500 | 4/3000  |
-| Standard_D4_v2 | 8  | 28  | 400 | 24 000/375/187 | 32 | 32 × 500 | 8/6000  |
-| Standard_D5_v2 | 16 | 56  | 800 | 48 000/750/375 | 64 | 64x500 | 8/12000 |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt data flöde för temporär lagring: IOPS/Read Mbit/s/Write Mbit/s | Maximalt antal datadiskar | Data flöde: IOPS | Maximalt antal nätverkskort | Förväntad nätverks bandbredd (Mbit/s) |
+|---|---|---|---|---|---|---|---|---|
+| Standard_D1_v2 | 1  | 3.5 | 50  | 3 000/46/23    | 4  | 4 × 500  | 2|750   |
+| Standard_D2_v2 | 2  | 7   | 100 | 6 000/93/46    | 8  | 8 × 500  | 2|1500  |
+| Standard_D3_v2 | 4  | 14  | 200 | 12 000/187/93  | 16 | 16 × 500 | 4|3000  |
+| Standard_D4_v2 | 8  | 28  | 400 | 24 000/375/187 | 32 | 32 × 500 | 8|6000  |
+| Standard_D5_v2 | 16 | 56  | 800 | 48 000/750/375 | 64 | 64x500 | 8|12000 |
 
 ## <a name="dsv2-series"></a>DSv2-serien
 
@@ -53,24 +54,28 @@ Direktmigrering: stöds
 
 Minnes bebetjänings uppdateringar: stöds
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt antal cachelagrade diskar: IOPS/MBps | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
-|---|---|---|---|---|---|---|---|
-| Standard_DS1_v2 | 1  | 3.5 | 7   | 4  | 4000/32 (43)    | 3200/48   | 2/750   |
-| Standard_DS2_v2 | 2  | 7   | 14  | 8  | 8000/64 (86)    | 6400/96   | 2/1500  |
-| Standard_DS3_v2 | 4  | 14  | 28  | 16 | 16000/128 (172) | 12800/192 | 4/3000  |
-| Standard_DS4_v2 | 8  | 28  | 56  | 32 | 32000/256 (344) | 25600/384 | 8/6000  |
-| Standard_DS5_v2 | 16 | 56  | 112 | 64 | 64000/512 (688) | 51200/768 | 8/12000 |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt antal cachelagrade diskar: IOPS/MBps | Maximalt antal nätverkskort|Förväntad nätverks bandbredd (Mbit/s) |
+|---|---|---|---|---|---|---|---|---|
+| Standard_DS1_v2 | 1  | 3.5 | 7   | 4  | 4000/32 (43)    | 3200/48   | 2|750   |
+| Standard_DS2_v2 | 2  | 7   | 14  | 8  | 8000/64 (86)    | 6400/96   | 2|1500  |
+| Standard_DS3_v2 | 4  | 14  | 28  | 16 | 16000/128 (172) | 12800/192 | 4|3000  |
+| Standard_DS4_v2 | 8  | 28  | 56  | 32 | 32000/256 (344) | 25600/384 | 8|6000  |
+| Standard_DS5_v2 | 16 | 56  | 112 | 64 | 64000/512 (688) | 51200/768 | 8|12000 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="other-sizes"></a>Andra storlekar
+## <a name="other-sizes-and-information"></a>Andra storlekar och information
 
-- [Generellt syfte](sizes-general.md)
+- [Generell användning](sizes-general.md)
 - [Minnesoptimerad](sizes-memory.md)
 - [Lagringsoptimerad](sizes-storage.md)
 - [GPU-optimerad](sizes-gpu.md)
 - [Databehandling med höga prestanda](sizes-hpc.md)
 - [Tidigare generationer](sizes-previous-gen.md)
+
+Pris kalkylator: [pris kalkylator](https://azure.microsoft.com/pricing/calculator/)
+
+Mer information om disk typer: [disk typer](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
 
 ## <a name="next-steps"></a>Nästa steg
 

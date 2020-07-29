@@ -3,16 +3,16 @@ title: Beroende spårning i Azure Application Insights | Microsoft Docs
 description: Övervaka beroende anrop från din lokala eller Microsoft Azure webb program med Application Insights.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 9980db352e5d2c342131e0d6a2cd1248adb10810
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a7f42c19c835e4f5c49f4d7aa91504b606a09f5b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067727"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321385"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Beroende spårning i Azure Application insikter 
 
-Ett *beroende* är en komponent som anropas av ditt program. Det är vanligtvis en tjänst som anropas med HTTP, en databas eller ett filsystem. [Application Insights](../../azure-monitor/app/app-insights-overview.md) mäter varaktigheten för beroende anrop, oavsett om den fungerar eller inte, tillsammans med ytterligare information som namn på beroendet och så vidare. Du kan undersöka vissa beroende anrop och korrelera dem med begär Anden och undantag.
+Ett *beroende* är en komponent som anropas av ditt program. Det är vanligtvis en tjänst som anropas med HTTP, en databas eller ett filsystem. [Application Insights](./app-insights-overview.md) mäter varaktigheten för beroende anrop, oavsett om den fungerar eller inte, tillsammans med ytterligare information som namn på beroendet och så vidare. Du kan undersöka vissa beroende anrop och korrelera dem med begär Anden och undantag.
 
 ## <a name="automatically-tracked-dependencies"></a>Automatiskt spårade beroenden
 
@@ -154,7 +154,7 @@ Här kan du se antalet misslyckade beroenden. Om du vill ha mer information om e
 
 ## <a name="logs-analytics"></a>Loggar (analys)
 
-Du kan spåra beroenden i [Kusto-frågespråket](/azure/kusto/query/). Här är några exempel.
+Du kan spåra beroenden i [Kusto-frågespråket](/azure/kusto/query/). Nedan visas några exempel.
 
 * Hitta eventuella misslyckade beroende anrop:
 
@@ -202,6 +202,7 @@ Precis som varje Application Insights SDK är beroende samlings modul också öp
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Undantag](../../azure-monitor/app/asp-net-exceptions.md)
-* [Sid data för användare &](../../azure-monitor/app/javascript.md)
-* [Tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Undantag](./asp-net-exceptions.md)
+* [Sid data för användare &](./javascript.md)
+* [Tillgänglighet](./monitor-web-app-availability.md)
+

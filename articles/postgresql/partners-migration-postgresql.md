@@ -7,11 +7,12 @@ manager: craigg
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2018
-ms.openlocfilehash: f9b3cde8ff0f3a1b97d53a1de72cb6c5c48a800c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c2de10f5fbacd689a9ae92eb1f7295cccea3fb6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76289789"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279269"
 ---
 # <a name="azure-database-for-postgresql-migration-partners"></a>Azure Database for PostgreSQL migrations partner
 Om du vill ha stöd för din Azure Database for PostgreSQL-lösning kan du välja bland en mängd olika branschledande partner och verktyg. I den här artikeln beskrivs Microsofts partner med migrations lösningar som har stöd för Azure Database for PostgreSQL.
@@ -27,7 +28,7 @@ Om du vill ha stöd för din Azure Database for PostgreSQL-lösning kan du välj
 | ![Pactera][6] |**Pactera**<br>PACTERA är ett globalt företag som erbjuder konsult-, Digital-, teknik-och drift tjänster till världens ledande företag. Från sina rötter i teknik till den senaste i den digitala omvandlingen ger de kunderna en konkurrens för gräns. Sina beprövade metoder och verktyg garanterar att dina data är säkra, autentiska och korrekta.|[Webbplats][pactera_website]<br>[Twitter][pactera_twitter]<br>[Kontakt][pactera_contact] | |
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om några av Microsofts andra partners finns på [webbplatsen för Microsoft-partner](https://partner.microsoft.com/en-US/).
+Mer information om några av Microsofts andra partners finns på [webbplatsen för Microsoft-partner](https://partner.microsoft.com/).
 
 <!--Image references-->
 [1]: ./media/partner-migration-postgresql/SNP_Logo.png

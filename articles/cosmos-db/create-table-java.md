@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
-ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 88a98c05b09d8e76159199fd5035a15d62bc293b
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: a430af4bd0cb8ec0db468ed4bfe605ce1fd3b8c2
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85115123"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322796"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>Snabb start: bygga en Java-app för att hantera Azure Cosmos DB Tabell-API data
 
@@ -182,7 +182,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
 
-## <a name="run-the-app"></a>Kör appen
+## <a name="run-the-app"></a>Köra appen
 
 1. I git-terminalfönstret lägger du till `cd` framför mappen storage-table-java-getting-started.
 

@@ -5,39 +5,41 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: sample
-ms.date: 04/05/2018
+ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 1f0541cd3ae7cf2c78d3cd2bf6844fed930e7968
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2abe23de5fbd2feada6ac8ff0a827b8575bcb28b
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85833155"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87172004"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Använda Azure Table Storage eller Azure Cosmos DB Table-API:et från Node.js
+
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-## <a name="overview"></a>Översikt
-Den här artikeln beskriver hur du utför vanliga scenarier med tjänsten Azure Storage Table eller Azure Cosmos DB i ett Node.js-program.
+Den här artikeln visar hur du skapar tabeller, lagrar data och utför CRUD-åtgärder på data. Välj antingen Azure-Table service eller Azure Cosmos DB Tabell-API. Exemplen skrivs i Node.js.
 
 ## <a name="create-an-azure-service-account"></a>Skapa ett Azure-tjänstkonto
 
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
+**Skapa ett Azure Storage-konto**
 
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett Azure Cosmos DB Table API-konto
+**Skapa ett Azure Cosmos DB Table API-konto**
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="configure-your-application-to-access-azure-storage-or-the-azure-cosmos-db-table-api"></a>Konfigurera ditt program för åtkomst till Azure Storage eller Azure Cosmos DB Table-API:et
+
 För att använda Azure Storage eller Azure Cosmos DB behöver du Azure Storage SDK för Node.js, som innehåller en uppsättning verktygsbibliotek som kommunicerar med Storage REST-tjänsterna.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Installera paketet med NPM (Node Package Manager)
+
 1. Använd ett kommandoradsgränssnitt som **PowerShell** (Windows), **Terminal** (Mac) eller **Bash** (Unix) och navigera till mappen där du skapade ditt program.
 2. Skriv **npm install azure-storage** i kommandofönstret. Kommandot returnerar utdata liknande dem i exemplet nedan.
 
@@ -57,34 +59,42 @@ För att använda Azure Storage eller Azure Cosmos DB behöver du Azure Storage 
 3. Du kan kontrollera att mappen **node_modules** har skapats genom att köra kommandot **ls** manuellt. I mappen hittar du paketet **azure storage**, som innehåller de bibliotek som du behöver för att få åtkomst till lagring.
 
 ### <a name="import-the-package"></a>Importera paketet
+
 Lägg till följande kod överst i filen **server.js** i ditt program:
 
 ```javascript
 var azure = require('azure-storage');
 ```
 
-## <a name="add-an-azure-storage-connection"></a>Lägga till en Azure Storage-anslutning
-Azure-modulen läser miljövariablerna AZURE_STORAGE_ACCOUNT och AZURE_STORAGE_ACCESS_KEY eller AZURE_STORAGE_CONNECTION_STRING och letar efter information som behövs för att ansluta till ditt Azure Storage-konto. Om dessa miljövariabler inte har definierats måste du ange kontoinformationen när du anropar **TableService**. Exempelvis skapas ett **TableService**-objekt i följande kod:
+## <a name="add-your-connection-string"></a>Lägg till din anslutnings sträng
+
+Du kan antingen ansluta till Azure Storage-kontot eller Azure Cosmos DB Tabell-API-kontot. Hämta anslutnings strängen baserat på vilken typ av konto som du använder.
+
+### <a name="add-an-azure-storage-connection"></a>Lägga till en Azure Storage-anslutning
+
+Azure-modulen läser miljövariablerna AZURE_STORAGE_ACCOUNT och AZURE_STORAGE_ACCESS_KEY eller AZURE_STORAGE_CONNECTION_STRING och letar efter information som behövs för att ansluta till ditt Azure Storage-konto. Om de här miljövariablerna inte har angetts måste du ange konto informationen när du anropar `TableService` . Följande kod skapar till exempel ett- `TableService` objekt:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
-## <a name="add-an-azure-cosmos-db-connection"></a>Lägga till en Azure Cosmos DB-anslutning
-Du lägger till en Azure Cosmos DB-anslutning genom att skapa ett **TableService**-objekt och ange ditt kontonamn, primärnyckeln och slutpunkten. Du kan kopiera dessa värden från **Inställningar**  >  **anslutnings sträng** i Azure Portal för ditt Cosmos DB-konto. Till exempel:
+### <a name="add-an-azure-cosmos-db-connection"></a>Lägga till en Azure Cosmos DB-anslutning
+
+Om du vill lägga till en Azure Cosmos DB anslutning skapar du ett- `TableService` objekt och anger ditt konto namn, primär nyckel och slut punkt. Du kan kopiera dessa värden från **Inställningar**  >  **anslutnings sträng** i Azure Portal för ditt Cosmos DB-konto. Till exempel:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
 ```
 
 ## <a name="create-a-table"></a>Skapa en tabell
-I följande kod skapas ett **TableService**-objekt som sedan används för att skapa en ny tabell.
+
+Följande kod skapar ett- `TableService` objekt och använder det för att skapa en ny tabell.
 
 ```javascript
 var tableSvc = azure.createTableService();
 ```
 
-Anropet till **createTableIfNotExists** skapar en ny tabell med det angivna namnet om tabellen inte redan finns. I följande exempel skapas en ny tabell med namnet ”mytable” om den inte redan finns:
+Anropet till `createTableIfNotExists` skapar en ny tabell med det angivna namnet om det inte redan finns. I följande exempel skapas en ny tabell med namnet ”mytable” om den inte redan finns:
 
 ```javascript
 tableSvc.createTableIfNotExists('mytable', function(error, result, response){
@@ -96,8 +106,9 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 
 `result.created` är `true` om en ny tabell skapas och `false` om tabellen redan finns. `response` innehåller information om begäran.
 
-### <a name="filters"></a>Filter
-Om du vill kan du tillämpa filtrering på åtgärder som utförs med **TableService**. Filtrerings åtgärder kan omfatta loggning, automatiska återförsök osv. Filter är objekt som implementerar en metod med signaturen:
+### <a name="apply-filters"></a>Använda filter
+
+Du kan använda valfri filtrering för åtgärder som utförs med `TableService` . Filtrerings åtgärder kan omfatta loggning, automatiska återförsök osv. Filter är objekt som implementerar en metod med signaturen:
 
 ```javascript
 function handle (requestOptions, next)
@@ -109,9 +120,9 @@ Efter den förberedande bearbetningen av alternativen för begäran måste metod
 function (returnObject, finalCallback, next)
 ```
 
-I det här återanropet, och efter bearbetningen av **returnObject** (svaret från begäran till servern), måste återanropet antingen fortsätta bearbetningen av andra filter genom att anropa **next** om det finns, eller avsluta tjänstanropet genom att anropa **finalCallback**.
+I det här återanropet, och efter bearbetning av `returnObject` (svaret från begäran till servern), måste återanropet antingen anropa `next` om det finns för att fortsätta att bearbeta andra filter eller bara anropa `finalCallback` för att avsluta tjänst anropet.
 
-Azure SDK för Node.js innehåller två filter som implementerar logik för omförsök: **ExponentialRetryPolicyFilter** och **LinearRetryPolicyFilter**. I följande kod skapas ett **TableService**-objekt som använder **ExponentialRetryPolicyFilter**:
+Två filter som implementerar logik för omprövning ingår i Azure SDK för Node.js `ExponentialRetryPolicyFilter** and ` LinearRetryPolicyFilter `. The following creates a ` TableService ` object that uses the ` ExponentialRetryPolicyFilter ':
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -119,6 +130,7 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 ```
 
 ## <a name="add-an-entity-to-a-table"></a>Lägga till en entitet i en tabell
+
 Du lägger till en entitet genom att först skapa ett objekt som definierar entitetens egenskaper. Alla entiteter måste innehålla en **PartitionKey** och **RowKey**, som är unika identifierare för entiteten.
 
 * **PartitionKey** – Anger i vilken partition entiteten lagras.
@@ -126,7 +138,7 @@ Du lägger till en entitet genom att först skapa ett objekt som definierar enti
 
 Både **PartitionKey** och **RowKey** måste vara strängvärden. Mer information finns i [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx) (Så här fungerar datamodellen för Table Storage).
 
-Följande är ett exempel på hur du definierar en entitet. Observera att **dueDate** definieras som en typ av **Edm.DateTime**. Typen är inte obligatorisk, och typer härleds om de inte anges.
+Följande är ett exempel på hur du definierar en entitet. **DueDate** definieras som en typ av `Edm.DateTime` . Typen är inte obligatorisk, och typer härleds om de inte anges.
 
 ```javascript
 var task = {
@@ -138,9 +150,9 @@ var task = {
 ```
 
 > [!NOTE]
-> Det finns också en **Timestamp** för varje post, som anges av Azure när en entitet infogas eller uppdateras.
+> Det finns också ett `Timestamp` fält för varje post, som anges av Azure när en entitet infogas eller uppdateras.
 
-Du kan också använda **entityGenerator** för att skapa entiteter. I följande exempel skapas samma uppgiftsentitet med hjälp av **entityGenerator**.
+Du kan också använda `entityGenerator` för att skapa entiteter. I följande exempel skapas samma entitet för aktiviteter med hjälp av `entityGenerator` .
 
 ```javascript
 var entGen = azure.TableUtilities.entityGenerator;
@@ -152,7 +164,7 @@ var task = {
 };
 ```
 
-Om du vill lägga till en entitet i en tabell anger du entitetsobjektet i metoden **insertEntity**.
+Om du vill lägga till en entitet i tabellen skickar du objektet Entity till- `insertEntity` metoden.
 
 ```javascript
 tableSvc.insertEntity('mytable',task, function (error, result, response) {
@@ -171,19 +183,20 @@ Exempelsvar:
 ```
 
 > [!NOTE]
-> Som standard returnerar inte **insertEntity** den infogade entiteten som en del av `response`-informationen. Om du planerar att utföra andra åtgärder med den här entiteten eller om du vill cachelagra informationen, kan det vara bra att returnera den som en del av `result`. Du kan göra det genom att aktivera **echoContent** på följande sätt:
+> Som standard `insertEntity` returnerar inte den infogade entiteten som en del av `response` informationen. Om du planerar att utföra andra åtgärder med den här entiteten eller om du vill cachelagra informationen, kan det vara bra att returnera den som en del av `result`. Du kan göra detta genom att aktivera följande `echoContent` :
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 
 ## <a name="update-an-entity"></a>Uppdatera en entitet
+
 Du kan uppdatera en befintlig entitet med hjälp av olika metoder:
 
-* **replaceEntity** – Uppdaterar en befintlig entitet genom att ersätta den.
-* **mergeEntity** – Uppdaterar en befintlig entitet genom att sammanfoga nya egenskapsvärden i den befintliga entiteten.
-* **insertOrReplaceEntity** – Uppdaterar en befintlig entitet genom att ersätta den. Om det inte finns någon entitet, infogas en ny.
-* **insertOrMergeEntity** – Uppdaterar en befintlig entitet genom att sammanfoga nya egenskapsvärden i den befintliga entiteten. Om det inte finns någon entitet, infogas en ny.
+* `replaceEntity`– Uppdaterar en befintlig entitet genom att ersätta den.
+* `mergeEntity`-Uppdaterar en befintlig entitet genom att sammanfoga nya egenskaps värden i den befintliga entiteten.
+* `insertOrReplaceEntity`– Uppdaterar en befintlig entitet genom att ersätta den. Om det inte finns någon entitet, infogas en ny.
+* `insertOrMergeEntity`-Uppdaterar en befintlig entitet genom att sammanfoga nya egenskaps värden i den befintliga. Om det inte finns någon entitet, infogas en ny.
 
-Exemplet nedan visar hur en entitet uppdateras med hjälp av **replaceEntity**:
+I följande exempel visas hur du uppdaterar en entitet med hjälp av `replaceEntity` :
 
 ```javascript
 tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
@@ -204,12 +217,13 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 >
 >
 
-Åtgärden misslyckas om du använder **replaceEntity** och **mergeEntity** och entiteten som uppdateras inte finns. Om du vill lagra en entitet oavsett om den redan finns eller inte använder du därför **insertOrReplaceEntity** eller **insertOrMergeEntity**.
+Med `replaceEntity` och `mergeEntity` , om den entitet som uppdateras inte finns, Miss lyckas uppdateringen. om du vill lagra en entitet oavsett om den redan finns använder du `insertOrReplaceEntity` eller `insertOrMergeEntity` .
 
 För lyckade uppdateringsåtgärder innehåller `result` den uppdaterade entitetens **Etag**.
 
 ## <a name="work-with-groups-of-entities"></a>Arbeta med grupper av entiteter
-Ibland är det praktiskt att skicka flera åtgärder tillsammans i en batch för att säkerställa atomisk bearbetning av servern. Om du vill göra det använder du klassen **TableBatch** för att skapa en batch, och använder sedan metoden **executeBatch** för **TableService** för att utföra batchåtgärderna.
+
+Ibland är det praktiskt att skicka flera åtgärder tillsammans i en batch för att säkerställa atomisk bearbetning av servern. För att åstadkomma detta använder du `TableBatch` klassen för att skapa en batch och använder sedan `executeBatch` metoden för `TableService` att utföra batch-operationen.
 
  Exemplet nedan beskriver hur du skickar två entiteter i en batch:
 
@@ -242,6 +256,7 @@ tableSvc.executeBatch('mytable', batch, function (error, result, response) {
 För lyckade batchåtgärder innehåller `result` information om varje åtgärd i batchen.
 
 ### <a name="work-with-batched-operations"></a>Arbeta med batchåtgärder
+
 Du kan inspektera åtgärder som lagts till i en batch genom att visa egenskapen `operations`. Du kan också arbeta med åtgärder med hjälp av följande metoder:
 
 * **clear** – Rensar alla åtgärder från en batch.
@@ -251,6 +266,7 @@ Du kan inspektera åtgärder som lagts till i en batch genom att visa egenskapen
 * **size** – Returnerar antalet åtgärder i batchen.
 
 ## <a name="retrieve-an-entity-by-key"></a>Hämta en entitet baserat på nyckel
+
 Om du vill returnera en specifik entitet baserat på **PartitionKey** och **RowKey** använder du metoden **retrieveEntity**.
 
 ```javascript
@@ -264,6 +280,7 @@ tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, res
 När den här åtgärden har slutförts innehåller `result` entiteten.
 
 ## <a name="query-a-set-of-entities"></a>Fråga efter en uppsättning entiteter
+
 Om du vill hämta data från en tabell använder du objektet **TableQuery** för att skapa ett frågeuttryck med hjälp av följande satser:
 
 * **select** – Fälten som ska returneras från frågan.
@@ -294,6 +311,7 @@ tableSvc.queryEntities('mytable',query, null, function(error, result, response) 
 Om åtgärden lyckas innehåller `result.entries` en matris med entiteter som matchar frågan. Om frågan inte kan returnera alla entiteter är `result.continuationToken` inte *null* och kan användas som den tredje parametern för **queryEntities** för att hämta fler resultat. I den ursprungliga frågan använder du *null* som den tredje parametern.
 
 ### <a name="query-a-subset-of-entity-properties"></a>Fråga en deluppsättning entitetsegenskaper
+
 En fråga till en tabell kan bara hämta några fält från en entitet.
 Detta minskar bandbredden och kan förbättra frågeprestanda, särskilt för stora entiteter. Använd **select**-satsen och ange namnen på fälten som ska returneras. Följande fråga returnerar till exempel bara **description**- och **dueDate**-fälten.
 
@@ -305,6 +323,7 @@ var query = new azure.TableQuery()
 ```
 
 ## <a name="delete-an-entity"></a>Ta bort en entitet
+
 Du kan ta bort en entitet med hjälp av dess partitions- och radnycklar. I det här exemplet innehåller **task1**-objektet **RowKey**- och **PartitionKey**-värdena för entiteten som ska tas bort. Objektet skickas sedan till metoden **deleteEntity**.
 
 ```javascript
@@ -326,6 +345,7 @@ tableSvc.deleteEntity('mytable', task, function(error, response){
 >
 
 ## <a name="delete-a-table"></a>Ta bort en tabell
+
 Följande kod tar bort en tabell från ett lagringskonto.
 
 ```javascript
@@ -339,6 +359,7 @@ tableSvc.deleteTable('mytable', function(error, response){
 Om du är osäker på om tabellen finns använder du **deleteTableIfExists**.
 
 ## <a name="use-continuation-tokens"></a>Använda fortsättningstoken
+
 Leta efter en fortsättningstoken när du frågar tabeller efter stora mängder resultat. Stora mängder data kan finnas tillgängliga för din fråga, som du kanske missar om du inte uppmärksammar en fortsättningstoken.
 
 **results**-objektet som returneras när du kör frågor mot entiteter anger en `continuationToken`-egenskap när den här typen av token finns. Du kan sedan använda denna token när du kör en fråga för att fortsätta att flytta mellan partitionen och tabellentiteterna.
@@ -367,6 +388,7 @@ Om du granskar `continuationToken`-objektet hittar du egenskaper som `nextPartit
 Du kan också använda `top` tillsammans med `continuationToken` för att ange sid storlek.
 
 ## <a name="work-with-shared-access-signatures"></a>Arbeta med signaturer för delad åtkomst
+
 Signaturer för delad åtkomst (SAS) är ett säkert sätt att ge detaljerad åtkomst till tabeller utan att ange namnet på eller nycklarna för ditt lagringskontot. SAS används ofta för att ge begränsad åtkomst till data, till exempel om du vill tillåta att en mobilapp frågar efter poster.
 
 Ett betrott program, till exempel en molnbaserad tjänst, genererar en SAS med hjälp av **generateSharedAccessSignature** för **TableService**, och delar den sedan med ett program som inte är betrott eller endast delvis betrott, t.ex. en mobilapp. Signaturen för delad åtkomst genereras med hjälp av en princip, som definierar mellan vilket start- och slutdatum signaturen för delad åtkomst är giltig, samt vilken åtkomstnivå SAS-innehavaren beviljas.
@@ -412,6 +434,7 @@ sharedTableService.queryEntities(query, null, function(error, result, response) 
 Eftersom signaturen för delad åtkomst endast genererades med frågebehörighet, returneras ett fel om du försöker infoga, uppdatera eller ta bort entiteter.
 
 ### <a name="access-control-lists"></a>Åtkomstkontrollistor
+
 Du kan också använda en åtkomstkontrollista (ACL) för att definiera åtkomstprincipen för en signatur för delad åtkomst. Detta är användbart om du vill att flera klienter ska kunna komma åt tabellen, men du vill använda olika åtkomstprinciper för varje klient.
 
 En åtkomstkontrollista implementeras med hjälp av en matris med åtkomstprinciper, med ett ID som associeras med varje princip. I följande exempel definieras två principer, en för ”user1” och en för ”user2”:
@@ -454,6 +477,7 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 Mer information finns i resurserna nedan.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.

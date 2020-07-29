@@ -1,6 +1,5 @@
 ---
-title: Kickstart experiment från exempel
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klassisk): starta experiment från exempel – Azure'
 description: Lär dig att använda exempel Machine Learning-experiment för att skapa nya experiment med Azure AI Gallery och Azure Machine Learning Studio (klassisk).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: 79251257e38c9a9b59f759192d3d536185396291
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b26864c5ad8280fe4857ccdb2ce6fbacf1ba47b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706026"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324938"
 ---
 # <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Skapa Azure Machine Learning Studio (klassiska) experiment från arbets exempel i Azure AI Gallery
+
+**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
+
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 

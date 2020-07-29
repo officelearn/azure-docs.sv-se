@@ -1,6 +1,6 @@
 ---
-title: Anslut till Windows Virtual Desktop blir 2019 från iOS – Azure
-description: Ansluta till virtuella Windows-datorer med iOS-klienten.
+title: Ansluta till Windows Virtual Desktop (klassisk) från iOS – Azure
+description: Så här ansluter du till Windows Virtual Desktop (klassisk) med iOS-klienten.
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 26c031710c96c42b1d5236332e445992de87616e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 06de85e23b1d6350a48735506c8931922d40b799
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087143"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270744"
 ---
-# <a name="connect-with-the-ios-client"></a>Ansluta med iOS-klienten
+# <a name="connect-to-windows-virtual-desktop-classic-with-the-ios-client"></a>Ansluta till Windows Virtual Desktop (klassisk) med iOS-klienten
 
 > Gäller för: iOS 13,0 eller senare. Kompatibel med iPhone, iPad och iPod touch.
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../connect-ios.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../connect-ios.md).
 
 Du kan komma åt Windows-resurser för virtuella skriv bord från din iOS-enhet med vår nedladdnings bara klient. I den här guiden får du lära dig hur du konfigurerar iOS-klienten.
 

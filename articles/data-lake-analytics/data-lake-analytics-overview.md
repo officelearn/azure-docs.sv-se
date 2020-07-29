@@ -2,17 +2,16 @@
 title: Översikt över Azure Data Lake Analytics
 description: Med Data Lake Analytics kan du driva din verksamhet med insikter som du har fått via dina molndata oavsett skala.
 services: data-lake-analytics
-ms.reviewer: jasonh
 ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
-ms.openlocfilehash: ec71883a174a60b22014edddce5b24d62e9c1761
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 01a38829056d8f96ddc1029fc4df5ec79414e8bb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132066"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321013"
 ---
 # <a name="what-is-azure-data-lake-analytics"></a>Vad är Azure Data Lake Analytics?
 

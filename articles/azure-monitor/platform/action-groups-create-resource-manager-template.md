@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a97fd56f1dc3409666ad86e81a7ac74fee076fa1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5c02812d4c97b94667fcddcb275243e7a9b36b29
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505694"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321912"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Skapa en åtgärds grupp med en Resource Manager-mall
 Den här artikeln visar hur du använder en [Azure Resource Manager-mall](../../azure-resource-manager/templates/template-syntax.md) för att konfigurera åtgärds grupper. Med hjälp av mallar kan du automatiskt konfigurera åtgärds grupper som kan återanvändas i vissa typer av aviseringar. Dessa åtgärds grupper säkerställer att alla rätt parter meddelas när en avisering utlöses.
@@ -163,6 +163,7 @@ Om du vill skapa en åtgärds grupp med hjälp av en Resource Manager-mall skapa
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om [Åtgärds grupper](../../azure-monitor/platform/action-groups.md).
+* Läs mer om [Åtgärds grupper](./action-groups.md).
 * Lär dig mer om [aviseringar](alerts-overview.md).
-* Lär dig hur du lägger till [aviseringar med hjälp av en Resource Manager-mall](../../azure-monitor/platform/alerts-activity-log.md).
+* Lär dig hur du lägger till [aviseringar med hjälp av en Resource Manager-mall](./alerts-activity-log.md).
+

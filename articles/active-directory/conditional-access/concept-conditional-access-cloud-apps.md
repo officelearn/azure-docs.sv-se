@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfdfcda0ce466299d57f79ba1e60a96309078587
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be80ff95cc03f8cf2a08e9ce92146fe5028dcb9c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84014357"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275280"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Villkorlig åtkomst: molnappar eller åtgärder
 
@@ -116,6 +117,7 @@ Förutom Microsoft-appar kan administratörer lägga till alla registrerade Azur
 - [Program som har lagts till från galleriet](../manage-apps/add-application-portal.md)
 - [Anpassade program som inte är i galleriet](../manage-apps/add-non-gallery-app.md)
 - [Äldre program som publicerats via app Delivery controllers och Networks](../manage-apps/secure-hybrid-access.md)
+- Program som använder [lösenordsbaserad enkel inloggning](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
 > [!NOTE]
 > Eftersom principen för villkorlig åtkomst anger kraven för åtkomst till en tjänst kan du inte använda den för ett klient program (offentligt/inbyggt). Andra ord som principen inte ställs in direkt på ett klient program (offentligt/inbyggt), men tillämpas när en klient anropar en tjänst. Till exempel gäller en princip uppsättning i SharePoint-tjänsten för klienter som anropar SharePoint. En princip som angetts för Exchange gäller försöket att komma åt e-postmeddelandet med Outlook-klienten. Det är anledningen till varför klient (offentliga/egna) program inte är tillgängliga för val i apparna för molnappar och alternativet för villkorlig åtkomst inte är tillgänglig i program inställningarna för klientens (offentliga/egna) program som är registrerade i din klient organisation. 

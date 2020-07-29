@@ -1,4 +1,4 @@
-- name: Windows Virtual Desktop Spring 2020-versionen
+- name: Windows Virtual Desktop
   href: index.yml
 - name: Översikt
   items:
@@ -6,7 +6,7 @@
       href: overview.md
     - name: Nyheter
       href: whats-new.md
-    - name: Dokumentation om 2019-versionen
+    - name: Dokumentation om Windows Virtual Desktop (klassisk)
       href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Självstudier
   items:

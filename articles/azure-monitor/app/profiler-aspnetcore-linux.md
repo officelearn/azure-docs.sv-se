@@ -6,24 +6,24 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6ef67addba2bcc96cfb51f9f217d7d43e729bdf4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f01eaf879e70406c6dbe17e6fc544f7aed367e8b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539915"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324122"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profil ASP.NET Core Azure Linux-webbappar med Application Insights Profiler
 
 Den här funktionen finns för närvarande som en förhandsversion.
 
-Ta reda på hur mycket tid som ägnas åt varje metod i Live-webbprogrammet när du använder [Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights Profiler är nu tillgängligt för ASP.NET Core webb program som finns i Linux på Azure App Service. Den här guiden innehåller steg-för-steg-instruktioner om hur profiler-spår kan samlas in för ASP.NET Core Linux-webbappar.
+Ta reda på hur mycket tid som ägnas åt varje metod i Live-webbprogrammet när du använder [Application Insights](./app-insights-overview.md). Application Insights Profiler är nu tillgängligt för ASP.NET Core webb program som finns i Linux på Azure App Service. Den här guiden innehåller steg-för-steg-instruktioner om hur profiler-spår kan samlas in för ASP.NET Core Linux-webbappar.
 
 När du har slutfört den här genom gången kan din app samla in profiler-spår som de spår som visas i bilden. I det här exemplet indikerar profilerings spårningen att en viss webbegäran är långsam på grund av den tid som krävs. Den frekventa *sökvägen* i koden som sakta appen är markerad med en flamma-ikon. **Om** -metoden i **HomeController** -avsnittet saktar ner webbappen eftersom metoden anropar funktionen **Thread. vilo läge** .
 
 ![Profiler-spår](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Följande instruktioner gäller för alla Windows-, Linux-och Mac-utvecklings miljöer:
 
 * Installera [.net Core SDK 2.1.2 eller senare](https://dotnet.microsoft.com/download/archives).
@@ -149,7 +149,7 @@ Mer distributions alternativ finns i [den här artikeln](../../app-service/conta
 
 ## <a name="add-application-insights-to-monitor-your-web-apps"></a>Lägg till Application Insights för att övervaka dina webb program
 
-1. [Skapa en Application Insights-resurs](./../../azure-monitor/app/create-new-resource.md ).
+1. [Skapa en Application Insights-resurs](./create-new-resource.md).
 
 2. Kopiera **iKey** -värdet för resursen Application Insights och ange följande inställningar i dina webbappar:
 
@@ -171,3 +171,4 @@ Mer distributions alternativ finns i [den här artikeln](../../app-service/conta
 Om du använder anpassade behållare som finns i Azure App Service följer du anvisningarna i [aktivera Service profiler för ett behållar ASP.net Core program](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) för att aktivera Application Insights profiler.
 
 Rapportera eventuella problem eller förslag till Application Insights GitHub-databasen: [ApplicationInsights-profilerare-AspNetCore: problem](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).
+

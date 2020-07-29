@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2019
 ms.author: raynew
-ms.openlocfilehash: ea5893f45962d67f4b6f3e9a261c65aa0ec926bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2994f68e4159c7c4aa7d82bef7a5891deb5055a0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75497853"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292818"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Redundansväxla och återställa fysiska servrar som replikeras till Azure
 
@@ -83,7 +84,7 @@ När du har växlat till Azure igen kan du skydda virtuella Azure-datorer genom 
 10. Kontrol lera följande scenarier där du inte kan återställa:
     - Om du använder antingen ESXi 5,5 kostnads fri utgåva eller vSphere 6 hypervisor Free Edition. Uppgradera till en annan version.
     - Om du har en fysisk server för Windows Server 2008 R2 SP1.
-    - Virtuella datorer som har [migrerats](migrate-overview.md#what-do-we-mean-by-migration).
+    - Virtuella datorer som har migrerats.
     - En virtuell dator som har flyttats till en annan resurs grupp.
     - En virtuell replik av Azure-dator som har tagits bort.
     - En replikerad virtuell Azure-dator som inte är skyddad (replikera till den lokala platsen).

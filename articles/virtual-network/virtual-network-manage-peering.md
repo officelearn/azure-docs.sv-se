@@ -1,6 +1,6 @@
 ---
 title: Skapa, ändra eller ta bort ett Azure Virtual Network-peering | Microsoft Docs
-description: Lär dig hur du skapar, ändrar eller tar bort en virtuell nätverks-peering.
+description: Skapa, ändra eller ta bort en virtuell nätverks-peering. Med peering av virtuella nätverk ansluter du virtuella nätverk i samma region och i flera regioner.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
-ms.openlocfilehash: d38b164e95b1791971f88f62e7eccfee8a59bd71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb59d30079c830ad7d6f3dbd5fb8d48e6cd06c67
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711110"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291865"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort en virtuell nätverks-peering
 
@@ -145,7 +146,7 @@ De konton som du använder för att arbeta med peering av virtuella nätverk må
 
 Om ditt konto inte har tilldelats någon av de tidigare rollerna, måste det tilldelas en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som har tilldelats nödvändiga åtgärder från följande tabell:
 
-| Åtgärd                                                          | Name |
+| Åtgärd                                                          | Namn |
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Krävs för att skapa en peering från ett virtuellt nätverk A till virtuellt nätverk B. virtuellt nätverk A måste vara ett virtuellt nätverk (Resource Manager)          |
 | Microsoft. Network/virtualNetworks/peer/Action                   | Krävs för att skapa en peering från virtuellt nätverk B (Resource Manager) till virtuellt nätverk A                                                       |

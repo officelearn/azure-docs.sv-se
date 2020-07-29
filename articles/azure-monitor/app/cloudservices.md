@@ -3,19 +3,19 @@ title: Application Insights för Azure Cloud Services | Microsoft Docs
 description: Övervaka webb- och arbetsroller effektivt med Application Insights
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: bf75bb145a3b0d7c861d3c92af972b39de11bcdf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2adcdcdc36fdd41b1f871acbea386beb1d7a9451
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075429"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318444"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure Cloud Services
 [Application Insights][start] kan övervaka [Azure Cloud Service-appar](https://azure.microsoft.com/services/cloud-services/) för tillgänglighet, prestanda, haverier och användning genom att kombinera data från Application Insights sdk: er med [Azure-diagnostik](../platform/diagnostics-extension-overview.md) data från moln tjänsterna. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
 
 ![Översikts instrument panel](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Innan du börjar behöver du:
 
 * En [Azure](https://azure.com) -prenumeration. Logga in med din Microsoft-konto för Windows, Xbox Live eller andra moln tjänster från Microsoft. 
@@ -31,9 +31,9 @@ Det här alternativet styr din app vid körning och ger dig all telemetri som du
 
 Om det här alternativet är allt du behöver så är du klar. 
 
-Nästa steg är att [Visa mått från din app](../../azure-monitor/platform/metrics-charts.md)och [fråga dina data med analyser](../log-query/log-query-overview.md). 
+Nästa steg är att [Visa mått från din app](../platform/metrics-charts.md)och [fråga dina data med analyser](../log-query/log-query-overview.md). 
 
-Om du vill övervaka prestanda i webbläsaren kanske du också vill ställa in [tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md) och [lägga till kod på dina webb sidor](../../azure-monitor/app/javascript.md).
+Om du vill övervaka prestanda i webbläsaren kanske du också vill ställa in [tillgänglighets test](./monitor-web-app-availability.md) och [lägga till kod på dina webb sidor](./javascript.md).
 
 I nästa avsnitt beskrivs följande ytterligare alternativ:
 
@@ -51,9 +51,9 @@ Telemetrin från din app lagras, analyseras och visas i en Azure-resurs av typen
 Varje resurs tillhör en resursgrupp. Resurs grupper används för att hantera kostnader, för att bevilja åtkomst till grupp medlemmar och för att distribuera uppdateringar i en enda koordinerad transaktion. Du kan till exempel [skriva ett skript för att distribuera](../../azure-resource-manager/templates/deploy-powershell.md) en moln tjänst i Azure och dess Application Insights övervakning av resurser i en enda åtgärd.
 
 ### <a name="resources-for-components"></a>Resurser för komponenter
-Vi rekommenderar att du skapar en separat resurs för varje komponent i din app. Det innebär att du skapar en resurs för varje webb roll och arbets roll. Du kan analysera varje komponent separat, men du skapar en [instrument panel](../../azure-monitor/app/overview-dashboard.md) som sammanför nyckel diagrammen från alla komponenter så att du kan jämföra och övervaka dem tillsammans i en enda vy. 
+Vi rekommenderar att du skapar en separat resurs för varje komponent i din app. Det innebär att du skapar en resurs för varje webb roll och arbets roll. Du kan analysera varje komponent separat, men du skapar en [instrument panel](./overview-dashboard.md) som sammanför nyckel diagrammen från alla komponenter så att du kan jämföra och övervaka dem tillsammans i en enda vy. 
 
-En annan metod är att skicka Telemetrin från mer än en roll till samma resurs, men [lägga till en dimensions egenskap till varje telemetri-objekt](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) som identifierar dess käll roll. I den här metoden visar mått diagram, till exempel undantag, vanligt vis en agg regering av antalet från de olika rollerna, men du kan segmentera diagrammet utifrån roll-ID: t, om det behövs. Du kan också filtrera sökningar efter samma dimension. Det här alternativet gör det lättare att Visa allting samtidigt, men det kan också leda till viss förvirring mellan rollerna.
+En annan metod är att skicka Telemetrin från mer än en roll till samma resurs, men [lägga till en dimensions egenskap till varje telemetri-objekt](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) som identifierar dess käll roll. I den här metoden visar mått diagram, till exempel undantag, vanligt vis en agg regering av antalet från de olika rollerna, men du kan segmentera diagrammet utifrån roll-ID: t, om det behövs. Du kan också filtrera sökningar efter samma dimension. Det här alternativet gör det lättare att Visa allting samtidigt, men det kan också leda till viss förvirring mellan rollerna.
 
 Webbläsartelemetri ingår vanligtvis i samma resurs som dess webbroll på serversidan.
 
@@ -68,7 +68,7 @@ Om du vill skicka Telemetrin till lämpliga resurser kan du konfigurera Applicat
 
 ## <a name="create-an-application-insights-resource-for-each-role"></a>Skapa en Application Insights-resurs för varje roll
 
-Om du har bestämt dig för att skapa en separat resurs för varje roll, och kanske en separat uppsättning för varje versions konfiguration, är det enklast att skapa dem på Application Insights Portal. Om du skapar resurser mycket kan du [automatisera processen](../../azure-monitor/app/powershell.md).
+Om du har bestämt dig för att skapa en separat resurs för varje roll, och kanske en separat uppsättning för varje versions konfiguration, är det enklast att skapa dem på Application Insights Portal. Om du skapar resurser mycket kan du [automatisera processen](./powershell.md).
 
 1. I [Azure Portal][portal]väljer du **nya**  >  **Developer Services**  >  **Application Insights**.  
 
@@ -92,7 +92,7 @@ Om du har valt att använda en separat Application Insights-resurs för varje ve
 
 Detta innebär att du kan lägga till Application Insights Instrumentation-nycklar i filerna med namnet *ServiceConfiguration. \* . cscfg*. Här är [exempel koden](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
 
-Om du vill variera graden av diagnostikinformation som skickas till Application Insights kan du göra det [genom att redigera *. cscfg* -filerna direkt](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+Om du vill variera graden av diagnostikinformation som skickas till Application Insights kan du göra det [genom att redigera *. cscfg* -filerna direkt](../platform/diagnostics-extension-to-application-insights.md).
 
 ## <a name="install-the-sdk-in-each-project"></a><a name="sdk"></a>Installera SDK i varje projekt
 Med det här alternativet kan du lägga till anpassad affärstelemetri till vilken roll som helst. Alternativet ger en närmare analys av hur din app används och fungerar.
@@ -165,7 +165,7 @@ Det här steget behövs bara om du vill samla in fullständiga SQL-frågor på .
 
 1. Öppna Application Insights resurser som du har skapat.
 
-   Enskilda data punkter visas i [sökningen][diagnostic]och sammanställda data visas i [Metric Explorer](../../azure-monitor/platform/metrics-charts.md).
+   Enskilda data punkter visas i [sökningen][diagnostic]och sammanställda data visas i [Metric Explorer](../platform/metrics-charts.md).
 
 1. Lägg till mer telemetri (se nästa avsnitt) och publicera sedan din app för att få Live-diagnostik och användnings feedback. 
 
@@ -184,11 +184,11 @@ Du kan hitta [Azure-diagnostik](../platform/diagnostics-extension-overview.md) i
 * Windows-händelseloggar visas som spårningar och anpassade händelser.
 * Programloggar, ETW-loggar och diagnostikinfrastrukturloggar visas som spårningar.
 
-Om du vill visa prestanda räknare och antal händelser öppnar du [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) och lägger till följande diagram:
+Om du vill visa prestanda räknare och antal händelser öppnar du [Metrics Explorer](../platform/metrics-charts.md) och lägger till följande diagram:
 
 ![Azure-diagnostik data](./media/cloudservices/23-wad.png)
 
-Om du vill söka bland de olika spårnings loggar som skickas av Azure-diagnostik använder du [Sök](../../azure-monitor/app/diagnostic-search.md) eller en [analys fråga](../../azure-monitor/log-query/get-started-portal.md). Anta till exempel att du har ett ohanterat undantag som har orsakat en roll för krasch och åter användning. Den här informationen skulle visas i kanalen Program i Windows-händelseloggen. Du kan använda Sök för att visa händelse loggen för Windows och hämta fullständig stack spårning för undantags felet. Detta hjälper dig att hitta orsaken till problemet.
+Om du vill söka bland de olika spårnings loggar som skickas av Azure-diagnostik använder du [Sök](./diagnostic-search.md) eller en [analys fråga](../log-query/get-started-portal.md). Anta till exempel att du har ett ohanterat undantag som har orsakat en roll för krasch och åter användning. Den här informationen skulle visas i kanalen Program i Windows-händelseloggen. Du kan använda Sök för att visa händelse loggen för Windows och hämta fullständig stack spårning för undantags felet. Detta hjälper dig att hitta orsaken till problemet.
 
 ![Azure-diagnostik Sök](./media/cloudservices/25-wad.png)
 
@@ -205,7 +205,7 @@ Se de två exempel Worker-arbetsrollerna som instrumenteras till rapport begär 
 * [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)
 
 ## <a name="exceptions"></a>Undantag
-Information om hur du samlar in ohanterade undantag från olika typer av webbapp finns [i övervaknings undantag i Application Insights](../../azure-monitor/app/asp-net-exceptions.md).
+Information om hur du samlar in ohanterade undantag från olika typer av webbapp finns [i övervaknings undantag i Application Insights](./asp-net-exceptions.md).
 
 Exempelwebbrollen har MVC5- och Web API 2-styrenheter. De ohanterade undantagen från de två samlas in med följande hanterare:
 
@@ -255,11 +255,11 @@ Om du vill hämta webbläsarbaserad telemetri, till exempel antal sid visningar,
 [Konfigurera webbtester][availability]för att se till att appen hålls Live och svarar.
 
 ## <a name="display-everything-together"></a>Visa allt tillsammans
-För en övergripande bild av systemet kan du Visa viktiga övervaknings diagram på en [instrument panel](../../azure-monitor/app/overview-dashboard.md). Du kan till exempel fästa antalet begäranden och fel för varje roll. 
+För en övergripande bild av systemet kan du Visa viktiga övervaknings diagram på en [instrument panel](./overview-dashboard.md). Du kan till exempel fästa antalet begäranden och fel för varje roll. 
 
 Om systemet använder andra Azure-tjänster, till exempel Stream Analytics, inkluderar du även övervaknings diagrammen. 
 
-Om du har en klientmobilapp använder du [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Skapa frågor i [Analytics](../log-query/log-query-overview.md) för att visa antalet händelser och fäst dem på instrumentpanelen.
+Om du har en klientmobilapp använder du [App Center](../learn/mobile-center-quickstart.md). Skapa frågor i [Analytics](../log-query/log-query-overview.md) för att visa antalet händelser och fäst dem på instrumentpanelen.
 
 ## <a name="example"></a>Exempel
 [Exemplet](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) övervakar en tjänst som har en webbroll och två arbetsroller.
@@ -272,18 +272,19 @@ Utvecklade du för .NET 4.6? .NET 4,6 stöds inte automatiskt i Azure Cloud Serv
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Nästa steg
-* [Konfigurera Azure Diagnostics-överföring till Application Insights](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Skapa Application Insights-resurser automatiskt](../../azure-monitor/app/powershell.md)
-* [Automatisera Azure-diagnostik](../../azure-monitor/app/powershell-azure-diagnostics.md)
+* [Konfigurera Azure Diagnostics-överföring till Application Insights](../platform/diagnostics-extension-to-application-insights.md)
+* [Skapa Application Insights-resurser automatiskt](./powershell.md)
+* [Automatisera Azure-diagnostik](./powershell-azure-diagnostics.md)
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[azure]: ../../azure-monitor/app/app-insights-overview.md
-[client]: ../../azure-monitor/app/javascript.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
+[api]: ./api-custom-events-metrics.md
+[availability]: ./monitor-web-app-availability.md
+[azure]: ./app-insights-overview.md
+[client]: ./javascript.md
+[diagnostic]: ./diagnostic-search.md
+[netlogs]: ./asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
 [qna]: ../faq.md
-[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[redfield]: ./monitor-performance-live-website-now.md
+[start]: ./app-insights-overview.md
+

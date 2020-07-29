@@ -1,6 +1,6 @@
 ---
-title: Översikt över fel sökning av Windows Virtual Desktop – hösten 2019 – Azure
-description: En översikt för fel sökning av problem när du konfigurerar en Windows-miljö för virtuella Skriv bords klienter.
+title: Översikt över fel sökning av Windows Virtual Desktop (klassisk) – Azure
+description: En översikt för fel sökning av problem när du konfigurerar en Windows Virtual Desktop (klassisk) klient miljö.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 82ac5a8178973396c4c1975cb1c84d23e61430f7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: efcdc203884a5aaff3b02e730f1dddb7fff66e95
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87069937"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289825"
 ---
-# <a name="troubleshooting-overview-feedback-and-support"></a>Översikt, feedback och support för felsökning
+#  <a name="windows-virtual-desktop-classic-troubleshooting-overview-feedback-and-support"></a>Översikt över fel sökning av virtuella Windows-datorer (klassisk), feedback och support
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../troubleshoot-set-up-overview.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../troubleshoot-set-up-overview.md).
 
 Den här artikeln innehåller en översikt över de problem som du kan stöta på när du konfigurerar en Windows-klient för virtuella skriv bord och ger lösningar på problemen.
 

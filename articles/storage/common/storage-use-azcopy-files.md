@@ -4,15 +4,15 @@ description: Överföra data med AzCopy och fil lagring.
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a836f4ce40f4d2e0871f99122d25bb6c6f346d05
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7123a90505e5068422d76f22042deac46e721218
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527888"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292716"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Överföra data med AzCopy och fillagring 
 
@@ -53,8 +53,8 @@ Det här avsnittet innehåller följande exempel:
 > |---|---|
 > |Kopiera åtkomst kontrol listor (ACL: er) tillsammans med filerna.|**--bevara-SMB-Permissions** = \[ Sant \| falskt\]|
 > |Kopiera information om SMB-egenskaper tillsammans med filerna.|**--Behåll-SMB-info** = \[ Sant \| falskt\]|
-> |Ladda upp filer som bifogade blobbar eller Page blobbar.|**--BLOB-Type** = \[ BlockBlob \| PageBlob- \| AppendBlob\]|
-> |Överför till en speciell åtkomst nivå (till exempel Arkiv nivån).|**--Block-Blob-Tier** = \[ Inget \| varmt \| coolt \| Arkiv\]|
+> |Ladda upp filer som bifogade blobar eller sidblobar.|**--BLOB-Type** = \[ BlockBlob \| PageBlob- \| AppendBlob\]|
+> |Ladda upp till en viss åtkomstnivå (till exempel arkivnivå).|**--Block-Blob-Tier** = \[ Inget \| varmt \| coolt \| Arkiv\]|
 > 
 > En fullständig lista finns i [alternativ](storage-ref-azcopy-copy.md#options).
 
@@ -101,7 +101,7 @@ Du kan ladda upp innehållet i en katalog utan att kopiera den innehåller själ
 
 ### <a name="upload-specific-files"></a>Ladda upp vissa filer
 
-Du kan ange fullständiga fil namn eller använda partiella namn med jokertecken (*).
+Du kan ladda upp vissa filer genom att använda fullständiga fil namn, partiella namn med jokertecken (*) eller med hjälp av datum och tider.
 
 #### <a name="specify-multiple-complete-file-names"></a>Ange flera fullständiga fil namn
 
@@ -128,6 +128,17 @@ Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-patt
 Du kan också utesluta filer med hjälp av `--exclude-pattern` alternativet. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
 
 `--include-pattern`Alternativen och `--exclude-pattern` gäller endast för fil namn och inte till sökvägen.  Om du vill kopiera alla textfiler som finns i ett katalog träd, använder du `–recursive` alternativet för att hämta hela katalog trädet och använder sedan `–include-pattern` och anger `*.txt` för att hämta alla textfiler.
+
+#### <a name="upload-files-that-were-modified-after-a-date-and-time"></a>Ladda upp filer som har ändrats efter datum och tid 
+
+Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-after` alternativet. Ange ett datum och en tid i ISO 8601-format (till exempel: `2020-08-19T15:04:00Z` ). 
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name><SAS-token>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **Exempel** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-after '2020-08-19T15:04:00Z'` |
+
+Mer detaljerad information finns i referens dokument för [AzCopy-kopiering](storage-ref-azcopy-copy.md) .
 
 ## <a name="download-files"></a>Hämta filer
 
@@ -185,7 +196,7 @@ Du kan ladda ned innehållet i en katalog utan att kopiera den innehåller själ
 
 ### <a name="download-specific-files"></a>Hämta vissa filer
 
-Du kan ange fullständiga fil namn eller använda partiella namn med jokertecken (*).
+Du kan hämta vissa filer genom att använda fullständiga fil namn, partiella namn med jokertecken (*) eller med hjälp av datum och tider.
 
 #### <a name="specify-multiple-complete-file-names"></a>Ange flera fullständiga fil namn
 
@@ -212,6 +223,18 @@ Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-patt
 Du kan också utesluta filer med hjälp av `--exclude-pattern` alternativet. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
 
 `--include-pattern`Alternativen och `--exclude-pattern` gäller endast för fil namn och inte till sökvägen.  Om du vill kopiera alla textfiler som finns i ett katalog träd, använder du `–recursive` alternativet för att hämta hela katalog trädet och använder sedan `–include-pattern` och anger `*.txt` för att hämta alla textfiler.
+
+#### <a name="download-files-that-were-modified-after-a-date-and-time"></a>Ladda ned filer som har ändrats efter datum och tid 
+
+Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-after` alternativet. Ange ett datum och en tid i ISO-8601-format (till exempel: `2020-08-19T15:04:00Z` ). 
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name>/*<SAS-token>' '<local-directory-path>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **Exempel** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/*?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory' --include-after '2020-08-19T15:04:00Z'` |
+
+
+Mer detaljerad information finns i referens dokument för [AzCopy-kopiering](storage-ref-azcopy-copy.md) .
 
 ## <a name="copy-files-between-storage-accounts"></a>Kopiera filer mellan lagringskonton
 

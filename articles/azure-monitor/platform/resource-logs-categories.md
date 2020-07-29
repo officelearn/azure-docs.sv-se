@@ -4,21 +4,21 @@ description: Referens för Azure Monitor förstå tjänster och händelse schema
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
-ms.openlocfilehash: ceca6b0a230de6d3eeab47e60d90767b33b5ac59
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 81f79b81c03e7996d7f6d45b002d8160740c3c14
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515401"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318308"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Kategorier som stöds för Azure-resurs loggar
 
 > [!NOTE]
 > Resurs loggar kallades tidigare för diagnostikloggar. Namnet ändrades i oktober 2019 när de typer av loggar som samlats in av Azure Monitor flyttas för att inkludera mer än bara Azure-resursen.
 
-[Azure Monitor resurs loggar](../../azure-monitor/platform/platform-logs-overview.md) genereras av Azure-tjänster som beskriver driften av dessa tjänster eller resurser. Alla resurs loggar som är tillgängliga via Azure Monitor dela ett gemensamt schema på högsta nivå, med flexibilitet för varje tjänst för att generera unika egenskaper för sina egna händelser.
+[Azure Monitor resurs loggar](./platform-logs-overview.md) genereras av Azure-tjänster som beskriver driften av dessa tjänster eller resurser. Alla resurs loggar som är tillgängliga via Azure Monitor dela ett gemensamt schema på högsta nivå, med flexibilitet för varje tjänst för att generera unika egenskaper för sina egna händelser.
 
-En kombination av resurs typen (tillgänglig i `resourceId` egenskapen) och `category` unikt identifiera ett schema. Det finns ett gemensamt schema för alla resurs loggar med tjänstspecifika fält och läggs till för olika logg kategorier. Mer information finns i [common and Service Specific schema för Azures resurs loggar](resource-logs-categories.md)
+En kombination av resurs typen (tillgänglig i `resourceId` egenskapen) och `category` unikt identifiera ett schema. Det finns ett gemensamt schema för alla resurs loggar med tjänstspecifika fält och läggs till för olika logg kategorier. Mer information finns i [common and Service Specific schema för Azures resurs loggar]()
 
 ## <a name="supported-log-categories-per-resource-type"></a>Logg kategorier som stöds per resurs typ
 
@@ -358,7 +358,7 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 |Kategori|Kategori visnings namn|
 |---|---|
-|AuditLogs|Spårningsloggar|
+|AuditLogs|Granskningsloggar|
 
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft. Insights/AutoscaleSettings
@@ -711,7 +711,8 @@ Om du fortfarande saknar något kan du öppna en GitHub-kommentar längst ned i 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs mer om resurs loggar](../../azure-monitor/platform/platform-logs-overview.md)
+* [Läs mer om resurs loggar](./platform-logs-overview.md)
 * [Strömma resurs resurs loggar till **Event Hubs**](./resource-logs.md#send-to-azure-event-hubs)
 * [Ändra diagnostikinställningar för resurs loggen med hjälp av Azure Monitor REST API](/rest/api/monitor/diagnosticsettings)
 * [Analysera loggar från Azure Storage med Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
+

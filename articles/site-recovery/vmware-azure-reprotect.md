@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
-ms.openlocfilehash: 976888f57269cc9fe6107a38e30d78c73eb5c124
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8a78ed25be80cbf083467209f764109a26782278
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037856"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292781"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Skydda datorer igen från Azure till lokalt
 
@@ -33,7 +33,7 @@ Efter [redundansväxlingen](site-recovery-failover.md) av lokala virtuella VMwar
     - Om du använder antingen ESXi 5,5 kostnads fri utgåva eller vSphere 6 hypervisor Free Edition. Uppgradera till en annan version.
     - Om du har en fysisk server för Windows Server 2008 R2 SP1.
     - Virtuella VMware-datorer kan inte återställas till Hyper-V.
-    - Virtuella datorer som har [migrerats](migrate-overview.md#what-do-we-mean-by-migration).
+    - Virtuella datorer som har migrerats.
     - En virtuell dator som har flyttats till en annan resurs grupp.
     - En virtuell replik av Azure-dator som har tagits bort.
     - En replikerad virtuell Azure-dator som inte är skyddad (replikera till den lokala platsen).

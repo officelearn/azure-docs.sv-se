@@ -13,18 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/14/2019
 ms.author: kumud
-ms.openlocfilehash: 67bc7994d2628790e84d3b3752f894a36486ca86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c224332eec31b343bdc53564ef4075a0620ac340
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707522"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289566"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-standard-internal-load-balancer-in-azure---powershell-preview"></a>Distribuera ett IPv6-program med dubbla stackar med interna standard Load Balancer i Azure – PowerShell (för hands version)
 
 Den här artikeln visar hur du distribuerar ett program med dubbla stackar (IPv4 + IPv6) i Azure som innehåller ett virtuellt nätverk och undernät med dubbla stackar, en intern standard Load Balancer med dubbla (IPv4 + IPv6) frontend-konfigurationer, virtuella datorer med nätverkskort som har en dubbel IP-konfiguration, nätverks säkerhets grupp och offentliga IP-adresser.
-
-> [!Important]
-> IPv6-stöd för Azure Virtual Network är för närvarande en offentlig för hands version. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Proceduren för att skapa en IPv6-kompatibel intern Load Balancer är nästan identisk med processen för att skapa en Internet-riktad IPv6-Load Balancer som beskrivs [här](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md). De enda skillnaderna för att skapa en intern belastningsutjämnare finns i klient konfigurationen som illustreras i PowerShell-exemplet nedan:
 

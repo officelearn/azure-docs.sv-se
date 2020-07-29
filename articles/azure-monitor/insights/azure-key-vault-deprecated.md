@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 97e687acba0c94f72ca571c498fb54531118714b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 286d8d8c202a4fc59a18501eff16a569e2d09047
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099944"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318053"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Key Vault Analytics-lösning i Azure Monitor
 
@@ -34,7 +34,7 @@ Om du vill använda lösningen måste du aktivera loggning av Azure Key Vault di
 ## <a name="install-and-configure-the-solution"></a>Installera och konfigurera lösningen
 Använd följande instruktioner för att installera och konfigurera Azure Key Vault-lösningen:
 
-1. Använd processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](../../azure-monitor/insights/solutions.md) för att lägga till Azure Key Vault-lösningen i Log Analytics-arbetsytan.
+1. Använd processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](./solutions.md) för att lägga till Azure Key Vault-lösningen i Log Analytics-arbetsytan.
 2. Aktivera diagnostikloggning för Key Vault resurser som ska övervakas med hjälp av antingen [portalen](#enable-key-vault-diagnostics-in-the-portal) eller [PowerShell](#enable-key-vault-diagnostics-using-powershell)
 
 ### <a name="enable-key-vault-diagnostics-in-the-portal"></a>Aktivera Key Vault diagnostik i portalen
@@ -132,7 +132,7 @@ I januari 2017 har det stödda sättet att skicka loggar från Key Vault till Lo
 Så här använder du den uppdaterade lösningen:
 
 1. [Konfigurera diagnostik så att den skickas direkt till en Log Analytics arbets yta från Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
-2. Aktivera Azure Key Vault-lösningen genom att använda processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](../../azure-monitor/insights/solutions.md)
+2. Aktivera Azure Key Vault-lösningen genom att använda processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](./solutions.md)
 3. Uppdatera eventuella sparade frågor, instrument paneler eller aviseringar för att använda den nya data typen
    + Typen är ändra från: nyckel valv till AzureDiagnostics. Du kan använda ResourceType för att filtrera till Key Vault loggar.
    + I stället för: `KeyVaults` använder du`AzureDiagnostics | where ResourceType'=="VAULTS"`
@@ -149,4 +149,5 @@ Data som samlas in innan ändringen visas inte i den nya lösningen. Du kan fort
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [logg frågor i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) om du vill visa detaljerade Azure Key Vault data.
+* Använd [logg frågor i Azure Monitor](../log-query/log-query-overview.md) om du vill visa detaljerade Azure Key Vault data.
+

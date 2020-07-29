@@ -8,11 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: c3dbd01faf61c164c88f09b0da03c07be4abd187
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08eb5fd4d28421105988d64b99afb441a0b824f4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75429112"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290311"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Meddelande anrikning för IoT Hub från enhet till molnet
 
@@ -59,11 +60,11 @@ Anrikninger tillämpas per slut punkt. Om du anger att fem berikningar ska stäm
 
 Anrikninger kan konfigureras med hjälp av följande metoder:
 
-| **Metod** | **Kommandoprompt** |
+| **Metod** | **Kommando** |
 | ----- | -----| 
-| Portalen | [Azure Portal](https://portal.azure.com) | Se [självstudien om meddelande vägledning](tutorial-message-enrichments.md) | 
+| Portalen | [Azure-portalen](https://portal.azure.com) | Se [självstudien om meddelande vägledning](tutorial-message-enrichments.md) | 
 | Azure CLI   | [AZ IoT Hub-meddelande – anrikning](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
-| Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment?view=azps-2.8.0) |
+| Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment) |
 
 Om du lägger till meddelanden kan du inte lägga till svars tid i meddelanderoutning.
 

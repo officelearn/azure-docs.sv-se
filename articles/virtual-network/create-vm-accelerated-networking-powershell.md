@@ -1,6 +1,6 @@
 ---
 title: Skapa en virtuell Windows-dator med accelererat nätverk – Azure PowerShell
-description: Lär dig hur du skapar en virtuell Linux-dator med accelererat nätverk.
+description: Skapa en virtuell Windows-dator (VM) med accelererat nätverk för att avsevärt förbättra nätverkets prestanda.
 services: virtual-network
 documentationcenter: ''
 author: gsilva5
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: 582553675284e88e4707812b1f6b459a4e67f14a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fd50af98fe0d7f20273c45e2b86c18215a3626f0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088197"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289628"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Skapa en virtuell Windows-dator med accelererat nätverk med Azure PowerShell
 

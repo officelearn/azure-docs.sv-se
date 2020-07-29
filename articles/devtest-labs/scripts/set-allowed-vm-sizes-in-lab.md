@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 5b3dbee7d0ac928c4f18f25348e714aba9c1cd13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50ce8034e8c028e3f385baf455c44c6ea33fe6f8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84898061"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290374"
 ---
 # <a name="use-powershell-to-set-allowed-vm-sizes-in-azure-lab-services"></a>Använd PowerShell för att ställa in tillåtna VM-storlekar i Azure Lab Services
 
@@ -47,6 +47,6 @@ I det här skriptet används följande kommandon:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/).
+Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/).
 
 Ytterligare Azure Lab Services PowerShell-skript exempel finns i [Azure Lab Services PowerShell-exempel](../samples-powershell.md).

@@ -1,18 +1,20 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 documentationcenter: partner-center-commercial-marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 06/01/2020
 ms.custom: include file
-ms.openlocfilehash: 38f97f8f3397eb1737c2414f5bbbccf99503711e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: f07be72c556640ae1e0de52e961eeedb790a734c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121900"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317743"
 ---
 Anslut till kunder direkt genom att ange ditt erbjudande i Marketplace och koppla upp ditt kund Relations hanterings system (CRM) så att du kan ta emot kund kontakt uppgifter direkt efter att en kund har fått ett intresse eller distribuerar din produkt.
 

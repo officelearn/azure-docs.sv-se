@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 04/28/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 8544ad292d9e8982e236566fb53189c70922232c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ac8dd189bee1c1d4f5a7a4d0f7de68b085fbc56
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041392"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318155"
 ---
 # <a name="troubleshooting"></a>Felsökning
 
@@ -81,7 +81,7 @@ Felet (”protokollfel... CR måste följas av LF ”) anger ett problem med ser
 
 ### <a name="i-dont-see-any-related-server-side-telemetry-to-diagnose-test-failures"></a>Jag kan inte se någon relaterad telemetri på Server sidan för att diagnostisera test fel? *
 
-Om du har konfigurerat Application Insights för din app på serversidan kan detta bero på att [sampling](../../azure-monitor/app/sampling.md) pågår. Välj ett annat tillgänglighets resultat.
+Om du har konfigurerat Application Insights för din app på serversidan kan detta bero på att [sampling](./sampling.md) pågår. Välj ett annat tillgänglighets resultat.
 
 ### <a name="can-i-call-code-from-my-web-test"></a>Kan jag anropa kod från mitt webbtest?
 
@@ -96,7 +96,7 @@ De är synonyma begrepp. Tillgänglighetstest är ett mer allmänt begrepp som i
 
    Det finns två möjliga lösningar:
 
-   * Konfigurera din brandvägg att tillåta inkommande förfrågningar från [IP-adresserna för webbtestagenter](../../azure-monitor/app/ip-addresses.md).
+   * Konfigurera din brandvägg att tillåta inkommande förfrågningar från [IP-adresserna för webbtestagenter](./ip-addresses.md).
    * Skriv koden för att regelbundet testa din interna server. Kör koden i bakgrunden på en testserver bakom brandväggen. Testprocessen kan skicka resultaten till Application Insights med [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API i core-SDK-paketet. Detta kräver att din testserver har utgående åtkomst till Application Insights slutpunkt för inmatning, men detta utgör en mycket mindre säkerhetsrisk än alternativet att tillåta inkommande förfrågningar. Resultaten visas på bladet tillgänglighet för webbtester, även om upplevelsen kommer att vara något förenklad från vad som är tillgängligt för test som skapats via portalen. Tester av anpassad tillgänglighet visas också som tillgänglighets resultat i analys, sökning och mått.
 
 ### <a name="uploading-a-multi-step-web-test-fails"></a>Det går inte att överföra ett webbtest med flera steg
@@ -134,3 +134,4 @@ Använd aviseringarna nya aviseringar/nästan-real tid om du behöver meddela an
 
 * [Webb testning med flera steg](availability-multistep.md)
 * [Ping-test för URL](monitor-web-app-availability.md)
+

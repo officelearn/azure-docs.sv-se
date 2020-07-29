@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: e49f9caaeb1b16daa49fabb217b6fc40fff17f53
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 766fb9fbe50f8a138eae020082680204872a653a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081482"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315453"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Azure Monitor loggar för tjänst leverantörer
 
@@ -19,7 +19,7 @@ Log Analytics arbets ytor i Azure Monitor kan hjälpa Managed Service Providers 
 
 Stora företag delar många likheter med tjänst leverantörer, särskilt när det finns ett centraliserat IT-team som ansvarar för att hantera den för många olika affär senheter. För enkelhetens skull använder det här dokumentet termen *Service Provider* men samma funktioner är också tillgängliga för företag och andra kunder.
 
-För partner och tjänst leverantörer som ingår i ett [CSP-program (Cloud Solution Provider)](https://partner.microsoft.com/en-US/membership/cloud-solution-provider) Log Analytics i Azure Monitor en av de Azure-tjänster som är tillgängliga i Azure CSP-prenumerationer.
+För partner och tjänst leverantörer som ingår i ett [CSP-program (Cloud Solution Provider)](https://partner.microsoft.com/membership/cloud-solution-provider) Log Analytics i Azure Monitor en av de Azure-tjänster som är tillgängliga i Azure CSP-prenumerationer.
 
 Log Analytics i Azure Monitor kan också användas av en tjänst leverantör som hanterar kund resurser via Azures delegerade resurs hanterings funktion i [Azure Lighthouse](../../lighthouse/overview.md).
 
@@ -36,7 +36,7 @@ I den här arkitekturen distribueras en arbets yta i kundens klient organisation
 Det finns två sätt som administratörer kan använda för att få åtkomst till en Log Analytics-arbetsyta i en kund klient organisation:
 
 - En kund kan lägga till enskilda användare från tjänst leverantören som [Azure Active Directory gäst användare (B2B)](../../active-directory/b2b/what-is-b2b.md). Administratörer för tjänst leverantörer måste logga in på varje kunds katalog i Azure Portal för att kunna komma åt dessa arbets ytor. Detta kräver också att kunderna hanterar enskild åtkomst för varje tjänst leverantörs administratör.
-- För bättre skalbarhet och flexibilitet kan tjänst leverantörer använda [Azures delegerade resurs hanterings](../../lighthouse/concepts/azure-delegated-resource-management.md) funktion i [Azure Lighthouse](../../lighthouse/overview.md) för att få åtkomst till kundens klient. Med den här metoden inkluderas tjänst leverantörs administratörer i en Azure AD-användargrupp i tjänst leverantörens klient organisation och gruppen beviljas åtkomst under onboarding-processen för varje kund. Administratörerna kan sedan komma åt varje kunds arbets ytor från sin egen tjänst leverantörs klient, i stället för att behöva logga in på varje kunds klient organisation individuellt. Genom att komma åt dina kunders Log Analytics arbets ytans resurser på det här sättet minskar du det arbete som krävs på kund sidan och kan göra det enklare att samla in och analysera data över flera kunder som hanteras av samma tjänst leverantör via verktyg som [Azure Monitor arbets böcker](../..//azure-monitor/platform/workbooks-overview.md). Mer information finns i [övervaka kund resurser i stor skala](../../lighthouse/how-to/monitor-at-scale.md).
+- För bättre skalbarhet och flexibilitet kan tjänst leverantörer använda [Azures delegerade resurs hanterings](../../lighthouse/concepts/azure-delegated-resource-management.md) funktion i [Azure Lighthouse](../../lighthouse/overview.md) för att få åtkomst till kundens klient. Med den här metoden inkluderas tjänst leverantörs administratörer i en Azure AD-användargrupp i tjänst leverantörens klient organisation och gruppen beviljas åtkomst under onboarding-processen för varje kund. Administratörerna kan sedan komma åt varje kunds arbets ytor från sin egen tjänst leverantörs klient, i stället för att behöva logga in på varje kunds klient organisation individuellt. Genom att komma åt dina kunders Log Analytics arbets ytans resurser på det här sättet minskar du det arbete som krävs på kund sidan och kan göra det enklare att samla in och analysera data över flera kunder som hanteras av samma tjänst leverantör via verktyg som [Azure Monitor arbets böcker](./workbooks-overview.md). Mer information finns i [övervaka kund resurser i stor skala](../../lighthouse/how-to/monitor-at-scale.md).
 
 Fördelarna med den distribuerade arkitekturen är:
 
@@ -75,18 +75,19 @@ Den tredje arkitektur kombinationen mellan de två alternativen. Den baseras på
 
 Det finns två alternativ för att implementera loggar på en central plats:
 
-1. Central arbets yta: tjänste leverantören kan skapa en arbets yta i sin klient och använda ett skript som använder [fråge-API](https://dev.loganalytics.io/) [: t med data insamlings-API: et](../../azure-monitor/platform/data-collector-api.md) för att hämta data från de olika arbets ytorna till den här centrala platsen. Ett annat alternativ än ett skript är att använda [Azure Logic Apps](../../logic-apps/logic-apps-overview.md).
+1. Central arbets yta: tjänste leverantören kan skapa en arbets yta i sin klient och använda ett skript som använder [fråge-API](https://dev.loganalytics.io/) [: t med data insamlings-API: et](./data-collector-api.md) för att hämta data från de olika arbets ytorna till den här centrala platsen. Ett annat alternativ än ett skript är att använda [Azure Logic Apps](../../logic-apps/logic-apps-overview.md).
 
-2. Power BI som en central plats: Power BI kan fungera som den centrala platsen när de olika arbets ytorna exporterar data till den med hjälp av integreringen mellan arbets ytan Log Analytics och [Power BI](../../azure-monitor/platform/powerbi.md).
+2. Power BI som en central plats: Power BI kan fungera som den centrala platsen när de olika arbets ytorna exporterar data till den med hjälp av integreringen mellan arbets ytan Log Analytics och [Power BI](./powerbi.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Automatisera skapandet och konfigurationen av arbets ytor med [Resource Manager-mallar](template-workspace-configuration.md)
 
-* Automatisera skapandet av arbets ytor med [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md)
+* Automatisera skapandet av arbets ytor med [PowerShell](./powershell-workspace-configuration.md)
 
-* Använd [aviseringar](../../azure-monitor/platform/alerts-overview.md) för att integrera med befintliga system
+* Använd [aviseringar](./alerts-overview.md) för att integrera med befintliga system
 
-* Generera sammanfattnings rapporter med [Power BI](../../azure-monitor/platform/powerbi.md)
+* Generera sammanfattnings rapporter med [Power BI](./powerbi.md)
 
 * Publicera kunder till [Azure delegerad resurs hantering](../../lighthouse/concepts/azure-delegated-resource-management.md).
+

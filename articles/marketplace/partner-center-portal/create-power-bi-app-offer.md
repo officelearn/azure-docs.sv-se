@@ -1,18 +1,18 @@
 ---
 title: Skapa ett Power BI app-erbjudande i Microsoft AppSource
 description: Lär dig hur du skapar och publicerar ett Power BI app-erbjudande i Microsoft AppSource.
-author: anbene
-ms.author: mingshen
+author: navits09
+ms.author: navits
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: fa8c08f5d6f49b12306ea1f4bb82c07747622f48
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1687224e796043af1f7c3d1ee6f0417465fb4959
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011948"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317696"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Skapa ett erbjudande för Power BI app
 
@@ -53,7 +53,7 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På den här sidan visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Exempel:
+Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Till exempel:
 
 - Om erbjudandet är ett utkast för att [ta bort utkastet](update-existing-offer.md#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan)

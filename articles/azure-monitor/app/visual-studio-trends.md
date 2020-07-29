@@ -7,11 +7,12 @@ ms.author: daviste
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: 151248f7cd6fe763643da42fc8edbe7c01a69cc7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07848d0b1a2677595eba0da53402993103289d4f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744137"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318172"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analysera trender i Visual Studio
 Verktyget Application Insights Trends hjälper dig att visualisera hur webbappens viktiga telemetrihändelser ändras med tiden, så att du snabbt kan identifiera problem och inkonsekvenser. Med länkar till mer detaljerad diagnostiskinformation kan Trends hjälpa dig att förbättra dina apprestanda, spåra orsakerna till undantag och få insikter från anpassade händelser.
@@ -20,7 +21,7 @@ Verktyget Application Insights Trends hjälper dig att visualisera hur webbappen
 
 ## <a name="configure-your-web-app-for-application-insights"></a>Konfigurera webbappen för Application Insights
 
-Om du inte redan har gjort det ska du [konfigurera webbappen för Application Insights](../../azure-monitor/app/app-insights-overview.md). Då kan det skicka telemetri till Application Insights-portalen. Verktyget Trends läser telemetrin därifrån.
+Om du inte redan har gjort det ska du [konfigurera webbappen för Application Insights](./app-insights-overview.md). Då kan det skicka telemetri till Application Insights-portalen. Verktyget Trends läser telemetrin därifrån.
 
 Application Insights Trends är tillgängligt i Visual Studio 2015 Update 3 och senare.
 
@@ -97,7 +98,7 @@ Verktyget Trends kan märka ut bubblor med händelser som avviker från andra bu
 ## <a name="next-steps"></a><a name="next"></a>Nästa steg
 |  |  |
 | --- | --- |
-| **[Arbeta med Application Insights i Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Sök i telemetri, visa data i CodeLens och konfigurera Application Insights. Allt i Visual Studio. |![Högerklicka på projektet och välj Application Insights, Sök](./media/visual-studio-trends/34.png) |
-| **[Lägga till mer information](../../azure-monitor/app/asp-net-more.md)**<br/>Övervaka användning, tillgänglighet, beroenden och undantag. Integrera spårningar från loggningsramverk. Skriv anpassad telemetri. |![Visual Studio](./media/visual-studio-trends/64.png) |
-| **[Arbeta med Application Insights-portalen](../../azure-monitor/app/overview-dashboard.md)**<br/>Instrumentpaneler, kraftfulla verktyg för diagnostik och analys, aviseringar, live-mappning över beroenden för din app och telemetriexport. |![Visual Studio](./media/visual-studio-trends/62.png) |
+| **[Arbeta med Application Insights i Visual Studio](./visual-studio.md)**<br/>Sök i telemetri, visa data i CodeLens och konfigurera Application Insights. Allt i Visual Studio. |![Högerklicka på projektet och välj Application Insights, Sök](./media/visual-studio-trends/34.png) |
+| **[Lägga till mer information](./asp-net-more.md)**<br/>Övervaka användning, tillgänglighet, beroenden och undantag. Integrera spårningar från loggningsramverk. Skriv anpassad telemetri. |![Visual Studio](./media/visual-studio-trends/64.png) |
+| **[Arbeta med Application Insights-portalen](./overview-dashboard.md)**<br/>Instrumentpaneler, kraftfulla verktyg för diagnostik och analys, aviseringar, live-mappning över beroenden för din app och telemetriexport. |![Visual Studio](./media/visual-studio-trends/62.png) |
 

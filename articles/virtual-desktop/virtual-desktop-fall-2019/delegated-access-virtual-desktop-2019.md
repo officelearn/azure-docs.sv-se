@@ -1,6 +1,6 @@
 ---
-title: Delegerad åtkomst i Windows Virtual Desktop sjunker 2019 – Azure
-description: Så här delegerar du administrativa funktioner på en distribution av virtuella Windows-datorer, inklusive exempel.
+title: Delegerad åtkomst i Windows Virtual Desktop (klassisk) – Azure
+description: Så här delegerar du administrativa funktioner på en Windows Virtual Desktop-distribution (klassisk), inklusive exempel.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91be20de49f549f3530e6c817906f1abf8f106b6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fbb8c6e100a9f72c20bcfaba7049b6724ee458b2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527565"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292538"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop-fall-2019"></a>Delegerad åtkomst i Windows Virtual Desktop sjunker 2019
+# <a name="delegated-access-in-windows-virtual-desktop-classic"></a>Delegerad åtkomst i Windows Virtual Desktop (klassisk)
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../delegated-access-virtual-desktop.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../delegated-access-virtual-desktop.md).
 
 Windows Virtual Desktop har en delegerad åtkomst modell som gör att du kan definiera hur mycket åtkomst en viss användare får ha genom att tilldela dem en roll. En roll tilldelning har tre komponenter: säkerhets objekt, roll definition och omfattning. Den delegerade åtkomst modellen för Windows Virtual Desktop baseras på Azure RBAC-modellen. Mer information om de olika roll tilldelningarna och deras komponenter finns i [Översikt över Azure rollbaserad åtkomst kontroll](../../role-based-access-control/built-in-roles.md).
 

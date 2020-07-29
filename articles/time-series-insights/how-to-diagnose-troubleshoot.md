@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: fcd73a5bb6de162fc258d93398b7d00044429588
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d9a4f7aa270aa4ed2b02e61da984e14379a241a9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100523"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289932"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnostisera och felsöka en Azure Time Series Insights Gen2-miljö
 
@@ -121,7 +121,7 @@ Om egenskapen timestamp inte uttryckligen anges används en händelses IoT Hub-e
 
 ## <a name="problem-all-my-instances-in-the-gen2-explorer-lack-a-parent"></a>Problem: alla mina instanser i Gen2 Explorer saknar överordnad
 
-Det här problemet kan inträffa om din miljö inte har en definierad tids serie modell hierarki. Mer information finns i hur du [arbetar med tids serie modeller](./time-series-insights-update-how-to-tsm.md).
+Det här problemet kan inträffa om din miljö inte har en definierad tids serie modell hierarki. Mer information finns i hur du [arbetar med tids serie modeller](/azure/time-series-insights/time-series-insights-overview).
 
   [![För inöverordnade instanser visas en varning.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
@@ -135,7 +135,7 @@ Det här problemet kan inträffa om du inte använder den senaste versionen av P
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs om hur du [arbetar med tids serie modeller](./time-series-insights-update-how-to-tsm.md).
+- Läs om hur du [arbetar med tids serie modeller](/azure/time-series-insights/time-series-insights-overview).
 
 - Lär dig mer om [JSON-former som stöds](./how-to-shape-query-json.md).
 

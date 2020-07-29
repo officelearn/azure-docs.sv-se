@@ -1,6 +1,5 @@
 ---
-title: Utvärdera & kors validerings modeller
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klassisk): utvärdera & kors validerings modeller – Azure'
 description: Lär dig mer om de mått som du kan använda för att övervaka modell prestanda i Azure Machine Learning Studio (klassisk).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: bd6c291cd703d56f86dc26c041eb39023bba0578
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2308b57859a7f8eb0aa6519246fbb52ffdf9e81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945111"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318648"
 ---
 # <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Utvärdera modell prestanda i Azure Machine Learning Studio (klassisk)
+
+**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
+
 
 I den här artikeln får du lära dig mer om de mått som du kan använda för att övervaka modell prestanda i Azure Machine Learning Studio (klassisk).  Utvärdering av prestanda för en modell är en av kärn stegen i data vetenskaps processen. Det visar hur framgångs poängen (förutsägelserna) av en data uppsättning har varit av en utbildad modell. Azure Machine Learning Studio (klassisk) stöder utvärdering av modeller genom två av dess huvudsakliga Machine Learning-moduler: 
 + [Utvärdera modell][evaluate-model] 

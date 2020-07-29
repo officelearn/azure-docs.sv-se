@@ -5,26 +5,29 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: dd75ad4ed1024292868f113e474fe8b8b73679b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/24/2020
+ms.openlocfilehash: e1c60542ec16ca19d26a77c1b9fb9676cf875e3d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75445136"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318274"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Optimera kostnaden för frågor i Azure Cosmos DB
 
-Azure Cosmos DB erbjuder en omfattande uppsättning databasåtgärder, inklusive relationella och hierarkiska frågor som används för objekten i en behållare. Den kostnad som hör till var och en av dessa operationer varierar baserat på vilken CPU, vilka IO-resurser och hur mycket minne som krävs för att slutföra operationen. Istället för att tänka på och hantera maskinvaruresurser kan du tänka på en begäransenhet som det enda måttet på de resurser som krävs för att utföra olika databasoperationer och tillgodose en begäran. Den här artikeln beskriver hur du utvärderar kostnader för enheter för programbegäran och optimerar frågan avseende prestanda och kostnad. 
+Azure Cosmos DB erbjuder en omfattande uppsättning databasåtgärder, inklusive relationella och hierarkiska frågor som används för objekten i en behållare. Den kostnad som hör till var och en av dessa operationer varierar baserat på vilken CPU, vilka IO-resurser och hur mycket minne som krävs för att slutföra operationen. Istället för att tänka på och hantera maskinvaruresurser kan du tänka på en begäransenhet som det enda måttet på de resurser som krävs för att utföra olika databasoperationer och tillgodose en begäran. Den här artikeln beskriver hur du utvärderar kostnader för enheter för programbegäran och optimerar frågan avseende prestanda och kostnad.
 
-Frågor i Azure Cosmos DB beställs vanligt vis från snabbast/mest effektiva till långsammare/mindre effektiva i form av data flöde enligt följande:  
+Läsningar i Azure Cosmos DB beställs vanligt vis från snabbast/mest effektiva till långsammare/mindre effektiva i form av data flöde enligt följande:  
 
-* Hämta åtgärd för en enskild partitionsnyckel och objekt nyckel.
+* Punkt läsningar (nyckel/värde-sökning för ett enskilt objekt-ID och partitionsnyckel).
 
 * Fråga med en filter-sats inom en enskild partitionsnyckel.
 
 * Fråga utan en likhets-eller Range filter-sats för en egenskap.
 
 * Fråga utan filter.
+
+Eftersom nyckel/värde-sökningar i objekt-ID är den mest effektiva typen av läsning bör du se till att objekt-ID: t har ett meningsfullt värde.
 
 Frågor som läser data från en eller flera partitioner medför högre latens och använder ett högre antal enheter för programbegäran. Eftersom varje partition har automatisk indexering för alla egenskaper kan frågan behandlas effektivt från indexet. Du kan göra frågor som använder flera partitioner snabbare med hjälp av alternativen för parallellitet. Mer information om partitionering och partitionerings nycklar finns i [partitionering i Azure Cosmos DB](partitioning-overview.md).
 
@@ -35,7 +38,7 @@ När du har lagrat några data i dina Azure Cosmos-behållare kan du använda Da
 Du kan också få kostnaden för frågor via programmering med SDK: er. För att mäta omkostnader för en åtgärd, till exempel skapa, uppdatera eller ta bort, inspekterar du `x-ms-request-charge` sidhuvudet när du använder REST API. Om du använder .NET eller Java SDK `RequestCharge` är egenskapen motsvarande egenskap för att hämta begär ande avgiften och den här egenskapen finns i ResourceResponse eller FeedResponse.
 
 ```csharp
-// Measure the performance (request units) of writes 
+// Measure the performance (request units) of writes
 ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument); 
 
 Console.WriteLine("Insert of an item consumed {0} request units", response.RequestCharge); 

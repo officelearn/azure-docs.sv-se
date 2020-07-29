@@ -3,18 +3,18 @@ title: Förbered en virtuell Debian Linux-hårddisk
 description: Lär dig hur du skapar Debian VHD-avbildningar för distributioner av virtuella datorer i Azure.
 author: gbowerman
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2018
 ms.author: guybo
-ms.openlocfilehash: 4c2edddb8eec4a2f8300077bb00df72d7e2b00de
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 80272896bd314a1f5f05094afa83568e077ab480
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510737"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87368208"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Förbered en virtuell Debian-VHD för Azure
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Det här avsnittet förutsätter att du redan har installerat ett Debian Linux-operativsystem från en. ISO-fil som hämtats från [Debian-webbplatsen](https://www.debian.org/distrib/) till en virtuell hård disk. Det finns flera verktyg för att skapa. VHD-filer; Hyper-V är bara ett exempel. Instruktioner för hur du använder Hyper-V finns i [Installera Hyper-v-rollen och konfigurera en virtuell dator](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 ## <a name="installation-notes"></a>Installations information

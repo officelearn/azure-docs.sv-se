@@ -4,12 +4,12 @@ description: 'Mått och autoskalning av klassiska API: er, även kallade Azure S
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 65ce7a5c876c7a8e96f945d9d4db871c84f86a4e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 38a30f2adc0de7ccb9a9a3a4ba7ed53fd5fda3f7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505439"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317390"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor pensionering av klassiska API: er för distributions modeller för mått och autoskalning
 
@@ -21,7 +21,7 @@ Samma åtgärder har stödts via en uppsättning Azure Resource Manager baserade
 
 Om du hanterar autoskalning via Azure Portal, är den [nya Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)-, PowerShell-, CLI-eller Resource Manager-mallar ingen åtgärd nödvändig.  
 
-Om du använder mått via Azure Portal eller via olika [övervaknings partner tjänster](../../azure-monitor/platform/partners.md)krävs ingen åtgärd. Microsoft arbetar med övervaknings partners för att migrera till de nya API: erna.
+Om du använder mått via Azure Portal eller via olika [övervaknings partner tjänster](./partners.md)krävs ingen åtgärd. Microsoft arbetar med övervaknings partners för att migrera till de nya API: erna.
 
 ## <a name="who-is-affected"></a>Som påverkas
 
@@ -89,3 +89,4 @@ Om du har några frågor kan du kontakta oss på MonitorClassicAPIhelp@microsoft
 
 - [Nyare REST-API: er för Azure Monitor](/rest/api/monitor/) 
 - [Nyare Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)
+

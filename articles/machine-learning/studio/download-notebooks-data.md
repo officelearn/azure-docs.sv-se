@@ -1,6 +1,5 @@
 ---
-title: Så här hämtar du data för bärbara datorer (för hands version)
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klassisk): så här hämtar du antecknings böcker (förhands granskning) data – Azure'
 description: Så här laddar du ned antecknings böcker (förhands granskning) data i ML Studio (klassisk).
 ms.service: machine-learning
 ms.subservice: studio
@@ -8,14 +7,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 04/15/2020
-ms.openlocfilehash: 8a1de4ceb42ac86d8f945ec973eaa52d6ddec736
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc12204c5eabf857fd1143e71df9b2b505d88a23
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82208473"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318665"
 ---
 # <a name="download-notebookspreview-data"></a>Hämta Notebook-data (för hands version)
+
+**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
 
 Funktionen Notebooks (för hands version) togs bort den *13 2020 april*. Borttagning av fliken antecknings böcker (förhands granskning) och användarens notebook-filer går för närvarande till Azure-regioner över hela världen.
 

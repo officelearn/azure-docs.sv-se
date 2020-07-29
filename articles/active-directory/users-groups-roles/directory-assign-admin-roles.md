@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8b94d195ea1f31d228505f01c2a77a299e63c0a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 487177b4a114ba7537ac4f1aa74a4e2472455d4b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518104"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369568"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -289,6 +289,12 @@ Den här rollen kallades tidigare för "lösen ords administratör" i [Azure Por
 
 Användare med den här rollen kan aktivera, konfigurera och hantera tjänster och inställningar för att aktivera hybrid identitet i Azure AD. Den här rollen ger möjlighet att konfigurera Azure AD till någon av de tre autentiseringsmetoder som stöds, PHS (Password hash Synchronization), direktautentisering (PTA) eller Federation (AD FS eller tredjepartsleverantörer) och för att distribuera relaterad lokal infrastruktur för att aktivera dem. Lokal-infrastrukturen innehåller etablerings-och PTA-agenter. Den här rollen ger möjlighet att aktivera sömlös enkel inloggning (S-SSO) för att möjliggöra sömlös autentisering på icke-Windows 10-enheter eller datorer som inte är Windows Server 2016. Dessutom ger den här rollen möjlighet att se inloggnings loggar och åtkomst till hälso tillstånd och analys för övervakning och fel sökning. 
 
+### <a name="insights-administrator"></a>[Insights-administratör](#insights-administrator-permissions)
+Användare med den här rollen har åtkomst till en fullständig uppsättning administrativa funktioner i [M365 Insights-programmet](https://go.microsoft.com/fwlink/?linkid=2129521). Den här rollen har möjlighet att läsa katalog information, övervaka tjänstens hälsa, stöd för fil support och få åtkomst till Insikternas administrations inställningar.
+
+### <a name="insights-business-leader"></a>[Affärs ledare för insikter](#insights-business-leader-permissions)
+Användare med den här rollen har åtkomst till en uppsättning instrument paneler och insikter via [M365 Insights-programmet](https://go.microsoft.com/fwlink/?linkid=2129521). Detta omfattar fullständig åtkomst till alla instrument paneler och visade insikter och data utforsknings funktioner. Användare med den här rollen har inte åtkomst till produkt konfigurations inställningar, vilket är ansvaret för rollen insikter-administratör.
+
 ### <a name="intune-administrator"></a>[Intune-administratör](#intune-service-administrator-permissions)
 
 Användare med den här rollen har globala behörigheter inom Microsoft Intune online när tjänsten finns. Dessutom innehåller den här rollen möjligheten att hantera användare och enheter för att associera principer, samt skapa och hantera grupper. Mer information finns i [rollbaserad administrations kontroll (RBAC) med Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control).
@@ -314,22 +320,22 @@ Användare med den här rollen kan övervaka alla meddelanden i meddelande centr
 
 Användare i den här rollen kan övervaka meddelanden och råd om hälso uppdateringar i [Office 365 meddelande Center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) för deras organisation på konfigurerade tjänster som Exchange, Intune och Microsoft Teams. Meddelande Center läsare får veckovis e-postsammandrag av inlägg, uppdateringar och kan dela meddelande Center inlägg i Office 365. I Azure AD kommer användare som tilldelats den här rollen bara att ha skrivskyddad åtkomst till Azure AD-tjänster, till exempel användare och grupper. Den här rollen har ingen åtkomst för att visa, skapa eller hantera support biljetter.
 
-### <a name="modern-commerce-administrator"></a>[Modern Commerce-administratör](#modern-commerce-administrator-permissions)
+### <a name="modern-commerce-user"></a>[Modern Commerce-användare](#modern-commerce-user-permissions)
 
 Använd inte. Den här rollen tilldelas automatiskt från Commerce och är inte avsedd eller stöds inte för någon annan användning. Se informationen nedan.
 
-Rollen som modern Commerce-administratör ger vissa användare behörighet att komma åt Microsoft 365 administrations Center och se de vänstra navigerings posterna för **Start**, **fakturering**och **support**. Innehållet som är tillgängligt i dessa områden styrs av handelstilldelade [roller](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles) som har tilldelats användare för att hantera produkter som de har köpt för sig själva eller din organisation. Detta kan omfatta uppgifter som att betala fakturor, eller för åtkomst till fakturerings konton och fakturerings profiler. 
+Den moderna Commerce användar rollen ger vissa användare behörighet att komma åt Microsoft 365 administrations Center och se de vänstra navigerings posterna för **Start**, **fakturering**och **support**. Innehållet som är tillgängligt i dessa områden styrs av handelstilldelade [roller](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles) som har tilldelats användare för att hantera produkter som de har köpt för sig själva eller din organisation. Detta kan omfatta uppgifter som att betala fakturor, eller för åtkomst till fakturerings konton och fakturerings profiler. 
 
-Användare med rollen som modern Commerce-administratör har vanligt vis administratörs behörighet i andra Microsoft-inköps system, men har inte rollen som global administratör eller fakturerings administratör för åtkomst till administrations centret. 
+Användare med en modern Commerce-användargrupp har vanligt vis administratörs behörighet i andra Microsoft-inköps system, men har inte rollen som global administratör eller fakturerings administratör för åtkomst till administrations centret. 
 
-**När tilldelas rollen modern Commerce-administratör?**
+**När tilldelas den moderna Commerce användar rollen?**
 
-* **Självbetjänings köp i Microsoft 365 administrations Center** – självbetjänings köp ger användarna möjlighet att prova nya produkter genom att köpa eller registrera sig för dem på egen hand. Dessa produkter hanteras i administrations centret. Användare som gör ett självbetjänings köp tilldelas en roll i Commerce-systemet och rollen som modern Commerce-administratör så att de kan hantera sina inköp i administrations centret. Administratörer kan blockera självbetjänings köp (för Power BI, Power Apps, energi automatisering) via [PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Mer information finns i [Vanliga frågor och svar om självbetjäningsköp](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
-* **Köp från Microsofts kommersiella marknads platser** – som liknar självbetjänings köp, när en användare köper en produkt eller tjänst från Microsoft AppSource eller Azure Marketplace, tilldelas rollen som modern Commerce-administratör om de inte har rollen som global administratör eller fakturerings administratör. I vissa fall kan användarna blockeras från att göra dessa inköp. Mer information finns på [Microsofts kommersiella marknads platser](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).
-* **Förslag från Microsoft** – ett förslag är ett formellt erbjudande från Microsoft för din organisation att köpa produkter och tjänster från Microsoft. När den person som accepterar förslaget inte har rollen som global administratör eller fakturerings administratör i Azure AD, tilldelas de både en handelsbestämd roll för att slutföra förslaget och rollen som modern Commerce-administratör för att få åtkomst till administrations centret. När de får åtkomst till administrations centret kan de endast använda funktioner som har godkänts av sin handelsbestämd roll.
-* **Handelsrelaterade roller** – vissa användare har tilldelats handelsrelaterade roller. Om en användare inte är en global administratör eller fakturerings administratör får han eller hon rollen som modern Commerce-administratör så att de kan komma åt administrations centret.  
+* **Självbetjänings köp i Microsoft 365 administrations Center** – självbetjänings köp ger användarna möjlighet att prova nya produkter genom att köpa eller registrera sig för dem på egen hand. Dessa produkter hanteras i administrations centret. Användare som gör ett självbetjänings köp tilldelas en roll i handels systemet och den ständiga Commerce användar rollen så att de kan hantera sina inköp i administrations centret. Administratörer kan blockera självbetjänings köp (för Power BI, Power Apps, energi automatisering) via [PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Mer information finns i [Vanliga frågor och svar om självbetjäningsköp](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
+* **Köp från Microsofts kommersiella marknads platser** – på liknande sätt som självbetjänings köp, när en användare köper en produkt eller tjänst från Microsoft AppSource eller Azure Marketplace, tilldelas den moderna Commerce-användar rollen om de inte har rollen som global administratör eller fakturerings administratör. I vissa fall kan användarna blockeras från att göra dessa inköp. Mer information finns på [Microsofts kommersiella marknads platser](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).
+* **Förslag från Microsoft** – ett förslag är ett formellt erbjudande från Microsoft för din organisation att köpa produkter och tjänster från Microsoft. När den person som accepterar förslaget inte har rollen som global administratör eller fakturerings administratör i Azure AD, tilldelas de både en handelsbestämd roll för att slutföra förslaget och den moderna Commerce-rollen för att få åtkomst till administrations centret. När de får åtkomst till administrations centret kan de endast använda funktioner som har godkänts av sin handelsbestämd roll.
+* **Handelsrelaterade roller** – vissa användare har tilldelats handelsrelaterade roller. Om en användare inte är en global administratör eller fakturerings administratör får de en modern Commerce-användar roll så att de kan komma åt administrations centret.  
 
-Om rollen som modern Commerce-administratör är otilldelad från en användare förlorar han eller hon åtkomst till Microsoft 365 administrations Center. Om de hanterade produkter, antingen för sig själva eller för din organisation, kan de inte hantera dem. Detta kan inkludera att tilldela licenser, ändra betalnings metoder, betala fakturor eller andra aktiviteter för att hantera prenumerationer.
+Om den moderna Commerce-rollen är otilldelad från en användare förlorar han eller hon åtkomst till Microsoft 365 administrations Center. Om de hanterade produkter, antingen för sig själva eller för din organisation, kan de inte hantera dem. Detta kan inkludera att tilldela licenser, ändra betalnings metoder, betala fakturor eller andra aktiviteter för att hantera prenumerationer.
 
 ### <a name="network-administrator"></a>[Nätverks administratör](#network-administrator-permissions)
 
@@ -1224,6 +1230,27 @@ Aktivera, distribuera, konfigurera, hantera, övervaka och felsöka moln tjänst
 | Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 
+### <a name="insights-administrator-permissions"></a>Behörigheter för Insights-administratör
+
+Har sdministrative-åtkomst i M365 Insights-appen. 
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
+| Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera support biljetter för Azure. |
+| Microsoft. Insights/upplånade/allTasks | Hantera alla aspekter av insikter. |
+| Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
+| Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
+
+### <a name="insights-business-leader-permissions"></a>Affärs ledar behörigheter för Insights
+
+Kan visa och dela instrument paneler och insikter via M365 Insights-appen.
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| Microsoft. Insights/rapporter/läsa | Visa rapporter och instrument paneler i insikter-appen. |
+| Microsoft. Insights/program/uppdatera | Distribuera och hantera program i insikter-appen. |
 
 ### <a name="intune-service-administrator-permissions"></a>Administratörs behörighet för Intune-tjänsten
 
@@ -1338,7 +1365,7 @@ Kan endast läsa meddelanden och uppdateringar för sin organisation i meddeland
 | Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 | Microsoft. Office365. messageCenter/meddelanden/läsa | Läs meddelanden i Microsoft. Office365. messageCenter. |
 
-### <a name="modern-commerce-administrator-permissions"></a>Behörigheter för modern Commerce-administratör
+### <a name="modern-commerce-user-permissions"></a>Behörigheter för modern Commerce-användare
 Kan hantera kommersiella inköp för ett företag, en avdelning eller ett team. 
 
 > [!NOTE]
@@ -1619,24 +1646,26 @@ Kan läsa säkerhets information och rapporter och hantera konfigurationen i Azu
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
+| Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
+| Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera support biljetter för Azure. |
 | Microsoft. Directory/Applications/policies/Update | Uppdatera Applications. policys-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/auditLogs/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på auditLogs i Azure Active Directory. |
 | Microsoft. Directory/Devices/bitLockerRecoveryKeys/Read | Läsa Devices. bitLockerRecoveryKeys-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/identityProtection/allProperties/Read | Läs alla resurser i Microsoft. AAD. identityProtection. |
+| Microsoft. Directory/identityProtection/allProperties/Update | Uppdatera alla resurser i Microsoft. AAD. identityProtection. |
 | Microsoft. Directory/policies/Basic/Update | Uppdatera grundläggande egenskaper för principer i Azure Active Directory. |
 | Microsoft. Directory/principer/skapa | Skapa principer i Azure Active Directory. |
 | Microsoft. Directory/principer/Delete | Ta bort principer i Azure Active Directory. |
 | Microsoft. Directory/principer/ägare/uppdatering | Uppdatera policys. Owners-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/policys/tenantDefault/Update | Uppdatera policys. tenantDefault-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/privilegedIdentityManagement/allProperties/Read | Läs alla resurser i Microsoft. AAD. privilegedIdentityManagement. |
 | Microsoft. Directory/Service princip ALS/policies/Update | Uppdatera service princip ALS. policys-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/signInReports/allProperties/Read | Läs alla egenskaper (inklusive privilegierade egenskaper) på signInReports i Azure Active Directory. |
-| Microsoft. AAD. identityProtection/upplånare/Läs | Läs alla resurser i Microsoft. AAD. identityProtection. |
-| Microsoft. AAD. identityProtection/upplånade/uppdaterade | Uppdatera alla resurser i Microsoft. AAD. identityProtection. |
-| Microsoft. AAD. privilegedIdentityManagement/upplånare/Läs | Läs alla resurser i Microsoft. AAD. privilegedIdentityManagement. |
-| Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
-| Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 | Microsoft. Office365. protectionCenter/upplånade/upplånade/lästa | Läs alla aspekter av Office 365 Protection Center. |
 | Microsoft. Office365. protectionCenter/uplånas/Update | Uppdatera alla resurser i Microsoft. Office365. protectionCenter. |
 | Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
+| Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
+| Microsoft. Office365. webports/-upplånare/grundläggande/lästa | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 
 ### <a name="security-operator-permissions"></a>Säkerhets operatörs behörigheter
 
@@ -1649,12 +1678,13 @@ Skapar och hanterar säkerhets händelser.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. cloudAppSecurity/upplånade/allTasks | Läsa och konfigurera Microsoft Cloud App Security. |
-| Microsoft. AAD. identityProtection/upplånare/Läs | Läs alla resurser i Microsoft. AAD. identityProtection. |
-| Microsoft. AAD. privilegedIdentityManagement/upplånare/Läs | Läs alla resurser i Microsoft. AAD. privilegedIdentityManagement. |
 | Microsoft. Azure. advancedThreatProtection/upplånare/Läs | Läsa och konfigurera Azure AD Advanced Threat Protection. |
+| Microsoft. Directory/cloudAppSecurity/allProperties/allTasks | Läsa och konfigurera Microsoft Cloud App Security. |
+| Microsoft. Directory/identityProtection/allProperties/Read | Läs alla resurser i Microsoft. AAD. identityProtection. |
+| Microsoft. Directory/privilegedIdentityManagement/allProperties/Read | Läs alla resurser i Microsoft. AAD. privilegedIdentityManagement. |
 | Microsoft. Intune/upplånade/allTasks | Hantera alla aspekter av Intune. |
 | Microsoft. Office365. securityComplianceCenter/uplånar/allTasks | Läsa och konfigurera säkerhets & Compliance Center. |
+| Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |
 | Microsoft. Windows. defenderAdvancedThreatProtection/-upplånare/Läs | Läsa och konfigurera Windows Defender Avancerat skydd. |
 
 ### <a name="security-reader-permissions"></a>Behörigheter för säkerhets läsare
@@ -1872,13 +1902,15 @@ Grupp administratör | Grupp administratör | fdd7a751-b60b-444a-984c-02652fe8fa
 Gäst deltagare | Gäst deltagare | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Support administratör | Support administratör | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Hybrid identitets administratör | Hybrid identitets administratör | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2
+Insights-administratör | Insights-administratör | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c
+Affärs ledare för insikter | Affärs ledare för insikter | 31e939ad-9672-4796-9c2e-873181342d2d
 Administratör för Intune-tjänsten | Intune-administratör | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Kaizala-administratör | Kaizala-administratör | 74ef975b-6605-40af-a5d2-b9539d836353
 Licens administratör | Licensadministratör | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
 Administratör för Lync-tjänsten | Skype for Business-administratör | 75941009-915a-4869-abe7-691bff18279e
 Meddelande Center sekretess läsare | Meddelande Center sekretess läsare | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 Meddelande Center läsare | Meddelande Center läsare | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
-Modern Commerce-administratör | Modern Commerce-administratör | d24aef57-1500-4070-84db-2666f29cf966
+Modern Commerce-användare | Modern Commerce-användare | d24aef57-1500-4070-84db-2666f29cf966
 Nätverks administratör | Nätverks administratör | d37c8bed-0711-4417-ba38-b4abe66ce4c2
 Office Apps-administratör | Office Apps-administratör | 2b745bdf-0803-4d80-aa65-822c4493daac
 Support för partner 1 | Visas inte eftersom det inte ska användas | 4ba39ca4-527c-499a-b93d-d9b492c50246
@@ -1922,7 +1954,7 @@ Följande roller ska inte användas. De är inaktuella och kommer att tas bort f
 
 Alla roller som returneras av PowerShell eller MS Graph API visas i Azure Portal. I följande tabell ordnas skillnaderna.
 
-API-namn | Azure Portal namn | Anteckningar
+API-namn | Azure Portal namn | Obs!
 -------- | ------------------- | -------------
 Företagsadministratör | Global administratör | [Namnet ändrades för bättre klarhet](directory-assign-admin-roles.md#role-template-ids)
 Administratör för CRM-tjänsten | Dynamics 365-administratör | [Visar aktuell produkt anpassning](directory-assign-admin-roles.md#role-template-ids)
@@ -1931,12 +1963,12 @@ Enhets hanterare | Inaktuell | [Dokumentation om föråldrade roller](directory-
 Enhets användare | Inaktuell | [Dokumentation om föråldrade roller](directory-assign-admin-roles.md#deprecated-roles)
 Konton för katalog synkronisering | Visas inte eftersom det inte ska användas | [Dokumentation om Directory Synchronization-konton](directory-assign-admin-roles.md#directory-synchronization-accounts)
 Katalog skrivare | Visas inte eftersom det inte ska användas | [Dokumentation om katalog författare](directory-assign-admin-roles.md#directory-writers)
-Gästanvändare | Visas inte eftersom det inte kan användas  | Ej tillämpligt
+Gästanvändare | Visas inte eftersom det inte kan användas  | NA
 Administratör för Lync-tjänsten | Skype for Business-administratör | [Visar aktuell produkt anpassning](directory-assign-admin-roles.md#role-template-ids)
 Support på partner nivå 1 | Visas inte eftersom det inte ska användas | [Support dokumentation för partner 1](directory-assign-admin-roles.md#partner-tier1-support)
 Support på partner nivå 2 | Visas inte eftersom det inte ska användas | [Support dokumentation för partner – nivå 2](directory-assign-admin-roles.md#partner-tier2-support)
-Begränsad gäst användare | Visas inte eftersom det inte kan användas | Ej tillämpligt
-Användare | Visas inte eftersom det inte kan användas | Ej tillämpligt
+Begränsad gäst användare | Visas inte eftersom det inte kan användas | NA
+Användare | Visas inte eftersom det inte kan användas | NA
 Anslutning till arbets plats enhet | Inaktuell | [Dokumentation om föråldrade roller](directory-assign-admin-roles.md#deprecated-roles)
 
 ## <a name="next-steps"></a>Nästa steg

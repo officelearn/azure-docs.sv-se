@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 5366166a31ee45c74c34b8af0e01da251bd7f7f0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ff7472b764b0e65d69d9b694603e145440e89c0d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499230"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318121"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor
 
@@ -655,7 +655,7 @@ Se [nätverks brand Väggs kraven](insights/container-insights-onboard.md#networ
 Microsoft FAQ (vanliga frågor och svar) är en lista över vanliga frågor om Azure Monitor for VMs. Om du har ytterligare frågor om lösningen går du till [diskussions forumet](https://feedback.azure.com/forums/34192--general-feedback) och publicerar dina frågor. När en fråga ofta är tillfrågad, lägger vi till den i den här artikeln så att den snabbt och enkelt kan hittas.
 
 ### <a name="can-i-onboard-to-an-existing-workspace"></a>Kan jag publicera till en befintlig arbets yta?
-Om de virtuella datorerna redan är anslutna till en Log Analytics arbets yta kan du fortsätta att använda arbets ytan vid inregistrering till Azure Monitor for VMs, förutsatt att den är i någon av de regioner som [stöds.](insights/vminsights-enable-overview.md#prerequisites)
+Om dina virtuella datorer redan är anslutna till en Log Analytics arbets yta kan du fortsätta att använda arbets ytan vid registrering till Azure Monitor for VMs, förutsatt att den finns i någon av de [regioner som stöds](insights/vminsights-configure-workspace.md#supported-regions).
 
 
 ### <a name="can-i-onboard-to-a-new-workspace"></a>Kan jag publicera till en ny arbets yta? 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: 65ced5021305dce15236ded59cf79a6578e7372a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c33e9105be1eb080025922ff9e612771a4f021cd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516795"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318087"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Övervaka Active Directory replikeringsstatus med Azure Monitor
 
@@ -26,7 +26,7 @@ AD-replikeringsstatuss lösningen övervakar regelbundet din Active Directory-mi
 ## <a name="installing-and-configuring-the-solution"></a>Installera och konfigurera lösningen
 Använd följande information för att installera och konfigurera lösningen.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 * AD-replikeringsstatus-lösningen kräver en version av .NET Framework 4.6.2 som stöds eller som är installerad på varje dator som har Log Analytics agent för Windows (kallas även Microsoft Monitoring Agent (MMA)) installerad.  Agenten används av System Center 2016-Operations Manager, Operations Manager 2012 R2 och Azure Monitor.
 * Lösningen stöder domänkontrollanter som kör Windows Server 2008 och 2008 R2, Windows Server 2012 och 2012 R2 och Windows Server 2016.
@@ -34,13 +34,13 @@ Använd följande information för att installera och konfigurera lösningen.
 
 
 ### <a name="install-agents-on-domain-controllers"></a>Installera agenter på domänkontrollanter
-Du måste installera agenter på domänkontrollanter som är medlemmar i domänen för att kunna utvärderas. Eller så måste du installera agenter på medlems servrar och konfigurera agenterna för att skicka AD Replication-data till Azure Monitor. Information om hur du ansluter Windows-datorer till Azure Monitor finns i [ansluta Windows-datorer till Azure Monitor](../../azure-monitor/platform/agent-windows.md). Om din domänkontrollant redan är en del av en befintlig System Center Operations Manager-miljö som du vill ansluta till Azure Monitor, se [ansluta Operations Manager till Azure Monitor](../../azure-monitor/platform/om-agents.md).
+Du måste installera agenter på domänkontrollanter som är medlemmar i domänen för att kunna utvärderas. Eller så måste du installera agenter på medlems servrar och konfigurera agenterna för att skicka AD Replication-data till Azure Monitor. Information om hur du ansluter Windows-datorer till Azure Monitor finns i [ansluta Windows-datorer till Azure Monitor](../platform/agent-windows.md). Om din domänkontrollant redan är en del av en befintlig System Center Operations Manager-miljö som du vill ansluta till Azure Monitor, se [ansluta Operations Manager till Azure Monitor](../platform/om-agents.md).
 
 ### <a name="enable-non-domain-controller"></a>Aktivera icke-domänkontrollant
 Om du inte vill ansluta någon av domän kontrol Lanterna direkt till Azure Monitor kan du använda en annan dator i domänen som är ansluten till Azure Monitor för att samla in data för AD-replikeringsstatus lösnings paketet och skicka data.
 
 1. Kontrol lera att datorn är medlem i den domän som du vill övervaka med hjälp av AD-replikeringsstatus-lösningen.
-2. [Anslut Windows-datorn för att Azure Monitor](../../azure-monitor/platform/om-agents.md) eller [Anslut den med din befintliga Operations Manager miljö till Azure Monitor](../../azure-monitor/platform/om-agents.md), om den inte redan är ansluten.
+2. [Anslut Windows-datorn för att Azure Monitor](../platform/om-agents.md) eller [Anslut den med din befintliga Operations Manager miljö till Azure Monitor](../platform/om-agents.md), om den inte redan är ansluten.
 3. På den datorn anger du följande register nyckel:<br>Nyckel: **HKEY_LOCAL_MACHINE \System\currentcontrolset\services\healthservice\parameters\management Groups \<ManagementGroupName> \Solutions\ADReplication**<br>Värde: **IsTarget**<br>Värde data: **True**
 
    > [!NOTE]
@@ -112,7 +112,7 @@ När du klickar på ett objekt i en av listorna visas ytterligare information om
 
 ![Status fel för AD-replikering i frågeresultat](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-Härifrån kan du filtrera ytterligare, ändra logg frågan och så vidare. Mer information om hur du använder logg frågor i Azure Monitor finns i [analysera loggdata i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Härifrån kan du filtrera ytterligare, ändra logg frågan och så vidare. Mer information om hur du använder logg frågor i Azure Monitor finns i [analysera loggdata i Azure Monitor](../log-query/log-query-overview.md).
 
 I fältet **HelpLink** visas URL: en till en TechNet-sida med ytterligare information om felet. Du kan kopiera och klistra in länken i webbläsarfönstret för att se information om fel sökning och korrigering av felet.
 
@@ -152,9 +152,10 @@ A: normala användar behörigheter till Active Directory räcker.
 ## <a name="troubleshoot-data-collection-problems"></a>Felsöka problem med data insamling
 För att kunna samla in data kräver AD-replikeringsstatus Solution Pack att minst en domänkontrollant är ansluten till Log Analytics-arbetsytan. Innan du ansluter en domänkontrollant visas ett meddelande som anger att **data fortfarande samlas in**.
 
-Om du behöver hjälp med att ansluta en av dina domänkontrollanter kan du Visa dokumentation på [Anslut Windows-datorer till Azure Monitor](../../azure-monitor/platform/om-agents.md). Alternativt, om domänkontrollanten redan är ansluten till en befintlig System Center Operations Managers miljö, kan du Visa dokumentationen vid [anslutning System Center Operations Manager till Azure Monitor](../../azure-monitor/platform/om-agents.md).
+Om du behöver hjälp med att ansluta en av dina domänkontrollanter kan du Visa dokumentation på [Anslut Windows-datorer till Azure Monitor](../platform/om-agents.md). Alternativt, om domänkontrollanten redan är ansluten till en befintlig System Center Operations Managers miljö, kan du Visa dokumentationen vid [anslutning System Center Operations Manager till Azure Monitor](../platform/om-agents.md).
 
 Om du inte vill ansluta någon av domän kontrol Lanterna direkt till Azure Monitor eller System Center Operations Manager, se [Aktivera icke-domänkontrollant](#enable-non-domain-controller).
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [logg frågor i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) om du vill visa detaljerad information om Active Directory replikeringsstatus.
+* Använd [logg frågor i Azure Monitor](../log-query/log-query-overview.md) om du vill visa detaljerad information om Active Directory replikeringsstatus.
+

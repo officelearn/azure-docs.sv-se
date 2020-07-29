@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 7d8998b450613e097230d7692a8ad1990830993b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 64c461c5d3e1bb34f480e5173621f8753eadbbd8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539337"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318325"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Vägledning för personliga data som lagras i Log Analytics och Application Insights
 
@@ -48,7 +48,7 @@ Log Analytics är ett flexibelt lager, som när du förväntar dig ett schema f�
     ```
   Kom ihåg att se till att du inte bara kan läsa av människo användare, utan även GUID som direkt kan spåras tillbaka till en viss användare!
 * *Enhets*-ID: t. ex. användar-ID: n anses ibland "privat". Använd samma metod som i listan ovan för användar-ID: n för att identifiera tabeller där detta kan vara ett problem. 
-* *Anpassade data*: Log Analytics tillåter samlingen på flera olika sätt: anpassade loggar och anpassade fält, [API för http-datainsamling](../../azure-monitor/platform/data-collector-api.md) och anpassade data som samlas in som en del av system händelse loggarna. Alla dessa är känsliga för att innehålla privata data och bör undersökas för att kontrol lera om det finns några sådana data.
+* *Anpassade data*: Log Analytics tillåter samlingen på flera olika sätt: anpassade loggar och anpassade fält, [API för http-datainsamling](./data-collector-api.md) och anpassade data som samlas in som en del av system händelse loggarna. Alla dessa är känsliga för att innehålla privata data och bör undersökas för att kontrol lera om det finns några sådana data.
 * *Lösnings fångade data*: eftersom lösnings mekanismen är en öppen och avslutad, rekommenderar vi att du visar alla tabeller som genereras av lösningar för att säkerställa efterlevnad.
 
 ### <a name="application-data"></a>Programdata
@@ -124,5 +124,6 @@ När Azure Resource Manager rollen har tilldelats är två nya API-sökvägar ti
 >  Det stora flertalet rensnings åtgärder kan slutföras mycket snabbare än SLA, på grund av den stora påverkan på den data plattform som används av Application Insights, **det formella service avtalet för slut för ande av rensnings åtgärder anges till 30 dagar**.
 
 ## <a name="next-steps"></a>Nästa steg
-- Mer information om hur Log Analytics data samlas in, bearbetas och skyddas finns i [Log Analytics data säkerhet](../../azure-monitor/platform/data-security.md).
-- Mer information om hur Application Insights data samlas in, bearbetas och skyddas finns i [Application Insights data säkerhet](../../azure-monitor/app/data-retention-privacy.md).
+- Mer information om hur Log Analytics data samlas in, bearbetas och skyddas finns i [Log Analytics data säkerhet](./data-security.md).
+- Mer information om hur Application Insights data samlas in, bearbetas och skyddas finns i [Application Insights data säkerhet](../app/data-retention-privacy.md).
+

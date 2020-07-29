@@ -1,6 +1,5 @@
 ---
-title: Hantera arbetsytor
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klassisk): hantera arbets ytor – Azure'
 description: Hantera åtkomst till Azure Machine Learning Studio (klassiska) arbets ytor och distribuera och hantera Machine Learning API-webbtjänster
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
-ms.openlocfilehash: 4d12b5fbfb934106f7c18edb2996b51e8f6a57f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c501d7d93973338273246d803df86e4d723ae542
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705142"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318461"
 ---
 # <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>Hantera en Azure Machine Learning Studio (klassisk)-arbets yta
+
+**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
+
 
 > [!NOTE]
 > Information om hur du hanterar webb tjänster i Machine Learning Web Services-portalen finns i [hantera en webb tjänst med hjälp av Azure Machine Learning Web Services-portalen](manage-new-webservice.md).

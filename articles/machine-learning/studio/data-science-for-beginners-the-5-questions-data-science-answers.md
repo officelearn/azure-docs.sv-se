@@ -1,6 +1,5 @@
 ---
-title: Datavetenskap för nybörjare
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klassisk): data vetenskap för nybörjare – Azure'
 description: Data vetenskap för nybörjare är en genom gång av grundläggande begrepp i 5 korta videor, från och med 5 frågor data vetenskaps svar. Från Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,15 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 350363641056802e09eea90c85b4ccf8e33d9051
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0c99c05701c7f2d64fcfc2f70081f2d7475ce5f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82930156"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318733"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Datavetenskap för nybörjare, video 1: Fem frågor och svar om datavetenskap
+
 Få en snabb introduktion till data vetenskap från *data vetenskap för nybörjare* i fem korta videor från en topp data expert. Dessa videor är grundläggande men användbara, oavsett om du är intresse rad av data vetenskap eller om du arbetar med data experter.
 
 Den första videon är ungefär så många frågor som data vetenskap kan svara. För att få ut det mesta av serien, se alla. [Gå till listan med videor](#other-videos-in-this-series)
@@ -65,7 +66,7 @@ Den här serien med algoritmer kallas klassificering med två klasser.
 
 Det är användbart för alla frågor som bara har två möjliga svar.
 
-Ett exempel:
+Till exempel:
 
 * Kommer den här Tire att Miss 1 000 i nästa km: Ja eller Nej?
 * Vilken går i fler kunder: a $5 kupong eller 25% rabatt?

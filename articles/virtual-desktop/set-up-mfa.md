@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 47b1a3a44c494560dde9ffdab004ea576f434ffe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8a8f5cb792f524354754b4368c0b68d5f9d40699
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091308"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291376"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Aktivera Azure Multi-Factor Authentication för Windows Virtual Desktop
 
 >[!IMPORTANT]
-> Om du besöker den här sidan från hösten 2019-dokumentationen ser du till att [återgå till den 2019-dokumentation](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) när du är klar.
+> Om du besöker den här sidan från den klassiska Windows-dokumentationen (klassisk) ser du till att [återgå till Windows Virtual Desktop (klassisk)-dokumentationen](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) när du är klar.
 
 Windows-klienten för virtuellt Windows-skrivbord är ett utmärkt alternativ för att integrera virtuella Windows-datorer med din lokala dator. Men när du konfigurerar ditt Windows-konto för virtuella skriv bord till Windows-klienten, finns det vissa mått som du måste vidta för att hålla dig trygg och dina användare.
 
@@ -26,7 +26,7 @@ När du först loggar in frågar klienten efter ditt användar namn, lösen ord 
 
 Även om det är praktiskt att komma ihåg autentiseringsuppgifterna, kan det också göra distributioner i företags scenarier eller personliga enheter mindre säkra. För att skydda dina användare måste du kontrol lera att klienten fortfarande ber om autentiseringsuppgifter för Azure Multi-Factor Authentication (MFA). I den här artikeln visas hur du konfigurerar principen för villkorlig åtkomst för Windows Virtual Desktop för att aktivera den här inställningen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det här behöver du för att komma igång:
 
@@ -50,10 +50,10 @@ Så här skapar du en princip för villkorlig åtkomst som kräver Multi-Factor 
 7. Välj **Klar**.
 8. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Välj appar**.
 9. Välj en av följande appars grupper baserat på vilken version av Windows Virtual Desktop som du använder.
-   - Om du använder hösten 2019-versionen väljer du de två apparna:
+   - Om du använder Windows Virtual Desktop (klassisk) väljer du de två apparna:
        - **Windows Virtual Desktop** (app-ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
        - **Windows Virtual Desktop-klient** (app-ID fa4345a4-a730-4230-84a8-7d9651b86739)
-   - Om du använder våren 2020-versionen väljer du dessa två appar i stället:
+   - Om du använder Windows Virtual Desktop väljer du de här två apparna i stället:
        -  **Windows Virtual Desktop** (app-ID 9cdead84-a844-4324-93f2-b2e6bb768d07)
        -  **Windows Virtual Desktop-klient** (app-ID a85cf173-4192-42F8-81fa-777a763e6e2c)
 

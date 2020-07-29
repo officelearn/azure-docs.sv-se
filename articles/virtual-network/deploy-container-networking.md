@@ -1,6 +1,6 @@
 ---
 title: Distribuera Azure Virtual Network CNI (Container Network Interface) | Microsoft Docs
-description: Lär dig hur du distribuerar plugin-programmet Azure Virtual Network CNI (Container Network Interface) för Kubernetes-kluster som du distribuerar själv eller som du distribuerar med ACS-Engine och för Docker-containrar.
+description: Lär dig hur du distribuerar plugin-programmet för Azure Virtual Network container Network Interface (CNI) för Kubernetes-kluster.
 services: virtual-network
 documentationcenter: na
 author: aanandr
@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 7cae4b579a933c03ec3a08a00ef032c57d15093f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09a0574666441138c143932e843080e8745f1b40
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710022"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289597"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Distribuera plugin-programmet Azure Virtual Network CNI
 

@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: cd6ea6d4967e024ddf88fb9572d5efae8b7a7815
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 48080bb4d1e24f7f98d3dfe1fd63b65ba46df35e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495352"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289920"
 ---
 ### <a name="property-limits"></a>Egenskaps gränser
 
@@ -33,7 +33,7 @@ Högst två händelse källor stöds per instans.
 * Lär dig hur du [lägger till en Event Hub-källa](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 * Konfigurera [en IoT Hub-källa](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
 
-Som standard [stöder Gen2-miljöer](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-throughput-limitations) ingångs hastigheter på upp till **1 megabyte per sekund (MB/s) per miljö**. Kunder kan skala sina miljöer upp till **16 MB/s** genom strömning vid behov. Det finns också en gräns per partition på **0,5 MB/s**.
+Som standard [stöder Gen2-miljöer](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingress-throughput-limits) ingångs hastigheter på upp till **1 megabyte per sekund (MB/s) per miljö**. Kunder kan skala sina miljöer upp till **16 MB/s** genom strömning vid behov. Det finns också en gräns per partition på **0,5 MB/s**.
 
 ### <a name="api-limits"></a>API-gränser
 

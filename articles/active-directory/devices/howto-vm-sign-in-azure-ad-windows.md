@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c9fbf2d86c2e066566bab11b1701909be64a37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 588e63e630caa4746b493d4530e301f72e5ccb5f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025854"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282950"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på den virtuella Windows-datorn i Azure med Azure Active Directory autentisering (för hands version)
 
@@ -208,7 +208,7 @@ Du kan tillämpa principer för villkorlig åtkomst, till exempel Multi-Factor A
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Logga in med autentiseringsuppgifter för Azure AD till en virtuell Windows-dator
 
 > [!IMPORTANT]
-> Fjärr anslutning till virtuella datorer som är anslutna till Azure AD tillåts endast från Windows 10-datorer som är Azure AD-anslutna eller hybrid Azure AD som är anslutna till **samma** katalog som den virtuella datorn. För RDP med Azure AD-autentiseringsuppgifter måste användaren dessutom tillhöra en av de två RBAC-rollerna, en virtuell dator Administratörs inloggning eller användar inloggning för virtuella datorer. För närvarande går det inte att använda Azure-skydds för att logga in med Azure Active Directory-autentisering med AADLoginForWindows-tillägget. Endast direkt RDP stöds.
+> Fjärr anslutning till virtuella datorer som är anslutna till Azure AD tillåts endast från Windows 10-datorer som antingen är registrerade i Azure AD (minsta version som krävs är 20H1) eller Azure AD-ansluten eller hybrid Azure AD som är ansluten till **samma** katalog som den virtuella datorn. För RDP med Azure AD-autentiseringsuppgifter måste användaren dessutom tillhöra en av de två RBAC-rollerna, en virtuell dator Administratörs inloggning eller användar inloggning för virtuella datorer. Om du använder en Azure AD-registrerad Windows 10-dator måste du ange autentiseringsuppgifter i AzureAD\UPN-format (t. ex. AzureAD\john@contoso.com ). För närvarande går det inte att använda Azure-skydds för att logga in med hjälp av Azure Active Directory-autentisering med AADLoginForWindows-tillägget. endast direkt RDP stöds.
 
 Logga in på din virtuella Windows Server 2019-dator med hjälp av Azure AD: 
 
@@ -224,7 +224,7 @@ Du är nu inloggad på den virtuella Windows Server 2019 Azure-datorn med roll b
 > [!NOTE]
 > Du kan spara. RDP-fil lokalt på datorn för att starta framtida fjärr skrivbords anslutningar till den virtuella datorn i stället för att behöva gå till översikts sidan för den virtuella datorn i Azure Portal och med alternativet Connect.
 
-## <a name="troubleshoot"></a>Felsök
+## <a name="troubleshoot"></a>Felsöka
 
 ### <a name="troubleshoot-deployment-issues"></a>Felsöka distributionsproblem
 
@@ -342,7 +342,7 @@ Om du ser följande fel meddelande när du startar en fjärr skrivbords anslutni
 Kontrol lera att den Windows 10-dator som du använder för att initiera fjärr skrivbords anslutningen är antingen en Azure AD-ansluten eller en hybrid Azure AD som är ansluten till samma Azure AD-katalog som den virtuella datorn är ansluten till. Mer information om enhets identitet finns i artikeln [Vad är en enhets identitet](/azure/active-directory/devices/overview).
 
 > [!NOTE]
-> Windows 10 20H1 kommer att lägga till stöd för Azure AD-registrerade datorer för att initiera anslutning till fjärr skrivbord till din virtuella dator. Delta i Windows Insider-programmet och utforska nya funktioner i Windows 10.
+> Windows 10 build-20H1 har lagt till stöd för en registrerad Azure AD-dator för att initiera RDP-anslutning till den virtuella datorn. När du använder en Azure AD-registrerad (inte Azure AD-ansluten eller hybrid Azure AD-ansluten) som RDP-klient för att initiera anslutningar till den virtuella datorn, måste du ange autentiseringsuppgifter i formatet AzureAD\UPn (t. ex. AzureAD\john@contoso.com ).
 
 Kontrol lera också att AADLoginForWindows-tillägget inte har avinstallerats efter att Azure AD Join har slutförts.
  

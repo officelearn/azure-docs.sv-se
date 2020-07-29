@@ -5,12 +5,13 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.openlocfilehash: a76ed65ebc1c56232d4fa42c6df20f619fe14ca3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 83f518326b38e9832c46997a0a2791eb9f35705e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517067"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371642"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Felsöka SDK-inläsnings fel för JavaScript-webbappar
 
@@ -29,7 +30,7 @@ Undantags felet för SDK-inläsningen skapas och rapporteras av JavaScript-kodfr
 
 Stack informationen innehåller grundläggande information med URL: erna som används av slutanvändaren.
 
-| Name                      | Beskrivning                                                                                                  |
+| Namn                      | Beskrivning                                                                                                  |
 |---------------------------|--------------------------------------------------------------------------------------------------------------|
 | &lt;CDN- &nbsp; slutpunkt&gt; | Den URL som användes (och misslyckades) för att hämta SDK: n.                                                      |
 | &lt;Hjälp &nbsp; länk&gt;    | En URL som länkar till fel söknings dokumentation (den här sidan).                                              |

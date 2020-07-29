@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 6552d13ab68d8028cd95b18f2d0895d53bba462c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d166257dd28773d89a4f1fd56de3cb1a22242523
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090968"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284174"
 ---
 # <a name="create-application-with-simple-commands"></a>Skapa program med enkla kommandon
 
@@ -95,6 +95,7 @@ Sedan måste kommandot ha en regel för slut för ande. Den här regeln anger an
 
 1. Spara åtgärden genom att välja **Spara** .
 1. Gå tillbaka till avsnittet **regler för slut för ande** och välj **Spara** för att spara alla ändringar. 
+
 
     > [!NOTE]
     > Du behöver inte använda standard regeln för slut för ande som medföljer kommandot. Om det behövs kan du ta bort den befintliga regeln för standard slut för ande och lägga till en egen regel.

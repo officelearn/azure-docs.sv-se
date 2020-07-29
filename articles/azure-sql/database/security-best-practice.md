@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 00369ae45a13414ce46f324e37afe24be24a48e0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 6a3a52c90187920be13628a6d2fa44159e1109d7
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132950"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371795"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Spelbok för att lösa vanliga säkerhets krav med Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -324,7 +324,7 @@ Separering av uppgifter, även kallat ansvars fördelning, beskriver kravet på 
 
 - Se alltid till att ha en Gransknings logg för säkerhetsrelaterade åtgärder.
 
-- Du kan hämta definitionen av de inbyggda RBAC-rollerna för att se vilka behörigheter som används och skapa en anpassad roll baserat på utdrag och kumulation av dessa via PowerShell.
+- Du kan hämta definitionen av de inbyggda Azure-rollerna för att se de behörigheter som används och skapa en anpassad roll baserat på utdrag och kumulation av dessa via PowerShell.
 
 - Eftersom en medlem i db_owner databas rollen kan ändra säkerhets inställningar som transparent datakryptering (TDE) eller ändra service nivå mål, bör detta medlemskap beviljas med försiktighet. Det finns dock många aktiviteter som kräver db_owner-behörighet. Uppgift som att ändra en databas inställning, till exempel ändra DB-alternativ. Granskningen spelar en nyckel roll i vilken lösning som helst.
 

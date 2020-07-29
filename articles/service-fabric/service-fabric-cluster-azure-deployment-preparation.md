@@ -3,12 +3,12 @@ title: Planera distribution av Azure Service Fabric-kluster
 description: Lär dig mer om att planera och förbereda för en produktions Service Fabric kluster distribution till Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 462548d7f32a015701ef12e9777e8d9b1b1350f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1064e59491b7144aafade24bd50131478fe025eb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610599"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281335"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planera och förbereda för en kluster distribution
 
@@ -51,7 +51,7 @@ Fler än det minsta antalet noder bör baseras på antalet repliker av de progra
 
 Tillfälliga OS-diskar är inte en speciell Service Fabric funktion, utan i stället en funktion i de *skalnings uppsättningar för virtuella* Azure-datorer som mappas till Service Fabric Node-typer. Om du använder dem med Service Fabric krävs följande i klustrets Azure Resource Manager mall:
 
-1. Se till att Node-typerna har [stöd för Azure VM-storlekar som stöds](../virtual-machines/windows/ephemeral-os-disks.md) för tillfälliga OS-diskar och att storleken på den virtuella datorn har tillräckligt med cachestorlek för att stöda storleken på operativ system disken (se *Obs!* ) Exempel:
+1. Se till att Node-typerna har [stöd för Azure VM-storlekar som stöds](../virtual-machines/ephemeral-os-disks.md) för tillfälliga OS-diskar och att storleken på den virtuella datorn har tillräckligt med cachestorlek för att stöda storleken på operativ system disken (se *Obs!* ) Exempel:
 
     ```xml
     "vmNodeType1Size": {
@@ -97,7 +97,7 @@ Tillfälliga OS-diskar är inte en speciell Service Fabric funktion, utan i stä
 > Om du vill migrera måste användarna [lägga till](./virtual-machine-scale-set-scale-node-type-scale-out.md) en ny NodeType med tillfälliga diskar, flytta arbets belastningarna till den nya nodeType-& [ta bort](./service-fabric-how-to-remove-node-type.md) den befintliga NodeType.
 >
 
-Mer information och ytterligare konfigurations alternativ finns i [tillfälliga OS-diskar för virtuella Azure-datorer](../virtual-machines/windows/ephemeral-os-disks.md) 
+Mer information och ytterligare konfigurations alternativ finns i [tillfälliga OS-diskar för virtuella Azure-datorer](../virtual-machines/ephemeral-os-disks.md) 
 
 
 ### <a name="select-the-durability-and-reliability-levels-for-the-cluster"></a>Välj nivåer för hållbarhet och pålitlighet för klustret

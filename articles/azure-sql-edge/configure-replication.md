@@ -9,11 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a33933e63cc7c15de7d60430521f810f8546988c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad92f796205d84a372de610cb210bbf8878a6c9b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667887"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282780"
 ---
 # <a name="configure-replication-to-azure-sql-edge-preview"></a>Konfigurera replikering till Azure SQL Edge (för hands version) 
 
@@ -23,7 +24,7 @@ Du kan konfigurera en instans av Azure SQL Edge som push-prenumerant för enkelr
   
 - Instansen av Azure SQL Edge måste vara en push-prenumerant för en utgivare.
 - Utgivaren och distributören kan vara antingen:
-   - En instans av SQL Server som körs lokalt eller en instans av SQL Server som körs i en virtuell Azure-dator. Mer information finns i [Översikt över SQL Server på Azure Virtual Machines](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/). SQL Server instanser måste använda en senare version än SQL Server 2016.
+   - En instans av SQL Server som körs lokalt eller en instans av SQL Server som körs i en virtuell Azure-dator. Mer information finns i [Översikt över SQL Server på Azure Virtual Machines](https://docs.microsoft.com/azure/azure-sql/virtual-machines/). SQL Server instanser måste använda en senare version än SQL Server 2016.
    - En instans av en Azure SQL-hanterad instans. SQL-hanterad instans kan vara värd för utgivare, distributör och prenumerant databaser. Mer information finns i [replikering med SQL Database Hanterad instans](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/).
 
 - Distributions databasen och-replik agenterna kan inte placeras på en instans av Azure SQL Edge.  

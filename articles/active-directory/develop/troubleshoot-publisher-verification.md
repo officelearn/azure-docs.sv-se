@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: dcdce6ee6683c5770f97f5f3dc20e1c9b409ead0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3069e3caf81d9bb2f809b21c88383c419e3b90b3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477047"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282984"
 ---
 # <a name="troubleshoot-publisher-verification-preview"></a>Felsöka verifiering av utgivare (förhandsversion)
 Om du inte kan slutföra processen eller har oväntad funktion med [utgivar verifieringen (för hands version)](publisher-verification-overview.md), bör du börja med att göra följande om du får fel eller ser oväntade beteenden: 
@@ -37,7 +37,7 @@ Nedan visas några vanliga problem som kan uppstå under processen.
     1. Gå till [sidan för MPN-registrering](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new)
     1. Logga in med ett användar konto i organisationens primära Azure AD-klient 
     1. Om det redan finns ett MPN-konto kommer detta att identifieras och du kommer att läggas till i kontot 
-    1. Gå till [sidan partner profil](https://partner.microsoft.com/en-us/pcv/accountsettings/connectedpartnerprofile) där MPN-ID och primär konto kontakt visas
+    1. Gå till [sidan partner profil](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) där MPN-ID och primär konto kontakt visas
 
 - **Jag vet inte som min Azure AD global-administratör (även kallat företags administratör eller klient organisations administratör), hur hittar jag dem? Vad gäller för program administratören eller en annan administratörs roll?**
     1. Logga in på [Azure AD-portalen](https://aad.portal.azure.com) med ett användar konto i din organisations primära klient organisation
@@ -45,14 +45,14 @@ Nedan visas några vanliga problem som kan uppstå under processen.
     1. Klicka på global administratör eller önskad administratörs roll
     1. Listan över användare som har tilldelats rollen kommer att visas
 
-- **Jag vet inte vem som är administratör (er) för mitt MPN-konto** Gå till [sidan för användar hantering av MPN](https://partner.microsoft.com/en-us/pcv/users) och filtrera användar listan för att se vilka användare som finns i olika administratörs roller.
+- **Jag vet inte vem som är administratör (er) för mitt MPN-konto** Gå till [sidan för användar hantering av MPN](https://partner.microsoft.com/pcv/users) och filtrera användar listan för att se vilka användare som finns i olika administratörs roller.
 
 - **Jag får ett fel meddelande om att mitt MPN-ID är ogiltigt eller att jag inte har åtkomst till den.**
-    1. Gå till din [partner profil](https://partner.microsoft.com/en-us/pcv/accountsettings/connectedpartnerprofile) och kontrol lera att: 
+    1. Gå till din [partner profil](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) och kontrol lera att: 
         - MPN-ID: t är korrekt. 
         - Det finns inga fel eller "väntande åtgärder" visas och verifierings statusen under juridisk företags profil och partner information anger både "auktoriserad" eller "lyckad".
-    1. Gå till [sidan för MPN-klient hantering](https://partner.microsoft.com/en-us/dashboard/account/v3/tenantmanagement) och bekräfta att klienten som appen är registrerad i och att du loggar med ett användar konto från finns i listan över associerade klienter.
-    1. Gå till [sidan för användar hantering av MPN](https://partner.microsoft.com/en-us/pcv/users) och bekräfta att användaren som du loggar in som är antingen en global administratör, MPN-administratör eller konto administratör.
+    1. Gå till [sidan för MPN-klient hantering](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) och bekräfta att klienten som appen är registrerad i och att du loggar med ett användar konto från finns i listan över associerade klienter.
+    1. Gå till [sidan för användar hantering av MPN](https://partner.microsoft.com/pcv/users) och bekräfta att användaren som du loggar in som är antingen en global administratör, MPN-administratör eller konto administratör.
 
 - **När jag loggar in på Azure AD-portalen ser jag inga appar registrerade. Varför?** 
     Dina registrerings program kan ha skapats med ett annat användar konto eller i en annan klient. Se till att du är inloggad med rätt konto i klient organisationen där dina app-registreringar skapades.
@@ -84,7 +84,7 @@ POST /applications/0cd04273-0d11-4e62-9eb3-5c3971a7cbec/setVerifiedPublisher
 } 
 ```
  
-Svar 
+Svarsåtgärder 
 ```
 204 No Content 
 ```
@@ -98,7 +98,7 @@ Begäran:
 POST /applications/0cd04273-0d11-4e62-9eb3-5c3971a7cbec/unsetVerifiedPublisher 
 ```
  
-Svar 
+Svarsåtgärder 
 ```
 204 No Content 
 ```
@@ -209,7 +209,7 @@ Den här funktionen stöds inte för Microsoft-konsument konton. Endast program 
 
 Om du har granskat all föregående information och fortfarande får ett fel från Microsoft Graph, kan du samla in så mycket av följande information som möjligt som är relaterad till den misslyckade begäran och [kontakta Microsoft Support](developer-support-help-options.md#open-a-support-request).
 
-- Tidsstämpel 
+- Timestamp 
 - CorrelationId 
 - ObjectID eller UserPrincipalName för inloggad användare 
 - ObjectId för mål programmet

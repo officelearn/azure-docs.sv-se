@@ -109,11 +109,9 @@
       href: concept-recognizing-text.md
     - name: Identifiering av innehåll som är olämpligt för barn
       href: concept-detecting-adult-content.md
-- name: Anvisningar
+- name: Containrar
   items:
-    - name: 'Anropa API:et för visuellt innehåll'
-      href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
-    - name: Använda containrar
+    - name: Läs API-container
       items:
         - name: Installera och köra containrar
           href: computer-vision-how-to-install-containers.md
@@ -127,6 +125,10 @@
         - name: Använda containerinstanser
           href: deploy-computer-vision-on-container-instances.md
           displayName: 'container instances, container, containers, images'
+- name: Anvisningar
+  items:
+    - name: 'Anropa API:et för visuellt innehåll'
+      href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
     - name: Analysera videor i realtid
       href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Referens
@@ -135,6 +137,8 @@
       href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
     - name: Azure PowerShell
       href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: API för Visuellt innehåll v3.1-preview.1
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005'
     - name: API för Visuellt innehåll v3.0
       href: 'https://aka.ms/computer-vision-v3-ref'
     - name: API v2.1 för Visuellt innehåll

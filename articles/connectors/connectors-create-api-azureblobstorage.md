@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: eb943bfe36be10d1e95d569a5c1bf48563e909c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34608a085c0d60e0ce07e5d198622f80a43f8b38
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711297"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284089"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Skapa och hantera blobbar i Azure Blob Storage med Azure Logic Apps
 
@@ -19,7 +20,7 @@ Den här artikeln visar hur du kan komma åt och hantera filer som lagras som bl
 
 Anta att du har ett verktyg som uppdateras på en Azure-webbplats. Detta fungerar som utlösare för din Logic app. När den här händelsen inträffar kan du låta din Logic app uppdatera en fil i din Blob Storage-behållare, som är en åtgärd i din Logic app.
 
-Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Information om anslutningsspecifika teknisk information finns i referens för [Azure Blob Storage Connector](https://docs.microsoft.com/connectors/azureblobconnector/).
+Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Information om anslutningsspecifika teknisk information finns i referens för [Azure Blob Storage Connector](/connectors/azureblobconnector/).
 
 > [!IMPORTANT]
 > Logic Apps kan inte komma åt lagrings konton som ligger bakom brand väggar om båda finns i samma region. Som en lösning kan du använda dina Logi Kap par och lagrings konton i olika regioner. Mer information om hur du aktiverar åtkomst från Azure Logic Apps till lagrings konton bakom brand väggar finns i avsnittet [åtkomst till lagrings konton bakom brand väggar](#storage-firewalls) längre fram i det här avsnittet.
@@ -36,7 +37,7 @@ Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps](../lo
 
   * Följ utlösaren med åtgärden Azure Blob Storage **Hämta BLOB-innehåll** , som läser den fullständiga filen och som implicit använder segment.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -123,10 +124,10 @@ I det här exemplet hämtas endast innehållet för en blob. Om du vill visa inn
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
    | **Anslutnings namn** | Ja | <*anslutnings namn*> | Namnet som ska skapas för anslutningen |
-   | **Lagringskonto** | Ja | <*lagring – konto*> | Välj ditt lagrings konto i listan. |
+   | **Lagrings konto** | Ja | <*lagring – konto*> | Välj ditt lagrings konto i listan. |
    ||||
 
-   Ett exempel:
+   Till exempel:
 
    ![Skapa Azure Blob Storage-konto anslutning](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png) 
 
@@ -136,7 +137,7 @@ I det här exemplet hämtas endast innehållet för en blob. Om du vill visa inn
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Mer teknisk information om den här anslutningen, till exempel utlösare, åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/azureblobconnector/).
+Mer teknisk information om den här anslutningen, till exempel utlösare, åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil finns på [kopplingens referens sida](/connectors/azureblobconnector/).
 
 > [!NOTE]
 > För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ISE-märkta version [ISE-meddelandets gränser](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.
@@ -193,7 +194,7 @@ Följ dessa allmänna steg om du vill ställa in undantag och hanterad identitet
 1. I din Logic app-arbetsflöde lägger du till och konfigurerar HTTP-åtgärden eller utlösaren för åtkomst till lagrings kontot eller entiteten.
 
    > [!IMPORTANT]
-   > För utgående HTTP-åtgärder eller utlösnings anrop till Azure Storage konton, se till att rubriken för begäran innehåller `x-ms-version` egenskapen och API-versionen för den åtgärd som du vill köra på lagrings kontot. Mer information finns i [autentisera åtkomst med hanterad identitet](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) och [versions hantering för Azure Storage tjänster](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
+   > För utgående HTTP-åtgärder eller utlösnings anrop till Azure Storage konton, se till att rubriken för begäran innehåller `x-ms-version` egenskapen och API-versionen för den åtgärd som du vill köra på lagrings kontot. Mer information finns i [autentisera åtkomst med hanterad identitet](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) och [versions hantering för Azure Storage tjänster](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
 
 1. [Välj den hanterade identitet](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) som ska användas för autentisering på den åtgärden.
 
@@ -206,3 +207,4 @@ Om du använder en dedikerad nivå för [API Management](../api-management/api-m
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)
+

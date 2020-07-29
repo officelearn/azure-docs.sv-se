@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: sausin
-ms.openlocfilehash: 5417ff3b53526adbaeba2b9df58694ad495475d3
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 45dba3b7f46ec558c46b8505da26fd3ef4de4cbc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307955"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284191"
 ---
-# <a name="add-configurations-to-commands-parameters"></a>Lägg till konfigurationer i parametrar för kommandon
+# <a name="add-configurations-to-commands-parameters"></a>Lägga till konfigurationer i parametrar för kommandon
 
 I den här artikeln får du lära dig mer om konfiguration av avancerad parameter, inklusive:
 
@@ -41,11 +41,11 @@ I det här avsnittet konfigurerar du sträng typ parametrar för att referera ti
 
 Börja med att lägga till en ny webb slut punkt. Gå till avsnittet **webb slut punkter** i det vänstra fönstret och Lägg till en ny webb slut punkt med följande konfiguration.
 
-| Inställningen | Föreslaget värde |
+| Inställning | Föreslaget värde |
 |----|----|
-| Name | `getDevices` |
+| Namn | `getDevices` |
 | URL | `https://aka.ms/speech/cc-sampledevices` |
-| Metod | HÄMTA |
+| Metod | GET |
 
 
 Om det föreslagna värdet för URL inte fungerar för dig måste du konfigurera och vara värd för en enkel webb slut punkt som returnerar en JSON-enhet som består av en lista över de enheter som kan kontrol leras. Webb slut punkten ska returnera en JSON-formaterad på följande sätt:
@@ -73,18 +73,18 @@ Om det föreslagna värdet för URL inte fungerar för dig måste du konfigurera
 
 Gå sedan till sidan parameter inställningar för **SubjectDevice** och ändra egenskaperna till följande.
 
-| Inställningen | Föreslaget värde |
+| Inställning | Föreslaget värde |
 | ----| ---- |
 | Konfiguration | Acceptera fördefinierade indata från extern katalog |                               
 | Katalog slut punkt | getDevices |
-| Metod | HÄMTA |
+| Metod | GET |
 
 Välj sedan **Spara**.
 
 > [!IMPORTANT]
 > Du kan inte se ett alternativ för att konfigurera en parameter att acceptera indata från en extern katalog om du inte har angett webb slut punkten i avsnittet **webb slut punkt** i det vänstra fönstret.
 
-### <a name="try-it-out"></a>Prova nu
+### <a name="try-it-out"></a>Prova
 
 Välj **träna** och vänta på slut för ande av utbildning. När inlärningen är klar väljer du **testa** och prova några interaktioner.
 
@@ -112,12 +112,12 @@ Testa verifieringar med kommandot **SetTemperature** . Använd följande steg f�
     | ---- | ---- | ---- |
     | Minvärde | `60` | För Number-parametrar kan det minsta värdet som denna parameter anta |
     | Maxvärde | `80` | För Number-parametrar kan det högsta värdet som den här parametern anta |
-    | Haveri svar |  Enkel redigerare > första varianten >`Sorry, I can only set temperature between 60 and 80 degrees` | Fråga om du vill ange ett nytt värde om valideringen Miss lyckas |
+    | Haveri svar |  Enkel redigerare > första varianten >`Sorry, I can only set temperature between 60 and 80 degrees. What temperature do you want?` | Fråga om du vill ange ett nytt värde om valideringen Miss lyckas |
 
     > [!div class="mx-imgBorder"]
     > ![Lägg till en intervall validering](media/custom-commands/add-validations-temperature.png)
 
-### <a name="try-it-out"></a>Prova nu
+### <a name="try-it-out"></a>Prova
 
 1. Välj **träna** ikon överst i den högra rutan.
 

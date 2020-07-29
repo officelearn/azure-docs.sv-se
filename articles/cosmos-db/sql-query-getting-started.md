@@ -4,30 +4,41 @@ description: Lär dig hur du använder SQL-frågor för att fråga efter data fr
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 07/24/2020
 ms.author: tisande
-ms.openlocfilehash: 1d24261edea843fa928ad00e3ce7babcb84acd3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d292b7cfcda73cb4cd6ac2535c7e27fc675e1030
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74873343"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87308193"
 ---
 # <a name="getting-started-with-sql-queries"></a>Komma igång med SQL-frågor
 
-Azure Cosmos DB SQL API-konton har stöd för att skicka frågor till objekt med Structured Query Language (SQL) som ett JSON-frågespråk. Design målen för Azure Cosmos DB frågespråk är att:
+I Azure Cosmos DB SQL API-konton finns det två sätt att läsa data:
 
-* Stöd för SQL, ett av de mest välkända och populära frågespråket, i stället för att använda ett nytt frågespråk. SQL innehåller en formell programmerings modell för omfattande frågor över JSON-objekt.  
+**Punkt läsningar** – du kan göra en nyckel/värde-sökning på ett enskilt *objekt-ID* och en partitionsnyckel. Kombinationen av *objekt-ID* och partitionsnyckel är nyckeln och själva objektet är värdet. För ett dokument med 1 KB läser vi vanligt vis kostnad 1 [begär ande enhet](request-units.md) med en svars tid under 10 MS. Punkt läsningar returnerar ett enskilt objekt.
 
-* Använd Java scripts programmerings modell som grund för frågespråket. Java Script: s typ system, uttrycks utvärdering och funktions anrop är rötter för SQL-API: et. Dessa rötter tillhandahåller en naturlig programmerings modell för funktioner som relationella projektioner, hierarkisk navigering över JSON-objekt, själv koppling, spatiala frågor och aktivering av användardefinierade funktioner (UDF: er) helt skrivna i Java Script.
+**SQL-frågor** – du kan fråga efter data genom att skriva frågor med hjälp av STRUCTURED Query Language (SQL) som ett JSON-frågespråk. Frågor kostar alltid att vara minst 2,3 enheter för programbegäran och i allmänhet har de en högre och mer varierande svars tid än punkt läsningar. Frågor kan returnera många objekt.
+
+De flesta Läs tunga arbets belastningar på Azure Cosmos DB använda en kombination av både punkt läsningar och SQL-frågor. Om du bara behöver läsa ett enskilt objekt är punkt läsningarna billigare och snabbare än frågor. Punkt läsningar behöver inte använda frågemotor för att få åtkomst till data och kan läsa data direkt. Naturligtvis är det inte möjligt för alla arbets belastningar att enbart läsa data med hjälp av punkt läsningar, så stöd för SQL som frågespråk och [schema-oberoende indexering](index-overview.md) ger ett mer flexibelt sätt att komma åt dina data.
+
+Här följer några exempel på hur du gör punkt läsningar med varje SDK:
+
+- [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readitemasync?view=azure-dotnet)
+- [Java SDK](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmoscontainer.readitem?view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
+- [Node.js SDK](https://docs.microsoft.com/javascript/api/@azure/cosmos/item?view=azure-node-latest#read-requestoptions-)
+- [Python SDK](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.containerproxy?view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
+
+Resten av det här dokumentet visar hur du kommer igång med att skriva SQL-frågor i Azure Cosmos DB. SQL-frågor kan köras via antingen SDK eller Azure Portal.
 
 ## <a name="upload-sample-data"></a>Ladda upp exempel data
 
-Skapa en behållare med namnet i ditt SQL API Cosmos DB-konto `Families` . Skapa två enkla JSON-objekt i behållaren. Du kan köra de flesta exempel frågorna i Azure Cosmos DB Query-dokument med hjälp av den här data uppsättningen.
+Skapa en behållare med namnet i ditt SQL API Cosmos DB-konto `Families` . Skapa två enkla JSON-objekt i behållaren. Du kan köra de flesta exempel frågorna i Azure Cosmos DB Query-dokumentationen med hjälp av den här data uppsättningen.
 
 ### <a name="create-json-items"></a>Skapa JSON-objekt
 
 Följande kod skapar två enkla JSON-objekt om familjer. De enkla JSON-objekten för Andersen-och Wakefield-familjer innehåller föräldrar, barn och deras hus djur, adress och registrerings information. Det första objektet har strängar, siffror, booleska värden, matriser och kapslade egenskaper.
-
 
 ```json
 {
@@ -71,7 +82,7 @@ Det andra objektet använder `givenName` och `familyName` i stället för `first
             { "givenName": "Shadow" }
         ]
       },
-      { 
+      {
         "familyName": "Miller",
          "givenName": "Lisa",
          "gender": "female",
@@ -87,7 +98,7 @@ Det andra objektet använder `givenName` och `familyName` i stället för `first
 
 Prova några frågor mot JSON-data för att förstå några av de viktigaste aspekterna i Azure Cosmos DB SQL-frågespråket.
 
-Följande fråga returnerar de objekt där `id` fältet matchar `AndersenFamily` . Eftersom det är en `SELECT *` fråga är resultatet av frågan det fullständiga JSON-objektet. Mer information om SELECT-syntax finns i [Select Statement](sql-query-select.md). 
+Följande fråga returnerar de objekt där `id` fältet matchar `AndersenFamily` . Eftersom det är en `SELECT *` fråga är resultatet av frågan det fullständiga JSON-objektet. Mer information om SELECT-syntax finns i [Select Statement](sql-query-select.md).
 
 ```sql
     SELECT *
@@ -95,7 +106,7 @@ Följande fråga returnerar de objekt där `id` fältet matchar `AndersenFamily`
     WHERE f.id = "AndersenFamily"
 ```
 
-Frågeresultatet är: 
+Frågeresultatet är:
 
 ```json
     [{
@@ -171,4 +182,4 @@ I föregående exempel visas flera aspekter av Cosmos DB frågespråket:
 
 - [Introduktion till Azure Cosmos DB](introduction.md)
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [SELECT-sats](sql-query-select.md)
+- [SELECT-satsen](sql-query-select.md)

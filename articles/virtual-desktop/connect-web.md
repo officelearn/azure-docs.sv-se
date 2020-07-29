@@ -8,20 +8,17 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4bb54db8a18baa237f1c32c223b5f609638c7523
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3fdbd0ddb33785655cada2600acdecdced4aeb2f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080632"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283443"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>Ansluta till virtuella Windows-datorer med webb klienten
 
 >[!IMPORTANT]
->Det här innehållet gäller för våren 2020-uppdateringen med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder den virtuella Windows-datorn med version 2019 utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/connect-web-2019.md).
->
-> Den virtuella Windows-skrivbordets våren 2020-uppdateringen är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Det här innehållet gäller för virtuella Windows-datorer med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder Windows Virtual Desktop (klassisk) utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/connect-web-2019.md).
 
 Med webb klienten kan du komma åt dina Windows-resurser för virtuella skriv bord från en webbläsare utan den långa installations processen.
 
@@ -32,10 +29,10 @@ Med webb klienten kan du komma åt dina Windows-resurser för virtuella skriv bo
 
 Även om en HTML5-kompatibel webbläsare ska fungera, har vi officiellt stöd för följande operativ system och webbläsare.
 
-| Webbläsare           | Operativ system som stöds                     | Kommentarer               |
+| Webbläsare           | Operativ system som stöds                     | Obs!               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
-| Internet Explorer | Windows                          |                     |
+| Internet Explorer | Windows                          | Version 11 eller senare |
 | Apple Safari      | macOS                            |                     |
 | Mozilla Firefox   | Windows, macOS, Linux            | Version 55 eller senare |
 | Google Chrome     | Windows, macOS, Linux, Chrome OS |                     |
@@ -45,7 +42,7 @@ Med webb klienten kan du komma åt dina Windows-resurser för virtuella skriv bo
 I en webbläsare går du till den Azure Resource Manager-integrerade versionen av webb klienten för virtuella Windows-datorer på <https://rdweb.wvd.microsoft.com/arm/webclient> och loggar in med ditt användar konto.
 
 >[!NOTE]
->Om du använder den virtuella Windows-datorn med version 2019 utan Azure Resource Manager-integrering ansluter du till dina resurser i <https://rdweb.wvd.microsoft.com/webclient> stället.
+>Om du använder Windows Virtual Desktop (klassisk) utan Azure Resource Manager-integrering ansluter du till dina resurser i <https://rdweb.wvd.microsoft.com/webclient> stället.
 
 >[!NOTE]
 >Om du redan har loggat in med ett annat Azure Active Directory-konto än det som du vill använda för Windows Virtual Desktop, bör du antingen logga ut eller använda ett privat webbläsarfönster.

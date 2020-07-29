@@ -6,12 +6,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.openlocfilehash: c19799265679eeead96bf95943f274aa32c75ff2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.author: mingshen
+author: mingshen-ms
+ms.openlocfilehash: 20d14d656132b2809fe5a79d909c27799438a247
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121579"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280944"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Publiceringsguiden för SaaS-programerbjudanden
 
@@ -27,8 +29,8 @@ SaaS-program finns i Microsoft AppSource och Azure Marketplace.  Både butiker s
 | Erbjudande för SaaS-appar | Affärs krav | Tekniska krav |  
 | --- | --- | --- |  
 | **Kontakta oss** | Ja | Nej |  
-| **Power BI/Dynamics** | Yes | Ja (Azure AD-integrering) |  
-| **SaaS-appar**| Yes | Ja (Azure AD-integrering) |     
+| **Power BI/Dynamics** | Ja | Ja (Azure AD-integrering) |  
+| **SaaS-appar**| Ja | Ja (Azure AD-integrering) |     
 
 ## <a name="saas-list"></a>Lista över SaaS
 

@@ -3,15 +3,15 @@ title: Alternativ för DNS-namnmatchning för virtuella Linux-datorer
 description: Namn matchnings scenarier för virtuella Linux-datorer i Azure IaaS, inklusive tillhandahållna DNS-tjänster, hybrid extern DNS och att ta med din egen DNS-server.
 author: RicksterCDN
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 41cf83a3d9c756d69df2e2e9777ebd8eb54d4d74
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: aa007888c68df41242f937e1062a90ec1b7fc3ce
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494742"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372832"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Alternativ för DNS-namnmatchning för virtuella Linux-datorer i Azure
 Azure tillhandahåller DNS-namnmatchning som standard för alla virtuella datorer som finns i ett enda virtuellt nätverk. Du kan implementera din egen lösning för DNS-namnmatchning genom att konfigurera dina egna DNS-tjänster på dina virtuella datorer som Azure-värdar. Följande scenarier bör hjälpa dig att välja den som fungerar för din situation.

@@ -3,12 +3,12 @@ title: Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 description: Beskriver hur du säkerhetskopierar och återställer krypterade virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 1689ff89f15248f6771ccdce525cc136221e5577
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 20310c6c51a2467e9389bc77dd9ada4848c69be4
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538912"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371761"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 
@@ -47,7 +47,7 @@ Innan du börjar gör du följande:
 
 1. Se till att du har en eller flera virtuella [Windows](../virtual-machines/linux/disk-encryption-overview.md) -eller [Linux](../virtual-machines/linux/disk-encryption-overview.md) -datorer med ade aktiverat.
 2. [Granska support matrisen](backup-support-matrix-iaas.md) för säkerhets kopiering av virtuella Azure-datorer
-3. [Skapa](backup-azure-arm-vms-prepare.md#create-a-vault) ett Recovery Services säkerhets kopierings valv om du inte har något.
+3. [Skapa](backup-create-rs-vault.md) ett Recovery Services säkerhets kopierings valv om du inte har något.
 4. Om du aktiverar kryptering för virtuella datorer som redan har Aktiver ATS för säkerhets kopiering behöver du bara ange säkerhets kopiering med behörigheter för att få åtkomst till Key Vault så att säkerhets kopior kan fortsätta utan avbrott. [Läs mer](#provide-permissions) om att tilldela dessa behörigheter.
 
 Dessutom finns det några saker som du kan behöva göra i vissa fall:
@@ -56,7 +56,7 @@ Dessutom finns det några saker som du kan behöva göra i vissa fall:
 
 ## <a name="configure-a-backup-policy"></a>Konfigurera en säkerhetskopieringspolicy
 
-1. Om du ännu inte har skapat ett Recovery Services säkerhets kopierings valv följer du [dessa anvisningar](backup-azure-arm-vms-prepare.md#create-a-vault)
+1. Om du ännu inte har skapat ett Recovery Services säkerhets kopierings valv följer du [dessa anvisningar](backup-create-rs-vault.md)
 2. Öppna valvet i portalen och välj **säkerhets kopiering** i avsnittet **komma igång** .
 
     ![Säkerhets kopierings blad](./media/backup-azure-vms-encryption/select-backup.png)

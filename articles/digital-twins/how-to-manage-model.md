@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: fec93169a8c49422c9e310cddc08ae3412b89166
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b8a53ae598130086a9009dbec891052e863cdf0f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132287"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281369"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Hantera Azure Digitals dubbla modeller
 
@@ -65,8 +65,11 @@ Den här modellen definierar ett namn och ett unikt ID för patient rummet och e
 
 Efter den här metoden kan du gå vidare till för att definiera modeller för sjukhuss rapporter, zoner eller själva sjukhus.
 
-> [!TIP]
-> Det finns ett bibliotek på klient sidan som kan tolkas och verifieras DTDL. Den genererar en C#-objekt modell av DTDL-innehållet, som kan användas i modell drivna utvecklings scenarier som att generera GRÄNSSNITTs element. Du kan också använda det här biblioteket för att se till att dina modeller inte har några syntaxfel innan du laddar upp dem. Mer information om det här biblioteket och åtkomst till ett exempel som är byggt på det för en DTDL-verifierare finns i [*How-to: parse and validate Models*](how-to-use-parser.md).
+### <a name="validate-syntax"></a>Validera syntax
+
+Det finns ett bibliotek på klient sidan som kan tolkas och verifieras DTDL. Den genererar en C#-objekt modell av DTDL-innehållet, som kan användas i modell drivna utvecklings scenarier som att generera GRÄNSSNITTs element. Du kan också använda det här biblioteket för att se till att dina modeller inte har några syntaxfel innan du laddar upp dem. 
+
+Mer information om det här biblioteket och åtkomst till ett exempel som är byggt på det för en DTDL-verifierare finns i [*How-to: parse and validate Models*](how-to-use-parser.md).
 
 ## <a name="manage-models-with-apis"></a>Hantera modeller med API: er.
 
@@ -82,7 +85,10 @@ I följande avsnitt visas hur du utför olika modell hanterings åtgärder med h
 
 När modeller har skapats kan du ladda upp dem till Azure Digitals-instansen.
 
-Här är ett kodfragment som visar hur du gör detta:
+> [!TIP]
+> Vi rekommenderar att du validerar dina modeller offline innan du laddar upp dem till din Azure Digital-instansen. Du kan använda [DTDL för klient sidans parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) och [DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) som beskrivs i [*instruktionen att parsa och validera modeller*](how-to-use-parser.md) för att kontrol lera dina modeller innan du överför dem till tjänsten.
+
+När du är redo att ladda upp en modell kan du använda följande kodfragment:
 
 ```csharp
 // 'client' is an instance of DigitalTwinsClient
@@ -109,7 +115,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-Model-filer kan innehålla mer än en enskild modell. I det här fallet måste modellerna placeras i en JSON-matris. Exempel:
+Model-filer kan innehålla mer än en enskild modell. I det här fallet måste modellerna placeras i en JSON-matris. Till exempel:
 
 ```json
 [
@@ -126,10 +132,7 @@ Model-filer kan innehålla mer än en enskild modell. I det här fallet måste m
 ]
 ```
  
-Vid uppladdning verifieras modell filer.
-
-> [!TIP] 
-> Observera att du även kan använda [DTDL-biblioteket på klient sidan](how-to-use-parser.md) för att validera modeller på klient sidan.
+Vid uppladdning verifieras Model-filer av tjänsten.
 
 ### <a name="retrieve-models"></a>Hämta modeller
 

@@ -3,14 +3,15 @@ title: Använda Cloud-Init i en virtuell Linux-dator på Azure
 description: Så här använder du Cloud-Init för att uppdatera och installera paket i en virtuell Linux-dator när du skapar med Azure CLI
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/20/2018
 ms.author: cynthn
-ms.openlocfilehash: 7b7a03572a001fc6d5114635b33510f1a4b1bc70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98198a2eb2476138f7794b26c30397798ede32b1
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78969143"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373444"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Använd Cloud-Init för att uppdatera och installera paket i en virtuell Linux-dator i Azure
 Den här artikeln visar hur du använder [Cloud-Init](https://cloudinit.readthedocs.io) för att uppdatera paket på en virtuell Linux-dator (VM) eller skalnings uppsättningar för virtuella datorer vid etablerings tiden i Azure. Dessa Cloud-Init-skript körs vid första start när resurserna har etablerats av Azure. Mer information om hur Cloud-Init fungerar internt i Azure och vilka Linux-distributioner som stöds finns i [Översikt över Cloud-Init](using-cloud-init.md)

@@ -4,16 +4,16 @@ description: Konfigurera webbtester i Application Insights. Få aviseringar om e
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 6daa2e4abb1b6580fd70f104e85f3a917f47dcdc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f9c5fa691456195943f97419c1175fd5b586878
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024596"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87310284"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Övervaka tillgängligheten för en webbplats
 
-När du har distribuerat din webbapp/webbplats kan du ställa in återkommande tester för att övervaka tillgänglighet och svars tider. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) skickar begäranden till ditt program med jämna mellanrum från platser över hela världen. Det kan varna dig om programmet inte svarar eller om det svarar för långsamt.
+När du har distribuerat din webbapp/webbplats kan du ställa in återkommande tester för att övervaka tillgänglighet och svars tider. [Azure Application Insights](./app-insights-overview.md) skickar begäranden till ditt program med jämna mellanrum från platser över hela världen. Det kan varna dig om programmet inte svarar eller om det svarar för långsamt.
 
 Du kan konfigurera tillgänglighetstester för valfri HTTP- eller HTTPS-slutpunkt som kan nås från det offentliga Internet. Du behöver inte göra några ändringar på den webbplats som du testar. I själva verket behöver det inte ens vara en webbplats som du äger. Du kan testa tillgängligheten för en REST API som tjänsten är beroende av.
 
@@ -43,7 +43,7 @@ Om du vill skapa din första tillgänglighets förfrågan öppnar du fönstret t
 
 ### <a name="create-a-test"></a>Skapa ett test
 
-|Inställning| Förklaring
+|Inställningen| Förklaring
 |----|----|----|
 |**URL** |  URL: en kan vara en webbsida som du vill testa, men den måste vara synlig från Internet. URL: en kan innehålla en frågesträng. Du kan arbeta med din databas om du vill. Om URL-adressen matchar en omdirigering följer vi den upp till tio omdirigeringar.|
 |**Parsa beroende begär Anden**| Testbegäran-bilder, skript, formatfiler och andra filer som ingår i webb sidan under testet. Den registrerade svarstiden innefattar den tid det tar att hämta dessa filer. Testet Miss lyckas om någon av dessa resurser inte kan laddas ned inom tids gränsen för hela testet. Om alternativet inte är markerat begärs endast filen på den URL som du har angett i testet. Att aktivera det här alternativet resulterar i en striktare kontroll. Det kan hända att testet Miss lyckas för fall, vilket inte kan märkas när du bläddrar på platsen manuellt.
@@ -58,7 +58,7 @@ Om du vill skapa din första tillgänglighets förfrågan öppnar du fönstret t
 
 ### <a name="success-criteria"></a>Lyckade kriterier
 
-|Inställning| Förklaring
+|Inställningen| Förklaring
 |----|----|----|
 | **Timeout för test** |Minska det här värdet om du vill få aviseringar om långsamma svar. Testet räknas som misslyckat om svaren från din webbplats inte har tagits emot inom denna period. Om du valde **Parsa beroende begäranden** måste alla bilder, formatfiler, skript och andra beroende resurser ha tagits emot inom denna period.|
 | **HTTP-svar** | Den returnerade status koden som räknas som lyckad. 200 är koden som anger att en normal webbsida har returnerats.|
@@ -66,10 +66,10 @@ Om du vill skapa din första tillgänglighets förfrågan öppnar du fönstret t
 
 ### <a name="alerts"></a>Aviseringar
 
-|Inställning| Förklaring
+|Inställningen| Förklaring
 |----|----|----|
 |**Nära real tid (för hands version)** | Vi rekommenderar att du använder aviseringar i nästan real tid. Konfigurationen av den här typen av avisering görs efter att ditt tillgänglighets test har skapats.  |
-|**Klassisk** | Vi rekommenderar inte längre att använda klassiska aviseringar för nya tillgänglighets test.|
+|**Form** | Vi rekommenderar inte längre att använda klassiska aviseringar för nya tillgänglighets test.|
 |**Tröskelvärde för aviserings plats**|Vi rekommenderar minst 3/5 platser. Den optimala relationen mellan aviserings platsens tröskelvärde och antalet test platser är **tröskelvärdet för aviserings platsens tröskel**  =  **antal test platser – 2, med minst fem test platser.**|
 
 ## <a name="see-your-availability-test-results"></a>Visa tillgänglighetstestresultat
@@ -107,9 +107,9 @@ Du kan se transaktions detaljerna för alla komponenter från ett tillgänglighe
 * Logga ett problem eller ett arbets objekt i git eller Azure-kort för att spåra problemet. Buggen innehåller en länk till den här händelsen.
 * Öppna resultatet av webbtestet i Visual Studio.
 
-Läs mer om hur du slutför körningen av transaktions diagnostik [här](../../azure-monitor/app/transaction-diagnostics.md).
+Läs mer om hur du slutför körningen av transaktions diagnostik [här](./transaction-diagnostics.md).
 
-Klicka på raden undantag om du vill se information om det undantag på Server sidan som orsakade att testet för syntetisk tillgänglighet inte kunde köras. Du kan också hämta en [fel söknings ögonblicks bild](../../azure-monitor/app/snapshot-debugger.md) för bättre diagnostik på kod nivå.
+Klicka på raden undantag om du vill se information om det undantag på Server sidan som orsakade att testet för syntetisk tillgänglighet inte kunde köras. Du kan också hämta en [fel söknings ögonblicks bild](./snapshot-debugger.md) för bättre diagnostik på kod nivå.
 
 ![Diagnostik på Server Sidan](./media/monitor-web-app-availability/open-instance-4.png)
 
@@ -120,8 +120,8 @@ Förutom de råa resultaten kan du också visa två nyckel tillgänglighets måt
 
 ## <a name="automation"></a>Automation
 
-* [Konfigurera ett tillgänglighetstest automatiskt med hjälp av PowerShell-skript](../../azure-monitor/app/powershell.md#add-an-availability-test).
-* Konfigurera en [webhook](../../azure-monitor/platform/alerts-webhooks.md) som anropas när en avisering genereras.
+* [Konfigurera ett tillgänglighetstest automatiskt med hjälp av PowerShell-skript](./powershell.md#add-an-availability-test).
+* Konfigurera en [webhook](../platform/alerts-webhooks.md) som anropas när en avisering genereras.
 
 ## <a name="troubleshooting"></a>Felsökning
 
@@ -131,3 +131,4 @@ Dedikerad [fel söknings artikel](troubleshoot-availability.md).
 
 * [Tillgänglighets varningar](availability-alerts.md)
 * [Webbtester med flera steg](availability-multistep.md)
+

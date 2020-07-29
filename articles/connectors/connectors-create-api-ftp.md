@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
-ms.openlocfilehash: 5b61b51e79c71736e18aaa63ab032c05c512c8d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4cad2b658547d56d00efdd5e1496110f8e4a5e6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656337"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284021"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Skapa, övervaka och hantera FTP-filer med hjälp av Azure Logic Apps
 
@@ -50,7 +51,7 @@ FTP-utlösare fungerar genom att avsöka FTP-filsystemet och leta efter en fil s
 
 När en utlösare hittar en ny fil, kontrollerar utlösaren att den nya filen är fullständig och inte delvis skriven. En fil kan till exempel ha ändringar som pågår när utlösaren kontrollerar fil servern. För att undvika att returnera en delvis skriven fil, noterar utlösaren tidsstämpeln för filen som har nyligen gjorda ändringar, men returnerar inte omedelbart den filen. Utlösaren returnerar filen endast när servern avsöks igen. Ibland kan det här problemet orsaka en fördröjning som är upp till två gånger utlösaren för avsöknings intervall.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -112,7 +113,7 @@ Här är ett exempel som visar hur du använder den **när en fil läggs till el
 
    ![Den valda mappen visas i "Folder"-egenskapen](./media/connectors-create-api-ftp/selected-folder-ftp-trigger.png)
 
-1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
+1. Spara logikappen. I verktygsfältet designer väljer du **Spara**.
 
 Nu när din Logic app har en utlösare lägger du till de åtgärder som du vill köra när din Logi Kap par söker efter en ny eller redige rad fil. I det här exemplet kan du lägga till en FTP-åtgärd som hämtar det nya eller uppdaterade innehållet.
 
@@ -152,7 +153,7 @@ Nu när din Logic app har en utlösare lägger du till de åtgärder som du vill
 
    ![Den valda egenskapen "ID"](./media/connectors-create-api-ftp/selected-get-file-content-id-ftp-action.png)
 
-1. Spara din logikapp.
+1. Spara logikappen.
 
 ## <a name="test-your-logic-app"></a>Testa din Logic app
 
@@ -166,11 +167,11 @@ Om du vill kontrol lera att arbets flödet returnerar det innehåll som du förv
 
    ![Ange information om e-poståtgärd](./media/connectors-create-api-ftp/selected-send-email-action.png)
 
-1. Spara din logikapp. Om du vill köra och utlösa Logic-appen väljer du **Kör**i verktygsfältet och lägger sedan till en fil i FTP-mappen som din Logic app nu övervakar.
+1. Spara logikappen. Om du vill köra och utlösa Logic-appen väljer du **Kör**i verktygsfältet och lägger sedan till en fil i FTP-mappen som din Logic app nu övervakar.
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Mer teknisk information om den här anslutningen, till exempel utlösare, åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/ftpconnector/).
+Mer teknisk information om den här anslutningen, till exempel utlösare, åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil finns på [kopplingens referens sida](/connectors/ftpconnector/).
 
 > [!NOTE]
 > För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ISE-märkta version [ISE-meddelandets gränser](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.
@@ -178,3 +179,4 @@ Mer teknisk information om den här anslutningen, till exempel utlösare, åtgä
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)
+

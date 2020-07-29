@@ -7,11 +7,12 @@ author: sarahhubbard
 ms.author: sahubbar
 ms.date: 06/08/2020
 ms.topic: how-to
-ms.openlocfilehash: dec9abc38bc0354ef3d22994a7988bfb006f5769
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6073f71eb21ba4a6739647964d4888044d6ee59a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609750"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283730"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Skapa och köra ett jobb i ditt Azure IoT Central-program
 
@@ -42,7 +43,11 @@ I det här avsnittet visas hur du skapar och kör ett jobb. Det visar hur du st�
     > [!NOTE]
     > Du kan visa 30 dagars historik för dina jobb som körs tidigare.
 
-7. Om du vill få en översikt över jobbet väljer du det jobb som ska visas i listan. Den här översikten innehåller värdena för jobb information, enheter och enhets status. I den här översikten kan du också välja **Hämta jobb information** för att ladda ned en CSV-fil med jobb information, inklusive enheterna och deras status värden. Den här informationen kan vara användbar vid fel sökning:
+7. Klicka på det sparade jobbet och kör jobbet genom att klicka på knappen Kör. Popup-fönstret för att köra ett jobb visas. Bekräfta genom att klicka på knappen Kör jobb. 
+
+    ![Köra ett jobb](./media/howto-run-a-job/run-job.png)
+
+8. Jobbet går igenom olika faser av väntande, igång och slutförda. Informationen om jobb körningen innehåller resultat mått, varaktighets information och rutnät för enhets lista. I den här översikten kan du också välja **resultat logg** för att ladda ned en CSV-fil med jobb information, inklusive enheterna och deras status värden. Den här informationen kan vara användbar vid fel sökning.
 
     ![Visa enhetsstatus](./media/howto-run-a-job/download-details.png)
 
@@ -50,13 +55,23 @@ I det här avsnittet visas hur du skapar och kör ett jobb. Det visar hur du st�
 
 Om du vill stoppa ett pågående jobb öppnar du det och väljer **stoppa**. Jobbets status ändras för att visa att jobbet stoppas. I **sammanfattnings** avsnittet visas vilka enheter som har slutförts, misslyckats eller som fortfarande väntar.
 
-Om du vill köra ett jobb som är stoppat markerar du det och väljer sedan **Kör**. Jobbets status ändras för att återspegla jobbet körs nu igen. Avsnittet **Sammanfattning** fortsätter att uppdateras med den senaste förloppet.
-
 ![Hantera jobb](./media/howto-run-a-job/manage-job.png)
+
+När jobbet är i stoppat tillstånd kan du klicka på **Fortsätt** för att återuppta jobb körningen. Jobbets status ändras för att återspegla jobbet körs nu igen. Avsnittet **Sammanfattning** fortsätter att uppdateras med den senaste förloppet.
+
+![Stoppat jobb](./media/howto-run-a-job/stopped-job.png)
 
 ## <a name="copy-a-job"></a>Kopiera ett jobb
 
-Om du vill kopiera ett befintligt jobb väljer du det på sidan **jobb** och väljer **Kopiera**. En kopia av jobb konfigurationen öppnas och du kan redigera den och **Kopiera** den till jobb namnet. Du kan spara eller köra det nya jobbet:
+Om du vill kopiera ett befintligt jobb väljer du det på sidan **jobb** och väljer **jobb information**. Sidan jobb information visas. 
+
+![Jobbdetaljer](./media/howto-run-a-job/job-details.png)
+
+Klicka på **Kopiera**
+
+![Jobbdetaljer](./media/howto-run-a-job/job-details-copy.png)
+
+En kopia av jobb konfigurationen öppnas och du kan redigera den och **Kopiera** den till jobb namnet. Du kan spara eller köra det nya jobbet:
 
 ![Kopiera jobb](./media/howto-run-a-job/copy-job.png)
 
@@ -66,8 +81,8 @@ När ett jobb har skapats uppdateras **status** kolumnen med det senaste status 
 
 | Statusmeddelande       | Status betydelse                                          |
 | -------------------- | ------------------------------------------------------- |
-| Slutförd            | Det här jobbet har körts på alla enheter.              |
-| Misslyckades               | Det här jobbet har misslyckats och inte körts fullständigt på enheterna.  |
+| Slutfört            | Det här jobbet har körts på alla enheter.              |
+| Misslyckad               | Det här jobbet har misslyckats och inte körts fullständigt på enheterna.  |
 | Väntar              | Det här jobbet har ännu inte börjat köra på enheter.         |
 | Körs              | Det här jobbet körs för närvarande på enheter.             |
 | Stoppad              | Det här jobbet har stoppats manuellt av en användare.           |
@@ -77,7 +92,7 @@ Status meddelandet följs av en översikt över enheterna i jobbet. I följande 
 | Statusmeddelande       | Status betydelse                                                     |
 | -------------------- | ------------------------------------------------------------------ |
 | Lyckades            | Antalet enheter som jobbet har körts på.       |
-| Misslyckades               | Antalet enheter som jobbet inte kunde köras på.       |
+| Misslyckad               | Antalet enheter som jobbet inte kunde köras på.       |
 
 ### <a name="view-the-device-status-values"></a>Visa enhets status värden
 
@@ -85,8 +100,8 @@ Om du vill visa status för jobbet och alla berörda enheter öppnar du jobbet. 
 
 | Statusmeddelande       | Status betydelse                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
-| Slutförd            | Jobbet som körs på den här enheten.                                     |
-| Misslyckades               | Det gick inte att köra jobbet på den här enheten. I fel meddelandet visas mer information.  |
+| Slutfört            | Jobbet som körs på den här enheten.                                     |
+| Misslyckad               | Det gick inte att köra jobbet på den här enheten. I fel meddelandet visas mer information.  |
 | Väntar              | Jobbet har ännu inte körts på den här enheten.                                   |
 
 Om du vill ladda ned en CSV-fil som innehåller jobb information och listan över enheter och deras status värden väljer du **Hämta**.

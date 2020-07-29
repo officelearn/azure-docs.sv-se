@@ -11,20 +11,49 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: eceb34b57a0b2dd62f93f7732a6b93221e3ecb56
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 152907908f12a41679b3161e0c4b39348926399e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512671"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373801"
 ---
 # <a name="speech-service-release-notes"></a>Viktig information om Speech service
+
+## <a name="speech-sdk-1130-2020-july-release"></a>Speech SDK-1.13.0:2020 – juli version
+
+**Obs!** Speech SDK i Windows är beroende av den delade Microsoft Visual C++ Redistributable för Visual Studio 2015, 2017 och 2019. Hämta och installera den [här](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
+
+**Nya funktioner**
+- **C#**: stöd har lagts till för asynkron konversations avskrift. Se dokumentationen [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-async-conversation-transcription).  
+- **Java Script**: ytterligare Talarigenkänning stöd för både [webbläsare](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) och [node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
+- **Java Script**: stöd har lagts till för automatisk språk identifiering/språk-ID. Se dokumentationen [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-javascript).
+- **Mål-C**: stöd har lagts till för konversations-och konversations avskrifter i flera enheter. 
+- **Python**: stöd för komprimerad ljud för python i Windows och Linux. Se dokumentationen [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams). 
+
+**Fel korrigeringar**
+- **Alla**: åtgärdat ett problem som gjorde att KeywordRecognizer inte flyttar vidarebefordrar data strömmar efter en igenkänning.
+- **Alla**: åtgärdat ett problem som orsakade data strömmen som hämtades från en KeywordRecognitionResult som inte innehåller nyckelordet.
+- **Alla**: åtgärdat ett problem som SendMessageAsync inte faktiskt skickar meddelandet över ledningen när slutanvändarna har slutat att vänta.
+- **Alla**: åtgärdade en krasch i Talarigenkänning API: er när användare startar flera VoiceProfileClient:: SpeakerRecEnrollProfileAsync och fick inte vänta på att de ska slutföras.
+- **Alla**: åtgärdad aktivera fil loggning i VoiceProfileClient-och SpeakerRecognizer-klasser.
+- **Java Script**: åtgärdat ett [problem](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/74) med begränsning när webbläsaren minimeras.
+- **Java Script**: åtgärdat ett [problem](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/78) med minnes läckor på strömmar.
+- **Java Script**: cachelagring har lagts till för OCSP-svar från NodeJS.
+- **Java**: åtgärdat ett problem som gjorde att BigInteger-fält alltid returnerade 0.
+- **iOS**: åtgärdat och [problem](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) med publicering av tal SDK-baserade appar i iOS App Store.
+
+**Exempel**
+- **C++**: exempel kod har lagts till för Talarigenkänning [här](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console/samples/speaker_recognition_samples.cpp).
+
+**COVID – 19 förkortad-testning:** På grund av att det går att fjärrans luta under de senaste veckorna kunde vi inte göra så mycket manuella verifierings testningar som vanligt. Vi har inte gjort några ändringar som vi tror skulle kunna ha trasigt något och våra automatiserade tester lyckades. I det förmodade fallet att vi missade något, kan du berätta för oss på [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
+Håll dig frisk!
 
 ## <a name="text-to-speech-2020-july-release"></a>Text till tal 2020 – juli version
 
 ### <a name="new-features"></a>Nya funktioner
 
-* **NEURALA TTS, 15 nya neurala-röster**: de nya rösterna som läggs till i neurala TTS-portföljen är Salma i `ar-EG` arabiska (Egypten), Zariyah i `ar-SA` arabiska (Saudiarabien), Alba i `ca-ES` katalanska (Spanien), Christel i `da-DK` danska (Danmark), Neerja på `es-IN` engelska (Indien). Noora i `fi-FI` finska (Finland), swara i `hi-IN` hindi (Indien), Colette i `nl-NL` nederländska (Netherland), Zofia i `pl-PL` polska (Polen), Fernanda i `pt-PT` portugisiska (Portugal), Dariya i `ru-RU` ryska (Ryssland), Hillevi i `sv-SE` svenska (Sverige), Achara i `th-TH` thailändska (Thailand), HiuGaai på `zh-HK` kinesiska (kantonesiska, traditionell) och HsiaoYu i `zh-TW` kinesiska (Taiwan-mandariner). Kontrol lera alla [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices).  
+* **NEURALA TTS, 15 nya neurala-röster**: de nya rösterna som läggs till i neurala TTS-portföljen är Salma i `ar-EG` arabiska (Egypten), Zariyah i `ar-SA` arabiska (Saudiarabien), Alba i `ca-ES` katalanska (Spanien), Christel i `da-DK` danska (Danmark), Neerja på `es-IN` engelska (Indien). Noora i `fi-FI` finska (Finland), swara i `hi-IN` hindi (Indien), Colette i `nl-NL` nederländska (Nederländerna), Zofia i `pl-PL` polska (Polen), Fernanda i `pt-PT` portugisiska (Portugal), Dariya i `ru-RU` ryska (Ryssland), Hillevi i `sv-SE` svenska (Sverige), Achara i `th-TH` thailändska (Thailand), HiuGaai på `zh-HK` kinesiska (kantonesiska, traditionell) och HsiaoYu i `zh-TW` kinesiska (Taiwan-mandariner). Kontrol lera alla [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices).  
 
 * **Anpassad röst, strömlinjeformad röst testning med utbildnings flödet för att förenkla användar upplevelsen**: med den nya testnings funktionen testas varje röst automatiskt med en fördefinierad test uppsättning som är optimerad för varje språk och som kan användas i scenarier med allmänt röst och röst assistent. De här test uppsättningarna väljs noggrant och testas för att inkludera typiska användnings fall och fonem på språket. Förutom kan användarna fortfarande välja att överföra egna test skript när de tränar en modell.
 
@@ -85,10 +114,10 @@ ms.locfileid: "86512671"
 
 ### <a name="samplessdk"></a>Exempel/SDK
 
-* Java Script: korrigerar uppspelnings problem i FireFox och Safari på macOS och iOS. 
+* Java Script: korrigerar uppspelnings problem i Firefox och Safari på macOS och iOS. 
 
 ## <a name="speech-sdk-1121-2020-june-release"></a>Speech SDK-1.12.1:2020 – juni version
-**Tal CLI (aka SPX)**
+**Tal-CLI (även kallat SPX)**
 -   Tillagda hjälp Sök funktioner i CLI:
     -   `spx help find --text TEXT`
     -   `spx help find --topic NAME`
@@ -115,7 +144,7 @@ Håll dig frisk!
 
 
 ## <a name="speech-sdk-1120-2020-may-release"></a>Speech SDK-1.12.0:2020 – maj-version
-**Tal CLI (aka SPX)**
+**Tal-CLI (även känt som SPX)**
 - **SPX** är ett nytt kommando rads verktyg som du kan använda för att utföra igenkänning, syntes, översättning, batch-avskrift och anpassad tal hantering från kommando raden. Använd den för att testa tal tjänsten eller för att skapa skript för de tal tjänst uppgifter som du behöver utföra. Hämta verktyget och Läs dokumentationen [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-overview).
 
 **Nya funktioner**

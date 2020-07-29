@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0470ab635f34291b4c92259e556329d6b2f401c7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 42356ec4277c8441b4833560f431740e9e2f56c8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026092"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311355"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft Identity Platform och OAuth 2,0 Authorization Code Flow
 
@@ -34,9 +34,11 @@ På hög nivå ser hela autentiseringsläget för ett program ut ungefär så h�
 
 ![Kod flöde för OAuth-auth](./media/v2-oauth2-auth-code-flow/convergence-scenarios-native.svg)
 
-## <a name="setup-required-for-single-page-apps"></a>Konfiguration som krävs för appar med en sida
+## <a name="redirect-uri-setup-required-for-single-page-apps"></a>Omdirigerings-URI-installation krävs för appar med en sida
 
-Flödes kods flödet för enstaka sidor kräver ytterligare konfiguration.  När du [skapar ditt program](howto-create-service-principal-portal.md)måste du markera omdirigerings-URI: n för din app som en `spa` omdirigerings-URI. Detta gör att inloggnings servern tillåter CORS (resurs delning mellan ursprung) för din app.  Detta krävs för att lösa in koden med hjälp av XHR.
+Flödes kods flödet för enstaka sidor kräver ytterligare konfiguration.  Följ anvisningarna för att [skapa ett program med en sida](scenario-spa-app-registration.md#redirect-uri-msaljs-20-with-auth-code-flow) för att markera omdirigerings-URI: n som aktive rad för CORS. Om du vill uppdatera en befintlig omdirigerings-URI för att aktivera CORS öppnar du manifest redigeraren och anger `type` fältet för omdirigerings-URI: n till `spa` i `replyUrlsWithType` avsnittet. Du kan också klicka på omdirigerings-URI: n i avsnittet "webb" på fliken autentisering och välja de URI: er som du vill migrera till med hjälp av kod flödet för auktorisering.
+
+`spa`Omdirigerings typen är bakåtkompatibel med det implicita flödet. Appar som för närvarande använder det implicita flödet för att hämta token kan flyttas till den `spa` omdirigerings-URI-typen utan problem och fortsätta använda det implicita flödet.
 
 Om du försöker använda auktoriseringskod-flödet och se det här felet:
 
@@ -229,7 +231,7 @@ Fel svaren kommer att se ut så här:
 | `temporarily_unavailable` | Servern är tillfälligt upptagen och kan inte hantera begäran. | Gör om begäran. Klient programmet kan förklara för användaren att dess svar är fördröjt på grund av ett tillfälligt tillstånd. |
 
 > [!NOTE]
-> Appar med en sida kan få ett `invalid_request` fel meddelande som anger att inlösningen för flera ursprungs-token endast tillåts för klient typen Single-Side-program.  Detta anger att omdirigerings-URI: n som används för att begära token inte har marker ATS som en `spa` omdirigerings-URI.  Granska [program registrerings stegen](#setup-required-for-single-page-apps) för att aktivera det här flödet.
+> Appar med en sida kan få ett `invalid_request` fel meddelande som anger att inlösningen för flera ursprungs-token endast tillåts för klient typen Single-Side-program.  Detta anger att omdirigerings-URI: n som används för att begära token inte har marker ATS som en `spa` omdirigerings-URI.  Granska [program registrerings stegen](#redirect-uri-setup-required-for-single-page-apps) för att aktivera det här flödet.
 
 ## <a name="use-the-access-token"></a>Använda åtkomsttoken
 

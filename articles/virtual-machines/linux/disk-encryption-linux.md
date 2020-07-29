@@ -4,16 +4,16 @@ description: Den här artikeln innehåller anvisningar om hur du aktiverar Micro
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7664cebbd12e075e9b9ea7ea75021b61569a80cf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7452a08125008e3d25ffb7d0eff59f55ca9be0b1
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080292"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372662"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Azure Disk Encryption-scenarier på virtuella Linux-datorer
 
@@ -409,7 +409,7 @@ Azure Disk Encryption fungerar inte för följande scenarier, funktioner och tek
 - Kernel-krasch dump (kdump).
 - Oracle-ACFS (ASM Cluster File System).
 - Virtuella Gen2-datorer (se: [stöd för virtuella datorer i generation 2 på Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
-- Virtuella datorer i Lsv2-serien (se: [Lsv2-serien](../lsv2-series.md)).
+- NVMe-diskarna för virtuella datorer i Lsv2-serien (se: [Lsv2-serien](../lsv2-series.md)).
 - En virtuell dator med "kapslade monterings punkter"; det vill säga flera monterings punkter i en enda sökväg (till exempel "/1stmountpoint/data/2stmountpoint").
 - En virtuell dator med en data enhet som är monterad ovanpå en OS-mapp.
 - Virtuella datorer i M-serien med Skrivningsaccelerator diskar.

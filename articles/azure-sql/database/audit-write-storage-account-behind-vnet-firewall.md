@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 7b8c6e09616f261c371b010b38d2c0f81376a6f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f6a64cf30ecc684e05675d366ff5c9fc6642126
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84944786"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372169"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Skriv granskning till ett lagrings konto bakom VNet och brand vägg
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -120,7 +120,7 @@ Konfigurera SQL audit för att skriva händelser till ett lagrings konto bakom e
 2. Öppna [Azure-portalen](https://portal.azure.com). Navigera till ditt lagringskonto. Leta upp **Access Control (IAM)** och klicka på **Lägg till roll tilldelning**. Tilldela RBAC-rollen **Storage BLOB data Contributor** till den server som är värd för den databas som du registrerade med Azure Active Directory (Azure AD) som i föregående steg.
 
    > [!NOTE]
-   > Endast medlemmar med ägar behörighet kan utföra det här steget. För olika inbyggda roller för Azure-resurser, se [inbyggda Azure-roller](../../role-based-access-control/built-in-roles.md).
+   > Endast medlemmar med ägar behörighet kan utföra det här steget. För olika inbyggda Azure-roller, se [inbyggda Azure-roller](../../role-based-access-control/built-in-roles.md).
 
 3. Konfigurera [serverns BLOB Auditing-princip](/rest/api/sql/server%20auditing%20settings/createorupdate)utan att ange en *storageAccountAccessKey*:
 

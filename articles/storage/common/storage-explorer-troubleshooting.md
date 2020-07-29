@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: a49e5fbe9eac689b630a0f3b443729faf29cdb0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 492f44353a9a43279afa4869640193f1baddd41c
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84974525"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372883"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
@@ -63,13 +63,13 @@ Om du vill komma åt BLOB-behållare eller köer kan du koppla dem till dessa re
 1. Öppna dialog rutan Anslut.
 2. Välj Lägg till en resurs via Azure Active Directory (Azure AD). Klicka på Nästa.
 3. Välj det användar konto och den klient organisation som är associerad med resursen som du ansluter till. Klicka på Nästa.
-4. Välj resurs typ, ange URL: en till resursen och ange ett unikt visnings namn för anslutningen. Klicka på Nästa. Klicka på anslut.
+4. Välj resurs typ, ange URL: en till resursen och ange ett unikt visnings namn för anslutningen. Klicka på Nästa. Klicka på Anslut.
 
 För andra resurs typer har vi för närvarande ingen RBAC-relaterad lösning. Som en lösning kan du begära en SAS-URI för att [ansluta till din resurs](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
-### <a name="recommended-built-in-rbac-roles"></a>Rekommenderade inbyggda RBAC-roller
+### <a name="recommended-azure-built-in-roles"></a>Rekommenderade inbyggda Azure-roller
 
-Det finns flera inbyggda RBAC-roller som kan ge de behörigheter som krävs för att använda Storage Explorer. Några av dessa roller är:
+Det finns flera inbyggda Azure-roller som kan ge de behörigheter som krävs för att använda Storage Explorer. Några av dessa roller är:
 - [Ägare](/azure/role-based-access-control/built-in-roles#owner): hantera allt, inklusive åtkomst till resurser. **Obs**: den här rollen ger dig nyckel åtkomst.
 - [Deltagare](/azure/role-based-access-control/built-in-roles#contributor): hantera allt, förutom åtkomst till resurser. **Obs**: den här rollen ger dig nyckel åtkomst.
 - [Läsare](/azure/role-based-access-control/built-in-roles#reader): läsa och lista resurser.
@@ -243,7 +243,7 @@ Om du får det här fel meddelandet när du försöker lägga till en anpassad a
 3. Beroende på vilken typ av anslutning du har problem med, letar du efter nyckeln och kopierar dess värde till en text redigerare. Värdet är en matris med dina anpassade anslutnings namn, som följande:
     * Lagringskonton
         * `StorageExplorer_CustomConnections_Accounts_v1`
-    * Blob-containrar
+    * Blobcontainrar
         * `StorageExplorer_CustomConnections_Blobs_v1`
         * `StorageExplorer_CustomConnections_Blobs_v2`
     * Filresurser

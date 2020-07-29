@@ -7,11 +7,13 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 503af00cac298473acd1504ca7d04998e74c3538
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.custom: devx-track-java
+ms.openlocfilehash: 6aa55f864319146c4d3237eb9e6725da2a68035f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920523"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87308992"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Prestanda tips för Azure Cosmos DB asynkron Java SDK v2
 
@@ -95,7 +97,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
     Om du använder Azure Cosmos DB som en referens databas (det vill säga databasen används för många punkt läsnings åtgärder och få Skriv åtgärder) kan det vara acceptabelt att ange *idleEndpointTimeout* till 0 (det vill säga ingen tids gräns).
 
 
-    | Konfigurations alternativ       | Default    |
+    | Konfigurations alternativ       | Standard    |
     | :------------------:       | :-----:    |
     | bufferPageSize             | 8192       |
     | connectionTimeout          | "PT1M"     |
@@ -280,7 +282,7 @@ För andra plattformar (Red Hat, Windows, Mac osv.), se dessa instruktionerhttps
 
     Mer information finns i [Azure Cosmos DB indexerings principer](indexing-policies.md).
 
-## <a name="throughput"></a><a id="measure-rus"></a>Dataflöde
+## <a name="throughput"></a><a id="measure-rus"></a>Kapacitet
 
 * **Mått och justering för lägre enheter för programbegäran/andra användning**
 

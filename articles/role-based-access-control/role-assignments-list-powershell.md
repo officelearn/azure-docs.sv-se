@@ -11,14 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 07/28/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4ee6a3c09d24d6968227ef4215000888c5f4af05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e27fe0589498de13f5eb6e17f8869bb9d7352a09
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791018"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372084"
 ---
 # <a name="list-azure-role-assignments-using-azure-powershell"></a>Visa en lista med Azure Role-tilldelningar med Azure PowerShell
 
@@ -139,6 +140,26 @@ Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/<gr
 
 ```Example
 PS C:\> Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/marketing-group
+```
+
+## <a name="list-role-assignments-for-a-resource"></a>Lista roll tilldelningar för en resurs
+
+Om du vill visa roll tilldelningar för en speciell resurs använder du [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) och `-Scope` parametern. Omfattningen varierar beroende på resurs. Om du vill hämta omfånget kan du köra `Get-AzRoleAssignment` utan parametrar för att lista alla roll tilldelningar och sedan hitta den omfattning som du vill visa.
+
+```azurepowershell
+Get-AzRoleAssignment -Scope "/subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/<provider_name>/<resource_type>/<resource>
+```
+
+I följande exempel visas hur du listar roll tilldelningarna för ett lagrings konto. Observera att det här kommandot även visar roll tilldelningar med högre omfång, till exempel resurs grupper och prenumerationer som gäller för det här lagrings kontot.
+
+```Example
+PS C:\> Get-AzRoleAssignment -Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/storage-test-rg/providers/Microsoft.Storage/storageAccounts/storagetest0122"
+```
+
+Om du bara vill lista roll tilldelningar som tilldelas direkt på en resurs kan du använda kommandot [Where-Object](/powershell/module/microsoft.powershell.core/where-object) för att filtrera listan.
+
+```Example
+PS C:\> Get-AzRoleAssignment | Where-Object {$_.Scope -eq "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/storage-test-rg/providers/Microsoft.Storage/storageAccounts/storagetest0122"}
 ```
 
 ## <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>Lista roll tilldelningar för klassisk tjänst administratör och medadministratörer

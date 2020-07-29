@@ -16,11 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 56132eae03a52af425e00bec93a63a697a2a55e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec4d91d90a952805781d6d38a0fc8a8fcef84f39
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204743"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283477"
 ---
 # <a name="azure-operational-security-best-practices"></a>Metod tips för Azure drift säkerhet
 Den här artikeln innehåller en uppsättning metod tips för att skydda dina data, program och andra till gångar i Azure.
@@ -181,7 +182,7 @@ Att se till att ett program är tillräckligt flexibelt för att hantera en deni
 
 För Azure Cloud Services konfigurerar du var och en av dina roller så att de använder [flera instanser](../../cloud-services/cloud-services-choose-me.md).
 
-För [Azure Virtual Machines](/azure/virtual-machines/windows/overview)kontrollerar du att din virtuella dator arkitektur innehåller fler än en virtuell dator och att varje virtuell dator ingår i en [tillgänglighets uppsättning](/azure/virtual-machines/virtual-machines-windows-manage-availability). Vi rekommenderar att du använder skalnings uppsättningar för virtuella datorer för funktioner för automatisk skalning.
+För [Azure Virtual Machines](../../virtual-machines/windows/overview.md)kontrollerar du att din virtuella dator arkitektur innehåller fler än en virtuell dator och att varje virtuell dator ingår i en [tillgänglighets uppsättning](../../virtual-machines/windows/tutorial-availability-sets.md). Vi rekommenderar att du använder skalnings uppsättningar för virtuella datorer för funktioner för automatisk skalning.
 
 **Bästa praxis**: säkerhets försvars nivåer i ett program minskar risken för en lyckad attack. Implementera säkra utformningar för dina program med hjälp av de inbyggda funktionerna i Azure-plattformen.  
 **Detaljer**: risken för attacker ökar med programmets storlek (arean). Du kan minska ytan genom att använda vit listning för att stänga det exponerade IP-adressutrymmet och lyssnande portar som inte behövs på belastningsutjämnaren ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) och [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)).
@@ -200,7 +201,7 @@ Azure har två DDoS [tjänst erbjudanden](../../virtual-network/ddos-protection-
 - Med standard skydd får du avancerade funktioner för DDoS-minskning mot nätverks attacker. Det är automatiskt anpassat för att skydda dina Azure-resurser. Det är enkelt att aktivera skydd när du skapar virtuella nätverk. Du kan också göra det när det har skapats och inga program-eller resurs ändringar krävs.
 
 ## <a name="enable-azure-policy"></a>Aktivera Azure Policy
-[Azure policy](/azure/governance/policy/overview) är en tjänst i Azure som du använder för att skapa, tilldela och hantera principer. Dessa principer tillämpar regler och effekter över dina resurser, så att resurserna följer företagets standarder och service nivå avtal. Azure Policy uppfyller detta behov genom att utvärdera dina resurser för icke-kompatibilitet med tilldelade principer.
+[Azure policy](/azure/governance/policy/overview) är en tjänst i Azure som du använder för att skapa, tilldela och hantera principer. Dessa principer tillämpar regler och effekter över dina resurser, så att resurserna följer företagets standarder och service nivå avtal. Azure Policy gör detta genom att utvärdera resursernas kompatibilitet med hjälp av tilldelade principer.
 
 Aktivera Azure Policy för att övervaka och upprätthålla din organisations skriftliga princip. Detta säkerställer efterlevnaden av företagets eller regelns säkerhets krav genom att centralt hantera säkerhets principer i dina hybrid moln arbets belastningar. Lär dig hur du [skapar och hanterar principer för att genomdriva efterlevnad](../../governance/policy/tutorials/create-and-manage.md). Se [Azure policy definitions struktur](../../governance/policy/concepts/definition-structure.md) för en översikt över elementen i en princip.
 

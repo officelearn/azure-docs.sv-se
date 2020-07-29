@@ -4,16 +4,16 @@ description: Konfigurera, optimera och Felsök AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: acfe868f26d7509d1dd06554482b4fb3b29a5b22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e79f186688f3b6531ac24df4e3ae4201cf1903c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504363"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282440"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurera, optimera och felsöka AzCopy
 
@@ -23,7 +23,7 @@ AzCopy är ett kommandoradsverktyg som du kan använda för att kopiera blobar e
 > Om du letar efter innehåll som hjälper dig att komma igång med AzCopy kan du läsa följande artiklar:
 > - [Kom igång med AzCopy](storage-use-azcopy-v10.md)
 > - [Överföra data med AzCopy och Blob Storage](storage-use-azcopy-blobs.md)
-> - [Överföra data med AzCopy och fil lagring](storage-use-azcopy-files.md)
+> - [Överföra data med AzCopy och fillagring](storage-use-azcopy-files.md)
 > - [Överföra data med AzCopy och Amazon S3-buckets](storage-use-azcopy-s3.md)
 
 ## <a name="configure-proxy-settings"></a>Konfigurera proxyinställningar
@@ -63,7 +63,7 @@ Det här avsnittet hjälper dig att utföra följande optimerings aktiviteter:
 
 ### <a name="run-benchmark-tests"></a>Kör benchmark-tester
 
-Du kan köra ett prestandatest på vissa BLOB-behållare eller fil resurser för att visa allmänna prestanda statistik och för att identifiera Flask halsar i identiteter. 
+Du kan köra ett prestandatest på vissa BLOB-behållare eller fil resurser för att visa allmänna prestanda statistik och för att identifiera Flask halsar i identiteter. Du kan köra testet genom att ladda upp eller hämta genererade test data. 
 
 Använd följande kommando för att köra ett prestandatest.
 
@@ -77,9 +77,7 @@ Använd följande kommando för att köra ett prestandatest.
 
 Det här kommandot kör prestanda mätning genom att överföra test data till ett angivet mål. Test data genereras i minnet, överförs till målet och tas sedan bort från målet när testet har slutförts. Du kan ange hur många filer som ska genereras och vilken storlek du vill att de ska vara med hjälp av valfria kommando parametrar.
 
-Detaljerade referens dokument finns i [AzCopy benchmark](storage-ref-azcopy-bench.md).
-
-Om du vill visa detaljerad hjälp guide för det här kommandot skriver du `azcopy benchmark -h` och trycker sedan på RETUR-tangenten.
+Om du vill köra det här testet genom att hämta data anger du `mode` parametern till `download` . Detaljerade referens dokument finns i [AzCopy benchmark](storage-ref-azcopy-bench.md). 
 
 ### <a name="optimize-throughput"></a>Optimera data flödet
 
@@ -89,7 +87,7 @@ Du kan använda `cap-mbps` flaggan i dina kommandon för att placera ett tak på
 azcopy jobs resume <job-id> --cap-mbps 10
 ```
 
-Data flödet kan minska vid överföring av små filer. Du kan öka data flödet genom att ställa in `AZCOPY_CONCURRENCY_VALUE` miljövariabeln. Den här variabeln anger antalet samtidiga begär Anden som kan utföras.  
+Dataflödet kan minska vid överföring av små filer. Du kan öka data flödet genom att ställa in `AZCOPY_CONCURRENCY_VALUE` miljövariabeln. Den här variabeln anger antalet samtidiga begäranden som kan utföras.  
 
 Om datorn har färre än 5 processorer anges värdet för den här variabeln till `32` . Annars är standardvärdet lika med 16 multiplicerat med antalet processorer. Det maximala standardvärdet för den här variabeln är `3000` , men du kan manuellt ange det här värdet högre eller lägre. 
 

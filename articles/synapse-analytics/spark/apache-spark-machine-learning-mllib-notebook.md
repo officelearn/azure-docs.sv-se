@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 8cd189bf4037d42348d9a94c47cf0122e63af58f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b7ae2e3045b8f6e56b756ac1b2a4233ac8af9688
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089302"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373461"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Bygg en Machine Learning-app med Apache Spark MLlib och Azure Synapse Analytics
 
@@ -225,7 +225,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 Nu när det finns två DataFrames är nästa uppgift att skapa modell formeln och köra den mot Training-DataFrame och sedan validera mot test DataFrame. Du bör experimentera med olika versioner av modell formeln för att se effekten av olika kombinationer.
 
 > [!Note]
-> För att du ska kunna spara modellen behöver du rollen Azure Storage Blob data deltagare RBAC. Under ditt lagrings konto navigerar du till Access Control (IAM) och väljer Lägg till roll tilldelning. Tilldela RBAC-rollen Storage BLOB data Contributor till din SQL Database-Server. Endast medlemmar med ägar behörighet kan utföra det här steget. De olika inbyggda rollerna för Azure-resurser finns i den här [guiden](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+> För att du ska kunna spara modellen behöver du rollen Azure Storage Blob data deltagare RBAC. Under ditt lagrings konto navigerar du till Access Control (IAM) och väljer Lägg till roll tilldelning. Tilldela RBAC-rollen Storage BLOB data Contributor till din SQL Database-Server. Endast medlemmar med ägar behörighet kan utföra det här steget. Information om olika inbyggda Azure-roller finns i den här [guiden](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```python
 ## Create a new LR object for the model

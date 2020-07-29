@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: f3244ec3f85d5085d3dbc2e503eab59af5572c56
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ce078a3dad645f592bb33ed55ce508f68ce8f30a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075764"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281402"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari-webbgränssnittet
 
@@ -49,7 +49,7 @@ När sidan öppnas noterar du fältet överst. Det här fältet innehåller föl
 
 ![Översikt över Apache Ambari Dashboard](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
 
-|Objekt |Description |
+|Objekt |Beskrivning |
 |---|---|
 |Ambari-logotyp|Öppnar instrument panelen som kan användas för att övervaka klustret.|
 |Kluster namn # OPS|Visar antalet pågående Ambari-åtgärder. Om du väljer kluster namnet eller **# Ops** visas en lista över bakgrunds åtgärder.|
@@ -58,7 +58,7 @@ När sidan öppnas noterar du fältet överst. Det här fältet innehåller föl
 |Tjänster|Information och konfigurations inställningar för tjänsterna i klustret.|
 |Värdar|Information och konfigurations inställningar för noderna i klustret.|
 |Aviseringar|En logg med information, varningar och viktiga aviseringar.|
-|Admin|Program varu stack/tjänster som är installerade i klustret, tjänst konto information och Kerberos-säkerhet.|
+|Administratör|Program varu stack/tjänster som är installerade i klustret, tjänst konto information och Kerberos-säkerhet.|
 |Knappen administratör|Hantering av Ambari, användar inställningar och utloggning.|
 
 ## <a name="monitoring"></a>Övervakning
@@ -70,7 +70,7 @@ Följande lista innehåller de vanliga aviserings statusarna som används av Amb
 * **OK**
 * **Varning**
 * **MINDRE**
-* **UNKNOWN**
+* **OKÄND**
 
 Andra aviseringar än **OK** leder till posten **# Alerts** överst på sidan för att visa antalet aviseringar. Om du väljer den här posten visas aviseringarna och deras status.
 
@@ -107,6 +107,7 @@ Om du vill ha mer information om noderna i klustret väljer du **värdar**. Väl
 ### <a name="services"></a>Tjänster
 
 Sid panelen **tjänster** på instrument panelen ger snabb insyn i statusen för de tjänster som körs i klustret. Olika ikoner används för att indikera status eller åtgärder som ska vidtas. Till exempel visas en gul åter användnings symbol om en tjänst behöver återvinnas.
+
 
 ![Apache Ambari Services-sido fält](./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png)
 
@@ -153,7 +154,7 @@ Sidan **värdar** visar alla värdar i klustret. Följ dessa steg om du vill han
 
 2. Använd menyn **åtgärder** för att välja den åtgärd som du vill göra:
 
-    |Objekt |Description |
+    |Objekt |Beskrivning |
     |---|---|
     |Starta alla komponenter|Starta alla komponenter på värden.|
     |Stoppa alla komponenter|Stoppa alla komponenter på värden.|
@@ -170,10 +171,10 @@ Sidan **värdar** visar alla värdar i klustret. Följ dessa steg om du vill han
 
 På sidan **instrument panel** eller **tjänster** använder du knappen **åtgärder** längst ned i listan över tjänster för att stoppa och starta alla tjänster.
 
-![Apache Ambari Service Action List](./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png" alt-text="Apache Ambari-tjänstens åtgärds lista." border="true":::
 
 > [!WARNING]  
-> När du **lägger till tjänsten** i listan i den här menyn bör den inte användas för att lägga till tjänster i HDInsight-klustret. Nya tjänster ska läggas till med en skript åtgärd under kluster etableringen. Mer information om hur du använder skript åtgärder finns i [Anpassa HDInsight-kluster med hjälp av skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md).
+> Nya tjänster ska läggas till med en skript åtgärd under kluster etableringen. Mer information om hur du använder skript åtgärder finns i [Anpassa HDInsight-kluster med hjälp av skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md).
 
 Medan knappen **åtgärder** kan starta om alla tjänster, ofta vill du starta, stoppa eller starta om en speciell tjänst. Använd följande steg för att utföra åtgärder på en enskild tjänst:
 

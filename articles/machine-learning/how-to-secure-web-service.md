@@ -5,17 +5,18 @@ description: Lär dig hur du aktiverar HTTPS för att skydda en webb tjänst som
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
-ms.custom: seodec18
-ms.openlocfilehash: cb766a81cda822377eeda09cab75d19111523bef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: 3e10841852b8a89b344d3bfd9311db8abe15642a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84432851"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319549"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Använd TLS för att skydda en webb tjänst via Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -51,7 +52,7 @@ Detta är den allmänna processen för att skydda en webb tjänst:
 
 Det finns små skillnader när du skyddar er över [distributions mål](how-to-deploy-and-where.md).
 
-## <a name="get-a-domain-name"></a>Hämta ett domän namn
+## <a name="get-a-domain-name"></a>Skaffa ett domännamn
 
 Om du inte redan har ett domän namn kan du köpa ett från en *domän namns registrator*. Processen och priset skiljer sig mellan registratorn. Registratorn innehåller verktyg för att hantera domän namnet. Du använder dessa verktyg för att mappa ett fullständigt kvalificerat domän namn (FQDN) (till exempel www- \. contoso.com) till den IP-adress som är värd för webb tjänsten.
 

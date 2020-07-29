@@ -12,12 +12,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 571fecde9a02dc667e89da1d3245e4d153500014
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-java
+ms.openlocfilehash: 9a28677063c6f6dd7bb7bcf6746dbc541308891f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169518"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305915"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Ringa ett telefonsamtal med Twilio i ett Java-program på Azure
 I följande exempel visas hur du kan använda Twilio för att ringa ett samtal från en webb sida som finns i Azure. Det resulterande programmet kommer att uppmana användaren att ange Telefonsamtals värden, som du ser i följande skärm bild.
@@ -168,7 +169,7 @@ Förutom att ringa upp visar makecall.jsp Twilio-slutpunkten, API-versionen och 
 
 ![Azure-samtals svar med Twilio och Java][twilio_java_response]
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 Följande är de övergripande stegen för att köra programmet. information om de här stegen finns i [skapa ett Hello World program med hjälp av Azure Toolkit for Eclipse][azure_java_eclipse_hello_world].
 
 1. Exportera din TwilioCloud-krig till Azure **appens rot** -mappen. 

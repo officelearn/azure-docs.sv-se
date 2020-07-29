@@ -9,12 +9,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: 808eef5424d678559ae94ffd04e41eacd0f16aee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41e3f1ff430293ebc7b3828a0fd7090923fc209c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80371107"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281488"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrera 3270-skärmdrivna appar på IBM-stordatorer med Azure med hjälp av Azure Logic Apps och IBM 3270-anslutningsprogrammet
 
@@ -182,7 +182,7 @@ I det här läget definierar du flödet eller stegen för att navigera genom din
 
 1. Under **Välj nytt plan namn**anger du ett namn för din plan. I listan **typ** väljer du typ av prenumeration:
 
-   | Typ av plan | Beskrivning |
+   | Plantyp | Beskrivning |
    |-----------|-------------|
    | **Process** | För fristående eller kombinerade planer |
    | **Anslut** | För Connect-planer |
@@ -292,7 +292,7 @@ I det här läget definierar du en metod som är kopplad till din navigerings pl
    |---------------|-----------------|
    | **Datatyp** | Byte, datum tid, decimal, heltal, lång, kort, sträng |
    | **Fält fyllnings teknik** | Parametrarna har stöd för dessa fyllnings typer och fyller med blank steg om det behövs: <p><p>- **Skriv**: Ange tecken sekventiellt i fältet. <p>- **Fill**: Ersätt fältets innehåll med tecken och fyll med blank steg om det behövs. <p>- **EraseEofType**: Rensa fältet och ange sedan tecknen i turordning i fältet. |
-   | **Format sträng** | Vissa parameter data typer använder en format sträng som informerar 3270-anslutningen så här konverterar du text från skärmen till en .NET-datatyp: <p><p>- **Datetime**: datetime-format strängen följer [anpassade .net-datum-och tids format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Till exempel `06/30/2019` används format strängen i datumet `MM/dd/yyyy` . <p>- **Decimal**: decimal format strängen använder [COBOL Picture-satsen](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Till exempel `100.35` använder talet formatet sträng `999V99` . |
+   | **Format sträng** | Vissa parameter data typer använder en format sträng som informerar 3270-anslutningen så här konverterar du text från skärmen till en .NET-datatyp: <p><p>- **Datetime**: datetime-format strängen följer [anpassade .net-datum-och tids format strängar](/dotnet/standard/base-types/custom-date-and-time-format-strings). Till exempel `06/30/2019` används format strängen i datumet `MM/dd/yyyy` . <p>- **Decimal**: decimal format strängen använder [COBOL Picture-satsen](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Till exempel `100.35` använder talet formatet sträng `999V99` . |
    |||
 
 ## <a name="save-and-view-metadata"></a>Spara och visa metadata
@@ -409,7 +409,7 @@ När du har slutfört alla dessa steg kan du använda den åtgärd som du skapar
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Mer teknisk information om den här anslutningen, till exempel utlösare, åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/si3270/).
+Mer teknisk information om den här anslutningen, till exempel utlösare, åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil finns på [kopplingens referens sida](/connectors/si3270/).
 
 > [!NOTE]
 > För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ISE-märkta version [ISE-meddelandets gränser](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.
@@ -417,3 +417,4 @@ Mer teknisk information om den här anslutningen, till exempel utlösare, åtgä
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)
+

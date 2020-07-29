@@ -3,12 +3,12 @@ title: Övervaka en ASP.NET-livewebbapp med Azure Application Insights | Microso
 description: Övervaka prestanda för en webbplats utan att distribuera den igen. Fungerar med ASP.NET-webbappar som finns lokalt eller i virtuella datorer.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 93b150b831a01989093fd916d17e31aee27beb3a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 70a405d2c32641be2ed4038fbffebce0e1340f83
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499536"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87310454"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrument-webbappar vid körning med Application Insights kod koppling
 
@@ -22,7 +22,7 @@ Statusövervakare används för att instrumentera ett .NET-program som finns i I
 - Om din app distribueras till den virtuella Azure-datorn eller skalnings uppsättningen för virtuella Azure-datorer följer du [dessa anvisningar](azure-vm-vmss-apps.md).
 - Om din app distribueras till Azure App Services följer du [dessa anvisningar](azure-web-apps.md).
 - Om din app distribueras i en virtuell Azure-dator kan du växla till Application Insights övervakning från Azure kontroll panelen.
-- (Det finns också separata artiklar om instrumentering av [Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
+- (Det finns också separata artiklar om instrumentering av [Azure Cloud Services](./cloudservices.md).)
 
 
 ![Skärm bild av översikts diagram över App Insights som innehåller information om misslyckade begär Anden, svars tid för servern och server begär Anden](./media/monitor-performance-live-website-now/overview-graphs.png)
@@ -40,12 +40,12 @@ Här är en sammanfattning av vad du får med respektive väg:
 |  | Byggtid | Körtid |
 | --- | --- | --- |
 | **Begär & undantag** |Ja |Ja |
-| **[Mer detaljerade undantag](../../azure-monitor/app/asp-net-exceptions.md)** | |Ja |
-| **[Beroendediagnostik](../../azure-monitor/app/asp-net-dependencies.md)** |I .NET 4.6+, men färre detaljer |Ja, fullständiga detaljer: resultatkoder, SQL-kommandotext, HTTP verb|
-| **[Systemprestandaräknare](../../azure-monitor/app/performance-counters.md)** |Ja |Ja |
+| **[Mer detaljerade undantag](./asp-net-exceptions.md)** | |Ja |
+| **[Beroendediagnostik](./asp-net-dependencies.md)** |I .NET 4.6+, men färre detaljer |Ja, fullständiga detaljer: resultatkoder, SQL-kommandotext, HTTP verb|
+| **[Systemprestandaräknare](./performance-counters.md)** |Ja |Ja |
 | **[API för anpassad telemetri][api]** |Ja |Nej |
-| **[Spårningsloggsintegrering](../../azure-monitor/app/asp-net-trace-logs.md)** |Ja |Nej |
-| **[Sid visning & användar data](../../azure-monitor/app/javascript.md)** |Ja |Nej |
+| **[Spårningsloggsintegrering](./asp-net-trace-logs.md)** |Ja |Nej |
+| **[Sid visning & användar data](./javascript.md)** |Ja |Nej |
 | **Du måste återskapa koden** |Ja | Nej |
 
 
@@ -70,7 +70,7 @@ Om din app finns på en IIS-server aktiverar du Application Insights med hjälp 
 
 ## <a name="customize-monitoring-options"></a>Anpassa övervakningsalternativ
 
-När Application Insights aktiveras läggs DLL-filer och ApplicationInsights.config till i webbappen. Du kan [redigera .config-filen](../../azure-monitor/app/configuration-with-applicationinsights-config.md) och ändra en del av alternativen.
+När Application Insights aktiveras läggs DLL-filer och ApplicationInsights.config till i webbappen. Du kan [redigera .config-filen](./configuration-with-applicationinsights-config.md) och ändra en del av alternativen.
 
 ## <a name="when-you-re-publish-your-app-re-enable-application-insights"></a>När du publicerar appen igen ska du återaktivera Application Insights
 
@@ -106,7 +106,7 @@ Dessa är några steg som du kan utföra för att bekräfta att installationen l
 
 ### <a name="cant-connect-no-telemetry"></a>Går det inte att ansluta? Ser du ingen telemetri?
 
-* Öppna [de nödvändiga utgående portarna](../../azure-monitor/app/ip-addresses.md#outgoing-ports) i serverns brandvägg för att Statusövervakare ska fungera.
+* Öppna [de nödvändiga utgående portarna](./ip-addresses.md#outgoing-ports) i serverns brandvägg för att Statusövervakare ska fungera.
 
 ### <a name="unable-to-login"></a>Det gick inte att logga in
 
@@ -261,7 +261,7 @@ Ett program som du installerar på din IIS-webbserver. Det hjälper dig instrume
 ### <a name="when-do-i-use-status-monitor"></a>När ska jag använda Statusövervakaren?
 
 * När du instrumenterar en webbapp som körs på IIS-servern, även om den redan har startats.
-* För att få ytterligare telemetri för webbappar som har [skapats med Application Insights SDK](../../azure-monitor/app/asp-net.md) vid kompilering. 
+* För att få ytterligare telemetri för webbappar som har [skapats med Application Insights SDK](./asp-net.md) vid kompilering. 
 
 ### <a name="can-i-close-it-after-it-runs"></a>Kan jag stänga den när den körs?
 
@@ -319,7 +319,7 @@ För program som redan har instrumenterats vid kompilering:
 
 Visa telemetrin:
 
-* [Utforska mått](../../azure-monitor/platform/metrics-charts.md) för att övervaka prestanda och användning
+* [Utforska mått](../platform/metrics-charts.md) för att övervaka prestanda och användning
 * [Sök efter händelser och loggar][diagnostic] för att diagnostisera problem
 * [Analys](../log-query/log-query-overview.md) för mer avancerade frågor
 
@@ -331,11 +331,12 @@ Lägg till mer telemetri:
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
+[api]: ./api-custom-events-metrics.md
 [availability]: monitor-web-app-availability.md
-[client]: ../../azure-monitor/app/javascript.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
+[client]: ./javascript.md
+[diagnostic]: ./diagnostic-search.md
+[greenbrown]: ./asp-net.md
 [qna]: ../faq.md
-[roles]: ../../azure-monitor/app/resources-roles-access-control.md
-[usage]: ../../azure-monitor/app/javascript.md
+[roles]: ./resources-roles-access-control.md
+[usage]: ./javascript.md
+

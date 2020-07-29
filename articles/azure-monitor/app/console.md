@@ -4,25 +4,25 @@ description: Övervaka webb program för tillgänglighet, prestanda och användn
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.reviewer: lmolkova
-ms.openlocfilehash: 955988cd16af5269c474061cf60fb18a040909e3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 28f86e32dd73e25079ca685538fd0cb6f351b2d9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091240"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87310471"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights för .NET-konsol program
 
-Med [Application Insights](../../azure-monitor/app/app-insights-overview.md) kan du övervaka webb programmet för tillgänglighet, prestanda och användning.
+Med [Application Insights](./app-insights-overview.md) kan du övervaka webb programmet för tillgänglighet, prestanda och användning.
 
 Du behöver en prenumeration med [Microsoft Azure](https://azure.com). Logga in med ett Microsoft-konto som du kan ha för Windows, Xbox Live eller andra Microsoft-molntjänster. Ditt team kan ha en organisations prenumeration på Azure: Be ägaren att lägga till dig med hjälp av din Microsoft-konto.
 
 > [!NOTE]
-> Vi *rekommenderar starkt* att du använder paketet [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) och tillhör ande [instruktioner för alla](../../azure-monitor/app/worker-service.md) konsol program. Det här paketet [`NetStandard2.0`](/dotnet/standard/net-standard) är mål och kan därför användas i .net Core 2,1 eller högre, och .NET Framework 4.7.2 eller högre.
+> Vi *rekommenderar starkt* att du använder paketet [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) och tillhör ande [instruktioner för alla](./worker-service.md) konsol program. Det här paketet [`NetStandard2.0`](/dotnet/standard/net-standard) är mål och kan därför användas i .net Core 2,1 eller högre, och .NET Framework 4.7.2 eller högre.
 
 ## <a name="getting-started"></a>Komma igång
 
-* [Skapa en Application Insights-resurs](../../azure-monitor/app/create-new-resource.md) på [Azure Portal](https://portal.azure.com). För program typ väljer du **Allmänt**.
+* [Skapa en Application Insights-resurs](./create-new-resource.md) på [Azure Portal](https://portal.azure.com). För program typ väljer du **Allmänt**.
 * Kopiera instrumenteringsnyckeln. Leta upp nyckeln i den **grundläggande** List rutan för den nya resurs som du skapade.
 * Installera det senaste [Microsoft. ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) -paketet.
 * Ange Instrumentation-nyckeln i koden innan du spårar eventuell telemetri (eller anger APPINSIGHTS_INSTRUMENTATIONKEY miljövariabel). Därefter bör du kunna spåra telemetri manuellt och se det på Azure Portal
@@ -96,7 +96,7 @@ Du kan få ett fullständigt exempel på konfigurations filen genom att installe
 
 ### <a name="configuring-telemetry-collection-from-code"></a>Konfigurerar telemetri-samling från kod
 > [!NOTE]
-> Det finns inte stöd för att läsa konfigurations filen på .NET Core. Du kan överväga att använda [Application Insights SDK för ASP.net Core](../../azure-monitor/app/asp-net-core.md)
+> Det finns inte stöd för att läsa konfigurations filen på .NET Core. Du kan överväga att använda [Application Insights SDK för ASP.net Core](./asp-net-core.md)
 
 * När programmet startas skapar du och konfigurerar `DependencyTrackingTelemetryModule` instans – det måste vara singleton och måste bevaras för programmets livs längd.
 
@@ -207,5 +207,6 @@ namespace ConsoleApp
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Övervaka beroenden](../../azure-monitor/app/asp-net-dependencies.md) för att se om rest, SQL eller andra externa resurser saktar ned dig.
-* [Använd API: et](../../azure-monitor/app/api-custom-events-metrics.md) för att skicka egna händelser och mått för en mer detaljerad vy av appens prestanda och användning.
+* [Övervaka beroenden](./asp-net-dependencies.md) för att se om rest, SQL eller andra externa resurser saktar ned dig.
+* [Använd API: et](./api-custom-events-metrics.md) för att skicka egna händelser och mått för en mer detaljerad vy av appens prestanda och användning.
+

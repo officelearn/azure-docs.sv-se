@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/30/2020
+ms.date: 07/28/2020
 ms.author: victorh
-ms.openlocfilehash: 90f817ac3bbd475d8a84df44bc284f09fcd19ce3
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 748adbcc719df2cdcf734f308bd4b083e9ca6ec0
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565803"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372373"
 ---
 # <a name="azure-firewall-manager-deployment-overview"></a>Översikt över Azure Firewall Manager-distribution
 
@@ -65,6 +65,13 @@ Det finns mer än ett sätt att distribuera Azure Firewall Manager, men följand
 > - Du kan inte ha mer än en hubb per virtuell WAN per region. Men du kan lägga till flera virtuella WAN-näti regionen för att uppnå detta.
 > - Du kan inte ha överlappande IP-utrymmen för hubbar i en vWAN.
 > - Hubbens VNet-anslutningar måste finnas i samma region som hubben.
+
+## <a name="convert-virtual-networks"></a>Konvertera virtuella nätverk
+
+Följande information gäller om du konverterar ett befintligt virtuellt nätverk till ett virtuellt hubb nätverk:
+
+- Om det virtuella nätverket har en befintlig Azure-brandvägg väljer du en brand Väggs princip som ska associeras med den befintliga brand väggen. Brand Väggs etablerings status uppdateras medan brand Väggs principen ersätter brand Väggs regler. Under etablerings statusen fortsätter brand väggen att bearbeta trafiken och har ingen stillestånds tid. Du kan importera befintliga regler till en brand Väggs princip med hjälp av brand Väggs hanteraren eller Azure PowerShell.
+- Om det virtuella nätverket inte har någon tillhör ande Azure-brandvägg distribueras en brand vägg och brand Väggs principen är associerad med den nya brand väggen.
 
 ## <a name="next-steps"></a>Nästa steg
 

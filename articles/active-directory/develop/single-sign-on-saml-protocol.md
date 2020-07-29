@@ -4,22 +4,22 @@ titleSuffix: Microsoft identity platform
 description: I den här artikeln beskrivs SAML-protokollet enkel inloggning (SSO) i Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: rwike77
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.author: ryanwi
+ms.author: kenwith
 ms.custom: aaddev
-ms.reviewer: hirsin
-ms.openlocfilehash: a68c0248ce364be486610c406388586b69cbb3f4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.reviewer: paulgarn
+ms.openlocfilehash: f3896bf795e3b1ca258f65fa2c6f4974f2115014
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076954"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283001"
 ---
 # <a name="single-sign-on-saml-protocol"></a>SAML-protokoll för enkel inloggning
 
@@ -46,11 +46,11 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| Parameter | Typ | Description |
+| Parameter | Typ | Beskrivning |
 | --- | --- | --- |
-| ID | Obligatorisk | Azure AD använder det här attributet för att fylla `InResponseTo` attributet för det returnerade svaret. ID får inte börja med en siffra, så en gemensam strategi är att lägga en sträng som "ID" till sträng representationen av ett GUID. Till exempel `id6c1c178c166d486687be4aaf5e482730` är ett giltigt ID. |
-| Version | Obligatorisk | Den här parametern ska vara inställd på **2,0**. |
-| IssueInstant | Obligatorisk | Detta är en DateTime-sträng med ett UTC-värde och [tur och retur-format ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD förväntar sig ett DateTime-värde av den här typen, men utvärderar eller använder inte värdet. |
+| ID | Krävs | Azure AD använder det här attributet för att fylla `InResponseTo` attributet för det returnerade svaret. ID får inte börja med en siffra, så en gemensam strategi är att lägga en sträng som "ID" till sträng representationen av ett GUID. Till exempel `id6c1c178c166d486687be4aaf5e482730` är ett giltigt ID. |
+| Version | Krävs | Den här parametern ska vara inställd på **2,0**. |
+| IssueInstant | Krävs | Detta är en DateTime-sträng med ett UTC-värde och [tur och retur-format ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD förväntar sig ett DateTime-värde av den här typen, men utvärderar eller använder inte värdet. |
 | AssertionConsumerServiceUrl | Valfritt | Om den här parametern anges måste den matcha `RedirectUri` moln tjänsten i Azure AD. |
 | ForceAuthn | Valfritt | Detta är ett booleskt värde. Om värdet är true innebär det att användaren tvingas att autentiseras på nytt, även om de har en giltig session med Azure AD. |
 | IsPassive | Valfritt | Detta är ett booleskt värde som anger om Azure AD ska autentisera användaren tyst, utan användar interaktion, med hjälp av sessionens cookie om en sådan finns. Om detta är sant försöker Azure AD autentisera användaren med hjälp av sessions-cookien. |
@@ -101,10 +101,10 @@ Inkludera inte `ProxyCount` attributet `IDPListOption` eller `RequesterID` eleme
 ### <a name="signature"></a>Signatur
 Ett `Signature` element i `AuthnRequest` element är valfritt. Azure AD validerar inte signerade autentiseringsbegäranden om det finns en signatur. Verifiering av begär Ande är avsedd för genom att bara besvara registrerade konsument tjänst webb adresser.
 
-### <a name="subject"></a>Subjekt
+### <a name="subject"></a>Ämne
 Ta inte med ett- `Subject` element. Azure AD har inte stöd för att ange ett ämne för en begäran och returnerar ett fel om ett sådant anges.
 
-## <a name="response"></a>Svar
+## <a name="response"></a>Svarsåtgärder
 När en begärd inloggning har slutförts skickar Azure AD ett svar till moln tjänsten. Ett svar på ett lyckat inloggnings försök ser ut som i följande exempel:
 
 ```
@@ -150,7 +150,7 @@ När en begärd inloggning har slutförts skickar Azure AD ett svar till moln tj
 </samlp:Response>
 ```
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 `Response`Elementet innehåller resultatet av auktoriseringsbegäran. Azure AD anger `ID` - `Version` och- `IssueInstant` värden i- `Response` elementet. Dessutom anges följande attribut:
 
@@ -212,7 +212,7 @@ För att generera den här digitala signaturen använder Azure AD signerings nyc
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>Subjekt
+#### <a name="subject"></a>Ämne
 
 Detta anger huvud kontot som omfattas av uttrycken i försäkran. Den innehåller ett `NameID` -element som representerar den autentiserade användaren. `NameID`Värdet är en mål-ID som endast dirigeras till tjänst leverantören som är mål gruppen för token. Det är beständigt – det kan återkallas, men omtilldelas aldrig. Det är också ogenomskinligt, eftersom det inte avslöjar något om användaren och inte kan användas som en identifierare för attribut frågor.
 

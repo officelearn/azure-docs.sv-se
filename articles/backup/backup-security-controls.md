@@ -3,12 +3,12 @@ title: Säkerhetskontroller
 description: Lär dig mer om de säkerhets kontroller som används i Azure Backups tjänsten. Dessa kontroller hjälper tjänsten att förhindra, identifiera och reagera på säkerhets risker.
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: c5a324ac3738abfcf1a51442d7acd78a01e5717e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4a59ab0edeeba480475ac593d2721f95c7b5f48a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513548"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371727"
 ---
 # <a name="security-controls-for-azure-backup"></a>Säkerhets kontroller för Azure Backup
 
@@ -18,7 +18,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="network"></a>Nätverk
 
-| Säkerhets kontroll | Ja/nej | Anteckningar | Dokumentation
+| Säkerhets kontroll | Ja/nej | Obs! | Dokumentation
 |---|---|--|--|
 | Stöd för tjänst slut punkt| Nej |  |  |
 | Stöd för VNet-injektering| Nej |  |  |
@@ -27,7 +27,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="monitoring--logging"></a>Övervaka & loggning
 
-| Säkerhets kontroll | Ja/nej | Anteckningar| Dokumentation
+| Säkerhets kontroll | Ja/nej | Obs!| Dokumentation
 |---|---|--|--|
 | Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Log Analytics stöds via resurs loggar. Mer information finns i [övervaka Azure Backup skyddade arbets belastningar med Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
 | Loggning och granskning av kontroll-och hanterings plan| Ja | Alla kunder som har utlöst åtgärder från Azure Portal loggas till aktivitets loggar. |  |
@@ -35,14 +35,14 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="identity"></a>Identitet
 
-| Säkerhets kontroll | Ja/nej | Anteckningar| Dokumentation
+| Säkerhets kontroll | Ja/nej | Obs!| Dokumentation
 |---|---|--|--|
 | Autentisering| Ja | Autentisering är via Azure Active Directory. |  |
-| Auktorisering| Ja | Kunden skapade och inbyggda RBAC-roller används. Mer information finns i [använda rollbaserad Access Control för att hantera Azure Backup återställnings punkter](./backup-rbac-rs-vault.md). |  |
+| Auktorisering| Ja | Kunden skapade och de inbyggda Azure-rollerna används. Mer information finns i [använda rollbaserad Access Control för att hantera Azure Backup återställnings punkter](./backup-rbac-rs-vault.md). |  |
 
 ## <a name="data-protection"></a>Dataskydd
 
-| Säkerhets kontroll | Ja/nej | Anteckningar | Dokumentation
+| Säkerhets kontroll | Ja/nej | Obs! | Dokumentation
 |---|---|--|--|
 | Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja | Använda kryptering av lagrings tjänst för lagrings konton. |  |
 | Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Nej |  |  |
@@ -52,7 +52,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhets kontroll | Ja/nej | Anteckningar| Dokumentation
+| Säkerhets kontroll | Ja/nej | Obs!| Dokumentation
 |---|---|--|--|
 | Konfigurations hanterings stöd (konfigurations version osv.)| Ja|  |  |
 

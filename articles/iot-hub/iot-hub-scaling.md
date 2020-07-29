@@ -11,11 +11,14 @@ ms.author: wesmc
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 4b18878cfc5c75bf27fd46cbceaa06e0b6053ddd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+- 'Role: Operations'
+ms.openlocfilehash: bfd4f783c250a7bf0ec28cff903e4c59d8570d89
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759633"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307530"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Välja rätt IoT Hub-nivå för din lösning
 
@@ -37,13 +40,13 @@ Standard nivån för IoT Hub aktiverar alla funktioner och krävs för alla IoT-
 
 Det går bara att välja en typ av [utgåva](https://azure.microsoft.com/pricing/details/iot-hub/) inom en nivå per IoT Hub. Du kan till exempel skapa en IoT Hub med flera enheter S1, men inte med en blandning av enheter från olika versioner, till exempel S1 och S2.
 
-| Kapacitet | Basic-nivå | Kostnads fri/standard-nivå |
+| Funktion | Basic-nivå | Kostnads fri/standard-nivå |
 | ---------- | ---------- | ------------- |
 | [Telemetri från enhet till moln](iot-hub-devguide-messaging.md) | Ja | Ja |
 | [Identitet per enhet](iot-hub-devguide-identity-registry.md) | Ja | Ja |
 | [Meddelanderoutning,](iot-hub-devguide-messages-read-custom.md) [meddelande anrikning](iot-hub-message-enrichments-overview.md)och [Event Grid-integrering](iot-hub-event-grid.md) | Ja | Ja |
 | [HTTP-, AMQP-och MQTT-protokoll](iot-hub-devguide-protocols.md) | Ja | Ja |
-| [Enhets etablerings tjänst](../iot-dps/about-iot-dps.md) | Ja | Ja |
+| [Device Provisioning Service](../iot-dps/about-iot-dps.md) | Ja | Ja |
 | [Övervakning och diagnostik](iot-hub-monitor-resource-health.md) | Ja | Ja |
 | [Meddelanden från moln till enhet](iot-hub-devguide-c2d-guidance.md) |   | Ja |
 | [Enhets uppflätade](iot-hub-devguide-device-twins.md), [modulens sammanflätade](iot-hub-devguide-module-twins.md)och [enhets hantering](iot-hub-device-management-overview.md) |   | Ja |

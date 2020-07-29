@@ -8,13 +8,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.custom: amqp
-ms.openlocfilehash: a7ab796ddd35ebe9b9c43509d8e3c2f4c41625c8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom:
+- amqp
+- 'Role: Cloud Development'
+ms.openlocfilehash: 941953c75c516a9eceff526a0ced0ec0910f1f1e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084007"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327709"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Läsa meddelanden från enhet till moln från den inbyggda slutpunkten
 
@@ -23,7 +25,7 @@ Som standard dirigeras meddelanden till den inbyggda slut punkten för servicen 
 | Egenskap            | Beskrivning |
 | ------------------- | ----------- |
 | **Antal partitioner** | Ange den här egenskapen vid skapande för att definiera antalet [partitioner](../event-hubs/event-hubs-features.md#partitions) för inmatningen från enhet till moln. |
-| **Kvarhållningsperiod**  | Den här egenskapen anger hur lång tid i dagar som meddelanden ska behållas av IoT Hub. Standardvärdet är en dag, men det kan ökas till sju dagar. |
+| **Kvarhållningstid**  | Den här egenskapen anger hur lång tid i dagar som meddelanden ska behållas av IoT Hub. Standardvärdet är en dag, men det kan ökas till sju dagar. |
 
 IoT Hub tillåter datakvarhållning i den inbyggda Event Hubs i högst 7 dagar. Du kan ange Retentions tiden när du skapar IoT Hub. Data lagrings tiden i IoT Hub beror på din IoT Hub-nivå och enhets typ. Med den inbyggda Event Hubs kan den inbyggda kvarhålla meddelanden med maximal meddelande storlek upp till minst 24 timmars kvot. Till exempel ger 1 S1-enhet IoT Hub tillräckligt med lagrings utrymme för att behålla minst 400K-meddelanden av 4K-storlek. Om enheterna skickar mindre meddelanden kan de bevaras under längre tid (upp till 7 dagar) beroende på hur mycket lagrings utrymme som används. Vi garanterar att du behåller data för den angivna Retentions tiden som minst. Meddelanden upphör att gälla och kommer inte att vara tillgängliga efter att Retentions tiden har gått ut. 
 
@@ -51,7 +53,7 @@ När du använder Event Hubs SDK: er eller produkt integrationer som inte är Io
 
 I portalen innehåller fältet Event Hub-kompatibel slut punkt en fullständig Event Hubs anslutnings sträng som ser ut så här: **slut punkt = SB://abcd1234namespace.ServiceBus.Windows.net/; SharedAccessKeyName = iothubowner; SharedAccessKey = keykeykeykeykeykey =; EntityPath = iothub-ehub-ABCD-1234-123456**. Om SDK: n som du använder kräver andra värden blir de:
 
-| Name | Värde |
+| Namn | Värde |
 | ---- | ----- |
 | Slutpunkt | sb://abcd1234namespace.servicebus.windows.net/ |
 | Värdnamn | abcd1234namespace.servicebus.windows.net |

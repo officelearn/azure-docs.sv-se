@@ -5,17 +5,17 @@ description: Lär dig hur du importerar data till Azure Machine Learning designe
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.custom: designer
-ms.openlocfilehash: 7a204310454cb636e26e6366d4ff7375f4faea8d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: 92568ceb9c7f0a428189647f259a3f84278eb612
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207520"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327012"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importera data till Azure Machine Learning designer (förhands granskning)
 
@@ -23,6 +23,8 @@ I den här artikeln får du lära dig hur du importerar dina egna data i designe
 
 * **Azure Machine Learning data uppsättningar** – registrera [data uppsättningar](concept-data.md#datasets) i Azure Machine Learning för att aktivera avancerade funktioner som hjälper dig att hantera dina data.
 * **Importera datamodul** – Använd modulen [Importera data](algorithm-module-reference/import-data.md) för att direkt komma åt data från online-datakällor.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="use-azure-machine-learning-datasets"></a>Använd Azure Machine Learning data uppsättningar
 
@@ -79,7 +81,7 @@ Designern stöder tabell data uppsättningar som skapats från följande källor
 Designern identifierar internt följande data typer:
 
 * Sträng
-* Integer
+* Heltal
 * Decimal
 * Boolesk
 * Date

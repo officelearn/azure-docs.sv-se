@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 57cc3624a38fbec1e5bef7bb281363d34acef2b1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 25604bde3afbbef0d541bc21996b59e98b3090f4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505609"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327505"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, Visa och hantera logg aviseringar med Azure Monitor
 
@@ -77,8 +77,8 @@ Termen **logg avisering** beskriver aviseringar där en logg fråga i [Log Analy
 1. Välj hur ofta aviseringen ska köras i **frekvens**. 
 
     **Logg aviseringar** kan baseras på:
-    - [Antal poster](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules): en avisering skapas om antalet poster som returneras av frågan är antingen större eller mindre än det angivna värdet.
-    - [Mått mått](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules): en avisering skapas om varje *aggregerat värde* i resultatet överskrider det angivna tröskelvärdet och *grupperas efter* valt värde. Antalet överträdelser av en avisering är antalet gånger som tröskelvärdet har överskridits under den valda tids perioden. Du kan ange de totala överträdelserna för en kombination av överträdelser i resultat uppsättningen eller över flera överträdelser för att kräva att överträdelsen måste inträffa i efterföljande exempel.
+    - [Antal poster](./alerts-unified-log.md#number-of-results-alert-rules): en avisering skapas om antalet poster som returneras av frågan är antingen större eller mindre än det angivna värdet.
+    - [Mått mått](./alerts-unified-log.md#metric-measurement-alert-rules): en avisering skapas om varje *aggregerat värde* i resultatet överskrider det angivna tröskelvärdet och *grupperas efter* valt värde. Antalet överträdelser av en avisering är antalet gånger som tröskelvärdet har överskridits under den valda tids perioden. Du kan ange de totala överträdelserna för en kombination av överträdelser i resultat uppsättningen eller över flera överträdelser för att kräva att överträdelsen måste inträffa i efterföljande exempel.
 
 
 1. Klicka på **Klar**. 
@@ -100,7 +100,7 @@ Termen **logg avisering** beskriver aviseringar där en logg fråga i [Log Analy
     Vissa ytterligare funktioner är tillgängliga för att åsidosätta standard åtgärderna:
 
     - E-postmeddelande: åsidosätter *e-* **postmeddelandets**ämne i e-postmeddelandet som skickas via åtgärds gruppen. Du kan inte ändra bröd texten i e-postmeddelandet och det här fältet är **inte** för e-postadress.
-    - **Inkludera anpassad JSON-nyttolast**: åsidosätter webhook-JSON som används av åtgärds grupper som antar att åtgärds gruppen innehåller en webhook-typ. Mer information om webhook-format finns i [webhook-åtgärd för logg aviseringar](../../azure-monitor/platform/alerts-log-webhook.md). Alternativet Visa webhook har angetts för att kontrol lera formatet med hjälp av JSON-data från exempel.
+    - **Inkludera anpassad JSON-nyttolast**: åsidosätter webhook-JSON som används av åtgärds grupper som antar att åtgärds gruppen innehåller en webhook-typ. Mer information om webhook-format finns i [webhook-åtgärd för logg aviseringar](./alerts-log-webhook.md). Alternativet Visa webhook har angetts för att kontrol lera formatet med hjälp av JSON-data från exempel.
 
         ![Åsidosättning av åtgärd för logg aviseringar](media/alerts-log/AlertsPreviewOverrideLog.png)
 
@@ -212,7 +212,7 @@ Exempel-JSON ovan kan sparas som (säg) sampleScheduledQueryRule.jspå för den 
 
 ### <a name="log-alert-with-cross-resource-query-using-azure-resource-template"></a>Logg avisering med kors resurs fråga med Azure-resurs mal len
 
-Följande är strukturen för den mall som används för att [skapa schemalagda Frågeregler](/rest/api/monitor/scheduledqueryrules/createorupdate) med hjälp av [loggs öknings frågor över olika resurser](../../azure-monitor/log-query/cross-workspace-query.md) av [typen logg avisering för mått mått typ](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules), med exempel data uppsättning som variabler.
+Följande är strukturen för den mall som används för att [skapa schemalagda Frågeregler](/rest/api/monitor/scheduledqueryrules/createorupdate) med hjälp av [loggs öknings frågor över olika resurser](../log-query/cross-workspace-query.md) av [typen logg avisering för mått mått typ](./alerts-unified-log.md#metric-measurement-alert-rules), med exempel data uppsättning som variabler.
 
 ```json
 
@@ -319,7 +319,7 @@ API för Azure Monitor [schemalagda Frågeregler](/rest/api/monitor/scheduledque
 - [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) : PowerShell-cmdlet för att skapa eller uppdatera objekt som anger åtgärds parametrar för en logg avisering. Används som inmatad av cmdleten [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) och [set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) .
 - [New-AzScheduledQueryRuleAznsActionGroup](/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : PowerShell-cmdlet för att skapa eller uppdatera objekt som anger parametrar för åtgärds grupper för en logg avisering. Används som inmatad av [New-AzScheduledQueryRuleAlertingAction-](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) cmdleten.
 - [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : PowerShell-cmdleten för att skapa eller uppdatera objekt som anger Utlös ande villkors parametrar för logg avisering. Används som inmatad av [New-AzScheduledQueryRuleAlertingAction-](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) cmdleten.
-- [New-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : PowerShell-cmdlet för att skapa eller uppdatera objekt som anger mått för mått utlösare för måttet för mått [mått typ logg avisering](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules). Används som inmatad av [New-AzScheduledQueryRuleTriggerCondition-](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdleten.
+- [New-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : PowerShell-cmdlet för att skapa eller uppdatera objekt som anger mått för mått utlösare för måttet för mått [mått typ logg avisering](./alerts-unified-log.md#metric-measurement-alert-rules). Används som inmatad av [New-AzScheduledQueryRuleTriggerCondition-](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdleten.
 - [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule) : PowerShell-cmdleten för att visa en lista över befintliga logg aviserings regler eller en speciell logg aviserings regel
 - [Update-AzScheduledQueryRule](/powershell/module/az.monitor/update-azscheduledqueryrule) : PowerShell-cmdlet för att aktivera eller inaktivera logg aviserings regel
 - [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule): PowerShell-cmdlet för att ta bort en befintlig logg aviserings regel
@@ -363,7 +363,8 @@ Vid lyckad åtgärd kommer 201 att returneras till tillstånd nya aviserings reg
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [logg aviseringar i Azure-aviseringar](../../azure-monitor/platform/alerts-unified-log.md)
-* Förstå [webhook-åtgärder för logg aviseringar](../../azure-monitor/platform/alerts-log-webhook.md)
+* Lär dig mer om [logg aviseringar i Azure-aviseringar](./alerts-unified-log.md)
+* Förstå [webhook-åtgärder för logg aviseringar](./alerts-log-webhook.md)
 * Läs mer om [Application Insights](../log-query/log-query-overview.md)
 * Läs mer om [logg frågor](../log-query/log-query-overview.md).
+

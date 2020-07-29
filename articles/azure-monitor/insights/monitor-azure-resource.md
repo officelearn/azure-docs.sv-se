@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 727653314104ee1b2a27a1342de9824d8f303e23
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: de381b4200e2ec3381f452ac0ec32e61a055a6ec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539745"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326179"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Övervaka Azure-resurser med Azure Monitor
 När du har viktiga program och affärs processer som förlitar sig på Azure-resurser, vill du övervaka resurserna för deras tillgänglighet, prestanda och drift. I den här artikeln beskrivs övervaknings data som genereras av Azure-resurser och hur du kan använda funktionerna i Azure Monitor för att analysera och varna för dessa data.
@@ -96,7 +96,7 @@ Många tjänster omfattar övervaknings data på sina **översikts** sidor så a
 
 
 ### <a name="insights-and-solutions"></a>Insikter och lösningar 
-Vissa tjänster tillhandahåller verktyg utöver standard funktionerna i Azure Monitor. [Insikter](../insights/insights-overview.md) ger en anpassad övervaknings upplevelse som bygger på Azure Monitor data plattform och standard funktioner. [Lösningar](../insights/solutions.md) tillhandahåller fördefinierad övervaknings logik som bygger på Azure Monitor loggar. 
+Vissa tjänster tillhandahåller verktyg utöver standard funktionerna i Azure Monitor. [Insikter](./insights-overview.md) ger en anpassad övervaknings upplevelse som bygger på Azure Monitor data plattform och standard funktioner. [Lösningar](./solutions.md) tillhandahåller fördefinierad övervaknings logik som bygger på Azure Monitor loggar. 
 
 Om en tjänst har Azure Monitor insikter kan du komma åt den från **övervakning** i varje resurs meny. Få till gång till alla insikter och lösningar från **Azure Monitor** -menyn.
 
@@ -164,3 +164,4 @@ Använd **aviseringar** från en resurs meny för att visa aviseringar och hante
 ## <a name="next-steps"></a>Nästa steg
 
 * Mer information om resurs loggar för olika Azure-tjänster finns i [tjänster, scheman och kategorier som stöds för Azures resurs loggar](../platform/resource-logs-schema.md) .  
+

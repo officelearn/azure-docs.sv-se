@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 68e88ec90625f34e5bc8ae1b70c75e3cfe9a53ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e87ddd243aa248b896a26e6389ac1a219579a06d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515537"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325584"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor data plattform
 
@@ -36,7 +36,7 @@ Azure-resurser genererar en betydande mängd övervaknings data. Azure Monitor k
 
 Mått i Azure Monitor lagras i en databas för tids serier som är optimerad för att analysera tidsstämplade data. Detta gör mått som är särskilt lämpade för aviseringar och snabb identifiering av problem. De kan tala om för dig hur systemet presterar, men det måste vanligt vis kombineras med loggar för att identifiera rotor saken till problem.
 
-Mått är tillgängliga för interaktiv analys i Azure Portal med [Azure Metrics Explorer](../platform/metrics-getting-started.md). De kan läggas till i en [Azure-instrumentpanel](../learn/tutorial-app-dashboards.md) för visualisering i kombination med andra data och används för [aviseringar](alerts-metric.md)i nära real tid.
+Mått är tillgängliga för interaktiv analys i Azure Portal med [Azure Metrics Explorer](./metrics-getting-started.md). De kan läggas till i en [Azure-instrumentpanel](../learn/tutorial-app-dashboards.md) för visualisering i kombination med andra data och används för [aviseringar](alerts-metric.md)i nära real tid.
 
 Läs mer om Azure Monitor mått, inklusive deras data källor i [mått i Azure Monitor](data-platform-metrics.md).
 
@@ -90,3 +90,4 @@ Förutom att använda verktygen i Azure för att analysera övervaknings data ka
 - Läs mer om [mått i Azure Monitor](data-platform-metrics.md).
 - Läs mer om [loggar i Azure Monitor](data-platform-logs.md).
 - Lär dig mer om [övervaknings data som är tillgängliga](data-sources.md) för olika resurser i Azure.
+

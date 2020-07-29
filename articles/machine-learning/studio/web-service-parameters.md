@@ -1,6 +1,5 @@
 ---
-title: Webb tjänst parametrar
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klassisk): webb tjänst parametrar – Azure'
 description: Så här använder du Azure Machine Learning webb tjänst parametrar för att ändra funktions sättet för din modell när webb tjänsten nås.
 services: machine-learning
 author: likebupt
@@ -12,13 +11,17 @@ ms.subservice: studio
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/12/2017
-ms.openlocfilehash: c274579e756b3c22920023d68501981d5b4a8b01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de3fb4a0dab08a13327c910d1e09ecbf0afcec8c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705873"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326264"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Använd Azure Machine Learning Studio (klassiska) webb tjänst parametrar
+
+**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
+
 
 En Azure Machine Learning-webbtjänst skapas genom att publicera ett experiment som innehåller moduler med konfigurerbara parametrar. I vissa fall kanske du vill ändra modulens beteende medan webb tjänsten körs. Med *webb tjänst parametrar* kan du göra det här. 
 
@@ -52,7 +55,7 @@ Vi kan till exempel anta att vi har ett experiment med en modul för [export av 
    * Under **Ange Autentiseringstyp väljer du**"konto".
    * Ange konto informationen för Azure Blob Storage. 
 
-3. Klicka på ikonen till höger om **sökvägen till bloben som börjar med container parametern**. Så här ser den ut:
+3. Klicka på ikonen till höger om **sökvägen till bloben som börjar med container parametern**. Det ser ut så här:
    
    ![Ikon för webb tjänst parameter](./media/web-service-parameters/icon.png)
    

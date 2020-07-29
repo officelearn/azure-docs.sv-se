@@ -6,14 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 2fcf3b4c91e87453e2cf605eb717b75ed7d64d95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9ca2dc9d907e65b2679c08d8d2b6482f02ba53d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85105931"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327896"
 ---
-# <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Hantera åtkomst till logg data och arbets ytor i Azure Monitor
+# <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Hantera åtkomst till loggdata och arbetsytor i Azure Monitor
 
 Azure Monitor lagrar [loggdata](data-platform-logs.md) i en Log Analytics arbets yta. En arbets yta är en behållare som innehåller data och konfigurations information. Om du vill hantera åtkomst till loggdata utför du olika administrativa uppgifter relaterade till din arbets yta.
 
@@ -300,7 +300,7 @@ En annan metod för att hantera åtkomst till anpassade loggar är att tilldela 
 
 Ibland kommer anpassade loggar från källor som inte är direkt kopplade till en speciell resurs. I det här fallet skapar du en resurs grupp för att bara hantera åtkomst till dessa loggar. Resurs gruppen kostar ingen kostnad, men ger dig ett giltigt resurs-ID för att kontrol lera åtkomsten till de anpassade loggarna. Om en speciell brand vägg exempelvis skickar anpassade loggar, skapar du en resurs grupp med namnet "MyFireWallLogs" och ser till att API-begärandena innehåller resurs-ID: t "MyFireWallLogs". Logg posterna för brand väggen är sedan tillgängliga enbart för användare som har beviljats åtkomst till antingen MyFireWallLogs eller med fullständig åtkomst till arbets ytan.          
 
-### <a name="considerations"></a>Att tänka på
+### <a name="considerations"></a>Överväganden
 
 * Om en användare beviljas global Läs behörighet med standard läsare eller deltagar roller som innehåller _ \* /Read_ -åtgärden, åsidosätter den åtkomst kontrollen per tabell och ger dem åtkomst till alla loggdata.
 * Om en användare beviljas åtkomst per tabell men inga andra behörigheter, skulle de kunna komma åt loggdata från API: et, men inte från Azure Portal. Om du vill ge åtkomst från Azure Portal använder du Log Analytics Reader som bas roll.
@@ -310,6 +310,7 @@ Ibland kommer anpassade loggar från källor som inte är direkt kopplade till e
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Se [Översikt över Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md) för att samla in data från datorer i ditt data Center eller någon annan moln miljö.
+* Se [Översikt över Log Analytics-agenten](./log-analytics-agent.md) för att samla in data från datorer i ditt data Center eller någon annan moln miljö.
 
-* Se [samla in data om virtuella Azure-datorer](../../azure-monitor/learn/quick-collect-azurevm.md) för att konfigurera data insamling från virtuella Azure-datorer.
+* Se [samla in data om virtuella Azure-datorer](../learn/quick-collect-azurevm.md) för att konfigurera data insamling från virtuella Azure-datorer.
+

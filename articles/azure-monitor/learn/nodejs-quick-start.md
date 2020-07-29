@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 2e50daf3d94d30e4799bf7a645f46bb70fd6750c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f82eec5979bd1642e30e52bf6325f7b8f210371c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516506"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325669"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Snabb start: börja övervaka Node.js webb program med Azure Application insikter
 
@@ -20,7 +20,7 @@ I den här snabb starten lägger du till Application Insights SDK-version 0,22 f
 
 Med Azure Application Insights kan du enkelt övervaka en webbapp för tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem. Med SDK-version 0.20 och framåt kan du övervaka vanliga tredjepartspaket, till exempel MongoDB, MySQL och Redis.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Ett fungerande Node.js program.
@@ -112,11 +112,11 @@ Application Insights kan samla in telemetridata från alla Internet-anslutna pro
    </script>
    ```
 
-5. Till vänster väljer du **Mått**. Använd Mät Utforskaren för att undersöka hälso tillståndet och användningen av resursen. Du kan välja **Lägg till nytt diagram** för att skapa ytterligare anpassade vyer eller välja **Redigera** för att ändra befintliga diagram typer, höjd, färgpalett, grupperingar och mått. Du kan till exempel skapa ett diagram som visar den genomsnittliga webb sidans inläsnings tid genom att välja "webbläsare sid inläsnings tid" från List rutan mått och "AVG" från aggregation. Mer information om Azure Metrics Explorer finns i [komma igång med azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+5. Till vänster väljer du **Mått**. Använd Mät Utforskaren för att undersöka hälso tillståndet och användningen av resursen. Du kan välja **Lägg till nytt diagram** för att skapa ytterligare anpassade vyer eller välja **Redigera** för att ändra befintliga diagram typer, höjd, färgpalett, grupperingar och mått. Du kan till exempel skapa ett diagram som visar den genomsnittliga webb sidans inläsnings tid genom att välja "webbläsare sid inläsnings tid" från List rutan mått och "AVG" från aggregation. Mer information om Azure Metrics Explorer finns i [komma igång med azure Metrics Explorer](../platform/metrics-getting-started.md).
 
    ![Diagram över Application Insights Server mått](./media/nodejs-quick-start/azure-app-insights-server-metrics.png)
 
-Om du vill veta mer om övervaknings Node.js kan du läsa mer i [dokumentationen för AppInsights Node.js](../../azure-monitor/app/nodejs.md).
+Om du vill veta mer om övervaknings Node.js kan du läsa mer i [dokumentationen för AppInsights Node.js](../app/nodejs.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -132,3 +132,4 @@ När du är klar med testningen kan du ta bort resurs gruppen och alla relaterad
 
 > [!div class="nextstepaction"]
 > [Hitta och diagnostisera prestandaproblem](../log-query/log-query-overview.md)
+

@@ -11,11 +11,14 @@ ms.date: 08/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e9d5eae4ef926a5c05265b91526d03a17ca57781
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: 675f25107a2e4f0ddedf468dc06afea36ffc6151
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674962"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327760"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Förstå identitets registret i din IoT-hubb
 
@@ -109,7 +112,7 @@ Egenskaper: meddelande system egenskaper föregås av `$` symbolen.
 
 Meddelande för enhet:
 
-| Name | Värde |
+| Namn | Värde |
 | --- | --- |
 |$content-typ | application/json |
 |$iothub-enqueuedtime |  Tid när meddelandet skickades |
@@ -145,7 +148,7 @@ Brödtext: det här avsnittet är i JSON-format och representerar den dubbla av 
 ```
 Aviserings meddelande för modul:
 
-| Name | Värde |
+| Namn | Värde |
 | --- | --- |
 $content-typ | application/json |
 $iothub-enqueuedtime |  Tid när meddelandet skickades |

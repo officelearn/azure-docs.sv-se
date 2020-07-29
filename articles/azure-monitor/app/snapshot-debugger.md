@@ -4,15 +4,15 @@ description: Fel söknings ögonblicks bilder samlas in automatiskt när undanta
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: c920ab019d5d802ea862ab923297670da766a456
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 58fbb0cee5e4f06c20d31b4b5011582957f6f6c3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049681"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325652"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Ögonblicksbilder för felsökning av undantag i .NET-appar
-När ett undantag inträffar kan du automatiskt samla in en fel söknings ögonblicks bild från Live-webbappen. I ögonblicks bilden visas statusen för käll koden och variablerna vid det tillfälle då undantaget uppstod. Snapshot Debugger i [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) övervakar undantags telemetri från din webbapp. Den samlar in ögonblicks bilder i de övergivna undantagen så att du har den information du behöver för att diagnostisera problem i produktionen. Ta med [Snapshot Collector NuGet-paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) i ditt program och konfigurera sedan samlings parametrar i [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Ögonblicks bilder visas på [undantag](../../azure-monitor/app/asp-net-exceptions.md) i Application Insights portalen.
+När ett undantag inträffar kan du automatiskt samla in en fel söknings ögonblicks bild från Live-webbappen. I ögonblicks bilden visas statusen för käll koden och variablerna vid det tillfälle då undantaget uppstod. Snapshot Debugger i [Azure Application Insights](./app-insights-overview.md) övervakar undantags telemetri från din webbapp. Den samlar in ögonblicks bilder i de övergivna undantagen så att du har den information du behöver för att diagnostisera problem i produktionen. Ta med [Snapshot Collector NuGet-paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) i ditt program och konfigurera sedan samlings parametrar i [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Ögonblicks bilder visas på [undantag](./asp-net-exceptions.md) i Application Insights portalen.
 
 Du kan visa de här ögonblicksbilderna i portalen, se anropsstacken och inspektera variablerna på varje nivå av stacken. För att få en mer kraftfull fel söknings upplevelse med källkod öppnar du ögonblicks bilder med Visual Studio 2019 Enterprise. I Visual Studio kan du också [ställa in Snappoints så att interaktivt tar ögonblicks bilder](https://aka.ms/snappoint) utan att vänta på ett undantag.
 
@@ -62,7 +62,7 @@ När ett undantag har inträffat i ditt program och en ögonblicks bild har skap
 
 ![Sidan problem](./media/snapshot-debugger/failures-page.png)
 
-Välj en åtgärd eller ett undantag i den högra rutan för att öppna fönstret **transaktions information från slut punkt till slut punkt** och välj sedan undantags händelsen. Om det finns en ögonblicks bild för det här undantaget visas en knapp för att **Öppna fel söknings ögonblicks bilder** i den högra rutan med information om [undantaget](../../azure-monitor/app/asp-net-exceptions.md).
+Välj en åtgärd eller ett undantag i den högra rutan för att öppna fönstret **transaktions information från slut punkt till slut punkt** och välj sedan undantags händelsen. Om det finns en ögonblicks bild för det här undantaget visas en knapp för att **Öppna fel söknings ögonblicks bilder** i den högra rutan med information om [undantaget](./asp-net-exceptions.md).
 
 ![Knappen Öppna fel söknings ögonblicks bild vid undantag](./media/snapshot-debugger/e2e-transaction-page.png)
 
@@ -85,8 +85,8 @@ Den hämtade ögonblicks bilden innehåller alla symboler som hittades på din w
 
 ## <a name="how-snapshots-work"></a>Hur ögonblicks bilder fungerar
 
-Snapshot Collector implementeras som en [Application Insights Telemetry-processor](../../azure-monitor/app/configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). När ditt program körs läggs Snapshot Collector telemetri-processorn till i programmets telemetri-pipeline.
-Varje gången ditt program anropar [TrackException](../../azure-monitor/app/asp-net-exceptions.md#exceptions)beräknar Snapshot Collector ett problem-ID från den typ av undantag som genereras och metoden Throw.
+Snapshot Collector implementeras som en [Application Insights Telemetry-processor](./configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). När ditt program körs läggs Snapshot Collector telemetri-processorn till i programmets telemetri-pipeline.
+Varje gången ditt program anropar [TrackException](./asp-net-exceptions.md#exceptions)beräknar Snapshot Collector ett problem-ID från den typ av undantag som genereras och metoden Throw.
 Varje gången ditt program anropar TrackException ökas en räknare för rätt problem-ID. När räknaren når `ThresholdForSnapshotting` värdet läggs problem-ID: t till i en samlings plan.
 
 Snapshot Collector övervakar också undantag när de utlöses genom att prenumerera på händelsen [AppDomain. currentDomain. FirstChanceException](/dotnet/api/system.appdomain.firstchanceexception) . När händelsen utlöses beräknas problem-ID: t för undantaget och jämförs med problem-ID: n i samlings planen.
@@ -139,5 +139,6 @@ Aktivera Application Insights Snapshot Debugger för ditt program:
 Utöver Application Insights Snapshot Debugger:
  
 * [Ange snappoints i din kod](/visualstudio/debugger/debug-live-azure-applications) för att hämta ögonblicks bilder utan att vänta på ett undantag.
-* [Diagnostisera undantag i dina webbappar](../../azure-monitor/app/asp-net-exceptions.md) förklarar hur du gör fler undantag synliga för Application Insights.
-* [Smart identifiering](../../azure-monitor/app/proactive-diagnostics.md) identifierar automatiskt prestanda avvikelser.
+* [Diagnostisera undantag i dina webbappar](./asp-net-exceptions.md) förklarar hur du gör fler undantag synliga för Application Insights.
+* [Smart identifiering](./proactive-diagnostics.md) identifierar automatiskt prestanda avvikelser.
+

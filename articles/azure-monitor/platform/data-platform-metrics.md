@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 2f82d5d4dcb29504abbfa6881fa825b6d8efce0d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b05007e2ea7815afbba2a7a71368686cf7c049fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049539"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325618"
 ---
 # <a name="metrics-in-azure-monitor"></a>Mått i Azure Monitor
 
@@ -32,7 +32,7 @@ I följande tabell visas de olika sätt som du kan använda Metric-data i Azure 
 |  | Beskrivning |
 |:---|:---|
 | **Analysera** | Använd [Metrics Explorer](metrics-charts.md) för att analysera insamlade mått i ett diagram och jämföra mått från olika resurser. |
-| **Visualisera** | Fäst ett diagram från metrics Explorer till en [Azure-instrumentpanel](../learn/tutorial-app-dashboards.md).<br>Skapa en [arbets bok](../platform/workbooks-overview.md) som ska kombineras med flera data uppsättningar i en interaktiv rapport. Exportera resultatet av en fråga till [Grafana](grafana-plugin.md) för att dra nytta av dess instrument panel och kombinera med andra data källor. |
+| **Visualisera** | Fäst ett diagram från metrics Explorer till en [Azure-instrumentpanel](../learn/tutorial-app-dashboards.md).<br>Skapa en [arbets bok](./workbooks-overview.md) som ska kombineras med flera data uppsättningar i en interaktiv rapport. Exportera resultatet av en fråga till [Grafana](grafana-plugin.md) för att dra nytta av dess instrument panel och kombinera med andra data källor. |
 | **Varning** | Konfigurera en [regel för mått varningar](alerts-metric.md) som skickar ett meddelande eller [automatiserar en åtgärd](action-groups.md) när mått värdet korsar ett tröskelvärde. |
 | **Automatisera** |  Använd [autoskalning](autoscale-overview.md) för att öka eller minska resurser baserat på ett mått värde som korsar ett tröskelvärde. |
 | **Export** | [Dirigera mått till loggar](./resource-logs.md#send-to-azure-storage) för att analysera data i Azure Monitor mått tillsammans med data i Azure Monitor loggar och lagra mått värden i mer än 93 dagar.<br>Strömma mått till en [Event Hub](stream-monitoring-data-event-hubs.md) för att dirigera dem till externa system. |
@@ -89,7 +89,7 @@ Det finns tre grundläggande källor med mått som samlas in av Azure Monitor. N
 
 **Plattforms mått** skapas av Azure-resurser och ger dig insyn i deras hälsa och prestanda. Varje typ av resurs skapar en [distinkt uppsättning mått](metrics-supported.md) utan någon konfiguration som krävs. Plattforms mått samlas in från Azure-resurser med en minuters frekvens om inget annat anges i måttets definition. 
 
-**Gäst operativ** systemets mått samlas in från gäst operativ systemet på en virtuell dator. Aktivera gäst operativ systemets mått för virtuella Windows-datorer med [Windows Diagnostic Extension (wad)](../platform/diagnostics-extension-overview.md) och för virtuella Linux-datorer med InfluxData f- [agenten](https://www.influxdata.com/time-series-platform/telegraf/).
+**Gäst operativ** systemets mått samlas in från gäst operativ systemet på en virtuell dator. Aktivera gäst operativ systemets mått för virtuella Windows-datorer med [Windows Diagnostic Extension (wad)](./diagnostics-extension-overview.md) och för virtuella Linux-datorer med InfluxData f- [agenten](https://www.influxdata.com/time-series-platform/telegraf/).
 
 **Program mått** skapas av Application Insights för dina övervakade program och hjälper dig att identifiera prestanda problem och spåra trender i hur ditt program används. Detta inkluderar sådana värden som _svars tid_ och _webb läsar undantag_i servern.
 
@@ -99,7 +99,7 @@ Det finns tre grundläggande källor med mått som samlas in av Azure Monitor. N
 För de flesta resurser i Azure lagras måtten i 93 dagar. Det finns vissa undantag:
 
 **Gäst operativ systemets mått**
--   **Klassiska gäst operativ systemets mått**. Detta är prestanda räknare som samlas in av [Windows Diagnostic-tillägget (wad)](../platform/diagnostics-extension-overview.md) eller [Linux Diagnostic Extension (lad)](../../virtual-machines/extensions/diagnostics-linux.md) och dirigeras till ett Azure Storage-konto. Kvarhållning för dessa mått är 14 dagar.
+-   **Klassiska gäst operativ systemets mått**. Detta är prestanda räknare som samlas in av [Windows Diagnostic-tillägget (wad)](./diagnostics-extension-overview.md) eller [Linux Diagnostic Extension (lad)](../../virtual-machines/extensions/diagnostics-linux.md) och dirigeras till ett Azure Storage-konto. Kvarhållning för dessa mått är 14 dagar.
 -   **Gäst operativ systemets mått skickas till Azure Monitor mått**. Detta är prestanda räknare som samlas in av [Windows Diagnostic-tillägget (wad)](diagnostics-extension-overview.md) och skickas till [Azure Monitor data mottagare](diagnostics-extension-overview.md#data-destinations)eller via [InfluxData](https://www.influxdata.com/time-series-platform/telegraf/) -på Linux-datorer. Kvarhållning för dessa mått är 93 dagar.
 -   **Gäst operativ system mått som samlats in av Log Analytics-agenten**. Detta är prestanda räknare som samlas in av Log Analytics agent och skickas till en Log Analytics arbets yta. Kvarhållning för dessa mått är 31 dagar och kan utökas upp till två år.
 
@@ -119,3 +119,4 @@ För de flesta resurser i Azure lagras måtten i 93 dagar. Det finns vissa undan
 - Läs mer om [Azure Monitor data plattform](data-platform.md).
 - Lär dig mer om [loggdata i Azure Monitor](data-platform-logs.md).
 - Lär dig mer om [övervaknings data som är tillgängliga](data-sources.md) för olika resurser i Azure.
+

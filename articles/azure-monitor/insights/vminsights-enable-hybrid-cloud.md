@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 013515e0608bf790ceef8dc13d9d547496306610
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ea060ec9ba755a197e2969c0bf58050eb1d62a03
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092855"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325975"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-environment"></a>Aktivera Azure Monitor for VMs för en hybrid miljö
 
@@ -24,7 +24,7 @@ Innan du börjar bör du läsa igenom kraven och kontrol lera att din [prenumera
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 >[!NOTE]
->Azure Monitor for VMs kartans beroende agent skickar inte några data och kräver inte några ändringar i brand väggar eller portar. Kartdata överförs alltid av Log Analytics agenten till tjänsten Azure Monitor, antingen direkt eller via [Operations Management Suite-gatewayen](../../azure-monitor/platform/gateway.md) om dina IT-säkerhetsprinciper inte tillåter att datorer i nätverket kan ansluta till Internet.
+>Azure Monitor for VMs kartans beroende agent skickar inte några data och kräver inte några ändringar i brand väggar eller portar. Kartdata överförs alltid av Log Analytics agenten till tjänsten Azure Monitor, antingen direkt eller via [Operations Management Suite-gatewayen](../platform/gateway.md) om dina IT-säkerhetsprinciper inte tillåter att datorer i nätverket kan ansluta till Internet.
 
 Stegen för att slutföra den här uppgiften sammanfattas på följande sätt:
 
@@ -79,7 +79,7 @@ Om det inte går att starta beroende agenten kontrollerar du om det finns detalj
 
 Filer för beroende agenten placeras i följande kataloger:
 
-| Files | Plats |
+| Filer | Position |
 |:--|:--|
 | Kärnfiler | /opt/microsoft/dependency-agent |
 | Loggfiler | /var/opt/microsoft/dependency-agent/log |
@@ -145,7 +145,7 @@ configuration VMInsights {
 ## <a name="enable-performance-counters"></a>Aktivera prestanda räknare
 
 Om Log Analytics-arbetsytan som refereras till av lösningen inte redan har kon figurer ATS för att samla in de prestanda räknare som krävs för lösningen måste du aktivera dem. Det kan du göra på något av två sätt:
-* Manuellt, enligt beskrivningen i [prestanda data källor för Windows och Linux i Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
+* Manuellt, enligt beskrivningen i [prestanda data källor för Windows och Linux i Log Analytics](../platform/data-sources-performance-counters.md)
 * Genom att hämta och köra ett PowerShell-skript som är tillgängligt från [Azure PowerShell galleriet](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
 ## <a name="deploy-azure-monitor-for-vms"></a>Distribuera Azure Monitor for VMs
@@ -259,3 +259,4 @@ Nu när övervakning är aktiverat för dina virtuella datorer är den här info
 - Information om hur du visar identifierade program beroenden finns i [visa Azure Monitor for VMS karta](vminsights-maps.md).
 
 - Information om hur du identifierar Flask halsar och övergripande användning med den virtuella datorns prestanda finns i [Visa prestanda för virtuella Azure-datorer](vminsights-performance.md).
+

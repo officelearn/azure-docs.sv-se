@@ -1,6 +1,5 @@
 ---
-title: Importera/exportera data i webb tjänster
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klassisk): importera/exportera data i webb tjänster – Azure'
 description: Lär dig hur du använder modulerna importera data och exportera data för att skicka och ta emot data från en webb tjänst.
 services: machine-learning
 author: likebupt
@@ -11,14 +10,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: b844a18a5acbd7a631bfe3b650dfa155d0e064ba
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2e1395e23ec8fa3bbd787b5b12a810f6e9720392
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076665"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326230"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Distribuera Azure Machine Learning Studio (klassiska) webb tjänster som använder moduler för data import och data export
+
+**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
+
 
 När du skapar ett förutsägelse experiment lägger du vanligt vis till en webb tjänst indata och utdata. När du distribuerar experimentet kan konsumenter skicka och ta emot data från webb tjänsten via indata och utdata. För vissa program kan en konsument data vara tillgängliga från en datafeed eller finnas redan i en extern data källa, till exempel Azure Blob Storage. I dessa fall behöver de inte läsa och skriva data med hjälp av webb tjänst indata och utdata. De kan i stället använda BES (batch execution service) för att läsa data från data källan med hjälp av en modul för att importera data och skriva poängsättnings resultatet till en annan data plats med hjälp av en export data-modul.
 
@@ -115,7 +117,7 @@ Distribuera som en klassisk webb tjänst och skapa ett program för att använda
         }
     };
     ```
-10. Kör appen.
+10. Kör programmet.
 
 När körningen har slutförts läggs en ny tabell till i databasen som innehåller resultat resultaten.
 
@@ -148,5 +150,5 @@ Distribuera som en ny webb tjänst och skapa ett program för att använda den:
         }
     };
     ```
-10. Kör appen.
+10. Kör programmet.
 

@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: reference
 ms.date: 07/21/2020
 ms.subservice: alerts
-ms.openlocfilehash: 98cd7a4d31f4d7053426f44dd02a876759688cc7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b4a2329640387ab1c3cda93d18c6cb22c7d511cd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045236"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327488"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Fel sökning av problem i Azure Monitor mått varningar 
 
@@ -108,7 +108,7 @@ Mått varningar är tillstånds känsliga som standard och därför utlöses int
 
 ## <a name="define-an-alert-rule-on-a-custom-metric-that-isnt-emitted-yet"></a>Definiera en varnings regel för ett anpassat mått som inte har genererats än
 
-När du skapar en regel för mått varningar verifieras mått namnet mot [mått definitions-API: et](https://docs.microsoft.com/rest/api/monitor/metricdefinitions/list) för att se till att det finns. I vissa fall vill du skapa en varnings regel för ett anpassat mått även innan den släpps. Till exempel när du skapar (med en ARM-mall) en Application Insights-resurs som genererar ett anpassat mått, tillsammans med en varnings regel som övervakar det måttet.
+När du skapar en regel för mått varningar verifieras mått namnet mot [mått definitions-API: et](/rest/api/monitor/metricdefinitions/list) för att se till att det finns. I vissa fall vill du skapa en varnings regel för ett anpassat mått även innan den släpps. Till exempel när du skapar (med en ARM-mall) en Application Insights-resurs som genererar ett anpassat mått, tillsammans med en varnings regel som övervakar det måttet.
 
 För att undvika att distributionen Miss fungerar när du försöker validera de anpassade måttets definitioner, kan du använda parametern *skipMetricValidation* i avsnittet villkor i varnings regeln, vilket gör att mått verifieringen hoppas över. Se exemplet nedan för hur du använder den här parametern i en ARM-mall (för fullständiga ARM-mallar exempel för att skapa mått varnings regler finns [här]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)).
 
@@ -236,7 +236,7 @@ Tänk på följande begränsningar när du använder dimensioner i en varnings r
 - Du kan bara välja ett värde per dimension i varje villkor.
 - Du kan inte använda alternativet "Välj alla aktuella och framtida värden" (Välj \* ).
 - När mått som har kon figurer ATS på olika villkor stöder samma dimension måste ett konfigurerat dimensions värde uttryckligen anges på samma sätt för alla dessa mått (i de relevanta villkoren).
-Exempel:
+Till exempel:
     - Överväg en regel för mått varningar som definieras på ett lagrings konto och övervakar två villkor:
         * Totalt antal **transaktioner** > 5
         * Genomsnittlig **SuccessE2ELatency** > 250 MS
@@ -247,3 +247,4 @@ Exempel:
 ## <a name="next-steps"></a>Nästa steg
 
 - Allmän felsöknings information om aviseringar och meddelanden finns [i fel söknings problem i Azure Monitor aviseringar](alerts-troubleshoot.md).
+

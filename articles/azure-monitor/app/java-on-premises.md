@@ -3,14 +3,15 @@ title: Övervaka Java-program som körs lokalt – Azure Monitor Application Ins
 description: Övervakning av program prestanda för Java-program som körs lokalt utan instrumentering av appen. Distribuerad spårning och program karta.
 ms.topic: conceptual
 author: MS-jgol
+ms.custom: devx-track-java
 ms.author: jgol
 ms.date: 04/16/2020
-ms.openlocfilehash: 6c083e24ce44272ef9394b8418d3dc66771ceb8a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c2d35a6f379b0d7cf3c4c7d61e5e679553e5302f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014277"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326893"
 ---
 # <a name="java-codeless-application-monitoring-on-premises---azure-monitor-application-insights---public-preview"></a>Java-kodad program övervakning lokalt – Azure Monitor Application Insights – offentlig för hands version
 

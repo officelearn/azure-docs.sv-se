@@ -5,17 +5,17 @@ description: Lär dig hur du använder en Azure Resource Manager mall för att s
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/09/2020
-ms.custom: seoapril2019
-ms.openlocfilehash: 49a1b190ece4ae4e937757e88af325a29f4825c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: db0b87787e34796e9dd7c91d6e4b53738145a25a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031124"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326383"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Använd en Azure Resource Manager mall för att skapa en arbets yta för Azure Machine Learning
 
@@ -26,7 +26,7 @@ I den här artikeln får du lära dig flera sätt att skapa en Azure Machine Lea
 
 Mer information finns i [distribuera ett program med Azure Resource Manager-mall](../azure-resource-manager/templates/deploy-powershell.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -118,6 +118,9 @@ New-AzResourceGroupDeployment `
 ---
 
 Som standard är alla resurser som skapats som en del av mallen nya. Du kan dock också välja att använda befintliga resurser. Genom att ange ytterligare parametrar för mallen kan du använda befintliga resurser. Om du till exempel vill använda ett befintligt lagrings konto anger du **storageAccountOption** -värdet till **befintlig** och anger namnet på ditt lagrings konto i parametern **storageAccountName** .
+
+> [!IMPORTANT]
+> Om du vill använda ett befintligt Azure Storage-konto kan det inte vara ett Premium-konto (Premium_LRS och Premium_GRS). Det får inte heller ha ett hierarkiskt namn område (används med Azure Data Lake Storage Gen2). Varken Premium Storage eller hierarkiskt namn område stöds med arbets ytans standard lagrings konto.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
@@ -374,7 +377,7 @@ Genom att ange `vnetOption` parametervärdet till antingen `new` eller `existing
 
 ### <a name="only-deploy-workspace-behind-private-endpoint"></a>Distribuera endast arbets ytan bakom privat slut punkt
 
-Om de associerade resurserna inte ligger bakom ett virtuellt nätverk kan du ange parametern **privateEndpointType** till `AutoAproval` eller `ManualApproval` för att distribuera arbets ytan bakom en privat slut punkt.
+Om de associerade resurserna inte ligger bakom ett virtuellt nätverk kan du ange parametern **privateEndpointType** till `AutoAproval` eller `ManualApproval` för att distribuera arbets ytan bakom en privat slut punkt. Detta kan göras för både nya och befintliga arbets ytor. När du uppdaterar en befintlig arbets yta fyller du i mallparametrar med informationen från den befintliga arbets ytan.
 
 > [!IMPORTANT]
 > Distributionen är endast giltig i regioner som stöder privata slut punkter.
@@ -753,3 +756,4 @@ För att undvika det här problemet rekommenderar vi en av följande metoder:
 
 * [Distribuera resurser med Resource Manager-mallar och Resource Manager-REST API](../azure-resource-manager/templates/deploy-rest.md).
 * [Skapa och Distribuera Azure-resurs grupper via Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
+* [Andra mallar som rör Azure Machine Learning finns i lagrings platsen för Azure snabb starts mallar](https://github.com/Azure/azure-quickstart-templates)

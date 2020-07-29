@@ -3,12 +3,12 @@ title: Övervaka en SharePoint-webbplats med Application Insights
 description: Börja övervaka ett nytt program med en ny instrumentationsnyckel
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.openlocfilehash: a545a24b5a9af883200f25cc83486e3c5621bd78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 392c0e0ee46e8acd540d498cbda1d240611d182e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516897"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326536"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Övervaka en SharePoint-webbplats med Application Insights
 
@@ -137,7 +137,8 @@ function onRequestFail(sender, args) {
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Webbtest](../../azure-monitor/app/monitor-web-app-availability.md) för att övervaka tillgängligheten för webbplatsen.
-* [Application Insights](../../azure-monitor/app/app-insights-overview.md) för andra typer av appar.
+* [Webbtest](./monitor-web-app-availability.md) för att övervaka tillgängligheten för webbplatsen.
+* [Application Insights](./app-insights-overview.md) för andra typer av appar.
 
 <!--Link references-->
+

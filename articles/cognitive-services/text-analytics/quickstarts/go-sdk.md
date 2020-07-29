@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 02/26/2020
+ms.date: 07/27/2020
 ms.author: aahi
-ms.openlocfilehash: ff1b35ec036996dfa452d92632c8fc6ede22d82f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 6849046211ae4216f181dd8ef0ca391c2876363c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203240"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291780"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-go"></a>Snabb start: Använd Textanalys klient bibliotek för go
 
@@ -27,9 +27,9 @@ ms.locfileid: "86203240"
 > [!NOTE]
 > Den här snabb starten gäller endast Textanalys version 2,1. För närvarande är ett v3-klient bibliotek för Go inte tillgängligt.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+* En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * Den senaste versionen av [Go](https://golang.org/dl/)
 * När du har en Azure-prenumeration <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title=" skapar du en textanalys resurs "  target="_blank"> skapa en textanalys resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. 
     * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till API för textanalys. Du kommer att göra detta senare i snabb starten.
@@ -96,9 +96,9 @@ De här kodfragmenten visar hur du gör följande med Textanalys klient bibliote
 
 * [Autentisera klienten](#authenticate-the-client)
 * [Attitydanalys](#sentiment-analysis)
-* [Språkidentifiering](#language-detection)
-* [Igenkänning av enhet](#entity-recognition)
-* [Extrahering av nyckelfraser](#key-phrase-extraction)
+* [Språk identifiering](#language-detection)
+* [Enhets igenkänning](#entity-recognition)
+* [Extrahering av nyckel fraser](#key-phrase-extraction)
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
@@ -131,7 +131,7 @@ Anropa klientens [sentiment ()-](https://godoc.org/github.com/Azure/azure-sdk-fo
 
 anropa `SentimentAnalysis()` i projektet.
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Document ID: 1 , Sentiment Score: 0.87
@@ -150,7 +150,7 @@ Anropa klientens [DetectLanguage ()](https://godoc.org/github.com/Azure/azure-sd
 
 Anropa `LanguageDetection()` i projektet.
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Document ID: 0 , Language: English 
@@ -168,7 +168,7 @@ Anropa klientens [entiteter ()](https://godoc.org/github.com/Azure/azure-sdk-for
 
 anropa `ExtractEntities()` i projektet.
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Document ID: 1
@@ -208,7 +208,7 @@ Anropa klientens diskussions [fraser ()](https://godoc.org/github.com/Azure/azur
 
 Anropa `ExtractKeyPhrases()` i projektet.
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Document ID: 1

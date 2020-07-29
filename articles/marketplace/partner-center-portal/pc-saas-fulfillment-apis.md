@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 218a0624f7e4adc1aa188dbd62db217bf79202f8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: d9413deb99ce938429d05f7c6348c5914e7dd2b1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109305"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304147"
 ---
 # <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>API: er för SaaS-uppfyllelse i Microsofts kommersiella marknads platser
 
@@ -45,7 +47,7 @@ I scenariot för åter försäljare (CSP) köper en KRYPTOGRAFIPROVIDER SaaS-erb
 
 Utgivaren behöver inte implementera något av API-anropen på ett annat sätt för det här scenariot.
 
-För ytterligare information om CSP, se https://partner.microsoft.com/en-us/licensing .
+För ytterligare information om CSP, se https://partner.microsoft.com/licensing .
 
 >[!Warning]
 >Den aktuella versionen av detta API är version 2, som ska användas för alla nya SaaS-erbjudanden. Version 1 av API: et är inaktuell och underhålls för att stödja befintliga erbjudanden.

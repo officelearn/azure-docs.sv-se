@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 78cdf1798d9176c9d3c7b3705a11dccde5e47e67
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a14f7ca3e5a7b291e430db6ea536edc5396b5448
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077101"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318903"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Kundägda lagrings konton för logg inmatning i Azure Monitor
 
@@ -54,7 +54,7 @@ Den enda metoden som är tillgänglig för att skapa och ta bort länkar är via
 ## <a name="command-line-and-rest-api"></a>Kommando rad och REST API
 
 ### <a name="command-line"></a>Kommandorad
-Om du vill skapa och hantera länkade lagrings konton använder du [AZ Monitor Log-Analytics arbets yta länkad lagring](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage). Med det här kommandot kan du länka och ta bort länkar till lagrings konton från en arbets yta och lista de länkade lagrings kontona.
+Om du vill skapa och hantera länkade lagrings konton använder du [AZ Monitor Log-Analytics arbets yta länkad lagring](/cli/azure/monitor/log-analytics/workspace/linked-storage). Med det här kommandot kan du länka och ta bort länkar till lagrings konton från en arbets yta och lista de länkade lagrings kontona.
 
 ### <a name="request-and-cli-values"></a>Request-och CLI-värden
 
@@ -236,3 +236,4 @@ Om det registrerade lagrings kontot för din arbets yta finns i en annan region 
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om hur du konfigurerar en privat länk finns i [använda Azure Private Link för att ansluta nätverk på ett säkert sätt till Azure Monitor](private-link-security.md)
+

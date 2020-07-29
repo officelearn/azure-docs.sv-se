@@ -4,11 +4,12 @@ description: Application Insights slut punkt till slut punkt för transaktions d
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 39c4c51a1bc84e06efac3674b1ee5b487f9e6729
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 552e80d6c90a18180ab41dce72e995b6804a91bc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671145"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318920"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Enhetlig transaktions-diagnostik mellan komponenter
 
@@ -63,7 +64,7 @@ Det här komprimerbara fönstret visar de andra resultaten som uppfyller filter 
 
 ## <a name="profiler-and-snapshot-debugger"></a>Profiler för profiler och ögonblicks bilds fel
 
-[Application Insights profiler](../../azure-monitor/app/profiler.md) eller fel [söknings](snapshot-debugger.md) hjälp med kod nivå för diagnostik av prestanda-och fel problem. Med den här upplevelsen kan du se profiler och ögonblicks bilder från valfri komponent med ett enda klick.
+[Application Insights profiler](./profiler.md) eller fel [söknings](snapshot-debugger.md) hjälp med kod nivå för diagnostik av prestanda-och fel problem. Med den här upplevelsen kan du se profiler och ögonblicks bilder från valfri komponent med ett enda klick.
 
 Kontakta **serviceprofilerhelp \@ Microsoft.com** om du inte kan få igång profiler.
 
@@ -94,3 +95,4 @@ Tids linjer justeras för klock skevar i transaktions diagrammet. Du kan se exak
 *Varför saknar den nya upplevelsen de flesta av de relaterade objekt frågorna?*
 
 Det här är avsiktligt. Alla relaterade objekt i alla komponenter är redan tillgängliga på den vänstra sidan (översta och nedre avsnitten). Den nya upplevelsen har två relaterade objekt som den vänstra sidan inte avser: all telemetri från fem minuter före och efter den här händelsen och tids linjen för användaren.
+

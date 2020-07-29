@@ -3,12 +3,12 @@ title: Översikt över säkerhetsfunktioner
 description: Lär dig mer om säkerhetsfunktioner i Azure Backup som hjälper dig att skydda dina säkerhets kopierings data och uppfylla verksamhetens säkerhets behov.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 750ad7b10969ef5f83e0b5058e350066d3f97351
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 944ef2e86ad8e56501692b29d0958bc4fc19bf0a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062604"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319311"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Översikt över säkerhetsfunktioner i Azure Backup
 
@@ -42,13 +42,17 @@ Du kan nu använda [privata slut punkter](../private-link/private-endpoint-overv
 
 Läs mer om privata slut punkter för Azure Backup [här](./private-endpoints.md).
 
-## <a name="encryption-of-data-in-transit-and-at-rest"></a>Kryptering av data vid överföring och i vila
+## <a name="encryption-of-data"></a>Kryptering av data
 
-Kryptering skyddar dina data och hjälper dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. I Azure skyddas data i överföring mellan Azure Storage och valvet av HTTPS. Dessa data finns kvar i Azure stamnät nätverket.
+Kryptering skyddar dina data och hjälper dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. Data kryptering sker i många steg i Azure Backup:
 
-* Säkerhetskopierade data krypteras automatiskt med Microsoft-hanterade nycklar. Du kan också kryptera dina säkerhetskopierade virtuella datorer med hanterade diskar i Recovery Services valvet med hjälp av [Kundhanterade nycklar](backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys) som lagrats i Azure Key Vault. Du behöver inte vidta några uttryckliga åtgärder för att aktivera den här krypteringen. Den gäller för alla arbets belastningar som säkerhets kopie ras till Recovery Services-valvet.
+* I Azure skyddas data i överföring mellan Azure Storage och valvet [av https](backup-support-matrix.md#network-traffic-to-azure). Dessa data finns kvar i Azure stamnät nätverket.
 
-* Azure Backup stöder säkerhets kopiering och återställning av virtuella Azure-datorer som har sina operativ system/data diskar krypterade med Azure Disk Encryption (ADE). [Läs mer om krypterade virtuella Azure-datorer och Azure Backup](./backup-azure-vms-encryption.md).
+* Säkerhetskopierade data krypteras automatiskt med [Microsoft-hanterade nycklar](backup-encryption.md#encryption-of-backup-data-using-platform-managed-keys)och du behöver inte vidta några uttryckliga åtgärder för att aktivera den. Du kan också kryptera säkerhetskopierade data med hjälp av [Kundhanterade nycklar](encryption-at-rest-with-cmk.md) som lagras i Azure Key Vault. Den gäller för alla arbets belastningar som säkerhets kopie ras till Recovery Services-valvet.
+
+* Azure Backup stöder säkerhets kopiering och återställning av virtuella Azure-datorer som har sina operativ system/data diskar krypterade med [Azure Disk Encryption (ade)](backup-encryption.md#backup-of-vms-encrypted-using-ade) och [virtuella datorer med CMK krypterade diskar](backup-encryption.md#backup-of-managed-disk-vms-encrypted-using-customer-managed-keys). Mer information finns i [läsa mer om krypterade virtuella Azure-datorer och Azure Backup](./backup-azure-vms-encryption.md).
+
+* När data säkerhets kopie ras från lokala servrar med MARS-agenten krypteras data med en lösen fras innan överföring till Azure Backup och dekrypteras först efter att den har laddats ned från Azure Backup. Läs mer om [säkerhetsfunktioner som hjälper dig att skydda hybrid säkerhets kopieringar](#security-features-to-help-protect-hybrid-backups).
 
 ## <a name="protection-of-backup-data-from-unintentional-deletes"></a>Skydd av säkerhets kopierings data från oavsiktliga borttagningar
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 06/18/2020
-ms.openlocfilehash: 2fb1f22fd555e8ddbdc04842906cddb990956fb5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6d0a778dee31d93244479c08c7bb7b6f37cf49cb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044523"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319362"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Felsöka Azure Stream Analytics med hjälp av resurs loggar
 
@@ -59,7 +59,7 @@ Aktivitets loggarna är aktiverat som standard och ger höga insikter om åtgär
 
 Det rekommenderas starkt att du aktiverar resurs loggar och skickar dem till Azure Monitor loggar. De är **inaktiverade** som standard. Gör så här för att aktivera dem:
 
-1.  [Skapa en Log Analytics arbets yta](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) om du inte redan har en. Vi rekommenderar att du har din Log Analytics arbets yta i samma region som ditt Stream Analytics-jobb.
+1.  Skapa en Log Analytics arbets yta om du inte redan har en. Vi rekommenderar att du har din Log Analytics arbets yta i samma region som ditt Stream Analytics-jobb.
 
 2.  Logga in på Azure Portal och navigera till ditt Stream Analytics-jobb. Under **övervakning** **väljer du diagnostikloggar.** Välj sedan **Aktivera diagnostik**.
 
@@ -94,7 +94,7 @@ Azure Stream Analytics fångar två kategorier av resurs loggar:
 
 Alla loggar lagras i JSON-format. Varje post har följande gemensamma sträng fält:
 
-Name | Beskrivning
+Namn | Beskrivning
 ------- | -------
 time | Tidsstämpel (i UTC) för loggen.
 resourceId | ID för den resurs som åtgärden ägde rum i, i versaler. Den innehåller prenumerations-ID, resurs grupp och jobb namn. Till exempel **/Subscriptions/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/My-Resource-Group/providers/Microsoft. STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
@@ -112,7 +112,7 @@ Körnings loggarna innehåller information om händelser som har inträffat unde
 
 Eventuella fel som inträffar när jobbet bearbetar data finns i den här kategorin av loggar. Loggarna skapas oftast när data läses, serialiseras och skrivs. Dessa loggar innehåller inte anslutnings fel. Anslutnings fel behandlas som allmänna händelser. Du kan lära dig mer om orsaken till olika [fel i indata och utdata](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
-Name | Beskrivning
+Namn | Beskrivning
 ------- | -------
 Källa | Namnet på det indata eller utdata där felet uppstod.
 Meddelande | Meddelande som är kopplat till felet.
@@ -133,17 +133,14 @@ I väntan på värdet **operationName** har data fel följande schema:
 
 Allmänna händelser behandlar allt annat.
 
-Name | Beskrivning
+Namn | Beskrivning
 -------- | --------
 Fel | valfritt Fel information. Detta är vanligt vis undantags information om det är tillgängligt.
 Meddelande| Logg meddelande.
 Typ | Typ av meddelande. Mappar till intern kategorisering av fel. Till exempel **JobValidationError** eller **BlobOutputAdapterInitializationFailure**.
-Korrelations-ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) som unikt identifierar jobb körningen. Alla körnings logg poster från den tidpunkt då jobbet startar tills jobbet stoppas har samma **korrelations-ID-** värde.
+Korrelations-ID | GUID som unikt identifierar jobb körningen. Alla körnings logg poster från den tidpunkt då jobbet startar tills jobbet stoppas har samma **korrelations-ID-** värde.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Introduktion till Stream Analytics](stream-analytics-introduction.md)
-* [Kom igång med Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Skala Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Språk referens för Stream Analytics-fråga](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Stream Analytics data fel](https://docs.microsoft.com/azure/stream-analytics/data-errors)
+* [Språk referens för Stream Analytics-fråga](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

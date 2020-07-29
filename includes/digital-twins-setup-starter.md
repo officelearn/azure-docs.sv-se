@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
-ms.openlocfilehash: 3f19674c0e25ebf5cddc2dfb45580a15d04fad46
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dcc616dd8d30bfadb751df9ba24d71d72675428a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099887"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371470"
 ---
 >[!NOTE]
 >Dessa åtgärder är avsedda att slutföras av en användare med en *ägar* roll i Azure-prenumerationen. Även om vissa delar kan slutföras utan denna utökade behörighet, krävs en ägares samarbete för att helt konfigurera en användbar instans. Visa mer information om detta i avsnittet krav [*: nödvändiga behörigheter*](#prerequisites-permission-requirements) nedan.
@@ -38,6 +38,6 @@ Om du är ägare `roleDefinitionName` är värdet i resultatet *ägare*:
 
 :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/owner-role.png" alt-text="Cloud Shell fönster som visar utdata från kommandot AZ Role Assignment List":::
 
-Om du upptäcker att värdet är *deltagare* eller något annat än *ägare*kan du kontakta din prenumerations ägare och fortsätta på något av följande sätt:
-* Be om ägaren att slutföra stegen i den här artikeln för din räkning
-* Be om ägaren att öka dig till ägare av prenumerationen även, så att du får behörighet att gå vidare. Huruvida detta är lämpligt beror på din organisation och din roll i den.
+Om du upptäcker att värdet är *deltagare* eller något annat än *ägare*kan du fortsätta på något av följande sätt:
+* Kontakta din prenumerations ägare och be om ägaren att slutföra stegen i den här artikeln för din räkning
+* Kontakta antingen prenumerations ägaren eller någon med rollen administratör för användar åtkomst i prenumerationen och begär att du får behörighet att gå vidare till ägaren av prenumerationen. Huruvida detta är lämpligt beror på din organisation och din roll i den.

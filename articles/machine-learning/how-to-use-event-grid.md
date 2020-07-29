@@ -5,21 +5,22 @@ description: Konfigurera händelse drivna program, processer eller CI/CD Machine
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 5c4eae49b849b7dc5dbf7c27d50e241b2a4f36e4
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 3b6f115e27b5cf956a524bd1a610797c689b5d6c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135954"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319498"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Utlös program, processer eller CI/CD-arbetsflöden baserat på Azure Machine Learning händelser (förhands granskning)
 
-I den här artikeln får du lära dig hur du konfigurerar händelse drivna program, processer eller CI/CD-arbetsflöden som baseras på Azure Machine Learning händelser, till exempel e-postmeddelanden för fel meddelanden eller ML pipelines, när vissa villkor upptäcks av [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/). 
+I den här artikeln får du lära dig hur du konfigurerar händelse drivna program, processer eller CI/CD-arbetsflöden som baseras på Azure Machine Learning händelser, till exempel e-postmeddelanden för fel meddelanden eller ML pipelines, när vissa villkor upptäcks av [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/).
 
 Azure Machine Learning hanterar hela livs cykeln för maskin inlärnings processen, inklusive modell utbildning, modell distribution och övervakning. Du kan använda Event Grid för att reagera på Azure Machine Learning händelser, t. ex. slut för ande av inlärnings körningar, registrering och distribution av modeller och identifiering av data genom att använda moderna serverbaserade arkitekturer. Du kan sedan Prenumerera på och använda händelser som t. ex. körnings status ändrad, körnings slut för ande, modell registrering, modell distribution och data avkänning i en arbets yta.
 
@@ -32,7 +33,7 @@ När du ska använda Event Grid för händelse drivna åtgärder:
 > [!NOTE] 
 > För närvarande utlöses endast runStatusChanged-händelser när körnings statusen **misslyckades**
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill använda Event Grid behöver du deltagar-eller ägar åtkomst till arbets ytan Azure Machine Learning du skapar händelser för.
 
 ## <a name="the-event-model--types"></a>Händelse modell & typer
@@ -47,7 +48,7 @@ Mer information om händelse källor och händelse hanterare finns i [Vad är ev
 
 Azure Machine Learning innehåller händelser i olika punkter av Machine Learning-livscykel: 
 
-| Händelsetyp | Description |
+| Händelsetyp | Beskrivning |
 | ---------- | ----------- |
 | `Microsoft.MachineLearningServices.RunCompleted` | Utlöses när en körning av Machine Learning-experiment har slutförts |
 | `Microsoft.MachineLearningServices.ModelRegistered` | Utlöses när en maskin inlärnings modell registreras i arbets ytan |

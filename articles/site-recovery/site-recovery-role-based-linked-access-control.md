@@ -6,18 +6,18 @@ ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: ce389f9281b02662f87353f00c9bca92cdf86937
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 877545eb22331e724520102814ec8a00b2c205e5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847912"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370826"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Hantera Site Recovery åtkomst med rollbaserad åtkomst kontroll (RBAC)
 
 Azure rollbaserad åtkomst kontroll (RBAC) möjliggör detaljerad åtkomst hantering för Azure. Med RBAC kan du åtskilja ansvars områden i ditt team och bara bevilja vissa åtkomst behörigheter till användare som behövs för att utföra vissa jobb.
 
-Azure Site Recovery tillhandahåller tre inbyggda roller för att kontrol lera Site Recovery hanterings åtgärder. Läs mer om [Azure RBAC inbyggda roller](../role-based-access-control/built-in-roles.md)
+Azure Site Recovery tillhandahåller tre inbyggda roller för att kontrol lera Site Recovery hanterings åtgärder. Lär dig mer om [inbyggda Azure-roller](../role-based-access-control/built-in-roles.md)
 
 * [Site Recovery-bidragsgivare](../role-based-access-control/built-in-roles.md#site-recovery-contributor) – Den här rollen har alla behörigheter som krävs för att hantera Azure Site Recovery-åtgärder i ett Recovery Services-valv. En användare med denna roll kan dock inte skapa eller ta bort ett Recovery Services-valv eller tilldela behörighet till andra användare. Den här rollen lämpar sig bäst för haveri beredskaps administratörer som kan aktivera och hantera haveri beredskap för program eller hela organisationer, om det är fallet.
 * [Site Recovery-operatör](../role-based-access-control/built-in-roles.md#site-recovery-operator) – Den här rollen har behörighet att utföra och hantera operationer för redundans och återställning av fel. En användare med den här rollen kan inte aktivera eller inaktivera replikering, skapa eller ta bort valv, registrera ny infrastruktur eller tilldela behörigheter till andra användare. Den här rollen lämpar sig bäst för en haveri beredskaps operatör som kan redundansväxla virtuella datorer eller program när de instrueras av program ägare och IT-administratörer i en verklig eller simulerad katastrof situation, till exempel en DR-granskning. Efter haveri stängningen kan DR-operatören återskydda och återställa de virtuella datorerna.
@@ -41,7 +41,7 @@ En användare behöver följande behörigheter för att slutföra replikeringen 
 > [!NOTE]
 > Om du aktiverar replikering för en virtuell Azure-dator och vill tillåta att Site Recovery hanterar uppdateringar och samtidigt aktiverar replikering, kan du även skapa ett nytt Automation-konto, vilket innebär att du måste ha behörighet att skapa ett Automation-konto i samma prenumeration som valvet.
 
-| **Resurs typ** | **Distributions modell** | **Behörighet** |
+| **Resurstyp** | **Distributions modell** | **Behörighet** |
 | --- | --- | --- |
 | Compute | Resource Manager | Microsoft. Compute/availabilitySets/Read |
 |  |  | Microsoft. Compute/virtualMachines/Read |

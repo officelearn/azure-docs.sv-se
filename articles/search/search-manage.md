@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 45f9c56fce0c843d9f1ed069abf7d1ed6e2fa604
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76eee4b0b029714a75b57e5d44e097a36de3181f
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565899"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371421"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Tjänst administration för Azure Kognitiv sökning i Azure Portal
 
@@ -123,7 +123,7 @@ En Sök tjänst som har fler repliker kan belastningsutjämna förfrågningar om
 
 Det är vanligare att lägga till repliker, men när lagringen är begränsad kan du lägga till partitioner för att få mer kapacitet. Den nivå där du etablerade tjänsten avgör om partitioner kan läggas till. Basic-nivån är låst på en partition. Standard-nivåer och högre stöder ytterligare partitioner.
 
-Partitioner läggs till i multipler av 12 (särskilt, 1, 2, 3, 4, 6 eller 12). Detta är en artefakt av horisontell partitionering. Ett index skapas i 12 Shards, som kan lagras på en partition eller vara jämnt indelat i 2, 3, 4, 6 eller 12 partitioner (en Shard per partition).
+Partitioner läggs till i divisor av 12 (särskilt, 1, 2, 3, 4, 6 eller 12). Detta är en artefakt av horisontell partitionering. Ett index skapas i 12 Shards, som kan lagras på en partition eller vara jämnt indelat i 2, 3, 4, 6 eller 12 partitioner (en Shard per partition).
 
 ### <a name="remove-replicas"></a>Ta bort repliker
 

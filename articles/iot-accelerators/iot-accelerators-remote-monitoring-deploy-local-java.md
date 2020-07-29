@@ -3,17 +3,18 @@ title: Distribuera fjärr styrnings lösningen lokalt – IntelliJ IDE – Azure
 description: Den här instruktions guiden visar hur du distribuerar lösnings acceleratorn för fjärrövervakning till din lokala dator med hjälp av IntelliJ för testning och utveckling.
 author: v-krghan
 manager: dominicbetts
+ms.custom: devx-track-java
 ms.author: v-krghan
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: b201200ebf6807d7301dfd8c52e3137a29784eb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7554843db247ade1cddff78902430a5d84debe1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82187219"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319175"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Distribuera lösnings acceleratorn för fjärr styrning lokalt – IntelliJ
 
@@ -23,7 +24,7 @@ Den här artikeln visar hur du distribuerar lösnings acceleratorn för fjärrö
 
 Om du vill köra lösnings acceleratorn för fjärrövervakning i Docker på den lokala datorn läser [du distribuera lösnings Accelerator för fjärrövervakning lokalt Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill distribuera de Azure-tjänster som används av lösningen för fjärrövervakning, behöver du en aktiv Azure-prenumeration.
 
@@ -199,7 +200,7 @@ Gå till följande URL: er för att få åtkomst till tjänsternas status:
 
 Följ de här stegen för att starta Stream Analytics jobbet:
 
-1. Gå till [Azure Portal](https://portal.azure.com).
+1. Öppna [Azure-portalen](https://portal.azure.com).
 1. Gå till **resurs gruppen** som har skapats för din lösning. Namnet på resurs gruppen är det namn som du valde för lösningen när du körde skriptet **Start. cmd** .
 1. Välj **Stream Analytics jobb** i listan över resurser.
 1. På sidan Stream Analytics jobb **Översikt** väljer du knappen **Start** och sedan **Starta** för att starta jobbet.

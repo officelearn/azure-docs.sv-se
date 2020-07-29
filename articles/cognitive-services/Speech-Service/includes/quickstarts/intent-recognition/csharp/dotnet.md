@@ -6,18 +6,18 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 54b5e3f0ed2fd10fa04305fdefbec725143f62c5
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 142a78dbb994a28d267294ce3b3d86e32f52bb45
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81421841"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298804"
 ---
 ## <a name="prerequisites"></a>Krav
 
 Innan du börjar:
 
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp" target="_blank">Installera tal-SDK för din utvecklings miljö och skapa ett tomt exempel projekt<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp" target="_blank">Installera tal-SDK för din utvecklings miljö och skapa ett tomt exempel projekt <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Skapa en LUIS-app för avsikts igenkänning
 
@@ -28,11 +28,11 @@ Innan du börjar:
 Öppna sedan projektet i Visual Studio.
 
 1. Starta Visual Studio 2019.
-2. Läs in projektet och öppna `Program.cs`.
+2. Läs in projektet och öppna `Program.cs` .
 
 ## <a name="start-with-some-boilerplate-code"></a>Börja med viss exempel kod
 
-Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt. Observera att du har skapat en async-metod som `RecognizeIntentAsync()`kallas.
+Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt. Observera att du har skapat en async-metod som kallas `RecognizeIntentAsync()` .
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=7-17,77-86)]
 
 ## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
@@ -42,7 +42,7 @@ Innan du kan initiera ett `IntentRecognizer` objekt måste du skapa en konfigura
 > [!IMPORTANT]
 > Start nyckeln och redigerings nycklarna fungerar inte. Du måste använda din förutsägelse nyckel och plats som du skapade tidigare. Mer information finns i [skapa en Luis-app för avsikts igenkänning](#create-a-luis-app-for-intent-recognition).
 
-Infoga den här koden i `RecognizeIntentAsync()` -metoden. Se till att du uppdaterar dessa värden:
+Infoga den här koden i- `RecognizeIntentAsync()` metoden. Se till att du uppdaterar dessa värden:
 
 * Ersätt `"YourLanguageUnderstandingSubscriptionKey"` med din Luis-förutsägelse nyckel.
 * Ersätt `"YourLanguageUnderstandingServiceRegion"` med din Luis-plats. Använd **regions identifierare** från [region](https://aka.ms/speech/sdkregion).
@@ -52,13 +52,13 @@ Infoga den här koden i `RecognizeIntentAsync()` -metoden. Se till att du uppdat
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=26)]
 
-I det här exemplet `FromSubscription()` används metoden för att `SpeechConfig`bygga. En fullständig lista över tillgängliga metoder finns i [SpeechConfig-klass](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+I det här exemplet används `FromSubscription()` metoden för att bygga `SpeechConfig` . En fullständig lista över tillgängliga metoder finns i [SpeechConfig-klass](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
 
 Tal-SDK: n kommer att känna igen med en-US för språket, se [Ange käll språk för tal till text](../../../../how-to-specify-source-language.md) om du vill ha information om hur du väljer käll språk.
 
 ## <a name="initialize-an-intentrecognizer"></a>Initiera en IntentRecognizer
 
-Nu ska vi skapa en `IntentRecognizer`. Det här objektet skapas i en using-instruktion för att säkerställa en korrekt version av ohanterade resurser. Infoga den här koden i `RecognizeIntentAsync()` metoden, precis under din tal konfiguration.
+Nu ska vi skapa en `IntentRecognizer` . Det här objektet skapas i en using-instruktion för att säkerställa en korrekt version av ohanterade resurser. Infoga den här koden i `RecognizeIntentAsync()` metoden, precis under din tal konfiguration.
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=29-30,76)]
 
@@ -71,9 +71,11 @@ Du måste associera en `LanguageUnderstandingModel` med avsikts igenkänningen o
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=33-35)]
 
+I det här exemplet används `AddIntent()` funktionen för att individuellt lägga till avsikter. Använd och skicka modellen om du vill lägga till alla avsikter från en modell `AddAllIntents(model)` . 
+
 ## <a name="recognize-an-intent"></a>Identifiera en avsikt
 
-Från- `IntentRecognizer` objektet kommer du att anropa- `RecognizeOnceAsync()` metoden. Med den här metoden kan röst tjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att sluta identifiera tal.
+Från `IntentRecognizer` -objektet kommer du att anropa- `RecognizeOnceAsync()` metoden. Med den här metoden kan röst tjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att sluta identifiera tal.
 
 I instruktionen using lägger du till den här koden under din modell.
 
@@ -83,7 +85,7 @@ I instruktionen using lägger du till den här koden under din modell.
 
 När igenkännings resultatet returneras av tal tjänsten vill du göra något med det. Vi ska hålla det enkelt och skriva ut resultatet till-konsolen.
 
-I using-instruktionen nedan `RecognizeOnceAsync()`lägger du till den här koden:
+I using-instruktionen nedan `RecognizeOnceAsync()` lägger du till den här koden:
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=49-75)]
 
@@ -100,8 +102,8 @@ Nu bör din kod se ut så här:
 
 Nu är du redo att bygga din app och testa vår tal igenkänning med röst tjänsten.
 
-1. **Kompilera koden** – från meny raden i Visual Studio väljer du **bygge** > **build-lösning**.
-2. **Starta din app** – från meny raden väljer du **Felsök** > **Starta fel sökning** eller tryck på <kbd>F5</kbd>.
+1. **Kompilera koden** – från meny raden i Visual Studio väljer du **bygge**  >  **build-lösning**.
+2. **Starta din app** – från meny raden väljer du **Felsök**  >  **Starta fel sökning** eller tryck på <kbd>F5</kbd>.
 3. **Starta igenkänning** – du uppmanas att tala en fras på engelska. Ditt tal skickas till tal tjänsten, skrivs som text och återges i-konsolen.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a76d9ccbf7b83ea28de3ef5bb1d140caa7201ebd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6b04a59da78abc81f7749300dfe34ca176c75c4
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386376"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371183"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Hantera den lokala gruppen Administratörer på Azure AD-anslutna enheter
 
@@ -67,6 +67,21 @@ Enhets administratörer tilldelas till alla Azure AD-anslutna enheter. Du kan in
 >[!NOTE]
 > Ovanstående åtgärder gäller inte för användare som inte har loggat in på relevant enhet tidigare. I det här fallet tillämpas administratörs behörigheterna direkt efter deras första inloggning på enheten. 
 
+## <a name="manage-administrator-privileges-using-azure-ad-groups-preview"></a>Hantera administratörs behörigheter med Azure AD-grupper (för hands version)
+
+>[!NOTE]
+> Den här funktionen finns för närvarande som en förhandsversion.
+
+Från och med Windows 10 2004 Update kan du använda Azure AD-grupper för att hantera administratörs behörighet på Azure AD-anslutna enheter med MDM-principen [begränsade grupper] (Windows/klient-Management/MDM/policy-CSP-restrictedgroups). Med den här principen kan du tilldela enskilda användare eller Azure AD-grupper till den lokala gruppen Administratörer på en Azure AD-ansluten enhet, vilket ger dig granularitet för att konfigurera distinkta administratörer för olika grupper av enheter. 
+
+För närvarande finns det inget användar gränssnitt i Intune för att hantera den här principen och måste konfigureras med [anpassade OMA-URI-inställningar] (MEM/Intune/Configuration/Custom-Settings-Windows-10). Några överväganden för den här principen: 
+
+- Att lägga till Azure AD-grupper via principen kräver gruppens SID som kan hämtas genom att köra grupp-API: et. SID definieras av egenskapen `securityIdentifier` i Groups-API: et.
+- När principen för begränsade grupper tillämpas, tas all aktuell medlem i gruppen som inte finns med i listan medlemmar bort. Detta innebär att den här principen med nya medlemmar eller grupper tar bort befintliga administratörer, nämligen användare som anslöt till enheten, rollen enhets administratör och rollen global administratör från enheten. För att undvika att ta bort befintliga medlemmar måste du konfigurera dem som en del av listan medlemmar i principen begränsade grupper. 
+- Den här principen gäller endast följande välkända grupper på en Windows 10-enhet – administratörer, användare, gäster, privilegierade användare, användare av fjärr skrivbord och fjärrhantering. 
+- Hantering av lokala administratörer med begränsade grupper gäller inte för Hybrid Azure AD-anslutna eller registrerade Azure AD-enheter.
+- Medan principen för begränsade grupper fanns före Windows 10 2004-uppdateringen har den inte stöd för Azure AD-grupper som medlemmar i en enhets lokala administratörs grupp. 
+
 ## <a name="manage-regular-users"></a>Hantera vanliga användare
 
 Som standard lägger Azure AD till användaren som utför Azure AD-anslutning till gruppen Administratörer på enheten. Om du vill förhindra att vanliga användare blir lokala administratörer har du följande alternativ:
@@ -85,7 +100,7 @@ Dessutom kan du också lägga till användare med hjälp av kommando tolken:
 - Om klient användarna synkroniseras från lokala Active Directory använder du `net localgroup administrators /add "Contoso\username"` .
 - Om dina klient användare har skapats i Azure AD använder du`net localgroup administrators /add "AzureAD\UserUpn"`
 
-## <a name="considerations"></a>Att tänka på 
+## <a name="considerations"></a>Överväganden 
 
 Du kan inte tilldela grupper till enhets administratörs rollen, endast enskilda användare tillåts.
 

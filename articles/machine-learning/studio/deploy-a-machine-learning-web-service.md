@@ -1,6 +1,5 @@
 ---
-title: Distribuera en webbtjänst
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klassisk): Distribuera en webb tjänst – Azure'
 description: Så här konverterar du ett utbildnings experiment till ett förutsägelse experiment, förbereder det för distribution och distribuerar det som en Azure Machine Learning Studio (klassisk)-webb tjänst.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 3fcf4e180233c6ceaa552b3505462639569ed974
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f85ef90520049aef2cb39da9c360013d6f11aca0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696396"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318716"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Distribuera en Azure Machine Learning Studio (klassisk)-webb tjänst
+
+**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
+
 
 Azure Machine Learning Studio (klassisk) gör det möjligt att bygga och testa en förutsägelse analys lösning. Sedan kan du distribuera lösningen som en webb tjänst.
 

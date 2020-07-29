@@ -3,15 +3,16 @@ title: Anslut till Office 365 Outlook
 description: Automatisera uppgifter och arbets flöden som hanterar e-post, kontakter och kalendrar i Office 365 Outlook med hjälp av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 07/27/2020
 tags: connectors
-ms.openlocfilehash: b0f2b8b9c369fdb42c7e0e7f77fc090424ae3729
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa5be3d58ee1a0a40d0b817e1f5999ccd4bc423d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75732737"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319243"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Hantera e-post, kontakter och kalendrar i Office 365 Outlook med hjälp av Azure Logic Apps
 
@@ -26,11 +27,11 @@ Du kan använda en utlösare för att starta arbets flödet, till exempel när e
 > [!NOTE]
 > Om du vill automatisera uppgifter för ett- @outlook.com eller @hotmail.com -konto använder du [Outlook.com-anslutningen](../connectors/connectors-create-api-outlook.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
+
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
 * Ett [Office 365-konto](https://www.office.com/)
-
-* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
 * Den Logic app där du vill komma åt ditt Office 365 Outlook-konto. För att starta arbets flödet med en Office 365 Outlook-utlösare måste du ha en [Tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). För att lägga till en Office 365 Outlook-åtgärd i ditt arbets flöde måste din Logic app redan ha en utlösare.
 
@@ -45,6 +46,9 @@ En [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts) är en h
    ![Välj utlösare för att starta din Logic app](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
 1. Om du uppmanas att logga in anger du dina Office 365-autentiseringsuppgifter så att din Logic-app kan ansluta till ditt konto. Annars, om anslutningen redan finns, anger du informationen för utlösarens egenskaper.
+
+   > [!NOTE]
+   > Din anslutning upphör inte förrän den har återkallats, även om du ändrar dina inloggnings uppgifter. Mer information finns i [konfigurations bara livs längder för token i Azure Active Directory](../active-directory/active-directory-configurable-token-lifetimes.md).
 
    I det här exemplet väljs den kalender som utlösaren kontrollerar, till exempel:
 
@@ -76,6 +80,9 @@ En [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) är en å
 
 1. Om du uppmanas att logga in anger du dina Office 365-autentiseringsuppgifter så att din Logic-app kan ansluta till ditt konto. Annars, om anslutningen redan finns, anger du informationen för åtgärdens egenskaper.
 
+   > [!NOTE]
+   > Din anslutning upphör inte förrän den har återkallats, även om du ändrar dina inloggnings uppgifter. Mer information finns i [konfigurations bara livs längder för token i Azure Active Directory](../active-directory/active-directory-configurable-token-lifetimes.md).
+
    Det här exemplet väljer mappen kontakter där åtgärden skapar den nya kontakten, till exempel:
 
    ![Konfigurera åtgärdens egenskaper](./media/connectors-create-api-office365-outlook/select-contacts-folder.png)
@@ -84,9 +91,9 @@ En [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) är en å
 
 1. I verktygsfältet designer väljer du **Spara**.
 
-## <a name="connector-specific-details"></a>Anslutningsspecifika Detaljer
+## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om utlösare, åtgärder och gränser enligt beskrivningen i anslutningens Swagger-fil finns på [kopplingens referens sida](/connectors/office365connector/). 
+Teknisk information om den här anslutningen, till exempel utlösare, åtgärder och gränser, som beskrivs av kopplingens Swagger-fil, finns på [kopplingens referens sida](/connectors/office365/). 
 
 ## <a name="next-steps"></a>Nästa steg
 

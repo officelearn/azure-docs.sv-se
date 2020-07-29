@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 5984cbf8cf618a938ee85638d981f7867c6ec8b5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6d6431aa26637e4b956d5c334a2862f689f845bf
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539371"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319328"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Anslut Configuration Manager till Azure Monitor
 Du kan ansluta din Microsoft Endpoint Configuration Manager-miljö till Azure Monitor för att synkronisera enhets samlings data och referera till dessa samlingar i Azure Monitor och Azure Automation.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Azure Monitor stöder Configuration Manager aktuella grenen, version 1606 och senare.
 
@@ -41,7 +41,7 @@ Följande steg sammanfattar stegen för att konfigurera Configuration Manager-in
 
 ## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Bevilja Configuration Manager behörighet att Log Analytics
 
-I följande procedur beviljar du rollen *deltagare* i din Log Analytics-arbetsyta till AD-programmet och tjänstens huvud namn som du skapade tidigare för Configuration Manager. Om du inte redan har en arbets yta, se [skapa en arbets yta i Azure Monitor](../../azure-monitor/learn/quick-create-workspace.md) innan du fortsätter. Detta gör att Configuration Manager kan autentisera och ansluta till din Log Analytics-arbetsyta.  
+I följande procedur beviljar du rollen *deltagare* i din Log Analytics-arbetsyta till AD-programmet och tjänstens huvud namn som du skapade tidigare för Configuration Manager. Om du inte redan har en arbets yta, se [skapa en arbets yta i Azure Monitor](../learn/quick-create-workspace.md) innan du fortsätter. Detta gör att Configuration Manager kan autentisera och ansluta till din Log Analytics-arbetsyta.  
 
 > [!NOTE]
 > Du måste ange behörigheter i Log Analytics arbets ytan för Configuration Manager. Annars visas ett fel meddelande när du använder konfigurations guiden i Configuration Manager.
@@ -139,14 +139,15 @@ När du har slutfört den inledande konfigurationen för att importera enhets sa
 
 ## <a name="view-data-from-configuration-manager"></a>Visa data från Configuration Manager
 
-När du har lagt till en Log Analytics-anslutning till Configuration Manager och installerat agenten på den dator som kör plats system rollen för tjänst anslutnings punkten i Configuration Manager, skickas data från agenten till Log Analytics arbets ytan i Azure Monitor. I Azure Monitor visas Configuration Manager samlingarna som [dator grupper](../../azure-monitor/platform/computer-groups.md). Du kan visa grupperna från sidan **Configuration Manager** under **Settings\Computer grupper**.
+När du har lagt till en Log Analytics-anslutning till Configuration Manager och installerat agenten på den dator som kör plats system rollen för tjänst anslutnings punkten i Configuration Manager, skickas data från agenten till Log Analytics arbets ytan i Azure Monitor. I Azure Monitor visas Configuration Manager samlingarna som [dator grupper](./computer-groups.md). Du kan visa grupperna från sidan **Configuration Manager** under **Settings\Computer grupper**.
 
 När samlingarna har importer ATS kan du se hur många datorer med samlings medlemskap som har identifierats. Du kan också se hur många samlingar som har importer ATS.
 
 ![Dator grupper – SCCM-fliken](./media/collect-sccm/sccm-computer-groups02.png)
 
-När du klickar på någon av dessa öppnas logg Frågeredigeraren som visar antingen alla importerade grupper eller alla datorer som tillhör varje grupp. Med [loggs ökning](../../azure-monitor/log-query/log-query-overview.md)kan du utföra ytterligare djupgående analys av medlemskaps data för samlingen.
+När du klickar på någon av dessa öppnas logg Frågeredigeraren som visar antingen alla importerade grupper eller alla datorer som tillhör varje grupp. Med [loggs ökning](../log-query/log-query-overview.md)kan du utföra ytterligare djupgående analys av medlemskaps data för samlingen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd [loggs ökningen](../../azure-monitor/log-query/log-query-overview.md) för att visa detaljerad information om dina Configuration Manager data.
+Använd [loggs ökningen](../log-query/log-query-overview.md) för att visa detaljerad information om dina Configuration Manager data.
+

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8d0e965360caab704bcf6c8f7d29e7bba421207e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d2d5ce0bc988badc6f25726206a953d87de7eaa2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125895"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371471"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-manual"></a>Konfigurera en digital Azure-instans och autentisering (manuell)
 
@@ -35,7 +35,7 @@ I det här avsnittet ska du **skapa en ny instans av Azure Digitals dubbla** med
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * En region för distributionen. Om du vill se vilka regioner som stöder Azure Digitals, kan du gå till [*Azure-produkter som är tillgängliga efter region*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* Ett namn för instansen. Namnet på den nya instansen måste vara unikt inom regionen (vilket innebär att om en annan Azure Digital-instans i regionen redan använder det namn du väljer, blir du ombedd att välja ett annat namn).
+* Ett namn för instansen. Namnet på den nya instansen måste vara unikt inom regionen för din prenumeration (vilket innebär att om din prenumeration har en annan Azure Digital-instans i den region som redan använder det namn du väljer, blir du ombedd att välja ett annat namn).
 
 Använd de här värdena i följande kommando för att skapa instansen:
 
@@ -68,9 +68,8 @@ I det här avsnittet visas hur du skapar en roll tilldelning för en användare 
 
 Om du vill ge en användare behörighet att hantera en Azure Digitals-instans måste du tilldela dem rollen _**Azure Digitals-ägare (förhands granskning)**_ i instansen. 
 
-Observera att rollen skiljer sig från...
-* *ägar* rollen för hela Azure-prenumerationen. *Azure Digitals flätat-ägare (för hands version)* är en roll i Azure Digitals och är begränsad till den här enskilda Azure Digital-instansen.
-* *ägar* rollen i Azure Digitals dubbla. Detta är två unika hanterings roller för Azure Digitals, och *Azure Digitals-ägare (för hands version)* är den roll som ska användas för hantering under för hands versionen.
+> [!NOTE]
+> Observera att den här rollen skiljer sig från rollen Azure AD- *ägare* , som också kan tilldelas i omfånget för Azure Digital-instansen. Detta är två distinkta hanterings roller och Azure AD- *ägaren* beviljar inte åtkomst till data Plans funktioner som beviljas med *Azure Digitals-ägare (för hands version)*.
 
 Använd följande kommando för att tilldela rollen (måste köras av en ägare av Azure-prenumerationen):
 
@@ -100,7 +99,7 @@ När du har konfigurerat en Azure Digital-instansen är det vanligt att interage
 Den här appens registrering är den plats där du konfigurerar åtkomst behörigheter till [Azure Digitals dubbla API: er](how-to-use-apis-sdks.md). Senare kommer klient programmet att autentiseras mot appens registrering och därför beviljas de konfigurerade åtkomst behörigheterna till API: erna.
 
 >[!TIP]
-> Som prenumerations ägare kanske du föredrar att ställa in en ny app-registrering för varje ny Azure Digital-instansen, *eller* för att göra detta bara en gång och upprätta en enda app-registrering som delas mellan alla Azure Digital-instanser i prenumerationen. Detta är hur det görs i Microsofts egen klient organisation.
+> Som prenumerations ägare kanske du föredrar att ställa in en ny app-registrering för varje ny Azure Digital-instansen, *eller* för att göra detta bara en gång och upprätta en enda app-registrering som delas mellan alla Azure Digital-instanser i prenumerationen.
 
 ### <a name="create-the-registration"></a>Skapa registreringen
 

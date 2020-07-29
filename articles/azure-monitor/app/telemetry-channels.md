@@ -4,16 +4,16 @@ description: 'Så här anpassar du telemetri kanaler i Azure Application Insight
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6f9e93d477efeee7e1d8a0b0d8704f9c83d2a4f7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b5ae1ee1e4bf9f64eb4587f0ceb76972a4571b2e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539796"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318937"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Telemetri kanaler i Application Insights
 
-Telemetri kanaler är en integrerad del av [Azure Application Insights SDK](../../azure-monitor/app/app-insights-overview.md): er. De hanterar buffring och överföring av telemetri till Application Insights tjänsten. .NET-och .NET Core-versionerna av SDK: erna har två inbyggda telemetri-kanaler: `InMemoryChannel` och `ServerTelemetryChannel` . I den här artikeln beskrivs varje kanal i detalj, inklusive hur du anpassar kanal beteendet.
+Telemetri kanaler är en integrerad del av [Azure Application Insights SDK](./app-insights-overview.md): er. De hanterar buffring och överföring av telemetri till Application Insights tjänsten. .NET-och .NET Core-versionerna av SDK: erna har två inbyggda telemetri-kanaler: `InMemoryChannel` och `ServerTelemetryChannel` . I den här artikeln beskrivs varje kanal i detalj, inklusive hur du anpassar kanal beteendet.
 
 ## <a name="what-are-telemetry-channels"></a>Vad är kanaler för telemetri?
 
@@ -39,7 +39,7 @@ Application Insights .NET-och .NET Core SDK: er levereras med två inbyggda kana
 
 Du konfigurerar en telemetri-kanal genom att ställa in den på den aktiva telemetri-konfigurationen. För ASP.NET-program innebär konfigurationen att ställa in telemetri kanal instansen till `TelemetryConfiguration.Active` eller genom att ändra `ApplicationInsights.config` . För ASP.NET Core-program innebär konfigurationen att lägga till kanalen i behållaren för beroende inmatning.
 
-I följande avsnitt visas exempel på hur du konfigurerar `StorageFolder` inställningen för kanalen i olika program typer. `StorageFolder`är bara en av de konfigurerbara inställningarna. En fullständig lista över konfigurations inställningar finns i [avsnittet Inställningar](telemetry-channels.md#configurable-settings-in-channels) längre fram i den här artikeln.
+I följande avsnitt visas exempel på hur du konfigurerar `StorageFolder` inställningen för kanalen i olika program typer. `StorageFolder`är bara en av de konfigurerbara inställningarna. En fullständig lista över konfigurations inställningar finns i [avsnittet Inställningar](#configurable-settings-in-channels) längre fram i den här artikeln.
 
 ### <a name="configuration-by-using-applicationinsightsconfig-for-aspnet-applications"></a>Konfiguration med hjälp av ApplicationInsights.config för ASP.NET-program
 
@@ -166,5 +166,6 @@ Precis som varje SDK för Application Insights, är kanaler öppen källkod. Lä
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Sampling](../../azure-monitor/app/sampling.md)
-* [SDK-felsökning](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)
+* [Sampling](./sampling.md)
+* [SDK-felsökning](./asp-net-troubleshoot-no-data.md)
+

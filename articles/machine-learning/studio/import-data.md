@@ -1,6 +1,5 @@
 ---
-title: Importera utbildningsdata
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klassisk): importera utbildnings data – Azure'
 description: Så här importerar du data till Azure Machine Learning Studio (klassisk) från olika data källor. Lär dig mer om vilka data typer och data format som stöds.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: fa031e6e23c218ff2ca8e2ef3e778768fabb1ebb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b04c9c1796491622a76e2c2a2fbfcdcc0c624dda
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321483"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318546"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importera dina utbildnings data till Azure Machine Learning Studio (klassisk) från olika data källor
+
+**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
+
 
 Om du vill använda dina egna data i Machine Learning Studio (klassisk) för att utveckla och träna en förutsägelse analys lösning kan du använda data från: 
 
@@ -65,7 +67,7 @@ Du kan uttryckligen ange eller ändra rubriker och data typer för kolumner med 
 Följande data typer kan identifieras av Studio (klassisk):
 
 * Sträng
-* Integer
+* Heltal
 * Double
 * Boolesk
 * DateTime

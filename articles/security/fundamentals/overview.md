@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: e2113df2db89e204fd5d2c0a62234e0c1f7b16cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c107789fe4a88b3cd73a2f290871016b95cae19
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85125676"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371404"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -142,7 +142,7 @@ I Programdiagnostik kan du gruppera händelser på följande vis:
 Avsnittet innehåller ytterligare information om viktiga funktioner i Azure Storage Security och sammanfattnings information om dessa funktioner.
 
 ### <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
-Du kan skydda ditt lagrings konto med hjälp av rollbaserad Access Control (RBAC). Att begränsa åtkomsten baserat på [behovet av att känna till](https://en.wikipedia.org/wiki/Need_to_know) och [minsta behörighets](https://en.wikipedia.org/wiki/Principle_of_least_privilege) säkerhets principer är att det är absolut nödvändigt för organisationer som vill tillämpa säkerhets principer för data åtkomst. Dessa behörigheter beviljas genom att tilldela lämplig RBAC-roll till grupper och program i ett visst omfång. Du kan använda [Inbyggda RBAC-roller](../../role-based-access-control/built-in-roles.md), till exempel lagrings konto deltagare, för att tilldela behörigheter till användare. Åtkomst till lagrings nycklarna för ett lagrings konto med hjälp av [Azure Resource Manager](../../storage/blobs/security-recommendations.md) modellen kan styras via rollbaserad Access Control (RBAC).
+Du kan skydda ditt lagrings konto med hjälp av rollbaserad Access Control (RBAC). Att begränsa åtkomsten baserat på [behovet av att känna till](https://en.wikipedia.org/wiki/Need_to_know) och [minsta behörighets](https://en.wikipedia.org/wiki/Principle_of_least_privilege) säkerhets principer är att det är absolut nödvändigt för organisationer som vill tillämpa säkerhets principer för data åtkomst. Dessa behörigheter beviljas genom att tilldela lämplig RBAC-roll till grupper och program i ett visst omfång. Du kan använda [inbyggda Azure-roller](../../role-based-access-control/built-in-roles.md), till exempel lagrings konto deltagare, för att tilldela behörigheter till användare. Åtkomst till lagrings nycklarna för ett lagrings konto med hjälp av [Azure Resource Manager](../../storage/blobs/security-recommendations.md) modellen kan styras via rollbaserad Access Control (RBAC).
 
 ### <a name="shared-access-signature"></a>Signatur för delad åtkomst
 En [signatur för delad åtkomst (Shared Access Signature, SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) ger delegerad åtkomst till resurser på ditt lagringskonto. SAS innebär att du kan bevilja en klient begränsad behörighet till objekt i ditt lagrings konto under en angiven period och med en angiven uppsättning behörigheter. Du kan bevilja dessa begränsade behörigheter utan att behöva dela dina konto åtkomst nycklar.
@@ -155,7 +155,7 @@ Kryptering under överföring är en mekanism för att skydda data när de över
 
 -   Kryptering på klient sidan, för att kryptera data innan de överförs till lagrings utrymmet och för att dekryptera data när de har överförts från lagrings utrymmet.
 
-### <a name="encryption-at-rest"></a>Vilande kryptering
+### <a name="encryption-at-rest"></a>Kryptering i vila
 För många organisationer är data kryptering i vila ett obligatoriskt steg mot data sekretess, efterlevnad och data suveränitet. Det finns tre funktioner för Azure Storage-säkerhet som ger kryptering av data som är "i vila":
 
 -   Med [kryptering för lagringstjänst](../../storage/common/storage-service-encryption.md) kan du begära att lagrings tjänsten automatiskt krypterar data när de skrivs till Azure Storage.

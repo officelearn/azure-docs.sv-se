@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 6a51da4f4685d7d7b1c597d8a9b9dd78270f29b1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0fa0b0d5e3620fc45a104ea31fd3bcbedd673da1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499281"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318954"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Distribuera Azure Monitor Application Insights agent för lokala servrar
 
@@ -50,7 +50,7 @@ Application Insights agent finns här: https://www.powershellgallery.com/package
 - [Kända problem](status-monitor-v2-troubleshoot.md#known-issues)
 
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 - Stöder Application Insights-agenten proxy-installationer?
 
@@ -76,13 +76,14 @@ Vart och ett av dessa alternativ beskrivs i de [detaljerade anvisningarna](statu
 
 Visa telemetrin:
 
-* [Utforska mått](../../azure-monitor/platform/metrics-charts.md) för att övervaka prestanda och användning.
-* [Sök efter händelser och loggar](../../azure-monitor/app/diagnostic-search.md) för att diagnostisera problem.
+* [Utforska mått](../platform/metrics-charts.md) för att övervaka prestanda och användning.
+* [Sök efter händelser och loggar](./diagnostic-search.md) för att diagnostisera problem.
 * [Använd Analytics](../log-query/log-query-overview.md) för mer avancerade frågor.
-* [Skapa instrument paneler](../../azure-monitor/app/overview-dashboard.md).
+* [Skapa instrument paneler](./overview-dashboard.md).
 
 Lägg till mer telemetri:
 
 * [Skapa webbtester](monitor-web-app-availability.md) så att du är säker på att webbplatsen är aktiv.
-* [Lägg till telemetri för webb klienter](../../azure-monitor/app/javascript.md) om du vill visa undantag från webb sidans kod och aktivera spårnings anrop.
-* [Lägg till Application Insights SDK till din kod](../../azure-monitor/app/asp-net.md) så att du kan infoga spårnings-och logg anrop.
+* [Lägg till telemetri för webb klienter](./javascript.md) om du vill visa undantag från webb sidans kod och aktivera spårnings anrop.
+* [Lägg till Application Insights SDK till din kod](./asp-net.md) så att du kan infoga spårnings-och logg anrop.
+

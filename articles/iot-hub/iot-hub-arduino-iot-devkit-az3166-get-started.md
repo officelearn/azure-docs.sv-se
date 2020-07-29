@@ -8,12 +8,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.custom: mqtt
-ms.openlocfilehash: 63fa7481b96f8a606893b76b66f8c414a54cdb82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- mqtt
+- 'Role: Cloud Development'
+ms.openlocfilehash: c057944e2c6c511eee20007cc01e2222b38cce1b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83714822"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319226"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ansluta IoT DevKit-AZ3166 till Azure IoT Hub
 
@@ -32,7 +35,7 @@ Har du inte någon DevKit än? Prova [DevKit-simulatorn](https://azure-samples.g
 
 Du hittar käll koden för alla DevKit-självstudier från [galleriet kod exempel](https://docs.microsoft.com/samples/browse/?term=mxchip).
 
-## <a name="what-you-need"></a>Vad du behöver
+## <a name="what-you-need"></a>Detta behöver du
 
 * Ett MXChip IoT DevKit-kort med en mikrousb-kabel. [Hämta nu](https://aka.ms/iot-devkit-purchase).
 * En dator som kör Windows 10, macOS 10.10 + eller Ubuntu 18.04 +.
@@ -51,9 +54,9 @@ Koppla samman följande maskin vara till datorn:
 
 Följ dessa steg om du vill ansluta DevKit till datorn:
 
-1. Anslut USB-änden till datorn.
+1. Anslut USB-kopplingen till datorn.
 
-2. Anslut Micro-USB-slutet till DevKit.
+2. Anslut Micro USB-kopplingen till DevKit.
 
 3. Den gröna INDIKATORn för ström bekräftar anslutningen.
 
@@ -98,7 +101,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
     ```
 
-    Anteckna enhetsanslutningssträngen. Den ser ut ungefär som:
+    Anteckna enhetens anslutningssträng, som ser ut så här:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -124,7 +127,7 @@ DevKit ansluter till en enhetsspecifika slut punkt på din IoT-hubb och skickar 
 
     ![Ange AP-läge](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/set-ap-mode.gif)
 
-1. Använd en webbläsare på en annan Wi-Fi-aktiverad enhet (dator eller mobil telefon) för att ansluta till IoT DevKit SSID som visas i föregående steg. Lämna det tomt om det frågar efter ett lösen ord.
+1. Använd en webbläsare på en annan Wi-Fi-aktiverad enhet (dator eller mobiltelefon) för att ansluta till det IoT DevKit SSID som visades i föregående steg. Lämna det tomt om det frågar efter ett lösen ord.
 
     ![Anslut SSID](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/connect-ssid.png)
 
@@ -142,7 +145,7 @@ DevKit ansluter till en enhetsspecifika slut punkt på din IoT-hubb och skickar 
     > [!NOTE]
     > När Wi-Fi har kon figurer ATS behålls dina autentiseringsuppgifter på enheten för anslutningen, även om enheten är frånkopplad.
 
-1. IoT-DevKit omstartar om några sekunder. På DevKit-skärmen ser du IP-adressen för DevKit som följer efter telemetridata, inklusive temperatur-och fuktighets värde med antal meddelanden som skickas till Azure IoT Hub.
+1. IoT DevKit startas om efter några sekunder. På DevKit-skärmen ser du IP-adressen för DevKit som följer efter telemetridata, inklusive temperatur-och fuktighets värde med antal meddelanden som skickas till Azure IoT Hub.
 
     ![WiFi IP](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/wifi-ip.jpg)
 
@@ -178,7 +181,7 @@ Följ de här stegen för att förbereda utvecklings miljön för DevKit:
     Eller kopiera och klistra in URL: en i ett webbläsarfönster:`vscode:extension/vsciot-vscode.azure-iot-tools`
 
     > [!NOTE]
-    > Tillägget Azure IoT-verktyg innehåller [Azure IoT Device Workbench](https://aka.ms/iot-workbench) som används för att utveckla och felsöka på olika IoT devkit-enheter. [Azure IoT Hub-tillägget](https://aka.ms/iot-toolkit), som också ingår i tillägget Azure IoT tools, används för att hantera och interagera med Azure IoT-hubbar.
+    > Tillägget Azure IoT-verktyg innehåller [Azure IoT Device Workbench](https://aka.ms/iot-workbench) som används för att utveckla och felsöka på olika IoT devkit-enheter. [Azure IoT Hub-tillägget](https://aka.ms/iot-toolkit), som även ingår med Azure IoT Tools-tilläggspaketet, används för hantering av och interaktion med Azure IoT Hubs.
 
 5. Konfigurera VS Code med Arduino-inställningar.
 
@@ -186,7 +189,7 @@ Följ de här stegen för att förbereda utvecklings miljön för DevKit:
 
     ![Installera Azure IoT-verktyg](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/user-settings-arduino.png)
 
-    Lägg till följande rader för att konfigurera Arduino beroende på din plattform: 
+    Lägg till följande rader för att konfigurera Arduino utefter din plattform: 
 
     * **Windows**:
 
@@ -204,7 +207,7 @@ Följ de här stegen för att förbereda utvecklings miljön för DevKit:
 
     * **Ubuntu**:
 
-        Byt ut plats hållaren **{username}** nedan med ditt användar namn.
+        Ersätt platshållaren **{username}** nedan med ditt användarnamn.
 
         ```json
         "arduino.path": "/home/{username}/Downloads/arduino-1.8.8",
@@ -217,11 +220,11 @@ Följ de här stegen för att förbereda utvecklings miljön för DevKit:
 
 ### <a name="install-st-link-drivers"></a>Installera ST-Link-drivrutiner
 
-[St-Link/v2](https://www.st.com/en/development-tools/st-link-v2.html) är det USB-gränssnitt som IoT DevKit använder för att kommunicera med din utvecklings dator. Du måste installera den i Windows för att kunna blinka den kompilerade enhets koden i DevKit. Följ de OS-/regionsspecifika stegen för att ge datorn åtkomst till enheten.
+[St-Link/v2](https://www.st.com/en/development-tools/st-link-v2.html) är det USB-gränssnitt som IoT DevKit använder för att kommunicera med din utvecklings dator. Du måste installera det i Windows för att kunna flasha den kompilerade enhetskoden till DevKit. Följ de OS-specifika stegen för att ge datorn åtkomst till din enhet.
 
 * **Windows**: Hämta och installera USB-drivrutiner från [STMicroelectronics-webbplatsen](https://www.st.com/en/development-tools/stsw-link009.html).
 * **MacOS**: ingen driv rutin krävs för MacOS.
-* **Ubuntu**: kör kommandona i Terminal och logga ut och logga in för att grupp ändringen ska börja gälla:
+* **Ubuntu**: Kör kommandona i terminalen, och logga ut och logga in så att gruppändringen börjar gälla:
 
     ```bash
     # Copy the default rules. This grants permission to the group 'plugdev'
@@ -286,7 +289,7 @@ I stället för att tillhandahålla Azure-IoT Hub och-enhet från Azure Portal k
 
     ![Välj IoT-enhet etablerad](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-iot-device.png)
 
-1. Nu har du Azure IoT Hub etablerad och en enhet som skapats i den. Dessutom sparas enhets anslutnings strängen i VS Code för att konfigurera IoT-DevKit senare.
+1. Nu har du etablerat Azure IoT Hub och skapat en enhet i tjänsten. Dessutom sparas enhets anslutnings strängen i VS Code för att konfigurera IoT-DevKit senare.
 
     ![Etableringen utförs](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/provision-done.png)
 
@@ -306,7 +309,7 @@ I stället för att tillhandahålla Azure-IoT Hub och-enhet från Azure Portal k
 
     ![Arduino uppladdning](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/arduino-upload.png)
 
-DevKit startar om och börjar köra koden.
+DevKit startas om och börjar köra koden.
 
 > [!NOTE]
 > Om det uppstår fel eller avbrott kan du alltid återställa genom att köra kommandot igen.

@@ -6,12 +6,13 @@ ms.topic: quickstart
 description: Den här snabb starten visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett Java-program i Azure Kubernetes-tjänsten
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, behållare, Java, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: ac7a1b37b565f3589b7c049a3c1ed2a84972ded0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-java
+ms.openlocfilehash: c0fd035a0341e5e92b2706d833b24d5e5b87e018
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80239736"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371574"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-java---azure-dev-spaces"></a>Snabb start: Felsöka och iterera på Kubernetes med Visual Studio Code och Java-Azure dev Spaces
 
@@ -27,7 +28,7 @@ I den här snabb starten ställer du in Azure dev Spaces med ett hanterat Kubern
 - [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 - [Git](https://www.git-scm.com/downloads).
 
-## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes service-kluster
+## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes Service-kluster
 
 Du måste skapa ett AKS-kluster i en [region som stöds][supported-regions]. Följande kommandon skapar en resurs grupp med namnet *MyResourceGroup* och ett AKS-kluster som kallas *MyAKS*.
 
@@ -41,7 +42,7 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 Använd `use-dev-spaces` kommandot för att aktivera dev Spaces på ditt AKS-kluster och följ anvisningarna. Följande kommando aktiverar dev Spaces i *MyAKS* -klustret i gruppen *MyResourceGroup* och skapar ett *standard* dev-utrymme.
 
 > [!NOTE]
-> `use-dev-spaces` Kommandot installerar även Azure dev Spaces CLI om det inte redan är installerat. Du kan inte installera Azure dev Spaces CLI i Azure Cloud Shell.
+> `use-dev-spaces`Kommandot installerar även Azure dev Spaces CLI om det inte redan är installerat. Du kan inte installera Azure dev Spaces CLI i Azure Cloud Shell.
 
 ```azurecli
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS
@@ -83,7 +84,7 @@ Om du vill öppna kommando-paletten i Visual Studio Code väljer du **Visa** och
 
 ![Förbereda konfigurationsfiler för Azure dev Spaces](./media/common/command-palette.png)
 
-När Visual Studio Code uppmanas du också att konfigurera dina bas avbildningar, exponerade portar och offentliga slut `Azul Zulu OpenJDK for Azure (Free LTS)` punkter, välja för bas `8080` avbildningen för den exponerade `Yes` porten och aktivera en offentlig slut punkt.
+När Visual Studio Code uppmanas du också att konfigurera dina bas avbildningar, exponerade portar och offentliga slut punkter, välja `Azul Zulu OpenJDK for Azure (Free LTS)` för bas avbildningen `8080` för den exponerade porten och `Yes` Aktivera en offentlig slut punkt.
 
 ![Välj en bas avbildning](media/get-started-java/select-base-image.png)
 
@@ -113,7 +114,7 @@ Välj **Felsök** och **stoppa** fel sökningen för att stoppa fel söknings pr
 
 ## <a name="update-code"></a>Uppdatera kod
 
-Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra **starta Java-program (AZDS)** igen. Ett exempel:
+Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra **starta Java-program (AZDS)** igen. Till exempel:
 
 1. Om programmet fortfarande körs väljer du **Felsök** och stoppar sedan **fel sökningen** för att stoppa det.
 1. Uppdatera [rad 19 i `src/main/java/com/ms/sample/webfrontend/Application.java` ](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) till:
@@ -141,7 +142,7 @@ Ta bort Bryt punkten genom att placera markören på rad 19 i *src/main/Java/com
 
 ## <a name="update-code-from-visual-studio-code"></a>Uppdatera kod från Visual Studio Code
 
-När tjänsten körs i fel söknings läge uppdaterar du rad 19 i *src/main/Java/com/MS/Sample/webfrontend/Application. java*. Ett exempel:
+När tjänsten körs i fel söknings läge uppdaterar du rad 19 i *src/main/Java/com/MS/Sample/webfrontend/Application. java*. Till exempel:
 ```java
 return "Hello from webfrontend in Azure while debugging!";
 ```

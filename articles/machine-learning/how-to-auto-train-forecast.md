@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: 4f27fc9542d6c4e9027c7a1a0d4daeb7cb079e81
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9b81dbce9f73c76ceea0f7842d731d00f905fb01
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321565"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371523"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk träna en tids serie prognos modell
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -130,7 +130,7 @@ För prognos uppgifter använder automatisk maskin inlärning för bearbetning o
 
 * Identifiera exempel frekvensen för tids serier (till exempel varje timme, varje dag, varje vecka) och skapa nya poster för frånvaro tids punkter för att göra serien kontinuerlig.
 * Ange värden som saknas i målet (via Forward-Fill) och funktions kolumner (med kolumn värden i median)
-* Skapa korniga funktioner för att aktivera fasta effekter i olika serier
+* Skapa funktioner baserade på Time Series-identifierare för att aktivera fasta effekter i olika serier
 * Skapa tidsbaserade funktioner för att hjälpa till med utbildnings säsongs mönster
 * Koda kategoriska-variabler till numeriska kvantiteter
 
@@ -139,21 +139,21 @@ För prognos uppgifter använder automatisk maskin inlärning för bearbetning o
 | Parameter &nbsp; namn | Beskrivning | Krävs |
 |-------|-------|-------|
 |`time_column_name`|Används för att ange kolumnen datetime i de indata som används för att bygga tids serien och härleda dess frekvens.|✓|
-|`grain_column_names`|Namn (er) som definierar enskilda serie grupper i indata. Om kornig het inte har definierats antas data uppsättningen vara en tids serie.||
-|`max_horizon`|Definierar den högsta önskade prognos horisonten i enheter för tids serie frekvens. Enheter baseras på tidsintervallet för dina utbildnings data, till exempel varje månad, varje vecka att prognosen ska förutsäga.|✓|
+|`time_series_id_column_names`|Kolumn namn som används för att unikt identifiera tids serier i data som har flera rader med samma tidsstämpel. Om Time Series-identifierare inte har definierats antas data uppsättningen vara en tids serie.||
+|`forecast_horizon`|Definierar hur många perioder som vidarebefordrar dig till prognos. Horisonten är i enheter av tids serie frekvensen. Enheter baseras på tidsintervallet för dina utbildnings data, till exempel varje månad, varje vecka att prognosen ska förutsäga.|✓|
 |`target_lags`|Antal rader att ange för fördröjning av målvärdena baserat på data frekvensen. Fördröjningen visas som en lista eller ett enda heltal. Fördröjning ska användas när relationen mellan oberoende variabler och beroende variabel inte matchar eller korrelerar som standard. När du till exempel försöker prognostisera efter frågan för en produkt kan efter frågan i någon månad bero på priset för vissa råvaruer 3 månader tidigare. I det här exemplet kanske du vill ange ett negativt värde för målet (efter frågan) med tre månader, så att modellen är en utbildning på rätt relation.||
 |`target_rolling_window_size`|*n* historiska perioder som ska användas för att generera prognostiserade värden <= storlek för tränings uppsättning. Om det utelämnas är *n* den fullständiga inlärnings uppsättningens storlek. Ange den här parametern när du bara vill ta hänsyn till en viss mängd historik när du tränar modellen.||
 |`enable_dnn`|Aktivera Prognosticering av Hyperoptimerade.||
 
 Mer information finns i [referens dokumentationen](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) .
 
-Skapa tids serie inställningarna som ett Dictionary-objekt. Ange `time_column_name` till `day_datetime` fältet i data uppsättningen. Definiera `grain_column_names` parametern för att se till att **två separata tids serie grupper** skapas för data, en för Store A och B. Ange `max_horizon` till 50 för att förutsäga för hela test uppsättningen. Ange en prognos period på 10 perioder med `target_rolling_window_size` och ange en enda fördröjning på målvärdena för två perioder i förväg med `target_lags` parametern. Vi rekommenderar att du ställer `max_horizon` in `target_rolling_window_size` och `target_lags` till "Auto" som automatiskt identifierar dessa värden åt dig. I exemplet nedan har inställningarna "Auto" använts för dessa parametrar. 
+Skapa tids serie inställningarna som ett Dictionary-objekt. Ange `time_column_name` till `day_datetime` fältet i data uppsättningen. Definiera `time_series_id_column_names` parametern för att se till att **två separata tids serie grupper** skapas för data, en för Store A och B. Ange `forecast_horizon` till 50 för att förutsäga för hela test uppsättningen. Ange en prognos period på 10 perioder med `target_rolling_window_size` och ange en enda fördröjning på målvärdena för två perioder i förväg med `target_lags` parametern. Vi rekommenderar att du ställer `forecast_horizon` in `target_rolling_window_size` och `target_lags` till "Auto" som automatiskt identifierar dessa värden åt dig. I exemplet nedan har inställningarna "Auto" använts för dessa parametrar. 
 
 ```python
 time_series_settings = {
     "time_column_name": "day_datetime",
-    "grain_column_names": ["store"],
-    "max_horizon": "auto",
+    "time_series_id_column_names": ["store"],
+    "forecast_horizon": "auto",
     "target_lags": "auto",
     "target_rolling_window_size": "auto",
     "preprocess": True,
@@ -163,7 +163,7 @@ time_series_settings = {
 > [!NOTE]
 > Automatiserad bearbetning av Machine Learning för bearbetning (funktions normalisering, hantering av saknade data, konvertering av text till tal osv.) blir en del av den underliggande modellen. När du använder modellen för förutsägelser tillämpas samma för bearbetnings steg som tillämpas på dina indata-data automatiskt.
 
-Genom att definiera `grain_column_names` i kodfragmentet ovan skapar AutoML två separata Time-Series-grupper, även kallat flera tids serier. Om ingen kornig het har definierats kommer AutoML att anta att data uppsättningen är en enda tids serie. Mer information om engångs-serien finns i [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
+Genom att definiera `time_series_id_column_names` i kodfragmentet ovan skapar AutoML två separata Time-Series-grupper, även kallat flera tids serier. Om inga Time Series-identifierare har definierats, kommer AutoML att anta att data uppsättningen är en enda tids serie. Mer information om engångs-serien finns i [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
 
 Nu ska du skapa ett standard `AutoMLConfig` objekt, ange `forecasting` uppgifts typ och skicka experimentet. När modellen har slutförts hämtar du den bästa körnings iterationen.
 
@@ -221,6 +221,32 @@ Mer information om AML-beräkning och VM-storlekar som innehåller GPU: n finns 
 
 Visa [Notebook Production Forecasting-anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) för ett detaljerat kod exempel som utnyttjar hyperoptimerade.
 
+### <a name="customize-featurization"></a>Anpassa funktionalisering
+Du kan anpassa dina funktionalisering-inställningar för att säkerställa att de data och funktioner som används för att träna din ML-modell leder till relevanta förutsägelser. 
+
+Om du vill anpassa featurizations anger du `"featurization": FeaturizationConfig` i ditt `AutoMLConfig` objekt. Om du använder Azure Machine Learning Studio för experimentet går du till [instruktions artikeln](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+
+Anpassningar som stöds är:
+
+|Anpassning|Definition|
+|--|--|
+|**Uppdatering av kolumn syfte**|Åsidosätt den automatiska identifierade funktions typen för den angivna kolumnen.|
+|**Transformering av parameter uppdatering** |Uppdatera parametrarna för den angivna transformeraren. Stöder för närvarande *imputerade* (fill_value och median).|
+|**Släpp kolumner** |Anger kolumner som ska släppas från att bearbetas.|
+
+Skapa `FeaturizationConfig` objektet genom att definiera dina funktionalisering-konfigurationer:
+```python
+featurization_config = FeaturizationConfig()
+# `logQuantity` is a leaky feature, so we remove it.
+featurization_config.drop_columns = ['logQuantitity']
+# Force the CPWVOL5 feature to be of numeric type.
+featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
+# Fill missing values in the target column, Quantity, with zeroes.
+featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
+# Fill mising values in the `INCOME` column with median value.
+featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
+```
+
 ### <a name="target-rolling-window-aggregation"></a>Samling av rullande fönster i mål
 Ofta är den bästa informationen som en prognosare kan ha är det senaste värdet för målet. Att skapa en kumulativ statistik för målet kan öka noggrannheten i dina förutsägelser. Med hjälp av en mål grupp med rullande fönster kan du lägga till en rullande agg regering av data värden som funktioner. Om du vill aktivera rullande mål för mål ställer du in `target_rolling_window_size` till önskad heltals fönster storlek. 
 
@@ -271,7 +297,7 @@ rmse = sqrt(mean_squared_error(actual_labels, predict_labels))
 rmse
 ```
 
-Nu när den övergripande modell precisionen har fastställts är det mest realistiska nästa steg att använda modellen för att förutsäga okända framtida värden. Ange en data mängd i samma format som test uppsättningen `test_data` , men med framtida datetime-värden och den resulterande förutsägelse uppsättningen är de prognostiserade värdena för varje tids serie steg. Anta att de senaste tid serie posterna i data uppsättningen var i 12/31/2018. Om du vill prognostisera efter frågan för nästa dag (eller så många perioder som du behöver prognostisera, <= `max_horizon` ) skapar du en enda tids serie post för varje butik för 01/01/2019.
+Nu när den övergripande modell precisionen har fastställts är det mest realistiska nästa steg att använda modellen för att förutsäga okända framtida värden. Ange en data mängd i samma format som test uppsättningen `test_data` , men med framtida datetime-värden och den resulterande förutsägelse uppsättningen är de prognostiserade värdena för varje tids serie steg. Anta att de senaste tid serie posterna i data uppsättningen var i 12/31/2018. Om du vill prognostisera efter frågan för nästa dag (eller så många perioder som du behöver prognostisera, <= `forecast_horizon` ) skapar du en enda tids serie post för varje butik för 01/01/2019.
 
 ```output
 day_datetime,store,week_of_year
@@ -282,7 +308,7 @@ day_datetime,store,week_of_year
 Upprepa de nödvändiga stegen för att läsa in framtida data till en dataframe och kör sedan `best_run.predict(test_data)` för att förutsäga framtida värden.
 
 > [!NOTE]
-> Det går inte att förutsäga värden för antalet perioder som är större än `max_horizon` . Modellen måste tränas om med en större horisont för att förutsäga framtida värden bortom den aktuella horisonten.
+> Det går inte att förutsäga värden för antalet perioder som är större än `forecast_horizon` . Modellen måste tränas om med en större horisont för att förutsäga framtida värden bortom den aktuella horisonten.
 
 ## <a name="next-steps"></a>Nästa steg
 

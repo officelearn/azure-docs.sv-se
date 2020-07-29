@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: fa4610c925429ea59eae7399094230c1370bf2a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f5b6bfdb523a22fc4dd9593bfec556da7493aa9
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099951"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371200"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera LexisNexis med Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Den här integrationen tillhandahåller profilering baserat på några få delar
 - Telefonnummer
 - Profilering av information som samlas in från användarens dator
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du:
 
@@ -82,7 +82,7 @@ Distribuera den tillhandahållna API-koden till en Azure-tjänst. Du kan publice
 
 Program inställningar kan [konfigureras i App Service i Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings).  Med den här metoden kan du konfigurera inställningar på ett säkert sätt utan att kontrol lera dem i en lagrings plats. Du måste ange följande inställningar för REST-API: et:
 
-| Programinställningar | Källa | Kommentarer |
+| Programinställningar | Källa | Obs! |
 | :-------- | :------------| :-----------|
 |ThreatMetrix: URL | Konfiguration av ThreatMetrix-konto |     |
 |ThreatMetrix: OrgId | Konfiguration av ThreatMetrix-konto |     |
@@ -147,7 +147,7 @@ Se det här [dokumentet](https://docs.microsoft.com/azure/active-directory-b2c/c
 
 6. Gå igenom inloggnings flödet  
 
-7. CrossCore pussl visas när du har angett **Fortsätt**.
+7. ThreatMetrix pussl visas när du har angett **Fortsätt**.
 
 ## <a name="next-steps"></a>Nästa steg
 

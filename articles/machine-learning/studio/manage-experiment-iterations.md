@@ -1,6 +1,5 @@
 ---
-title: Visa & köra experiment igen
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klassisk): Visa & köra experiment igen – Azure'
 description: Hantera experiment körningar i Azure Machine Learning Studio (klassisk). Du kan granska tidigare körningar av dina experiment när som helst för att kunna anropa, gå tillbaka, och i slut ändan antingen bekräfta eller förfina tidigare antaganden.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 0e6d4312850dc16b76e248c9bbceacd8b5311d5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc7858010ea43f676a43f8bf16e228c8248805bf
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687403"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318529"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Hantera experiment körningar i Azure Machine Learning Studio (klassisk)
+
+**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
+
 
 Att utveckla en förutsägelse analys modell är en iterativ process – när du ändrar de olika funktionerna och parametrarna i experimentet konvergerar resultatet tills du är nöjd med att du har en tränad, effektiv modell. Nyckeln till den här processen spårar olika iterationer av dina experiment parametrar och konfigurationer.
 
@@ -42,7 +45,7 @@ Anta till exempel att du skapar ett experiment med modulen [linjär regression][
 | 0.1 |9/11/2014 4:18:58 PM |
 | 0,2 |9/11/2014 4:24:33 PM |
 | 0,4 |9/11/2014 4:28:36 PM |
-| 0,5 |9/11/2014 4:33:31 PM |
+| 0.5 |9/11/2014 4:33:31 PM |
 
 Om du klickar på **Visa körnings historik**visas en lista över alla dessa körningar:
 

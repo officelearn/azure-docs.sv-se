@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d1d36c6f6413a9438063c6fe30403af095ed9a6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e39ec197b0bbce5d963650abd5dc7811647fa01
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659629"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370367"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 [Azure Files](storage-files-introduction.md) kan distribueras på två huvudsakliga sätt: genom att montera Server lös Azure-filresurser direkt eller genom att cachelagra Azure-filresurser lokalt med hjälp av Azure File Sync. Vilket distributions alternativ du väljer ändrar de saker du behöver tänka på när du planerar för distributionen. 
@@ -74,6 +75,30 @@ Mer information om kryptering i överföring finns i [krav på säker överföri
 
 ### <a name="encryption-at-rest"></a>Vilande kryptering
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
+
+## <a name="data-protection"></a>Dataskydd
+Azure Files har en metod med flera lager för att säkerställa att dina data säkerhets kopie ras, kan återställas och skyddas från säkerhetshot.
+
+### <a name="soft-delete"></a>Mjuk borttagning
+Mjuk borttagning för fil resurser (förhands granskning) är en inställning för lagrings konto nivå som gör att du kan återställa fil resursen när den tas bort av misstag. När en fil resurs tas bort övergår den till ett mjukt borttaget tillstånd i stället för att raderas permanent. Du kan konfigurera hur lång tid det tar för mjuka borttagna data att återställas innan den tas bort permanent och ta bort resursen när den kvarhålls. 
+
+Vi rekommenderar att du aktiverar mjuk borttagning för de flesta fil resurser. Om du har ett arbets flöde där delning av delning är vanligt och förväntat, kan du välja att ha en mycket kort kvarhållningsperiod eller inte har mjuk borttagning aktive rad.
+
+Mer information om mjuk borttagning finns i [förhindra oavsiktlig data borttagning](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion).
+
+### <a name="backup"></a>Backup
+Du kan säkerhetskopiera Azure-filresursen via [resurs ögonblicks bilder](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files), som är skrivskyddade, tidpunkts kopior av din resurs. Ögonblicks bilder är stegvisa, vilket innebär att de bara innehåller lika mycket data som har ändrats sedan föregående ögonblicks bild. Du kan ha upp till 200 ögonblicks bilder per fil resurs och spara dem i upp till 10 år. Du kan antingen manuellt ta dessa ögonblicks bilder i Azure Portal, via PowerShell eller kommando rads gränssnitt (CLI), eller så kan du använda [Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json). Ögonblicks bilder lagras i fil resursen, vilket innebär att om du tar bort fil resursen, tas ögonblicks bilderna också bort. För att skydda säkerhets kopior av ögonblicks bilder från oavsiktlig borttagning, se till att mjuk borttagning är aktiverat för din resurs.
+
+[Azure Backup för Azure-filresurser](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) hanterar schemaläggning och kvarhållning av ögonblicks bilder. Farfar-funktionerna (-fader-son) innebär att du kan ta dagliga, veckovis, månatliga och årliga ögonblicks bilder, var och en med sin egen lagrings period. Azure Backup dirigerar också aktivering av mjuk borttagning och tar ett borttagnings lås på ett lagrings konto så snart alla fil resurser i det har kon figurer ATS för säkerhets kopiering. Till sist tillhandahåller Azure Backup vissa viktiga övervaknings-och aviserings funktioner som gör det möjligt för kunder att ha en samlad vy över sina reserv delar.
+
+Du kan utföra både återställning på objekt-och delnings nivå i Azure Portal med Azure Backup. Allt du behöver göra är att välja återställnings punkt (en viss ögonblicks bild), en viss fil eller katalog, om det är relevant, och sedan den plats (original eller alternativa) som du vill återställa till. Säkerhets kopierings tjänsten hanterar kopiering av ögonblicks bild data över och visar återställnings förloppet i portalen.
+
+Mer information om säkerhets kopiering finns i [om Azure File Share-säkerhetskopiering](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json).
+
+### <a name="advanced-threat-protection-for-azure-files-preview"></a>Avancerat skydd för Azure Files (för hands version)
+Avancerat skydd (ATP) för Azure Storage ger ytterligare ett lager med säkerhets information som ger aviseringar när avvikande aktivitet på ditt lagrings konto upptäcks, till exempel ovanliga försök att komma åt lagrings kontot. ATP kör även skadlig kod för hash-rykte och meddelar om känd skadlig kod. Du kan konfigurera ATP på en prenumeration eller lagrings konto nivå via Azure Security Center. 
+
+Mer information finns i [Avancerat skydd mot Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection).
 
 ## <a name="storage-tiers"></a>Lagringsnivåer
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]

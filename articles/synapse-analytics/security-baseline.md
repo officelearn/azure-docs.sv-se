@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 34453dacd763b8b6a2bff3d977a7bc9b2ab78ca9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef8c4754afc921eaeb68a84fbd8147f336a4940c
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089336"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370282"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Azures säkerhets bas linje för Synapse-analys
 
@@ -314,7 +314,7 @@ Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel.
 
 När du först distribuerar Azure SQL anger du en Administratörs inloggning och ett kopplat lösen ord för inloggningen. Det här administratörs kontot kallas Server administratör. Du kan identifiera administratörs konton för en databas genom att öppna Azure Portal och navigera till fliken Egenskaper för servern eller den hanterade instansen. Du kan också konfigurera ett administratörs konto för Azure AD med fullständig administratörs behörighet, vilket krävs om du vill aktivera Azure Active Directory autentisering.
 
-För hanterings åtgärder använder du de inbyggda roller för rollbaserad åtkomst kontroll i Azure som måste tilldelas explicit. Använd Azure AD PowerShell-modulen för att utföra ad hoc-frågor för att identifiera konton som är medlemmar i administrativa grupper.
+För hanterings åtgärder använder du de inbyggda Azure-rollerna som måste tilldelas explicit. Använd Azure AD PowerShell-modulen för att utföra ad hoc-frågor för att identifiera konton som är medlemmar i administrativa grupper.
 
 * [Autentisering för SQL Database](https://docs.microsoft.com/azure/azure-sql/database/security-overview#authentication)
 
@@ -328,7 +328,7 @@ För hanterings åtgärder använder du de inbyggda roller för rollbaserad åtk
 
 * [Hantera befintliga inloggningar och administratörs konton i Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
 
-* [Inbyggda Azure RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
+* [Inbyggda roller i Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1026,7 +1026,7 @@ Förskanna allt innehåll som laddas upp till Azure-resurser som inte är Comput
 
 Om du använder en kundhanterad nyckel för att kryptera databas krypterings nyckeln, se till att din nyckel säkerhets kopie ras.
 
-* [Säkerhets kopiering och återställning i Azure Synapse SQL-poolen](https://docs.microsoft.coms/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Säkerhets kopiering och återställning i Azure Synapse SQL-poolen](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 * [Säkerhetskopiera Azure Key Vault nycklar](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 

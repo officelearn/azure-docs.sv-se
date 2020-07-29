@@ -4,14 +4,15 @@ description: Specifikationer för virtuella datorer i Lsv2-serien.
 author: sasha-melamed
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 9db5f391635505c18c7fe7c868431a0abc943730
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cedb5899b392cb111f9c1bb76949e940ef837252
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675986"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284820"
 ---
 # <a name="lsv2-series"></a>Lsv2-serien
 
@@ -36,14 +37,14 @@ Direktmigrering: stöds inte
 
 Minnes bebetjänings uppdateringar: stöds inte
 
-| Storlek | Virtuell processor | Minne (GiB) | Temporär disk<sup>1</sup> (GIB) | NVMe-diskar<sup>2</sup> | NVMe-disk data flöde<sup>3</sup> (läsa IOPS/Mbit/s) | Data flöde för datadisk i cacheminnet (IOPs/Mbit/s)<sup>4</sup> | Högsta burst-genomflöde (IOPs/Mbit/s) för burst-överföring<sup>5</sup>| Maximalt antal data diskar | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
-|---|---|---|---|---|---|---|---|---|---|
-| Standard_L8s_v2   |  8 |  64 |  80 |  1x 1.92 TB  | 400000/2000  | 8000/160   | 8000/1280 | 16 | 2 / 3200   |
-| Standard_L16s_v2  | 16 | 128 | 160 |  2x 1.92 TB  | 800000/4000  | 16000/320  | 16000/1280 | 32 | 4 / 6400   |
-| Standard_L32s_v2  | 32 | 256 | 320 |  4x 1.92 TB  | 1,5 meter per 8000    | 32000/640  | 32000/1280 | 32 | 8 / 12800  |
-| Standard_L48s_v2  | 48 | 384 | 480 |  6x 1.92 TB  | 2,2 m/14000   | 48000/960  | 48000/2000 | 32 | 8/16000 + |
-| Standard_L64s_v2  | 64 | 512 | 640 |  8x 1.92 TB  | 2.9 m/16000   | 64000/1280 | 64000/2000 | 32 | 8/16000 + |
-| Standard_L80s_v2<sup>6</sup> | 80 | 640 | 800 | 10X 1.92 TB | 3.8 m/20000 | 80000/1400 | 80000/2000 | 32 | 8/16000 + |
+| Storlek | Virtuell processor | Minne (GiB) | Temporär disk<sup>1</sup> (GIB) | NVMe-diskar<sup>2</sup> | NVMe-disk data flöde<sup>3</sup> (läsa IOPS/Mbit/s) | Data flöde för datadisk i cacheminnet (IOPs/Mbit/s)<sup>4</sup> | Högsta burst-genomflöde (IOPs/Mbit/s) för burst-överföring<sup>5</sup>| Maximalt antal data diskar | Maximalt antal nätverkskort | Förväntad nätverks bandbredd (Mbit/s) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Standard_L8s_v2   |  8 |  64 |  80 |  1x 1.92 TB  | 400000/2000  | 8000/160   | 8000/1280 | 16 | 2 | 3200   |
+| Standard_L16s_v2  | 16 | 128 | 160 |  2x 1.92 TB  | 800000/4000  | 16000/320  | 16000/1280 | 32 | 4 | 6400   |
+| Standard_L32s_v2  | 32 | 256 | 320 |  4x 1.92 TB  | 1,5 meter per 8000    | 32000/640  | 32000/1280 | 32 | 8 | 12800  |
+| Standard_L48s_v2  | 48 | 384 | 480 |  6x 1.92 TB  | 2,2 m/14000   | 48000/960  | 48000/2000 | 32 | 8 | 16000 + |
+| Standard_L64s_v2  | 64 | 512 | 640 |  8x 1.92 TB  | 2.9 m/16000   | 64000/1280 | 64000/2000 | 32 | 8 | 16000 + |
+| Standard_L80s_v2<sup>6</sup> | 80 | 640 | 800 | 10X 1.92 TB | 3.8 m/20000 | 80000/1400 | 80000/2000 | 32 | 8 | 16000 + |
 
 <sup>1</sup> virtuella datorer i Lsv2-serien har en SCSI-baserad temporär resurs disk för växlings-/växlings fil för operativ system (D: i Windows,/dev/SDB på Linux). Den här disken ger 80 GiB lagring, 4 000 IOPS och 80 MBps-överförings takt för varje 8-virtuella processorer (t. ex. Standard_L80s_v2 tillhandahåller 800 GiB vid 40 000 IOPS och 800 MBIT/s). Detta säkerställer att NVMe-enheter kan användas fullt ut för användning av program. Den här disken är tillfällig och alla data går förlorade vid stopp/frigörning.
 
@@ -73,6 +74,21 @@ Virtuella datorer med <sup>5</sup> Lsv2- [serien kan överföra](linux/disk-burs
 - Diskgenomflödet mäts i indata-/utdataåtgärder per sekund (IOPS) och Mbit/s där Mbit/s = 10^6 byte/sek.
 - Om du vill få bästa möjliga prestanda för dina virtuella datorer bör du begränsa antalet data diskar till 2 diskar per vCPU.
 - **Förväntad nätverks bandbredd** är den högsta sammanlagda [allokerade bandbredden per VM-typ](../virtual-network/virtual-machine-network-throughput.md) i alla nätverkskort, för alla mål. Övre gränser garanteras inte, men är avsedda att ge vägledning vid valet av VM-typ för det avsedda programmet. Faktiska nätverksprestanda beror på flera faktorer, t.ex. nätverksbelastning, programinläsningar och nätverksinställningar. Information om hur du optimerar dataflödet i nätverket finns i [Optimizing network throughput for Windows and Linux](../virtual-network/virtual-network-optimize-network-bandwidth.md) (Optimera nätverksgenomflödet för Windows och Linux). För att uppnå förväntade nätverksprestanda i Linux eller Windows kan det vara nödvändigt att välja en specifik version eller att optimera den virtuella datorn. Mer information finns i [How to reliably test for virtual machine throughput](../virtual-network/virtual-network-bandwidth-testing.md) (Tillförlitlig testning av genomflödet för en virtuell dator).
+
+
+## <a name="other-sizes-and-information"></a>Andra storlekar och information
+
+- [Generell användning](sizes-general.md)
+- [Minnesoptimerad](sizes-memory.md)
+- [Lagringsoptimerad](sizes-storage.md)
+- [GPU-optimerad](sizes-gpu.md)
+- [Databehandling med höga prestanda](sizes-hpc.md)
+- [Tidigare generationer](sizes-previous-gen.md)
+
+Pris kalkylator: [pris kalkylator](https://azure.microsoft.com/pricing/calculator/)
+
+Mer information om disk typer: [disk typer](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+
 
 ## <a name="next-steps"></a>Nästa steg
 

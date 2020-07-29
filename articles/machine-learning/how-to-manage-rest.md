@@ -7,15 +7,15 @@ ms.author: laobri
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 01/31/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 90ad8cc87f1d6a1893b96f6201a4260c03c94fee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 8aebcfc2a46de3922dbc41942e63e71844de6e83
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072215"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319753"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Skapa, köra och ta bort Azure ML-resurser med REST
 
@@ -33,7 +33,7 @@ I den här artikeln kan du se hur du:
 > * Rensa resurser med DELETE-begäranden 
 > * Använd nyckelbaserad auktorisering för att ange distribuerade modeller
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En **Azure-prenumeration** som du har administratörs behörighet för. Om du inte har en sådan prenumeration kan du prova den [kostnads fria eller betalda personliga prenumerationen](https://aka.ms/AMLFree)
 - En [Azure Machine Learning-arbetsyta](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
@@ -204,8 +204,8 @@ Observera att om du vill visa en lista över experiment börjar sökvägen med `
 
 |Område|Sökväg|
 |-|-|
-|Artifacts|artefakt/v 2.0/|
-|Datalager|data lager/v 1.0/|
+|Artifacts|/rest/api/azureml|
+|Datalager|/azure/machine-learning/how-to-access-data|
 |Finjustering av hyperparametrar|HyperDrive/v 1.0/|
 |Modeller|modelmanagement/v 1.0/|
 |Körningshistorik|körning/v 1.0/och historik/v 1.0/|

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 34b1ce42850fcefcc2b0d146e7f33d720fd8062d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a99499110951ccbc0458b5ce848930fed9205dad
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202528"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372045"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Använd det lokala webb gränssnittet för att administrera Data Box-enhet och Data Box Heavy
 
@@ -35,7 +35,7 @@ Den här artikeln innehåller följande självstudier:
 
 Om det uppstår enhetsproblem kan du skapa ett supportpaket från systemloggarna. Microsoft Support använder det här paketet för att felsöka problemet. Utför följande steg för att generera ett support paket:
 
-1. I det lokala webbgränssnittet går du till **Kontakta support** och klickar på **Skapa supportpaket**.
+1. I det lokala webb gränssnittet går du till **kontakta support** och väljer **skapa support paket**.
 
     ![Skapa supportpaket 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
@@ -43,14 +43,13 @@ Om det uppstår enhetsproblem kan du skapa ett supportpaket från systemloggarna
 
     ![Skapa supportpaket 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. När supportpaketet är klart klickar du på **Ladda ned supportpaket**. 
+3. När du har skapat ett support paket väljer du **Hämta support paket**.
 
     ![Skapa supportpaket 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
 
 4. Bläddra och välj nedladdningsplats. Öppna mappen för att visa innehållet.
 
     ![Skapa supportpaket 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
-
 
 ## <a name="shut-down-or-restart-your-device"></a>Stänga av eller starta om enheten
 
@@ -59,7 +58,7 @@ Du kan stänga av eller starta om enheten med hjälp av det lokala webb gränssn
 Följ stegen nedan om du vill stänga av enheten.
 
 1. I det lokala webbgränssnittet går du till **Stäng av eller starta om**.
-2. Klicka på **Stäng av**.
+2. Välj **Stäng av**.
 
     ![Stänga av dataruta 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
@@ -72,11 +71,11 @@ När enheten är avstängd använder du strömknappen på frontpanelen för att 
 Utför följande steg för att starta om din Data Box.
 
 1. I det lokala webbgränssnittet går du till **Stäng av eller starta om**.
-2. Klicka på **Starta om**.
+2. Välj **starta om**.
 
     ![Starta om dataruta 1](media/data-box-local-web-ui-admin/restart-local-web-ui-1.png)
 
-3. När du uppmanas att bekräfta klickar du på **OK** för att fortsätta.
+3. När du uppmanas att bekräfta, väljer du **OK** för att fortsätta.
 
    Enheten stängs av och startar sedan om.
 
@@ -90,9 +89,9 @@ Kontrol lera att enheten har slutförts **Förbered för att skicka** steget inn
 
     ![Enheten är klar för leverans](media/data-box-portal-admin/ready-to-ship.png)
 
-2. Klicka på **Ladda ned fillista** för att ladda ned listan med filer som kopierades på din Data Box.
+2. Välj **Hämta lista med filer** för att ladda ned listan med filer som kopierades till data Box-enhet.
 
-    ![Klicka på Ladda ned fillista](media/data-box-portal-admin/download-list-of-files.png)
+    ![Välj Hämta lista över filer](media/data-box-portal-admin/download-list-of-files.png)
 
 3. I Utforskaren ser du att en separat lista över filer genereras beroende på vilket protokoll som användes för att ansluta till enheten och vilken typ av Azure Storage-lagring du använde.
 
@@ -179,10 +178,51 @@ Vi rekommenderar starkt att du inte inaktiverar kontrollsumman såvida inte pres
     ![Inaktivera kontrollsumma](media/data-box-local-web-ui-admin/disable-checksum.png)
 
 2. **Inaktivera** validering av kontrollsummor
-3. Klicka på **Använd**.
+3. Välj **Använd**.
 
 > [!NOTE]
 > Alternativet för att hoppa över beräkning av kontroll summa är endast tillgängligt när Azure Data Box har låsts upp. Du ser inte det här alternativet när enheten är låst.
 
-- Lär dig hur du [hanterar data Box-enhet och data Box Heavy via Azure Portal](data-box-portal-admin.md).
+## <a name="enable-smb-signing"></a>Aktivera SMB-signering
 
+SMB-signering (Server Message Block) är en funktion genom vilken kommunikation som använder SMB kan signeras digitalt på paket nivå. Den här signeringen förhindrar attacker som ändrar SMB-paket under överföring.
+
+Mer information om SMB-signering finns i [Översikt över Server Message Block signering](https://support.microsoft.com/help/887429/overview-of-server-message-block-signing).
+
+Så här aktiverar du SMB-signering i din Azure-enhet:
+
+1. I det övre högra hörnet av det lokala webb gränssnittet på enheten väljer du **Inställningar**.
+
+    ![Öppna Inställningar](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Aktivera** SMB-signering.
+
+    ![Aktivera SMB-signering](media/data-box-local-web-ui-admin/data-box-smb-signing-1.png)
+
+3. Välj **Använd**.
+4. I det lokala webbgränssnittet går du till **Stäng av eller starta om**.
+5. Välj **starta om**.
+
+## <a name="enable-tls-11"></a>Aktivera TLS 1,1
+
+Som standard använder Azure Data Box Transport Layer Security (TLS) 1,2 för kryptering eftersom det är säkrare än TLS 1,1. Men om du eller dina klienter använder en webbläsare för att komma åt data som inte stöder TLS 1,2, kan du Aktivera TLS 1,1.
+
+Mer information om TLS finns i [Azure Data Box Gateway säkerhet](../databox-online/data-box-gateway-security.md).
+
+Så här aktiverar du TLS 1,1 i Azure-enheten:
+
+1. I det övre högra hörnet av det lokala webb gränssnittet på enheten väljer du **Inställningar**.
+
+    ![Öppna Inställningar](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Aktivera** TLS 1,1.
+
+    ![Aktivera TLS 1,1](media/data-box-local-web-ui-admin/data-box-tls-1-1.png)
+
+3. Välj **Använd**.
+4. I det lokala webbgränssnittet går du till **Stäng av eller starta om**.
+5. Välj **starta om**.
+
+## <a name="next-steps"></a>Nästa steg
+
+- Lär dig hur du [hanterar data Box-enhet och data Box Heavy via Azure Portal](data-box-portal-admin.md).

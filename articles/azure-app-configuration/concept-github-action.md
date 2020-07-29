@@ -6,11 +6,12 @@ ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 6d072cd03fa0e5c8da4593d8633a268d3b5a50fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66d0e32e7dfdd5ab2abee5108ac8ce54c5222747
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84197051"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371829"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Synkronisera din GitHub-lagringsplats med app-konfigurationen
 
@@ -24,7 +25,7 @@ Ett [arbets flöde](https://help.github.com/articles/about-github-actions#workfl
 GitHub- [dokumentationen](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) innehåller djupgående visning av GitHub-arbetsflöden och åtgärder. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Aktivera GitHub-åtgärder i din lagrings plats
-Om du vill börja använda den här GitHub-åtgärden går du till din lagrings plats och väljer fliken **åtgärder** . Klicka på **nytt arbets flöde**och **skapa sedan ett arbets flöde själv**. Slutligen söker du efter "Azure App konfigurations synkronisering" på Marketplace.
+Börja använda den här GitHub-åtgärden genom att gå till din lagrings plats och välja fliken **åtgärder** . Välj **nytt arbets flöde**och skapa sedan **ett arbets flöde själv**. Slutligen söker du efter "Azure App konfigurations synkronisering" på Marketplace.
 > [!div class="mx-imgBorder"]
 > ![Välj fliken åtgärd](media/find-github-action.png)
 
@@ -311,11 +312,11 @@ Indataparametrar anger data som används av åtgärden under körning.  Följand
 | format | Ja | Fil format för konfigurations filen.  Giltiga format är: JSON, YAML, Properties. |
 | Begär | Ja | Anslutnings sträng för app Configuration-instansen. Anslutnings strängen ska lagras som en hemlighet i GitHub-lagringsplatsen och endast det hemliga namnet ska användas i arbets flödet. |
 | brytning | Ja | Avgränsning som används vid förenkling av konfigurations filen till nyckel/värde-par.  Giltiga värden är:. , ; : - _ __ / |
-| protokollprefixet | No | Prefix som ska läggas till i början av nycklar. |
-| etikett | No | Etikett som används vid inställning av nyckel/värde-par. Om inget anges används en null-etikett. |
-| begränsade | No | Ett booleskt värde som anger om strikt läge är aktiverat. Standardvärdet är false. |
-| djuplodande | No | Högsta djup för att förenkla konfigurations filen.  Djupet måste vara ett positivt tal.  Standardvärdet har inget max djup. |
-| tags | No | Anger taggen som angetts för nyckel/värde-par.  Det förväntade formatet är en stringified form av ett JSON-objekt av följande form: {[propertyName: sträng]: String;} Varje egenskaps namn-värdet blir en tagg. |
+| protokollprefixet | Nej | Prefix som ska läggas till i början av nycklar. |
+| etikett | Nej | Etikett som används vid inställning av nyckel/värde-par. Om inget anges används en null-etikett. |
+| begränsade | Nej | Ett booleskt värde som anger om strikt läge är aktiverat. Standardvärdet är false. |
+| djuplodande | Nej | Högsta djup för att förenkla konfigurations filen.  Djupet måste vara ett positivt tal.  Standardvärdet har inget max djup. |
+| tags | Nej | Anger taggen som angetts för nyckel/värde-par.  Det förväntade formatet är en stringified form av ett JSON-objekt av följande form: {[propertyName: sträng]: String;} Varje egenskaps namn-värdet blir en tagg. |
 
 ## <a name="next-steps"></a>Nästa steg
 

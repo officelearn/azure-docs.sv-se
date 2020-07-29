@@ -3,12 +3,12 @@ title: 'Snabb start: Distribuera en app med LUIS-portalen'
 description: Den här snabb starten visar hur du distribuerar en app genom att skapa en förutsägelse slut punkts resurs, tilldela resursen, utbildningen och publicera appen.
 ms.topic: quickstart
 ms.date: 05/06/2020
-ms.openlocfilehash: 743c2fe311eeeabad5a3e957319be3a6e372e74f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3d12fa2956f962fe7a05b9639c1d32a7069635f9
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653227"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336386"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Snabb start: Distribuera en app i LUIS-portalen
 
@@ -19,7 +19,7 @@ I den här snabb starten lär du dig att distribuera ett program. Du skapar en f
 ## <a name="prerequisites"></a>Krav
 
 * Skaffa en [Azure-prenumeration](https://azure.microsoft.com/free).
-* Slutför den [föregående Portal snabb](get-started-portal-build-app.md) starten eller [Ladda ned och importera appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
+* Slutför den [föregående Portal snabb](get-started-portal-build-app.md) starten eller [Ladda ned och importera appen](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/portal-build-app.json).
 * [Migrera till en Azure-resurs](luis-migration-authoring.md)om du har appar som är i förväg inaktuella Azure-resurs-autentisering. Vissa Portal sidor ser annorlunda ut när e-postautentiseringen är aktiv.
 
 <a name="create-the-endpoint-resource"></a>

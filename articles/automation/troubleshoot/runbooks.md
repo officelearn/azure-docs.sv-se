@@ -2,19 +2,16 @@
 title: Felsöka Azure Automation Runbook-problem
 description: Den här artikeln beskriver hur du felsöker och löser problem med Azure Automation runbooks.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 01/24/2019
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: e0665a6aa55b998d54d076013a25e2efadaa2b06
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 9bf04ae6985ac2ce0e20bf70b3d7c003bbddca69
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187191"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337304"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Felsöka runbook-problem
 
@@ -511,6 +508,24 @@ Om du vill använda mer än 500 minuters bearbetning per månad ändrar du din p
 1. Välj **Inställningar**och välj sedan **prissättning**.
 1. Välj **Aktivera** på sidan längst ned för att uppgradera ditt konto till Basic-nivån.
 
+## <a name="scenario-runbook-output-stream-greater-than-1-mb"></a><a name="output-stream-greater-1mb"></a>Scenario: Runbook-utdataström som är större än 1 MB
+
+### <a name="issue"></a>Problem
+
+Din Runbook som körs i Azure sandbox Miss lyckas med följande fel:
+
+```error
+The runbook job failed due to a job stream being larger than 1MB, this is the limit supported by an Azure Automation sandbox.
+```
+
+### <a name="cause"></a>Orsak
+
+Det här felet beror på att runbooken försökte skriva för mycket undantags data till utdataströmmen.
+
+### <a name="resolution"></a>Lösning
+
+Det finns en gräns på 1 MB för jobbets utgående data ström. Se till att din Runbook avstår anrop till en körbar fil eller under process genom att använda `try` och `catch` blockera. Om åtgärderna genererar ett undantag ska koden skriva meddelandet från undantaget till en Automation-variabel. Den här tekniken förhindrar att meddelandet skrivs in i utdataströmmen för jobb. För att Hybrid Runbook Worker jobb körs, trunkeras den utgående strömmen till 1 MB utan fel meddelande.
+
 ## <a name="scenario-runbook-job-start-attempted-three-times-but-fails-to-start-each-time"></a><a name="job-attempted-3-times"></a>Scenario: Runbook-jobbets start försök tre gånger, men kunde inte startas varje gång
 
 ### <a name="issue"></a>Problem
@@ -526,20 +541,22 @@ The job was tried three times but it failed
 Felet beror på ett av följande problem:
 
 * **Minnes gräns.** Ett jobb kan Miss förorsakat om det använder mer än 400 MB minne. De dokumenterade gränserna för minne som allokerats till en sandbox finns i [begränsningar för Automation-tjänster](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). 
+
 * **Nätverks platser.** Azure-sand lådor är begränsade till 1 000 samtidiga nätverks platser. Mer information finns i [begränsningar för Automation-tjänster](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
+
 * **Modulen är inkompatibel.** Beroenden för modulen kan vara felaktiga. I det här fallet returnerar din Runbook vanligt vis ett `Command not found` eller `Cannot bind parameter` meddelande.
+
 * **Ingen autentisering med Active Directory för sandbox.** Din Runbook försökte anropa en körbar fil eller under process som körs i en Azure-sandbox. Det finns inte stöd för att konfigurera Runbooks för autentisering med Azure AD med hjälp av Azure Active Directory Authentication Library (ADAL).
-* **För mycket undantags data.** Din Runbook försökte skriva för mycket undantags data till utdataströmmen.
 
 ### <a name="resolution"></a>Lösning
 
 * **Minnes gräns, nätverks platser.** Föreslagna sätt att arbeta inom minnes gränserna är att dela arbets belastningen mellan flera Runbooks, bearbeta mindre data i minnet, undvika att skriva onödiga utdata från dina runbooks och fundera över hur många kontroll punkter som skrivs in i PowerShell Workflow-Runbooks. Använd Clear-metoden, till exempel `$myVar.clear` , för att rensa variabler och använda `[GC]::Collect` för att köra skräp insamling direkt. De här åtgärderna minskar din Runbooks minnes storlek under körning.
+
 * **Modulen är inkompatibel.** Uppdatera dina Azure-moduler genom att följa stegen i [så här uppdaterar du Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md).
+
 * **Ingen autentisering med Active Directory för sandbox.** När du autentiserar till Azure AD med en Runbook kontrollerar du att Azure AD-modulen är tillgänglig i ditt Automation-konto. Se till att ge kör som-kontot de behörigheter som krävs för att utföra de uppgifter som Runbook automatiserar.
 
   Om din Runbook inte kan anropa en körbar fil eller under process som körs i en Azure-sandbox, använder du runbooken på en [hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Worker begränsas inte av de minnes-och nätverks gränser som Azure-sandbox har.
-
-* **För mycket undantags data.** Det finns en gräns på 1 MB i utdataströmmen för jobb. Se till att din Runbook avstår anrop till en körbar fil eller under process genom att använda `try` och `catch` blockera. Om åtgärderna genererar ett undantag ska koden skriva meddelandet från undantaget till en Automation-variabel. Den här tekniken förhindrar att meddelandet skrivs in i utdataströmmen för jobb.
 
 ## <a name="scenario-powershell-job-fails-with-cannot-invoke-method-error-message"></a><a name="cannot-invoke-method"></a>Scenario: PowerShell-jobbet Miss lyckas med fel meddelandet "det går inte att anropa metoden"
 

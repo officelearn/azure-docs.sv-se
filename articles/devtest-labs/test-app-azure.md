@@ -3,12 +3,12 @@ title: Testa din app i Azure | Microsoft Docs
 description: Lär dig hur du skapar en fil resurs i ett labb och monterar den på din lokala dator och en virtuell dator i labbet. distribuera sedan Skriv bord/webb program till fil resursen och testa dem.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 30e77e67a1674b2170c1d1782f1389274afa4c35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2dbbf349da4e352fe20a22db03cc9063d801990
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476503"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282253"
 ---
 # <a name="test-your-app-in-azure"></a>Testa appen i Azure 
 Den här artikeln innehåller steg för att testa ditt program i Azure med DevTest Labs. Först skapar du en fil resurs i ett labb och monterar den som en enhet på din lokala utvecklings dator och en virtuell dator i ett labb. Sedan använder du Visual Studio 2019 för att distribuera din app till fil resursen så att du kan köra appen på den virtuella datorn i labbet.  
@@ -18,7 +18,7 @@ Den här artikeln innehåller steg för att testa ditt program i Azure med DevTe
 ## <a name="prerequisites"></a>Krav 
 1. [Skapa en Azure-prenumeration](https://azure.microsoft.com/free/) om du inte redan har en och logga in på [Azure Portal](https://portal.azure.com).
 2. Följ anvisningarna i [den här artikeln](devtest-lab-create-lab.md) för att skapa ett labb med hjälp av Azure DevTest Labs. Fäst labbet på instrument panelen så att du enkelt kan hitta den nästa gången du loggar in. Med Azure DevTest Labs kan du snabbt skapa resurser i Azure genom att minimera spill och kontrol lera kostnaden. Mer information om DevTest Labs finns i [Översikt](devtest-lab-overview.md). 
-3. Skapa ett Azure Storage-konto i Labbets resurs grupp genom att följa anvisningarna i artikeln [skapa ett lagrings konto](../storage/common/storage-create-storage-account.md) . På sidan **skapa lagrings konto** väljer du **Använd befintlig** för **resurs grupp**och väljer sedan **Labbets resurs grupp**. 
+3. Skapa ett Azure Storage-konto i Labbets resurs grupp genom att följa anvisningarna i artikeln [skapa ett lagrings konto](../storage/common/storage-account-create.md) . På sidan **skapa lagrings konto** väljer du **Använd befintlig** för **resurs grupp**och väljer sedan **Labbets resurs grupp**. 
 4. Skapa en fil resurs i Azure Storage genom att följa anvisningarna i artikeln [skapa en fil resurs i Azure Files](../storage/files/storage-how-to-create-file-share.md) . 
 
 ## <a name="mount-the-file-share-on-your-local-machine"></a>Montera fil resursen på den lokala datorn

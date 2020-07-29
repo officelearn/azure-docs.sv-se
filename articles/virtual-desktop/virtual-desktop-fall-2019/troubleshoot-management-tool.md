@@ -1,6 +1,6 @@
 ---
-title: Windows hanterings verktyg för virtuella skriv bord – Azure
-description: Fel sökning av problem med verktyget för hantering av virtuella Windows-datorer.
+title: Hanterings verktyg för virtuella Windows-datorer (klassiskt) – Azure
+description: Fel sökning av problem med hanterings verktyget för virtuella Windows-datorer (klassisk).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bb9206d2c2c15c036b0cf1184b79ed126966eb3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 442cdce2ebb6c1a3e38932411dfa2b081a44ef9f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82614803"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283375"
 ---
-# <a name="troubleshoot-the-windows-virtual-desktop-management-tool"></a>Felsöka Windows Virtual Desktop-hanteringsverktyget
+# <a name="troubleshoot-the-windows-virtual-desktop-classic-management-tool"></a>Felsöka hanterings verktyget för Windows Virtual Desktop (klassiskt)
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt.
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows.
 
 Den här artikeln beskriver problem som kan uppstå när du distribuerar Windows hanterings verktyg för virtuella skriv bord och hur du åtgärdar dem.
 

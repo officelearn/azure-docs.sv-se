@@ -8,14 +8,15 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 476f3925886a6de68b49e1861d22e6cfaf594202
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c794b87a88cec20b75923e1f251c1e309a43ef1c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601469"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319600"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Köra Jupyter Notebooks på arbetsytan
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,9 +30,9 @@ Se hur du kan:
 * Ändra Notebook-miljön
 * Hitta information om de beräknings instanser som används för att köra dina antecknings böcker
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
 * En Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
 ## <a name="create-notebooks"></a><a name="create"></a>Skapa antecknings böcker
@@ -200,9 +201,9 @@ En indikator bredvid List rutan **Compute** visar dess status.  Statusen visas o
 
 |Färg |Beräknings status |
 |---------|---------| 
-| Grön | Beräkning som körs |
-| Röd |Det gick inte att beräkna | 
-| Svart | Beräkning stoppad |
+| Green | Beräkning som körs |
+| Red |Det gick inte att beräkna | 
+| Svarta | Beräkning stoppad |
 |  Ljusblå |Beräkning skapa, starta, starta om, konfigurera |
 |  Mörkgrå |Ta bort beräkning, stoppa |
 
@@ -210,7 +211,7 @@ En indikator bredvid List rutan **kernel** visar dess status.
 
 |Färg |Kernel-status |
 |---------|---------|
-|  Grön |Kernel-ansluten, inaktiv, upptagen|
+|  Green |Kernel-ansluten, inaktiv, upptagen|
 |  Mörkgrå |Kernel inte ansluten |
 
 ## <a name="find-compute-details"></a>Hitta beräknings information 

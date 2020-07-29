@@ -3,12 +3,12 @@ title: Minska tjänste kostnaderna med Azure Advisor
 description: Använd Azure Advisor för att optimera kostnaden för dina Azure-distributioner.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 6fa57726ee37d78438b4e07d329f1af00f157d7e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e8f0e555f71c31bb3286cee59bb7161c3ce3986e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057737"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284378"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Minska service kostnaderna genom att använda Azure Advisor
 
@@ -89,7 +89,7 @@ För att spara 60% av kostnaden rekommenderar vi att du lagrar dina ögonblicks 
 Genom att använda information om antalet Azure Blob Storage-objekt, Total storlek och transaktioner, identifierar Advisor om du ska aktivera livs cykel hantering för att skikta data på ett eller flera av dina lagrings konton. Du uppmanas att skapa livs cykel hanterings regler för att automatiskt hantera dina data till låg frekvent lagring eller Arkiv lag ring för att optimera dina lagrings kostnader samtidigt som du behåller dina data i Azure Blob Storage för programkompatibilitet.
 
 ## <a name="create-an-ephemeral-os-disk-recommendation"></a>Rekommendation om skapande av en tillfällig OS-disk
-Med en [tillfällig OS-disk](../virtual-machines/windows/ephemeral-os-disks.md) kan du: 
+Med en [tillfällig OS-disk](../virtual-machines/ephemeral-os-disks.md) kan du: 
 - Spara pengar på lagrings kostnader för OS-diskar. 
 - Få mindre Läs-/skriv fördröjning till OS-diskar. 
 - Få snabbare avbildnings åtgärder för virtuella datorer genom att återställa operativ systemet (och temporär disk) till dess ursprungliga tillstånd.

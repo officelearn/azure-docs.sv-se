@@ -4,16 +4,16 @@ description: Den här artikeln innehåller en samling av AzCopy-exempel kommando
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: ac96008987b0dbed9e3a39f92e608b8ae6c82512
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bcb4563f7106161920b89897b706b05d2f819938
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513771"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282457"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Överföra data med AzCopy och Blob Storage
 
@@ -52,7 +52,7 @@ Du kan använda kommandot [AzCopy Copy](storage-ref-azcopy-copy.md) för att lad
 Det här avsnittet innehåller följande exempel:
 
 > [!div class="checklist"]
-> * Överför en fil
+> * Ladda upp en fil
 > * Ladda upp en katalog
 > * Ladda upp innehållet i en katalog 
 > * Ladda upp vissa filer
@@ -62,12 +62,12 @@ Det här avsnittet innehåller följande exempel:
 >
 > |Scenario|Flagga|
 > |---|---|
-> |Ladda upp filer som bifogade blobbar eller Page blobbar.|**--BLOB-Type** = \[ BlockBlob \| PageBlob- \| AppendBlob\]|
-> |Överför till en speciell åtkomst nivå (till exempel Arkiv nivån).|**--Block-Blob-Tier** = \[ Inget \| varmt \| coolt \| Arkiv\]|
+> |Ladda upp filer som bifogade blobar eller sidblobar.|**--BLOB-Type** = \[ BlockBlob \| PageBlob- \| AppendBlob\]|
+> |Ladda upp till en viss åtkomstnivå (till exempel arkivnivå).|**--Block-Blob-Tier** = \[ Inget \| varmt \| coolt \| Arkiv\]|
 > 
 > En fullständig lista finns i [alternativ](storage-ref-azcopy-copy.md#options).
 
-### <a name="upload-a-file"></a>Överför en fil
+### <a name="upload-a-file"></a>Ladda upp en fil
 
 |    |     |
 |--------|-----------|
@@ -111,7 +111,7 @@ Du kan ladda upp innehållet i en katalog utan att kopiera den innehåller själ
 
 ### <a name="upload-specific-files"></a>Ladda upp vissa filer
 
-Du kan ange fullständiga fil namn eller använda partiella namn med jokertecken (*).
+Du kan ladda upp vissa filer genom att använda fullständiga fil namn, partiella namn med jokertecken (*) eller med hjälp av datum och tider.
 
 #### <a name="specify-multiple-complete-file-names"></a>Ange flera fullständiga fil namn
 
@@ -141,6 +141,18 @@ Du kan också utesluta filer med hjälp av `--exclude-pattern` alternativet. Mer
 
 `--include-pattern`Alternativen och `--exclude-pattern` gäller endast för fil namn och inte till sökvägen.  Om du vill kopiera alla textfiler som finns i ett katalog träd, använder du `–recursive` alternativet för att hämta hela katalog trädet och använder sedan `–include-pattern` och anger `*.txt` för att hämta alla textfiler.
 
+#### <a name="upload-files-that-were-modified-after-a-date-and-time"></a>Ladda upp filer som har ändrats efter datum och tid 
+
+Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-after` alternativet. Ange ett datum och en tid i ISO-8601-format (till exempel: `2020-08-19T15:04:00Z` ). 
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **Exempel** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+| **Exempel** (hierarkiskt namn område) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory'   --include-after '2020-08-19T15:04:00Z'` |
+
+Mer detaljerad information finns i referens dokument för [AzCopy-kopiering](storage-ref-azcopy-copy.md) .
+
 ## <a name="download-files"></a>Hämta filer
 
 Du kan använda [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot för att ladda ned blobbar, kataloger och behållare till den lokala datorn.
@@ -148,7 +160,7 @@ Du kan använda [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot för att la
 Det här avsnittet innehåller följande exempel:
 
 > [!div class="checklist"]
-> * Hämta en fil
+> * Ladda ned en fil
 > * Ladda ned en katalog
 > * Hämta innehållet i en katalog
 > * Hämta vissa filer
@@ -167,7 +179,7 @@ Det här avsnittet innehåller följande exempel:
 > [!NOTE]
 > Om `Content-md5` egenskap svärdet för en BLOB innehåller en hash beräknar AzCopy en MD5-hash för hämtade data och verifierar att MD5-hashen som lagras i blobens `Content-md5` egenskap matchar den beräknade hashen. Om dessa värden inte matchar, Miss lyckas nedladdningen om du inte åsidosätter det här beteendet genom att lägga till `--check-md5=NoCheck` eller `--check-md5=LogOnly` till kommandot Kopiera.
 
-### <a name="download-a-file"></a>Hämta en fil
+### <a name="download-a-file"></a>Ladda ned en fil
 
 |    |     |
 |--------|-----------|
@@ -202,7 +214,7 @@ Du kan ladda ned innehållet i en katalog utan att kopiera den innehåller själ
 
 ### <a name="download-specific-files"></a>Hämta vissa filer
 
-Du kan ange fullständiga fil namn eller använda partiella namn med jokertecken (*).
+Du kan hämta vissa filer genom att använda fullständiga fil namn, partiella namn med jokertecken (*) eller med hjälp av datum och tider. 
 
 #### <a name="specify-multiple-complete-file-names"></a>Ange flera fullständiga fil namn
 
@@ -231,6 +243,18 @@ Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-patt
 Du kan också utesluta filer med hjälp av `--exclude-pattern` alternativet. Mer information finns i referens dokument för [AzCopy Copy](storage-ref-azcopy-copy.md) .
 
 `--include-pattern`Alternativen och `--exclude-pattern` gäller endast för fil namn och inte till sökvägen.  Om du vill kopiera alla textfiler som finns i ett katalog träd, använder du `–recursive` alternativet för att hämta hela katalog trädet och använder sedan `–include-pattern` och anger `*.txt` för att hämta alla textfiler.
+
+#### <a name="download-files-that-were-modified-after-a-date-and-time"></a>Ladda ned filer som har ändrats efter datum och tid 
+
+Använd [AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot med `--include-after` alternativet. Ange ett datum och en tid i ISO-8601-format (till exempel: `2020-08-19T15:04:00Z` ). 
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>/*' '<local-directory-path>' --include-after <Date-Time-in-ISO-8601-format>` |
+| **Exempel** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+| **Exempel** (hierarkiskt namn område) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+
+Mer detaljerad information finns i referens dokument för [AzCopy-kopiering](storage-ref-azcopy-copy.md) .
 
 ## <a name="copy-blobs-between-storage-accounts"></a>Kopiera blobar mellan lagringskonton
 
@@ -332,14 +356,14 @@ Om du ställer in `--delete-destination` flaggan på `true` AzCopy tar bort file
 
 ### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Uppdatera en behållare med ändringar i ett lokalt fil system
 
-I det här fallet är behållaren målet och det lokala fil systemet är källan. 
+I det här fallet är containern målet och det lokala filsystemet är källan. 
 
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy sync '<local-directory-path>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
 | **Exempel** | `azcopy sync 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive` |
 
-### <a name="update-a-local-file-system-with-changes-to-a-container"></a>Uppdatera ett lokalt fil system med ändringar i en behållare
+### <a name="update-a-local-file-system-with-changes-to-a-container"></a>Uppdatera ett lokalt filsystem med ändringar i en container
 
 I det här fallet är det lokala fil systemet målet och behållaren är källan.
 
@@ -374,7 +398,7 @@ Hitta fler exempel i någon av följande artiklar:
 
 - [Självstudie: Migrera lokala data till molnlagring med AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 
-- [Överföra data med AzCopy och fil lagring](storage-use-azcopy-files.md)
+- [Överföra data med AzCopy och fillagring](storage-use-azcopy-files.md)
 
 - [Överföra data med AzCopy och Amazon S3-buckets](storage-use-azcopy-s3.md)
 

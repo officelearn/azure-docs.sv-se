@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: d1ed294412e44c79fc1eb8cbc01bf134f08a953f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.author: mingshen
+author: mingshen-ms
+ms.openlocfilehash: 07779769dae4c43148bbf4a8205feceea85ed363
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118944"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320059"
 ---
 # <a name="managed-application-metered-billing"></a>Förvaltad fakturering för program 
 
@@ -65,7 +67,7 @@ Fakturerings dimensioner delas i alla planer för ett erbjudande. Vissa attribut
 Attributen, som definierar själva dimensionen, delas i alla planer för ett erbjudande. Innan du publicerar erbjudandet påverkar en ändring av dessa attribut från kontexten för varje plan dimensions definitionen för alla planer. När du har publicerat erbjudandet kan dessa attribut inte längre redige ras. Attributen är:
 
 * Identifierare
-* Name
+* Namn
 * Måttenhet
 
 De andra attributen för en dimension är speciella för varje plan och kan ha olika värden för att planera.  Innan du publicerar planen kan du redigera dessa värden och endast den här planen kommer att påverkas. När du publicerar planen går dessa attribut inte längre att redige ras. Attributen är:
@@ -91,7 +93,7 @@ En dimension som används med Marketplace-avläsning är en förståelse för hu
 När ett erbjudande publiceras med en dimension kan informationen om erbjudande nivå för den dimensionen inte längre ändras:
 
 * Identifierare
-* Name
+* Namn
 * Måttenhet
 
 När en plan har publicerats kan informationen på Plans nivå inte längre ändras:
@@ -109,21 +111,13 @@ Det maximala antalet dimensioner som kan konfigureras för ett enda erbjudande �
 
 ## <a name="get-support"></a>Få support
 
-Om något av följande fall gäller kan du öppna ett support ärende.
+Om du har något av följande problem kan du öppna ett support ärende.
 
 * Tekniska problem med API för avläsning av tjänst i Marketplace.
 * Ett problem som måste eskaleras på grund av ett fel eller fel på sidan (t. ex. fel användnings händelse).
 * Eventuella andra problem som rör mätning av fakturering.
 
-Följ stegen nedan för att skicka in ditt support ärende:
-
-1. Gå till [support Sidan](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). De första menyerna fylls i automatiskt. För Marketplace-support identifierar du produkt familjen som **moln-och online tjänster**, produkten som **Marketplace-utgivare**. Ändra inte List rutorna för förifyllda menyer.
-2. Under "Välj produkt version" väljer du **hantering av Live-erbjudandet**.
-3. Under "Välj en kategori som bäst beskriver problemet" väljer du **erbjudande för Azure-program**.
-4. Under "Välj ett problem som bäst beskriver problemet" väljer du **avgiftsbelagd fakturering**.
-5. Genom att välja knappen **Nästa** kommer du till sidan **ärende information** , där du kan ange mer information om problemet.
-
-Fler support alternativ för utgivare finns i [Support för programmet för kommersiella marknads platser i Partner Center](support.md).
+Följ anvisningarna [för programmet för kommersiella marknads platser i Partner Center](./support.md) för att förstå support alternativen för Publisher och öppna support ärenden med Microsoft.
 
 ## <a name="next-steps"></a>Nästa steg
 

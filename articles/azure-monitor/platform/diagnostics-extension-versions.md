@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 42924b4ac5493fc910079ca1f89a6195ccba55e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 16fba1f036299a84db8301dbc09c7f4884d985f3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007919"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305099"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Windows Azure-diagnostik Extension (WAD) konfigurations schema versioner och historik
 Den här artikeln innehåller versions historiken för de [Azure-diagnostik-tillägg för Windows (wad)](diagnostics-extension-overview.md) schema versioner som ingår i Microsoft Azure SDK.  
@@ -47,7 +47,7 @@ Olika versioner av Azure Diagnostics använder olika konfigurations scheman. Sch
 ### <a name="diagnostics-extension-111"></a>Diagnostik-tillägg 1,11
 Stöd har lagts till för Azure Monitor mottagare. Denna mottagare kan bara användas för prestanda räknare. Möjliggör sändning av prestanda räknare som samlas in på din virtuella dator, VMSS eller moln tjänst till Azure Monitor som anpassade mått. Azure Monitor-mottagaren stöder:
 * Hämta alla prestanda räknare som skickats till Azure Monitor via [API: er för Azure Monitor mått.](/rest/api/monitor/metrics/list)
-* Aviseringar om alla prestanda räknare som skickas till Azure Monitor via den nya [enhetliga aviserings upplevelsen](../../azure-monitor/platform/alerts-overview.md) i Azure Monitor
+* Aviseringar om alla prestanda räknare som skickas till Azure Monitor via den nya [enhetliga aviserings upplevelsen](./alerts-overview.md) i Azure Monitor
 * Behandlar operator med jokertecken i prestanda räknare som "instance"-dimensionen på måttet. Om du till exempel har samlat in räknaren "logisk disk ( \* )/DiskWrites/SEC" kan du filtrera och dela på "instance"-dimensionen för att rita eller varna på disk skrivningar/s för varje logisk disk (C:, D: osv.)
 
 Definiera Azure Monitor som ny mottagare i konfiguration av diagnostiska tillägg
@@ -155,7 +155,7 @@ Lagrings typen har lagts till i PublicConfig. StorageType kan vara *Table*, *BLO
 Har lagt till möjligheten att dirigera till EventHub.
 
 ### <a name="diagnostics-extension-15"></a>Diagnostik-tillägg 1,5
-Du har lagt till Sinks-elementet och möjligheten att skicka diagnostikdata till [Application Insights](../../azure-monitor/app/cloudservices.md) göra det enklare att diagnostisera problem i ditt program och system-och infrastruktur nivå.
+Du har lagt till Sinks-elementet och möjligheten att skicka diagnostikdata till [Application Insights](../app/cloudservices.md) göra det enklare att diagnostisera problem i ditt program och system-och infrastruktur nivå.
 
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2,6 och diagnostiskt tillägg 1,3
 Följande ändringar har gjorts för moln tjänst projekt i Visual Studio. (Dessa ändringar gäller även senare versioner av Azure SDK.)
@@ -190,3 +190,4 @@ Om du uppgraderar projektet från Azure SDK 2,4 till Azure SDK 2,5 eller senare 
 * **Diagnostik för moln tjänst program kan bara konfigureras på roll nivå, inte på instans nivå.**
 * **Varje gång du distribuerar appen uppdateras diagnostiken** – detta kan orsaka paritets problem om du ändrar din diagnostiska konfiguration från Server Explorer och sedan distribuerar om din app.
 * **I Azure SDK 2,5 och senare konfigureras krasch dum par i diagnostikens konfigurations fil, inte i kod** – om du har krasch dum par som kon figurer ATS i kod måste du manuellt överföra konfigurationen från kod till konfigurations filen, eftersom krasch dum par inte överförs under migreringen till Azure SDK 2,6.
+

@@ -3,15 +3,15 @@ title: Skapa och ladda upp en CentOS Linux-baserad virtuell dator
 description: Lär dig att skapa och överföra en virtuell Azure-hårddisk (VHD) som innehåller ett CentOS-baserat Linux-operativsystem.
 author: gbowerman
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: guybo
-ms.openlocfilehash: f537f9e3315ab9d6e0b7f1c6341e94196f9aaa5b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9097fb4aefe168ce36793d13f892fbbeab10ad56
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510947"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372747"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Förbereda en CentOS-baserad virtuell dator för Azure
 
@@ -21,7 +21,7 @@ Lär dig att skapa och överföra en virtuell Azure-hårddisk (VHD) som innehål
 * [Förbered en CentOS 7.0 + virtuell dator för Azure](#centos-70)
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du redan har installerat ett Linux-operativsystem med CentOS (eller liknande derivat) till en virtuell hård disk. Det finns flera verktyg för att skapa. VHD-filer, till exempel en virtualiseringslösning som Hyper-V. Anvisningar finns i [Installera Hyper-V-rollen och konfigurera en virtuell dator](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 

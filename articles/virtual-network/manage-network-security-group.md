@@ -1,7 +1,7 @@
 ---
 title: Skapa, ändra eller ta bort en Azure-nätverks säkerhets grupp
 titlesuffix: Azure Virtual Network
-description: Lär dig hur du skapar, ändrar eller tar bort en nätverks säkerhets grupp.
+description: Lär dig var du hittar information om säkerhets regler och hur du skapar, ändrar eller tar bort en nätverks säkerhets grupp.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -11,11 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 38fe9582595969ac92d3468b3b7e8c0a9d793c0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfb6426ec4e75f6484df37008522b966ebc3af6f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708288"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281267"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Skapa, ändra eller ta bort en nätverkssäkerhetsgrupp
 
@@ -45,7 +46,7 @@ Du kan skapa, [Visa alla](#view-all-network-security-groups), [Visa information 
 
 Det finns en gräns för hur många nätverks säkerhets grupper du kan skapa för varje Azure-plats och prenumeration. Läs mer i Azure- [prenumeration och tjänst begränsningar, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-1. På [Azure Portal](https://portal.azure.com) -menyn eller på **Start** sidan väljer du **skapa en resurs**.
+1. I menyn i [Azure-portalen](https://portal.azure.com) eller på sidan **Start** väljer du **Skapa en resurs**.
 
 2. Välj **nätverk**och välj sedan **nätverks säkerhets grupp**.
 
@@ -56,7 +57,7 @@ Det finns en gräns för hur många nätverks säkerhets grupper du kan skapa f�
     | **Prenumeration** | Välj din prenumeration. |
     | **Resursgrupp** | Välj en befintlig resurs grupp eller skapa en ny resurs grupp genom att välja **Skapa ny** . |
     | **Namn** | Ange en unik text sträng inom en resurs grupp. |
-    | **Nationella** | Välj den plats som du vill använda. |
+    | **Region** | Välj den plats som du vill använda. |
 
 4. Välj **Granska + skapa**.
 
@@ -95,7 +96,7 @@ Mer information om de vanliga Azure-inställningarna i listan finns i följande 
 - [Aktivitetslogg](../azure-monitor/platform/platform-logs-overview.md)
 - [Åtkomstkontroll (IAM)](../role-based-access-control/overview.md)
 - [Taggar](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Hålls](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Lås](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Automationsskript](../azure-resource-manager/templates/export-template-portal.md)
 
 #### <a name="commands"></a>Kommandon
@@ -261,7 +262,7 @@ En program säkerhets grupp innehåller noll eller flera nätverks gränssnitt. 
 
 ### <a name="create-an-application-security-group"></a>Skapa en program säkerhets grupp
 
-1. På [Azure Portal](https://portal.azure.com) -menyn eller på **Start** sidan väljer du **skapa en resurs**.
+1. I menyn i [Azure-portalen](https://portal.azure.com) eller på sidan **Start** väljer du **Skapa en resurs**.
 
 2. I rutan Sök anger du *program säkerhets grupp*.
 
@@ -274,7 +275,7 @@ En program säkerhets grupp innehåller noll eller flera nätverks gränssnitt. 
     | **Prenumeration** | Välj din prenumeration. |
     | **Resursgrupp** | Välj en befintlig resurs grupp eller skapa en ny resurs grupp genom att välja **Skapa ny** . |
     | **Namn** | Ange en unik text sträng inom en resurs grupp. |
-    | **Nationella** | Välj den plats som du vill använda. |
+    | **Region** | Välj den plats som du vill använda. |
 
 5. Välj **Granska + skapa**.
 
@@ -354,7 +355,7 @@ Om du vill utföra uppgifter i nätverks säkerhets grupper, säkerhets regler o
 
 ### <a name="network-security-group"></a>Nätverkssäkerhetsgrupp
 
-| Åtgärd                                                        |   Name                                                                |
+| Åtgärd                                                        |   Namn                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft. Network/networkSecurityGroups/Read                  |   Hämta nätverks säkerhets grupp                                          |
 | Microsoft. Network/networkSecurityGroups/Write                 |   Skapa eller uppdatera nätverks säkerhets grupp                             |
@@ -363,7 +364,7 @@ Om du vill utföra uppgifter i nätverks säkerhets grupper, säkerhets regler o
 
 ### <a name="network-security-group-rule"></a>Regel för nätverks säkerhets grupp
 
-| Åtgärd                                                        |   Name                                                                |
+| Åtgärd                                                        |   Namn                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft. Network/networkSecurityGroups/securityRules/Read            |   Hämta regel                                                            |
 | Microsoft. Network/networkSecurityGroups/securityRules/Write           |   Skapa eller uppdatera regel                                               |
@@ -371,7 +372,7 @@ Om du vill utföra uppgifter i nätverks säkerhets grupper, säkerhets regler o
 
 ### <a name="application-security-group"></a>Programsäkerhetsgrupp
 
-| Åtgärd                                                                     | Name                                                     |
+| Åtgärd                                                                     | Namn                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
 | Microsoft. Network/applicationSecurityGroups/joinIpConfiguration/Action     | Koppla en IP-konfiguration till en program säkerhets grupp|
 | Microsoft. Network/applicationSecurityGroups/joinNetworkSecurityRule/Action | Koppla en säkerhets regel till en program säkerhets grupp    |

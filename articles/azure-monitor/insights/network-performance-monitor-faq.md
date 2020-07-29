@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: d85cd05ee6b40b6b660958330145ed0c61b1b0a3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 45a10ddce165626bfbadb0ba0b3d68b81709c3bb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539677"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326145"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor om Övervakare av nätverksprestanda-lösning
 
@@ -19,7 +19,7 @@ ms.locfileid: "86539677"
 
 Den här artikeln innehåller vanliga frågor och svar om Övervakare av nätverksprestanda (NPM) i Azure
 
-[Övervakare av nätverksprestanda](../../networking/network-monitoring-overview.md) är en molnbaserad [hybrid nätverks övervaknings](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) lösning som hjälper dig att övervaka nätverks prestanda mellan olika platser i din nätverks infrastruktur. Du kan också övervaka nätverks anslutningen till [tjänst-och program slut punkter](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) och [övervaka Azure-ExpressRoute prestanda](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
+[Övervakare av nätverksprestanda](../../networking/network-monitoring-overview.md) är en molnbaserad [hybrid nätverks övervaknings](./network-performance-monitor-performance-monitor.md) lösning som hjälper dig att övervaka nätverks prestanda mellan olika platser i din nätverks infrastruktur. Du kan också övervaka nätverks anslutningen till [tjänst-och program slut punkter](./network-performance-monitor-service-connectivity.md) och [övervaka Azure-ExpressRoute prestanda](./network-performance-monitor-expressroute.md). 
 
 Övervakare av nätverksprestanda identifierar nätverks problem som trafik blackholing, synkroniseringsfel och problem som konventionella nätverks övervaknings metoder inte kan identifiera. Lösningen genererar aviseringar och meddelar dig när ett tröskelvärde överskrids för en nätverkslänk. Detta säkerställer att problem med nätverksprestanda upptäcks i god tid och att källan till problemet kan ringas in till ett visst nätverkssegment eller enhet. 
 
@@ -40,7 +40,7 @@ Möjligheten att övervaka nätverk som använder Linux-baserade noder är för 
 För att köra NPM-lösningen på nod-VM: ar för att övervaka nätverk ska noderna ha minst 500 MB minne och en kärna. Du behöver inte använda separata noder för att köra NPM. Lösningen kan köras på noder som har andra arbets belastningar som körs på den. Lösningen har möjlighet att stoppa övervaknings processen om den använder mer än 5% processor.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>Ska jag använda NPM för att ansluta mina noder som direkt agent eller via System Center Operations Manager?
-Både prestanda övervakaren och tjänsten för tjänst anslutnings övervakaren stöder noder [som är anslutna som direkta agenter](../../azure-monitor/platform/agent-windows.md) och [anslutna via Operations Manager](../../azure-monitor/platform/om-agents.md).
+Både prestanda övervakaren och tjänsten för tjänst anslutnings övervakaren stöder noder [som är anslutna som direkta agenter](../platform/agent-windows.md) och [anslutna via Operations Manager](../platform/om-agents.md).
 
 För ExpressRoute Monitor-kapacitet ska Azure-noderna endast anslutas som direkta agenter. Azure-noder som är anslutna via Operations Manager stöds inte. Noder som är anslutna som direkta agenter och via Operations Manager stöds för att övervaka en ExpressRoute-krets för lokala noder.
 
@@ -49,12 +49,12 @@ Om du övervakar nätverket med hjälp av Windows Server-baserade noder rekommen
 
 ICMP rekommenderas för noder i Windows-datorer/klient operativ system. Den här plattformen tillåter inte att TCP-data skickas över RAW-socketar som används av NPM för att identifiera nätverkstopologi.
 
-Du kan få mer information om de relativa fördelarna med varje protokoll [här](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol).
+Du kan få mer information om de relativa fördelarna med varje protokoll [här](./network-performance-monitor-performance-monitor.md#choose-the-protocol).
 
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>Hur gör jag för att konfigurera en nod för att stödja övervakning med TCP-protokoll?
 För noden för att stödja övervakning med TCP-protokoll: 
 * Se till att Node Platform är Windows Server (2008 SP1 eller senare).
-* Kör [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell-skript på noden. Se [anvisningar](../../azure-monitor/insights/network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) för mer information.
+* Kör [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell-skript på noden. Se [anvisningar](./network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) för mer information.
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>Hur kan jag ändra TCP-porten som används av NPM för övervakning?
@@ -182,10 +182,10 @@ NetworkMonitoring
 ```
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>Vilka regioner stöds för NPM-prestanda övervakaren?
-NPM kan övervaka anslutningar mellan nätverk i valfri del av världen, från en arbets yta som finns i någon av de [regioner som stöds](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
+NPM kan övervaka anslutningar mellan nätverk i valfri del av världen, från en arbets yta som finns i någon av de [regioner som stöds](./network-performance-monitor.md#supported-regions)
 
 ### <a name="which-regions-are-supported-for-npms-service-connectivity-monitor"></a>Vilka regioner stöds av tjänst anslutnings övervakaren i NPM?
-NPM kan övervaka anslutningar till tjänster i valfri del av världen, från en arbets yta som finns i någon av de [regioner som stöds](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
+NPM kan övervaka anslutningar till tjänster i valfri del av världen, från en arbets yta som finns i någon av de [regioner som stöds](./network-performance-monitor.md#supported-regions)
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Vilka regioner stöds för NPM ExpressRoute-övervakaren?
 NPM kan övervaka dina ExpressRoute-kretsar som finns i valfri Azure-region. Om du vill publicera till NPM måste du ha en Log Analytics arbets yta som måste finnas i någon av de [regioner som stöds](../../expressroute/how-to-npm.md)
@@ -299,4 +299,5 @@ NPM avrundar latens-talen i användar gränssnittet och i millisekunder. Samma d
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om Övervakare av nätverksprestanda genom att referera till [övervakare av nätverksprestanda-lösning i Azure](../../azure-monitor/insights/network-performance-monitor.md).
+- Läs mer om Övervakare av nätverksprestanda genom att referera till [övervakare av nätverksprestanda-lösning i Azure](./network-performance-monitor.md).
+

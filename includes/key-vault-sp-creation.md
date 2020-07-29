@@ -4,12 +4,12 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
-ms.openlocfilehash: 07f856994b57e415ece063050b76dcd891698943
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c6a9f17d46ef8feb571c0ecc7a0a93a169f74725
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87013143"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285566"
 ---
 Det enklaste sättet att autentisera ett molnbaserad python-program är med en hanterad identitet. Mer information finns i [använda en app service hanterad identitet för att få åtkomst till Azure Key Vault](/azure/key-vault/general/managed-identity) . 
 
@@ -18,7 +18,7 @@ För enkelhetens skull skapar den här snabb starten ett Skriv bords program som
 Skapa ett huvud namn för tjänsten med hjälp av Azure CLI [-AZ AD SP Create-for-RBAC-](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) kommandot:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
+az ad sp create-for-rbac -n "http://<my-unique-service-principal-name>" --sdk-auth
 ```
 
 Den här åtgärden returnerar en serie med nyckel/värde-par.

@@ -5,18 +5,18 @@ description: Använd en isolerad Azure-Virtual Network med Azure Machine Learnin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 07/07/2020
-ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: fa99a5c78fb533d17cb7f70b3545aa9ef6439b32
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.custom: how-to, contperfq4, tracking-python
+ms.openlocfilehash: 79db00216ffb54b8c71ef78cc745ec37c353f1cc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072609"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320178"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Nätverks isolering under utbildning &s störningar med privata virtuella nätverk
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig hur du skyddar dina Machine Learning-livsc
 
 Ett __virtuellt nätverk__ fungerar som en säkerhets gränser som isolerar dina Azure-resurser från det offentliga Internet. Du kan också ansluta ett virtuellt Azure-nätverk till ditt lokala nätverk. Genom att ansluta till nätverk kan du på ett säkert sätt träna dina modeller och komma åt dina distribuerade modeller för att få en mer härledning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + En Azure Machine Learning- [arbetsyta](how-to-manage-workspace.md).
 
@@ -304,8 +304,8 @@ Använd följande steg om du inte vill använda de utgående standard reglerna o
 - Neka utgående Internet anslutning med NSG-reglerna.
 
 - För en __beräknings instans__ eller ett __beräknings kluster__begränsar du utgående trafik till följande objekt:
-   - Azure Storage med hjälp av __tjänst tag gen__ för __lagring__.
-   - Azure Container Registry med hjälp av __service tag gen__ för __AzureContainerRegistry__.
+   - Azure Storage med hjälp av __tjänst tag gen__ för __Storage. RegionName__. Där `{RegionName}` är namnet på en Azure-region.
+   - Azure Container Registry med hjälp av __service tag gen__ för __AzureContainerRegistry. RegionName__. Där `{RegionName}` är namnet på en Azure-region.
    - Azure Machine Learning med hjälp av __service tag gen__ för __AzureMachineLearning__
    - Azure Resource Manager med hjälp av __service tag gen__ för __AzureResourceManager__
    - Azure Active Directory med hjälp av __service tag gen__ för __AzureActiveDirectory__

@@ -5,21 +5,21 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/13/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: ee58f21881c9799eba27dec3e71c601e94401deb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 88acb4fe31470dab3ca6f273fd8d942e7f84e687
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036717"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281896"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Kopiera data från Amazon S3 till Azure Storage med hjälp av AzCopy
 
 AzCopy är ett kommandoradsverktyg som du kan använda för att kopiera blobar eller filer till eller från ett lagringskonto. Den här artikeln hjälper dig att kopiera objekt, kataloger och buckets från Amazon Web Services (AWS) S3 till Azure Blob Storage med hjälp av AzCopy.
 
-## <a name="choose-how-youll-provide-authorization-credentials"></a>Välj hur du ska ange autentiseringsuppgifter för auktorisering
+## <a name="choose-how-youll-provide-authorization-credentials"></a>Välj hur du tillhandahåller autentiseringsuppgifter
 
 * Om du vill auktorisera med Azure Storage använder du Azure Active Directory (AD) eller en signatur för signatur för delad åtkomst (SAS).
 
@@ -34,7 +34,7 @@ Se artikeln [Kom igång med AZCopy](storage-use-azcopy-v10.md) för att hämta A
 >
 > Om du hellre vill använda en SAS-token för att auktorisera åtkomst till BLOB-data kan du lägga till denna token i resurs-URL: en i varje AzCopy-kommando.
 >
-> Till exempel: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`.
+> Exempel: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`.
 
 ### <a name="authorize-with-aws-s3"></a>Auktorisera med AWS S3
 
@@ -49,9 +49,6 @@ Samla in din AWS-åtkomst nyckel och den hemliga åtkomst nyckeln och ställ sed
 ## <a name="copy-objects-directories-and-buckets"></a>Kopiera objekt, kataloger och buckets
 
 AzCopy använder plats [blocket från URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) -API, så data kopieras direkt mellan AWS S3-och lagrings servrar. Dessa kopierings åtgärder använder inte datorns nätverks bandbredd.
-
-> [!IMPORTANT]
-> Den här funktionen finns för närvarande som en förhandsversion. Om du bestämmer dig för att ta bort data från S3-buckets efter en kopierings åtgärd, kontrollerar du att data har kopierats korrekt till ditt lagrings konto innan du tar bort data.
 
 > [!TIP]
 > Exemplen i det här avsnittet omger Sök vägs argument med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd.exe). Om du använder ett Windows Command Shell (cmd.exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
@@ -84,6 +81,19 @@ Använd samma URL-syntax ( `blob.core.windows.net` ) för konton som har ett hie
 | **Syntax** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
 | **Exempel** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 | **Exempel** (hierarkiskt namn område)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+
+> [!NOTE]
+> I det här exemplet läggs `--recursive` flaggan till för att kopiera filer i alla under kataloger.
+
+### <a name="copy-the-contents-of-a-directory"></a>Kopiera innehållet i en katalog
+
+Du kan kopiera innehållet i en katalog utan att kopiera den innehåller själva katalogen genom att använda jokertecknet (*).
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>/*' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
+| **Exempel** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+| **Exempel** (hierarkiskt namn område)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ### <a name="copy-a-bucket"></a>Kopiera en Bucket
 

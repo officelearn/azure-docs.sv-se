@@ -9,6 +9,7 @@ ms.author: antchu
 ms.custom: include file
 ms.openlocfilehash: 2af9c1dfd13d3aeafa7cf1ac76537117ecc15aff
 ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 06/02/2020
 ms.locfileid: "84317645"

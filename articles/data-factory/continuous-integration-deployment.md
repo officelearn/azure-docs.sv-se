@@ -11,11 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d997c6d4eae93290cbb1e4cafe6c7ad662a65933
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c12cfc21668a13586d94089a7049f6f0d6066d7
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85336873"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336930"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -48,7 +49,7 @@ Nedan visas ett exempel på en översikt över CI/CD-livscykeln i en Azure-dataf
 
 1.  När en pull-begäran har godkänts och ändringar slås samman i huvud grenen publiceras ändringarna i utvecklings fabriken.
 
-1.  När teamet är redo att distribuera ändringarna i en test-eller UAT-fabrik går teamet till sina Azure-pipeliner och distribuerar den önskade versionen av utvecklings fabriken till UAT. Den här distributionen äger rum som en del av en Azure pipeline-uppgift och använder parametrarna för Resource Manager-mallar för att tillämpa lämplig konfiguration.
+1.  När teamet är redo att distribuera ändringarna i en test-eller UAT-fabrik (User Accepting testing), går teamet till sina Azure-pipeliner och distribuerar den önskade versionen av utvecklings fabriken till UAT. Den här distributionen äger rum som en del av en Azure pipeline-uppgift och använder parametrarna för Resource Manager-mallar för att tillämpa lämplig konfiguration.
 
 1.  När ändringarna har verifierats i test fabriken distribuerar du till produktions fabriken genom att använda nästa uppgift för pipelines-versionen.
 
@@ -316,7 +317,7 @@ Här är en förklaring av hur föregående mall skapas, uppdelat efter resurs t
 #### <a name="triggers"></a>Utlösare
 
 * Under `typeProperties` , har två egenskaper parametriserade. Det första är `maxConcurrency` , som har angetts att ha ett standardvärde och är av typen `string` . Den har standard parameter namnet `<entityName>_properties_typeProperties_maxConcurrency` .
-* `recurrence`Egenskapen är också parametriserad. Under den här nivån anges alla egenskaper på den nivån som parameterstyrda som strängar, med standardvärden och parameter namn. Ett undantag är `interval` egenskapen, som är parameterstyrda som typ `number` . Parameter namnet har suffix `<entityName>_properties_typeProperties_recurrence_triggerSuffix` . På samma sätt `freq` är egenskapen en sträng och är parameterstyrda som en sträng. `freq`Egenskapen är dock parameterstyrda utan ett standardvärde. Namnet är kortare och suffixet. Till exempel `<entityName>_freq`.
+* `recurrence`Egenskapen är också parametriserad. Under den här nivån anges alla egenskaper på den nivån som parameterstyrda som strängar, med standardvärden och parameter namn. Ett undantag är `interval` egenskapen, som är parameterstyrda som typ `number` . Parameter namnet har suffix `<entityName>_properties_typeProperties_recurrence_triggerSuffix` . På samma sätt `freq` är egenskapen en sträng och är parameterstyrda som en sträng. `freq`Egenskapen är dock parameterstyrda utan ett standardvärde. Namnet är kortare och suffixet. Exempelvis `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 

@@ -3,7 +3,7 @@ title: Konfigurera tillgänglighets grupps lyssnare och belastningsutjämnare (P
 description: Konfigurera tillgänglighets grupps lyssnare i Azure Resource Manager modellen med hjälp av en intern belastningsutjämnare med en eller flera IP-adresser.
 services: virtual-machines
 documentationcenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines-sql
@@ -11,13 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8f2a2ecb499a88ac8e33b6d281ccde4e5adffebd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f9c664623294311b8a5f8e32f572ad4841bb024
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669400"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284327"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Konfigurera en eller flera Always on tillgänglighets grupps lyssnare – Resource Manager
 
@@ -72,7 +73,7 @@ I exemplen i den här artikeln anges en standard belastningsutjämnare. I exempl
 $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 ```
 
-Om du vill skapa en grundläggande belastningsutjämnare tar du bort `-sku Standard` den från raden som skapar belastningsutjämnaren. Ett exempel:
+Om du vill skapa en grundläggande belastningsutjämnare tar du bort `-sku Standard` den från raden som skapar belastningsutjämnaren. Till exempel:
 
 ```powershell
 $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe

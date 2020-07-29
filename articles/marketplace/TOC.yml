@@ -169,6 +169,14 @@
               href: ./partner-center-portal/offer-creation-checklist.md
             - name: Skapa ett SaaS-erbjudande
               href: ./partner-center-portal/create-new-saas-offer.md
+            - name: Azure AD-autentisering för SaaS
+              items:
+                - name: Översikt över Azure AD och SaaS
+                  href: ./azure-ad-saas.md
+                - name: Landningssida för överföringsbara erbjudanden
+                  href: ./azure-ad-transactable-saas-landing-page.md
+                - name: Landningssida för kostnadsfria erbjudanden eller utvärderingserbjudanden
+                  href: ./azure-ad-free-or-trial-landing-page.md
             - name: 'API:er för uppfyllnad av SaaS'
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:

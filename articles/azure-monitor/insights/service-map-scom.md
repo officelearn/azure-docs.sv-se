@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: b1756bd72dc78bfafc8959c4ff1c8f95d255c931
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 049c30613c358bf22616eaa2042a7fd6e42b9f61
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067570"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326043"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrera System Center Operations Manager med Azure Monitor for VMs kart funktion
 
@@ -20,7 +20,7 @@ I Azure Monitor for VMs kan du Visa identifierade program komponenter på virtue
 >[!NOTE]
 >Om du redan har distribuerat Tjänstkarta kan du Visa dina kartor i Azure Monitor for VMs, som innehåller ytterligare funktioner för att övervaka hälso tillstånd och prestanda för virtuella datorer. Kart funktionen i Azure Monitor for VMs är avsedd att ersätta den fristående Tjänstkarta-lösningen. Läs mer i [Azure Monitor for VMS översikt](vminsights-overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En System Center Operations Manager hanterings grupp (2012 R2 eller senare).
 * En Log Analytics arbets yta som har kon figurer ATS för att stödja Azure Monitor for VMs.
@@ -139,9 +139,10 @@ I den aktuella designen presenteras följande problem och begränsningar:
 Officiella Azure-dokumentation om hur du skapar ett huvud namn för tjänsten finns i:
 
 * [Skapa ett huvud namn för tjänsten med hjälp av PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Skapa ett huvud namn för tjänsten med hjälp av Azure CLI](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Skapa ett huvud namn för tjänsten med hjälp av Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 * [Skapa ett huvud namn för tjänsten med hjälp av Azure Portal](../../active-directory/develop/howto-create-service-principal-portal.md)
 
 ### <a name="suggestions"></a>Förslag
 
 Har du några kommentarer till oss om integrering med Azure Monitor for VMs kart funktion eller den här dokumentationen? Besök vår [användares röst sida](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)där du kan föreslå funktioner eller rösta på befintliga förslag.
+

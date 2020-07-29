@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 03/27/2020
-ms.openlocfilehash: d8da5bb32836ff50240bf6b781227fde8839be5c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: 00efa3ea6fcd299dcdc51b3002d6b0459edf2ec4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088010"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281165"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Konfigurera och hantera Azure AD-autentisering med Azure SQL
 
@@ -75,7 +75,7 @@ När du använder Azure Active Directory med geo-replikering måste Azure Active
 
 Din SQL-hanterade instans måste ha behörighet att läsa Azure AD för att kunna utföra uppgifter som autentisering av användare via säkerhets grupp medlemskap eller skapande av nya användare. För att detta ska fungera måste du bevilja SQL-hanterad instans behörighet att läsa Azure AD. Du kan göra detta med hjälp av Azure Portal eller PowerShell.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Om du vill bevilja din SQL-hanterade instans Läs behörighet för Azure AD med hjälp av Azure Portal loggar du in som global/företags administratör i Azure AD och följer de här stegen:
 
@@ -234,11 +234,9 @@ Mer information om CLI-kommandon finns i [AZ SQL mi](/cli/azure/sql/mi).
 
 Följande två procedurer visar hur du etablerar en Azure Active Directory administratör för servern i Azure Portal och med hjälp av PowerShell.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 1. På [Azure-portalen](https://portal.azure.com/) väljer du din anslutning i det övre högra hörnet för att visa en lista över möjliga Active Directories. Välj rätt Active Directory som standard-Azure AD. Det här steget länkar den prenumeration som är kopplad till Active Directory med Server och som kontrollerar att samma prenumeration används för både Azure AD och servern.
-
-    ! [Välj AD] 7,8
 
 2. Sök efter och välj **SQL Server**.
 
@@ -285,7 +283,7 @@ Cmdletar som används för att etablera och hantera Azure AD-administratör för
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Tar bort en Azure Active Directory administratör för servern som är värd för SQL Database eller Azure-Synapse.|
 | [Get-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |Returnerar information om en Azure Active Directory administratör som är konfigurerad för servern som är värd för SQL Database eller Azure-Synapse. |
 
-Använd PowerShell-kommandot Get-Help för att se mer information om vart och ett av dessa kommandon. Till exempel `get-help Set-AzSqlServerActiveDirectoryAdministrator`.
+Använd PowerShell-kommandot Get-Help för att se mer information om vart och ett av dessa kommandon. Exempelvis `get-help Set-AzSqlServerActiveDirectoryAdministrator`.
 
 Följande skript etablerar en Azure AD-administratörs grupp med namnet **DBA_Group** (objekt-ID `40b79501-b343-44ed-9ce7-da4c8cc7353f` ) för **demo_server** -servern i en resurs grupp med namnet **grupp-23**:
 
@@ -538,8 +536,11 @@ Vägledning om hur du felsöker problem med Azure AD-autentisering finns i följ
 - Mer information om huvudkonton finns i [Huvudkonton](https://msdn.microsoft.com/library/ms181127.aspx).
 - Mer information om databasroller finns [Databasroller](https://msdn.microsoft.com/library/ms189121.aspx).
 - Mer information om brandväggsregler i SQL Database finns [SQL Database-brandväggsregler](firewall-configure.md).
+- Information om hur du ställer in en Azure AD-gäst användare som Azure AD-administratör finns i [Skapa Azure AD-gäst användare och ange som en Azure AD-administratör](authentication-aad-guest-users.md).
+- Information om hur du tjänstens huvud namn med Azure SQL finns i [Skapa Azure AD-användare med hjälp av Azure AD-program](authentication-aad-service-principal-tutorial.md)
 
 <!--Image references-->
+
 [11]: ./media/authentication-aad-configure/active-directory-integrated.png
 [12]: ./media/authentication-aad-configure/12connect-using-pw-auth2.png
 [13]: ./media/authentication-aad-configure/13connect-to-db2.png

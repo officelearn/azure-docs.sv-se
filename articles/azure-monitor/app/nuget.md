@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights NuGet-paket
 description: Azure Monitor Application Insights NuGet-paket listor för ASP.NET, ASP.NET Core, python
 ms.topic: reference
 ms.date: 10/16/2018
-ms.openlocfilehash: 91b48aee64a6b6942719f7f4abfb444b894c728e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27a3d89b4a64de159535d346641c21616833e21b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807170"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309961"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights NuGet-paket
 
@@ -79,7 +79,7 @@ Nedan visas den aktuella listan över stabila release NuGet-paket för Applicati
 | Microsoft. ApplicationInsights. Agent_x64 | 2.2.1 |  Aktiverar körnings data insamling för x64-program | [Hämta paket](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft. ApplicationInsights. Agent_x86 | 2.2.1 |  Aktiverar data insamling för körning av x86-program. | [Hämta paket](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
-Dessa paket utgör en del av kärn funktionerna i körnings övervakningen i [statusövervakare](../../azure-monitor/app/monitor-performance-live-website-now.md). Du behöver inte hämta paketen direkt, Använd bara installations programmet för Statusövervakare. Om du vill veta mer om hur dessa paket fungerar på det här sättet är [blogg inlägget](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/) från någon av våra utvecklare en bra start.
+Dessa paket utgör en del av kärn funktionerna i körnings övervakningen i [statusövervakare](./monitor-performance-live-website-now.md). Du behöver inte hämta paketen direkt, Använd bara installations programmet för Statusövervakare. Om du vill veta mer om hur dessa paket fungerar på det här sättet är [blogg inlägget](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/) från någon av våra utvecklare en bra start.
 
 ## <a name="additional-packages"></a>Ytterligare paket
 
@@ -90,6 +90,7 @@ Dessa paket utgör en del av kärn funktionerna i körnings övervakningen i [st
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Övervaka [ASP.net Core](../../azure-monitor/app/asp-net-core.md).
-- Profil ASP.NET Core [Azure Linux-webbappar](../../azure-monitor/app/profiler-aspnetcore-linux.md).
-- Felsök ASP.NET- [ögonblicksbilder](../../azure-monitor/app/snapshot-debugger.md).
+- Övervaka [ASP.net Core](./asp-net-core.md).
+- Profil ASP.NET Core [Azure Linux-webbappar](./profiler-aspnetcore-linux.md).
+- Felsök ASP.NET- [ögonblicksbilder](./snapshot-debugger.md).
+

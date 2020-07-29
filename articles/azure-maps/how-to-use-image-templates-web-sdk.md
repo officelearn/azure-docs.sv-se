@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen
-ms.openlocfilehash: 12c407ecacdce6b9052ca70ef70a2ae87928b6c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: 2942ae25e3ac84ae6f91ebbba08581eb87bcd169
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064691"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285687"
 ---
 # <a name="how-to-use-image-templates"></a>Så här använder du avbildningsmallar
 
@@ -106,7 +106,7 @@ Se den pennan <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>-HTML-markören
 
 
 > [!TIP]
-> Bildmallar kan användas utanför kartan. GetImageTemplate-funciton returnerar en SVG-sträng med plats hållare; `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. Ersätt dessa plats hållarnas värden för att skapa en giltig SVG-sträng. Du kan sedan antingen lägga till SVG-strängen direkt i HTML DOM eller konvertera den till en data-URI och infoga den i en bildtagg. Exempel:
+> Bildmallar kan användas utanför kartan. GetImageTemplate-funciton returnerar en SVG-sträng med plats hållare; `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. Ersätt dessa plats hållarnas värden för att skapa en giltig SVG-sträng. Du kan sedan antingen lägga till SVG-strängen direkt i HTML DOM eller konvertera den till en data-URI och infoga den i en bildtagg. Till exempel:
 > ```JavaScript
 > //Retrieve an SVG template and replace the placeholder values.
 > var svg = atlas.getImageTemplate('marker').replace(/{color}/, 'red').replace(/{secondaryColor}/, 'white').replace(/{text}/, '').replace(/{scale}/, 1);

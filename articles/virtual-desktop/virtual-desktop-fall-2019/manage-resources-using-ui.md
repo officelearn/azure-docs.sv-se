@@ -1,6 +1,6 @@
 ---
 title: Distribuera hanterings verktyget med en Azure Resource Manager mall – Azure
-description: Så här installerar du ett användar gränssnitts verktyg med en Azure Resource Manager-mall för att hantera Windows-resurser för virtuella skriv bord.
+description: Så här installerar du ett användar gränssnitts verktyg med en Azure Resource Manager-mall för att hantera Windows Virtual Desktop (klassiska) resurser.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3c3e93cf711d4dadfdc2354a297b0588fb637c80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf9fff614f638aec9519c11b2bb558cc77b94814
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514234"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284956"
 ---
-# <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Distribuera ett hanterings verktyg med en Azure Resource Manager mall
+# <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Distribuera ett hanterings verktyg för Windows Virtual Desktop (klassiskt) med en Azure Resource Manager mall
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt.
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows.
 
 Anvisningarna i den här artikeln beskriver hur du distribuerar användar gränssnittet med hjälp av en Azure Resource Manager mall.
 

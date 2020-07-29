@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: ffbe61cd84d2c543f0db97a5d70ad13193f2a68d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c347f637083d8dfdf39cbd032df97bc52973465f
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87267123"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372577"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Datorer med hög prestanda beräknings storlek
 
@@ -33,50 +33,25 @@ Virtuella Azure-datorer i H-serien (VM: ar) har utformats för att leverera pres
 
 ## <a name="rdma-capable-instances"></a>RDMA-kompatibla instanser
 
-De flesta av de virtuella HPC-datorernas storlekar (HBv2, HB, HC, H16r, H16mr, A8 och A9) är ett nätverks gränssnitt för RDMA-anslutning (Remote Direct Memory Access). De valda [N-serie](./nc-series.md) storlekarna som anges med r, till exempel NC24rs-konfigurationer (NC24rs_v3, NC24rs_v2 och NC24r) är också RDMA-kompatibla. Det här gränssnittet är tillsammans med standard gränssnittet för Azure-nätverket tillgängligt i de andra VM-storlekarna.
+De flesta av de virtuella HPC-datorernas storlekar (HBv2, HB, HC, H16r, H16mr, A8 och A9) är ett nätverks gränssnitt för RDMA-anslutning (Remote Direct Memory Access). De valda [N-serie](./nc-series.md) storlekarna som anges med r (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 och NC24r) är också RDMA-kompatibla. Det här gränssnittet är tillsammans med standard gränssnittet för Azure-nätverket tillgängligt i de andra VM-storlekarna.
 
-Med det här gränssnittet kan de RDMA-kompatibla instanserna kommunicera över ett InfiniBand-nätverk (IB) till HDR-priser för HBv2, EDR rates för HB, HC, FDR-priser för H16r, H16mr och RDMA-kompatibla N-seriens virtuella datorer och QDR priser för A8-och A9-datorer. Dessa RDMA-funktioner kan öka skalbarheten och prestandan för vissa MPI-program (Message Passing Interface). Mer information om hastighet finns i informationen i tabellerna på den här sidan.
+Med det här gränssnittet kan de RDMA-kompatibla instanserna kommunicera över ett InfiniBand-nätverk (IB) till HDR-priser för HBv2, EDR priser för HB, HC, NDv2, FDR-priser för H16r, H16mr och andra RDMA-kompatibla N-seriens virtuella datorer och QDR priser för A8-och A9-datorer. Dessa RDMA-funktioner kan öka skalbarheten och prestandan för vissa MPI-program (Message Passing Interface). Mer information om hastighet finns i informationen i tabellerna på den här sidan.
 
 > [!NOTE]
-> I Azure HPC finns det två typer av virtuella datorer beroende på om de är SR-IOV-aktiverade för InfiniBand. SR-IOV för InfiniBand-aktiverade virtuella datorer är för närvarande: HBv2, HB, HC, NCv3 och NDv2. Resten av InfiniBand-aktiverade virtuella datorer är inte SR-IOV-aktiverad.
+> I Azure HPC finns det två typer av virtuella datorer beroende på om de är SR-IOV-aktiverade för InfiniBand. SR-IOV för InfiniBand-aktiverade virtuella datorer är för närvarande: HBv2, HB, HC, NCv3 och NDv2. Resten av de InfiniBand-aktiverade virtuella datorerna är inte SR-IOV aktiverat för närvarande.
 > RDMA över IB stöds för alla RDMA-kompatibla virtuella datorer.
 > IP över IB stöds endast på de virtuella SR-IOV-datorer som är aktiverade.
 
 - **Operativ system** – Linux stöds för virtuella HPC-datorer. distributioner som CentOS, RHEL, Ubuntu, SUSE används ofta. För Windows-support stöds Windows Server 2016 och nyare versioner på alla virtuella datorer med HPC-serien. Windows Server 2012 R2, Windows Server 2012 stöds också på de virtuella datorer som inte är SR-IOV (H16r, H16mr, A8 och A9). Observera att [Windows Server 2012 R2 inte stöds på HBv2 och andra virtuella datorer med fler än 64 (virtuella eller fysiska) kärnor](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
+- **InfiniBand-och RDMA-drivrutiner** – på InfiniBand-aktiverade virtuella datorer krävs lämpliga driv rutiner för att aktivera RDMA. På Linux förkonfigureras de virtuella CentOS-HPC-avbildningarna på Marketplace för förkonfigurerade med lämpliga driv rutiner. De virtuella Ubuntu-avbildningarna kan konfigureras med rätt driv rutiner med hjälp av [instruktionerna här](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). I SR-IOV-aktiverade virtuella datorer i H-och N-serien kan [INFINIBANDDRIVERLINUX VM-tillägget](./extensions/hpc-compute-infiniband-linux.md) användas för att installera Mellanox ofed-drivrutinerna och aktivera InfiniBand. Läs mer om hur du aktiverar InfiniBand i VM-kompatibla VM- [arbetsbelastningar](./workloads/hpc/overview.md)med RDMA-stöd.
+
+I Windows installerar [INFINIBANDDRIVERWINDOWS VM-tillägget](./extensions/hpc-compute-infiniband-windows.md) Windows Network Direct-drivrutiner (på datorer som inte är SR-IOV) eller Mellanox ofed-drivrutiner (på SR-IOV VM) för RDMA-anslutning. I vissa distributioner av A8-och A9-instanser läggs HpcVmDrivers-tillägget till automatiskt. Observera att HpcVmDrivers VM-tillägget är inaktuellt. den kommer inte att uppdateras.
+
+Om du vill lägga till ett VM-tillägg i en virtuell dator kan du använda [Azure PowerShell](/powershell/azure/) -cmdletar. Mer information finns i [tillägg och funktioner för virtuella datorer](./extensions/overview.md). Du kan också arbeta med tillägg för virtuella datorer som distribueras i den [klassiska distributions modellen](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
+
 - **MPI** – SR-IOV-aktiverade VM-storlekar på Azure (HBV2, HB, HC, NCv3, NDv2) gör att du kan använda nästan vilken smak av MPI som ska användas med Mellanox ofed.
 På virtuella datorer som inte är SR-IOV-aktiverade använder MPI-implementeringar som stöds av Microsoft Network Direct (ND)-gränssnittet för att kommunicera mellan virtuella datorer. Därför stöds endast Microsoft MPI (MS-MPI) 2012 R2 eller senare och Intel MPI 5. x-versioner. Senare versioner (2017, 2018) av Intel MPI runtime-biblioteket kan vara kompatibla med Azure RDMA-drivrutinerna.
-
-- **InfiniBandDriver<Linux | Windows> VM-tillägg** -på RDMA-kompatibla virtuella datorer, Lägg till InfiniBandDriver<Linux | Windows>-tillägget för att aktivera InfiniBand. I Linux installerar InfiniBandDriverLinux VM-tillägget Mellanox OFED-drivrutinerna (på SR-IOV VM) för RDMA-anslutning. I Windows installerar InfiniBandDriverWindows VM-tillägget Windows Network Direct-drivrutiner (på datorer som inte är SR-IOV) eller Mellanox OFED-drivrutiner (på SR-IOV VM) för RDMA-anslutning.
-I vissa distributioner av A8-och A9-instanser läggs HpcVmDrivers-tillägget till automatiskt. Observera att HpcVmDrivers VM-tillägget är inaktuellt. den kommer inte att uppdateras.
-Om du vill lägga till ett VM-tillägg i en virtuell dator kan du använda [Azure PowerShell](/powershell/azure/) -cmdletar. 
-
-  Följande kommando installerar det senaste version 1,0 InfiniBandDriverWindows-tillägget på en befintlig RDMA-kompatibel virtuell dator med namnet *myVM* distribuerad i resurs gruppen med namnet *MYRESOURCEGROUP* i regionen *USA, västra* :
-
-  ```powershell
-  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
-  ```
-
-  Du kan också inkludera VM-tillägg i Azure Resource Manager mallar för enkel distribution med följande JSON-element:
-
-  ```json
-  "properties":{
-  "publisher": "Microsoft.HpcCompute",
-  "type": "InfiniBandDriverWindows",
-  "typeHandlerVersion": "1.0",
-  } 
-  ```
-
-  Följande kommando installerar det senaste version 1,0 InfiniBandDriverWindows-tillägget på alla RDMA-kompatibla virtuella datorer i en befintlig skalnings uppsättning för virtuella datorer med namnet *myVMSS* distribuerat i resurs gruppen med namnet *myResourceGroup*:
-
-  ```powershell
-  $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
-  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
-  Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
-  Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
-  ```
-
-  Mer information finns i [tillägg och funktioner för virtuella datorer](./extensions/overview.md). Du kan också arbeta med tillägg för virtuella datorer som distribueras i den [klassiska distributions modellen](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
 
 - **RDMA-nätverkets adress utrymme** – RDMA-nätverket i Azure reserverar adress utrymmet 172.16.0.0/16. Om du vill köra MPI-program på instanser som har distribuerats i ett virtuellt Azure-nätverk kontrollerar du att det virtuella nätverkets adress utrymme inte överlappar RDMA-nätverket.
 
@@ -86,7 +61,7 @@ Azure innehåller flera alternativ för att skapa kluster med virtuella Windows 
 
 - **Virtuella datorer** – distribuera RDMA-kompatibla HPC-datorer i samma skalnings uppsättning eller tillgänglighets uppsättning (när du använder Azure Resource Manager distributions modell). Om du använder den klassiska distributions modellen distribuerar du de virtuella datorerna i samma moln tjänst.
 
-- **Skalnings uppsättningar för virtuella datorer** – i en skalnings uppsättning för virtuella datorer (VMSS), se till att du begränsar distributionen till en enda placerings grupp för InfiniBand-kommunikation i VMSS. I en Resource Manager-mall anger du till exempel `singlePlacementGroup` egenskapen till `true` . Observera att den maximala VMSS-storlek som kan anpassas med `singlePlacementGroup` egenskapen till `true` är en gräns på 100 virtuella datorer som standard. Om HPC-jobbets skalning måste vara högre än 100 virtuella datorer i en enda VMSS-klient kan du begära en ökning, [öppna en support förfrågan online](../azure-portal/supportability/how-to-create-azure-support-request.md) utan kostnad. Gränsen för antalet virtuella datorer i en enda VMSS kan ökas till 300. Observera att när du distribuerar virtuella datorer med tillgänglighets uppsättningar är max gränsen på 200 VM: ar per tillgänglighets uppsättning.
+- **Skalnings uppsättningar för virtuella datorer** – i en skalnings uppsättning för virtuella datorer, se till att du begränsar distributionen till en enda placerings grupp för InfiniBand-kommunikation i skalnings uppsättningen. I en Resource Manager-mall anger du till exempel `singlePlacementGroup` egenskapen till `true` . Observera att den maximala skalnings uppsättnings storleken som kan anpassas med `singlePlacementGroup` egenskap till är begränsad till `true` 100 virtuella datorer som standard. Om HPC-jobbets skalning måste vara högre än 100 virtuella datorer i en enda klient kan du begära en ökning, [öppna en kund support förfrågan](../azure-portal/supportability/how-to-create-azure-support-request.md) utan kostnad. Gränsen för antalet virtuella datorer i en enda skalnings uppsättning kan höjas till 300. Observera att när du distribuerar virtuella datorer med tillgänglighets uppsättningar är max gränsen på 200 VM: ar per tillgänglighets uppsättning.
 
 - **MPI mellan virtuella datorer** – om RDMA (t. ex. använder MPI-kommunikation) krävs mellan virtuella datorer (VM), se till att de virtuella datorerna finns i samma skalnings uppsättning eller tillgänglighets uppsättning för virtuella datorer.
 
@@ -109,7 +84,7 @@ Azure innehåller flera alternativ för att skapa kluster med virtuella Windows 
   
 - **Virtuellt nätverk** – ett virtuellt Azure- [nätverk](https://azure.microsoft.com/documentation/services/virtual-network/) krävs inte för att använda beräknings intensiva instanser. För många distributioner behöver du dock minst ett molnbaserad virtuellt Azure-nätverk eller en plats-till-plats-anslutning om du behöver åtkomst till lokala resurser. När det behövs skapar du ett nytt virtuellt nätverk för att distribuera instanserna. Det går inte att lägga till beräknings intensiva virtuella datorer i ett virtuellt nätverk i en tillhörighets grupp.
 
-- **Ändra storlek** – på grund av deras specialiserade maskin vara kan du bara ändra storlek på beräknings intensiva instanser inom samma storleks familj (H-serien eller beräknings intensiva a-serien). Du kan till exempel bara ändra storlek på en virtuell dator i H-serien från en storlek på H-serien till en annan. Det går inte heller att ändra storlek på en icke-Compute-intensiv storlek till en beräknings intensiv storlek.  
+- **Ändra storlek** – på grund av deras specialiserade maskin vara kan du bara ändra storlek på beräknings intensiva instanser inom samma storleks familj (H-serien eller N-serien). Du kan till exempel bara ändra storlek på en virtuell dator i H-serien från en storlek på H-serien till en annan. Ytterligare överväganden kring InfiniBand-driv rutins stöd och NVMe-diskar kan behöva beaktas för vissa virtuella datorer.
 
 
 ## <a name="other-sizes"></a>Andra storlekar

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
-ms.openlocfilehash: 540e824f301c402e1f65f6186b26ad1672e21d37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ef34dbfd3af326dbf2d82e09a4c5c8c8e4a91a84
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539354"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319804"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics data säkerhet
 Det här dokumentet är avsett att ge information som är speciell för Log Analytics, som är en funktion i Azure Monitor, för att komplettera informationen på [Azure Säkerhetscenter](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -148,7 +148,7 @@ För Operations Manager upprättar Operations Manager hanterings gruppen en ansl
 
 All kommunikation mellan anslutna system och tjänsten Log Analytics är krypterad. TLS-protokollet (HTTPS) används för kryptering.  Microsoft SDL-processen följs för att säkerställa att Log Analytics är uppdaterad med de senaste förbättringarna i kryptografi protokollen.
 
-Varje typ av agent samlar in data för Log Analytics. Vilken typ av data som samlas in beror på vilka typer av lösningar som används. Du kan se en sammanfattning av data insamling i [Lägg till Log Analytics lösningar från Lösningsgalleriet](../../azure-monitor/insights/solutions.md). Dessutom är mer detaljerad samlings information tillgänglig för de flesta lösningar. En lösning är ett paket med fördefinierade vyer, loggs öknings frågor, data insamlings regler och bearbetnings logik. Endast administratörer kan använda Log Analytics för att importera en lösning. När lösningen har importer ATS flyttas den till Operations Manager hanterings servrar (om den används) och sedan till alla agenter som du har valt. Därefter samlar agenterna in data.
+Varje typ av agent samlar in data för Log Analytics. Vilken typ av data som samlas in beror på vilka typer av lösningar som används. Du kan se en sammanfattning av data insamling i [Lägg till Log Analytics lösningar från Lösningsgalleriet](../insights/solutions.md). Dessutom är mer detaljerad samlings information tillgänglig för de flesta lösningar. En lösning är ett paket med fördefinierade vyer, loggs öknings frågor, data insamlings regler och bearbetnings logik. Endast administratörer kan använda Log Analytics för att importera en lösning. När lösningen har importer ATS flyttas den till Operations Manager hanterings servrar (om den används) och sedan till alla agenter som du har valt. Därefter samlar agenterna in data.
 
 ## <a name="2-send-data-from-agents"></a>2. skicka data från agenter
 Du registrerar alla agent typer med en registrerings nyckel och en säker anslutning upprättas mellan agenten och den Log Analytics tjänsten med certifikatbaserad autentisering och TLS med port 443. Log Analytics använder ett hemligt Arkiv för att generera och underhålla nycklar. Privata nycklar roteras var 90 dag och lagras i Azure och hanteras av Azure-åtgärder som följer strikta regler och efterlevnad.
@@ -172,6 +172,7 @@ Kvarhållningsperioden för insamlade data som lagras i databasen beror på den 
 För att komma åt din Log Analytics-arbetsyta loggar du in på Azure Portal med hjälp av organisations kontot eller Microsoft-konto som du har skapat tidigare. All trafik mellan portalen och Log Analytics tjänsten skickas via en säker HTTPS-kanal. När du använder portalen genereras ett sessions-ID på användar klienten (webbläsaren) och data lagras i en lokal cache tills sessionen avslutas. När den avbröts tas cacheminnet bort. Cookies på klient sidan, som inte innehåller personligt identifierbar information, tas inte bort automatiskt. Sessionscookies är markerade som HTTPOnly och skyddas. Azure Portal sessionen avslutas efter en fördefinierad inaktiv period.
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig hur du samlar in data med Log Analytics för dina virtuella Azure-datorer enligt snabb starten för [Azure VM](../../azure-monitor/learn/quick-collect-azurevm.md).  
+* Lär dig hur du samlar in data med Log Analytics för dina virtuella Azure-datorer enligt snabb starten för [Azure VM](../learn/quick-collect-azurevm.md).  
 
-*  Om du vill samla in data från fysiska eller virtuella Windows-eller Linux-datorer i din miljö kan du läsa [snabb starten för Linux-datorer](../../azure-monitor/learn/quick-collect-linux-computer.md) eller [snabb start för Windows-datorer](../../azure-monitor/learn/quick-collect-windows-computer.md)
+*  Om du vill samla in data från fysiska eller virtuella Windows-eller Linux-datorer i din miljö kan du läsa [snabb starten för Linux-datorer](../learn/quick-collect-linux-computer.md) eller [snabb start för Windows-datorer](../learn/quick-collect-windows-computer.md)
+

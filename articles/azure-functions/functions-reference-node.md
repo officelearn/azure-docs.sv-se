@@ -4,12 +4,13 @@ description: Lär dig hur du utvecklar funktioner med hjälp av Java Script.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: c0e5dd7e1869accd309656b69bd2a07d21b1a3ec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 636df121ea5b09a421ae7bedaf9e30cbbd1966f5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082978"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280876"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript-guide för utvecklare
 
@@ -579,7 +580,7 @@ TypeScript-filer (. TS) är destaplade i JavaScript-filer (. js) i `dist` utdata
 
 Hur du utvecklar och distribuerar lokalt från ett TypeScript-projekt beror på ditt utvecklingsverktyg.
 
-### <a name="visual-studio-code"></a>Visuell Studio-kod
+### <a name="visual-studio-code"></a>Visual Studio-koden
 
 Med [Azure Functions för kod tillägget för Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) kan du utveckla dina funktioner med typescript. Kärn verktygen är ett krav i Azure Functions-tillägget.
 

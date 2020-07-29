@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du felsöker fel som påt
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 5393ba1b7c604ef49cee83f759ed798cfc473417
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0f598e0058d817fbba8d816500ab252134be0eb5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032841"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371744"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Felsöka säkerhets kopierings fel på virtuella Azure-datorer
 
@@ -39,14 +39,24 @@ Det här avsnittet beskriver felet vid säkerhets kopiering av virtuella Azure-d
 
 Följande är vanliga problem med säkerhets kopierings fel på virtuella Azure-datorer.
 
-## <a name="copyingvhdsfrombackupvaulttakinglongtime---copying-backed-up-data-from-vault-timed-out"></a>Tids gränsen nåddes under CopyingVHDsFromBackUpVaultTakingLongTime av säkerhetskopierade data från valvet
+### <a name="vmrestorepointinternalerror---antivirus-configured-in-the-vm-is-restricting-the-execution-of-backup-extension"></a>VMRestorePointInternalError-Antivirus konfigurationen på den virtuella datorn begränsar körningen av säkerhets kopierings tillägget
+
+Felkod: VMRestorePointInternalError
+
+Om du vid tidpunkten för säkerhets kopieringen visar **Loggboken-programloggarna** visas meddelandets **fel program namn: IaaSBcdrExtension.exe** sedan bekräftas att antivirus programmet som kon figurer ATS i den virtuella datorn begränsar körningen av säkerhets kopierings tillägget.
+Lös problemet genom att undanta följande kataloger i Antivirus konfigurationen och försök att säkerhetskopiera igen.
+
+* `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
+* `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
+
+### <a name="copyingvhdsfrombackupvaulttakinglongtime---copying-backed-up-data-from-vault-timed-out"></a>Tids gränsen nåddes under CopyingVHDsFromBackUpVaultTakingLongTime av säkerhetskopierade data från valvet
 
 Felkod: CopyingVHDsFromBackUpVaultTakingLongTime <br/>
 Fel meddelande: det gick inte att kopiera säkerhetskopierade data från valvet
 
 Detta kan inträffa på grund av tillfälliga lagrings fel eller otillräckligt lagrings konto IOPS för säkerhets kopierings tjänsten för att överföra data till valvet inom tids gränsen. Konfigurera säkerhets kopiering av virtuella datorer med dessa [metod tips](backup-azure-vms-introduction.md#best-practices) och försök att säkerhetskopiera igen.
 
-## <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState-VM är inte i ett tillstånd som tillåter säkerhets kopieringar
+### <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState-VM är inte i ett tillstånd som tillåter säkerhets kopieringar
 
 Felkod: UserErrorVmNotInDesirableState <br/>
 Fel meddelande: den virtuella datorn är inte i ett tillstånd som tillåter säkerhets kopieringar.<br/>
@@ -56,7 +66,7 @@ Säkerhets kopierings åtgärden misslyckades eftersom den virtuella datorn är 
 * Om den virtuella datorn är i ett tillfälligt tillstånd mellan att **köra** och **stänga**av, väntar du tills status har ändrats. Utlös sedan säkerhets kopierings jobbet.
 * Om den virtuella datorn är en virtuell Linux-dator och använder den säkerhetsförbättrade Linux-modulen för Linux, utelämnar du sökvägen **/var/lib/waagent** för Azure Linux-agenten från säkerhets principen och kontrollerar att säkerhets kopierings tillägget är installerat.
 
-## <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed – det gick inte att låsa en eller flera monterings punkter för den virtuella datorn för att ta en konsekvent fil system ögonblicks bild
+### <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed – det gick inte att låsa en eller flera monterings punkter för den virtuella datorn för att ta en konsekvent fil system ögonblicks bild
 
 Felkod: UserErrorFsFreezeFailed <br/>
 Fel meddelande: det gick inte att låsa en eller flera monterings punkter för den virtuella datorn för att ta en konsekvent fil system ögonblicks bild.
@@ -65,7 +75,7 @@ Fel meddelande: det gick inte att låsa en eller flera monterings punkter för d
 * Kör en konsekvens kontroll av fil systemet på dessa enheter med kommandot **fsck** .
 * Montera enheterna igen och försök att säkerhetskopiera igen.</ol>
 
-## <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM/ExtensionInstallationFailedCOM/ExtensionInstallationFailedMDTC-Extension-installationen/åtgärden misslyckades på grund av ett COM+-fel
+### <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM/ExtensionInstallationFailedCOM/ExtensionInstallationFailedMDTC-Extension-installationen/åtgärden misslyckades på grund av ett COM+-fel
 
 Felkod: ExtensionSnapshotFailedCOM <br/>
 Fel meddelande: ögonblicks bild åtgärden misslyckades på grund av ett COM+-fel
@@ -88,7 +98,7 @@ Säkerhets kopieringen misslyckades på grund av ett problem med Windows-tjänst
   * Starta MSDTC-tjänsten
 * Starta Windows-tjänsten **com+-system tillämpning**. När **com+-system programmet** startar utlöser du ett säkerhets kopierings jobb från Azure Portal.</ol>
 
-## <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensionFailedVssWriterInBadState-åtgärden misslyckades eftersom VSS-skrivare var i ett felaktigt tillstånd
+### <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensionFailedVssWriterInBadState-åtgärden misslyckades eftersom VSS-skrivare var i ett felaktigt tillstånd
 
 Felkod: ExtensionFailedVssWriterInBadState <br/>
 Fel meddelande: ögonblicks bild åtgärden misslyckades eftersom VSS-skrivare befann sig i ett felaktigt tillstånd.
@@ -100,19 +110,19 @@ Starta om VSS-skrivare som är i ett felaktigt tillstånd. Kör i en upphöjd ko
 
 En annan procedur som kan hjälpa dig är att köra följande kommando från en upphöjd kommando tolk (som administratör).
 
-```CMD
+```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
 
 Om du lägger till den här register nyckeln skapas inte trådar för BLOB-ögonblicksbilder och förhindrar timeout.
 
-## <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure – det gick inte att parsa konfigurationen för säkerhets kopierings tillägget
+### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure – det gick inte att parsa konfigurationen för säkerhets kopierings tillägget
 
 Felkod: ExtensionConfigParsingFailure<br/>
 Fel meddelande: det gick inte att parsa konfigurationen för säkerhets kopierings tillägget.
 
 Det här felet inträffar på grund av ändrade behörigheter i **MachineKeys** -katalogen: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
-Kör följande kommando och kontrol lera att behörigheterna för **MachineKeys** -katalogen är standardvärden:**icacls%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
+Kör följande kommando och kontrol lera att behörigheterna för **MachineKeys** -katalogen är standardvärden: `icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys` .
 
 Standard behörigheterna är följande:
 
@@ -137,7 +147,7 @@ Om du ser behörigheter i **MachineKeys** -katalogen som skiljer sig från stand
    * Under **personliga**  >  **certifikat**kan du ta bort alla certifikat som har **utfärdats till** är den klassiska distributions modellen eller **Windows Azure CRP Certificate Generator**.
 3. Utlös ett jobb för säkerhets kopiering av virtuella datorer.
 
-## <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState-Extension-tillstånd stöds inte för säkerhets kopiering
+### <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState-Extension-tillstånd stöds inte för säkerhets kopiering
 
 Felkod: ExtensionStuckInDeletionState <br/>
 Fel meddelande: det går inte att använda tilläggs tillstånd för säkerhets kopiering
@@ -150,7 +160,7 @@ Säkerhets kopierings åtgärden misslyckades på grund av ett inkonsekvent till
 * Försök att säkerhetskopiera igen efter att du har tagit bort säkerhets kopierings tillägget
 * Vid nästföljande säkerhetskopiering installeras det nya tillägget med önskat tillstånd.
 
-## <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>ExtensionFailedSnapshotLimitReachedError-åtgärden misslyckades eftersom gränsen för ögonblicks bilder har överskridits för vissa av diskarna
+### <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>ExtensionFailedSnapshotLimitReachedError-åtgärden misslyckades eftersom gränsen för ögonblicks bilder har överskridits för vissa av diskarna
 
 Felkod: ExtensionFailedSnapshotLimitReachedError <br/>
 Fel meddelande: ögonblicks bild åtgärden misslyckades eftersom ögonblicks bilds gränsen har överskridits för vissa av diskarna som är anslutna
@@ -164,7 +174,7 @@ Det gick inte att utföra ögonblicks bild åtgärden eftersom gränsen för ög
   * Se till att värdet för **isanysnapshotfailed** är inställt på falskt i/etc/Azure/vmbackup.conf
   * Schemalägg Azure Site Recovery vid en annan tidpunkt, så att det inte står i konflikt med säkerhets kopierings åtgärden.
 
-## <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive-åtgärden misslyckades på grund av otillräckliga VM-resurser
+### <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive-åtgärden misslyckades på grund av otillräckliga VM-resurser
 
 Felkod: ExtensionFailedTimeoutVMNetworkUnresponsive<br/>
 Fel meddelande: ögonblicks bild åtgärden misslyckades på grund av otillräckliga VM-resurser.
@@ -175,7 +185,7 @@ Det gick inte att säkerhetskopiera den virtuella datorn på grund av fördröjn
 
 Från en upphöjd kommandotolk (administratör) kör du kommandot nedan:
 
-```text
+```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTimeFromHost /t REG_SZ /d True /f
 ```
@@ -186,55 +196,60 @@ Detta säkerställer att ögonblicksbilderna tas via värden i stället för gä
 
 **Steg 3**: försök att [öka storleken på den virtuella datorn](https://azure.microsoft.com/blog/resize-virtual-machines/) och försök igen
 
-
-## <a name="320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found"></a>320001, ResourceNotFound-det gick inte att utföra åtgärden eftersom den virtuella datorn inte längre finns/400094, BCMV2VMNotFound-den virtuella datorn finns inte/ingen virtuell Azure-dator hittades
+### <a name="320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found"></a>320001, ResourceNotFound-det gick inte att utföra åtgärden eftersom den virtuella datorn inte längre finns/400094, BCMV2VMNotFound-den virtuella datorn finns inte/ingen virtuell Azure-dator hittades
 
 Felkod: 320001, ResourceNotFound <br/> Fel meddelande: det gick inte att utföra åtgärden eftersom den virtuella datorn inte längre finns. <br/> <br/> Felkod: 400094, BCMV2VMNotFound <br/> Fel meddelande: den virtuella datorn finns inte <br/>
 Det gick inte att hitta någon virtuell Azure-dator.
 
 Felet uppstår när den primära virtuella datorn tas bort, men säkerhets kopierings principen söker fortfarande efter en virtuell dator som ska säkerhets kopie ras. Åtgärda felet genom att utföra följande steg:
-- Återskapa den virtuella datorn med samma namn och samma resurs grupp namn, **moln tjänst namn**,<br>eller
-- Sluta skydda den virtuella datorn med eller utan att ta bort säkerhetskopierade data. Mer information finns i [stoppa skyddet av virtuella datorer](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>
 
-## <a name="usererrorbcmpremiumstoragequotaerror---could-not-copy-the-snapshot-of-the-virtual-machine-due-to-insufficient-free-space-in-the-storage-account"></a>UserErrorBCMPremiumStorageQuotaError – det gick inte att kopiera ögonblicks bilden av den virtuella datorn eftersom det inte finns tillräckligt med ledigt utrymme på lagrings kontot
+* Återskapa den virtuella datorn med samma namn och samma resurs grupp namn, **moln tjänst namn**,<br>eller
+* Sluta skydda den virtuella datorn med eller utan att ta bort säkerhetskopierade data. Mer information finns i [stoppa skyddet av virtuella datorer](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>
+
+### <a name="usererrorbcmpremiumstoragequotaerror---could-not-copy-the-snapshot-of-the-virtual-machine-due-to-insufficient-free-space-in-the-storage-account"></a>UserErrorBCMPremiumStorageQuotaError – det gick inte att kopiera ögonblicks bilden av den virtuella datorn eftersom det inte finns tillräckligt med ledigt utrymme på lagrings kontot
 
 Felkod: UserErrorBCMPremiumStorageQuotaError<br/> Fel meddelande: det gick inte att kopiera ögonblicks bilden av den virtuella datorn eftersom det inte finns tillräckligt med ledigt utrymme på lagrings kontot
 
  För Premium-VM: ar på VM-säkerhetskopiering stack v1 kopieras ögonblicks bilden till lagrings kontot. Det här steget ser till att säkerhets kopierings hanterings trafiken, som fungerar på ögonblicks bilden, inte begränsar antalet IOPS som är tillgängligt för programmet med hjälp av Premium diskar. <br><br>Vi rekommenderar att du endast tilldelar 50 procent, 17,5 TB, av det totala lagrings konto utrymmet. Sedan kan Azure Backups tjänsten kopiera ögonblicks bilden till lagrings kontot och överföra data från den här kopierade platsen i lagrings kontot till valvet.
 
+### <a name="380008-azurevmoffline---failed-to-install-microsoft-recovery-services-extension-as-virtual-machine--is-not-running"></a>380008, AzureVmOffline-det gick inte att installera Microsoft Recovery Services-tillägget eftersom den virtuella datorn inte körs
 
-## <a name="380008-azurevmoffline---failed-to-install-microsoft-recovery-services-extension-as-virtual-machine--is-not-running"></a>380008, AzureVmOffline-det gick inte att installera Microsoft Recovery Services-tillägget eftersom den virtuella datorn inte körs
 Felkod: 380008, AzureVmOffline <br/> Fel meddelande: det gick inte att installera Microsoft Recovery Services-tillägget eftersom den virtuella datorn inte körs
 
 VM-agenten är en förutsättning för Azure Recovery Services-tillägget. Installera agenten för den virtuella Azure-datorn och starta om registrerings åtgärden. <br> <ol> <li>Kontrol lera att den virtuella dator agenten är korrekt installerad. <li>Kontrol lera att flaggan på VM-konfigurationen är korrekt inställd.</ol> Läs mer om hur du installerar VM-agenten och hur du verifierar installationen av VM-agenten.
 
-## <a name="extensionsnapshotbitlockererror---the-snapshot-operation-failed-with-the-volume-shadow-copy-service-vss-operation-error"></a>ExtensionSnapshotBitlockerError-åtgärden för ögonblicks bilden misslyckades med felet tjänsten Volume Shadow Copy (VSS)
+### <a name="extensionsnapshotbitlockererror---the-snapshot-operation-failed-with-the-volume-shadow-copy-service-vss-operation-error"></a>ExtensionSnapshotBitlockerError-åtgärden för ögonblicks bilden misslyckades med felet tjänsten Volume Shadow Copy (VSS)
+
 Felkod: ExtensionSnapshotBitlockerError <br/> Fel meddelande: det gick inte att utföra ögonblicks bild åtgärden med den tjänsten Volume Shadow Copy (VSS) åtgärds fel **enheten är låst av BitLocker-diskkryptering. Du måste låsa upp den här enheten från kontroll panelen.**
 
 Inaktivera BitLocker för alla enheter på den virtuella datorn och kontrol lera om problemet med VSS är löst.
 
-## <a name="vmnotindesirablestate---the-vm-isnt-in-a-state-that-allows-backups"></a>VmNotInDesirableState – den virtuella datorn är inte i ett tillstånd som tillåter säkerhets kopieringar
+### <a name="vmnotindesirablestate---the-vm-isnt-in-a-state-that-allows-backups"></a>VmNotInDesirableState – den virtuella datorn är inte i ett tillstånd som tillåter säkerhets kopieringar
+
 Felkod: VmNotInDesirableState <br/> Fel meddelande: den virtuella datorn är inte i ett tillstånd som tillåter säkerhets kopieringar.
-- Om den virtuella datorn är i ett tillfälligt tillstånd mellan att **köra** och **stänga**av, väntar du tills status har ändrats. Utlös sedan säkerhets kopierings jobbet.
-- Om den virtuella datorn är en virtuell Linux-dator och använder den säkerhetsförbättrade Linux-modulen för Linux, utelämnar du sökvägen **/var/lib/waagent** för Azure Linux-agenten från säkerhets principen och kontrollerar att säkerhets kopierings tillägget är installerat.
 
-- VM-agenten finns inte på den virtuella datorn: <br>Installera eventuella nödvändiga komponenter och VM-agenten. Starta sedan om åtgärden. | Läs mer om [installation av VM-agenten och hur du verifierar installationen av VM-agenten](#vm-agent).
+* Om den virtuella datorn är i ett tillfälligt tillstånd mellan att **köra** och **stänga**av, väntar du tills status har ändrats. Utlös sedan säkerhets kopierings jobbet.
+* Om den virtuella datorn är en virtuell Linux-dator och använder den säkerhetsförbättrade Linux-modulen för Linux, utelämnar du sökvägen **/var/lib/waagent** för Azure Linux-agenten från säkerhets principen och kontrollerar att säkerhets kopierings tillägget är installerat.
 
+* VM-agenten finns inte på den virtuella datorn: <br>Installera eventuella nödvändiga komponenter och VM-agenten. Starta sedan om åtgärden. | Läs mer om [installation av VM-agenten och hur du verifierar installationen av VM-agenten](#vm-agent).
 
-## <a name="extensionsnapshotfailednosecurenetwork---the-snapshot-operation-failed-because-of-failure-to-create-a-secure-network-communication-channel"></a>ExtensionSnapshotFailedNoSecureNetwork-ögonblicks bild åtgärden misslyckades på grund av att det inte gick att skapa en säker kanal för nätverks kommunikation
+### <a name="extensionsnapshotfailednosecurenetwork---the-snapshot-operation-failed-because-of-failure-to-create-a-secure-network-communication-channel"></a>ExtensionSnapshotFailedNoSecureNetwork-ögonblicks bild åtgärden misslyckades på grund av att det inte gick att skapa en säker kanal för nätverks kommunikation
+
 Felkod: ExtensionSnapshotFailedNoSecureNetwork <br/> Fel meddelande: ögonblicks bild åtgärden misslyckades på grund av att det inte gick att skapa en säker kanal för nätverkskommunikation.
-- Öppna Registereditorn genom att köra **regedit.exe** i förhöjd läge.
-- Identifiera alla versioner av .NET Framework som finns i systemet. De finns under hierarkin för register nyckeln **HKEY_LOCAL_MACHINE \software\microsoft**.
-- Lägg till följande nyckel för varje .NET Framework som finns i register nyckeln: <br> **SchUseStrongCrypto "= DWORD: 00000001**. </ol>
 
+* Öppna Registereditorn genom att köra **regedit.exe** i förhöjd läge.
+* Identifiera alla versioner av .NET Framework som finns i systemet. De finns under hierarkin för register nyckeln **HKEY_LOCAL_MACHINE \software\microsoft**.
+* Lägg till följande nyckel för varje .NET Framework som finns i register nyckeln: <br> **SchUseStrongCrypto "= DWORD: 00000001**. </ol>
 
-## <a name="extensionvcredistinstallationfailure---the-snapshot-operation-failed-because-of-failure-to-install-visual-c-redistributable-for-visual-studio-2012"></a>ExtensionVCRedistInstallationFailure-ögonblicks bild åtgärden misslyckades på grund av att det inte gick att installera Visual C++ Redistributable för Visual Studio 2012
+### <a name="extensionvcredistinstallationfailure---the-snapshot-operation-failed-because-of-failure-to-install-visual-c-redistributable-for-visual-studio-2012"></a>ExtensionVCRedistInstallationFailure-ögonblicks bild åtgärden misslyckades på grund av att det inte gick att installera Visual C++ Redistributable för Visual Studio 2012
+
 Felkod: ExtensionVCRedistInstallationFailure <br/> Fel meddelande: ögonblicks bild åtgärden misslyckades på grund av att det inte gick att installera Visual C++ Redistributable för Visual Studio 2012.
-- Navigera till `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` och installera vcredist2013_x64.<br/>Kontrol lera att värdet för register nyckeln som tillåter tjänst installationen har värdet korrekt. Det vill säga ange **startvärdet** i **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\msiserver** till **3** och inte **4**. <br><br>Om du fortfarande har problem med installationen startar du om installations tjänsten genom att köra **msiexec/unregister** följt av **msiexec/register** från en upphöjd kommando tolk.
-- Kontrol lera händelse loggen för att kontrol lera om du har märker åtkomst till relaterade problem. Exempel: *Product: Microsoft Visual C++ 2013 x64 minimal körning-12.0.21005--Error 1401. Det gick inte att skapa nyckeln: Software\Classes.  Systemfel 5.  Kontrol lera att du har tillräcklig åtkomst till nyckeln eller kontakta en support tekniker.* <br><br> Se till att administratören eller användar kontot har tillräcklig behörighet för att uppdatera register nyckeln **HKEY_LOCAL_MACHINE \software\classes**. Ange tillräckliga behörigheter och starta om Windows Azures gästa Gent.<br><br> <li> Om du har antivirus produkter på plats ser du till att de har rätt undantags regler för att tillåta installationen.
 
+* Navigera till `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` och installera vcredist2013_x64.<br/>Kontrol lera att värdet för register nyckeln som tillåter tjänst installationen har värdet korrekt. Det vill säga ange **startvärdet** i **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\msiserver** till **3** och inte **4**. <br><br>Om du fortfarande har problem med installationen startar du om installations tjänsten genom att köra **msiexec/unregister** följt av **msiexec/register** från en upphöjd kommando tolk.
+* Kontrol lera händelse loggen för att kontrol lera om du har märker åtkomst till relaterade problem. Exempel: *Product: Microsoft Visual C++ 2013 x64 minimal körning-12.0.21005--Error 1401. Det gick inte att skapa nyckeln: Software\Classes.  Systemfel 5.  Kontrol lera att du har tillräcklig åtkomst till nyckeln eller kontakta en support tekniker.* <br><br> Se till att administratören eller användar kontot har tillräcklig behörighet för att uppdatera register nyckeln **HKEY_LOCAL_MACHINE \software\classes**. Ange tillräckliga behörigheter och starta om Windows Azures gästa Gent.<br><br> <li> Om du har antivirus produkter på plats ser du till att de har rätt undantags regler för att tillåta installationen.
 
-## <a name="usererrorrequestdisallowedbypolicy---an-invalid-policy-is-configured-on-the-vm-which-is-preventing-snapshot-operation"></a>UserErrorRequestDisallowedByPolicy – en ogiltig princip har kon figurer ATS på den virtuella datorn som förhindrar ögonblicks bild åtgärden
+### <a name="usererrorrequestdisallowedbypolicy---an-invalid-policy-is-configured-on-the-vm-which-is-preventing-snapshot-operation"></a>UserErrorRequestDisallowedByPolicy – en ogiltig princip har kon figurer ATS på den virtuella datorn som förhindrar ögonblicks bild åtgärden
+
 Felkod: UserErrorRequestDisallowedByPolicy <BR> Fel meddelande: en ogiltig princip har kon figurer ATS på den virtuella datorn som förhindrar ögonblicks bild åtgärden.
 
 Om du har en Azure Policy som [styr Taggar i din miljö](../governance/policy/tutorials/govern-tags.md)kan du antingen överväga att ändra principen från en [neka](../governance/policy/concepts/effects.md#deny) -förändring till en [ändrings funktion](../governance/policy/concepts/effects.md#modify)eller skapa resurs gruppen manuellt enligt det [namngivnings schema som krävs av Azure Backup](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
@@ -312,7 +327,7 @@ VM-säkerhetskopiering är beroende av utfärdande av ögonblicks bild kommandon
 
 * **Virtuella datorer med SQL Server säkerhets kopia konfigurerad kan orsaka aktivitets fördröjning i ögonblicks bilder**. Som standard skapar VM-säkerhetskopiering en fullständig VSS-säkerhetskopiering på virtuella Windows-datorer. Virtuella datorer som kör SQL Server, med SQL Server säkerhets kopiering konfigurerad, kan uppleva fördröjningar i ögonblicks bilder. Om ögonblicks bildernas fördröjning orsakar problem med säkerhets kopieringen anger du följande register nyckel:
 
-   ```text
+   ```console
    [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
    "USEVSSCOPYBACKUP"="TRUE"
    ```

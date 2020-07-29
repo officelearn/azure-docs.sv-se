@@ -1,5 +1,5 @@
 ---
-title: Distribuera Windows 7 Virtual Machine Windows Virtual Desktop fjäder 2020 – Azure
+title: Distribuera Windows 7 virtuell dator Windows Virtual Desktop – Azure
 description: Så här konfigurerar och distribuerar du en virtuell Windows 7-dator på Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -8,24 +8,21 @@ ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b589890f7b65b41cf6b7ba4fdf53b71173ed6a38
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6cb4a31e3360f3f9f8c9ed4684c30295489d27d8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020448"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285165"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Distribuera en virtuell Windows 7-dator på Windows Virtual Desktop
 
 >[!IMPORTANT]
->Det här innehållet gäller för våren 2020-uppdateringen med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder den virtuella Windows-datorn med version 2019 utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
->
-> Den virtuella Windows-skrivbordets våren 2020-uppdateringen är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. 
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Det här innehållet gäller för virtuella Windows-datorer med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder Windows Virtual Desktop (klassisk) utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
 
 Processen för att distribuera en virtuell Windows 7-dator (VM) på virtuella Windows-datorer skiljer sig något från för virtuella datorer som kör senare versioner av Windows. I den här guiden får du lära dig hur du distribuerar Windows 7.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar följer du anvisningarna i [skapa en adresspool med PowerShell](create-host-pools-powershell.md) för att skapa en adresspool. Om du använder portalen följer du anvisningarna i steg 1 till 9 i [skapa en värdbaserad pool med hjälp av Azure Portal](create-host-pools-azure-marketplace.md). Sedan väljer du **Granska + skapa** för att skapa en tom adresspool. 
 

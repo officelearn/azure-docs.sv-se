@@ -4,14 +4,15 @@ description: Använda Cloud-Init för att konfigurera en swap-partition i en vir
 author: rickstercdn
 manager: gwallace
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 1247652e536042ee249054d86aed3c3f8e7aa7bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f8746e67ba712ac4c2c3e832fcb5ffefb170d59
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78969207"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371948"
 ---
 # <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>Använd Cloud-Init för att konfigurera en swap-partition på en virtuell Linux-dator
 Den här artikeln visar hur du använder [Cloud-Init](https://cloudinit.readthedocs.io) för att konfigurera växlings partition på olika Linux-distributioner. Byt partition konfigurerades traditionellt av Linux-agenten (WALA) baserat på vilka distributioner som krävs.  Det här dokumentet beskriver processen för att bygga swap-partitionen på begäran under etablerings tiden med Cloud-init.  Mer information om hur Cloud-Init fungerar internt i Azure och vilka Linux-distributioner som stöds finns i [Översikt över Cloud-Init](using-cloud-init.md)

@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4a45239836779fc83aa2e3927c6e3ff752c87182
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: Microsoft-BradleyWright
+ms.author: brwrigh
+ms.openlocfilehash: 5cea220b44618787e34ce2297921d715476b7f14
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103763"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280961"
 ---
 # <a name="consulting-service-offers"></a>Konsult tjänst erbjudanden
 
@@ -148,7 +150,7 @@ Exempel:
 
 När innehålls gransknings teamet har granskat dina erbjudande beskrivningar och erbjudande sammanfattningar tillämpas följande kriterier:
 
-|Erbjudandetyp  |Obligatorisk |Rekommenderas  |
+|Erbjudandetyp  |Krävs |Rekommenderas  |
 |---------|---------|---------|
 |**Utvärdering**    |   Ta med en detaljerad agenda för utvärderingar av flera dagar eller flera veckor, och tydliggör vilken slut produkt som kunden kan vänta sig.      |    Optimera din erbjudande Sammanfattning med dina främsta SEO-Nyckelord.     |
 |**Genom gång**    |   Tydliggör vilken slut produkt som kunden kan förväntar sig. Kom ihåg att du måste tillhandahålla en *kortfattad* person. Om du tillhandahåller en virtuell tjänst väljer du en annan erbjudande typ.    |  Optimera din erbjudande Sammanfattning med dina främsta SEO-Nyckelord.       |

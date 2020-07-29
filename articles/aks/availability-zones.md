@@ -5,11 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 06507c75d486717a77676154818f2032b7e8c807
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: feea8c3cba170244be2ca3ec7a11c36a3c39f700
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195571"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281233"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Skapa ett Azure Kubernetes service-kluster (AKS) som använder tillgänglighets zoner
 
@@ -29,10 +30,10 @@ AKS-kluster kan för närvarande skapas med tillgänglighets zoner i följande r
 
 * USA, centrala
 * USA, östra 2
-* USA, östra
+* East US
 * Frankrike, centrala
 * Japan, östra
-* Europa, norra
+* Norra Europa
 * Sydostasien
 * Storbritannien, södra
 * Europa, västra
@@ -98,7 +99,7 @@ Börja med att hämta autentiseringsuppgifter för AKS-klustret med kommandot [A
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Använd sedan kommandot [kubectl beskriver][kubectl-describe] för att visa en lista över noderna i klustret. Filtrera på *Failure-Domain.beta.Kubernetes.io/Zone* -värdet så som visas i följande exempel:
+Använd sedan kommandot [kubectl beskriver][kubectl-describe] för att visa noderna i klustret och filtrera på *Failure-Domain.beta.Kubernetes.io/Zone* -värdet. Följande exempel gäller för ett bash-gränssnitt.
 
 ```console
 kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"
@@ -130,7 +131,7 @@ az aks scale \
     --node-count 5
 ```
 
-När skalnings åtgärden slutförs efter några minuter `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` bör kommandot ge utdata som liknar det här exemplet:
+När skalnings åtgärden slutförs efter några minuter `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` bör kommandot i ett bash-gränssnitt ge utdata som liknar det här exemplet:
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000
@@ -151,7 +152,7 @@ Nu har vi två ytterligare noder i zon 1 och 2. Du kan distribuera ett program s
 kubectl run nginx --image=nginx --replicas=3
 ```
 
-Genom att Visa noder där dina poddar körs, ser du att poddar körs på noderna som motsvarar tre olika tillgänglighets zoner. Med kommandot kan du till exempel `kubectl describe pod | grep -e "^Name:" -e "^Node:"` få utdata som liknar detta:
+Genom att Visa noder där dina poddar körs, ser du att poddar körs på noderna som motsvarar tre olika tillgänglighets zoner. Med kommandot `kubectl describe pod | grep -e "^Name:" -e "^Node:"` i ett bash-gränssnitt skulle du till exempel få utdata som liknar detta:
 
 ```console
 Name:         nginx-6db489d4b7-ktdwg

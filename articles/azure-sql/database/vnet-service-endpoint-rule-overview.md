@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 2ed9e9e4ec658fc506ad2bd449ee1a49d510503f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c1ac3c1e312704f8a0afa751d0efc6d0cef897f9
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081346"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371778"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Använd tjänst slut punkter och regler för virtuella nätverk för servrar i Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -110,7 +110,7 @@ Azure Storage har implementerat samma funktion som gör det möjligt att begrän
 
 PolyBase används ofta för att läsa in data i Azure Synapse Analytics från Azure Storage-konton. Om Azure Storage konto som du läser in data från begränsar åtkomsten till en uppsättning VNet-undernät, kommer anslutningen från PolyBase till kontot att avbrytas. Följ stegen nedan om du vill aktivera både PolyBase import-och export scenarier med Azure Synapse Analytics som ansluter till Azure Storage som skyddas av VNet:
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
 - Installera Azure PowerShell med hjälp av den här [guiden](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Om du har ett allmänt v1-eller Blob Storage-konto måste du först uppgradera till General-Purpose v2 med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
@@ -139,7 +139,7 @@ PolyBase används ofta för att läsa in data i Azure Synapse Analytics från Az
 1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och väljer **Lägg till roll tilldelning**. Tilldela RBAC-rollen **Storage BLOB data Contributor** till den server som är värd för din Azure Synapse-analys som du har registrerat med Azure Active Directory (AAD) som i steg #1.
 
    > [!NOTE]
-   > Endast medlemmar med ägar behörighet för lagrings kontot kan utföra det här steget. De olika inbyggda rollerna för Azure-resurser finns i den här [guiden](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Endast medlemmar med ägar behörighet för lagrings kontot kan utföra det här steget. Information om olika inbyggda Azure-roller finns i den här [guiden](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
 1. **PolyBase-anslutning till Azure Storage kontot:**
 
@@ -227,7 +227,7 @@ Internt anropar PowerShell-cmdletar för SQL VNet-åtgärder REST-API: er. Du ka
 
 - [Virtual Network regler: åtgärder][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du måste redan ha ett undernät som är taggat med det specifika Virtual Network tjänst slut punkts *typ namn* som är relevant för Azure SQL Database.
 

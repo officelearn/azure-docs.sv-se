@@ -485,7 +485,7 @@
             - name: Visa aviseringar
               href: ../service-health/service-notifications.md
             - name: Konfigurera aviseringar i aviseringshändelser
-              href: platform/alerts-activity-log-service-notifications.md
+              href: ../service-health/alerts-activity-log-service-notifications-portal.md
         - name: Aviseringar och rapporter
           items:
             - name: Åtgärdsregler (förhandsversion)
@@ -905,18 +905,24 @@
           href: insights/vminsights-ga-release-faq.md
         - name: VANLIGA FRÅGOR OCH SVAR
           href: faq.md#azure-monitor-for-vms
-        - name: Aktivera övervakning
+        - name: Konfigurera arbetsyta
+          href: insights/vminsights-configure-workspace.md
+        - name: Installera agenter
           items:
-            - name: Aktivera övervakningsöversikt
+            - name: Översikt
               href: insights/vminsights-enable-overview.md
-            - name: Aktivera för enskild virtuell Azure-dator
-              href: insights/vminsights-enable-single-vm.md
-            - name: Aktivera med hjälp av Azure Policy
-              href: insights/vminsights-enable-at-scale-policy.md
-            - name: Aktivera med hjälp av Azure PowerShell
-              href: insights/vminsights-enable-at-scale-powershell.md
-            - name: Aktivera för hybridmiljö
-              href: insights/vminsights-enable-hybrid-cloud.md
+            - name: Azure Portal
+              href: insights/vminsights-enable-portal.md
+            - name: Azure PowerShell
+              href: insights/vminsights-enable-powershell.md
+            - name: ARM-mallar
+              href: insights/vminsights-enable-resource-manager.md
+            - name: Azure Policy
+              href: insights/vminsights-enable-policy.md
+            - name: Virtuella hybriddatorer
+              href: insights/vminsights-enable-hybrid.md
+            - name: Uppgradera Dependency Agent
+              href: insights/vminsights-dependency-agent-maintenance.md
         - name: Mappa beroenden
           href: insights/vminsights-maps.md
         - name: Övervaka prestanda
@@ -927,8 +933,6 @@
           href: insights/vminsights-workbooks.md
         - name: Skapa aviseringsregler
           href: insights/vminsights-alerts.md
-        - name: Uppgradera Dependency Agent
-          href: insights/vminsights-dependency-agent-maintenance.md
         - name: Inaktivera övervakning
           href: insights/vminsights-optout.md
     - name: Azure Monitor för containrar

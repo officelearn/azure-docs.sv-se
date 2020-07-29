@@ -8,14 +8,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.custom: amqp
-ms.openlocfilehash: ac45cf42ed174d3e9423b4ea39cadf16b84897ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- amqp
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: e9fd4308f89873183e4f5f57cee56887ce181fae
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759647"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307292"
 ---
-# <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Konfigurera X.509-baserad säkerhet i din Azure IoT-hubb
+# <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Konfigurera säkerhet för X.509 i din Azure IoT Hub
 
 Den här självstudien visar de steg du behöver för att skydda din Azure IoT Hub med hjälp av *509 för X.*. För illustrationen använder vi verktyget OpenSSL med öppen källkod för att skapa certifikat lokalt på din Windows-dator. Vi rekommenderar att du bara använder den här självstudien i test syfte. För produktions miljö bör du köpa certifikaten från en *rot certifikat utfärdare (ca)*.
 
@@ -94,7 +98,7 @@ Sedan visar vi dig hur du skapar ett C#-program för att simulera X. 509-enheten
 
 1. I Solution Explorer högerklickar du på projektet **SimulateX509Device** och väljer sedan **Hantera NuGet-paket**.
 
-1. I **NuGet Package Manager**väljer du **Bläddra** och söker efter och väljer **Microsoft. Azure. devices. client**. Välj **installera**.
+1. I **NuGet Package Manager**väljer du **Bläddra** och söker efter och väljer **Microsoft. Azure. devices. client**. Välj **Installera**.
 
    ![Lägg till enhets-SDK NuGet-paketet i Visual Studio](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e1ba623a00c84a7b83afe778c808251e49c7008e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 072fa659d6f5cf55da4dfc99cfed38220be70812
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515351"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337355"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -30,7 +30,7 @@ Vi rekommenderar starkt att du läser [planering för en Azure Files distributio
     $PSVersionTable.PSVersion
     ```
 
-    Om ditt PSVersion-värde är mindre än 5,1. \* , som är fallet med de flesta nya installationer av Windows Server 2012 R2, kan du enkelt uppgradera genom att hämta och installera [Windows Management Framework (WMF) 5,1](https://www.microsoft.com/download/details.aspx?id=54616). Lämpligt paket för att ladda ned och installera för Windows Server 2012 R2 är **Win 8.1 andw2k12r2-KB \* \* \* \* \* \* \* -x64. msu**. 
+    Om ditt **PSVersion** -värde är mindre än 5,1. \* , som är fallet med de flesta nya installationer av Windows Server 2012 R2, kan du enkelt uppgradera genom att hämta och installera [Windows Management Framework (WMF) 5,1](https://www.microsoft.com/download/details.aspx?id=54616). Lämpligt paket för att ladda ned och installera för Windows Server 2012 R2 är **Win 8.1 andw2k12r2-KB \* \* \* \* \* \* \* -x64. msu**. 
 
     PowerShell 6 + kan användas med alla system som stöds och kan hämtas via dess GitHub- [sida](https://github.com/PowerShell/PowerShell#get-powershell). 
 
@@ -215,6 +215,8 @@ När du registrerar Windows Server med en tjänst för synkronisering av lagring
 
 > [!Note]
 > Server registreringen använder dina Azure-autentiseringsuppgifter för att skapa en förtroende relation mellan tjänsten för synkronisering av lagring och Windows Server, men därefter skapar servern och använder sin egen identitet som är giltig så länge servern är registrerad och den aktuella signaturen token för delad åtkomst (lagrings-SAS) är giltig. Det går inte att utfärda en ny SAS-token till servern när servern har avregistrerats, och därför kan du ta bort serverns möjlighet att komma åt dina Azure-filresurser och stoppa eventuell synkronisering.
+
+Administratören som registrerar servern måste vara medlem i hanterings rollens **ägare** eller **deltagare** för den aktuella tjänsten för synkronisering av lagring. Detta kan konfigureras under **Access Control (IAM)** i Azure Portal för tjänsten för synkronisering av lagring.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Server registrerings gränssnittet bör öppnas automatiskt när du har installerat Azure File Sync agenten. Om det inte gör det kan du öppna det från dess filplats: C:\Program\Azure\StorageSyncAgent\ServerRegistration.exe. När Server registrerings gränssnittet öppnas väljer du **Logga** in för att börja.

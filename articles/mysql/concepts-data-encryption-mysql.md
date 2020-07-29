@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 90ca46ace5f774e288b40a969f8f7e9802e79857
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7399bc60ffa88112fee87b429571772f634c0754
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080887"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285432"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Azure Database for MySQL data kryptering med en kundhanterad nyckel
 
@@ -22,7 +22,7 @@ Data kryptering med Kundhanterade nycklar för Azure Database for MySQL anges p�
 Key Vault är ett molnbaserad, externt nyckel hanterings system. Den har hög tillgänglighet och ger skalbar och säker lagring för kryptografiska RSA-nycklar, eventuellt backas upp av FIPS 140-2 nivå 2, verifierade HSM: er (Hardware Security modules). Den tillåter inte direkt åtkomst till en lagrad nyckel, men tillhandahåller tjänster för kryptering och dekryptering till auktoriserade entiteter. Key Vault kan generera nyckeln, importera den eller [låta den överföras från en lokal HSM-enhet](../key-vault/key-Vault-hsm-protected-keys.md).
 
 > [!NOTE]
-> Den här funktionen är tillgänglig i alla Azure-regioner där Azure Database for MySQL stöder pris nivåerna "Generell användning" och "Minnesoptimerade".
+> Den här funktionen är tillgänglig i alla Azure-regioner där Azure Database for MySQL stöder pris nivåerna "Generell användning" och "Minnesoptimerade". Mer information om andra begränsningar finns i [begränsnings](concepts-data-encryption-mysql.md#limitations) avsnittet.
 
 ## <a name="benefits"></a>Fördelar
 

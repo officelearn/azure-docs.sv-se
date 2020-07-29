@@ -3,19 +3,19 @@ title: Kryptera program källan i vila
 description: Kryptera dina program data i Azure Storage och distribuera den som en paket fil.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 6dfb56a5ef6b1ab3cfbd0762bf7816e37ce0aa39
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1dd0d11baa16a325a22a501d40e22e5bad6adb21
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081890"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282338"
 ---
 # <a name="encrypt-your-application-data-at-rest-using-customer-managed-keys"></a>Kryptera dina program data i vila med Kundhanterade nycklar
 
 Att kryptera din funktions programs program data på rest kräver ett Azure Storage-konto och ett Azure Key Vault. Dessa tjänster används när du kör din app från ett distributions paket.
 
   - [Azure Storage tillhandahåller kryptering i vila](../storage/common/storage-service-encryption.md). Du kan använda de nycklar som anges av systemet eller dina egna Kundhanterade nycklar. Det är här som dina program data lagras när de inte körs i en Function-app i Azure.
-  - [Körs från ett distributions paket] ((run-functions-from-deployment-package.md) är en distributions funktion i App Service. Du kan distribuera plats innehållet från ett Azure Storage-konto med hjälp av en URL för signatur för delad åtkomst (SAS).
+  - Att [köra från ett distributions paket](run-functions-from-deployment-package.md) är en distributions funktion i App Service. Du kan distribuera plats innehållet från ett Azure Storage-konto med hjälp av en URL för signatur för delad åtkomst (SAS).
   - [Key Vault referenser](../app-service/app-service-key-vault-references.md) är en säkerhetsfunktion i App Service. Du kan importera hemligheter vid körning som program inställningar. Använd detta för att kryptera SAS-URL: en för ditt Azure Storage konto.
 
 ## <a name="set-up-encryption-at-rest"></a>Konfigurera kryptering i vila

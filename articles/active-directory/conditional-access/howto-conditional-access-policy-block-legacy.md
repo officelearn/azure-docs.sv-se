@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d6539a233fbb8038d82a8ea41da2c9e79745324
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15e3c5ba72ff7b97e03cd7aa2b68eeffb2aa7882
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995198"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283018"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Villkorlig åtkomst: blockera äldre autentisering
 
@@ -35,7 +36,7 @@ Följande steg hjälper dig att skapa en princip för villkorlig åtkomst för a
    1. Välj **Klar**.
 1. Under **molnappar eller åtgärder**väljer du **alla molnappar**.
    1. Välj **Klar**.
-1. Under **villkor**  >  **klient program (för hands version)** anger du **Konfigurera** till **Ja**.
+1. Under **villkor**  >  **klient program (förhands granskning)** under **Välj de klient program som den här principen ska gälla för**:
    1. Kontrol lera endast de **mobila apparna och skriv bords klienterna**  >  **andra klienter**.
    1. Välj **Klar**.
 1. Under **åtkomst kontroller**  >  **bevilja**väljer du **blockera åtkomst**.

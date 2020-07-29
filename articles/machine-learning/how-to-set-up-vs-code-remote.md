@@ -5,16 +5,17 @@ description: Konfigurera VS Code Remote för att interaktivt felsöka din kod me
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: jmartens
 author: j-martens
 ms.date: 07/09/2020
-ms.openlocfilehash: 46aefa62ab00c0b3bc2b90467a9fafd61439a10e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: dfb8dac1b9027acd01b3c13c919d9c3cd8368819
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203458"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320127"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote-preview"></a>Felsöka interaktivt på en Azure Machine Learning beräknings instans med VS Code Remote (förhands granskning)
 

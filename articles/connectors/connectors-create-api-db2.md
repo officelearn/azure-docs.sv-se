@@ -7,11 +7,12 @@ ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 32b482607827ee4420e39b1936586d64f9ea3139
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd85155f932d57319f5f27081b44b48e5540bfb2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77651390"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284055"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Få åtkomst till och hantera IBM DB2-resurser med hjälp av Azure Logic Apps
 
@@ -46,7 +47,7 @@ IBM DB2 Connector stöder dessa databas åtgärder som mappar till motsvarande �
 | Ta bort en rad med hjälp av ta bort | Ta bort rad |
 |||
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -81,15 +82,15 @@ Om du vill konfigurera din anslutning anger du följande information när du upp
 
 | Egenskap | Krävs | Beskrivning |
 |----------|----------|-------------|
-| **Anslut via lokal gateway** | No | Gäller endast för lokala anslutningar. |
+| **Anslut via lokal gateway** | Nej | Gäller endast för lokala anslutningar. |
 | **Anslutnings namn** | Ja | Namnet på anslutningen, till exempel "MyLogicApp-DB2-Connection" |
 | **Server** | Ja | Adressen eller Ali Asets kolon port nummer för DB2-servern, till exempel "myDB2server.cloudapp.net:50000" <p><p>**Obs!** det här värdet är en sträng som representerar en TCP/IP-adress eller ett alias, antingen i IPv4-eller IPv6-format, följt av ett kolon och ett port nummer för TCP/IP. |
 | **Databas** | Ja | Namnet på din databas <p><p>**Obs!** det här värdet är en sträng som representerar ett DRDA Relations databas namn (RDBNAM): <p>– DB2 för z/OS accepterar en 16 byte-sträng där databasen kallas "IBM DB2 for z/OS"-plats. <br>-DB2 för jag accepterar en 18-byte-sträng där databasen kallas "IBM DB2 for i" Relations databas. <br>– DB2 för LUW accepterar en 8-byte-sträng. |
-| **Användar** | Ja | Ditt användar namn för databasen <p><p>**Obs!** det här värdet är en sträng vars längd baseras på den angivna databasen: <p><p>– DB2 för z/OS accepterar en 8-byte-sträng. <br>– DB2 för jag accepterar en 10 byte-sträng. <br>– DB2 för Linux eller UNIX accepterar en 8-byte-sträng. <br>– DB2 för Windows accepterar en 30 byte-sträng. |
+| **Användarnamn** | Ja | Ditt användar namn för databasen <p><p>**Obs!** det här värdet är en sträng vars längd baseras på den angivna databasen: <p><p>– DB2 för z/OS accepterar en 8-byte-sträng. <br>– DB2 för jag accepterar en 10 byte-sträng. <br>– DB2 för Linux eller UNIX accepterar en 8-byte-sträng. <br>– DB2 för Windows accepterar en 30 byte-sträng. |
 | **Lösenord** | Ja | Ditt lösen ord för databasen |
 ||||
 
-Ett exempel:
+Till exempel:
 
 ![Anslutnings information för molnbaserade databaser](./media/connectors-create-api-db2/create-db2-cloud-connection.png)
 
@@ -106,12 +107,12 @@ Innan du skapar anslutningen måste du redan ha din lokala datagateway installer
 | **Server** | Ja | Adressen eller Ali Asets kolon port nummer för DB2-servern, till exempel "myDB2server: 50000" <p><p>**Obs!** det här värdet är en sträng som representerar en TCP/IP-adress eller ett alias, antingen i IPv4-eller IPv6-format, följt av ett kolon och ett port nummer för TCP/IP. |
 | **Databas** | Ja | Namnet på din databas <p><p>**Obs!** det här värdet är en sträng som representerar ett DRDA Relations databas namn (RDBNAM): <p>– DB2 för z/OS accepterar en 16 byte-sträng där databasen kallas "IBM DB2 for z/OS"-plats. <br>-DB2 för jag accepterar en 18-byte-sträng där databasen kallas "IBM DB2 for i" Relations databas. <br>– DB2 för LUW accepterar en 8-byte-sträng. |
 | **Autentisering** | Ja | Autentiseringstypen för anslutningen, till exempel "grundläggande" <p><p>**Obs**: Välj det här värdet i listan, som innehåller Basic eller Windows (Kerberos). |
-| **Användar** | Ja | Ditt användar namn för databasen <p><p>**Obs!** det här värdet är en sträng vars längd baseras på den angivna databasen: <p><p>– DB2 för z/OS accepterar en 8-byte-sträng. <br>– DB2 för jag accepterar en 10 byte-sträng. <br>– DB2 för Linux eller UNIX accepterar en 8-byte-sträng. <br>– DB2 för Windows accepterar en 30 byte-sträng. |
+| **Användarnamn** | Ja | Ditt användar namn för databasen <p><p>**Obs!** det här värdet är en sträng vars längd baseras på den angivna databasen: <p><p>– DB2 för z/OS accepterar en 8-byte-sträng. <br>– DB2 för jag accepterar en 10 byte-sträng. <br>– DB2 för Linux eller UNIX accepterar en 8-byte-sträng. <br>– DB2 för Windows accepterar en 30 byte-sträng. |
 | **Lösenord** | Ja | Ditt lösen ord för databasen |
 | **Nyckeln** | Ja | Namnet på din installerade lokala datagateway <p><p>**Obs**: Välj det här värdet i listan, som innehåller alla installerade datagatewayer i din Azure-prenumeration och resurs grupp. |
 ||||
 
-Ett exempel:
+Till exempel:
 
 ![Anslutnings information för lokala databaser](./media/connectors-create-api-db2/create-db2-on-premises-connection.png)
 
@@ -152,7 +153,7 @@ Om du vill hämta en post i en DB2 Database-tabell använder du åtgärden **Hä
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Tabellnamn** | Ja | Den tabell som innehåller den post som du vill ha, till exempel "AREA" i det här exemplet |
+   | **Tabell namn** | Ja | Den tabell som innehåller den post som du vill ha, till exempel "AREA" i det här exemplet |
    | **Area-ID** | Ja | ID för den post som du vill ha, till exempel "99999" i det här exemplet |
    ||||
 
@@ -232,13 +233,13 @@ Om du vill lägga till en enskild post i en DB2-databas tabell använder du åtg
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Tabellnamn** | Ja | Tabellen där posten ska läggas till, till exempel "AREA" |
+   | **Tabell namn** | Ja | Tabellen där posten ska läggas till, till exempel "AREA" |
    | **Area-ID** | Ja | ID för det utrymme som ska läggas till, till exempel "99999" |
    | **Beskrivning av områden** | Ja | Beskrivningen för det utrymme som ska läggas till, till exempel "Area 99999" |
    | **Regions-ID** | Ja | ID för den region som ska läggas till, till exempel "102" |
    |||| 
 
-   Ett exempel:
+   Till exempel:
 
    ![Välj tabell](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
@@ -279,14 +280,14 @@ Om du vill uppdatera en enskild post i en DB2-databas tabell använder du åtgä
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Tabellnamn** | Ja | Den tabell där posten ska uppdateras, t. ex. "AREA" |
+   | **Tabell namn** | Ja | Den tabell där posten ska uppdateras, t. ex. "AREA" |
    | **Rad-ID** | Ja | ID för den post som ska uppdateras, till exempel "99999" |
    | **Area-ID** | Ja | Det nya yt-ID: t, till exempel "99999" |
    | **Beskrivning av områden** | Ja | Beskrivningen av det nya fältet, till exempel "uppdaterad 99999" |
    | **Regions-ID** | Ja | Det nya regions-ID: t, till exempel "102" |
    ||||
 
-   Ett exempel:
+   Till exempel:
 
    ![Välj tabell](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
@@ -327,11 +328,11 @@ Om du vill ta bort en enskild post från en DB2-databas tabell använder du åtg
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Tabellnamn** | Ja | Den tabell där posten ska tas bort, till exempel "AREA" |
+   | **Tabell namn** | Ja | Den tabell där posten ska tas bort, till exempel "AREA" |
    | **Rad-ID** | Ja | ID för den post som ska tas bort, till exempel "99999" |
    ||||
 
-   Ett exempel:
+   Till exempel:
 
    ![Välj tabell](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
@@ -358,7 +359,7 @@ Expandera åtgärden **ta bort rad** .
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Mer teknisk information om den här anslutningen, till exempel utlösare, åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/db2/).
+Mer teknisk information om den här anslutningen, till exempel utlösare, åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil finns på [kopplingens referens sida](/connectors/db2/).
 
 > [!NOTE]
 > För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ISE-märkta version [ISE-meddelandets gränser](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.
@@ -366,3 +367,4 @@ Mer teknisk information om den här anslutningen, till exempel utlösare, åtgä
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)
+

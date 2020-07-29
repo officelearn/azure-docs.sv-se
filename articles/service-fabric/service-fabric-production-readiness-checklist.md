@@ -3,12 +3,12 @@ title: Check lista för Azure Service Fabric Production readiness
 description: Förbered din Service Fabric program-och kluster produktion genom att följa bästa praxis.
 ms.topic: conceptual
 ms.date: 6/05/2019
-ms.openlocfilehash: 7011860b8e1162b35cbfee3a9e796163710b7fdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf5245b4b97706703d9f96e047ecb49786ff6266
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610038"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282066"
 ---
 # <a name="production-readiness-checklist"></a>Checklista för produktionsberedskap
 
@@ -22,7 +22,7 @@ ms.locfileid: "85610038"
 1. Använd en virtuella d2v2 eller en högre SKU för den primära nodtypen. Vi rekommenderar att du väljer en SKU med minst 50 GB hård disk kapacitet.
 1. Produktions kluster måste vara [skyddade](service-fabric-cluster-security.md). Ett exempel på hur du konfigurerar ett säkert kluster finns i den här [kluster mal len](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Använd egna namn för certifikat och Undvik att använda självsignerade certifikat.
 1. Lägg till [resurs begränsningar på behållare och tjänster](service-fabric-resource-governance.md), så att de inte förbrukar mer än 75% av Node-resurserna. 
-1. Förstå och ange [hållbarhets nivån](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster). Den silver eller högre hållbarhets nivån rekommenderas för nodtyper som kör tillstånds känsliga arbets belastningar. Den primära nodtypen måste ha en hållbarhets nivå inställd på silver eller högre.
+1. Förstå och ange [hållbarhets nivån](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster). Den silver eller högre hållbarhets nivån rekommenderas för nodtyper som kör tillstånds känsliga arbets belastningar.
 1. Förstå och välj [Tillförlitlighets nivån](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) för nodtypen. Silver eller högre tillförlitlighet rekommenderas.
 1. Testa belastningen och skala dina arbets belastningar för att identifiera [kapacitets kraven](service-fabric-cluster-capacity.md) för klustret. 
 1. Dina tjänster och program övervakas och program loggar skapas och lagras, med aviseringar. Se [till exempel Lägg till loggning i Service Fabric programmet](service-fabric-how-to-diagnostics-log.md) och [övervaka behållare med Azure Monitor loggar](service-fabric-diagnostics-oms-containers.md).

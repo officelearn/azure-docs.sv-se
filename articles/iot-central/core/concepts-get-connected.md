@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: a66613406de66cf9478b90d4ad58c115a30fdf5d
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 82d797189096994e02c77e9d342c00b13dfa187d
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224773"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337100"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Ansluta till Azure IoT Central
 
@@ -213,13 +213,13 @@ En av de viktigaste funktionerna i IoT Central är möjligheten att associera en
 
 Följande kodfragment visar formatet för den extra nytto last som enheten måste skicka under DPS-registreringen för att automatisk Association ska fungera.
 
-Detta är formatet för enheter som använder allmänt tillgängliga enhets-SDK: er som inte stöder IoT Plug and Play:
+Detta är formatet för enheter som använder allmänt tillgängliga enhets-SDK:
 
 ```javascript
     iotcModelId: '< this is the URN for the capability model>';
 ```
 
-Det här är formatet för enheter som använder den offentliga för hands versionen av enhets-SDK: n som stöder IoT Plug and Play:
+Detta är formatet för enheter som använder Public Preview-enhets-SDK:
 
 ```javascript
 '__iot:interfaces': {
@@ -280,8 +280,6 @@ I följande tabell sammanfattas hur Azure IoT Central enhets funktioner mappas t
 | Egenskap | Enhetens dubbla rapporterade egenskaper |
 | Egenskap (skrivbar) | Enhetens dubbla önskade och rapporterade egenskaper |
 | Kommando | Direkta metoder |
-
-Mer information om hur du använder enhets-SDK: er finns i [ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program](howto-connect-devkit.md) till exempel kod.
 
 ### <a name="protocols"></a>Protokoll
 

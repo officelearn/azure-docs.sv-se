@@ -5,16 +5,17 @@ description: Lär dig hur du använder Azure CLI för att skapa en ny Azure Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
 ms.date: 06/25/2020
-ms.openlocfilehash: 64963bfc28921d195d9ed0f96b2673a9c9e4aa2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: 1cc280dc12fcb462e11a568910eef053e4bdac50
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392717"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319702"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Skapa en arbets yta för Azure Machine Learning med Azure CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +60,13 @@ az extension add -n azure-cli-ml
 Azure Machine Learning-arbetsytan är beroende av följande Azure-tjänster eller-entiteter:
 
 > [!IMPORTANT]
-> Om du inte anger en befintlig Azure-tjänst skapas en automatiskt när arbets ytan skapas. Du måste alltid ange en resurs grupp. När du kopplar ditt eget lagrings konto ser du till att både Azure blob-och Azure-filfunktioner är aktiverade och att hierarkiskt namn område (ADLS gen 2) är inaktiverat. Du kan alltid ansluta ditt eget lagrings konto senare när arbets ytan har skapats som data lager.
+> Om du inte anger en befintlig Azure-tjänst skapas en automatiskt när arbets ytan skapas. Du måste alltid ange en resurs grupp. När du kopplar ditt eget lagrings konto ser du till att det uppfyller följande kriterier:
+>
+> * Lagrings kontot är _inte_ ett Premium-konto (Premium_LRS och Premium_GRS)
+> * Både Azure blob-och Azure-filfunktioner är aktiverade
+> * Hierarkiskt namn område (ADLS gen 2) är inaktiverat
+>
+> Dessa krav gäller endast för det _standard_ lagrings konto som används av arbets ytan.
 
 | Tjänst | Parameter för att ange en befintlig instans |
 | ---- | ---- |
@@ -147,6 +154,9 @@ Om du vill skapa en arbets yta som använder befintliga resurser måste du ange 
     Svaret från det här kommandot liknar följande text och är ID: t för ditt lagrings konto:
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"`
+
+    > [!IMPORTANT]
+    > Om du vill använda ett befintligt Azure Storage-konto kan det inte vara ett Premium-konto (Premium_LRS och Premium_GRS). Det får inte heller ha ett hierarkiskt namn område (används med Azure Data Lake Storage Gen2). Varken Premium Storage eller hierarkiskt namn område stöds med arbets ytans _standard_ lagrings konto. Du kan använda Premium Storage eller hierarkiskt namnrymd med lagrings konton som _inte är standard_ .
 
 + **Azure Application insikter**:
 

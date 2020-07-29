@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 6bc118145bec30085c2d9fbf726c40a20b312430
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 83e76cd96e09b0e136d2bfbe2e5863b289724bdd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207052"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284259"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optisk teckenläsning (OCR)
 
@@ -24,7 +24,7 @@ Microsofts API för visuellt innehåll innehåller OCR-funktioner (optisk tecken
 
 ## <a name="read-api"></a>Läs-API 
 
-Visuellt innehåll [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) är Microsofts senaste OCR-teknik som extraherar tryckt text (sju språk), handskriven text (endast engelska), siffror och valuta symboler från bilder och PDF-dokument med flera sidor. Det är optimerat för att extrahera text från en text – tunga bilder och PDF-dokument med flera sidor med blandade språk. Det stöder identifiering av skriven och handskriven text (endast engelska) i samma bild eller dokument. Se den fullständiga listan över [språk som stöds av OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) .
+Visuellt innehåll [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) är Microsofts senaste OCR-teknik som extraherar utskriven text på flera språk, handskriven text (endast engelska), siffror och valuta symboler från bilder och PDF-dokument med flera sidor. Det är optimerat för att extrahera text från en text – tunga bilder och PDF-dokument med flera sidor med blandade språk. Det stöder identifiering av skriven och handskriven text (endast engelska) i samma bild eller dokument. Se den fullständiga listan över [språk som stöds av OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) .
 
 ### <a name="how-ocr-works"></a>Så här fungerar OCR
 
@@ -123,7 +123,7 @@ Just nu stöder Läs åtgärden extrahering av handskriven text exklusivt på en
 
 ### <a name="printed-text-in-supported-languages"></a>Utskriven text i språk som stöds
 
-Read API stöder extrahering av utskriven text på engelska, spanska, tyska, franska, italienska, portugisiska och nederländska språk. Om ditt scenario kräver stöd för fler språk, se Översikt över OCR API i det här dokumentet. Se listan över alla språk som [stöds av OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
+API: et Read 3,0 stöder extrahering av utskriven text på engelska, spanska, tyska, franska, italienska, portugisiska och nederländska språk. [Läs 3,1 – för hands version. 1 API offentlig för hands version](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) lägger till stöd för förenklad kinesiska. Om ditt scenario kräver stöd för fler språk, se Översikt över OCR API i det här dokumentet. Se listan över alla språk som [stöds av OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
 
 ![En bild som roteras och dess text läses och avgränsas](./Images/supported-languages-example.png)
 
@@ -137,7 +137,7 @@ Read API stöder bilder och dokument med flera språk, vanligt vis kallade bland
 
 Precis som med alla kognitiva tjänster bör utvecklare som använder Läs tjänsten vara medvetna om Microsofts principer för kund information. Mer information finns på sidan Cognitive Services på [Microsoft Trust Center](https://www.microsoft.com/en-us/trust-center/product-overview) .
 
-### <a name="deploy-on-premises"></a>Distribuera lokalt
+### <a name="containers-for-on-premise-deployment"></a>Behållare för lokal distribution
 
 Läs är även tillgänglig som en Docker-behållare (för hands version) så att du kan distribuera nya OCR-funktioner i din egen miljö. Behållare är fantastiska för särskilda säkerhets-och data styrnings krav. Se [Installera och köra Läs behållare.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
 
@@ -149,4 +149,5 @@ Läs är även tillgänglig som en Docker-behållare (för hands version) så at
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om att [läsa 3,0 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005).
+- Läs mer om [Read 3,1 – Preview. 1 REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) med stöd för förenklad kinesiska.
 - Följ snabb starten för att [Extrahera text](./QuickStarts/CSharp-hand-text.md) för att implementera OCR med C#, Java, java script eller python tillsammans med REST API.

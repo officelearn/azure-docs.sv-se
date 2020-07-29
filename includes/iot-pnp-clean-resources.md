@@ -1,25 +1,26 @@
 ---
-author: baanders
-ms.author: baanders
+author: dominicbetts
+ms.author: dominicbetts
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/15/2019
-ms.openlocfilehash: d88d166e001e71cabdabc3a3d344adc4da19aa8c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6cd983b6421fc821853aa22d4dc2c297f672d292
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75453716"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336911"
 ---
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att fortsätta med ytterligare IoT Plug and Play-artiklar kan du behålla och återanvända de resurser som du använde i den här snabb starten. Annars kan du ta bort de resurser du skapade i den här snabb starten för att undvika ytterligare kostnader.
+Om du planerar att fortsätta med ytterligare IoT Plug and Play-artiklar kan du behålla och återanvända de resurser som du använde i den här artikeln. Annars kan du ta bort de resurser som du skapade i den här artikeln för att undvika ytterligare kostnader.
 
-Du kan ta bort både Hub och den registrerade enheten samtidigt genom att ta bort hela resurs gruppen med följande kommando för Azure CLI. (Använd inte detta, men om dessa resurser delar en resurs grupp med andra resurser som du har för olika syfte.)
+Du kan ta bort både Hub och den registrerade enheten samtidigt genom att ta bort hela resurs gruppen med följande Azure CLI-kommando. Använd inte det här kommandot om resurserna delar en resurs grupp med andra resurser som du vill behålla.
 
 ```azurecli-interactive
 az group delete --name <YourResourceGroupName>
 ```
+
 Om du bara vill ta bort IoT-hubben kör du följande kommando med hjälp av Azure CLI:
 
 ```azurecli-interactive

@@ -5,20 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: baab0160247e17556f0928f12f26a5ecca767210
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f6185cbb871d63cfdf5a4c336944158593b63e4a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129312"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372849"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Använd Microsoft Teams på Windows Virtual Desktop
 
 >[!IMPORTANT]
->Medie optimering för Microsoft Teams är för närvarande en offentlig för hands version. Vi rekommenderar att du utvärderar de optimerade teamens användar upplevelse innan du distribuerar team för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
+>Medie optimering för team stöds inte för Microsoft 365 myndighets miljöer.
 
 >[!NOTE]
 >Medie optimering för Microsoft Teams är bara tillgänglig för Windows Skriv bords klient på Windows 10-datorer. Medie optimeringar kräver Windows Desktop Client version 1.2.1026.0 eller senare.
@@ -27,7 +27,7 @@ Microsoft Teams på Windows Virtual Desktop stöder chatt och samarbete. Med med
 
 Med medie optimering för Microsoft team, hanterar Windows Skriv bords klienten ljud och video lokalt för team-samtal och-möten. Du kan fortfarande använda Microsoft Teams på virtuella Windows-datorer med andra klienter utan optimerad samtal och möten. Teams chatt-och samarbets funktioner stöds på alla plattformar. Om du vill omdirigera lokala enheter i fjärrsessionen kan du läsa [anpassa Remote Desktop Protocol egenskaper för en adresspool](#customize-remote-desktop-protocol-properties-for-a-host-pool).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du kan använda Microsoft Teams på Windows Virtual Desktop måste du göra följande saker:
 
@@ -53,15 +53,21 @@ Om du vill aktivera medie optimering för team anger du följande register nycke
 
 ### <a name="install-the-teams-websocket-service"></a>Installera Teams WebSocket-tjänsten
 
-Installera [WebSocket-tjänsten](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj0i) på den virtuella dator avbildningen. Om ett installations fel uppstår installerar du den [senaste versionen av Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) och försöker igen.
+Installera den senaste [WebSocket-tjänsten](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) på den virtuella dator avbildningen. Om ett installations fel uppstår installerar du den [senaste versionen av Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) och försöker igen.
 
 #### <a name="latest-websocket-service-versions"></a>Senaste WebSocket service-versioner
 
-I följande tabell visas de aktuella versionerna som är tillgängliga för varje användar grupp:
+I följande tabell visas de senaste versionerna av WebSocket-tjänsten:
 
-|Version    |Utgivningsdatum  |
-|-----------|--------------|
-|0.11.0     |05/29/2020    |
+|Version        |Utgivningsdatum  |
+|---------------|--------------|
+|1.0.2006.11001 |07/28/2020    |
+|0.11.0         |05/29/2020    |
+
+#### <a name="updates-for-version-10200611001"></a>Uppdateringar för version 1.0.2006.11001
+
+- Ett problem har åtgärd ATS där team-appen minimeras under ett samtal eller ett möte som orsakade att inkommande video togs bort.
+- Stöd har lagts till för att välja en övervakare att dela i sessioner med flera bildskärmar.
 
 ### <a name="install-microsoft-teams"></a>Installera Microsoft Teams
 
@@ -117,7 +123,7 @@ När du har installerat WebSocket-tjänsten och Teams Desktop-appen följer du d
 
 3. Välj användar profil avbildningen och välj sedan **Inställningar**.
 
-      Om medie optimeringar läses in räknas ljud enheterna och kamerorna som är tillgängliga lokalt i enhets menyn. Om menyn visar **fjärrljud**avslutar du team-appen och försöker igen. Om enheterna fortfarande inte visas i menyn går du tillbaka till [Installera Microsoft Teams](#install-microsoft-teams) och kontrollerar att du har slutfört installations processen.
+      Om medie optimeringar läses in räknas ljud enheterna och kamerorna som är tillgängliga lokalt i enhets menyn. Om menyn visar **fjärrljud**avslutar du team-appen och försöker igen. Om enheterna fortfarande inte visas i menyn kontrollerar du sekretess inställningarna på den lokala datorn. Se till att **Settings**  >  **Privacy**  >  inställningen **Tillåt att appar får åtkomst till mikrofonen** är **aktiverat**under Inställningar sekretess**program behörigheter** . Koppla från fjärrsessionen och Anslut sedan igen och kontrol lera ljud-och video enheterna igen. Om du vill ansluta till samtal och möten med video måste du också bevilja behörighet för appar för att få åtkomst till kameran.
 
 ## <a name="known-issues-and-limitations"></a>Kända problem och begränsningar
 
@@ -133,9 +139,7 @@ Att använda team i en virtualiserad miljö skiljer sig från att använda team 
 ### <a name="calls-and-meetings"></a>Samtal och möten
 
 - Teams Skriv bords klienten i Windows-miljöer för virtuella skriv bord stöder inte Live-händelser. För närvarande rekommenderar vi att du ansluter Live-händelser från [team webb klienten](https://teams.microsoft.com) i fjärrsessionen i stället.
-- Genom att minimera team-appen under ett samtal eller ett möte kan det leda till att den inkommande video inmatningen visas när du expanderar appen.
 - Anrop eller möten stöder för närvarande inte program delning. Desktop-sessioner stöder Skriv bords delning.
-- När Skriv bords delning i en installation med flera skärmar delas alla Övervakare.
 - Det finns för närvarande inte stöd för att ge kontrollen och kontrollen ta kontroll.
 - Teams på virtuella Windows-datorer stöder endast en inkommande video ingång i taget. Det innebär att när någon försöker dela skärmen visas skärmen i stället för Mötes ledarens skärm.
 - På grund av WebRTC-begränsningar är inkommande och utgående video Ströms upplösning begränsad till 720p.

@@ -7,13 +7,14 @@ ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 89d068fbd835a5b4f8886a2ed77691f94a701bb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8660cb18f5e7ac5f3695eb15475570b107bf25c
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759100"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337083"
 ---
-# <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Anslut Azure IoT Edge enheter till ett Azure IoT Central-program
+# <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Ansluta Azure IoT Edge-enheter till ett Azure IoT Central-program
 
 *Den här artikeln gäller lösnings byggare och enhets utvecklare.*
 
@@ -57,7 +58,7 @@ I Azure IoT Central kan du importera ett distributions manifest för att skapa e
 
 ![Flödes schema för distributions Manifestets livs cykel](./media/concepts-iot-edge/dmflow.png)
 
-IoT Plug and Play (för hands version) modellerar en IoT Edge-enhet på följande sätt:
+IoT Central modeller en IoT Edge-enhet på följande sätt:
 
 * Varje IoT Edge enhets mal len har en enhets kapacitets modell.
 * För varje anpassad modul som anges i distributions manifestet genereras en moduls funktions modell.

@@ -10,12 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
-ms.date: 3/14/2019
-ms.openlocfilehash: 4cc5ad575b0fbe371d9432668e8ccf43b45ae717
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/28/2020
+ms.openlocfilehash: 8cd8dda807b27bc1a83176c6a46596eccfd19073
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84045720"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372101"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Skala elastiska pool resurser i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -55,7 +56,17 @@ Den uppskattade svars tiden för att ändra tjänst nivån eller skala om beräk
 >
 > - Om du ändrar tjänst nivån eller skalnings beräkning för en elastisk pool, bör summering av utrymmet som används i alla databaser i poolen användas för att beräkna uppskattningen.
 > - Om du flyttar en databas till/från en elastisk pool, påverkar endast det utrymme som används av databasen svars tiden, inte det utrymme som används av den elastiska poolen.
->
+> - För standard-och Generell användning elastiska pooler kommer svars tiden för att flytta en databas in i/ut ur en elastisk pool eller mellan elastiska pooler att vara proportionerlig till databasens storlek om den elastiska poolen använder en Premium File Share ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction))-lagring. Ta reda på om en pool använder PFS-lagring genom att köra följande fråga i kontexten för en databas i poolen. Om värdet i kolumnen flervärdesattribut är `PremiumFileStorage` , använder poolen PFS-lagring.
+
+```sql
+SELECT s.file_id,
+       s.type_desc,
+       s.name,
+       FILEPROPERTYEX(s.name, 'AccountType') AS AccountType
+FROM sys.database_files AS s
+WHERE s.type_desc IN ('ROWS', 'LOG');
+```
+
 > [!TIP]
 > Information om hur du övervakar pågående åtgärder finns i: [Hantera åtgärder med hjälp av SQL REST API](https://docs.microsoft.com/rest/api/sql/operations/list), [Hantera åtgärder med CLI](/cli/azure/sql/db/op), [övervaka åtgärder med hjälp av T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) och dessa två PowerShell-kommandon: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) och [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 

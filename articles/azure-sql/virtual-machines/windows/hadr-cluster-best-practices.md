@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: d20ac5964ef70618d4d7dc2d4a7fe7d7d01284ce
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: de773bb2188f09822cae59ce42924a9a49f8087e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965642"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285636"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Metod tips för kluster konfiguration (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,27 +42,26 @@ Ett kluster med tre noder kan på ett enkelt sätt överleva en enskild nod (ned
 
 Kvorumresursen skyddar klustret mot något av de här problemen. 
 
-Om du vill konfigurera kvorumresursen med SQL Server på virtuella Azure-datorer kan du använda dessa vittnes typer: 
+I följande tabell visas de tillgängliga alternativen i den ordning som rekommenderas för användning med en virtuell Azure-dator, med det disk vittne som du föredrar: 
 
 
 ||[Diskvittne](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Molnvittne](/windows-server/failover-clustering/deploy-cloud-witness)  |[Filresursvittne](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
 |**Operativ system som stöds**| Alla |Windows Server 2016 +| Windows Server 2012 +|
-|**SQL Server version som stöds**|SQL Server 2019|SQL Server 2016 +|SQL Server 2016 +|
+
 
 
 
 ### <a name="disk-witness"></a>Diskvittne
 
-Ett disk vittne är en liten kluster disk i den tillgängliga lagrings gruppen för klustret. Disken är hög tillgänglig och kan växlas över mellan noder. Den innehåller en kopia av kluster databasen, med en standard storlek som vanligt vis är mindre än 1 GB. 
+Ett disk vittne är en liten kluster disk i den tillgängliga lagrings gruppen för klustret. Disken är hög tillgänglig och kan växlas över mellan noder. Den innehåller en kopia av kluster databasen, med en standard storlek som vanligt vis är mindre än 1 GB. Disk vittnet är det bästa alternativet för kvorum för en virtuell Azure-dator eftersom det kan lösa problemet med tids gränsen, till skillnad från moln vittnet och fil resurs vittnet. 
 
 Konfigurera en Azure-delad disk som disk vittne. 
 
 Information om hur du kommer igång finns i [Konfigurera ett disk vittne](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Operativ system som stöds**: alla    
-**SQL-version som stöds**: SQL Server 2019   
+**Operativ system som stöds**: alla   
 
 
 ### <a name="cloud-witness"></a>Molnvittne
@@ -73,21 +72,18 @@ Information om hur du kommer igång finns i [Konfigurera ett moln vittne](/windo
 
 
 **Operativ system som stöds**: Windows Server 2016 och senare   
-**SQL-version som stöds**: SQL Server 2016 och senare     
 
 
 ### <a name="file-share-witness"></a>Filresursvittne
 
 Ett fil resurs vittne är en SMB-filresurs som vanligt vis konfigureras på en fil server som kör Windows Server. Den upprätthåller kluster informationen i en vittne. log-fil, men lagrar inte en kopia av kluster databasen. I Azure kan du konfigurera en [Azure-filresurs](../../../storage/files/storage-how-to-create-file-share.md) som ska användas som fil resurs vittnet, eller så kan du använda en fil resurs på en separat virtuell dator.
 
-Om du ska använda en annan Azure-filresurs kan du montera den med samma process som används för att [montera Premium-filresursen](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
+Om du ska använda en Azure-filresurs kan du montera den med samma process som används för att [montera Premium-filresursen](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
 
 Information om hur du kommer igång finns i [Konfigurera ett fil resurs vittne](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
 **Operativ system som stöds**: Windows Server 2012 och senare   
-**SQL-version som stöds**: SQL Server 2016 och senare   
-
 
 ## <a name="connectivity"></a>Anslutning
 

@@ -1,6 +1,6 @@
 ---
-title: Logg analys för Windows Virtual Desktop-diagnostik (hösten 2019) – Azure
-description: Lär dig hur du använder Log Analytics med diagnostikprogrammet Windows Virtual Desktop (hösten 2019 release).
+title: Windows Virtual Desktop (klassisk) Diagnostic Log Analytics – Azure
+description: Hur du använder Log Analytics med hjälp av funktionen Windows Virtual Desktop (klassisk).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c4c59268f63252813c7e08608d5d8ee499b11f53
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 500758839b426143650707d3d77d78e8a064533e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077611"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285075"
 ---
-# <a name="use-log-analytics-for-the-diagnostics-feature-fall-2019-release"></a>Använd Log Analytics för Diagnostics-funktionen (hösten 2019-versionen)
+# <a name="use-log-analytics-for-the-diagnostics-feature-in-windows-virtual-desktop-classic"></a>Använd Log Analytics för funktionen diagnostik i Windows Virtual Desktop (klassisk)
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../diagnostics-log-analytics.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../diagnostics-log-analytics.md).
 
 Windows Virtual Desktop erbjuder en diagnostisk funktion som gör det möjligt för administratören att identifiera problem via ett enda gränssnitt. Den här funktionen loggar diagnostikinformation när någon har tilldelat en virtuell Windows-dator roll som använder tjänsten. Varje logg innehåller information om vilken Windows-roll för virtuella skriv bord som ingick i aktiviteten, eventuella fel meddelanden som visas under sessionen, klient information och användar information. Funktionen diagnostik skapar aktivitets loggar för både användar-och administrations åtgärder. Varje aktivitets logg faller under tre huvud kategorier:
 

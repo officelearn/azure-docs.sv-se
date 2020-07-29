@@ -1,6 +1,6 @@
 ---
-title: Publicera inbyggda appar i Windows Virtual Desktop sjunker 2019 – Azure
-description: Publicera inbyggda appar i Windows Virtual Desktop.
+title: Publicera inbyggda appar i Windows Virtual Desktop (klassisk) – Azure
+description: Publicera inbyggda appar i Windows Virtual Desktop (klassisk).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e20d2ca8f2f0ef2b8c0290702a2b9e91cc22bb09
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5f204bc6d2595e7f18e59bae15ff35d49e1801e0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020381"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284939"
 ---
-# <a name="publish-built-in-apps-in-windows-virtual-desktop---fall-2019"></a>Publicera inbyggda appar i Windows Virtual Desktop-hösten 2019
+# <a name="publish-built-in-apps-in-windows-virtual-desktop-classic"></a>Publicera inbyggda appar i Windows Virtual Desktop (klassisk)
 
 >[!IMPORTANT]
->Det här innehållet gäller för hösten 2019-versionen som inte stöder Azure Resource Manager virtuella Windows Desktop-objekt. Om du försöker hantera Azure Resource Manager virtuella Windows-skrivbordet som introduceras i våren 2020-uppdateringen, se [den här artikeln](../publish-apps.md).
+>Det här innehållet gäller för virtuella Windows-datorer (klassisk), vilket inte stöder Azure Resource Manager virtuella Skriv bords objekt i Windows. Om du försöker hantera Azure Resource Manager virtuella Windows Desktop-objekt, se [den här artikeln](../publish-apps.md).
 
 I den här artikeln får du lära dig hur du publicerar appar i din Windows-miljö för virtuella skriv bord.
 

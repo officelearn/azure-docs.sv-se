@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: 62163217862f586be7ed5c0a6000693f8e7fcdd6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ca41a403f789fd529ac65c21799d3d3e7f3becf6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043185"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285466"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Felsöka live video analys på IoT Edge
 
@@ -265,6 +265,9 @@ Vi rekommenderar att du *inte* anropar direkta metoder parallellt. Anropa dem i 
 ### <a name="collect-logs-for-submitting-a-support-ticket"></a>Samla in loggar för att skicka in ett support ärende
 
 När självgående fel söknings steg inte löser problemet kan du gå till Azure Portal och [öppna ett support ärende](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+
+> [!WARNING]
+> Loggarna kan innehålla personligt identifierbar information (PII), till exempel din IP-adress. Alla lokala kopior av loggarna tas bort så snart vi slutförde undersökningen och stänger support ärendet.  
 
 Följ anvisningarna i nästa avsnitt om du vill samla in relevanta loggar som ska läggas till i biljetten. Du kan ladda upp loggfilerna i **informations** fönstret för support förfrågan.
 

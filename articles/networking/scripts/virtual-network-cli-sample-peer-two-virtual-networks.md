@@ -1,6 +1,6 @@
 ---
 title: Skript exempel för Azure CLI – peer två virtuella nätverk | Microsoft Docs
-description: Skript exempel för Azure CLI – peer två virtuella nätverk
+description: Använd ett skript exempel för Azure CLI för att skapa och ansluta två virtuella nätverk i samma region via Azure-nätverket.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
-ms.openlocfilehash: c301c66c3b668ae48314c4d1eb06657d8573209c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a4c3c353e87ad88d7bae10ae011bdd59e7992309
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030421"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282100"
 ---
 # <a name="use-an-azure-cli-sample-script-to-connect-two-virtual-networks"></a>Använd ett Azure CLI-exempel skript för att ansluta två virtuella nätverk
 
@@ -44,7 +44,7 @@ az group delete --name myResourceGroup --yes
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, en virtuell dator och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Skapar ett virtuellt Azure-nätverk och undernät. |

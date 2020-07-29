@@ -3,7 +3,7 @@ title: 'Självstudie: krav för en tillgänglighets grupp'
 description: Den här självstudien visar hur du konfigurerar förutsättningarna för att skapa en SQL Server Always on-tillgänglighetsgrupper på Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b72e894b7280a2d3e0fa978125e53ae79b2d20e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 881fa116b1a44d4714002f71e6ebd163279d8c70
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669366"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284310"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Krav för att skapa Always on-tillgänglighetsgrupper på SQL Server på Azure Virtual Machines
 
@@ -84,15 +85,15 @@ Skapa det virtuella nätverket i Azure Portal:
 
     I följande tabell visas inställningarna för det virtuella nätverket:
 
-   | **Field** | Värde |
+   | **Fält** | Värde |
    | --- | --- |
    | **Namn** |autoHAVNET |
    | **Adressutrymme** |10.33.0.0/24 |
-   | **Under näts namn** |Admin |
+   | **Under näts namn** |Administratör |
    | **Adress intervall för under nätet** |10.33.0.0/29 |
    | **Prenumeration** |Ange den prenumeration som du vill använda. **Prenumerationen** är tom om du bara har en prenumeration. |
    | **Resursgrupp** |Välj **Använd befintlig** och välj namnet på resurs gruppen. |
-   | **Position** |Ange Azure-platsen. |
+   | **Plats** |Ange Azure-platsen. |
 
    Adress utrymmet och under nätets adress intervall kan skilja sig från tabellen. Beroende på din prenumeration föreslår portalen ett tillgängligt adress utrymme och motsvarande adress intervall för under nätet. Om det inte finns tillräckligt med adress utrymme använder du en annan prenumeration.
 
@@ -127,7 +128,7 @@ Det nya virtuella nätverket har ett undernät, med namnet **admin**. Domän kon
 
 Följande tabell sammanfattar inställningarna för nätverks konfiguration:
 
-| **Field** | Värde |
+| **Fält** | Värde |
 | --- | --- |
 | **Namn** |**autoHAVNET** |
 | **Adressutrymme** |Det här värdet beror på tillgängliga adress utrymmen i din prenumeration. Ett typiskt värde är 10.0.0.0/16. |
@@ -137,7 +138,7 @@ Följande tabell sammanfattar inställningarna för nätverks konfiguration:
 | **Adress intervall för under nätet** |Det här värdet beror på tillgängliga adress intervall i din prenumeration. Ett typiskt värde är 10.0.1.0/24. |
 | **Prenumeration** |Ange den prenumeration som du vill använda. |
 | **Resursgrupp** |**SQL-HA-RG** |
-| **Position** |Ange samma plats som du valde för resurs gruppen. |
+| **Plats** |Ange samma plats som du valde för resurs gruppen. |
 
 ## <a name="create-availability-sets"></a>Skapa tillgänglighetsuppsättningar
 
@@ -181,7 +182,7 @@ Upprepa föregående steg för att skapa två virtuella datorer. Namnge de två 
 
 I följande tabell visas inställningarna för dessa två datorer:
 
-| **Field** | Värde |
+| **Fält** | Värde |
 | --- | --- |
 | **Namn** |Första domänkontrollant: *AD-Primary-DC*.</br>Andra domänkontrollanten *AD-Secondary-DC*. |
 | **Typ av virtuell dator disk** |SSD |
@@ -189,13 +190,13 @@ I följande tabell visas inställningarna för dessa två datorer:
 | **Lösenord** |Contoso! 0000 |
 | **Prenumeration** |*Din prenumeration* |
 | **Resursgrupp** |SQL-HA-RG |
-| **Position** |*Din plats* |
+| **Plats** |*Din plats* |
 | **Storlek** |DS1_V2 |
-| **Storage** | **Använd Managed disks**  -  **Ja** |
+| **Lagring** | **Använd Managed disks**  -  **Ja** |
 | **Virtuellt nätverk** |autoHAVNET |
-| **Delnät** |admin |
+| **Undernät** |admin |
 | **Offentlig IP-adress** |*Samma namn som den virtuella datorn* |
-| **Nätverks säkerhets grupp** |*Samma namn som den virtuella datorn* |
+| **Nätverkssäkerhetsgrupp** |*Samma namn som den virtuella datorn* |
 | **Tillgänglighetsuppsättning** |adavailabilityset </br>**Fel domäner**: 2 </br>**Uppdaterings domäner**: 2|
 | **Diagnostik** |Enabled |
 | **Lagringskonto för diagnostik** |*Skapas automatiskt* |
@@ -231,7 +232,7 @@ I följande steg konfigurerar du den **AD-primära DC-** datorn som en domänkon
     ![Dialog rutan Lägg till roller](./media/availability-group-manually-configure-prerequisites-tutorial-/23-addroles.png)
 
 7. Välj **Nästa** tills du kommer till **bekräftelse** avsnittet. Markera kryss rutan **starta om mål servern automatiskt vid behov** .
-8. Välj **installera**.
+8. Välj **Installera**.
 9. När funktionerna har installerats går du tillbaka till instrument panelen för **Serverhanteraren** .
 10. Välj alternativet ny **AD DS** i rutan till vänster.
 11. Välj länken **mer** i det gula varnings fältet.
@@ -247,7 +248,7 @@ I följande steg konfigurerar du den **AD-primära DC-** datorn som en domänkon
     | **Alternativ för domänkontrollant** |**DSRM-lösenord** = contoso! 0000<br/>**Bekräfta lösen ord** = contoso! 0000 |
 
 14. Välj **Nästa** för att gå igenom de andra sidorna i guiden. På sidan **krav kontroll** kontrollerar du att följande meddelande visas: **alla nödvändiga kontroller lyckades**. Du kan granska tillämpliga varnings meddelanden, men det är möjligt att fortsätta med installationen.
-15. Välj **installera**. Den virtuella datorn för **AD-primär domänkontrollant** startas om automatiskt.
+15. Välj **Installera**. Den virtuella datorn för **AD-primär domänkontrollant** startas om automatiskt.
 
 ### <a name="note-the-ip-address-of-the-primary-domain-controller"></a>Anteckna IP-adressen för den primära domänkontrollanten
 
@@ -396,7 +397,7 @@ Skapa sedan tre virtuella datorer – två SQL Server virtuella datorer och en v
 | **Grundläggande** konfiguration av virtuella datorer |**Namn** = kluster-FSW<br/>**Användar namn** = DomainAdmin<br/>**Lösen ord** = contoso! 0000<br/>**Prenumeration** = din prenumeration<br/>**Resurs grupp** = SQL-ha-rg<br/>**Plats** = din Azure-plats |**Namn** = SQLServer-0<br/>**Användar namn** = DomainAdmin<br/>**Lösen ord** = contoso! 0000<br/>**Prenumeration** = din prenumeration<br/>**Resurs grupp** = SQL-ha-rg<br/>**Plats** = din Azure-plats |**Namn** = SQLServer-1<br/>**Användar namn** = DomainAdmin<br/>**Lösen ord** = contoso! 0000<br/>**Prenumeration** = din prenumeration<br/>**Resurs grupp** = SQL-ha-rg<br/>**Plats** = din Azure-plats |
 | Konfigurations **storlek** för virtuell dator |**Size** = ds1 \_ v2 (1 VCPU, 3,5 GB) |**Size** = DS2 \_ v2 (2 virtuella processorer, 7 GB)</br>Storleken måste ha stöd för SSD-lagring (stöd för Premium-diskar). )) |**Size** = DS2 \_ v2 (2 virtuella processorer, 7 GB) |
 | Konfigurations **Inställningar** för virtuell dator |**Lagring**: Använd hanterade diskar.<br/>**Virtuellt nätverk** = autoHAVNET<br/>**Undernät** = sqlsubnet (10.1.1.0/24)<br/>**Offentlig IP-adress** genereras automatiskt.<br/>**Nätverks säkerhets grupp** = ingen<br/>**Övervaka diagnostik** = aktive rad<br/>**Lagrings konto för diagnostik** = Använd ett automatiskt genererat lagrings konto<br/>**Tillgänglighets uppsättning** = sqlAvailabilitySet<br/> |**Lagring**: Använd hanterade diskar.<br/>**Virtuellt nätverk** = autoHAVNET<br/>**Undernät** = sqlsubnet (10.1.1.0/24)<br/>**Offentlig IP-adress** genereras automatiskt.<br/>**Nätverks säkerhets grupp** = ingen<br/>**Övervaka diagnostik** = aktive rad<br/>**Lagrings konto för diagnostik** = Använd ett automatiskt genererat lagrings konto<br/>**Tillgänglighets uppsättning** = sqlAvailabilitySet<br/> |**Lagring**: Använd hanterade diskar.<br/>**Virtuellt nätverk** = autoHAVNET<br/>**Undernät** = sqlsubnet (10.1.1.0/24)<br/>**Offentlig IP-adress** genereras automatiskt.<br/>**Nätverks säkerhets grupp** = ingen<br/>**Övervaka diagnostik** = aktive rad<br/>**Lagrings konto för diagnostik** = Använd ett automatiskt genererat lagrings konto<br/>**Tillgänglighets uppsättning** = sqlAvailabilitySet<br/> |
-| Konfigurations **SQL Server inställningar** för virtuell dator |Ej tillämpligt |**SQL-anslutning** = privat (inom Virtual Network)<br/>**Port** = 1433<br/>**SQL-autentisering** = inaktivera<br/>**Lagrings konfiguration** = allmänt<br/>**Automatiserad uppdatering** = söndag vid 2:00<br/>**Automatisk säkerhets kopiering** = inaktive rad</br>**Azure Key Vault integration** = inaktive rad |**SQL-anslutning** = privat (inom Virtual Network)<br/>**Port** = 1433<br/>**SQL-autentisering** = inaktivera<br/>**Lagrings konfiguration** = allmänt<br/>**Automatiserad uppdatering** = söndag vid 2:00<br/>**Automatisk säkerhets kopiering** = inaktive rad</br>**Azure Key Vault integration** = inaktive rad |
+| Konfigurations **SQL Server inställningar** för virtuell dator |Inte tillämpligt |**SQL-anslutning** = privat (inom Virtual Network)<br/>**Port** = 1433<br/>**SQL-autentisering** = inaktivera<br/>**Lagrings konfiguration** = allmänt<br/>**Automatiserad uppdatering** = söndag vid 2:00<br/>**Automatisk säkerhets kopiering** = inaktive rad</br>**Azure Key Vault integration** = inaktive rad |**SQL-anslutning** = privat (inom Virtual Network)<br/>**Port** = 1433<br/>**SQL-autentisering** = inaktivera<br/>**Lagrings konfiguration** = allmänt<br/>**Automatiserad uppdatering** = söndag vid 2:00<br/>**Automatisk säkerhets kopiering** = inaktive rad</br>**Azure Key Vault integration** = inaktive rad |
 
 <br/>
 

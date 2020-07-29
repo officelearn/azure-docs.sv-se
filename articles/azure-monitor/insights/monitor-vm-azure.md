@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 9a96db0e9a834dcddbb5f247953fa1bbf0dc39ce
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 294c93242a3fee5db14f5919ebb367aebcca3a80
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539711"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326196"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Övervaka virtuella Azure-datorer med Azure Monitor
 Den här artikeln beskriver hur du använder Azure Monitor för att samla in och analysera övervaknings data från virtuella Azure-datorer för att upprätthålla deras hälsa. Virtuella datorer kan övervakas för tillgänglighet och prestanda med Azure Monitor som [andra Azure](monitor-azure-resource.md)-resurser, men de är unika för andra resurser eftersom du också behöver övervaka gäst operativ systemet och de arbets belastningar som körs i den. 
@@ -134,7 +134,7 @@ När du har konfigurerat insamling av övervaknings data för en virtuell dator 
 |:---|:---|
 | Översikt | Visar [plattforms mått](../platform/data-platform-metrics.md) för den virtuella dator värden. Klicka på en graf för att arbeta med dessa data i [mått Utforskaren](../platform/metrics-getting-started.md). |
 | Aktivitetslogg | [Aktivitets logg](../platform/activity-log.md#view-the-activity-log) poster som filtrerats för den aktuella virtuella datorn. |
-| Insikter | Öppnar [Azure Monitor for VMS](../insights/vminsights-overview.md) med kartan för den aktuella virtuella datorn vald. |
+| Insikter | Öppnar [Azure Monitor for VMS](./vminsights-overview.md) med kartan för den aktuella virtuella datorn vald. |
 | Aviseringar | Visar [aviseringar](../platform/alerts-overview.md) för den aktuella virtuella datorn.  |
 | Mått | Öppna [Metrics Explorer](../platform/metrics-getting-started.md) med scopet inställt på den aktuella virtuella datorn. |
 | Diagnostikinställningar | Aktivera och konfigurera [diagnostik-tillägg](../platform/diagnostics-extension-overview.md) för den aktuella virtuella datorn. |
@@ -242,3 +242,4 @@ Mer information om hur du ansluter din befintliga SCOM Management-grupp till din
 
 * [Lär dig hur du analyserar data i Azure Monitor loggar med hjälp av logg frågor.](../log-query/get-started-queries.md)
 * [Lär dig mer om aviseringar med hjälp av mått och loggar i Azure Monitor.](../platform/alerts-overview.md)
+

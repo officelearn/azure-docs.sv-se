@@ -3,7 +3,7 @@ title: Konfigurera en SQL Server Always on-tillgänglighets grupp i olika region
 description: Den här artikeln beskriver hur du konfigurerar en SQL Server Always on-tillgänglighetsgrupper på virtuella Azure-datorer med en replik i en annan region.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8ab62a93546719e172eec34168a0692daccf281a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e33a5e32848dfd0a6cf252d6876616fc89edd1d7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669315"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284276"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Konfigurera en SQL Server Always on-tillgänglighets grupp i olika Azure-regioner
 
@@ -182,11 +183,11 @@ Om du vill testa lyssnare anslutningen till fjärrregionen kan du växla över r
 
 När du har testat anslutningen flyttar du tillbaka den primära repliken till ditt primära Data Center och återställer tillgänglighets läget till sina normala drift inställningar. I följande tabell visas de normala drift inställningarna för den arkitektur som beskrivs i det här dokumentet:
 
-| Location | Server instans | Roll | Tillgänglighets läge | Växlings läge
+| Position | Server instans | Roll | Tillgänglighets läge | Växlings läge
 | ----- | ----- | ----- | ----- | -----
-| Primärt Data Center | SQL-1 | Primär | Synkron | Automatiskt
-| Primärt Data Center | SQL-2 | Sekundär | Synkron | Automatiskt
-| Sekundärt eller fjärranslutna Data Center | SQL-3 | Sekundär | Asynkron | Manuell
+| Primärt Data Center | SQL-1 | Primär | Synkront | Automatiskt
+| Primärt Data Center | SQL-2 | Sekundär | Synkront | Automatiskt
+| Sekundärt eller fjärranslutna Data Center | SQL-3 | Sekundär | Asynkrona | Manuell
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>Mer information om planerade och forced manual failover

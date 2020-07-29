@@ -4,15 +4,15 @@ description: Specifikationer för virtuella datorer i Mv2-serien.
 author: ayshakeen
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 21c28f3b6b498b162cbff276755b098c5ebba7c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 74d8c4dc9f6b8f1a409f5f6766bea57b23b15ba7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010486"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284803"
 ---
 # <a name="mv2-series"></a>Mv2-serien
 
@@ -30,12 +30,12 @@ Minnes bebetjänings uppdateringar: stöds inte
 
 Skrivningsaccelerator: [stöds](./windows/how-to-enable-write-accelerator.md)
 
-|Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
-|---|---|---|---|---|---|---|---|
-| Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8/16 000 |
-| Standard_M208s_v2<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8/16 000 |
-| Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8192 | 64 | 250000/1600 (14080) | 80000/2000 | 8 / 32000 |
-| Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 250000/1600 (14080) | 80000/2000 | 8 / 32000 |
+|Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort | Förväntad nätverks bandbredd (Mbit/s) |
+|---|---|---|---|---|---|---|---|---|
+| Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8 | 16000 |
+| Standard_M208s_v2<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8 | 16000 |
+| Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8192 | 64 | 250000/1600 (14080) | 80000/2000 | 8 | 32000 |
+| Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 250000/1600 (14080) | 80000/2000 | 8 | 32000 |
 
 <sup>1</sup> virtuella datorer i Mv2-serien är endast generation 2 och stöder en delmängd av avbildningar som stöds av generation 2. Nedan visas en fullständig lista över de avbildningar som stöds för Mv2-serien. Om du använder Linux, se [stöd för virtuella datorer i generation 2 på Azure](./linux/generation-2.md) för instruktioner om hur du hittar och väljer en avbildning. Om du använder Windows, se [stöd för virtuella datorer i generation 2 på Azure](./windows/generation-2.md) för instruktioner om hur du hittar och väljer en avbildning. 
 
@@ -48,7 +48,7 @@ Skrivningsaccelerator: [stöds](./windows/how-to-enable-write-accelerator.md)
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="other-sizes"></a>Andra storlekar
+## <a name="other-sizes-and-information"></a>Andra storlekar och information
 
 - [Generell användning](sizes-general.md)
 - [Minnesoptimerad](sizes-memory.md)
@@ -56,6 +56,11 @@ Skrivningsaccelerator: [stöds](./windows/how-to-enable-write-accelerator.md)
 - [GPU-optimerad](sizes-gpu.md)
 - [Databehandling med höga prestanda](sizes-hpc.md)
 - [Tidigare generationer](sizes-previous-gen.md)
+
+Pris kalkylator: [pris kalkylator](https://azure.microsoft.com/pricing/calculator/)
+
+Mer information om disk typer: [disk typer](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+
 
 ## <a name="next-steps"></a>Nästa steg
 

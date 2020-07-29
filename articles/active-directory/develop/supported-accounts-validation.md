@@ -10,12 +10,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 82b721d14d114b358939bebecff00bc762b075a6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e794e277f6731c7b6e57a4710eea437f65be0340
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058340"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336352"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Validerings skillnader per konto typer som stöds (signInAudience)
 
@@ -41,7 +41,7 @@ I följande tabell visas validerings skillnader för olika egenskaper för olika
 | Omdirigerings-URI: er ( `replyURLs` ) | Se [OMDIRIGERA URI/svars-URL-begränsningar och begränsningar](reply-url.md) för mer information. | | | 
 | API-behörigheter ( `requiredResourceAccess` ) | Ingen gräns * | Ingen gräns * | Högst 50 resurser per program och 30 behörigheter per resurs (t. ex. Microsoft Graph). Total gräns på 200 per program (resurser x-behörigheter). | 
 | Omfattningar som definieras av detta API ( `oauth2Permissions` ) | Maximal omfattnings namn längd på 120 tecken <br><br> Ingen gräns * för antalet definierade omfattningar | Maximal omfattnings namn längd på 120 tecken <br><br> Ingen gräns * för antalet definierade omfattningar |  Maximal omfattnings namn längd på 40 tecken <br><br> Högst 100 omfattningar har definierats | 
-| Auktoriserade klient program ( `preautorizedApplications` ) | Ingen gräns * | Ingen gräns * | Totalt Max 500 <br><br> Högst 100 klient program har definierats <br><br> Högst 30 scope som definierats per klient | 
+| Auktoriserade klient program ( `preAuthorizedApplications` ) | Ingen gräns * | Ingen gräns * | Totalt Max 500 <br><br> Högst 100 klient program har definierats <br><br> Högst 30 scope som definierats per klient | 
 | appRoles | Stöds <br> Ingen gräns * | Stöds <br> Ingen gräns * | Stöds inte | 
 | Utloggnings-URL | http://localhosttillåts <br><br> Maximal längd på 255 tecken | http://localhosttillåts <br><br> Maximal längd på 255 tecken | <br><br> https://localhosttillåts, http://localhost Miss lyckas för MSA <br><br> Maximal längd på 255 tecken <br><br> HTTP-schemat är inte tillåtet <br><br> Jokertecken stöds inte | 
 

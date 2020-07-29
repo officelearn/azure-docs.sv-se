@@ -7,12 +7,12 @@ ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 7e90a4e9ec88e074ec7b30d78bc99cfa8bf39ba2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1eab1022e9b0f03597c108c3c927909aa9bb2712
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002360"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337117"
 ---
 # <a name="what-are-device-templates"></a>Vad är enhetsmallar?
 
@@ -28,6 +28,9 @@ En enhets mall innehåller följande avsnitt:
 - _Moln egenskaper_. I den här delen av enhets mal len kan utvecklare av lösningar ange alla enhets-metadata som ska lagras. Moln egenskaper synkroniseras aldrig med enheter och finns bara i programmet. Moln egenskaper påverkar inte den kod som en enhets utvecklare skriver för att implementera DCM.
 - _Anpassningar_. Den här delen av enhets mal len gör att lösningen-utvecklare kan åsidosätta några av definitionerna i DCM. Anpassningar är användbara om lösnings utvecklaren vill förfina hur programmet hanterar ett värde, t. ex. ändra visnings namnet för en egenskap eller färgen som används för att visa ett telemetri-värde. Anpassningar påverkar inte den kod som en enhets utvecklare skriver för att implementera DCM.
 - _Vyer_. Den här delen av enhets mal len gör att lösnings utvecklaren kan definiera visualiseringar för att visa data från enheten och formulär för att hantera och kontrol lera en enhet. Vyerna använder DCM, moln egenskaper och anpassningar. Vyer påverkar inte den kod som en enhets utvecklare skriver för att implementera DCM.
+
+> [!NOTE]
+> [Iot plug and Play offentlig för hands version uppdatera release](../../iot-pnp/overview-iot-plug-and-play.md) -målen enhets utvecklare och OEM-tillverkare för att börja bygga enheter som de kan certifiera för IoT plug and Play före ga-lanseringen.
 
 ## <a name="device-capability-models"></a>Modeller för enhetskapacitet
 

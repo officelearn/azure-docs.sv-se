@@ -6,12 +6,13 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
-ms.openlocfilehash: a0d3c23f8f53b8ddfbd3fbd1cb1744a47664ce08
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.custom: devx-track-java
+ms.openlocfilehash: 2340e728933cc230fb53b9581f4b02b41a9438b6
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774012"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372067"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Snabb start: Lägg till funktions flaggor i en våren Boot-app
 
@@ -40,7 +41,7 @@ Biblioteken våren Boot Feature Management utökar ramverket med omfattande stö
 
 Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjäder Boot-projekt.
 
-1. Bläddra till <https://start.spring.io/>.
+1. Gå till <https://start.spring.io/>.
 
 1. Ange följande alternativ:
 
@@ -53,9 +54,9 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
 ## <a name="add-feature-management"></a>Lägg till funktions hantering
 
-1. När du har extraherat filerna i det lokala systemet är ditt våren Boot-program klart för redigering. Leta upp *Pom. XML* i appens rot Katalog.
+1. När du har extraherat filerna i det lokala systemet är ditt våren Boot-program klart för redigering. Leta upp *pom.xml* i appens rot Katalog.
 
-1. Öppna filen *Pom. XML* i en text redigerare och Lägg till följande i listan över `<dependencies>` :
+1. Öppna *pom.xml* -filen i en text redigerare och Lägg till följande i listan över `<dependencies>` :
 
     **Våren Cloud 1.1. x**
 
@@ -184,7 +185,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
     }
     ```
 
-1. Skapa en ny HTML-fil med namnet *Welcome. html* i mappen mallar i appen.
+1. Skapa en ny HTML-fil med namnet *welcome.html* i katalogen mallar i appen.
 
     ```html
     <!DOCTYPE html>
@@ -289,7 +290,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
 1. I konfigurations portalen för app väljer du **funktions hanteraren**och ändrar status för **beta** nyckeln till **på**:
 
-    | Nyckel | Stat |
+    | Tangent | Tillstånd |
     |---|---|
     | Beta | På |
 

@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 12ad231d81b6c134ebb8d4902b3f95c978e9622d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e4b81f2350795b1244289119d714e99bc06ba6f
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695342"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337151"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT Central-arkitektur
 
@@ -29,7 +30,7 @@ Enheter utbyter data med ditt Azure IoT Central-program. En enhet kan:
 - Skicka mått som telemetri.
 - Synkronisera inställningar med ditt program.
 
-I Azure IoT Central anges de data som en enhet kan utbyta med ditt program i en enhets mall. Mer information om enhetsspecifika finns i hantering av [metadata](#metadata-management).
+I Azure IoT Central används en enhetsmall för att ange de data som en enhet kan utbyta med ditt program. Mer information om enhetsspecifika finns i hantering av [metadata](#metadata-management).
 
 Mer information om hur enheter ansluter till ditt Azure IoT Central-program finns i [enhets anslutning](concepts-get-connected.md).
 
@@ -118,7 +119,7 @@ Azure IoT Central lagrar program data i molnet. Program data som lagras innehål
 
 Azure IoT Central använder ett tids serie lager för Mät data som skickas från dina enheter. Tids serie data från enheter som används av Analytics-tjänsten.
 
-## <a name="analytics"></a>Analys
+## <a name="analytics"></a>Analytics
 
 Analytics-tjänsten ansvarar för att skapa anpassade rapporterings data som visas i programmet. En operatör kan [Anpassa den analys](howto-create-analytics.md) som visas i programmet. Analytics-tjänsten bygger på [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) och bearbetar Mät data som skickas från dina enheter.
 
@@ -134,7 +135,7 @@ I ett Azure IoT Central-program definierar enhets mallarna beteende och funktion
 
 I en mall för IoT Central program enhet innehåller:
 
-- **Enhets kapacitets modeller** anger funktioner för en enhet, till exempel den telemetri som skickas, egenskaper som definierar enhetens tillstånd och de kommandon som enheten svarar på. Enhetens kapacitet är indelat i ett eller flera gränssnitt. Mer information om enhets kapacitets modeller finns i dokumentationen för [IoT plug and Play (för hands version)](../../iot-pnp/overview-iot-plug-and-play.md) .
+- **Enhets kapacitets modeller** anger funktioner för en enhet, till exempel den telemetri som skickas, egenskaper som definierar enhetens tillstånd och de kommandon som enheten svarar på. Enhetens kapacitet är indelat i ett eller flera gränssnitt.
 - **Moln egenskaper** ange egenskaper IoT Central arkiv för en enhet. Dessa egenskaper lagras endast i IoT Central och skickas aldrig till en enhet.
 - **Vyer** anger vilka instrument paneler och formulär som Builder skapar för att låta operatören övervaka och hantera enheterna.
 - **Anpassningar** gör att verktyget åsidosätter vissa av definitionerna i enhetens kapacitets modell för att göra dem mer relevanta för det IoT Central programmet.

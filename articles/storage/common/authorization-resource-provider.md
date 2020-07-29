@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 634e1866a2c3e30e0750b9e6f4b2b3f93db2f8dc
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d2e84cf06019c592a726564768f9b332ab5ed610
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133120"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372305"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Använd Azure Storage Resource Provider för att få åtkomst till hanterings resurser
 
@@ -26,7 +26,7 @@ Du kan använda Azure Storage Resource Provider för att utföra åtgärder som 
 
 Microsoft tillhandahåller två REST-API: er för att arbeta med Azure Storage-resurser. Dessa API: er utgör grunden för alla åtgärder som du kan utföra med Azure Storage. Med Azure Storage REST API kan du arbeta med data i ditt lagrings konto, inklusive BLOB-, kö-, fil-och tabell data. Med Azure Storage Resource Provider REST API kan du arbeta med lagrings kontot och relaterade resurser.
 
-En begäran som läser eller skriver BLOB-data kräver olika behörigheter än en begäran som utför en hanterings åtgärd. RBAC ger detaljerad kontroll över behörigheter för båda typerna av resurser. När du tilldelar en RBAC-roll till ett säkerhets objekt ser du till att du förstår vilka behörigheter som ska beviljas av huvud kontot. En detaljerad referens som beskriver vilka åtgärder som är associerade med varje inbyggd RBAC-roll finns i [inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md).
+En begäran som läser eller skriver BLOB-data kräver olika behörigheter än en begäran som utför en hanterings åtgärd. RBAC ger detaljerad kontroll över behörigheter för båda typerna av resurser. När du tilldelar en RBAC-roll till ett säkerhets objekt ser du till att du förstår vilka behörigheter som ska beviljas av huvud kontot. En detaljerad referens som beskriver vilka åtgärder som är associerade med varje inbyggd Azure-roll finns i [inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md).
 
 Azure Storage stöder användning av Azure AD för att auktorisera begär Anden mot blob-och Queue-lagring. Information om RBAC-roller för blob-och Queue data-åtgärder finns i [bevilja åtkomst till blobbar och köer med hjälp av Active Directory](storage-auth-aad.md).
 

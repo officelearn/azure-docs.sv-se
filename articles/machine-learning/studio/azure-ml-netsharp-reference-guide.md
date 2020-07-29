@@ -1,6 +1,5 @@
 ---
-title: 'NET # anpassade neurala-nätverk'
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (klassisk): net # Custom neurala Networks – Azure'
 description: 'Syntax guide för net # neurala Networks Specification-språk. Lär dig hur du skapar anpassade neurala-nätverks modeller i Azure Machine Learning Studio (klassisk).'
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: b297a3f975450b7459895ce7c0abc79e9b2fcdea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92fd68be6f2611b01be7f2b262de53597c452596
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85129525"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282576"
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guide till net # neurala Network Specification language för Azure Machine Learning Studio (klassisk)
+# <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Guide till net # neurala Network Specification language för Machine Learning Studio (klassisk)
+
+**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
 
 NET # är ett språk som utvecklats av Microsoft och som används för att definiera komplexa neurala-nätverks arkitekturer som djup neurala nätverk eller convolutions för godtyckliga dimensioner. Du kan använda komplexa strukturer för att förbättra inlärningen på data, till exempel bild, video eller ljud.
 
@@ -89,17 +90,17 @@ Följande uttryck definierar till exempel en konstant `x` :
 
 `Const X = 28;`
 
-Om du vill definiera två eller flera konstanter samtidigt, omger du Identifierarens namn och värden inom klammerparenteser och avgränsar dem med hjälp av semikolon. Ett exempel:
+Om du vill definiera två eller flera konstanter samtidigt, omger du Identifierarens namn och värden inom klammerparenteser och avgränsar dem med hjälp av semikolon. Till exempel:
 
 `Const { X = 28; Y = 4; }`
 
-Höger sida av varje tilldelnings uttryck kan vara ett heltal, ett reellt tal, ett booleskt värde (sant eller falskt) eller ett matematiskt uttryck. Ett exempel:
+Höger sida av varje tilldelnings uttryck kan vara ett heltal, ett reellt tal, ett booleskt värde (sant eller falskt) eller ett matematiskt uttryck. Till exempel:
 
 `Const { X = 17 * 2; Y = true; }`
 
 ## <a name="layer-declaration"></a>Lager deklaration
 
-Lager deklarationen krävs. Den definierar lagrets storlek och källa, inklusive dess anslutnings paket och attribut. Deklarations instruktionen börjar med namnet på lagret (indata, dold eller utdata) följt av lagrets mått (en tupel med positiva heltal). Ett exempel:
+Lager deklarationen krävs. Den definierar lagrets storlek och källa, inklusive dess anslutnings paket och attribut. Deklarations instruktionen börjar med namnet på lagret (indata, dold eller utdata) följt av lagrets mått (en tupel med positiva heltal). Till exempel:
 
 ```Net#
 input Data auto;

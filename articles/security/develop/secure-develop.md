@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 34294bf29ec861d7bbb954ece7016de37769a332
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 7818ae36c785311466d2fb26ce45dcf50983145d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232703"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283494"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Utveckla säkra program på Azure
 I den här artikeln presenterar vi säkerhets aktiviteter och kontroller för att tänka på när du utvecklar program för molnet. Säkerhets frågor och koncept som du bör tänka på under implementerings-och verifierings faserna i Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utveckla ett säkrare program.
@@ -62,7 +62,7 @@ Detta fungerar på servern, inte på klient sidan (eller på-servern och på kli
 
 ### <a name="verify-your-applications-outputs"></a>Verifiera programmets utdata
 
-Alla utdata som du visar antingen visuellt eller i ett dokument bör alltid kodas och undantas. [Undantag](https://www.owasp.org/index.php/Injection_Theory#Escaping_.28aka_Output_Encoding.29), även kallat *utkodning av utdata*, används för att säkerställa att ej betrodda data inte är ett fordon för inmatning-angrepp. Undantag, kombinerat med data verifiering, tillhandahåller försvars försvars nivåer för att öka säkerheten för systemet som helhet.
+Alla utdata som du visar antingen visuellt eller i ett dokument bör alltid kodas och undantas. [Undantag](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), även kallat *utkodning av utdata*, används för att säkerställa att ej betrodda data inte är ett fordon för inmatning-angrepp. Undantag, kombinerat med data verifiering, tillhandahåller försvars försvars nivåer för att öka säkerheten för systemet som helhet.
 
 Med undantag ser du till att allt visas som *utdata.* Med hjälp av undantag kan tolkaren veta att data inte är avsedda att utföras och detta förhindrar attacker från att fungera. Detta är en annan vanlig angrepps teknik som kallas XSS ( *Cross-Site Scripting* ).
 

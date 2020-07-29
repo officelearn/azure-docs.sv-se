@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 0ba93db3e692a34de42849b469978cea4459c6fc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dd8dcbe136558e997ca16a2d9754cbf1c4e7620b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498873"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326111"
 ---
 # <a name="service-connectivity-monitor"></a>Övervakare av tjänstanslutning
 
@@ -133,4 +133,5 @@ För amerikanska myndigheter i Virginia-regionen är endast DOD-URL: er inbyggda
 | MS Teams | gov.teams.microsoft.us | 
 
 ## <a name="next-steps"></a>Nästa steg
-[Sök i loggar](../../azure-monitor/log-query/log-query-overview.md) om du vill visa detaljerade data poster för nätverks prestanda.
+[Sök i loggar](../log-query/log-query-overview.md) om du vill visa detaljerade data poster för nätverks prestanda.
+

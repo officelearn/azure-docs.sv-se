@@ -1,79 +1,117 @@
 ---
 title: Implementera identifiering av IoT Plug and Play Preview-modell | Microsoft Docs
-description: Som en lösnings utvecklare kan du läsa mer om hur du kan implementera IoT Plug and Play modell identifiering i din lösning.
-author: Philmea
-ms.author: philmea
-ms.date: 12/26/2019
+description: Som Solution Builder kan du läsa om hur du kan implementera IoT Plug and Play modell identifiering i din lösning.
+author: prashmo
+ms.author: prashmo
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-manager: philmea
-ms.openlocfilehash: 74eb38269a3c7fbdc6d95554a8a8cef14eb0b787
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 364b85a8ead09858b97d5d7e6ca8c130b9960b2c
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81770461"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337389"
 ---
 # <a name="implement-iot-plug-and-play-preview-model-discovery-in-an-iot-solution"></a>Implementera IoT Plug and Play för hands versions modell identifiering i en IoT-lösning
 
-I den här artikeln beskrivs hur, som en lösnings utvecklare, kan du implementera IoT Plug and Play Preview-modell identifiering i en IoT-lösning.  Identifiering av IoT Plug and Play-modellen är hur IoT Plug and Play-enheter identifierar stöd modeller och gränssnitt och hur en IoT-lösning hämtar dessa kapacitets modeller och gränssnitt.
+I den här artikeln beskrivs hur du kan implementera IoT Plug and Play Preview modell identifiering i en IoT-lösning, som Solution Builder. Modell identifieringen beskriver hur:
 
-Det finns två breda kategorier av IoT-lösningar: syftes inbyggda lösningar som fungerar med en känd uppsättning IoT Plug and Play-enheter och modell drivna lösningar som fungerar med alla IoT Plug and Play-enheter.
+- IoT Plug and Play-enheter registrerar sitt modell-ID.
+- En IoT-lösning hämtar de gränssnitt som implementeras av enheten.
+
+Det finns två breda kategorier av IoT-lösningar:
+
+- En *syfte – konstruerad IoT-lösning* fungerar med en känd uppsättning IoT plug and Play enhets modeller.
+
+- En *modell driven IoT-lösning* kan fungera med alla IoT plug and Play-enheter. Att skapa en modell driven lösning är mer komplex, men fördelen är att din lösning fungerar med alla enheter som lagts till i framtiden.
+
+    Om du vill bygga en modell driven IoT-lösning måste du bygga logik mot IoT Plug and Play-gränssnittets primitiver: telemetri, egenskaper och kommandon. Din lösnings logik representerar en enhet genom att kombinera flera telemetri-, egenskaps-och kommando funktioner.
 
 Den här artikeln beskriver hur du implementerar modell identifiering i båda typerna av lösning.
 
 ## <a name="model-discovery"></a>Modellidentifiering
 
-När en IoT Plug and Play-enhet först ansluter till din IoT-hubb skickar den ett telemetri om modell information. Det här meddelandet innehåller ID: n för de gränssnitt som enheten implementerar. För att din lösning ska fungera med enheten måste den matcha dessa ID: n och hämta definitionerna för varje gränssnitt.
+För att identifiera vilken modell en enhet implementerar, kan en lösning Hämta modell-ID med hjälp av händelse-eller nätverksbaserad identifiering:
 
-Här följer de steg som en IoT Plug and Play-enhet tar när den använder enhets etablerings tjänsten (DPS) för att ansluta till en hubb:
+### <a name="event-based-discovery"></a>Händelse-baserad identifiering
 
-1. När enheten är aktive rad ansluter den till den globala slut punkten för DPS och autentiserar med hjälp av en av de tillåtna metoderna.
-1. DPS autentiserar sedan enheten och letar upp regeln som talar om för den vilken IoT-hubb som enheten ska tilldelas. DPS registrerar sedan enheten med den hubben.
-1. DPS returnerar en IoT Hub anslutnings sträng till enheten.
-1. Enheten skickar sedan ett meddelande om identifierings telemetri till din IoT Hub. Meddelandet identifiering av telemetri innehåller ID: n för de gränssnitt som enheten implementerar.
-1. IoT Plug and Play-enheten är nu redo att fungera med en lösning som använder IoT Hub.
+När en IoT Plug and Play-enhet ansluter till IoT Hub registreras den modell som implementeras. Den här registreringen resulterar i ett digitalt meddelande om [ändrings händelser](concepts-digital-twin.md#digital-twin-change-events) . Information om hur du aktiverar routning för digitala dubbla händelser finns i [använda IoT Hub meddelanderoutning för att skicka meddelanden från enhet till moln till olika slut punkter](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events).
 
-Om enheten ansluter direkt till din IoT-hubb ansluter den med hjälp av en anslutnings sträng som är inbäddad i enhets koden. Enheten skickar sedan ett meddelande om identifierings telemetri till din IoT Hub.
+Lösningen kan använda den händelse som visas i följande kodfragment för att lära dig mer om IoT Plug and Play enhet som ansluter och får sitt modell-ID:
 
-I [ModelInformation](concepts-common-interfaces.md) -gränssnittet kan du läsa mer om meddelandet om modell information.
+```json
+iothub-connection-device-id:sample-device
+iothub-enqueuedtime:7/22/2020 8:02:27 PM
+iothub-message-source:digitalTwinChangeEvents
+correlation-id:100f322dc2c5
+content-type:application/json-patch+json
+content-encoding:utf-8
+[
+  {
+    "op": "replace",
+    "path": "/$metadata/$model",
+    "value": "dtmi:com:example:TemperatureController;1"
+  }
+]
+```
 
-### <a name="purpose-built-iot-solutions"></a>Syfte – inbyggda IoT-lösningar
+Den här händelsen utlöses när enhets modellens ID läggs till eller uppdateras.
 
-En syfte – konstruerad IoT-lösning fungerar med en känd uppsättning IoT Plug and Play enhets kapacitets modeller och gränssnitt.
+### <a name="twin-based-discovery"></a>Dubbel-baserad identifiering
 
-Du har kapacitets modellen och gränssnitten för de enheter som ska ansluta till din lösning i förväg. Använd följande steg för att förbereda din lösning:
+Om lösningen vill veta om funktionerna för en specifik enhet kan du använda appen [Hämta digitala dubbla](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin/getdigitaltwin) API för att hämta informationen.
 
-1. Lagra gränssnitts-JSON-filerna i ett [modell lager](./howto-manage-models.md) där din lösning kan läsa dem.
-1. Skriv logik i din IoT-lösning baserat på de förväntade IoT-Plug and Play kapacitets modeller och-gränssnitt.
-1. Prenumerera på meddelanden från IoT Hub som din lösning använder.
+I följande digitala dubbla kodfragment `$metadata.$model` innehåller modell-ID: t för en IoT plug and Play-enhet:
 
-Följ dessa steg när du får ett meddelande om en ny enhets anslutning:
+```json
+{
+    "$dtId": "sample-device",
+    "$metadata": {
+        "$model": "dtmi:com:example:TemperatureController;1",
+        "serialNumber": {
+            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
+        }
+    }
+}
+```
 
-1. Läs meddelandet om identifiering av telemetri för att hämta ID: n för kapacitets modellen och gränssnitt som implementeras av enheten.
-1. Jämför ID för kapacitets modellen mot ID: n för de kapacitets modeller som du sparade i förväg.
-1. Nu vet du vilken typ av enhet som är ansluten. Använd den logik du skrev tidigare för att göra det möjligt för användare att interagera med enheten på rätt sätt.
+Lösningen kan också använda **Get fläta** för att hämta modell-ID från enheten på samma sätt som visas i följande kodfragment:
 
-### <a name="model-driven-solutions"></a>Modell drivna lösningar
+```json
+{
+    "deviceId": "sample-device",
+    "etag": "AAAAAAAAAAc=",
+    "deviceEtag": "NTk0ODUyODgx",
+    "status": "enabled",
+    "statusUpdateTime": "0001-01-01T00:00:00Z",
+    "connectionState": "Disconnected",
+    "lastActivityTime": "2020-07-17T06:12:26.8402249Z",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",
+    "x509Thumbprint": {
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "modelId": "dtmi:com:example:TemperatureController;1",
+    "version": 15,
+    "properties": {...}
+    }
+}
+```
 
-En modell driven IoT-lösning kan fungera med alla IoT Plug and Play-enheter. Att skapa en modell driven IoT-lösning är mer komplex, men fördelen är att din lösning fungerar med alla enheter som lagts till i framtiden.
+## <a name="model-resolution"></a>Modell upplösning
 
-Om du vill bygga en modell driven IoT-lösning måste du bygga logik mot IoT Plug and Play-gränssnittets primitiver: telemetri, egenskaper och kommandon. Din IoT-lösnings logik representerar en enhet genom att kombinera flera telemetri-, egenskaps-och kommando funktioner.
+En lösning använder modell upplösning för att få åtkomst till gränssnitten som skapar en modell från modell-ID: t. 
 
-Lösningen måste också prenumerera på meddelanden från IoT-hubben som används.
-
-Följ dessa steg när din lösning tar emot ett meddelande för en ny enhets anslutning:
-
-1. Läs meddelandet om identifiering av telemetri för att hämta ID: n för kapacitets modellen och gränssnitt som implementeras av enheten.
-1. För varje ID läser du den fullständiga JSON-filen för att hitta enhetens funktioner.
-1. Kontrol lera om varje gränssnitt finns i alla cacheminnen som du har skapat för att lagra de JSON-filer som hämtades tidigare av din lösning.
-1. Kontrol lera sedan om ett gränssnitt med det ID: t finns i den offentliga modellens lagrings plats. Mer information finns i [lagrings plats för offentlig modell](howto-manage-models.md).
-1. Om gränssnittet inte finns i den offentliga modellens lagrings plats, kan du försöka att söka efter det i alla företags modell databaser som är kända för din lösning. Du behöver en anslutnings sträng för att få åtkomst till en företags modell lagrings plats. Mer information finns i [företags modellens lagrings plats](howto-manage-models.md).
-1. Om du inte kan hitta alla gränssnitt i den offentliga modellens lagrings plats, eller i en företags modell databas, kan du kontrol lera om enheten kan tillhandahålla gränssnitts definitionen. En enhet kan implementera standard [ModelDefinition](concepts-common-interfaces.md) -gränssnittet för att publicera information om hur du hämtar gränssnitts filer med ett kommando.
-1. Om du har hittat JSON-filer för varje gränssnitt som implementerats av enheten kan du räkna upp enhetens funktioner. Använd den logik du skrev tidigare för att göra det möjligt för användare att interagera med enheten.
-1. Du kan när som helst anropa det digitala dubbla API: et för att hämta kapacitets modell-ID: t och gränssnitts-ID: n för enheten.
+- Lösningar kan välja att lagra dessa gränssnitt som filer i en lokal mapp. 
+- Lösningar kan använda [modell databasen](concepts-model-repository.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig om modell identifiering av en IoT-lösning kan du läsa mer om [Azure IoT-plattformen](overview-iot-plug-and-play.md) för att utnyttja andra funktioner för din lösning.
+Nu när du har lärt dig om modell identifiering av en IoT-lösning kan du läsa mer om [Azure IoT-plattformen](overview-iot-plug-and-play.md) för att använda andra funktioner för din lösning.
+
+- [Interagera med en enhet från din lösning](quickstart-service-node.md)
+- [IoT Digital, dubbla REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [Azure IoT Explorer](howto-use-iot-explorer.md)

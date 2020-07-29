@@ -4,17 +4,17 @@ description: Beskriver hur avvikelse identifiering fungerar, när meddelanden sk
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
 ms.author: mingshen
+author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: becd15ceea41e40b35848f46f9657c501acf659a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: cb134c82f231eb8b6329b1acafb181032edd6936
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122038"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320093"
 ---
-# <a name="anomaly-detection-service-for-metered-billing"></a>Avvikelse identifierings tjänst för avlästa fakturor
+# <a name="anomaly-detection-service-for-metered-billing"></a>Tjänst för att identifiera avvikelser vid förbrukningsbaserad fakturering
 
 Med [Marketplace för avläsning](marketplace-metering-service-apis-faq.md) av program vara kan du skapa erbjudanden i det kommersiella Marketplace-programmet som debiteras enligt andra enheter än standard enheter. Med avgiftsbelagd fakturering skickar du användnings händelser för kundens användning till Microsoft och vi förbereder faktureringen baserat på den användningen.
 
@@ -58,9 +58,9 @@ Om du bekräftar att identifierade avvikelser är normal användning krävs inge
 
 ## <a name="when-and-how-to-get-support"></a>När och hur man får support
 
-Om du har skickat den felaktiga användningen till Microsoft och detta gjorde, eller kommer att bli underdebiterad till kunden, kommer Microsoft inte att initiera någon faktura till kunden under rapporterad användning eller betala dig för den användningen. Du måste ha förlust av intäkter på grund av rapportering.
+Om du har skickat den felaktiga användningen till Microsoft och detta gjorde, eller kommer att bli underdebiterad till kunden, kommer Microsoft inte att initiera någon faktura till kunden under rapporterad användning eller betala dig för den användningen. Du får själv stå för kostnaderna som beror på underrapporteringen.
 
-Om någon av följande fall gäller kan du öppna ett support ärende för att begära åter betalning eller fakturerings justering för dina kunder:
+Om något av följande fall gäller kan du öppna ett supportärende och begära återbetalning eller fakturajustering för dina kunder:
 
 - Du bekräftade att ett av de avvikelser som vi hittade är ett verkligt problem och att den felaktiga användningen skulle leda till **överkostnad** av kunden.
 - Du upptäcker att du har skickat felaktig användning till oss och att den felaktiga användningen skulle leda till **överkostnad** av kunden.

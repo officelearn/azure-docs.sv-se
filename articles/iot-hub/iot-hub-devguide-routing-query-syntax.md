@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 34ffa7a9fe9bd129fa3fd572bc8ef4d80b43ab9b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4ff61687f2fa045b51dfcb69488d1fbd87b65f75
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322983"
+ms.locfileid: "87336505"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub-frågesyntaxen för meddelandedirigering
 
@@ -59,9 +59,10 @@ System egenskaper hjälper till att identifiera innehåll och källa för meddel
 | contentEncoding | sträng | Användaren anger meddelandets kodnings typ. Tillåtna värden är UTF-8, UTF-16, UTF-32 om contentType är inställt på Application/JSON. |
 | iothub-Connection-Device-ID | sträng | Det här värdet anges av IoT Hub och identifierar enhetens ID. Om du vill fråga använder du `$connectionDeviceId` . |
 | iothub – enqueuedtime | sträng | Det här värdet anges av IoT Hub och representerar den faktiska tiden för att köa meddelandet i UTC. Om du vill fråga använder du `enqueuedTime` . |
-| iothub-gränssnitt-namn | sträng | Det här värdet anges av användaren och representerar namnet på det digitala dubbla gränssnitt som implementerar telemetri-meddelandet. Om du vill fråga använder du `$interfaceName` . Den här funktionen är tillgänglig som en del av [IoT plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md). |
+| DT-dataschema | sträng |  Det här värdet anges av IoT Hub på enhet-till-moln-meddelanden. Det innehåller det enhets modell-ID som angetts i enhets anslutningen. Den här funktionen är tillgänglig som en del av [IoT plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md). Om du vill fråga använder du `$dt-dataschema` . |
+| DT-ämne | sträng | Namnet på komponenten som skickar meddelanden från enheten till molnet. Den här funktionen är tillgänglig som en del av [IoT plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md). Om du vill fråga använder du `$dt-subject` . |
 
-Som det beskrivs i [IoT Hub-meddelanden](iot-hub-devguide-messages-construct.md)finns det ytterligare system egenskaper i ett meddelande. Förutom **ContentType**, **contentEncoding**och **enqueuedTime**kan **connectionDeviceId** och **connectionModuleId** också frågas.
+Som det beskrivs i [IoT Hub-meddelanden](iot-hub-devguide-messages-construct.md)finns det ytterligare system egenskaper i ett meddelande. Utöver egenskaperna ovan i föregående tabell kan du också fråga **connectionDeviceId**, **connectionModuleId**.
 
 ### <a name="application-properties"></a>Egenskaper för program
 

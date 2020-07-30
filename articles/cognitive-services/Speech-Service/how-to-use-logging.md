@@ -10,23 +10,24 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
-ms.openlocfilehash: 707a0f801a739a7a91cee19635e609305cd8f021
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 21f4494bedd824cef373a391c5635e35ec2600d0
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74805798"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406885"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Aktivera loggning i tal-SDK
 
-Loggning till filen är en valfri funktion för tal-SDK: n. Under utvecklings loggningen finns ytterligare information och diagnostik från tal SDK: s kärn komponenter. Den kan aktive ras genom att ange `Speech_LogFilename` egenskapen för ett tal konfigurations objekt till platsen och namnet på logg filen. Loggning aktive ras globalt när en identifierare skapas från den konfigurationen och kan inte inaktive ras efteråt. Du kan inte ändra namnet på en loggfil under en pågående inloggningssession.
+Loggning till filen är en valfri funktion för tal-SDK: n. Under utvecklings loggningen finns ytterligare information och diagnostik från tal SDK: s kärn komponenter. Den kan aktive ras genom att ange egenskapen `Speech_LogFilename` för ett tal konfigurations objekt till platsen och namnet på logg filen. Loggning aktive ras globalt när en identifierare skapas från den konfigurationen och kan inte inaktive ras efteråt. Du kan inte ändra namnet på en loggfil under en pågående inloggningssession.
 
 > [!NOTE]
 > Loggning är tillgängligt eftersom tal SDK-versionen 1.4.0 i alla API: er som stöds i tal SDK, med undantag för Java Script.
 
 ## <a name="sample"></a>Exempel
 
-Logg filens namn anges i ett konfigurations objekt. Ta med `SpeechConfig` som ett exempel och förutsatt att du har skapat en instans med namnet `config`:
+Logg filens namn anges i ett konfigurations objekt. Ta med `SpeechConfig` som ett exempel och förutsatt att du har skapat en instans med namnet `config` :
 
 ```csharp
 config.SetProperty(PropertyId.Speech_LogFilename, "LogfilePathAndName");
@@ -51,7 +52,7 @@ config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName
 Du kan skapa en tolk från konfigurationsobjektet konfiguration. Detta aktiverar loggning för alla identifierare.
 
 > [!NOTE]
-> Om du skapar en `SpeechSynthesizer` från config-objektet kommer den inte att aktivera loggning. Om loggning har Aktiver ATS kan du också få diagnostik från `SpeechSynthesizer`.
+> Om du skapar en `SpeechSynthesizer` från config-objektet kommer den inte att aktivera loggning. Om loggning har Aktiver ATS kan du också få diagnostik från `SpeechSynthesizer` .
 
 ## <a name="create-a-log-file-on-different-platforms"></a>Skapa en loggfil på olika plattformar
 
@@ -79,7 +80,7 @@ File logFile = new File(dir, "logfile.txt");
 config.setProperty(PropertyId.Speech_LogFilename, logFile.getAbsolutePath());
 ```
 
-Koden ovan sparar en loggfil till den externa lagringen i roten i en programspecifik katalog. En användare kan komma åt filen med fil hanteraren (vanligt vis i `Android/data/ApplicationName/logfile.txt`). Filen tas bort när programmet avinstalleras.
+Koden ovan sparar en loggfil till den externa lagringen i roten i en programspecifik katalog. En användare kan komma åt filen med fil hanteraren (vanligt vis i `Android/data/ApplicationName/logfile.txt` ). Filen tas bort när programmet avinstalleras.
 
 Du måste också begära `WRITE_EXTERNAL_STORAGE` behörighet i manifest filen:
 
@@ -104,7 +105,7 @@ NSString *filePath = [
 [speechConfig setPropertyTo:filePath byId:SPXSpeechLogFilename];
 ```
 
-Om du vill komma åt en skapad fil lägger du till nedanstående `Info.plist` egenskaper i programmets egenskaps lista:
+Om du vill komma åt en skapad fil lägger du till nedanstående egenskaper i `Info.plist` programmets egenskaps lista:
 
 ```xml
 <key>UIFileSharingEnabled</key>

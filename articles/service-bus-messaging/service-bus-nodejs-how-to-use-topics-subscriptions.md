@@ -6,12 +6,13 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: d4b382a0cf857f9cfe1065815e9b07b8260023a8
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 9d4a3a66d967bd003534c7931091979d1667526c
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85339800"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432798"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Snabb start: använda Service Bus ämnen och prenumerationer med Node.js och Azure-SB-paketet
 I den här självstudien får du lära dig hur du skapar Node.js program för att skicka meddelanden till ett Service Bus ämne och ta emot meddelanden från en Service Bus prenumeration med [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet. Exemplen är skrivna i Java Script och använder Node.js [Azure-modulen](https://www.npmjs.com/package/azure) som använder `azure-sb` paketet internt.
@@ -31,7 +32,7 @@ De scenarier som beskrivs här är:
 
 Mer information om ämnen och prenumerationer finns i avsnittet [Nästa steg](#next-steps) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 - En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Följ stegen i [snabb starten: använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer på avsnittet](service-bus-quickstart-topics-subscriptions-portal.md) för att skapa ett Service Bus- **namnområde** och hämta **anslutnings strängen**.
 

@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 7aa0889ab95cdac37f9fe0735c7ad58569621059
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bf9e403fb8691f378558ef5f0403d132214ed187
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205415"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421781"
 ---
 # <a name="azure-load-balancer-components"></a>Azure Load Balancer-komponenter
 
 Azure Load Balancer innehåller några viktiga komponenter. Dessa komponenter kan konfigureras i din prenumeration via:
 
-* Azure-portalen
+* Azure Portal
 * Azure CLI
 * Azure PowerShell
 * Resource Manager-mallar
@@ -54,7 +54,7 @@ Belastnings utjämning konfigurerar genast om sig själv via automatisk omkonfig
 
 När du överväger att utforma en backend-pool bör du utforma för det minsta antalet enskilda resurser för Server dels poolen för att optimera längden på hanterings åtgärder. Det finns ingen skillnad i prestanda eller skalning för data planet.
 
-## <a name="health-probes"></a>Hälsoavsökningar
+## <a name="health-probes"></a>Hälsotillståndsavsökningar
 
 En hälso avsökning används för att fastställa hälso status för instanserna i backend-poolen. Under skapandet av belastningsutjämnare konfigurerar du en hälso avsökning för belastningsutjämnaren som ska användas.  Den här hälso avsökningen avgör om en instans är felfri och kan ta emot trafik.
 
@@ -75,7 +75,7 @@ En Load Balancer regel används för att definiera hur inkommande trafik distrib
 Använd till exempel en belastnings Utjämnings regel för port 80 för att dirigera trafik från klient delens IP-adress till port 80 för Server dels instanserna.
 
 <p align="center">
-  <img src="./media/load-balancer-components/lbrules.svg" width="512" title="Belastnings Utjämnings regler">
+  <img src="./media/load-balancer-components/lbrules.svg" alt= "Figure depicts how Azure Load Balancer directs frontend port 80 to three instances of backend port 80." width="512" title="Belastnings Utjämnings regler">
 </p>
 
 *Bild: belastnings Utjämnings regler*
@@ -99,7 +99,7 @@ Belastnings Utjämnings beslutet görs per flöde. Den här åtgärden baseras p
 Belastnings Utjämnings reglerna för HA-portar hjälper dig med kritiska scenarier, till exempel hög tillgänglighet och skalning för virtuella nätverks installationer (NVA) i virtuella nätverk. Funktionen kan hjälpa dig när ett stort antal portar måste vara belastningsutjämnade.
 
 <p align="center">
-  <img src="./media/load-balancer-components/harules.svg" width="512" title="Regler för HA-portar">
+  <img src="./media/load-balancer-components/harules.svg" alt="Figure depicts how Azure Load Balancer directs all frontend ports to three instances of all backend ports" width="512" title="Regler för HA-portar">
 </p>
 
 *Bild: regler för HA-portar*
@@ -113,7 +113,7 @@ En inkommande NAT-regel vidarebefordrar inkommande trafik som skickas till klien
 Till exempel, om du vill att Remote Desktop Protocol (RDP) eller Secure Shell-sessioner (SSH) ska separera VM-instanser i en backend-pool. Flera interna slut punkter kan mappas till portar på samma IP-adress för klient delen. Klient delens IP-adresser kan användas för att fjärradministrera dina virtuella datorer utan någon ytterligare hopp ruta.
 
 <p align="center">
-  <img src="./media/load-balancer-components/inboundnatrules.svg" width="512" title="Ingående NAT-regler">
+  <img src="./media/load-balancer-components/inboundnatrules.svg" alt="Figure depicts how Azure Load Balancer directs frontend ports 3389, 443, and 80 to backend ports with the same values on separate servers." width="512" title="Ingående NAT-regler">
 </p>
 
 *Bild: inkommande NAT-regler*

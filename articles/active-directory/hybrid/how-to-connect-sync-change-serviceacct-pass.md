@@ -17,12 +17,12 @@ ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfb6e0608609a3940affd83a0aa235a2ef7c041c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce4c64f0be61c2fe28a102674929333235ee29c8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357570"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385100"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Ändra lösen ordet för ADSync-tjänstkontot
 Om du ändrar lösen ordet för ADSync-tjänstkontot kan inte synkroniseringstjänsten starta korrekt förrän du har övergivit krypterings nyckeln och initierat om lösen ordet för ADSync-tjänstkontot. 
@@ -52,7 +52,7 @@ För att säkerställa att du inte får de här felen följer du procedurerna i 
  
 ## <a name="abandoning-the-adsync-service-account-encryption-key"></a>Avbryta krypterings nyckeln för ADSync-tjänstekontot
 >[!IMPORTANT]
->Följande procedurer gäller endast för Azure AD Connect build 1.1.443.0 eller äldre.
+>Följande procedurer gäller endast för Azure AD Connect build 1.1.443.0 eller äldre. Detta kan inte användas för nyare versioner av Azure AD Connect.
 
 Använd följande procedurer för att överge krypterings nyckeln.
 

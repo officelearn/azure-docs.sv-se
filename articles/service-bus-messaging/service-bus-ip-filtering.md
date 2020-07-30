@@ -3,14 +3,14 @@ title: Konfigurera IP brand Väggs regler för Azure Service Bus
 description: Hur du använder brand Väggs regler för att tillåta anslutningar från vissa IP-adresser till Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: a5ae491f82e73c5364788dff8b531e81d17ebb68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 378f8a6331c18b2c99e3e08e83021878f7384c2b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341442"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418531"
 ---
-# <a name="configure-ip-firewall-rules-for-azure-service-bus"></a>Konfigurera IP brand Väggs regler för Azure Service Bus
+# <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Tillåt åtkomst till Azure Service Bus namnrymd från vissa IP-adresser eller intervall
 Som standard är Service Bus-namnrymder tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 
 Den här funktionen är användbar i scenarier där Azure Service Bus bör endast vara tillgängliga från vissa välkända webbplatser. Med brand Väggs regler kan du konfigurera regler för att acceptera trafik som kommer från vissa IPv4-adresser. Om du till exempel använder Service Bus med [Azure Express Route][express-route], kan du skapa en **brand Väggs regel** som tillåter trafik från enbart den lokala infrastrukturens IP-adresser eller adresser för en Corporate NAT-gateway. 
@@ -39,10 +39,19 @@ IP-brandväggens regler tillämpas på Service Bus namn områdes nivå. Reglerna
 Det här avsnittet visar hur du använder Azure Portal för att skapa IP-brandvägg för ett Service Bus namn område. 
 
 1. Navigera till **Service Bus namn området** i [Azure Portal](https://portal.azure.com).
-2. Välj alternativet **nätverk** på den vänstra menyn. Som standard är alternativet **alla nätverk** markerat. Service Bus namn området accepterar anslutningar från alla IP-adresser. Standardvärdet motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0. 
+2. På den vänstra menyn väljer du alternativet **nätverk** under **Inställningar**.  
+
+    > [!NOTE]
+    > Fliken **nätverk** visas endast för **Premium** -namnområden.  
+    
+    Som standard är alternativet **valda nätverk** markerat. Om du inte lägger till minst en IP-brandväggsregel eller ett virtuellt nätverk på den här sidan kan namn området nås via offentliga Internet (med hjälp av åtkomst nyckeln).
+
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Sidan nätverk – standard" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
+    
+    Om du väljer alternativet **alla nätverk** accepterar Service Bus namn området anslutningar från alla IP-adresser. Standardvärdet motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0. 
 
     ![Brand vägg – alternativet alla nätverk är valt](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
-1. Välj alternativet **valda nätverk** överst på sidan. I avsnittet **brand vägg** följer du dessa steg:
+1. Om du bara vill tillåta åtkomst från angiven IP-adress väljer du alternativet **valda nätverk** om det inte redan är valt. I avsnittet **brand vägg** följer du dessa steg:
     1. Välj alternativet **Lägg till klientens IP-adress** för att ge din aktuella klient-IP åtkomst till namn området. 
     2. För **adress intervall**anger du en angiven IPv4-adress eller ett intervall med IPv4-adresser i CIDR-notering. 
     3. Ange om du vill **tillåta att betrodda Microsoft-tjänster kringgår den här brand väggen**. 
@@ -52,6 +61,9 @@ Det här avsnittet visar hur du använder Azure Portal för att skapa IP-brandv�
 
         ![Brand vägg – alternativet alla nätverk är valt](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
 3. Spara inställningarna genom att välja **Spara** i verktygsfältet. Vänta några minuter tills bekräftelsen visas på Portal meddelandena.
+
+    > [!NOTE]
+    > Information om hur du begränsar åtkomsten till vissa virtuella nätverk finns i [Tillåt åtkomst från vissa nätverk](service-bus-service-endpoints.md).
 
 ## <a name="use-resource-manager-template"></a>Använda Resource Manager-mallar
 Det här avsnittet innehåller ett exempel på en Azure Resource Manager mall som skapar ett virtuellt nätverk och en brand Väggs regel.

@@ -5,16 +5,20 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: e6678eb2e738c206bbe67151361b594679d97b35
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 35acf4e9bd338a0e67b046a59d8884df0626e516
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281029"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429268"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Hämta väder data från väder partner
 
-Med Azure FarmBeats kan du hämta väder data från dina väder data leverantörer med hjälp av ett Docker-baserat anslutnings ramverk. Med hjälp av det här ramverket implementerar väder data leverantörer en Docker som kan integreras med FarmBeats. För närvarande stöds endast väder data leverantören [DTN](https://www.dtn.com/dtn-content-integration/) .
+Med Azure FarmBeats kan du hämta väder data från dina väder data leverantörer med hjälp av ett Docker-baserat anslutnings ramverk. Med hjälp av det här ramverket implementerar väder data leverantörer en Docker som kan integreras med FarmBeats. För närvarande stöds följande väder data leverantör.
+
+  ![FarmBeats-partner](./media/get-sensor-data-from-sensor-partner/dtn-logo.png)
+  
+   [DTN](https://www.dtn.com/dtn-content-integration/)
 
 Väder data kan användas för att generera instruktions bara insikter och bygga AI-eller ML-modeller i FarmBeats.
 
@@ -147,7 +151,7 @@ Fråga efter väder data med hjälp av en FarmBeats REST API:
 
 1. I din FarmBeats Datahub- [Swagger](https://yourdatahub.azurewebsites.net/swagger)går du till/WeatherDataLocation-API: et och gör en get-begäran. Svaret innehåller/WeatherDataLocation-objekt som har skapats för den plats (latitud och longitud) som jobb körningen har angett. Anteckna **ID: t** och **weatherDataModelId** för objekten.
 
-2. Gör en GET/{ID}-begäran i/WeatherDataModel-API: t för **weatherDataModelId** som du gjorde tidigare. Väder data modellen visar alla metadata och all information om inmatade väder data. I objektet väder data modell kan du till exempel se information om väder mått som innehåller väder information och i vilka typer och enheter. Till exempel:
+2. Gör en GET/{ID}-begäran i/WeatherDataModel-API: t för **weatherDataModelId** som du gjorde tidigare. Väder data modellen visar alla metadata och all information om inmatade väder data. I objektet väder data modell kan du till exempel se information om väder mått som innehåller väder information och i vilka typer och enheter. Ett exempel:
 
    ```json
    {

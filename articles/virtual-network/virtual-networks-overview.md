@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 237361c6a519fea4dde7f1fe85f91d97ce0365b1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: db3eae5cd31fff0db465389ea4a09b1666453634
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281590"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387004"
 ---
 # <a name="what-is-azure-virtual-network"></a>Vad är Azure Virtual Network?
 
@@ -27,7 +27,7 @@ Azure Virtual Network (VNet) är det grundläggande Bygg blocket för ditt priva
 ## <a name="vnet-concepts"></a>VNet-koncept
 
 - **Adress utrymme:** När du skapar ett VNet måste du ange ett anpassat privat IP-adressutrymme med hjälp av offentliga och privata (RFC 1918)-adresser. Azure tilldelar resurser i ett virtuellt nätverk en privat IP-adress från det adressutrymme som du tilldelar. Om du till exempel distribuerar en virtuell dator i ett VNet med adress utrymme, 10.0.0.0/16, tilldelas den virtuella datorn en privat IP-adress som 10.0.0.4.
-- **Undernät:** Med undernät kan du segmentera det virtuella nätverket i en eller flera under nätverk och allokera en del av det virtuella nätverkets adress utrymme till varje undernät. Du kan sedan distribuera Azure-resurser i ett särskilt undernät. Precis som i ett traditionellt nätverk kan du använda undernät för att segmentera ditt VNet-adressutrymme till segment som är lämpliga för organisationens interna nätverk. Detta förbättrar även effektiviteten för adress tilldelning. Du kan skydda resurser i undernät med hjälp av nätverks säkerhets grupper. Mer information finns i [säkerhets grupper](security-overview.md).
+- **Undernät:** Med undernät kan du segmentera det virtuella nätverket i en eller flera under nätverk och allokera en del av det virtuella nätverkets adress utrymme till varje undernät. Du kan sedan distribuera Azure-resurser i ett särskilt undernät. Precis som i ett traditionellt nätverk kan du använda undernät för att segmentera ditt VNet-adressutrymme till segment som är lämpliga för organisationens interna nätverk. Detta förbättrar även effektiviteten för adress tilldelning. Du kan skydda resurser i undernät med hjälp av nätverks säkerhets grupper. Mer information finns i [nätverks säkerhets grupper](security-overview.md).
 - **Regioner**: VNet är begränsat till en enda region/plats. flera virtuella nätverk från olika regioner kan dock anslutas tillsammans med Virtual Network-peering.
 - **Prenumeration:** VNet är begränsat till en prenumeration. Du kan implementera flera virtuella nätverk i varje Azure-[prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) och Azure-[region](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region).
 
@@ -67,7 +67,7 @@ Du kan ansluta lokala datorer och nätverk till ett virtuellt nätverk med hjäl
 
 Du kan filtrera nätverkstrafik mellan undernät med ett eller båda av följande alternativ:
 
-- **Säkerhets grupper:** Nätverks säkerhets grupper och program säkerhets grupper kan innehålla flera inkommande och utgående säkerhets regler som gör att du kan filtrera trafik till och från resurser efter källans och målets IP-adress, port och protokoll. Mer information finns i [Nätverkssäkerhetsgrupper](security-overview.md#network-security-groups) eller [Programsäkerhetsgrupper](security-overview.md#application-security-groups).
+- **Nätverks säkerhets grupper:** Nätverks säkerhets grupper och program säkerhets grupper kan innehålla flera inkommande och utgående säkerhets regler som gör att du kan filtrera trafik till och från resurser efter källans och målets IP-adress, port och protokoll. Mer information finns i [Nätverkssäkerhetsgrupper](security-overview.md#network-security-groups) eller [Programsäkerhetsgrupper](security-overview.md#application-security-groups).
 - **Virtuella nätverksinstallationer:** En virtuell nätverksinstallation är en virtuell dator som utför en nätverksfunktion, till exempel en brandvägg, WAN-optimering eller annan nätverksfunktion. En lista över tillgängliga virtuella nätverksinstallationer som du kan distribuera i ett virtuellt nätverk finns i [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
 ## <a name="route-network-traffic"></a>Dirigering av nätverkstrafik
@@ -90,7 +90,7 @@ Du kan integrera Azure-tjänster i ditt virtuella nätverk med följande alterna
 
 Det finns vissa begränsningar kring antalet Azure-resurser som du kan distribuera. De flesta gränser för Azure-nätverk har högsta tillåtna värden. Du kan dock [öka vissa nätverks gränser](../azure-portal/supportability/networking-quota-requests.md) enligt vad som anges på [sidan VNet-gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits). 
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Det kostar inget att använda Azure VNet, utan kostnad. Standard avgifterna gäller för resurser, till exempel Virtual Machines (VM) och andra produkter. Mer information finns i avsnittet om [priser för VNet](https://azure.microsoft.com/pricing/details/virtual-network/) och [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/)för Azure.
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: e3be1f9ec900655f4dae45abd402ff8e6a56e283
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ddf4641cfba2fb9704c2354e01299df368eb2ac
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84147959"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432012"
 ---
 # <a name="configure-the-model-conversion"></a>Konfigurera modellkonverteringen
 
@@ -18,7 +18,8 @@ I det här kapitlet dokumenteras alternativen för modell konvertering.
 
 ## <a name="settings-file"></a>Inställnings fil
 
-Om en fil `ConversionSettings.json` som heter finns i behållaren indata i indata-modellen, används den för att tillhandahålla ytterligare konfiguration för modell konverterings processen.
+Om en fil som heter finns `<modelName>.ConversionSettings.json` i indatafilen bredvid Indataporten `<modelName>.<ext>` används den för att tillhandahålla ytterligare konfiguration för modell konverterings processen.
+Används till exempel `box.ConversionSettings.json` vid konvertering `box.gltf` .
 
 Innehållet i filen bör uppfylla följande JSON-schema:
 
@@ -54,7 +55,7 @@ Innehållet i filen bör uppfylla följande JSON-schema:
 }
 ```
 
-En exempel `ConversionSettings.json` fil kan vara:
+En exempel fil `box.ConversionSettings.json` kan vara:
 
 ```json
 {
@@ -66,15 +67,18 @@ En exempel `ConversionSettings.json` fil kan vara:
 
 ### <a name="geometry-parameters"></a>Geometri parametrar
 
-* `scaling`– Den här parametern skalar en modell enhetligt. Skalning kan användas för att utöka eller krympa en modell, till exempel för att visa en byggnads modell i en tabell. Eftersom åter givnings motorn förväntar sig att längderna ska anges i meter, uppstår en annan viktig användning av den här parametern när en modell definieras i olika enheter. Till exempel, om en modell definieras i centimeter, bör du återge modellen med rätt storlek genom att använda en skala på 0,01.
+* `scaling`– Den här parametern skalar en modell enhetligt. Skalning kan användas för att utöka eller krympa en modell, till exempel för att visa en byggnads modell i en tabell.
+Skalning är också viktigt när en modell definieras i andra enheter än mätare, eftersom åter givnings motorn förväntar sig mätare.
+Till exempel, om en modell definieras i centimeter, bör du återge modellen med rätt storlek genom att använda en skala på 0,01.
 Vissa käll data format (till exempel. FBX) tillhandahåller ett tips för enhets skalning, i så fall konverteringen av implicit skalar modellen till mätnings enheter. Den implicita skalningen som tillhandahålls av käll formatet kommer att tillämpas ovanpå skalnings parametern.
 Den slutgiltiga skalnings faktorn tillämpas på geometri hörnen och de lokala transformeringarna i diagrammets graf-noder. Skalningen för rot entitetens transformering ändras inte.
 
 * `recenterToOrigin`-Anger att en modell ska konverteras så att dess avgränsnings ruta centreras vid ursprunget.
-Centrering är viktigt om käll modellen har förplacerats långt från ursprunget, eftersom problem med flytt ALS precision kan orsaka åter givning av artefakter.
+Om en käll modell har förplacerats långt från ursprunget kan problem med flytt ALS precision orsaka åter givning av artefakter.
+Att centrera modellen kan hjälpa dig i den här situationen.
 
 * `opaqueMaterialDefaultSidedness`– Åter givnings motorn förutsätter att ogenomskinligt material är dubbels idiga.
-Om det inte är det avsedda beteendet ska den här parametern anges till "SingleSided". Mer information finns i [ :::no-loc text="single sided"::: rendering](../../overview/features/single-sided-rendering.md).
+om detta antagande inte är sant för en viss modell ska den här parametern anges till "SingleSided". Mer information finns i [ :::no-loc text="single sided"::: rendering](../../overview/features/single-sided-rendering.md).
 
 ### <a name="material-overrides"></a>Åsidosättningar av material
 
@@ -99,10 +103,10 @@ Om en modell definieras med hjälp av gamma avstånd ska dessa alternativ anges 
 
 * `sceneGraphMode`– Definierar hur scen diagrammet i käll filen konverteras:
   * `dynamic`(standard): alla objekt i filen visas som [entiteter](../../concepts/entities.md) i API: et och kan omvandlas oberoende av varandra. Node-hierarkin vid körning är identisk med strukturen i käll filen.
-  * `static`: Alla objekt exponeras i API, men kan inte omvandlas separat.
+  * `static`: Alla objekt exponeras i API, men de kan inte omvandlas separat.
   * `none`: Scen diagrammet komprimeras till ett objekt.
 
-Varje läge har olika körnings prestanda. I `dynamic` läget skalas prestanda kostnaden linjärt med antalet [entiteter](../../concepts/entities.md) i diagrammet, även om ingen del flyttas. Den bör endast användas när du flyttar delar individuellt krävs för programmet, till exempel en animering av explosions visning.
+Varje läge har olika körnings prestanda. I `dynamic` läget skalas prestanda kostnaden linjärt med antalet [entiteter](../../concepts/entities.md) i diagrammet, även om ingen del flyttas. Använd `dynamic` endast läge när det är nödvändigt att flytta delar individuellt, till exempel en animering av explosions visning.
 
 `static`Läget exporterar det fullständiga scen diagrammet, men delar i det här grafen har en konstant transformering i förhållande till dess rot del. Rotnoden för objektet kan dock fortfarande flyttas, roteras eller skalas utan betydande prestanda kostnad. Dessutom returnerar [spatiala frågor](../../overview/features/spatial-queries.md) enskilda delar och varje del kan ändras genom [tillstånds åsidosättningar](../../overview/features/override-hierarchical-state.md). Med det här läget är det försumbara omkostnaderna för körning per objekt försumbara. Det är idealiskt för stora scener där du fortfarande behöver kontroll per objekt men utan omvandlingar per objekt.
 
@@ -178,7 +182,7 @@ De här formaten är tillåtna för respektive komponenter:
 
 Minnes formaten för formaten är följande:
 
-| Format | Beskrivning | Byte per:::no-loc text="vertex"::: |
+| Format | Description | Byte per:::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|full flytt ALS precision med två komponenter|8
 |16_16_FLOAT|två komponenter halv flytt ALS precision|4
@@ -278,6 +282,11 @@ I dessa användnings fall har modellerna ofta mycket hög detalj nivå i en lite
 * Enskilda delar bör vara valbara och flyttbara, så `sceneGraphMode` måste vara kvar på `dynamic` .
 * Ray-sändningar är vanligt vis en integrerad del av programmet, så att nät i kollisionen måste genereras.
 * Klipp ut plan ser bättre ut när `opaqueMaterialDefaultSidedness` flaggan är aktive rad.
+
+## <a name="deprecated-features"></a>Föråldrade funktioner
+
+Det finns fortfarande stöd för att tillhandahålla inställningar med det icke-modellerar fil namnet `conversionSettings.json` , men det är inaktuellt.
+Använd det leverantörsspecifika fil namnet `<modelName>.ConversionSettings.json` i stället.
 
 ## <a name="next-steps"></a>Nästa steg
 

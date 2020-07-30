@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: b7f58c13181c9ec966d548096ffc2756d5d333e3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: ac083f842bf10adcbb23e3e1c1157383e11f3af9
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124937"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432430"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Övervaka och varna Data Factory med Azure Monitor
 
@@ -111,8 +111,8 @@ Den här lösningen ger dig en översikt över övergripande hälso tillstånd f
 Genom att installera den här lösningen skapas en standard uppsättning vyer i avsnittet arbets böcker i den valda Log Analytics-arbetsytan. Resultatet blir att följande mått aktive ras:
 
 * ADF-körningar-1) pipeline körs med Data Factory
-* ADF-körningar-2) aktivitets körningar per data faktor
-* ADF-körningar-3) utlösare körs av data faktor
+* ADF-körningar – 2) aktiviteter körs genom Data Factory
+* ADF-körningar-3) utlösare körs av Data Factory
 * ADF-fel-1) de 10 vanligaste pipeline-felen per Data Factory
 * ADF-fel – 2) topp 10-aktivitet körs genom Data Factory
 * ADF-fel-3) de 10 vanligaste utlösarna fel per Data Factory
@@ -201,7 +201,7 @@ Logga in på Azure Portal och välj **övervaka**  >  **aviseringar** för att s
 
 ### <a name="diagnostic-settings"></a>Diagnostikinställningar
 
-Använd diagnostikinställningar för att konfigurera diagnostikloggar för resurser som inte är beräknings resurser. Inställningarna för en resurs kontroll har följande funktioner:
+Använd diagnostikinställningar för att konfigurera diagnostikloggar för icke-Compute-resurser. Inställningarna för en resurs kontroll har följande funktioner:
 
 * De anger var diagnostikloggar ska skickas. Exempel på detta är ett Azure Storage-konto, en Azure Event Hub eller övervaknings loggar.
 * De anger vilka logg kategorier som skickas.
@@ -214,7 +214,7 @@ Använd diagnostikinställningar för att konfigurera diagnostikloggar för resu
 
 #### <a name="create-or-update-a-diagnostics-setting-in-the-monitor-rest-api"></a>Skapa eller uppdatera en diagnostisk inställning i övervakaren REST API
 
-##### <a name="request"></a>Begäran
+##### <a name="request"></a>Förfrågan
 
 ```
 PUT
@@ -269,7 +269,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | --- | --- | --- |
 | **storageAccountId** |Sträng | Resurs-ID för det lagrings konto som du vill skicka diagnostikloggar till. |
 | **serviceBusRuleId** |Sträng | Service Bus-regelns ID för det namn område för Service Bus som du vill ha Event Hubs skapat för för strömning av diagnostikloggar. Regel-ID: t har formatet `{service bus resource ID}/authorizationrules/{key name}` .|
@@ -334,7 +334,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 #### <a name="get-information-about-diagnostics-settings-in-the-monitor-rest-api"></a>Hämta information om diagnostikinställningar i övervakaren REST API
 
-##### <a name="request"></a>Begäran
+##### <a name="request"></a>Förfrågan
 
 ```
 GET
@@ -455,7 +455,7 @@ Mer information finns i [diagnostikinställningar](https://docs.microsoft.com/re
 |**operationName**| Sträng | Namnet på aktiviteten med dess status. Om aktiviteten är start pulsslaget är egenskap svärdet `MyActivity -` . Om aktiviteten är slut pulsslaget är egenskap svärdet `MyActivity - Succeeded` . | `MyActivity - Succeeded` |
 |**pipelineName**| Sträng | Namnet på pipelinen. | `MyPipeline` |
 |**activityName**| Sträng | Aktivitetens namn. | `MyActivity` |
-|**start**| Sträng | Start tiden för aktiviteten körs i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`|
+|**har**| Sträng | Start tiden för aktiviteten körs i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`|
 |**ändamål**| Sträng | Slut tiden för aktiviteten körs i TimeSpan UTC-format. Om Diagnostic-loggen visar att en aktivitet har startat men ännu inte har avslut ATS, är egenskap svärdet `1601-01-01T00:00:00Z` . | `2017-06-26T20:55:29.5007959Z` |
 
 #### <a name="pipeline-run-log-attributes"></a>Pipeline-kör logg-attribut
@@ -499,7 +499,7 @@ Mer information finns i [diagnostikinställningar](https://docs.microsoft.com/re
 |**nivå**| Sträng | Nivån för diagnostikloggar. Ange egenskapens värde till `Informational` . | `Informational` |
 |**operationName**| Sträng | Namnet på pipelinen tillsammans med dess status. När pipeline-körningen är färdig är egenskap svärdet `Pipeline - Succeeded` . | `MyPipeline - Succeeded`. |
 |**pipelineName**| Sträng | Namnet på pipelinen. | `MyPipeline` |
-|**start**| Sträng | Start tiden för aktiviteten körs i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`. |
+|**har**| Sträng | Start tiden för aktiviteten körs i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`. |
 |**ändamål**| Sträng | Slut tiden för aktiviteten körs i TimeSpan UTC-format. Om Diagnostic-loggen visar att en aktivitet har startat men ännu inte har avslut ATS, är egenskap svärdet `1601-01-01T00:00:00Z` .  | `2017-06-26T20:55:29.5007959Z` |
 |**statusfältet**| Sträng | Slut status för pipeline-körningen. Möjliga egenskaps värden är `Succeeded` och `Failed` . | `Succeeded`|
 
@@ -544,7 +544,7 @@ Mer information finns i [diagnostikinställningar](https://docs.microsoft.com/re
 |**triggerName**| Sträng | Namnet på utlösaren. | `MyTrigger` |
 |**triggerType**| Sträng | Typ av utlösare. Möjliga egenskaps värden är `Manual Trigger` och `Schedule Trigger` . | `ScheduleTrigger` |
 |**triggerEvent**| Sträng | Händelse av utlösaren. | `ScheduleTime - 2017-07-06T01:50:25Z` |
-|**start**| Sträng | Start tiden för utlösaren utlöses i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`|
+|**har**| Sträng | Start tiden för utlösaren utlöses i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`|
 |**statusfältet**| Sträng | Slutgiltig status visar om utlösaren har utlösts. Möjliga egenskaps värden är `Succeeded` och `Failed` . | `Succeeded`|
 
 #### <a name="ssis-integration-runtime-log-attributes"></a>SSIS för integration runtime

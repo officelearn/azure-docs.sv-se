@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: 3835046e50180e1d1091f5083f276c7c1ad56612
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: eec056cbe246f129fb78e15faa0027846c271181
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117373"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382958"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor kundhanterad nyckel 
 
@@ -80,7 +80,7 @@ Proceduren stöds inte i Azure Portal och etableringen utförs via PowerShell el
 > [!IMPORTANT]
 > Alla REST-begäranden måste innehålla en token Authorization-token i begär ande huvudet.
 
-Exempel:
+Ett exempel:
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
@@ -187,8 +187,8 @@ Skapa eller Använd en Azure Key Vault som du redan har för att skapa eller imp
 
 De här inställningarna kan uppdateras via CLI och PowerShell:
 
-- [Mjuk borttagning](../../key-vault/general/overview-soft-delete.md)
-- [Rensa skydds skydd](../../key-vault/general/overview-soft-delete.md#purge-protection) mot Force borttagning av hemligheten/valvet även efter mjuk borttagning
+- [Mjuk borttagning](../../key-vault/general/soft-delete-overview.md)
+- [Rensa skydds skydd](../../key-vault/general/soft-delete-overview.md#purge-protection) mot Force borttagning av hemligheten/valvet även efter mjuk borttagning
 
 ### <a name="create-cluster-resource"></a>Skapa *kluster* resurs
 
@@ -706,8 +706,8 @@ Efter konfigurationen sparas alla nya aviserings frågor i din lagrings plats.
 - CMK-kryptering gäller nyligen inmatade data efter CMK-konfigurationen. Data som matats in före CMK-konfigurationen förblir krypterade med Microsoft-nyckeln. Du kan fråga efter data som matats in före och efter CMK-konfigurationen sömlöst.
 
 - Azure Key Vault måste konfigureras som återställnings Bart. Dessa egenskaper är inte aktiverade som standard och ska konfigureras med CLI eller PowerShell:<br>
-  - [Mjuk borttagning](../../key-vault/general/overview-soft-delete.md)
-  - [Rensnings skyddet](../../key-vault/general/overview-soft-delete.md#purge-protection) bör vara aktiverat för att skydda mot Force borttagning av hemligheten/valvet även efter mjuk borttagning.
+  - [Mjuk borttagning](../../key-vault/general/soft-delete-overview.md)
+  - [Rensnings skyddet](../../key-vault/general/soft-delete-overview.md#purge-protection) bör vara aktiverat för att skydda mot Force borttagning av hemligheten/valvet även efter mjuk borttagning.
 
 - Det finns för närvarande inte stöd för att flytta *kluster* resurser till en annan resurs grupp eller prenumeration.
 
@@ -763,7 +763,7 @@ Efter konfigurationen sparas alla nya aviserings frågor i din lagrings plats.
   -  400--klustrets status tas bort. En asynkron åtgärd pågår. Klustret måste utföra åtgärden innan en uppdaterings åtgärd utförs.
   -  400--KeyVaultProperties är inte tomt men har ett felaktigt format. Se [uppdatering av nyckel identifierare](#update-cluster-resource-with-key-identifier-details).
   -  400--det gick inte att verifiera nyckeln i Key Vault. Kan bero på otillräckliga behörigheter eller när nyckeln inte finns. Kontrol lera att du [ställer in nyckel-och åtkomst principer](#grant-key-vault-permissions) i Key Vault.
-  -  400--det går inte att återskapa nyckeln. Key Vault måste anges som mjuk borttagning och rensnings skydd. Se [Key Vault-dokumentation](../../key-vault/general/overview-soft-delete.md)
+  -  400--det går inte att återskapa nyckeln. Key Vault måste anges som mjuk borttagning och rensnings skydd. Se [Key Vault-dokumentation](../../key-vault/general/soft-delete-overview.md)
   -  400--åtgärden kan inte utföras nu. Vänta tills den asynkrona åtgärden har slutförts och försök igen.
   -  400--klustrets status tas bort. Vänta tills den asynkrona åtgärden har slutförts och försök igen.
 

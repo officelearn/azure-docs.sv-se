@@ -7,12 +7,13 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: a7215790a7f052227b08f51dcd7ad5dd337bb4e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: d9988adea8e4d2dab39de64f9fd155a9d0b02cae
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259277"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432963"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Konfigurera lokal utveckling för för hands versionen av Azure statisk Web Apps
 
@@ -27,9 +28,9 @@ Den här artikeln visar rekommenderade metod tips för lokal utveckling, inklusi
 - Felsöka och köra programmet
 - Metod tips för appens fil-och mappstruktur
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- [Visuell Studio-kod](https://code.visualstudio.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
 - [Azure Functions tillägg](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) för Visual Studio Code
 - [Live Server-tillägg](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) för Visual Studio Code
   - Krävs endast om du inte använder ett front-end JavaScript-ramverk eller en statisk webbplats Generators CLI
@@ -46,7 +47,7 @@ Beroende på hur en webbplats har skapats kan det hända att en lokal webb serve
 
 ### <a name="javascript-frameworks-and-libraries"></a>JavaScript-ramverk och bibliotek
 
-- [Vinkel CLI](https://angular.io/cli)
+- [Angular CLI](https://angular.io/cli)
 - [Vue CLI](https://cli.vuejs.org/guide/creating-a-project.html)
 - [Reakta CLI](https://create-react-app.dev/)
 
@@ -62,7 +63,7 @@ Om du använder ett CLI-verktyg för att betjäna platsen kan du gå vidare till
 
 Live Server-tillägget för Visual Studio Code tillhandahåller en lokal utvecklings webb server som hanterar statiskt innehåll.
 
-#### <a name="create-a-repository"></a>Skapa en lagrings plats
+#### <a name="create-a-repository"></a>Klona en lagringsplats
 
 1. Kontrol lera att du är inloggad på GitHub och navigera till [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) och skapa ett nytt GitHub-projekt med namnet **vanilj-API**med hjälp av den här mallen.
 
@@ -70,7 +71,7 @@ Live Server-tillägget för Visual Studio Code tillhandahåller en lokal utveckl
 
 1. Öppna Visual Studio Code.
 
-1. Tryck på **F1** för att öppna kommando paletten.
+1. Tryck på **F1** för att öppna kommandopaletten.
 
 1. Skriv **klona** i sökrutan och välj **git: klon**.
 
@@ -92,7 +93,7 @@ Visual Studio Code öppnar det klonade projektet i redigeraren.
 
 ### <a name="run-the-website-locally-with-live-server"></a>Kör webbplatsen lokalt med Live Server
 
-1. Tryck på **F1** för att öppna kommando paletten.
+1. Tryck på **F1** för att öppna kommandopaletten.
 
 1. Skriv **Live Server** i sökrutan och välj **Live Server: öppna med Live Server**
 
@@ -193,7 +194,7 @@ Mer information om hur du konfigurerar miljöfiler för front-end JavaScript-ram
 
     :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Stoppa Live Server-kommandot i Visual Studio Command-paletten":::
 
-1. Tryck på **F1** för att öppna kommando paletten.
+1. Tryck på **F1** för att öppna kommandopaletten.
 
 1. Skriv **Live** Server och välj **Live Server: öppna med Live Server**.
 

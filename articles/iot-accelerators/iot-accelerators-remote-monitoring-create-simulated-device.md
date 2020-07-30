@@ -8,13 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.custom: mqtt
-ms.openlocfilehash: d31e520dac1c7e2a13fbd9e24a0cd3167f69e904
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-javascript
+ms.openlocfilehash: c0aac897d85cd96d537238bc81cbc89d3626a07c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81682010"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422767"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Skapa och testa en ny simulerad enhet
 
@@ -65,7 +65,7 @@ I följande tabell visas enhetens initiala status:
 
 | Name                     | Värden |
 | ------------------------ | -------|
-| Ursprunglig färg            | Vit  |
+| Ursprunglig färg            | Vita  |
 | Inledande ljus styrka       | 75     |
 | Ursprunglig återstående livs längd   | 10 000 |
 | Status för inledande telemetri | för   |
@@ -73,11 +73,11 @@ I följande tabell visas enhetens initiala status:
 
 För att slutföra stegen i den här instruktions guiden behöver du en aktiv Azure-prenumeration.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa den här instruktions guiden behöver du:
 

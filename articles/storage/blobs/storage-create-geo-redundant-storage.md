@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
-ms.custom: mvc, tracking-python
+ms.custom: mvc, tracking-python, devx-track-javascript
 ms.subservice: blobs
-ms.openlocfilehash: f7c3ebb1a68d671f63e3239794266c8c24f5906a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 60829e7755c31fdc5204b74c278b8eed21946c60
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84553207"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432647"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Självstudie: Bygg ett program med hög tillgänglighet med Blob Storage
 
@@ -26,7 +26,7 @@ När du har slutfört den här självstudien har du ett konsol program som ladda
 
 GEO-redundans i Azure Storage replikerar transaktioner asynkront från en primär region till en sekundär region som är hundratals mil bort. Replikeringsprocessen garanterar att data i den sekundära regionen blir konsekventa. Konsol programmet använder [krets brytar](/azure/architecture/patterns/circuit-breaker) mönstret för att avgöra vilken slut punkt som ska användas för att ansluta till, vilket automatiskt växlar mellan slut punkter som felen och återställningar simuleras.
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 I del ett i den här serien lärde du dig att:
 
@@ -52,7 +52,7 @@ För att slutföra den här kursen behöver du:
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-* Installera [Node. js](https://nodejs.org).
+* Installera [Node.js](https://nodejs.org).
 
 ---
 
@@ -70,16 +70,16 @@ Följ de här stegen om du vill skapa ett lagrings konto med Read-Access geo-Zon
 2. Välj **lagrings konto – BLOB, fil, tabell, kö** på den **nya** sidan.
 4. Fyll i formuläret för lagringskontot med följande information (se bilden nedan) och välj **Skapa**:
 
-   | Inställningen       | Exempelvärde | Description |
+   | Inställningen       | Exempelvärde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Prenumeration** | *Min prenumeration* | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.azure.com/Subscriptions). |
    | **ResourceGroup** | *myResourceGroup* | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
    | **Namn** | *mystorageaccount* | Ett unikt namn för ditt lagrings konto. |
-   | **Position** | *USA, östra* | Välj en plats. |
+   | **Plats** | *East US* | Välj en plats. |
    | **Prestanda** | *Standard* | Standard prestanda är ett lämpligt alternativ för exempel scenariot. |
    | **Typ av konto** | *StorageV2* | Vi rekommenderar att du använder ett lagrings konto för generell användning v2. Mer information om typer av Azure Storage-konton finns i [Översikt över lagrings konto](../common/storage-account-overview.md). |
    | **Replikering**| *Read-Access geo-Zone-redundant lagring (RA-GZRS)* | Den primära regionen är zon-redundant och replikeras till en sekundär region, med Läs behörighet till den sekundära regionen aktive rad. |
-   | **Åtkomst nivå**| *Frekvent* | Använd frekvent nivå för data som används ofta. |
+   | **Åtkomstnivå**| *Frekvent* | Använd frekvent nivå för data som används ofta. |
 
     ![skapa lagringskonto](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
@@ -103,7 +103,7 @@ git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-patter
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-[Hämta exempelprojektet](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) och packa upp filen. Du kan också använda [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. Exempelprojektet innehåller ett Basic Node. js-program.
+[Hämta exempelprojektet](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) och packa upp filen. Du kan också använda [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. Exempelprojektet innehåller ett grundläggande Node.js-program.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
@@ -194,7 +194,7 @@ Innan nedladdningen definieras tjänst objekt [retry_callback](https://docs.micr
 
 Kör exemplet genom att öppna en kommando tolk, navigera till mappen exempel och sedan ange `node index.js` .
 
-Exemplet skapar en behållare i ditt Blob Storage-konto, överför **HelloWorld. png** till behållaren och kontrollerar sedan upprepade gånger om behållaren och avbildningen har repliker ATS till den sekundära regionen. Efter replikeringen tillfrågas du om du vill ange **D** eller **Q** (följt av retur) för att ladda ned eller avsluta. Dina utdata bör se ut ungefär som i följande exempel:
+Exemplet skapar en behållare i ditt Blob Storage-konto, laddar upp **HelloWorld.png** i behållaren och kontrollerar sedan upprepade gånger om behållaren och avbildningen har repliker ATS till den sekundära regionen. Efter replikeringen tillfrågas du om du vill ange **D** eller **Q** (följt av retur) för att ladda ned eller avsluta. Dina utdata bör se ut ungefär som i följande exempel:
 
 ```
 Created container successfully: newcontainer1550799840726
@@ -317,7 +317,7 @@ def response_callback(response):
 
 ### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Med Node. js v10 SDK är återanrops hanterare onödig. I stället skapar exemplet en pipeline som kon figurer ATS med alternativ för återförsök och en sekundär slut punkt. Detta gör att programmet automatiskt växlar till den sekundära pipelinen om det inte går att komma åt dina data via den primära pipelinen.
+Med Node.js v10 SDK är återanrops hanterare onödig. I stället skapar exemplet en pipeline som kon figurer ATS med alternativ för återförsök och en sekundär slut punkt. Detta gör att programmet automatiskt växlar till den sekundära pipelinen om det inte går att komma åt dina data via den primära pipelinen.
 
 ```javascript
 const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;

@@ -4,14 +4,14 @@ description: Använd Azure CLI för att hantera ditt Azure Cosmos DB konto, data
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/03/2020
+ms.date: 07/29/2020
 ms.author: mjbrown
-ms.openlocfilehash: 97b5118f74cbd098beea804c312ed08f1a152873
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ae29039702a6f73a33f73afc366532077aa4b71
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067173"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432840"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Hantera Azure Cosmos-resurser med Azure CLI
 
@@ -19,7 +19,7 @@ I följande guide beskrivs vanliga kommandon för att automatisera hanteringen a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt, kräver det här avsnittet att du kör Azure CLI-version 2.6.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt, kräver det här avsnittet att du kör Azure CLI-version 2.9.1 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="azure-cosmos-accounts"></a>Azure Cosmos-konton
 
@@ -308,6 +308,7 @@ az lock delete --ids $lockid
 Följande avsnitt visar hur du hanterar Azure Cosmos DB container, inklusive:
 
 * [Skapa en container](#create-a-container)
+* [Skapa en behållare med autoskalning](#create-a-container-with-autoscale)
 * [Skapa en behållare med TTL aktiverat](#create-a-container-with-ttl)
 * [Skapa en behållare med en anpassad index princip](#create-a-container-with-a-custom-index-policy)
 * [Ändra behållarens data flöde](#change-container-throughput)
@@ -330,6 +331,25 @@ az cosmosdb sql container create \
     -a $accountName -g $resourceGroupName \
     -d $databaseName -n $containerName \
     -p $partitionKey --throughput $throughput
+```
+
+### <a name="create-a-container-with-autoscale"></a>Skapa en behållare med autoskalning
+
+Skapa en Cosmos-behållare med standard index policy, partitionsnyckel och autoskalning RU/s av 4000.
+
+```azurecli-interactive
+# Create a SQL API container
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+partitionKey='/myPartitionKey'
+maxThroughput=4000
+
+az cosmosdb sql container create \
+    -a $accountName -g $resourceGroupName \
+    -d $databaseName -n $containerName \
+    -p $partitionKey --max-throughput $maxThroughput
 ```
 
 ### <a name="create-a-container-with-ttl"></a>Skapa en behållare med TTL

@@ -7,18 +7,18 @@ ms.subservice: studio
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18, tracking-python
+ms.custom: seodec18, tracking-python, devx-track-javascript
 ms.date: 05/29/2020
-ms.openlocfilehash: ec88d501fbc262275484f3abaeb7326d963a16e5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4d72a811f018bb17a6a7bb7c129d52e6232f7caa
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282525"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432903"
 ---
 # <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Använda en Machine Learning Studio (klassisk)-webb tjänst
 
-**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
+**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 När du har distribuerat en Azure Machine Learning Studio (klassisk) förutsägelse modell som en webb tjänst kan du använda en REST API för att skicka IT-data och hämta förutsägelser. Du kan skicka data i real tid eller i batchläge.

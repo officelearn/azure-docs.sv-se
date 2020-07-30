@@ -6,20 +6,21 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 64414d3ec31e8763b7c576af93374bf514141fd4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: da79556b466e3511845724e969c76477ad2ba0a8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81726496"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423022"
 ---
 # <a name="protected-content"></a>Skyddat innehåll #
 
-Azure Media Player stöder för närvarande AES-128-bitars krypterat innehåll och gemensamt krypterat innehåll (via PlayReady och Widevine) eller krypterat innehåll via FairPlay. För att kunna spela upp skyddat innehåll korrekt måste du tala om `protectionInfo`Azure Media Player. Den här informationen finns per källa och kan läggas till direkt i `<source>` taggen via `data-setup`.  Du kan också lägga till `protectionInfo` direkt som en parameter om du anger källan dynamiskt.
+Azure Media Player stöder för närvarande AES-128-bitars krypterat innehåll och gemensamt krypterat innehåll (via PlayReady och Widevine) eller krypterat innehåll via FairPlay. För att kunna spela upp skyddat innehåll korrekt måste du tala om Azure Media Player `protectionInfo` . Den här informationen finns per källa och kan läggas till direkt i `<source>` taggen via `data-setup` .  Du kan också lägga till `protectionInfo` direkt som en parameter om du anger källan dynamiskt.
 
 `protectionInfo`accepterar ett JSON-objekt och inkluderar:
 
-- `type`: `AES` eller `PlayReady` `Widevine` eller`FairPlay`
+- `type`: `AES` eller `PlayReady` eller `Widevine``FairPlay`
 - `certificateUrl`: det här ska vara en direkt länk till ditt värdbaserade FairPlay-certifikat
 
 - `authenticationToken`: det här är ett alternativ fält för att lägga till en kodad autentiseringstoken
@@ -27,7 +28,7 @@ Azure Media Player stöder för närvarande AES-128-bitars krypterat innehåll o
 > [!IMPORTANT]
 > **CertificateUrl** -objektet behövs bara för Fairplay DRM. * * *
 >[!NOTE]
-> Standard-techOrder har ändrats för att hantera den nya Tech- `html5FairPlayHLS` enheten för att spela upp Fairplay innehåll internt i webbläsare som stöder det (Safari på OSX 8 +). Om du har FairPlay innehåll till uppspelning **och** du har ändrat standard-techOrder till en anpassad i ditt program, måste du lägga till den nya Tech-filen i techOrder-objektet. Vi rekommenderar att du inkluderar det före Silverlight så att innehållet inte spelas upp via PlayReady.
+> Standard-techOrder har ändrats för att hantera den nya Tech-enheten `html5FairPlayHLS` för att spela upp Fairplay innehåll internt i webbläsare som stöder det (Safari på OSX 8 +). Om du har FairPlay innehåll till uppspelning **och** du har ändrat standard-techOrder till en anpassad i ditt program, måste du lägga till den nya Tech-filen i techOrder-objektet. Vi rekommenderar att du inkluderar det före Silverlight så att innehållet inte spelas upp via PlayReady.
 
 ## <a name="code-sample"></a>Kodexempel ##
 

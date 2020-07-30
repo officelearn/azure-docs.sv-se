@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: cedb5899b392cb111f9c1bb76949e940ef837252
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4ca6d6647882e81dbf20a0dd39b1ae659b6a6ab6
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284820"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432991"
 ---
 # <a name="lsv2-series"></a>Lsv2-serien
 
@@ -52,7 +52,7 @@ Minnes bebetjänings uppdateringar: stöds inte
 
 <sup>3</sup> Hyper-V NVMe Direct-teknik ger obegränsad åtkomst till lokala NVMe-enheter som mappats säkert till det virtuella gäst dator utrymmet.  För att uppnå högsta prestanda måste du använda antingen den senaste WS2019-versionen eller Ubuntu 18,04 eller 16,04 från Azure Marketplace.  Skriv prestanda varierar beroende på IO-storlek, enhets belastning och kapacitets användning.
 
-<sup>4</sup> virtuella datorer i Lsv2-serien tillhandahåller inte värd-cache för datadisk eftersom den inte drar nytta av Lsv2-arbetsbelastningar.  Virtuella Lsv2-datorer kan dock hantera Azures alternativ för den tillfälliga virtuella datorns OS-disk (upp till 30 GiB).
+<sup>4</sup> virtuella datorer i Lsv2-serien tillhandahåller inte värd-cache för datadisk eftersom den inte drar nytta av Lsv2-arbetsbelastningar.
 
 Virtuella datorer med <sup>5</sup> Lsv2- [serien kan överföra](linux/disk-bursting.md) disk prestanda i upp till 30 minuter i taget. 
 

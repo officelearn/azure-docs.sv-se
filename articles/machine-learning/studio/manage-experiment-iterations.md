@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: cc7858010ea43f676a43f8bf16e228c8248805bf
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c8935be1261b693cfb4033a9d16c868e11b1fa68
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318529"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432399"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Hantera experiment körningar i Azure Machine Learning Studio (klassisk)
 
-**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
+**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 Att utveckla en förutsägelse analys modell är en iterativ process – när du ändrar de olika funktionerna och parametrarna i experimentet konvergerar resultatet tills du är nöjd med att du har en tränad, effektiv modell. Nyckeln till den här processen spårar olika iterationer av dina experiment parametrar och konfigurationer.

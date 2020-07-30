@@ -11,12 +11,13 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c7de0fdf6a22b1414be297b6958841ba5c251c4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- devx-track-javascript
+ms.openlocfilehash: b6d2f502eb6bb6bd70e6d76ec88aa332c9ecdc77
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309228"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419877"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ansluta en underordnad enhet till en Azure IoT Edge-gateway
 
@@ -36,7 +37,7 @@ I den här artikeln beskrivs vanliga problem med underordnade enhets anslutninga
 
 I den här artikeln hänvisar termerna *Gateway* och *IoT Edge gateway* till en IoT Edge enhet som kon figurer ATS som en transparent Gateway.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ha rot certifikat utfärdarens certifikat fil som användes för att generera enhetens CA-certifikat i [Konfigurera en IoT Edge-enhet så att den fungerar som en transparent gateway som](how-to-create-transparent-gateway.md) är tillgänglig på din underordnade enhet. Den underordnade enheten använder det här certifikatet för att verifiera identiteten för gateway-enheten. Om du använde demonstrations certifikaten kallas rot certifikat UTFÄRDARens certifikat **Azure-IoT-test-Only. root. ca. cert. pem**.
 * Ha den ändrade anslutnings strängen som pekar på gateway-enheten, enligt beskrivningen i [autentisera en underordnad enhet till Azure IoT Hub](how-to-authenticate-downstream-device.md).
@@ -124,7 +125,7 @@ Ha två saker klara innan du använder program nivå exempel:
 
 * Den fullständiga sökvägen till rot certifikat utfärdarens certifikat som du kopierade och sparade någonstans på din underordnade enhet.
 
-    Till exempel `<path>/azure-iot-test-only.root.ca.cert.pem`.
+    Exempelvis `<path>/azure-iot-test-only.root.ca.cert.pem`.
 
 ### <a name="nodejs"></a>NodeJS
 

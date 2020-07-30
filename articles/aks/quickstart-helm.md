@@ -4,14 +4,14 @@ description: Använd Helm med AKS och Azure Container Registry för att paketera
 services: container-service
 author: zr-msft
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: 1f67605918e093e9ab28aa88be777d27acd831ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ca2d7ccc863e2208db1212ef3d3f10fa709d069
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82169576"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407123"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>Snabb start: utveckla på Azure Kubernetes service (AKS) med Helm
 
@@ -23,7 +23,6 @@ Den här artikeln visar hur du använder Helm för att paketera och köra ett pr
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free).
 * [Azure CLI installerat](/cli/azure/install-azure-cli?view=azure-cli-latest).
-* Docker installerat och konfigurerat. Docker tillhandahåller paket som konfigurerar Docker i ett [Mac][docker-for-mac]-, [Windows][docker-for-windows]- eller [Linux][docker-for-linux]-system.
 * [Helm v3 installerat][helm-install].
 
 ## <a name="create-an-azure-container-registry"></a>Skapa ett Azure Container Registry
@@ -58,15 +57,7 @@ De utdata som genereras påminner om de i följande exempel. Anteckna *namnet* -
 }
 ```
 
-Om du vill använda ACR-instansen måste du först logga in. Använd kommandot [AZ ACR login][az-acr-login] för att logga in. Exemplet nedan kommer att logga in på en ACR med namnet *MyHelmACR*.
-
-```azurecli
-az acr login --name MyHelmACR
-```
-
-Kommandot returnerar ett meddelande om att *inloggningen har* slutförts.
-
-## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes service-kluster
+## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes Service-kluster
 
 Skapa ett AKS-kluster. Kommandot nedan skapar ett AKS-kluster med namnet MyAKS och bifogar MyHelmACR.
 
@@ -122,18 +113,12 @@ CMD ["node","server.js"]
 
 ## <a name="build-and-push-the-sample-application-to-the-acr"></a>Bygg och skicka exempel programmet till ACR
 
-Hämta inloggnings serverns adress med kommandot [AZ ACR List][az-acr-list] och fråga efter *namnet*:
+Använd kommandot [AZ ACR build][az-acr-build] för att bygga och skicka en avbildning till registret med hjälp av föregående Dockerfile. I `.` slutet av kommandot anges platsen för Dockerfile, i det här fallet den aktuella katalogen.
 
 ```azurecli
-az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
-```
-
-Använd Docker för att bygga, tagga och skicka din exempel program behållare till ACR:
-
-```console
-docker build -t webfrontend:latest .
-docker tag webfrontend <acrLoginServer>/webfrontend:v1
-docker push <acrLoginServer>/webfrontend:v1
+az acr build --image webfrontend:v1 \
+  --registry MyHelmACR \
+  --file Dockerfile .
 ```
 
 ## <a name="create-your-helm-chart"></a>Skapa ditt Helm-diagram
@@ -144,12 +129,12 @@ Generera ditt Helm-diagram med `helm create` kommandot.
 helm create webfrontend
 ```
 
-Gör följande uppdateringar för *webfrontend/Values. yaml*:
+Gör följande uppdateringar för *webfrontend/Values. yaml*. Ersätt namnet av registret som du antecknade i ett tidigare steg, t. ex. *myhelmacr.azurecr.io*:
 
-* Ändra `image.repository` till`<acrLoginServer>/webfrontend`
+* Ändra `image.repository` till`<loginServer>/webfrontend`
 * Ändra `service.type` till`LoadBalancer`
 
-Till exempel:
+Ett exempel:
 
 ```yml
 # Default values for webfrontend.
@@ -159,7 +144,7 @@ Till exempel:
 replicaCount: 1
 
 image:
-  repository: <acrLoginServer>/webfrontend
+  repository: *myhelmacr.azurecr.io*/webfrontend
   pullPolicy: IfNotPresent
 ...
 service:
@@ -218,16 +203,11 @@ Mer information om hur du använder Helm finns i Helm-dokumentationen.
 > [!div class="nextstepaction"]
 > [Dokumentation om Helm][helm-documentation]
 
-[az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-list]: /cli/azure/acr#az-acr-list
+[az-acr-build]: /cli/azure/acr#az-acr-build
 [az-group-delete]: /cli/azure/group#az-group-delete
 [az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli
-
-[docker-for-linux]: https://docs.docker.com/engine/installation/#supported-platforms
-[docker-for-mac]: https://docs.docker.com/docker-for-mac/
-[docker-for-windows]: https://docs.docker.com/docker-for-windows/
 [example-nodejs]: https://github.com/Azure/dev-spaces/tree/master/samples/nodejs/getting-started/webfrontend
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [helm]: https://helm.sh/

@@ -1,22 +1,22 @@
 ---
-title: 'Snabb start: QnA Maker med REST API: er för Node. js'
-description: 'Den här snabb starten visar hur du kommer igång med QnA Maker REST-API: er för Node. js. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.  Med QnA Maker kan du driva en tjänst för frågor och svar från halvstrukturerat innehåll som Vanliga frågor och svar-dokument, URL:er och produkthandböcker.'
+title: 'Snabb start: QnA Maker med REST API: er för Node.js'
+description: 'Den här snabb starten visar hur du kommer igång med QnA Maker REST-API: er för Node.js. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.  Med QnA Maker kan du driva en tjänst för frågor och svar från halvstrukturerat innehåll som Vanliga frågor och svar-dokument, URL:er och produkthandböcker.'
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
+ms.custom: RESTCURL2020FEB27, devx-track-javascript
 ms.topic: how-to
-ms.openlocfilehash: b42bc3be0d425a84da8bb545ebb29e261a6b0780
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 18ccec5332e3751a86225ab087a1f68b0577cf96
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342739"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406103"
 ---
-# <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Snabb start: QnA Maker REST API: er för Node. js
+# <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Snabb start: QnA Maker REST-API: er för Node.js
 
-Kom igång med QnA Maker REST-API: er för Node. js. Följ de här stegen för att testa exempel koden för grundläggande uppgifter.  Med QnA Maker kan du driva en tjänst för frågor och svar från halvstrukturerat innehåll som Vanliga frågor och svar-dokument, URL:er och produkthandböcker.
+Kom igång med QnA Maker REST-API: er för Node.js. Följ de här stegen för att testa exempel koden för grundläggande uppgifter.  Med QnA Maker kan du driva en tjänst för frågor och svar från halvstrukturerat innehåll som Vanliga frågor och svar-dokument, URL:er och produkthandböcker.
 
-Använd QnA Maker REST API: er för Node. js för att:
+Använd QnA Maker REST-API: er för Node.js till:
 
 * Skapa en kunskapsbas
 * Ersätta en kunskaps bas
@@ -25,14 +25,14 @@ Använd QnA Maker REST API: er för Node. js för att:
 * Hämta en kunskaps bas
 * Hämta status för en åtgärd
 
-[Referens dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)  |  [Node. js-exempel](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
+[Referens dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)  |  [Node.js exempel](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-* Den aktuella versionen av [Node. js](https://nodejs.org).
+* Den aktuella versionen av [Node.js](https://nodejs.org).
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta din nyckel och slut punkt (som innehåller resurs namnet) väljer du **snabb start** för resursen i Azure Portal.
 
 ## <a name="setting-up"></a>Konfigurera
@@ -65,7 +65,7 @@ npm install requestretry request --save
 
 ## <a name="code-examples"></a>Kodexempel
 
-Dessa kodfragment visar hur du gör följande med QnA Maker REST-API: er för Node. js:
+De här kodfragmenten visar hur du gör följande med QnA Maker REST-API: er för Node.js:
 
 * [Skapa en kunskapsbas](#create-a-knowledge-base)
 * [Ersätta en kunskaps bas](#replace-a-knowledge-base)

@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 9cb5b0b87b1d6adb8e0e5cda06049cfddba3d950
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 744b8e3ecf067e6f5986dde4fbf8abbe3a4c6224
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283545"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431984"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Skapa flera webb tjänst slut punkter från ett experiment med ML Studio (klassisk) och PowerShell
 
-**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
+**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 Här är ett vanligt problem med Machine Learning: du vill skapa många modeller som har samma utbildnings arbets flöde och använda samma algoritm. Men du vill att de ska ha olika data uppsättningar för utbildning som indata. Den här artikeln visar hur du gör detta i skala i Azure Machine Learning Studio (klassisk) med bara ett enda experiment.
 

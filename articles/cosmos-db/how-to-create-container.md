@@ -1,28 +1,28 @@
 ---
 title: Skapa en container i Azure Cosmos DB
-description: 'Lär dig hur du skapar en behållare i Azure Cosmos DB genom att använda Azure Portal, .net, Java, python, Node.js och andra SDK: er.'
+description: 'Lär dig hur du skapar en behållare i Azure Cosmos DB genom att använda Azure Portal, .NET, Java, python, Node.js och andra SDK: er.'
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/24/2020
+ms.date: 07/29/2020
 ms.author: mjbrown
-ms.openlocfilehash: 22c51497a9c9a331f1337134fbaf7c781b9c8ba7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 761789b36e85b16f0b4482cef12645e673c73be7
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390898"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429712"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Skapa en Azure Cosmos-container
 
-I den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (samling, tabell eller graf). Du kan använda Azure Portal, Azure CLI eller SDK: er som stöds för detta. Den här artikeln visar hur du skapar en container, anger partitionsnyckeln och etablerar dataflöde.
+I den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (samling, tabell eller graf) med hjälp av Azure Portal, Azure CLI, PowerShell eller SDK: er som stöds. Den här artikeln visar hur du skapar en container, anger partitionsnyckeln och etablerar dataflöde.
 
 > [!NOTE]
 > När du skapar behållare ser du till att du inte skapar två behållare med samma namn men med olika Skift läge. Det beror på att vissa delar av Azure-plattformen inte är Skift läges känsliga, och det kan leda till förvirring/kollisioner för telemetri och åtgärder på behållare med sådana namn.
 
 ## <a name="create-a-container-using-azure-portal"></a>Skapa en container med hjälp av Azure-portalen
 
-### <a name="sql-api"></a><a id="portal-sql"></a>SQL-API
+### <a name="sql-api"></a><a id="portal-sql"></a>API för SQL
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -111,7 +111,7 @@ I den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (s
 
 Länkarna nedan visar hur du skapar behållar resurser för Azure Cosmos DB med hjälp av Azure CLI.
 
-För en lista över alla Azure CLI-exempel i alla Azure Cosmos DB API: er, se [SQL API](cli-samples.md), [API för Cassandra](cli-samples-cassandra.md), [MongoDB-API](cli-samples-mongodb.md), [Gremlin-API](cli-samples-gremlin.md)och [tabell-API](cli-samples-table.md)
+För en lista över alla Azure CLI-exempel i alla Azure Cosmos DB API: er, se [Azure CLI-exempel för Azure Cosmos DB](cli-samples.md).
 
 * [Skapa en behållare med Azure CLI](manage-with-cli.md#create-a-container)
 * [Skapa en samling för Azure Cosmos DB för MongoDB-API med Azure CLI](./scripts/cli/mongodb/create.md)
@@ -123,7 +123,7 @@ För en lista över alla Azure CLI-exempel i alla Azure Cosmos DB API: er, se [S
 
 Länkarna nedan visar hur du skapar behållar resurser för Azure Cosmos DB med hjälp av PowerShell.
 
-För en lista över alla Azure CLI-exempel i alla Azure Cosmos DB API: er, se [SQL API](powershell-samples-sql.md), [API för Cassandra](powershell-samples-cassandra.md), [MongoDB-API](powershell-samples-mongodb.md), [Gremlin-API](powershell-samples-gremlin.md)och [tabell-API](powershell-samples-table.md)
+En lista över alla PowerShell-exempel i alla Azure Cosmos DB API: er finns i [SQL API](powershell-samples-sql.md), [API för Cassandra](powershell-samples-cassandra.md), [MongoDB-API](powershell-samples-mongodb.md), [Gremlin-API](powershell-samples-gremlin.md)och [tabell-API](powershell-samples-table.md)
 
 * [Skapa en behållare med PowerShell](manage-with-powershell.md#create-container)
 * [Skapa en samling för Azure Cosmos DB för MongoDB-API med PowerShell](./scripts/powershell/mongodb/ps-mongodb-create.md)

@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: c86612e41dfb6d1460306fba8c89e579b1023581
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9acb9db0024ea1601f82b96376f084536fbbeabb
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324972"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431871"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Omträna och distribuera en maskin inlärnings modell
 
-**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
+**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 Retraining är ett sätt att se till att maskin inlärnings modeller hålls korrekta och baseras på de mest relevanta data som finns tillgängliga. Den här artikeln visar hur du omtränar och distribuerar en maskin inlärnings modell som en ny webb tjänst i Studio (klassisk). Om du vill träna en klassisk webb tjänst kan du [läsa den här instruktions artikeln.](retrain-classic-web-service.md)

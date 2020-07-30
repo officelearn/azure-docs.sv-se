@@ -6,26 +6,26 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 9/25/2019
-ms.openlocfilehash: ff700739e2f8c6330ea151dbe489332acea3238c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/29/2020
+ms.openlocfilehash: 4d1a56c80cab58e98121ae35c98a086d16dfe02b
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71275411"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432244"
 ---
 # <a name="create-an-azure-cosmos-account-with-virtual-network-service-endpoints-using-azure-cli"></a>Skapa ett Azure Cosmos-konto med tjänst slut punkter för virtuella nätverk med hjälp av Azure CLI
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt, kräver det här avsnittet att du kör Azure CLI-version 2.0.73 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt kräver det här kommandot att du kör Azure CLI-version 2.9.1 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Exempelskript
 
-Det här exemplet skapar ett nytt virtuellt nätverk med ett klient-och Server dels undernät och aktiverar tjänstens `Microsoft.AzureCosmosDB`slut punkter för. Sedan hämtas resurs-ID för det här under nätet och använder det på Azure Cosmos-kontot och aktiverar tjänstens slut punkter för kontot.
+Det här exemplet skapar ett nytt virtuellt nätverk med ett klient-och Server dels undernät och aktiverar tjänstens slut punkter för `Microsoft.AzureCosmosDB` . Sedan hämtas resurs-ID för det här under nätet och använder det på Azure Cosmos-kontot och aktiverar tjänstens slut punkter för kontot.
 
 > [!NOTE]
-> Det här exemplet visar hur du använder ett SQL (Core) API-konto. Om du vill använda det här exemplet för andra API `enable-virtual-network` : `virtual-network-rules` er använder du parametrarna och i skriptet nedan för ditt API-skript.
+> Det här exemplet visar hur du använder ett huvud-API-konto (SQL). Om du vill använda det här exemplet för andra API: er använder du `enable-virtual-network` `virtual-network-rules` parametrarna och i skriptet nedan för ditt API-skript.
 
 [!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/common/service-endpoints.sh "Create an Azure Cosmos account with service endpoints.")]
 
@@ -41,7 +41,7 @@ az group delete --name $resourceGroupName
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | Skapar ett virtuellt Azure-nätverk. |

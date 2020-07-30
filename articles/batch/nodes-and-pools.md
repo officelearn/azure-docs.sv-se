@@ -3,12 +3,12 @@ title: Noder och pooler i Azure Batch
 description: Lär dig mer om Compute-noder och pooler och hur de används i ett Azure Batch arbets flöde från en utvecklings synpunkt.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 5707d834a7d99e147a81ee2b39952863a63ed695
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 16a5309711b9c8633da9ba473c1b55bc2e54c334
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144923"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385763"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Noder och pooler i Azure Batch
 
@@ -119,7 +119,7 @@ Mer information finns i [Choose a VM size for compute nodes in an Azure Batch po
 
 För dynamiska arbets belastningar kan du tillämpa en princip för automatisk skalning för en pool. Batch-tjänsten utvärderar regelbundet din formel och justerar antalet noder dynamiskt i poolen enligt den aktuella arbets belastningen och resursanvändningen för ditt beräknings scenario. På så sätt kan du sänka den totala kostnaden för programkörning genom att endast använda de resurser som du behöver och frisläppa de som du inte behöver.
 
-Du aktiverar automatisk skalning genom att skriva en [formel för automatisk skalning](batch-automatic-scaling.md#automatic-scaling-formulas) och associera formeln med en pool. Batch-tjänsten använder formeln för att bestämma antalet noder i poolen för nästa skalningsintervall (ett intervall som du kan konfigurera). Du kan ange inställningarna för automatisk skalning för en pool när du skapar den eller aktivera skalning för en pool senare. Du kan också uppdatera skalningsinställningarna för en skalningsaktiverad pool.
+Du aktiverar automatisk skalning genom att skriva en [formel för automatisk skalning](batch-automatic-scaling.md#autoscale-formulas) och associera formeln med en pool. Batch-tjänsten använder formeln för att bestämma antalet noder i poolen för nästa skalningsintervall (ett intervall som du kan konfigurera). Du kan ange inställningarna för automatisk skalning för en pool när du skapar den eller aktivera skalning för en pool senare. Du kan också uppdatera skalningsinställningarna för en skalningsaktiverad pool.
 
 Till exempel kanske ett jobb kräver att du skickar ett stort antal uppgifter som ska utföras. Du kan tilldela en skalningsformel till poolen som justerar antalet noder i poolen baserat på antalet köade aktiviteter och aktiviteternas slutförandefrekvens. Batch-tjänsten utvärderar med jämna mellanrum formeln och ändrar storlek på poolen baserat på arbetsbelastningen och dina övriga formelinställningar. Tjänsten lägger till noder efter behov när det finns ett stort antal köade aktiviteter och tar bort noder när det inte finns några uppgifter i kö eller inte körs några uppgifter.
 

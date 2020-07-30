@@ -3,13 +3,13 @@ title: Snabb start – distribuera Docker-behållare till container instance –
 description: I den här snabb starten använder du Docker CLI för att snabbt distribuera en container-webbapp som körs i en isolerad Azure Container instance
 ms.topic: quickstart
 ms.date: 07/16/2020
-ms.custom: ''
-ms.openlocfilehash: 684bb3537d26b60afb0fc0796a94e1a134aa50c8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 0e4569904ef6aee304518ce012889d10dc2ecbce
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102278"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87408092"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-docker-cli"></a>Snabb start: Distribuera en behållar instans i Azure med hjälp av Docker CLI
 
@@ -19,7 +19,7 @@ I den här snabb starten använder du inbyggda Docker CLI-kommandon för att dis
 
 :::image type="content" source="media/container-instances-quickstart-docker-cli/view-application-running-in-an-azure-container-instance.png" alt-text="App som distribuerats via Azure Container Instances visas i webbläsare":::
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto][azure-account] innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto][azure-account] innan du börjar.
 
 I den här snabb starten måste du installera Docker Desktop Edge Edge version 2.3.2.0 eller senare, tillgänglig för [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) eller [MacOS](https://desktop.docker.com/mac/edge/Docker.dmg). Eller installera [Docker ACI integration CLI för Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux) (beta). 
 

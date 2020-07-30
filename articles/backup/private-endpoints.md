@@ -3,12 +3,12 @@ title: Privata slutpunkter
 description: Förstå processen med att skapa privata slut punkter för Azure Backup och scenarier där privata slut punkter används för att upprätthålla säkerheten för dina resurser.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: e9c8f142e9781946f572f6f3a744d8bc2736a3de
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9a50a655af02bc2bfa188225209024cfbaa82a7c
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503769"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432872"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Privata slut punkter för Azure Backup
 
@@ -21,7 +21,7 @@ Den här artikeln hjälper dig att förstå processen med att skapa privata slut
 - Privata slut punkter kan bara skapas för nya Recovery Services-valv (som inte har några registrerade objekt i valvet). Därför måste privata slut punkter skapas innan du försöker skydda några objekt i valvet.
 - Ett virtuellt nätverk kan innehålla privata slut punkter för flera Recovery Services-valv. Ett Recovery Services valv kan också ha privata slut punkter för det i flera virtuella nätverk. Det maximala antalet privata slut punkter som kan skapas för ett valv är dock 12.
 - När en privat slut punkt har skapats för ett valv kommer valvet att låsas upp. Den är inte tillgänglig (för säkerhets kopiering och återställning) från nätverk som skiljer sig från dem som innehåller en privat slut punkt för valvet. Om alla privata slut punkter för valvet tas bort, kommer valvet att vara tillgängligt från alla nätverk.
-- En privat slut punkts anslutning för säkerhets kopiering använder totalt 11 privata IP-adresser i ditt undernät. Det här antalet kan vara högre (upp till 15) för vissa Azure-regioner. Vi föreslår att du har tillräckligt med privata IP-adresser tillgängliga när du försöker skapa privata slut punkter för säkerhets kopiering.
+- En privat slut punkts anslutning för säkerhets kopiering använder totalt 11 privata IP-adresser i ditt undernät. Det här antalet kan vara högre (upp till 25) för vissa Azure-regioner. Vi föreslår att du har tillräckligt med privata IP-adresser tillgängliga när du försöker skapa privata slut punkter för säkerhets kopiering.
 - Även om ett Recovery Services valv används av (både) Azure Backup och Azure Site Recovery, diskuterar den här artikeln användning av privata slut punkter för enbart Azure Backup.
 - Azure Active Directory stöder för närvarande inte privata slut punkter. IP-adresser och FQDN: er som krävs för att Azure Active Directory ska fungera i en region måste vara tillåtna utgående åtkomst från det skyddade nätverket när du säkerhetskopierar databaser i virtuella Azure-datorer och säkerhets kopiering med MARS-agenten. Du kan också använda NSG-Taggar och Azure Firewall-taggar för att tillåta åtkomst till Azure AD, efter vad som är tillämpligt.
 - Virtuella nätverk med nätverks principer stöds inte för privata slut punkter. Du måste inaktivera nätverks principer innan du fortsätter.
@@ -88,7 +88,7 @@ Det finns två obligatoriska DNS-zoner som måste skapas:
     - `privatelink.blob.core.windows.net`
     - `privatelink.queue.core.windows.net`
 
-    | **Zon**                           | **Telefonitjänstprovider** | **Information om prenumeration och resurs grupp (RG)**                  |
+    | **Zon**                           | **Tjänst** | **Information om prenumeration och resurs grupp (RG)**                  |
     | ---------------------------------- | ----------- | ------------------------------------------------------------ |
     | `privatelink.blob.core.windows.net`  | Blob        | **Prenumeration**: samma som den privata slut punkten måste skapas **RG**: antingen RG för VNet eller den privata slut punkten |
     | `privatelink.queue.core.windows.net` | Kö       | **RG**: antingen RG för VNet eller den privata slut punkten |
@@ -103,7 +103,7 @@ Kunderna kan välja att integrera sina privata slut punkter med privata DNS-zone
 
 Om du vill skapa en separat privat DNS-zon i Azure kan du göra samma sak med samma steg som används för att skapa obligatoriska DNS-zoner. Informationen om namngivning och prenumerationer delas nedan:
 
-| **Zon**                                                     | **Telefonitjänstprovider** | **Information om prenumeration och resurs grupp**                  |
+| **Zon**                                                     | **Tjänst** | **Information om prenumeration och resurs grupp**                  |
 | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
 | `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Obs**: *geo* här refererar till regions koden. Till exempel *wcus* och *Ne* för USA, västra centrala respektive Nord Europa. | Backup      | **Prenumeration**: samma som den privata slut punkten måste skapas **RG**: alla rg i prenumerationen |
 
@@ -111,7 +111,7 @@ Referera till [den här listan](https://download.microsoft.com/download/1/2/6/12
 
 För URL-namn konventioner i nationella regioner:
 
-- [Porslin](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [Kina](/azure/china/resources-developer-guide#check-endpoints-in-azure)
 - [Tyskland](../germany/germany-developer-guide.md#endpoint-mapping)
 - [US Gov](../azure-government/documentation-government-developer-guide.md)
 
@@ -495,7 +495,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 Du måste skapa tre privata DNS-zoner och länka dem till det virtuella nätverket.
 
-| **Zon**                                                     | **Telefonitjänstprovider** |
+| **Zon**                                                     | **Tjänst** |
 | ------------------------------------------------------------ | ----------- |
 | `privatelink.<geo>.backup.windowsazure.com`      | Backup      |
 | `privatelink.blob.core.windows.net`                            | Blob        |

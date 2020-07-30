@@ -7,12 +7,13 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.openlocfilehash: 1fb4e7cf589d63e9e595a35c34a2728d564b309b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: bac476cfbe78ad6fcf73b6a2319581cc60524a57
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609938"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432562"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Vara värd för en statisk webbplats i Azure Storage
 
@@ -134,7 +135,7 @@ Du kan aktivera statisk webbplats värd med hjälp av Azure PowerShell-modulen.
 
 De här anvisningarna visar hur du överför filer med hjälp av den version av Storage Explorer som visas i Azure Portal. Du kan dock också använda den version av [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) som körs utanför Azure Portal. Du kan använda [AzCopy](../common/storage-use-azcopy-v10.md), POWERSHELL, CLI eller anpassade program som kan ladda upp filer till **$Web** behållare för ditt konto. En steg-för-steg-självstudie som laddar upp filer med hjälp av Visual Studio Code finns i [självstudie: vara värd för en statisk webbplats på Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
-1. Välj **Storage Explorer (för hands version)**.
+1. Välj **Storage Explorer (förhandsversion)**.
 
 2. Expandera noden **BLOB containers** och välj sedan **$Web** container.
 

@@ -7,18 +7,19 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 24d5ee132444f19118613f6b1b798fd763e46e3c
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 192e939d21cae3b67cafe190e32e7202cd8bdb20
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299333"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429671"
 ---
 # <a name="tutorial-publish-a-gatsby-site-to-azure-static-web-apps-preview"></a>Självstudie: publicera en Gatsby-webbplats till Azures statiska Web Apps för hands version
 
 Den här artikeln visar hur du skapar och distribuerar ett [Gatsby](https://gatsbyjs.org) -webbprogram till [Azure static Web Apps](overview.md). Det slutliga resultatet är en ny statisk Web Apps plats (med associerade GitHub-åtgärder) som ger dig kontroll över hur appen byggs och publiceras.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -84,10 +85,10 @@ Följande steg visar hur du skapar en ny statisk plats-app och distribuerar den 
 ### <a name="create-the-application"></a>Skapa programmet
 
 1. Navigera till [Azure Portal](https://portal.azure.com)
-1. Klicka på **skapa en resurs**
-1. Sök efter **statiska Web Apps**
-1. Klicka på **statisk Web Apps (förhands granskning)**
-1. Klicka på **skapa**
+1. Klicka på **Skapa en resurs**
+1. Sök efter **Statiska webbappar**
+1. Klicka på **Statiska webbappar (förhandsversion)**
+1. Klicka på **Skapa**
 
    :::image type="content" source="./media/publish-gatsby/create-in-portal.png" alt-text="Skapa en statisk Web Apps (för hands version) i portalen":::
 
@@ -113,11 +114,11 @@ Följande steg visar hur du skapar en ny statisk plats-app och distribuerar den 
 
    :::image type="content" source="./media/publish-gatsby/completed-github-info.png" alt-text="Slutförd GitHub-information":::
 
-### <a name="build"></a>Utveckla
+### <a name="build"></a>Build
 
 Lägg sedan till de konfigurations inställningar som bygg processen använder för att skapa din app.
 
-1. Klicka på **Nästa: bygg >** om du vill redigera build-konfigurationen
+1. Klicka på **Nästa: Skapa >** för att redigera versionskonfigurationen
 
 1. Om du vill konfigurera inställningarna för steget i GitHub-åtgärder anger du _appens plats_ till **/** .
 

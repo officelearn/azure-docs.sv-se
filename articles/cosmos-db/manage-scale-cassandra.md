@@ -4,14 +4,14 @@ description: Läs om tillgängliga alternativ för att skala ett Azure Cosmos DB
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: c9517b6d48f21a2ac2c4b92e68c788a33897511b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 447744f0436cb29e849a52694a02600183fd357a
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119162"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432824"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Skala ett Azure Cosmos DB API för Cassandra-konto elastiskt
 
@@ -46,7 +46,7 @@ Fördelen med den här metoden är att det är ett enkelt sätt att hantera data
 
 ## <a name="use-the-control-plane"></a><a id="use-control-plane"></a>Använd kontroll planet
 
-Azure Cosmos DBens API för Cassandra ger möjlighet att justera genomflödet program mässigt med hjälp av våra olika kontroll Plans funktioner. Se artikeln [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [POWERSHELL](powershell-samples-cassandra.md)och [Azure CLI](cli-samples-cassandra.md) för vägledning och exempel.
+Azure Cosmos DBens API för Cassandra ger möjlighet att justera genomflödet program mässigt med hjälp av våra olika kontroll Plans funktioner. Se artikeln [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [POWERSHELL](powershell-samples-cassandra.md)och [Azure CLI](cli-samples.md) för vägledning och exempel.
 
 Fördelen med den här metoden är att du kan automatisera skala upp eller ned resurser baserat på en timer för att redovisa hög aktivitet eller perioder med låg aktivitet. Ta en titt på vårt exempel [här](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) för hur du kan göra detta med hjälp av Azure Functions och PowerShell.
 

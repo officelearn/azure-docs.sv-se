@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: 2e1395e23ec8fa3bbd787b5b12a810f6e9720392
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d16fabbf08b95d16cf54926d7d0373596e7bcf13
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326230"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430113"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Distribuera Azure Machine Learning Studio (klassiska) webb tjänster som använder moduler för data import och data export
 
-**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
+**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 När du skapar ett förutsägelse experiment lägger du vanligt vis till en webb tjänst indata och utdata. När du distribuerar experimentet kan konsumenter skicka och ta emot data från webb tjänsten via indata och utdata. För vissa program kan en konsument data vara tillgängliga från en datafeed eller finnas redan i en extern data källa, till exempel Azure Blob Storage. I dessa fall behöver de inte läsa och skriva data med hjälp av webb tjänst indata och utdata. De kan i stället använda BES (batch execution service) för att läsa data från data källan med hjälp av en modul för att importera data och skriva poängsättnings resultatet till en annan data plats med hjälp av en export data-modul.

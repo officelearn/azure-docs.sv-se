@@ -1,54 +1,42 @@
 ---
 title: Använda och distribuera befintliga modeller
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du kan använda Azure Machine Learning med modeller som har tränats utanför tjänsten. Du kan registrera modeller som skapats utanför Azure Machine Learning och sedan distribuera dem som en webb tjänst eller Azure IoT Edge modul.
+description: Lär dig hur du kan ta med dina lokalt utbildade ML-modeller till Azure-molnet med Azure Machine Learning.  Du kan registrera modeller som skapats utanför Azure Machine Learning och sedan distribuera dem som en webb tjänst eller Azure IoT Edge modul.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 03/17/2020
+ms.date: 07/17/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 7dc58540cf78356021f1fa2d33dd498381f1da7c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e9177fdbac6173040145ff6d84dda8a579ee1d9e
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325839"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429411"
 ---
-# <a name="use-an-existing-model-with-azure-machine-learning"></a>Använd en befintlig modell med Azure Machine Learning
+# <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Distribuera din befintliga modell med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Lär dig hur du använder en befintlig maskin inlärnings modell med Azure Machine Learning.
+I den här artikeln får du lära dig hur du registrerar och distribuerar en maskin inlärnings modell som du har tränat utanför Azure Machine Learning. Du kan distribuera som en webb tjänst eller till en IoT Edge enhet.  När du har distribuerat kan du övervaka din modell och identifiera data avvikelser i Azure Machine Learning. 
 
-Om du har en maskin inlärnings modell som har tränats utanför Azure Machine Learning kan du fortfarande använda tjänsten för att distribuera modellen som en webb tjänst eller en IoT Edge enhet. 
+Mer information om begreppen och termerna i den här artikeln finns i [Hantera, distribuera och övervaka Machine Learning-modeller](concept-model-management-and-deployment.md).
 
-> [!TIP]
-> Den här artikeln innehåller grundläggande information om hur du registrerar och distribuerar en befintlig modell. Azure Machine Learning tillhandahåller övervakning för din modell när den har distribuerats. Du kan också lagra indata som skickas till distributionen, som kan användas för data drifts analys eller träna nya versioner av modellen.
->
-> Mer information om begrepp och termer som används här finns i [Hantera, distribuera och övervaka Machine Learning-modeller](concept-model-management-and-deployment.md).
->
-> Allmän information om distributions processen finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="prerequisites"></a>Krav
+* [En Azure Machine Learning arbets yta](how-to-manage-workspace.md)
+  + Python-exempel förutsätter att `ws` variabeln är inställd på din Azure Machine Learning-arbetsyta.
+  
+  + CLI-exempel använder plats hållare för `myworkspace` och `myresourcegroup` , som du bör ersätta med namnet på din arbets yta och resurs gruppen som innehåller den.
 
-* En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en arbets yta](how-to-manage-workspace.md).
-
-    > [!TIP]
-    > Python-exemplen i den här artikeln förutsätter att `ws` variabeln är inställd på din Azure Machine Learning-arbetsyta.
-    >
-    > CLI-exemplen använder en plats hållare för `myworkspace` och `myresourcegroup` . Ersätt dessa med namnet på din arbets yta och resurs gruppen som innehåller den.
-
-* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
+* [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) -och [Machine Learning CLI-tillägget](reference-azure-machine-learning-cli.md).
 
-* En utbildad modell. Modellen måste vara bestående av en eller flera filer i utvecklings miljön.
-
-    > [!NOTE]
-    > I exempel kods tycken i den här artikeln används modeller som skapats av Paolo Ripamontis projekt Azure Machine Learning för Twitter-sentiment: [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis) .
+* En utbildad modell. Modellen måste vara bestående av en eller flera filer i utvecklings miljön. <br><br>För att demonstrera registrering av en modell som är utbildad använder exempel koden i den här artikeln modeller från [Paolo Ripamontis projekt för Twitter-sentiment](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis).
 
 ## <a name="register-the-models"></a>Registrera modell (er)
 
@@ -82,7 +70,7 @@ Mer information om modell registrering i allmänhet finns i [Hantera, distribuer
 
 Konfigurationen av konfigurationen definierar den miljö som används för att köra den distribuerade modellen. Konfigurations konfigurationen refererar till följande entiteter, som används för att köra modellen när den distribueras:
 
-* Ett startskript. Den här filen (Named `score.py` ) läser in modellen när den distribuerade tjänsten startar. Den ansvarar också för att ta emot data, skicka den till modellen och sedan returnera ett svar.
+* Ett Entry-skript med namnet `score.py` , läser in modellen när den distribuerade tjänsten startar. Det här skriptet ansvarar också för att ta emot data, skicka det till modellen och sedan returnera ett svar.
 * En Azure Machine Learnings [miljö](how-to-use-environments.md). En miljö definierar de program beroenden som krävs för att köra modell-och registrerings skriptet.
 
 I följande exempel visas hur du använder SDK för att skapa en miljö och sedan använder den med en konfigurations konfiguration:
@@ -145,7 +133,7 @@ dependencies:
 
 Mer information om konfiguration av konfiguration finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
-### <a name="entry-script"></a>Post skript
+### <a name="entry-script-scorepy"></a>Entry-skript (score.py)
 
 Entry-skriptet har bara två nödvändiga funktioner `init()` och `run(data)` . Dessa funktioner används för att initiera tjänsten vid start och köra modellen med hjälp av begär ande data som skickas in av en klient. Resten av skriptet hanterar inläsning och körning av modell (er).
 
@@ -309,5 +297,4 @@ Mer information om hur du använder den distribuerade tjänsten finns i [skapa e
 
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)
-* [Hur och var modeller ska distribueras](how-to-deploy-and-where.md)
 * [Så här skapar du en klient för en distribuerad modell](how-to-consume-web-service.md)

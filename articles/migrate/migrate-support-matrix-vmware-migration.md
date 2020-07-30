@@ -3,12 +3,12 @@ title: Stöd för VMware-migrering i Azure Migrate
 description: Läs mer om stöd för migrering av VMware VM i Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 5b53ae811786b1712ccd833ff155c408010d4fa4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9de0609361e67d5251b25df798b61a4ab13e432c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022743"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387429"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Support mat ris för VMware-migrering
 
@@ -37,7 +37,7 @@ I det här avsnittet sammanfattas kraven för migrering utan agent.
 
 I tabellen sammanfattas VMware hypervisor-krav.
 
-**VMware** | **Detaljer**
+**VMware** | **Information**
 --- | ---
 **VMware vCenter Server** | Version 5,5, 6,0, 6,5 eller 6,7.
 **VMware vSphere ESXI-värd** | Version 5,5, 6,0, 6,5 eller 6,7.
@@ -49,7 +49,7 @@ I tabellen sammanfattas VMware hypervisor-krav.
 
 I tabellen sammanfattas kraven för att migrera utan agent för virtuella VMware-datorer.
 
-**Support** | **Detaljer**
+**Support** | **Information**
 --- | ---
 **Operativ system som stöds** | Du kan migrera [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) -och [Linux](../virtual-machines/linux/endorsed-distros.md) -operativsystem som stöds av Azure.
 **Virtuella Windows-datorer i Azure** | Du kan behöva [göra några ändringar](prepare-for-migration.md#verify-required-changes-before-migrating) på virtuella datorer innan migreringen. 
@@ -59,22 +59,22 @@ I tabellen sammanfattas kraven för att migrera utan agent för virtuella VMware
 **Diskstorlek** | 2 TB OS-disk; 8 TB för data diskar.
 **Disk gränser** |  Upp till 60 diskar per virtuell dator.
 **Krypterade diskar/volymer** | Virtuella datorer med krypterade diskar/volymer stöds inte för migrering.
-**Delat disk kluster** | Stöds ej.
-**Oberoende diskar** | Stöds ej.
+**Delat disk kluster** | Stöds inte.
+**Oberoende diskar** | Stöds inte.
 **RDM/passthrough-diskar** | Om de virtuella datorerna har RDM-eller passthrough-diskar replikeras inte dessa diskar till Azure.
 **NFS** | NFS-volymer som monterats som volymer på de virtuella datorerna replikeras inte.
 **iSCSI-mål** | Virtuella datorer med iSCSI-mål stöds inte för migrering utan agent.
-**Multipath i/o** | Stöds ej.
-**Lagrings vMotion** | Stöds ej. Det går inte att använda replikering om en virtuell dator använder Storage vMotion.
-**Grupperade nätverkskort** | Stöds ej.
-**IPv6** | Stöds ej.
+**Multipath i/o** | Stöds inte.
+**Lagrings vMotion** | Stöds inte. Det går inte att använda replikering om en virtuell dator använder Storage vMotion.
+**Grupperade nätverkskort** | Stöds inte.
+**IPv6** | Stöds inte.
 **Mål disk** | Virtuella datorer kan bara migreras till Managed disks (standard HDD, Premium SSD) i Azure.
 **Samtidig replikering** | 300 virtuella datorer per vCenter Server. Om du har fler kan du migrera dem i batchar på 300.
 
 
 ### <a name="appliance-requirements-agentless"></a>Installations krav (utan agent)
 
-Vid migrering utan agent används [Azure Migrate-enheten](migrate-appliance.md). Du kan distribuera installationen som en virtuell VMWare-dator med hjälp av en ägg-mall, som importeras till vCenter Server eller med ett [PowerShell-skript](deploy-appliance-script.md).
+Vid migrering utan agent används [Azure Migrate-enheten](migrate-appliance.md). Du kan distribuera installationen som en virtuell VMware-dator med hjälp av en ägg-mall, som importeras till vCenter Server eller med ett [PowerShell-skript](deploy-appliance-script.md).
 
 - Lär dig mer om installations [krav](migrate-appliance.md#appliance---vmware) för VMware.
 - Lär dig mer om webb adresser som behövs för att få åtkomst till [offentliga](migrate-appliance.md#public-cloud-urls) [och offentliga](migrate-appliance.md#government-cloud-urls) moln.
@@ -98,7 +98,7 @@ I det här avsnittet sammanfattas kraven för agent-baserad migrering.
 
 I den här tabellen sammanfattas utvärderings support och begränsningar för VMware virtualization-servrar.
 
-**Krav för VMware** | **Detaljer**
+**Krav för VMware** | **Information**
 --- | ---
 **VMware vCenter Server** | Version 5,5, 6,0, 6,5 eller 6,7.
 **VMware vSphere ESXI-värd** | Version 5,5, 6,0, 6,5 eller 6,7.
@@ -108,7 +108,7 @@ I den här tabellen sammanfattas utvärderings support och begränsningar för V
 
 Tabellen sammanfattar VMware VM-stöd för virtuella VMware-datorer som du vill migrera med hjälp av en agent-baserad migrering.
 
-**Support** | **Detaljer**
+**Support** | **Information**
 --- | ---
 **Dator arbets belastning** | Azure Migrate stöder migrering av arbets belastningar (t. ex. Active Directory, SQL Server osv.) som körs på en dator som stöds.
 **Operativsystem** | Du hittar den senaste informationen i [operativ systemets stöd](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) för Site Recovery. Azure Migrate tillhandahåller identiskt stöd för virtuella dator operativ system.
@@ -121,15 +121,15 @@ Tabellen sammanfattar VMware VM-stöd för virtuella VMware-datorer som du vill 
 **Diskstorlek** | 2 TB OS-disk; 8 TB för data diskar.
 **Disk gränser** |  Upp till 63 diskar per virtuell dator.
 **Krypterade diskar/volymer** | Virtuella datorer med krypterade diskar/volymer stöds inte för migrering.
-**Delat disk kluster** | Stöds ej.
+**Delat disk kluster** | Stöds inte.
 **Oberoende diskar** | Stöds.
 **Genom strömnings diskar** | Stöds.
 **NFS** | NFS-volymer som monterats som volymer på de virtuella datorerna replikeras inte.
 **iSCSI-mål** | Virtuella datorer med iSCSI-mål stöds inte för migrering utan agent.
-**Multipath i/o** | Stöds ej.
+**Multipath i/o** | Stöds inte.
 **Lagrings vMotion** | Stöds
-**Grupperade nätverkskort** | Stöds ej.
-**IPv6** | Stöds ej.
+**Grupperade nätverkskort** | Stöds inte.
+**IPv6** | Stöds inte.
 
 
 
@@ -164,9 +164,9 @@ Antal operativsystemdiskar | 1
 Antal datadiskar | 64 eller mindre. 
 Data disk storlek | Upp till 8 095 GB
 Nätverkskort | Flera nätverkskort stöds.
-Delad VHD | Stöds ej. 
-FC-disk | Stöds ej. 
-BitLocker | Stöds ej.<br/><br/> BitLocker måste inaktive ras innan du migrerar datorn.
+Delad VHD | Stöds inte. 
+FC-disk | Stöds inte. 
+BitLocker | Stöds inte.<br/><br/> BitLocker måste inaktive ras innan du migrerar datorn.
 VM-namn | Mellan 1 och 63 tecken.<br/><br/> Begränsat till bokstäver, siffror och bindestreck.<br/><br/> Dator namnet måste börja och sluta med en bokstav eller en siffra. 
 Anslut efter migreringen – Windows | Ansluta till virtuella Azure-datorer som kör Windows efter migrering:<br/><br/> -Innan migrering aktiverar du RDP på den lokala virtuella datorn.<br/><br/> Kontrollera att TCP- och UDP-regler har lagts till för den **offentliga** profilen och att RDP tillåts i **Windows-brandväggen** > **Tillåtna appar** för alla profiler.<br/><br/> För plats-till-plats-VPN-åtkomst aktiverar du RDP och tillåter RDP i **Windows-brandväggen**  ->  **tillåtna appar och funktioner** för **domän nätverk och privata** nätverk.<br/><br/> Dessutom kontrollerar du att operativ systemets SAN-princip är inställd på **OnlineAll**. [Läs mer](prepare-for-migration.md).
 Anslut efter migreringen – Linux | Ansluta till virtuella Azure-datorer efter migrering med SSH:<br/><br/> Innan migreringen går du till den lokala datorn, kontrollerar att tjänsten Secure Shell är inställt på Start och att brand Väggs reglerna tillåter en SSH-anslutning.<br/><br/> Efter redundansväxlingen på den virtuella Azure-datorn tillåter du inkommande anslutningar till SSH-porten för reglerna för nätverks säkerhets grupper på den misslyckade virtuella datorn och för det Azure-undernät som den är ansluten till.<br/><br/> Lägg också till en offentlig IP-adress för den virtuella datorn.  

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 436e80ebed78043c9fdb102ca71d77fde65e5b45
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 0bc1a7b5e443de0c1a95fa209d2e5a280cf28ef2
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928388"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385848"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Hämta Cognitive Services Speech-enheter SDK
 
@@ -23,11 +23,11 @@ Tal enheter SDK är ett förjusterat bibliotek som utformats för att fungera me
 
 ## <a name="choose-a-development-kit"></a>Välj ett utvecklings paket
 
-|Enheter|Specifikation|Beskrivning|Scenarier|
+|Enheter|Specifikation|Description|Scenarier|
 |--|--|--|--|
-|[Urbetter dev kit](http://www.urbetter.com/products_56/278.html)![Urbetter DDK](media/speech-devices-sdk/device-urbetter.jpg)|7 MIC-matris, ARM-SOC, WIFI, Ethernet, HDMI, USB-kamera. <br>Linux|En nivå för tal enheter på bransch nivå som anpassar Microsoft MIC-matrisen och stöder utökade I/O, till exempel HDMI/Ethernet och mer USB-kringutrustning <br> [Kontakta Urbetter](http://www.urbetter.com/products_56/278.html)|Konversations avskrift, utbildning, sjukhus, robots, OTT Box, Voice agent, enhet till|
-|[Roobo Smart Audio dev-paket](https://ddk.roobo.com)<br>[Installera](speech-devices-sdk-roobo-v1.md) / [snabb start](speech-devices-sdk-android-quickstart.md)![Roobo Smart Audio dev kit](media/speech-devices-sdk/device-roobo-v1.jpg)|7 MIC-matris, ARM-SOC, WIFI, ljud ut, i/o. <br>[Android](speech-devices-sdk-android-quickstart.md)|De första tal enheternas SDK för att anpassa Microsoft MIC-matrisen och front bearbetnings-SDK: n för att utveckla högkvalitativa avskrifter och tal scenarier|Konversations avskrift, smart högtalare, röst agent, Wearable|
-|[Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)<br>[Installera](https://docs.microsoft.com/azure/Kinect-dk/set-up-azure-kinect-dk) / [snabb start](speech-devices-sdk-windows-quickstart.md)![Azure Kinect DK](media/speech-devices-sdk/device-azure-kinect-dk.jpg)|7 MIC mat ris RGB-och djup kameror. <br>[Windows](speech-devices-sdk-windows-quickstart.md)/[Linux](speech-devices-sdk-linux-quickstart.md)|Ett Developer Kit med AI-sensorer (Advanced artificiell Intelligence) för att skapa sofistikerade modeller för dator vision och tal. Den kombinerar en förstklassig mat ris-och djup kamera med hög klass med en video kamera och orienterings sensor – allt i en liten enhet med flera lägen, alternativ och SDK: er för att hantera en mängd olika beräknings typer.|Konversations avskrift, Robotics, smart uppbyggnad|
+|[Urbetter dev-paket](http://www.urbetter.com/products_56/278.html) ![ URbetter DDK](media/speech-devices-sdk/device-urbetter.jpg)|7 MIC-matris, ARM-SOC, WIFI, Ethernet, HDMI, USB-kamera. <br>Linux|En nivå för tal enheter på bransch nivå som anpassar Microsoft MIC-matrisen och stöder utökade I/O, till exempel HDMI/Ethernet och mer USB-kringutrustning <br> [Kontakta Urbetter](http://www.urbetter.com/products_56/278.html)|Konversations avskrift, utbildning, sjukhus, robots, OTT Box, Voice agent, enhet till|
+|[Roobo Smart Audio dev-paket](http://ddk.roobo.com)<br>[Installations program](speech-devices-sdk-roobo-v1.md)  /  [Snabb start](speech-devices-sdk-android-quickstart.md) ![ Roobo Smart Audio dev-paket](media/speech-devices-sdk/device-roobo-v1.jpg)|7 MIC-matris, ARM-SOC, WIFI, ljud ut, i/o. <br>[Android](speech-devices-sdk-android-quickstart.md)|De första tal enheternas SDK för att anpassa Microsoft MIC-matrisen och front bearbetnings-SDK: n för att utveckla högkvalitativa avskrifter och tal scenarier|Konversations avskrift, smart högtalare, röst agent, Wearable|
+|[Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)<br>[Installations program](https://docs.microsoft.com/azure/Kinect-dk/set-up-azure-kinect-dk)  /  [Snabb start](speech-devices-sdk-windows-quickstart.md) ![ Azure Kinect DK](media/speech-devices-sdk/device-azure-kinect-dk.jpg)|7 MIC mat ris RGB-och djup kameror. <br>[Windows](speech-devices-sdk-windows-quickstart.md) / [Linux](speech-devices-sdk-linux-quickstart.md)|Ett Developer Kit med AI-sensorer (Advanced artificiell Intelligence) för att skapa sofistikerade modeller för dator vision och tal. Den kombinerar en förstklassig mat ris-och djup kamera med hög klass med en video kamera och orienterings sensor – allt i en liten enhet med flera lägen, alternativ och SDK: er för att hantera en mängd olika beräknings typer.|Konversations avskrift, Robotics, smart uppbyggnad|
 |Roobo Smart Audio dev kit 2<br>[Installation](speech-devices-sdk-roobo-v2.md)<br>![Roobo Smart Audio dev kit 2](media/speech-devices-sdk/device-roobo-v2.jpg)|7 MIC-matris, ARM-SOC, WIFI, Bluetooth, i/o. <br>Linux|De andra generationens tal enheter SDK som tillhandahåller alternativa OS och fler funktioner i en kostnads effektiv referens design.|Konversations avskrift, smart högtalare, röst agent, Wearable|
 
 

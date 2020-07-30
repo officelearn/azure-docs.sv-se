@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 7c52e8dfa3cda40cc663b5d7f27b67c7d2ad0b60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9e50cdb16ee6acbdb903681984dcfbd7bfe170fa
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078655"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386137"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installera lokal datagateway för Azure Logic Apps
 
@@ -28,21 +28,20 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Ett Azure-konto och prenumeration. Om du inte har ett Azure-konto med en prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
+* Ett Azure-konto och prenumeration. Om du inte har ett Azure-konto med en prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+  * Ditt Azure-konto måste vara antingen ett arbets konto eller ett skol konto, som ser ut som `username@contoso.com` . Du kan inte använda Azure B2B-konton (gäst) eller personliga Microsoft-konton, till exempel @hotmail.com eller @outlook.com .
+
+    > [!NOTE]
+    > Om du har registrerat dig för ett Office 365-erbjudande och inte angav din e-postadress för arbetet kan din adress se ut `username@domain.onmicrosoft.com` . Ditt konto lagras i en Azure AD-klient. I de flesta fall är användarens huvud namn (UPN) för ditt Azure-konto detsamma som din e-postadress.
+
+    Om du vill använda en [Visual Studio Standard-prenumeration](https://visualstudio.microsoft.com/vs/pricing/) som är associerad med en Microsoft-konto måste du först [skapa en Azure AD-klient](../active-directory/develop/quickstart-create-new-tenant.md) eller använda standard katalogen. Lägg till en användare med ett lösen ord till katalogen och ge sedan användaren åtkomst till din Azure-prenumeration. Sedan kan du logga in under Gateway-installationen med det här användar namnet och lösen ordet.
 
   * Ditt Azure-konto måste tillhöra en enda [Azure Active Directory (Azure AD)-klient eller-katalog](../active-directory/fundamentals/active-directory-whatis.md#terminology). Du måste använda samma Azure-konto för att installera och administrera gatewayen på den lokala datorn.
 
-  * Under Gateway-installationen loggar du in med ditt Azure-konto, som länkar din gateway-installation till ditt Azure-konto och bara det kontot. Senare i Azure Portal måste du använda samma Azure-konto och Azure AD-klient när du skapar en Azure gateway-resurs som registrerar och anlitar din gateway-installation. I Azure Logic Apps använder lokala utlösare och åtgärder sedan Gateway-resursen för att ansluta till lokala data källor.
+  * När du installerar gatewayen loggar du in med ditt Azure-konto, som länkar din gateway-installation till ditt Azure-konto och bara det kontot. Du kan inte länka samma Gateway-installation över flera Azure-konton eller Azure AD-klienter.
 
-    > [!NOTE]
-    > Du kan bara länka en gateway-installation och en Azure gateway-resurs till varandra. Du kan inte länka samma Gateway-installation till flera Azure-konton eller Azure gateway-resurser. Ett Azure-konto kan dock länka till flera gateway-installationer och Azure gateway-resurser. I en lokal utlösare eller åtgärd kan du välja bland dina olika Azure-prenumerationer och sedan välja en associerad gateway-resurs.
-
-  * Du måste logga in med ett arbets konto eller skol konto, även kallat ett *organisations* konto, som ser ut så här `username@contoso.com` . Du kan inte använda Azure B2B-konton (gäst) eller personliga Microsoft-konton, till exempel @hotmail.com eller @outlook.com .
-
-    > [!TIP]
-    > Om du har registrerat dig för ett Office 365-erbjudande och inte angav din e-postadress för arbetet kan din adress se ut `username@domain.onmicrosoft.com` . Ditt konto lagras i en klient i en Azure Active Directory (Azure AD). I de flesta fall är användarens huvud namn (UPN) för ditt Azure AD-konto detsamma som din e-postadress.
-    >
-    > Om du vill använda en [Visual Studio Standard-prenumeration](https://visualstudio.microsoft.com/vs/pricing/) som är länkad till en Microsoft-konto måste du först [skapa en klient i Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) eller använda standard katalogen. Lägg till en användare med ett lösen ord till katalogen och ge sedan användaren åtkomst till din Azure-prenumeration. Sedan kan du logga in under Gateway-installationen med det här användar namnet och lösen ordet.
+  * Senare i Azure Portal måste du använda samma Azure-konto för att skapa en Azure gateway-resurs som länkar till din gateway-installation. Du kan bara länka en gateway-installation och en Azure gateway-resurs till varandra. Ditt Azure-konto kan dock länka till olika Gateway-installationer som är associerade med en Azure gateway-resurs. Dina Logi Kap par kan sedan använda den här Gateway-resursen i utlösare och åtgärder som kan komma åt lokala data källor.
 
 * Här följer krav för den lokala datorn:
 
@@ -269,4 +268,4 @@ Här är några sätt som du kan matcha dina lokala Active Directory-konton med 
 
 * [Ansluta till lokala data från Logic Apps](../logic-apps/logic-apps-gateway-connection.md)
 * [Enterprise-integrerings funktioner](../logic-apps/logic-apps-enterprise-integration-overview.md)
-* [Anslutningsappar för Azure Logic Apps](../connectors/apis-list.md)
+* [Anslutningsprogram för Azure Logic Apps](../connectors/apis-list.md)

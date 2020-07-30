@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 204809031bf0d32a998d8bcc435fe2500a025fc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 206f87e45377287217b4895b8d481e14618c888c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84730942"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386953"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Dela konton med Azure AD
 
@@ -51,7 +51,7 @@ Användare loggar in en gång med sitt organisations konto. Det här kontot är 
 
 Delade konton ökar inte bara överblicken och förbättrar användbarheten, men de förbättrar också säkerheten. Användare med behörighet att använda autentiseringsuppgifterna ser inte det delade lösen ordet, utan du får hellre behörighet att använda lösen ordet som en del av ett dirigerat autentiseringsschema. Dessutom ger vissa Password SSO-program möjlighet att använda Azure AD för att regelbundet förnya lösen ord (uppdatera). Systemet använder stora, komplexa lösen ord, vilket ökar konto säkerheten. Administratören kan enkelt bevilja eller återkalla åtkomst till ett program, vet vem som har åtkomst till kontot och vem som har åtkomst till det tidigare.
 
-Azure AD stöder delade konton för alla tjänster för Enterprise Mobility Suite (EMS) eller Azure AD Premium licens plan i alla typer av lösen ord för enkel inloggning. Du kan dela konton för tusentals förintegrerade program i program galleriet och kan lägga till ditt eget program för autentisering av lösen ord med [anpassade SSO-appar](../manage-apps/configure-single-sign-on-non-gallery-applications.md).
+Azure AD stöder delade konton för alla tjänster för Enterprise Mobility Suite (EMS) eller Azure AD Premium licens plan i alla typer av lösen ord för enkel inloggning. Du kan dela konton för tusentals förintegrerade program i program galleriet och kan lägga till ditt eget program för autentisering av lösen ord med [anpassade SSO-appar](../manage-apps/what-is-single-sign-on.md).
 
 Azure AD-funktioner som möjliggör konto delning är:
 

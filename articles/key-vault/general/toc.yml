@@ -67,7 +67,9 @@
     - name: Mjuk borttagning
       items:
         - name: Mjuk borttagning för Azure Key Vault
-          href: overview-soft-delete.md
+          href: soft-delete-overview.md
+        - name: Mjuk borttagning är aktiverat som standard
+          href: soft-delete-change.md
     - name: 'Autentisering, begäranden och svar'
       href: authentication-requests-and-responses.md
     - name: Riktlinjer för begränsning i Azure Key Vault

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
-ms.openlocfilehash: eb59d30079c830ad7d6f3dbd5fb8d48e6cd06c67
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4f94c3e643e372d96a6e9d100773ccd8929e4c8b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291865"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416510"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort en virtuell nätverks-peering
 
@@ -118,7 +118,7 @@ Om du vill att virtuella nätverk ska kommunicera ibland, men inte alltid, i st�
 - När du skapar en global peering kan de peer-baserade virtuella nätverken finnas i valfri Azures offentliga moln region eller i moln regioner i Kina eller i myndigheter i myndigheter. Du kan inte peer-koppla över moln. Ett VNet i offentliga Azure-moln kan till exempel inte peer-kopplas till ett VNet i Azure Kina-molnet.
 - Resurser i ett virtuellt nätverk kan inte kommunicera med IP-adressen i klientdelen för en intern Basic-lastbalanserare i ett globalt peerkopplat virtuellt nätverk. Stöd för grundläggande lastbalanserare finns bara inom samma region. Stöd för Standard Load Balancer finns för både VNet-peering och global VNet-peering. Tjänster som använder en grundläggande belastningsutjämnare som inte kommer att fungera över global VNet-peering dokumenteras [här.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 - Du kan använda fjärrgatewayer eller tillåta Gateway-överföring i globalt peer-kopplat virtuella nätverk och lokalt peer-kopplat virtuella nätverk.
-- De virtuella nätverken kan finnas i samma eller olika prenumerationer. När du använder peer-virtuella nätverk i olika prenumerationer kan båda prenumerationerna associeras med samma eller olika Azure Active Directory-klienten. Om du inte redan har en AD-klient kan du [skapa en](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Stöd för peering mellan virtuella nätverk från prenumerationer som är kopplade till olika Azure Active Directory klienter är inte tillgängligt i portalen. Du kan använda CLI, PowerShell eller mallar.
+- De virtuella nätverken kan finnas i samma eller olika prenumerationer. När du använder peer-virtuella nätverk i olika prenumerationer kan båda prenumerationerna associeras med samma eller olika Azure Active Directory-klienten. Om du inte redan har en AD-klient kan du [skapa en](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant).
 - De virtuella nätverk som du peer-koppla måste ha icke-överlappande IP-adressutrymme.
 - Du kan inte lägga till adress intervall i eller ta bort adress intervall från ett virtuellt nätverks adress utrymme när ett virtuellt nätverk är peer-kopplat med ett annat virtuellt nätverk. Om du vill lägga till eller ta bort adress intervall, tar du bort peering, lägger till eller tar bort adress intervallen och återskapar sedan peer-kopplingen. Information om hur du lägger till adress intervall i eller tar bort adress intervall från virtuella nätverk finns i [Hantera virtuella nätverk](manage-virtual-network.md).
 - Du kan distribuera två virtuella nätverk som distribueras via Resource Manager eller ett virtuellt nätverk som distribueras via Resource Manager med ett virtuellt nätverk som distribueras via den klassiska distributions modellen. Du kan inte peer-koppla två virtuella nätverk som skapats via den klassiska distributions modellen. Om du inte är bekant med Azures distributions modeller kan du läsa artikeln [förstå Azures distributions modeller](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . Du kan använda [VPN Gateway](../vpn-gateway/design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) för att ansluta två virtuella nätverk som har skapats via den klassiska distributionsmodellen.
@@ -146,7 +146,7 @@ De konton som du använder för att arbeta med peering av virtuella nätverk må
 
 Om ditt konto inte har tilldelats någon av de tidigare rollerna, måste det tilldelas en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som har tilldelats nödvändiga åtgärder från följande tabell:
 
-| Åtgärd                                                          | Namn |
+| Åtgärd                                                          | Name |
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Krävs för att skapa en peering från ett virtuellt nätverk A till virtuellt nätverk B. virtuellt nätverk A måste vara ett virtuellt nätverk (Resource Manager)          |
 | Microsoft. Network/virtualNetworks/peer/Action                   | Krävs för att skapa en peering från virtuellt nätverk B (Resource Manager) till virtuellt nätverk A                                                       |

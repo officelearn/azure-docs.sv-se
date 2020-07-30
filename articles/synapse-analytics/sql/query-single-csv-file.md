@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 628631fb7fddbc07dcb865e3d3badbfb608ad097
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d033a904087bf8ff32721372209820a64090502
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214459"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87383893"
 ---
 # <a name="query-csv-files"></a>Fråga CSV-filer
 
@@ -27,7 +27,73 @@ I den här artikeln får du lära dig hur du frågar en enkel CSV-fil med SQL p�
 
 Alla ovanstående variationer kommer att täckas av nedan.
 
-## <a name="prerequisites"></a>Krav
+## <a name="quickstart-example"></a>Exempel på snabb start
+
+`OPENROWSET`funktionen gör att du kan läsa innehållet i CSV-filen genom att ange URL: en till filen.
+
+### <a name="reading-csv-file"></a>Läser CSV-fil
+
+Det enklaste sättet att se innehållet i `CSV` filen är att ange fil-URL: en för `OPENROWSET` funktionen, ange csv och `FORMAT` 2,0 `PARSER_VERSION` . Om filen är offentligt tillgänglig eller om din Azure AD-identitet har åtkomst till den här filen bör du kunna se innehållet i filen med frågan som visas i följande exempel:
+
+```sql
+select top 10 *
+from openrowset(
+    bulk 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    format = 'csv',
+    parser_version = '2.0',
+    firstrow = 2 ) as rows
+```
+
+Alternativet `firstrow` används för att hoppa över den första raden i CSV-filen som representerar rubriken i det här fallet. Se till att du har åtkomst till den här filen. Om filen skyddas med SAS-nyckel eller anpassad identitet måste du konfigurera [autentiseringsuppgifter på server nivå för SQL-inloggning](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+### <a name="using-data-source"></a>Använda data Källa
+
+I föregående exempel används den fullständiga sökvägen till filen. Alternativt kan du skapa en extern data källa med platsen som pekar på rotmappen för lagringen:
+
+```sql
+create external data source covid
+with ( location = 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases' );
+```
+
+När du har skapat en data källa kan du använda den data källan och den relativa sökvägen till filen i `OPENROWSET` funktionen:
+
+```sql
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.csv',
+        data_source = 'covid',
+        format = 'csv',
+        parser_version ='2.0',
+        firstrow = 2
+    ) as rows
+```
+
+Om en data källa är skyddad med SAS-nyckel eller anpassad identitet kan du konfigurera [data källan med databasens begränsade autentiseringsuppgifter](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
+
+### <a name="explicitly-specify-schema"></a>Ange ett schema explicit
+
+`OPENROWSET`med kan du uttryckligen ange vilka kolumner som du vill läsa från filen med hjälp av `WITH` satsen:
+
+```sql
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.csv',
+        data_source = 'covid',
+        format = 'csv',
+        parser_version ='2.0',
+        firstrow = 2
+    ) with (
+        date_rep date 1,
+        cases int 5,
+        geo_id varchar(6) 8
+    ) as rows
+```
+
+Siffrorna efter en datatyp i `WITH` satsen representerar kolumn index i CSV-filen.
+
+I följande avsnitt kan du se hur du frågar olika typer av CSV-filer.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Ditt första steg är att **skapa en databas** där tabellerna ska skapas. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Det här installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i de här exemplen.
 

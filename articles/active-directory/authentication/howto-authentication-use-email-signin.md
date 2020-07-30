@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: scottsta
-ms.openlocfilehash: af410310e3866b547b8c898a1cc4f91f4f851bc7
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 084c50a67fe332751a3679da4c97f67d414ebb94
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223031"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419537"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Logga in för att Azure Active Directory med e-post som ett alternativt inloggnings-ID (för hands version)
 
@@ -158,6 +158,8 @@ Under för hands versionen kan du för närvarande endast aktivera inloggning me
     ```powershell
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
     ```
+
+När principen har tillämpats kan det ta upp till en timme att sprida och användare kan logga in med sina alternativa inloggnings-ID.
 
 ## <a name="test-user-sign-in-with-email"></a>Testa användar inloggning med e-post
 

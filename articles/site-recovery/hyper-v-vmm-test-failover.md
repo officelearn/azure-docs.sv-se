@@ -1,18 +1,18 @@
 ---
 title: Kör en NHyper-V haveri beredskap-granskning till en sekundär plats med Azure Site Recovery
 description: Lär dig hur du kör en DR-granskning för virtuella Hyper-V-datorer i VMM-moln till ett sekundärt lokalt Data Center med hjälp av Azure Site Recovery.
-author: rajani-janaki-ram
-manager: rochakm
+author: sideeksh
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: rajanaki
-ms.openlocfilehash: 0b6055cdf930c93ba096a21ebc0b74c204540a79
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: sideeksh
+ms.openlocfilehash: 569af28f5773d843f49dd9c8143b45e308ae142e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076065"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420421"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Köra en DR-granskning för virtuella Hyper-V-datorer till en sekundär plats
 
@@ -43,7 +43,7 @@ Du kör ett redundanstest från den primära platsen till den sekundära platsen
 
 När du kör ett redundanstest uppmanas du att välja nätverks inställningar för test replik datorer, som sammanfattas i tabellen.
 
-| **Alternativ** | **Detaljer** | |
+| **Alternativ** | **Information** | |
 | --- | --- | --- |
 | **Inga** | Den virtuella test datorn skapas på den värd där den virtuella replik datorn finns. Den har inte lagts till i molnet och är inte ansluten till något nätverk.<br/><br/> Du kan ansluta datorn till ett virtuellt dator nätverk när det har skapats.| |
 | **Använd befintlig** | Den virtuella test datorn skapas på den värd där den virtuella replik datorn finns. Den har inte lagts till i molnet.<br/><br/>Skapa ett virtuellt dator nätverk som är isolerat från produktions nätverket.<br/><br/>Om du använder ett VLAN-baserat nätverk rekommenderar vi att du skapar ett separat logiskt nätverk (som inte används i produktion) i VMM för detta ändamål. Det här logiska nätverket används för att skapa virtuella dator nätverk för redundanstest.<br/><br/>Det logiska nätverket måste vara kopplat till minst ett av nätverkskorten för alla Hyper-V-servrar som är värdar för virtuella datorer.<br/><br/>För logiska VLAN-nätverk ska de nätverks platser som du lägger till i det logiska nätverket isoleras.<br/><br/>Om du använder ett logiskt nätverk för Windows-nätverksvirtualisering skapas automatiskt isolerade virtuella dator nätverk i Azure Site Recovery. | |

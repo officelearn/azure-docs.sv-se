@@ -8,19 +8,19 @@ ms.service: load-balancer
 ms.topic: overview
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: 7fe7c1473579c62b110548a2c5e98f9bdfaf6bf9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 1ab0fd2ff4a2105cdfc4a19b7307cd9817878156
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131471"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421798"
 ---
 # <a name="backend-pool-management"></a>Hantering av Server dels pooler
 Backend-poolen är en kritisk komponent i belastningsutjämnaren. Backend-poolen definierar den grupp av resurser som kommer att betjäna trafik för en specifik belastnings Utjämnings regel.
 
 Det finns två sätt att konfigurera en backend-pool:
 * Nätverks gränssnitts kort (NIC)
-* Kombinations resurs-ID för IP-adress och Virtual Network (VNET)
+* Kombination av resurs-ID för IP-adress och Virtual Network (VNET)
 
 Konfigurera din backend-pool med NIC när du använder befintliga virtuella datorer och skalnings uppsättningar för virtuella datorer. Den här metoden skapar den mest direkta länken mellan resursen och backend-poolen. 
 

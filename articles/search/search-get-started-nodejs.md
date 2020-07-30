@@ -9,12 +9,13 @@ ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: bd64faf46f91c3b73d58f7c226748cd0ac083701
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 043d5224c9bfefb189e36c0f4b744c93b376ace0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562140"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420863"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Node.js med hjälp av REST API: er
 > [!div class="op_single_selector"]
@@ -27,9 +28,9 @@ ms.locfileid: "85562140"
 
 Skapa ett Node.js program som skapar, läser in och skickar frågor till ett Azure Kognitiv sökning-index. Den här artikeln visar hur du skapar programmet steg för steg. Du kan också [Ladda ned käll koden och data](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/) och köra programmet från kommando raden.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi använde följande program och tjänster för att bygga och testa den här snabb starten:
 
@@ -43,7 +44,7 @@ Vi använde följande program och tjänster för att bygga och testa den här sn
 
 Rekommenderat:
 
-* [Visual Studio-koden](https://code.visualstudio.com)
+* [Visual Studio Code](https://code.visualstudio.com)
 
 * [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) -och [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) -tillägg för VSCode.
 
@@ -692,7 +693,7 @@ Det övergripande beteendet för `run` funktionen är att ta bort Azure kognitiv
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 

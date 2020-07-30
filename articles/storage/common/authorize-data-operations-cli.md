@@ -10,12 +10,12 @@ ms.date: 02/26/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b4af9c23e2599ad666908763720a5f01303b8d50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e0b3890c50a476e4c3b3247db435c6032bf9bbc
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805483"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417309"
 ---
 # <a name="authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Ge åtkomst till BLOB-eller Queue-data med Azure CLI
 
@@ -57,7 +57,7 @@ I följande exempel visas hur du skapar en behållare från Azure CLI med dina a
 1. Innan du skapar behållaren ska du tilldela rollen [Storage BLOB data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) till dig själv. Även om du är kontots ägare behöver du explicita behörigheter för att utföra data åtgärder mot lagrings kontot. Mer information om hur du tilldelar RBAC-roller finns i [bevilja åtkomst till Azure blob och Queue data med RBAC i Azure Portal](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > Det kan ta några minuter att sprida RBAC-roll tilldelningar.
+    > Det kan ta några minuter att sprida Azures roll tilldelningar.
 
 1. Anropa kommandot [AZ Storage container Create](/cli/azure/storage/container#az-storage-container-create) med `--auth-mode` parametern inställd på `login` för att skapa behållaren med dina autentiseringsuppgifter för Azure AD. Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
 
@@ -97,7 +97,7 @@ az storage container create \
 
 Du kan ange auktoriseringsregler i miljövariabler för att undvika att ta med dem vid varje anrop till en Azure Storage data åtgärd. I följande tabell beskrivs tillgängliga miljövariabler.
 
-| Miljövariabel                  | Beskrivning                                                                                                                                                                                                                                                                                                                                                                     |
+| Miljövariabel                  | Description                                                                                                                                                                                                                                                                                                                                                                     |
 |---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    AZURE_STORAGE_ACCOUNT              |    Namnet på lagringskontot. Den här variabeln ska användas tillsammans med antingen lagrings konto nyckeln eller en SAS-token. Om ingen sådan används försöker Azure CLI Hämta åtkomst nyckeln för lagrings kontot med hjälp av det autentiserade Azure AD-kontot. Om ett stort antal kommandon körs samtidigt, kan begränsningen för Azure Storage resurs leverantörs begränsning nås. Mer information om begränsningar för resurs leverantörer finns i [skalbarhets-och prestanda mål för Azure Storage resurs leverantör](scalability-targets-resource-provider.md).             |
 |    AZURE_STORAGE_KEY                  |    Nyckeln till lagringskontot. Den här variabeln måste användas tillsammans med lagrings kontots namn.                                                                                                                                                                                                                                                                          |

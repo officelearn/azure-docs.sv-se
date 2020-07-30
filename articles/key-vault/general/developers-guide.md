@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2edf1574784ec93448495086fdd05c988a3e55a7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c28299758150f56e3f47156382d8a6245a0cf52
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090543"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386222"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Utvecklarguide för Azure Key Vault
 
@@ -122,7 +122,7 @@ De här artiklarna är till för andra scenarier och tjänster som använder ell
 
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault översikter och begrepp
 
-- [Key Vault beteende vid mjuk borttagning](overview-soft-delete.md)) beskriver en funktion som gör det möjligt att återställa borttagna objekt, oavsett om borttagningen är oavsiktlig eller avsiktlig.
+- [Key Vault beteende vid mjuk borttagning](soft-delete-overview.md)) beskriver en funktion som gör det möjligt att återställa borttagna objekt, oavsett om borttagningen är oavsiktlig eller avsiktlig.
 - [Key Vault klient begränsningen](overview-throttling.md) orienterar dig till de grundläggande begreppen för begränsning och erbjuder en metod för din app.
 - [Översikt över Key Vault lagrings konto nycklar](../secrets/overview-storage-keys.md)) beskriver Key Vault-integrations Azure Storage konto nycklar.
 - [Key Vault säkerhets världar](overview-security-worlds.md) beskriver relationerna mellan regioner och säkerhets områden.

@@ -3,12 +3,12 @@ title: 'Snabb start: skicka anpassade händelser till webb slut punkt – Event 
 description: 'Snabb start: Använd Azure Event Grid och Azure Portal för att publicera ett anpassat ämne och prenumerera på händelser för ämnet. Händelserna hanteras av en webbapp.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 21c3d043925d328c671de19444b0fed1c6950bf1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 592e2d6b7393da8cb55a457b022d6c2358048cfe
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115238"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421050"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Snabb start: dirigera anpassade händelser till webb slut punkten med Azure Portal och Event Grid
 
@@ -44,7 +44,8 @@ Ett event grid-ämne tillhandahåller en användardefinierad slutpunkt där du p
 5. När distributionen har slutförts skriver du **Event Grid ämnen** i Sök fältet igen och väljer **Event Grid ämnen** i list rutan som du gjorde tidigare. 
 6. Välj det avsnitt som du skapade i listan. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Välj ditt ämne i listan":::  
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Välj ditt ämne i listan":::
+
 7. Du ser sidan **Event Grid ämne** för ditt ämne. Behåll sidan öppen. Du använder det senare i snabb starten. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Start sida för Event Grid ämne":::
@@ -54,7 +55,7 @@ Innan du skapar en prenumeration för det anpassade ämnet skapar du en slut pun
 
 1. På sidan artikel väljer du **distribuera till Azure** för att distribuera lösningen till din prenumeration. Ange parametervärdena i Azure Portal.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
 1. Det kan ta några minuter att slutföra distributionen. Efter distributionen har slutförts kan du visa webbappen för att kontrollera att den körs. I en webbläsare navigerar du till: `https://<your-site-name>.azurewebsites.net`
 
     Om distributionen Miss lyckas, kontrol lera fel meddelandet. Det kan bero på att webbplats namnet redan är upptaget. Distribuera mallen igen och välj ett annat namn för platsen. 

@@ -3,12 +3,12 @@ title: 'Snabb start: skicka Blob Storage-händelser till webb slut punkt – Por
 description: 'Snabb start: Använd Azure Event Grid och Azure Portal för att skapa Blob Storage-konto och prenumerera på dess händelser. Skicka händelserna till en Webhook.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: fe942a4daa877088bd354352aa994e4e283f9be5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 46cd88558334239a1a9971c63b8b2608def3c4d3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103644"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421611"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Snabb start: dirigera Blob Storage-händelser till webb slut punkt med Azure Portal
 
@@ -50,7 +50,7 @@ Innan du prenumererar på händelserna för Blob Storage-kontot ska vi skapa slu
 
 1. Välj **Deploy to Azure** (Distribuera till Azure) för att distribuera lösningen till din prenumeration. 
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Aquent." /></a>
 2. Utför följande steg på sidan **Anpassad distribution** : 
     1. För **resurs grupp**väljer du den resurs grupp som du skapade när du skapade lagrings kontot. Det blir enklare för dig att rensa efter att du är klar med självstudien genom att ta bort resurs gruppen.  
     2. För **webbplats namn**anger du ett namn för webbappen.
@@ -119,7 +119,7 @@ Du kan utlösa en händelse för Blob Storage-kontot genom att ladda upp en fil.
 
 1. Välj din nya container.
 
-   ![Välj container](./media/blob-event-quickstart-portal/select-container.png)
+   ![Välja container](./media/blob-event-quickstart-portal/select-container.png)
 
 1. Välj **Ladda upp** för att ladda upp en fil. På sidan **Ladda upp BLOB** bläddrar du till och väljer en fil som du vill överföra för testning och väljer sedan **Ladda upp** på sidan. 
 

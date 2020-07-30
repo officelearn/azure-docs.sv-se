@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/24/2020
+ms.date: 07/28/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: bf8fa174611c7173c957ded49ff9135f90cebc08
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 839662e496a61ff9a90a6250b417688b91ccaed1
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287204"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382584"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Felsöka Azure RBAC
 
@@ -61,7 +61,7 @@ $ras.Count
 
     Om du får fel meddelandet "otillräcklig behörighet för att slutföra åtgärden" är det troligt att Azure CLI försöker söka efter den tilldelas identiteten i Azure AD och tjänstens huvud namn kan inte läsa Azure AD som standard.
 
-    Det finns två sätt att eventuellt lösa det här felet. Det första sättet är att tilldela [katalog läsar](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) rollen till tjänstens huvud namn, så att den kan läsa data i katalogen. Du kan också ge [katalogen. Read. all behörighet](https://docs.microsoft.com/graph/permissions-reference) i Microsoft Graph.
+    Det finns två sätt att eventuellt lösa det här felet. Det första sättet är att tilldela [katalog läsar](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) rollen till tjänstens huvud namn, så att den kan läsa data i katalogen.
 
     Det andra sättet att lösa det här felet är att skapa roll tilldelningen med hjälp av- `--assignee-object-id` parametern i stället för `--assignee` . Genom `--assignee-object-id` att använda, hoppar Azure CLI över Azure AD-sökningen. Du måste hämta objekt-ID: t för den användare, grupp eller det program som du vill tilldela rollen till. Mer information finns i [lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure CLI](role-assignments-cli.md#new-service-principal).
 

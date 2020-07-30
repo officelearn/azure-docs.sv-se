@@ -6,12 +6,13 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
-ms.openlocfilehash: f7a134fd026b42d1666b8310b3fb0c10642c7bb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: a1c3828a4b1899ff4b22c0a9520f676add21fe02
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75453499"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420132"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Lägga till och köra kodfragment med hjälp av infogad kod i Azure Logic Apps
 
@@ -32,7 +33,7 @@ I den här artikeln utlöses exempel Logic-appen när ett nytt e-postmeddelande 
 
 ![Exempel översikt](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -205,7 +206,7 @@ I det här avsnittets exempel `workflowContext` har objektet dessa egenskaper so
 
 <a name="add-parameters"></a>
 
-## <a name="add-parameters"></a>Lägg till parametrar
+## <a name="add-parameters"></a>Lägga till parametrar
 
 I vissa fall kanske du uttryckligen måste kräva att den **infogade kod** åtgärden innehåller resultat från utlösaren eller specifika åtgärder som koden refererar till som beroenden genom att lägga till parametrarna **trigger** eller **Actions** . Det här alternativet är användbart för scenarier där de refererade resultaten inte finns vid körning.
 
@@ -216,7 +217,7 @@ Anta till exempel att du har kod som hänvisar till **SelectedOption** -resultat
 
 Om du vill lägga till dessa parametrar öppnar du listan **Lägg till ny parameter** och väljer de parametrar som du vill använda:
 
-   ![Lägg till parametrar](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
+   ![Lägga till parametrar](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
 
    | Parameter | Beskrivning |
    |-----------|-------------|

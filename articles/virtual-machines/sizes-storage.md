@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 038433e3b83ba936c14142053b86e0a7b0ed9dc6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8e99ebfe53763811a86c04c53381c502cb1c25a7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291072"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421084"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Optimera storlekar för virtuella datorer i Storage
 
@@ -36,3 +36,5 @@ Storage-optimerade VM-storlekar erbjuder hög disk data flöde och IO och är id
 Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.
 
 Lär dig hur du optimerar prestandan för virtuella datorer i Lsv2-serien för [Windows](windows/storage-performance.md) eller [Linux](linux/storage-performance.md).
+
+Mer information om hur Azure namnger sina virtuella datorer finns i [namngivnings konventioner för virtuella datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).

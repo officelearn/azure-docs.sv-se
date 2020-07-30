@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 7e8e12c3e10243e2e8adb23527683813f33a75a4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d05670d55d8a4f9ad7ab691da3f05f1c3e0cd177
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084383"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386154"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din identitets infrastruktur
 
@@ -35,7 +35,7 @@ Den här check listan hjälper dig att snabbt distribuera kritiska rekommenderad
 Se till att du håller reda på vilka funktioner och steg som är slutförda när du läser den här check listan.
 
 > [!NOTE]
-> Många av rekommendationerna i det här dokumentet gäller endast för program som har kon figurer ATS för att använda Azure Active Directory som identitets leverantör. Genom att konfigurera appar för enkel inloggning ser du fördelarna med principer för autentiseringsuppgifter, Hot identifiering, granskning, loggning och andra funktioner som läggs till i dessa program. [Enkel inloggning via Azure Active Directory](../../active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md) är grunden som alla dessa rekommendationer baseras på.
+> Många av rekommendationerna i det här dokumentet gäller endast för program som har kon figurer ATS för att använda Azure Active Directory som identitets leverantör. Genom att konfigurera appar för enkel inloggning ser du fördelarna med principer för autentiseringsuppgifter, Hot identifiering, granskning, loggning och andra funktioner som läggs till i dessa program. [Azure AD Application Management](../../active-directory/manage-apps/what-is-application-management.md) är grunden som alla dessa rekommendationer baseras på.
 
 Rekommendationerna i det här dokumentet är justerade med [identitetens säkra Poäng](../../active-directory/fundamentals/identity-secure-score.md), en automatisk utvärdering av din Azure AD-klients identitets säkerhets konfiguration. Organisationer kan använda sidan för säker användning av identiteter på Azure AD-portalen för att hitta luckor i den aktuella säkerhets konfigurationen för att se till att de följer aktuella Microsofts [bästa praxis](identity-management-best-practices.md) för säkerhet. Genom att implementera varje rekommendation på sidan säker Poäng ökar du dina poäng och du kan spåra dina framsteg, samt hjälpa dig att jämföra din implementering mot andra liknande storleks organisationer eller din bransch.
 

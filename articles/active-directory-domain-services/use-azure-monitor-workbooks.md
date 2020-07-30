@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 879138d882913b8ab43c5689ff72a40e6987c104
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 7d1cd032f6042f57a096c5c8e7624f66a4b01355
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223048"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419605"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Granska säkerhets gransknings händelser i Azure Active Directory Domain Services att använda Azure Monitor arbets böcker
 
@@ -75,7 +75,7 @@ Slutför följande steg för att få åtkomst till arbets boks mal len för säk
 
 1. Den nedre delen av rapporten säkerhets översikt nedanför diagrammet delar sedan upp aktivitets typen som valts. Du kan filtrera efter användar namn som ingår i den högra sidan, som du ser i följande exempel rapport:
 
-    [![](./media/use-azure-monitor-workbooks/account-lockout-details-cropped.png "Details of account lockouts in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-lockout-details.png#lightbox)
+    [![Information om konto utelåsning i Azure Monitor arbets böcker.](./media/use-azure-monitor-workbooks/account-lockout-details-cropped.png)](./media/use-azure-monitor-workbooks/account-lockout-details.png#lightbox)
 
 ## <a name="use-the-account-activity-report-workbook"></a>Använd arbets boken konto aktivitets rapport
 
@@ -93,7 +93,7 @@ Utför följande steg för att få åtkomst till arbets boks mal len för konto 
 
     Du kan filtrera efter **konto användar namn**, till exempel *Felix*, som du ser i följande exempel rapport:
 
-    [![](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png "Account activity report in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
+    [![Rapporten konto aktivitet i Azure Monitor arbets böcker.](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png)](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
 
     I ytan nedanför diagrammet visas enskilda inloggnings händelser tillsammans med information som aktivitets resultat och käll arbets Station. Den här informationen kan hjälpa till att avgöra upprepade källor till inloggnings händelser som kan orsaka konto utelåsning eller Visa en potentiell attack.
 

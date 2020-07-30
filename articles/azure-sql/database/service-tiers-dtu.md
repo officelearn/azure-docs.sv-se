@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 901ad08440cf1cfbbbab4779a08a87c89a72cc59
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7354a921950daec5cc429fa07318213c8924264
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281505"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382703"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Tjänstnivåer i en DTU-baserad inköpsmodell
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,15 +36,14 @@ Att välja en tjänst nivå beror främst på verksamhets kontinuitet, lagring o
 
 ||Basic|Standard|Premium|
 | :-- | --: |--:| --:|
-|Mål arbets belastning|Utveckling och produktion|Utveckling och produktion|Utveckling och produktion|
-|SLA för drift tid|99,99 %|99,99 %|99,99 %|
-|Högsta kvarhållning av säkerhets kopior|7 dagar|35 dagar|35 dagar|
-|Processor|Lågt|Låg, medel, hög|Medel, hög|
-|IO-genomflöde (ungefärligt) |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
-|I/o-latens (ungefärligt)|5 ms (läsning), 10 ms (Skriv)|5 ms (läsning), 10 ms (Skriv)|2 ms (Läs/skriv)|
-|Columnstore-indexering |E.t.|S3 och högre|Stöds|
-|Minnesintern OLTP|E.t.|E.t.|Stöds|
-|||||
+|**Mål arbets belastning**|Utveckling och produktion|Utveckling och produktion|Utveckling och produktion|
+|**SLA för drift tid**|99,99 %|99,99 %|99,99 %|
+|**Högsta kvarhållning av säkerhets kopior**|7 dagar|35 dagar|35 dagar|
+|**Processor**|Lågt|Låg, medel, hög|Medel, hög|
+|**IO-genomflöde (ungefärligt)** |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
+|**I/o-latens (ungefärligt)**|5 ms (läsning), 10 ms (Skriv)|5 ms (läsning), 10 ms (Skriv)|2 ms (Läs/skriv)|
+|**Columnstore-indexering** |E.t.|S3 och högre|Stöds|
+|**Minnesintern OLTP**|E.t.|E.t.|Stöds|
 
 > [!IMPORTANT]
 > Tjänst nivåerna Basic, Standard S0, S1 och S2 ger mindre än en vCore (CPU).  För CPU-intensiva arbets belastningar rekommenderas tjänst nivån S3 eller högre. 
@@ -61,9 +60,8 @@ Beräknings storlekar uttrycks i databas transaktions enheter (DTU: er) för ens
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
-| Maximal lagrings storlek | 2 GB | 1 TB | 4 TB  |
-| Maximalt DTU: er | 5 | 3000 | 4000 | 
-|||||
+| **Maximal lagrings storlek** | 2 GB | 1 TB | 4 TB  |
+| **Maximalt DTU: er** | 5 | 3000 | 4000 |
 
 > [!IMPORTANT]
 > Under vissa omständigheter kan du behöva krympa en databas för att frigöra utrymme som inte används. Mer information finns i [Hantera fil utrymme i Azure SQL Database](file-space-manage.md).
@@ -72,12 +70,11 @@ Beräknings storlekar uttrycks i databas transaktions enheter (DTU: er) för ens
 
 || **Basic** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
-| Maximal lagrings storlek per databas  | 2 GB | 1 TB | 1 TB |
-| Maximal lagrings storlek per pool | 156 GB | 4 TB | 4 TB |
-| Maximalt antal eDTU: er per databas | 5 | 3000 | 4000 |
-| Maximalt antal eDTU: er per pool | 1600 | 3000 | 4000 |
-| Maximalt antal databaser per pool | 500  | 500 | 100 |
-|||||
+| **Maximal lagrings storlek per databas**  | 2 GB | 1 TB | 1 TB |
+| **Maximal lagrings storlek per pool** | 156 GB | 4 TB | 4 TB |
+| **Maximalt antal eDTU: er per databas** | 5 | 3000 | 4000 |
+| **Maximalt antal eDTU: er per pool** | 1600 | 3000 | 4000 |
+| **Maximalt antal databaser per pool** | 500  | 500 | 100 |
 
 > [!IMPORTANT]
 > Mer än 1 TB lagrings utrymme på Premium-nivån är för närvarande tillgängligt i alla regioner utom: Kina, östra, Kina, norra, Tyskland, centrala, Tyskland nordöstra, västra centrala USA, US DoD regioner och USA, centrala. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i [Aktuella begränsningar för P11–P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
@@ -112,7 +109,7 @@ Databasen är storleks beroende av en "skalnings faktor". Skalnings faktorn (fö
 
 Arbets belastningen består av nio transaktions typer som visas i tabellen nedan. Varje transaktion är utformad för att markera en viss uppsättning system egenskaper i databas motorn och systemets maskin vara, med hög kontrast från de andra transaktionerna. Den här metoden gör det enklare att utvärdera påverkan av olika komponenter till den totala prestandan. Till exempel ger transaktionen "Read tung" ett stort antal Läs åtgärder från disken.
 
-| Transaktionstyp | Beskrivning |
+| Transaktionstyp | Description |
 | --- | --- |
 | Läs lite |Select minnes intern; skrivskyddad |
 | Läs medium |Select främst i minnet. skrivskyddad |

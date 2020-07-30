@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 1c8acd2d8055359288608f7bd2e5f54f8c4f6cc3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 351307132e231f1fc6639333e6839848ac933337
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809195"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420914"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Azure Monitor-loggar för offentlig Basic Load Balancer
 
@@ -39,8 +39,8 @@ Logga in på [Azure-portalen](https://portal.azure.com). Om du inte redan har en
 
 1. I portalen klickar du på **resurs grupper**.
 2. Välj **\<resource-group-name>** var belastningsutjämnaren är.
-3. Välj belastningsutjämnaren.
-4. Välj inställningar för **övervakning**av  >  **diagnostik**.
+3. Välj din lastbalanserare.
+4. Välj **Activity log**  >  **diagnostiska inställningar**för aktivitets loggen.
 5. I fönstret **diagnostikinställningar** , under **diagnostikinställningar**, väljer du **+ Lägg till diagnostisk inställning**.
 6. I fönstret Skapa **diagnostikinställningar** anger du **MyLBDiagnostics** i fältet **namn** .
 7. Det finns tre alternativ för **diagnostikinställningar**.  Du kan välja en, två eller alla tre och konfigurera var och en för dina behov:

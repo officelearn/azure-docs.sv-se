@@ -4,12 +4,13 @@ description: Använd Ethereum-lösningen för att distribuera och konfigurera et
 ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: d75b5348c49728d2a796257fa4000f6c3a36831d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f0b7d056d37ffb11945a5c50e2705b5d74402007
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124934"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386120"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Distribuera Ethereum proof-of-Authority – Solution Template på Azure
 
@@ -83,22 +84,22 @@ I [Azure Portal](https://portal.azure.com)väljer du **skapa en resurs** i det �
 
 Välj **blockchain**  >  **Ethereum proof-of-Authority Consortium (för hands version)**.
 
-### <a name="basics"></a>Grunder
+### <a name="basics"></a>Grunderna
 
 Under **grunderna**anger du värden för standard parametrar för alla distributioner.
 
-![Grunder](./media/ethereum-poa-deployment/basic-blade.png)
+![Grunderna](./media/ethereum-poa-deployment/basic-blade.png)
 
 Parameter | Beskrivning | Exempelvärde
 ----------|-------------|--------------
 Skapa ett nytt nätverk eller Anslut till ett befintligt nätverk | Du kan skapa ett nytt konsortiums nätverk eller ansluta till ett befintligt konsortiums nätverk. För att kunna ansluta till ett befintligt nätverk krävs ytterligare parametrar. | Skapa ny
 E-postadress | Du får ett e-postmeddelande när distributionen är klar med information om distributionen. | En giltig e-postadress
 Användar namn för virtuell dator | Administratörs användar namn för varje distribuerad virtuell dator | 1-64 alfanumeriska tecken
-Autentiseringstyp | Metoden för att autentisera till den virtuella datorn. | Lösenord
-Lösenord | Lösen ordet för administratörs kontot för var och en av de virtuella datorerna som distribueras. Alla virtuella datorer har till början samma lösen ord. Du kan ändra lösen ordet efter etableringen. | 12-72 tecken 
+Autentiseringstyp | Metoden för att autentisera till den virtuella datorn. | lösenordsinställning
+lösenordsinställning | Lösen ordet för administratörs kontot för var och en av de virtuella datorerna som distribueras. Alla virtuella datorer har till början samma lösen ord. Du kan ändra lösen ordet efter etableringen. | 12-72 tecken 
 Prenumeration | Den prenumeration som används för att distribuera konsortiets nätverk |
 Resursgrupp| Den resurs grupp som används för att distribuera konsortial nätverket. | myResourceGroup
-Plats | Azure-regionen för resurs gruppen. | USA, västra 2
+Position | Azure-regionen för resurs gruppen. | USA, västra 2
 
 Välj **OK**.
 
@@ -167,9 +168,9 @@ Parameter | Beskrivning | Exempelvärde
 ----------|-------------|--------------
 Övervakning | Alternativ för att aktivera övervakning | Aktivera
 Ansluta till befintliga Azure Monitor loggar | Alternativ för att skapa en ny Azure Monitor loggar instans eller ansluta till en befintlig instans | Skapa ny
-Plats | Den region där den nya instansen distribueras | East US
-Befintligt logganalys-arbetsyte-ID (Anslut till befintliga Azure Monitor loggar = koppling befintlig)|Arbetsyte-ID för den befintliga Azure Monitor loggar instansen||Ej tillämpligt
-Befintlig Log Analytics primär nyckel (Anslut till befintliga Azure Monitor loggar = koppling befintlig)|Den primära nyckel som används för att ansluta till den befintliga Azure Monitor loggar instansen||Ej tillämpligt
+Position | Den region där den nya instansen distribueras | East US
+Befintligt logganalys-arbetsyte-ID (Anslut till befintliga Azure Monitor loggar = koppling befintlig)|Arbetsyte-ID för den befintliga Azure Monitor loggar instansen||NA
+Befintlig Log Analytics primär nyckel (Anslut till befintliga Azure Monitor loggar = koppling befintlig)|Den primära nyckel som används för att ansluta till den befintliga Azure Monitor loggar instansen||NA
 
 Välj **OK**.
 
@@ -191,7 +192,7 @@ Om du anger en e-postadress ([avsnittet grundläggande](#basics)) skickas ett e-
 
 ![e-postdistribution](./media/ethereum-poa-deployment/deployment-email.png)
 
-### <a name="portal"></a>Portalen
+### <a name="portal"></a>Portal
 
 När distributionen har slutförts och alla resurser har etablerats kan du Visa utdataparametrar i resurs gruppen.
 
@@ -332,7 +333,7 @@ Av säkerhets skäl nekas åtkomst till SSH-porten av en säkerhets regel för n
 
 1. Välj **Spara**. Det kan ta några minuter att göra ändringar.
 
-Du kan fjärrans luta till de virtuella datorerna för validator-noder via SSH med ditt tillhandahållna administratörs användar namn och lösen ord/SSH-nyckel. SSH-kommandot för att komma åt den första validator-noden visas i mallens distributions data. Exempel:
+Du kan fjärrans luta till de virtuella datorerna för validator-noder via SSH med ditt tillhandahållna administratörs användar namn och lösen ord/SSH-nyckel. SSH-kommandot för att komma åt den första validator-noden visas i mallens distributions data. Ett exempel:
 
 ``` bash
 ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.

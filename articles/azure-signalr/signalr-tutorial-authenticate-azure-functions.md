@@ -6,12 +6,13 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: dfa17720b34962611d240aa7c35ba8092bf99082
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 72f6cee18664f63e36c38499e77f4c0ba7177c96
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74158144"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386868"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Självstudier: Azure SignalR Service-autentisering med Azure Functions
 
@@ -25,7 +26,7 @@ En stegvis självstudiekurs som beskriver hur du skapar ett chattrum med autenti
 * [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/?WT.mc_id=serverlesschatlab-tutorial-antchu) – Skicka nya meddelanden till anslutna chattklienter
 * [Azure Storage](https://azure.microsoft.com/services/storage/?WT.mc_id=serverlesschatlab-tutorial-antchu) – Lagra den statiska webbplatsen för chattklientens användargränssnitt
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Följande programvara krävs för den här självstudien.
 
@@ -45,7 +46,7 @@ Gå till [Azure-portalen](https://portal.azure.com/) och logga in med dina auten
 
 Du kan skapa och testa Azure Functions-appen lokalt. Appen använder en SignalR Service-instans i Azure som måste skapas i förväg.
 
-1. Klicka på knappen **skapa en resurs** (**+**) för att skapa en ny Azure-resurs.
+1. Klicka på knappen **skapa en resurs** ( **+** ) för att skapa en ny Azure-resurs.
 
 1. Sök efter och välj **SignalR Service**. Klicka på **Skapa**.
 
@@ -57,7 +58,7 @@ Du kan skapa och testa Azure Functions-appen lokalt. Appen använder en SignalR 
     |---|---|
     | Resursnamn | Ett unikt namn för SignalR Service-instansen |
     | Resursgrupp | Skapa en ny resurs grupp med ett unikt namn |
-    | Plats | Välj en plats nära dig |
+    | Position | Välj en plats nära dig |
     | Prisnivå | Kostnadsfri |
 
 1. Klicka på **Skapa**.
@@ -85,7 +86,7 @@ Du kan skapa och testa Azure Functions-appen lokalt. Appen använder en SignalR 
 
 I den här självstudien används Azure Functions-bindningar för att interagera med Azure SignalR Service. Som de flesta andra bindningar är SignalR Service-bindningarna tillgängliga som tillägg som måste installeras med hjälp av Azure Functions Core Tools CLI innan de kan användas.
 
-1. Öppna en Terminal i VS Code genom att välja **visa > Terminal** på menyn (Ctrl-\`).
+1. Öppna en Terminal i VS Code genom att välja **visa > Terminal** på menyn (Ctrl- \` ).
 
 1. Kontrollera att den primära projektmappen är den aktuella katalogen.
 
@@ -124,7 +125,7 @@ När du kör och felsöker Azure Functions-körningsmiljön lokalt läser Azure 
    * Avsnittet `Host` konfigurerar porten och CORS-inställningarna för den lokala Functions-värden (den här inställningen har ingen effekt när du kör i Azure).
 
        > [!NOTE]
-       > Live Server är vanligt vis konfigurerat för att hantera `http://127.0.0.1:5500`innehåll från. Om du upptäcker att den använder en annan URL eller om du använder en annan HTTP-Server ändrar du `CORS` inställningen så att den återspeglar rätt ursprung.
+       > Live Server är vanligt vis konfigurerat för att hantera innehåll från `http://127.0.0.1:5500` . Om du upptäcker att den använder en annan URL eller om du använder en annan HTTP-Server ändrar du `CORS` inställningen så att den återspeglar rätt ursprung.
 
      ![Hämta SignalR Service-nyckeln](media/signalr-tutorial-authenticate-azure-functions/signalr-get-key.png)
 
@@ -137,11 +138,11 @@ När du kör och felsöker Azure Functions-körningsmiljön lokalt läser Azure 
 När chattappen öppnas i webbläsaren krävs giltiga autentiseringsuppgifter för att ansluta till Azure SignalR Service. Du ska skapa en HTTP-utlöst funktion med namnet *Negotiate* i din Function-app för att returnera den här anslutnings informationen.
 
 > [!NOTE]
-> Den här funktionen måste vara *Negotiate* eftersom signal klienten kräver en slut punkt som slutar med `/negotiate`.
+> Den här funktionen måste vara *Negotiate* eftersom signal klienten kräver en slut punkt som slutar med `/negotiate` .
 
 1. Öppna kommandopaletten i VS Code (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
 
-1. Leta upp och välj kommandot **Azure Functions: Create Function** (Azure Functions: Skapa funktion).
+1. Leta upp och välj kommandot **Azure Functions: Kommandot Skapa funktion**.
 
 1. När du uppmanas att göra det anger du följande information.
 
@@ -149,12 +150,12 @@ När chattappen öppnas i webbläsaren krävs giltiga autentiseringsuppgifter f�
     |---|---|
     | Mappen för funktionsappen | Välj den primära projektmappen |
     | Mall | HTTP-utlösare |
-    | Name | negotiate |
-    | Auktorisationsnivå | Anonym |
+    | Namn | negotiate |
+    | Auktoriseringsnivå | Anonym |
 
     En mapp med namnet **Negotiate** skapas som innehåller den nya funktionen.
 
-1. Öppna **Negotiate/function. JSON** för att konfigurera bindningar för funktionen. Ändra innehållet i filen till följande. En indatabindning läggs till som genererar giltiga autentiseringsuppgifter för en klient så att den kan ansluta till en Azure SignalR Service-hubb med namnet `chat`.
+1. Öppna **Negotiate/function.jspå om** du vill konfigurera bindningar för funktionen. Ändra innehållet i filen till följande. En indatabindning läggs till som genererar giltiga autentiseringsuppgifter för en klient så att den kan ansluta till en Azure SignalR Service-hubb med namnet `chat`.
 
     ```json
     {
@@ -184,7 +185,7 @@ När chattappen öppnas i webbläsaren krävs giltiga autentiseringsuppgifter f�
 
     Egenskapen `userId` i bindningen `signalRConnectionInfo` används för att skapa en autentiserad SignalR Service-anslutning. Lämna egenskapen tom för lokal utveckling. Du ska använda den när funktionsappen har distribuerats till Azure.
 
-1. Öppna **Negotiate/index. js** för att Visa bröd texten i funktionen. Ändra innehållet i filen till följande.
+1. Öppna **Negotiate/index.js** för att Visa bröd texten i funktionen. Ändra innehållet i filen till följande.
 
     ```javascript
     module.exports = async function (context, req, connectionInfo) {
@@ -200,7 +201,7 @@ Webbappen kräver också ett HTTP-API för att skicka chattmeddelanden. Du ska s
 
 1. Öppna kommandopaletten i VS Code (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
 
-1. Leta upp och välj kommandot **Azure Functions: Create Function** (Azure Functions: Skapa funktion).
+1. Leta upp och välj kommandot **Azure Functions: Kommandot Skapa funktion**.
 
 1. När du uppmanas att göra det anger du följande information.
 
@@ -208,8 +209,8 @@ Webbappen kräver också ett HTTP-API för att skicka chattmeddelanden. Du ska s
     |---|---|
     | Mappen för funktionsappen | Välj den primära projektmappen |
     | Mall | HTTP-utlösare |
-    | Name | SendMessage |
-    | Auktorisationsnivå | Anonym |
+    | Namn | SendMessage |
+    | Auktoriseringsnivå | Anonym |
 
     En mapp med namnet **SendMessage** skapas som innehåller den nya funktionen.
 
@@ -244,7 +245,7 @@ Webbappen kräver också ett HTTP-API för att skicka chattmeddelanden. Du ska s
     ```
     Två ändringar görs i den ursprungliga funktionen:
     * Ändrar vägen till `messages` och begränsar HTTP-utlösaren till **POST** HTTP-metoden.
-    * Lägger till en utgående bindning för signal tjänst som skickar ett meddelande som returneras av funktionen till alla klienter som är anslutna till en signal tjänst `chat`hubb med namnet.
+    * Lägger till en utgående bindning för signal tjänst som skickar ett meddelande som returneras av funktionen till alla klienter som är anslutna till en signal tjänst hubb med namnet `chat` .
 
 1. Spara filen.
 
@@ -305,11 +306,11 @@ Du har kört funktionsappen och chattprogrammet lokalt. Nu ska du distribuera de
 
 1. Följ instruktionerna för att slutföra inloggningsprocessen i webbläsaren.
 
-### <a name="create-a-storage-account"></a>Skapa ett Storage-konto
+### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
 Ett Azure Storage konto krävs av en Function-app som körs i Azure. Du kommer också att vara värd för webb sidan för chatt-gränssnittet med hjälp av funktionen för statiska webbplatser i Azure Storage.
 
-1. Klicka på knappen **skapa en resurs** (**+**) i Azure Portal för att skapa en ny Azure-resurs.
+1. Klicka på knappen **skapa en resurs** () i Azure Portal **+** för att skapa en ny Azure-resurs.
 
 1. Välj **lagrings** kategori och välj sedan **lagrings konto**.
 
@@ -320,7 +321,7 @@ Ett Azure Storage konto krävs av en Function-app som körs i Azure. Du kommer o
     | Prenumeration | Välj den prenumeration som innehåller SignalR tjänst instansen |
     | Resursgrupp | Välj samma resurs grupp |
     | Resursnamn | Ett unikt namn för lagrings kontot |
-    | Plats | Välj samma plats som dina andra resurser |
+    | Position | Välj samma plats som dina andra resurser |
     | Prestanda | Standard |
     | Typ av konto | StorageV2 (generell användning v2) |
     | Replikering | Lokalt redundant lagring (LRS) |
@@ -336,7 +337,7 @@ Ett Azure Storage konto krävs av en Function-app som körs i Azure. Du kommer o
 
 1. Välj **aktive rad** för att aktivera funktionen för statisk webbplats.
 
-1. I **index dokument namn**, anger du *index. html*.
+1. I **index dokument namn**anger *index.html*.
 
 1. Klicka på **Spara**.
 
@@ -348,7 +349,7 @@ Hittills fungerar chattappen anonymt. Du ska använda [App Service-autentisering
 
 När ett meddelande skickas kan appen bestämma om det ska skickas till alla anslutna klienter, eller endast till de klienter som har autentiserats för en viss användare.
 
-1. I VS Code öppnar du **Negotiate/function. JSON**.
+1. I VS Code öppnar du **Negotiate/function.jspå**.
 
 1. Infoga ett [bindningsuttryck](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings) i egenskapen *userId* för *SignalRConnectionInfo*-bindningen: `{headers.x-ms-client-principal-name}`. Detta anger värdet till användarnamnet för den autentiserade användaren. Attributet bör nu se ut så här.
 
@@ -390,7 +391,7 @@ När ett meddelande skickas kan appen bestämma om det ska skickas till alla ans
 
 1. När du uppmanas att göra det anger du följande information.
 
-    | Name | Värde |
+    | Namn | Värde |
     |---|---|
     | Fil för lokala inställningar | local.settings.json |
     | Prenumeration | Välj din prenumeration |
@@ -445,7 +446,7 @@ Webbprogrammet ska hanteras av funktionen för statiska webbplatser i Azure Blob
 
 1. Öppna kommandopaletten i VS Code (`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
 
-1. Sök efter och välj kommandot **Azure Storage: distribuera till statisk webbplats** .
+1. Leta upp och välj kommandot **Azure Storage: Deploy to Static Website** (Azure Storage: Distribuera till statisk webbplats).
 
 1. Ange följande värden:
 
@@ -467,7 +468,7 @@ Filerna i mappen *Content* bör nu distribueras till den statiska webbplatsen.
 
     ![Leta upp CORS](media/signalr-tutorial-authenticate-azure-functions/signalr-find-cors.png)
 
-1. I avsnittet *tillåtna ursprung* lägger du till en post med den statiska platsens *primära slut punkt* som värde (ta bort det */* avslutande).
+1. I avsnittet *tillåtna ursprung* lägger du till en post med den statiska platsens *primära slut punkt* som värde (ta bort det avslutande */* ).
 
 1. För att signalera JavaScript SDK ska kunna anropa din Function-app från en webbläsare måste stöd för autentiseringsuppgifter i CORS vara aktiverat. Markera kryss rutan Aktivera åtkomst-Control-Allow-credentials.
 
@@ -498,4 +499,4 @@ Rensa resurserna som skapats i den här självstudien genom att ta bort resursgr
 I den här självstudien har du lärt dig hur du använder Azure Functions med Azure SignalR Service. Läs mer om hur du skapar serverlösa realtidsprogram med SignalR Service-bindningar för Azure Functions.
 
 > [!div class="nextstepaction"]
-> [Skapa realtidsappar med Azure Functions](signalr-concept-azure-functions.md)
+> [Bygg appar i real tid med Azure Functions](signalr-concept-azure-functions.md)

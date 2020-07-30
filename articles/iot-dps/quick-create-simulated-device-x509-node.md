@@ -1,6 +1,6 @@
 ---
-title: Etablera en simulerad X. 509-enhet till Azure IoT Hub med Node. js
-description: Skapa och etablera en simulerad X. 509-enhet med Node. js-enhets-SDK för Azure IoT Hub Device Provisioning Service (DPS). I den här snabb starten används enskilda registreringar.
+title: Etablera en simulerad X. 509-enhet till Azure IoT Hub att använda Node.js
+description: Skapa och etablera en simulerad X. 509-enhet med hjälp av Node.js enhets-SDK för Azure IoT Hub Device Provisioning Service (DPS). I den här snabb starten används enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2018
@@ -8,26 +8,26 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
-ms.custom: mvc
-ms.openlocfilehash: 746f4adbf616f95c21874d7c1c48881f88c38d34
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 844a174e8cd3208e071db165a31d6c82dd1af3b1
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77605399"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422121"
 ---
-# <a name="quickstart-create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Snabb start: skapa och etablera en simulerad X. 509-enhet med Node. js-enhets-SDK för IoT Hub Device Provisioning Service
+# <a name="quickstart-create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Snabb start: skapa och etablera en simulerad X. 509-enhet med hjälp av Node.js Device SDK för IoT Hub Device Provisioning Service
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-I den här snabb starten skapar du en simulerad X. 509-enhet på en Windows-dator. Du använder enhets exempel Node. js-koden för att ansluta den här simulerade enheten med IoT-hubben med hjälp av en enskild registrering med enhets etablerings tjänsten (DPS).
+I den här snabb starten skapar du en simulerad X. 509-enhet på en Windows-dator. Du använder enhets exempel Node.js kod för att ansluta den här simulerade enheten med IoT-hubben med hjälp av en enskild registrering med enhets etablerings tjänsten (DPS).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Granskning av [koncept för automatisk etablering](concepts-auto-provisioning.md).
 - Slut för ande av [konfigurations IoT Hub Device Provisioning service med Azure Portal](./quick-setup-auto-provision.md).
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Node. js v 4.0 +](https://nodejs.org).
+- [Node.js v 4.0 +](https://nodejs.org).
 - [Git](https://git-scm.com/download/).
 - [Openssl](https://www.openssl.org/).
 

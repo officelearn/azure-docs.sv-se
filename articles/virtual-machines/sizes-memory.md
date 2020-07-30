@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: ed49f5299129d16ecdd31f537064e67a4e8965a4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 688508df8b13e00b21da78c1274400ea4b18484a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289720"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421339"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Minnesoptimerade storlekar för virtuella datorer
 
@@ -56,3 +56,5 @@ Azure Compute erbjuder storlekar för virtuella datorer som är isolerade till e
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.
+
+Mer information om hur Azure namnger sina virtuella datorer finns i [namngivnings konventioner för virtuella datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).

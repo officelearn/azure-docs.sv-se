@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: c347f637083d8dfdf39cbd032df97bc52973465f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: c02b0d63db3a761f52c9ea15e6fc6ba3356cd4be
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372577"
+ms.locfileid: "87421373"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Datorer med hög prestanda beräknings storlek
 
@@ -46,9 +46,9 @@ Med det här gränssnittet kan de RDMA-kompatibla instanserna kommunicera över 
 
 - **InfiniBand-och RDMA-drivrutiner** – på InfiniBand-aktiverade virtuella datorer krävs lämpliga driv rutiner för att aktivera RDMA. På Linux förkonfigureras de virtuella CentOS-HPC-avbildningarna på Marketplace för förkonfigurerade med lämpliga driv rutiner. De virtuella Ubuntu-avbildningarna kan konfigureras med rätt driv rutiner med hjälp av [instruktionerna här](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). I SR-IOV-aktiverade virtuella datorer i H-och N-serien kan [INFINIBANDDRIVERLINUX VM-tillägget](./extensions/hpc-compute-infiniband-linux.md) användas för att installera Mellanox ofed-drivrutinerna och aktivera InfiniBand. Läs mer om hur du aktiverar InfiniBand i VM-kompatibla VM- [arbetsbelastningar](./workloads/hpc/overview.md)med RDMA-stöd.
 
-I Windows installerar [INFINIBANDDRIVERWINDOWS VM-tillägget](./extensions/hpc-compute-infiniband-windows.md) Windows Network Direct-drivrutiner (på datorer som inte är SR-IOV) eller Mellanox ofed-drivrutiner (på SR-IOV VM) för RDMA-anslutning. I vissa distributioner av A8-och A9-instanser läggs HpcVmDrivers-tillägget till automatiskt. Observera att HpcVmDrivers VM-tillägget är inaktuellt. den kommer inte att uppdateras.
+   I Windows installerar [INFINIBANDDRIVERWINDOWS VM-tillägget](./extensions/hpc-compute-infiniband-windows.md) Windows Network Direct-drivrutiner (på datorer som inte är SR-IOV) eller Mellanox ofed-drivrutiner (på SR-IOV VM) för RDMA-anslutning. I vissa distributioner av A8-och A9-instanser läggs HpcVmDrivers-tillägget till automatiskt. Observera att HpcVmDrivers VM-tillägget är inaktuellt. den kommer inte att uppdateras.
 
-Om du vill lägga till ett VM-tillägg i en virtuell dator kan du använda [Azure PowerShell](/powershell/azure/) -cmdletar. Mer information finns i [tillägg och funktioner för virtuella datorer](./extensions/overview.md). Du kan också arbeta med tillägg för virtuella datorer som distribueras i den [klassiska distributions modellen](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
+   Om du vill lägga till ett VM-tillägg i en virtuell dator kan du använda [Azure PowerShell](/powershell/azure/) -cmdletar. Mer information finns i [tillägg och funktioner för virtuella datorer](./extensions/overview.md). Du kan också arbeta med tillägg för virtuella datorer som distribueras i den [klassiska distributions modellen](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
 
 - **MPI** – SR-IOV-aktiverade VM-storlekar på Azure (HBV2, HB, HC, NCv3, NDv2) gör att du kan använda nästan vilken smak av MPI som ska användas med Mellanox ofed.
 På virtuella datorer som inte är SR-IOV-aktiverade använder MPI-implementeringar som stöds av Microsoft Network Direct (ND)-gränssnittet för att kommunicera mellan virtuella datorer. Därför stöds endast Microsoft MPI (MS-MPI) 2012 R2 eller senare och Intel MPI 5. x-versioner. Senare versioner (2017, 2018) av Intel MPI runtime-biblioteket kan vara kompatibla med Azure RDMA-drivrutinerna.
@@ -98,6 +98,6 @@ Azure innehåller flera alternativ för att skapa kluster med virtuella Windows 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om hur du optimerar HPC-programmet för Azure och några exempel på [HPC-arbetsbelastningar](./workloads/hpc/overview.md) 
+- Lär dig mer om hur du optimerar dina HPC-program för Azure och några exempel på [HPC-arbetsbelastningar](./workloads/hpc/overview.md).
 
-- Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.
+- Läs om de senaste meddelandena och några HPC-exempel och resultat i [Azure Compute Tech community-Bloggar](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).

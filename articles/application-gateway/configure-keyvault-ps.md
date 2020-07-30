@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: 5e0cb1a5c5c115aa1aaf9697e19631e2142853a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a872bc63be33ebed0a8ba9d89383cdfc9feef28
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808070"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386290"
 ---
 # <a name="configure-tls-termination-with-key-vault-certificates-using-azure-powershell"></a>Konfigurera TLS-avslutning med Key Vault certifikat med Azure PowerShell
 
@@ -25,9 +25,9 @@ Den här artikeln visar hur du använder ett Azure PowerShell-skript för att in
 
 Den här artikeln kräver Azure PowerShell module version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du vill köra kommandona i den här artikeln måste du också skapa en anslutning till Azure genom att köra `Connect-AzAccount` .
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar måste du ha installerat ManagedServiceIdentity-modulen:
 
@@ -73,7 +73,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> Flaggan-EnableSoftDelete måste användas för att TLS-avslutning ska fungera korrekt. Om du konfigurerar [Key Vault mjuk borttagning via portalen](../key-vault/general/overview-soft-delete.md#soft-delete-behavior), måste kvarhållningsperioden vara i 90 dagar, standardvärdet. Application Gateway stöder inte en annan kvarhållningsperiod än. 
+> Flaggan-EnableSoftDelete måste användas för att TLS-avslutning ska fungera korrekt. Om du konfigurerar [Key Vault mjuk borttagning via portalen](../key-vault/general/soft-delete-overview.md#soft-delete-behavior), måste kvarhållningsperioden vara i 90 dagar, standardvärdet. Application Gateway stöder inte en annan kvarhållningsperiod än. 
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 

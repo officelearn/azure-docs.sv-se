@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 268d8f3b43809e02476757cfe36b1ee52d4eaef1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 53967ab0bec9488691ff60cdabb8fedbb6b9730e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317492"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386715"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Stöd mat ris för haveri beredskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -32,8 +32,8 @@ Hyper-V utan Virtual Machine Manager | Du kan utföra haveri beredskap till Azur
 
 **Server** | **Krav** | **Information**
 --- | --- | ---
-Hyper-V (körs utan Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 med senaste uppdateringar (inklusive Server Core-installation av dessa operativ system) | Om du redan har konfigurerat Windows Server 2012 R2 med/eller SCVMM 2012 R2 med Azure Site Recovery och planerar att uppgradera operativ systemet, följer du vägledningen [.](upgrade-2012R2-to-2016.md)
-Hyper-V (körs med Virtual Machine Manager) | Virtual Machine Manager 2019 Virtual Machine Manager 2016 Virtual Machine Manager 2012 R2 (inklusive Server Core-installation av dessa operativ system utom Virtual Machine Manager 2019) | Om Virtual Machine Manager används bör Windows Server 2019-värdar hanteras i Virtual Machine Manager 2019. På samma sätt bör Windows Server 2016-värdar hanteras i Virtual Machine Manager 2016.
+Hyper-V (körs utan Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 med senaste uppdateringar <br/><br/> **Obs:** Server Core-installation av dessa operativ system stöds också. | Om du redan har konfigurerat Windows Server 2012 R2 med/eller SCVMM 2012 R2 med Azure Site Recovery och planerar att uppgradera operativ systemet, följer du vägledningen [.](upgrade-2012R2-to-2016.md)
+Hyper-V (körs med Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 <br/><br/> **Obs:** Server Core-installation av dessa operativ system stöds också.  | Om Virtual Machine Manager används bör Windows Server 2019-värdar hanteras i Virtual Machine Manager 2019. På samma sätt bör Windows Server 2016-värdar hanteras i Virtual Machine Manager 2016.
 
 > [!NOTE]
 > Se till att .NET Framework 4.6.2 eller högre finns på den lokala servern.
@@ -66,7 +66,7 @@ Värd nätverk: IPv4 | Ja | Ja
 Värd nätverk: IPv6 | Nej | Nej
 Gäst-VM-nätverk: NIC Teaming | Nej | Nej
 Gäst-VM-nätverk: IPv4 | Ja | Ja
-Gäst-VM-nätverk: IPv6 | Nej | Ja
+Gäst-VM-nätverk: IPv6 | No | Yes
 Gäst-VM-nätverk: statisk IP (Windows) | Ja | Ja
 Gäst-VM-nätverk: statisk IP (Linux) | Nej | Nej
 Gäst-VM-nätverk: multi-NIC | Ja | Ja
@@ -141,8 +141,8 @@ Premium Storage | Ja | Ja
 Standard Storage | Ja | Ja
 Import/export-tjänst | Nej | Nej
 Azure Storage konton med aktive rad brand vägg | Ja. För mål lagring och cache. | Ja. För mål lagring och cache.
-Ändra lagrings konto | Nej. Mål Azure Storages kontot kan inte ändras efter att replikeringen har Aktiver ATS. Ändra genom att inaktivera och sedan aktivera haveri beredskap igen. | Nej
-Alternativ för säker överföring | Ja
+Ändra lagrings konto | Nej. Mål Azure Storages kontot kan inte ändras efter att replikeringen har Aktiver ATS. Ändra genom att inaktivera och sedan aktivera haveri beredskap igen. | No
+Alternativ för säker överföring | Yes
 
 
 ## <a name="azure-compute-features"></a>Beräknings funktioner i Azure

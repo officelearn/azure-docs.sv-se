@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: sudbalas
-ms.openlocfilehash: 76ceba11ffeb5569e250fab6bc47fe8faf019361
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 668154b5e54ed4d496d272e33e8fc7f378e75e8a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521113"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386273"
 ---
 # <a name="azure-key-vault-backup"></a>Azure Key Vault säkerhets kopiering
 
@@ -27,7 +27,7 @@ Azure Key Vault tillhandahåller automatiskt funktioner som hjälper dig att und
 
 Key Vault bibehåller tillgänglighet i katastrof scenarier och växlar automatiskt över begär anden till en kopplad region utan att användaren behöver göra något. Mer information finns i [Azure Key Vault tillgänglighet och redundans](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).
 
-Om du vill skydda mot oavsiktlig eller skadlig borttagning av dina hemligheter konfigurerar du funktionerna för mjuk borttagning och rensning av skydd i nyckel valvet. Mer information finns i [Översikt över Azure Key Vault mjuk borttagning](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete).
+Om du vill skydda mot oavsiktlig eller skadlig borttagning av dina hemligheter konfigurerar du funktionerna för mjuk borttagning och rensning av skydd i nyckel valvet. Mer information finns i [Översikt över Azure Key Vault mjuk borttagning](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -68,7 +68,7 @@ Följ stegen i det här avsnittet för att säkerhetskopiera och återställa ob
 
     ![Skärm bild som visar var du väljer knappen Hämta säkerhets kopia i ett nyckel valv.](../media/backup-2.png)
     
-6. Välj **Hämta**.
+6. Välj **Download** (Ladda ned).
 
     ![Skärm bild som visar var du väljer nedladdnings knappen i ett nyckel valv.](../media/backup-3.png)
     

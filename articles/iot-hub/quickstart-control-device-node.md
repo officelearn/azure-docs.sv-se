@@ -14,13 +14,14 @@ ms.custom:
 - seo-javascript-october2019
 - mqtt
 - 'Role: Cloud Development'
+- devx-track-javascript
 ms.date: 06/21/2019
-ms.openlocfilehash: d8e63ccae81b7de41a38f362c55309729243d9cb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5f3064b9be35d9b9d02be3e18469ed12b33757a6
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87315163"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421560"
 ---
 # <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>Snabb start: använda Node.js för att kontrol lera en enhet som är ansluten till en Azure IoT Hub
 
@@ -28,7 +29,7 @@ ms.locfileid: "87315163"
 
 I den här snabb starten använder du en direkt metod för att styra en simulerad enhet som är ansluten till Azure IoT Hub. IoT Hub är en Azure-tjänst som gör att du kan hantera dina IoT-enheter från molnet och mata in stora mängder enhets telemetri till molnet för lagring eller bearbetning. Du kan använda direktmetoder för att fjärrändra beteendet hos en enhet ansluten till IoT Hub. I den här snabb starten används två Node.js program: ett simulerat enhets program som svarar på direkta metoder som anropas från ett Server dels program och ett Server dels program som anropar de direkta metoderna på den simulerade enheten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 

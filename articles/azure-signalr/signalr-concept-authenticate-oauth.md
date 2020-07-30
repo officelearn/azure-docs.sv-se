@@ -6,12 +6,13 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: cb99a0690e1d07f058572b188ae0b76995f48504
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-javascript
+ms.openlocfilehash: eb770dab33e1ec0e1a35f7ebcb6e620fc93692aa
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961803"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87383026"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service-autentisering
 
@@ -40,7 +41,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här självstudien behöver du följande:
 
@@ -58,7 +59,7 @@ För att kunna slutföra den här självstudien behöver du följande:
 
 3. Använd följande inställningar för den nya OAuth-appen och klicka sedan på **Registrera program**:
 
-    | Inställningsnamn | Föreslaget värde | Beskrivning |
+    | Inställningsnamn | Föreslaget värde | Description |
     | ------------ | --------------- | ----------- |
     | Programnamn | *Azure SignalR-chatt* | GitHub-användaren ska kunna känna igen och lita på den app som används för att autentisera.   |
     | Hemsides-URL | `http://localhost:5000/home` | |

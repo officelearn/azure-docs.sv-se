@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: c794b87a88cec20b75923e1f251c1e309a43ef1c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 861fcabbfca07cb342fda42ea2425fa290a1598e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319600"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386460"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Köra Jupyter Notebooks på arbetsytan
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -185,11 +185,20 @@ Dessa åtgärder återställer antecknings bokens tillstånd och återställer a
 Antecknings boken hittar automatiskt alla Jupyter-kernels som är installerade på den anslutna beräknings instansen.  Så här lägger du till en kernel till beräknings instansen:
 
 1. Välj [**öppna terminalen**](#terminal) i antecknings bokens verktygsfält.
-1. Använd terminalfönstret för att skapa en ny miljö.
+1. Använd terminalfönstret för att skapa en ny miljö.  Koden nedan skapar till exempel `newenv` :
+    ```shell
+    conda create --name newenv
+    ```
 1. Aktivera miljön.  Till exempel när du har skapat `newenv` :
 
     ```shell
-    source activate newenv
+    conda activate newenv
+    ```
+1. Installera pip-och ipykernel-paketet i den nya miljön och skapa en kernel för det Conda-avsnittet
+
+    ```shell
+    conda install pip
+    conda install ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
 

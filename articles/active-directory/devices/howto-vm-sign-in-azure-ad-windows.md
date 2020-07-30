@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 588e63e630caa4746b493d4530e301f72e5ccb5f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b3dcb3a74e9341981af7e6eddb4be7454aaf429b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282950"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419792"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på den virtuella Windows-datorn i Azure med Azure Active Directory autentisering (för hands version)
 
@@ -69,7 +69,7 @@ Om du vill aktivera Azure AD-autentisering för dina virtuella Windows-datorer i
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Aktivera Azure AD-inloggning för virtuell Windows-dator i Azure
 
-Om du vill använda Azure AD-inloggning för Windows VM i Azure måste du först aktivera Azure AD-inloggningsnamn för din virtuella Windows-dator och sedan måste du konfigurera RBAC-rolltjänsten för användare som har behörighet att logga in på den virtuella datorn.
+Om du vill använda Azure AD-inloggning för Windows VM i Azure måste du först aktivera Azure AD-inloggningsnamn för din virtuella Windows-dator och sedan måste du konfigurera Azure Role-tilldelningar för användare som har behörighet att logga in på den virtuella datorn.
 Det finns flera sätt att aktivera Azure AD-inloggning för din virtuella Windows-dator:
 
 - Använda Azure Portal upplevelsen när du skapar en virtuell Windows-dator

@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a0b63c130d7d1e72bd3320e40213ae3cb1069a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 264d4afb50904be17624f8801b7b79fe4b232030
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763252"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386817"
 ---
 # <a name="create-an-azure-tenant-for-a-multi-tenant-application"></a>Skapa en Azure-klient för ett program med flera klienter  
 
@@ -37,7 +37,7 @@ Du kan skapa en Azure-prenumeration och Azure Active Directory kostnads fritt oc
 
    a. [Registrera ditt program](../develop/quickstart-register-app.md) som ett program med flera innehavare **för OIDC-eller Oath-program**. Välj kontona i valfri organisations katalog och alternativet personliga Microsoft-konton i de konto typer som stöds
 
-   b. **För SAML-och WS-utfodras-baserade program**konfigurerar du [SAML-baserade enkla inloggnings](configure-single-sign-on-non-gallery-applications.md) program med hjälp av en allmän SAML-mall i Azure AD.
+   b. **För SAML-och WS-utfodras-baserade program**konfigurerar du [SAML-baserade enkla inloggnings](configure-saml-single-sign-on.md) program med hjälp av en allmän SAML-mall i Azure AD.
 
 Du kan också [konvertera ett program med en enda klient till flera klienter](../develop/howto-convert-app-to-be-multi-tenant.md) om det behövs.
 

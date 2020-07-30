@@ -3,14 +3,14 @@ title: Regler för Azure Event Hubs-brandvägg | Microsoft Docs
 description: Använd brand Väggs regler för att tillåta anslutningar från vissa IP-adresser till Azure Event Hubs.
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 2b886aaaf40e5c82d9c7ac3ce5abeda8f54cad3b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a27c5981bb14c2ff98dfcb74692cf9db19a55137
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288036"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421509"
 ---
-# <a name="configure-ip-firewall-rules-for-an-azure-event-hubs-namespace"></a>Konfigurera IP-brandväggens regler för ett Azure Event Hubs-namnområde
+# <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Tillåt åtkomst till Azure Event Hubs-namnrymder från vissa IP-adresser eller intervall
 Som standard är Event Hubs-namnrymder tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 
 Den här funktionen är användbar i scenarier där Azure Event Hubs bör endast vara tillgängligt från vissa välkända webbplatser. Med brand Väggs regler kan du konfigurera regler för att acceptera trafik som kommer från vissa IPv4-adresser. Om du till exempel använder Event Hubs med [Azure Express Route][express-route], kan du skapa en **brand Väggs regel** som tillåter trafik från enbart lokala infrastruktur-IP-adresser. 
@@ -37,20 +37,28 @@ IP-brandväggens regler tillämpas på Event Hubs namn områdes nivå. Reglerna 
 Det här avsnittet visar hur du använder Azure Portal för att skapa IP-brandvägg för ett Event Hubs namn område. 
 
 1. Navigera till **Event Hubs namn området** i [Azure Portal](https://portal.azure.com).
-2. Välj alternativet **nätverk** på den vänstra menyn. Om du väljer alternativet **alla nätverk** , godkänner händelsehubben anslutningar från alla IP-adresser. Den här inställningen motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0. 
+4. Välj **nätverk** under **Inställningar** på den vänstra menyn. 
+
+    > [!NOTE]
+    > Fliken **nätverk** visas endast för **standard** -eller **dedikerade** namn områden. 
+
+    Som standard är alternativet **valda nätverk** markerat. Om du inte anger en IP-brandväggsregel eller lägger till ett virtuellt nätverk på den här sidan, kan namn området nås via offentliga Internet (med hjälp av åtkomst nyckeln). 
+
+    :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Fliken nätverk – alternativet valda nätverk" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
+
+    Om du väljer alternativet **alla nätverk** , godkänner händelsehubben anslutningar från alla IP-adresser (med hjälp av åtkomst nyckeln). Den här inställningen motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0. 
 
     ![Brand vägg – alternativet alla nätverk är valt](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. Om du vill begränsa åtkomsten till vissa nätverk och IP-adresser väljer du alternativet **valda nätverk** . I avsnittet **brand vägg** följer du dessa steg:
+1. Om du vill begränsa åtkomsten till vissa IP-adresser kontrollerar du att alternativet **valda nätverk** är markerat. I avsnittet **brand vägg** följer du dessa steg:
     1. Välj alternativet **Lägg till klientens IP-adress** för att ge din aktuella klient-IP åtkomst till namn området. 
     2. För **adress intervall**anger du en angiven IPv4-adress eller ett intervall med IPv4-adresser i CIDR-notering. 
     3. Ange om du vill **tillåta att betrodda Microsoft-tjänster kringgår den här brand väggen**. 
 
-        > [!WARNING]
-        > Om du väljer alternativet **valda nätverk** och inte anger en IP-adress eller ett adress intervall tillåter tjänsten trafik från alla nätverk. 
-
         ![Brand vägg – alternativet alla nätverk är valt](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
 3. Spara inställningarna genom att välja **Spara** i verktygsfältet. Vänta några minuter tills bekräftelsen visas på Portal meddelandena.
 
+    > [!NOTE]
+    > Information om hur du begränsar åtkomsten till vissa virtuella nätverk finns i [Tillåt åtkomst från vissa nätverk](event-hubs-service-endpoints.md).
 
 ## <a name="use-resource-manager-template"></a>Använda Resource Manager-mallar
 

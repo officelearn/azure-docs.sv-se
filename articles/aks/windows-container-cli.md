@@ -4,12 +4,12 @@ description: Lär dig hur du snabbt skapar ett Kubernetes-kluster, distribuerar 
 services: container-service
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 5baa4f807002cc39428eb46e5a86cf59bd022cb2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ff7fc00c8de5b4d577770c140d356d7f9da1b7e7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015637"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421254"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Skapa en Windows Server-behållare i ett Azure Kubernetes service-kluster (AKS) med hjälp av Azure CLI
 
@@ -19,7 +19,7 @@ Azure Kubernetes Service (AKS) är en hanterad Kubernetes-tjänst som gör att d
 
 Den här artikeln förutsätter grundläggande kunskaper om Kubernetes-koncept. Mer information finns i [Viktiga koncept för Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -94,8 +94,7 @@ az aks create \
 ```
 
 > [!NOTE]
-> Om du får ett lösen ords verifierings fel kan du försöka skapa en resurs grupp i en annan region.
-> Försök sedan att skapa klustret med den nya resurs gruppen.
+> Om du får ett lösen ords verifierings fel kontrollerar du att parametern *Windows-Admin-Password* uppfyller [lösen ords kraven för Windows Server][windows-server-password]. Om ditt lösen ord uppfyller kraven kan du försöka skapa en resurs grupp i en annan region. Försök sedan att skapa klustret med den nya resurs gruppen.
 
 Efter några minuter slutförs kommandot och returnerar JSON-formaterad information om klustret. Ibland kan det ta längre tid än några minuter att etablera klustret. Tillåt upp till 10 minuter i dessa fall.
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 07/29/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 42356ec4277c8441b4833560f431740e9e2f56c8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 945d6ac15c3cb0b3f98ebb14e6b859b8f356b944
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311355"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419843"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft Identity Platform och OAuth 2,0 Authorization Code Flow
 
@@ -66,7 +66,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Klicka på länken nedan för att utföra den här begäran! När du har loggat in bör webbläsaren omdirigeras till `https://localhost/myapp/` med en `code` i adress fältet.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| Parameter    | Obligatorisk/valfri | Beskrivning |
+| Parameter    | Obligatorisk/valfri | Description |
 |--------------|-------------|--------------|
 | `tenant`    | krävs    | `{tenant}`Värdet i sökvägen till begäran kan användas för att styra vem som kan logga in på programmet. De tillåtna värdena är `common` , `organizations` , `consumers` och klient-ID: n. Mer information finns i [grunderna om protokoll](active-directory-v2-protocols.md#endpoints).  |
 | `client_id`   | krävs    | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app.  |
@@ -122,7 +122,7 @@ error=access_denied
 
 I följande tabell beskrivs de olika fel koderna som kan returneras i `error` parametern för fel svaret.
 
-| Felkod  | Beskrivning    | Klient åtgärd   |
+| Felkod  | Description    | Klient åtgärd   |
 |-------------|----------------|-----------------|
 | `invalid_request` | Protokoll fel, till exempel en obligatorisk parameter som saknas. | Åtgärda och skicka begäran på nytt. Detta är ett utvecklings fel som vanligt vis fångas under den första testningen. |
 | `unauthorized_client` | Klient programmet får inte begära en auktoriseringskod. | Det här felet uppstår vanligt vis när klient programmet inte är registrerat i Azure AD eller inte har lagts till i användarens Azure AD-klient. Programmet kan uppmana användaren att ange instruktioner för att installera programmet och lägga till det i Azure AD. |
@@ -156,7 +156,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > Försök att köra denna begäran i Postman! (Glöm inte att ersätta `code` ) [ ![ Försök att köra denna begäran i Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-| Parameter  | Obligatorisk/valfri | Beskrivning     |
+| Parameter  | Obligatorisk/valfri | Description     |
 |------------|-------------------|----------------|
 | `tenant`   | krävs   | `{tenant}`Värdet i sökvägen till begäran kan användas för att styra vem som kan logga in på programmet. De tillåtna värdena är `common` , `organizations` , `consumers` och klient-ID: n. Mer information finns i [grunderna om protokoll](active-directory-v2-protocols.md#endpoints).  |
 | `client_id` | krävs  | Det program-ID (klient) som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan som har tilldelats till din app. |
@@ -187,9 +187,9 @@ Ett lyckat svar på token kommer att se ut så här:
 | `access_token`  | Den begärda åtkomsttoken. Appen kan använda denna token för att autentisera till den skyddade resursen, till exempel ett webb-API.  |
 | `token_type`    | Anger värdet för token-typ. Den enda typ som Azure AD stöder är Bearer |
 | `expires_in`    | Hur länge åtkomsttoken är giltig (i sekunder). |
-| `scope`         | De omfattningar som access_token är giltiga för. |
+| `scope`         | De omfattningar som access_token är giltiga för. Valfritt – detta är inte standard och om det utelämnas används token för de omfattningar som begärs i den inledande benet i flödet. |
 | `refresh_token` | En OAuth 2,0-uppdateringstoken. Appen kan använda denna token för att hämta ytterligare åtkomsttoken när den aktuella åtkomsttoken upphör att gälla. Refresh_tokens är långvarig och kan användas för att behålla åtkomst till resurser under långa tids perioder. Mer information om hur du uppdaterar en åtkomsttoken finns i [avsnittet nedan](#refresh-the-access-token). <br> **Obs:** Anges endast om `offline_access` omfattning begärdes. |
-| `id_token`      | En JSON Web Token (JWT). Appen kan avkoda segmenten i denna token för att begära information om den användare som har loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita sig på dem för några tillstånds-eller säkerhets gränser. Mer information om id_tokens finns i [`id_token reference`](id-tokens.md) . <br> **Obs:** Anges endast om `openid` omfattning begärdes. |
+| `id_token`      | En JSON Web Token (JWT). Appen kan avkoda segmenten i denna token för att begära information om den användare som har loggat in. Appen kan cachelagra värdena och visa dem och konfidentiella klienter kan använda detta för auktorisering. Mer information om id_tokens finns i [`id_token reference`](id-tokens.md) . <br> **Obs:** Anges endast om `openid` omfattning begärdes. |
 
 ### <a name="error-response"></a>Fel svar
 
@@ -219,7 +219,7 @@ Fel svaren kommer att se ut så här:
 
 ### <a name="error-codes-for-token-endpoint-errors"></a>Felkoder för token slut punkts fel
 
-| Felkod         | Beskrivning        | Klient åtgärd    |
+| Felkod         | Description        | Klient åtgärd    |
 |--------------------|--------------------|------------------|
 | `invalid_request`  | Protokoll fel, till exempel en obligatorisk parameter som saknas. | Åtgärda begäran eller registrera appen och skicka begäran på nytt   |
 | `invalid_grant`    | Auktoriseringskod eller PKCE Code Verifier är ogiltig eller har upphört att gälla. | Testa en ny begäran till `/authorize` slut punkten och kontrol lera att parametern code_verifier är korrekt.  |
@@ -227,8 +227,9 @@ Fel svaren kommer att se ut så här:
 | `invalid_client` | Klientautentisering misslyckades.  | Klientens autentiseringsuppgifter är inte giltiga. För att åtgärda detta uppdaterar program administratören autentiseringsuppgifterna.   |
 | `unsupported_grant_type` | Auktoriseringsservern stöder inte typen för auktoriserings beviljande. | Ändra beviljad typ i begäran. Den här typen av fel bör bara inträffa under utvecklingen och identifieras under den första testningen. |
 | `invalid_resource` | Mål resursen är ogiltig eftersom den inte finns, det går inte att hitta den i Azure AD, eller så är den inte korrekt konfigurerad. | Detta anger att resursen, om den finns, inte har kon figurer ATS i klient organisationen. Programmet kan uppmana användaren att ange instruktioner för att installera programmet och lägga till det i Azure AD.  |
-| `interaction_required` | Begäran kräver användar interaktion. Till exempel krävs ytterligare ett autentiserings steg. | Gör om begäran med samma resurs.  |
-| `temporarily_unavailable` | Servern är tillfälligt upptagen och kan inte hantera begäran. | Gör om begäran. Klient programmet kan förklara för användaren att dess svar är fördröjt på grund av ett tillfälligt tillstånd. |
+| `interaction_required` | Icke-standard, eftersom OIDC-specifikationen bara anropar för detta på `/authorize` slut punkten. Begäran kräver användar interaktion. Till exempel krävs ytterligare ett autentiserings steg. | Gör om `/authorize` begäran med samma omfång. |
+| `temporarily_unavailable` | Servern är tillfälligt upptagen och kan inte hantera begäran. | Gör om begäran efter en liten fördröjning. Klient programmet kan förklara för användaren att dess svar är fördröjt på grund av ett tillfälligt tillstånd. |
+|`consent_required` | Begäran kräver användar medgivande. Det här felet är inte standard, eftersom det vanligt vis bara returneras i `/authorize` slut punkten per OIDC-specifikationer. Returneras när en `scope` parameter användes på det kod inlösen flöde som klient programmet inte har behörighet att begära.  | Klienten bör skicka tillbaka användaren till `/authorize` slut punkten med rätt omfång för att utlösa medgivande. |
 
 > [!NOTE]
 > Appar med en sida kan få ett `invalid_request` fel meddelande som anger att inlösningen för flera ursprungs-token endast tillåts för klient typen Single-Side-program.  Detta anger att omdirigerings-URI: n som används för att begära token inte har marker ATS som en `spa` omdirigerings-URI.  Granska [program registrerings stegen](#redirect-uri-setup-required-for-single-page-apps) för att aktivera det här flödet.

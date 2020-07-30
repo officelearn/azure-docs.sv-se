@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 818528ae193209e23424998421ebe2fb0c2b24b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35aa75fcbd579c3e2c587b370b0926393b4e58c1
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83199380"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87383774"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Vanliga frågor och svar kring Azure Active Directory rapporter
 
@@ -145,7 +145,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure Active Directory
 
 * **Används inte**: det innebär att det inte fanns någon ca-princip med användaren och appen i omfånget. 
 * **Lyckades**: det innebär att en ca-princip med användaren och appen i omfattning och ca-principer uppfylldes. 
-* **Misslyckades**: det innebär att det finns en ca-princip med användaren och appen i omfattning och ca-principer som inte uppfylldes. 
+* **Fel**: inloggningen uppfyllde användar-och program villkoret för minst en princip för villkorlig åtkomst och beviljade kontroller är antingen inte uppfyllda eller har angetts till blockera åtkomst.
     
 **F: Vad är alla möjliga värden för resultatet av principen för villkorlig åtkomst?**
 

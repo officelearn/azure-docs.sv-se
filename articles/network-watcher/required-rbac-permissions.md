@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: damendo
-ms.openlocfilehash: f8743f19d6cd262ad140659be55a4fc57e842564
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d31240cad709a156d7235f116c9cd2c8fb698b03
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76840561"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421152"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Rollbaserad åtkomst kontroll behörigheter som krävs för att använda Network Watcher-funktioner
 
@@ -57,7 +57,7 @@ Med rollbaserad åtkomst kontroll i Azure (RBAC) kan du bara tilldela de åtgär
 | Microsoft. Network/networkWatchers/connectionMonitors/Write          | Skapa en anslutningsövervakare                                    |
 | Microsoft. Network/networkWatchers/connectionMonitors/Delete         | Ta bort en anslutnings övervakare                                    |
 
-## <a name="packet-capture"></a>Paketinsamling
+## <a name="packet-capture"></a>Paketfångst
 
 | Åtgärd                                                              | Beskrivning                                                           |
 | ---------                                                           | -------------                                                  |
@@ -102,9 +102,9 @@ Med rollbaserad åtkomst kontroll i Azure (RBAC) kan du bara tilldela de åtgär
 
 Network Watcher funktioner kräver också följande åtgärder:
 
-| Åtgärd (er)                                                           | Beskrivning                                                    |
+| Åtgärd (er)                                                           | Description                                                    |
 | ---------                                                           | -------------                                                  |
-| Microsoft. Authorization/ \* /Read                                     | Används för att hämta RBAC-roll tilldelningar och princip definitioner          |
+| Microsoft. Authorization/ \* /Read                                     | Används för att hämta roll tilldelningar och princip definitioner i Azure          |
 | Microsoft. Resources/Subscriptions/resourceGroups/Read               | Används för att räkna upp alla resurs grupper i en prenumeration    |
 | Microsoft. Storage/storageAccounts/Read                              | Används för att hämta egenskaperna för det angivna lagrings kontot   |
 | Microsoft. Storage/storageAccounts/listServiceSas/Action, </br> Microsoft. Storage/storageAccounts/listAccountSas/Action, <br> Microsoft. Storage/storageAccounts/Listnycklar/åtgärd| Används för att hämta signaturer för delad åtkomst (SAS) som aktiverar [säker åtkomst till lagrings kontot](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) och skriver till lagrings kontot |

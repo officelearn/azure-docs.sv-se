@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 1cb9600393fe50226da1efcef550cbb8b26f7f14
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c6b8f9d7f99d49f65a45d0e09623ef2f0e1217f2
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321606"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387072"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Återskapa åtkomst nycklar för lagrings kontot
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,9 +26,9 @@ Lär dig hur du ändrar åtkomst nycklarna för Azure Storage konton som använd
 Av säkerhets synpunkt kan du behöva ändra åtkomst nycklarna för ett Azure Storage-konto. När du återskapar åtkomst nyckeln måste Azure Machine Learning uppdateras för att använda den nya nyckeln. Azure Machine Learning kan använda lagrings kontot för både modell lagring och som ett data lager.
 
 > [!IMPORTANT]
-> Autentiseringsuppgifterna som registreras med data lager sparas i Azure Key Vault som är kopplade till arbets ytan. Om du har [mjuk borttagning](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete) aktiverat för din Key Vault, se till att följa den här artikeln för att uppdatera autentiseringsuppgifter. Det går inte att avregistrera data lagret och omregistrera det med samma namn.
+> Autentiseringsuppgifterna som registreras med data lager sparas i Azure Key Vault som är kopplade till arbets ytan. Om du har [mjuk borttagning](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) aktiverat för din Key Vault, se till att följa den här artikeln för att uppdatera autentiseringsuppgifter. Det går inte att avregistrera data lagret och omregistrera det med samma namn.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
 

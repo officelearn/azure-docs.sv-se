@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 5d0808b93d0c9c7b49d1fd394d2b776c008bc594
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: e5daf318088cb71b6a1819db71e3c597a9fa94db
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135855"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421458"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Haveriberedskapsarkitektur för Azure till Azure
 
@@ -62,7 +62,7 @@ Du kan hantera mål resurser på följande sätt:
 
 När du aktiverar Azure VM-replikering skapar Site Recovery en ny replikeringsprincip med de standardinställningar som sammanfattas i tabellen.
 
-**Principinställning** | **Detaljer** | **Default**
+**Principinställning** | **Information** | **Standard**
 --- | --- | ---
 **Kvarhållning av återställnings punkt** | Anger hur länge Site Recovery behåller återställnings punkter | 24 timmar
 **Frekvens för programkonsekventa ögonblicks bilder** | Hur ofta Site Recovery tar en programkonsekvent ögonblicks bild. | Var fjärde timme
@@ -96,13 +96,13 @@ I följande tabell beskrivs olika typer av konsekvens.
 
 ### <a name="crash-consistent"></a>Krasch-konsekvent
 
-**Beskrivning** | **Detaljer** | **Rekommendation**
+**Beskrivning** | **Information** | **Rekommendation**
 --- | --- | ---
 En krasch-konsekvent ögonblicks bild fångar upp data som fanns på disken när ögonblicks bilden togs. Det innehåller inte något i minnet.<br/><br/> Den innehåller motsvarigheten till data på disken som kan finnas om den virtuella datorn kraschade eller om ström sladden hämtades från servern vid det ögonblick då ögonblicks bilden togs.<br/><br/> En krasch konsekvens garanterar inte data konsekvens för operativ systemet eller för appar på den virtuella datorn. | Site Recovery skapar kraschbaserade återställnings punkter var femte minut som standard. Den här inställningen kan inte ändras.<br/><br/>  | Idag kan de flesta appar återställa sig väl från kraschbaserade punkter.<br/><br/> Kraschbaserade återställnings punkter är vanligt vis tillräckligt för replikering av operativ system och appar som DHCP-servrar och utskrifts servrar.
 
 ### <a name="app-consistent"></a>Program – konsekvent
 
-**Beskrivning** | **Detaljer** | **Rekommendation**
+**Beskrivning** | **Information** | **Rekommendation**
 --- | --- | ---
 Programkonsekventa återställnings punkter skapas från programkonsekventa ögonblicks bilder.<br/><br/> En programkonsekvent ögonblicks bild innehåller all information i en krasch-konsekvent ögonblicks bild, plus alla data i minnet och transaktioner som pågår. | Programkonsekventa ögonblicks bilder använder tjänsten Volume Shadow Copy (VSS):<br/><br/>   1) när en ögonblicks bild initieras utför VSS en ko-åtgärd (kopiering vid skrivning) på volymen.<br/><br/>   2) innan den utför Ko informerar VSS varje app på datorn att den behöver tömma sina minnesresidenta data till disk.<br/><br/>   3) VSS tillåter sedan säkerhets kopierings-/katastrof återställnings appen (i det här fallet Site Recovery) att läsa ögonblicks bild data och fortsätta. | Programkonsekventa ögonblicks bilder tas i enlighet med den frekvens som du anger. Den här frekvensen bör alltid vara mindre än du anger för att behålla återställnings punkter. Om du till exempel behåller återställnings punkter med standardinställningen 24 timmar bör du ange frekvensen till mindre än 24 timmar.<br/><br/>De är mer komplexa och tar längre tid än krasch-konsekventa ögonblicks bilder.<br/><br/> De påverkar prestanda för appar som körs på en virtuell dator som är aktive rad för replikering. 
 
@@ -128,14 +128,14 @@ När du aktiverar replikering för en virtuell Azure-dator händer följande:
 
 Om utgående åtkomst för virtuella datorer styrs med URL: er, Tillåt dessa URL: er.
 
-| **URL** | **Detaljer** |
-| ------- | ----------- |
-| *.blob.core.windows.net | Gör att data kan skrivas från den virtuella datorn till cachelagringskontot i källregionen. |
-| login.microsoftonline.com | Tillhandahåller auktorisering och autentisering för Site Recovery-tjänstens webbadresser. |
-| *.hypervrecoverymanager.windowsazure.com | Låter den virtuella datorn kommunicera med Site Recovery-tjänsten. |
-| *.servicebus.windows.net | Låter den virtuella datorn skriva övervaknings- och diagnostikdata för Site Recovery. |
-| *.vault.azure.net | Tillåter åtkomst att aktivera replikering för ADE-aktiverade virtuella datorer via portalen
-| *. automation.ext.azure.com | Gör det möjligt att aktivera automatisk uppgradering av mobilitets agenten för ett replikerat objekt via portalen
+| **Namn**                  | **Kommersiellt**                               | **Myndigheter**                                 | **Beskrivning** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | Gör att data kan skrivas från den virtuella datorn till cachelagringskontot i källregionen. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Tillhandahåller auktorisering och autentisering för Site Recovery-tjänstens webbadresser. |
+| Replikering               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`     | Låter den virtuella datorn kommunicera med Site Recovery-tjänsten. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Låter den virtuella datorn skriva övervaknings- och diagnostikdata för Site Recovery. |
+| Key Vault                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Tillåter åtkomst att aktivera replikering för ADE-aktiverade virtuella datorer via portalen |
+| Azure Automation          | `*.automation.ext.azure.com`               | `*.azure-automation.us`                      | Gör det möjligt att aktivera automatisk uppgradering av mobilitets agenten för ett replikerat objekt via portalen |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Utgående anslutning för IP-adressintervall
 
@@ -144,7 +144,7 @@ Observera att information om nätverks anslutningens krav finns i [nätverks Whi
 
 #### <a name="source-region-rules"></a>Käll regions regler
 
-**Regel** |  **Detaljer** | **Tjänsttagg**
+**Regel** |  **Information** | **Tjänsttagg**
 --- | --- | --- 
 Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar lagrings konton i käll regionen | Lagrings.\<region-name>
 Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure Active Directory (Azure AD)  | AzureActiveDirectory
@@ -155,7 +155,7 @@ Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure Automa
 
 #### <a name="target-region-rules"></a>Mål regions regler
 
-**Regel** |  **Detaljer** | **Tjänsttagg**
+**Regel** |  **Information** | **Tjänsttagg**
 --- | --- | --- 
 Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar lagrings konton i mål regionen | Lagrings.\<region-name>
 Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure AD  | AzureActiveDirectory

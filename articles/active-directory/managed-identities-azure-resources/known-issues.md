@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: d8aa6cc7894b13789fe196e32c401128572346bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9b97edeb34e5d245d3bcf9018399f18b096b56f4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019071"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420506"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Vanliga frågor och svar med hanterade identiteter för Azure-resurser
 
@@ -76,7 +76,7 @@ Säkerhets gränserna för identiteten är den resurs som den är kopplad till. 
 
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Kommer Managed identiteter att återskapas automatiskt om jag flyttar en prenumeration till en annan katalog?
 
-Nej. Om du flyttar en prenumeration till en annan katalog måste du manuellt återskapa dem och ge Azure RBAC-roll tilldelningar igen.
+Nej. Om du flyttar en prenumeration till en annan katalog måste du återskapa dem manuellt och ge Azure-roll tilldelningar igen.
 - För systemtilldelade hanterade identiteter: inaktivera och återaktivera. 
 - För användare som tilldelats hanterade identiteter: ta bort, återskapa och koppla dem igen till nödvändiga resurser (t. ex. virtuella datorer)
 

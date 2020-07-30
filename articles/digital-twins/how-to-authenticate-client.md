@@ -1,5 +1,5 @@
 ---
-title: Skriv kod för app-autentisering
+title: Skriva appautentiseringskod
 titleSuffix: Azure Digital Twins
 description: Se så här skriver du en autentiseringsnyckel i ett klient program
 author: baanders
@@ -7,12 +7,13 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4d235280ae4a600994eb93ec08c7a13630f9682f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 1eebacefa2e91970263c301de4ff160ea7c9f2eb
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131590"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420353"
 ---
 # <a name="write-client-app-authentication-code"></a>Skriv kod för klientautentisering för klient program
 

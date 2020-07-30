@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: aea093cbbb59824973c351f6df23113e1b51ab69
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7e93772a77ac1edb88c8e1a56c8db216c6e9fbd3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319872"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420115"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Privata erbjudanden på Microsofts kommersiella marknads plats
 
@@ -43,6 +43,9 @@ Privata planer är komponenter i ett erbjudande och är bara synliga och köpbar
 
 För *nya erbjudanden som bara omfattar privata planer*kan utgivare skapa sina erbjudanden som ett annat erbjudande och sedan markera planerna som privata. Erbjudanden som bara har privata planer kommer inte att kunna identifieras eller nås via Microsofts kommersiella marknads plats eller [Azure Portal](https://azure.microsoft.com/features/azure-portal/) av kunder som inte är associerade med erbjudandet.
 
+>[!NOTE]
+>Ett erbjudande som bara innehåller privata planer visas inte i den offentliga Azure Marketplace eller AppSource.
+
 ## <a name="targeting-customers-with-private-offers"></a>Rikta kunder mot privata erbjudanden
 
 För både nya och befintliga privata erbjudanden kan utgivare rikta kunder med prenumerations-ID. Utgivare som använder en virtuell dator eller Azure Application erbjudande kan begränsa tillgängligheten för en privat plan till ett enskilt Azure-prenumerations-ID eller ladda upp en CSV med upp till 20 000 Azure-prenumerations-ID. När du använder ett privat erbjudande i SaaS-appen kan utgivare associera antingen ett klient-ID för att begränsa tillgängligheten för en privat plan med hjälp av antingen manuell eller CSV-överföring.
@@ -61,6 +64,7 @@ Privata erbjudanden visas också i Sök resultaten. Leta bara efter det **privat
 
 >[!Note]
 >Privata erbjudanden stöds inte med prenumerationer som upprättats via en åter försäljare av CSP-programmet (Cloud Solution Provider).
+
 
 <!---
 ## Next steps

@@ -3,14 +3,13 @@ title: Program karta i Azure Application Insights | Microsoft Docs
 description: Övervaka komplexa programtopologier med program kartan
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.custom: devx-track-javascript
 ms.reviewer: sdash
-ms.openlocfilehash: 7e4035e382aaa3f8b5d2327054a50a5360c60bfa
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b99998a7b1bcb2348a1a73696661de7cf8b44b85
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367018"
+ms.locfileid: "87421305"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Program karta: prioritering distribuerade program
 
@@ -82,9 +81,12 @@ Om du vill visa aktiva aviseringar och underliggande regler som orsakar att avis
 
 ![Skärm bild av analys upplevelse](media/app-map/alerts-view.png)
 
-## <a name="set-cloud-role-name"></a>Ange namn på moln roll
+## <a name="set-or-override-cloud-role-name"></a>Ange eller Åsidosätt moln roll namn
 
-Program kartan använder namn egenskapen för **moln rollen** för att identifiera komponenterna på kartan. Application Insights SDK lägger automatiskt till egenskapen namn för moln roll till den telemetri som avsänts av komponenter. Till exempel kommer SDK att lägga till ett webbplats namn eller tjänst roll namn i egenskapen namn på moln roll. Det finns dock fall där du kanske vill åsidosätta standardvärdet. För att åsidosätta namnet på moln rollen och ändra vad som visas i program kartan:
+Program kartan använder namn egenskapen för **moln rollen** för att identifiera komponenterna på kartan. Ange eller åsidosätta namnet på moln rollen manuellt och ändra vad som visas i program kartan:
+
+> [!NOTE]
+> Application Insights SDK eller agent lägger automatiskt till egenskapen namn för moln rollen till den telemetri som genereras av komponenter i en Azure App Service miljö.
 
 # <a name="netnetcore"></a>[.NET/. NetCore](#tab/net)
 
@@ -266,7 +268,7 @@ Om du har problem med att få program kartan att fungera som förväntat kan du 
 
 3. Om du använder Azure Functions med C# uppgraderar du till [Functions v2](../../azure-functions/functions-versions.md).
 
-4. Bekräfta att [namnet på moln rollen](#set-cloud-role-name) har kon figurer ATS korrekt.
+4. Bekräfta att [namnet på moln rollen](#set-or-override-cloud-role-name) har kon figurer ATS korrekt.
 
 5. Om du saknar ett beroende kontrollerar du att det finns i listan över [automatiskt insamlade beroenden](./auto-collect-dependencies.md). Om inte så kan du ändå spåra det manuellt med ett [beroendespårningsanrop](./api-custom-events-metrics.md#trackdependency).
 
@@ -282,7 +284,7 @@ För att åtgärda detta måste du ändra Instrumentation till rätt sätt i fä
 
 * Beroende typen ska representera den logiska typen för ett beroende. Till exempel är HTTP, SQL eller Azure Blob typiska beroende typer. Det får inte innehålla unika ID: n.
 
-* Syftet med namnet på moln rollen beskrivs i [avsnittet ovan](#set-cloud-role-name).
+* Syftet med namnet på moln rollen beskrivs i [avsnittet ovan](#set-or-override-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Portal feedback
 

@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om säkerhetskopiering av Azure Files
 description: I den här artikeln hittar du svar på vanliga frågor om hur du skyddar dina Azure-filresurser med Azure Backup-tjänsten.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 134d9520a3c2348b23ec27c6e14eb56468f2002d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6c2ef95a6303fd061b1ce486e893ba9812b83e14
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054970"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382720"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
 
@@ -34,13 +34,13 @@ Ja. Skydd av Azure-filresurser som är anslutna till Sync-grupper har Aktiver AT
 
 När du försöker säkerhetskopiera och väljer ett lagrings konto för att identifiera fil resurser i det registreras lagrings kontot med valvet som detta görs från. Om du väljer att skydda fil resurserna med ett annat valv [avregistrerar](manage-afs-backup.md#unregister-a-storage-account) du det valda lagrings kontot från det här valvet.
 
+### <a name="why-cant-i-change-the-vault-to-configure-backup-for-the-file-share"></a>Varför kan jag inte ändra valvet för att konfigurera säkerhets kopiering för fil resursen?
+
+Om lagrings kontot redan är registrerat med ett valv eller andra fil resurser i lagrings kontot skyddas med ett valv, kan du inte ändra det eftersom alla fil resurser i ett lagrings konto kan skyddas endast av samma valv. Om du vill ändra valvet måste du [stoppa skyddet för alla fil resurser i lagrings kontot](manage-afs-backup.md#stop-protection-on-a-file-share) från det anslutna valvet, [avregistrera](manage-afs-backup.md#unregister-a-storage-account) lagrings kontot och sedan välja ett annat valv för skydd.
+
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>Kan jag ändra valvet till vilket jag säkerhetskopierar mina fil resurser?
 
 Ja. Du måste dock [stoppa skyddet av fil resursen](manage-afs-backup.md#stop-protection-on-a-file-share) från det anslutna valvet, [avregistrera](manage-afs-backup.md#unregister-a-storage-account) lagrings kontot och sedan skydda det från ett annat valv.
-
-### <a name="how-many-azure-file-shares-can-i-protect-in-a-vault"></a>Hur många Azure-filresurser kan jag skydda i ett valv?
-
-Du kan skydda Azure-filresurser från upp till 50 lagrings konton per valv. Du kan även skydda upp till 200 Azure-filresurser i ett enda valv.
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>Kan jag skydda två olika filresurser från samma lagringskonto till olika valv?
 

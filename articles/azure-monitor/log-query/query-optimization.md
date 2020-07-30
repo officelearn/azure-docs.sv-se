@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 5a454d04701160492539f5c9caba57c9e617401e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dca320168805e9f7c8f6336b39c4f9394255f9b8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067478"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416323"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimera logg frågor i Azure Monitor
 Azure Monitor loggar använder [Azure datautforskaren (ADX)](/azure/data-explorer/) för att lagra loggdata och köra frågor för att analysera data. Den skapar, hanterar och underhåller ADX-kluster åt dig, och optimerar dem för din logg analys arbets belastning. När du kör en fråga optimeras den och dirigeras till lämpligt ADX-kluster som lagrar arbets ytans data. Både Azure Monitor loggar och Azure Datautforskaren använder många automatiska metoder för optimering av frågor. Även om automatiska optimeringar ger betydande ökning, finns det i vissa fall där du kan förbättra dina frågeresultat dramatiskt. Den här artikeln beskriver prestanda överväganden och flera tekniker för att åtgärda dem.
@@ -98,14 +98,14 @@ Följande frågor ger till exempel exakt samma resultat, men den andra är mer e
 Heartbeat 
 | extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
 | where IPRegion == "WestCoast"
-| summarize count() by Computer
+| summarize count(), make_set(IPRegion) by Computer
 ```
 ```Kusto
 //more efficient
 Heartbeat 
 | where RemoteIPLongitude  < -94
 | extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| summarize count() by Computer
+| summarize count(), make_set(IPRegion) by Computer
 ```
 
 ### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>Använd effektiva agg regerings kommandon och dimensioner i sammanfatta och delta
@@ -319,7 +319,7 @@ Perf
 ) on Computer
 ```
 
-Ett vanligt fall där ett sådant fel inträffar är när [arg_max ()](/azure/kusto/query/arg-max-aggfunction) används för att hitta den senaste förekomsten. Exempel:
+Ett vanligt fall där ett sådant fel inträffar är när [arg_max ()](/azure/kusto/query/arg-max-aggfunction) används för att hitta den senaste förekomsten. Ett exempel:
 
 ```Kusto
 Perf
@@ -433,7 +433,7 @@ Fråge beteenden som kan minska parallellitet är:
 - Användning av serialisering och fönster funktioner, till exempel [serializer-operatorn](/azure/kusto/query/serializeoperator), [Next ()](/azure/kusto/query/nextfunction), [föreg ()](/azure/kusto/query/prevfunction)och [rad](/azure/kusto/query/rowcumsumfunction) funktionerna. Tids serier och användar analys funktioner kan användas i vissa av dessa fall. Ineffektiv serialisering kan också inträffa om följande operatorer inte används i slutet av frågan: [Range](/azure/kusto/query/rangeoperator), [sort](/azure/kusto/query/sortoperator), [order](/azure/kusto/query/orderoperator), [Top](/azure/kusto/query/topoperator), [Top-Hitters](/azure/kusto/query/tophittersoperator), [Get schema](/azure/kusto/query/getschemaoperator).
 -    Användning av funktionen [DAntal ()](/azure/kusto/query/dcount-aggfunction) agg regering tvingar systemet att ha en central kopia av de distinkta värdena. När data skalan är hög kan du överväga att använda DAntal-funktionen valfria parametrar för att minska noggrannheten.
 -    I många fall sänker [kopplings](/azure/kusto/query/joinoperator?pivots=azuremonitor) operatorn den övergripande parallellitet. Undersök blanda koppling som ett alternativ när prestanda är problematisk.
--    I resurs omfattnings frågor kan de förköra RBAC-kontrollerna Linger i situationer där det är mycket stort antal RBAC-tilldelningar. Detta kan leda till längre kontroller som leder till lägre parallellitet. En fråga körs till exempel på en prenumeration där det finns tusentals resurser och varje resurs har många roll tilldelningar på resurs nivå, inte på prenumerationen eller resurs gruppen.
+-    I resurs omfattnings frågor kan de förköra RBAC-kontrollerna Linger i situationer där det är mycket stort antal roll tilldelningar i Azure. Detta kan leda till längre kontroller som leder till lägre parallellitet. En fråga körs till exempel på en prenumeration där det finns tusentals resurser och varje resurs har många roll tilldelningar på resurs nivå, inte på prenumerationen eller resurs gruppen.
 -    Om en fråga bearbetar små mängder data, kommer dess parallellitet att vara låg eftersom systemet inte sprider det över flera datornoder.
 
 

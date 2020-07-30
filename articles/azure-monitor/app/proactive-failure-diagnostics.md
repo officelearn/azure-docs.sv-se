@@ -4,12 +4,12 @@ description: Varnar dig om ovanliga ändringar av antalet misslyckade förfrågn
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 30bb95c4c47c02fe6b3d31d6e6763656aa96fdec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a093d5d6bdb96aa6f0a8a92fea48835971aebe16
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87315945"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420217"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Smart identifiering – fel avvikelser
 [Application Insights](./app-insights-overview.md) automatiskt varna dig i nära real tid om din webbapp upplever en onormal ökning av antalet misslyckade förfrågningar. Den identifierar en ovanlig ökning i frekvensen av HTTP-begäranden eller beroende anrop som rapporteras som misslyckade. För förfrågningar har misslyckade förfrågningar vanligt vis svars koder på 400 eller högre. För att hjälpa dig att prioritering och diagnostisera problemet finns en analys av egenskaperna för fel och relaterade program data i aviserings informationen. Det finns också länkar till Application Insights Portal för ytterligare diagnos. Funktionen behöver inte konfigureras eller konfigureras eftersom den använder Machine Learning-algoritmer för att förutsäga den normala felfrekvensen.
@@ -20,7 +20,7 @@ När du har konfigurerat [Application Insights för projektet](./app-insights-ov
 
 Här är ett exempel på en avisering:
 
-[![](./media/proactive-failure-diagnostics/013.png "Sample smart detection alert showing cluster analysis around failure")](./media/proactive-failure-diagnostics/013.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/013.png" alt-text="Exempel på Smart identifierings avisering som visar kluster analys kring fel." lightbox="./media/proactive-failure-diagnostics/013.png":::
 
 Aviserings informationen meddelar dig:
 
@@ -72,11 +72,11 @@ Den här varnings regeln skapas med en associerad [Åtgärds grupp](../platform/
 
 Öppna sidan aviseringar. Aviserings regler för fel avvikelser inkluderas tillsammans med eventuella aviseringar som du har angett manuellt, och du kan se om det är i aviserings tillstånd.
 
-[![](./media/proactive-failure-diagnostics/021.png "On the Application Insights resource page, click 'Alerts' tile, then 'Manage alert rules'")](./media/proactive-failure-diagnostics/021.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="På sidan Application Insights resurs klickar du på panelen aviseringar och hanterar sedan aviserings regler." lightbox="./media/proactive-failure-diagnostics/021.png":::
 
 Klicka på aviseringen för att konfigurera den.
 
-[![](./media/proactive-failure-diagnostics/032.png "Rule configuration screen")](./media/proactive-failure-diagnostics/032.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Regel konfigurations skärmen." lightbox="./media/proactive-failure-diagnostics/032.png":::
 
 Observera att du kan inaktivera eller ta bort en varnings regel för fel avvikelser, men du kan inte skapa en annan på samma Application Insights-resurs.
 
@@ -298,7 +298,7 @@ Du kan också öppna [Azure Portal](https://portal.azure.com), navigera till App
 
 Om du klickar på diagnostisera fel får du mer information och kan lösa problemet.
 
-[![](./media/proactive-failure-diagnostics/051.png "Diagnostic search")](./media/proactive-failure-diagnostics/051.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Diagnostisk sökning." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
 
 I procent av begär Anden och antalet användare som påverkas kan du bestämma hur brådskande problemet är. I exemplet ovan jämförs fel frekvensen på 78,5% med en normal taxa på 2,2%, vilket innebär att något är skadat. Å andra sidan påverkades bara 46 användare. Om det var din app kan du utvärdera hur allvarligt det är.
 
@@ -306,13 +306,13 @@ I många fall kommer du att kunna diagnostisera problemet snabbt från namn, und
 
 I det här exemplet uppstod ett undantag från SQL Database på grund av att gränsen för begäran har uppnåtts.
 
-[![](./media/proactive-failure-diagnostics/052.png "Failed request details")](./media/proactive-failure-diagnostics/052.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Information om misslyckade förfrågningar." lightbox="./media/proactive-failure-diagnostics/052.png":::
 
 ## <a name="review-recent-alerts"></a>Granska nya aviseringar
 
 Klicka på **aviseringar** på sidan Application Insights resurs för att få de senaste utlösta aviseringarna:
 
-[![](./media/proactive-failure-diagnostics/070.png "Alerts summary")](./media/proactive-failure-diagnostics/070.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Aviserings Sammanfattning." lightbox="./media/proactive-failure-diagnostics/070.png":::
 
 ## <a name="whats-the-difference-"></a>Vad är skillnaden...
 Smart identifiering av fel avvikelser kompletterar andra liknande, men distinkta funktioner i Application Insights.

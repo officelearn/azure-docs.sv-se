@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 07/29/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: af554b2055102b12a8c0e89c6301400f76021ede
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e242e6ce59c715cf3a9ca95523a9a9eda274407a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313344"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418924"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft Identity Platform ID-token
 
@@ -51,7 +51,7 @@ Visa denna v 2.0-exempel-token i [JWT.MS](https://jwt.ms/#id_token=eyJ0eXAiOiJKV
 
 ### <a name="header-claims"></a>Huvud anspråk
 
-|Begär | Format | Beskrivning |
+|Begär | Format | Description |
 |-----|--------|-------------|
 |`typ` | Sträng-Always-JWT | Anger att token är en JWT-token.|
 |`alg` | Sträng | Anger algoritmen som användes för att signera token. Exempel: "RS256" |
@@ -62,7 +62,7 @@ Visa denna v 2.0-exempel-token i [JWT.MS](https://jwt.ms/#id_token=eyJ0eXAiOiJKV
 
 I den här listan visas de JWT-anspråk som är i de flesta id_tokens som standard (utom där antecknas).  Din app kan dock använda [valfria anspråk](active-directory-optional-claims.md) för att begära ytterligare JWT-anspråk i id_token.  Detta kan vara ett intervall från `groups` anspråk till information om användarens namn.
 
-|Begär | Format | Beskrivning |
+|Begär | Format | Description |
 |-----|--------|-------------|
 |`aud` |  Sträng, en app-ID-URI | Identifierar den avsedda mottagaren för token. I `id_tokens` är mål gruppen appens program-ID som har tilldelats din app i Azure Portal. Din app bör validera det här värdet och avvisa token om värdet inte matchar. |
 |`iss` |  Sträng, en STS-URI | Identifierar säkerhetstokentjänst som konstruerar och returnerar token och Azure AD-klienten där användaren autentiserades. Om token har utfärdats av v 2.0-slutpunkten avslutas URI: n `/v2.0` .  GUID som anger att användaren är en konsument användare från en Microsoft-konto `9188040d-6c67-4c5b-b112-36a304b66dad` . Din app ska använda en GUID-del av anspråket för att begränsa den uppsättning innehavare som kan logga in på appen, om tillämpligt. |
@@ -71,7 +71,7 @@ I den här listan visas de JWT-anspråk som är i de flesta id_tokens som standa
 |`nbf` |  int, en UNIX-tidsstämpel | Anspråket "NBF" (inte före) anger hur lång tid som JWT inte får godkännas för bearbetning.|
 |`exp` |  int, en UNIX-tidsstämpel | Anspråket "EXP" (förfallo tid) anger förfallo tid för eller efter vilken JWT inte får godkännas för bearbetning.  Det är viktigt att Observera att en resurs kanske avvisar token före den här tiden, till exempel om en ändring i autentisering krävs eller om en åter kallelse av token har identifierats. |
 | `c_hash`| Sträng |Kod-hash ingår endast i ID-token när ID-token utfärdas med en OAuth 2,0-auktoriseringskod. Den kan användas för att verifiera äktheten för en auktoriseringskod. Mer information om hur du utför den här verifieringen finns i [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-core-1_0.html). |
-|`at_hash`| Sträng |Hashen för åtkomsttoken ingår bara i ID-tokens när ID-token utfärdas med en OAuth 2,0-åtkomsttoken. Den kan användas för att verifiera äktheten på en åtkomsttoken. Mer information om hur du utför den här verifieringen finns i [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-core-1_0.html). |
+|`at_hash`| Sträng |Hashen för åtkomsttoken ingår bara i ID-tokens när ID-token utfärdas från `/authorize` slut punkten med en OAuth 2,0-åtkomsttoken. Den kan användas för att verifiera äktheten på en åtkomsttoken. Mer information om hur du utför den här verifieringen finns i [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken). Detta returneras inte för ID-token från `/token` slut punkten. |
 |`aio` | Ogenomskinlig sträng | Ett internt anspråk som används av Azure AD för att registrera data för åter användning av token. Ignoreras.|
 |`preferred_username` | Sträng | Det primära användar namnet som representerar användaren. Det kan vara en e-postadress, ett telefonnummer eller ett generiskt användar namn utan angivet format. Värdet är föränderligt och kan ändras med tiden. Eftersom det är föränderligt får inte det här värdet användas för att fatta auktoriseringsbeslut. `profile`Omfånget krävs för att ta emot det här anspråket.|
 |`email` | Sträng | `email`Anspråket finns som standard för gäst konton som har en e-postadress.  Din app kan begära e-postanspråk för hanterade användare (från samma klient som resursen) med hjälp av det `email` [valfria anspråket](active-directory-optional-claims.md).  På v 2.0-slutpunkten kan din app även begära `email` OpenID Connect-omfånget – du behöver inte begära både det valfria anspråket och omfattningen för att hämta anspråket.  E-postanspråket stöder bara adresser bara e-post från användarens profil information. |

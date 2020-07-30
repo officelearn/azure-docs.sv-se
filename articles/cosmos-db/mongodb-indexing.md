@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.date: 06/16/2020
 author: timsander1
 ms.author: tisande
-ms.openlocfilehash: e0b14eefcc0b484c92faf1148ae2972f51b04d31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 473bc8677c5369833928eb4648f32bb146e83e65
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260703"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420659"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Hantera indexering i Azure Cosmos DBs API för MongoDB
 
@@ -23,7 +24,7 @@ Azure Cosmos DBs API för MongoDB drar nytta av kärn funktionerna för hanterin
 
 Azure Cosmos DBs API för MongoDB-Server version 3,6 indexerar automatiskt `_id` fältet, som inte går att släppa. Det tillämpar automatiskt `_id` fältets unikhet per Shard-nyckel. I Azure Cosmos DB s API för MongoDB är horisontell partitionering och indexering separata begrepp. Du behöver inte indexera din Shard-nyckel. Men precis som med andra egenskaper i ditt dokument, rekommenderar vi att du indexerar Shard-nyckeln om den här egenskapen är ett gemensamt filter i dina frågor.
 
-Om du vill indexera ytterligare fält tillämpar du MongoDB index-Management-kommandon. Precis som i MongoDB indexerar Azure Cosmos DBs-API för MongoDB automatiskt `_id` fältet. Den här standard indexerings principen skiljer sig från Azure Cosmos DB SQL API, som som standard indexerar alla fält.
+Om du vill indexera fler fält kan du använda MongoDB-kommandona för indexhantering. Precis som i MongoDB indexerar Azure Cosmos DBs-API för MongoDB automatiskt `_id` fältet. Den här indexeringspolicyn skiljer sig från Azure Cosmos DB SQL-API:et som standardmässigt indexerar alla fält.
 
 Om du vill tillämpa en sortering på en fråga måste du skapa ett index för fälten som används i sorterings åtgärden.
 
@@ -134,7 +135,7 @@ När du börjar utveckla kan det vara praktiskt att skapa ett Wildcard-index i a
 Jokertecken index stöder inte någon av följande index typer eller egenskaper:
 
 - Beräkning
-- TTL
+- TTL-värde
 - Unik
 
 Till **skillnad från i MongoDB**, i Azure Cosmos DB s API för MongoDB, **kan du inte** använda jokertecken index för:

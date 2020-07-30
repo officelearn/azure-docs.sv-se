@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7b844bcf45417fefc7dd78a26d5dae0b2ce03249
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8307f01e690536a71d98d5d5ca99f8f7a77a433f
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82982912"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87383927"
 ---
-# <a name="ingesting-data-into-azure-data-lake-storage-gen2"></a>Mata in data i Azure Data Lake Storage Gen2 
+# <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>Mata in data i Azure Data Lake Storage Gen2 
 
 I den här artikeln får du lära dig hur du matar in data från en plats till en annan i ett Azure Data Lake gen 2-lagrings konto (Azure Data Lake gen 2) med Azure Synapse Analytics.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-prenumeration**: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Storage konto**: du använder Azure Data Lake gen 2 som *käll* data lager. Om du inte har ett lagrings konto kan du läsa [skapa ett Azure Storage-konto](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för att skapa ett.

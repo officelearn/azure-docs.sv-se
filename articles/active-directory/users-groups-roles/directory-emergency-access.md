@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0339d9d47752c194eeda96cd2df4859d6b97518b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9d4f293f3835e26def97aa2f52dd0c42d9137c7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338288"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421730"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Hantera konton för nöd åtkomst i Azure AD
 
@@ -56,7 +56,7 @@ Minst ett av kontona för nöd åtkomst bör dock inte ha samma Multi-Factor Aut
 
 ### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>Undanta minst ett konto från principer för villkorlig åtkomst
 
-Under en nöd situation vill du inte att en princip kan blockera åtkomsten för att åtgärda ett problem. Minst ett konto för nöd åtkomst ska uteslutas från alla principer för villkorlig åtkomst. Om du har aktiverat en [bas linje princip](../conditional-access/baseline-protection.md)bör du exkludera dina konton för nöd åtkomst.
+Under en nöd situation vill du inte att en princip kan blockera åtkomsten för att åtgärda ett problem. Minst ett konto för nöd åtkomst ska uteslutas från alla principer för villkorlig åtkomst.
 
 ## <a name="federation-guidance"></a>Vägledning om Federation
 
@@ -72,7 +72,7 @@ Om du använder lösen ord kontrollerar du att kontona har starka lösen ord som
 
 Organisationer bör övervaka inloggnings-och gransknings loggs aktiviteter från nödfalls kontona och utlösa meddelanden till andra administratörer. När du övervakar aktiviteten på Bryt glas konton kan du kontrol lera att dessa konton endast används för testning eller faktiska nöd situationer. Du kan använda Azure Log Analytics för att övervaka inloggnings loggarna och utlösa e-post och SMS-aviseringar till dina administratörer när Break glas-konton loggar in.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 1. [Skicka inloggnings loggar för Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) till Azure Monitor.
 
@@ -116,7 +116,7 @@ Organisationer bör övervaka inloggnings-och gransknings loggs aktiviteter frå
 1. Ange händelsens **allvarlighets grad** . Vi rekommenderar att du ställer in det på **kritiskt (allvarlighets grad 0)**.
 1. Under **Aktivera regel vid skapande**, låt den vara **Ja**.
 1. Om du vill inaktivera aviseringar för en stund markerar du kryss rutan **Ignorera aviseringar** och anger vänte tiden innan aviseringen görs igen och väljer sedan **Spara**.
-1. Klicka på **skapa aviserings regel**.
+1. Klicka på **Skapa aviseringsregel**.
 
 ### <a name="create-an-action-group"></a>Skapa en åtgärds grupp
 

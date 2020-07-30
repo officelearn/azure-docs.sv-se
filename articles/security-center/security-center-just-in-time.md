@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 78f5a34b64736808ac03771dcd8b5380482ab341
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a077e1dfd166051ad1cf16e42d11e8eeb61d2c91
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089792"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419860"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Skydda dina hanterings portar med just-in-Time-åtkomst
 
@@ -35,7 +35,8 @@ Den här sidan lär dig hur du inkluderar JIT i ditt säkerhets program. Du lär
 - Prissättning: **Standard nivå**. [Läs mer om priser](/azure/security-center/security-center-pricing).
 - Nödvändiga roller och behörigheter:
     - **Reader** -och **SecurityReader** -roller kan båda Visa JIT-status och parametrar.
-    - Om du vill skapa anpassade roller som kan fungera med JIT, se [vilka behörigheter som krävs för att konfigurera och använda JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).
+    - Om du vill skapa anpassade roller som kan fungera med JIT, se [vilka behörigheter som krävs för att konfigurera och använda JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)
+    - Om du vill skapa en roll med minst privilegier för användare som behöver begära JIT-åtkomst till en virtuell dator och inte utföra några andra JIT-åtgärder, använder du [set-JitLeastPrivilegedRole-skriptet](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) från community-sidorna för Security Center GitHub.
 - Virtuella datorer som stöds: 
     - ✔ Virtuella datorer som distribueras via Azure Resource Manager.
     - Virtuella ✘-datorer som distribueras med klassiska distributions modeller. [Läs mer om de här distributions modellerna](../azure-resource-manager/management/deployment-models.md).

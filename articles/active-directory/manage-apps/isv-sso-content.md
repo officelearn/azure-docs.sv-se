@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26fa2b82b89c7b9ce1e05062718f2c4d0c93197c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cabcaacbdc7e3e94e62c8fb45274c4d4f9390ddd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763286"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87273413"
 ---
 # <a name="enable-single-sign-on-for-your-multi-tenant-application"></a>Aktivera enkel inloggning för ditt program med flera klienter  
 
@@ -61,4 +61,4 @@ Det finns många fördelar med att aktivera SSO i ditt program för flera inneha
 1. [Skapa din Azure-klient](isv-tenant-multi-tenant-app.md) och testa ditt program
 1. [Skapa och publicera SSO-dokumentation på din webbplats](isv-create-sso-documentation.md).
 1. [Skicka in din program lista](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) och partner med Microsoft för att skapa dokumentation på Microsofts webbplats.
-1. [Gå med i Microsoft Partner Network (kostnads fri) och skapa en marknads plan](https://partner.microsoft.com/en-us/explore/commercial#gtm).
+1. [Gå med i Microsoft Partner Network (kostnads fri) och skapa en marknads plan](https://partner.microsoft.com/explore/commercial#gtm).

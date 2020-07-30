@@ -24,7 +24,7 @@ Den här artikeln visar hur du:
 - Installera och konfigurera Azure IoT Explorer-verktyget.
 - Använd verktyget för att interagera med och testa dina enheter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda Azure IoT Explorer-verktyget behöver du:
 

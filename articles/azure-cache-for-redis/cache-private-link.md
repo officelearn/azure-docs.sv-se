@@ -6,25 +6,28 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: d85fe36bb948ae9a0c81fa25f87450c7f5fe93b7
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 5db756b60330cdac4e43e13bfe29d9397f87af50
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337270"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421662"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-preview"></a>Azure cache för Redis med Azure Private Link (för hands version)
 Den privata Azure-slutpunkten är ett nätverks gränssnitt som ansluter privat och säkert till Azure cache för Redis som drivs av en privat Azure-länk. 
 
 I den här artikeln får du lära dig hur du skapar en Azure-cache, ett virtuellt Azure-nätverk och en privat slut punkt med hjälp av Azure Portal.  
 
-## <a name="prerequisites"></a>Krav
+> [!IMPORTANT]
+> Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i kompletterande användnings [villkor för Microsoft Azure för hands versionerna.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 
+> 
+
+## <a name="prerequisites"></a>Förutsättningar
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 
 > [!NOTE]
-  > Den här funktionen är för närvarande i för hands version – [kontakta oss](mailto:azurecache@microsoft.com) om du är intresse rad av.
-  >
-
+> Den här funktionen är för närvarande i för hands version – [kontakta oss](mailto:azurecache@microsoft.com) om du är intresse rad av.
+>
 
 ## <a name="create-a-cache"></a>Skapa en cache
 1. Om du vill skapa en cache loggar du in på [Azure Portal](https://portal.azure.com) och väljer **skapa en resurs**. 
@@ -73,7 +76,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
     | Prenumeration     | List rutan och välj din prenumeration.                                  |
     | Resursgrupp   | List rutan och välj en resurs grupp. |
     | **Instans information** |                                                                 |
-    | Namn             | Går**\<virtual-network-name>**                                    |
+    | Name             | Går**\<virtual-network-name>**                                    |
     | Region           | Select**\<region-name>** |
 
 4. Välj fliken **IP-adresser** eller Välj **Nästa: knappen Nästa: IP-adress** längst ned på sidan.
@@ -124,7 +127,7 @@ I det här avsnittet ska du skapa en privat slut punkt och ansluta den till cach
     | Prenumeration | List rutan och välj din prenumeration. |
     | Resursgrupp | List rutan och välj en resurs grupp. |
     | **INSTANSINFORMATION** |  |
-    | Namn |Ange ett namn för din privata slut punkt.  |
+    | Name |Ange ett namn för din privata slut punkt.  |
     | Region |List rutan och välj en plats. |
     |||
 

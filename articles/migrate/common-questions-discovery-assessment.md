@@ -3,12 +3,12 @@ title: Frågor om identifiering, utvärdering och beroende analys i Azure Migrat
 description: Få svar på vanliga frågor om identifiering, utvärdering och beroende analys i Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 7b26d4442f9a84375205e7778ae037b565f53438
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e2aa0f5c2dae33cd995b30d84e7406da9b501e8f
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118842"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385729"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Identifiering, utvärdering och beroende analys – vanliga frågor
 
@@ -29,30 +29,30 @@ Granska de geografiska områden som stöds för [offentliga moln](migrate-suppor
 
 Du kan identifiera upp till 10 000 virtuella VMware-datorer, upp till 5 000 virtuella Hyper-V-datorer och upp till 1000 fysiska servrar med hjälp av en enda apparat. Om du har fler datorer läser du om [skalning av en Hyper-V-utvärdering](scale-hyper-v-assessment.md), [skalning av en VMware-utvärdering](scale-vmware-assessment.md)eller [skalning av en fysisk server-utvärdering](scale-physical-assessment.md).
 
-## <a name="how-do-i-choose-the-assessment-type"></a>Hur gör jag för att väljer du bedömnings typ?
+## <a name="how-do-i-choose-the-assessment-type"></a>Hur väljer jag utvärderingstyp?
 
 - Använd **Azure VM-utvärderingar** när du vill utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md), [virtuella Hyper-V-datorer](how-to-set-up-appliance-hyper-v.md)och [fysiska servrar](how-to-set-up-appliance-physical.md) för migrering till virtuella Azure-datorer. [Läs mer](concepts-assessment-calculation.md)
 
 - Använd **Azure VMware Solution (AVS)-** utvärderingar när du vill utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till [Azure VMware-lösningen (AVS)](../azure-vmware/introduction.md) med den här utvärderings typen. [Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
 
-- Du kan bara använda en gemensam grupp med VMware-datorer för att köra båda typerna av utvärderingar. Observera att om du kör AVS-utvärderingar i Azure Migrate för första gången, rekommenderar vi att du skapar en ny grupp VMware-datorer.
+- Du kan använda en gemensam grupp med endast VMware-datorer om du vill köra båda utvärderingstyperna. Om du kör AVS-utvärderingar i Azure Migrate för första gången rekommenderar vi att du skapar en ny grupp med VMware-datorer.
 
 ## <a name="i-cant-see-some-groups-when-i-am-creating-an-azure-vmware-solution-avs-assessment"></a>Jag kan inte se vissa grupper när jag skapar en Azure VMware-lösning (AVS)-utvärdering
 
-- AVS-utvärdering kan göras på grupper som bara har VMware-datorer. Ta bort eventuell icke-VMware-dator från gruppen om du tänker utföra en AVS-utvärdering.
-- Om du kör AVS-utvärderingar i Azure Migrate för första gången, rekommenderar vi att du skapar en ny grupp VMware-datorer.
+- En AVS-utvärdering kan göras för grupper som endast innehåller VMware-datorer. Ta bort alla datorer som inte är VMware-datorer från gruppen om du tänker köra en AVS-utvärdering.
+- Om du kör AVS-utvärderingar i Azure Migrate för första gången rekommenderar vi att du skapar en ny grupp med VMware-datorer.
 
 ## <a name="how-do-i-select-ftt-raid-level-in-avs-assessment"></a>Hur gör jag för att väljer du FTT-RAID-nivå i AVS-utvärderingen?
 
-Den lagrings motor som används i AVS är virtuellt San. Virtuellt San Storage-principer definierar lagrings krav för dina virtuella datorer. Dessa principer garanterar den tjänst nivå som krävs för dina virtuella datorer eftersom de fastställer hur lagringen allokeras till den virtuella datorn. Dessa är tillgängliga FTT-RAID-kombinationer: 
+Den lagrings motor som används i AVS är virtuellt San. vSAN-lagringsprinciperna definierar lagringskraven för dina virtuella datorer. Med dessa principer garanteras den tjänstnivå som krävs för dina virtuella datorer eftersom de fastställer hur lagringen allokeras till den virtuella datorn. Tillgängliga FTT-RAID-kombinationer: 
 
-**Problem som kan tolereras (FTT)** | **RAID-konfiguration** | **Lägsta antal värdar som krävs** | **Storleks ändring**
+**Fel som ska kunna hanteras (FTT)** | **RAID-konfiguration** | **Lägsta antal värdar som krävs** | **Storleksövervägande**
 --- | --- | --- | --- 
-1 | RAID-1 (spegling) | 3 | En 100 GB virtuell dator skulle förbruka 200 GB.
-1 | RAID-5 (raderings kod) | 4 | En 100 GB virtuell dator skulle förbruka 133.33 GB
-2 | RAID-1 (spegling) | 5 | En 100 GB virtuell dator skulle förbruka 300 GB.
-2 | RAID-6 (raderings kod) | 6 | En virtuell dator på 100 GB använder 150 GB.
-3 | RAID-1 (spegling) | 7 | En 100 GB virtuell dator skulle förbruka 400 GB.
+1 | RAID-1 (spegling) | 3 | En virtuell dator på 100 GB skulle förbruka 200 GB.
+1 | RAID-5 (raderingsskyddad kod) | 4 | En virtuell dator på 100 GB skulle förbruka 133,33 GB
+2 | RAID-1 (spegling) | 5 | En virtuell dator på 100 GB skulle förbruka 300 GB.
+2 | RAID-6 (raderingsskyddad kod) | 6 | En virtuell dator på 100 GB skulle förbruka 150 GB.
+3 | RAID-1 (spegling) | 7 | En virtuell dator på 100 GB skulle förbruka 400 GB.
 
 ## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Jag kan inte se vissa typer av virtuella datorer i Azure Government
 
@@ -113,7 +113,7 @@ Import-baserade Azure VM-utvärderingar är skapade med datorer som importeras t
 
 ## <a name="why-is-the-suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Varför är det föreslagna Migreringsverktyg i importerad AVS-utvärdering markerad som okänd?
 
-För datorer som importeras via en CSV-fil är standard verktyget för migrering i en AVS-utvärdering okänd. För VMware-datorer rekommenderar vi dock att du använder HCX-lösningen (VMWare Hybrid Cloud Extension). [Läs mer](../azure-vmware/hybrid-cloud-extension-installation.md).
+För datorer som importeras via en CSV-fil är standard verktyget för migrering i en AVS-utvärdering okänd. För VMware-datorer rekommenderar vi dock att du använder HCX-lösningen (VMware Hybrid Cloud Extension). [Läs mer](../azure-vmware/hybrid-cloud-extension-installation.md).
 
 
 ## <a name="what-is-dependency-visualization"></a>Vad är beroende visualisering?

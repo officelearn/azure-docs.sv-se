@@ -44,7 +44,7 @@ Azure innehåller inbyggda roller som ger behörighet att anropa hanterings åtg
 
 Inbyggda roller som ger behörighet att anropa lagrings hanterings åtgärder inkluderar de roller som beskrivs i följande tabell:
 
-|    RBAC-roll    |    Beskrivning    |    Har du åtkomst till konto nycklar?    |
+|    RBAC-roll    |    Description    |    Har du åtkomst till konto nycklar?    |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **Ägare** | Kan hantera alla lagrings resurser och åtkomst till resurser.  | Ja, ger behörighet att visa och återskapa lagrings konto nycklar. |
 | **Deltagare**  | Kan hantera alla lagrings resurser, men kan inte hantera tilldelningar till resurser. | Ja, ger behörighet att visa och återskapa lagrings konto nycklar. |

@@ -1,24 +1,24 @@
 ---
-title: Azure CLI Azure cache för Redis-exempel
-description: 'Azure CLI-exempel för Azure cache för Redis: skapa en cache, ta bort en cache, hämta information om cache, värdnamn, portar och nycklar, och Anslut en webbapp.'
+title: Hantera Azure cache för Redis med Azure CLI
+description: 'Azure CLI-exempel för hantering av Azure cache för Redis: skapa en cache, ta bort en cache, Hämta cache-information, värdnamn, portar och nycklar, och Anslut en webbapp.'
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/14/2017
-ms.openlocfilehash: 43a986f884d621f257de2e9c305a0bcc59092d3d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 345fd0272e0cfe9b4d7329f004e628ea7820c2d9
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033673"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421248"
 ---
-# <a name="azure-cli-samples-for-azure-cache-for-redis"></a>Azure CLI-exempel för Azure cache för Redis
+# <a name="manage-azure-cache-for-redis-with-azure-cli"></a>Hantera Azure cache för Redis med Azure CLI
 
 Följande tabell innehåller länkar till bash-skript som skapats med hjälp av Azure CLI.
 
-| Skapa ett cacheminne | Beskrivning |
+| Skapa ett cacheminne | Description |
 | ------------ | ----------- |
 | [Skapa en cache](./scripts/create-cache.md) | Skapar en resurs grupp och en Basic-nivå i Azure cache för Redis. |
 | [Skapa en Premium-cache med klustring](./scripts/create-premium-cache-cluster.md) | Skapar en resurs grupp och en cache på Premium-nivå med klustrad aktive rad.|

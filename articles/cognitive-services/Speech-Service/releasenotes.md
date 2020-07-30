@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 152907908f12a41679b3161e0c4b39348926399e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: f2aebee24c4de8a1bd92ad3db8e5d110184cbaee
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373801"
+ms.locfileid: "87415031"
 ---
 # <a name="speech-service-release-notes"></a>Viktig information om Speech service
 
@@ -28,20 +28,20 @@ ms.locfileid: "87373801"
 - **C#**: stöd har lagts till för asynkron konversations avskrift. Se dokumentationen [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-async-conversation-transcription).  
 - **Java Script**: ytterligare Talarigenkänning stöd för både [webbläsare](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) och [node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
 - **Java Script**: stöd har lagts till för automatisk språk identifiering/språk-ID. Se dokumentationen [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-javascript).
-- **Mål-C**: stöd har lagts till för konversations-och konversations avskrifter i flera enheter. 
+- **Mål-C**: stöd har lagts till för konversations-och [konversations avskrifter](https://docs.microsoft.com/azure/cognitive-services/speech-service/conversation-transcription)i [flera enheter](https://docs.microsoft.com/azure/cognitive-services/speech-service/multi-device-conversation) . 
 - **Python**: stöd för komprimerad ljud för python i Windows och Linux. Se dokumentationen [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams). 
 
 **Fel korrigeringar**
 - **Alla**: åtgärdat ett problem som gjorde att KeywordRecognizer inte flyttar vidarebefordrar data strömmar efter en igenkänning.
 - **Alla**: åtgärdat ett problem som orsakade data strömmen som hämtades från en KeywordRecognitionResult som inte innehåller nyckelordet.
 - **Alla**: åtgärdat ett problem som SendMessageAsync inte faktiskt skickar meddelandet över ledningen när slutanvändarna har slutat att vänta.
-- **Alla**: åtgärdade en krasch i Talarigenkänning API: er när användare startar flera VoiceProfileClient:: SpeakerRecEnrollProfileAsync och fick inte vänta på att de ska slutföras.
+- **Alla**: åtgärdade en krasch i Talarigenkänning API: er när användare anropar VoiceProfileClient:: SpeakerRecEnrollProfileAsync-metoden flera gånger och väntade inte på att anropen skulle slutföras.
 - **Alla**: åtgärdad aktivera fil loggning i VoiceProfileClient-och SpeakerRecognizer-klasser.
 - **Java Script**: åtgärdat ett [problem](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/74) med begränsning när webbläsaren minimeras.
 - **Java Script**: åtgärdat ett [problem](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/78) med minnes läckor på strömmar.
 - **Java Script**: cachelagring har lagts till för OCSP-svar från NodeJS.
 - **Java**: åtgärdat ett problem som gjorde att BigInteger-fält alltid returnerade 0.
-- **iOS**: åtgärdat och [problem](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) med publicering av tal SDK-baserade appar i iOS App Store.
+- **iOS**: Åtgärdade ett [problem](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) med publicering av tal SDK-baserade appar i iOS App Store.
 
 **Exempel**
 - **C++**: exempel kod har lagts till för Talarigenkänning [här](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console/samples/speaker_recognition_samples.cpp).

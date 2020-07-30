@@ -9,136 +9,162 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 5d02736e9cb0a612e434dc5a79a73d7a62785728
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b95f6b6eca0f1464a7d09d2810aa66836d76f8f
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207659"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386647"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Fråga JSON-filer med SQL på begäran (för hands version) i Azure Synapse Analytics
 
-I den här artikeln får du lära dig hur du skriver en fråga med SQL på begäran (för hands version) i Azure Synapse Analytics. Frågans mål är att läsa JSON-filer. Format som stöds visas i [OpenRowSet](develop-openrowset.md).
+I den här artikeln får du lära dig hur du skriver en fråga med SQL på begäran (för hands version) i Azure Synapse Analytics. Frågans mål är att läsa JSON-filer med hjälp av [OpenRowSet](develop-openrowset.md). 
+- Standard-JSON-filer där flera JSON-dokument lagras som en JSON-matris.
+- Tabbavgränsade JSON-filer, där JSON-dokument skiljs åt med rad matnings tecknen. Vanliga tillägg för dessa typer av filer är `jsonl` , `ldjson` och `ndjson` .
 
-## <a name="prerequisites"></a>Krav
+## <a name="reading-json-documents"></a>Läsa JSON-dokument
 
-Ditt första steg är att **skapa en databas** där du ska köra frågorna. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Det här installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i de här exemplen.
+Det enklaste sättet att se innehållet i JSON-filen är att ange fil-URL: en som `OPENROWSET` fungerar, ange CSV `FORMAT` och ange värden `0x0b` för `fieldterminator` och `fieldquote` . Om du behöver läsa tabbavgränsade JSON-filer räcker detta. Om du har en klassisk JSON-fil måste du ange värden `0x0b` för `rowterminator` . `OPENROWSET`funktionen kommer att parsa JSON och returnera varje dokument i följande format:
 
-## <a name="sample-json-files"></a>Exempel på JSON-filer
+| inköpsdok |
+| --- |
+|{"date_rep": "2020-07-24", "Day": 24, "månad": 7, "Year": 2020, "Cases": 3, "dödsfall": 0, "geo_id": "AF"}|
+|{"date_rep": "2020-07-25", "dag": 25, "månad": 7, "år": 2020, "Cases": 7, "dödsfall": 0, "geo_id": "AF"}|
+|{"date_rep": "2020-07-26", "dag": 26, "månad": 7, "år": 2020, "Cases": 4, "dödsfall": 0, "geo_id": "AF"}|
+|{"date_rep": "2020-07-27", "Day": 27, "månad": 7, "Year": 2020, "Cases": 8, "dödsfall": 0, "geo_id": "AF"}|
 
-Avsnittet nedan innehåller exempel skript för att läsa JSON-filer. Filer lagras i en *JSON* -behållare, mapp *böcker*och innehåller en post i en bok med följande struktur:
+Om filen är offentligt tillgänglig, eller om din Azure AD-identitet kan komma åt den här filen, bör du kunna se innehållet i filen med frågan som den som visas i följande exempel.
+
+### <a name="read-json-files"></a>Läsa JSON-filer
+
+Följande exempel fråga läser JSON-och Line-delimited JSON-filer och returnerar varje dokument som en separat rad.
+
+```sql
+select top 10 *
+from openrowset(
+        bulk 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.jsonl',
+        format = 'csv',
+        fieldterminator ='0x0b',
+        fieldquote = '0x0b'
+    ) with (doc nvarchar(max)) as rows
+go
+select top 10 *
+from openrowset(
+        bulk 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json',
+        format = 'csv',
+        fieldterminator ='0x0b',
+        fieldquote = '0x0b',
+        rowterminator = '0x0b' --> You need to override rowterminator to read classic JSON
+    ) with (doc nvarchar(max)) as rows
+```
+
+Den här frågan returnerar varje JSON-dokument som en separat rad i resultat uppsättningen. Se till att du har åtkomst till den här filen. Om filen skyddas med SAS-nyckel eller anpassad identitet måste du konfigurera [autentiseringsuppgifter på server nivå för SQL-inloggning](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
+
+### <a name="using-data-source"></a>Använda data Källa
+
+I föregående exempel används den fullständiga sökvägen till filen. Alternativt kan du skapa en extern data källa med den plats som pekar på lagrings platsens rotmapp och använda denna data källa och den relativa sökvägen till filen i `OPENROWSET` funktionen:
+
+```sql
+create external data source covid
+with ( location = 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases' );
+go
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.jsonl',
+        data_source = 'covid',
+        format = 'csv',
+        fieldterminator ='0x0b',
+        fieldquote = '0x0b'
+    ) with (doc nvarchar(max)) as rows
+go
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.json',
+        data_source = 'covid',
+        format = 'csv',
+        fieldterminator ='0x0b',
+        fieldquote = '0x0b',
+        rowterminator = '0x0b' --> You need to override rowterminator to read classic JSON
+    ) with (doc nvarchar(max)) as rows
+```
+
+Om en data källa är skyddad med SAS-nyckel eller anpassad identitet kan du konfigurera [data källan med databasens begränsade autentiseringsuppgifter](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
+
+I följande avsnitt kan du se hur du frågar olika typer av JSON-filer.
+
+## <a name="parse-json-documents"></a>Parsa JSON-dokument
+
+Frågorna i föregående exempel returnerar varje JSON-dokument som en enskild sträng i en separat rad i resultat uppsättningen. Du kan använda Functions `JSON_VALUE` och `OPENJSON` för att parsa värdena i JSON-dokument och returnera dem som Relations värden, som de visas i följande exempel:
+
+| datum \_ rep | fall | Geo \_ -ID |
+| --- | --- | --- |
+| 2020-07-24 | 3 | AF |
+| 2020-07-25 | 7 | AF |
+| 2020-07-26 | 4 | AF |
+| 2020-07-27 | 8| AF |
+
+### <a name="sample-json-document"></a>Exempel-JSON-dokument
+
+Fråge exemplen läser *JSON* -filer som innehåller dokument med följande struktur:
 
 ```json
 {
-   "_id":"ahokw88",
-   "type":"Book",
-   "title":"The AWK Programming Language",
-   "year":"1988",
-   "publisher":"Addison-Wesley",
-   "authors":[
-      "Alfred V. Aho",
-      "Brian W. Kernighan",
-      "Peter J. Weinberger"
-   ],
-   "source":"DBLP"
+    "date_rep":"2020-07-24",
+    "day":24,"month":7,"year":2020,
+    "cases":13,"deaths":0,
+    "countries_and_territories":"Afghanistan",
+    "geo_id":"AF",
+    "country_territory_code":"AFG",
+    "continent_exp":"Asia",
+    "load_date":"2020-07-25 00:05:14",
+    "iso_country":"AF"
 }
 ```
 
-## <a name="read-json-files"></a>Läsa JSON-filer
-
-Om du vill bearbeta JSON-filer med JSON_VALUE och [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)måste du läsa JSON-filen från Storage som en enda kolumn. Följande skript läser in *book1.jspå* filen som en enda kolumn:
-
-```sql
-SELECT
-    *
-FROM
-    OPENROWSET(
-        BULK 'json/books/book1.json',
-        DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT='CSV',
-        FIELDTERMINATOR ='0x0b',
-        FIELDQUOTE = '0x0b',
-        ROWTERMINATOR = '0x0b'
-    )
-    WITH (
-        jsonContent varchar(8000)
-    ) AS [r];
-```
-
 > [!NOTE]
-> Du läser hela JSON-filen som en enskild rad eller kolumn. Så, FIELDTERMINATOR, FIELDQUOTE och ROWTERMINATOR är inställda på 0x0B.
+> Om dessa dokument lagras som Line-delimited JSON måste du ange `FIELDTERMINATOR` och `FIELDQUOTE` 0x0B. Om du har ett standard-JSON-format måste du ange `ROWTERMINATOR` till 0x0B.
 
-## <a name="query-json-files-using-json_value"></a>Fråga JSON-filer med JSON_VALUE
+### <a name="query-json-files-using-json_value"></a>Fråga JSON-filer med JSON_VALUE
 
-Frågan nedan visar hur du använder [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att hämta skalära värden (title, Publisher) från en bok med titeln *Probabilistic och statistiska metoder i Cryptology, en introduktion enligt valda ämnen*:
+Frågan nedan visar hur du använder [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att hämta skalära värden (title, Publisher) från ett JSON-dokument:
 
 ```sql
-SELECT
-    JSON_VALUE(jsonContent, '$.title') AS title,
-    JSON_VALUE(jsonContent, '$.publisher') as publisher,
-    jsonContent
-FROM
-    OPENROWSET(
-        BULK 'json/books/*.json',
-        DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT='CSV',
-        FIELDTERMINATOR ='0x0b',
-        FIELDQUOTE = '0x0b',
-        ROWTERMINATOR = '0x0b'
-    )
-    WITH (
-        jsonContent varchar(8000)
-    ) AS [r]
-WHERE
-    JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics';
+select
+    JSON_VALUE(doc, '$.date_rep') AS date_reported,
+    JSON_VALUE(doc, '$.countries_and_territories') AS country,
+    JSON_VALUE(doc, '$.cases') as cases,
+    doc
+from openrowset(
+        bulk 'latest/ecdc_cases.jsonl',
+        data_source = 'covid',
+        format = 'csv',
+        fieldterminator ='0x0b',
+        fieldquote = '0x0b'
+    ) with (doc nvarchar(max)) as rows
+order by JSON_VALUE(doc, '$.geo_id') desc
 ```
 
-## <a name="query-json-files-using-json_query"></a>Fråga JSON-filer med JSON_QUERY
+### <a name="query-json-files-using-openjson"></a>Fråga JSON-filer med openjson
 
-Följande fråga visar hur du använder [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att hämta objekt och matriser (författare) från en bok med titeln *Probabilistic och statistiska metoder i Cryptology, en introduktion av valda ämnen*:
-
-```sql
-SELECT
-    JSON_QUERY(jsonContent, '$.authors') AS authors,
-    jsonContent
-FROM
-    OPENROWSET(
-        BULK 'json/books/*.json',
-        DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT='CSV',
-        FIELDTERMINATOR ='0x0b',
-        FIELDQUOTE = '0x0b',
-        ROWTERMINATOR = '0x0b'
-    )
-    WITH (
-        jsonContent varchar(8000)
-    ) AS [r]
-WHERE
-    JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics';
-```
-
-## <a name="query-json-files-using-openjson"></a>Fråga JSON-filer med openjson
-
-Följande fråga använder [openjson](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Den kommer att hämta objekt och egenskaper i en bok med titeln *Probabilistic och statistiska metoder i Cryptology, en introduktion av valda ämnen*:
+Följande fråga använder [openjson](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Den hämtar COVID statistik som rapporteras i Serbien:
 
 ```sql
-SELECT
-    j.*
-FROM
-    OPENROWSET(
-        BULK 'json/books/*.json',
-        DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT='CSV',
-        FIELDTERMINATOR ='0x0b',
-        FIELDQUOTE = '0x0b',
-        ROWTERMINATOR = '0x0b'
-    )
-    WITH (
-        jsonContent NVARCHAR(max) -- Use appropriate length. Make sure JSON fits. 
-    ) AS [r]
-CROSS APPLY OPENJSON(jsonContent) AS j
-WHERE
-    JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics';
+select
+    *
+from openrowset(
+        bulk 'latest/ecdc_cases.jsonl',
+        data_source = 'covid',
+        format = 'csv',
+        fieldterminator ='0x0b',
+        fieldquote = '0x0b'
+    ) with (doc nvarchar(max)) as rows
+    cross apply openjson (doc)
+        with (  date_rep datetime2,
+                cases int,
+                fatal int '$.deaths',
+                country varchar(100) '$.countries_and_territories')
+where country = 'Serbia'
+order by country, date_rep desc;
 ```
 
 ## <a name="next-steps"></a>Nästa steg

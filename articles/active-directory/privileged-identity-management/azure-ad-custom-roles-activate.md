@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f389bfe19eb6dde5416d8cba0b67d964e69bc860
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 398db465a6cc383f8869c549761afc0947e7ed03
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743175"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421169"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Aktivera en anpassad Azure AD-roll i Privileged Identity Management
 
@@ -30,7 +30,7 @@ Privileged Identity Management i Azure Active Directory (Azure AD) har nu stöd 
 > [!NOTE]
 > Anpassade Azure AD-roller är inte integrerade med de inbyggda katalog rollerna under för hands versionen. När funktionen är allmänt tillgänglig, sker roll hanteringen i den inbyggda roll upplevelsen. Om du ser följande banderoll bör dessa roller hanteras [i den inbyggda roll upplevelsen](pim-how-to-activate-role.md) och den här artikeln gäller inte:
 >
-> [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
+> :::image type="content" source="media/pim-how-to-add-role-to-user/pim-new-version.png" alt-text="Välj Privileged Identity Management i Azure AD." lightbox="media/pim-how-to-add-role-to-user/pim-new-version.png":::
 
 ## <a name="activate-a-role"></a>Aktivera en roll
 
@@ -44,7 +44,7 @@ När du behöver aktivera en anpassad Azure AD-roll kan du begära aktivering ge
    ![Se listan över berättigade Azure AD-anpassade roll tilldelningar](./media/azure-ad-custom-roles-activate/view-preview-roles.png)
 
 > [!Note] 
->  Innan du tilldelar en roll måste du skapa/konfigurera en roll. Mer information om hur du konfigurerar AAD-anpassade roller finns [här] (https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-custom-roles-configure)
+> Innan du tilldelar en roll måste du skapa/konfigurera en roll. Mer information om hur du konfigurerar AAD-anpassade roller finns i [Konfigurera Azure AD-anpassade roller i Privileged Identity Management](azure-ad-custom-roles-configure.md).
 
 1. På sidan **anpassade Azure AD-roller (för hands version)** hittar du den tilldelning du behöver.
 1. Välj **aktivera din roll** för att öppna sidan **Aktivera** .

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 7e1432cf74dc741a6e2f5d561e9dc203df95007c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a7cc135555db2673225d857bf6a21e57de3e3f6b
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072681"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386171"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Konfigurera Kundhanterade nycklar för att kryptera data i vila för integrerings tjänst miljöer (ISEs) i Azure Logic Apps
 
@@ -39,7 +39,7 @@ Det här avsnittet visar hur du konfigurerar och anger din egen krypterings nyck
 
 * Ett Azure Key Vault som har den **mjuka borttagningen** och **inte rensa** egenskaper aktiverat
 
-  Mer information om hur du aktiverar dessa egenskaper finns i [Azure Key Vault översikt över mjuk borttagning](../key-vault/general/overview-soft-delete.md) och [Konfigurera Kundhanterade nycklar med Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Om du inte har använt Azure Key Vault kan du lära dig [hur du skapar ett nyckel valv](../key-vault/secrets/quick-create-portal.md#create-a-vault) med hjälp av Azure Portal eller genom att använda kommandot Azure PowerShell, [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
+  Mer information om hur du aktiverar dessa egenskaper finns i [Azure Key Vault översikt över mjuk borttagning](../key-vault/general/soft-delete-overview.md) och [Konfigurera Kundhanterade nycklar med Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Om du inte har använt Azure Key Vault kan du lära dig [hur du skapar ett nyckel valv](../key-vault/secrets/quick-create-portal.md#create-a-vault) med hjälp av Azure Portal eller genom att använda kommandot Azure PowerShell, [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
 
 * I ditt nyckel valv är en nyckel som skapas med följande egenskaps värden:
 
@@ -211,7 +211,7 @@ För den här uppgiften kan du använda antingen kommandot Azure PowerShell [set
 
    1. Välj följande alternativ:
 
-      | Inställning | Värden |
+      | Inställningen | Värden |
       |---------|--------|
       | **Konfigurera från mall (valfritt) lista** | Nyckel hantering |
       | **Nyckel behörigheter** | - **Nyckel hanterings åtgärder**: Hämta, lista <p><p>- **Kryptografiska åtgärder**: unwrap Key, wrap Key |

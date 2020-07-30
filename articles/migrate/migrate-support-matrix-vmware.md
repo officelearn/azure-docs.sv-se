@@ -3,12 +3,12 @@ title: Stöd för VMware-utvärdering i Azure Migrate
 description: Läs mer om stöd för utvärdering av virtuella VMware-datorer med Azure Migrate Server-utvärdering.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 9c981306b7e026dcc811618302ecbd3e80b6486d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9c9b1f7687d1ab1af36ac603501ecbaa7affd9b6
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321436"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387038"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Support mat ris för VMware-utvärdering 
 
@@ -73,7 +73,7 @@ Förutom att identifiera datorer kan Server utvärderingen identifiera appar, ro
 **VMware-verktyg** | VMware-verktyg måste installeras och köras på de virtuella datorer som du vill identifiera. <br/><br/> VMware Tools-versionen måste vara senare än 10.2.0.
 **PowerShell** | Virtuella datorer måste ha PowerShell version 2,0 eller senare installerat.
 **Port åtkomst** | På ESXi-värdar som kör virtuella datorer som du vill identifiera måste Azure Migrate-installationen kunna ansluta till TCP-port 443.
-**Begränsningar** | För app-Discovery kan du identifiera upp till 10000 virtuella datorer på varje Azure Migrate-apparat.
+**Gränser** | För app-Discovery kan du identifiera upp till 10000 virtuella datorer på varje Azure Migrate-apparat.
 
 
 ## <a name="dependency-analysis-requirements-agentless"></a>Krav för beroende analys (utan agent)
@@ -82,7 +82,7 @@ Beroende [analys](concepts-dependency-visualization.md) hjälper dig att identif
 
 **Krav** | **Information**
 --- | --- 
-**Före distribution** | Du bör ha ett Azure Migrate-projekt på plats, med verktyget för Server bedömning som har lagts till i projektet.<br/><br/>  Du kan distribuera beroende visualisering när du har konfigurerat en Azure Migrate-apparat för att identifiera dina lokala VMWare-datorer.<br/><br/> [Lär dig hur](create-manage-projects.md) du skapar ett projekt för första gången.<br/> [Lär dig hur](how-to-assess.md) du lägger till ett utvärderings verktyg i ett befintligt projekt.<br/> [Lär dig hur](how-to-set-up-appliance-vmware.md) du konfigurerar Azure Migrate-installationen för utvärdering av virtuella VMware-datorer.
+**Före distribution** | Du bör ha ett Azure Migrate-projekt på plats, med verktyget för Server bedömning som har lagts till i projektet.<br/><br/>  Du kan distribuera beroende visualisering när du har konfigurerat en Azure Migrate-apparat för att identifiera dina lokala VMware-datorer.<br/><br/> [Lär dig hur](create-manage-projects.md) du skapar ett projekt för första gången.<br/> [Lär dig hur](how-to-assess.md) du lägger till ett utvärderings verktyg i ett befintligt projekt.<br/> [Lär dig hur](how-to-set-up-appliance-vmware.md) du konfigurerar Azure Migrate-installationen för utvärdering av virtuella VMware-datorer.
 **Datorer som stöds** | Stöds för närvarande endast för virtuella VMware-datorer.
 **Virtuella Windows-datorer** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bitars).
 **vCenter Server autentiseringsuppgifter** | Beroende visualisering behöver ett vCenter Server-konto med skrivskyddad åtkomst och behörigheter som är aktiverade för Virtual Machines > gäst åtgärder.

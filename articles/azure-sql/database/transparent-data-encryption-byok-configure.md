@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: ac72e3e232ec17c4c4d810f6d2c7fed6fa84fd02
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 84166e5523cdbdb9ccebf9a0cbfc5e4dee0eb9e8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981336"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387140"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell och Azure CLI: Aktivera transparent datakryptering med kundhanterad nyckel från Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Den här artikeln beskriver hur du använder en nyckel från Azure Key Vault fö
 - Skapa en Azure Key Vault och nyckel som ska användas för TDE.
   - [Instruktioner för att använda en maskinvaru-säkerhetsmodul (HSM) och Key Vault](../../key-vault/keys/hsm-protected-keys.md)
     - Nyckel valvet måste ha följande egenskap för att kunna användas för TDE:
-  - [mjukt borttagnings-](../../key-vault/general/overview-soft-delete.md) och rensnings skydd
+  - [mjukt borttagnings-](../../key-vault/general/soft-delete-overview.md) och rensnings skydd
 - Nyckeln måste ha följande attribut för att kunna användas för TDE:
   - Inget förfallo datum
   - Inte inaktiverat

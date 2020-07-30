@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: f6ed5fee8e6d4f1f0575df733b8b95d1d6990513
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 99419a73386f39492d78ee93aeb61f432ac9c690
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289700"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421067"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Storlekar för virtuella datorer i Azure
 
@@ -22,7 +22,7 @@ I den här artikeln beskrivs tillgängliga storlekar och alternativ för de virt
 | Typ | Storlekar | Beskrivning |
 |------|-------|-------------|
 | [Generell användning](sizes-general.md)   | B, Dsv3, dv3, Dasv4, Dav4, DSv2, Dv2, AV2, DC, DCv2, DV4, Dsv4, Ddv4, Ddsv4  | Balanserat förhållande mellan processor och minne. Utmärkt för testning och utveckling, små till medelstora databaser och webbservrar med låg till medelhög trafik. |
-| [Beräkningsoptimerad](sizes-compute.md) | Fsv2 | Högt förhållande mellan processor och minne. Passar för medel stora trafik webb servrar, nätverks enheter, batch-processer och program servrar. |
+| [Beräkningsoptimerad](sizes-compute.md) | F, FS, Fsv2 | Högt förhållande mellan processor och minne. Passar för medel stora trafik webb servrar, nätverks enheter, batch-processer och program servrar. |
 | [Minnesoptimerad](sizes-memory.md) | Esv3, Ev3, Easv4, Eav4, Ev4, Esv4, Edv4, Edsv4, Mv2, M, DSv2, Dv2 | Högt förhållande mellan minne och processor. Utmärkt för relationsdatabasservrar, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
 | [Lagringsoptimerad](sizes-storage.md) | Lsv2 | Hög disk data flöde och i/o perfekt för Big data, SQL, NoSQL-databaser, data lager hantering och stora transaktions databaser.  |
 | [GPU](sizes-gpu.md) | NC, NCv2, NCv3, ND, NDv2 (för hands version), NV, NVv3, NVv4 | Specialiserade virtuella datorer som är riktade mot tung grafisk rendering och video redigering, samt modell utbildning och inferencing (ND) med djup inlärning. Tillgängligt med en eller flera grafikprocessorer. |
@@ -31,9 +31,7 @@ I den här artikeln beskrivs tillgängliga storlekar och alternativ för de virt
 - Information om priser för de olika storlekarna finns på sidan med pris information för [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) eller [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows).
 - För tillgänglighet för VM-storlekar i Azure-regioner, se [produkter tillgängliga per region](https://azure.microsoft.com/regions/services/).
 - Om du vill se allmänna gränser för virtuella Azure-datorer kan du läsa om [begränsningar, kvoter och begränsningar för Azure-prenumerationer och tjänster](../azure-resource-manager/management/azure-subscription-service-limits.md).
-
-> [!NOTE]
-  > Mer information om hur Azure namnger sina virtuella datorer finns i [namngivnings konventioner för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
+- Mer information om hur Azure namnger sina virtuella datorer finns i [namngivnings konventioner för virtuella datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
 
 ## <a name="rest-api"></a>REST-API
 

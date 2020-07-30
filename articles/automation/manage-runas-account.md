@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 06/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 84f2ef1fc318e53914b1510870d0399cfbfa87e9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: a3f48c9f15d12fbfc41ac8baf589f8579f259377
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185287"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421492"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Hantera ett Kör som-konto för Azure Automation
 
@@ -174,7 +174,8 @@ Du kan kontrol lera om tjänstens huvud namn som används av ditt kör som-konto
 2. Välj **Kör som-konto i Azure**. 
 3. Välj **roll** för att hitta den roll definition som används.
 
-[![](media/manage-runas-account/verify-role.png "Verify the Run As Account role")](media/manage-runas-account/verify-role-expanded.png#lightbox)
+:::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Kontrol lera rollen kör som-konto." lightbox="media/manage-runas-account/verify-role-expanded.png":::
+
 
 Du kan också bestämma vilken roll definition som används av kör som-kontona för flera prenumerationer eller Automation-konton. Gör detta med hjälp av [Check-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) -skriptet i PowerShell-galleriet.
 

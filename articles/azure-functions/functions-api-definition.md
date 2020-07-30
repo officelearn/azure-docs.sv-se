@@ -1,16 +1,14 @@
 ---
 title: OpenAPI metadata i Azure Functions
 description: Översikt över OpenAPI-stöd i Azure Functions
-author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 03/23/2017
-ms.author: alkarche
-ms.openlocfilehash: 59425456d6d8f4dc426a20deef7b866b3eaa1df4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 499d4f685e3802fcc37c8a3050ae367207f192d2
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083076"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385831"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Stöd för OpenAPI 2,0-metadata i Azure Functions (för hands version)
 OpenAPI 2,0 (tidigare Swagger) stöd för metadata i Azure Functions är en förhands gransknings funktion som du kan använda för att skriva en OpenAPI 2,0-definition i en Function-app. Du kan sedan vara värd för filen med hjälp av Function-appen.
@@ -40,7 +38,7 @@ Stegvisa instruktioner finns i [komma igång-kursen](./functions-openapi-definit
 
 ### <a name="available-templates"></a><a name="templates"></a>Tillgängliga mallar
 
-|Namn| Beskrivning |
+|Name| Beskrivning |
 |:-----|:-----|
 |Definition som skapats|En OpenAPI-definition med den maximala mängd information som kan härledas från funktionens befintliga metadata.|
 

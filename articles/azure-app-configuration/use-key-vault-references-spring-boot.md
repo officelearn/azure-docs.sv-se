@@ -13,13 +13,13 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 6a5bc947c3ea414f197df9cfcdd5f233e4654cbc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-java
+ms.openlocfilehash: 31aaa0134ffe34d0424868221f01b68b64e4b088
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085033"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371166"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Självstudie: använda Key Vault referenser i en Java våren-app
 
@@ -41,7 +41,7 @@ I den här guiden får du lära dig att:
 > * Skapa en konfigurations nyckel för appen som refererar till ett värde som lagras i Key Vault.
 > * Få åtkomst till värdet för den här nyckeln från ett Java våren-program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * En [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) som stöds med version 8.
@@ -86,7 +86,7 @@ Om du vill lägga till en hemlighet i valvet behöver du bara utföra några ytt
 
 1. Välj **konfigurations Utforskaren**.
 
-1. Välj **+ skapa** > **Key Vault-referens**och ange sedan följande värden:
+1. Välj **+ skapa**  >  **Key Vault-referens**och ange sedan följande värden:
     * **Nyckel**: Välj **/Application/config.keyvaultmessage**
     * **Etikett**: lämna värdet tomt.
     * **Prenumeration**, **resurs grupp**och **nyckel valv**: ange värdena som motsvarar värdena i nyckel valvet som du skapade i föregående avsnitt.

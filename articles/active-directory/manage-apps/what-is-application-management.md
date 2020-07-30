@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53c4e3e3e3b6aaca2f861a8c5aba528541dc4854
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 28b04828bc778a2b9076c9ea1970ce80f231fbe3
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322201"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386018"
 ---
 # <a name="what-is-application-management"></a>Vad är programhantering?
 
@@ -63,7 +63,7 @@ Det finns fyra huvud typer av program som du kan lägga till i dina **företags 
 
 - **Anpassade program** – när du skapar dina egna affärs program kan du integrera dem med Azure AD för att stödja enkel inloggning. Genom att registrera ditt program med Azure AD har du kontroll över autentiseringsprincip för programmet. Mer information finns i [vägledning för utvecklare](developer-guidance-for-integrating-applications.md).
 
-- **Program som inte är gallerier** – ta med dina egna program! Stöd för enkel inloggning för andra appar genom att lägga till dem i Azure AD. Det finns flera sätt att integrera ett program, men några av dem visas nedan. Mer information finns i [Konfigurera enkel inloggning för appar som inte är gallerier](configure-single-sign-on-non-gallery-applications.md).
+- **Program som inte är gallerier** – ta med dina egna program! Stöd för enkel inloggning för andra appar genom att lägga till dem i Azure AD. Det finns flera sätt att integrera ett program, men några av dem visas nedan. Mer information finns i [Konfigurera enkel inloggning med SAML](configure-saml-single-sign-on.md).
 
 >[!TIP]
 >Du kan integrera Azure AD med ett program även om det inte redan är förkonfigurerat och i app-galleriet. Du kan **integrera Azure AD med något** av följande
@@ -93,6 +93,6 @@ För program som riktar sig till mänsklig personal eller andra program med en s
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Snabb starts serie på App-Managemement i Azure AD](view-applications-portal.md)
+- [Snabb starts serie för app Management i Azure AD](view-applications-portal.md)
 - [Kom igång med program integrering](plan-an-application-integration.md)
 - [Lär dig hur du automatiserar etablering](../app-provisioning/user-provisioning.md)

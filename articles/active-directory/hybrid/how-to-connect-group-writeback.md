@@ -11,12 +11,12 @@ ms.date: 06/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7992563bdfb318867e963ed4f371998bafbbbcdb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8c8fb54261f51d74f02b7b79c27f7a2043426686
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019921"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385151"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Tillbakaskrivning av Azure AD Connects grupp
 
@@ -40,7 +40,7 @@ Använd följande steg för att aktivera tillbakaskrivning av grupp:
 6. På **sidan tillbakaskrivning**väljer du en Active Directory ORGANISATIONSENHET (OU) för att lagra objekt som synkroniseras från Office 365 till din lokala organisation och klickar sedan på **Nästa**.
 7. På sidan **klar** att konfigurera klickar du på **Konfigurera**.
 8. När guiden är klar klickar du på **Avsluta** på sidan konfigurationen har slutförts.
-9. Öppna Windows PowerShell på Azure Active Directory Connect-servern och kör följande kommandon.
+9. Öppna Windows PowerShell som administratör på Azure Active Directory Connect-servern och kör följande kommandon.
 
 ```Powershell
 $AzureADConnectSWritebackAccountDN =  <MSOL_ account DN>

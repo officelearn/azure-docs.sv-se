@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f98df33b3efc697e349ddeae31439dd2fb701d91
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7023a2301b6b6137f7a0485523c68f21d72d67a9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202030"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385746"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Så här använder du Key Vault mjuk borttagning med CLI
 
@@ -29,11 +29,11 @@ Azure Key Vault funktionen för mjuk borttagning tillåter återställning av bo
 
 Information om Key Vault-detaljerad referensinformation för CLI finns i [referens för Azure CLI Key Vault](https://docs.microsoft.com/cli/azure/keyvault).
 
-## <a name="required-permissions"></a>Nödvändiga behörigheter
+## <a name="required-permissions"></a>Behörigheter som krävs
 
 Key Vault åtgärder hanteras separat via RBAC-behörigheter (rollbaserad åtkomst kontroll) enligt följande:
 
-| Åtgärd | Beskrivning | Användar behörighet |
+| Åtgärd | Description | Användar behörighet |
 |:--|:--|:--|
 |Lista|Visar en lista över borttagna nyckel valv.|Microsoft. nyckel valv/deletedVaults/läsa|
 |Återställ|Återställer ett borttaget nyckel valv.|Microsoft. nyckel valv/valv/Skriv|
@@ -245,6 +245,6 @@ az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge
 
 ## <a name="other-resources"></a>Andra resurser
 
-- En översikt över Key Vault mjuk borttagnings funktionen finns i [Azure Key Vault översikt över mjuk borttagning](overview-soft-delete.md)).
+- En översikt över Key Vault mjuk borttagnings funktionen finns i [Azure Key Vault översikt över mjuk borttagning](soft-delete-overview.md)).
 - En allmän översikt över Azure Key Vault användning finns i [Vad är Azure Key Vault?](overview.md)).
 

@@ -1,6 +1,6 @@
 ---
-title: Registrera TPM-enhet på Azure Device Provisioning-tjänsten med Node. js
-description: Snabb start – registrera TPM-enhet till Azure IoT Hub Device Provisioning Service (DPS) med Node. js-tjänst-SDK. Den här snabbstarten använder enskilda registreringar.
+title: Registrera TPM-enhet på Azure Device Provisioning-tjänsten med hjälp av Node.js
+description: Snabb start – registrera TPM-enhet till Azure IoT Hub Device Provisioning Service (DPS) med hjälp av Node.js service SDK. Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -8,25 +8,25 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
-ms.custom: mvc
-ms.openlocfilehash: e21aaa20edf6d3a2f690bf9f77e8c9973a7b1c52
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: b0928b81ebf585e51eb9275c81df29918aa5e6a0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77604923"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421951"
 ---
-# <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Snabb start: registrera TPM-enhet för att IoT Hub Device Provisioning Service med Node. js-tjänst-SDK
+# <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Snabb start: registrera TPM-enhet för att IoT Hub Device Provisioning Service med hjälp av Node.js service SDK
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
-I den här snabb starten skapar du program mässigt en enskild registrering för en TPM-enhet i Azure-IoT Hub Device Provisioning Service med hjälp av Node. js-tjänst-SDK och ett exempel på Node. js-program. Om du vill kan du registrera en simulerad TPM-enhet för etableringstjänsten med den här posten för enskild registrering.
+I den här snabb starten skapar du program mässigt en enskild registrering för en TPM-enhet i Azure-IoT Hub Device Provisioning Service med hjälp av Node.js service SDK och ett exempel Node.js program. Om du vill kan du registrera en simulerad TPM-enhet för etableringstjänsten med den här posten för enskild registrering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Konfiguration av [IoT Hub Device Provisioning service med Azure Portal](./quick-setup-auto-provision.md)slutförs.
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Node. js v 4.0 +](https://nodejs.org). Den här snabb starten installerar [Node. js-tjänst-SDK](https://github.com/Azure/azure-iot-sdk-node) nedan.
+- [Node.js v 4.0 +](https://nodejs.org). Den här snabb starten installerar [Node.js service SDK](https://github.com/Azure/azure-iot-sdk-node) nedan.
 - Bekräftelse nyckel (valfritt). Följ stegen i [skapa och etablera en simulerad enhet](quick-create-simulated-device.md) tills du får nyckeln. Skapa inte en enskild registrering med hjälp av Azure Portal.
 
 ## <a name="create-the-individual-enrollment-sample"></a>Skapa ett exempel på enskild registrering 
@@ -76,7 +76,7 @@ I den här snabb starten skapar du program mässigt en enskild registrering för
        ![Hämta etableringsanslutningssträng från portalen](./media/quick-enroll-device-tpm-node/get-service-connection-string.png) 
 
 
-2. Du behöver också bekräftelsenyckeln för din enhet. Om du har följt snabbstarten om att [skapa och etablera en simulerad enhet](quick-create-simulated-device.md) för att skapa en simulerad TPM-enhet använder du nyckeln som skapats för den enheten. Annars kan du använda följande bekräftelse nyckel som medföljer [Node. js-tjänst-SDK: n](https://github.com/Azure/azure-iot-sdk-node)för att skapa ett exempel på en enskild registrering:
+2. Du behöver också bekräftelsenyckeln för din enhet. Om du har följt snabbstarten om att [skapa och etablera en simulerad enhet](quick-create-simulated-device.md) för att skapa en simulerad TPM-enhet använder du nyckeln som skapats för den enheten. Annars kan du använda följande bekräftelse nyckel som medföljer [Node.js service SDK](https://github.com/Azure/azure-iot-sdk-node)för att skapa ett exempel på en enskild registrering:
 
     ```
     AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEAxsj2gUScTk1UjuioeTlfGYZrrimExB+bScH75adUMRIi2UOMxG1kw4y+9RW/IVoMl4e620VxZad0ARX2gUqVjYO7KPVt3dyKhZS3dkcvfBisBhP1XH9B33VqHG9SHnbnQXdBUaCgKAfxome8UmBKfe+naTsE5fkvjb/do3/dD6l4sGBwFCnKRdln4XpM03zLpoHFao8zOwt8l/uP3qUIxmCYv9A7m69Ms+5/pCkTu/rK4mRDsfhZ0QLfbzVI6zQFOKF/rwsfBtFeWlWtcuJMKlXdD8TXWElTzgh7JS4qhFzreL0c1mI0GCj+Aws0usZh7dLIVPnlgZcBhgy1SSDQMQ==
@@ -99,7 +99,7 @@ I den här snabb starten skapar du program mässigt en enskild registrering för
 Nu när du har skapat en enskild registrering för en TPM-enhet och vill registrera en simulerad enhet kan du fortsätta med resten av stegen för att [skapa och etablera en simulerad enhet](quick-create-simulated-device.md). Se till att hoppa över stegen för att skapa en enskild registrering med hjälp av Azure Portal i snabb starten.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du planerar att utforska service exempel för Node. js ska du inte rensa resurserna som skapades i den här snabb starten. Om du inte planerar att fortsätta kan du använda följande steg för att ta bort alla resurser som skapats i den här snabb starten.
+Om du planerar att utforska Node.js-tjänsteexempel ska du inte rensa resurserna som skapades i den här snabb starten. Om du inte planerar att fortsätta kan du använda följande steg för att ta bort alla resurser som skapats i den här snabb starten.
 
 1. Stäng utdatafönstret för Node.js på datorn.
 1. Om du har skapat en simulerad TPM-enhet stänger du TPM-simulatorfönstret.

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
-ms.date: 04/09/2020
-ms.openlocfilehash: 5a246288eb3c4063a85935c20abec5c86467d340
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/28/2020
+ms.openlocfilehash: 33f87bf6f030adb48f2c4f8eb45027c1b298d812
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042381"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419724"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Elastiska pooler hjälper dig att hantera och skala flera databaser i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -35,16 +35,16 @@ Elastiska pooler löser problemet genom att se till att databaserna får de pres
 > [!IMPORTANT]
 > Det finns ingen avgift per databas för elastiska pooler. Du debiteras för varje timme som en pool finns på högsta eDTU eller virtuella kärnor, oavsett användning eller om poolen var aktiv i mindre än en timme.
 
-Elastiska pooler gör det möjligt för utvecklaren att köpa resurser för en pool som delas av flera databaser för att hantera oförutsägbara användnings perioder för enskilda databaser. Du kan konfigurera resurser för poolen baserat antingen på den [DTU-baserade inköps modellen](service-tiers-dtu.md) eller den [vCore-baserade inköps modellen](service-tiers-vcore.md). Resurs kravet för en pool bestäms av de sammanställda databasernas sammanlagda användning. Mängden resurser som är tillgängliga för poolen styrs av utvecklings budgeten. Utvecklaren lägger bara till databaser i poolen, ställer in de lägsta och högsta resurserna för databaserna (antingen minsta och högsta DTU: er eller lägsta eller högsta virtuella kärnor beroende på ditt val av omkällans modell) och anger sedan poolens resurser baserat på deras budget. Med hjälp av pooler kan utvecklare sömlöst expandera sina tjänster från en idé till en mogen affärsverksamhet som bara fortsätter att växa.
+Elastiska pooler gör det möjligt för utvecklaren att köpa resurser för en pool som delas av flera databaser för att hantera oförutsägbara användnings perioder för enskilda databaser. Du kan konfigurera resurser för poolen baserat antingen på den [DTU-baserade inköps modellen](service-tiers-dtu.md) eller den [vCore-baserade inköps modellen](service-tiers-vcore.md). Resurs kravet för en pool bestäms av de sammanställda databasernas sammanlagda användning. Mängden resurser som är tillgängliga för poolen styrs av utvecklings budgeten. Utvecklaren lägger bara till databaser i poolen, om du vill kan du ange de lägsta och högsta resurserna för databaserna (antingen minsta och högsta DTU: er eller lägsta eller högsta virtuella kärnor beroende på vilken modell du väljer) och sedan ange resurserna för poolen baserat på deras budget. Med hjälp av pooler kan utvecklare sömlöst expandera sina tjänster från en idé till en mogen affärsverksamhet som bara fortsätter att växa.
 
-I poolen kan de enskilda databaserna skalas automatiskt inom fastställda parametrar. Under hög belastning kan en databas använda fler resurser för att möta efter frågan. Databaser under lätta inläsningar förbrukar mindre och databaser utan belastning förbrukar inga resurser. Genom att etablera resurser för hela poolen i stället för enskilda databaser kan du förenkla dina hanteringsuppgifter. Dessutom har du en förutsägbar budget för poolen. Ytterligare resurser kan läggas till i en befintlig pool utan avbrott i databasen, förutom att databaserna kan behöva flyttas för att ge ytterligare beräknings resurser för den nya eDTU-reservationen. Om extra resurser inte längre behövs kan de tas bort från en befintlig pool vid en viss tidpunkt. Och du kan lägga till eller ta bort databaser i poolen. Om du vet att en databas underförbrukar resurser tar du bort den.
+I poolen kan de enskilda databaserna skalas automatiskt inom fastställda parametrar. Under hög belastning kan en databas använda fler resurser för att möta efter frågan. Databaser under lätta inläsningar förbrukar mindre och databaser utan belastning förbrukar inga resurser. Genom att etablera resurser för hela poolen i stället för enskilda databaser kan du förenkla dina hanteringsuppgifter. Dessutom har du en förutsägbar budget för poolen. Ytterligare resurser kan läggas till i en befintlig pool med minsta stillestånds tid. Om extra resurser inte längre behövs kan de tas bort från en befintlig pool vid en viss tidpunkt. Och du kan lägga till eller ta bort databaser från poolen. Om du vet att en databas underförbrukar resurser tar du bort den.
 
 > [!NOTE]
 > När du flyttar databaser till eller från en elastisk pool finns det ingen stillestånds tid, förutom under en kort tids period (i ordningen på sekunder) i slutet av åtgärden när databas anslutningarna släpps.
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>När bör du överväga en SQL Database elastisk pool
 
-Pooler lämpar sig för ett stort antal databaser med specifika användningsmönster. För en viss databas kännetecknas det här mönstret av låg genomsnittlig användning med relativt ovanliga användningstoppar.
+Pooler lämpar sig för ett stort antal databaser med specifika användningsmönster. För en viss databas kännetecknas det här mönstret av låg genomsnittlig användning med relativt ovanliga användningstoppar. Däremot bör flera databaser med beständig medium-hög användning inte placeras i samma elastiska pool.
 
 Ju fler databaser du kan lägga till i en pool desto större blir dina besparingar. Beroende på ditt användnings mönster för ditt program är det möjligt att se besparingar med så få som två S3-databaser.
 
@@ -82,16 +82,13 @@ Följande regler för tummen för antal databaser och databas användning bidrar
 
 Om den totala mängden resurser för enskilda databaser är mer än 1,5 x resurserna som behövs för poolen, är en elastisk pool mer kostnads effektiv.
 
-***Exempel på DTU-baserad inköps modell***<br>
-Minst två S3-databaser eller minst 15 S0-databaser behövs för att en 100 eDTU-pool ska vara mer kostnads effektiv än att använda beräknings storlekar för enskilda databaser.
+***Exempel på DTU-baserad inköps modell*** Minst två S3-databaser eller minst 15 S0-databaser behövs för att en 100 eDTU-pool ska vara mer kostnads effektiv än att använda beräknings storlekar för enskilda databaser.
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Högsta antal samtidigt databaser med aktivitetstoppar
 
 Genom att dela resurser kan inte alla databaser i en pool samtidigt använda resurser upp till den tillgängliga gränsen för enskilda databaser. Ju färre databaser som är löpande, desto lägre kan poolens resurser anges och den mer kostnads effektiva poolen blir. I allmänhet är inte mer än 2/3 (eller 67%) av databaserna i poolen bör samtidigt ha hög belastning på sin resurs gräns.
 
-***Exempel på DTU-baserad inköps modell***
-
-För att minska kostnaderna för tre S3-databaser i en pool med 200 eDTU:er kan högst två av dessa databaser ha belastningstoppar samtidigt. Annars, om fler än två av dessa fyra S3-databaser har toppar samtidigt, skulle poolen behöva utökas till mer än 200 eDTU:er. Om poolen ändras till mer än 200 eDTU: er, skulle fler S3-databaser behöva läggas till i poolen för att hålla lägre kostnader än beräknings storlekar för enskilda databaser.
+***Exempel på DTU-baserad inköps modell*** För att minska kostnaderna för tre S3-databaser i en 200 eDTU-pool, kan de flesta två av dessa databaser samtidigt ha hög belastning i användningen. Annars, om fler än två av dessa fyra S3-databaser har toppar samtidigt, skulle poolen behöva utökas till mer än 200 eDTU:er. Om poolen ändras till mer än 200 eDTU: er, skulle fler S3-databaser behöva läggas till i poolen för att hålla lägre kostnader än beräknings storlekar för enskilda databaser.
 
 Observera att det här exemplet inte förlitar sig på användning av andra databaser i poolen. Om alla databaser har viss belastning vid en given tidpunkt kan mindre än 2/3 (eller 67 %) av databaserna ha aktivitetstoppar samtidigt.
 
@@ -99,13 +96,13 @@ Observera att det här exemplet inte förlitar sig på användning av andra data
 
 En stor skillnad mellan topp- och genomsnittsanvändningen av en databas indikerar långa perioder med låg belastning och korta perioder med hög användning. Det här användningsmönstret är idealisk för delning av resurser mellan databaser. Du bör överväga att lägga till en databas i en pool om dess högsta användning är runt 1,5 gånger större än dess genomsnittliga användning.
 
-**Exempel på DTU-baserad inköps modell**: en S3-databas som är hög till 100 DTU: er och i genomsnitt använder 67 DTU: er eller mindre är en bra kandidat för att dela eDTU: er i en pool. På motsvarande sätt är en S1-databas som använder 20 DTU:er vid hög belastning och som har en genomsnittsanvändning på 13 DTU:er inte lämplig för en pool.
+***Exempel på DTU-baserad inköps modell*** En S3-databas som är hög till 100 DTU: er och i genomsnitt använder 67 DTU: er eller mindre är en bra kandidat för att dela eDTU: er i en pool. På motsvarande sätt är en S1-databas som använder 20 DTU:er vid hög belastning och som har en genomsnittsanvändning på 13 DTU:er inte lämplig för en pool.
 
 ## <a name="how-do-i-choose-the-correct-pool-size"></a>Hur gör jag för att välja rätt pool-storlek
 
 Den bästa storleken för en pool beror på vilka sammanställda resurser som behövs för alla databaser i poolen. Detta förutsätter att du fastställer följande:
 
-- Maximalt antal resurser som används av alla databaser i poolen (antingen maximalt DTU: er eller maximalt virtuella kärnor beroende på ditt val av omkällaing-modell).
+- Maximalt antal resurser som används av alla databaser i poolen (antingen maximalt DTU: er eller maximalt virtuella kärnor beroende på ditt val av inköps modell).
 - Högsta lagringsutrymme i byte som används av alla databaser i poolen.
 
 För tillgängliga tjänst nivåer och begränsningar för varje resurs modell, se den [DTU-baserade inköps modellen](service-tiers-dtu.md) eller den [vCore-baserade inköps modellen](service-tiers-vcore.md).
@@ -114,11 +111,13 @@ Följande steg kan hjälpa dig att beräkna om en pool är mer kostnads effektiv
 
 1. Beräkna eDTU: er eller virtuella kärnor som krävs för poolen enligt följande:
 
-   För DTU-baserad inköps modell: MAX (<*Totalt antal databaser* X *genomsnittlig DTU-användning per DB*>,<br>  
-   <*Antal databaser som har aktivitetstoppar samtidigt* × *DTU-toppbelastning per databas*)
+För DTU-baserad inköps modell:
 
-   För vCore-baserad inköps modell: MAX (<*totala antalet databaser* X *genomsnittlig vCore användning per DB*>,<br>  
-   <*Antal databaser med samtidigt hög belastning* X *högsta vCore-användning per DB*)
+MAX (<*Totalt antal databaser* x *genomsnittlig DTU-användning per db*>, <*antal samtidigt toppvärde databaser* X *högsta DTU-användning per databas*)
+
+För vCore-baserad inköps modell:
+
+MAX (<*totala antalet databaser* x *genomsnittlig vCore användning per db*>, <*antal databaser* X högsta högsta vCore-belastning *per DB*)
 
 2. Beräkna hur stort lagringsutrymme som krävs för poolen genom att lägga till antalet byte som behövs för alla databaser i poolen. Fastställ sedan den eDTU-poolstorlek som ger den här mängden lagringsutrymme.
 3. För den DTU-baserade inköps modellen tar du den större av eDTU-beräkningarna från steg 1 och steg 2. För den vCore-baserade inköps modellen ska du ta vCore uppskattningen från steg 1.

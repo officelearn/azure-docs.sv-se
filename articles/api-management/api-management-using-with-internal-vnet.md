@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: fd7ca6bdfa7626707af9efa20d76dab633dc16fd
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ac9554ae5ca151a377395d3b16598f7070c87d10
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249560"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386052"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Använda Azure API Management-tjänsten med ett internt virtuellt nätverk
 Med Azure Virtual Networks kan Azure API Management hantera API: er som inte är tillgängliga på Internet. Det finns ett antal VPN-tekniker som kan upprätta anslutningen. API Management kan distribueras i två huvud lägen i ett virtuellt nätverk:
@@ -39,7 +39,7 @@ Med API Management i internt läge kan du uppnå följande scenarier:
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att utföra stegen som beskrivs i den här artikeln måste du ha:
 
@@ -81,7 +81,7 @@ Du kan också aktivera virtuell nätverks anslutning med hjälp av PowerShell-cm
 * Uppdatera en befintlig distribution av en API Management tjänst i ett virtuellt nätverk: Använd cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) för att flytta en befintlig API Management tjänst i ett virtuellt nätverk och konfigurera den så att den använder den interna virtuella nätverks typen.
 
 ## <a name="dns-configuration"></a><a name="apim-dns-configuration"></a>DNS-konfiguration
-När API Management är i ett externt virtuellt nätverks läge, hanteras DNS av Azure. För internt virtuellt nätverks läge måste du hantera din egen routning.
+När API Management är i ett externt virtuellt nätverks läge, hanteras DNS av Azure. För internt virtuellt nätverks läge måste du hantera din egen DNS.
 
 > [!NOTE]
 > API Management tjänsten lyssnar inte på begär Anden som kommer från IP-adresser. Den svarar bara på begär anden till värd namnet som kon figurer ATS i tjänstens slut punkter. Dessa slut punkter inkluderar Gateway, Azure Portal och Developer-portalen, direkt hanterings slut punkt och git.

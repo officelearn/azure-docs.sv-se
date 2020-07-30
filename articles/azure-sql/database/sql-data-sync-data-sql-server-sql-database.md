@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 02207f8b5cf8628c3b2bbb72ab8d38ca9a4a5731
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0e6229e38674651f3db068d30f68ef4c7e293c0a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504228"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386851"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Vad är SQL Data Sync för Azure?
 
@@ -78,10 +78,10 @@ Datasynkronisering är inte den bästa lösningen i följande scenarier:
 
 ## <a name="compare-with-transactional-replication"></a>Jämför med transaktionell replikering
 
-| Datasynkronisering | Transaktionsreplikering |
+| | Datasynkronisering | Transaktionsreplikering |
 |---|---|---|
-| Fördelar | – Stöd för aktiv-aktiv<br/>– Dubbelriktad mellan lokala och Azure SQL Database | -Nedre latens<br/>– Transaktionell konsekvens<br/>-Återanvänd befintlig topologi efter migrering <br/>– Stöd för Azure SQL Managed instance |
-| Nackdelar | – 5 min eller mer svars tid<br/>– Ingen transaktionell konsekvens<br/>-Högre prestanda påverkan | -Det går inte att publicera från Azure SQL Database <br/>– Kostnad för hög underhåll |
+| **Fördelar** | – Stöd för aktiv-aktiv<br/>– Dubbelriktad mellan lokala och Azure SQL Database | -Nedre latens<br/>– Transaktionell konsekvens<br/>-Återanvänd befintlig topologi efter migrering <br/>– Stöd för Azure SQL Managed instance |
+| **Nackdelar** | – 5 min eller mer svars tid<br/>– Ingen transaktionell konsekvens<br/>-Högre prestanda påverkan | -Det går inte att publicera från Azure SQL Database <br/>– Kostnad för hög underhåll |
 
 ## <a name="get-started"></a>Kom igång 
 
@@ -148,7 +148,7 @@ Etablering och avetablering när du skapar, uppdaterar och tar bort grupper kan 
 
 #### <a name="unsupported-column-types"></a>Kolumn typer som inte stöds
 
-Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade kolumner. Till exempel:
+Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade kolumner. Ett exempel:
 
 - Beräknade kolumner.
 - Systemgenererade kolumner för temporala tabeller.
@@ -249,7 +249,7 @@ Behöver du uppdatera schemat för en databas i en Sync-grupp? Schema ändringar
 - [Automatisera replikeringen av schema ändringar med SQL Data Sync i Azure](../../sql-database/sql-database-update-sync-schema.md)
 - [Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp](scripts/update-sync-schema-in-sync-group.md)
 
-### <a name="monitor-and-troubleshoot"></a>Övervaka och felsöka
+### <a name="monitor-and-troubleshoot"></a>Övervaka och felsök
 
 Är SQL Data Sync att göra som det ska? Information om hur du övervakar aktiviteter och felsöker problem finns i följande artiklar:
 

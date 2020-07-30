@@ -36,7 +36,7 @@ Det här exemplet beskriver hur du använder [Azure Cosmos DB Table SDK för Pyt
 
 Vi rekommenderar att du använder [referensen för Azure Cosmos DB SDK för Python API](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python) när du går igenom scenarierna i det här exemplet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att kunna följa med i det här exemplet:
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55e64fad910aba25354d8d7829fc1189b744ca16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8360eae71ddd41d3105dbd037f273139262727ad
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550483"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419571"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Konfigurera och aktivera användare för SMS-baserad autentisering med hjälp av Azure Active Directory (för hands version)
 
@@ -65,7 +65,7 @@ Först ska vi aktivera SMS-baserad autentisering för Azure AD-klienten.
 1. Sök efter och välj **Azure Active Directory**.
 1. I navigerings menyn till vänster i Azure Active Directory-fönstret väljer du **säkerhets > autentiseringsmetoder > princip för autentiserings metod (för hands version)**.
 
-    [![](media/howto-authentication-sms-signin/authentication-method-policy-cropped.png "Browse to and select the Authentication method policy (preview) window in the Azure portal")](media/howto-authentication-sms-signin/authentication-method-policy.png#lightbox)
+    [![Bläddra till och välj den autentiseringsmetod för princip (förhands granskning) i Azure Portal.](media/howto-authentication-sms-signin/authentication-method-policy-cropped.png)](media/howto-authentication-sms-signin/authentication-method-policy.png#lightbox)
 
 1. I listan över tillgängliga autentiseringsmetoder väljer du **textmeddelande**.
 1. Ange **Tillåt** till *Ja*.
@@ -81,7 +81,7 @@ Med SMS-baserad autentisering aktive rad i din Azure AD-klient väljer du nu vis
 1. I fönstret princip för SMS-autentisering anger du **mål** för *utvalda användare*.
 1. Välj att **lägga till användare eller grupper**och välj sedan en test användare eller grupp, till exempel *contoso-användare* eller *contoso SMS-användare*.
 
-    [![](media/howto-authentication-sms-signin/add-users-or-groups-cropped.png "Choose users or groups to enable for SMS-based authentication in the Azure portal")](media/howto-authentication-sms-signin/add-users-or-groups.png#lightbox)
+    [![Välj användare eller grupper som ska aktive ras för SMS-baserad autentisering i Azure Portal.](media/howto-authentication-sms-signin/add-users-or-groups-cropped.png)](media/howto-authentication-sms-signin/add-users-or-groups.png#lightbox)
 
 1. När du har valt användare eller grupper väljer du **Välj**och sedan **Spara** den uppdaterade principen för autentisering.
 

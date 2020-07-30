@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 76eee4b0b029714a75b57e5d44e097a36de3181f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 721848b996bc4887370b77404e3d571975815624
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371421"
+ms.locfileid: "87421900"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Tjänst administration för Azure Kognitiv sökning i Azure Portal
 
@@ -58,7 +58,7 @@ När det gäller åtkomst till slut punkten har alla som har åtkomst till tjän
 
 Rättigheter till tjänst etablerings apparaten beviljas genom roll tilldelningar. [Rollbaserad åtkomst (RBAC)](../role-based-access-control/overview.md) är ett auktoriserings system som bygger på [Azure Resource Manager](../azure-resource-manager/management/overview.md) för etablering av Azure-resurser. 
 
-I samband med Azure Kognitiv sökning avgör [RBAC-rollerna](search-security-rbac.md) vilka som kan utföra uppgifter, oavsett om de använder [portalen](search-manage.md), [PowerShell](search-manage-powershell.md)eller [hanterings REST-API: er](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
+I Azure-Kognitiv sökning avgör Azure- [rollerna](search-security-rbac.md) vem som kan utföra uppgifter, oavsett om de använder [portalen](search-manage.md), [PowerShell](search-manage-powershell.md)eller [hantering REST-API: er](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
 
 * Skapa eller ta bort en tjänst
 * Skala tjänsten

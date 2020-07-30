@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 860616cbea598e40494155e250254b3c607c1173
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2bd688a9e488c1206b0c8531698b061f650e2afe
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027503"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417938"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Aktivera Azure MFA per användare för att skydda inloggningshändelser
 
@@ -38,7 +38,7 @@ Användar konton i Azure Multi-Factor Authentication har följande tre distinkta
 
 | Status | Beskrivning | Icke-webbläsarbaserade appar som påverkas | Webbläsarbaserade appar som påverkas | Modern autentisering påverkas |
 |:---:| --- |:---:|:--:|:--:|
-| Inaktiverad | Standard läget för en ny användare som inte har registrerats i Azure Multi-Factor Authentication. | Inga | Inga | Inga |
+| Inaktiverad | Standard läget för en ny användare som inte har registrerats i Azure Multi-Factor Authentication. | Nej | Nej | Nej |
 | Enabled | Användaren har registrerats i Azure Multi-Factor Authentication men inte registrerat autentiseringsmetoder. De får ett meddelande om att registrera sig nästa gången de loggar in. | Nej.  De fortsätter att fungera tills registrerings processen har slutförts. | Ja. När sessionen har gått ut krävs Azure Multi-Factor Authentication registrering.| Ja. När åtkomsttoken har upphört att gälla krävs Azure Multi-Factor Authentication registrering. |
 | Enforced | Användaren har registrerats och slutfört registrerings processen för Azure Multi-Factor Authentication. | Ja. Appar kräver applösenord. | Ja. Azure Multi-Factor Authentication krävs vid inloggning. | Ja. Azure Multi-Factor Authentication krävs vid inloggning. |
 
@@ -55,7 +55,7 @@ Använd följande steg för att komma åt Azure Portal sidan där du kan visa oc
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
 1. Sök efter och välj *Azure Active Directory*och välj sedan **användare**  >  **alla användare**.
-1. Välj **Multi-Factor Authentication**. Du kan behöva bläddra till höger för att se det här meny alternativet. Välj skärm bilden nedan om du vill se hela Azure Portals fönster och meny plats:[![](media/howto-mfa-userstates/selectmfa-cropped.png "Välj Multi-Factor Authentication från fönstret användare i Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+1. Välj **Multi-Factor Authentication**. Du kan behöva bläddra till höger för att se det här meny alternativet. Välj skärm bilden nedan om du vill se hela Azure Portals fönster och meny plats: [ ![ Välj Multi-Factor Authentication från fönstret användare i Azure AD.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. En ny sida öppnas som visar användar statusen, som du ser i följande exempel.
    ![Skärm bild som visar information om exempel på användar tillstånd för Azure Multi-Factor Authentication](./media/howto-mfa-userstates/userstate1.png)
 
@@ -82,7 +82,7 @@ Om du vill ändra användar tillstånd med hjälp av [Azure AD PowerShell](/powe
 
 * *Aktiverad*
 * *Enforced*
-* *Disabled* (Inaktiverat)  
+* *Inaktiverad*  
 
 Flytta inte användare direkt till *framtvingat* tillstånd. Om du gör det upphör icke-webbläsarbaserade appar att fungera eftersom användaren inte har gått igenom Azure Multi-Factor Authentication registrering och fått ett [applösenord](howto-mfa-app-passwords.md).
 

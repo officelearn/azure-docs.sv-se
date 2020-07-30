@@ -5,12 +5,13 @@ ms.date: 12/03/2019
 ms.topic: conceptual
 description: Lär dig hur du använder Kubernetes hemligheter vid körning eller bygg tid när du utvecklar program med Azure dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
-ms.openlocfilehash: d9dd0de348612bbb3baf5fb351c1c9af1c228c1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 25d67d9ace6870eed283302256e3fa85661a0672
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75438468"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421577"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Så här hanterar du hemligheter när du arbetar med ett Azure dev-utrymme
 
@@ -140,7 +141,7 @@ configurations:
 I exemplet ovan är *mynugetsecret* en befintlig hemlighet och *pattoken* är en befintlig nyckel.
 
 >[!NOTE]
-> Hemliga namn och nycklar kan innehålla- `.` tecknen. Används `\` för att undvika att `.` Skicka hemligheter som build-argument. Om du till exempel vill skicka en hemlighet med namnet *foo. bar* med nyckeln för *token*: `MYTOKEN: ${secret.foo\.bar.token}` . Dessutom kan hemligheter utvärderas med prefix-och postfix-text. Till exempel `MYURL: eus-${secret.foo\.bar.token}-version1`. Dessutom kan hemligheter som är tillgängliga i överordnad och föräldrars utrymmen skickas som build-argument.
+> Hemliga namn och nycklar kan innehålla- `.` tecknen. Används `\` för att undvika att `.` Skicka hemligheter som build-argument. Om du till exempel vill skicka en hemlighet med namnet *foo. bar* med nyckeln för *token*: `MYTOKEN: ${secret.foo\.bar.token}` . Dessutom kan hemligheter utvärderas med prefix-och postfix-text. Exempelvis `MYURL: eus-${secret.foo\.bar.token}-version1`. Dessutom kan hemligheter som är tillgängliga i överordnad och föräldrars utrymmen skickas som build-argument.
 
 I din Dockerfile använder du *arg* -direktivet för att använda hemligheten och använder sedan samma variabel senare i Dockerfile. Ett exempel:
 

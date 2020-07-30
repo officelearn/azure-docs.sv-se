@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 995ca20ed264d78e93e04a6f54e4f691ec551e84
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 61e2d4607ebe1b688b2874220a170b2539a2226e
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024867"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87404182"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: Konfigurera säker LDAP för en Azure Active Directory Domain Services hanterad domän
 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -110,6 +110,7 @@ Om du vill använda säker LDAP krypteras nätverks trafiken med PKI (Public Key
 * En **privat** nyckel tillämpas på den hanterade domänen.
     * Den privata nyckeln används för att *dekryptera* den säkra LDAP-trafiken. Den privata nyckeln bör endast tillämpas på den hanterade domänen och inte distribueras till klient datorer.
     * Ett certifikat som innehåller den privata nyckeln använder *. PFX* -filformat.
+    * Krypteringsalgoritmen för certifikatet måste vara *TripleDES-SHA1*.
 * En **offentlig** nyckel tillämpas på klient datorerna.
     * Den här offentliga nyckeln används för att *kryptera* den säkra LDAP-trafiken. Den offentliga nyckeln kan distribueras till klient datorer.
     * Certifikat utan privat nyckel använder *. CER* -filformat.
@@ -149,7 +150,7 @@ Innan du kan använda det digitala certifikatet som skapades i föregående steg
 
 1. Eftersom det här certifikatet används för att dekryptera data bör du kontrol lera åtkomsten noggrant. Ett lösen ord kan användas för att skydda användningen av certifikatet. Utan rätt lösen ord kan certifikatet inte tillämpas på en tjänst.
 
-    På sidan **säkerhet** väljer du alternativet för **lösen ord** för att skydda *. PFX* -certifikatfil. Ange och bekräfta ett lösen ord och välj sedan **Nästa**. Det här lösen ordet används i nästa avsnitt för att aktivera säker LDAP för din hanterade domän.
+    På sidan **säkerhet** väljer du alternativet för **lösen ord** för att skydda *. PFX* -certifikatfil. Krypteringsalgoritmen måste vara *TripleDES-SHA1*. Ange och bekräfta ett lösen ord och välj sedan **Nästa**. Det här lösen ordet används i nästa avsnitt för att aktivera säker LDAP för din hanterade domän.
 1. På sidan **fil som ska exporteras** anger du det fil namn och den plats där du vill exportera certifikatet, till exempel *C:\Users\accountname\azure-AD-DS.pfx*. Anteckna lösen ordet och platsen för *. PFX* -fil som denna information krävs i nästa steg.
 1. På sidan Granska väljer du **Slutför** för att exportera certifikatet till en *. PFX* -certifikatfil. En bekräftelse dialog ruta visas när certifikatet har exporter ATS.
 1. Lämna MMC öppet för användning i följande avsnitt.
@@ -210,7 +211,7 @@ Ett meddelande visas om att säker LDAP konfigureras för den hanterade domänen
 
 Det tar några minuter att aktivera säker LDAP för din hanterade domän. Om det säkra LDAP-certifikatet som du anger inte uppfyller de krav som krävs kan åtgärden för att aktivera säker LDAP för den hanterade domänen Miss lyckas.
 
-Några vanliga orsaker till fel är om domän namnet är felaktigt eller om certifikatet upphör snart att gälla eller redan har gått ut. Du kan återskapa certifikatet med giltiga parametrar och sedan Aktivera säker LDAP med det uppdaterade certifikatet.
+Några vanliga orsaker till fel är om domän namnet är felaktigt, krypteringsalgoritmen för certifikatet inte är *TripleDES-SHA1*eller om certifikatet upphör snart att gälla eller redan har gått ut. Du kan återskapa certifikatet med giltiga parametrar och sedan Aktivera säker LDAP med det uppdaterade certifikatet.
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Lås säker LDAP-åtkomst via Internet
 
@@ -228,12 +229,12 @@ Nu ska vi skapa en regel för att tillåta inkommande säker LDAP-åtkomst via T
     | Källa                            | IP-adresser |
     | Käll-IP-adresser/CIDR-intervall | En giltig IP-adress eller ett giltigt intervall för din miljö |
     | Källportintervall                | *            |
-    | Mål                       | Alla          |
+    | Mål                       | Valfri          |
     | Målportintervall           | 636          |
     | Protokoll                          | TCP          |
     | Åtgärd                            | Tillåt        |
     | Prioritet                          | 401          |
-    | Name                              | AllowLDAPS   |
+    | Namn                              | AllowLDAPS   |
 
 1. När du är klar väljer du **Lägg till** för att spara och tillämpa regeln.
 

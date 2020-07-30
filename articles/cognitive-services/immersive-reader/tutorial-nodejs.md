@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: starta den fördjupade läsaren med Node. js'
+title: 'Självstudie: starta den fördjupade läsaren med Node.js'
 titleSuffix: Azure Cognitive Services
-description: I den här självstudien skapar du ett Node. js-program som startar den fördjupade läsaren.
+description: I den här självstudien skapar du ett Node.js-program som startar den fördjupade läsaren.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,36 +10,37 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metan
-ms.openlocfilehash: 139dd2ebdabbc91a6de3b0a1eb921b110d47c3f3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: c64fc95c44aad81087cada23639e3b13bf478056
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76842035"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407191"
 ---
-# <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Självstudie: starta den fördjupade läsaren (Node. js)
+# <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Självstudie: starta den fördjupade läsaren (Node.js)
 
-I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren är och hur den implementerar beprövade tekniker för att förbättra läsningen av förståelse för språkstuderande, nya läsare och studenter med inlärnings skillnader. Den här självstudien beskriver hur du skapar ett Node. js-webbprogram som startar den fördjupade läsaren. I den här guiden får du lära dig att:
+I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren är och hur den implementerar beprövade tekniker för att förbättra läsningen av förståelse för språkstuderande, nya läsare och studenter med inlärnings skillnader. Den här självstudien beskriver hur du skapar ett Node.js webb program som startar den fördjupade läsaren. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Skapa en Node. js-webbapp med Express
+> * Skapa en Node.js-webbapp med Express
 > * Hämta en åtkomsttoken
 > * Starta den fördjupade läsaren med exempel innehåll
 > * Ange språket för ditt innehåll
 > * Ange språket för gränssnittet för avancerad läsare
 > * Starta den fördjupade läsaren med matematik innehåll
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En fördjupad läsar resurs som kon figurer ATS för Azure Active Directory autentisering. Följ [dessa instruktioner](./how-to-create-immersive-reader.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar miljö egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
-* [Node. js](https://nodejs.org/) och [garn](https://yarnpkg.com)
+* [Node.js](https://nodejs.org/) och [garn](https://yarnpkg.com)
 * En IDE, till exempel [Visual Studio Code](https://code.visualstudio.com/)
 
-## <a name="create-a-nodejs-web-app-with-express"></a>Skapa en Node. js-webbapp med Express
+## <a name="create-a-nodejs-web-app-with-express"></a>Skapa en Node.js-webbapp med Express
 
-Skapa en Node. js-webbapp med `express-generator` verktyget.
+Skapa en Node.js webbapp med `express-generator` verktyget.
 
 ```bash
 npm install express-generator -g
@@ -47,7 +48,7 @@ express --view=pug myapp
 cd myapp
 ```
 
-Installera garn beroenden och Lägg till `request` beroenden och `dotenv`, som kommer att användas senare i självstudien.
+Installera garn beroenden och Lägg till beroenden `request` och `dotenv` , som kommer att användas senare i självstudien.
 
 ```bash
 yarn
@@ -79,7 +80,7 @@ SUBDOMAIN={YOUR_SUBDOMAIN}
 
 Se till att du inte utför den här filen i käll kontrollen eftersom den innehåller hemligheter som inte bör göras offentliga.
 
-Öppna sedan _app. js_ och Lägg till följande överst i filen. Detta läser in egenskaperna som definierats i. kuvert-filen som miljövariabler i noden.
+Öppna sedan _app.js_ och Lägg till följande överst i filen. Detta läser in egenskaperna som definierats i. kuvert-filen som miljövariabler i noden.
 
 ```javascript
 require('dotenv').config();
@@ -132,7 +133,7 @@ module.exports = router;
 
 ## <a name="launch-the-immersive-reader-with-sample-content"></a>Starta den fördjupade läsaren med exempel innehåll
 
-1. Öppna _views\layout.pug_och Lägg till följande kod under `head` taggen innan `body` taggen. Dessa `script` Taggar läser in SDK-och jQuery för [Avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) .
+1. Öppna _views\layout.pug_och Lägg till följande kod under `head` taggen innan `body` taggen. Dessa `script` taggar läser in SDK-och jQuery för [Avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) .
 
     ```pug
     script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js')
@@ -189,7 +190,7 @@ module.exports = router;
     npm start
     ```
 
-4. Öppna webbläsaren och gå till _http://localhost:3000_. Du bör se innehållet ovan på sidan. Klicka på knappen **fördjupad läsare** för att starta den fördjupade läsaren med ditt innehåll.
+4. Öppna webbläsaren och gå till _http://localhost:3000_ . Du bör se innehållet ovan på sidan. Klicka på knappen **fördjupad läsare** för att starta den fördjupade läsaren med ditt innehåll.
 
 ## <a name="specify-the-language-of-your-content"></a>Ange språket för ditt innehåll
 
@@ -201,7 +202,7 @@ Den fördjupade läsaren har stöd för många olika språk. Du kan ange språke
     p(id='content-spanish') El estudio de las formas terrestres de la Tierra se llama geografía física. Los accidentes geográficos pueden ser montañas y valles. También pueden ser glaciares, lagos o ríos.
     ```
 
-2. I JavaScript-koden lägger du till följande ovanför anropet till `ImmersiveReader.launchAsync`. Den här koden skickar det spanska innehållet till den fördjupade läsaren.
+2. I JavaScript-koden lägger du till följande ovanför anropet till `ImmersiveReader.launchAsync` . Den här koden skickar det spanska innehållet till den fördjupade läsaren.
 
     ```pug
     content.chunks.push({
@@ -225,13 +226,13 @@ Som standard matchar språket i gränssnittet för avancerad läsare webbläsare
     ImmersiveReader.launchAsync(token, subdomain, content, options);
     ```
 
-2. Navigera till _http://localhost:3000_. När du startar den fördjupade läsaren visas gränssnittet på franska.
+2. Navigera till _http://localhost:3000_ . När du startar den fördjupade läsaren visas gränssnittet på franska.
 
 ## <a name="launch-the-immersive-reader-with-math-content"></a>Starta den fördjupade läsaren med matematik innehåll
 
 Du kan inkludera matematik innehåll i den fördjupade läsaren med hjälp av [mathml](https://developer.mozilla.org/en-US/docs/Web/MathML).
 
-1. Ändra _views\index.pug_ för att inkludera följande kod ovanför anropet till `ImmersiveReader.launchAsync`:
+1. Ändra _views\index.pug_ för att inkludera följande kod ovanför anropet till `ImmersiveReader.launchAsync` :
 
     ```javascript
     const mathML = '<math xmlns="https://www.w3.org/1998/Math/MathML" display="block"> \
@@ -256,7 +257,7 @@ Du kan inkludera matematik innehåll i den fördjupade läsaren med hjälp av [m
     });
     ```
 
-2. Navigera till _http://localhost:3000_. När du startar den fördjupade läsaren och bläddrar längst ned visas den matematiska formeln.
+2. Navigera till _http://localhost:3000_ . När du startar den fördjupade läsaren och bläddrar längst ned visas den matematiska formeln.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 12/30/2019
 ms.author: kgremban
-ms.openlocfilehash: f8cb734e8a57e3b0ee114ae20f454d0034e9cdc9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0c43c6dcced94225e9ab9ae903535ce74286ad9a
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387631"
+ms.locfileid: "87406730"
 ---
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
 
@@ -33,7 +33,7 @@ Om du inte redan har ett containerregister följer du dessa steg för att skapa 
 
 3. Välj **Skapa**.
 
-4. När du har skapat behållar registret, bläddrar du till det och väljer **åtkomst nycklar** från menyn som finns under **Inställningar**i den vänstra rutan.
+4. När du har skapat behållar registret, bläddrar du till det och väljer **åtkomst nycklar** från menyn som finns under **Inställningar**i den vänstra rutan. 
 
 5. Klicka här om du vill att administratörs användare ska kunna se **användar namn** och **lösen ord** för behållar registret.
 

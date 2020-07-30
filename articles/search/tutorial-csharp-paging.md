@@ -8,23 +8,24 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: ad57fe01313957c4f3d23ef44d0e02ad11ab3fa8
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 3fb77c147db0883dc1dc61040f916bcec88237c4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262182"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420625"
 ---
 # <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Självstudie: Lägg till sid indelning i Sök resultat med hjälp av .NET SDK
 
 Lär dig hur du implementerar två olika växlings system, det första baserat på sid nummer och det andra vid oändlig rullning. Båda växlings systemen används ofta och valet av rätt är beroende av den användar upplevelse som du vill ha med resultatet. I den här självstudien skapas växlings systemen i projektet som skapats i [C#-själv studie kursen: skapa din första app – Azure kognitiv sökning-](tutorial-csharp-create-first-app.md) självstudie.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Utöka din app med numrerad sid indelning
 > * Utöka din app med oändlig rullning
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 

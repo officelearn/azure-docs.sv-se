@@ -1,5 +1,5 @@
 ---
-title: Självstudie utveckla Node. js-modul för Linux – Azure IoT Edge | Microsoft Docs
+title: Självstudie utveckla Node.js modul för Linux – Azure IoT Edge | Microsoft Docs
 description: Den här självstudien visar hur du skapar en IoT Edge-modul med Node.js-kod och distribuerar den till en gränsenhet
 services: iot-edge
 author: shizn
@@ -8,19 +8,19 @@ ms.author: xshi
 ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc, tracking-python
-ms.openlocfilehash: 7e17da94ba124c3b20fdede93ad6b4716247c6ba
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.custom: mvc, tracking-python, devx-track-javascript
+ms.openlocfilehash: 01c7973efd2619a37ea77dfe4dad131b14144991
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610125"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420149"
 ---
-# <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Självstudie: utveckla och distribuera en Node. js IoT Edge modul för Linux-enheter
+# <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Självstudie: utveckla och distribuera en Node.js IoT Edge modul för Linux-enheter
 
-Använd Visual Studio Code för att utveckla Node. js-kod och distribuera den till en Linux-enhet som kör Azure IoT Edge.
+Använd Visual Studio Code för att utveckla Node.js kod och distribuera den till en Linux-enhet som kör Azure IoT Edge.
 
-Du kan använda IoT Edge-moduler för att distribuera kod som implementerar din affärslogik direkt till dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. Du använder den simulerade IoT Edge-enhet som du skapade i snabbstarterna. I de här självstudierna får du lära dig att
+Du kan använda IoT Edge-moduler för att distribuera kod som implementerar din affärslogik direkt till dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. Du använder den simulerade IoT Edge-enhet som du skapade i snabbstarterna. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -35,16 +35,16 @@ IoT Edge-modulen som du skapar i den här självstudien filtrerar temperaturdata
 
 ## <a name="solution-scope"></a>Lösnings omfång
 
-Den här självstudien visar hur du utvecklar en modul i **Node. js** med hjälp av **Visual Studio Code**och hur du distribuerar den till en **Linux-enhet**. IoT Edge stöder inte Node. js-moduler för Windows-enheter.
+Den här självstudien visar hur du utvecklar en modul i **Node.js** att använda **Visual Studio Code**och hur du distribuerar den till en **Linux-enhet**. IoT Edge stöder inte Node.js-moduler för Windows-enheter.
 
-Använd följande tabell för att förstå alternativen för att utveckla och distribuera Node. js-moduler:
+Använd följande tabell för att förstå alternativen för att utveckla och distribuera Node.js moduler:
 
 | Node.js | Visual Studio-koden | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
-| **Linux AMD64** | ![Använda VS Code för Node. js-moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
-| **Linux ARM32** | ![Använda VS Code för Node. js-moduler på Linux-ARM32](./media/tutorial-c-module/green-check.png) |  |
+| **Linux AMD64** | ![Använda VS Code för Node.js moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM32** | ![Använda VS Code för Node.js moduler på Linux-ARM32](./media/tutorial-c-module/green-check.png) |  |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här självstudien bör du ha gått igenom den föregående kursen för att konfigurera din utvecklings miljö för att utveckla Linux-behållare: [utveckla IoT Edge moduler för Linux-enheter](tutorial-develop-for-linux.md). Genom att slutföra någon av de här självstudierna bör du ha följande krav på plats:
 
@@ -54,9 +54,9 @@ Innan du påbörjar den här självstudien bör du ha gått igenom den föregåe
 * [Visual Studio-kod](https://code.visualstudio.com/) som kon figurer ATS med [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) konfigurerat för att köra Linux-behållare.
 
-Om du vill utveckla en IoT Edge-modul i Node. js installerar du följande ytterligare krav på utvecklings datorn:
+Om du vill utveckla en IoT Edge-modul i Node.js installerar du följande ytterligare krav på utvecklings datorn:
 
-* [Node. js och NPM](https://nodejs.org). npm-paketet distribueras med Node.js, vilket innebär att npm installeras automatiskt på din dator när du laddar ned Node.js.
+* [Node.js och NPM](https://nodejs.org). npm-paketet distribueras med Node.js, vilket innebär att npm installeras automatiskt på din dator när du laddar ned Node.js.
 
 ## <a name="create-a-module-project"></a>Skapa ett modul-projekt
 
@@ -100,7 +100,7 @@ Miljöfilen lagrar autentiseringsuppgifterna för containerlagringsplatsen och d
 
 ### <a name="select-your-target-architecture"></a>Välj din mål arkitektur
 
-För närvarande kan Visual Studio Code utveckla Node. js-moduler för Linux AMD64-och Linux ARM32v7-enheter. Du måste välja vilken arkitektur du vill använda för varje lösning, eftersom behållaren har skapats och körs på olika sätt för varje arkitektur typ. Standardvärdet är Linux AMD64.
+För närvarande kan Visual Studio Code utveckla Node.js moduler för Linux AMD64-och Linux ARM32v7-enheter. Du måste välja vilken arkitektur du vill använda för varje lösning, eftersom behållaren har skapats och körs på olika sätt för varje arkitektur typ. Standardvärdet är Linux AMD64.
 
 1. Öppna paletten kommando och Sök efter **Azure IoT Edge: Ange standard plattform för Edge-lösning**eller Välj gen vägs ikonen i sido fältet längst ned i fönstret.
 
@@ -110,7 +110,7 @@ För närvarande kan Visual Studio Code utveckla Node. js-moduler för Linux AMD
 
 Varje mall levereras med exempel kod inkluderad, som tar simulerade sensor data från **SimulatedTemperatureSensor** -modulen och dirigerar den till IoT Hub. I det här avsnittet lägger du till kod för att göra så att NodeModule analyserar meddelandena innan de skickas.
 
-1. I vs Code-Utforskaren öppnar du **modules**  >  **NodeModule**  >  **app. js**.
+1. I vs Code-Utforskaren öppnar du **moduler**  >  **NodeModule**  >  **app.js**.
 
 2. Lägg till en tröskelvariabel för temperatur under nodmoduler. Tröskelvärdet för temperatur är det värde som den uppmätta temperaturen måste överstiga för att data ska skickas till IoT Hub.
 
@@ -165,7 +165,7 @@ Varje mall levereras med exempel kod inkluderad, som tar simulerade sensor data 
 
 6. Spara filen app.js.
 
-7. I VS Code-Utforskaren öppnar du filen **Deployment. template. JSON** i din IoT Edge lösnings arbets yta.
+7. I VS Code-Utforskaren öppnar du **deployment.template.js** filen i din IoT Edge lösnings arbets yta.
 
 8. Lägg till NodeModule-modultvillingen till distributionsmanifestet. Infoga följande JSON-innehåll längst ned i avsnittet `moduleContent` efter `$edgeHub`-modultvillingen:
 
@@ -195,13 +195,13 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i NodeM
 
    Du kan få en säkerhets varning som rekommenderar att du använder `--password-stdin` . Det bästa tillvägagångs sättet rekommenderas för produktions scenarier, men det ligger utanför omfånget för den här självstudien. Mer information finns i [inloggnings referens för Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
 
-1. I VS Code-Utforskaren högerklickar du på filen **Deployment. template. JSON** och väljer **Build och push IoT Edge-lösning**.
+1. I VS Code-Utforskaren högerklickar du på **deployment.template.jspå** filen och väljer **Build och push IoT Edge-lösning**.
 
    Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** och som innehåller det fullständiga distributions manifestet, och bygger ut information i distributions mal len och andra filer i lösningen. Sedan körs den `docker build` för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs den `docker push` för att skicka avbildnings lagrings platsen till behållar registret.
 
 ## <a name="deploy-modules-to-device"></a>Distribuera moduler till enhet
 
-Använd Visual Studio Code Explorer och tillägget Azure IoT Tools för att distribuera modulfönstret till din IoT Edge-enhet. Du har redan ett distributions manifest som är för berett för ditt scenario, filen **Deployment. JSON** i mappen config. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
+Använd Visual Studio Code Explorer och tillägget Azure IoT Tools för att distribuera modulfönstret till din IoT Edge-enhet. Du har redan ett distributions manifest som är för berett för ditt scenario, **deployment.js** filen i mappen config. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
 
 Kontrol lera att din IoT Edges enhet är igång.
 

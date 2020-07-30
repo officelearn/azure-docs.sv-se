@@ -10,12 +10,13 @@ ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 03/27/2020
 ms.author: aahi
-ms.openlocfilehash: 83cdaecfb819fb1f4677b051f87e23e0e03daef2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f1b32a72d81b42e7a349f92dcdc7a141a013312d
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80370105"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87404042"
 ---
 # <a name="tutorial-create-a-visual-search-single-page-web-app"></a>Självstudie: skapa en Visuell sökning webb program med en enda sida
 
@@ -25,13 +26,13 @@ I den här självstudien beskrivs hur du utökar en enskild sidas webbapp för A
 
 Den fullständiga käll koden för det här programmet (när den har utökats för att använda API för visuell sökning i Bing) finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="call-the-bing-visual-search-api-and-handle-the-response"></a>Anropa API för visuell sökning i Bing och hantera svaret
 
-Redigera Bildsökning i Bing själv studie kursen och Lägg till följande kod i slutet av- `<script>` elementet (och före den avslutande `</script>` taggen). Följande kod hanterar ett visuellt Sök svar från API: et, itererar igenom resultaten och visar dem:
+Redigera Bildsökning i Bing själv studie kursen och Lägg till följande kod i slutet av `<script>` -elementet (och före den avslutande `</script>` taggen). Följande kod hanterar ett visuellt Sök svar från API: et, itererar igenom resultaten och visar dem:
 
 ``` javascript
 function handleVisualSearchResponse(){
@@ -63,7 +64,7 @@ function handleVisualSearchResponse(){
 }
 ```
 
-Följande kod skickar en Sök förfrågan till API: et med hjälp av en händelse lyssnare som `handleVisualSearchResponse()`anropar:
+Följande kod skickar en Sök förfrågan till API: et med hjälp av en händelse lyssnare som anropar `handleVisualSearchResponse()` :
 
 ```javascript
 function bingVisualSearch(insightsToken){

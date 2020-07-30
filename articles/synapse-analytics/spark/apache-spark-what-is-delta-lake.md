@@ -9,16 +9,18 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 244cdf5329e26fc7d928998b734a539f086051ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 374b8bb094a93c6c608d6bf95d2b074f661c4a6a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193387"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384743"
 ---
-# <a name="what-is-delta-lake"></a>Vad är delta i sjö?
+# <a name="what-is-delta-lake"></a>Vad är Delta Lake
 
 Azure Synapse Analytics är kompatibelt med Linux Foundation delta Lake. Delta Lake är ett lagrings lager med öppen källkod som ger syre (atomiska, konsekvens, isolering och tålighet) transaktioner för att Apache Spark och Big data arbets belastningar.
+
+Den aktuella versionen av delta Lake som ingår i Azure Synapse har språk stöd för Scala, PySpark och .NET. Det finns länkar längst ned på sidan till mer detaljerade exempel och dokumentation.
 
 ## <a name="key-features"></a>Huvudfunktioner
 
@@ -32,12 +34,12 @@ Azure Synapse Analytics är kompatibelt med Linux Foundation delta Lake. Delta L
 | **Schema tillämpning** | Schema tvång hjälper till att säkerställa att data typerna är korrekta och att nödvändiga kolumner är tillgängliga, vilket förhindrar att felaktiga data orsakar inkonsekventa data. Mer information finns i [simhopp i delta Lake: schema tillämpning & utveckling](https://databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html) |
 | **Schema utveckling** | Med delta Lake kan du göra ändringar i ett tabell schema som kan tillämpas automatiskt, utan att behöva skriva till DDL för migrering. Mer information finns i [simhopp i delta Lake: schema tillämpning & utveckling](https://databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html) |
 | **Gransknings historik** | I delta Lake Transaction-loggen registreras information om varje ändring av data som ger en fullständig granskning av ändringarna. |
-| **Uppdateringar och borttagningar** | Delta Lake stöder Scala/Java/python och SQL API: er för en rad olika funktioner. Stöd för sammanfognings-, uppdaterings-och borttagnings åtgärder hjälper dig att uppfylla kraven på efterlevnad. Mer information finns i avsnittet om [att delta i delta Lake 0.4.0-versionen](https://delta.io/news/delta-lake-0-4-0-released/) och de [enkla, pålitliga upsertar och Deletes i delta Lake-tabeller med python API: er](https://databricks.com/blog/2019/10/03/simple-reliable-upserts-and-deletes-on-delta-lake-tables-using-python-apis.html), inklusive kodfragment för kommandona Merge, Update och Delete DML. |
+| **Uppdateringar och borttagningar** | Delta Lake stöder Scala/Java/python och SQL API: er för en rad olika funktioner. Stöd för sammanfognings-, uppdaterings-och borttagnings åtgärder hjälper dig att uppfylla kraven på efterlevnad. Mer information finns i artikeln om delta sjö [0.6.1-versionen](https://delta.io/news/delta-lake-0-6-1-released/), som [presenterar delta Lake 0,7-versionen](https://delta.io/news/delta-lake-0-7-0-released/) och [enkla, pålitliga Upsertar och borttagningar i delta Lake-tabeller med hjälp av python-API: er](https://databricks.com/blog/2019/10/03/simple-reliable-upserts-and-deletes-on-delta-lake-tables-using-python-apis.html), som innehåller kodfragment för kommandona Merge, Update och Delete DML. |
 | **100% kompatibel med Apache Spark-API** | Utvecklare kan använda delta Lake med befintliga datapipeliner med minimala ändringar eftersom de är helt kompatibla med befintliga Spark-implementeringar. |
 
 Fullständig dokumentation finns på sidan om [delta Lake-dokumentation](https://docs.delta.io/latest/delta-intro.html)
 
-Mer information finns i [delta Lake Project](https://lfprojects.org).
+Mer information finns i [delta Lake Project](https://github.com/delta-io/delta).
 
 ## <a name="next-steps"></a>Nästa steg
 

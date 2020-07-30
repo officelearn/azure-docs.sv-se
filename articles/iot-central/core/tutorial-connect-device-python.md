@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: tracking-python
-ms.openlocfilehash: f89a8caf5b91fb22cca020b1d146905b68c6ed96
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d7093895392cb26e25e8054f0cdcb6870ce9e18a
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002077"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336115"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Självstudie: skapa och ansluta ett klient program till ditt Azure IoT Central-program (python)
 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 > * Använd en vy för att hantera enhets egenskaper.
 > * Anropa synkrona och asynkrona kommandon för att styra enheten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
@@ -312,7 +312,6 @@ Du kan se hur enheten svarar på kommandon och egenskaps uppdateringar:
 
 Som en enhets utvecklare har du nu lärt dig grunderna för hur du skapar en enhet med hjälp av python, men vissa föreslagna nästa steg är att:
 
-* Lär dig hur du ansluter en riktig enhet till IoT Central i [ansluta en MXChip IoT DevKit-enhet till Azure IoT Central Application](./howto-connect-devkit.md) instruktion-artikeln.
 * Läs [Vad är enhets mallar?](./concepts-device-templates.md) om du vill lära dig mer om rollen hets mallar när du implementerar din enhets kod.
 * Läs [bli ansluten till Azure IoT Central](./concepts-get-connected.md) om du vill veta mer om hur du registrerar enheter med IoT Central och hur IoT Central skyddar enhets anslutningar.
 

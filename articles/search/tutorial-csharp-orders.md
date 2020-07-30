@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: 552f974b99b9430d82596a5a25265bb916cb4e25
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f2182dcfd3db83580dfbec9b4f09479650dd62ca
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262199"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420642"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Självstudie: Beställ Sök resultat med hjälp av .NET SDK
 
@@ -21,14 +22,14 @@ Fram till den här punkten i våra självstudier, returneras och visas resultate
 
 För att kunna jämföra returnerade resultat enkelt, bygger det här projektet på det oändliga rullande projektet som skapats i [C#-själv studie kursen: Sök Resultat sid brytning – Azure kognitiv sökning](tutorial-csharp-paging.md) själv studie kurs.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Ordna resultat baserat på en egenskap
 > * Ordna resultat baserat på flera egenskaper
 > * Filtrera resultat baserat på ett avstånd från en geografisk punkt
 > * Beställ resultat baserat på en bedömnings profil
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -114,7 +115,7 @@ Du behöver inte ändra någon av modellerna för att möjliggöra sortering. Vy
     ```
 
     >[!Tip]
-    >Webbläsare cachelagrar vanligt vis CSS-filer och det kan leda till att en gammal CSS-fil används och redigeringarna ignoreras. Ett bra sätt att avrunda detta är att lägga till en frågesträng med en versions parameter till länken. Ett exempel:
+    >Webbläsare cachelagrar vanligt vis CSS-filer och det kan leda till att en gammal CSS-fil används och redigeringarna ignoreras. Ett bra sätt att avrunda detta är att lägga till en frågesträng med en versions parameter till länken. Exempel:
     >
     >```html
     >   <link rel="stylesheet" href="~/css/hotels.css?v1.1" />
@@ -461,7 +462,7 @@ För att visa resultat baserat på geografisk avstånd krävs flera steg.
 
 4. Nu måste du knyta dessa begrepp till varandra. De här kodfragmenten är i mån av den här själv studie kursen, och du får hjälp att skapa en mappad app som en övning för läsaren. Om du vill göra det här exemplet ytterligare, kan du antingen ange ett Orts namn med en radie eller hitta en punkt på en karta och välja en radie. Information om hur du undersöker dessa alternativ finns i följande resurser:
 
-* [Dokumentation för Azure Maps](https://docs.microsoft.com/azure/azure-maps/)
+* [Azure Maps-dokumentation](https://docs.microsoft.com/azure/azure-maps/)
 * [Hitta en adress med hjälp av Azure Maps Search-tjänsten](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address)
 
 ## <a name="order-results-based-on-a-scoring-profile"></a>Beställ resultat baserat på en bedömnings profil

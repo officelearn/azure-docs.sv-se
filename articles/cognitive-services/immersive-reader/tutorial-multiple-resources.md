@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: integrera flera fördjupade läsare resurser'
 titleSuffix: Azure Cognitive Services
-description: I den här självstudien skapar du ett Node. js-program som startar den fördjupade läsaren med flera fördjupade läsares resurser.
+description: I den här självstudien skapar du ett Node.js-program som startar den fördjupade läsaren med flera fördjupade läsares resurser.
 author: skamal
 manager: nitinme
 ms.service: cognitive-services
@@ -9,24 +9,25 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
-ms.openlocfilehash: d4fa61f8290f3bf9e2f065ec841fa94d8ecaaac1
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 214d6d614fcc54a532766854f2e72ac45dbfa8ad
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267213"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407208"
 ---
 # <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Självstudie: integrera flera fördjupade läsare resurser
 
-I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren är och hur den implementerar beprövade tekniker för att förbättra läsningen av förståelse för språkstuderande, nya läsare och studenter med inlärnings skillnader. I snabb starten för [Node. js](./quickstarts/client-libraries.md?pivots=programming-language-nodejs)har du lärt dig hur du använder avancerad läsare med en enda resurs. I den här självstudien beskrivs hur du integrerar flera fördjupade Reader-resurser i samma program. I den här guiden får du lära dig att:
+I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren är och hur den implementerar beprövade tekniker för att förbättra läsningen av förståelse för språkstuderande, nya läsare och studenter med inlärnings skillnader. I snabb starten för [Node.js](./quickstarts/client-libraries.md?pivots=programming-language-nodejs)har du lärt dig hur du använder avancerad läsare med en enda resurs. I den här självstudien beskrivs hur du integrerar flera fördjupade Reader-resurser i samma program. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa flera fördjupad läsar resurs under en befintlig resurs grupp
 > * Starta den fördjupade läsaren med flera resurser
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Följ [snabb](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) starten för att skapa en webbapp som startar den fördjupade läsaren med NodeJS. I den här snabb starten konfigurerar du en enskild fördjupad läsare-resurs. Vi kommer att bygga ovanpå det i den här självstudien.
 

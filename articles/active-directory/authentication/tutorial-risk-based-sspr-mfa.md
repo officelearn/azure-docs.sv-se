@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18b2fb520ecab8b233be3c93ef614a2bce01a75e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e008091b3d0b450384cb7a672a62c786c33bfeab
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035004"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419639"
 ---
 # <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-multi-factor-authentication-or-password-changes"></a>Självstudie: använda risk identifieringar för användar inloggningar för att utlösa Azure-Multi-Factor Authentication eller lösen ords ändringar
 
@@ -39,7 +39,7 @@ I den här guiden får du lära dig att:
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
-* En fungerande Azure AD-klient med minst en licens för Azure AD Premium P2-utvärdering aktive rad.
+* En fungerande Azure AD-klient med minst en Azure AD Premium P2-eller utvärderings licens aktive rad.
     * Om det behövs kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Ett konto med *Global administratörs* behörighet.
 * Azure AD har kon figurer ATS för självbetjäning för återställning av lösen ord och Azure Multi-Factor Authentication

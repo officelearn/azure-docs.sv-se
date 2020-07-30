@@ -2,16 +2,14 @@
 title: Skapa en funktion med Start programmet för Azure för studenter
 description: Lär dig hur du skapar en Azure-funktion från en Azure for student starter-prenumeration
 Customer intent: As a student, I want to be able to create an HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
-author: alexkarcher-msft
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.author: alkarche
-ms.openlocfilehash: ffb6378d3dc4cc3fb23ea62157aad393d8ae6642
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ecb2cc20bec602101d683dbfdd3f82a2e199aa16
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83122909"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386970"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Skapa en funktion med Start programmet för Azure för studenter
 
@@ -31,7 +29,7 @@ Med Azure Functions kan du köra kod i en [serverfri](https://azure.microsoft.co
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
+Logga in på [Azure-portalen](https://portal.azure.com) med ditt Azure-konto.
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 

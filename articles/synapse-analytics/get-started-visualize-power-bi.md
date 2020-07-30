@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 13c5ac4a9b4d1ac996eb4eadc0cecd626964b4e8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 40a2cd5898ede7fc30db9a8475c5ab7cc68095ff
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101810"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337644"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualisera data med Power BI
 
@@ -94,5 +94,6 @@ Du kan länka en Power BI arbets yta till din Azure Synapse-arbetsyta. Med den h
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Azure Synapse Analytics (för hands versioner av arbets ytor)](overview-what-is.md)
+> [Övervakare](get-started-monitor.md)
+                                 
 

@@ -22,7 +22,7 @@ Med [Azure Site Recovery](site-recovery-overview.md)kan du, som partner, hantera
 
 Den här artikeln beskriver hur du som partner kan skapa och hantera klient prenumerationer via CSP, för ett scenario med VMware-replikering för flera innehavare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera VMware-replikering måste du göra följande:
 

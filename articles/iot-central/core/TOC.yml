@@ -43,8 +43,6 @@
           href: tutorial-connect-device-nodejs.md
         - name: Ansluta en enhet (Python)
           href: tutorial-connect-device-python.md
-        - name: Anslut en Plug and Play-enhet (förhandsversion)
-          href: tutorial-connect-pnp-device.md
         - name: Mall för att skapa en gateway-enhet
           href: tutorial-define-gateway-device-type.md
         - name: Ansluta en IoT Edge-enhet
@@ -79,8 +77,6 @@
       items:
         - name: Konfigurera en enhetsmall
           href: howto-set-up-template.md
-        - name: Förbereda och ansluta MXChip IoT DevKit
-          href: howto-connect-devkit.md
         - name: Förbereda och ansluta ett Azure Sphere DevKit
           href: howto-connect-sphere.md
         - name: Förbereda och ansluta en RuuviTag-enhet

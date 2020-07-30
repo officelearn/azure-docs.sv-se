@@ -13,12 +13,13 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: fe93344005e2676046bd6b73f9d51b617100a961
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+- devx-track-javascript
+ms.openlocfilehash: f3dad81a5cba9dd817e0d4e75590d374fe059358
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325907"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424111"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -41,7 +42,7 @@ I den här självstudien utför du följande åtgärder:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver Node.js v10. x. x eller senare på din utvecklings dator.
 

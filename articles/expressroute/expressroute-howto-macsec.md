@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: a73a99d1e6200faf9feb227f562f5b77b0461f1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce2e4ca2cad0fc080d6a750b3f1682210a5b9b20
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737061"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387667"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Konfigurera MACsec på ExpressRoute Direct-portar
 
@@ -47,7 +47,7 @@ För att starta konfigurationen loggar du in på ditt Azure-konto och väljer de
     $keyVault = New-AzKeyVault -Name "your_key_vault_name" -ResourceGroupName "your_resource_group" -Location "resource_location" -EnableSoftDelete 
     ```
 
-    Om du redan har ett nyckel valv eller en resurs grupp kan du återanvända dem. Det är dock viktigt att du aktiverar funktionen för [ **mjuk borttagning** ](../key-vault/general/overview-soft-delete.md) i ditt befintliga nyckel valv. Om mjuk borttagning inte har Aktiver ATS kan du använda följande kommandon för att aktivera det:
+    Om du redan har ett nyckel valv eller en resurs grupp kan du återanvända dem. Det är dock viktigt att du aktiverar funktionen för [ **mjuk borttagning** ](../key-vault/general/soft-delete-overview.md) i ditt befintliga nyckel valv. Om mjuk borttagning inte har Aktiver ATS kan du använda följande kommandon för att aktivera det:
 
     ```azurepowershell-interactive
     ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "your_existing_keyvault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"

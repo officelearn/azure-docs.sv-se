@@ -52,8 +52,12 @@
     - name: Åtkomst och identitet
       href: concepts-identity.md
     - name: Säkerhet
-      href: concepts-security.md
-      items: null
+      items:
+        - name: Säkerhet för program och kluster
+          href: concepts-security.md
+        - name: Säkerhetskontroller av Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
     - name: Nätverk
       href: concepts-network.md
     - name: Storage

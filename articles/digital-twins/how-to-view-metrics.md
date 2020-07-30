@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 09e32d5baa367b76c34ebca28adfdd20385e4e18
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: c6db571d64b0fd276519f15a3984848e80c4e18a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374591"
+ms.locfileid: "87387684"
 ---
 # <a name="view-and-understand-azure-digital-twins-metrics"></a>Visa och förstå Azure Digitals dubbla mått
 
@@ -36,7 +36,7 @@ Mått är aktiverat som standard. Du kan visa Azure Digitals dubbla mått från 
 
     :::image type="content" source="media/how-to-view-metrics/diagnostic-settings.png" alt-text="Skärm bild som visar sidan diagnostikinställningar och knappen som ska läggas till":::
 
-    Mer information om den här processen finns i [*anvisningar: Konfigurera diagnostik*](how-to-set-up-diagnostics.md).
+    Mer information om den här processen finns i [*fel sökning: Konfigurera diagnostik*](troubleshoot-diagnostics.md).
 
 ## <a name="azure-digital-twins-metrics-and-how-to-use-them"></a>Azure Digital har mått och hur man använder dem
 
@@ -94,7 +94,7 @@ Dimensionerna hjälper till att identifiera mer information om måtten. Några a
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du hanterar inspelade mått för digitala Azure-enheter finns i [*så här gör du för att: Konfigurera diagnostik*](how-to-set-up-diagnostics.md).
+Mer information om hur du hanterar inspelade mått för Azure Digitals finns i [*fel sökning: Konfigurera diagnostik*](troubleshoot-diagnostics.md).
 
 Eller, nu när du har sett en översikt över Azure Digitals mått, följer du dessa länkar för att lära dig mer om att hantera Azure Digitals:
 

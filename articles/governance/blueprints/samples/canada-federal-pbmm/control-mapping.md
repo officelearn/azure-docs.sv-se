@@ -3,16 +3,16 @@ title: PBMM i Kanada, federala exempel kontroller
 description: Kontroll av kart provet i Kanadas federala PBMM-exempel. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
 ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: e9153972938a572f8d37610e5721f7b0a578157c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 65fcd016c749a66fbfca1c5edc9d425216545341
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085641"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419707"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Kontroll av kart provet i Kanadas federala PBMM-utkast
 
-Följande artikel innehåller information om hur Azure-ritningar Canada Federal Protected B, medium Integrity, medel tillgänglighet (PBMM) skisser mappar till de federala PBMM-kontrollerna i Kanada. Mer information om kontrollerna finns i [Kanadas federala PBMM](https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html#toc4).
+Följande artikel innehåller information om hur Azure-ritningar Canada Federal Protected B, medium Integrity, medel tillgänglighet (PBMM) skisser mappar till de federala PBMM-kontrollerna i Kanada. Mer information om kontrollerna finns i [Kanadas federala PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html).
 
 Följande mappningar är till de **federala PBMM** -kontrollerna i Kanada. Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj ** \[ förhands granskningen \] : granskning av federala PBMM-kontroller** för den inbyggda principen.
 
@@ -75,7 +75,7 @@ Azure implementerar [rollbaserad åtkomst kontroll](../../../../role-based-acces
 
 ## <a name="ac-7-security-attributes"></a>AC-7 säkerhetsattribut
 
-Funktionerna för data identifiering och klassificering av avancerad data säkerhet för Azure SQL Database ger funktioner för att upptäcka, klassificera, märka och skydda känsliga data i dina databaser. Det kan användas för att ge insyn i tillståndet på din databasklassificering och för att spåra åtkomst till känsliga data i och utanför databasen. Avancerad data säkerhet kan hjälpa dig att se till att informationen är associerad med lämpliga säkerhetsattribut för din organisation. Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner för att övervaka och upprätthålla användningen av avancerad data säkerhet på SQL Server.
+Funktionerna för data identifiering och klassificering av avancerad data säkerhet för Azure SQL Database ger funktioner för att upptäcka, klassificera, märka och skydda känsliga data i dina databaser. Det kan användas för att ge insyn i tillståndet för din databasklassificering samt för att spåra åtkomst till känsliga data i och utanför databasen. Avancerad data säkerhet kan hjälpa dig att se till att informationen är associerad med lämpliga säkerhetsattribut för din organisation. Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner för att övervaka och upprätthålla användningen av avancerad data säkerhet på SQL Server.
 
 - Avancerad data säkerhet ska vara aktiverat på SQL-hanterade instanser
 - Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar

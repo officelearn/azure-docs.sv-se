@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b19427070d982918584c13c25518cffe55497000
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 2f8f19e6b98143bb48430decdd51f5626e72d422
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223337"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387293"
 ---
 # <a name="quickstart-set-up-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: Konfigurera enkel inloggning (SSO) för ett program i din Azure Active Directory (Azure AD)-klient
 
 Kom igång med förenklade användar inloggningar genom att konfigurera enkel inloggning (SSO) för ett program som du har lagt till i din Azure Active Directory (Azure AD)-klient. När du har konfigurerat SSO kan användarna logga in i ett program genom att använda sina autentiseringsuppgifter för Azure AD. SSO ingår i den kostnads fria versionen av Azure AD.
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera SSO för ett program som du har lagt till i din Azure AD-klient behöver du:
 
@@ -55,6 +55,8 @@ Så här konfigurerar du enkel inloggning för ett program:
 
 1. Processen att konfigurera ett program för att använda Azure AD för SAML-baserad SSO varierar beroende på vilket program som används. Det finns en länk till vägledningen för GitHub. För att hitta guider för andra appar, se [självstudier för att integrera SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/).
 1. Följ anvisningarna för att konfigurera SSO för programmet. Många program har särskilda prenumerations krav för SSO-funktioner. Till exempel kräver GitHub en Enterprise-prenumeration.
+    > [!TIP]
+    > Mer information om alternativen för SAML-konfiguration finns i [Konfigurera SAML-baserad enkel inloggning](configure-saml-single-sign-on.md).
 
     :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Skärm bild som visar alternativet för enkel inloggning i Enterprise-prenumerationen på prissättnings sidan för GitHub.":::
 

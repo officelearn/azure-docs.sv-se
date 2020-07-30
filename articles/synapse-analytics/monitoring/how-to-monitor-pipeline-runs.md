@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 385b06dd7756c3bebf6557f9ea0b518473a37d49
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7676f4aeeb9485ce5e3a702027884bc54d79a863
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075897"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387327"
 ---
 # <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Använd Synapse Studio för att övervaka körnings pipelinen för arbets ytan
 
@@ -22,7 +22,7 @@ Med Azure Synapse Analytics kan du skapa komplexa pipelines som kan automatisera
 
 Den här artikeln förklarar hur du övervakar dina pipeline-körningar, vilket gör att du kan hålla koll på den senaste statusen, problemen och förloppet för dina pipeliner.
 
-## <a name="access-the-list-of-pipeline-runs"></a>Åtkomst till listan över pipeline-körningar
+## <a name="access-pipeline-runs-list"></a>Åtkomst till pipeline-körningar
 
 Om du vill se en lista över pipelines körs i din arbets yta [öppnar du först Synapse Studio](https://web.azuresynapse.net/) och väljer din arbets yta.
 
@@ -36,7 +36,7 @@ Välj **pipeline-körningar** om du vill visa listan över pipeliner som körs.
 
 ![Välj pipeline-körningar](./media/how-to-monitor-pipeline-runs/monitor-hub-nav-pipelineruns.png)
 
-## <a name="filtering-your-pipeline-runs"></a>Filtrering av pipelines körningar
+## <a name="filter-your-pipeline-runs"></a>Filtrera dina pipelines körningar
 
 Du kan filtrera listan över pipelines som körs till de som du är intresse rad av. Med filtren längst upp på skärmen kan du ange ett fält som du vill filtrera.
 
@@ -46,7 +46,7 @@ Du kan till exempel filtrera vyn om du bara vill se pipelinen för pipelinen med
 
 ![Exempel filter](./media/how-to-monitor-pipeline-runs/filter-example.png)
 
-## <a name="viewing-details-about-a-specific-pipeline-run"></a>Visa information om en speciell pipeline-körning
+## <a name="view-details-about-a-specific-pipeline-run"></a>Visa information om en speciell pipeline-körning
 
 Om du vill visa information om din pipeline-körning väljer du pipeline-körningen. Visa sedan de aktivitets körningar som är associerade med pipeline-körningen. Om pipelinen fortfarande körs kan du övervaka förloppet. 
   

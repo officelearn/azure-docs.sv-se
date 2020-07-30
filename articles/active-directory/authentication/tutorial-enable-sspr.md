@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ac13dc669ed20df58f05c672926b7bee55dbc90
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6b6fe3238a2ad602b388ff24faaee3a200084ae0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035034"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419486"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Självstudie: gör det möjligt för användare att låsa upp kontot eller återställa lösen ord med hjälp av Azure Active Directory självbetjäning för återställning av lösen ord
 
@@ -37,7 +37,7 @@ I den här guiden får du lära du dig hur man:
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
-* En aktiv Azure AD-klientorganisation med minst en aktiverad utvärderingslicens.
+* En fungerande Azure AD-klient med minst en Azure AD Premium P1-eller utvärderings licens aktive rad.
     * Om det behövs kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Ett konto med *Global administratörs* behörighet.
 * En icke-administratörs användare med ett lösen ord som du känner till, till exempel *testuser*. Du testar slutanvändarens SSPR-upplevelse med det här kontot i den här självstudien.
@@ -60,7 +60,7 @@ I den här självstudien konfigurerar du SSPR för en uppsättning användare i 
 1. På sidan **Egenskaper** , under alternativet Återställning av *lösen ord*för självbetjäning aktiverat, väljer du **Välj grupp**
 1. Bläddra efter och välj din Azure AD-grupp, till exempel *SSPR-test-Group*och välj sedan *Välj*.
 
-    [![](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png "Select a group in the Azure portal to enable for self-service password reset")](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
+    [![Välj en grupp i Azure Portal för att aktivera lösen ords återställning ](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png) via självbetjäning](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
 
 1. Om du vill aktivera SSPR för Välj användare väljer du **Spara**.
 

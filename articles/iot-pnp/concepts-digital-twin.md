@@ -40,7 +40,7 @@ I en digital, finns det en enhetlig vy av egenskapens aktuella och önskade till
 
 När ett digitalt objekt visas som JSON-objekt innehåller följande fält:
 
-| Fältnamn | Beskrivning |
+| Fältnamn | Description |
 | --- | --- |
 | `$dtId` | En användardefinierad sträng som representerar ID: t för enheten Digital |
 | `{propertyName}` | Värdet för en egenskap i JSON |

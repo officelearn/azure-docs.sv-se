@@ -4,12 +4,12 @@ description: Lär dig hur Azure App Service uppdaterar operativ systemet och kö
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 597964914f4022899ab027b735ec6932105497b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93716ab36bc475b092542d1eef40cfe9d75ad819
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78273625"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87414946"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Uppdatering av operativ system och körning i Azure App Service
 
@@ -78,7 +78,7 @@ Följande tabell visar hur du använder Windows-versioner och språk körnings m
 | Information | Var du hittar den | 
 |-|-|
 | Windows-version | Se `https://<appname>.scm.azurewebsites.net/Env.cshtml` (under system information) |
-| .NET-version | `https://<appname>.scm.azurewebsites.net/DebugConsole`Kör följande kommando i kommando tolken i: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
+| .NET-version | `https://<appname>.scm.azurewebsites.net/DebugConsole`Kör följande kommando i kommando tolken i: <br>`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full"` |
 | .NET Core-version | `https://<appname>.scm.azurewebsites.net/DebugConsole`Kör följande kommando i kommando tolken i: <br> `dotnet --version` |
 | PHP-version | `https://<appname>.scm.azurewebsites.net/DebugConsole`Kör följande kommando i kommando tolken i: <br> `php --version` |
 | Standard Node.js version | Kör följande kommando i [Cloud Shell](../cloud-shell/overview.md): <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |

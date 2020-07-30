@@ -5,12 +5,12 @@ author: tugup
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: tugup
-ms.openlocfilehash: b106061805ea5485893df292c40974d3ee9bcadb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a39aecf16d1c3303c0a590b389ba2aa69d4472f2
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258818"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405134"
 ---
 # <a name="azure-service-fabric-hosting-lifecycle"></a>Azure Service Fabric är värd för livs cykeln
 Den här artikeln innehåller en översikt över händelser som inträffar när ett program aktive ras på en nod och olika kluster konfigurationer som används för att styra beteendet.
@@ -83,7 +83,7 @@ Service Fabric använder alltid en linjär säkerhets kopiering när det påträ
 
 * Om CodePackage håller på att krascha och säkerhets kopie ras kommer ServiceType att inaktive ras. Men om aktiverings konfigurationen är sådan att den har en snabb omstart kan CodePackage komma upp några gånger innan den kan se inaktive ringen av ServiceType. För att: anta att CodePackage kommer igång registrerar du ServiceType med Service Fabric och sedan kraschar. I så fall, när en värd tar emot en typ registrering, annulleras **ServiceTypeDisableGraceInterval** -perioden. Detta kan upprepas tills CodePackage tillbaka till ett värde som är större än **ServiceTypeDisableGraceInterval** och sedan är ServiceType inaktiverat på noden. Det kan därför bero på att din ServiceType är inaktive rad på noden.
 
-* När Service Fabric systemet behöver placera en replik på en nod, ställer RA (ReconfigurationAgent) under system för att aktivera programmet och försöker aktivera begäran var 15: a 15 SEK (**RAPMessageRetryInterval**). För att Service Fabric systemet för att veta att ServiceType har inaktiverats, måste aktiverings åtgärden i vara aktiv under en längre period än återförsöksintervall och **ServiceTypeDisableGraceInterval**. Exempel: låt klustret ha inställningen configs **ActivationMaxFailureCount** inställd på 5 och **ActivationRetryBackoffInterval** inställd på 1 SEK. Det innebär att aktiverings åtgärden kommer att bli upp efter (0 + 1 + 2 + 3 + 4) = 10 SEK (första omförsöket sker omedelbart) och när den är värd för att försöka igen. I det här fallet kommer aktiverings åtgärden att slutföras och kommer inte att försöka igen efter 15 sekunder. Det hände eftersom Service Fabric uttömda alla omförsök inom 15 sekunder. Det innebär att varje nytt försök från ReconfigurationAgent skapar en ny aktiverings åtgärd i värd under systemet och mönstret fortsätter upprepas och ServiceType inaktive ras aldrig på noden. Eftersom ServiceType inte inaktive ras i Node SF-systemets komponent FM (FailoverManager) flyttas inte repliken till en annan nod.
+* När Service Fabric systemet behöver placera en replik på en nod, ställer RA (ReconfigurationAgent) under system för att aktivera programmet och försöker aktivera begäran var 15: a 15 SEK (**RAPMessageRetryInterval**). För att Service Fabric systemet för att veta att ServiceType har inaktiverats, måste aktiverings åtgärden i vara aktiv under en längre period än återförsöksintervall och **ServiceTypeDisableGraceInterval**. Exempel: låt klustret ha inställningen configs **ActivationMaxFailureCount** inställd på 5 och **ActivationRetryBackoffInterval** inställd på 1 SEK. Det innebär att aktiverings åtgärden kommer att bli upp efter (0 + 1 + 2 + 3 + 4) = 10 SEK (första omförsöket sker omedelbart) och när den är värd för att försöka igen. I det här fallet kommer aktiverings åtgärden att slutföras och kommer inte att försöka igen efter 15 sekunder. Det hände eftersom Service Fabric uttömda alla omförsök inom 15 sekunder. Det innebär att varje nytt försök från ReconfigurationAgent skapar en ny aktiverings åtgärd i värd under systemet och mönstret fortsätter upprepas och ServiceType inaktive ras aldrig på noden. Eftersom ServiceType inte inaktive ras på noden, kommer SF-systemets komponent FM (FailoverManager) inte att flytta repliken till en annan nod.
 > 
 
 ## <a name="deactivation"></a>Inaktive ring

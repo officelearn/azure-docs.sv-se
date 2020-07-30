@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 029883ea1ac85bdd1ea256caaa711d6537c06a76
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8aa9fa1701f41c6fd1adacc264b811e0d9849ab5
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287896"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87408126"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Dina kommersiella marknads förmåner
 
@@ -106,9 +106,15 @@ Alla aktiviteter som beskrivs på den här sidan omfattas av [publicerings avtal
 Microsoft förbehåller sig rätten att återkalla och säga upp förmåner till marknads plats förmåner för utgivare som: 
 
 * Delta i olaglig aktivitet med hjälp av sin Marketplace-lista.
+* Ta emot ett köp som är känt eller misstänks vara bedrägligt.
 * Finns i listan från den kommersiella marknads platsen. 
 * Använd sitt erbjudande för att Visa marknadsföring eller annat innehåll som strider mot upphovs rätts eller varumärkes lagar.
 * Strider mot principerna för [Azure Sponsring-programmet](https://azure.microsoft.com/offers/ms-azr-0036p/), inklusive, men inte begränsat till, med hjälp av Azure sponsring-finansiering för sina egna interna åtgärder eller Bitcoin-utvinning.
+
+Microsoft förbehåller sig rätten att återkalla och säga upp marknads förmåner när:
+
+* Kunden som gör köpet gjorde det oavsiktligt och vill säga upp köpet. 
+* Kunden avbryter innan du använder partnerns produkt.
 
 ### <a name="offer-availability"></a>Erbjudande tillgänglighet
 

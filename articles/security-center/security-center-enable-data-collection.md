@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: f7aca2820e599c4f3dad364f1ea14eadc634a548
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c6a779deef3ed1dc0a4d5e83c38f483776adf6fe
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519722"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387378"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Datainsamling i Azure Security Center
 Security Center samlar in data från dina virtuella Azure-datorer, skalnings uppsättningar för virtuella datorer, IaaS behållare och icke-Azure (inklusive lokala) datorer för att övervaka säkerhets problem och hot. Data samlas in med hjälp av Log Analytics agent, som läser olika säkerhetsrelaterade konfigurationer och händelse loggar från datorn och kopierar data till din arbets yta för analys. Exempel på sådana data är: operativ systemets typ och version, operativ system loggar (Windows-händelseloggar), processer som körs, dator namn, IP-adresser och inloggad användare.
@@ -211,15 +211,17 @@ Security Center kommer att installera Log Analytics agent-tillägget sida vid si
     - Om du har en miljö där Log Analytics-agenten är installerad på klient arbets stationer och rapporterar till en befintlig Log Analytics arbets yta, granskar du listan över [operativ system som stöds av Azure Security Center](security-center-os-coverage.md) för att kontrol lera att operativ systemet stöds. Mer information finns i [befintliga Log Analytics-kunder](./faq-azure-monitor-logs.md).
  
 ### <a name="turn-off-automatic-provisioning"></a>Inaktivera automatisk etablering<a name="offprovisioning"></a>
-Du kan inaktivera automatisk etablering från resurser när du vill genom att inaktivera den här inställningen i säkerhets principen. 
+Så här inaktiverar du automatisk etablering av Log Analytics agent:
 
+1. Från Security Center menyn i portalen väljer du **pris & inställningar**.
+2. Välj relevant prenumeration.
 
-1. Gå tillbaka till Security Center huvud menyn och välj säkerhets princip.
-2. Klicka på **Redigera inställningar** på den rad i prenumerationen som du vill inaktivera automatisk etablering för.
-3. På sidan **säkerhets princip – data insamling** under **Automatisk etablering** väljer du **av**.
-4. Välj **Spara**.
+   ![Välj en prenumeration][7]
 
-   ![Inaktivera automatisk etablering][6]
+3. Välj **data insamling**.
+4. Under **Automatisk etablering**, väljer du **av** för att inaktivera automatisk etablering.
+5. Välj **Spara**. 
+
 
 När automatisk etablering är inaktive rad (inaktive rad) visas inte avsnittet standard konfiguration av arbets yta.
 

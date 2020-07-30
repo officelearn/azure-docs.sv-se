@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 406b122fd3f4d5ab13e9747a29bb4f6e4d2a4174
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a5ec79538ef4358552405eb4357c6304c4f8a675
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294884"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87388160"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blogin"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med blogg
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur du integrerar blogg med Azure Act
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -88,12 +88,12 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<SUBDOMAIN>.blogin.co/sso/saml/callback`
 
-1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
+1. Klicka på **Ange ytterligare URL: er** och utför följande steg om du vill konfigurera programmet i läget **SP** -initierat:
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<SUBDOMAIN>.blogin.co/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [bloggens support team](mailto:support@blogin.co) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL: en och inloggnings-URL: en. Du kan hämta de exakta värdena för dessa fält på sidan **Inställningar** på bloggen (fliken**användar ATHENTICATION** > **Konfigurera SSO och användar etablering**). Alternativt kan du kontakta [support teamet för blogg klienten](mailto:support@blogin.co) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. Blogg programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
@@ -101,7 +101,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Förutom ovan förväntar sig blogg program att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
     
-    | Namn | Källattribut |
+    | Name | Källattribut |
     | ------ | --------- |
     | title |user.jobtitle |
     
@@ -142,7 +142,18 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-blogin-sso"></a>Konfigurera blogg inloggning
 
-Om du vill konfigurera enkel inloggning på **blogg** sidan måste du skicka **URL: en för appens Federations-metadata** till [blogg support teamet](mailto:support@blogin.co). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Så här konfigurerar du enkel inloggning på **blogg** inloggnings sidan till ditt blogg konto och följer de här stegen:
+
+1. Gå till **Settings**  >  **User Authentication**  >  **Configure SSO & User etablering**.
+2. På nästa skärm ändrar du status för enkel inloggning till **på** och väljer ett eget namn för inloggnings knappen för SSO som visas på inloggnings skärmen.
+
+3. Om du har sparat **URL: en för appens Federations-URL** i det sista steget i föregående avsnitt, väljer du **URL: en** för konfigurations metoden metadata och klistra in **URL för app Federation-Metadata** i fältet metadata URL. Annars kan du ändra konfigurations metoden till **manuell**, fylla i **URL: en för inloggnings-URL för identitetsprovider (inloggnings-URL)** och **identifiera** **certifikatet (BASE64)**   som du fick från Azure AD.
+
+4. Välj standard användar rollen för nya användare som ansluter till blogg med SSO.
+
+5. Välj **Spara ändringar**.
+
+En mer detaljerad förklaring av hur du konfigurerar SSO på bloggen finns i [så här konfigurerar du SSO för Microsoft Azure AD på blogg](https://blogin.co/blog/how-to-set-up-single-sign-on-sso-for-microsoft-azure-active-directory-azure-ad-267/). Du kan när som helst kontakta [bloggens support team](mailto:support@blogin.co) om du har några frågor eller behöver hjälp.
 
 ### <a name="create-blogin-test-user"></a>Skapa blogg test användare
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 0da3a0bec79ab6f60b1e69c490124e95a4b7c365
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e8e900e410f1a41c8c98f5cec00631cfb5f275de
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497654"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407701"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime i Azure Data Factory 
 
@@ -45,13 +45,10 @@ I följande tabell beskrivs funktioner och nätverksstöd för varje Integration
 
 IR-typ | Offentligt nätverk | Privat nätverk
 ------- | -------------- | ---------------
-Azure | Dataflöde<br/>Dataförflyttning<br/>Aktivitetssändning | &nbsp;
+Azure | Dataflöde<br/>Dataförflyttning<br/>Aktivitetssändning | Dataflöde<br/>Dataförflyttning<br/>Aktivitetssändning
 Egen värd | Dataförflyttning<br/>Aktivitetssändning | Dataförflyttning<br/>Aktivitetssändning
 Azure-SSIS | Körning av SSIS-paket | Körning av SSIS-paket
 
-Följande diagram visar hur olika IR-körningar kan användas i kombination för att ge omfattande dataintegrationsfunktioner och nätverksstöd:
-
-![Olika typer av Integration Runtime](media/concepts-integration-runtime/different-integration-runtimes.png)
 
 ## <a name="azure-integration-runtime"></a>Azure Integration Runtime
 
@@ -63,7 +60,7 @@ En Azure integration runtime kan:
 
 ### <a name="azure-ir-network-environment"></a>Azure IR-nätverksmiljö
 
-Azure Integration Runtime stöder anslutning till data lager och beräknings tjänster med offentliga tillgängliga slut punkter. Använd Integration Runtime med egen värd för Azure Virtual Network-miljön.
+Azure Integration Runtime stöder anslutning till data lager och beräknings tjänster med offentliga tillgängliga slut punkter. Genom att aktivera hanterade Virtual Network kan Azure Integration Runtime ansluta till data lager med hjälp av tjänsten privata länkar i privat nätverks miljö.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Beräkningsresurs och skalning i Azure IR
 Med Azure Integration Runtime får du en helt hanterad, serverlös beräkning i Azure.  Du behöver inte bekymra dig om infrastruktur etablering, program varu installation, uppdatering eller kapacitets skalning.  Dessutom betalar du bara för den faktiska användningen.
@@ -136,7 +133,7 @@ IR-platsen definierar platsen för backend-beräkningen och i stort sett platsen
 
 Du kan ange en viss plats för en Azure IR, i vilket fall aktiviteten körs eller sändningen sker i den specifika regionen.
 
-Om du väljer att använda alternativet lös automatiskt Azure IR, som är standard,
+Om du väljer att använda den automatiska matchningen Azure IR i offentligt nätverk, vilket är standard,
 
 - För kopierings aktiviteten gör ADF det bästa arbetet för att automatiskt identifiera ditt mottagares data lagers plats. Använd sedan IR i antingen samma region om det är tillgängligt eller var som helst i samma geografi. om mottagar data lagrets region inte kan identifieras, används IR i Data Factory-regionen som ett alternativ.
 
@@ -154,6 +151,8 @@ Om du väljer att använda alternativet lös automatiskt Azure IR, som är stand
 
   > [!TIP] 
   > En bra idé är att se till att data flödet körs i samma region som dina motsvarande data lager (om möjligt). Du kan antingen åstadkomma detta genom att matcha Azure IR automatiskt (om data lager platsen är samma som Data Factory plats), eller genom att skapa en ny Azure IR instans i samma region som dina data lager och sedan köra data flödet på den. 
+
+Om du aktiverar hanterade Virtual Network för automatisk lösning Azure IR, använder ADF IR i Data Factory-regionen. 
 
 Du kan övervaka vilken IR plats som börjar gälla under körning av aktiviteten i övervakningsvyn för pipeline-aktivitet i gränssnittet eller en aktivitetsövervakningsnyttolast.
 

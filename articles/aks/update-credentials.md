@@ -5,12 +5,12 @@ description: Läs om hur du uppdaterar eller återställer autentiseringsuppgift
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: a9cc19184cc39975cce18d17a6047bedf5915555
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a824606bc0e77ba069b6b54725645ee3f348de27
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251034"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386936"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Uppdatera eller rotera autentiseringsuppgifterna för Azure Kubernetes service (AKS)
 
@@ -26,10 +26,12 @@ Du behöver Azure CLI-versionen 2.0.65 eller senare installerad och konfigurerad
 
 ## <a name="update-or-create-a-new-service-principal-for-your-aks-cluster"></a>Uppdatera eller skapa ett nytt huvud namn för tjänsten för ditt AKS-kluster
 
-När du vill uppdatera autentiseringsuppgifterna för ett AKS-kluster kan du välja att:
+När du vill uppdatera autentiseringsuppgifterna för ett AKS-kluster kan du antingen välja att:
 
-* uppdatera autentiseringsuppgifterna för det befintliga tjänst huvud namnet som används av klustret, eller
-* skapa ett huvud namn för tjänsten och uppdatera klustret för att använda dessa nya autentiseringsuppgifter.
+* Uppdatera autentiseringsuppgifterna för det befintliga huvud namnet för tjänsten.
+* Skapa ett nytt huvud namn för tjänsten och uppdatera klustret för att använda dessa nya autentiseringsuppgifter. 
+
+> ! HONOM Om du väljer att skapa ett *nytt* huvud namn för tjänsten kan det ta lång tid att uppdatera ett stort AKS-kluster för att använda dessa autentiseringsuppgifter.
 
 ### <a name="check-the-expiration-date-of-your-service-principal"></a>Kontrol lera förfallo datumet för tjänstens huvud namn
 
@@ -41,7 +43,7 @@ SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
 az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
 ```
 
-### <a name="reset-existing-service-principal-credential"></a>Återställ befintliga autentiseringsuppgifter för tjänstens huvud namn
+### <a name="reset-the-existing-service-principal-credential"></a>Återställ de befintliga autentiseringsuppgifterna för tjänstens huvud namn
 
 Om du vill uppdatera autentiseringsuppgifterna för det befintliga huvud namnet för tjänsten hämtar du tjänstens huvud namn-ID för klustret med hjälp av kommandot [AZ AKS show][az-aks-show] . I följande exempel hämtas ID: t för klustret med namnet *myAKSCluster* i resurs gruppen *myResourceGroup* . Tjänstens huvud namn-ID anges som en variabel med namnet *SP_ID* som ska användas i ytterligare kommando. Dessa kommandon använder bash-syntax.
 
@@ -90,6 +92,9 @@ Fortsätt nu med att [Uppdatera AKS-kluster med nya autentiseringsuppgifter för
 
 ## <a name="update-aks-cluster-with-new-service-principal-credentials"></a>Uppdatera AKS-kluster med nya autentiseringsuppgifter för tjänstens huvud namn
 
+> [!IMPORTANT]
+> För stora kluster kan det ta lång tid att uppdatera AKS-klustret med ett nytt huvud namn för tjänsten.
+
 Oavsett om du väljer att uppdatera autentiseringsuppgifterna för det befintliga tjänstens huvud namn eller skapa ett huvud namn för tjänsten, uppdaterar du nu AKS-klustret med dina nya autentiseringsuppgifter med hjälp av kommandot [AZ AKS Update-credentials][az-aks-update-credentials] . Variablerna för *--Service-Principal* och *--client-Secret* används:
 
 ```azurecli-interactive
@@ -101,11 +106,11 @@ az aks update-credentials \
     --client-secret "$SP_SECRET"
 ```
 
-Det tar en stund innan autentiseringsuppgifterna för tjänstens huvud namn uppdateras i AKS.
+För små och medel stora kluster tar det en stund innan autentiseringsuppgifterna för tjänstens huvud namn uppdateras i AKS.
 
 ## <a name="update-aks-cluster-with-new-aad-application-credentials"></a>Uppdatera AKS-kluster med nya AAD-programautentiseringsuppgifter
 
-Du kan skapa nya AAD-servrar och klient program genom att följa [anvisningarna för AAD-integrering][create-aad-app]. Eller Återställ dina befintliga AAD-program på [samma sätt som för tjänstens huvud namns återställning](#reset-existing-service-principal-credential). Efter det behöver du bara uppdatera dina autentiseringsuppgifter för ditt AAD-program med samma [AZ AKS Update-credentials][az-aks-update-credentials] -kommando, men med hjälp av *--Reset-AAD-* variablerna.
+Du kan skapa nya AAD-servrar och klient program genom att följa [anvisningarna för AAD-integrering][create-aad-app]. Eller Återställ dina befintliga AAD-program på [samma sätt som för tjänstens huvud namns återställning](#reset-the-existing-service-principal-credential). Efter det behöver du bara uppdatera dina autentiseringsuppgifter för ditt AAD-program med samma [AZ AKS Update-credentials][az-aks-update-credentials] -kommando, men med hjälp av *--Reset-AAD-* variablerna.
 
 ```azurecli-interactive
 az aks update-credentials \

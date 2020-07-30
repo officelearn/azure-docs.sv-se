@@ -4,19 +4,19 @@ description: På den här sidan beskrivs några vanliga värden för DTU-resurse
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: references_regions
+ms.custom: seo-lt-2019 sqldbrb=1 references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
-ms.date: 04/17/2020
-ms.openlocfilehash: 4377be82dfdb66ab7186d4472c8b1f5453b47809
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 07/28/2020
+ms.openlocfilehash: 0fd875b2c02f5d61663339ac523fd6733732ad01
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325125"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420999"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Resurs begränsningar för elastiska pooler med inköps modellen DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,9 +38,11 @@ För Azure SQL Database elastiska pooler visar följande tabeller de resurser so
 > [!IMPORTANT]
 > För skalnings vägledning och överväganden, se [skala en elastisk pool](elastic-pool-scale.md)
 
+Resurs gränserna för enskilda databaser i elastiska pooler är vanligt vis samma som för enskilda databaser utanför pooler baserat på DTU: er och tjänst nivån. Till exempel är maximalt antal samtidiga arbetare för en S2-databas 120 arbetare. Därför är det högsta antalet samtidiga arbetare för en databas i en standard-pool också 120 arbetare om max värdet för DTU per databas i poolen är 50 DTU: er (som motsvarar S2).
+ 
+Resurserna som tillhandahålls till en elastisk pool kan överskrida resurserna som tillhandahålls till en enda databas utanför en elastisk pool för samma antal DTU: er. Det innebär att det är möjligt att använda eDTU-användningen av en elastisk pool för att vara mindre än summan av DTU-användningen mellan databaser i poolen, beroende på arbets belastnings mönster. I ett extrema fall med bara en databas i en elastisk pool där databas-DTU-användningen är 100% är det möjligt att använda pool-eDTU-användning som 50% för vissa arbets belastnings mönster. Detta kan inträffa även om ingen explicit Max DTU per databas har angetts. I så fall är den sammanslagna databasen DTU-förbrukning begränsad på samma sätt som DTU-förbrukningen för en enskild databas med matchande tjänst mål.
+
 > [!NOTE]
-> Resurs gränserna för enskilda databaser i elastiska pooler är vanligt vis samma som för enskilda databaser utanför pooler baserat på DTU: er och tjänst nivån. Till exempel är maximalt antal samtidiga arbetare för en S2-databas 120 arbetare. Därför är det högsta antalet samtidiga arbetare för en databas i en standard-pool också 120 arbetare om max värdet för DTU per databas i poolen är 50 DTU: er (som motsvarar S2).
->
 > Resurs gränsen för lagring per pool i följande tabeller inkluderar inte tempdb och logg lagring.
 
 ### <a name="basic-elastic-pool-limits"></a>Gränser för grundläggande elastisk pool

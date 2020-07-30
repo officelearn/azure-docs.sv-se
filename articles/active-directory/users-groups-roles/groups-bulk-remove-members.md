@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9084b486681ded0c194c93f07a404f5f5e88fa6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acf3cba5046a20b99212e89b378327765d22fa23
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728477"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421645"
 ---
 # <a name="bulk-remove-group-members-in-azure-active-directory"></a>Mass borttagning av grupp medlemmar i Azure Active Directory
 
@@ -35,7 +35,7 @@ Ladda ned och fyll i mallen för Mass uppladdning av CSV för att lägga till Az
 Raderna i en Hämtad CSV-mall är följande:
 
 - **Versions nummer**: den första raden som innehåller versions numret måste inkluderas i överförings-CSV-filen.
-- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt* &gt; . Till exempel `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Vissa äldre versioner av mallen kan ha små variationer. För ändringar i grupp medlemskap kan du välja vilken identifierare som ska användas: medlems objekt-ID eller User Principal Name.
+- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt* &gt; . Exempelvis `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Vissa äldre versioner av mallen kan ha små variationer. För ändringar i grupp medlemskap kan du välja vilken identifierare som ska användas: medlems objekt-ID eller User Principal Name.
 - **Exempel rad**: vi har inkluderat i mallen en rad exempel på acceptabla värden för varje kolumn. Du måste ta bort exempel raden och ersätta den med dina egna poster.
 
 ### <a name="additional-guidance"></a>Mer information
@@ -68,7 +68,7 @@ Raderna i en Hämtad CSV-mall är följande:
 
 Du kan se statusen för alla väntande Mass förfrågningar på resultat sidan för **Mass åtgärder** .
 
-[![](media/groups-bulk-remove-members/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-remove-members/bulk-center.png#lightbox)
+[![Kontrol lera status på sidan Mass åtgärds resultat](media/groups-bulk-remove-members/bulk-center.png)](media/groups-bulk-remove-members/bulk-center.png#lightbox)
 
 Om du vill ha mer information om varje rad objekt i Mass åtgärden väljer du värdena under kolumnerna **# lyckades**, **# Failure**eller **Totalt antal förfrågningar** . Om fel inträffar visas orsaken till felet.
 

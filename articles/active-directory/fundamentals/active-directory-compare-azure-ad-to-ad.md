@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
-ms.openlocfilehash: 5075ae57df6a7306f0c860690931c846e52c2a89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31fde1b80a1646a92688a0fcc1fa221cf01ba0a9
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78926887"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418873"
 ---
 # <a name="compare-active-directory-to-azure-active-directory"></a>Jämför Active Directory Azure Active Directory
 
@@ -42,7 +42,7 @@ De flesta IT-administratörer är bekanta med Active Directory Domain Services k
 | Tjänster på mellan nivå/daemon|Tjänster som körs i lokala miljöer använder normalt AD-tjänst konton eller grupphanterade tjänst konton (gMSA) för att köra. Dessa appar ärver sedan behörigheter för tjänst kontot.| Azure AD tillhandahåller [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) för att köra andra arbets belastningar i molnet. Livs cykeln för dessa identiteter hanteras av Azure AD och är knuten till resurs leverantören kan inte användas för andra ändamål för att få åtkomst till bakdörr.|
 | **Egenskaper**|||
 | Mobilt|Active Directory har inte inbyggt stöd för mobila enheter utan lösningar från tredje part.| Microsofts lösning för hantering av mobila enheter Microsoft Intune integreras med Azure AD. Microsoft Intune tillhandahåller enhets tillstånds information till identitets systemet för att utvärdera under autentisering. |
-| Windows-datorer|Active Directory ger möjlighet till domän anslutning till Windows-enheter för att hantera dem med hjälp av grupprincip, System Center Configuration Manager eller andra lösningar från tredje part.|Windows-enheter kan [anslutas till Azure AD](https://docs.microsoft.com/azure/active-directory/devices/). Villkorlig åtkomst kan kontrol lera om en enhet är Azure AD-ansluten som en del av autentiseringsprocessen. Windows-enheter kan också hanteras med [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune). I det här fallet kommer villkorlig åtkomst att överväga om en enhet är ett klagomål (till exempel uppdaterade säkerhets korrigeringar och virus signaturer) innan åtkomst tillåts till apparna.|
+| Windows-datorer|Active Directory ger möjlighet till domän anslutning till Windows-enheter för att hantera dem med hjälp av grupprincip, System Center Configuration Manager eller andra lösningar från tredje part.|Windows-enheter kan [anslutas till Azure AD](https://docs.microsoft.com/azure/active-directory/devices/). Villkorlig åtkomst kan kontrol lera om en enhet är Azure AD-ansluten som en del av autentiseringsprocessen. Windows-enheter kan också hanteras med [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune). I det här fallet kommer villkorlig åtkomst att överväga om en enhet är kompatibel (till exempel uppdaterade säkerhets korrigeringar och virus signaturer) innan åtkomst tillåts till apparna.|
 | Windows-servrar| Active Directory tillhandahåller kraftfulla hanterings funktioner för lokala Windows-servrar som använder grupprincip eller andra hanterings lösningar.| Virtuella Windows Server-datorer i Azure kan hanteras med [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/). [Hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) kan användas när virtuella datorer behöver åtkomst till identitetens system katalog eller resurser.|
 | Linux/UNIX-arbetsbelastningar|Active Directory har inbyggt stöd för icke-Windows utan lösningar från tredje part, även om Linux-datorer kan konfigureras för autentisering med Active Directory som en Kerberos-sfär.|Virtuella Linux/UNIX-datorer kan använda [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) för att få åtkomst till identitets systemet eller-resurserna. Vissa organisationer, migrera dessa arbets belastningar till moln behållar teknik, som också kan använda hanterade identiteter.|
 

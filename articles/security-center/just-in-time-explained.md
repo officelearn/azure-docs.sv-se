@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 50398632f47d889ecb79b32faef94c9c5923789c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dfdb717a27af8dc7f3186ac7afdff4d1eb3d79f5
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532507"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420846"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Förstå VM-åtkomst med just-in-Time (JIT)
 
@@ -67,13 +67,17 @@ När Security Center hittar en dator som kan dra nytta av JIT lägger den till d
 
 ### <a name="what-permissions-are-needed-to-configure-and-use-jit"></a>Vilka behörigheter krävs för att konfigurera och använda JIT?
 
-Om du vill skapa anpassade roller som kan fungera med JIT behöver du följande information:
+Om du vill skapa anpassade roller som kan fungera med JIT behöver du information från tabellen nedan.
+
+> [!TIP]
+> Om du vill skapa en roll med minst privilegier för användare som behöver begära JIT-åtkomst till en virtuell dator och inte utföra några andra JIT-åtgärder, använder du [set-JitLeastPrivilegedRole-skriptet](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) från community-sidorna för Security Center GitHub.
 
 | Så här gör du så att en användare kan: | Behörigheter att ange|
 | --- | --- |
 | Konfigurera eller redigera en JIT-princip för en virtuell dator | *Tilldela följande åtgärder till rollen:*  <ul><li>I omfånget för en prenumeration eller resurs grupp som är associerad med den virtuella datorn:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> I omfånget för en prenumeration eller resurs grupp av virtuell dator: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
 |Begär JIT-åtkomst till en virtuell dator | *Tilldela följande åtgärder till användaren:*  <ul><li>I omfånget för en prenumeration eller resurs grupp som är associerad med den virtuella datorn:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>I omfånget för en prenumeration eller resurs grupp som är associerad med den virtuella datorn:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  I omfånget för en prenumeration eller resurs grupp eller virtuell dator:<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  I omfånget för en prenumeration eller resurs grupp eller virtuell dator:<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
 |Läs JIT-principer| *Tilldela följande åtgärder till användaren:*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|
+|||
 
 
 

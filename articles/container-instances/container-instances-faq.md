@@ -4,12 +4,12 @@ description: Svar på vanliga frågor som rör Azure Container Instances tjänst
 author: dkkapur
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 21643ccfb6bb256e29114435ccb39a009d1b8dae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95190496df4037a973207e14292911225094782e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806609"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421288"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Vanliga frågor och svar om Azure Container Instances
 
@@ -89,9 +89,9 @@ För närvarande är skalning inte tillgängligt för behållare eller behållar
 
 ### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>Vilka funktioner är tillgängliga för instanser som körs i ett anpassat VNet?
 
-Du kan [distribuera behållar grupper i ett virtuellt Azure-nätverk](container-instances-vnet.md) och delegera privata IP-adresser till behållar grupper för att dirigera trafik i VNet över dina Azure-resurser. Distribution av en behållar grupp i ett virtuellt nätverk är för närvarande tillgängligt för produktions arbets belastningar i en delmängd av Azure-regioner.
+Du kan [distribuera behållar grupper i ett virtuellt Azure-nätverk](container-instances-vnet.md) och delegera privata IP-adresser till behållar grupper för att dirigera trafik i VNet över dina Azure-resurser. För nätverks scenarier och begränsningar med Azure Container Instances, se [scenarier och resurser för virtuella nätverk](container-instances-virtual-network-concepts.md).
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 ### <a name="when-does-the-meter-start-running"></a>När körs mätaren?
 

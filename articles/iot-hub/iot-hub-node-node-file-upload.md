@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.custom: mqtt
-ms.openlocfilehash: af9743233a61e8e6d816b362d35e6a38735df35b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-javascript
+ms.openlocfilehash: 469aed46fee5fd01ee0604f266de3d14f8b0fe40
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732250"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420761"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>Ladda upp filer från enheten till molnet med IoT Hub (Node.js)
 
@@ -30,7 +30,7 @@ Den här självstudien bygger på koden i [skicka meddelanden från moln till en
 [Genom att skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-node.md) -snabb start demonstreras de grundläggande meddelande funktionerna från enhet till moln i IoT Hub. I vissa fall kan du dock inte enkelt mappa de data som enheterna skickar till de relativt små enhets-till-moln-meddelanden som IoT Hub accepterar. Ett exempel:
 
 * Stora filer som innehåller bilder
-* Videoklipp
+* Video
 * Exempel på vibrations data med hög frekvens
 * Någon form av förbehandlade data.
 
@@ -45,7 +45,7 @@ I slutet av den här självstudien kör du två Node.js-konsol program:
 > [!NOTE]
 > IoT Hub stöder många enhets plattformar och språk (inklusive C, .NET, Java Script, python och Java) via SDK: er för Azure IoT-enheter. Se [Azure IoT Developer Center] för stegvisa instruktioner om hur du ansluter enheten till Azure IoT Hub.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Node.js version 10.0. x eller senare. [Förbereda utvecklings miljön](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) beskriver hur du installerar Node.js för den här själv studie kursen på antingen Windows eller Linux.
 

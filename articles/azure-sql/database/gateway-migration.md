@@ -51,7 +51,7 @@ Nya SQL-gatewayer läggs till i följande regioner:
 
 Dessa SQL-gatewayer ska börja acceptera kund trafik den 10 augusti 2020. 
 
-# <a name="completed"></a>[Slutfört](#tab/completed-ip)
+# <a name="completed"></a>[Slutförd](#tab/completed-ip)
 
 Följande Gateway-migreringar har slutförts: 
 

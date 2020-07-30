@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9861e8e8be39781ad1b256b9939df3ab03e74be6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 49c389170e9d586a2001009226c6542d4d152f7f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027537"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418227"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Hantera användar inställningar för Azure Multi-Factor Authentication
 
@@ -47,7 +47,7 @@ För att ta bort en användares applösenord, utför följande steg:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. På den vänstra sidan väljer du **Azure Active Directory**  >  **användare**  >  **alla användare**.
-1. Välj **Multi-Factor Authentication**. Du kan behöva bläddra till höger för att se det här meny alternativet. Välj skärm bilden nedan om du vill se hela Azure Portals fönster och meny plats:[![](media/howto-mfa-userstates/selectmfa-cropped.png "Välj Multi-Factor Authentication från fönstret användare i Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+1. Välj **Multi-Factor Authentication**. Du kan behöva bläddra till höger för att se det här meny alternativet. Välj skärm bilden nedan om du vill se hela Azure Portals fönster och meny plats: [ ![ Välj Multi-Factor Authentication från fönstret användare i Azure AD.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Markera kryss rutan bredvid den eller de användare som du vill hantera. En lista med snabb stegs alternativ visas till höger.
 1. Välj **hantera användar inställningar**och markera sedan kryss rutan för **ta bort alla befintliga applösenord som har genererats av de valda användarna**, som du ser i följande exempel: ![ ta bort alla befintliga applösenord](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 1. Välj **Spara**och sedan **Stäng**.

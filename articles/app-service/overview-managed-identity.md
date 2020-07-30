@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: tracking-python
-ms.openlocfilehash: e6965cef0257ee472c08b19e3a9b1c2ec2860128
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: e97671e9722051674e3760f11e784ab3291283c7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116911"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87415065"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Använda hanterade identiteter för App Service och Azure Functions
 
@@ -177,6 +177,15 @@ När platsen har skapats har den följande ytterligare egenskaper:
 
 Egenskapen tenantId identifierar vilken Azure AD-klient identiteten tillhör. PrincipalId är en unik identifierare för programmets nya identitet. I Azure AD har tjänstens huvud namn samma namn som du gav App Service-eller Azure Functions-instansen.
 
+Om du behöver referera till dessa egenskaper i ett senare skede i mallen kan du göra det via [ `reference()` funktionen mall](../azure-resource-manager/templates/template-functions-resource.md#reference) med `'Full'` flaggan, som i det här exemplet:
+
+```json
+{
+    "tenantId": "[reference(resourceId('Microsoft.Web/sites', variables('appName')), '2018-02-01', 'Full').identity.tenantId]",
+    "objectId": "[reference(resourceId('Microsoft.Web/sites', variables('appName')), '2018-02-01', 'Full').identity.principalId]",
+}
+```
+
 ## <a name="add-a-user-assigned-identity"></a>Lägg till en användardefinierad identitet
 
 Om du skapar en app med en användardefinierad identitet måste du skapa identiteten och sedan lägga till dess resurs-ID i appens konfiguration.
@@ -312,7 +321,7 @@ En app med en hanterad identitet har två miljövariabler definierade:
 
 **IDENTITY_ENDPOINT** är en lokal URL som din app kan begära token från. Om du vill hämta en token för en resurs gör du en HTTP GET-begäran till den här slut punkten, inklusive följande parametrar:
 
-> | Parameternamn    | I     | Beskrivning                                                                                                                                                                                                                                                                                                                                |
+> | Parameternamn    | I     | Description                                                                                                                                                                                                                                                                                                                                |
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | resource          | Söka i data  | Azure AD-resurs-URI för resursen som en token ska hämtas för. Detta kan vara en av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) eller andra resurs-URI: er.    |
 > | api-version       | Söka i data  | Den version av token API som ska användas. Använd "2019-08-01" eller senare.                                                                                                                                                                                                                                                                 |
@@ -326,7 +335,7 @@ En app med en hanterad identitet har två miljövariabler definierade:
 
 Ett lyckat 200 OK-svar innehåller en JSON-text med följande egenskaper:
 
-> | Egenskapsnamn | Beskrivning                                                                                                                                                                                                                                        |
+> | Egenskapsnamn | Description                                                                                                                                                                                                                                        |
 > |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | access_token  | Den begärda åtkomsttoken. Den anropande webb tjänsten kan använda denna token för att autentisera till den mottagande webb tjänsten.                                                                                                                               |
 > | client_id     | Klient-ID för den identitet som användes.                                                                                                                                                                                                       |

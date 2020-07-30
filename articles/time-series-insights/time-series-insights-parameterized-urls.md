@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 170b90816535562d6740449157840cedb00f291d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2673bb70582640cda97160eb31f16f7c7f1d60e6
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020516"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421189"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Dela en anpassad vy med en parametriserad URL
 
@@ -68,7 +68,7 @@ Godkända värden motsvarar **snabb tids** menyn i Azure Time Series Insights Ex
 
 `timeSeriesDefinitions=<collection of term objects>`Parametern anger vilka predikat som ska visas i en Azure Time Series Insights vy:
 
-| Parameter | URL-objekt | Beskrivning |
+| Parameter | URL-objekt | Description |
 | --- | --- | --- |
 | **Namn** | `\<string>` | Namnet på *villkoret*. |
 | **splitBy** | `\<string>` | Kolumnnamnet att *dela med*. |
@@ -85,7 +85,7 @@ Godkända värden motsvarar **snabb tids** menyn i Azure Time Series Insights Ex
 * Med `timeBucketUnit=<Unit>&timeBucketSize=<integer>` kan du justera skjutreglaget intervall så att det ger en mer detaljerad eller smidigare, mer sammanslagen vy av diagrammet.  
 * `timezoneOffset=<integer>`Parametern låter dig ange tids zonen för diagrammet som ska visas som en förskjutning till UTC.
 
-| Par (er) | Beskrivning |
+| Par (er) | Description |
 | --- | --- |
 | `multiChartStack=false` | `true`är aktiverat som standard för att skicka `false` till stack. |
 | `multiChartStack=false&multiChartSameScale=true` | Stapling måste aktiveras att använda samma skala för y-axeln i villkoren.  Det är `false` som standard, så överföring `true` aktiverar den här funktionen. |
@@ -114,13 +114,14 @@ Använd exempel tid serie definitioner för:
 Du kan skapa följande parametriserade URL för en vy:
 
 ```URL
-https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
+https://insights.timeseries.azure.com/classic/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
 [![URL för Azure Time Series Insights Explorer-parameter](media/parameterized-url/share-parameterized-url.png)](media/parameterized-url/share-parameterized-url.png#lightbox)
 
 > [!TIP]
-> Se Explorer Live [med hjälp av URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]) -exemplet ovan.
+> Se Explorer Live [med hjälp av URL](https://insights.timeseries.azure.com/classic/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[%7B%22name%22:%22F1PressureId%22,%22splitBy%22:%22Id%22,%22measureName%22:%22Pressure%22,%22predicate%22:%22%27Factory1%27%22%7D,%7B%22name%22:%22F2TempStation%22,%22splitBy%22:%22Station%22,%22measureName%22:%22Temperature%22,%22predicate%22:%22%27Factory2%27%22%7D,%7B%22name%22:%22F3VibrationPL%22,%22splitBy%22:%22ProductionLine%22,%22measureName%22:%22Vibration%22,%22predicate%22:%22%27Factory3%27%22%7D]
+) -exemplet ovan.
 
 URL: en ovan beskriver och visar den parameterstyrda Azure Time Series Insights Explorer-vyn. 
 

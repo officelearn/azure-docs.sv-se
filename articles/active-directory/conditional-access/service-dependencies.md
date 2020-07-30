@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00b23a845002f5a92128917d81fdadf5a647d798
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 578f1e97c8a53604edca7b803933139362a763a7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253196"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419741"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Vad är tjänst beroenden i Azure Active Directory villkorlig åtkomst? 
 
@@ -27,7 +27,7 @@ När du ansluter till en webbplats eller tjänst direkt är effekten av en relat
 > [!TIP]
 > Med hjälp av [office 365-appen (för hands version)](concept-conditional-access-cloud-apps.md#office-365-preview) är alla Office-appar riktade till att undvika problem med tjänst beroenden i Office-stacken.
 
-## <a name="policy-enforcement"></a>Principtillämpning 
+## <a name="policy-enforcement"></a>Policyframtvingande 
 
 Om ett tjänst beroende har kon figurer ATS kan principen tillämpas med hjälp av en tidig eller sen begränsad tvångs åtgärd. 
 
@@ -51,6 +51,7 @@ I tabellen nedan visas ytterligare tjänst beroenden där klient programmen mås
 |                     | SharePoint                                  | Tidig bindning |
 | Microsoft Teams     | Exchange                                    | Tidig bindning |
 |                     | MS Planner                                  | Sent knuten  |
+|                     | Microsoft Stream                            | Sent knuten  |
 |                     | SharePoint                                  | Tidig bindning |
 |                     | Skype för företag – Online                   | Tidig bindning |
 | Office-portalen       | Exchange                                    | Sent knuten  |

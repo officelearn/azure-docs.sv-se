@@ -3,12 +3,12 @@ title: Nätverks mönster för Azure Service Fabric
 description: Beskriver vanliga nätverks mönster för Service Fabric och hur du skapar ett kluster med hjälp av funktioner i Azure-nätverk.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 0c3664d1890fd318aa1bff508a51cb227bdcc01d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 20bd5e931307725016c3e2ad69dae91214b2caab
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258529"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421475"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric nätverks mönster
 Du kan integrera ditt Azure Service Fabric-kluster med andra funktioner i Azure-nätverk. I den här artikeln visar vi hur du skapar kluster som använder följande funktioner:
@@ -99,6 +99,8 @@ I exemplen i den här artikeln använder vi Service Fabric template.jspå. Du ka
                 "defaultValue": "10.0.0.0/24"
             },*/
     ```
+
+   Du kan också kommentera ut parametern med namnet "virtualNetworkName" så att du inte behöver ange det virtuella nätverks namnet två gånger på bladet kluster distribution i Azure Portal.
 
 2. Kommentera ut `nicPrefixOverride` attributet av `Microsoft.Compute/virtualMachineScaleSets` , eftersom du använder ett befintligt undernät och du har inaktiverat den här variabeln i steg 1.
 

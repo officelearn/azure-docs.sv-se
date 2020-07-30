@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 9add5b063b67ddcc4cd5bf93e7f5b570b004e5ca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1a32e485dfc9cd465f6dd6d50abdb166737dc3aa
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74815588"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387990"
 ---
 # <a name="device-roobo-smart-audio-dev-kit"></a>Enhet: Roobo Smart Audio dev kit
 
@@ -52,7 +52,7 @@ Den här artikeln innehåller enhets information för Roobo Smart Audio dev kit.
    ```
 
     > [!NOTE]
-    > Dessa kommandon använder Android fel söknings bryggan, `adb.exe`som är en del av den Android Studio installationen. Det här verktyget finns i C:\Users\[användar namn] \AppData\Local\Android\Sdk\platform-tools. Du kan lägga till den här katalogen i sökvägen så att det blir enklare att `adb`anropa. Annars måste du ange den fullständiga sökvägen till din installation av ADB. exe i varje kommando som anropar `adb`.
+    > Dessa kommandon använder Android fel söknings bryggan, `adb.exe` som är en del av den Android Studio installationen. Det här verktyget finns i C:\Users \[ användar namn] \AppData\Local\Android\Sdk\platform-tools. Du kan lägga till den här katalogen i sökvägen så att det blir enklare att anropa `adb` . Annars måste du ange den fullständiga sökvägen till din installation av adb.exe i varje kommando som anropar `adb` .
     >
     > Om du ser ett fel `no devices/emulators found` kan du kontrol lera att USB-kabeln är ansluten och är en högkvalitativ kabel. Du kan använda `adb devices` för att kontrol lera att datorn kan kommunicera med utvecklings paketet eftersom den kommer att returnera en lista över enheter.
     >
@@ -69,7 +69,7 @@ Mer utvecklings information finns i [utvecklings guiden för Roobo](http://dwn.r
 
 ## <a name="audio"></a>Ljud
 
-Roobo tillhandahåller ett verktyg som fångar upp allt ljud till Flash-minnet. Det kan hjälpa dig att felsöka ljud problem. En version av verktyget tillhandahålls för varje utvecklings pakets konfiguration. Välj din enhet på [Roobo-webbplatsen](https://ddk.roobo.com/)och välj sedan länken **Roobo tools** längst ned på sidan.
+Roobo tillhandahåller ett verktyg som fångar upp allt ljud till Flash-minnet. Det kan hjälpa dig att felsöka ljud problem. En version av verktyget tillhandahålls för varje utvecklings pakets konfiguration. Välj din enhet på [Roobo-webbplatsen](http://ddk.roobo.com/)och välj sedan länken **Roobo tools** längst ned på sidan.
 
 ## <a name="next-steps"></a>Nästa steg
 

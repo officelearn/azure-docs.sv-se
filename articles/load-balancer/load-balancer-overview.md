@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 08f7554ed9648df8b225fe9f205ee13b0f693c44
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 898f63cbfba082f8c268587bcd2ea7f575d07f81
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170572"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420336"
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure Load Balancer?
 
@@ -32,7 +32,7 @@ En **[offentlig belastningsutjämnare](./components.md#frontend-ip-configuration
 En **[intern (eller privat) belastningsutjämnare](./components.md#frontend-ip-configurations)** används där privata IP-adresser bara behövs på klient delen. Interna belastnings utjämning används för att belastningsutjämna trafik i ett virtuellt nätverk. En klient del för belastningsutjämnare kan nås från ett lokalt nätverk i ett hybrid scenario.
 
 <p align="center">
-  <img src="./media/load-balancer-overview/load-balancer.svg" width="512" title="Azure Load Balancer">
+  <img src="./media/load-balancer-overview/load-balancer.svg" alt="Figure depicts both public and internal load balancers directing traffic to port 80 on multiple servers on a Web tier and port 443 on multiple servers on a business tier." width="512" title="Azure Load Balancer">
 </p>
 
 *Bild: balansera program på flera nivåer med både offentliga och interna Load Balancer*

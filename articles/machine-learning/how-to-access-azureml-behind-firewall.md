@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 75e2ffcad4caeb6500f05ce3801797084c18a043
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 63e2ba93ecdc1131be6bd291fe436b42a2a2d19c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321657"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407038"
 ---
 # <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Använd arbets ytan bakom Azure-brandväggen för Azure Machine Learning
 
@@ -60,9 +60,9 @@ Värdarna i det här avsnittet används för att installera python-paket. De kr�
 
 | **Värdnamn** | **Syfte** |
 | ---- | ---- |
-| **anaconda.com** | Används vid installation av Conda-paket |
-| **pypi.org** | Används vid installation av pip-paket |
-
+| **anaconda.com** | Används för att installera standard paket. |
+| **\*. anaconda.org** | Används för att hämta lagrings platsen-data. |
+| **pypi.org** | Används för att Visa beroenden från standard index, om det finns några, och indexet skrivs inte över av användar inställningarna. Om indexet skrivs över måste du också tillåta ** \* . pythonhosted.org**. |
 
 ## <a name="r-hosts"></a>R-värdar
 

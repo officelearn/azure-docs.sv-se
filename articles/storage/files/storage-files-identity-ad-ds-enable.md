@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 4c374e62c0807269d1457bfe46d3df4260acd45c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2f38daea40f89e73422ca8115f2425758be81a4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510456"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87413110"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Del ett: Aktivera AD DS-autentisering för dina Azure-filresurser 
 
@@ -53,7 +53,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 #Import AzFilesHybrid module
 Import-Module -Name AzFilesHybrid
 
-#Login with an Azure AD credential that has either storage account owner or contributer RBAC assignment
+#Login with an Azure AD credential that has either storage account owner or contributer Azure role assignment
 Connect-AzAccount
 
 #Define parameters
@@ -85,7 +85,7 @@ Om du redan har kört `Join-AzStorageAccountForAuth` skriptet ovan går du till 
 
 ### <a name="checking-environment"></a>Kontrollerar miljö
 
-Först måste du kontrol lera status för din miljö. Mer specifikt måste du kontrol lera om [Active Directory PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps) är installerat och om gränssnittet körs med administratörs behörighet. Kontrol lera sedan för att se om [modulen AZ. Storage 2,0](https://www.powershellgallery.com/packages/Az.Storage/2.0.0) är installerad och installera den om den inte är det. När du har slutfört kontrollerna kontrollerar du AD DS för att se om det finns något [dator konto](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (standard) eller [tjänst inloggnings konto](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) som redan har skapats med SPN/UPN som "CIFS/ditt-Storage-Account-name-här. File. Core. Windows. net". Om kontot inte finns skapar du ett enligt beskrivningen i följande avsnitt.
+Först måste du kontrol lera status för din miljö. Mer specifikt måste du kontrol lera om [Active Directory PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps) är installerat och om gränssnittet körs med administratörs behörighet. Kontrollera sedan för att se om [modulen Az.Storage 2.0](https://www.powershellgallery.com/packages/Az.Storage/2.0.0) är installerad, i annat fall installerar du den. När du har slutfört kontrollerna kontrollerar du AD DS för att se om det finns något [dator konto](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (standard) eller [tjänst inloggnings konto](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) som redan har skapats med SPN/UPN som "CIFS/ditt-Storage-Account-name-här. File. Core. Windows. net". Om kontot inte finns skapar du ett enligt beskrivningen i följande avsnitt.
 
 ### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>Skapa en identitet som representerar lagrings kontot i din AD manuellt
 

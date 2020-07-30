@@ -10,20 +10,21 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 2ca95731cc2d85675545591d8ef38e461484c6e9
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 0c893609d81abbe1ea1bdfab2d3d0c6e49bf98f4
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85368030"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406664"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Snabbstart: Identifiera ansikten i en bild med ansikts-REST API och Node.js
 
 I den här snabb starten ska du använda Azures ansikts REST API med Node.js för att identifiera mänskliga ansikten i en bild.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" skapar du en ansikts resurs "  target="_blank"> skapa en ansikts resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
@@ -112,7 +113,7 @@ När du har gjort dina ändringar öppnar du en kommandotolk och kör filen med 
 node facedetection.js
 ```
 
-Här är fullständiga JSON-data från `response.data` . Till exempel:
+Här är fullständiga JSON-data från `response.data` . Ett exempel:
 
 ```json
 [

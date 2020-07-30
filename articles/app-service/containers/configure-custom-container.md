@@ -3,12 +3,12 @@ title: Konfigurera en anpassad Linux-behållare
 description: Lär dig hur du konfigurerar en anpassad Linux-behållare i Azure App Service. Den här artikeln visar de vanligaste konfigurations åtgärderna.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: df766c289ac9ece4c1dc1fbdc65d49ae1306a592
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a3e360270ac388d0f8434a9184d39d602c98e9e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008599"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422784"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Konfigurera en anpassad Linux-behållare för Azure App Service
 
@@ -18,7 +18,7 @@ Den här guiden innehåller viktiga begrepp och instruktioner för skapa behåll
 
 ## <a name="configure-port-number"></a>Konfigurera port nummer
 
-Som standard förutsätter App Service att din anpassade behållare lyssnar på port 80. Webb servern i din anpassade avbildning kan använda en annan port än 80. Du talar om för Azure om porten som din anpassade behållare använder genom att använda `WEBSITES_PORT` appens inställning. GitHub-sidan för [Python-exemplet i den här självstudien](https://github.com/Azure-Samples/docker-django-webapp-linux) visar att du behöver ställa in `WEBSITES_PORT` på _8000_. Du kan ställa in det genom [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) att köra kommandot i Cloud Shell. Exempel:
+Som standard förutsätter App Service att din anpassade behållare lyssnar på port 80. Webb servern i din anpassade avbildning kan använda en annan port än 80. Du talar om för Azure om porten som din anpassade behållare använder genom att använda `WEBSITES_PORT` appens inställning. GitHub-sidan för [Python-exemplet i den här självstudien](https://github.com/Azure-Samples/docker-django-webapp-linux) visar att du behöver ställa in `WEBSITES_PORT` på _8000_. Du kan ställa in det genom [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) att köra kommandot i Cloud Shell. Ett exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -26,7 +26,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="configure-environment-variables"></a>Konfigurera miljövariabler
 
-Din anpassade behållare kan använda miljövariabler som behöver anges externt. Du kan skicka dem genom att köra [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) kommandot i Cloud Shell. Exempel:
+Din anpassade behållare kan använda miljövariabler som behöver anges externt. Du kan skicka dem genom att köra [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) kommandot i Cloud Shell. Ett exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WORDPRESS_DB_HOST="myownserver.mysql.database.azure.com"
@@ -40,7 +40,7 @@ Du kan använda */Home* -katalogen i appens fil system för att spara filer mell
 
 När beständig lagring är inaktive rad `/home` behålls inte skrivningar till katalogen i appens omstarter eller över flera instanser. Det enda undantaget är `/home/LogFiles` katalogen som används för att lagra Docker-och container-loggar. När beständig lagring är aktive rad är alla skrivningar till `/home` katalogen bestående och kan nås av alla instanser av en utskalad app.
 
-Beständig lagring är *aktive rad* som standard och inställningen visas inte i program inställningarna. Om du vill inaktivera den anger du `WEBSITES_ENABLE_APP_SERVICE_STORAGE` appens inställning genom [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) att köra kommandot i Cloud Shell. Exempel:
+Beständig lagring är *aktive rad* som standard och inställningen visas inte i program inställningarna. Om du vill inaktivera den anger du `WEBSITES_ENABLE_APP_SERVICE_STORAGE` appens inställning genom [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) att köra kommandot i Cloud Shell. Ett exempel:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
@@ -112,7 +112,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 I filen *filen Docker. yml* mappar du `volumes` alternativet till `${WEBAPP_STORAGE_HOME}` . 
 
-`WEBAPP_STORAGE_HOME` är en miljövariabel i App Service som är mappad till beständig lagring för din app. Exempel:
+`WEBAPP_STORAGE_HOME` är en miljövariabel i App Service som är mappad till beständig lagring för din app. Ett exempel:
 
 ```yaml
 wordpress:
@@ -155,10 +155,6 @@ I följande listor visas en Docker-konfigurations alternativ som stöds och inte
 
 > [!NOTE]
 > Andra alternativ som inte uttryckligen anropas ignoreras i den offentliga för hands versionen.
-
-## <a name="configure-vnet-integration"></a>Konfigurera VNet-integrering
-
-Användning av en anpassad behållare med VNet-integrering kan kräva ytterligare container konfiguration. Se [integrera din app med en Azure-Virtual Network](../web-sites-integrate-with-vnet.md).
 
 [!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 

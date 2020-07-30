@@ -3,12 +3,13 @@ title: Skicka eller ta emot händelser från Azure Event Hubs med hjälp av Java
 description: Den här artikeln innehåller en genom gång av hur du skapar ett JavaScript-program som skickar/tar emot händelser till/från Azure Event Hubs med hjälp av de senaste Azure/Event-Hub version 5-paketet.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 7ec97d07843a9844387ad1038c075ed55e304a2c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 098e9e4ff6da199c48acf8956049336049e8a58c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521895"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421220"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>Skicka händelser till eller ta emot händelser från Event Hub med hjälp av Java Script (Azure/Event-Hub version 5)
 Den här snabb starten visar hur du skickar händelser till och tar emot händelser från en händelsehubben med hjälp av JavaScript-paketet **Azure/Event-Hubbs version 5** . 

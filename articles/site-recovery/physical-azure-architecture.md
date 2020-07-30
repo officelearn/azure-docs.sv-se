@@ -3,12 +3,12 @@ title: Katastrof återställnings arkitektur för fysiska servrar i Azure Site R
 description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används vid haveri beredskap för lokala fysiska servrar till Azure med tjänsten Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.openlocfilehash: 089d981284986a2b6eb0ee7f1dbd401fc7ce4fcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2184654a8169cb353fb40fa76f0a7fe9b3df6f6
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77162845"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422665"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Haveriberedskapsarkitektur för fysisk server till Azure
 
@@ -18,7 +18,7 @@ Den här artikeln beskriver arkitekturen och processerna som används när du re
 
 Följande tabell och bild ger en övergripande bild av de komponenter som används för replikering av fysiska servrar till Azure.
 
-| **Komponent** | **Krav** | **Detaljer** |
+| **Komponent** | **Krav** | **Information** |
 | --- | --- | --- |
 | **Azure** | En Azure-prenumeration och ett Azure-nätverk. | Replikerade data från lokala fysiska datorer lagras på Azure Managed disks. Virtuella Azure-datorer skapas med replikerade data när du kör en redundansväxling från en lokal plats till Azure. Virtuella Azure-datorer ansluter till det virtuella Azure-nätverket när de skapas. |
 | **Processerver** | Installeras som standard tillsammans med konfigurations servern. | Fungerar som en replikeringsgateway. Den tar emot replikeringsdata, optimerar dem med cachelagring, komprimering och kryptering och skickar dem till Azure Storage.<br/><br/> Processervern installerar också mobilitets tjänsten på de servrar som du vill replikera.<br/><br/> När distributionen växer kan du lägga till ytterligare separata process servrar för att hantera större volymer av replikeringstrafiken. |
@@ -28,6 +28,25 @@ Följande tabell och bild ger en övergripande bild av de komponenter som använ
 **Arkitektur för fysisk till Azure**
 
 ![Komponenter](./media/physical-azure-architecture/arch-enhanced.png)
+
+## <a name="set-up-outbound-network-connectivity"></a>Konfigurera utgående nätverks anslutning
+
+För att Site Recovery ska fungera som förväntat måste du ändra den utgående nätverks anslutningen så att din miljö kan replikeras.
+
+> [!NOTE]
+> Site Recovery har inte stöd för en autentiseringsproxy för att styra nätverksanslutningar.
+
+### <a name="outbound-connectivity-for-urls"></a>Utgående anslutning för webbadresser
+
+Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgående anslutning ger du åtkomst till följande URL: er:
+
+| **Namn**                  | **Kommersiellt**                               | **Myndigheter**                                 | **Beskrivning** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | Gör att data kan skrivas från den virtuella datorn till cachelagringskontot i källregionen. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Tillhandahåller auktorisering och autentisering för Site Recovery-tjänstens webbadresser. |
+| Replikering               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Låter den virtuella datorn kommunicera med Site Recovery-tjänsten. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Låter den virtuella datorn skriva övervaknings- och diagnostikdata för Site Recovery. |
+
 
 ## <a name="replication-process"></a>Replikeringsprocessen
 

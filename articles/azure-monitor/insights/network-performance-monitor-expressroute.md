@@ -109,7 +109,7 @@ I den här vyn visas virtuella nätverks anslutningar. 
 
 Du kan se meddelande koderna och ange aviseringar på dem via **LogAnalytics**. På sidan **NPM Diagnostics** kan du se beskrivningar för varje diagnostik-meddelande som utlöses.
 
-| Meddelande kod (loggar) | Beskrivning |
+| Meddelande kod (loggar) | Description |
 | --- | --- |
 | 5501 | Det går inte att passera genom den sekundära anslutningen av ExpressRoute-kretsen |
 | 5502 | Det gick inte att passera genom den primära anslutningen av ExpressRoute-kretsen |

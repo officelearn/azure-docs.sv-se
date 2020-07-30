@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 42c6ad7f77d1b42c02f57f161874eadb75387dc2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 196577741ae1560232f8ae193aacd51a446431c8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496017"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385542"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Delad Azure Synapse Analytics-databas
 
@@ -34,7 +34,7 @@ Använd Spark för att hantera Spark-skapade databaser. Du kan t. ex. ta bort de
 
 Om du skapar objekt i en spark-databas som skapats med SQL på begäran, eller om du försöker släppa databasen, kommer åtgärden att lyckas. Men den ursprungliga Spark-databasen ändras inte.
 
-## <a name="handling-of-name-conflicts"></a>Hantering av namn konflikter
+## <a name="how-name-conflicts-are-handled"></a>Hur namn konflikter hanteras
 
 Om namnet på en spark-databas står i konflikt med namnet på en befintlig SQL-databas på begäran, läggs ett suffix till i SQL på begäran till Spark-databasen. Suffixet i SQL på begäran är `_<workspace name>-ondemand-DefaultSparkConnector` .
 
@@ -57,7 +57,7 @@ Om ett säkerhets objekt kräver möjlighet att skapa objekt eller släppa objek
 
 ## <a name="examples"></a>Exempel
 
-### <a name="create--connect-to-spark-database---sql-on-demand"></a>Skapa & ansluta till Spark Database-SQL på begäran
+### <a name="create-and-connect-to-spark-database-with-sql-on-demand"></a>Skapa och Anslut till Spark-databasen med SQL på begäran
 
 Skapa först en ny Spark-databas `mytestdb` som heter med ett Spark-kluster som du redan har skapat i din arbets yta. Du kan till exempel använda en spark C#-anteckningsbok med följande .NET for Spark-instruktion:
 

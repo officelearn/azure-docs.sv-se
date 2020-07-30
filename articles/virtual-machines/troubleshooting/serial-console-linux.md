@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: a9c2cee1478bc64c63b0d7ad09eec386b59678ae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cacb517c783416994fa95bd0f6a6d15a95a52ab4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509026"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423464"
 ---
 # <a name="azure-serial-console-for-linux"></a>Azure-seriekonsol för Linux
 
@@ -26,11 +26,12 @@ Serie konsolen i Azure Portal ger till gång till en text baserad konsol för vi
 
 Serie konsolen fungerar på samma sätt för virtuella datorer och instanser av skalnings uppsättningar för virtuella datorer. I det här dokumentet kommer alla omnämnanden för virtuella datorer att implicit inkludera skalnings uppsättnings instanser för virtuella datorer om inget annat anges.
 
+Serie konsolen är allmänt tillgänglig i globala Azure-regioner och i offentlig för hands version i Azure Government. Den är ännu inte tillgänglig i Azure Kina-molnet.
+
 Information om en dokumentation för Windows i serie konsolen finns i [serie konsol för Windows](./serial-console-windows.md).
 
 > [!NOTE]
-> Serie konsolen är allmänt tillgänglig i globala Azure-regioner och i offentlig för hands version i Azure Government. Den är ännu inte tillgänglig i Azure Kina-molnet.
-
+> Serie konsolen är för närvarande inte kompatibel med ett lagrings konto för Managed Boot Diagnostics. Se till att du använder ett anpassat lagrings konto för att använda en serie konsol.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -70,7 +71,7 @@ SUSE        | Nyare SLES-avbildningar som är tillgängliga i Azure har åtkomst
 Oracle Linux        | Seriell konsol åtkomst aktiverat som standard.
 
 ### <a name="custom-linux-images"></a>Anpassade Linux-avbildningar
-Om du vill aktivera en serie konsol för din anpassade Linux VM-avbildning aktiverar du konsol åtkomst i filen */etc/inittab* för att köra en terminal på `ttyS0` . Till exempel: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Du kan också behöva skapa en Getty on ttyS0. Detta kan göras med `systemctl start serial-getty@ttyS0.service` .
+Om du vill aktivera en serie konsol för din anpassade Linux VM-avbildning aktiverar du konsol åtkomst i filen */etc/inittab* för att köra en terminal på `ttyS0` . Exempel: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Du kan också behöva skapa en Getty on ttyS0. Detta kan göras med `systemctl start serial-getty@ttyS0.service` .
 
 Du ska också lägga till ttyS0 som mål för seriella utdata. Mer information om hur du konfigurerar en anpassad avbildning för att arbeta med serie konsolen finns i system krav för att [skapa och ladda upp en Linux-VHD i Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
 
@@ -98,7 +99,7 @@ Som standard har alla prenumerationer åtkomst till seriell konsol. Du kan inakt
 ### <a name="channel-security"></a>Kanal säkerhet
 Alla data som skickas fram och tillbaka krypteras i kabeln.
 
-### <a name="audit-logs"></a>Spårningsloggar
+### <a name="audit-logs"></a>Granskningsloggar
 All åtkomst till serie konsolen är för närvarande inloggad i [Start](./boot-diagnostics.md) -diagnostikloggar för den virtuella datorn. Åtkomst till dessa loggar ägs och kontrol leras av administratören för den virtuella Azure-datorn.
 
 > [!CAUTION]

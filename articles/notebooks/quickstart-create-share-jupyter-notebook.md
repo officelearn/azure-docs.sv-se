@@ -4,12 +4,12 @@ description: Skapa snabbt och kör en Jupyter-anteckningsbok på Azure Notebooks
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 809cb006e1ea40e31d079b40febee6a09714731f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec1a03cb1c05248458a47ec4b22a0243b31bafcd
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832108"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423294"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Snabb start: skapa och dela en antecknings bok i Azure Notebooks för hands version
 
@@ -43,7 +43,7 @@ Inga.
 
 1. Efter en liten stund navigerar Azure Notebooks till det nya projektet. Lägg till en antecknings bok i projektet genom att markera List rutan **+ ny** (som endast visas som **+** ) och sedan välja **antecknings bok**:
 
-    [![](media/quickstarts/empty-project-new-notebook-button.png "A new, empty project and add notebook command")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
+    :::image type="content" source="media/quickstarts/empty-project-new-notebook-button.png" alt-text="Ett nytt, tomt projekt och kommandot Lägg till antecknings bok." lightbox="media/quickstarts/empty-project-new-notebook-button.png":::
 
 1. I popup-fönstret **Skapa ny antecknings bok** visas anger du ett namn för din bärbara dator, till exempel *HelloWorldInPython. ipynb* (*. ipynb* betyder ironpython (Jupyter) Notebook) och väljer **python 3,6** för språket (kallas även för *kernel*):
 

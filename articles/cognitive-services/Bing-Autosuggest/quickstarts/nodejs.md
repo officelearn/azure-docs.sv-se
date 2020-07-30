@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och Node. js'
+title: 'Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och Node.js'
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du snabbt kan börja föreslå Sök termer i real tid med API för automatiska förslag i Bing.
 services: cognitive-services
@@ -10,20 +10,21 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 0d63bd0fc745a3305b9d2f8906a09626668d091b
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 6a78c2ae4145a65739d5db56a70dca498d7d6a82
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930275"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406494"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och Node. js
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och Node.js
 
-Följ den här snabb starten om du vill lära dig att ringa till API för automatiska förslag i Bing och läsa JSON-svaret. Detta enkla Node. js-program skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
+Följ den här snabb starten om du vill lära dig att ringa till API för automatiska förslag i Bing och läsa JSON-svaret. Det här enkla Node.jss programmet skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* [Node. js 6](https://nodejs.org/en/download/) eller senare
+* [Node.js 6](https://nodejs.org/en/download/) eller senare
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 

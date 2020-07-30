@@ -6,20 +6,20 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 7a6105e8742a4cb3d2f113c6ef723f6171baf4d9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ccf4ad960abfd737a9a05d8fdc77a8bb1ea92d2d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328443"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417122"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>Aktivera Azure Monitor for VMs för en hybrid virtuell dator
 I den här artikeln beskrivs hur du aktiverar Azure Monitor for VMs för en virtuell dator utanför Azure, inklusive lokala miljöer och andra moln miljöer.
 
 > [!IMPORTANT]
-> Den rekommenderade metoden för att aktivera hybrid virtuella datorer är att först aktivera [Azure-båge för servrar](/azure-arc/servers/overview.md) så att de virtuella datorerna kan aktive ras för Azure Monitor for VMS att använda processer som liknar virtuella Azure-datorer. I den här artikeln beskrivs hur du kan publicera virtuella datorer i hybrider om du väljer att inte använda Azure Arc.
+> Den rekommenderade metoden för att aktivera hybrid virtuella datorer är att först aktivera [Azure-båge för servrar](../../azure-arc/servers/overview.md) så att de virtuella datorerna kan aktive ras för Azure Monitor for VMS att använda processer som liknar virtuella Azure-datorer. I den här artikeln beskrivs hur du kan publicera virtuella datorer i hybrider om du väljer att inte använda Azure Arc.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa och konfigurera en Log Analytics-arbetsyta](vminsights-configure-workspace.md).
 - Se [operativ system som stöds](vminsights-enable-overview.md#supported-operating-systems) för att säkerställa att operativ systemet för den virtuella datorn eller skalnings uppsättningen för virtuella datorer som du aktiverar stöds. 
@@ -31,7 +31,7 @@ Virtuella datorer utanför Azure kräver samma Log Analytics agent och beroende 
 Mer information om hur du distribuerar Log Analytics-agenten finns i [ansluta Windows-datorer till Azure Monitor](../platform/agent-windows.md) eller [ansluta Linux-datorer till Azure Monitor](../platform/agent-linux.md) . Information om beroende agenten finns i den här artikeln. 
 
 ## <a name="firewall-requirements"></a>Brandväggsförutsättningar
-Brand Väggs krav för Log Analytics agenten finns i [Översikt över Log Analytics-agenten](..//platform/log-analytics-agent.md#network-requirements). Azure Monitor for VMs kartans beroende agent skickar inte några data och kräver inte några ändringar i brand väggar eller portar. Kartdata överförs alltid av Log Analytics agenten till tjänsten Azure Monitor, antingen direkt eller via [Operations Management Suite-gatewayen](../../azure-monitor/platform/gateway.md) om dina IT-säkerhetsprinciper inte tillåter att datorer i nätverket kan ansluta till Internet.
+Brand Väggs krav för Log Analytics agenten finns i [Översikt över Log Analytics-agenten](../platform/log-analytics-agent.md#network-requirements). Azure Monitor for VMs kartans beroende agent skickar inte några data och kräver inte några ändringar i brand väggar eller portar. Kartdata överförs alltid av Log Analytics agenten till tjänsten Azure Monitor, antingen direkt eller via [Operations Management Suite-gatewayen](../../azure-monitor/platform/gateway.md) om dina IT-säkerhetsprinciper inte tillåter att datorer i nätverket kan ansluta till Internet.
 
 
 ## <a name="dependency-agent"></a>Beroendeagent
@@ -92,7 +92,7 @@ Om det inte går att starta beroende agenten kontrollerar du om det finns detalj
 
 Filer för beroende agenten placeras i följande kataloger:
 
-| Filer | Position |
+| Files | Position |
 |:--|:--|
 | Kärnfiler | /opt/microsoft/dependency-agent |
 | Loggfiler | /var/opt/microsoft/dependency-agent/log |

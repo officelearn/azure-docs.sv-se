@@ -6,12 +6,13 @@ ms.topic: quickstart
 description: Den här snabb starten visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett Node.js program i Azure Kubernetes service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: 370d49b5287a4d5beafc8c2cc5d8f48c269715db
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: c27718cc87a1c9401b31ff8c3c77c7b7a8c52292
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006952"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420387"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-nodejs---azure-dev-spaces"></a>Snabb start: Felsöka och iterera på Kubernetes med Visual Studio Code och Node.js – Azure dev Spaces
 
@@ -108,7 +109,7 @@ Välj **Felsök** och **stoppa** fel sökningen för att stoppa fel söknings pr
 
 ## <a name="update-code"></a>Uppdatera kod
 
-Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra **starta om servern**. Exempel:
+Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra **starta om servern**. Ett exempel:
 
 1. Om programmet fortfarande körs väljer du **Felsök** och stoppar sedan **fel sökningen** för att stoppa det.
 1. Uppdatera [rad 13 i `server.js` ](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) till:
@@ -146,7 +147,7 @@ Det här kommandot skapar och kör tjänsten i Azure dev Spaces. Den startar ock
 
 När tjänsten har startats navigerar du till den med hjälp av webbläsaren och interagerar med den.
 
-När tjänsten körs, återgå till VS-kod och uppdatera rad 13 i *server.js*. Exempel:
+När tjänsten körs, återgå till VS-kod och uppdatera rad 13 i *server.js*. Ett exempel:
 ```javascript
     res.send('Hello from webfrontend in Azure while debugging!');
 ```

@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 072fa659d6f5cf55da4dfc99cfed38220be70812
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: c3933e9165160c16a9e533bf8bf95f1533dff1cc
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337355"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386698"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
 
 Vi rekommenderar starkt att du läser [planering för en Azure Files distribution](storage-files-planning.md) och [planering för en Azure File Sync distribution](storage-sync-files-planning.md) innan du slutför stegen som beskrivs i den här artikeln.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * En Azure-filresurs i samma region som du vill distribuera Azure File Sync. Mer information finns i:
     - [Regions tillgänglighet](storage-sync-files-planning.md#azure-file-sync-region-availability) för Azure File Sync.
     - [Skapa en fil resurs](storage-how-to-create-file-share.md) för en steg-för-steg-beskrivning av hur du skapar en fil resurs.
@@ -218,6 +218,13 @@ När du registrerar Windows Server med en tjänst för synkronisering av lagring
 
 Administratören som registrerar servern måste vara medlem i hanterings rollens **ägare** eller **deltagare** för den aktuella tjänsten för synkronisering av lagring. Detta kan konfigureras under **Access Control (IAM)** i Azure Portal för tjänsten för synkronisering av lagring.
 
+Det är också möjligt att särskilja administratörer som kan registrera servrar från de som tillåts att även konfigurera synkronisering i en tjänst för synkronisering av lagring. För att du ska kunna skapa en anpassad roll där du listar de administratörer som endast får registrera servrar och ge din anpassade roll följande behörigheter:
+
+* "Microsoft. StorageSync/storageSyncServices/registeredServers/Write"
+* "Microsoft. StorageSync/storageSyncServices/Read"
+* "Microsoft. StorageSync/storageSyncServices/arbetsflöden/Read"
+* "Microsoft. StorageSync/storageSyncServices/arbets flöden/Operations/Read"
+
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Server registrerings gränssnittet bör öppnas automatiskt när du har installerat Azure File Sync agenten. Om det inte gör det kan du öppna det från dess filplats: C:\Program\Azure\StorageSyncAgent\ServerRegistration.exe. När Server registrerings gränssnittet öppnas väljer du **Logga** in för att börja.
 
@@ -245,6 +252,8 @@ En moln slut punkt är en pekare till en Azure-filresurs. Alla Server slut punkt
 
 > [!Important]  
 > Du kan göra ändringar i alla moln slut punkter eller Server slut punkter i synkroniseringsresursen och låta filerna vara synkroniserade med de andra slut punkterna i den synkroniserade gruppen. Om du gör en ändring i moln slut punkten (Azure-filresursen) direkt måste ändringarna först identifieras av ett Azure File Sync ändrings identifierings jobb. Ett ändrings identifierings jobb initieras bara för en moln slut punkt var 24: e timme. Mer information finns i [Azure Files vanliga frågor och svar](storage-files-faq.md#afs-change-detection).
+
+Administratören som skapar moln slut punkten måste vara medlem i hanterings rollens **ägare** för det lagrings konto som innehåller den Azure-filresurs som moln slut punkten pekar på. Detta kan konfigureras under **Access Control (IAM)** i Azure Portal för lagrings kontot.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Om du vill skapa en Sync-grupp går du till tjänsten lagrings-synkronisering i [Azure Portal](https://portal.azure.com/)och väljer sedan **+ Sync-grupp**:
@@ -360,7 +369,7 @@ if ($cloudTieringDesired) {
 
 ## <a name="configure-firewall-and-virtual-network-settings"></a>Konfigurera inställningar för brandvägg och virtuellt nätverk
 
-### <a name="portal"></a>Portalen
+### <a name="portal"></a>Portal
 Gör så här om du vill konfigurera Azure File Sync så att den fungerar med brand vägg och inställningar för virtuellt nätverk:
 
 1. Från Azure Portal navigerar du till det lagrings konto som du vill skydda.

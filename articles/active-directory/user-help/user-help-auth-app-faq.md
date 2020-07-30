@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/15/2020
+ms.date: 07/16/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 4e21edd662649238b16cf7e7df9d9904f3f17752
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 34720a10796a1a215d541baef9f2c225857d3bc0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015909"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423634"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Vanliga frågor och svar om Microsoft Authenticator-appen
 
@@ -30,6 +30,7 @@ Microsoft Authenticator-appen ersatte Azure Authenticator-appen och det är den 
 | Fråga | Svar |
 | -------- | ------ |
 | Är registreringen av en enhet som håller på att ge företaget eller tjänst åtkomst till min enhet? | När du registrerar en enhet får enheten åtkomst till din organisations tjänster och ger inte din organisation åtkomst till din enhet. |
+| Vad är app lock och hur kan jag använda det för att hjälpa mig att skydda mig? | Med app lock kan du hålla dina lösen ord, appdata och appinställningar säkrare. När app lock är aktiverat uppmanas du att autentisera med enhetens PIN-kod eller bio mått varje gång du öppnar autentiseraren. Med appens lås kan du också se till att du är den enda som kan godkänna meddelanden genom att uppmana dig att ange din PIN-kod eller bio metrisk när du godkänner inloggnings aviseringen. Du kan aktivera eller inaktivera app lock på sidan autentisera inställningar. Som standard aktive ras app-låset när du ställer in en PIN-kod eller bio metrisk på enheten.<br><br>Tyvärr finns det ingen garanti för att app lock kommer att hindra någon från att komma åt autentiseraren. Det beror på att enhets registrering kan ske på andra platser utanför autentiseraren, t. ex. i Android-konto inställningar eller i Företagsportal-appen. |
 | Jag har en Windows Mobile-enhet och Microsoft Authenticator på Windows Mobile är inaktuell. Kan jag fortsätta autentisera med appen? | Alla autentiseringar med Microsoft Authenticator på Windows Mobile kommer att dras tillbaka efter den 15 juli 2020. Vi rekommenderar starkt att du använder en alternativ autentiseringsmetod för att undvika att vara utelåst från dina konton.<br>Alternativa alternativ för företags användare är:<br><ul><li>Konfigurera Microsoft Authenticator för [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) eller [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).</li><li>Konfigurera [SMS](multi-factor-authentication-setup-phone-number.md) för att ta emot verifierings koder.</li><li>Konfigurera telefonnumret för att ta emot [telefonsamtal för att verifiera deras identitet](multi-factor-authentication-setup-office-phone.md).</li></ul><br>Alternativa alternativ för personliga Microsoft-konto användare är:<br><ul><li>Konfigurera Microsoft Authenticator för [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) eller [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).</li><li>Konfigurera en alternativ inloggnings metod (SMS eller e-post) genom att uppdatera din säkerhets information på [sidan Microsoft konto säkerhet](https://account.microsoft.com/security/).</li></ul> |
 | Kan jag ta skärm bilder av koden för eng ång slö sen ord (eng ång slö sen ord) på Android-autentiseraren? | Från och med version 6.2003.1704 av Authenticator Android, som standard, döljs alla eng ång slö sen ord varje gång en skärm bild av autentiseraren tas. Om du vill se dina koder för eng ång slö sen ord i skärm bilder eller tillåta andra appar att avbilda verifierings skärmen kan du. Aktivera bara inställningen **skärmdump** i autentiseraren och starta om appen. |
 | Vilka data autentiserar autentiseraren för mig och hur kan jag ta bort det? | Authenticator-appen samlar in tre typer av information:<ul><li>Konto information som du anger när du lägger till ditt konto. Du kan ta bort dessa data genom att ta bort ditt konto.</li><li>Diagnostiska loggdata som bara finns i appen tills du väljer **skicka loggar** appens **Hjälp** meny för att skicka loggar till Microsoft. Dessa loggar kan innehålla personliga data, till exempel e-postadresser, Server adresser eller IP-adresser. De kan också innehålla enhets data, till exempel enhets namn och operativ system version. Alla personliga data som samlas in är begränsade till information som behövs för att felsöka problem med appar. Du kan när som helst bläddra bland loggfilerna i appen för att se information som samlas in. Om du skickar dina loggfiler använder Authentication app-tekniker bara dem för att felsöka problem som rapporter ATS av kunden.</li><li>Icke-personligt identifierbara användnings data, t. ex. "starta Lägg till konto flöde/lade till konto", "eller" meddelandet har godkänts. " Dessa data är en viktig del av våra tekniska beslut. Användningen hjälper oss att avgöra var vi kan förbättra apparna på ett sätt som är viktigt för dig. Du ser ett meddelande om den här data insamlingen när du använder appen för första gången. Det informerar dig om att det kan inaktive ras på appens **inställnings** sida. Du kan aktivera eller inaktivera den här inställningen när du vill.</li></ul> |

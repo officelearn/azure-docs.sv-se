@@ -2,15 +2,15 @@
 title: Virtual Network tjänst slut punkter – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller information om hur du lägger till en Microsoft. EventHub-tjänsteslutpunkt till ett virtuellt nätverk.
 ms.topic: article
-ms.date: 07/16/2020
-ms.openlocfilehash: 5d1f6bb8e1160a328c30cfd6ef1726e3cf011aee
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 07/29/2020
+ms.openlocfilehash: 15778c85f28300df3d5af34e2940b3854d814c66
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288016"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420470"
 ---
-# <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Använda Virtual Network tjänst slut punkter med Azure Event Hubs
+# <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Tillåt åtkomst till Azure Event Hubs-namnrymder från vissa virtuella nätverk 
 
 Integreringen av Event Hubs [Virtual Network med tjänst slut punkter][vnet-sep] för virtuella nätverk ger säker åtkomst till meddelande funktioner från arbets belastningar, till exempel virtuella datorer som är kopplade till virtuella nätverk, med sökvägen till nätverks trafiken som skyddas i båda ändar.
 
@@ -56,10 +56,19 @@ Den virtuella nätverks regeln är en associering av Event Hubs-namnrymden med e
 Det här avsnittet visar hur du använder Azure Portal för att lägga till en tjänst slut punkt för virtuellt nätverk. Om du vill begränsa åtkomsten måste du integrera slut punkten för det virtuella nätverks tjänsten för Event Hubs namn området.
 
 1. Navigera till **Event Hubs namn området** i [Azure Portal](https://portal.azure.com).
-2. Välj alternativet **nätverk** på den vänstra menyn. Om du väljer alternativet **alla nätverk** , godkänner händelsehubben anslutningar från alla IP-adresser. Den här inställningen motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0. 
+4. Välj **nätverk** under **Inställningar** på den vänstra menyn. 
+
+    > [!NOTE]
+    > Fliken **nätverk** visas endast för **standard** -eller **dedikerade** namn områden. 
+
+    Som standard är alternativet **valda nätverk** markerat. Om du inte anger en IP-brandväggsregel eller lägger till ett virtuellt nätverk på den här sidan, kan namn området nås från alla nätverk, inklusive offentlig Internet (med hjälp av åtkomst nyckeln). 
+
+    :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Fliken nätverk – alternativet valda nätverk" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
+
+    Om du väljer alternativet **alla nätverk** , godkänner händelsehubben anslutningar från alla IP-adresser (med hjälp av åtkomst nyckeln). Den här inställningen motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0. 
 
     ![Brand vägg – alternativet alla nätverk är valt](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. Om du vill begränsa åtkomsten till vissa nätverk väljer du alternativet **valda nätverk** överst på sidan.
+1. Om du vill begränsa åtkomsten till vissa nätverk väljer du alternativet **valda nätverk** överst på sidan om det inte redan är markerat.
 2. I avsnittet **Virtual Network** på sidan väljer du * * + Lägg till befintligt virtuellt nätverk * * *. Välj **+ skapa ett nytt virtuellt nätverk** om du vill skapa ett nytt VNet. 
 
     ![lägga till ett befintligt virtuellt nätverk](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
@@ -77,6 +86,8 @@ Det här avsnittet visar hur du använder Azure Portal för att lägga till en t
 
     ![Spara nätverk](./media/event-hubs-tutorial-vnet-and-firewalls/save-vnet.png)
 
+    > [!NOTE]
+    > Om du vill begränsa åtkomsten till vissa IP-adresser eller intervall, se [Tillåt åtkomst från vissa IP-adresser eller intervall](event-hubs-ip-filtering.md).
 
 ## <a name="use-resource-manager-template"></a>Använda Resource Manager-mallar
 

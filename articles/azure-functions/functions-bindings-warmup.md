@@ -2,19 +2,19 @@
 title: Azure Functions uppvärmnings-utlösare
 description: Lär dig hur du använder uppvärmnings-utlösaren i Azure Functions.
 documentationcenter: na
-author: alexkarcher-msft
+author: craigshoemaker
 manager: gwallace
 keywords: Azure Functions, functions, Event Processing, uppvärmnings, kall start, Premium, dynamisk beräkning, Server lös arkitektur
 ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
-ms.author: alkarche
-ms.openlocfilehash: 013001eebeec232cc60e31f1a850aeab4fd6c905
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: cshoe
+ms.openlocfilehash: dade31fd9a5a75c875274ea45607fea81a2de027
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82982249"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87383723"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions värme utlösare
 
@@ -226,7 +226,7 @@ Uppvärmnings-utlösaren stöds inte i Java som ett attribut.
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `WarmupTrigger` attributet.
 
-|function.jspå egenskap | Attributets egenskap |Beskrivning|
+|function.jspå egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
 | **bastyp** | saknas| Required-måste anges till `warmupTrigger` . |
 | **position** | saknas| Required-måste anges till `in` . |

@@ -8,19 +8,20 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 02/26/2019
-ms.openlocfilehash: afdbd1c44170344be6edee8b8b2ee38c9853f81c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 22530e79a2bcf34a88ea857bda56b6f424894461
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263083"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422002"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Distribuera läsningar globalt med Azure Cosmos DB s API för MongoDB
 
 Den här artikeln visar hur du distribuerar Läs åtgärder globalt med [MongoDB](https://docs.mongodb.com/manual/core/read-preference/) med hjälp av Azure Cosmos DB s API för MongoDB.
 
 ## <a name="prerequisites"></a>Krav 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 I den här [snabb starts](tutorial-global-distribution-mongodb.md) artikeln hittar du instruktioner om hur du använder Azure Portal för att skapa ett Cosmos-konto med global distribution och sedan ansluta till det.

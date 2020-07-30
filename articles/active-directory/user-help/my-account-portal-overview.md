@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 04/20/2020
+ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: 878fbb81e05db058aa015f8b4a7eae42e8cfea2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da00d77138eb3ff737c26d7fa52ab0bb56ec6ae4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83742196"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422426"
 ---
 # <a name="what-is-the-my-account-portal"></a>Vad är portalen Mitt konto?
 
@@ -33,7 +33,7 @@ Du kan gå till **min konto** portal ( https://myaccount.microsoft.com) från de
 ![Min konto Portal, översikts sida](media/my-account-portal/my-account-portal-overview.png)
 
 >[!Important]
->Den här artikeln är avsedd för användare som försöker komma åt min konto Portal för att uppdatera sin säkerhets information, enhets information, lösen ord, anslutna organisationer, sekretess eller tidigare inloggnings information. Om du är administratör för att söka efter information om hur du aktiverar autentisering och andra Azure Active Directory (Azure AD)-funktioner för dina anställda och andra användnings områden kan du läsa mer i [Azure AD-dokumentationen för administratörer](https://docs.microsoft.com/azure/active-directory/).
+>Den här artikeln är avsedd för användare som försöker komma åt min konto Portal för att uppdatera sin säkerhets information, enhets information, lösen ord, anslutna organisationer, språk inställningar, sekretess eller tidigare inloggnings information. Om du är administratör för att söka efter information om hur du aktiverar autentisering och andra Azure Active Directory (Azure AD)-funktioner för dina anställda och andra användnings områden kan du läsa mer i [Azure AD-dokumentationen för administratörer](https://docs.microsoft.com/azure/active-directory/).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -46,6 +46,8 @@ Du kan gå till **min konto** portal ( https://myaccount.microsoft.com) från de
 - Visa din [inloggnings aktivitet](my-account-portal-sign-ins-page.md)
 
 - Se hur din organisation [använder dina sekretess-relaterade data](my-account-portal-privacy-page.md)
+
+- Ändra [Portal inställningarna för mitt konto](my-account-portal-settings.md)
 
 ## <a name="related-microsoft-office-content"></a>Relaterat Microsoft Office innehåll
 

@@ -3,12 +3,12 @@ title: Hanterade identiteter för Azure-resurser med Service Bus
 description: Den här artikeln beskriver hur du använder hanterade identiteter för att få åtkomst till Azure Service Bus entiteter (köer, ämnen och prenumerationer).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 01fe6c59ad878276619a96666e2da82b6a1b1fe9
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 7fbf0ec36f54f9ba5f8593094dbb0231881cbaef
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371234"
+ms.locfileid: "87423141"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autentisera en hanterad identitet med Azure Active Directory för att få åtkomst till Azure Service Bus resurser
 [Hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) är en funktion i Azure som gör att du kan skapa en säker identitet som är kopplad till den distribution som program koden körs under. Du kan sedan associera identiteten med åtkomst kontroll roller som ger anpassade behörigheter för åtkomst till specifika Azure-resurser som ditt program behöver.
@@ -58,7 +58,7 @@ I följande lista beskrivs de nivåer där du kan begränsa åtkomsten till Serv
 - **Prenumeration**: roll tilldelningen gäller för alla Service Bus resurser i alla resurs grupper i prenumerationen.
 
 > [!NOTE]
-> Tänk på att det kan ta upp till fem minuter att sprida RBAC-roll tilldelningar. 
+> Tänk på att det kan ta upp till fem minuter för Azure Role-tilldelningar att spridas. 
 
 Mer information om hur inbyggda roller definieras finns i [förstå roll definitioner](../role-based-access-control/role-definitions.md#management-and-data-operations). Information om hur du skapar anpassade Azure-roller finns i [Azure-anpassade roller](../role-based-access-control/custom-roles.md).
 
@@ -114,7 +114,7 @@ Om du vill tilldela en roll till en Service Bus-namnrymd navigerar du till namn 
 
 När du har tilldelat rollen får webb programmet åtkomst till Service Bus entiteter under det definierade omfånget. 
 
-### <a name="run-the-app"></a>Köra appen
+### <a name="run-the-app"></a>Kör appen
 
 Ändra nu standard sidan för det ASP.NET-program som du skapade. Du kan använda webb program koden från [den här GitHub-lagringsplatsen](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  
 

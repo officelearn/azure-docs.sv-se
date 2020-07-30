@@ -13,18 +13,18 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41329f2f5500db35ee76c9880bdbef984413004b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f603623e2b47a8ac1a8530880e10c919f63b66c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057901"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423617"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Massredigera användare i Azure Active Directory
 
 Azure Active Directory (Azure AD) stöder Mass åtgärder för att skapa och ta bort och har stöd för nedladdning av listor över användare. Fyll bara i CSV-mallen (kommaavgränsade värden) som du kan ladda ned från Azure AD-portalen.
 
-## <a name="required-permissions"></a>Nödvändiga behörigheter
+## <a name="required-permissions"></a>Behörigheter som krävs
 
 Du måste vara inloggad som global administratör eller användar administratör för att kunna skapa användare i administrations portalen.
 
@@ -39,7 +39,7 @@ Ladda ned och fyll i mallen för Mass uppladdning av CSV så att du kan skapa Az
 Raderna i en Hämtad CSV-mall är följande:
 
 - **Versions nummer**: den första raden som innehåller versions numret måste inkluderas i överförings-CSV-filen.
-- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt* &gt; . Till exempel `Name [displayName] Required`. Vissa äldre versioner av mallen kan ha små variationer.
+- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt* &gt; . Exempelvis `Name [displayName] Required`. Vissa äldre versioner av mallen kan ha små variationer.
 - **Exempel rad**: vi har inkluderat i mallen en rad exempel på acceptabla värden för varje kolumn. Du måste ta bort exempel raden och ersätta den med dina egna poster.
 
 ### <a name="additional-guidance"></a>Mer information
@@ -60,7 +60,7 @@ Raderna i en Hämtad CSV-mall är följande:
 
 1. Öppna CSV-filen och Lägg till en rad för varje användare som du vill skapa. De enda värden som krävs är **namn**, **användarens huvud namn**, **inledande lösen ord** och **block inloggning (Ja/Nej)**. Spara sedan filen.
 
-   [![](media/users-bulk-add/add-csv-file.png "The CSV file contains names and IDs of the users to create")](media/users-bulk-add/add-csv-file.png#lightbox)
+   [![CSV-filen innehåller namn och ID: n för de användare som ska skapas](media/users-bulk-add/add-csv-file.png)](media/users-bulk-add/add-csv-file.png#lightbox)
 
 1. Bläddra till filen under överför din CSV-fil på sidan **Mass skapande av användare** . När du väljer filen och klickar på **Skicka**, startar verifieringen av CSV-filen.
 1. När fil innehållet har verifierats visas **filen har laddats upp**. Om det finns fel måste du åtgärda dem innan du kan skicka jobbet.
@@ -73,7 +73,7 @@ Om det finns fel kan du hämta och Visa resultat filen på resultat sidan för *
 
 Du kan se statusen för alla väntande Mass förfrågningar på resultat sidan för **Mass åtgärder** .
 
-   [![](media/users-bulk-add/bulk-center.png "Check create status in the Bulk Operations Results page")](media/users-bulk-add/bulk-center.png#lightbox)
+   [![Kontrol lera skapa status på sidan med Mass åtgärds resultat](media/users-bulk-add/bulk-center.png)](media/users-bulk-add/bulk-center.png#lightbox)
 
 Sedan kan du kontrol lera att de användare du skapade finns i Azure AD-organisationen antingen i Azure Portal eller med hjälp av PowerShell.
 

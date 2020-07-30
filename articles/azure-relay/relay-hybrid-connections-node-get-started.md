@@ -3,12 +3,13 @@ title: Azure Relay Hybridanslutningar-WebSockets i noden
 description: Skriv ett Node.js-konsolprogram för Azure Relay-hybridanslutningar med Websockets
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 86897c0a752e4203537135dbac68cc0b4c1da44c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 8dc52c93d4b5cd6d50b66338350a41cf0e24daa0
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316928"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386307"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Komma igång med Azure Relay-hybridanslutningar med WebSockets i Node.js
 
@@ -24,7 +25,7 @@ I den här snabbstarten gör du följande:
 4. Skriva ett klientkonsolprogram (avsändare) för att ta emot meddelanden.
 5. Kör program. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Node.js](https://nodejs.org/en/).
 - En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.

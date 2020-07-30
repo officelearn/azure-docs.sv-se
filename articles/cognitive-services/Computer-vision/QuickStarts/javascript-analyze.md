@@ -10,19 +10,19 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 03/26/2020
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: e9ae6a94b83fc4bf3d37cc7080a5900feffff8b6
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.custom: seodec18, devx-track-javascript
+ms.openlocfilehash: 7760d3256b0e8bc3efa79de2c2785a482a5e04a9
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987213"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406800"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-javascript-in-computer-vision"></a>Snabbstart: Analysera en fjärrbild med hjälp av REST-API:et och JavaScript i Visuellt innehåll
 
 I den här snabb starten ska du analysera en fjärrlagrad avbildning för att extrahera visuella funktioner med hjälp av Visuellt innehåll REST API. Med metoden [analysera avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) kan du extrahera visuella funktioner baserat på bild innehåll.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.

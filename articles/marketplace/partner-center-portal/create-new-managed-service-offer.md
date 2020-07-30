@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 07/07/2020
-ms.openlocfilehash: 193781e078f12dec553d98c15699c7e665966a87
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8546e5fde51ddc8a29a852a2c5dbcd25fffad287
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326637"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405253"
 ---
 # <a name="create-a-managed-service-offer"></a>Skapa ett erbjudande för hanterad tjänst
 
@@ -90,7 +90,7 @@ Här är ett exempel på hur information om erbjudandet visas i Azure Portal:
 3. Användbara länkar
 4. Skärmbilder
 
-### <a name="name"></a>Namn
+### <a name="name"></a>Name
 
 Det namn som du anger här visas för kunder som rubrik på din erbjudande lista. Det här fältet fylls i automatiskt med texten du angav för **erbjud alias** när du skapade erbjudandet, men du kan ändra det här värdet. Det här namnet kan vara ett varumärke (och du kan inkludera varumärkes-eller Copyright-symboler). Namnet får innehålla högst 50 tecken och får inte innehålla några emojis.
 
@@ -102,7 +102,7 @@ Ange en kort beskrivning av ditt erbjudande (upp till 100 tecken) som kan använ
 
 Ange en längre Beskrivning av ditt erbjudande (upp till 256 tecken). Den här långa sammanfattningen kan också användas i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Beskrivning
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -155,7 +155,7 @@ Följ dessa rikt linjer för dina logo typer:
 
 Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Alla skärm dum par måste vara 1280 x 720 bild punkter.
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Video
 
 Du kan också lägga till upp till fem videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 pixlar).
 
@@ -194,6 +194,9 @@ Ange sedan en **Beskrivning** som ger en mer detaljerad förklaring av planen.
 För närvarande finns det bara en pris modell som kan användas för Managed Service-erbjudande: **Bring Your Own License (BYOL)**. Det innebär att du debiteras kunderna direkt för kostnader som rör erbjudandet, och Microsoft debiterar inte några avgifter till dig.
 
 I avsnittet **plan synlighet** kan du ange om den här planen ska vara [privat](../../marketplace/private-offers.md). Om du lämnar kryss rutan **privat plan** omarkerad är din prenumeration inte begränsad till specifika kunder (eller till ett visst antal kunder).
+
+> [!NOTE]
+> Privata planer stöds inte med prenumerationer som upprättats via en åter försäljare av ett CSP-program (Cloud Solution Provider).
 
 Välj **Ja**om du vill att den här planen bara är tillgänglig för vissa kunder. När du gör det måste du identifiera kunderna genom att ange deras prenumerations-ID. De kan anges en i taget (för upp till 10 prenumerationer) eller genom att ladda upp en. csv-fil (högst 10 000 prenumerationer i alla planer). Se till att ta med dina egna prenumerationer här så att du kan testa och validera erbjudandet.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5d478723af7d13cc3480f6c2a80bf9b76ba4b84f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4b52fe22e455f5b0ebce6960b40bcc80c46079c3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091359"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421356"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomstkontroll i Azure Data Lake Storage Gen2
 
@@ -34,9 +34,9 @@ Information om hur du tilldelar roller till säkerhets objekt i omfånget för d
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>Effekten av roll tilldelningar på fil-och katalog nivå listor för åtkomst kontroll
 
-När du använder RBAC-roll tilldelningar är en kraftfull mekanism för att kontrol lera åtkomst behörighet, men det är en mycket kornig mekanism i förhållande till ACL: er. Den minsta granularitet för RBAC är på behållar nivån och detta kommer att utvärderas med högre prioritet än ACL: er. Om du tilldelar en roll till ett säkerhets objekt i omfånget för en behållare, är det därför säkerhets objektets autentiseringsnivå som associeras med rollen för alla kataloger och filer i behållaren, oavsett ACL-tilldelningar.
+När du använder Azure roles-tilldelningar är en kraftfull mekanism för att kontrol lera åtkomst behörighet, men det är en mycket kornig mekanism i förhållande till ACL: er. Den minsta granularitet för RBAC är på behållar nivån och detta kommer att utvärderas med högre prioritet än ACL: er. Om du tilldelar en roll till ett säkerhets objekt i omfånget för en behållare, är det därför säkerhets objektets autentiseringsnivå som associeras med rollen för alla kataloger och filer i behållaren, oavsett ACL-tilldelningar.
 
-När ett säkerhets objekt beviljas RBAC-databehörighet via en [inbyggd roll](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)eller via en anpassad roll, utvärderas dessa behörigheter först när en begäran auktoriseras. Om den begärda åtgärden auktoriseras av säkerhets objektets RBAC-tilldelningar, löses auktoriseringen omedelbart och inga ytterligare ACL-kontroller utförs. Alternativt, om säkerhetsobjektet inte har en RBAC-tilldelning eller om begärans åtgärd inte matchar den tilldelade behörigheten, utförs ACL-kontroller för att avgöra om säkerhets objekt har behörighet att utföra den begärda åtgärden.
+När ett säkerhets objekt beviljas RBAC-databehörighet via en [inbyggd roll](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)eller via en anpassad roll, utvärderas dessa behörigheter först när en begäran auktoriseras. Om den begärda åtgärden auktoriseras av säkerhets objektets roll tilldelningar för Azure, löses auktoriseringen omedelbart och inga ytterligare ACL-kontroller utförs. Alternativt, om säkerhetsobjektet inte har någon Azure-roll tilldelning, eller om begärans åtgärd inte matchar den tilldelade behörigheten, utförs ACL-kontroller för att avgöra om säkerhets objekt har behörighet att utföra den begärda åtgärden.
 
 > [!NOTE]
 > Om säkerhets objekt har tilldelats den inbyggda roll tilldelningen Storage BLOB data-ägare, betraktas säkerhetsobjektet som en *superanvändare* och beviljas fullständig åtkomst till alla relevanta åtgärder, inklusive att ange ägare till en katalog eller fil, samt ACL: er för kataloger och filer som de inte är ägare till. Super-User Access är det enda godkända sättet att ändra ägaren till en resurs.
@@ -251,7 +251,7 @@ När du skapar en fil eller katalog, används umask för att ändra hur standard
 
 Umask för Azure Data Lake Storage Gen2 ett konstant värde som är inställt på 007. Det här värdet översätts till:
 
-| umask-komponent     | Numeriskt format | Kortformat | Innebörd |
+| umask-komponent     | Numeriskt format | Kortformat | Betydelse |
 |---------------------|--------------|------------|---------|
 | umask. owning_user   |    0         |   `---`      | För ägande användare kopierar du den överordnade standard-ACL: en till barnets åtkomst-ACL | 
 | umask. owning_group  |    0         |   `---`      | För ägande grupp kopierar du den överordnade standard-ACL: en till barnets åtkomst-ACL | 
@@ -333,7 +333,7 @@ När du har rätt OID för tjänstens huvud namn går du till sidan Storage Expl
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Stöder Data Lake Storage Gen2 arv av ACL: er?
 
-Azure RBAC-tilldelningar ärver. Tilldelnings flödet från prenumerations-, resurs grupps-och lagrings konto resurser till behållar resursen.
+Roll tilldelningar i Azure ärver. Tilldelnings flödet från prenumerations-, resurs grupps-och lagrings konto resurser till behållar resursen.
 
 ACL: er ärver inte. Standard-ACL: er kan dock användas för att ange ACL: er för underordnade under kataloger och filer som skapats under den överordnade katalogen. 
 

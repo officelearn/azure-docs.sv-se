@@ -3,12 +3,13 @@ title: Ta emot händelser från Azure Event Grid till en HTTP-slutpunkt
 description: Beskriver hur du verifierar en HTTP-slutpunkt och sedan tar emot och deserialiserar händelser från Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 460efc15c7b85821f422c9964eb246df883a849f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 3e79d292dfcbed9f572c88e913bc76d47e6ee37f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108200"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87415116"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Ta emot händelser till en HTTP-slutpunkt
 

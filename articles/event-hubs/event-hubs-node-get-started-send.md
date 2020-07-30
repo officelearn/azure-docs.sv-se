@@ -3,12 +3,13 @@ title: Skicka eller ta emot händelser från Azure Event Hubs med Java Script (b
 description: Den här artikeln innehåller en genom gång av hur du skapar ett JavaScript-program som skickar/tar emot händelser till/från Azure Event Hubs med hjälp av det gamla Azure/Event-Hub version 2-paketet.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 548276b4bcbdd514c37a19375154923ad9f3f9a4
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.custom: devx-track-javascript
+ms.openlocfilehash: ffa6b821d617731bd6ee5cbb9bec8bd6d856a7a6
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85314503"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87414130"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-javascript-azureevent-hubs-version-2"></a>Snabb start: skicka händelser till eller ta emot händelser från Azure Event Hubs med hjälp av Java Script ( @azure/event-hubs version 2)
 Den här snabb starten visar hur du skapar JavaScript-program för att skicka händelser till och ta emot händelser från en händelsehubben med hjälp av JavaScript-paketet Azure/Event-Hubbs version 2. 
@@ -17,7 +18,7 @@ Den här snabb starten visar hur du skapar JavaScript-program för att skicka h�
 > Den här snabb starten använder det gamla Azure/Event-Hub version 2-paketet. En snabb start som använder den senaste **versionen 5** av paketet finns i [skicka och ta emot händelser med hjälp av Azure/eventhubs version 5](get-started-node-send-v2.md). Information om hur du flyttar ditt program från med det gamla paketet till New finns i [guiden för att migrera från Azure/eventhubs version 1 till version 5](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md). 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du är nybörjare på Azure Event Hubs, se [Event Hubs översikt](event-hubs-about.md) innan du gör den här snabb starten. 
 

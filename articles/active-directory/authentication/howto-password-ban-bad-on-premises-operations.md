@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ee0f3d89d48b23db48e3bf4b78203b09fbcbdbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e4797c3e089e0ae9d15cc604e9f93605978b36c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652621"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419775"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>Aktivera lokalt Azure Active Directory lösen ords skydd
 
@@ -40,7 +40,7 @@ Den här artikeln visar hur du aktiverar lösen ords skydd i Azure AD för din l
 1. Vi rekommenderar att du ursprungligen anger **läget** för *granskning*. När du är van att använda funktionen och påverkan på användare i din organisation, kan du växla **läge** till *tvingande*. Mer information finns i följande avsnitt om [drifts lägen](#modes-of-operation).
 1. När du är klar väljer du **Spara**.
 
-    [![](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png "Enable on-premises password protection under Authentication Methods in the Azure portal")](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
+    [![Aktivera lokalt lösen ords skydd under autentiseringsmetoder i Azure Portal](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png)](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
 
 ## <a name="modes-of-operation"></a>Lägen för åtgärden
 

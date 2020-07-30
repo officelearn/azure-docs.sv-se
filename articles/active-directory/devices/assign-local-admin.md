@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6b04a59da78abc81f7749300dfe34ca176c75c4
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 5d3082e3dc45102bc8700c7d1285ef832d09712a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371183"
+ms.locfileid: "87419826"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Hantera den lokala gruppen Administratörer på Azure AD-anslutna enheter
 
@@ -72,9 +72,9 @@ Enhets administratörer tilldelas till alla Azure AD-anslutna enheter. Du kan in
 >[!NOTE]
 > Den här funktionen finns för närvarande som en förhandsversion.
 
-Från och med Windows 10 2004 Update kan du använda Azure AD-grupper för att hantera administratörs behörighet på Azure AD-anslutna enheter med MDM-principen [begränsade grupper] (Windows/klient-Management/MDM/policy-CSP-restrictedgroups). Med den här principen kan du tilldela enskilda användare eller Azure AD-grupper till den lokala gruppen Administratörer på en Azure AD-ansluten enhet, vilket ger dig granularitet för att konfigurera distinkta administratörer för olika grupper av enheter. 
+Från och med Windows 10 2004 Update kan du använda Azure AD-grupper för att hantera administratörs behörighet på Azure AD-anslutna enheter med MDM-principen för [begränsade grupper](/windows/client-management/mdm/policy-csp-restrictedgroups) . Med den här principen kan du tilldela enskilda användare eller Azure AD-grupper till den lokala gruppen Administratörer på en Azure AD-ansluten enhet, vilket ger dig granularitet för att konfigurera distinkta administratörer för olika grupper av enheter. 
 
-För närvarande finns det inget användar gränssnitt i Intune för att hantera den här principen och måste konfigureras med [anpassade OMA-URI-inställningar] (MEM/Intune/Configuration/Custom-Settings-Windows-10). Några överväganden för den här principen: 
+För närvarande finns det inget användar gränssnitt i Intune för att hantera den här principen och måste konfigureras med [anpassade OMA-URI-inställningar](/mem/intune/configuration/custom-settings-windows-10). Några överväganden för den här principen: 
 
 - Att lägga till Azure AD-grupper via principen kräver gruppens SID som kan hämtas genom att köra grupp-API: et. SID definieras av egenskapen `securityIdentifier` i Groups-API: et.
 - När principen för begränsade grupper tillämpas, tas all aktuell medlem i gruppen som inte finns med i listan medlemmar bort. Detta innebär att den här principen med nya medlemmar eller grupper tar bort befintliga administratörer, nämligen användare som anslöt till enheten, rollen enhets administratör och rollen global administratör från enheten. För att undvika att ta bort befintliga medlemmar måste du konfigurera dem som en del av listan medlemmar i principen begränsade grupper. 

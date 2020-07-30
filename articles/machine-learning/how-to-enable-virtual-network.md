@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 79db00216ffb54b8c71ef78cc745ec37c353f1cc
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: df819f5ff641af014750d6501c8b168e54917318
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320178"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420540"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Nätverks isolering under utbildning &s störningar med privata virtuella nätverk
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig hur du skyddar dina Machine Learning-livsc
 
 Ett __virtuellt nätverk__ fungerar som en säkerhets gränser som isolerar dina Azure-resurser från det offentliga Internet. Du kan också ansluta ett virtuellt Azure-nätverk till ditt lokala nätverk. Genom att ansluta till nätverk kan du på ett säkert sätt träna dina modeller och komma åt dina distribuerade modeller för att få en mer härledning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + En Azure Machine Learning- [arbetsyta](how-to-manage-workspace.md).
 
@@ -57,9 +57,6 @@ Du kan också [Aktivera Azure Private-länken](how-to-configure-private-link.md)
 > [!WARNING]
 > 
 > För hands versionen av Azure Machine Learning Compute instances stöds inte i en arbets yta där privat länk är aktive rad.
->
-> Azure Machine Learning stöder inte användning av en Azure Kubernetes-tjänst som har privat länk aktive rad. I stället kan du använda Azure Kubernetes-tjänsten i ett virtuellt nätverk. Mer information finns i [skydda Azure ml-experimentering och härlednings jobb i en Azure-Virtual Network](how-to-enable-virtual-network.md).
-
 
 <a id="amlcompute"></a>
 
@@ -448,9 +445,6 @@ Använd följande steg för att lägga till Azure Kubernetes service (AKS) i ett
 > Innan du påbörjar följande procedur följer du kraven i avsnittet [Konfigurera avancerade nätverksfunktioner i Azure Kubernetes service (AKS)](https://docs.microsoft.com/azure/aks/configure-azure-cni#prerequisites) How-to och planera IP-adressering för klustret.
 >
 > AKS-instansen och det virtuella Azure-nätverket måste finnas i samma region. Om du skyddar de Azure Storage-konton som används av arbets ytan i ett virtuellt nätverk måste de finnas i samma virtuella nätverk som AKS-instansen.
-
-> [!WARNING]
-> Azure Machine Learning stöder inte användning av en Azure Kubernetes-tjänst som har privat länk aktive rad.
 
 1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com/)och välj sedan din prenumeration och arbets yta.
 

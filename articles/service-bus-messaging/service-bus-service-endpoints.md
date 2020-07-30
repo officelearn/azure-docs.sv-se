@@ -4,14 +4,14 @@ description: Den här artikeln innehåller information om hur du lägger till en
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 48d7f1783f197804e12a8c2d20a0c46b6efd2160
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4518f7faedb44631c76c6d8b42ff9cca0dc3e08c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071319"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422954"
 ---
-# <a name="configure-virtual-network-service-endpoints-for-azure-service-bus"></a>Konfigurera tjänst slut punkter för virtuella nätverk för Azure Service Bus
+# <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Tillåt åtkomst till Azure Service Bus namnrymd från vissa virtuella nätverk
 
 Integreringen av Service Bus med [tjänst slut punkter för virtuella datorer med Virtual Network (VNet)][vnet-sep] ger säker åtkomst till meddelande funktioner från arbets belastningar som virtuella datorer som är kopplade till virtuella nätverk, med den nätverks trafik väg som skyddas i båda ändar.
 
@@ -58,11 +58,20 @@ Den virtuella nätverks regeln är en associering av Service Bus-namnrymden med 
 Det här avsnittet visar hur du använder Azure Portal för att lägga till en tjänst slut punkt för virtuellt nätverk. Om du vill begränsa åtkomsten måste du integrera slut punkten för det virtuella nätverks tjänsten för Event Hubs namn området.
 
 1. Navigera till **Service Bus namn området** i [Azure Portal](https://portal.azure.com).
-2. Välj alternativet **nätverk** på den vänstra menyn. Som standard är alternativet **alla nätverk** markerat. Namn området accepterar anslutningar från alla IP-adresser. Standardvärdet motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0. 
+2. På den vänstra menyn väljer du alternativet **nätverk** under **Inställningar**.  
 
-    ![Brand vägg – alternativet alla nätverk är valt](./media/service-endpoints/firewall-all-networks-selected.png)
-1. Välj alternativet **valda nätverk** överst på sidan.
-2. I avsnittet **Virtual Network** på sidan väljer du **+ Lägg till befintligt virtuellt nätverk**. 
+    > [!NOTE]
+    > Fliken **nätverk** visas endast för **Premium** -namnområden.  
+    
+    Som standard är alternativet **valda nätverk** markerat. Om du inte lägger till minst en IP-brandväggsregel eller ett virtuellt nätverk på den här sidan kan namn området nås via offentliga Internet (med hjälp av åtkomst nyckeln).
+
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Sidan nätverk – standard" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
+    
+    Om du väljer alternativet **alla nätverk** accepterar Service Bus namn området anslutningar från alla IP-adresser. Standardvärdet motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0. 
+
+    ![Brand vägg – alternativet alla nätverk är valt](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+2. Om du vill begränsa åtkomsten till vissa virtuella nätverk väljer du alternativet **valda nätverk** om det inte redan är valt.
+1. I avsnittet **Virtual Network** på sidan väljer du **+ Lägg till befintligt virtuellt nätverk**. 
 
     ![lägga till ett befintligt virtuellt nätverk](./media/service-endpoints/add-vnet-menu.png)
 3. Välj det virtuella nätverket i listan över virtuella nätverk och välj sedan **under nätet**. Du måste aktivera tjänstens slut punkt innan du lägger till det virtuella nätverket i listan. Om tjänstens slut punkt inte är aktive rad uppmanas du att aktivera den.
@@ -78,6 +87,9 @@ Det här avsnittet visar hur du använder Azure Portal för att lägga till en t
 6. Spara inställningarna genom att välja **Spara** i verktygsfältet. Vänta några minuter tills bekräftelsen visas i Portal meddelanden. Knappen **Spara** bör inaktive ras. 
 
     ![Spara nätverk](./media/service-endpoints/save-vnet.png)
+
+    > [!NOTE]
+    > Anvisningar om hur du tillåter åtkomst från vissa IP-adresser eller intervall finns i [Tillåt åtkomst från vissa IP-adresser eller intervall](service-bus-ip-filtering.md).
 
 ## <a name="use-resource-manager-template"></a>Använda Resource Manager-mallar
 Följande Resource Manager-mall gör det möjligt att lägga till en virtuell nätverks regel i ett befintligt Service Bus-namnområde.

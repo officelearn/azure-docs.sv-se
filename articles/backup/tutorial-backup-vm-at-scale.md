@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du skapar ett Recove
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: af1a869c9253a9037c5ee38313de60311acb1e10
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7a8849bba51939a0c40cba81925e1b4b4a6e3826
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87277999"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372560"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Använda Azure Portal till att säkerhetskopiera flera virtuella datorer
 
@@ -98,7 +98,7 @@ När du har skapat Recovery Services-valvet är nästa steg att konfigurera valv
 
      När du har skapat principen för säkerhetskopiering associerar du principen med de virtuella datorerna.
 
-1. Under **Virtual Machines**väljer du * * Lägg till ".
+1. Under **Virtual Machines**väljer du **Lägg till**.
 
      ![Lägg till virtuella datorer](./media/tutorial-backup-vm-at-scale/add-virtual-machines.png)
 

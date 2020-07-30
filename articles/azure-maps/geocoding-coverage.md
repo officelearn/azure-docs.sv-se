@@ -1,26 +1,29 @@
 ---
-title: Omfattning för att koda | Microsoft Azure Maps
-description: Processen att konvertera plats adressen till latitud-och longitud-koordinater kallas för att koda. I den här artikeln får du lära dig om regioner med distrikts täckning i Microsoft Azure Maps.
+title: Omfattnings täckning i Microsoft Azure Maps Search-tjänsten
+description: I den här artikeln får du lära dig mer om Microsoft Azure Maps-täckning i olika länder/regioner.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/31/2019
+ms.date: 07/28/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
-ms.openlocfilehash: 52c6cda800b535109d906fd6e6ae1aa8c709f23f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+manager: philmea
+ms.openlocfilehash: 6014cb4dda18a68b9149206adf034536161eb08e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132814"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386919"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure Maps för att avkoda täckning
 
-När du söker efter en plats med Azure Maps Sök tjänsten, till exempel Sök [adress](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress), tar dina Sök villkor och returnerar koordinaterna för latitud och longitud. Den här processen kallas för kodning. Azure Maps har dock inte samma nivå av information och noggrannhet för alla regioner och länder. Använd den här artikeln för att avgöra vilken typ av platser du kan söka efter på ett tillförlitligt sätt i varje region. 
+Azure Maps [Search-tjänsten](https://docs.microsoft.com/rest/api/maps/search) stöder kodning, vilket innebär att din API-begäran kan ha Sök termer, till exempel en adress eller ett namn på en plats, och returnerar resultatet som latitud-och longitud-koordinater. Till exempel tar Azure Maps [Hämta Sök adress-API: er](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) emot frågor som innehåller plats information och returnerar resultat som latitud-och longitud-koordinater.
 
-Möjligheten att koda i ett land/en region är beroende av vägtrafikens data täckning och den landsspecifika precisionen i den landsspecifika tjänsten. Följande kategoriseringar används specificerar nivån för stöd för landsspecifika i varje land/region.
-* **Adress punkter** – adresser data kan matchas mot en latitud-eller longitud-koordinat inom adress skiftena (egenskaps gränser). Kallas ibland "Rooftop". Detta är den högsta möjliga noggrannhets nivån för adresser. 
+Men Azure Maps [Sök tjänsten](https://docs.microsoft.com/rest/api/maps/search) har inte samma nivå av information och exakthet för alla regioner och länder. Använd den här artikeln för att avgöra vilken typ av platser du kan söka efter på ett tillförlitligt sätt i varje region.
+
+Möjligheten att koda i ett land/en region är beroende av vägtrafikens data täckning och kodnings precisionen för den landsspecifika tjänsten. Följande kategoriseringar används för att ange nivån för stöd för landsspecifika i varje land/region.
+
+* **Adress punkter** – adress data kan matchas mot latitud-och longitud-koordinater i adress skiftena (egenskaps gränser). Adress punkter kallas ofta "Rooftop" korrekt, vilket är den högsta möjliga noggrannhets nivån för adresser.
 * **Hus siffror** – adresser interpoleras till en Latitude/longitud-koordinat på gatan.
 * **Gata** – adresser matchas mot latitud/longitud-koordinaten för gatan som innehåller adressen. Hus numret kan inte bearbetas.
 * **Ort-nivå** – Orts plats namn stöds.
@@ -214,7 +217,6 @@ Möjligheten att koda i ett land/en region är beroende av vägtrafikens data t�
 | Uzbekistan                                          |                 |                |              |      ✓     |          ✓         |
 | Vatikanstaten                                        |                 |                |       ✓      |      ✓     |          ✓         |
 
-
 ## <a name="middle-east-and-africa"></a>Mellanöstern och Afrika
 
 | Land/region                                      | Adress punkter |Hus nummer | Gatu nivå | Stads nivå | Intressanta punkter |
@@ -295,11 +297,8 @@ Möjligheten att koda i ett land/en region är beroende av vägtrafikens data t�
 | Zambia                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Zimbabwe                                            |                 |                |       ✓      |      ✓     |          ✓         |
 
-
-
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure Maps-kod finns på [Sök](https://docs.microsoft.com/rest/api/maps/search) referens sidorna.
-
-Lär dig mer om [täcknings områden för trafik tjänsten Maps](traffic-coverage.md). 
-
+Läs mer om Azure Maps-kod:
+> [!div class="nextstepaction"]
+> [Azure Maps Sök tjänst](https://docs.microsoft.com/rest/api/maps/search)

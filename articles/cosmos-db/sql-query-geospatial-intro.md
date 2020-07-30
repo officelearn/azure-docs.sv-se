@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: 2bb7fd69073dbc960904e8f7b44459ed85e98cdb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 25150722e2d42625731cb741be80b86645c857e0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523527"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420098"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Geospatiala och geospatiala JSON-plats data i Azure Cosmos DB
 
@@ -40,7 +41,7 @@ Azure Cosmos DB SQL API har stöd för två spatiala data typer: data typen **Ge
 - **Geometri** typen representerar data i ett Euclidean (flat)-koordinatsystem
 - **Geografi** typen representerar data i ett system för Round-jordens koordinater.
 
-## <a name="supported-data-types"></a>Data typer som stöds
+## <a name="supported-data-types"></a>Datatyper som stöds
 
 Azure Cosmos DB stöder indexering och frågor om geospatiala punkt data som representeras med hjälp av den geospatiala [JSON-specifikationen](https://tools.ietf.org/html/rfc7946). Data strukturer för interjson är alltid giltiga JSON-objekt, så de kan lagras och frågas med Azure Cosmos DB utan specialiserade verktyg eller bibliotek.
 

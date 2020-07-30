@@ -10,12 +10,12 @@ ms.date: 12/30/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 80ca5b63a91da31a5b226a589e15fb202eabd4ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7e93f54c1aa0eaa5edf3b3fcbfbf8bd9a6442d7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805781"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417547"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Kör PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-eller Queue-data
 
@@ -71,7 +71,7 @@ I följande exempel visas hur du skapar en behållare i ett nytt lagrings konto 
 1. Innan du skapar behållaren ska du tilldela rollen [Storage BLOB data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) till dig själv. Även om du är kontots ägare behöver du explicita behörigheter för att utföra data åtgärder mot lagrings kontot. Mer information om hur du tilldelar RBAC-roller finns i [bevilja åtkomst till Azure blob och Queue data med RBAC i Azure Portal](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > Det kan ta några minuter att sprida RBAC-roll tilldelningar.
+    > Det kan ta några minuter att sprida Azures roll tilldelningar.
 
 1. Skapa en behållare genom att anropa [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). Eftersom det här anropet använder kontexten som skapades i föregående steg, skapas behållaren med dina autentiseringsuppgifter för Azure AD.
 

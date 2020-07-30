@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7b2a75bff21825a47f4364a8936ee7d5f122c1a
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 5b641437b7e15334d59c544b95d5be0f20f2a8df
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223898"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387548"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Vad är enkel inloggning (SSO)?
 
@@ -71,9 +71,9 @@ SAML-baserad enkel inloggning stöds för program som använder något av dessa 
 - SAML 2.0
 - WS-Federation
 
-Information om hur du konfigurerar ett SaaS-program för SAML-baserad enkel inloggning finns i [Konfigurera SAML-baserad enkel inloggning](configure-single-sign-on-non-gallery-applications.md). Många program vara som en tjänst (SaaS) har också en [programspecifik självstudie](../saas-apps/tutorial-list.md) som steg för steg tar dig igenom konfigurationen för SAML-baserad enkel inloggning.
+Information om hur du konfigurerar ett SaaS-program för SAML-baserad enkel inloggning finns i [Konfigurera SAML-baserad enkel inloggning](configure-saml-single-sign-on.md). Många program vara som en tjänst (SaaS) har också en [programspecifik självstudie](../saas-apps/tutorial-list.md) som steg för steg tar dig igenom konfigurationen för SAML-baserad enkel inloggning.
 
-Om du vill konfigurera ett program för WS-Federation följer du samma anvisningar för att konfigurera program för SAML-baserad enkel inloggning. mer information finns i [Konfigurera SAML-baserad enkel inloggning](configure-single-sign-on-non-gallery-applications.md). I steget för att konfigurera programmet till att använda Azure AD måste du ersätta inloggnings-URL: en för Azure AD för slut punkten WS-Federation `https://login.microsoftonline.com/<tenant-ID>/wsfed` .
+Om du vill konfigurera ett program för WS-Federation följer du samma anvisningar för att konfigurera program för SAML-baserad enkel inloggning. I steget för att konfigurera programmet till att använda Azure AD måste du ersätta inloggnings-URL: en för Azure AD för slut punkten WS-Federation `https://login.microsoftonline.com/<tenant-ID>/wsfed` .
 
 Om du vill konfigurera ett lokalt program för SAML-baserad enkel inloggning, se [SAML enkel inloggning för lokala program med Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
@@ -198,8 +198,8 @@ Eftersom det här scenariot erbjuds via ett partnerskap mellan Azure AD och Ping
 Mer information finns i [Azure Active Directory-versioner](../fundamentals/active-directory-whatis.md).
 
 ## <a name="related-articles"></a>Relaterade artiklar
+* [Snabb starts serie för program hantering](view-applications-portal.md)
 * [Självstudier för att integrera SaaS-appar med Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Konfigurera SAML-baserad enkel inloggning](configure-single-sign-on-non-gallery-applications.md)
 * [Konfigurera lösenordsbaserad enkel inloggning](configure-password-single-sign-on-non-gallery-applications.md)
 * [Konfigurera länkad inloggning](configure-linked-sign-on.md)
 * [Introduktion till hantering av åtkomst till program](what-is-access-management.md)

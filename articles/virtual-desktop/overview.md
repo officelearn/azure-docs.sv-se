@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 26be41361a861795a9897442d9a0cc8bb14c1450
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6ff1f20314d79c507c696325d19c83e10ec4513f
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292583"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386583"
 ---
-# <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
+# <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop?
 
 Windows Virtual Desktop är en Skriv bords-och app Virtualization-tjänst som körs i molnet.
 
@@ -78,7 +78,7 @@ Infrastrukturen behöver följande saker för att stödja Windows Virtual Deskto
   * Azure AD Connect (för Hybrid organisationer)
   * Azure AD Domain Services (för Hybrid-eller moln organisationer)
 * En Azure-prenumeration som innehåller ett virtuellt nätverk som antingen innehåller eller är ansluten till Windows Server-Active Directory
-  
+
 De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste vara:
 
 * [Standard domän ansluten](../active-directory-domain-services/active-directory-ds-comparison.md) eller [hybrid AD-ansluten](../active-directory/devices/hybrid-azuread-join-plan.md). Virtuella datorer kan inte vara Azure AD-anslutna.
@@ -105,7 +105,7 @@ Följande fjärr skrivbords klienter stöder virtuellt skriv bord i Windows:
 * [Webb](connect-web.md)
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
-* [Android (för hands version)](connect-android.md)
+* [Android](connect-android.md)
 
 > [!IMPORTANT]
 > Windows Virtual Desktop stöder inte RADC-klienten (RemoteApp-och Desktop Connections) eller Anslutning till fjärrskrivbord-klienten (MSTSC).
@@ -128,7 +128,7 @@ Windows Virtual Desktop stöder följande x64-operativ system avbildningar:
 
 Windows Virtual Desktop stöder inte x86 (32-bitars), Windows 10 Enterprise N eller Windows 10 Enterprise KN-operativsystem avbildningar. Windows 7 stöder inte heller några VHD-eller VHDX-baserade profil lösningar som finns på hanterade Azure Storage på grund av en begränsning för sektor storlek.
 
-Tillgängliga alternativ för Automation och distribution beror på vilket operativ system och vilken version du väljer, som du ser i följande tabell: 
+Tillgängliga alternativ för Automation och distribution beror på vilket operativ system och vilken version du väljer, som du ser i följande tabell:
 
 |Operativsystem|Azures avbildnings Galleri|Manuell distribution av virtuella datorer|Azure Resource Manager mall-integrering|Etablera värdbaserade pooler på Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|

@@ -14,12 +14,12 @@ ms.date: 07/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 433ccecdc5eee5314114d020571761ee82afd6b9
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: cb1041cb5fc4aa7503f5ae9de6ffc74ba72052b8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024117"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421407"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Aktivera mina Azure AD-roller i PIM
 
@@ -36,7 +36,7 @@ Från och med november 2019 uppdateras Azure AD-rollerna i Privileged Identity M
 1. Logga in på [Azure Portal](https://portal.azure.com/) med rollen [privilegie rad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 1. Öppna **Azure AD Privileged Identity Management**. Om du har en banderoll överst på sidan Översikt, följer du anvisningarna på fliken **ny version** i den här artikeln. Annars följer du anvisningarna på fliken **tidigare version** .
 
-    [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
+    [![Välj Azure AD-> Privileged Identity Management.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 # <a name="new-version"></a>[Ny version](#tab/new)
 
@@ -106,7 +106,7 @@ Om du inte behöver aktivera en roll som kräver godkännande kan du när som he
 
    ![Listan Mina begär Anden med avbrotts åtgärd markerad](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## <a name="troubleshoot"></a>Felsök
+## <a name="troubleshoot"></a>Felsöka
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Behörigheter beviljas inte efter att en roll har aktiverats
 
@@ -212,7 +212,7 @@ Om du inte behöver aktivera en roll som kräver godkännande kan du när som he
 
    ![Listan Mina begär Anden med knappen Avbryt markerad](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
-## <a name="troubleshoot"></a>Felsök
+## <a name="troubleshoot"></a>Felsöka
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Behörigheter beviljas inte efter att en roll har aktiverats
 

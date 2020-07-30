@@ -1,14 +1,14 @@
 ---
 title: Erbjudanden om hanterade tjänster på Azure Marketplace
 description: Med hanterade tjänster kan tjänste leverantörer sälja resurs hanterings erbjudanden till kunder på Azure Marketplace.
-ms.date: 05/04/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 119ecc8d15ef93a265cb5419404840496aaa1572
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4f3813b7e2adabe5caaf0c7a5cbe8b15ed084730
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121596"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406868"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Erbjudanden om hanterade tjänster på Azure Marketplace
 
@@ -24,7 +24,10 @@ Efter det kommer användare i din organisation att kunna arbeta med dessa resurs
 
 Varje hanterings tjänst erbjudande innehåller en eller flera planer. Planer kan vara antingen privata eller offentliga.
 
-Om du vill begränsa ditt erbjudande till vissa kunder kan du publicera en privat plan. När du gör det kan planen bara köpas för de aktuella] prenumerations-ID: n som du anger. Mer information finns i [privata erbjudanden](../../marketplace/private-offers.md).
+Om du vill begränsa ditt erbjudande till vissa kunder kan du publicera en privat plan. När du gör det kan planen bara köpas för de angivna prenumerations-ID: n som du anger. Mer information finns i [privata erbjudanden](../../marketplace/private-offers.md).
+
+> [!NOTE]
+> Privata erbjudanden stöds inte med prenumerationer som upprättats via en åter försäljare av CSP-programmet (Cloud Solution Provider).
 
 Med offentliga planer kan du marknadsföra dina tjänster till nya kunder. Dessa är vanligt vis mer lämpliga när du bara behöver begränsad åtkomst till kundens klient organisation. När du har upprättat en relation med en kund kan du, om de bestämmer dig för att ge organisationen ytterligare åtkomst, göra detta genom att publicera en ny privat plan för den kunden eller genom [att registrera dem för ytterligare åtkomst med hjälp av Azure Resource Manager mallar](../how-to/onboard-customer.md).
 

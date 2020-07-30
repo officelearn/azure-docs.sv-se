@@ -8,12 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: eb3d5fea68b5b1b6e648943cb3dbaab5857e9e07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 412254f47a2700f77003f7db661f0ade214a1e23
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68607999"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423209"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Anpassa acceleratorn för fjärr styrnings lösning
 
@@ -31,7 +32,7 @@ Följande steg beskriver processen för att konfigurera en lokal miljö för UI-
 
 1. Distribuera en **grundläggande** instans av Solution Accelerator med **PC** cli. Anteckna namnet på distributionen och de autentiseringsuppgifter som du har angett för den virtuella datorn. Mer information finns i [distribuera med CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Använd Azure Portal eller Azure Cloud Shell för att aktivera SSH-åtkomst till den virtuella datorn som är värd för mikrotjänsterna i lösningen. Till exempel:
+1. Använd Azure Portal eller Azure Cloud Shell för att aktivera SSH-åtkomst till den virtuella datorn som är värd för mikrotjänsterna i lösningen. Ett exempel:
 
     ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -39,7 +40,7 @@ Följande steg beskriver processen för att konfigurera en lokal miljö för UI-
 
     Aktivera endast SSH-åtkomst under testning och utveckling. Om du aktiverar SSH [bör du inaktivera det så snart du är klar med det](../security/fundamentals/network-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
-1. Använd Azure Portal eller Azure Cloud Shell för att hitta namnet och den offentliga IP-adressen för den virtuella datorn. Till exempel:
+1. Använd Azure Portal eller Azure Cloud Shell för att hitta namnet och den offentliga IP-adressen för den virtuella datorn. Ett exempel:
 
     ```azurecli-interactive
     az resource list --resource-group {your solution name} -o table

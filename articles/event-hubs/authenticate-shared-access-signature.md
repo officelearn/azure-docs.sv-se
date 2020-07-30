@@ -3,12 +3,13 @@ title: Autentisera åtkomst till Azure Event Hubs med signaturer för delad åtk
 description: Den här artikeln visar hur du autentiserar åtkomst till Event Hubs resurser med hjälp av signaturer för delad åtkomst.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ed389460cf3461df060df79fb756e73711f693f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 5397cd746f33fc82ee63cc7d2a1f396ba704f334
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85318053"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423107"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autentisera åtkomst till Event Hubs resurser med signaturer för delad åtkomst (SAS)
 Signaturen för delad åtkomst (SAS) ger dig detaljerad kontroll över vilken typ av åtkomst du beviljar till de klienter som har signaturen för delad åtkomst. Här följer några av de kontroller som du kan ange i en SAS: 

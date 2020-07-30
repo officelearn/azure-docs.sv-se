@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 80ad9475eb9b3724e09fb450787adfa079896bed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 40f688d6acd1714999210e67567d25faa14c5d6e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075325"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384862"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Skicka loggdata till Azure Monitor med API: t för HTTP-datainsamling (offentlig för hands version)
 Den här artikeln visar hur du använder API: t för HTTP-datainsamling för att skicka logg data till Azure Monitor från en REST API-klient.  Här beskrivs hur du formaterar data som samlats in av ditt skript eller program, inkluderar dem i en begäran och har den begäran som auktoriserats av Azure Monitor.  Exempel finns för PowerShell, C# och python.
@@ -49,7 +49,7 @@ Om du vill använda API: et för HTTP-datainsamling skapar du en POST-begäran s
 | API-version |Den version av API: et som ska användas med den här begäran. För närvarande är det 2016-04-01. |
 
 ### <a name="request-headers"></a>Begärandehuvuden
-| Huvud | Beskrivning |
+| Huvud | Description |
 |:--- |:--- |
 | Auktorisering |Signaturen för auktorisering. Senare i artikeln kan du läsa om hur du skapar ett HMAC-SHA256-huvud. |
 | Logg typ |Ange post typen för de data som skickas. Får bara innehålla bokstäver, siffror och under streck (_) och får inte överstiga 100 tecken. |
@@ -183,7 +183,7 @@ HTTP-statuskod 200 innebär att begäran har tagits emot för bearbetning. Detta
 
 Den här tabellen innehåller en fullständig uppsättning status koder som tjänsten kan returnera:
 
-| Kod | Status | Felkod | Beskrivning |
+| Kod | Status | Felkod | Description |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |Begäran har godkänts. |
 | 400 |Felaktig begäran |InactiveCustomer |Arbets ytan har stängts. |
@@ -210,7 +210,7 @@ I nästa avsnitt hittar du exempel på hur du skickar data till API: et för Azu
 Utför följande steg för varje exempel för att ange variabler för Authorization-huvudet:
 
 1. Leta upp Log Analytics arbets ytan i Azure Portal.
-2. Välj **Avancerade inställningar** och sedan **anslutna källor**.
+2. Välj **agent hantering**.
 2. Till höger om **arbetsyte-ID**väljer du kopierings ikonen och klistrar in ID: t som värdet för variabeln **kund-ID** .
 3. Till höger om **primär nyckel**väljer du kopierings ikonen och klistrar sedan in ID: t som värdet för den **delade nyckel** variabeln.
 
@@ -555,7 +555,7 @@ post_data(customer_id, shared_key, body, log_type)
 ## <a name="alternatives-and-considerations"></a>Alternativ och överväganden
 Även om data insamlings-API: n ska innehålla de flesta av dina behov av att samla in information om fritt formulär till Azure-loggar, finns det instanser där ett alternativ kan krävas för att lösa vissa begränsningar i API: et. Alla alternativ är följande: viktiga överväganden ingår:
 
-| Andra | Beskrivning | Passar bäst för |
+| Andra | Description | Passar bäst för |
 |---|---|---|
 | [Anpassade händelser](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): inbyggd SDK-baserad inmatning i Application Insights | Application Insights, vanligt vis genom ett SDK i ditt program, ger dig möjlighet att skicka anpassade data via anpassade händelser. | <ul><li> Data som genereras i programmet, men som inte hämtats av SDK via någon av standard data typerna (begär Anden, beroenden, undantag och så vidare).</li><li> Data som ofta korreleras med andra program data i Application Insights </li></ul> |
 | API för data insamling i Azure Monitor loggar | API för data insamling i Azure Monitor loggar är ett helt öppet sätt att mata in data. Alla data som är formaterade i ett JSON-objekt kan skickas hit. När den har skickats bearbetas den och är tillgänglig i loggarna för att korreleras med andra data i loggarna eller mot andra Application Insights data. <br/><br/> Det är ganska enkelt att överföra data som filer till en Azure blob-blob, från var de här filerna ska bearbetas och överföras till Log Analytics. I [den här](./create-pipeline-datacollector-api.md) artikeln hittar du en exempel implementering av en sådan pipeline. | <ul><li> Data som inte nödvändigt vis genereras inom ett program som är instrumenterade i Application Insights.</li><li> Exempel är lookup-och fakta tabeller, referens data, församlad statistik och så vidare. </li><li> Avsedd för data som ska refereras till i andra Azure Monitor data (Application Insights, andra loggar data typer, Security Center, Azure Monitor för behållare/VM: ar). </li></ul> |

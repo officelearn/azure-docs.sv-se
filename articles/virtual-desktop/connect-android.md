@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 40a907cdeb4934b4518fb6b1923d69a004f14d8d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1d0aebffa5f3d27a77928c2a1c7461384bf99ce8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291474"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387888"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-android-client"></a>Ansluta till virtuella Windows-datorer med Android-klienten
 
@@ -21,9 +21,6 @@ ms.locfileid: "87291474"
 
 >[!IMPORTANT]
 >Det här innehållet gäller för virtuella Windows-datorer med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder Windows Virtual Desktop (klassisk) utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/connect-android-2019.md).
-
->[!NOTE]
-> Möjligheten att komma åt Windows-resurser för virtuella skriv bord från Android-klienten är för närvarande tillgänglig som för hands version.
 
 Du kan komma åt Windows-resurser för virtuella skriv bord från din Android-enhet med vår nedladdnings bara klient. Du kan också använda Android-klienten på Chromebook-enheter som har stöd för Google Play Butik. I den här guiden får du lära dig hur du konfigurerar Android-klienten.
 

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit, tracking-python
-ms.openlocfilehash: a4d40618c5d1a7200b452268a6b36841a846c6cf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8876677a9ab4470875e6a311a62ce32598465fcd
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041892"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421271"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Azure Event Grid utlösare för Azure Functions
 
@@ -307,7 +307,7 @@ Med [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blo
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.jsi* filen. Det finns inga konstruktorer eller egenskaper att ange i `EventGridTrigger` attributet.
 
-|function.jspå egenskap |Beskrivning|
+|function.jspå egenskap |Description|
 |---------|---------|
 | **bastyp** | Required-måste anges till `eventGridTrigger` . |
 | **position** | Required-måste anges till `in` . |
@@ -399,7 +399,7 @@ Förklaringar av vanliga och event-/regionsspecifika egenskaper finns i [händel
 
 Om du vill börja ta emot Event Grid HTTP-begäranden skapar du en Event Grid-prenumeration som anger slut punkts-URL: en som anropar funktionen.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 För funktioner som du utvecklar i Azure Portal med Event Grid utlösare väljer du **integration** och väljer sedan **Event Grid utlösare** och väljer **Skapa event Grid prenumeration**.
 
@@ -516,7 +516,7 @@ För att förenkla insamling av händelse meddelanden kan du distribuera en [fö
 
 Välj **Deploy to Azure** (Distribuera till Azure) för att distribuera lösningen till din prenumeration. Ange parametervärdena i Azure Portal.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Azure." /></a>
 
 Det kan ta några minuter att slutföra distributionen. Efter distributionen har slutförts kan du visa webbappen för att kontrollera att den körs. I en webbläsare navigerar du till: `https://<your-site-name>.azurewebsites.net`
 

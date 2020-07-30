@@ -10,13 +10,13 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: 25b60a414278f0bba6358524ec1c4aa1e7d27567
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.custom: seodec18, devx-track-javascript
+ms.openlocfilehash: 75c5b8fa8542de2bb3d7bed438d6025303f75cb0
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84986806"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407395"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Snabb start: extrahera utskrift och handskriven text med hjälp av Visuellt innehåll REST API och Java Script
 
@@ -25,7 +25,7 @@ I den här snabb starten ska du extrahera utskriven och handskriven text från e
 > [!IMPORTANT]
 > Metoden [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för `Operation-Location` fältet svars huvud. Du kan sedan anropa denna URI, som representerar API för att [få Read-resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) , för att både kontrol lera statusen och returnera resultatet av Read Method-anropet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.

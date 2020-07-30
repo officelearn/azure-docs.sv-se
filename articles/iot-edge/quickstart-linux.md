@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0a75aecde13abebe4f343d336e2554fc7e31c429
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 36bebe829ccf81ef5b1832b90b2f73d15d5499af
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116024"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384811"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Snabb start: distribuera din första IoT Edge-modul till en virtuell Linux-enhet
 
@@ -56,7 +56,7 @@ Molnresurser:
    az group create --name IoTEdgeResources --location westus2
    ```
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 Starta snabbstarten genom att skapa en IoT-hubb med Azure CLI.
 
@@ -117,14 +117,7 @@ Använd följande CLI-kommando för att skapa din IoT Edge-enhet baserat på mal
 * För bash eller Cloud Shell användare kopierar du följande kommando till en text redigerare, ersätter platshållartexten med din information och kopierar sedan till bash-eller Cloud Shells fönstret:
 
    ```azurecli-interactive
-   az deployment group create \
-   --resource-group IoTEdgeResources \
-   --template-uri "https://aka.ms/iotedge-vm-deploy" \
-   --parameters dnsLabelPrefix='my-edge-vm' \
-   --parameters adminUsername='azureUser' \
-   --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) \
-   --parameters authenticationType='password' \
-   --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
+   az deployment group create --resource-group IoTEdgeResources --template-uri "https://aka.ms/iotedge-vm-deploy" --parameters dnsLabelPrefix='my-edge-vm' --parameters adminUsername='azureUser' --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) --parameters authenticationType='password' --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```
 
 * För PowerShell-användare kopierar du följande kommando till PowerShell-fönstret och ersätter sedan platshållartexten med din egen information:

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: ec4d91d90a952805781d6d38a0fc8a8fcef84f39
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 496d99b3d871c66e2557e1f384bb4480cd8b0831
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283477"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423158"
 ---
 # <a name="azure-operational-security-best-practices"></a>Metod tips för Azure drift säkerhet
 Den här artikeln innehåller en uppsättning metod tips för att skydda dina data, program och andra till gångar i Azure.
@@ -55,7 +55,7 @@ I Azure-registrerings portalen kan du se till att administratörs kontakt inform
 ## <a name="organize-azure-subscriptions-into-management-groups"></a>Organisera Azure-prenumerationer i hanterings grupper
 Om din organisation har många prenumerationer kanske du behöver ett sätt att effektivt hantera åtkomst, principer och efterlevnad för dessa prenumerationer. [Hanterings grupper för Azure](/azure/governance/management-groups/create) ger en nivå av omfattning som är ovanför prenumerationer. Du ordnar prenumerationer i behållare som kallas hanterings grupper och tillämpar dina styrnings villkor i hanterings grupperna. Alla prenumerationer i en hanteringsgrupp ärver automatiskt de villkor som tillämpas för hanteringsgruppen.
 
-Du kan bygga en flexibel struktur av hanterings grupper och prenumerationer i en katalog. Varje katalog tilldelas en enda toppnivå hanterings grupp som kallas rot hanterings gruppen. Rothanteringsgruppen är inbyggd i hierarkin så att alla hanteringsgrupper och prenumerationer är dess underordnade element. Rot hanterings gruppen tillåter att globala principer och RBAC-tilldelningar tillämpas på katalog nivå.
+Du kan bygga en flexibel struktur av hanterings grupper och prenumerationer i en katalog. Varje katalog tilldelas en enda toppnivå hanterings grupp som kallas rot hanterings gruppen. Rothanteringsgruppen är inbyggd i hierarkin så att alla hanteringsgrupper och prenumerationer är dess underordnade element. Rot hanterings gruppen tillåter att globala principer och Azure Role-tilldelningar tillämpas på katalog nivå.
 
 Här följer några metod tips för att använda hanterings grupper:
 

@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 05/29/2020
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2 
-ms.openlocfilehash: 7135b3630d7b780d2c5d18f22b2a05ee6aedf8ed
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-javascript 
+ms.openlocfilehash: 8c2df57f56ad30c6cf6a2ac84a32baa79ea91955
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504553"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384760"
 ---
 # <a name="quickstart-use-nodejs-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: använda Node.js för att fråga en databas i Azure SQL Database eller Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -30,7 +30,7 @@ Följande krävs för att slutföra den här snabbstarten:
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-  | Action | SQL Database | SQL-hanterad instans | SQL Server på virtuella Azure-datorer |
+  | Åtgärd | SQL Database | SQL-hanterad instans | SQL Server på virtuella Azure-datorer |
   |:--- |:--- |:---|:---|
   | Skapa| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |

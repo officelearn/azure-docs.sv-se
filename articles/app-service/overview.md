@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 04/30/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f4b42f2ed43da68daabb3bd334a362071202be42
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 619b5f16f5a913a4ec9bb1ebe2e7060fcac28d7d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073721"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421815"
 ---
 # <a name="app-service-overview"></a>Översikt över App Service
 
@@ -31,11 +31,11 @@ Här följer några funktioner i App Service:
 * **Anslutningar till SaaS-plattformar och lokala data** – välj bland fler än 50 [anslutningsappar](../connectors/apis-list.md) för företagssystem (till exempel SAP), SaaS-tjänster (till exempel Salesforce) och internettjänster (till exempel Facebook). Åtkomst till lokala data via [hybridanslutningar ](app-service-hybrid-connections.md) och [Azure Virtual Networks](web-sites-integrate-with-vnet.md).
 * **Säkerhet och efterlevnad** – App Service [uppfyller ISO, SOC och PCI](https://www.microsoft.com/en-us/trustcenter). Autentisera användare med [Azure Active Directory](configure-authentication-provider-aad.md) eller med social inloggning ([Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [Twitter](configure-authentication-provider-twitter.md) och [Microsoft](configure-authentication-provider-microsoft.md)). Skapa [IP-adressbegränsningar](app-service-ip-restrictions.md) och [hantera tjänstidentiteter](overview-managed-identity.md).
 * **Programmallar** – välj från en omfattande lista med programmallar i [Azure Marketplace](https://azure.microsoft.com/marketplace/), till exempel WordPress, Joomla och Drupal.
-* **Visual Studio-integration** – dedikerade verktyg i Visual Studio effektiviserar arbetet med att skapa, distribuera och felsöka.
+* **Visual Studio och Visual Studio Code integration** – dedikerade verktyg i Visual Studio och Visual Studio Code effektiviserar arbetet med att skapa, distribuera och felsöka.
 * **API och mobila funktioner** – App Service ger nyckelfärdigt CORS-stöd för RESTful API-scenarier, och förenklar mobilappscenarier genom att möjliggöra autentisering, synkronisering av offlinedata, push-meddelanden med mera.
 * **Serverlös kod** – kör ett kodfragment eller skript på begäran utan att explicit behöva etablera eller hantera infrastruktur, och betala bara för den beräkningstid som koden faktiskt använder (se [Azure Functions](/azure/azure-functions/)).
 
-Förutom App Service erbjuder Azure andra tjänster som kan användas till att hantera webbplatser och webbappar. För de flesta scenarier är App Service det bästa valet.  För arkitektur för mikrotjänster kan du använda [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric). Om du behöver större kontroll över de virtuella datorer koden körs på kan du använda [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). Mer information om hur du väljer mellan dessa Azure-tjänster hittar du i [Jämförelse mellan Azure App Service, Virtual Machines, Service Fabric och Cloud Services](overview-compare.md).
+Förutom App Service erbjuder Azure andra tjänster som kan användas till att hantera webbplatser och webbappar. För de flesta scenarier är App Service det bästa valet.  För mikrotjänstens arkitektur bör du tänka på [Azure våren-Cloud Service](/azure/spring-cloud/) eller [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric).  Om du behöver mer kontroll över de virtuella datorer som koden körs på, bör du tänka på [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). Mer information om hur du väljer mellan dessa Azure-tjänster hittar du i [Jämförelse mellan Azure App Service, Virtual Machines, Service Fabric och Cloud Services](overview-compare.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

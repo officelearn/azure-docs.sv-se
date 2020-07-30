@@ -81,7 +81,7 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 
 ### <a name="add-an-azure-cosmos-db-connection"></a>Lägga till en Azure Cosmos DB-anslutning
 
-Om du vill lägga till en Azure Cosmos DB anslutning skapar du ett- `TableService` objekt och anger ditt konto namn, primär nyckel och slut punkt. Du kan kopiera dessa värden från **Inställningar**  >  **anslutnings sträng** i Azure Portal för ditt Cosmos DB-konto. Exempel:
+Om du vill lägga till en Azure Cosmos DB anslutning skapar du ett- `TableService` objekt och anger ditt konto namn, primär nyckel och slut punkt. Du kan kopiera dessa värden från **Inställningar**  >  **anslutnings sträng** i Azure Portal för ditt Cosmos DB-konto. Ett exempel:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -211,7 +211,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > När du uppdaterar en entitet utförs ingen kontroll som standard för att se om de data som uppdateras har ändrats tidigare av en annan process. Om du vill använda samtidiga uppdateringar:
 >
 > 1. Hämta ETag för objektet som uppdateras. Värdet returneras som en del av `response` för entitetsrelaterade åtgärder och kan hämtas via `response['.metadata'].etag`.
-> 2. När du utför en uppdateringsåtgärd för en entitet lägger du till ETag-informationen som du hämtade till den nya entiteten. Exempel:
+> 2. När du utför en uppdateringsåtgärd för en entitet lägger du till ETag-informationen som du hämtade till den nya entiteten. Ett exempel:
 >
 >       entity2['.metadata'].etag = currentEtag;
 > 3. Kör uppdateringsåtgärden. Om entiteten har ändrats sedan du hämtade ETag-värdet, till exempel en annan instans av programmet, returneras `error` och anger att uppdateringsvillkoret som angavs i begäran inte uppfylldes.

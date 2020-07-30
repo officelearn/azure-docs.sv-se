@@ -9,22 +9,72 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4bab1ef4588a705f0dd6cdb34be8272868f826e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd1e387727b0a80781b1103ddfb40afcbce8fce8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207574"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386630"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Fråga Parquet-filer med SQL on-demand (för hands version) i Azure Synapse Analytics
 
 I den här artikeln får du lära dig hur du skriver en fråga med SQL på begäran (för hands version) som kommer att läsa Parquet-filer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="quickstart-example"></a>Exempel på snabb start
+
+`OPENROWSET`funktionen gör att du kan läsa innehållet i Parquet-filen genom att ange URL: en till filen.
+
+### <a name="reading-parquet-file"></a>Läser Parquet-fil
+
+Det enklaste sättet att se innehållet i `PARQUET` filen är att ange fil-URL för att kunna `OPENROWSET` fungera och ange Parquet `FORMAT` . Om filen är offentligt tillgänglig eller om din Azure AD-identitet har åtkomst till den här filen bör du kunna se innehållet i filen med frågan som visas i följande exempel:
+
+```sql
+select top 10 *
+from openrowset(
+    bulk 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.parquet',
+    format = 'parquet') as rows
+```
+
+Se till att du har åtkomst till den här filen. Om filen skyddas med SAS-nyckel eller anpassad Azure-identitet måste du konfigurera [autentiseringsuppgifter på server nivå för SQL-inloggning](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+### <a name="using-data-source"></a>Använda data Källa
+
+I föregående exempel används den fullständiga sökvägen till filen. Alternativt kan du skapa en extern data källa med den plats som pekar på lagrings platsens rotmapp och använda denna data källa och den relativa sökvägen till filen i `OPENROWSET` funktionen:
+
+```sql
+create external data source covid
+with ( location = 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases' );
+go
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.parquet',
+        data_source = 'covid',
+        format = 'parquet'
+    ) as rows
+```
+
+Om en data källa är skyddad med SAS-nyckel eller anpassad identitet kan du konfigurera [data källan med databasens begränsade autentiseringsuppgifter](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
+
+### <a name="explicitly-specify-schema"></a>Ange ett schema explicit
+
+`OPENROWSET`med kan du uttryckligen ange vilka kolumner som du vill läsa från filen med hjälp av `WITH` satsen:
+
+```sql
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.parquet',
+        data_source = 'covid',
+        format = 'parquet'
+    ) with ( date_rep date, cases int, geo_id varchar(6) ) as rows
+```
+
+I följande avsnitt kan du se hur du frågar olika typer av PARQUET-filer.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Ditt första steg är att **skapa en databas** med en data källa som refererar till [NYC gul taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) -lagrings konto. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Det här installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i de här exemplen.
 
-## <a name="dataset"></a>Datauppsättning
+## <a name="dataset"></a>Datamängd
 
 [NYC gul taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) -datauppsättning används i det här exemplet. Du kan fråga Parquet-filer på samma sätt som du [läser CSV-filer](query-parquet-files.md). Den enda skillnaden är att `FILEFORMAT` parametern ska vara inställd på `PARQUET` . Exemplen i den här artikeln visar information om hur du läser Parquet-filer.
 
@@ -111,7 +161,7 @@ Parquet-filer innehåller typ beskrivningar för varje kolumn. I följande tabel
 | --- | --- | --- |
 | BOOLESKT | | bit |
 | BINÄR/BYTE_ARRAY | | varbinary |
-| DOUBLE | | float |
+| DOUBLE | | flyt |
 | FLYTA | | real |
 | INT32 | | int |
 | INT64 | | bigint |

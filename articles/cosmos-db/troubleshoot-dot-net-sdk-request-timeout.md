@@ -3,19 +3,34 @@ title: Felsök Azure Cosmos DB HTTP 408 eller begär timeout-problem med .NET SD
 description: Så här diagnostiserar och åtgärdar du undantags tids gränsen för .NET SDK-begäran
 author: j82w
 ms.service: cosmos-db
-ms.date: 07/13/2020
+ms.date: 07/29/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 29b0c6237ae04ea5da9ec496498fc7c20890b173
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3d6fed539581b2d1add87ade92e34bcf2e1913e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294631"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417615"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout"></a>Diagnostisera och Felsök Azure Cosmos DB timeout för .NET SDK-begäran
 HTTP 408-felet uppstår om SDK inte kunde slutföra begäran innan tids gränsen uppnåddes.
+
+## <a name="customizing-the-timeout-on-the-azure-cosmos-net-sdk"></a>Anpassa tids gränsen för Azure Cosmos .NET SDK
+
+SDK har två olika alternativ för att kontrol lera tids gränser, var och en med olika omfång.
+
+### <a name="requesttimeout"></a>RequestTimeout
+
+Med `CosmosClientOptions.RequestTimeout` konfigurationen (eller `ConnectionPolicy.RequestTimeout` för SDK v2) kan du ange en tids gräns som påverkar varje enskild nätverks förfrågan.  En åtgärd som startas av en användare kan omfatta flera nätverks begär Anden (till exempel kan begränsning) och den här konfigurationen gäller för varje nätverks förfrågan på nytt försök. Detta är inte en tids gräns för begäran från slut punkt till slut punkt.
+
+### <a name="cancellationtoken"></a>CancellationToken
+
+Alla asynkrona åtgärder i SDK har en valfri CancellationToken-parameter. Den här [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) används i hela åtgärden, över alla nätverks begär Anden. I-mellan-nätverks begär Anden kan CancellationToken kontrol leras och en åtgärd avbröts om den relaterade token har upphört att gälla. CancellationToken ska användas för att definiera en ungefärlig förväntad tids gräns i åtgärds omfånget.
+
+> [!NOTE]
+> CancellationToken är en mekanism där biblioteket kontrollerar annulleringen när det [inte orsakar ett ogiltigt tillstånd](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/). Åtgärden kan inte avbrytas exakt när tiden som definierats i annulleringen är upp, men när tiden är upp avbryts den när den är säker.
 
 ## <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 Följande lista innehåller kända orsaker och lösningar för timeout-undantag för begäran.

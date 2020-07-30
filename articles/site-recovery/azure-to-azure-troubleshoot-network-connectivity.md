@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 71176c87ee805eb4a634dd6c2f344922fc13c4f3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 8396ffa958e41e12e9258766483310baef0cabbe
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132715"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421441"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Felsök problem med Azure-till-Azure VM-nätverksanslutningar
 
@@ -18,12 +18,12 @@ I den här artikeln beskrivs vanliga problem som rör nätverks anslutning när 
 
 För att Site Recovery replikering ska fungera krävs utgående anslutning till vissa URL-adresser eller IP-intervall från den virtuella datorn. Om den virtuella datorn ligger bakom en brand vägg eller använder regler för nätverks säkerhets grupper (NSG) för att kontrol lera utgående anslutningar kan du stöta på något av dessa problem.
 
-| URL | Information |
-|---|---|
-| `*.blob.core.windows.net` | Krävs så att data kan skrivas till cache-lagrings kontot i käll regionen från den virtuella datorn. Om du känner till alla cache-lagrings konton för dina virtuella datorer kan du använda en lista över tillåtna för de angivna URL: erna för lagrings kontot. Till exempel `cache1.blob.core.windows.net` och `cache2.blob.core.windows.net` i stället för `*.blob.core.windows.net` . |
-| `login.microsoftonline.com` | Krävs för auktorisering och autentisering till Site Recovery tjänst-URL: er. |
-| `*.hypervrecoverymanager.windowsazure.com` | Krävs så att kommunikationen mellan Site Recoverys tjänsten kan ske från den virtuella datorn. Du kan använda motsvarande _Site Recovery-IP_ om brand Väggs-proxyn har stöd för IP-adresser. |
-| `*.servicebus.windows.net` | Krävs så att Site Recovery övervakning och diagnostikdata kan skrivas från den virtuella datorn. Du kan använda motsvarande _Site Recovery övervakning av IP_ om din brand vägg stöder IP-adresser. |
+| **Namn**                  | **Kommersiellt**                               | **Myndigheter**                                 | **Beskrivning** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Krävs så att data kan skrivas till cache-lagrings kontot i käll regionen från den virtuella datorn. Om du känner till alla cache-lagrings konton för dina virtuella datorer kan du använda en lista över tillåtna för de angivna URL: erna för lagrings kontot. Till exempel `cache1.blob.core.windows.net` och `cache2.blob.core.windows.net` i stället för `*.blob.core.windows.net` . |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Krävs för auktorisering och autentisering till Site Recovery tjänst-URL: er. |
+| Replikering               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Krävs så att kommunikationen mellan Site Recoverys tjänsten kan ske från den virtuella datorn. Du kan använda motsvarande _Site Recovery-IP_ om brand Väggs-proxyn har stöd för IP-adresser. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Krävs så att Site Recovery övervakning och diagnostikdata kan skrivas från den virtuella datorn. Du kan använda motsvarande _Site Recovery övervakning av IP_ om din brand vägg stöder IP-adresser. |
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Utgående anslutning för Site Recovery-URL: er eller IP-intervall (felkod 151037 eller 151072)
 
@@ -82,9 +82,9 @@ Det här exemplet visar hur du konfigurerar NSG-regler för en virtuell dator at
 
 1. Skapa HTTPS-port 443 utgående regler för de Site Recovery IP-adresser som motsvarar mål platsen:
 
-   | Location | Site Recovery IP-adress | Site Recovery övervakning av IP-adress |
+   | Position | Site Recovery IP-adress | Site Recovery övervakning av IP-adress |
    | --- | --- | --- |
-   | USA, centrala | 40.69.144.231 | 52.165.34.144 |
+   | Central US | 40.69.144.231 | 52.165.34.144 |
 
 #### <a name="nsg-rules---central-us"></a>NSG-regler – centrala USA
 
@@ -102,9 +102,9 @@ I det här exemplet krävs dessa NSG-regler för att replikeringen ska kunna akt
 
 1. Skapa HTTPS-port 443 utgående regler för de Site Recovery IP-adresser som motsvarar käll platsen:
 
-   | Location | Site Recovery IP-adress | Site Recovery övervakning av IP-adress |
+   | Position | Site Recovery IP-adress | Site Recovery övervakning av IP-adress |
    | --- | --- | --- |
-   | USA, östra | 13.82.88.226 | 104.45.147.24 |
+   | East US | 13.82.88.226 | 104.45.147.24 |
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problem 3: Site Recovery konfiguration misslyckades (151197)
 

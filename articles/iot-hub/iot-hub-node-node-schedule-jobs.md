@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.custom: mqtt
-ms.openlocfilehash: d7f9ce37ad85d39388eea90af263f59ce312a6b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-javascript
+ms.openlocfilehash: 16e6c72f9fbb710524752c2d220d442735d809b7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732271"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420778"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>Schema-och sändnings jobb (Node.js)
 
@@ -49,7 +49,7 @@ I slutet av den här självstudien har du två Node.js-appar:
 
 * **scheduleJobService.js**, som anropar en direkt metod i den simulerade Device-appen och uppdaterar enhetens dubbla egenskaper med ett jobb.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Node.js version 10.0. x eller senare. [Förbereda utvecklings miljön](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) beskriver hur du installerar Node.js för den här själv studie kursen på antingen Windows eller Linux.
 

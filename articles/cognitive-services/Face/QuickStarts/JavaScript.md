@@ -5,23 +5,24 @@ description: I den här snabbstarten identifierar du ansikten med hjälp av Ansi
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
+ms.custom: devx-track-javascript
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: e94dc53fa5c0a6f44417324c9a7d7c1496d18f17
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 15b9c78a1ca24077ce88c77759519cc08076abd5
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84986626"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405950"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Snabbstart: Identifiera ansikten i en bild med REST API och JavaScript
 
 I den här snabb starten ska du använda Azures ansikts REST API med Java Script för att identifiera mänskliga ansikten i en bild.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" skapar du en ansikts resurs "  target="_blank"> skapa en ansikts resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.

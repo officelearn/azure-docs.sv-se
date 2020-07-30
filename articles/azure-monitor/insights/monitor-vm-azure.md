@@ -130,7 +130,7 @@ När du har konfigurerat insamling av övervaknings data för en virtuell dator 
 
 ![Övervakning i Azure Portal](media/monitor-vm-azure/monitor-menu.png)
 
-| Meny alternativ | Beskrivning |
+| Meny alternativ | Description |
 |:---|:---|
 | Översikt | Visar [plattforms mått](../platform/data-platform-metrics.md) för den virtuella dator värden. Klicka på en graf för att arbeta med dessa data i [mått Utforskaren](../platform/metrics-getting-started.md). |
 | Aktivitetslogg | [Aktivitets logg](../platform/activity-log.md#view-the-activity-log) poster som filtrerats för den aktuella virtuella datorn. |
@@ -148,7 +148,7 @@ Du kan analysera mått för virtuella datorer med hjälp av Metric Explorer geno
 
 Det finns tre namn områden som används av virtuella datorer för mått:
 
-| Namnområde | Beskrivning | Krav |
+| Namnområde | Description | Krav |
 |:---|:---|:---|
 | Virtuell värddator | Värd mått samlas in automatiskt för alla virtuella Azure-datorer. Detaljerad lista över mått på [Microsoft. Compute/virtualMachines](../platform/metrics-supported.md#microsoftcomputevirtualmachines). | Samlas in automatiskt utan konfiguration krävs. |
 | Gäst (klassisk) | Begränsad uppsättning prestanda data för gäst operativ system och program. Tillgängligt i Metrics Explorer men inte andra Azure Monitor funktioner som mått varningar.  | [Diagnostiskt tillägg](../platform/diagnostics-extension-overview.md) installerat. Data läses från Azure Storage.  |

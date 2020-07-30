@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: allensu
-ms.custom: mvc
-ms.openlocfilehash: aa0d29c5c2a4cf8eebbf530b42a25d8924e031bc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: f3dd4280ddea076b5e9febbc36dd323c0705ef0e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290267"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423379"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Snabbstart: Skapa en offentlig lastbalanserare som lastbalanserar virtuella datorer med Azure CLI
 
 Kom igång med Azure Load Balancer med hjälp av Azure CLI och skapa en offentlig belastningsutjämnare och tre virtuella datorer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure CLI installerat lokalt eller Azure Cloud Shell

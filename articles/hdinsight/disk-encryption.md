@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 732709dbcb5ebe54025a963379128f1a1e74183e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8bb9dc5aa6ebbd4ef7fb1b9550670a3c6298333
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536309"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387854"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Kundhanterad nyckeldiskkryptering
 
@@ -30,12 +30,12 @@ Både resurs diskar och hanterade diskar på varje nod i klustret krypteras med 
 
 Om Key Vault-brandväggen är aktive rad i nyckel valvet där disk krypterings nyckeln lagras, måste den regionala HDInsight-providerns IP-adresser för den region där klustret ska distribueras läggas till i konfiguration av Key Vault-brandväggen. Detta är nödvändigt eftersom HDInsight inte är en betrodd Azure Key Vault-tjänst.
 
-Du kan använda Azure Portal eller Azure CLI för att på ett säkert sätt rotera nycklar i nyckel valvet. När en nyckel roterar börjar HDInsight-klustret med den nya nyckeln inom några minuter. Aktivera funktionen för nyckel skydd för [mjuk borttagning](../key-vault/general/overview-soft-delete.md) för att skydda dig mot utpressnings scenarier och oavsiktlig borttagning. Nyckel valv utan denna skydds funktion stöds inte.
+Du kan använda Azure Portal eller Azure CLI för att på ett säkert sätt rotera nycklar i nyckel valvet. När en nyckel roterar börjar HDInsight-klustret med den nya nyckeln inom några minuter. Aktivera funktionen för nyckel skydd för [mjuk borttagning](../key-vault/general/soft-delete-overview.md) för att skydda dig mot utpressnings scenarier och oavsiktlig borttagning. Nyckel valv utan denna skydds funktion stöds inte.
 
 |Kluster typ |OS-disk (hanterad disk) |Data disk (hanterad disk) |Temporär data disk (lokal SSD) |
 |---|---|---|---|
 |Kafka, HBase med accelererade skrivningar|[SSE-kryptering](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|SSE-kryptering + valfri CMK-kryptering|Valfri CMK-kryptering|
-|Alla andra kluster (Spark, Interactive, Hadoop, HBase utan accelererade skrivningar)|SSE-kryptering|Saknas|Valfri CMK-kryptering|
+|Alla andra kluster (Spark, Interactive, Hadoop, HBase utan accelererade skrivningar)|SSE-kryptering|E.t.|Valfri CMK-kryptering|
 
 ## <a name="get-started-with-customer-managed-keys"></a>Kom igång med Kundhanterade nycklar
 
@@ -106,7 +106,7 @@ Nu är du redo att skapa ett nytt HDInsight-kluster. Kundhanterad nyckel kan bar
 
 ### <a name="using-the-azure-portal"></a>Använda Azure Portal
 
-Ange den fullständiga **nyckel identifieraren**, inklusive nyckel versionen, när klustret skapas. Till exempel `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Du måste också tilldela den hanterade identiteten till klustret och ange nyckel-URI: n.
+Ange den fullständiga **nyckel identifieraren**, inklusive nyckel versionen, när klustret skapas. Exempelvis `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Du måste också tilldela den hanterade identiteten till klustret och ange nyckel-URI: n.
 
 ![Skapa nytt kluster](./media/disk-encryption/create-cluster-portal.png)
 

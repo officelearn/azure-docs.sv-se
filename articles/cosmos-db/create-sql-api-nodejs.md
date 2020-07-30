@@ -8,12 +8,13 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: e40dc59cf1e8fe3302c59f1067c285bc37141465
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 8ec5562af254aa1bcdb030057f61db496a17826b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85115224"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423396"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Snabb start: Använd Node.js för att ansluta och fråga efter data från Azure Cosmos DB SQL API-konto
 
@@ -33,7 +34,7 @@ Titta på den här videon om du vill ha en fullständig genom gång av innehåll
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Quickstart-Use-Nodejs-to-connect-and-query-data-from-Azure-Cosmos-DB-SQL-API-account/player]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration. Du kan också använda [Azure Cosmos DB emulatorn](https://aka.ms/cosmosdb-emulator) med en URI `https://localhost:8081` och nyckeln `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` .
 - [Node.js 6.0.0 +](https://nodejs.org/).
@@ -63,12 +64,12 @@ Du kan nu använda Datautforskaren-verktyget i Azure Portal för att skapa en da
 
 2. På sidan **Lägg till behållare** anger du inställningarna för den nya behållaren.
 
-   | Inställningen           | Föreslaget värde | Beskrivning                                                                                                                                                                                                                                                                                                                                                                           |
+   | Inställning           | Föreslaget värde | Beskrivning                                                                                                                                                                                                                                                                                                                                                                           |
    | ----------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **Databas-ID**   | Aktiviteter           | Ange _Uppgifter_ som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg. Kontrol lera **data flödes alternativet etablera databas** så att du kan dela det data flöde som har etablerats till databasen över alla behållare i databasen. Det här alternativet hjälper också till med kostnads besparingar. |
+   | **Databas-ID**   | Uppgifter           | Ange _Uppgifter_ som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg. Kontrol lera **data flödes alternativet etablera databas** så att du kan dela det data flöde som har etablerats till databasen över alla behållare i databasen. Det här alternativet hjälper också till med kostnads besparingar. |
    | **Dataflöde**    | 400             | Lämna data flödet på 400 enheter för programbegäran per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.                                                                                                                                                                                                                                                    |
    | **Container-ID**  | Poster           | Ange _objekt_ som namn på den nya behållaren. För container-ID:n gäller samma teckenkrav som för databasnamn.                                                                                                                                                                                                                                                               |
-   | **Partitionsnyckeln** | /category       | Exemplet som beskrivs i den här artikeln använder _/Category_ som partitionsnyckel.                                                                                                                                                                                                                                                                                                           |
+   | **Partitionsnyckel** | /category       | Exemplet som beskrivs i den här artikeln använder _/Category_ som partitionsnyckel.                                                                                                                                                                                                                                                                                                           |
 
    Förutom de föregående inställningarna kan du också lägga till **unika nycklar** för behållaren. Vi lämnar fältet tomt i det här exemplet. Unika nycklar ger utvecklarna möjlighet att lägga till ett lager med dataintegritet till databasen. Genom att skapa en unik nyckel princip när du skapar en behållare, säkerställer du att ett eller flera värden är unika per partitionsnyckel. Läs mer i artikeln om [unika nycklar i Azure Cosmos DB](unique-keys.md).
 

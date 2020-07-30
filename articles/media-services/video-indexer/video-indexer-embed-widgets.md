@@ -10,16 +10,17 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: d76f3afa3a831f402f93322ecec350bfdb0c788d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-javascript
+ms.openlocfilehash: afc49e959061bcd2327f1c3a4f988c9ed6e5ce11
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166033"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87414028"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Bädda in Video Indexer widgetar i dina appar
 
-Den här artikeln visar hur du kan bädda in Video Indexer widgetar i dina appar. Video Indexer stöder inbäddning av tre typer av widgetar i dina appar: *kognitiva insikter*, *spelare*och *redigerare*.
+Den här artikeln visar hur du kan bädda in Video Indexer widgetar i dina appar. Video Indexer har stöd för inbäddning av tre typer av widgetar i dina appar: *Insikt*, *Spelare* och *Redigerare*.
 
 Från och med version 2 innehåller widgeten bas-URL den region där det angivna kontot finns. Ett konto i regionen Västra USA genererar till exempel: `https://www.videoindexer.ai/embed/insights/.../?location=westus2` .
 
@@ -29,11 +30,11 @@ Från och med version 2 innehåller widgeten bas-URL den region där det angivna
 
 En insiktswidget innehåller alla visuella insikter som extraherades från videoindexeringsprocessen. Widgeten kognitiv Insights stöder följande valfria URL-parametrar:
 
-|Namn|Definition|Beskrivning|
+|Name|Definition|Description|
 |---|---|---|
 |`widgets` | Strängar avgränsade med kommatecken | Gör att du kan styra de insikter som du vill återge.<br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` återger endast användare och nyckelord UI insikter.<br/>Tillgängliga alternativ: People, animatedCharacters, keywords, Labels, sentiment, känslor, topics, nyckel rutor, avskrift, OCR, talare, scener och namedEntities.|
 |`controls`|Strängar avgränsade med kommatecken|Gör att du kan styra de kontroller som du vill återge.<br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` återger bara sökalternativet och knappen Hämta.<br/>Tillgängliga alternativ: Sök, ladda ned, för inställningar, språk.|
-|`language`|En kort språkkod (språk namn)|Kontrollerar insikter-språk.<br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/> eller `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
+|`language`|En kort språkkod (språk namn)|Kontrollerar insikter-språk.<br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>eller`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | En kort språkkod | Styr språket för användar gränssnittet. Standardvärdet är `en`. <br/>Exempel: `locale=de`.|
 |`tab` | Den valda fliken standard | Styr fliken **insikter** som återges som standard. <br/>Exempel: `tab=timeline` återger insikter med fliken **tids linje** vald.|
 |`location` ||`location`Parametern måste inkluderas i de inbäddade länkarna, se [hur du hämtar namnet på din region](regions.md). Om ditt konto är i för hands version `trial` ska det användas för plats-värdet. `trial`är standardvärdet för `location` parametern.| 
@@ -42,7 +43,7 @@ En insiktswidget innehåller alla visuella insikter som extraherades från video
 
 Du kan använda Player-widgeten för att strömma video med hjälp av anpassningsbar bit hastighet. Widgeten Player stöder följande valfria URL-parametrar.
 
-|Namn|Definition|Beskrivning|
+|Name|Definition|Description|
 |---|---|---|
 |`t` | Sekunder från start | Gör att spelaren startar uppspelningen från den angivna tids punkten.<br/> Exempel: `t=60`. |
 |`captions` | En språkkod | Hämtar texten på det angivna språket när widget inläsningen ska vara tillgänglig på menyn under **texter** .<br/> Exempel: `captions=en-US`. |
@@ -56,7 +57,7 @@ Du kan använda Player-widgeten för att strömma video med hjälp av anpassning
 
 Du kan använda Editor-widgeten för att skapa nya projekt och hantera video insikter. Editor-widgeten stöder följande valfria URL-parametrar.
 
-|Namn|Definition|Beskrivning|
+|Name|Definition|Description|
 |---|---|---|
 |`accessToken`<sup>*</sup> | Sträng | Ger åtkomst till videor som bara finns i det konto som används för att bädda in widgeten.<br> Widgeten Editor kräver `accessToken` parametern. |
 |`language` | En språkkod | Kontrollerar Player-språket. Standardvärdet är `en-US`.<br/>Exempel: `language=de-DE`. |
@@ -69,7 +70,7 @@ Du kan använda Editor-widgeten för att skapa nya projekt och hantera video ins
 
 I det här avsnittet beskrivs hur du bäddar in offentligt och privat innehåll i appar.
 
-`location`Parametern måste inkluderas i de inbäddade länkarna, se [hur du hämtar namnet på din region](regions.md). Om ditt konto är i för hands version `trial` ska det användas för plats-värdet. `trial`är standardvärdet för `location` parametern. Här är ett exempel: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+`location`Parametern måste inkluderas i de inbäddade länkarna, se [hur du hämtar namnet på din region](regions.md). Om ditt konto är i för hands version `trial` ska det användas för plats-värdet. `trial`är standardvärdet för `location` parametern. Exempel: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 > [!IMPORTANT]
 > Om du delar en länk för **Player** -eller **Insights** -widgeten ingår åtkomsttoken och beviljar Läs behörighet till ditt konto.
@@ -196,7 +197,7 @@ Om du använder en annan Videos pelare än Azure Media Player måste du manuellt
     ```
 
 2. Bädda in insiktswidgeten.
-3. Implementera kommunikation för spelaren genom att lyssna på ”message”-händelsen. Exempel:
+3. Implementera kommunikation för spelaren genom att lyssna på ”message”-händelsen. Ett exempel:
 
     ```javascript
     <script>
@@ -259,7 +260,7 @@ Observera att det här alternativet endast är relevant i fall när du behöver 
 
 Om du bäddar in Video Indexer-spelaren kan du välja storlek för spelaren genom att ange storlek på iframe-fönstret.
 
-Exempel:
+Ett exempel:
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
@@ -279,7 +280,7 @@ Som standard startar spelaren uppspelning av videon. Du kan välja att inte skic
 
 Se de [kod exempel](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) lagrings platsen som innehåller exempel för video INDEXER-API och widgetar:
 
-| Fil/mapp                       | Beskrivning                                |
+| Fil/mapp                       | Description                                |
 |-----------------------------------|--------------------------------------------|
 | `azure-media-player`              | Läs in video Indexer-video i en anpassad Azure Media Player.                        |
 | `azure-media-player-vi-insights`  | Bädda in VI insikter med en anpassad Azure Media Player.                             |

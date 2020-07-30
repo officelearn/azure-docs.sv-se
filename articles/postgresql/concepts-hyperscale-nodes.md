@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: 04ebb4298f8a5398b0aa9921d740e3eaacfd8e11
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: af743ca56572f507091db01f11d3283294a9e3d5
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974010"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382805"
 ---
 # <a name="nodes-in-azure-database-for-postgresql--hyperscale-citus"></a>Noder i Azure Database for PostgreSQL – storskalig (citus)
 
@@ -22,7 +22,9 @@ Den storskaliga (citus) värd typen tillåter Azure Database for PostgreSQL serv
 
 Varje server grupp har en koordinator-nod och flera arbetare. Programmen skickar sina frågor till koordinator-noden, som vidarebefordrar dem till relevanta arbetare och ackumulerar sina resultat. Program kan inte ansluta direkt till arbets tagarna.
 
-För varje fråga dirigerar koordinatorn antingen den till en enda arbetsnoden, eller parallelizes den över flera beroende på om de data som krävs finns på en enda nod eller flera. Koordinatorn bestämmer vad som ska göras vid konsultering av metadata tabeller. De här tabellerna spårar DNS-namn och hälsa för arbetsnoder och data fördelningen mellan noderna.
+Med storskalig (citus) kan databas administratören *distribuera* tabeller och lagra olika rader på olika arbetsnoder. Distribuerade tabeller är nyckeln till storskalig prestanda. Det går inte att distribuera tabeller helt och hållet på koordinator-noden och kan inte dra nytta av parallellitet mellan datorer.
+
+För varje fråga i distribuerade tabeller dirigerar koordinatorn antingen den till en enda arbetsnoden, eller parallelizes den över flera beroende på om de data som krävs finns på en enda nod eller flera. Koordinatorn bestämmer vad som ska göras vid konsultering av metadata tabeller. De här tabellerna spårar DNS-namn och hälsa för arbetsnoder och data fördelningen mellan noderna.
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig hur noder lagrar [distribuerade data](concepts-hyperscale-distributed-data.md)
+- Lär dig mer om [distribuerade tabeller](concepts-hyperscale-distributed-data.md)

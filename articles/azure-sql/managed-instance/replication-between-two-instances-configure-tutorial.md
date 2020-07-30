@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: ac701b70a9db860e2f839ab30fb575133703c142
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd476d3210263268627541eb40c50048f0eddd1b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708485"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422920"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Självstudie: Konfigurera replikering mellan två hanterade instanser
 
@@ -26,7 +26,7 @@ ms.locfileid: "84708485"
 Med Transaktionsreplikering kan du replikera data från en databas till en annan som finns på antingen SQL Server eller [Azure SQL-hanterad instans](sql-managed-instance-paas-overview.md) (offentlig för hands version). SQL-hanterad instans kan vara utgivare, distributör eller prenumerant i replikeringstopologin. Se [konfigurationer för transaktionell replikering](replication-transactional-overview.md#common-configurations) för tillgängliga konfigurationer.
 
 > [!NOTE]
-> I den här artikeln beskrivs användningen av [transaktionell replikering](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) i Azure SQL-hanterad instans. Den är inte relaterad till [redundansväxlingen](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), en funktion för Azure SQL-hanterad instans som gör att du kan skapa kompletta läsbara repliker av enskilda instanser.
+> I den här artikeln beskrivs användningen av [transaktionell replikering](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) i Azure SQL-hanterad instans. Den är inte relaterad till [redundansväxlingen](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), en funktion för Azure SQL-hanterad instans som gör att du kan skapa kompletta läsbara repliker av enskilda instanser. Det finns ytterligare överväganden när du konfigurerar [transaktionell replikering med grupper för växling vid fel](replication-transactional-overview.md#with-failover-groups).
 
 I den här självstudien får du lära dig att konfigurera en hanterad instans som utgivare och distributör och sedan en andra hanterad instans som prenumerant.  
 

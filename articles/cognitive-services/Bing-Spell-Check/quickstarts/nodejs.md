@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: kontrol lera stavningen med REST API och Node. js-Stavningskontroll i Bing'
+title: 'Snabb start: kontrol lera stavningen med REST API och Node.js-Stavningskontroll i Bing'
 titleSuffix: Azure Cognitive Services
 description: Kom igång med Stavningskontroll i Bing REST API för att kontrol lera stavning och grammatik med den här snabb starten.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: f35c2ebc4cd6e31fe59ad715d4f317e650bca52e
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: aaaa571928556a6972d3136ef4cacaa3bd4cb798
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995963"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405015"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och Node. js
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och Node.js
 
 Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla JavaScript-programmet skickar en begäran till API: et och returnerar en lista med föreslagna korrigeringar. 
 

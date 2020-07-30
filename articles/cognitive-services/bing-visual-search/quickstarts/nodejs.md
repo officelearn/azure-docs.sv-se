@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: Hämta bild insikter med hjälp av REST API och Node. js-Visuell sökning i Bing'
+title: 'Snabb start: Hämta bild insikter med hjälp av REST API och Node.js-Visuell sökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Ta reda på hur du laddar upp en bild till API:et för visuell sökning i Bing och får information om den.
 services: cognitive-services
@@ -10,18 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: scottwhi
-ms.openlocfilehash: 7dfb3adb5d7bf5b005beb7e7b75fb339d456cd15
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 1e5594fab6e4b1758e8e3cd722c053b9d3d301ce
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872615"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87404035"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing REST API och Node. js
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing REST API och Node.js
 
 Använd den här snabb starten för att göra ditt första anrop till API för visuell sökning i Bing. Det här enkla JavaScript-programmet laddar upp en bild till API:et och visar den information som returneras om den. Även om det här programmet är skrivet i Java Script är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Node.js](https://nodejs.org/en/download/)
 * Modulen för begäran för Java Script. Du kan använda `npm install request` kommandot för att installera modulen.

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00fdd94e8a8cd4b8769260cd595dfee5ff898039
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46c0fccf965f4a4c9d05d82601d75e314aba7d73
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732626"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421696"
 ---
 # <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>Hämta en lista över grupper i Azure Active Directory
 
@@ -36,7 +36,7 @@ Med hjälp av Azure Active Directory-portalen (Azure AD) kan du hämta en lista 
 
 Du kan se statusen för alla väntande Mass förfrågningar på resultat sidan för **Mass åtgärder** .
 
-[![](media/groups-bulk-download/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-download/bulk-center.png#lightbox)
+[![Kontrol lera status på sidan med Mass åtgärds resultat.](media/groups-bulk-download/bulk-center.png)](media/groups-bulk-download/bulk-center.png#lightbox)
 
 ## <a name="bulk-download-service-limits"></a>Begränsningar för Mass nedladdnings tjänst
 

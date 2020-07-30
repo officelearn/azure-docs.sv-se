@@ -105,7 +105,7 @@ Följande NFS 3,0-funktioner stöds ännu inte med Azure Data Lake Storage Gen2.
 
 - Exportera en behållare som skrivskyddad
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Under för hands versionen debiteras de data som lagras i ditt lagrings konto med samma kapacitets taxa som Blob Storage-avgifter per GB per månad. 
 

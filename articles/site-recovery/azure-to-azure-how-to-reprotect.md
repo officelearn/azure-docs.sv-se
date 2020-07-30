@@ -2,18 +2,18 @@
 title: Skydda virtuella Azure-datorer till den primära regionen med Azure Site Recovery | Microsoft Docs
 description: Beskriver hur du skyddar virtuella Azure-datorer efter en redundansväxling, den sekundära till den primära regionen med hjälp av Azure Site Recovery.
 services: site-recovery
-author: rajani-janaki-ram
-manager: gauravd
+author: Rajeswari-Mamilla
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: rajanaki
-ms.openlocfilehash: 9883065993f35054338079c8b9647a8420574414
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: ramamill
+ms.openlocfilehash: da740909cedb8e2bb78f5f70e062481395a5c181
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82738073"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422087"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Återaktivering av skydd på virtuella Azure-datorer till den primära regionen
 
@@ -44,7 +44,7 @@ Du kan anpassa följande egenskaper för den virtuella mål datorn under skyddet
 
 ![Anpassa](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
-|Egenskap |Anteckningar  |
+|Egenskap |Kommentarer  |
 |---------|---------|
 |Mål resurs grupp | Ändra mål resurs gruppen som den virtuella datorn skapas i. Som en del av återskyddet tas den virtuella mål datorn bort. Du kan välja en ny resurs grupp under vilken du vill skapa den virtuella datorn efter redundansväxlingen. |
 |Virtuellt mål nätverk | Det går inte att ändra mål nätverket under återskydds jobbet. Om du vill ändra nätverket gör du om nätverks mappningen. |
@@ -95,10 +95,6 @@ Följande villkor avgör hur mycket data som replikeras:
 |Käll regionen har 1 virtuell dator med 1 TB Premium-disk.<br/>Endast 20 GB data används och resten av disken är tom.<br/>Disk typen är Premium med 200 Mbit/s genom strömning.<br/>De inledande data på disken omedelbart efter redundansväxlingen var 15 GB. Det fanns 5 GB data ändring efter redundansväxlingen. Totalt antal fyllda data är därför 20 GB| Ungefärlig tid: 30-45 minuter.<br/>Eftersom de data som är ifyllda på disken är mindre än 10% av disk storleken utför vi en fullständig inledande replikering.<br/>Överföringshastigheten är cirka 16% av genomflödet eller 32MBps. Därför ska överförings tiden för att tillämpa ändringar på 20 GB som är 20 GB/32 MBps, ungefär 11 minuter.<br/>Det krävs en del omkostnader för Site Recovery för automatisk skalning, ungefär 20-30 minuter |
 
 När den virtuella datorn skyddas igen efter att ha växlat tillbaka till den primära regionen (dvs. om den virtuella datorn skyddas från primär region till DR-region) tas den virtuella mål datorn och de associerade NIC: erna bort.
-
-När den virtuella datorn skyddas på nytt från DR-regionen till den primära regionen tar vi inte bort den primära virtuella datorn erstwhile och tillhör ande NIC (n).
-
-När den virtuella datorn skyddas igen efter att ha växlat tillbaka till den primära regionen (dvs. om den virtuella datorn skyddas från primär region till DR-region) tas den virtuella mål datorn och de associerade NIC: erna bort. 
 
 När den virtuella datorn skyddas på nytt från DR-regionen till den primära regionen tar vi inte bort den primära virtuella datorn erstwhile och tillhör ande NIC (n).
 

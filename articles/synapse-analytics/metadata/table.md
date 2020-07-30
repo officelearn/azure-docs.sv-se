@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: d9efafdbc3545bebb3b90b3f64c14f45d8be82e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 28f666fe295b2b49fb6795306e9fad489c867517
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496034"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387225"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabeller för delade metadata i Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Med Azure Synapse Analytics kan olika beräknings motorer för arbets ytan dela 
 
 När en databas har skapats av ett Spark-jobb kan du skapa tabeller i den med Spark som använder Parquet som lagrings format. Tabellerna blir omedelbart tillgängliga för frågor från någon av Azure Synapse-arbetsytans Spark-pooler. De kan också användas från alla Spark-jobb som omfattas av behörigheter.
 
-Spark skapade, hanterade och externa tabeller görs också tillgängliga som externa tabeller med samma namn i motsvarande synkroniserade databas i SQL på begäran. Att [exponera en spark-tabell i SQL](#exposing-a-spark-table-in-sql) innehåller mer information om Table-synkroniseringen.
+Spark skapade, hanterade och externa tabeller görs också tillgängliga som externa tabeller med samma namn i motsvarande synkroniserade databas i SQL på begäran. Att [exponera en spark-tabell i SQL](#expose-a-spark-table-in-sql) innehåller mer information om Table-synkroniseringen.
 
 Eftersom tabellerna synkroniseras till SQL på begäran asynkront kommer det att finnas en fördröjning tills de visas.
 
@@ -34,9 +34,9 @@ Använd Spark för att hantera Spark-skapade databaser. Du kan t. ex. ta bort de
 
 Om du skapar objekt i en sådan databas från SQL på begäran eller försöker släppa databasen kommer åtgärden att lyckas, men den ursprungliga Spark-databasen kommer inte att ändras.
 
-## <a name="exposing-a-spark-table-in-sql"></a>Exponerar en spark-tabell i SQL
+## <a name="expose-a-spark-table-in-sql"></a>Exponera en spark-tabell i SQL
 
-### <a name="which-spark-tables-are-shared"></a>Vilka Spark-tabeller som delas
+### <a name="shared-spark-tables"></a>Delade Spark-tabeller
 
 Spark innehåller två typer av tabeller som Azure Synapse visar i SQL automatiskt:
 
@@ -50,7 +50,7 @@ Spark innehåller två typer av tabeller som Azure Synapse visar i SQL automatis
 
 Azure-Synapse delar för närvarande bara hanterade och externa Spark-tabeller som lagrar sina data i Parquet-format med SQL-motorerna. Tabeller som backas upp av andra format synkroniseras inte automatiskt. Du kanske kan synkronisera sådana tabeller manuellt som en extern tabell i din egen SQL-databas om SQL-motorn stöder tabellens underliggande format.
 
-### <a name="how-are-spark-tables-shared"></a>Hur är Spark-tabeller delade
+### <a name="share-spark-tables"></a>Dela Spark-tabeller
 
 De shareable-hanterade och externa Spark-tabellerna som visas i SQL-motorn som externa tabeller med följande egenskaper:
 
@@ -96,7 +96,7 @@ Mer information om hur du anger behörigheter för mappar och filer finns i [Azu
 
 ### <a name="create-a-managed-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Skapa en hanterad tabell som backas upp av Parquet i Spark och fråga från SQL på begäran
 
-I det här scenariot har du en spark-databas med namnet `mytestdb` . Se [skapa & ansluta till Spark Database-SQL på begäran](database.md#create--connect-to-spark-database---sql-on-demand).
+I det här scenariot har du en spark-databas med namnet `mytestdb` . Se [skapa och ansluta till en spark-databas med SQL på begäran](database.md#create-and-connect-to-spark-database-with-sql-on-demand).
 
 Skapa en hanterad Spark-tabell med SparkSQL genom att köra följande kommando:
 
@@ -153,7 +153,7 @@ id | name | birthdate
 1 | Alice | 2010-01-01
 ```
 
-### <a name="creating-an-external-table-backed-by-parquet-in-spark-and-querying-it-from-sql-on-demand"></a>Skapa en extern tabell som backas upp av Parquet i Spark och fråga den från SQL på begäran
+### <a name="create-an-external-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Skapa en extern tabell som backas upp av Parquet i Spark och fråga från SQL på begäran
 
 I det här exemplet skapar du en extern Spark-tabell över de Parquet-datafiler som skapades i föregående exempel för den hanterade tabellen.
 

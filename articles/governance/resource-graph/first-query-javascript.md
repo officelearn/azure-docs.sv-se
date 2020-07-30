@@ -3,12 +3,13 @@ title: 'Snabb start: din första JavaScript-fråga'
 description: I den här snabb starten följer du stegen för att aktivera resurs biblioteks biblioteket för Java Script och köra din första fråga.
 ms.date: 06/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 6b2c8e17bb92dfcc91e8a65e5c113c0a72021a41
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.custom: devx-track-javascript
+ms.openlocfilehash: fc9809dbe615950b4f5c9e4dc66cefcd054f5ebf
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323545"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87415932"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-javascript"></a>Snabb start: kör din första resurs diagram fråga med hjälp av Java Script
 
@@ -16,7 +17,7 @@ Den här snabb starten vägleder dig genom processen att lägga till biblioteken
 
 I slutet av den här processen har du lagt till biblioteken i JavaScript-installationen och kört din första resurs diagram fråga.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 

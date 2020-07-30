@@ -1,36 +1,36 @@
 ---
-title: Kommunicera med Device-appen i Node. js med Azure IoT Hub enhets strömmar
-description: I den här snabb starten ska du köra ett Node. js-program på tjänst sidan som kommunicerar med en IoT-enhet via en enhets ström.
+title: Kommunicera med enhetens app i Node.js med Azure IoT Hub enhets strömmar
+description: I den här snabb starten ska du köra ett Node.js-program på tjänst sidan som kommunicerar med en IoT-enhet via en enhets ström.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-javascript
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 0757c5eb8639e4a864b049adc92c97a7cf69adba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d398e450175c9f97c419b397266cda0a52e7e21c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78675508"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416136"
 ---
-# <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Snabb start: kommunicera med ett enhets program i Node. js via IoT Hub enhets strömmar (för hands version)
+# <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Snabb start: kommunicera med ett enhets program i Node.js via IoT Hub enhets strömmar (för hands version)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
-I den här snabb starten kör du ett program på Server sidan och konfigurerar kommunikationen mellan en enhet och tjänst genom att använda enhets strömmar. Azure IoT Hub enhets strömmar gör att tjänst-och enhets program kan kommunicera på ett säkert och användarvänligt sätt. I den offentliga för hands versionen stöder Node. js SDK endast enhets strömmar på tjänst sidan. Därför omfattar den här snabbstarten bara instruktioner för att köra programmet på tjänstsidan.
+I den här snabb starten kör du ett program på Server sidan och konfigurerar kommunikationen mellan en enhet och tjänst genom att använda enhets strömmar. Azure IoT Hub enhets strömmar gör att tjänst-och enhets program kan kommunicera på ett säkert och användarvänligt sätt. Under den offentliga för hands versionen stöder Node.js SDK endast enhets strömmar på tjänst sidan. Därför omfattar den här snabbstarten bara instruktioner för att köra programmet på tjänstsidan.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför [kommunikationen med enhetens appar i C via IoT Hub enhets strömmar](./quickstart-device-streams-echo-c.md) eller [kommunicera med enhetens appar i C# via IoT Hub enhets strömmar](./quickstart-device-streams-echo-csharp.md).
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Node. js 10 +](https://nodejs.org).
+* [Node.js 10 +](https://nodejs.org).
 
-* [Ett exempel på Node. js-projekt](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
+* [Ett exempel på ett Node.js projekt](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
 Du kan kontrollera den aktuella versionen av Node.js på utvecklingsdatorn med följande kommando:
 
@@ -43,9 +43,9 @@ Microsoft Azure IoT Hub stöder för närvarande enhets strömmar som en [förha
 > [!IMPORTANT]
 > För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapats i följande regioner:
 >
-> * USA, centrala
+> * Central US
 > * Centrala USA-EUAP
-> * Europa, norra
+> * Norra Europa
 > * Sydostasien
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -117,7 +117,7 @@ Node.js-programmet på tjänstsidan i den här snabbstarten har följande funkti
 
 Koden visar initierings processen för en enhets ström, samt hur du kan använda den för att skicka och ta emot data.
 
-Förutsatt att programmet på enhets sidan körs följer du stegen nedan i ett lokalt terminalfönster för att köra programmet på tjänst sidan i Node. js:
+Förutsatt att programmet på enhets sidan körs följer du stegen nedan i ett lokalt terminalfönster för att köra programmet på tjänst sidan i Node.js:
 
 * Ange autentiseringsuppgifter för tjänsten och enhets-ID som miljövariabler.
  
@@ -145,7 +145,7 @@ Förutsatt att programmet på enhets sidan körs följer du stegen nedan i ett l
    node echo.js
    ```
 
-I slutet av det sista steget initierar programmet på tjänstsidan en dataström till enheten, och när den har upprättats skickas en strängbuffert till tjänsten via dataströmmen. I det här exemplet läser programmet `stdin` på tjänst sidan bara på terminalen och skickar det till enheten, som sedan skickar den tillbaka. Detta demonstrerar lyckad dubbelriktad kommunikation mellan de två programmen.
+I slutet av det sista steget initierar programmet på tjänstsidan en dataström till enheten, och när den har upprättats skickas en strängbuffert till tjänsten via dataströmmen. I det här exemplet läser programmet på tjänst sidan bara `stdin` på terminalen och skickar det till enheten, som sedan skickar den tillbaka. Detta demonstrerar lyckad dubbelriktad kommunikation mellan de två programmen.
 
 ![Utdata för konsol på tjänst Sidan](./media/quickstart-device-streams-echo-nodejs/service-console-output.png)
 

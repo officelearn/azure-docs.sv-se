@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 75e3f7fc98072957f571937a1627247cdc4a9e7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ee138ac41557554ae4b8fde8c9178336fd8d5db
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374450"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387786"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planera en distribution för enkel inloggning
 
@@ -55,7 +55,7 @@ Det finns två huvudsakliga sätt som du kan använda för att göra det möjlig
 ### <a name="considerations-for-federation-based-sso"></a>Överväganden för Federation-baserad SSO
 
 - Använd **OpenID Connect och OAuth** – om det program som du ansluter till stöder det använder du metoden OIDC/OAuth 2,0 för att aktivera SSO till det programmet. Den här metoden kräver mindre konfiguration och ger en bättre användar upplevelse. Mer information finns i [OAuth 2,0](../develop/v2-oauth2-auth-code-flow.md), [OpenID Connect 1,0](../develop/v2-protocols-oidc.md)och [Azure Active Directory Developer ' s guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
-- **Slut punkts konfiguration för SAML-baserad SSO** – om du använder SAML behöver utvecklarna specifik information innan du konfigurerar programmet. Mer information finns i [Redigera den grundläggande SAML-konfigurationen](configure-single-sign-on-non-gallery-applications.md).
+- **Slut punkts konfiguration för SAML-baserad SSO** – om du använder SAML behöver utvecklarna specifik information innan du konfigurerar programmet. Mer information finns i [Konfigurera SAML-baserad enkel inloggning](configure-saml-single-sign-on.md).
 - **Certifikat hantering för SAML-baserad SSO** – när du aktiverar federerad enkel inloggning för ditt program skapar Azure AD ett certifikat som är som standard giltigt i tre år. Du kan anpassa förfallo datumet för certifikatet vid behov. Se till att du har processer på plats för att förnya certifikat innan de upphör att gälla. Mer information finns i [Azure AD-hantering av certifikat](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs).
 
 ### <a name="considerations-for-password-based-sso"></a>Att tänka på vid lösenordsbaserad SSO

@@ -10,12 +10,12 @@ ms.date: 04/21/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 125f4188ed3f12f366c619af9efe3aa203987c19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 668b8d714c4d6c146d9b279d9e6a49599c04775c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81870522"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423526"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>Kräv säker överföring för att säkerställa säkra anslutningar
 
@@ -51,7 +51,7 @@ Du kan aktivera egenskapen för **säker överföring som krävs** när du skapa
 
 ## <a name="require-secure-transfer-from-code"></a>Kräv säker överföring från kod
 
-Om du vill kräva säker överföring program mässigt ställer du in egenskapen _supportsHttpsTrafficOnly_ på lagrings kontot. Du kan ställa in den här egenskapen med hjälp av providern för lagrings resurser REST API, klient bibliotek eller verktyg:
+Om du vill kräva säker överföring program mässigt ställer du in egenskapen _enableHttpsTrafficOnly_ på _True_ på lagrings kontot. Du kan ställa in den här egenskapen med hjälp av providern för lagrings resurser REST API, klient bibliotek eller verktyg:
 
 * [REST-API](/rest/api/storagerp/storageaccounts)
 * [PowerShell](/powershell/module/az.storage/set-azstorageaccount)

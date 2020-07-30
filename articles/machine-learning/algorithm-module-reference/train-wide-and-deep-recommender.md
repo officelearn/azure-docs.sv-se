@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: 234217b6571307db04941cc0b9989d3438cde1b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bb213776d41c07238fcaba1ccdd4e06f5d5bbb5f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090186"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420897"
 ---
 # <a name="train-wide--deep-recommender"></a>Träna bred & djup rekommendation
 Den här artikeln beskriver hur du använder modulen **träna Wide & djup rekommenderar** i Azure Machine Learning designer (för hands version) för att träna en rekommendations modell. Den här modulen baseras på bred & djup inlärning, som föreslås av Google.
@@ -66,7 +66,7 @@ Data uppsättningen för **användar funktioner** måste innehålla identifierar
 
 En typisk uppsättning användar funktioner kan till exempel se ut så här: 
 
-|UserId|Ålder|Kön|Intressanta|Plats|
+|UserId|Ålder|Kön|Intressanta|Position|
 |------------|--------------|-----------------------|---------------|------------|
 |1|25|man| Drama    |Europa|
 |223|40|kvinna|Madrid|Asien|
@@ -105,7 +105,7 @@ Ett exempel på en typisk uppsättning objekt funktioner kan se ut så här:
 
     Den här parametern avgör steg storleken i varje övnings steg samtidigt som den flyttas till en minimum av förlust funktionen. En för stor inlärnings takt kan orsaka att inlärningen hoppar över minimi, medan en för liten inlärnings takt kan orsaka konvergens problem.
 
-7.  **Korsad funktions dimension**: Ange dimensionen för korsade användar-ID: n och objekt-ID-funktionen. 
+7.  **Korsad funktions dimension**: Ange dimensionen genom att ange önskade användar-ID och objekt-ID-funktioner. 
 
     Den breda & djup rekommenderarre utför kors produkt Transformation över användar-ID och objekt-ID-funktioner som standard. Det korsade resultatet kommer att hashas enligt detta nummer för att säkerställa att dimensionen.
 

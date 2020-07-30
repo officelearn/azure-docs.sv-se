@@ -12,20 +12,21 @@ ms.custom:
 - mvc
 - amqp
 - mqtt
-ms.openlocfilehash: c568dddcbbf57ebd6ed5906bb83af01a84dafa41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- devx-track-javascript
+ms.openlocfilehash: b424ea01d8283963c49d899a97120c9132d862f8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81683835"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422546"
 ---
 # <a name="create-an-advanced-device-model"></a>Skapa en avancerad enhetsmodell
 
 Den här instruktions guiden beskriver JSON-och JavaScript-filerna som definierar en anpassad enhets modell. Artikeln innehåller några exempel på enhets modell definitions filer och visar hur du överför dem till din enhets simulerings instans. Du kan skapa avancerade enhets modeller för att simulera mer realistiska enhets beteenden för dina tester.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa stegen i den här instruktions guiden behöver du en distribuerad instans av enhets simulering i din Azure-prenumeration.
 
@@ -166,7 +167,7 @@ Fälten som visas i schemat kan vara av följande typer:
 * Binärt serialiserat med base64
 * Text
 * Boolesk
-* Integer
+* Heltal
 * Double
 * DateTime
 

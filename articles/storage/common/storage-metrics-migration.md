@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 219d2b972089f9d3b7f84caa8b527474ac241c4f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a1f977cef614a52853407c0d0665399f1a249c53
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374175"
+ms.locfileid: "87422070"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Över gång till mått i Azure Monitor
 
-Azure Storage integrerar nu måtten i Azure Monitors plattformen. Den **31 augusti 2023** Lagringsanalys Mät värden, även kallade *klassiska mått* , kommer att dras tillbaka. Om du använder klassiska mått, se till att gå över till mått i Azure Monitor före det datumet. Den här artikeln hjälper dig att göra över gången.
+Azure Storage integrerar nu måtten i Azure Monitors plattformen. Den här artikeln hjälper dig att göra över gången.
 
 ## <a name="steps-to-complete-the-transition"></a>Steg för att slutföra över gången
 

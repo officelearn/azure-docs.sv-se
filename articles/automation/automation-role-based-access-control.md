@@ -6,12 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: a970122c5f034e6215d2e829657c9eec99f14371
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c7051cca9029283b150eea0519aa7432d6a9c937
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279890"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420489"
 ---
 # <a name="manage-role-permissions-and-security"></a>Hantera rollbehörigheter och säkerhet
 
@@ -338,7 +338,7 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) visar Azure AD RBAC-roll tilldelningar i det angivna omfånget. Utan parametrar returnerar denna cmdlet alla roll tilldelningar som har gjorts under prenumerationen. Använd `ExpandPrincipalGroups` parametern för att visa en lista över åtkomst tilldelningar för den angivna användaren, samt de grupper som användaren tillhör.
+[Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) visar Azure Role-tilldelningar i det angivna omfånget. Utan parametrar returnerar denna cmdlet alla roll tilldelningar som har gjorts under prenumerationen. Använd `ExpandPrincipalGroups` parametern för att visa en lista över åtkomst tilldelningar för den angivna användaren, samt de grupper som användaren tillhör.
 
 **Exempel:** Använd följande cmdlet för att visa en lista över alla användare och deras roller i ett Automation-konto.
 

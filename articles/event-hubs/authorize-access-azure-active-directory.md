@@ -3,12 +3,12 @@ title: Ge åtkomst med Azure Active Directory
 description: Den här artikeln innehåller information om hur du auktoriserar åtkomst till Event Hubs resurser med Azure Active Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: cb55a716498bc50dff72c0d98943de407a367d4a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: c6d1be2825ea716c72d70cd38babbb2d95083198
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371506"
+ms.locfileid: "87413399"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Ge åtkomst till Event Hubs resurser med Azure Active Directory
 Azure Event Hubs stöder användning av Azure Active Directory (Azure AD) för att godkänna begär anden till Event Hubs resurser. Med Azure AD kan du använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till ett säkerhets objekt, som kan vara en användare eller ett huvud namn för en program tjänst. Mer information om roller och roll tilldelningar finns i [förstå de olika rollerna](../role-based-access-control/overview.md).
@@ -49,7 +49,7 @@ I följande lista beskrivs de nivåer där du kan begränsa åtkomsten till Even
 - **Prenumeration**: roll tilldelningen gäller för alla Event Hubs resurser i alla resurs grupper i prenumerationen.
 
 > [!NOTE]
-> - Tänk på att det kan ta upp till fem minuter att sprida RBAC-roll tilldelningar. 
+> - Tänk på att det kan ta upp till fem minuter för Azure Role-tilldelningar att spridas. 
 > - Det här innehållet gäller för både Event Hubs och Event Hubs för Apache Kafka. Mer information om Event Hubs för Kafka-support finns i [Event Hubs för Kafka-säkerhet och autentisering](event-hubs-for-kafka-ecosystem-overview.md#security-and-authentication).
 
 

@@ -4,12 +4,12 @@ description: Lär dig hur du förbereder utvärderingen/migreringen av fysiska s
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 31db91b512a4532cca144dc012282ea58a87514f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 55e6039e5844c575808210cde7ee348f658b40ec
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113259"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420795"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Förbereda för utvärdering och migrering av fysiska servrar till Azure
 
@@ -28,14 +28,14 @@ Den här självstudien är den första i en serie som visar hur du bedömer fysi
 > Självstudier visar dig den enklaste distributions Sök vägen för ett scenario så att du snabbt kan konfigurera ett koncept för koncept bevis. Självstudier använder standard alternativ där det är möjligt, och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i instruktionen för att utvärdera fysiska servrar.
 
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
 ## <a name="prepare-azure-for-server-assessment"></a>Förbered Azure för Server-utvärdering
 
 Konfigurera Azure för att arbeta med Azure Migrate. 
 
-**Uppgift** | **Detaljer** 
+**Uppgift** | **Information** 
 --- | --- 
 **Skapa ett Azure Migrate-projekt** | Ditt Azure-konto behöver deltagar-eller ägar behörighet för att skapa ett projekt. 
 **Registrera resurs leverantörer (endast utvärdering)** | Azure Migrate använder en förenklad Azure Migrate-apparat för att identifiera och utvärdera datorer med Azure Migrate: Server utvärdering.<br/><br/> Under produkt registrering registreras resurs leverantörer med den prenumeration som valts i installationen. [Läs mer](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Om du vill registrera resurs leverantörer behöver du en deltagar-eller ägar roll för prenumerationen.
@@ -86,7 +86,7 @@ Klient organisationen/den globala administratören kan tilldela rollen programut
 
 Förbered Azure för att migrera fysiska servrar med hjälp av Server migrering.
 
-**Uppgift** | **Detaljer**
+**Uppgift** | **Information**
 --- | ---
 **Skapa ett Azure Migrate-projekt** | Ditt Azure-konto måste ha Contributes eller ägar behörigheter för att skapa ett projekt.
 **Verifiera behörigheter för ditt Azure-konto** | Ditt Azure-konto måste ha behörighet att skapa en virtuell dator och skriva till en Azure-hanterad disk.
@@ -138,7 +138,7 @@ Innan du konfigurerar Azure Migrate-installationen och påbörjar utvärderingen
 
 Azure Migrate behöver behörighet att identifiera lokala servrar.
 
-- **Windows:** Du måste vara domän administratör eller lokal administratör på alla Windows-servrar som du vill identifiera. Användar kontot ska läggas till i dessa grupper: fjärrhanterings användare, prestanda övervaknings användare och användare av prestanda loggar.
+- **Windows:** Du behöver ett domän konto för att upptäcka domänanslutna servrar och ett lokalt konto för att identifiera datorer som inte är domänanslutna. Användar kontot ska läggas till i dessa grupper: fjärrhanterings användare, prestanda övervaknings användare och användare av prestanda loggar.
 - **Linux:** Du behöver ett rot konto på de Linux-servrar som du vill identifiera.
 
 ## <a name="prepare-for-physical-server-migration"></a>Förbered för migrering av fysiska servrar

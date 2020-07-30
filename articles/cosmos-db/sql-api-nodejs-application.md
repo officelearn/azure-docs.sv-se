@@ -8,12 +8,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: b85a70b6d2feba68ed5a766ad05bc6aa22f597f8
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 9554fa63d13c5da465653064d69d7950d91f0300
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114698"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421883"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Självstudie: Bygg en Node.js-webbapp med hjälp av Java Script SDK för att hantera ett SQL API-konto i Azure Cosmos DB 
 
@@ -37,11 +38,11 @@ Den här självstudien omfattar följande uppgifter:
 > * Ansluta programmet till Azure Cosmos DB
 > * Köra och distribuera programmet till Azure
 
-## <a name="prerequisites"></a><a name="_Toc395783176"></a>Krav
+## <a name="prerequisites"></a><a name="_Toc395783176"></a>Förutsättningar
 
 Innan du följer anvisningarna i den här artikeln bör du se till att du har följande resurser:
 
-* Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -49,7 +50,7 @@ Innan du följer anvisningarna i den här artikeln bör du se till att du har f�
 * [Express generator](https://www.expressjs.com/starter/generator.html) (du kan installera Express via `npm install express-generator -g`)
 * Installera [Git][Git] på den lokala arbetsstationen.
 
-## <a name="create-an-azure-cosmos-db-account"></a><a name="_Toc395637761"></a>Skapa ett Azure Cosmos DB konto
+## <a name="create-an-azure-cosmos-db-account"></a><a name="_Toc395637761"></a>Skapa ett Azure Cosmos DB-konto
 Vi ska börja med att skapa ett Azure Cosmos DB-konto. Om du redan har ett konto eller om du använder Azure Cosmos DB-emulatorn för den här kursen kan du gå vidare till [Steg 2: Skapa ett nytt Node.js-program](#_Toc395783178).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]

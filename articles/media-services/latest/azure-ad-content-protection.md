@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/1/2020
 ms.author: inhenkel
-ms.openlocfilehash: 81c83cd8dcea5f8746b67a7bd52ea52a09c8a711
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: ad50b29dbda7c09c9312ebb4a01ebc5da568f3da
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001408"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422104"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Självstudie: innehålls skydd från slut punkt till slut punkt med hjälp av Azure AD
 
@@ -162,7 +163,7 @@ Välj en Azure AD-klient som ska användas för vårt exempel från slut punkt t
 1. Välj **exponera ett API** från menyn. Vyn Lägg till en omfattning visas. (Azure tillhandahåller en program-ID-URI, men om du vill ändra det kan du redigera i fältet program-ID URI.)
 1. Klicka på **Spara och fortsätt**. Vyn kommer att ändras. För var och en av inställningarna i kolumnen inställning i tabellen nedan anger du värdet i kolumnen värde och klickar sedan på **Lägg till omfång**.
 
-| Inställning | Värde | Beskrivning |
+| Inställningen | Värde | Beskrivning |
 | ------- | ----- | ----------- |
 | Namn på sökomfång | *Rights. Licens. Delivery* | Hur omfånget visas när åtkomst till detta API begärs och i åtkomsttoken när omfattningen har beviljats till ett klient program. Detta måste vara unikt i det här programmet. Vi rekommenderar att du använder "Resource. operation. constraint" som ett mönster för att generera namnet. |
 | Vem kan godkänna? | *Administratörer och användare* | Anger om användare kan godkänna det här omfånget i kataloger där användar medgivande har Aktiver ATS. |
@@ -170,7 +171,7 @@ Välj en Azure AD-klient som ska användas för vårt exempel från slut punkt t
 | Beskrivning av administratörs medgivande * * | *Resurs omfång för leverans Server del för DRM-Licens* | En detaljerad beskrivning av det omfång som visas när klient administratörer utökar ett omfång på medgivande skärmen. |
 | Visningsnamn för användarmedgivande | *Rights. Licens. Delivery* | Vad scopet kommer att anropas på skärmen för medgivande när användare godkänner det här omfånget. |
 | Beskrivning av användarmedgivande | *Resurs omfång för leverans Server del för DRM-Licens* | Det här är en detaljerad beskrivning av det omfång som visas när användarna utökar ett omfång på medgivande skärmen. |
-| Status | *Aktiverad* | Anger om det här omfånget är tillgängligt för klienter att begära. Ange den som "inaktive rad" för omfattningar som du inte vill ska visas för klienterna. Endast inaktiverade omfattningar kan tas bort och vi rekommenderar att du väntar minst en vecka efter att ett omfång har inaktiverats innan du tar bort det för att se till att inga klienter fortfarande använder det. |
+| Tillstånd | *Aktiverad* | Anger om det här omfånget är tillgängligt för klienter att begära. Ange den som "inaktive rad" för omfattningar som du inte vill ska visas för klienterna. Endast inaktiverade omfattningar kan tas bort och vi rekommenderar att du väntar minst en vecka efter att ett omfång har inaktiverats innan du tar bort det för att se till att inga klienter fortfarande använder det. |
 
 ## <a name="register-the-client-app"></a>Registrera klient programmet
 
@@ -341,7 +342,7 @@ if (tokenClaims != null && tokenClaims.Length > 0)
 
 *Grupp* anspråk är medlem i ett [begränsat anspråk som angetts](../../active-directory/develop/active-directory-claims-mapping.md#claim-sets) i Azure AD.
 
-#### <a name="test"></a>Test
+#### <a name="test"></a>Testa
 
 1. Logga in med det *premium_user* kontot. Du bör kunna spela det skyddade innehållet.
 1. Logga in med det *basic_user* kontot. Du får ett fel meddelande som anger att videon är krypterad, men det finns ingen nyckel för att dekryptera den. Om du visar händelserna, felen och nedladdningarna med list rutan längst ned i spelarens diagnostiska överlägg, bör fel meddelandet indikera licens hämtnings fel på grund av det saknade anspråks värdet för grupp anspråk i det JWT som utfärdats av Azure AD-token slut punkt.

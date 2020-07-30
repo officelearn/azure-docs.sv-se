@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 07/29/2020
 ms.author: victorh
-ms.openlocfilehash: 7634effd5d1ac46955addd723ee7c992eb820a57
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 458ebe14e77c7b190a5c4cdd9b408396589d5d27
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084712"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420829"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Självstudie: skydda din virtuella hubb med Azure Firewall Manager
 
@@ -108,7 +108,7 @@ Upprepa för att ansluta det **ekrar-02** virtuella nätverket: anslutnings namn
 
 ### <a name="configure-the-hub-and-spoke-routing"></a>Konfigurera hubb och eker-routning
 
-Öppna en Cloud Shell från Azure Portal och kör följande Azure PowerShell för att konfigurera nödvändiga nav och eker-routning.
+Öppna en Cloud Shell från Azure Portal och kör följande Azure PowerShell för att konfigurera nödvändiga nav och eker-routning. Peer-anslutningar för ekrar/förgreningar måste ange spridningen till **none**. Detta förhindrar kommunikation mellan ekrarna och i stället dirigerar trafik till brand väggen med hjälp av standard vägen.
 
 ```azurepowershell
 $noneRouteTable = Get-AzVHubRouteTable -ResourceGroupName fw-manager `
@@ -136,13 +136,13 @@ Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
 2. Välj **Windows Server 2016 Data Center** i listan **populär** .
 3. Ange följande värden för den virtuella datorn:
 
-   |Inställning  |Värde  |
+   |Inställningen  |Värde  |
    |---------|---------|
    |Resursgrupp     |**VB-chef**|
    |Namn på virtuell dator     |**SRV-arbets belastning – 01**|
    |Region     |**USA USA, östra)**|
    |Administratörens användar namn     |Ange ett användar namn|
-   |Lösenord     |Ange ett lösen ord|
+   |lösenordsinställning     |Ange ett lösen ord|
 
 4. Under **regler för inkommande port**för **offentliga inkommande portar**väljer du **ingen**.
 6. Godkänn de andra standardinställningarna och välj **Nästa: diskar**.
@@ -155,7 +155,7 @@ Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
 
 Använd informationen i följande tabell för att konfigurera en annan virtuell dator med namnet **SRV-arbetsbelastning-02**. Resten av konfigurationen är samma som den virtuella datorn för **SRV-arbetsbelastnings 01** .
 
-|Inställning  |Värde  |
+|Inställningen  |Värde  |
 |---------|---------|
 |Virtuellt nätverk|**Eker-02**|
 |Undernät|**Arbets belastning-02-SN**|

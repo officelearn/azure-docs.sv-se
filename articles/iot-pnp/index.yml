@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Dokumentation om IoT Plug and Play-förhandsversion
-summary: Med IoT Plug and Play-förhandsversionen kan du definiera en enhetsmodell som gör att molnlösningar automatiskt kan förstå din enhet så att du kan börja interagera med den – du behöver inte skriva någon enhetskod.
+title: Uppdaterad dokumentation om IoT Plug and Play-förhandsversion
+summary: Med IoT Plug and Play kan du definiera en enhetsmodell som gör att molnlösningar automatiskt kan förstå din enhet och börja interagera med den.
 metadata:
-  title: Dokumentation om IoT Plug and Play-förhandsversion
-  description: Med IoT Plug and Play-förhandsversionen kan du definiera en enhetsmodell som gör att molnlösningar automatiskt kan förstå din enhet så att du kan börja interagera med den – du behöver inte skriva någon enhetskod.
+  title: Arkitektur för IoT Plug and Play-förhandsversion
+  description: Med IoT Plug and Play-förhandsversion kan de som skapar lösningar integrera enheter i en lösning utan att behöva konfigurera något manuellt. Den här artikeln beskriver de viktiga arkitekturelement som gör detta möjligt.
   services: iot-pnp
   ms.service: iot-pnp
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   manager: philmea
   ms.date: 10/31/2019
-  ms.openlocfilehash: 9469adb901c2da5f814088aa8eb59121889a0b78
-  ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+  ms.openlocfilehash: 6fe77d059974bcc37fb0b0bbc6a171d371a93478
+  ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 04/09/2020
-  ms.locfileid: "80998296"
+  ms.lasthandoff: 07/28/2020
+  ms.locfileid: "87337372"
 landingContent:
 - title: Om IoT Plug and Play
   linkLists:
@@ -24,51 +24,41 @@ landingContent:
     links:
     - text: Vad är IoT Plug and Play?
       url: overview-iot-plug-and-play.md
-  - linkListType: video
-    links:
-    - text: Introduktion till IoT Plug and Play
-      url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-IoT-Plug-and-Play/player
-- title: Utveckla enheter
+    - text: Uppdateringar till förhandsversionen 2020
+      url: overview-iot-plug-and-play-preview-updates.md
+- title: Skapa enheter
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Ansluta en exempelenhet till IoT Hub
-      url: quickstart-connect-pnp-device-c-windows.md
-    - text: Ansluta en exempelenhet till IoT Central
-      url: ../iot-central/core/tutorial-connect-pnp-device.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-    - text: Använda en enhetskapacitetsmodell för att skapa en enhet
-      url: quickstart-create-pnp-device-windows.md
-  - linkListType: tutorial
-    links:
-    - text: Skapa och testa en enhetskapacitetsmodell med Visual Studio Code
-      url: tutorial-pnp-visual-studio-code.md
-    - text: Skapa en enhet som är redo för certifiering
-      url: tutorial-build-device-certification.md
-    - text: Certifiera enheten
-      url: tutorial-certification-test.md
-  - linkListType: how-to-guide
-    links:
-    - text: Använda Azure IoT-verktyg för Visual Studio Code
-      url: howto-develop-with-vs-vscode.md
-    - text: Registrera i Azure Certified för IoT-portalen
-      url: howto-onboard-portal.md
+    - text: Ansluta en exempelenhet till IoT Hub (C)
+      url: quickstart-connect-device-c.md
+    - text: Ansluta en exempelenhet till IoT Hub (C#)
+      url: quickstart-connect-device-csharp.md
+    - text: Ansluta en exempelenhet till IoT Hub (Java)
+      url: quickstart-connect-device-java.md
+    - text: Ansluta en exempelenhet till IoT Hub (Node.js)
+      url: quickstart-connect-device-node.md
+    - text: Ansluta en exempelenhet till IoT Hub (Python)
+      url: quickstart-connect-device-python.md
   - linkListType: concept
     links:
-    - text: Vanliga gränssnitt
-      url: concepts-common-interfaces.md
+    - text: Utvecklarguide
+      url: concepts-developer-guide.md
+    - text: Konventioner för IoT Plug and Play
+      url: concepts-convention.md
+    - text: Komponenter
+      url: concepts-components.md
 - title: Skapa lösningar
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Interagera med en enhet som är ansluten till din lösning
-      url: quickstart-connect-pnp-device-solution-node.md
+    - text: Interagera med en enhet från din lösning (Node.js)
+      url: quickstart-service-node.md
+    - text: Interagera med en enhet från din lösning (Python)
+      url: quickstart-service-python.md
   - linkListType: concept
     links:
-    - text: Modellidentifiering
-      url: concepts-model-discovery.md
-    - text: Vanliga gränssnitt
-      url: concepts-common-interfaces.md
-  - linkListType: how-to-guide
-    links:
-    - text: Ansluta till enheter från din lösning
-      url: howto-develop-solution.md
+    - text: Arkitektur
+      url: concepts-architecture.md
+    - text: Digitala tvillingenheter
+      url: concepts-digital-twin.md

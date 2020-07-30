@@ -32,7 +32,7 @@ Microsofts identitets plattform, tillsammans med SDK: er, gör det enkelt att ak
 
 I den här instruktionen får du lära dig hur du konfigurerar SDK i ditt program för att tillhandahålla enkel inloggning till dina kunder.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här instruktionen förutsätter att du vet hur du:
 

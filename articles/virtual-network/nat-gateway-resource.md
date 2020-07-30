@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: allensu
-ms.openlocfilehash: 0b025b3e017c8a7702b411e9d91cbdf22f915aba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 983a3e04921bb3d8e804430948013a1b51802727
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549631"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424076"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Utforma virtuella nätverk med NAT-gateway-resurser
 
@@ -28,7 +28,7 @@ NAT-gateway-resurser ingår i [Virtual Network NAT](nat-overview.md) och tillhan
 
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network NAT för utgående till Internet">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of virtual machines and a virtual machine scale set." width="256" title="Virtual Network NAT för utgående till Internet">
 </p>
 
 *Bild: Virtual Network NAT för utgående till Internet*
@@ -51,10 +51,10 @@ Användardefinierade vägar är inte nödvändiga.
 
 Resursen är utformad för att vara enkel som du kan se från följande Azure Resource Manager exempel i ett mall-liknande format.  Det här mall-liknande-formatet visas här för att illustrera koncepten och strukturen.  Ändra exemplet för dina behov.  Det här dokumentet är inte avsett som en själv studie kurs.
 
-I följande diagram visas skrivbara referenser mellan de olika Azure Resource Manager resurserna.  Pilen anger riktningen för referensen, från vilken den är skrivbar. Granska 
+I följande diagram visas skrivbara referenser mellan de olika Azure Resource Manager resurserna.  Pilen anger riktningen för referensen, från vilken den är skrivbar. Genomgång 
 
 <p align="center">
-  <img src="media/nat-overview/flow-map.svg" width="256" title="Virtual Network NAT-objektmodellen">
+  <img src="media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP and an IP prefix." width="256" title="Virtual Network NAT-objektmodellen">
 </p>
 
 *Bild: Virtual Network NAT-objektmodellen*
@@ -119,7 +119,7 @@ NAT-gatewayen är kompatibel med:
 Börja med standard-SKU: er när du utvecklar en ny distribution.
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network NAT för utgående till Internet">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network." width="256" title="Virtual Network NAT för utgående till Internet">
 </p>
 
 *Bild: Virtual Network NAT för utgående till Internet*
@@ -129,14 +129,14 @@ Det enda Internet-utgående scenariot som tillhandahålls av NAT-gateway kan ut�
 #### <a name="nat-and-vm-with-instance-level-public-ip"></a>NAT och virtuell dator med offentlig IP på instans nivå
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction2.svg" width="300" title="Virtual Network NAT och virtuell dator med offentlig IP på instans nivå">
+  <img src="media/nat-overview/flow-direction2.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP." width="300" title="Virtual Network NAT och virtuell dator med offentlig IP på instans nivå">
 </p>
 
 *Bild: Virtual Network NAT och virtuell dator med offentlig IP på instans nivå*
 
 | Riktning | Resurs |
 |:---:|:---:|
-| Inkommande | Virtuell dator med offentlig IP på instans nivå |
+| Inbound (Inkommande) | Virtuell dator med offentlig IP på instans nivå |
 | Utgående | NAT Gateway |
 
 Den virtuella datorn kommer att använda NAT-gateway för utgående trafik.  Inkommande ursprungligt kommer inte att påverkas.
@@ -144,14 +144,14 @@ Den virtuella datorn kommer att använda NAT-gateway för utgående trafik.  Ink
 #### <a name="nat-and-vm-with-public-load-balancer"></a>NAT och virtuell dator med offentlig Load Balancer
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction3.svg" width="350" title="Virtual Network NAT och virtuell dator med offentlig Load Balancer">
+  <img src="media/nat-overview/flow-direction3.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with a public load balancer." width="350" title="Virtual Network NAT och virtuell dator med offentlig Load Balancer">
 </p>
 
 *Bild: Virtual Network NAT och virtuell dator med offentlig Load Balancer*
 
 | Riktning | Resurs |
 |:---:|:---:|
-| Inkommande | offentlig Load Balancer |
+| Inbound (Inkommande) | offentlig Load Balancer |
 | Utgående | NAT Gateway |
 
 Eventuell utgående konfiguration från en belastnings Utjämnings regel eller utgående regler ersätts av NAT-gatewayen.  Inkommande ursprungligt kommer inte att påverkas.
@@ -159,14 +159,14 @@ Eventuell utgående konfiguration från en belastnings Utjämnings regel eller u
 #### <a name="nat-and-vm-with-instance-level-public-ip-and-public-load-balancer"></a>NAT och virtuell dator med offentlig IP på instans nivå och offentliga Load Balancer
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction4.svg" width="425" title="Virtual Network NAT och virtuell dator med offentlig IP på instans nivå och offentliga Load Balancer">
+  <img src="media/nat-overview/flow-direction4.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP and a public load balancer." width="425" title="Virtual Network NAT och virtuell dator med offentlig IP på instans nivå och offentliga Load Balancer">
 </p>
 
 *Bild: Virtual Network NAT och virtuell dator med offentlig IP på instans nivå och offentliga Load Balancer*
 
 | Riktning | Resurs |
 |:---:|:---:|
-| Inkommande | Virtuell dator med offentlig IP på instans nivå och offentlig Load Balancer |
+| Inbound (Inkommande) | Virtuell dator med offentlig IP på instans nivå och offentlig Load Balancer |
 | Utgående | NAT Gateway |
 
 Eventuell utgående konfiguration från en belastnings Utjämnings regel eller utgående regler ersätts av NAT-gatewayen.  Den virtuella datorn kommer också att använda NAT-gateway för utgående trafik.  Inkommande ursprungligt kommer inte att påverkas.
@@ -182,7 +182,7 @@ NAT-gatewayer har företräde framför utgående scenarier i under nätet. En gr
 #### <a name="zone-isolation-with-zonal-stacks"></a>Zon isolering med zonindelade Stacks
 
 <p align="center">
-  <img src="media/nat-overview/az-directions.svg" width="425" title="Virtual Network NAT med zon isolering, skapa flera "zonal stacks"">
+  <img src="media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="425" title="Virtual Network NAT med zon isolering, skapa flera "zonal stacks"">
 </p>
 
 *Bild: Virtual Network NAT med zon isolering, skapa flera "zonindelade Stacks"*
@@ -210,7 +210,7 @@ Om ditt scenario kräver inkommande slut punkter har du två alternativ:
 #### <a name="cross-zone-outbound-scenarios-not-supported"></a>Utgående scenarier mellan zoner stöds inte
 
 <p align="center">
-  <img src="media/nat-overview/az-directions2.svg" width="425" title="Virtual Network NAT är inte kompatibelt med zon Spanning Subnet">
+  <img src="media/nat-overview/az-directions2.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet, with the connections between to of the gateways and their subnets broken." width="425" title="Virtual Network NAT är inte kompatibelt med zon Spanning Subnet">
 </p>
 
 *Bild: Virtual Network NAT är inte kompatibelt med zon Spanning Subnet*
@@ -241,7 +241,7 @@ Med käll Network Address Translation (SNAT) skrivs källan för ett flöde om t
 
 Nu ska vi titta på ett exempel på fyra flöden för att förklara det grundläggande konceptet.  NAT-gatewayen använder offentlig IP-adressresurs 65.52.0.2.
 
-| Flöde | Käll tupel | Mål tupel |
+| Flöden | Käll tupel | Mål tupel |
 |:---:|:---:|:---:|
 | 1 | 192.168.0.16:4283 | 65.52.0.1:80 |
 | 2 | 192.168.0.16:4284 | 65.52.0.1:80 |
@@ -250,7 +250,7 @@ Nu ska vi titta på ett exempel på fyra flöden för att förklara det grundlä
 
 Dessa flöden kan se ut så här när PAT har ägt rum:
 
-| Flöde | Käll tupel | SNAT'ed-käll tupel | Mål tupel | 
+| Flöden | Käll tupel | SNAT'ed-käll tupel | Mål tupel | 
 |:---:|:---:|:---:|:---:|
 | 1 | 192.168.0.16:4283 | 65.52.0.2:234 | 65.52.0.1:80 |
 | 2 | 192.168.0.16:4284 | 65.52.0.2:235 | 65.52.0.1:80 |
@@ -268,7 +268,7 @@ SNAT som tillhandahålls av NAT skiljer sig från [Load Balancer](../load-balanc
 NAT tillhandahåller SNAT-portar på begäran för nya utgående trafik flöden. Alla tillgängliga SNAT-portar i lagret används av en virtuell dator på undernät som kon figurer ATS med NAT. 
 
 <p align="center">
-  <img src="media/nat-overview/lb-vnnat-chart.svg" width="550" title="Virtual Network NAT på begäran för utgående SNAT">
+  <img src="media/nat-overview/lb-vnnat-chart.svg" alt="Figure depicts inventory of all available SNAT ports used by any virtual machine on subnets configured with N A T." width="550" title="Virtual Network NAT på begäran för utgående SNAT">
 </p>
 
 *Bild: Virtual Network NAT på begäran för utgående SNAT*
@@ -276,7 +276,7 @@ NAT tillhandahåller SNAT-portar på begäran för nya utgående trafik flöden.
 Alla IP-konfigurationer för en virtuell dator kan skapa utgående flöden vid behov.  I förväg allokeras planeringen per instans, inklusive överetablering per instans, vilket inte krävs.  
 
 <p align="center">
-  <img src="media/nat-overview/exhaustion-threshold.svg" width="550" title="Skillnader i utfalls scenarier">
+  <img src="media/nat-overview/exhaustion-threshold.svg" alt="Figure depicts inventory of all available SNAT ports used by any virtual machine on subnets configured with N A T with exhaustion threshold." width="550" title="Skillnader i utfalls scenarier">
 </p>
 
 *Bild: skillnader i utfalls scenarier*

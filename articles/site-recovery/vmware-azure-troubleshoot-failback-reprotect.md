@@ -1,18 +1,18 @@
 ---
 title: Felsök återställning efter fel i haveri beredskap för virtuella VMware-datorer med Azure Site Recovery
 description: I den här artikeln beskrivs olika sätt att felsöka problem med återställning efter fel och skydd under haveri beredskap för virtuella VMware-datorer till Azure med Azure Site Recovery.
-author: rajani-janaki-ram
-manager: gauravd
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: rajanaki
-ms.openlocfilehash: d6640a6e807bdcc7a08476a18467745330742ee2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.author: sharrai
+ms.openlocfilehash: ed4e52470264441a99c5ccf0a736bb00233510c1
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289287"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423124"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Felsöka återställning efter fel till lokala enheter från Azure
 

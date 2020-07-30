@@ -3,12 +3,12 @@ title: Så här skyddar du din resurs-hierarki – Azure-styrning
 description: Lär dig hur du skyddar din resurs-hierarki med hierarkiska inställningar som inkluderar inställning av standard hanterings gruppen.
 ms.date: 05/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2f8d3d7ff85552fe18a49137450aefe91d0d02c9
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: cdaad59d136e89c595a6a42a9760c73523a977c0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366780"
+ms.locfileid: "87422835"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Så här skyddar du din resurs-hierarki
 
@@ -29,7 +29,7 @@ Dessa åtgärder låter bara en användare läsa och uppdatera inställningarna 
 
 Som standard läggs en ny prenumeration i en klient till som medlem i rot hanterings gruppen. Om princip tilldelningar, rollbaserad åtkomst kontroll (RBAC) och andra styrnings konstruktioner tilldelas till rot hanterings gruppen, kommer de direkt att påverka dessa nya prenumerationer. Därför tillämpar många organisationer inte dessa konstruktioner i rot hanterings gruppen, även om det är den önskade platsen för att tilldela dem. I andra fall är en mer begränsande uppsättning kontroller önskade för nya prenumerationer, men ska inte tilldelas alla prenumerationer. Den här inställningen stöder båda användnings fall.
 
-Genom att tillåta att standard hanterings gruppen för nya prenumerationer definieras kan styrnings konstruktioner för hela organisationen tillämpas på rot hanterings gruppen och en separat hanterings grupp med princip tilldelningar eller RBAC-tilldelningar som är mer anpassade till en ny prenumeration kan definieras.
+Genom att tillåta att standard hanterings gruppen för nya prenumerationer definieras kan styrnings konstruktioner för hela organisationen tillämpas på rot hanterings gruppen och en separat hanterings grupp med princip tilldelningar eller Azure-roll tilldelningar som är mer lämpade för en ny prenumeration kan definieras.
 
 Om du vill konfigurera den här inställningen anropas [inställningarna för hierarki](/rest/api/resources/hierarchysettings) REST API slut punkten. Det gör du genom att använda följande REST API URI-och Body-format. Ersätt `{rootMgID}` med ID för din rot hanterings grupp och `{defaultGroupID}` med ID för hanterings gruppen som ska vara standard hanterings grupp:
 

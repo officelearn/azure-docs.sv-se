@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2910933e2c57a8bc80a220726462b02915c4a8eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81daa7696c645c1353cdd5e6d3cbca90ac4f03da
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80246525"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87388126"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -128,7 +128,7 @@ ID för **begäran** : ID för den begäran du bryr dig om.
 
 **Plats** – platsen som anslutningen initierades från:
 
-- Ort
+- Stad
 
 - Delstat/provins
 
@@ -146,7 +146,7 @@ ID för **begäran** : ID för den begäran du bryr dig om.
 ![Filter för klient program](./media/concept-sign-ins/client-app-filter.png)
 
 
-|Name|Modern autentisering|Beskrivning|
+|Name|Modern autentisering|Description|
 |---|:-:|---|
 |Autentiserad SMTP| |Används av POP-och IMAP-klienten för att skicka e-postmeddelanden.|
 |Tjänsten automatisk upptäckt| |Används av Outlook och EAS-klienter för att hitta och ansluta till post lådor i Exchange Online.|
@@ -184,7 +184,7 @@ ID för **begäran** : ID för den begäran du bryr dig om.
 
 - **Lyckades**: en eller flera principer för villkorlig åtkomst som tillämpas på användaren och programmet (men inte nödvändigt vis de andra villkoren) under inloggningen. 
 
-- **Misslyckades**: en eller flera principer för villkorlig åtkomst tillämpade och uppfylldes inte under inloggningen.
+- **Fel**: inloggningen uppfyllde användar-och program villkoret för minst en princip för villkorlig åtkomst och beviljade kontroller är antingen inte uppfyllda eller har angetts till blockera åtkomst.
 
 
 
@@ -236,7 +236,7 @@ När du klickar på ett objekt visas mer information om inloggningen:
 - Program-ID
 - Program
 - Klient
-- Location
+- Position
 - IP-adress
 - Datum
 - MFA krävs

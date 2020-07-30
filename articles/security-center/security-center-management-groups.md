@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 236153612f6056e90cb9b5af128f49ed550e3fe9
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2ef2cc86b3e12149977fa819a7e54ee9a1c0d7ac
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080881"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423991"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Få överblick över hela organisationen för Azure Security Center
 Den här artikeln förklarar hur du hanterar din organisations säkerhets position i stor skala genom att använda säkerhets principer för alla Azure-prenumerationer som är kopplade till din Azure Active Directory-klient.
@@ -26,7 +26,7 @@ Den här artikeln förklarar hur du hanterar din organisations säkerhets positi
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="management-groups"></a>Hanteringsgrupper
-Med Azures hanterings grupper kan du effektivt hantera åtkomst, principer och rapportering av prenumerations grupper, samt hantera hela Azure-egendomen på ett effektivt sätt genom att utföra åtgärder på rot hanterings gruppen. Varje Azure AD-klient får en enda toppnivå hanterings grupp som kallas för rot hanterings gruppen. Rothanteringsgruppen är inbyggd i hierarkin så att alla hanteringsgrupper och prenumerationer är dess underordnade element. Med den här gruppen kan globala principer och RBAC-tilldelningar tillämpas på katalog nivå. 
+Med Azures hanterings grupper kan du effektivt hantera åtkomst, principer och rapportering av prenumerations grupper, samt hantera hela Azure-egendomen på ett effektivt sätt genom att utföra åtgärder på rot hanterings gruppen. Varje Azure AD-klient får en enda toppnivå hanterings grupp som kallas för rot hanterings gruppen. Rothanteringsgruppen är inbyggd i hierarkin så att alla hanteringsgrupper och prenumerationer är dess underordnade element. Med den här gruppen kan globala principer och Azure Role-tilldelningar tillämpas på katalog nivå. 
 
 Rot hanterings gruppen skapas automatiskt när du gör någon av följande åtgärder: 
 1. Välj att använda Azure-hanterings grupper genom att navigera till **hanteringsgrupper** i [Azure Portal](https://portal.azure.com).
@@ -193,4 +193,3 @@ I den här artikeln har du lärt dig hur du får insyn i hela organisationen fö
 
 > [!div class="nextstepaction"]
 > [Hantera och besvara säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md)
-

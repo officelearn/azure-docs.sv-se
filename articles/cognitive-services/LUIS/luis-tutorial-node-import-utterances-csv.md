@@ -5,18 +5,18 @@ description: Lär dig hur du skapar en LUIS-app program mässigt från befintlig
 services: cognitive-services
 author: diberry
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-javascript
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 69eb6c5e5d0139049e252b0a22fefad747429068
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 669c5f1ae6b667073e885a0077e9f3130ba3c4f0
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057746"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405984"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Bygg en LUIS-app program mässigt med hjälp av Node.js
 
@@ -24,10 +24,10 @@ LUIS tillhandahåller ett programmerings-API som gör allt som [Luis](luis-refer
 
 [!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Logga in på [Luis](luis-reference-regions.md) -webbplatsen och hitta [redigerings nyckeln](luis-how-to-azure-subscription.md#authoring-key) i konto inställningar. Du använder den här nyckeln för att anropa redigerings-API: erna.
-* Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 * Den här artikeln börjar med en CSV-fil för ett hypotetiskt företags loggfiler för användar förfrågningar. Ladda ned den [här](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Installera den senaste Node.js med NPM. Ladda ned det [här](https://nodejs.org/en/download/).
 * **[Rekommenderas]** Visual Studio Code för IntelliSense och fel sökning kan du ladda ned dem [kostnads fritt](https://code.visualstudio.com/) .

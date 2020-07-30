@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 2bc3eb72ff0c5d29fd72de848abf87dfe84e2a01
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 88a122a9af4a5edac45a3189df5ffb78fb2ce271
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320229"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423821"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Övervaka och samla in data från ML webb tjänst slut punkter
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Förutom att samla in en slut punkts utdata och svar kan du övervaka:
 [Läs mer om Azure Application insikter](../azure-monitor/app/app-insights-overview.md). 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag
 
@@ -128,6 +128,8 @@ Om du vill logga anpassade spår följer du standard distributions processen fö
 
 3. Bygg en avbildning och distribuera den på [AKS eller ACI](how-to-deploy-and-where.md).
 
+Mer information om loggning och data insamling finns i [Aktivera loggning i Azure Machine Learning](how-to-enable-logging.md) och [samla in data från modeller i produktion](how-to-enable-data-collection.md).
+
 ### <a name="disable-tracking-in-python"></a>Inaktivera spårning i python
 
 Om du vill inaktivera Azure Application insikter använder du följande kod:
@@ -166,7 +168,7 @@ Så här visar du det:
 
     [![Hitta Application Insights-URL](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. I program Isights går du till fliken **Översikt** eller avsnittet __övervakning__ i listan till vänster och väljer __loggar__.
+1. I Application Insights går du till fliken **Översikt** eller avsnittet __övervakning__ i listan till vänster och väljer __loggar__.
 
     [![Fliken Översikt för övervakning](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 

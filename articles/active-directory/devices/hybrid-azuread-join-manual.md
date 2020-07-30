@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 007763d65021b0730c6e4e81ada33790d3cf4c02
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b80cd2e40e54837682e72837cf0d1a9058f3a7fc
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025786"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428386"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Självstudie: Konfigurera anslutna Azure Active Directory-hybridenheter manuellt
 
@@ -59,6 +59,9 @@ Kontrollerar att följande URL:er är åtkomliga från datorer i organisationens
 * `https://login.microsoftonline.com`
 * `https://device.login.microsoftonline.com`
 * Organisationens STS (för federerade domäner), som ska ingå i användarens inställningar för lokalt intranät
+
+> [!WARNING]
+> Om din organisation använder proxyservrar som fångar upp SSL-trafik för scenarier som förebyggande av data förlust eller begränsningar för Azure AD-innehavare, kontrollerar du att trafik till ( https://device.login.microsoftonline.com ) är exkluderad från TLS-och-undersök. Det går inte att utesluta " https://device.login.microsoftonline.com " kan orsaka störningar med autentisering av klient certifikat, vilket orsakar problem med enhets registrering och enhets-baserad villkorlig åtkomst.
 
 Om organisationen planerar att använda sömlös enkel inloggning måste följande URL kunna nås från datorerna i organisationen. Den måste även läggas till i användarens lokala intranätzon.
 

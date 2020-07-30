@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 257d7a2e374867f6ff14aeaa633d95521b7ca39e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1718ac9a7b7fcaab096595ea7341fcc90c2ddd6
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85114766"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422342"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Arbeta med databaser, behållare och objekt i Azure Cosmos DB
 
@@ -39,10 +39,10 @@ Du kan interagera med en Azure Cosmos-databas med Azure Cosmos-API: er enligt be
 
 | Åtgärd | Azure CLI | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- | --- |
-|Räkna upp alla databaser| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Ja | NA | NA |
-|Läs databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Ja | NA | NA |
-|Skapa ny databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Ja | NA | NA |
-|Uppdatera databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Ja | NA | NA |
+|Räkna upp alla databaser| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Yes | NA | NA |
+|Läs databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Yes | NA | NA |
+|Skapa ny databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Yes | NA | NA |
+|Uppdatera databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Yes | NA | NA |
 
 
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos-containrar
@@ -74,7 +74,7 @@ En Azure Cosmos-behållare är specialiserad i API-specifika entiteter som visas
 
 | Azure Cosmos-entitet | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos-behållare | Container | Tabell | Samling | Graph | Tabell |
+|Azure Cosmos-behållare | Container | Tabell | Samling | Graph | Tabeller |
 
 > [!NOTE]
 > När du skapar behållare ser du till att du inte skapar två behållare med samma namn men med olika Skift läge. Det beror på att vissa delar av Azure-plattformen inte är Skift läges känsliga, och det kan leda till förvirring/kollisioner för telemetri och åtgärder på behållare med sådana namn.
@@ -85,15 +85,15 @@ En Azure Cosmos-behållare har en uppsättning systemdefinierade egenskaper. Ber
 
 | Systemdefinierad egenskap | Systemgenererad eller användare kan konfigureras | Syfte | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_rid | Systemgenererad | Unikt ID för behållare | Ja | Nej | Nej | Nej | Nej |
-|\_etag | Systemgenererad | Entity-taggen används för optimistisk concurrency-kontroll | Ja | Nej | Nej | Nej | Nej |
-|\_ts | Systemgenererad | Senast uppdaterad tidsstämpel för behållaren | Ja | Nej | Nej | Nej | Nej |
-|\_ständiga | Systemgenererad | Adresser bara URI för behållaren | Ja | Nej | Nej | Nej | Nej |
+|\_rid | Systemgenererad | Unikt ID för behållare | Yes | Nej | Nej | Nej | Nej |
+|\_etag | Systemgenererad | Entity-taggen används för optimistisk concurrency-kontroll | Yes | Nej | Nej | Nej | Nej |
+|\_ts | Systemgenererad | Senast uppdaterad tidsstämpel för behållaren | Yes | Nej | Nej | Nej | Nej |
+|\_ständiga | Systemgenererad | Adresser bara URI för behållaren | Yes | Nej | Nej | Nej | Nej |
 |id | Kan konfigureras av användare | Användardefinierat unikt namn på behållaren | Ja | Ja | Ja | Ja | Ja |
-|indexingPolicy | Kan konfigureras av användare | Ger möjlighet att ändra index Sök väg, index typ och index läge | Ja | Nej | Nej | Nej | Ja |
-|TimeToLive | Kan konfigureras av användare | Ger möjlighet att ta bort objekt automatiskt från en behållare efter en angiven tids period. Mer information finns i [Time to Live](time-to-live.md). | Ja | Nej | Nej | Nej | Ja |
-|changeFeedPolicy | Kan konfigureras av användare | Används för att läsa ändringar som gjorts i objekt i en behållare. Mer information finns i [ändra feed](change-feed.md). | Ja | Nej | Nej | Nej | Ja |
-|uniqueKeyPolicy | Kan konfigureras av användare | Används för att säkerställa att ett eller flera värden är unika i en logisk partition. Mer information finns i [unika nyckel begränsningar](unique-keys.md). | Ja | Nej | Nej | Nej | Ja |
+|indexingPolicy | Kan konfigureras av användare | Ger möjlighet att ändra index Sök väg, index typ och index läge | Yes | Nej | Nej | Nej | Yes |
+|TimeToLive | Kan konfigureras av användare | Ger möjlighet att ta bort objekt automatiskt från en behållare efter en angiven tids period. Mer information finns i [Time to Live](time-to-live.md). | Yes | Nej | Nej | Nej | Yes |
+|changeFeedPolicy | Kan konfigureras av användare | Används för att läsa ändringar som gjorts i objekt i en behållare. Mer information finns i [ändra feed](change-feed.md). | Yes | Nej | Nej | Nej | Yes |
+|uniqueKeyPolicy | Kan konfigureras av användare | Används för att säkerställa att ett eller flera värden är unika i en logisk partition. Mer information finns i [unika nyckel begränsningar](unique-keys.md). | Yes | Nej | Nej | Nej | Yes |
 
 ### <a name="operations-on-an-azure-cosmos-container"></a>Åtgärder på en Azure Cosmos-behållare
 
@@ -113,7 +113,7 @@ Beroende på vilket API du använder kan ett Azure Cosmos-objekt representera an
 
 | Cosmos-entitet | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos-objekt | Dokument | Rad | Dokument | Nod eller kant | Objekt |
+|Azure Cosmos-objekt | Objekt | Rad | Dokument | Nod eller kant | Objekt |
 
 ### <a name="properties-of-an-item"></a>Egenskaper för ett objekt
 
@@ -121,12 +121,12 @@ Varje Azure Cosmos-objekt har följande systemdefinierade egenskaper. Beroende p
 
 | Systemdefinierad egenskap | Systemgenererad eller användare kan konfigureras| Syfte | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_rid | Systemgenererad | Unikt ID för objektet | Ja | Nej | Nej | Nej | Nej |
-|\_etag | Systemgenererad | Entity-taggen används för optimistisk concurrency-kontroll | Ja | Nej | Nej | Nej | Nej |
-|\_ts | Systemgenererad | Tidsstämpel för den senaste uppdateringen av objektet | Ja | Nej | Nej | Nej | Nej |
-|\_ständiga | Systemgenererad | Adresser bara URI för objektet | Ja | Nej | Nej | Nej | Nej |
-|id | Antingen | Användardefinierat unikt namn i en logisk partition. | Ja | Ja | Ja | Ja | Ja |
-|Godtyckliga användardefinierade egenskaper | Användardefinierade | Användardefinierade egenskaper som representeras i API – intern representation (inklusive JSON, BSON och CQL) | Ja | Ja | Ja | Ja | Ja |
+|\_rid | Systemgenererad | Unikt ID för objektet | Yes | Nej | Nej | Nej | Nej |
+|\_etag | Systemgenererad | Entity-taggen används för optimistisk concurrency-kontroll | Yes | Nej | Nej | Nej | Nej |
+|\_ts | Systemgenererad | Tidsstämpel för den senaste uppdateringen av objektet | Yes | Nej | Nej | Nej | Nej |
+|\_ständiga | Systemgenererad | Adresser bara URI för objektet | Yes | Nej | Nej | Nej | Nej |
+|id | Antingen | Användardefinierat unikt namn i en logisk partition. | Yes | Ja | Ja | Ja | Ja |
+|Godtyckliga användardefinierade egenskaper | Användardefinierade | Användardefinierade egenskaper som representeras i API – intern representation (inklusive JSON, BSON och CQL) | Yes | Ja | Ja | Ja | Ja |
 
 > [!NOTE]
 > `id`Egenskapens unikhet är endast tvingande inom varje logisk partition. Flera dokument kan ha samma `id` egenskap med olika nyckel värden.
@@ -137,7 +137,7 @@ Azure Cosmos-objekt har stöd för följande åtgärder. Du kan använda någon 
 
 | Åtgärd | Azure CLI | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- | --- |
-| Infoga, ersätta, ta bort, upsert, läsa | Nej | Ja | Ja | Ja | Ja | Ja |
+| Infoga, ersätta, ta bort, upsert, läsa | Nej | Yes | Ja | Ja | Ja | Ja |
 
 ## <a name="next-steps"></a>Nästa steg
 

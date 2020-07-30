@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 3afa43f4db04b8289dea8e3d2d6511efb27b3d28
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: tracking-python, devx-track-javascript
+ms.openlocfilehash: 4cbab08a3a56d2ea81612b27f42571d9925d0745
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104647"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87412940"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Så här ansluter du program till Azure Database for MariaDB
 I det här avsnittet visas de typer av anslutnings strängar som stöds av Azure Database for MariaDB, tillsammans med mallar och exempel. Du kan ha olika parametrar och inställningar i anslutnings strängen.

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/28/2019
+ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: a93ee781648440a6e656ff8fd948b2eb9e96bd43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1191fdd757b4614eca543660eccddea5c20d033
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83735947"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422527"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Ändra lösen ordet för ditt arbets-eller skol konto från sidan Ändra lösen ord
 
@@ -54,3 +54,5 @@ När du har ändrat ditt lösen ord kan du:
 - Visa din [inloggnings aktivitet](my-account-portal-sign-ins-page.md).
 
 - Se hur din organisation [använder dina sekretess-relaterade data](my-account-portal-privacy-page.md).
+
+- Ändra [Portal inställningarna för mitt konto](my-account-portal-settings.md)

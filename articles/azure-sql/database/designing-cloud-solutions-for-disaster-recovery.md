@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 12/04/2018
-ms.openlocfilehash: 6a8770cfaf5acedcf3549d92f1365948acda8bc7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: a23330bb00fb06a3ed9d3dfe28666e8f27dae4fa
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344653"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405049"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Designa globalt tillgängliga tjänster med hjälp av Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -58,7 +58,13 @@ Om ett avbrott inträffar i region B pausas replikeringen mellan den primära da
 > Vid haveri beredskap rekommenderar vi att konfigurationen med program distribution är begränsad till två regioner. Detta beror på att de flesta av Azures geografiska områden bara har två regioner. Den här konfigurationen skyddar inte ditt program från ett samtidigt oåterkalleligt haveri i båda regionerna. Om det är osannolikt att ett fel uppstår kan du återställa databaserna i en tredje region med [geo Restore-åtgärden](disaster-recovery-guidance.md#recover-using-geo-restore).
 >
 
- När avbrottet har begränsats omsynkroniseras den sekundära databasen automatiskt med den primära databasen. Under synkroniseringen kan prestanda för den primära påverkas. Den speciella påverkan beror på mängden data som den nya primära primära förvärvade sedan redundansväxlingen. Följande diagram illustrerar ett avbrott i den sekundära regionen:
+ När avbrottet har begränsats omsynkroniseras den sekundära databasen automatiskt med den primära databasen. Under synkroniseringen kan prestanda för den primära påverkas. Den speciella påverkan beror på mängden data som den nya primära primära förvärvade sedan redundansväxlingen. 
+
+> [!NOTE]
+> När avbrottet har begränsats kommer Traffic Manager att börja dirigera anslutningarna till programmet i region A som en slut punkt med högre prioritet. Om du vill behålla primärt i region B en stund bör du ändra prioritets tabellen i trafic Manager-profilen. 
+>
+ 
+ Följande diagram illustrerar ett avbrott i den sekundära regionen:
 
 ![Scenario 1. Konfiguration efter ett avbrott i den sekundära regionen.](./media/designing-cloud-solutions-for-disaster-recovery/scenario1-c.png)
 

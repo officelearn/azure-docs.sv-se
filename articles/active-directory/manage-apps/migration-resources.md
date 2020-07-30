@@ -11,17 +11,16 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fe21b6509080e88c63d9c02c8116f3882fb64dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 327e59d3fee6f23d2635b846e9fb5ab422e0139e
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763116"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429021"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Resurser för att migrera program till Azure Active Directory
 
-Resurser som hjälper dig att migrera program åtkomst och autentisering till Azure Active Directory (Azure AD). Ta den här korta undersökningen ( https://aka.ms/AppsMigrationFeedback) om du vill ge feedback om hur du migrerar appar till Azure AD (inklusive Blocker för migrering, behov av verktyg, vägledning eller orsaker till att du behåller din lokala IDP). 
+Resurser som hjälper dig att migrera program åtkomst och autentisering till Azure Active Directory (Azure AD).
 
 | Resurs  | Beskrivning  |
 |:-----------|:-------------|

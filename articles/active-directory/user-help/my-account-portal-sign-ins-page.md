@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 0b3b0d686ae10f9b376c977bf165eccddda32239
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 738e6507a1642a1ab76938eeaf3294668bcea964
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744512"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422306"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Visa och Sök efter din senaste inloggnings aktivitet från sidan mina inloggningar (för hands version)
 
@@ -73,3 +73,5 @@ När du har visat din senaste inloggnings aktivitet kan du:
 - Visa eller hantera dina [organisationer](my-account-portal-organizations-page.md).
 
 - Se hur din organisation [använder dina sekretess-relaterade data](my-account-portal-privacy-page.md).
+
+- Ändra [Portal inställningarna för mitt konto](my-account-portal-settings.md)

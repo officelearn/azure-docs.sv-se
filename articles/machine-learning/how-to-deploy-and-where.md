@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: f592e265cafc3e56dc0616e6eeb748c851084c32
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fb23893f176a2b51e5917ea5bbcb0e52faa64bf3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317883"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423447"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,7 @@ Mer information om de begrepp som ingår i distributions arbets flödet finns i 
 >
 > Du kan också se Azure Machine Learning- [Deploy till lokal Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -218,6 +218,8 @@ myenv = Environment.from_conda_specification(name = 'myenv',
                                              file_path = 'path-to-conda-specification-file'
 myenv.register(workspace=ws)
 ```
+
+En grundlig diskussion om hur du använder och anpassar python-miljöer med Azure Machine Learning finns [i skapa & använda program varu miljöer i Azure Machine Learning](how-to-use-environments.md)
 
 ### <a name="2-define-scoring-code"></a><a id="script"></a>2. definiera bedömnings koden
 
@@ -613,13 +615,13 @@ Under modell distributionen kan tjänst tillstånds ändringen visas när den di
 
 I följande tabell beskrivs de olika tjänst tillstånden:
 
-| Webservice-tillstånd | Beskrivning | Slutligt tillstånd?
+| Webservice-tillstånd | Description | Slutligt tillstånd?
 | ----- | ----- | ----- |
-| Övergår | Tjänsten håller på att distribueras. | Nej |
-| Ohälsosamt | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | Nej |
-| Unschedulable | Det går inte att distribuera tjänsten för tillfället på grund av bristande resurser. | Nej |
-| Misslyckad | Det gick inte att distribuera tjänsten på grund av ett fel eller en krasch. | Ja |
-| Felfri | Tjänsten är felfri och slut punkten är tillgänglig. | Ja |
+| Övergår | Tjänsten håller på att distribueras. | No |
+| Ohälsosamt | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | No |
+| Unschedulable | Det går inte att distribuera tjänsten för tillfället på grund av bristande resurser. | No |
+| Misslyckad | Det gick inte att distribuera tjänsten på grund av ett fel eller en krasch. | Yes |
+| Felfri | Tjänsten är felfri och slut punkten är tillgänglig. | Yes |
 
 ### <a name="compute-instance-web-service-devtest"></a><a id="notebookvm"></a>Beräknings instans webb tjänst (dev/test)
 
@@ -636,7 +638,7 @@ Se [distribuera till Azure Kubernetes-tjänsten](how-to-deploy-azure-kubernetes-
 ### <a name="ab-testing-controlled-rollout"></a>A/B-test (kontrollerad distribution)
 Mer information finns i [den kontrollerade distributionen av ml-modeller](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) för mer information.
 
-## <a name="consume-web-services"></a>Konsumera webbtjänster
+## <a name="inference-using-web-services"></a>Härledning med webb tjänster
 
 Varje distribuerad webb tjänst tillhandahåller en REST-slutpunkt, så att du kan skapa klient program i valfritt programmeringsspråk.
 Om du har aktiverat nyckelbaserad autentisering för tjänsten måste du ange en tjänst nyckel som en token i ditt begär ande huvud.
@@ -1009,7 +1011,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-När du har skapat ett paket kan du använda `package.pull()` för att hämta avbildningen till din lokala Docker-miljö. Utdata från det här kommandot visar namnet på bilden. Till exempel: 
+När du har skapat ett paket kan du använda `package.pull()` för att hämta avbildningen till din lokala Docker-miljö. Utdata från det här kommandot visar namnet på bilden. Ett exempel: 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 

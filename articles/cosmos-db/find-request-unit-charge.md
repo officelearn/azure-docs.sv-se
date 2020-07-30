@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: bf109d3f15c9865a8e9ad1d27a1e8d320d172761
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: d692a884688d81fdf16261edff816fa8f0215877
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261842"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422325"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Hitta enhets avgiften för begäran i Azure Cosmos DB
 
@@ -181,7 +182,7 @@ För närvarande kan du bara hitta begär ande avgiften i Azure Portal för en f
 
 1. Gå till fönstret **datautforskaren** och välj den behållare som du vill arbeta med.
 
-1. Välj **ny fråga**.
+1. Välj **Ny fråga**.
 
 1. Ange en giltig fråga och välj sedan **Kör fråga**.
 

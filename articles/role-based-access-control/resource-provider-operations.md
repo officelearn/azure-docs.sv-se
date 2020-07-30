@@ -1,5 +1,5 @@
 ---
-title: Åtgärder för resursproviders i Azure
+title: Azure Resource Provider-åtgärder
 description: Visar en lista över åtgärder för Azure Resource providers.
 services: active-directory
 ms.service: role-based-access-control
@@ -8,14 +8,14 @@ ms.workload: identity
 author: rolyon
 ms.author: rolyon
 ms.date: 07/16/2020
-ms.openlocfilehash: 0fc2039805b155535eeac1d653fc9ecb9e576d5d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d28f852ad4159472b7fcb3289a322db54be8af1e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496952"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387395"
 ---
-# <a name="azure-resource-providers-operations"></a>Åtgärder för resursproviders i Azure
+# <a name="azure-resource-provider-operations"></a>Azure Resource Provider-åtgärder
 
 I det här avsnittet visas åtgärder för Azure Resource providers som används i inbyggda roller. Du kan använda dessa åtgärder i dina egna [Azure-anpassade roller](custom-roles.md) för att ge detaljerad åtkomst kontroll till resurser i Azure. Resurs leverantörs åtgärderna utvecklas alltid. Använd [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) eller [AZ Provider operation List](/cli/azure/provider/operation#az-provider-operation-list)för att få de senaste åtgärderna.
 
@@ -2524,7 +2524,7 @@ Azure-tjänst: [App Service](../app-service/index.yml), [Azure Functions](../azu
 > | Microsoft. Web/staticSites/customdomains/validate/Action | Verifiera att en anpassad domän kan läggas till på en statisk plats |
 > | Microsoft. Web/staticSites/Functions/Read | Visa en lista över funktioner för en statisk plats |
 
-## <a name="containers"></a>Containrar
+## <a name="containers"></a>Containers
 
 ### <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
@@ -6929,7 +6929,7 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/VMwareSites/vCenter/Read | Hämtar egenskaperna för en VMware vCenter |
 > | Microsoft. OffAzure/VMwareSites/vCenter/Write | Skapar eller uppdaterar VMware vCenter |
 
-## <a name="monitor"></a>Övervaka
+## <a name="monitor"></a>Monitor
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft. AlertsManagement
 
@@ -8612,7 +8612,7 @@ Azure-tjänst: Microsoft Monitoring Insights
 > | Microsoft. Intune/diagnosticsettings/Delete | Tar bort en diagnostisk inställning |
 > | Microsoft. Intune/diagnosticsettingscategories/Read | Läser en diagnostisk inställnings kategori |
 
-## <a name="other"></a>Annat
+## <a name="other"></a>Övrigt
 
 ### <a name="microsoftbingmaps"></a>Microsoft. Bingkartssökning
 

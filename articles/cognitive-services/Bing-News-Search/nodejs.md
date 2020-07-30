@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: utföra en nyhets sökning med Node. js – Nyhetssökning i Bing REST API'
+title: 'Snabb start: göra en nyhets sökning med Node.js Nyhetssökning i Bing REST API'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST-API:et för nyhetssökning i Bing med hjälp av Node.js och få ett JSON-svar.
 services: cognitive-services
@@ -10,23 +10,23 @@ ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018
-ms.openlocfilehash: 24dd1e719b9eb401038d47c4d1c42139258f36f9
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: seodec2018, devx-track-javascript
+ms.openlocfilehash: d0ed69aecf03e5c8e3a65e3ac532c02c89b65ba8
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872058"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406613"
 ---
-# <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Snabb start: utför en nyhets sökning med Node. js och Nyhetssökning i Bing REST API
+# <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Snabb start: utföra en nyhets sökning med hjälp av Node.js och Nyhetssökning i Bing REST API
 
 Använd den här snabb starten för att göra ditt första anrop till API för nyhetssökning i Bing. Det här enkla JavaScript-programmet skickar en Sök fråga till API: et och visar JSON-svaret.
 
-Även om det här programmet är skrivet i Java Script och körs i Node. js, är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Även om det här programmet är skrivet i Java Script och körs i Node.js, är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingNewsSearchv7.js).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den senaste versionen av [Node.js](https://nodejs.org/en/download/).
 * [Java Script Request-biblioteket](https://github.com/request/request).

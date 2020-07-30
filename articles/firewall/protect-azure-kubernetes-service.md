@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 07/02/2020
+ms.date: 07/29/2020
 ms.author: victorh
-ms.openlocfilehash: 81d65954197c0ebe0de77dc2fea63239d4c3f17b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 602671f1052de2d9446f32946271cea2f9995044
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056675"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87412957"
 ---
 # <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Använd Azure-brandväggen för att skydda AKS-distributioner (Azure Kubernetes service)
 
@@ -24,7 +24,7 @@ I hanterings-och drift syfte måste noder i ett AKS-kluster ha åtkomst till vis
 
 Följ rikt linjerna i den här artikeln för att ge ytterligare skydd för ditt Azure Kubernetes-kluster med hjälp av Azure-brandväggen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett distribuerat Azure Kubernetes-kluster med program som körs.
 
@@ -50,7 +50,9 @@ Azure-brandväggen tillhandahåller en AKS FQDN-tagg för att förenkla konfigur
       Mer information finns i **. HCP. <location> . azmk8s.io* och adresser i följande tabell.
    - UDP-port 123 för NTP-tidssynkronisering (Network Time Protocol) (Linux-noder).
    - UDP-port 53 för DNS krävs också om du har poddar direkt åtkomst till API-servern.
-- Konfigurera AzureMonitor-och Storage Service-taggar. Azure Monitor tar emot Log Analytics-data. 
+
+   Mer information finns i [kontroll av utgående trafik för klusternoder i Azure Kubernetes service (AKS)](../aks/limit-egress-traffic.md).
+- Konfigurera AzureMonitor-och Storage Service-taggar. Azure Monitor tar emot Log Analytics-data.
 
    Du kan också tillåta URL: en för din arbets yta individuellt: `<worksapceguid>.ods.opinsights.azure.com` , och `<worksapceguid>.oms.opinsights.azure.com` . Du kan åtgärda detta på något av följande sätt:
 

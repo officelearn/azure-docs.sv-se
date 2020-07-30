@@ -6,12 +6,13 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: f238a2a3c499cf1e36f5e7c40e087375b7db0a70
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: c8497d50f86155ef7df0de995864e74753542750
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81726461"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422631"
 ---
 # <a name="url-rewriter"></a>URL-omskrivare #
 
@@ -41,7 +42,7 @@ eller
     ]);
 ```
 
-Om du vill kan du även ange de angivna strömnings format som du vill Azure Media Player skriva om till med hjälp av `streamingFormats` parametern. Alternativen inkluderar `DASH`, `SMOOTH` `HLSv3`,, `HLSv4`, `HLS`. Skillnaden mellan HLS och HLSv3 & V4 är att HLS-formatet stöder uppspelning av FairPlay-innehåll. v3 och v4 stöder inte FairPlay. Detta är användbart om du inte har en leverans princip för ett visst protokoll tillgängligt.  Här är ett exempel på när ett BINDESTRECKs protokoll inte är aktiverat med din till gång.
+Om du vill kan du även ange de angivna strömnings format som du vill Azure Media Player skriva om till med hjälp av `streamingFormats` parametern. Alternativen inkluderar `DASH` ,,, `SMOOTH` `HLSv3` `HLSv4` , `HLS` . Skillnaden mellan HLS och HLSv3 & V4 är att HLS-formatet stöder uppspelning av FairPlay-innehåll. v3 och v4 stöder inte FairPlay. Detta är användbart om du inte har en leverans princip för ett visst protokoll tillgängligt.  Här är ett exempel på när ett BINDESTRECKs protokoll inte är aktiverat med din till gång.
 
 ```html
     <video id="vid1" class="azuremediaplayer amp-default-skin">

@@ -10,12 +10,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: bbb30c0ad41babca4158391c9e4e5c5d4d25cbf9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0673732bd657b237ed0f4b4db276b8bf9a3a2b5
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81432065"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424383"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Fel koder för Azure Key Vault REST API
  
@@ -134,7 +134,7 @@ HTTP 403 uppstår ofta när kundens program inte använder det klient-ID som kun
 
 ### <a name="troubleshooting-403"></a>Felsöka 403
 
-Börja med att aktivera loggning. Instruktioner för hur du gör detta finns i [Azure Key Vault loggning](logging.md)).
+Börja med att aktivera loggning. Instruktioner för hur du gör detta finns i [Azure Key Vault loggning](logging.md).
 
 När loggning har Aktiver ATS kan du avgöra om 403 är på grund av åtkomst principen eller brand Väggs principen.
 

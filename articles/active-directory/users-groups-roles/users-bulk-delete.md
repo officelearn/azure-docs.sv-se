@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fc393279aaa6b293c2eb29099be45385ad08d9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82304052d6ed0c0169c24c19c58d53548b4479cc
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731515"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423600"
 ---
 # <a name="bulk-delete-users-in-azure-active-directory"></a>Mass borttagning av användare i Azure Active Directory
 
@@ -35,7 +35,7 @@ Hämta och fyll i CSV-mallen så att du kan ta bort Azure AD-användare i bulk. 
 Raderna i en Hämtad CSV-mall är följande:
 
 - **Versions nummer**: den första raden som innehåller versions numret måste inkluderas i överförings-CSV-filen.
-- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt* &gt; . Till exempel `User name [userPrincipalName] Required`. Vissa äldre versioner av mallen kan ha små variationer.
+- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt* &gt; . Exempelvis `User name [userPrincipalName] Required`. Vissa äldre versioner av mallen kan ha små variationer.
 - **Exempel rad**: vi har inkluderat i mallen en rad exempel på acceptabla värden för varje kolumn. Du måste ta bort exempel raden och ersätta den med dina egna poster.
 
 ### <a name="additional-guidance"></a>Mer information
@@ -68,7 +68,7 @@ Om det finns fel kan du hämta och Visa resultat filen på resultat sidan för *
 
 Du kan se statusen för alla väntande Mass förfrågningar på resultat sidan för **Mass åtgärder** .
 
-   [![](media/users-bulk-delete/bulk-center.png "Check delete status in the Bulk Operations Results page")](media/users-bulk-delete/bulk-center.png#lightbox)
+   [![Kontrol lera borttagnings status på sidan med Mass åtgärds resultat.](media/users-bulk-delete/bulk-center.png)](media/users-bulk-delete/bulk-center.png#lightbox)
 
 Sedan kan du kontrol lera att de användare som du har tagit bort finns i Azure AD-organisationen antingen i Azure Portal eller med hjälp av PowerShell.
 

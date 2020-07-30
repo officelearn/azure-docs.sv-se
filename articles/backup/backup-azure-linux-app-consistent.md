@@ -1,19 +1,18 @@
 ---
 title: Programkonsekventa säkerhets kopieringar av virtuella Linux-datorer
 description: Skapa programkonsekventa säkerhets kopieringar av dina virtuella Linux-datorer till Azure. Den här artikeln förklarar hur du konfigurerar skript ramverket för att säkerhetskopiera virtuella Linux-datorer som distribueras i Azure. Den här artikeln innehåller också felsöknings information.
-ms.reviewer: anuragm
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 8d578df45235b3bef314245e4eb7a0976c4d48d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1ebf1b4148c43b07c0fddee67970abe8381e4c30
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054852"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407106"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Programkonsekventa säkerhetskopior av virtuella Linux-datorer på Azure
 
-När du tar ögonblicks bilder av dina virtuella datorer innebär applikations konsekvens att dina program startar när VM-starten startas efter att ha återställts. Som du kan föreställa dig är programmets konsekvens mycket viktigt. För att se till att dina virtuella Linux-datorer är konsekventa kan du använda Linux pre-script och post-script för att ta programkonsekventa säkerhets kopieringar. För skript och efter skript stöder Azure Resource Manager distribuerade virtuella Linux-datorer. Skript för program konsekvens stöder inte Service Manager-distribuerade virtuella datorer eller virtuella Windows-datorer.
+När du tar ögonblicks bilder av dina virtuella datorer innebär applikations konsekvens att dina program startar när VM-starten startas efter att ha återställts. Som du kan föreställa dig är programmets konsekvens mycket viktigt. För att se till att dina virtuella Linux-datorer är konsekventa kan du använda Linux pre-script och post-script för att ta programkonsekventa säkerhets kopieringar. För skript och efter skript stöder Azure Resource Manager distribuerade virtuella Linux-datorer. Skript för tillämpnings konsekvens stöder inte Service Manager-distribuerade virtuella datorer eller virtuella Windows-datorer.
 
 ## <a name="how-the-framework-works"></a>Så här fungerar ramverket
 
@@ -53,13 +52,13 @@ För skript anropar interna program-API: er, som ingick i IOs och tömde minnes 
 
     - **postScriptParams**: Ange de valfria parametrarna som måste skickas till post-skriptet. Alla parametrar ska vara i citat tecken. Avgränsa parametrarna med kommatecken om du använder flera parametrar.
 
-    - **preScriptNoOfRetries**: Ange hur många gånger för skriptet ska provas om det uppstår något fel innan det avslutas. Noll innebär bara ett försök och inget nytt försök om det uppstår ett fel.
+    - **preScriptNoOfRetries**: Ange hur många gånger för skriptet ska provas igen om det uppstår något fel innan det avslutas. Noll innebär bara ett försök och inget nytt försök om det uppstår ett fel.
 
-    - **postScriptNoOfRetries**: Ange hur många gånger det ska göras ett nytt försök att utföra ett fel innan det avslutas. Noll innebär bara ett försök och inget nytt försök om det uppstår ett fel.
+    - **postScriptNoOfRetries**: Ange hur många gånger det ska göras ett nytt försök att utföra ett fel innan du avslutar. Noll innebär bara ett försök och inget nytt försök om det uppstår ett fel.
 
     - **timeoutInSeconds**: ange enskilda tids gränser för för skriptet och efter skriptet (maximalt värde kan vara 1800).
 
-    - **continueBackupOnFailure**: Ange det här värdet till **Sant** om du vill att Azure Backup ska återgå till en konsekvent eller kraschad fil system-konsekvent säkerhets kopiering om det inte går att använda skript eller efter skript. Om värdet är **false** Miss lyckas säkerhets kopieringen i händelse av skript fel (förutom om du har en virtuell dator med en disk som går tillbaka till en kraschad säkerhets kopiering oberoende av den här inställningen).
+    - **continueBackupOnFailure**: Ange det här värdet till **Sant** om du vill att Azure Backup ska återgå till en konsekvent eller kraschad fil system-konsekvent säkerhets kopiering om det inte går att använda skript eller efter skript. Om värdet är **false** Miss lyckas säkerhets kopieringen om det uppstår ett skript fel (förutom när du har en virtuell dator med en enda disk som går tillbaka till en kraschad säkerhets kopiering oberoende av den här inställningen). Om **continueBackupOnFailure** -värdet är inställt på False görs ett nytt försök att säkerhetskopiera, om säkerhets kopieringen Miss lyckas, baserat på en logik för återförsök i tjänsten (för det specificerade antalet försök).
 
     - **fsFreezeEnabled**: Ange om Linux-fsfreeze ska anropas när du tar ögonblicks bilden av den virtuella datorn för att säkerställa fil systemets konsekvens. Vi rekommenderar att den här inställningen är **True** , om inte programmet har ett beroende vid inaktive ring av fsfreeze.
 

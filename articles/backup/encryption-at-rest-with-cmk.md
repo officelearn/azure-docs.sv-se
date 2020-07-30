@@ -3,12 +3,12 @@ title: Kryptering av säkerhets kopierings data med Kundhanterade nycklar
 description: Lär dig hur Azure Backup kan kryptera dina säkerhetskopierade data med Kundhanterade nycklar (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: c26466582cbe5a10610f6766160c2b0bc51a4828
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1586a40d115a591c474c3bc8c1fed5448eb90bcd
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091104"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87388007"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Kryptering av säkerhets kopierings data med Kundhanterade nycklar
 
@@ -92,7 +92,7 @@ Du måste nu tillåta Recovery Services-valvet att få åtkomst till Azure Key V
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Aktivera mjuk borttagning och tömning av skydd på Azure Key Vault
 
-Du måste **Aktivera mjuk borttagning och tömning av skydd** på Azure Key Vault som lagrar din krypterings nyckel. Du kan göra detta från Azure Key Vault användar gränssnittet som visas nedan. (Du kan också ange dessa egenskaper när du skapar Key Vault). Läs mer om dessa Key Vaults egenskaper [här](../key-vault/general/overview-soft-delete.md).
+Du måste **Aktivera mjuk borttagning och tömning av skydd** på Azure Key Vault som lagrar din krypterings nyckel. Du kan göra detta från Azure Key Vault användar gränssnittet som visas nedan. (Du kan också ange dessa egenskaper när du skapar Key Vault). Läs mer om dessa Key Vaults egenskaper [här](../key-vault/general/soft-delete-overview.md).
 
 ![Aktivera mjuk borttagning och rensnings skydd](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 

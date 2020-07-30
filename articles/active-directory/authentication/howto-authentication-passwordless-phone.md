@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5dbf26bc636107576af15a0217eb16302f63f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5022dfc5811f3db59774a46a7034ff14c4dcf4a8
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601640"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428022"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Aktivera lösen ords utan lösen ord med Microsoft Authenticator-appen (förhands granskning)
 
@@ -29,7 +29,7 @@ I stället för att se en uppmaning om att ange ett lösen ord när du har anget
 > [!NOTE]
 > Den här funktionen har funnits i Microsoft Authenticator app sedan mars 2017, så det finns en risk att när principen är aktive rad för en katalog kan användarna stöta på det här flödet omedelbart och se ett fel meddelande om de inte har Aktiver ATS av en princip. Tänk på och Förbered dina användare för den här ändringen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure Multi-Factor Authentication, med push-meddelanden som är tillåtna som en verifieringsmetod 
 - Den senaste versionen av Microsoft Authenticator installerad på enheter som kör iOS 8,0 eller senare, eller Android 6,0 eller senare.
@@ -45,7 +45,7 @@ Registrerings funktioner för metoder för lösen ords skydd förlitar sig på d
 
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Aktivera autentiseringsmetoder för inloggning med lösen ord
 
-1. Logga in på [Azure Portal](https://portal.azure.com)
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett **globalt administratörs** konto.
 1. Sök efter och välj *Azure Active Directory*. Välj autentiseringsmetod för **säkerhets**  >  **metoder**  >  **(för hands version)**
 1. Under **lösen ords telefon inloggning**väljer du följande alternativ
    1. **Aktivera** – Ja eller Nej

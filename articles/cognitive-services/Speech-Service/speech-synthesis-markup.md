@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 8772607c7f43f2a06f5c9f12ee5efd603a1e324f
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.custom: devx-track-javascript
+ms.openlocfilehash: a7407ec0f507746198c13a7bbdcdcd2c801c92b6
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212657"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407378"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Förbättra syntesen med SSML (Speech syntes Markup Language)
 
@@ -214,7 +215,7 @@ För närvarande stöds anpassning av format justeringar för dessa neurala-rös
 
 Använd den här tabellen för att avgöra vilka tal format som stöds för varje neurala röst.
 
-| Röst                   | Format                     | Beskrivning                                                 |
+| Röst                   | Format                     | Description                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
 | `en-US-AriaNeural`      | `style="newscast"`        | Uttrycker en formell och professionell ton för nya berättarröstinspelningar |
 |                         | `style="customerservice"` | Uttrycker en vänlig och användbar ton för kund support  |
@@ -263,7 +264,7 @@ Använd `break` elementet för att infoga pauser (eller brytningar) mellan ord, 
 | `strength` | Anger den relativa varaktigheten för en paus med något av följande värden:<ul><li>inget</li><li>x-svaga</li><li>svaga</li><li>medel (standard)</li><li>kraftfull</li><li>x – stark</li></ul> | Valfritt |
 | `time` | Anger den absoluta varaktigheten för en paus på några sekunder eller millisekunder. Exempel på giltiga värden är `2s` och`500` | Valfritt |
 
-| Styrka                      | Beskrivning |
+| Styrka                      | Description |
 |-------------------------------|-------------|
 | Ingen, eller om inget värde anges | 0 MS        |
 | x-svaga                        | 250 MS      |

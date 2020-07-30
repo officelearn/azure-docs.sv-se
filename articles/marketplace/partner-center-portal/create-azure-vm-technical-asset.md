@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/13/2020
-ms.openlocfilehash: 69458a7a3f2555a301c1266addfe7c49cb111ef6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 532a2ce429899d3674a8f6d8308188e9b1f737b1
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317764"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407956"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Skapa tekniska till gångar för din virtuella Azure-dator
 
@@ -282,4 +282,4 @@ Om du har problem med att skapa din nya Azure-baserade virtuella hård disk kan 
 
 I annat fall:
 
-* [Certifiera din VM-avbildning](get-sas-uri.md) förklarar hur du testar och skickar en VM-avbildning för Azure Marketplace-certifiering, inklusive var du hämtar *certifierings test verktyget för Azure Certified* -verktyget och hur du använder det för att certifiera din VM-avbildning.
+* [Test av virtuell dator (VM) distribuerat från VHD](azure-vm-image-certification.md) förklarar hur du testar och skickar en VM-avbildning för Azure Marketplace-certifiering, inklusive var du hämtar *certifierings test verktyget för Azure Certified* -verktyget och hur du använder det för att certifiera din VM-avbildning.

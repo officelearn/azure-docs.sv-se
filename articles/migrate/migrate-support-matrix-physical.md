@@ -3,12 +3,12 @@ title: Stöd för fysisk server utvärdering i Azure Migrate
 description: Läs mer om stöd för fysisk server-utvärdering med Azure Migrate Server-utvärdering
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 3391a29b2297d192aad0d499f688105db9af528b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 97da09fa88cc3e69965237cb5b4326b8b59739bd
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304334"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423787"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Support mat ris för fysisk server-utvärdering 
 
@@ -34,7 +34,7 @@ Om du vill utvärdera fysiska servrar skapar du ett Azure Migrate-projekt och l�
 | **Support**                | **Information**               
 | :-------------------       | :------------------- |
 | **Distribution av fysisk server**       | Den fysiska servern kan vara fristående eller distribuerad i ett kluster. |
-| **Behörigheter**           | **Windows:** Använd ett domän konto för domänanslutna datorer och ett lokalt konto för datorer som är domänanslutna. Användar kontot ska läggas till i dessa grupper: fjärrhanterings användare, prestanda övervaknings användare och användare av prestanda loggar. <br/><br/> **Linux:** Du behöver ett rot konto på de Linux-servrar som du vill identifiera. |
+| **Behörigheter**           | **Windows:** Använd ett domän konto för domänanslutna datorer och ett lokalt konto för datorer som inte är domänanslutna. Användar kontot ska läggas till i dessa grupper: fjärrhanterings användare, prestanda övervaknings användare och användare av prestanda loggar. <br/><br/> **Linux:** Du behöver ett rot konto på de Linux-servrar som du vill identifiera. |
 | **Operativsystem** | Alla operativ system utom Windows Server 2003 och SUSE Linux kan utvärderas för migrering. |
 
 

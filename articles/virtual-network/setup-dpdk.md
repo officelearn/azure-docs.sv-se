@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: labattul
-ms.openlocfilehash: 20f22825e6954f32d7f020dd160f36c3c1859c86
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 622b7e629a7f5fea77afc18ec5121fe3466716ed
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287726"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387565"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Konfigurera DPDK i en virtuell Linux-dator
 
@@ -44,7 +44,7 @@ Följande distributioner från Azure Marketplace stöds:
 |--------------|---------------------------   |
 | Ubuntu 16.04 | 4.15.0-1014 – Azure +           | 
 | Ubuntu 18.04 | 4.15.0-1014 – Azure +           |
-| SLES 15 SP1  | 4.12.14-är 21,00 cm – Azure +          | 
+| SLES 15 SP1  | 4.12.14-8.19 – Azure +          | 
 | RHEL 7.5     | 3.10.0-862.11.6. el7. x86_64 +  | 
 | CentOS 7.5   | 3.10.0-862.11.6. el7. x86_64 +  | 
 
@@ -56,7 +56,7 @@ För alla Linux kernel-versioner som inte finns med i listan, se [patchar för a
 
 Alla Azure-regioner stöder DPDK.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Accelererat nätverk måste vara aktiverat på en virtuell Linux-dator. Den virtuella datorn måste ha minst två nätverks gränssnitt, med ett gränssnitt för hantering. Lär dig hur du [skapar en virtuell Linux-dator med accelererat nätverk aktiverat](create-vm-accelerated-networking-cli.md).
 

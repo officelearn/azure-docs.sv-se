@@ -49,6 +49,8 @@
       href: synchronization.md
     - name: Så här fungerar hash-synkronisering
       href: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Överväganden för virtuella nätverk
+      href: network-considerations.md
     - name: Fördelar med migrering av klassisk distribution
       href: concepts-migration-benefits.md
     - name: Vad är Azure Active Directory?
@@ -65,10 +67,6 @@
           href: create-ou.md
         - name: Skapa ett grupphanterat tjänstkonto (gMSA)
           href: create-gmsa.md
-    - name: Planera för Azure AD DS
-      items:
-        - name: Överväganden för virtuella nätverk
-          href: network-considerations.md
     - name: Hantera Azure AD DS
       items:
         - name: Administrera en grupprincip

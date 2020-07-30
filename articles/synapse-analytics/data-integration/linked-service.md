@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c7cf8ec7297b3c0ef855936becc3c06a5120a38
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1ce127dbfd9984b3fb18e518701cbbd3a87f5988
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496085"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387257"
 ---
-# <a name="securing-a-linked-service-with-private-links"></a>Skydda en länkad tjänst med privata länkar 
+# <a name="secure-a-linked-service-with-private-links"></a>Skydda en länkad tjänst med privata länkar 
 
 I den här artikeln får du lära dig hur du skyddar en länkad tjänst i Synapse med en privat slut punkt.
 
@@ -52,7 +52,7 @@ Om du inte klickade på hyperlänken när du testar anslutningen ovan följer du
 1. Välj **Skapa**
 1. Du bör se efter att ha väntat några sekunder på att den privata länken som skapas behöver ett godkännande.
 
-## <a name="approval-of-a-private-link"></a>Godkännande av en privat länk
+## <a name="private-link-approval"></a>Godkännande av privat länk
 1. Välj den privata slut punkt som du skapade ovan. Du kan se en hyperlänk som gör att du kan godkänna den privata slut punkten på lagrings konto nivån. *Ett alternativ är att gå direkt till Azure Portal lagrings konto och gå till bladet **anslutningar för privata slut punkter** .*
 1. Kryssa för den privata slut punkten du skapade i Studio och välj **Godkänn**.
 1. Lägg till en beskrivning och klicka på **Ja**

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/03/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: ae08589785d8a482801c71ce3641ba0d66d11133
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 441d830c7512b7d06c5d4f3e64dc59844b764453
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782270"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387174"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Kända problem och lösningar med SCIM 2,0 protokoll kompatibilitet för Azure AD-tjänsten för användar etablering
 
@@ -42,7 +42,7 @@ I den här artikeln beskrivs aktuella och tidigare problem med Azure AD-tjänste
 
 Nej. Eftersom den skulle ha gjort en större ändring i SCIM-appar som har kodats för att fungera med det äldre beteendet, tillämpades inte ändringarna automatiskt på befintliga appar.
 
-Ändringarna tillämpas på alla nya [icke-Galleri scim-appar](../manage-apps/configure-single-sign-on-non-gallery-applications.md) som kon figurer ats i Azure Portal efter datumet för korrigeringen.
+Ändringarna tillämpas på alla nya icke-Galleri SCIM-appar som kon figurer ATS i Azure Portal efter datumet för korrigeringen.
 
 Information om hur du migrerar ett befintligt etablerings jobb för användare för att inkludera de senaste korrigeringarna finns i nästa avsnitt.
 

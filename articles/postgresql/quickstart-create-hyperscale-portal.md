@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: 02e009e6fff2e717693d1579d409199ab179d941
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4ff80330ab6244bc9d108b7f5a1d4e4e0dbd4feb
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79241516"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387412"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Snabb start: skapa en Azure Database for PostgreSQL-storskalig (citus) i Azure Portal
 
@@ -62,7 +62,7 @@ CREATE TABLE github_users
 );
 ```
 
-`payload` Fältet i `github_events` har en JSONB-datatype. JSONB är JSON-datatypen i binär form i postgres. Datatype gör det enkelt att lagra ett flexibelt schema i en enda kolumn.
+`payload`Fältet i `github_events` har en JSONB-datatype. JSONB är JSON-datatypen i binär form i postgres. Datatype gör det enkelt att lagra ett flexibelt schema i en enda kolumn.
 
 Postgres kan skapa ett `GIN` index av den här typen, vilket kommer att indexera varje nyckel och värde i den. Med ett index blir det snabbt och enkelt att fråga nytto lasten med olika villkor. Nu ska vi gå vidare och skapa ett par index innan vi läser in våra data. I psql:
 
@@ -71,12 +71,14 @@ CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-Härnäst ska vi ta dessa postgres-tabeller på koordinator-noden och meddela att de kan Shard dem över arbets tagarna. För att göra det kör vi en fråga för varje tabell som anger nyckeln för att Shard den. I det aktuella exemplet ska vi Shard både händelse-och användar tabellen på `user_id`:
+Härnäst ska vi ta dessa postgres-tabeller på koordinator-noden och meddela att de kan Shard dem över arbets tagarna. För att göra det kör vi en fråga för varje tabell som anger nyckeln för att Shard den. I det aktuella exemplet ska vi Shard både händelse-och användar tabellen på `user_id` :
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
 SELECT create_distributed_table('github_users', 'user_id');
 ```
+
+[!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../includes/azure-postgresql-hyperscale-dist-alert.md)]
 
 Vi är redo att läsa in data. I psql kan du fortfarande ladda ned filerna:
 
@@ -113,9 +115,9 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Hittills har frågorna involverade GitHub\_-händelserna exklusivt, men vi kan kombinera den här informationen med GitHub\_-användare. Eftersom vi shardade både användare och händelser på samma identifierare (`user_id`), kommer raderna i båda tabellerna med matchande användar-ID att [samplaceras](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) på samma databasnoder och kan enkelt anslutas.
+Hittills har frågorna involverade GitHub \_ -händelserna exklusivt, men vi kan kombinera den här informationen med GitHub- \_ användare. Eftersom vi shardade både användare och händelser på samma identifierare ( `user_id` ), kommer raderna i båda tabellerna med matchande användar-ID att [samplaceras](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) på samma databasnoder och kan enkelt anslutas.
 
-Om vi ansluter till `user_id`kan skalningen av anslutningen gå över till Shards för körning parallellt på arbetsnoder. Vi kan till exempel hitta de användare som skapade det största antalet databaser:
+Om vi ansluter till `user_id` kan skalningen av anslutningen gå över till Shards för körning parallellt på arbetsnoder. Vi kan till exempel hitta de användare som skapade det största antalet databaser:
 
 ```sql
 SELECT gu.login, count(*)

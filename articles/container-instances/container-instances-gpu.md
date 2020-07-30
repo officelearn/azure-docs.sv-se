@@ -2,13 +2,13 @@
 title: Distribuera GPU-aktiverad container instans
 description: Lär dig hur du distribuerar Azure Container instances för att köra beräknings intensiva behållar appar med GPU-resurser.
 ms.topic: article
-ms.date: 07/02/2020
-ms.openlocfilehash: 3ddeb7da2667b774724fe05227cefeec5227101a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/22/2020
+ms.openlocfilehash: 19240560baa0cebdb6777d7b63d8c91832b12e1a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076871"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387105"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Distribuera behållar instanser som använder GPU-resurser
 
@@ -33,9 +33,6 @@ Support kommer att läggas till för ytterligare regioner över tid.
 
 ## <a name="about-gpu-resources"></a>Om GPU-resurser
 
-> [!IMPORTANT]
-> GPU-resurser är bara tillgängliga på begäran. Om du vill begära åtkomst till GPU-resurser skickar du en [support förfrågan för Azure][azure-support].
-
 ### <a name="count-and-sku"></a>Antal och SKU
 
 Om du vill använda GPU: er i en behållar instans anger du en *GPU-resurs* med följande information:
@@ -52,6 +49,9 @@ Om du vill använda GPU: er i en behållar instans anger du en *GPU-resurs* med 
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
 När du distribuerar GPU-resurser ställer du in processor-och minnes resurser som är lämpliga för arbets belastningen, upp till de maximala värdena som visas i tabellen ovan. Dessa värden är för närvarande större än de processor-och minnes resurser som är tillgängliga i behållar grupper utan GPU-resurser.  
+
+> [!IMPORTANT]
+> Standard [begränsningar för prenumerationer](container-instances-quotas.md) (kvoter) för GPU-resurser skiljer sig från SKU. Standard processor gränserna för P100-och V100-SKU: er ställs först in på 0. Om du vill begära en ökning av en tillgänglig region kan du skicka en [support förfrågan för Azure][azure-support].
 
 ### <a name="things-to-know"></a>Saker att känna till
 

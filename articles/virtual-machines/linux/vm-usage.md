@@ -3,24 +3,19 @@ title: Förstå användningen av virtuella Azure-datorer
 description: Förstå användnings information om virtuella datorer
 services: virtual-machines
 documentationcenter: ''
-author: mmccrory
-manager: gwallace
-editor: ''
-tags: azure-virtual-machine
-ms.assetid: ''
+author: mimckitt
+ms.author: mimckitt
 ms.service: virtual-machines-linux
-ms.devlang: ''
 ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
-ms.author: memccror
-ms.openlocfilehash: 9abb6948a91545439b429316dc2b71c14a1792d2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 07/28/2020
+ms.openlocfilehash: 30d665cc1d573ec47681599f2bde6a40864796c9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284837"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387718"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Förstå användningen av virtuella Azure-datorer
 Genom att analysera Azures användnings data kan kraftfulla förbruknings insikter uppnås – insikter som kan möjliggöra bättre kostnads hantering och allokering i hela organisationen. Det här dokumentet ger en detaljerad genom gång av information om din Azure Compute-förbrukning. Om du vill ha mer information om allmän Azure-användning går du till att [förstå din faktura](../../cost-management-billing/understand/review-individual-bill.md).
@@ -29,87 +24,86 @@ Genom att analysera Azures användnings data kan kraftfulla förbruknings insikt
 Börja med att [Hämta din användnings information](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). Tabellen nedan innehåller definitionen och exempel på användnings värden för Virtual Machines som distribueras via Azure Resource Manager. Det här dokumentet innehåller ingen detaljerad information för virtuella datorer som distribueras via vår klassiska modell.
 
 
-| Fält             | Betydelse                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Exempel värden                                                                                                                                                                                                                                                                                                                                                   |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Datum för användning         | Det datum då resursen användes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |  "11/23/2017"                                                                                                                                                                                                                                                                                                                                                     |
-| Meter ID           | Identifierar den översta tjänst som denna användning tillhör.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | "Virtual Machines"                                                                                                                                                                                                                                                                                                                                               |
-| Meter Sub-Category | Identifierare för faktureringsmätaren. <ul><li>För beräkning av användnings tid finns det en mätning för varje VM-storlek + OS (Windows, icke-Windows) + region.</li><li>För förstklassig program varu användning finns det en mätare för varje program varu typ. De flesta Premium program avbildningar har olika mätare för varje kärn storlek. Mer information finns på sidan för [beräknings priser.](https://azure.microsoft.com/pricing/details/virtual-machines/)</li></ul>                                                                                                                                                                                                                                                                                                                                         | "2005544f-659d-49c9-9094-8e0aea1be3a5"                                                                                                                                                                                                                                                                                                                           |
-| Meter Name         | Detta är särskilt för varje tjänst i Azure. För Compute är det alltid "Beräkningstimmar".                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | "Beräkningstimmar"                                                                                                                                                                                                                                                                                                                                                  |
-| Meter Region       | Anger datacenterplats för vissa tjänster som prissätts beroende på var datacentret ligger.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |  "Japan, öst"                                                                                                                                                                                                                                                                                                                                                       |
-| Enhet               | Identifierar i vilken enhet tjänsten debiteras. Beräknings resurser faktureras per timme.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Timmarna                                                                                                                                                                                                                                                                                                                                                          |
-| Förbrukad           | Mängden av den resurs som har för bruk ATS under den dagen. För Compute debiterar vi varje minut som den virtuella datorn kördes för en given timme (upp till 6 decimaler av noggrannhet).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |    "1", "0,5"                                                                                                                                                                                                                                                                                                                                                    |
-| Resource Location  | Identifierar det datacenter där resursen körs.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | "Japan, öst"                                                                                                                                                                                                                                                                                                                                                        |
-| Consumed Service   | Den Azure-plattform som du använde.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | "Microsoft. Compute"                                                                                                                                                                                                                                                                                                                                              |
-| Resursgrupp     | Resursgruppen där den distribuerade resursen körs. Mer information finns i [Azure Resource Manager översikt.]()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    MyRG                                                                                                                                                                                                                                                                                                                                                        |
-| Instance ID        | Resursens identifierare. Identifieraren innehåller namnet du angav för resursen när den skapades. För virtuella datorer kommer instans-ID: t innehålla SubscriptionId, ResourceGroupName och VMName (eller skalnings uppsättningens namn för användning av skalnings uppsättningar).                                                                                                                                                                                                                                                                                                                                                                                                                    | "/Subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MyRG/providers/Microsoft. Compute/virtualMachines/MyVM1"<br><br>eller<br><br>"/Subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MyRG/providers/Microsoft. Compute/virtualMachineScaleSets/MyVMSS1"                                                                                           |
-| Taggar               | Tagg som du tilldelar till resursen. Använd taggar för att gruppera faktureringsposter. Lär dig att [tagga din Virtual Machines.](tag.md) Detta är endast tillgängligt för virtuella Resource Manager-datorer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | "{" personalavdelningen ":" RD "," min användare ":" mina namn "}"                                                                                                                                                                                                                                                                                                                        |
-| Ytterligare info    | Tjänstspecifika metadata. För virtuella datorer fyller vi i följande data i fältet ytterligare information: <ul><li>Bildtyp-bestämd bild som du körde. Hitta den fullständiga listan över strängar som stöds under avbildnings typer.</li><li>Tjänst typ: den storlek som du har distribuerat.</li><li>VMName: namnet på den virtuella datorn. Det här fältet är bara ifyllt för virtuella datorer med skalnings uppsättningar. Om du behöver ditt VM-namn för virtuella datorer med skalnings uppsättningar kan du se det i instans-ID-strängen ovan.</li><li>UsageType: här anges vilken typ av användning detta representerar.<ul><li>ComputeHR är beräknings timmen för den underliggande virtuella datorn, t. ex. Standard_D1_v2.</li><li>ComputeHR_SW är avgiften för program varan om den virtuella datorn använder Premium program vara, t. ex. Microsoft R Server.</li></ul></li></ul>    | Virtual Machines {"ImageType": "kanonisk", "ServiceType": "Standard_DS1_v2", "VMName": "", "UsageType": "ComputeHR"}<br><br>Virtual Machine Scale Sets {"ImageType": "kanonisk", "ServiceType": "Standard_DS1_v2", "VMName": "myVM1", "UsageType": "ComputeHR"}<br><br>Premium program vara {"ImageType": "", "ServiceType": "Standard_DS1_v2", "VMName": "", "UsageType": "ComputeHR_SW"} |
+| Fält | Betydelse | Exempel värden | 
+|---|---|---|
+| Datum för användning | Det datum då resursen användes | `11/23/2017` |
+| Meter ID | Identifierar den översta tjänst som den här användningen tillhör| `Virtual Machines`|
+| Meter Sub-Category | Identifierare för faktureringsmätaren. <br><br> För beräkning av användnings tid finns det en mätning för varje VM-storlek + OS (Windows, icke-Windows) + region. <br><br> För förstklassig program varu användning finns det en mätare för varje program varu typ. De flesta Premium program avbildningar har olika mätare för varje kärn storlek. Mer information finns på sidan för [beräknings priser](https://azure.microsoft.com/pricing/details/virtual-machines/)</li></ul>| `2005544f-659d-49c9-9094-8e0aea1be3a5`|
+| Meter Name| Detta är särskilt för varje tjänst i Azure. För Compute är det alltid "Beräkningstimmar".| `Compute Hours`|
+| Meter Region| Anger datacenterplats för vissa tjänster som prissätts beroende på var datacentret ligger.|  `JA East`|
+| Enhet| Identifierar i vilken enhet tjänsten debiteras. Beräknings resurser faktureras per timme.| `Hours`|
+| Förbrukad| Mängden av den resurs som har för bruk ATS under den dagen. För Compute debiterar vi varje minut som den virtuella datorn kördes för en given timme (upp till 6 decimaler av noggrannhet).| `1, 0.5`|
+| Resource Location  | Identifierar det datacenter där resursen körs.| `JA East`|
+| Consumed Service | Den Azure-plattform som du använde.| `Microsoft.Compute`|
+| Resursgrupp | Resursgruppen där den distribuerade resursen körs. Mer information finns i [Azure Resource Manager översikt.](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)|`MyRG`|
+| Instance ID | Resursens identifierare. Identifieraren innehåller namnet du angav för resursen när den skapades. För virtuella datorer kommer instans-ID: t innehålla SubscriptionId, ResourceGroupName och VMName (eller skalnings uppsättningens namn för användning av skalnings uppsättningar).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>eller<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
+| Taggar| Tagg som du tilldelar till resursen. Använd taggar för att gruppera faktureringsposter. Lär dig att [tagga din Virtual Machines.](tag.md) Detta är endast tillgängligt för virtuella Resource Manager-datorer.| `{"myDepartment":"RD","myUser":"myName"}`|
+| Ytterligare info | Tjänstspecifika metadata. För virtuella datorer fyller vi i följande data i fältet ytterligare information: <br><br> Bildtyp-bestämd bild som du körde. Hitta den fullständiga listan över strängar som stöds under avbildnings typer.<br><br> Tjänst typ: den storlek som du har distribuerat.<br><br> VMName: namnet på den virtuella datorn. Det här fältet är bara ifyllt för virtuella datorer med skalnings uppsättningar. Om du behöver ditt VM-namn för virtuella datorer med skalnings uppsättningar kan du se det i instans-ID-strängen ovan.<br><br> UsageType: här anges vilken typ av användning detta representerar.<br><br> ComputeHR är beräknings timmen för den underliggande virtuella datorn, t. ex. Standard_D1_v2.<br><br> ComputeHR_SW är avgiften för program varan om den virtuella datorn använder Premium program vara, t. ex. Microsoft R Server. | Virtual Machines<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Virtual Machine Scale Sets<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Premium program vara<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
 
 ## <a name="image-type"></a>Avbildnings typ
 För vissa bilder i Azure-galleriet fylls avbildnings typen i fältet ytterligare information. Detta gör det möjligt för användarna att förstå och spåra vad de har distribuerat på den virtuella datorn. Följande värden som är ifyllda i det här fältet baseras på avbildningen som du har distribuerat:
-  - BitRock 
-  - Canonical 
-  - FreeBSD 
-  - Öppna logik 
-  - Oracle 
-  - SLES för SAP 
-  - SQL Server 14 för hands version av Windows Server 2012 R2 
-  - SUSE
-  - SUSE Premium
-  - StorSimple Cloud Appliance 
-  - Red Hat
-  - Red Hat för SAP Business Applications     
-  - Red Hat för SAP HANA 
-  - BYOL för Windows-klient 
-  - Windows Server-BYOL 
-  - Windows Server Preview 
+- BitRock 
+- Kanoniskt FreeBSD 
+- Öppna logik 
+- Oracle 
+- SLES för SAP 
+- SQL Server 14 för hands version av Windows Server 2012 R2 
+- SUSE
+- SUSE Premium
+- StorSimple Cloud Appliance 
+- Red Hat
+- Red Hat för SAP Business Applications     
+- Red Hat för SAP HANA 
+- BYOL för Windows-klient 
+- Windows Server-BYOL 
+- Windows Server Preview 
 
 ## <a name="service-type"></a>Typ av tjänst
-Fältet typ av tjänst i fältet ytterligare information motsvarar den exakta VM-storlek som du har distribuerat. Virtuella datorer i Premium Storage (SSD-baserade) och icke-Premium-virtuella datorer (HDD-baserade) är i samma pris. Om du distribuerar en SSD-baserad storlek, som standard \_ DS2 \_ v2, kan du se storleken på den icke-SSD ("standard \_ D2 \_ v2 VM") i kolumnen mätar under kategori och SSD-storlek (standard \_ DS2 \_ v2) i fältet ytterligare information.
+Fältet typ av tjänst i fältet ytterligare information motsvarar den exakta VM-storlek som du har distribuerat. Virtuella datorer i Premium Storage (SSD-baserade) och icke-Premium-virtuella datorer (HDD-baserade) är i samma pris. Om du distribuerar en SSD-baserad storlek, som standard \_ DS2 \_ v2, kan du se storleken på den icke-SSD ( `Standard\_D2\_v2 VM` ) i kolumnen mätar under kategori och SSD-storlek ( `Standard\_DS2\_v2` ) i fältet ytterligare information.
 
 ## <a name="region-names"></a>Region namn
 Region namnet som fyllts i i fältet resurs plats i användnings informationen varierar från det region namn som används i Azure Resource Manager. Här är en mappning mellan värdena för regionen:
 
-|    **Namn på Resource Manager-region**       |    **Resurs plats i användnings information**    |
-|--------------------------|------------------------------------------|
-|    australiaeast         |    Australien, östra                               |
-|    Australien, sydöstra    |    Australien, sydöstra                          |
-|    Brasilien, södra           |    Brasilien, södra                              |
-|    Indiensödra         |    Kanada, centrala                            |
-|    Indien            |    Kanada, östra                               |
-|    Kanada          |    Indien, centrala                            |
-|    USA, centrala             |    Central US                            |
-|    chinaeast             |    Kina, östra                            |
-|    chinanorth            |    Kina, norra                           |
-|    eastasia              |    Asien, östra                             |
-|    USA, östra                |    East US                               |
-|    eastus2               |    USA, östra 2                             |
-|    GermanyCentral        |    DE centrala                            |
-|    GermanyNortheast      |    DE nordöstra                          |
-|    Japan, östra             |    Japan, östra                               |
-|    japanvästra             |    Japan, västra                               |
-|    Centrala          |    Sydkorea, centrala                            |
-|    Koreasödra            |    Sydkorea, södra                              |
-|    usanorracentrala        |    USA, norra centrala                      |
-|    northeurope           |    Norra Europa                          |
-|    USA, södra centrala        |    USA, södra centrala                      |
-|    Asien, sydöstra         |    Sydostasien                        |
-|    Australienöstra            |    Indien, södra                              |
-|    UKNorth               |    Nord USA                              |
-|    uksouth               |    Storbritannien, södra                              |
-|    UKSouth2              |    Storbritannien, södra 2                            |
-|    västrastorbritannien                |    Storbritannien, västra                               |
-|    USDoDCentral          |    USA DoD, centrala                        |
-|    USDoDEast             |    USA DoD, östra                           |
-|    USGovArizona          |    USGov Arizona                         |
-|    usgoviowa             |    USGov Iowa                            |
-|    USGovTexas            |    USGov Texas                           |
-|    usgovvirginia         |    USGov Virginia                        |
-|    USA, västra centrala         |    USA, västra centrala                       |
-|    Europa, västra            |    Europa, västra                           |
-|    Usavästracentrala             |    Indien, västra                               |
-|    westus                |    USA, västra                               |
-|    USA, västra 2               |    USA, västra 2                             |
+| **Namn på Resource Manager-region** | **Resurs plats i användnings information** |
+|---|---|
+| australiaeast |Australien, östra|
+| Australien, sydöstra | Australien, sydöstra|
+| Brasilien, södra | Brasilien, södra|
+| Indiensödra | Kanada, centrala|
+| Indien | Kanada, östra|
+| Kanada | Indien, centrala|
+| USA, centrala | Central US|
+| chinaeast | Kina, östra|
+| chinanorth | Kina, norra|
+| eastasia | Asien, östra|
+| USA, östra | East US|
+| eastus2 | USA, östra 2|
+| GermanyCentral | DE centrala|
+| GermanyNortheast | DE nordöstra|
+| Japan, östra | Japan, östra|
+| japanvästra | Japan, västra|
+| Centrala | Sydkorea, centrala|
+| Koreasödra | Sydkorea, södra|
+| usanorracentrala | USA, norra centrala|
+| northeurope | Norra Europa|
+| USA, södra centrala | USA, södra centrala|
+| Asien, sydöstra | Sydostasien|
+| Australienöstra | Indien, södra|
+| UKNorth | Nord USA|
+| uksouth | Storbritannien, södra|
+| UKSouth2 | Storbritannien, södra 2|
+| västrastorbritannien | Storbritannien, västra|
+| USDoDCentral | USA DoD, centrala|
+| USDoDEast | USA DoD, östra|
+| USGovArizona | USGov Arizona|
+| usgoviowa | USGov Iowa|
+| USGovTexas | USGov Texas|
+| usgovvirginia | USGov Virginia|
+| USA, västra centrala | USA, västra centrala|
+| Europa, västra | Europa, västra|
+| Usavästracentrala | Indien, västra|
+| westus | USA, västra|
+| USA, västra 2 | USA, västra 2|
 
 
 ## <a name="virtual-machine-usage-faq"></a>Vanliga frågor om användning av virtuell dator

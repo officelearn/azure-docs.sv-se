@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 12/30/2019
 ms.author: kgremban
-ms.openlocfilehash: f63510771e4bd71a3ab6cf048bc5fb5296042a4d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f8cb734e8a57e3b0ee114ae20f454d0034e9cdc9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75564839"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387631"
 ---
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
 
@@ -23,19 +23,20 @@ Om du inte redan har ett containerregister följer du dessa steg för att skapa 
 
 2. Skapa containerregistret genom att ange följande värden:
 
-   | Field | Värde |
+   | Fält | Värde |
    | ----- | ----- |
-   | Registernamn | Ange ett unikt namn. |
    | Prenumeration | Välj en prenumeration i listrutan. |
    | Resursgrupp | Vi rekommenderar att du använder samma resursgrupp för alla testresurser som du skapar i snabbstarterna och självstudierna om IoT Edge. Till exempel **IoTEdgeResources**. |
-   | Plats | Välj en plats i närheten av dig. |
-   | Administratörsanvändare | Ändra värdet till **Aktivera**. |
-   | SKU | Välj **Basic**. |
+   | Registernamn | Ange ett unikt namn. |
+   | Position | Välj en plats i närheten av dig. |
+   | SKU | Välj **Grundläggande**. |
 
 3. Välj **Skapa**.
 
 4. När du har skapat behållar registret, bläddrar du till det och väljer **åtkomst nycklar** från menyn som finns under **Inställningar**i den vänstra rutan.
 
-5. Kopiera värdena för **inloggnings Server**, **användar namn**och **lösen ord** och spara dem på ett praktiskt ställe. Du använder dessa värden i den här självstudien för att ge åtkomst till behållar registret.
+5. Klicka här om du vill att administratörs användare ska kunna se **användar namn** och **lösen ord** för behållar registret.
+
+6. Kopiera värdena för **inloggnings Server**, **användar namn**och **lösen ord** och spara dem på ett praktiskt ställe. Du använder dessa värden i den här självstudien för att ge åtkomst till behållar registret.
 
    ![Kopiera inloggnings Server, användar namn och lösen ord för container Registry](./media/iot-edge-create-container-registry/registry-access-key.png)

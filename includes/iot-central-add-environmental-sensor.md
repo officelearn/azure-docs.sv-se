@@ -1,19 +1,19 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: iot-central
 author: dominicbetts
 ms.service: iot-central
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 07/07/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 0381418f20e126f94060b9f495fe1fe8b54e713b
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: b32465091f82fec0aeae288ee9bfd5540bfe8b9d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85378627"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002054"
 ---
 ## <a name="create-a-device-template"></a>Skapa en enhetsmall
 
@@ -79,13 +79,12 @@ I ditt Azure IoT Central-program lägger du till en riktig enhet i enhets mal le
 
 1. På sidan **enheter** väljer du mallen **miljö sensor** enhet.
 
-    > [!TIP]
-    > Se till att välja den mall som ska användas innan du väljer **+ ny**, annars skapar du en enhet som inte är associerad.
+1. Välj **+ Ny**.
 
-1. Välj **+ ny**.
+1. I dialog rutan **skapa en ny enhet** ser du till att **miljö sensorn** är Malltyp och att **den simulerar den här enheten?** har värdet **Nej**.
 
-1. Se till att den **simulerade** är **avstängd**. Välj sedan **Skapa**.
+1. Välj sedan **Skapa**.
 
 Klicka på enhetens namn och välj sedan **Anslut**. Anteckna anslutnings informationen för enheten på sidan för **enhets anslutningens** ID- **omfång**, **enhets-ID**och **primär nyckel**. Du behöver dessa värden när du skapar din enhets kod:
 
-![Information om enhets anslutning](./media/iot-central-add-environmental-sensor/device-connection.png)
+![Information om enhetsanslutning](./media/iot-central-add-environmental-sensor/device-connection.png)

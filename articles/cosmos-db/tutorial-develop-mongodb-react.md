@@ -9,12 +9,13 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: jopapa
 ms.reviewer: sngun
-ms.openlocfilehash: 4efaa90281ddcebf1b800e1016578e38c24be651
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 8fbf06d6bd93de578039959d9f0235f1f55d448e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "69614109"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424281"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Skapa en MongoDB-app med React och Azure Cosmos DB  
 
@@ -34,7 +35,7 @@ Den här självstudiekursen i flera delar består av följande uppgifter:
 
 Vill du skapa den här appen med Angular? Gå [den videobaserade självstudieserien för Angular](tutorial-develop-mongodb-nodejs.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * [Node.js](https://www.nodejs.org)
 
 ### <a name="finished-project"></a>Det färdiga projektet

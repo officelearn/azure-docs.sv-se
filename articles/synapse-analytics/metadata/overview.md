@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: c41c3346d04dd1fc00a7ddb9e7fea66f619995e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c11a0ccb08f03775a07716e6c547d849cda347dd
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496068"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387344"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Delade Azure Synapse Analytics-metadata
 
@@ -40,7 +40,7 @@ Den delade metadata-modellen stöder det moderna informations lagrets mönster p
 
 Synkronisering av objekt sker asynkront. Objekt får en liten fördröjning på några sekunder tills de visas i SQL-kontexten. När de visas kan de frågas, men inte uppdateras eller ändras inte av de SQL-motorer som har åtkomst till dem.
 
-## <a name="which-metadata-objects-are-shared"></a>Vilka metadata-objekt som delas
+## <a name="shared-metadata-objects"></a>Delade metadata-objekt
 
 Med Spark kan du skapa databaser, externa tabeller, hanterade tabeller och vyer. Eftersom Spark-vyer kräver en spark-motor för att bearbeta definitionen av Spark SQL-instruktionen och inte kan bearbetas av en SQL-motor, delas bara databaser och deras externa och hanterade tabeller som använder lagrings Parquet lagrings utrymme med SQL-motorn för arbets ytan. Spark-vyer delas bara mellan instanserna i Spark-poolen.
 

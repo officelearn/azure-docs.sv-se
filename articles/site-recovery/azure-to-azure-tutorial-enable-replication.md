@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e7f7535cf66da721e1738da6d0efbf335d97a6da
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 50bf1ec7f21ccbc3a3fa8feaea02e45bd08a158a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134494"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421424"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Konfigurera katastrof återställning för virtuella Azure-datorer
 
@@ -27,7 +27,7 @@ Den här självstudien visar hur du konfigurerar haveri beredskap för virtuella
 > [!NOTE]
 > Den här artikeln innehåller instruktioner för distribution av haveriberedskap med de enklaste inställningarna. Om du vill lära dig mer om anpassade inställningar kan du läsa artiklarna i [avsnittet How to](azure-to-azure-how-to-enable-replication.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -39,7 +39,7 @@ För att slutföra den här kursen behöver du:
 Skapa valvet i valfri region, utom i källregionen.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**. Välj sedan **den & hanterings verktyg**  >  **säkerhets kopiering och Site Recovery**.
+1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**. Välj sedan **den & hanterings verktyg**  >  **säkerhets kopiering och Site Recovery**.
 1. I **namn**anger du ett eget namn som identifierar valvet. Om du har mer än en prenumeration väljer du den lämpligaste.
 1. Skapa en resursgrupp eller välj en befintlig. Ange en Azure-region. Information om vilka regioner som stöds finns under Geografisk tillgänglighet i avsnittet med [Azure Site Recovery-prisinformation](https://azure.microsoft.com/pricing/details/site-recovery/).
 1. Om du vill komma åt valvet från instrument panelen väljer du **Fäst på instrument panelen** och väljer sedan **skapa**.
@@ -66,12 +66,12 @@ Site Recovery kräver att vissa ändringar görs i utgående nätverksanslutning
 
 Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgående anslutning ger du åtkomst till följande URL: er:
 
-| **URL** | **Detaljer** |
-| ------- | ----------- |
-| `*.blob.core.windows.net` | Gör att data kan skrivas från den virtuella datorn till cachelagringskontot i källregionen. |
-| `login.microsoftonline.com` | Tillhandahåller auktorisering och autentisering för Site Recovery-tjänstens webbadresser. |
-| `*.hypervrecoverymanager.windowsazure.com` | Låter den virtuella datorn kommunicera med Site Recovery-tjänsten. |
-| `*.servicebus.windows.net` | Låter den virtuella datorn skriva övervaknings- och diagnostikdata för Site Recovery. |
+| **Namn**                  | **Kommersiellt**                               | **Government**                                 | **Beskrivning** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Gör att data kan skrivas från den virtuella datorn till cachelagringskontot i källregionen. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Tillhandahåller auktorisering och autentisering för Site Recovery-tjänstens webbadresser. |
+| Replikering               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Låter den virtuella datorn kommunicera med Site Recovery-tjänsten. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Låter den virtuella datorn skriva övervaknings- och diagnostikdata för Site Recovery. |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Utgående anslutning för IP-adressintervall
 
@@ -94,7 +94,7 @@ Azure Site Recovery har tre inbyggda roller som styr Site Recovery-hanteringen.
 
 - **Site Recovery-läsare** – Den här rollen har behörighet att visa all Site Recovery-hantering. Den här rollen lämpar sig bäst för en IT-chef som kan övervaka aktuell skyddsnivå och skapa supportärenden.
 
-Lär dig mer om [inbyggda Azure RBAC-roller](../role-based-access-control/built-in-roles.md).
+Lär dig mer om [inbyggda Azure-roller](../role-based-access-control/built-in-roles.md).
 
 ## <a name="enable-replication-for-a-vm"></a>Aktivera replikering för en virtuell dator
 
@@ -131,7 +131,7 @@ Site Recovery skapar standardinställningar och replikeringsprinciper för målr
 
 1. Anpassa mål inställningarna som sammanfattas i tabellen.
 
-   | **Inställning** | **Detaljer** |
+   | **Inställning** | **Information** |
    | --- | --- |
    | **Mål prenumeration** | Som standard är mål prenumerationen densamma som käll prenumerationen. Välj **Anpassa** om du vill välja en annan mål prenumeration inom samma Azure Active Directory klient. |
    | **Målplats** | Den målregion som används för haveriberedskap.<br/><br/> Vi rekommenderar att målplatsen överensstämmer med Site Recovery-valvets plats. |
@@ -145,7 +145,7 @@ Site Recovery skapar standardinställningar och replikeringsprinciper för målr
 
 1. Om du vill anpassa inställningarna för replikeringsprincipen väljer du **Anpassa** bredvid **replikeringsprincip**och ändrar inställningarna efter behov.
 
-   | **Inställning** | **Detaljer** |
+   | **Inställning** | **Information** |
    | --- | --- |
    | **Namn på replikeringsprincip** | Principnamn. |
    | **Kvarhållning av återställnings punkt** | Som standard behåller Site Recovery återställningspunkter i 24 timmar. Du kan ställa in ett värde mellan 1 och 72 timmar. |

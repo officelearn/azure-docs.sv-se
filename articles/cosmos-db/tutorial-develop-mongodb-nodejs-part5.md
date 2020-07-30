@@ -8,14 +8,14 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-javascript
 ms.reviewer: sngun
-ms.openlocfilehash: f77c20faa87adf28a2dda43412a59867309c7cf8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c64502ac1fa4837d6052fd399fd2c44b6ab4a09
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066918"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423889"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – Ansluta till Cosmos DB med hjälp av Mongoose
 
@@ -226,7 +226,7 @@ Som nästa steg måste du konfigurera väger för att hantera URL:erna för beg�
 
 Nu ska vi ägna en minut åt att gå igenom den tidigare koden. Först kommer vi till filen index.js, som konfigurerar nodservern. Observera att den konfigurerar och definierar vägarna. Sedan kommunicerar routes.js-filen med hero-tjänsten och beordrar den att hämta dina funktioner, som **getHeroes**, och att skicka begäran och svaret. Filen hero.service.js hämtar modellen och ansluter till Mongo. Sedan körs **getHeroes** när vi anropar den och returnerar svaret 200. 
 
-## <a name="run-the-app"></a>Köra appen
+## <a name="run-the-app"></a>Kör appen
 
 Kör sedan appen med hjälp av följande steg:
 

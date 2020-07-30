@@ -9,12 +9,13 @@ ms.reviewer: mihansen
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: fcad9356f87e76b14e0ef636389c11fd4290e12a
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.custom: devx-track-javascript
+ms.openlocfilehash: bf47ec0ca88d409c91b8acad25506c1cc8958e86
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "84872667"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422801"
 ---
 # <a name="deploy-javascript-app-to-read-data-from-fhir-service"></a>Distribuera JavaScript-appen för att läsa data från FHIR-tjänsten
 I den här självstudien kommer du att distribuera en liten JavaScript-app som läser data från en FHIR-tjänst. Stegen i den här självstudien är:
@@ -23,7 +24,7 @@ I den här självstudien kommer du att distribuera en liten JavaScript-app som l
 1. Testa åtkomst till programmet
 1. Skapa ett webb program som läser dessa FHIR-data
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du startar den här uppsättningen med självstudier behöver du följande objekt:
 1. En Azure-prenumeration
 1. En Azure Active Directory-klientorganisation
@@ -42,7 +43,7 @@ Det första steget i självstudien är att hämta Azure API för FHIR-installati
     1. Under **metoder**väljer du **Markera alla**
     1. Ställ in **Maximal ålder** på **600**
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Nu när du har ett Azure-API för FHIR distribuerat, är du redo att registrera ett offentligt klient program.
 
 >[!div class="nextstepaction"]

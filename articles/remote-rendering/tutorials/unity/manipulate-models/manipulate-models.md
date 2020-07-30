@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 182ceca11d6e9b9bbebcf2911de1783cef43dd1a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 4928938c38df8a1ed0f1e31c73e755a4f7f6c371
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207325"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367638"
 ---
 # <a name="tutorial-manipulating-models"></a>Självstudie: ändra modeller
 
@@ -23,7 +23,7 @@ I den här guiden får du lära dig att:
 > * Raycast med spatiala frågor
 > * Lägg till enkla animeringar för fjärrrenderade objekt
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Den här självstudien bygger på [Självstudier: gränssnitt och anpassade modeller](../custom-models/custom-models.md).
 
@@ -185,7 +185,7 @@ I den här självstudien används MRTK för objekt interaktion. De flesta av de 
 
 1. Håll kvar genom att klicka och dra modellen för att flytta den.
 
-Du bör se flyttningen av fjärranslutna innehåll tillsammans med markerings rutan. Du kan lägga märke till fördröjningar eller fördröjningar mellan markerings rutans fjärrinnehåll. Den här fördröjningen beror på din Internet fördröjning och bandbredd.
+Du bör se flyttningen av fjärranslutna innehåll tillsammans med markerings rutan. Du kan märka en fördröjning eller fördröjning mellan markerings rutan och fjärrinnehållet. Den här fördröjningen beror på din Internet fördröjning och bandbredd.
 
 ## <a name="ray-cast-and-spatial-queries-of-remote-models"></a>Ray-Cast och spatiala frågor för fjärranslutna modeller
 

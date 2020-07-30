@@ -15,17 +15,17 @@ ms.date: 11/08/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77d465b5900a3c36e6c6b957431b9d6ba56f50a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97def0608251f65aa222e13760877d4287135d08
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764867"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386987"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Arbeta med anspråks medveten appar i Application Proxy
 [Anspråksmedvetna appar](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) utför en omdirigering till säkerhetstokentjänsten (Security Token Service). STS begär autentiseringsuppgifter från användaren i Exchange för en token och omdirigerar sedan användaren till programmet. Det finns några sätt att aktivera Application Proxy för att arbeta med dessa omdirigeringar. Använd den här artikeln för att konfigurera distributionen för anspråksmedvetna appar. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Se till att STS som anspråks medveten app omdirigerar till är tillgängligt utanför ditt lokala nätverk. Du kan göra STS tillgängligt genom att exponera det via en proxyserver eller genom att tillåta externa anslutningar. 
 
 ## <a name="publish-your-application"></a>Publicera programmet
@@ -55,7 +55,6 @@ Om alla interna URL: er för dina program är fullständigt kvalificerade domän
    ![Lägg till ett slut punkts värde för betrodd URL-skärm bild](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>Nästa steg
-* [Aktivera enkel inloggning](configure-single-sign-on-non-gallery-applications.md) för program som inte är anspråks medveten
 * [Aktivera inbyggda klient program för att interagera med proxy-program](application-proxy-configure-native-client-application.md)
 
 

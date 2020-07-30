@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: f4eeb646de8b68c2c8d30586d0c75cece5317e40
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: db3cd95c5a833b299ee85c1e68b15644ae0e0226
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76716328"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387582"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Självstudie: utforma en instrument panel med real tids analys med Azure Database for PostgreSQL – storskalig (citus)
 
@@ -28,7 +28,7 @@ I den här självstudien använder du Azure Database for PostgreSQL-storskalig s
 > * Fråga rå data och sammanställda data
 > * Förfaller data
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
@@ -86,12 +86,14 @@ Du kan se de nyligen skapade tabellerna i listan med tabeller nu med detta psql-
 
 En storskalig distribution lagrar tabell rader på olika noder baserat på värdet för en användardefinierad kolumn. Denna "distributions kolumn" markerar hur data ska shardade mellan noder.
 
-Låt oss ställa in distributions kolumnen som plats\_-ID, nyckeln Shard. I psql kör du följande funktioner:
+Låt oss ställa in distributions kolumnen som plats \_ -ID, nyckeln Shard. I psql kör du följande funktioner:
 
   ```sql
 SELECT create_distributed_table('http_request',      'site_id');
 SELECT create_distributed_table('http_request_1min', 'site_id');
 ```
+
+[!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../includes/azure-postgresql-hyperscale-dist-alert.md)]
 
 ## <a name="generate-sample-data"></a>Generera exempeldata
 
@@ -122,7 +124,7 @@ DO $$
 END $$;
 ```
 
-Frågan infogar ungefär åtta rader varje sekund. Raderna lagras på olika arbetsnoder enligt anvisningarna i kolumnen distribution `site_id`.
+Frågan infogar ungefär åtta rader varje sekund. Raderna lagras på olika arbetsnoder enligt anvisningarna i kolumnen distribution `site_id` .
 
    > [!NOTE]
    > Lämna frågan för generering av data som körs och öppna en andra psql-anslutning för de återstående kommandona i den här självstudien.

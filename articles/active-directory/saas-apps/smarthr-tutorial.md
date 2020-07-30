@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71a019ee6b0df52de70dfedca94feaede90e1f0d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 46d3ac6947293529308ad0abba9cd175d6b4dd6c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294961"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407344"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smarthr"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SmartHR
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur du integrerar SmartHR med Azure A
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -90,7 +90,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     c. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<SUBDOMAIN>.smarthr.jp/external_saml/acs`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska inloggnings-URL: en, svars-URL och identifierare. Kontakta [SmartHR client support team](mailto:info@smarhr.jp) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska inloggnings-URL: en, svars-URL och identifierare. Kontakta [SmartHR client support team](mailto:info@smarthr.jp) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
@@ -132,11 +132,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-smarthr-sso"></a>Konfigurera SmartHR SSO
 
-Om du vill konfigurera enkel inloggning på **SmartHR** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för SmartHR](mailto:info@smarhr.jp). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **SmartHR** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för SmartHR](mailto:info@smarthr.jp). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-smarthr-test-user"></a>Skapa SmartHR test användare
 
-I det här avsnittet skapar du en användare som heter B. Simon i SmartHR. Arbeta med [SmartHR support team](mailto:info@smarhr.jp) för att lägga till användare i SmartHR-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter B. Simon i SmartHR. Arbeta med [SmartHR support team](mailto:info@smarthr.jp) för att lägga till användare i SmartHR-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO 
 

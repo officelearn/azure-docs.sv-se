@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9b6753a0aa9e79624b9b972264611fd31f2bba8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c706de8a7638c16f3778d0d5295069c13b79d98
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764833"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387276"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>SAML enkel inloggning för lokala program med programproxy
 
@@ -47,7 +47,7 @@ Protokoll diagrammen nedan beskriver den enkla inloggnings ordningen för både 
 
 4. Välj **SAML** som metoden för enkel inloggning.
 
-5. Börja med att konfigurera SAML SSO så att den fungerar medan den är i företags nätverket. På sidan **Konfigurera enkel inloggning med SAML** går du till rubriken för den **grundläggande SAML-konfigurationen** och väljer dess **redigerings** ikon (en blyertspenna). Följ stegen i [Ange grundläggande SAML-konfiguration](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) för att konfigurera SAML-baserad autentisering för programmet.
+5. Börja med att konfigurera SAML SSO för att fungera samtidigt som i företags nätverket, se avsnittet grundläggande SAML-konfiguration i [Konfigurera SAML-baserad enkel inloggning](configure-saml-single-sign-on.md) för att konfigurera SAML-baserad autentisering för programmet.
 
 6. Lägg till minst en användare i programmet och kontrol lera att test kontot har åtkomst till programmet. När du är ansluten till företags nätverket använder du test kontot för att se om du har enkel inloggning till programmet. 
 
@@ -81,7 +81,7 @@ Innan du kan ange SSO för lokala program måste du aktivera programproxyn och i
 
 4. Markera kryss rutan bredvid den uppdaterade **svars-URL: en** för att markera den som standard.
 
-   * När du har markerat den obligatoriska **svars-URL: en** som standard kan du ta bort den tidigare konfigurerade **svars-URL: en** som använde den interna webb adressen.
+   * När du har markerat den obligatoriska **svars-URL: en** som standard kan du också ta bort den tidigare konfigurerade **svars-URL: en** som använde den interna URL
 
    * För ett SP-initierat flöde kontrollerar du att Server dels programmet anger rätt **svars-URL** eller URL-adress för intygs mottagare för att ta emot autentiseringstoken.
 

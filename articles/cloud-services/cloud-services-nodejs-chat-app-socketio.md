@@ -9,12 +9,13 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
-ms.openlocfilehash: 5bea3bec68217881729f1daf8d75837e1d67e8ce
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 8029c243052114b9a0932e5372301be84440cf85
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919973"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386596"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Bygg ett Node.js chatt-program med Socket.IO på en moln tjänst i Azure
 
@@ -24,7 +25,7 @@ En skärm bild av det färdiga programmet är nedan:
 
 ![Ett webbläsarfönster som visar tjänsten som finns på Azure][completed-app]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Se till att följande produkter och versioner är installerade för att kunna slutföra exemplet i den här artikeln:
 
 * Installera [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
@@ -138,7 +139,7 @@ När du har sparat ändringarna i **server.js**använder du följande steg för 
     PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
     ```
 
-5. Använd cmdleten **Publish-AzureServiceProject** om du vill distribuera programmet till Azure. Ett exempel:
+5. Använd cmdleten **Publish-AzureServiceProject** om du vill distribuera programmet till Azure. Exempel:
 
     ```powershell
     PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch

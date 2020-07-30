@@ -3,12 +3,12 @@ title: Skapa en mall-specifikation med länkade mallar
 description: Lär dig hur du skapar en mall-specifikation med länkade mallar.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: c2648cb8a71be709406f314d02a226ed097be6f0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b952baa465092fef19ad2feb11a43328a6177d1c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099743"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387871"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Självstudie: skapa en mall-specifikation med länkade mallar (förhands granskning)
 
@@ -33,7 +33,7 @@ Den länkade mallen kallas **linkedTemplate.jspå**och lagras i en undermapp som
 - `/artifacts/linkedTemplate.json`
 - `artifacts/linkedTemplate.json`
 
-Om det finns en annan linkedTemplate2.jspå som anropas från linkedTemplate.jspå och linkedTemplate2.jspå lagras i undermappen för artefakter, är relativePath som anges i linkedTemplate.jspå **linkedTemplate2.jspå**.
+`relativePath`Egenskapen är alltid relativ i förhållande till mallfilen där `relativePath` deklareras, så om det finns en annan linkedTemplate2.jspå den som anropas från linkedTemplate.jspå och linkedTemplate2.jspå lagras i samma artefakter undermapp, är relativePath som anges i linkedTemplate.jspå bara `linkedTemplate2.json` .
 
 1. Skapa huvud mal len med följande JSON. Spara huvud mal len som **azuredeploy.jspå** den lokala datorn. Den här självstudien förutsätter att du har sparat till en sökväg **c:\Templates\linkedTS\azuredeploy.js** men du kan använda valfri sökväg.
 

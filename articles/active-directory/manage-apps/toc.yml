@@ -21,8 +21,6 @@
       href: delete-application-portal.md
 - name: Självstudier
   items:
-    - name: Lägg till en app som inte finns med i galleriet
-      href: add-non-gallery-app.md
     - name: 'Integrerade galleriappar (t.ex. ServiceNow, Salesforce, Dropbox)'
       href: /azure/active-directory/saas-apps/
     - name: Lägga till en lokal app med programproxy
@@ -42,6 +40,8 @@
       items:
         - name: Komma igång med appintegrering
           href: plan-an-application-integration.md
+        - name: Planera för appar som inte finns med i galleriet
+          href: non-gallery-apps.md
         - name: Planera distribution av åtkomstpanel
           href: access-panel-deployment-plan.md
         - name: Vägledning för utvecklare
@@ -106,7 +106,7 @@
             - name: Konfigurera SAML-baserad enkel inloggning
               items:
                 - name: Konfigurera SAML-baserad enkel inloggning
-                  href: configure-single-sign-on-non-gallery-applications.md
+                  href: configure-saml-single-sign-on.md
                 - name: Anpassa användarattribut och anspråk
                   items:
                     - name: Konfigurera gruppanspråk

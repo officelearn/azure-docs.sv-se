@@ -3,12 +3,13 @@ title: Självstudie – utlöser avbildnings skapande med uppdatering av privat 
 description: I den här självstudien konfigurerar du en Azure Container Registry aktivitet för att automatiskt utlösa behållar avbildnings avbildningar i molnet när en bas avbildning i ett annat privat Azure Container Registry uppdateras.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.openlocfilehash: e8aae8a91288d470c801dc4d82cfa6b44369d832
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: e28dc65f44f3d9997a59e6204451cc84b0e41e40
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77617704"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407140"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>Självstudie: automatisera behållar avbildningen skapas när en bas avbildning uppdateras i ett annat privat behållar register 
 
@@ -29,7 +30,7 @@ I de här självstudierna har du
 
 Om du vill använda Azure CLI lokalt måste du ha Azure CLI-versionen **2.0.68** eller senare installerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa mer i [Installera Azure CLI][azure-cli].
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="complete-the-previous-tutorials"></a>Slutför de tidigare självstudierna
 
@@ -102,7 +103,7 @@ az acr task create \
 ```
 
 
-Den här uppgiften liknar den uppgift som skapades i [föregående självstudie](container-registry-tutorial-build-task.md). Den instruerar ACR Tasks att utlösa en avbildningsversion när incheckningar skickas till den lagringsplats som anges i `--context`. Dockerfile som används för att bygga avbildningen i föregående självstudie anger en offentlig bas avbildning (`FROM node:9-alpine`), Dockerfile i den här uppgiften, [Dockerfile-app][dockerfile-app], anger en bas avbildning i bas avbildnings registret:
+Den här uppgiften liknar den uppgift som skapades i [föregående självstudie](container-registry-tutorial-build-task.md). Den instruerar ACR Tasks att utlösa en avbildningsversion när incheckningar skickas till den lagringsplats som anges i `--context`. Dockerfile som används för att bygga avbildningen i föregående självstudie anger en offentlig bas avbildning ( `FROM node:9-alpine` ), Dockerfile i den här uppgiften, [Dockerfile-app][dockerfile-app], anger en bas avbildning i bas avbildnings registret:
 
 ```Dockerfile
 FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
@@ -162,7 +163,7 @@ Börja med att autentisera till behållar registret med [AZ ACR-inloggning][az-a
 az acr login --name $ACR_NAME
 ```
 
-Kör nu containern lokalt med `docker run`. Ersätt ** \<Run-ID\> ** med körnings-ID: t som påträffades i resultatet från föregående steg (till exempel "DA6"). Det här exemplet namnger behållaren `myapp` och innehåller `--rm` parametern för att ta bort behållaren när den stoppas.
+Kör nu containern lokalt med `docker run`. Ersätt **\<run-id\>** med körnings-ID: t som finns i utdata från föregående steg (till exempel "DA6"). Det här exemplet namnger behållaren `myapp` och innehåller `--rm` parametern för att ta bort behållaren när den stoppas.
 
 ```bash
 docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-id>

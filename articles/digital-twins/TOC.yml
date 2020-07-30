@@ -66,6 +66,8 @@
           href: how-to-create-azure-function.md
         - name: Fråga tvillingdiagrammet
           href: how-to-query-graph.md
+        - name: Visa mått i Azure Monitor
+          href: how-to-view-metrics.md
     - name: Anslut indata
       items:
         - name: Mata in telemetri från IoT Hub
@@ -80,6 +82,8 @@
           href: how-to-integrate-time-series-insights.md
     - name: Felsöka
       items:
+        - name: Aktivera diagnostikloggar
+          href: troubleshoot-diagnostics.md
         - name: Kända problem
           href: troubleshoot-known-issues.md
         - name: Problemlösning

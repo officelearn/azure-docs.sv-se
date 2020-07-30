@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 1956090f1b927d9fd4e205eaa57bf1952cb1b070
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f80403946b3097e81678383c4829ef6606f26cd6
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083998"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430349"
 ---
 # <a name="enhanced-secure-score-in-azure-security-center"></a>Förbättrade säkra poäng i Azure Security Center
 
@@ -169,6 +169,10 @@ I tabellen nedan visas säkerhets kontrollerna i Azure Security Center. För var
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Aktivera granskning och loggning (max resultat 1)</p></strong>Loggnings data ger insikter om tidigare problem, förhindrar att de kan förbättra programmets prestanda och ger möjlighet att automatisera åtgärder som annars skulle vara manuella.<br>- <strong>Kontroll-och hanterings loggar</strong> innehåller information om <a href="https://docs.microsoft.com/azure/azure-resource-manager/management/overview">Azure Resource Manager</a> åtgärder.<br>- <strong>Data Plans loggar</strong> innehåller information om händelser som Aktiver ATS som en del av Azure-resursanvändningen.<br>- <strong>Bearbetade händelser</strong> innehåller information om analyserade händelser/aviseringar som har bearbetats.</td>
     <td class="tg-lboi"; width=55%>-Granskning på SQL Server måste vara aktiverat<br>-Diagnostikloggar i App Services ska vara aktive rad<br>-Diagnostikloggar i Azure Data Lake Store ska vara aktive rad<br>-Diagnostikloggar i Azure Stream Analytics ska vara aktive rad<br>-Diagnostikloggar i batch-konton måste vara aktiverade<br>-Diagnostikloggar i Data Lake Analytics ska vara aktive rad<br>-Diagnostikloggar i Händelsehubben måste vara aktive rad<br>-Diagnostikloggar i IoT Hub ska vara aktive rad<br>-Diagnostikloggar i Key Vault ska vara aktive rad<br>-Diagnostikloggar i Logic Apps ska vara aktive rad<br>-Diagnostikloggar i Search-tjänsten måste vara aktive rad<br>-Diagnostikloggar i Service Bus ska vara aktive rad<br>-Diagnostikloggar i Virtual Machine Scale Sets ska vara aktive rad<br>-Mått varnings regler ska konfigureras för batch-konton<br>-Inställningarna för SQL-granskning bör ha åtgärds grupper konfigurerade för att fånga kritiska aktiviteter<br>-SQL-servrar bör konfigureras med granskning av antalet dagar som är större än 90 dagar.</td>
+  </tr>
+  <tr>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Aktivera avancerat skydd (max antal poäng 0)</p></strong>Azure Security Center s hot skydd ger omfattande försvar för din miljö. När Security Center identifierar ett hot i alla områden i miljön genererar den en avisering. De här aviseringarna beskriver information om de resurser som påverkas, föreslagna åtgärds steg och i vissa fall ett alternativ för att utlösa en logisk app som svar.<br>Varje hot skydds paket är ett separat, valfritt erbjudande som du kan aktivera med hjälp av rekommendationen i den här säkerhets kontrollen.<br><a href="https://docs.microsoft.com/azure/security-center/threat-protection">Läs mer om skydd av hot i Security Center</a>.</td>
+    <td class="tg-lboi"; width=55%>-Avancerad data säkerhet ska vara aktiverat på Azure SQL Database servrar<br>-Avancerad data säkerhet ska vara aktiverat på SQL-servrar på datorer<br>-Avancerat skydd bör vara aktiverat på Virtual Machines<br>-Avancerat skydd bör vara aktiverat på Azure App Service planer<br>-Avancerat skydd bör vara aktiverat på Azure Storage konton<br>-Avancerat skydd bör vara aktiverat på Azure Kubernetes service-kluster<br>-Avancerat skydd bör vara aktiverat på Azure Container Registry register<br>-Avancerat skydd bör vara aktiverat på Azure Key Vault valv</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Implementera rekommenderade säkerhets metoder (max antal poäng 0)</p></strong>Modern säkerhets praxis "anta överträdelse" av nätverks omkretsen. Därför är många av de bästa metoderna i den här kontrollen fokuserade på att hantera identiteter.<br>Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. <a href="https://docs.microsoft.com/azure/key-vault/key-vault-overview">Azure Key Vault</a> skyddar nycklar och hemligheter genom att kryptera nycklar, PFX-filer och lösen ord.<br>Virtuella privata nätverk (VPN) är ett säkert sätt att komma åt dina virtuella datorer. Om VPN inte är tillgängligt använder du komplexa lösen fraser och tvåfaktorautentisering, till exempel <a href="https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks">Azure Multi-Factor Authentication</a>. Med tvåfaktorautentisering undviker du de svagheter som endast förlitar sig på användar namn och lösen ord.<br>Att använda kraftfulla plattformar för autentisering och auktorisering är en annan metod. Med federerade identiteter kan organisationer delegera hantering av auktoriserade identiteter. Detta är också viktigt när anställda avslutas och deras åtkomst måste återkallas.</td>

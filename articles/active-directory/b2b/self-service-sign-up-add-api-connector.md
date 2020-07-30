@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6238e89b3941668f831f3128bb0e723a4097e48
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 88270d51bf50b2b175d9d8761685a8a2a8ae19b1
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027520"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428284"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Lägga till en API-anslutning till ett användar flöde
 
@@ -42,9 +42,16 @@ Om du vill använda en [API-anslutning](api-connectors-overview.md)skapar du fö
 8. Välj de anspråk som du vill skicka till API: et.
 9. Välj eventuella anspråk som du planerar att ta emot tillbaka från API: et.
 
-   ![Ange anspråk för API-koppling](./media/self-service-sign-up-add-api-connector/api-connector-claims.png)
+   <!-- ![Set API connector claims](./media/self-service-sign-up-add-api-connector/api-connector-claims.png) -->
 
 10. Välj **Spara**.
+
+### <a name="selection-of-claims-to-send-and-claims-to-receive"></a>Val av "anspråk att skicka" och "anspråk att ta emot"
+> [!IMPORTANT]
+> Du kan se alla anspråk som valts som standard enligt nedan. Alla API-kopplingar kommer att uppdateras så att de fungerar på det här sättet. Ditt API tar emot alla tillgängliga anspråk och kan skicka tillbaka alla anspråk som stöds utan att konfigurera dem i definitionen av API-anslutningen. 
+
+![Ange anspråk för API-koppling](./media/self-service-sign-up-add-api-connector/api-connector-claims-new.png)
+
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Aktivera API-anslutningen i ett användar flöde
 

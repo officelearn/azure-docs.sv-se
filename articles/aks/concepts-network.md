@@ -4,12 +4,12 @@ description: Lär dig mer om nätverk i Azure Kubernetes service (AKS), inklusiv
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d0e2c193e626b2d82fc57ef0699a2558ec3a9629
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: dacb14664b21412df1b1d48c023017378cf364c9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244658"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387769"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverks koncept för program i Azure Kubernetes service (AKS)
 
@@ -94,7 +94,7 @@ Både Kubernetes och Azure CNI ger nätverks anslutning till dina AKS-kluster. D
 
 Det finns följande skillnader mellan Kubernetes och Azure CNI:
 
-| Funktion                                                                                   | Kubernetes   | Azure-CNI |
+| Kapacitet                                                                                   | Kubernetes   | Azure-CNI |
 |----------------------------------------------------------------------------------------------|-----------|-----------|
 | Distribuera kluster i befintligt eller nytt virtuellt nätverk                                            | Stödd-UDR manuellt tillämpat | Stöds |
 | Pod – Pod-anslutning                                                                         | Stöds | Stöds |
@@ -105,7 +105,7 @@ Det finns följande skillnader mellan Kubernetes och Azure CNI:
 | Exponera Kubernetes Services med hjälp av en belastningsutjämnare, app-gateway eller ingångs kontroll | Stöds | Stöds |
 | Standard Azure DNS och privata zoner                                                          | Stöds | Stöds |
 
-För DNS erbjuds både Kubernetes-och Azure CNI-plugin-program DNS av CoreDNS, en daemon-uppsättning som körs i AKS. Mer information om CoreDNS i Kubernetes finns i [Anpassa DNS-tjänsten](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). CoreDNS konfigureras per standard för att vidarebefordra okända domäner till nodens DNS-servrar, med andra ord, till DNS-funktionerna i Azure-Virtual Network där AKS-klustret distribueras. Därför kommer Azure DNS och privata zoner att fungera för poddar som körs i AKS.
+För DNS erbjuds både Kubernetes-och Azure CNI-plugin-program DNS av CoreDNS, en distribution som körs i AKS med en egen autoskalning. Mer information om CoreDNS i Kubernetes finns i [Anpassa DNS-tjänsten](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). CoreDNS konfigureras per standard för att vidarebefordra okända domäner till nodens DNS-servrar, med andra ord, till DNS-funktionerna i Azure-Virtual Network där AKS-klustret distribueras. Därför kommer Azure DNS och privata zoner att fungera för poddar som körs i AKS.
 
 ### <a name="support-scope-between-network-models"></a>Support omfattning mellan nätverks modeller
 
@@ -114,7 +114,7 @@ Oavsett vilken nätverks modell du använder kan både Kubernetes och Azure CNI 
 * Azure-plattformen kan automatiskt skapa och konfigurera virtuella nätverks resurser när du skapar ett AKS-kluster.
 * Du kan manuellt skapa och konfigurera virtuella nätverks resurser och koppla dem till resurserna när du skapar ditt AKS-kluster.
 
-Även om funktioner som tjänst slut punkter eller UDR stöds med både Kubernetes och Azure CNI, definierar [support principerna för AKS][support-policies] vilka ändringar du kan göra. Exempel:
+Även om funktioner som tjänst slut punkter eller UDR stöds med både Kubernetes och Azure CNI, definierar [support principerna för AKS][support-policies] vilka ändringar du kan göra. Ett exempel:
 
 * Om du manuellt skapar de virtuella nätverks resurserna för ett AKS-kluster, kan du konfigurera dina egna UDR-eller tjänst slut punkter.
 * Om Azure-plattformen automatiskt skapar de virtuella nätverks resurserna för ditt AKS-kluster, stöds det inte för att manuellt ändra de AKS-hanterade resurserna för att konfigurera dina egna UDR-eller tjänst slut punkter.

@@ -5,14 +5,14 @@ author: spelluru
 ms.author: spelluru
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: 4516405472abf733c8ef06fb5ee5855f8e97d396
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef469eb74c3dd7d82dec908dba8c53136df206e4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340441"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423430"
 ---
-# <a name="integrate-azure-service-bus-with-azure-private-link"></a>Integrera Azure Service Bus med en privat Azure-länk
+# <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Tillåt åtkomst till Azure Service Bus namnrum via privata slut punkter
 
 Azure Private Link service ger dig åtkomst till Azure-tjänster (till exempel Azure Service Bus, Azure Storage och Azure Cosmos DB) och Azure-värdbaserade kund-/partner tjänster via en **privat slut punkt** i det virtuella nätverket.
 
@@ -40,13 +40,13 @@ Mer information finns i [Vad är en privat Azure-länk?](../private-link/private
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Lägg till en privat slut punkt med Azure Portal
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Om du vill integrera ett Service Bus-namnområde med en privat Azure-länk behöver du följande entiteter eller behörigheter:
 
 - Ett Service Bus namn område.
 - Ett virtuellt Azure-nätverk.
-- Ett undernät i det virtuella nätverket.
+- Ett undernät i det virtuella nätverket. Du kan använda **standard** under nätet. 
 - Ägar-eller deltagar behörighet för både Service Bus-namnrymden och det virtuella nätverket.
 
 Din privata slut punkt och det virtuella nätverket måste finnas i samma region. När du väljer en region för den privata slut punkten med hjälp av portalen filtreras automatiskt endast virtuella nätverk i den regionen. Ditt Service Bus namn område kan finnas i en annan region. Och den privata slut punkten använder en privat IP-adress i det virtuella nätverket.
@@ -58,8 +58,19 @@ Om du redan har ett befintligt namn område kan du skapa en privat slut punkt ge
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 2. I Sök fältet skriver du in **Service Bus**.
 3. Välj det **namn område** i listan som du vill lägga till en privat slut punkt för.
-4. Välj fliken **nätverk** under **Inställningar**.
-5. Välj fliken **anslutningar för privata slut punkter** överst på sidan
+2. På den vänstra menyn väljer du alternativet **nätverk** under **Inställningar**. 
+
+    > [!NOTE]
+    > Fliken **nätverk** visas endast för **Premium** -namnområden.  
+    
+    Som standard är alternativet **valda nätverk** markerat. Om du inte lägger till minst en IP-brandväggsregel eller ett virtuellt nätverk på den här sidan kan namn området nås via offentliga Internet (med hjälp av åtkomst nyckeln).
+
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Sidan nätverk – standard" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
+    
+    Om du väljer alternativet **alla nätverk** accepterar Service Bus namn området anslutningar från alla IP-adresser (med hjälp av åtkomst nyckeln). Standardvärdet motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0. 
+
+    ![Brand vägg – alternativet alla nätverk är valt](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+5. Om du vill tillåta åtkomst till namn området via privata slut punkter väljer du fliken **anslutningar för privata slut punkter** överst på sidan
 6. Välj knappen **+ privat slut punkt** överst på sidan.
 
     ![Knappen Lägg till privat slut punkt](./media/private-link-service/private-link-service-3.png)
@@ -169,7 +180,7 @@ När du skapar en privat slut punkt måste anslutningen godkännas. Om den resur
 
 Det finns fyra etablerings tillstånd:
 
-| Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
+| Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Description |
 |--|--|--|
 | Ingen | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
 | Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |

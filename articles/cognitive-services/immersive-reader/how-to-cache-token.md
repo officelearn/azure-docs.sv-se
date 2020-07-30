@@ -9,12 +9,13 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metan
-ms.openlocfilehash: e652aa29b1c1935fcc4887dbe13ef9b683a8bd05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 70173e1904ce9d7a159532c8962932765060e4d9
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75946170"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406953"
 ---
 # <a name="how-to-cache-the-authentication-token"></a>Så här cachelagrar du autentiseringstoken
 
@@ -22,7 +23,7 @@ Den här artikeln visar hur du cachelagrar autentiseringstoken för att förbät
 
 ## <a name="using-aspnet"></a>Använda ASP.NET
 
-Importera NuGet-paketet **Microsoft. IdentityModel. clients. ActiveDirectory** , som används för att hämta en token. Använd sedan följande kod för att hämta en `AuthenticationResult`med hjälp av de autentiseringsmetoder som du fick när du [skapade den fördjupade läsaren](./how-to-create-immersive-reader.md).
+Importera NuGet-paketet **Microsoft. IdentityModel. clients. ActiveDirectory** , som används för att hämta en token. Använd sedan följande kod för att hämta en `AuthenticationResult` med hjälp av de autentiseringsmetoder som du fick när du [skapade den fördjupade läsaren](./how-to-create-immersive-reader.md).
 
 ```csharp
 private async Task<AuthenticationResult> GetTokenAsync()
@@ -34,9 +35,9 @@ private async Task<AuthenticationResult> GetTokenAsync()
 }
 ```
 
-`AuthenticationResult` Objektet har en `AccessToken` egenskap som är den faktiska token som du kommer att använda när du startar den fördjupade läsaren med hjälp av SDK. Den har också en `ExpiresOn` egenskap som anger när token upphör att gälla. Innan du startar den fördjupade läsaren kan du kontrol lera om token har upphört att gälla och bara hämta en ny token om den har upphört att gälla.
+`AuthenticationResult`Objektet har en `AccessToken` egenskap som är den faktiska token som du kommer att använda när du startar den fördjupade läsaren med hjälp av SDK. Den har också en `ExpiresOn` egenskap som anger när token upphör att gälla. Innan du startar den fördjupade läsaren kan du kontrol lera om token har upphört att gälla och bara hämta en ny token om den har upphört att gälla.
 
-## <a name="using-nodejs"></a>Använda Node. JS
+## <a name="using-nodejs"></a>Använda Node.JS
 
 Lägg till NPM-paketet för [**begäran**](https://www.npmjs.com/package/request) i projektet. Använd följande kod för att hämta en token med hjälp av de autentiseringsmetoder som du fick när du [skapade den fördjupade läsaren](./how-to-create-immersive-reader.md).
 
@@ -64,7 +65,7 @@ router.get('/token', function(req, res) {
 });
 ```
 
-`expires_on` Egenskapen är det datum och den tid då token upphör att gälla, uttryckt i antal sekunder sedan den 1 januari 1970 UTC. Använd det här värdet för att avgöra om din token har upphört att gälla innan du försöker hämta ett nytt.
+`expires_on`Egenskapen är det datum och den tid då token upphör att gälla, uttryckt i antal sekunder sedan den 1 januari 1970 UTC. Använd det här värdet för att avgöra om din token har upphört att gälla innan du försöker hämta ett nytt.
 
 ```javascript
 async function getToken() {

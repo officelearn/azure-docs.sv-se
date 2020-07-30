@@ -3,16 +3,16 @@ title: Geografisk tillgänglighet och valuta support för Microsofts kommersiell
 description: Geografisk tillgänglighet och valuta stöd för transaktioner i den kommersiella marknads platsen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 01/29/2020
-ms.openlocfilehash: 57d1564c155a553571499a47a5c1d83c80c074b3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7041221b015465e9db2d67d8dd7760d644c34f0c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120015"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387446"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Geografisk tillgänglighet och valuta support för kommersiella marknads platser
 
@@ -43,9 +43,9 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Brasilien                              | BR        | BRL\*        |
 | Brunei                              | BN        | USD          |
 | Bulgarien                            | BG        | EUR          |
+| Cabo Verde                          | CV        | USD          |
 | Kamerun                            | CM        | USD          |
 | Kanada                              | CA        | CAD          |
-| Cabo Verde                          | CV        | USD          |
 | Caymanöarna                      | KY        | USD          |
 | Chile                               | CL        | USD          |
 | Porslin\**                            | CN        | E.t.          |
@@ -110,8 +110,8 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Namibia                             | NA        | USD          |
 | Nepal                               | NP        | USD          |
 | Nederländerna                         | NL        | EUR          |
-| Nicaragua                           | NI        | USD          |
 | Nya Zeeland                         | NZ        | NZD          |
+| Nicaragua                           | NI        | USD          |
 | Nigeria                             | NG        | USD          |
 | Norge                              | NO        | NOK          |
 | Oman                                | OM        | USD          |
@@ -148,15 +148,15 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Tunisien                             | TN        | USD          |
 | Turkiet                              | TR        | USD          |
 | Turkmenistan                        | TM        | USD          |
-| Vatikanstaten (Heliga stolen)             | VA        | EUR          |
-| Jungfru öarna i USA | VI        | USD          |
 | Uganda                              | UG        | USD          |
 | Ukraina                             | UA        | USD          |
 | Förenade Arabemiraten                | AE        | USD          |
 | Storbritannien                      | GB        | GBP          |
 | USA                       | USA        | USD          |
+| Amerikanska jungfru öarna                 | VI        | USD          |
 | Uruguay                             | UY        | USD          |
 | Uzbekistan                          | UZ        | USD          |
+| Vatikanstaten (Heliga stolen)             | VA        | EUR          |
 | Venezuela                           | VE        | USD          |
 | Vietnam                             | VN        | USD          |
 | Jemen                               | CHANSEN        | USD          |

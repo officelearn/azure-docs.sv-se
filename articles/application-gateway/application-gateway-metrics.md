@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: absha
-ms.openlocfilehash: bf02bdc4d824a47bdaad4821ffc9562b9fe2dd40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce349a0539986d88f689c53fc2099877df8030bf
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84482636"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424400"
 ---
 # <a name="metrics-for-application-gateway"></a>Mått för Application Gateway
 
@@ -198,7 +198,7 @@ Bläddra till en Application Gateway, under **övervakning** Välj **mått**. Om
 
 I följande bild visas ett exempel med tre mått som visas under de senaste 30 minuterna:
 
-[![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
+:::image type="content" source="media/application-gateway-diagnostics/figure5.png" alt-text="Metric-vy." lightbox="media/application-gateway-diagnostics/figure5-lb.png":::
 
 Om du vill se en aktuell lista över mått, se [mått som stöds med Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 

@@ -1,18 +1,18 @@
 ---
 title: Konfigurera en instans och autentisering (skript)
 titleSuffix: Azure Digital Twins
-description: Se så här konfigurerar du en instans av tjänsten Azure Digitals dubbla nätverk, inklusive rätt autentisering. Skript version.
+description: Se hur du konfigurerar en instans av tjänsten Azure Digitals dubbla tjänster genom att köra ett skript för automatisk distribution
 author: baanders
 ms.author: baanders
-ms.date: 7/22/2020
+ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 522096b921faf34130f0c37f727d89c7bf95c530
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 076bde9e2760a862822d80d63197e2c15a678d35
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337916"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407580"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurera en digital Azure-instans och autentisering (skript)
 
@@ -20,9 +20,12 @@ ms.locfileid: "87337916"
 
 Den här artikeln beskriver steg för steg hur du **konfigurerar en ny Azure Digital-instansen**, inklusive hur du skapar instansen och konfigurerar autentisering. När du har slutfört den här artikeln har du en Azure Digital-instansen som är redo att starta programmering mot.
 
-Den här versionen av den här artikeln slutför de här stegen genom att köra ett [ **skript exempel för automatiserad distribution** ](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) som effektiviserar processen. Om du vill visa de manuella stegen som skriptet körs genom i bakgrunden går du till den manuella versionen av den här artikeln: [*anvisningar: Konfigurera en instans och autentisering (manuell)*](how-to-set-up-instance-manual.md).
+Den här versionen av den här artikeln slutför de här stegen genom att köra ett [ **skript exempel för automatiserad distribution** ](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) som effektiviserar processen. 
+* Om du vill visa de manuella CLI-stegen som skriptet körs genom i bakgrunden, se CLI-versionen av den här artikeln: [*anvisningar: Konfigurera en instans och autentisering (CLI)*](how-to-set-up-instance-cli.md).
+* Om du vill visa de manuella stegen enligt Azure Portal, se Portal versionen av den här artikeln: [*anvisningar: Konfigurera en instans och autentisering (portal)*](how-to-set-up-instance-portal.md).
 
-[!INCLUDE [digital-twins-setup-starter.md](../../includes/digital-twins-setup-starter.md)]
+[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+[!INCLUDE [digital-twins-setup-role-cli.md](../../includes/digital-twins-setup-role-cli.md)]
 
 ## <a name="run-the-deployment-script"></a>Kör distributions skriptet
 
@@ -41,7 +44,7 @@ Här följer stegen för att köra distributions skriptet i Cloud Shell.
  
 2. När du har loggat in tittar du på det Cloud Shell fönstrets ikon fält. Välj ikonen "Ladda upp/ladda ned filer" och välj "Ladda upp".
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell-upload.png" alt-text="Cloud Shell fönster som visar val av överförings alternativ":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell fönster som visar val av överförings alternativ":::
 
     Navigera till _**deploy.ps1**_ -filen på din dator och tryck på "öppna". Detta kommer att överföra filen till Cloud Shell så att du kan köra den i fönstret Cloud Shell.
 
@@ -57,21 +60,38 @@ Skriptet skapar en Azure Digital-instansen, tilldelar din Azure-användare rolle
 
 Här är ett utdrag från utmatnings loggen från skriptet:
 
-:::image type="content" source="media/how-to-set-up-instance/deployment-script-output.png" alt-text="Cloud Shell fönstret visar logg över indata och utdata genom körningen av distributions skriptet" lightbox="media/how-to-set-up-instance/deployment-script-output.png":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Cloud Shell fönstret visar logg över indata och utdata genom körningen av distributions skriptet" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
 
 Om skriptet har slutförts kommer den slutliga utskriften att stå `Deployment completed successfully` . Annars kan du åtgärda fel meddelandet och köra skriptet igen. De steg som du redan har slutfört kommer att kringgås och börja begära inmatningar vid den punkt där du slutade.
 
-När skriptet har slutförts har du nu en Azure Digital-instansen som är redo att användas och behörigheter som ställts in för att hantera den.
+När skriptet har slutförts har du nu en Azure Digital-instans som är redo att användas med behörigheter för att hantera den och har angett behörighet för en klient app för att få åtkomst till den.
+
+> [!NOTE]
+> Skriptet tilldelar för närvarande den nödvändiga hanterings rollen i Azure Digitals (för hands version) av Azure Digitals (för*hands version)* till samma användare som kör skriptet från Cloud Shell. Om du behöver tilldela rollen till någon annan som ska hantera instansen kan du göra det nu via Azure Portal ([instruktioner](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) eller CLI ([instruktioner](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 ## <a name="collect-important-values"></a>Samla in viktiga värden
 
-Det finns två viktiga värden från den app-registrering som kommer att behövas senare för att [autentisera en klient app mot Azures digitala dubbla API: er](how-to-authenticate-client.md). 
+Det finns flera viktiga värden från de resurser som konfigureras av skriptet som du kan behöva när du fortsätter att arbeta med din Azure Digital-instansen. I det här avsnittet ska du använda [Azure Portal](https://portal.azure.com) för att samla in dessa värden. Du bör spara dem på en säker plats eller gå tillbaka till det här avsnittet för att hitta dem senare när du behöver dem.
+
+Om andra användare kommer att program mera mot instansen bör du även dela dessa värden med dem.
+
+### <a name="collect-instance-values"></a>Samla in instans värden
+
+I [Azure Portal](https://portal.azure.com)kan du hitta din Azure Digital-instansen genom att söka efter namnet på din instans i portalens sökfält.
+
+Om du markerar den öppnas sidan med instansens *Översikt* . Anteckna *namn*, *resurs grupp*och *värdnamn*. Du kan behöva dessa senare för att identifiera och ansluta till din instans.
+
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Markera viktiga värden från instansens översikts sida":::
+
+### <a name="collect-app-registration-values"></a>Samla in registrerings värden för appar 
+
+Det finns två viktiga värden från App-registreringen som kommer att behövas senare för att [skriva kod för klientautentisering för Azure Digitals dubbla API: er](how-to-authenticate-client.md). 
 
 Du hittar dem genom att följa [den här länken](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) för att gå till översikts sidan för Azure AD-appen registrering i Azure Portal. Den här sidan visar alla app-registreringar som har skapats i din prenumeration.
 
 Du bör se den app-registrering som du nyss skapade i den här listan. Välj den för att öppna informationen:
 
-:::image type="content" source="media/how-to-set-up-instance/app-important-values.png" alt-text="Portal visning av viktiga värden för appens registrering":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Portal visning av viktiga värden för appens registrering":::
 
 Anteckna *program* -ID och *katalog (klient)-ID: t* som **visas på sidan** . Om du inte är den person som ska skriva kod för klient program måste du dela dessa värden med den person som ska vara.
 
@@ -86,6 +106,9 @@ För att kontrol lera att din instans har skapats går du till [sidan Azure Digi
 ### <a name="verify-user-role-assignment"></a>Verifiera tilldelning av användar roll
 
 [!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
+
+> [!NOTE]
+> Kom ihåg att skriptet för närvarande tilldelar den här nödvändiga rollen till samma användare som kör skriptet från Cloud Shell. Om du behöver tilldela rollen till någon annan som ska hantera instansen kan du göra det nu via Azure Portal ([instruktioner](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) eller CLI ([instruktioner](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 ### <a name="verify-app-registration"></a>Verifiera registrering av appar
 

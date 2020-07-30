@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: e3a5d2228074ed358244b49bdf283c09f777ddee
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d8ac2a8317343b1bc172eefa17c6eb0074c5c21f
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292066"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432637"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Storlekar för virtuella datorer i B-serien
 
@@ -92,18 +92,21 @@ För en D16s_v3 som har 16 virtuella processorer-och 64-GiB av minne är Tim pri
 
 ## <a name="q--a"></a>Frågor och svar
 
+### <a name="q-what-happens-if-the-credits-run-out"></a>F: Vad händer om krediten körs?
+**A**: när krediten är slut återgår den virtuella datorn till bas linje prestandan.
+
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>F: Hur får du 135% bas linje prestanda från en virtuell dator?
 
 S **: 135**% delas mellan de 8 vCPU som utgör storleken på den virtuella datorn. Om ditt program exempelvis använder 4 av de 8 kärnor som arbetar vid batchbearbetning och var och en av dessa 4 vCPU körs med 30% användning, blir den totala mängden CPU-prestanda för virtuell dator lika med 120%.  Det innebär att din virtuella dator skulle bygga kredit tid baserat på 15% delta från bas linje prestanda.  Men det innebär också att när du har krediter som är tillgängliga för samma virtuella dator kan du använda 100% av alla 8 vCPU, vilket ger den högsta processor prestanda på 800%.
 
 
-### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>F: Hur kan jag övervaka mitt kredit belopp och förbrukning
+### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>F: Hur kan jag övervaka mitt kredit belopp och förbrukning?
 
 **A**: Vi presenterar 2 nya mått i de kommande veckorna, **kredit** måttet gör att du kan se hur många krediter din virtuella dator har debiterats och **ConsumedCredit** -måttet visar hur många CPU-krediter din virtuella dator har förbrukat från banken.    Du kan visa dessa mått från fönstret mått i portalen eller via programmering via Azure Monitor API: er.
 
 Mer information om hur du kommer åt mått data för Azure finns i [Översikt över mått i Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
-### <a name="q-how-are-credits-accumulated"></a>F: hur ackumuleras krediter?
+### <a name="q-how-are-credits-accumulated-and-consumed"></a>F: hur summeras och förbrukas krediter?
 
 **A**: de virtuella datorerna för VM-insamlingen och förbruknings priserna är inställda så att en virtuell dator som körs på exakt dess bas prestanda nivå inte har något netto kapital eller en konsumtion av de olika krediterna.  En virtuell dator kommer att ha en netto ökning av krediterna när den körs under dess bas prestanda nivå och har en netto minskning av krediterna när den virtuella datorn använder processorn mer än dess grundläggande prestanda nivå.
 

@@ -10,12 +10,13 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
-ms.openlocfilehash: f7a792eea28c6a6d05c4f295241291fdf2449467
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.custom: devx-track-javascript
+ms.openlocfilehash: a9aa58ec990170df99f330f67991fff7b61c2b49
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82859041"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429840"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Självstudie: simulera ett problem med att läsa data från den primära regionen
 
@@ -23,7 +24,7 @@ Den här självstudien är del två i en serie. I den här artikeln får du lär
 
 Du kan använda antingen [statiska routnings](#simulate-a-failure-with-an-invalid-static-route) -eller [Fiddler](#simulate-a-failure-with-fiddler)för att simulera ett haveri. Med båda metoderna kan du simulera misslyckade begär anden till den primära slut punkten för det [geo-redundanta](../common/storage-redundancy.md) lagrings kontot med Läs åtkomst (ra-GZRS), vilket leder till att programmet läser från den sekundära slut punkten i stället.
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 I del två i serien lär du dig hur du:
 
@@ -32,7 +33,7 @@ I del två i serien lär du dig hur du:
 > * Simulera ett fel med [en ogiltig statisk väg](#simulate-a-failure-with-an-invalid-static-route) eller [Fiddler](#simulate-a-failure-with-fiddler)
 > * Simulerar en återställning av den primära slutpunkten
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här självstudien slutför du den föregående själv studie kursen: [gör dina program data hög tillgängliga med Azure Storage][previous-tutorial].
 
@@ -52,7 +53,7 @@ Följ anvisningarna i [föregående självstudie][previous-tutorial] för att st
 
 När programmet har pausats öppnar du en kommando tolk i Windows som administratör eller kör Terminal som rot på Linux.
 
-Hämta information om den primära slut punkts domänen för lagrings kontot genom att ange följande kommando i en kommando tolk `STORAGEACCOUNTNAME` eller Terminal, och Ersätt med namnet på ditt lagrings konto.
+Hämta information om den primära slut punkts domänen för lagrings kontot genom att ange följande kommando i en kommando tolk eller Terminal, och Ersätt `STORAGEACCOUNTNAME` med namnet på ditt lagrings konto.
 
 ```
 nslookup STORAGEACCOUNTNAME.blob.core.windows.net
@@ -62,7 +63,7 @@ Kopiera IP-adressen för ditt lagringskonto till en textredigerare för senare a
 
 För att hämta IP-adressen för din lokala värd skriver du `ipconfig` i kommandotolken i Windows eller `ifconfig` i terminalen i Linux.
 
-Om du vill lägga till en statisk väg för en målvärd skriver du följande kommando i kommando tolken i Windows eller Linux- `<destination_ip>` terminalen, ersätter med ditt lagrings KONTOs IP-adress och `<gateway_ip>` med din lokala värd-IP-adress.
+Om du vill lägga till en statisk väg för en målvärd skriver du följande kommando i kommando tolken i Windows eller Linux-terminalen, ersätter `<destination_ip>` med ditt lagrings kontos IP-adress och `<gateway_ip>` med din lokala värd-IP-adress.
 
 #### <a name="linux"></a>Linux
 
@@ -110,7 +111,7 @@ Följande avsnitt visar hur du simulerar ett fel samt återställning av den pri
 
 Fiddler ScriptEditor startas och visar filen **SampleRules.js**. Den här filen används för att anpassa Fiddler.
 
-Klistra in följande kod exempel i `OnBeforeResponse` funktionen och Ersätt `STORAGEACCOUNTNAME` med namnet på ditt lagrings konto. Beroende på exemplet kan du också behöva ersätta `HelloWorld` med namnet på test filen (eller ett prefix som `sampleFile`) som hämtas. Den nya koden är kommenterad för att säkerställa att den inte körs direkt.
+Klistra in följande kod exempel i `OnBeforeResponse` funktionen och Ersätt `STORAGEACCOUNTNAME` med namnet på ditt lagrings konto. Beroende på exemplet kan du också behöva ersätta `HelloWorld` med namnet på test filen (eller ett prefix som `sampleFile` ) som hämtas. Den nya koden är kommenterad för att säkerställa att den inte körs direkt.
 
 När det är klart väljer du **File** (Arkiv) och **Save** (Spara) för att spara ändringarna. Lämna fönstret ScriptEditor öppet för användning i följande steg.
 
@@ -138,7 +139,7 @@ Följ anvisningarna i [föregående självstudie][previous-tutorial] för att st
 
 ### <a name="simulate-failure"></a>Simulera ett fel
 
-När programmet är pausat växlar du tillbaka till Fiddler och tar bort kommentaren till den anpassade regeln som du `OnBeforeResponse` sparade i funktionen. Se till att välja **Arkiv** och **Spara** för att spara ändringarna så att regeln börjar gälla. Den här koden söker efter begär anden till det RA-GZRS lagrings kontot och, om sökvägen innehåller namnet på exempel filen, returnerar svars koden för `503 - Service Unavailable`.
+När programmet är pausat växlar du tillbaka till Fiddler och tar bort kommentaren till den anpassade regeln som du sparade i `OnBeforeResponse` funktionen. Se till att välja **Arkiv** och **Spara** för att spara ändringarna så att regeln börjar gälla. Den här koden söker efter begär anden till det RA-GZRS lagrings kontot och, om sökvägen innehåller namnet på exempel filen, returnerar svars koden för `503 - Service Unavailable` .
 
 I fönstret med det aktiva exemplet, återuppta programmet eller tryck på lämplig nyckel för att ladda ned exempel filen och bekräfta att den kommer från sekundär lagring. Du kan sedan Pausa exemplet igen eller vänta i prompten.
 

@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: ad34195e003e0ca2d73000d3482cc79c3dbe3ee0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 58a8bd6b8e5594f36bf27a3ad76bee137fdd1160
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372118"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433224"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuera en modell till ett Azure Kubernetes service-kluster
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -45,7 +45,7 @@ AKS-klustret och arbets ytan AML kan finnas i olika resurs grupper.
 >
 > Du kan också se Azure Machine Learning- [Deploy till lokal Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -63,7 +63,11 @@ AKS-klustret och arbets ytan AML kan finnas i olika resurs grupper.
 
 - __CLI__ -kodfragmenten i den här artikeln förutsätter att du har skapat ett `inferenceconfig.json` dokument. Mer information om hur du skapar det här dokumentet finns i [så här distribuerar du modeller](how-to-deploy-and-where.md).
 
-- Om du ansluter ett AKS-kluster, som har ett [auktoriserat IP-adressintervall som är aktiverat för att få åtkomst till API-servern](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), aktiverar du AML conto-planens IP-intervall för AKS-klustret. Kontroll planet för AML distribueras i kopplade regioner och distribuerar inferencing-poddar i AKS-klustret. Inferencing-poddar kan inte distribueras utan åtkomst till API-servern. Använd [IP-intervallen](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) för båda [kopplade regionerna]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) när du aktiverar IP-intervall i ett AKS-kluster
+- Om du behöver ett Standard Load Balancer (SLB) distribuerat i klustret i stället för en grundläggande Load Balancer (BLB), skapar du ett kluster i AKS-portalen/CLI/SDK och kopplar det sedan till arbets ytan AML.
+
+- Om du ansluter ett AKS-kluster, som har ett [auktoriserat IP-adressintervall som är aktiverat för att få åtkomst till API-servern](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), aktiverar du AML conto-planens IP-intervall för AKS-klustret. Kontroll planet för AML distribueras i kopplade regioner och distribuerar inferencing-poddar i AKS-klustret. Inferencing-poddar kan inte distribueras utan åtkomst till API-servern. Använd [IP-intervallen](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) för båda [kopplade regionerna]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) när du aktiverar IP-intervall i ett AKS-kluster.
+
+__Authroized IP-intervall fungerar endast med Standard Load Balancer.__
  
  - Compute-namnet måste vara unikt inom en arbets yta
    - Namnet måste vara mellan 3 och 24 tecken långt.
@@ -73,7 +77,7 @@ AKS-klustret och arbets ytan AML kan finnas i olika resurs grupper.
    
  - Om du vill distribuera modeller till GPU-noder eller FPGA-noder (eller vissa SKU: er) måste du skapa ett kluster med den angivna SKU: n. Det finns inget stöd för att skapa en sekundär Node-pool i ett befintligt kluster och distribuera modeller i den sekundära noden.
  
- - Om du behöver ett Standard Load Balancer (SLB) distribuerat i klustret i stället för en grundläggande Load Balancer (BLB), skapar du ett kluster i AKS-portalen/CLI/SDK och kopplar det sedan till arbets ytan AML. 
+ 
 
 
 
@@ -257,6 +261,30 @@ Information om hur du använder VS Code finns i [distribuera till AKS via vs Cod
 
 > [!IMPORTANT]
 > Att distribuera via VS Code kräver att AKS-klustret skapas eller kopplas till din arbets yta i förväg.
+
+### <a name="understand-the-deployment-processes"></a>Förstå distributions processerna
+
+Ordet "Deployment" används i både Kubernetes och Azure Machine Learning. "Distribution" har mycket olika betydelser i dessa två kontexter. I Kubernetes är en `Deployment` konkret entitet som anges med en DEKLARATIV yaml-fil. En Kubernetes `Deployment` har en definierad livs cykel och konkreta relationer till andra Kubernetes entiteter som `Pods` och `ReplicaSets` . Du kan lära dig mer om Kubernetes från dokument och videor på [Vad är Kubernetes?](https://aka.ms/k8slearning).
+
+I Azure Machine Learning används "distribution" i den allmänna uppfattningen för att göra tillgängliga och rensa projekt resurserna. De steg som Azure Machine Learning anser en del av distributionen är:
+
+1. Zippa upp filerna i projektmappen och ignorera dem som anges i. amlignore eller. gitignore
+1. Skala upp beräknings klustret (relaterat till Kubernetes)
+1. Skapa eller ladda ned Dockerfile till Compute-noden (relaterar till Kubernetes)
+    1. Systemet beräknar en hash av: 
+        - Bas avbildningen 
+        - Anpassade Docker-steg (se [distribuera en modell med en anpassad Docker-bas avbildning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
+        - Conda definition YAML (se [skapa & använda program varu miljöer i Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+    1. Systemet använder denna hash som nyckel i en sökning i arbets ytans Azure Container Registry (ACR)
+    1. Om den inte hittas söker den efter en matchning i den globala ACR
+    1. Om den inte hittas skapar systemet en ny avbildning (som kommer att cachelagras och registreras med arbets ytans ACR)
+1. Hämta den zippade projekt filen till tillfällig lagring på Compute-noden
+1. Zippa upp projekt filen
+1. Compute-noden körs`python <entry script> <arguments>`
+1. Spara loggar, modellvariabler och andra filer som skrivs till `./outputs` det lagrings konto som är kopplat till arbets ytan
+1. Skala ned beräkning, inklusive borttagning av tillfällig lagring (relatera till Kubernetes)
+
+När du använder AKS styrs skalningen av data bearbetningen av Kubernetes med hjälp av Dockerfile som har skapats eller hittats enligt beskrivningen ovan. 
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Distribuera modeller till AKS med hjälp av kontrollerad distribution (för hands version)
 

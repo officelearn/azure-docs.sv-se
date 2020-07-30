@@ -10,12 +10,13 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.author: aahi
-ms.openlocfilehash: 2b5de1c5bf99ff2516a0eb836d540fc2833d99cb
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.custom: devx-track-javascript
+ms.openlocfilehash: d0ee55c0baa6d7ec2ff86aa0e37b10ca4c973b77
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611262"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87408143"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Snabb start: skicka en fråga till API: et för lokal sökning i Bing med Node.js
 
@@ -23,7 +24,7 @@ Använd den här snabb starten för att lära dig hur du skickar begär anden ti
 
 Det här exempel programmet hämtar lokala svars data från API: et för en Sök fråga.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * Den senaste versionen av [Node.js](https://nodejs.org/en/download/).

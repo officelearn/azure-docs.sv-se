@@ -3,18 +3,18 @@ title: 'Snabb start: Azure Blob Storage för Java Script v10 i webbläsaren'
 description: Lär dig att ladda upp, lista och ta bort blobar med Java Script v10 SDK på en HTML-sida.
 services: storage
 author: mhopkins-msft
-ms.custom: mvc
+ms.custom: mvc, devx-track-javascript
 ms.service: storage
 ms.author: mhopkins
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 0db110d02211323f64e7ffe795f72e3a5003ec91
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3982e54d06f2e84c4e8e8703e70e9a26773c389a
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282049"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429212"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -25,7 +25,7 @@ I den här snabb starten lär du dig att hantera blobbar med hjälp av JavaScrip
 > [!NOTE]
 > I den här snabb starten används en äldre version av klient biblioteket för Azure Blob Storage. Information om hur du kommer igång med den senaste versionen finns i [snabb start: hantera blobbar med Java Script V12 SDK i en webbläsare](quickstart-blobs-javascript-browser.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Ett Azure Storage-konto. [Skapa ett lagrings konto](../common/storage-account-create.md).
@@ -64,7 +64,7 @@ SAS, eller signatur för delad åtkomst, används av den kod som körs i webblä
 
 Du kan skapa en SAS med hjälp av Azure CLI via Azure Cloud Shell eller med Azure Portal eller Azure Storage Explorer. I följande tabell beskrivs de parametrar du behöver ange värden för för att skapa en SAS med CLI.
 
-| Parameter      |Beskrivning  | Platshållare |
+| Parameter      |Description  | Platshållare |
 |----------------|-------------|-------------|
 | *förfallo*       | Förfallodatum för åtkomsttoken i formatet YYYY-MM-DD. Ange morgondagens datum under den här snabbstarten. | *FUTURE_DATE* |
 | *konto namn* | Namnet på lagringskontot. Använd det namn som noterades i ett tidigare steg. | *YOUR_STORAGE_ACCOUNT_NAME* |

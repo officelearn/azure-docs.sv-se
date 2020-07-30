@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53f644203b494e5baf087241e2a4fe669b7db07b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 512aed93906968b14f7c6a13e08f74bbeb2f5f31
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85077888"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431083"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Huvud-baserad autentisering för enkel inloggning med Application Proxy och PingAccess
 
@@ -122,6 +122,11 @@ Kontrol lera att din URL för omdirigering har angetts till din externa URL:
 1. Välj länken bredvid **omdirigerings-URI**: er som visar antalet omdirigerings-URI: er som kon figurer ATS för webb-och offentliga klienter. Sidan ** \<application name> – autentisering** visas.
 1. Kontrol lera om den externa URL: en som du tilldelade ditt program tidigare finns i listan **omdirigerings-URI: er** . Om den inte är det lägger du till den externa URL: en nu, använder en omdirigerings **-URI-** typ och väljer **Spara**.
 
+Förutom den externa URL: en ska en auktoriserad slut punkt för Azure Active Directory på den externa URL: en, läggas till i listan omdirigerings-URI: er.
+
+`https://*.msappproxy.net/pa/oidc/cb`
+`https://*.msappproxy.net/`
+
 Slutligen konfigurerar du ditt lokala program så att användare har Läs-och Skriv behörighet till Läs-och Skriv behörighet:
 
 1. Välj **API-behörigheter**i **Appregistreringar** marginal list för ditt program,  >  **Lägg till en behörighet**  >  **Microsoft API: er**  >  **Microsoft Graph**. Sidan **begär API-behörigheter** för **Microsoft Graph** visas, som innehåller API: er för Windows Azure Active Directory.
@@ -141,7 +146,7 @@ Du måste samla in dessa tre informations delar (alla GUID) för att konfigurera
 | --- | --- | --- |
 | **Program-ID (klient)** | **Klient-ID** | GUID |
 | **Katalog-ID (klient)** | **Utfärdare** | GUID |
-| `PingAccess key` | **Klienthemlighet** | Slumpmässig sträng |
+| `PingAccess key` | **Client Secret (Klienthemlighet)** | Slumpmässig sträng |
 
 Samla in den här informationen:
 

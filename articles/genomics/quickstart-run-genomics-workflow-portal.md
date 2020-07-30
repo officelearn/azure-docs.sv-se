@@ -9,18 +9,18 @@ ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 167bcf4364b88529256b79574c6b8c03098fed02
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: cd0cf3bb7df8efc944fabb8e236f32adb38749d4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607133"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424144"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Snabbstart: Köra ett arbetsflöde genom Microsoft Genomics-tjänsten
 
 I den här snabb starten laddar du upp indata till ett Azure Blob Storage-konto och kör ett arbets flöde via Microsoft Genomics tjänsten med hjälp av python-klienten för python. Microsoft Genomics är en skalbar, säker tjänst för sekundär analys som snabbt kan bearbeta ett genom, från råläsningar till produktion av anpassade läsningar och variantanrop. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - [Python 2.7.12 +](https://www.python.org/downloads/release/python-2714/), med `pip` installerat och `python` i din system Sök väg. Den Microsoft Genomics klienten är inte kompatibel med python 3. 
@@ -38,7 +38,7 @@ Skapa ditt Genomics-konto med följande information (se föregående bild):
  |Prenumeration         | Ditt prenumerationsnamn|Detta är faktureringsenheten för dina Azure-tjänster – mer information om din prenumeration finns under [Prenumerationer](https://account.azure.com/Subscriptions) |      
  |Resursgrupp       | MinResursgrupp       |  Resursgrupper gör att du kan gruppera flera Azure-resurser (lagringskonto, Genomics-konto, o.s.v.) i en enda grupp för enkel hantering. Mer information finns i [Resursgrupper](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Information om giltiga resursgruppnamn finns under [Namngivningsregler](/azure/architecture/best-practices/resource-naming) |
  |Kontonamn         | MittGenomicsKonto     |Välj ett unikt konto-ID. Se [Namngivningsregler](/azure/architecture/best-practices/resource-naming) för giltiga namn |
- |Location                   | USA, västra 2                    |    Tjänsten är tillgänglig i USA, västra 2, Europa, västra och Sydostasien |
+ |Position                   | USA, västra 2                    |    Tjänsten är tillgänglig i USA, västra 2, Europa, västra och Sydostasien |
 
 Du kan välja **meddelanden** i det övre meny fältet för att övervaka distributions processen.
 
@@ -48,18 +48,18 @@ Mer information om Microsoft Genomics finns i [Vad är Microsoft Genomics?](over
 
 ## <a name="set-up-install-the-microsoft-genomics-python-client"></a>Konfigurera: Installera Microsoft Genomics Python-klienten
 
-Du måste installera både python och Microsoft Genomics python-klienten i din lokala miljö. 
+Du måste installera både python och Microsoft Genomics python-klienten `msgen` i din lokala miljö. 
 
 ### <a name="install-python"></a>Installera Python
 
 Microsoft Genomics python-klienten är kompatibel med python 2.7.12 eller en senare version av 2.7. xx. 2.7.14 är den föreslagna versionen. Du hittar nedladdningen [här](https://www.python.org/downloads/release/python-2714/). 
 
 > [!IMPORTANT]
-> Python 3.x är inte kompatibelt med Python 2.7.xx.  MSGen är ett Python 2.7-program. När du kör MSGen kontrollerar du att din aktiva Python-miljö använder en 2.7.xx-version av Python. Du kan få ett felmeddelande om du försöker använda MSGen med en 3.x-version av Python.
+> Python 3.x är inte kompatibelt med Python 2.7.xx.  `msgen`är ett python 2,7-program. När du kör `msgen` kontrollerar du att din aktiva python-miljö använder en 2.7. xx-version av python. Du kan få fel meddelanden när du försöker använda `msgen` med en 3. x-version av python.
 
-### <a name="install-the-microsoft-genomics-client"></a>Installera Microsoft Genomics-klienten
+### <a name="install-the-microsoft-genomics-python-client-msgen"></a>Installera Microsoft Genomics python-klienten`msgen`
 
-Använd python `pip` för att installera Microsoft Genomics-klienten `msgen` . I följande anvisningar förutsätts Python redan finnas i systemsökvägen. Om du har problem med att `pip` Installera inte är känt måste du lägga till python och undermappen skript till din system Sök väg.
+Använd python `pip` för att installera Microsoft Genomics-klienten `msgen` . Följande instruktioner förutsätter att Python2. x redan finns i System Sök vägen. Om du har problem med att `pip` installationen inte känns igen, måste du lägga till python och undermappen skript till din system Sök väg.
 
 ```
 pip install --upgrade --no-deps msgen
@@ -67,14 +67,9 @@ pip install msgen
 ```
 
 Om du inte vill installera `msgen` som en systemomfattande binärfil och ändra systemomfattande python-paket, använder du `–-user` flaggan med `pip` .
-Om du använder den paketbaserade installationen eller setup.py installeras alla nödvändiga paket. Annars är de grundläggande nödvändiga paketen för `msgen` 
+När du använder den Package-baserade installationen eller setup.py installeras alla nödvändiga paket.
 
- * [Azure-lagring](https://pypi.python.org/pypi/azure-storage). 
- * [Begär Anden](https://pypi.python.org/pypi/requests). 
-
-Du kan installera de här paketen med `pip`, `easy_install` eller via `setup.py`-standardprocedurer. 
-
-### <a name="test-the-microsoft-genomics-client"></a>Testa Microsoft Genomics-klienten
+### <a name="test-msgen-python-client"></a>Testa `msgen` python-klienten
 Om du vill testa Microsoft Genomics klienten laddar du ned konfigurations filen från ditt genomik-konto. I Azure Portal navigerar du till ditt genomik-konto genom att välja **alla tjänster** längst upp till vänster och sedan söka efter och välja genomik-konton.
 
 ![Hitta Microsoft Genomics på Azure Portal](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Hitta Microsoft Genomics på Azure Portal")
@@ -101,8 +96,8 @@ Konfigurera ditt lagrings konto med följande information, som du ser i föregå
  |:-------------------------       |:-------------         |:----------            |
  |Prenumeration         | Din Azure-prenumeration |Mer information om din prenumeration finns i [Prenumerationer](https://account.azure.com/Subscriptions) |      
  |Resursgrupp       | MinResursgrupp       |  Du kan välja samma resurs grupp som ditt genomik-konto. För giltiga resurs grupps namn, se [namngivnings regler](/azure/architecture/best-practices/resource-naming) |
- |Lagringskontots namn         | MittLagringskonto     |Välj ett unikt konto-ID. För giltiga namn, se [namngivnings regler](/azure/architecture/best-practices/resource-naming) |
- |Location                  | USA, västra 2                  | Använd samma plats som platsen för ditt genomik-konto, för att minska utgående kostnader och minska svars tiden.  | 
+ |Lagringskontonamn         | MittLagringskonto     |Välj ett unikt konto-ID. För giltiga namn, se [namngivnings regler](/azure/architecture/best-practices/resource-naming) |
+ |Position                  | USA, västra 2                  | Använd samma plats som platsen för ditt genomik-konto, för att minska utgående kostnader och minska svars tiden.  | 
  |Prestanda                  | Standard                   | Standardinställningen är Standard. Mer information om standard-och Premium lagrings konton finns i [Introduktion till Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
  |Typ av konto       | BlobStorage       |  Blob-lagring kan vara 2–5 gånger snabbare än lagring generell användning för ned- och uppladdningar. |
  |Replikering                  | Lokalt redundant lagring                  | Med lokalt redundant lagring replikeras dina data i datacentret i den region där du har skapat ditt lagringskonto. Mer information finns i [Azure Storage replikering](https://docs.microsoft.com/azure/storage/common/storage-redundancy)    |
@@ -119,18 +114,20 @@ Den Microsoft Genomics tjänsten förväntar sig kopplade slut läsningar (fastq
 
 I ditt lagringskonto måste du skapa en blob-container för dina indata och en andra blob-container för dina utdata.  Ladda upp indata till blob-containern för indata. Du kan använda olika verktyg för att göra detta, inklusive [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), [BlobPorter](https://github.com/Azure/blobporter)eller [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 
-## <a name="run-a-workflow-through-the-microsoft-genomics-service-using-the-python-client"></a>Köra ett arbetsflöde genom Microsoft Genomics-tjänsten med hjälp av Python-klienten 
+## <a name="run-a-workflow-through-the-microsoft-genomics-service-using-the-msgen-python-client"></a>Köra ett arbets flöde via Microsoft Genomics tjänsten med `msgen` python-klienten
 
-Om du vill köra ett arbets flöde via Microsoft Genomics tjänsten redigerar du filen *config. txt* och anger lagrings behållaren för indata och utdata för dina data.
-Öppna filen *config. txt* som du laddade ned från ditt genomik-konto. De avsnitt du behöver ange är prenumerations nyckeln och de sex objekten längst ned, lagrings kontots namn, nyckel och behållar namn för både indata och utdata. Du kan hitta den här informationen genom att navigera i Azure Portal för att **komma åt nycklar** för ditt lagrings konto, eller direkt från Azure Storage Explorer.  
+Om du vill köra ett arbets flöde via Microsoft Genomics tjänsten redigerar du *config.txt* -filen för att ange lagrings behållaren för indata och utdata för dina data.
+Öppna *config.txt* -filen som du laddade ned från ditt genomik-konto. De avsnitt du behöver ange är prenumerations nyckeln och de sex objekten längst ned, lagrings kontots namn, nyckel och behållar namn för både indata och utdata. Du kan hitta den här informationen genom att navigera i Azure Portal för att **komma åt nycklar** för ditt lagrings konto, eller direkt från Azure Storage Explorer.  
 
-![Genomik-konfiguration](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Genomik-konfiguration")
+![Genomik-konfiguration](./media/quickstart-run-genomics-workflow-portal/genomics-config.PNG "Genomik-konfiguration")
 
 Ange parametern till om du vill köra GATK4 `process_name` `gatk4` .
 
-Som standard visar Genomics-tjänsten VCF-filer. Om du vill ha en gVCF-utdata i stället för en VCF-utmatning (motsvarar `-emitRefConfidence` i användas 3. x och `emit-ref-confidence` i användas 4. x) lägger du till `emit_ref_confidence` parametern i *config. txt* och anger den till `gvcf` , som visas i föregående bild.  Om du vill ändra tillbaka till VCF-utdata tar du antingen bort den från filen *config. txt* eller anger `emit_ref_confidence` parametern till `none` . 
+Som standard visar Genomics-tjänsten VCF-filer. Om du vill ha en gVCF-utdata i stället för en VCF-utmatning (motsvarar `-emitRefConfidence` i användas 3. x och `emit-ref-confidence` i användas 4. x) lägger du till `emit_ref_confidence` parametern till din *config.txt* och anger den till `gvcf` , som visas i föregående bild.  Om du vill ändra tillbaka till VCF-utdata tar du antingen bort den från *config.txt* -filen eller anger `emit_ref_confidence` parametern till `none` . 
 
-### <a name="submit-your-workflow-to-the-microsoft-genomics-service-the-microsoft-genomics-client"></a>Skicka arbetsflödet till Microsoft Genomics-tjänsten
+`bgzip`är ett verktyg som komprimerar VCF-eller gvcf-filen och `tabix` skapar ett index för den komprimerade filen. Som standard körs Genomiks tjänsten `bgzip` följt av `tabix` på ". g. vcf"-utdata men kör inte dessa verktyg som standard för ". vcf"-utdata. När det körs genererar tjänsten ". gz" (bgzip output) och ". TBI" (tabix output). Argumentet är ett booleskt värde som är inställt på false som standard för ". vcf"-utdata och True som standard för utdata av typen ". g. vcf". Om du vill använda på kommando raden anger du `-bz` eller `--bgzip-output` som `true` (kör bgzip och tabix) eller `false` . Om du vill använda det här argumentet i *config.txt* -filen lägger `bgzip_output: true` du till eller `bgzip_output: false` till filen.
+
+### <a name="submit-your-workflow-to-the-microsoft-genomics-service-using-the-msgen-python-client"></a>Skicka ditt arbets flöde till Microsoft Genomics tjänsten med `msgen` python-klienten
 
 Använd Microsoft Genomics Python-klienten för att skicka ditt arbetsflöde med följande kommando:
 
@@ -146,4 +143,5 @@ msgen list -f c:\temp\config.txt
 När arbets flödet har slutförts kan du Visa utdatafilerna i ditt Azure Storage-konto i behållaren för utdata som du har konfigurerat. 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du laddat upp exempel indata till Azure Storage och skickat ett arbets flöde till Microsoft Genomics tjänsten via `msgen` python-klienten. Mer information om andra typer av indatafiler som kan användas med Microsoft Genomics-tjänsten finns på följande sidor: [parad fastq](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)  |  [Multiple fastq eller BAM](quickstart-input-multiple.md). Du kan även utforska den här självstudien med hjälp av vår [Azure-självstudie som anteckningsbok.](https://aka.ms/genomicsnotebook)
+
+I den här artikeln har du laddat upp exempel indata till Azure Storage och skickat ett arbets flöde till Microsoft Genomics tjänsten via `msgen` python-klienten. Mer information om andra typer av indatafiler som kan användas med Microsoft Genomics-tjänsten finns på följande sidor: [parad fastq](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)  |  [Multiple fastq eller BAM](quickstart-input-multiple.md). Du kan också utforska den här självstudien med vårt [exempel på Azure Notebook](https://aka.ms/genomicsnotebook) genom att hämta filen "genomiks-självstudie. ipynb" och använda en Notebook-läsare som [Jupyter](https://docs.microsoft.com/azure/notebooks/tutorial-create-run-jupyter-notebook) för att öppna filen och köra den.

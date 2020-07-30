@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: a7ff659eb6fc204208c84146a2fc33c8278f7154
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c81d9774dccf8c02d2eab7b1ebbb69e6671869e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207287"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423804"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Använd Azures privata länk för att ansluta nätverk på ett säkert sätt till Azure Automation (för hands version)
 
@@ -79,13 +79,13 @@ I det här avsnittet ska du skapa en privat slut punkt för ditt Automation-kont
 
 3. I **skapa en virtuell dator – grunderna**anger eller väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | **PROJEKTINFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.  |
     | **INSTANSINFORMATION** |  |
-    | Namn | Ange din *PrivateEndpoint*. |
+    | Name | Ange din *PrivateEndpoint*. |
     | Region | Välj **YourRegion**. |
     |||
 
@@ -93,7 +93,7 @@ I det här avsnittet ska du skapa en privat slut punkt för ditt Automation-kont
 
 5. I **skapa en privat slut punkt – resurs**, anger eller väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     |Anslutningsmetod  | Välj Anslut till en Azure-resurs i min katalog.|
     | Prenumeration| Välj din prenumeration. |
@@ -106,7 +106,7 @@ I det här avsnittet ska du skapa en privat slut punkt för ditt Automation-kont
 
 7. I **skapa en privat slut punkt – konfiguration**anger eller väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     |**NÄTVERK**| |
     | Virtuellt nätverk| Välj *MyVirtualNetwork*. |
@@ -132,15 +132,15 @@ Om tjänste konsumenten har RBAC-behörighet för Automation-resursen, kan de v�
 
 ## <a name="set-public-network-access-flags"></a>Ange åtkomst flaggor för offentliga nätverk
 
-Du kan konfigurera ett Automation-konto för att neka alla offentliga konfigurationer och bara tillåta anslutningar via privata slut punkter för att ytterligare förbättra nätverks säkerheten. Om du vill begränsa åtkomsten till Automation-kontot enbart från det virtuella nätverket och inte tillåta åtkomst från offentliga Internet kan du ange `publicNetworkAccess` egenskapen till `$true` .
+Du kan konfigurera ett Automation-konto för att neka alla offentliga konfigurationer och bara tillåta anslutningar via privata slut punkter för att ytterligare förbättra nätverks säkerheten. Om du vill begränsa åtkomsten till Automation-kontot enbart från det virtuella nätverket och inte tillåta åtkomst från offentliga Internet kan du ange `publicNetworkAccess` egenskapen till `$false` .
 
-Om alternativet **Neka åtkomst till offentliga nätverk** är inställt på `true` , tillåts bara anslutningar via privata slut punkter och alla anslutningar via offentliga slut punkter nekas med ett fel meddelande.
+När åtkomst inställningen för **offentligt nätverk** är inställt på `$false` tillåts bara anslutningar via privata slut punkter och alla anslutningar via offentliga slut punkter nekas med ett Unathorized-fel meddelande och HTTP-status 401. 
 
 Följande PowerShell-skript visar hur du `Get` och `Set` den **offentliga nätverks åtkomst** egenskapen på Automation-konto nivån:
 
 ```powershell
 $account = Get-AzResource -ResourceType Microsoft.Automation/automationAccounts -ResourceGroupName "<resourceGroupName>" -Name "<automationAccountName>" -ApiVersion "2020-01-13-preview"
-$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $true
+$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $false
 $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 ```
 

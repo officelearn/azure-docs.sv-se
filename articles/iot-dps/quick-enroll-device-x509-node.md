@@ -1,6 +1,6 @@
 ---
-title: Registrera X. 509-enheter på Azure Device Provisioning-tjänsten med Node. js
-description: 'Den här snabbstarten använder gruppregistreringar. I den här snabb starten registrerar du X. 509-enheter i Azure-IoT Hub Device Provisioning Service (DPS) med hjälp av Node. js-tjänst-SDK: n'
+title: Registrera X. 509-enheter på Azure Device Provisioning-tjänsten med hjälp av Node.js
+description: Den här snabbstarten använder gruppregistreringar. I den här snabb starten registrerar du X. 509-enheter till Azure-IoT Hub Device Provisioning Service (DPS) med hjälp av Node.js service SDK
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -8,25 +8,25 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
-ms.custom: mvc
-ms.openlocfilehash: 35f5cc4914689fd171cc3fa8ec7d809924127f28
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 0f6d18aa0ce4576db1618d17d8fb3866101f87b1
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77605542"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424366"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>Snabbstart: Registrera X.509-enheter till Device Provisioning Service med hjälp av Node.js
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-I den här snabb starten använder du Node. js för att program mässigt skapa en registrerings grupp som använder mellanliggande eller rot certifikat för CA X. 509-certifikat. Registreringsgruppen skapas med hjälp av IoT SDK för Node.js och ett Node.js-exempelprogram.
+I den här snabb starten använder du Node.js för att program mässigt skapa en registrerings grupp som använder mellanliggande eller rot certifikat utfärdare X. 509-certifikat. Registreringsgruppen skapas med hjälp av IoT SDK för Node.js och ett Node.js-exempelprogram.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Konfiguration av [IoT Hub Device Provisioning service med Azure Portal](./quick-setup-auto-provision.md)slutförs.
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Node. js v 4.0 +](https://nodejs.org). Den här snabb starten installerar [IoT SDK för Node. js](https://github.com/Azure/azure-iot-sdk-node) nedan.
+- [Node.js v 4.0 +](https://nodejs.org). Den här snabb starten installerar [IoT SDK för Node.js](https://github.com/Azure/azure-iot-sdk-node) nedan.
 - [Git](https://git-scm.com/download/).
 - [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
@@ -143,7 +143,7 @@ En registreringsgrupp kontrollerar åtkomst till etableringstjänsten för enhet
     ![Egenskaper för registrering i portalen](./media/quick-enroll-device-x509-node/verify-enrollment-portal.png) 
  
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du planerar att utforska service exempel för Node. js ska du inte rensa resurserna som skapades i den här snabb starten. Om du inte planerar att fortsätta kan du använda följande steg för att ta bort alla Azure-resurser som skapats i den här snabb starten.
+Om du planerar att utforska Node.js-tjänsteexempel ska du inte rensa resurserna som skapades i den här snabb starten. Om du inte planerar att fortsätta kan du använda följande steg för att ta bort alla Azure-resurser som skapats i den här snabb starten.
  
 1. Stäng utdatafönstret för Node.js på datorn.
 2. Gå till enhets etablerings tjänsten i Azure Portal, Välj **Hantera registreringar**och välj sedan fliken **registrerings grupper** . Markera KRYSS rutan bredvid *grupp namnet* för de X. 509-enheter som du har registrerat med hjälp av den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret.    
@@ -153,7 +153,7 @@ Om du planerar att utforska service exempel för Node. js ska du inte rensa resu
 
 I den här snabb starten har du skapat en grupp registrering för ett X. 509-mellanliggande eller rot certifikat utfärdares certifikat med hjälp av Azure IoT Hub Device Provisioning Service. Om du vill ha mer djupgående information om enhetsetablering kan du fortsätta till självstudien om konfiguration av Device Provisioning-tjänsten i Azure-portalen. 
 
-Se även [exemplet Node. js enhets etablering](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples).
+Se även [Node.js Device Provisioning-exemplet](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples).
  
 > [!div class="nextstepaction"]
 > [Självstudier om Azure IoT Hub Device Provisioning-tjänsten](./tutorial-set-up-cloud.md)

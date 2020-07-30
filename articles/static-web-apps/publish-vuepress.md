@@ -7,18 +7,19 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: cc1bf52190cb47bc4ffd6efe159ed88cac560e02
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 6f5e05e9bfea6b14e46bbde8d17fba2d2a3b7b07
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298012"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429500"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>Självstudie: publicera en VuePress-webbplats till Azures statiska Web Apps för hands version
 
 Den här artikeln visar hur du skapar och distribuerar ett [VuePress](https://vuepress.vuejs.org/) -webbprogram till [azures statiska Web Apps](overview.md). Det slutliga resultatet är ett nytt Azure static Web Apps-program med associerade GitHub-åtgärder som ger dig kontroll över hur appen byggs och publiceras.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -48,7 +49,7 @@ Skapa en VuePress-app från kommando rads gränssnittet (CLI):
    echo '# Hello From VuePress' > README.md
    ```
 
-1. Initiera _Package. JSON_ -filen.
+1. Initiera _package.jspå_ filen.
 
    ```bash
    npm init -y
@@ -60,7 +61,7 @@ Skapa en VuePress-app från kommando rads gränssnittet (CLI):
    npm install --save-dev vuepress
    ```
 
-1. Öppna _Package. JSON_ -filen i en text redigerare och Lägg till ett build-kommando i [`scripts`](https://docs.npmjs.com/cli-commands/run-script.html) avsnittet.
+1. Öppna _package.js_ filen i en text redigerare och Lägg till ett build-kommando i [`scripts`](https://docs.npmjs.com/cli-commands/run-script.html) avsnittet.
 
    ```json
    ...
@@ -109,10 +110,10 @@ Följande steg visar hur du skapar ett nytt statiskt Web Apps-program och distri
 ### <a name="create-the-application"></a>Skapa programmet
 
 1. Navigera till [Azure Portal](https://portal.azure.com)
-1. Klicka på **skapa en resurs**
-1. Sök efter **statiska Web Apps**
-1. Klicka på **statisk Web Apps (förhands granskning)**
-1. Klicka på **skapa**
+1. Klicka på **Skapa en resurs**
+1. Sök efter **Statiska webbappar**
+1. Klicka på **Statiska webbappar (förhandsversion)**
+1. Klicka på **Skapa**
 
    :::image type="content" source="./media/publish-vuepress/create-in-portal.png" alt-text="Skapa en statisk Web Apps (för hands version) i portalen":::
 
@@ -138,11 +139,11 @@ Följande steg visar hur du skapar ett nytt statiskt Web Apps-program och distri
 
    :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Slutförd GitHub-information":::
 
-### <a name="build"></a>Utveckla
+### <a name="build"></a>Build
 
 Sedan lägger du till de konfigurations inställningar som bygg processen använder för att skapa din app. Följande inställningar konfigurerar arbets flödes filen för GitHub-åtgärd.
 
-1. Klicka på **Nästa: bygg >** om du vill redigera build-konfigurationen
+1. Klicka på **Nästa: Skapa >** för att redigera versionskonfigurationen
 
 1. Ange _app-plats_ till **/** .
 

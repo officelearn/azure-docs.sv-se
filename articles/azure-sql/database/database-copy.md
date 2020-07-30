@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 07/27/2020
-ms.openlocfilehash: 4dd27a5d3bca5ca1c0395feb049d5a814211c539
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 07/29/2020
+ms.openlocfilehash: 968fe5a0f4999c25486189384186c23d1fcd5509
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87309281"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430256"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Kopiera en transaktions konsekvent kopia av en databas i Azure SQL Database
 
@@ -116,6 +116,9 @@ Du kan använda stegen i avsnittet [Kopiera en SQL Database till en annan server
 
 > [!NOTE]
 > [Azure Portal](https://portal.azure.com), PowerShell och Azure CLI stöder inte databas kopiering till en annan prenumeration.
+
+> [!TIP]
+> Databas kopiering med T-SQL stöder kopiering av en databas från en prenumeration i en annan Azure-klient.
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Övervaka förloppet för kopierings åtgärden
 

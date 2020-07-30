@@ -1,22 +1,23 @@
 ---
-title: 'Självstudie: Distribuera Server-renderade nästa. js-webbplatser på Azure static Web Apps'
-description: Skapa och distribuera nästa. js dynamiska platser med Azures statiska Web Apps.
+title: 'Självstudie: Distribuera Server-renderade Next.js webbplatser på Azure static Web Apps'
+description: Skapa och distribuera Next.js dynamiska platser med Azures statiska Web Apps.
 services: static-web-apps
 author: christiannwamba
 ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
-ms.openlocfilehash: fe139921cb73ee0e224c995e2dd5eb5fc50f3979
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 80a38c069f937783b60ede46bc4319253798ff44
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599855"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431637"
 ---
-# <a name="deploy-server-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Distribuera Server-renderade nästa. js-webbplatser på Azures statiska Web Apps för hands version
+# <a name="deploy-server-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Distribuera Server-renderade Next.js webbplatser på Azures statiska Web Apps för hands version
 
-I den här självstudien får du lära dig att distribuera en [Nästa. js](https://nextjs.org) -genererad statisk webbplats till [Azure static Web Apps](overview.md). För att börja, lär du dig att konfigurera, konfigurera och distribuera en nästa. js-app. Under den här processen lär du dig också att hantera vanliga utmaningar ofta när du genererar statiska sidor med nästa. js
+I den här självstudien lär du dig att distribuera en [Next.js](https://nextjs.org) genererad statisk webbplats till [Azure static Web Apps](overview.md). För att börja, lär du dig att konfigurera, konfigurera och distribuera en Next.js app. Under den här processen lär du dig också att hantera vanliga utmaningar ofta när du genererar statiska sidor med Next.js
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -24,13 +25,13 @@ I den här självstudien får du lära dig att distribuera en [Nästa. js](https
 - Ett GitHub-konto. [Skapa ett konto kostnads fritt](https://github.com/join).
 - [Node.js](https://nodejs.org) installerat.
 
-## <a name="set-up-a-nextjs-app"></a>Konfigurera en nästa. js-app
+## <a name="set-up-a-nextjs-app"></a>Konfigurera en Next.js app
 
-I stället för att använda nästa. js CLI för att skapa en app kan du använda en start-lagringsplats som innehåller en befintlig nästa. js-app. Den här lagrings platsen innehåller en nästa. js-app med dynamiska vägar, vilket fokuserar på vanliga distributions problem. Dynamiska vägar behöver en extra distributions konfiguration som du kan lära dig mer om i en stund.
+I stället för att använda Next.js CLI för att skapa en app kan du använda en start-lagringsplats som innehåller en befintlig Next.js-app. Den här lagrings platsen innehåller en Next.js-app med dynamiska vägar, vilket fokuserar på vanliga distributions problem. Dynamiska vägar behöver en extra distributions konfiguration som du kan lära dig mer om i en stund.
 
 Börja genom att skapa en ny lagrings plats under ditt GitHub-konto från en mall-lagringsplats. 
 
-1. Navigera till<http://github.com/staticwebdev/nextjs-starter/generate>
+1. Navigera till <http://github.com/staticwebdev/nextjs-starter/generate>
 1. Namnge lagrings platsen **nextjs-starter**
 1. Klona sedan den nya lagrings platsen till din dator. Se till att ersätta `<YOUR_GITHUB_ACCOUNT_NAME>` med ditt konto namn.
 
@@ -38,7 +39,7 @@ Börja genom att skapa en ny lagrings plats under ditt GitHub-konto från en mal
     git clone http://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/nextjs-starter
     ```
 
-1. Navigera till den nyligen klonade nästa. js-app:
+1. Navigera till den nyligen klonade Next.js-appen:
 
    ```bash
    cd nextjs-starter
@@ -50,7 +51,7 @@ Börja genom att skapa en ny lagrings plats under ditt GitHub-konto från en mal
     npm install
     ```
 
-1. Starta nästa. js-app i utvecklingen:
+1. Starta Next.js app i utvecklingen:
 
     ```bash
     npm run dev
@@ -58,17 +59,17 @@ Börja genom att skapa en ny lagrings plats under ditt GitHub-konto från en mal
 
 Navigera till <http://localhost:3000> för att öppna appen, där du bör se följande webbplats som öppnas i din önskade webbläsare:
 
-:::image type="content" source="media/deploy-nextjs/start-nextjs-app.png" alt-text="Starta nästa. js-app":::
+:::image type="content" source="media/deploy-nextjs/start-nextjs-app.png" alt-text="Starta Next.js app":::
 
 När du klickar på ett ramverk/bibliotek bör du se en informations sida om det valda objektet:
 
 :::image type="content" source="media/deploy-nextjs/start-nextjs-details.png" alt-text="Sidan Details (Detaljer)":::
 
-## <a name="generate-a-static-website-from-nextjs-build"></a>Skapa en statisk webbplats från nästa. js-version
+## <a name="generate-a-static-website-from-nextjs-build"></a>Skapa en statisk webbplats från Next.js build
 
-När du skapar en nästa. js-webbplats med hjälp av `npm run build` , byggs appen som en traditionell webbapp, inte en statisk plats. Använd följande program konfiguration för att skapa en statisk plats.
+När du skapar en Next.js-webbplats med hjälp av skapas `npm run build` appen som en traditionell webbapp, inte en statisk plats. Använd följande program konfiguration för att skapa en statisk plats.
 
-1. Om du vill konfigurera statiska vägar skapar du filen med namnet _Nästa. config. js_ i roten i projektet och lägger till följande kod.
+1. Om du vill konfigurera statiska vägar skapar du en fil med namnet _next.config.js_ i roten för projektet och lägger till följande kod..
 
     ```javascript
     module.exports = {
@@ -81,9 +82,9 @@ När du skapar en nästa. js-webbplats med hjälp av `npm run build` , byggs app
     };
     ```
     
-      Den här konfigurationen mappar `/` till nästa. js-sida som hanteras för `/` vägen och som är växlings filen _pages/index. js_ .
+      Den här konfigurationen mappar `/` till den Next.js sidan som hanteras för `/` vägen och som är växlings filen för _sidor/index.js_ .
 
-1. Uppdatera _Package. JSON:_ s build-skript för att även generera en statisk plats efter att du har skapat med hjälp av `next export` kommandot. `export`Kommandot genererar en statisk plats.
+1. Uppdatera _package.jspå_build-skriptet så att den också genererar en statisk plats efter att du har skapat den med hjälp av `next export` kommandot. `export`Kommandot genererar en statisk plats.
 
     ```json
     "scripts": {
@@ -134,10 +135,10 @@ Följande steg visar hur du länkar appen som du precis har push-överför till 
 ### <a name="create-a-static-app"></a>Skapa en statisk app
 
 1. Navigera till [Azure Portal](https://portal.azure.com)
-1. Klicka på **skapa en resurs**
-1. Sök efter **statiska Web Apps**
-1. Klicka på **statisk Web Apps (förhands granskning)**
-1. Klicka på **skapa**
+1. Klicka på **Skapa en resurs**
+1. Sök efter **Statiska webbappar**
+1. Klicka på **Statiska webbappar (förhandsversion)**
+1. Klicka på **Skapa**
 
 1. Välj en prenumeration i list rutan *prenumeration* eller Använd standardvärdet.
 1. Klicka på den **nya** länken under List rutan *resurs grupp* . I *nytt resurs grupp namn*skriver du **mystaticsite** och klickar på **OK**
@@ -149,14 +150,14 @@ Följande steg visar hur du länkar appen som du precis har push-överför till 
 
 ### <a name="add-a-github-repository"></a>Lägg till en GitHub-lagringsplats
 
-Det nya kontot för statisk Web Apps behöver åtkomst till lagrings platsen med din nästa. js-app så att den automatiskt kan distribuera incheckningar.
+Det nya kontot för statisk Web Apps behöver åtkomst till lagrings platsen med din Next.js-app så att den automatiskt kan distribuera incheckningar.
 
 1. Klicka på **knappen Logga in med GitHub**
-1. Välj den **organisation** som du skapade lagrings platsen för i nästa. js-projekt, vilket kan vara ditt GitHub-användarnamn.
+1. Välj den **organisation** som du skapade lagrings platsen för i Next.js projektet, vilket kan vara ditt GitHub-användarnamn.
 1. Sök efter och välj namnet på den databas som du skapade tidigare.
 1. Välj **Master** som gren i list rutan *gren* .
 
-   :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Anslut GitHub":::
+   :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Ansluta GitHub":::
 
 ### <a name="configure-the-build-process"></a>Konfigurera Bygg processen
 
@@ -196,11 +197,11 @@ Navigera till den nyligen distribuerade platsen och klicka på någon av Ramverk
 
 :::image type="content" source="media/deploy-nextjs/404-in-production.png" alt-text="404 på dynamiska vägar":::
 
-Orsaken till felet är att nästa. js bara skapade start sidan baserat på program konfigurationen.
+Orsaken till felet är att Next.js bara skapade start sidan baserat på program konfigurationen.
 
 ## <a name="generate-static-pages-from-dynamic-routes"></a>Generera statiska sidor från dynamiska vägar
 
-1. Uppdatera _Nästa. config. js_ -fil så att nästa. js använder en lista över alla tillgängliga data för att generera statiska sidor för varje ramverk/bibliotek:
+1. Uppdatera _next.config.js_ -filen så att Next.js använder en lista över alla tillgängliga data för att generera statiska sidor för varje ramverk/bibliotek:
 
    ```javascript
    const data = require('./utils/projectsData');

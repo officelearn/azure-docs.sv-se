@@ -3,12 +3,12 @@ title: Publicera händelser med händelse domäner med Azure Event Grid
 description: Visar hur du hanterar stora uppsättningar av ämnen i Azure Event Grid och publicerar händelser till dem med hjälp av händelse domäner.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 30a77d98fdb0d5bfd5169174999a0a08742adfd8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eae467c1c4cc1257e7a5205dd5efda40490f7908
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105570"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423651"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Hantera ämnen och publicera händelser med hjälp av händelse domäner
 
@@ -135,7 +135,7 @@ New-AzureRmEventGridSubscription `
 
 Om du behöver en test slut punkt för att prenumerera på dina händelser till kan du alltid distribuera en [förskapad webbapp](https://github.com/Azure-Samples/azure-event-grid-viewer) som visar inkommande händelser. Du kan skicka dina händelser till din test webbplats på `https://<your-site-name>.azurewebsites.net/api/updates` .
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
 
 Behörigheter som har angetts för ett ämne lagras i Azure Active Directory och måste tas bort uttryckligen. Om du tar bort en händelse prenumeration återkallar inte en användare åtkomst till att skapa händelse prenumerationer om de har Skriv behörighet för ett ämne.
 

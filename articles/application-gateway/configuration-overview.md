@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 892ace66c4994f4c2e263d529d69e505ed9c1c1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 20d1dfea251fdfd0bd6e8432d1ea0c7af7284cb5
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068032"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428170"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway konfiguration
 
@@ -55,7 +55,7 @@ Nätverks säkerhets grupper (NSG: er) stöds på Application Gateway. Men det f
   - Ta inte bort standard reglerna för utgående trafik.
   - Skapa inte andra utgående regler som nekar utgående anslutningar.
 
-- Trafik från **AzureLoadBalancer** -taggen måste vara tillåten.
+- Trafik från **AzureLoadBalancer** -taggen med mål under **nätet måste vara** tillåten.
 
 #### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Tillåt Application Gateway åtkomst till några käll-IP-adresser
 
@@ -74,7 +74,7 @@ I det här scenariot använder du NSG: er i under nätet Application Gateway. L�
 
 - **v1**
 
-   För v1-SKU: n (UDR) stöds de användardefinierade vägarna i Application Gateway under nätet, så länge de inte ändrar svars-/svars kommunikation från slut punkt till slut punkt. Du kan till exempel konfigurera en UDR i Application Gateway under nätet så att den pekar på en brand Väggs enhet för paket granskning. Men du måste se till att paketet når sitt avsedda mål efter inspektion. Om du inte gör det kan det leda till felaktig hälso avsökning eller trafik-routning. Detta inkluderar inlärda vägar eller standard 0.0.0.0/0-vägar som sprids av Azure ExpressRoute eller VPN-gatewayer i det virtuella nätverket.
+   För v1-SKU: n (UDR) stöds de användardefinierade vägarna i Application Gateway under nätet, så länge de inte ändrar svars-/svars kommunikation från slut punkt till slut punkt. Du kan till exempel konfigurera en UDR i Application Gateway under nätet så att den pekar på en brand Väggs enhet för paket granskning. Men du måste se till att paketet når sitt avsedda mål efter inspektion. Om du inte gör det kan det leda till felaktig hälso avsökning eller trafik-routning. Detta inkluderar inlärda vägar eller standard 0.0.0.0/0-vägar som sprids av Azure ExpressRoute eller VPN-gatewayer i det virtuella nätverket. Alla scenarier där 0.0.0.0/0 måste omdirigeras lokalt (Tvingad tunnel trafik) stöds inte för v1.
 
 - **v2**
 
@@ -279,7 +279,7 @@ Mer information om omdirigering finns i:
 - [Omdirigera trafik till en extern plats med hjälp av PowerShell](redirect-external-site-powershell.md)
 - [Omdirigera trafik till en extern plats med hjälp av CLI](redirect-external-site-cli.md)
 
-### <a name="rewrite-http-headers-and-url"></a>Skriv om HTTP-rubriker och URL
+### <a name="rewrite-http-headers-and-url"></a>Skriva om HTTP-huvuden och URL
 
 Genom att använda regler för att skriva om, kan du lägga till, ta bort eller uppdatera HTTP (S)-begäran och svars rubriker samt URL-sökväg och parametrar för frågesträngar som begär ande-och svars paket flyttas mellan klienten och backend-pooler via Application Gateway.
 
@@ -388,7 +388,7 @@ Du kan peka en backend-pool till fyra typer av Server dels medlemmar: en viss vi
 
 När du har skapat en backend-pool måste du associera den med en eller flera regler för begäran-routning. Du måste också konfigurera hälso avsökningar för varje backend-pool på din Application Gateway. När ett villkor för en regel för anslutningsbegäran uppfylls, vidarebefordrar Application Gateway trafiken till de felfria servrarna (som fastställs av hälso avsökningarna) i motsvarande backend-pool.
 
-## <a name="health-probes"></a>Hälsoavsökningar
+## <a name="health-probes"></a>Hälsotillståndsavsökningar
 
 En Programgateway övervakar hälsan för alla resurser i Server delen som standard. Men vi rekommenderar starkt att du skapar en anpassad avsökning för varje server dels-HTTP-inställning för att få bättre kontroll över hälso övervakningen. Information om hur du konfigurerar en anpassad avsökning finns i [Inställningar för anpassade hälso avsökningar](application-gateway-probe-overview.md#custom-health-probe-settings).
 

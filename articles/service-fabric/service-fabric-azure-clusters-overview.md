@@ -7,12 +7,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: dbe64bdcbff5592d271c773eff1d5c99c585fcd7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 03b9cce0d8e4666630aa6568597e08d1f13386ff
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248024"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422818"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Översikt över Service Fabric kluster i Azure
 Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en klusternod. Kluster kan skalas till tusentals noder. Om du lägger till nya noder i klustret, Service Fabric balanseringen av tjänste partitionens repliker och instanser över det ökade antalet noder. Övergripande program prestanda förbättras och konkurrens för åtkomst till minnes minskningar. Om noderna i klustret inte används effektivt kan du minska antalet noder i klustret. Service Fabric åter balanserar partitionens repliker och instanser över det minskade antalet noder för att bättre kunna använda maskin varan på varje nod.
@@ -22,7 +22,7 @@ En nodtyp definierar storlek, antal och egenskaper för en uppsättning noder (v
 ## <a name="cluster-components-and-resources"></a>Kluster komponenter och resurser
 Ett Service Fabric kluster i Azure är en Azure-resurs som använder och interagerar med andra Azure-resurser:
 * Virtuella datorer och virtuella nätverkskort
-* VM-skalningsuppsättningar
+* skalningsuppsättningar för virtuella datorer
 * virtuella nätverk
 * lastbalanserare
 * lagrings konton
@@ -105,6 +105,7 @@ Du kan skapa kluster på virtuella datorer som kör dessa operativ system:
 | Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
 | Linux Ubuntu 16,04 | 6.0 |
+| Linux Ubuntu 18,04 | 7.1 |
 
 Mer information finns i [kluster versioner som stöds i Azure](./service-fabric-versions.md#supported-operating-systems)
 

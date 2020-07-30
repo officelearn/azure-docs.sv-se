@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: söka efter videor med hjälp av REST API och Node. js-Videosökning i Bing'
+title: 'Snabb start: söka efter videor med hjälp av REST API och Node.js-Videosökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att skicka videosökningsbegäranden till REST API för videosökning i Bing med hjälp av JavaScript.
 services: cognitive-services
@@ -10,22 +10,23 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 693b8209498f07928c811fd084eaf259bcbcb5ff
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 9658d488fac187e63d04ca435c9233629407ac07
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849645"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87408109"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Snabb start: söka efter videor med hjälp av Videosökning i Bing REST API och Node. js
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Snabb start: söka efter videor med hjälp av Videosökning i Bing REST API och Node.js
 
-Använd den här snabb starten för att göra ditt första anrop till API för videosökning i Bing. Det här enkla JavaScript-programmet skickar en HTTP-videosök fråga till API: et och visar JSON-svaret. Även om det här programmet är skrivet i Java Script och använder Node. js, är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. 
+Använd den här snabb starten för att göra ditt första anrop till API för videosökning i Bing. Det här enkla JavaScript-programmet skickar en HTTP-videosök fråga till API: et och visar JSON-svaret. Även om det här programmet är skrivet i Java Script och använder Node.js, är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. 
 
 Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingVideoSearchv7.js) tillsammans med ytterligare kommentarer om hantering av fel och kodanteckningar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* [Node. js](https://nodejs.org/en/download/).
+* [Node.js](https://nodejs.org/en/download/).
 
 * Modulen för begäran för Java Script. Installera den här modulen med hjälp av `npm install request` .
 

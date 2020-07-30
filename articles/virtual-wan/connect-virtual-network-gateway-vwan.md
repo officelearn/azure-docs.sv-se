@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 07/28/2020
 ms.author: cherylmc
-ms.openlocfilehash: ca5880f76ffd3a85d4b3cec8e01f58ae5c024a58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d94904e580cefb53b2c71d21259bebfc07c1ad6
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749702"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431293"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Anslut en VPN Gateway (virtuell nätverksgateway) till virtuellt WAN
 
@@ -33,17 +33,19 @@ Azure Virtual Network
 
 * Skapa ett virtuellt nätverk utan några virtuella nätverks-gatewayer. Kontrol lera att inget av under näten i dina lokala nätverk överlappar de virtuella nätverk som du vill ansluta till. Information om hur du skapar ett virtuellt nätverk i Azure Portal finns i [snabb](../virtual-network/quick-create-portal.md)starten.
 
-## <a name="1-create-an-azure-virtual-network-gateway"></a><a name="vnetgw"></a>1. skapa en virtuell Azure-nätverksgateway
+## <a name="1-create-a-vpn-gateway-virtual-network-gateway"></a><a name="vnetgw"></a>1. skapa en VPN Gateway virtuell nätverksgateway
 
-Skapa en VPN Gateway virtuell nätverksgateway för ditt virtuella nätverk i aktivt-aktivt läge för det virtuella nätverket. När du skapar en gateway kan du antingen använda befintliga offentliga IP-adresser för de två instanserna av gatewayen, eller så kan du skapa nya offentliga IP-adresser. Du använder dessa offentliga IP-adresser när du konfigurerar virtuella WAN-platser. Mer information om aktivt-aktivt läge finns i [Konfigurera aktiva-aktiva anslutningar](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md#aagateway).
+Skapa en **VPN gateway** virtuell nätverksgateway i aktivt-aktivt läge för det virtuella nätverket. När du skapar en gateway kan du antingen använda befintliga offentliga IP-adresser för de två instanserna av gatewayen, eller så kan du skapa nya offentliga IP-adresser. Du kommer att använda dessa offentliga IP-adresser när du konfigurerar virtuella WAN-platser. Mer information om aktiva och aktiva VPN-gatewayer och konfigurations steg finns i [Konfigurera aktiva, aktiva VPN-gatewayer](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md#aagateway).
 
 ### <a name="active-active-mode-setting"></a><a name="active-active"></a>Inställningen aktiv-aktiv läge
+
+Aktivera aktivt-aktivt läge på sidan **konfiguration** av virtuell nätverksgateway.
 
 ![aktiv-aktiv](./media/connect-virtual-network-gateway-vwan/active.png "aktiv-aktiv")
 
 ### <a name="bgp-setting"></a><a name="BGP"></a>BGP-inställning
 
-BGP ASN får inte vara 65515. 66515 kommer att användas av Azure Virtual WAN.
+På sidan **konfiguration** av virtuell nätverksgateway kan du konfigurera **BGP ASN**. Ändra BGP-ASN. BGP ASN får inte vara 65515. 66515 kommer att användas av Azure Virtual WAN.
 
 ![BGP](./media/connect-virtual-network-gateway-vwan/bgp.png "BGP")
 
@@ -60,16 +62,16 @@ Om du vill skapa virtuella WAN VPN-platser navigerar du till ditt virtuella WAN 
 1. Välj **+ Skapa webbplats**.
 2. På sidan **skapa VPN-platser** anger du följande värden:
 
-   * **Region** – (samma region som Azure-VPN gateway virtuell nätverksgateway)
-   * **Enhets leverantör** – ange enhets leverantören (valfritt namn)
-   * **Privat adress utrymme** – (ange ett värde eller lämna tomt när BGP är aktiverat)
-   * **Border Gateway Protocol** -(Ställ in för att **aktivera** om Azure VPN gateway virtuell nätverksgateway har BGP aktiverat)
-   * **Anslut till hubbar** (Välj hubb som du skapade i kraven från List rutan)
+   * **Region** – samma region som Azure VPN gateway virtuell nätverksgateway.
+   * **Enhets leverantör** – ange enhets leverantören (valfritt namn).
+   * **Privat adress utrymme** – ange ett värde eller lämna tomt när BGP är aktiverat.
+   * **Border Gateway Protocol** -Ställ in för att **aktivera** om Azure VPN gateway virtuell nätverksgateway har BGP aktiverat.
+   * **Anslut till hubbar** – Välj den hubb som du skapade i kraven i list rutan. Om du inte ser en hubb kontrollerar du att du har skapat en plats-till-plats-VPN-gateway för hubben.
 3. Under **länkar**anger du följande värden:
 
-   * **Providernamn** – ange ett namn på länken och ett providernamn (valfritt namn)
-   * **Hastighets** hastighet (valfritt tal)
-   * **IP-adress** – ange IP-adress (samma som den första offentliga IP-adressen som visas under (VPN gateway) egenskaper för virtuell nätverksgateway)
+   * **Providernamn** – ange ett namn på länken och ett providernamn (valfritt namn).
+   * **Hastighets** hastighet (valfritt tal).
+   * **IP-adress** – ange IP-adress (samma som den första offentliga IP-adressen som visas under (VPN gateway) egenskaper för virtuell nätverksgateway).
    * **BGP-adress** och **ASN** -BGP-adress och ASN. De måste vara samma som en av BGP-peer-IP-adresserna och ASN från den VPN Gateway virtuella Nätverksgatewayen som du konfigurerade i [steg 1](#vnetgw).
 4. Granska och välj **Bekräfta** för att skapa platsen.
 5. Upprepa föregående steg för att skapa den andra platsen så att den matchar den andra instansen av den VPN Gateway virtuella Nätverksgatewayen. Du behåller samma inställningar, förutom att använda andra offentliga IP-adresser och andra IP-adresser för BGP-peer från VPN Gateway konfiguration.
@@ -114,12 +116,12 @@ I det här avsnittet skapar du en anslutning mellan VPN Gateway lokala nätverks
    * **Lokal nätverksgateway:** Den här anslutningen ansluter den virtuella Nätverksgatewayen till den lokala Nätverksgatewayen. Välj en av de lokala Nätverksgatewayen som du skapade tidigare.
    * **Delad nyckel:** Ange en delad nyckel.
    * **IKE-protokoll:** Välj IKE-protokollet.
-   * **BGP:** Välj **Aktivera BGP** om anslutningen är över BGP.
 3. Klicka på **OK** för att skapa din anslutning.
 4. Anslutningen visas på sidan **Anslutningar** för den virtuella nätverksgatewayen.
 
    ![Anslutning](./media/connect-virtual-network-gateway-vwan/connect.png "anslutning")
 5. Upprepa föregående steg för att skapa en andra anslutning. För den andra anslutningen väljer du den andra lokala Nätverksgatewayen som du skapade.
+6. Om anslutningarna är över BGP, när du har skapat anslutningarna, navigerar du till en anslutning och väljer **konfiguration**. På sidan **konfiguration** för **BGP**väljer du **aktive rad**. Klicka sedan på **Spara**. Upprepa för den andra anslutningen.
 
 ## <a name="6-test-connections"></a><a name="test"></a>6. testa anslutningar
 

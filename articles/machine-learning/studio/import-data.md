@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: b04c9c1796491622a76e2c2a2fbfcdcc0c624dda
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c13c394f518482853762a3a5bf9a1a2a42ca658a
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318546"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432409"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importera dina utbildnings data till Azure Machine Learning Studio (klassisk) från olika data källor
 
-**gäller för:** ![ Nej](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) 
+**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 Om du vill använda dina egna data i Machine Learning Studio (klassisk) för att utveckla och träna en förutsägelse analys lösning kan du använda data från: 
@@ -157,7 +157,7 @@ Online-datakällor som stöds finns i tabellen nedan. Den här tabellen sammanfa
 ### <a name="supported-online-data-sources"></a>Online-datakällor som stöds
 Modulen Azure Machine Learning Studio (klassisk) **Importera data** stöder följande data Källor:
 
-| Datakälla | Beskrivning | Parametrar |
+| Datakälla | Description | Parametrar |
 | --- | --- | --- |
 | Webb adress via HTTP |Läser data i kommaavgränsade värden (CSV), Tabbavgränsade värden (TSV), attribut-ARFF (File-relation File Format) och stöder Vector Machines (SVM-Light)-format från alla webb adresser som använder HTTP |<b>URL</b>: anger det fullständiga namnet på filen, inklusive webbplatsens URL och fil namnet, med valfritt tillägg. <br/><br/><b>Data format</b>: anger ett av de data format som stöds: CSV, TSV, arff eller SVM-Light. Om data har en rubrik rad används den för att tilldela kolumn namn. |
 | Hadoop/HDFS |Läser data från distribuerad lagring i Hadoop. Du anger de data du vill använda med HiveQL, ett SQL-liknande frågespråk. HiveQL kan också användas för att aggregera data och utföra data filtrering innan du lägger till data i Studio (klassisk). |<b>Hive-databas fråga</b>: anger den Hive-fråga som används för att generera data.<br/><br/><b>HCatalog-Server-URI</b> : Ange namnet på klustret med formatet * &lt; kluster namn &gt; . azurehdinsight.net.*<br/><br/><b>Hadoop-användar konto namn</b>: anger det Hadoop-användarnamn som används för att etablera klustret.<br/><br/><b>Hadoop-kontots lösen ord</b> : anger de autentiseringsuppgifter som används för att konfigurera klustret. Mer information finns i [skapa Hadoop-kluster i HDInsight](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).<br/><br/><b>Plats för utgående data</b>: anger om data lagras i ett Hadoop-distribuerat fil system (HDFS) eller i Azure. <br/><ul>Om du lagrar utdata i HDFS anger du Server-URI för HDFS. (Se till att använda HDInsight-klustrets namn utan HTTPS://-prefixet). <br/><br/>Om du lagrar dina utdata i Azure måste du ange namnet på Azure Storage-kontot, lagrings åtkomst nyckeln och namnet på lagrings behållaren.</ul> |

@@ -1,22 +1,23 @@
 ---
-title: 'Självstudie: Distribuera Server-renderade Nuxt. js-webbplatser på Azures statiska Web Apps'
-description: Generera och distribuera dynamiska Nuxt. js-webbplatser med Azures statiska Web Apps.
+title: 'Självstudie: Distribuera Server-renderade Nuxt.js webbplatser på Azure static Web Apps'
+description: Skapa och distribuera Nuxt.js dynamiska platser med Azures statiska Web Apps.
 services: static-web-apps
 author: christiannwamba
 ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
-ms.openlocfilehash: 8a4fb581b884d28c8366cbf9a50e001eadd027d9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 9c7e03f5e658b8e15dcae1c5314b73dfbfdf0206
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599825"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430283"
 ---
-# <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps-preview"></a>Distribuera Server-renderade Nuxt. js-webbplatser på Azures statiska Web Apps för hands version
+# <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps-preview"></a>Distribuera Server-renderade Nuxt.js webbplatser på Azures statiska Web Apps för hands version
 
-I den här självstudien får du lära dig att distribuera en [Nuxt. js](https://nuxtjs.org) -genererad statisk webbplats till [Azure static Web Apps](overview.md). För att börja, lär du dig att konfigurera, konfigurera och distribuera en Nuxt. js-app. Under den här processen lär du dig också att hantera vanliga utmaningar ofta när du genererar statiska sidor med Nuxt. js
+I den här självstudien lär du dig att distribuera en [Nuxt.js](https://nuxtjs.org) genererad statisk webbplats till [Azure static Web Apps](overview.md). För att börja, lär du dig att konfigurera, konfigurera och distribuera en Nuxt.js app. Under den här processen lär du dig också att hantera vanliga utmaningar ofta när du genererar statiska sidor med Nuxt.js
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -24,12 +25,12 @@ I den här självstudien får du lära dig att distribuera en [Nuxt. js](https:/
 - Ett GitHub-konto. [Skapa ett konto kostnads fritt](https://github.com/join).
 - [Node.js](https://nodejs.org) installerat.
 
-## <a name="set-up-a-nuxtjs-app"></a>Konfigurera en Nuxt. js-app
+## <a name="set-up-a-nuxtjs-app"></a>Konfigurera en Nuxt.js app
 
-Du kan skapa ett nytt Nuxt. js-projekt med hjälp av `create-nuxt-app` . I stället för ett nytt projekt börjar du med att klona en befintlig databas i den här självstudien. Den här lagrings platsen är konfigurerad för att visa hur du distribuerar en dynamisk Nuxt. js-app som en statisk plats.
+Du kan skapa ett nytt Nuxt.js-projekt med hjälp av `create-nuxt-app` . I stället för ett nytt projekt börjar du med att klona en befintlig databas i den här självstudien. Den här lagrings platsen är konfigurerad för att visa hur du distribuerar en dynamisk Nuxt.js-app som en statisk plats.
 
 1. Skapa en ny lagrings plats under ditt GitHub-konto från en mall-lagringsplats.
-1. Navigera till<http://github.com/staticwebdev/nuxtjs-starter/generate>
+1. Navigera till <http://github.com/staticwebdev/nuxtjs-starter/generate>
 1. Namnge lagrings platsen **nuxtjs-starter**
 1. Klona sedan den nya lagrings platsen till din dator. Se till att ersätta <YOUR_GITHUB_ACCOUNT_NAME> med ditt konto namn.
 
@@ -37,7 +38,7 @@ Du kan skapa ett nytt Nuxt. js-projekt med hjälp av `create-nuxt-app` . I stäl
     git clone http://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/nuxtjs-starter
     ```
 
-1. Navigera till den nyligen klonade Nuxt. js-appen:
+1. Navigera till den nyligen klonade Nuxt.js-appen:
 
    ```bash
    cd nuxtjs-starter
@@ -49,7 +50,7 @@ Du kan skapa ett nytt Nuxt. js-projekt med hjälp av `create-nuxt-app` . I stäl
     npm install
     ```
 
-1. Starta Nuxt. js-appen i utvecklingen:
+1. Starta Nuxt.js app i utvecklingen:
 
     ```bash
     npm run dev
@@ -57,17 +58,17 @@ Du kan skapa ett nytt Nuxt. js-projekt med hjälp av `create-nuxt-app` . I stäl
 
 Navigera till <http://localhost:3000> för att öppna appen, där du bör se följande webbplats som öppnas i din önskade webbläsare:
 
-:::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-app.png" alt-text="Starta Nuxt. js-app":::
+:::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-app.png" alt-text="Starta Nuxt.js app":::
 
 När du klickar på ett ramverk/bibliotek bör du se en informations sida om det valda objektet:
 
 :::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-details.png" alt-text="Sidan Details (Detaljer)":::
 
-## <a name="generate-a-static-website-from-nuxtjs-build"></a>Skapa en statisk webbplats från Nuxt. js-versionen
+## <a name="generate-a-static-website-from-nuxtjs-build"></a>Skapa en statisk webbplats från Nuxt.js build
 
-När du skapar en Nuxt. js-webbplats med hjälp av `npm run build` , byggs appen som en traditionell webbapp, inte en statisk plats. Använd följande program konfiguration för att skapa en statisk plats.
+När du skapar en Nuxt.js-webbplats med hjälp av skapas `npm run build` appen som en traditionell webbapp, inte en statisk plats. Använd följande program konfiguration för att skapa en statisk plats.
 
-1. Uppdatera _Package. JSON:_ s build-skript för att endast skapa en statisk plats med hjälp av `nuxt generate` kommandot:
+1. Uppdatera _package.jspå_build-skriptet för att endast skapa en statisk plats med hjälp av `nuxt generate` kommandot:
 
     ```json
     "scripts": {
@@ -84,7 +85,7 @@ När du skapar en Nuxt. js-webbplats med hjälp av `npm run build` , byggs appen
     npm run build
     ```
 
-    Nuxt. js genererar den statiska platsen och kopierar den till en _förd_ -mapp i rot katalogen i din arbets katalog.
+    Nuxt.js skapar den statiska platsen och kopierar den till en _förd_ -mapp i rot katalogen i din arbets katalog.
 
     > [!NOTE]
     > Den här mappen visas i _. gitignore_ -filen eftersom den ska genereras av CI/CD när du distribuerar.
@@ -118,10 +119,10 @@ Följande steg visar hur du länkar appen som du precis har push-överför till 
 ### <a name="create-an-azure-static-web-apps-preview-resource"></a>Skapa en resurs för för hands versionen av Azure statisk Web Apps
 
 1. Navigera till [Azure Portal](https://portal.azure.com)
-1. Klicka på **skapa en resurs**
-1. Sök efter **statiska Web Apps**
-1. Klicka på **statisk Web Apps (förhands granskning)**
-1. Klicka på **skapa**
+1. Klicka på **Skapa en resurs**
+1. Sök efter **Statiska webbappar**
+1. Klicka på **Statiska webbappar (förhandsversion)**
+1. Klicka på **Skapa**
 
 1. Välj en prenumeration i list rutan *prenumeration* eller Använd standardvärdet.
 1. Klicka på den **nya** länken under List rutan *resurs grupp* . I *nytt resurs grupp namn*skriver du **mystaticsite** och klickar på **OK**
@@ -133,14 +134,14 @@ Följande steg visar hur du länkar appen som du precis har push-överför till 
 
 ### <a name="add-a-github-repository"></a>Lägg till en GitHub-lagringsplats
 
-Det nya kontot för statisk Web Apps behöver åtkomst till lagrings platsen med din Nuxt. js-app så att den automatiskt kan distribuera incheckningar.
+Det nya kontot för statisk Web Apps behöver åtkomst till lagrings platsen med din Nuxt.js-app så att den automatiskt kan distribuera incheckningar.
 
 1. Klicka på **knappen Logga in med GitHub**
-1. Välj den **organisation** där du skapade lagrings platsen för ditt Nuxt. js-projekt, vilket kan vara ditt GitHub-användarnamn.
+1. Välj den **organisation** som du skapade lagrings platsen för i Nuxt.js projektet, vilket kan vara ditt GitHub-användarnamn.
 1. Sök efter och välj namnet på den databas som du skapade tidigare.
 1. Välj **Master** som gren i list rutan *gren* .
 
-   :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Anslut GitHub":::
+   :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Ansluta GitHub":::
 
 ### <a name="configure-the-build-process"></a>Konfigurera Bygg processen
 
@@ -179,13 +180,13 @@ Navigera till den nyligen distribuerade platsen och klicka på någon av Ramverk
 
 :::image type="content" source="media/deploy-nuxtjs/404-in-production.png" alt-text="404 på dynamiska vägar":::
 
-Orsaken till detta är att Nuxt. js skapade den statiska platsen, det gjorde den bara så för start sidan. Nuxt. js kan generera motsvarande statiska `.html` filer för alla `.vue` sidor-filer, men det finns ett undantag. 
+Orsaken till detta är Nuxt.js genererade den statiska platsen, men det gjorde det bara så för start sidan. Nuxt.js kan generera motsvarande statiska `.html` filer för alla `.vue` sidor-filer, men det finns ett undantag. 
 
 Om sidan är en dynamisk sida finns det till exempel `_id.vue` inte tillräckligt med information för att generera en statisk HTML-kod från en sådan dynamisk sida. Du måste uttryckligen ange möjliga sökvägar för dynamiska vägar.
 
 ## <a name="generate-static-pages-from-dynamic-routes"></a>Generera statiska sidor från dynamiska vägar
 
-1. Uppdatera filen _nuxt. config. js_ så att nuxt. js använder en lista över alla tillgängliga data för att generera statiska sidor för varje ramverk/bibliotek:
+1. Uppdatera _nuxt.config.js_ -filen så att Nuxt.js använder en lista över alla tillgängliga data för att generera statiska sidor för varje ramverk/bibliotek:
 
    ```javascript
      import { projects } from "./utils/projectsData";

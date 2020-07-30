@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: 95372d69f58249afc946f12ec74696507429e5c6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a971291dd423894e4d04158abe873a7222f9802c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125315"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405619"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Tjänstbegäran misslyckades. Status: 403 (ej tillåtet)
 
@@ -57,7 +57,7 @@ Om du är ägare till prenumerationen kan du köra det här kommandot själv. Om
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-Mer information om det här roll kravet och tilldelnings processen finns i avsnittet [ *Konfigurera din användares åtkomst behörigheter* ](how-to-set-up-instance-manual.md#set-up-your-users-access-permissions) i *instruktion: Konfigurera en instans och autentisering (manuell)*.
+Mer information om det här roll kravet och tilldelnings processen finns i avsnittet [ *Konfigurera din användares åtkomst behörigheter* ](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) i *instruktion: Konfigurera en instans och autentisering (CLI eller Portal)*.
 
 Om du redan har den här roll tilldelningen och fortfarande stöter på 403-problemet kan du fortsätta till nästa lösning.
 
@@ -75,12 +75,12 @@ Kontrol lera först att inställningarna för Azure Digitals-inställningar för
 
 #### <a name="fix-issues"></a>Åtgärda problem
 
-Om något av detta ser annorlunda ut än det som beskrivs följer du anvisningarna om hur du konfigurerar en app-registrering i [avsnittet *Konfigurera åtkomst behörigheter för klient program* ](how-to-set-up-instance-manual.md#set-up-access-permissions-for-client-applications) i *anvisningar: Konfigurera en instans och autentisering (manuell)*.
+Om något av detta visas annorlunda än det som beskrivs, följer du anvisningarna om hur du konfigurerar en app-registrering i [avsnittet *Konfigurera åtkomst behörigheter för klient program* ](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications) i *anvisningar: Konfigurera en instans och autentisering (CLI eller Portal)*.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs installations stegen för att skapa och autentisera en ny Azure Digital-instansen:
-* [*Anvisningar: Konfigurera en instans och autentisering (manuell)*](how-to-set-up-instance-manual.md)
+* [*Anvisningar: Konfigurera en instans och autentisering (CLI)*](how-to-set-up-instance-cli.md)
 
 Läs mer om säkerhet och behörigheter på digitala Azure-objekt:
 * [*Koncept: säkerhet för Azure Digitals dubbla lösningar*](concepts-security.md)

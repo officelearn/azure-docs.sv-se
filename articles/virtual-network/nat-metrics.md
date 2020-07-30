@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 75e20a4fb91b73bc353d347f0b34f9be8f7a8a58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3c47a60a6cda074eba7b5c3292577c29f50c2ab
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84709954"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424059"
 ---
 # <a name="azure-virtual-network-nat-metrics"></a>Azure Virtual Network NAT-mått
 
 Azure Virtual Network NAT-gateway-resurser innehåller flerdimensionella mått. Du kan använda dessa mått för att se hur det fungerar och vid [fel sökning](troubleshoot-nat.md).  Aviseringar kan konfigureras för kritiska problem som SNAT-belastningar.
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network NAT för utgående till Internet">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of virtual machines and a virtual machine scale set." width="256" title="Virtual Network NAT för utgående till Internet">
 </p>
 
 *Bild: Virtual Network NAT för utgående till Internet*
@@ -36,7 +36,7 @@ Azure Virtual Network NAT-gateway-resurser innehåller flerdimensionella mått. 
 
 NAT-gateway-resurser ger följande flerdimensionella mått i Azure Monitor:
 
-| Metric | Beskrivning | Rekommenderad agg regering | Dimensioner |
+| Mått | Beskrivning | Rekommenderad agg regering | Dimensioner |
 |---|---|---|---|
 | Byte | Antal byte som bearbetats inkommande och utgående | Summa | Riktning (i; Ut), protokoll (6 TCP; 17 UDP) |
 | Skickas | Paket som har bearbetats inkommande och utgående | Summa | Riktning (i; Ut), protokoll (6 TCP; 17 UDP) |

@@ -4,18 +4,18 @@ description: Tjänsten Azure Container Instances är det snabbaste och enklaste 
 ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 261e5d0159b4201aab0e8aad1e05fa320cc76a14
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 572557860f5d715d6c708acb640acc24e1dd4a35
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259514"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424162"
 ---
 # <a name="what-is-azure-container-instances"></a>Vad är Azure Container Instances?
 
 Containrar är på väg att bli det bästa sättet att paketera, distribuera och hantera molnprogram. Azure Container Instances erbjuder det snabbaste och enklaste sättet att köra en behållare i Azure, utan att behöva hantera några virtuella datorer och utan att behöva använda en tjänst på högre nivå.
 
-Azure Container Instances är en bra lösning för alla scenarier som kan fungera i isolerade behållare, däribland enkla program, automatisering av uppgifter och att skapa jobb. För scenarier där du behöver fullständig containerorkestrering, inklusive tjänstidentifiering för flera containrar, automatisk skalning och koordinerade programuppgraderingar rekommenderar vi [Azure Kubernetes Service (AKS)](../aks/index.yml).
+Azure Container Instances är en bra lösning för alla scenarier som kan fungera i isolerade behållare, däribland enkla program, automatisering av uppgifter och att skapa jobb. För scenarier där du behöver fullständig behållar dirigering, inklusive tjänst identifiering över flera behållare, automatisk skalning och koordinerade program uppgraderingar rekommenderar vi [Azure Kubernetes service (AKS)](../aks/index.yml).
 
 ## <a name="fast-startup-times"></a>Snabba starttider
 
@@ -68,7 +68,7 @@ Azure Container Instances stöder schemaläggning av [grupper med flera behålla
 
 ## <a name="virtual-network-deployment"></a>Distribution av virtuellt nätverk
 
-Den här funktionen i Azure Container Instances aktiverar [distribution av behållar instanser i ett virtuellt Azure-nätverk](container-instances-vnet.md)för produktions arbets belastningar i en delmängd av Azure-regioner. Genom att distribuera containerinstanser till ett undernät i ditt virtuella nätverk kan de kommunicera säkert med andra resurser i det virtuella nätverket, inklusive sådana som finns lokalt (via [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](../expressroute/expressroute-introduction.md)).
+Azure Container Instances aktiverar [distribution av behållar instanser till ett virtuellt Azure-nätverk](container-instances-vnet.md). När du distribuerar till ett undernät i det virtuella nätverket kan behållar instanser kommunicera säkert med andra resurser i det virtuella nätverket, inklusive de som finns lokalt (via [VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 ## <a name="next-steps"></a>Nästa steg
 

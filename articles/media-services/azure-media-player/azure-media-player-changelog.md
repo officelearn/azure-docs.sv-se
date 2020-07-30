@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 07/27/2020
-ms.openlocfilehash: 113249f56c1f5f9c035ec2ff6ccb7309dd355763
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9642f6d1090ef358cf86241640255c647dea52eb
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281352"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432666"
 ---
 # <a name="changelog"></a>Ändringslogg #
 
@@ -57,13 +57,13 @@ ms.locfileid: "87281352"
 
 ### <a name="changes-234"></a>Ändringar i 2.3.4
 
-- En tom beskrivnings etikett har tagits bort från HLS på iOS och MacOS Safari
+- En tom beskrivnings etikett har tagits bort från HLS på iOS och macOS Safari
 - Minska antalet 412s för IMSC1-beskrivningar
 - Varning om utdata i-konsolen för 10 på varandra följande tomma IMSC1-textning för att hjälpa till att använda Live-felsökning
 
 ## <a name="232-official-update-october-9-2019"></a>2.3.2 (officiell uppdatering oktober 9 2019)
 
-### <a name="features"></a>Funktioner
+### <a name="features-232"></a>Funktioner 2.3.2
 
 – PlayReady-stöd har lagts till för streck uppspelning för krom Edge-webbläsare
 
@@ -101,7 +101,7 @@ ms.locfileid: "87281352"
 
 - Vid hämtningen av en segmentDecryptError och spelaren redan finns på Live Edge uppdaterar spelaren nu manifestet i stället för att försöka med nästa segment
 - Ytterligare loggning för diagnostik har lagts till
-- Uppdaterad dokumentation till inkluderar FairPlay-stöd för iOS Safari
+- Uppdaterad dokumentation för att inkludera FairPlay-stöd för iOS Safari
 - Ett exempel har lagts till för alternativet "srclang" i IMSC1
 - Utfyllnad, textPadding, boxShadow åsidosättningar har lagts till för text spår.
 - En felkod (0x0020025B) har lagts till för att skilja på att nedladdningen av segment misslyckades på grund av inget Internet snarare än att bara hämta 0x00200259
@@ -228,7 +228,7 @@ ms.locfileid: "87281352"
 
 ### <a name="changes-218"></a>Ändringar 2.1.8 ###
 
-- Ändrade Uppdaterade 0x0600001-felkod som ska visas när AES-innehåll spelas upp med Flash 30 eftersom det inte stöds för tillfället. Mer information finns i [kända problem](azure-media-player-known-issues.md)
+- Ändrade Uppdaterad 0x0600001-fel för att visa när AES-innehåll spelas upp med Flash 30 eftersom det inte stöds för tillfället. Mer information finns i [kända problem](azure-media-player-known-issues.md)
 - Ändrade Ytterligare återförsök har lagts till för Live-scenarier när manifest begär 404 eller returnerar tomma manifest.
 
 ## <a name="217-official-update"></a>2.1.7 (officiell uppdatering) ##

@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: shresha
-ms.openlocfilehash: a5721748f023ea5f098b71d8d43dbda53721c54d
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: a74a5e2b8e80121324dc8b880d90f493d5b2ddfd
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171739"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423957"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migrera till nya Azure Time Series Insights Gen2 API-versioner
 
@@ -286,7 +286,7 @@ Uppdaterad begär ande text (används av `2020-07-31` ):
 
 Alternativt `value` kan även vara `$event['Bar-Pressure-Offset'].Double` . Om ingen datatyp anges antas data typen alltid vara dubbel. Klammerns notation måste användas för att undvika specialtecknet ( `-` ).
 
-#### <a name="getaggregateseries"></a>GetAggregateSeries
+#### <a name="aggregateseries"></a>AggregateSeries
 
 Gammal brödtext för begäran (används av `2018-11-01-preview` ):
 

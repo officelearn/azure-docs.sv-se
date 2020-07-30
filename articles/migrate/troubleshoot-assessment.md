@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 61afc3ec0f37f5d8b1030818d21b7daabb7fce40
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b47c6c7d2137737021766f239fdb6ab1c64bd12f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121681"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422869"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Felsöka utvärdering/beroendevisualisering
 
@@ -23,7 +23,7 @@ Den här artikeln hjälper dig att felsöka problem med utvärderings-och beroen
 
 Åtgärda problem med utvärderings beredskap enligt följande:
 
-**Problem** | **Snabbkorrigering**
+**Problem** | **Åtgärda**
 --- | ---
 Start typen stöds inte | Azure har inte stöd för virtuella datorer med en EFI-starttyp. Vi rekommenderar att du konverterar start typen till BIOS innan du kör en migrering. <br/><br/>Du kan använda migrering av Azure Migrate Server för att hantera migrering av sådana virtuella datorer. Den kommer att konvertera start typen för den virtuella datorn till BIOS under migreringen.
 Villkorligt Windows-operativsystem som stöds | Operativ systemet har passerat sitt slutdatum och måste ha ett anpassat support avtal (CSA) för [support i Azure](https://aka.ms/WSosstatement). Överväg att uppgradera innan du migrerar till Azure.
@@ -52,7 +52,7 @@ Villkorligt klar Internet Protocol | Gäller endast för Azure VMware Solution (
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Föreslaget Migreringsverktyg i importerad AVS-utvärdering markerad som okänd
 
-För datorer som importeras via en CSV-fil är standard verktyget för migrering i och AVS-utvärderingen okänt. För VMware-datorer rekommenderar vi dock att du använder HCX-lösningen (VMWare Hybrid Cloud Extension). [Läs mer](../azure-vmware/hybrid-cloud-extension-installation.md).
+För datorer som importeras via en CSV-fil är standard verktyget för migrering i och AVS-utvärderingen okänt. För VMware-datorer rekommenderar vi dock att du använder HCX-lösningen (VMware Hybrid Cloud Extension). [Läs mer](../azure-vmware/hybrid-cloud-extension-installation.md).
 
 ## <a name="linux-vms-are-conditionally-ready-in-an-azure-vm-assessment"></a>Virtuella Linux-datorer är "villkorligt redo" i en Azure VM-utvärdering
 
@@ -180,6 +180,9 @@ När du har migrerat datorer med beroende visualisering aktive rad till Azure ka
 
 ## <a name="dependencies-export-csv-shows-unknown-process"></a>Beroenden exportera CSV visar "okänd process"
 I en agent utan beroende analys, fångas process namnen på bästa möjliga villkor. I vissa fall, även om käll-och mål server namnen och mål porten har fångats, är det inte möjligt att fastställa process namnen i båda ändar av beroendet. I sådana fall markeras processen som "okänd process".
+
+## <a name="my-log-analytics-workspace-is-not-listed-when-trying-to-configure-the-workspace-in-server-assessment"></a>Min Log Analytics-arbetsyta visas inte när du försöker konfigurera arbets ytan i Server utvärderingen
+Azure Migrate har för närvarande stöd för att skapa OMS-arbetsytor i regionerna USA, östra, Asien, sydöstra och Europa, västra. Om arbets ytan har skapats utanför Azure Migrate i någon annan region, kan den för närvarande inte associeras med ett Azure Migrate-projekt.
 
 
 ## <a name="capture-network-traffic"></a>Avbilda nätverks trafik

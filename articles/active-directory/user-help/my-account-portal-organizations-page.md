@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/28/2019
+ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: 54e19d8680a5b5b7477c143a1857931b082fed98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd8b8deed2afafc22e99ac15f2bcffdf65af83c4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83742246"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422459"
 ---
 # <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Hantera dina anslutna organisationer från sidan organisationer
 
@@ -68,3 +68,5 @@ När du har visat dina organisationer kan du:
 - Visa din [inloggnings aktivitet](my-account-portal-sign-ins-page.md).
 
 - Se hur din organisation [använder dina sekretess-relaterade data](my-account-portal-privacy-page.md).
+
+- Ändra [Portal inställningarna för mitt konto](my-account-portal-settings.md)

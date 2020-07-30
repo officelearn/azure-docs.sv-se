@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 07/03/2020
-ms.openlocfilehash: 5b25c56591e64d66901dbcf79dc629f0beb2bbb0
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: b20cb074a21196467c0264247e8f5d885d7956a0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117020"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423311"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Säker åtkomst och data i Azure Logic Apps
 
@@ -57,7 +57,7 @@ Varje begär ande slut punkt i en Logic app har en [signatur för delad åtkomst
 
 Varje URL innehåller `sp` Frågeparametern, `sv` och, `sig` enligt beskrivningen i den här tabellen:
 
-| Frågeparameter | Beskrivning |
+| Frågeparameter | Description |
 |-----------------|-------------|
 | `sp` | Anger behörigheter för de tillåtna HTTP-metoder som ska användas. |
 | `sv` | Anger den SAS-version som ska användas för att skapa signaturen. |
@@ -248,7 +248,7 @@ Om du [automatiserar distributionen för logi Kap par med hjälp av Resource Man
                   ]
                },
                "actions": {
-                  "allowedCallerIpAddresses:" : []
+                  "allowedCallerIpAddresses": []
                }
             },
             "endpointsConfiguration": {}
@@ -539,7 +539,7 @@ Här är mer information om de här `parameters` avsnitten:
 
 Den här exempel mal len har flera skyddade parameter definitioner som använder `securestring` typen:
 
-| Parameternamn | Beskrivning |
+| Parameternamn | Description |
 |----------------|-------------|
 | `TemplatePasswordParam` | En mallparameter som accepterar ett lösen ord som sedan skickas till arbets flödets definitions `basicAuthPasswordParam` parameter |
 | `TemplateUsernameParam` | En mallparameter som accepterar ett användar namn som sedan skickas till arbets flödets definitions `basicAuthUserNameParam` parameter |

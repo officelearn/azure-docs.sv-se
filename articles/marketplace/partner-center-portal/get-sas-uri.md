@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 07/14/2020
-ms.openlocfilehash: f3589fb9ae176e04f727f516cca7c18c87dad9e0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 07/29/2020
+ms.openlocfilehash: 3c5c86f89882654e44f924ce0a19d4d71713144d
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317509"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431674"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Hämta signatur-URI för delad åtkomst för din VM-avbildning
 
@@ -31,17 +31,15 @@ När du genererar SAS-URI: er för dina virtuella hård diskar följer du dessa 
 
 Det finns två vanliga verktyg som används för att skapa en SAS-adress (URL):
 
-* **Microsoft Storage Explorer** – grafiskt verktyg som är tillgängligt för Windows, MacOS och Linux.
+* **Microsoft Storage Explorer** – grafiskt verktyg som är tillgängligt i Azure Portal.
 * **Microsoft Azure CLI** – rekommenderas för operativ system som inte kommer från Windows och automatiserade eller kontinuerliga integrerings miljöer.
 
 ### <a name="use-microsoft-storage-explorer"></a>Använd Microsoft Storage Explorer
 
-1. Hämta och installera [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
-2. Öppna Utforskaren och välj **Lägg till konto**i den vänstra menyn. Dialog rutan **Anslut till Azure Storage** visas.
-3. Välj **Lägg till ett Azure-konto** och **Logga**in. Slutför de nödvändiga stegen för att logga in på ditt Azure-konto.
-4. I det**vänstra fönstret går** du till dina **lagrings konton** och expanderar den här noden.
-5. Högerklicka på din virtuella hård disk och välj **Hämta signatur för resurs åtkomst**.
-6. Dialog rutan **signatur för delad åtkomst** visas. Fyll i följande fält:
+1. Gå till ditt lagrings konto i Azure Portal.
+2. I fönstret Explorer till vänster öppnar du verktyget **Storage Explorer** (för hands version).
+3. Högerklicka på din virtuella hård disk och välj sedan **Hämta signatur för delad åtkomst**.
+4. Dialog rutan **signatur för delad åtkomst** visas. Fyll i följande fält:
 
     * **Start tid** – behörighetens start datum för VHD-åtkomst. Ange ett datum som infaller en dag före det aktuella datumet.
     * **Förfallo tid** – behörighetens förfallo datum för VHD-åtkomst. Ange ett datum som infaller minst tre veckor bortom det aktuella datumet.
@@ -50,20 +48,11 @@ Det finns två vanliga verktyg som används för att skapa en SAS-adress (URL):
 
         :::image type="content" source="media/create-sas-uri-storage-explorer.png" alt-text="Visar dialog rutan signatur för delad åtkomst":::
 
-7. Om du vill skapa en tillhör ande SAS-URI för den här virtuella hård disken väljer du **skapa**. Dialog rutan uppdateras och visar information om den här åtgärden.
-8. Kopiera **URI: n** och spara den i en textfil på en säker plats.
+5. Om du vill skapa en tillhör ande SAS-URI för den här virtuella hård disken väljer du **skapa**. Dialog rutan uppdateras och visar information om den här åtgärden.
+6. Kopiera **URI: n** och spara den i en textfil på en säker plats.
 
     :::image type="content" source="media/create-sas-uri-shared-access-signature-details.png" alt-text="Visar informations rutan signatur för delad åtkomst":::
-
-    Den här genererade SAS-URI: n är för åtkomst på container nivå. Om du vill göra det speciellt kan du redigera text filen för att lägga till VHD-namnet (nästa steg).
-
-9. Infoga ditt VHD-namn efter VHD-strängen i SAS-URI: n (inklusive ett snedstreck). Den sista SAS-URI: n bör se ut så här:
-
-    `<blob-service-endpoint-url> + /vhds/ + <vhd-name>? + <sas-connection-string>`Om namnet på VDH till exempel är `TestRGVM2.vhd` , blir den resulterande SAS-URI: n:
-
-    `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
-
-10. Upprepa de här stegen för varje virtuell hård disk i de planer som du ska publicera.
+7. Upprepa de här stegen för varje virtuell hård disk i de planer som du ska publicera.
 
 ### <a name="using-azure-cli"></a>Använda Azure CLI
 

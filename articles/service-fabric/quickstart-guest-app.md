@@ -3,24 +3,25 @@ title: Distribuera en befintlig app snabbt till ett kluster
 description: Använda en Azure Service Fabric-kluster som värd för ett befintligt Node.js-program med Visual Studio.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: 9153fc4cd60cb892532db49bf4339b517320b1a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 9b39e14b18a784274f1bac12072f4fa39de2bb87
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75614850"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430721"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Skapa ett Node.js-program i Azure med Node.js
 
 Den här snabbstarten hjälper dig att distribuera ett befintligt program (Node.js i det här exemplet) till ett Service Fabric-kluster som körs på Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste [konfigurera utvecklingsmiljön](service-fabric-get-started.md) innan du börjar. Inklusive installation av Service Fabric SDK och Visual Studio 2019 eller 2015.
 
 Du måste också ha ett befintligt Node.js-program för distribution. Denna snabbstart använder en enkel Node.js-webbplats som du kan hämta [här][download-sample]. Extrahera filen till din `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\`-mapp när du har skapat projektet i nästa steg.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto][create-account].
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto][create-account].
 
 ## <a name="create-the-service"></a>Skapa tjänsten
 
@@ -115,7 +116,7 @@ När tjänsten har publicerats kan du testa den i en webbläsare.
 
 Först öppna Azure-portalen och sök efter Service Fabric-tjänsten.
 
-Kontrollera översiktsbladet för tjänstadressen. Använda domännamnet från egenskapen _Klientanslutningsslutpunkt_. Till exempel `http://mysvcfab1.westus2.cloudapp.azure.com`.
+Kontrollera översiktsbladet för tjänstadressen. Använda domännamnet från egenskapen _Klientanslutningsslutpunkt_. Exempelvis `http://mysvcfab1.westus2.cloudapp.azure.com`.
 
 ![Bladet Service fabric-översikt på Azure portal][overview]
 

@@ -1,25 +1,26 @@
 ---
 title: Azure Storage exempel med Java Script | Microsoft Docs
-description: Visa, ladda ned och kör exempel kod och program för Azure Storage. Identifiera exempel på att komma igång med blobbar, köer, tabeller och filer med hjälp av Java Script/Node. js-lagrings klient bibliotek.
+description: Visa, ladda ned och kör exempel kod och program för Azure Storage. Identifiera exempel på att komma igång med blobbar, köer, tabeller och filer med hjälp av Java Script/Node.js lagrings klient bibliotek.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 02/19/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 1d6b4d37a3d7c4accc3e407fb6cf841600ac1c16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 466a1318dbe0a9299eebb9259ef8e0fe9bbbc0e7
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77485853"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433089"
 ---
 # <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>Azure Storage exempel med V12 Java Script-klient bibliotek
 
 Följande tabeller ger en översikt över våra exempel lager och scenarier som beskrivs i varje exempel. Klicka på länkarna om du vill visa motsvarande exempel kod i GitHub.
 
 > [!NOTE]
-> De här exemplen använder det senaste Azure Storage Java Script V12-biblioteket. För äldre V11-kod, se [komma igång med Azure Blob service i Node. js](https://github.com/Azure-Samples/storage-blob-node-getting-started) i GitHub-lagringsplatsen.
+> De här exemplen använder det senaste Azure Storage Java Script V12-biblioteket. För äldre V11-kod, se [komma igång med Azure Blob service i Node.js](https://github.com/Azure-Samples/storage-blob-node-getting-started) i GitHub-lagringsplatsen.
 
 ## <a name="blob-samples"></a>BLOB-exempel
 
@@ -173,7 +174,7 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
       [Lista sökvägar i ett fil system](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L63)
    :::column-end:::
    :::column span="":::
-      [Hämta en fil](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L69)
+      [Ladda ned en fil](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L69)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -389,7 +390,7 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
       [Regler för resurs delning mellan ursprung (CORS)](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L149)
    :::column-end:::
    :::column span="":::
-      [Tabell egenskaper](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L188)
+      [Tabellegenskaper](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L188)
    :::column-end:::
 :::row-end:::
 :::row:::

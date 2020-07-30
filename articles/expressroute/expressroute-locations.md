@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: 72408b4f17aa5e8601095b27478806883739a7a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0aac3d7a4bc2eb8bb83405155b345360f5d2c699
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031634"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407361"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>ExpressRoute anslutnings partner och peering-platser
 
@@ -82,7 +82,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Aryaka Networks](https://www.aryaka.com/)** |Stöds |Stöds |Amsterdam, Chicago, Borås, Hongkong SAR, Sao Paulo, Seattle, Silicon dal, Singapore, Tokyo, Washington DC |
 | **[Ascenty Data Centers](https://www.ascenty.com/en/cloud/microsoft-express-route)** |Stöds |Stöds |Sao Paulo |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Stöds |Stöds |Amsterdam, Chicago, Borås, Frankfurt, London, Silicon dal, Singapore, Sydney, Tokyo, Toronto, Washington DC |
-| **[I TOKYO](https://www.attokyo.com/service/cloudsconnection/forazure.html)** | Stöds | Stöds | Tokyo2 |
+| **[I TOKYO](https://www.attokyo.com/connectivity/azure.html)** | Stöds | Stöds | Osaka, Tokyo2 |
 | **[BBIX](https://www.bbix.net/en/service/ix/)** | Stöds | Stöds | Tokyo |
 | **[BCX](https://www.bcx.co.za/solutions/connectivity/data-networks)** |Stöds |Stöds |Kapstaden, Johannesburg|
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Stöds |Stöds |Montreal, Toronto, Quebec City |
@@ -109,7 +109,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **Etisalat Förenade Arabemiraten** |Stöds |Stöds |Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Stöds |Stöds |Amsterdam, Amsterdam2, Dublin, Frankfurt, London |
 | **FarEasTone** |Stöds |Stöds |Taipei|
-| **GÉANT** |Stöds |Stöds |Amsterdam, Dublin, Frankfurt, Marseille |
+| **GÉANT** |Stöds |Stöds |Amsterdam, Amsterdam2, Dublin, Frankfurt, Marseille |
 | **GTT** |Stöds |Stöds |London2 |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Stöds| Stöds | Chennai, Mumbai |
 | **Intelsat** | Stöds | Stöds | Washington DC2 |

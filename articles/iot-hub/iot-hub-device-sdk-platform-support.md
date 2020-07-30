@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: 496b890cc49b6b6b9f15213a48472447f801b1c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aef468d919e6f09722045f98c68383785d10b137
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76045130"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423090"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Plattforms stöd för Azure IoT Device SDK: er
 
@@ -124,7 +124,7 @@ Om du inte kan använda någon av IoT Hub enhets-SDK: er kan du ansluta direkt t
 
 ## <a name="support-and-other-resources"></a>Support och andra resurser
 
-Om du får problem när du använder SDK: er för Azure IoT-enheter finns det flera sätt att söka efter support. Du kan prova någon av följande kanaler:
+Om du får problem när du använder SDK: er för Azure IoT-enheter finns det flera sätt att söka efter stöd sammanfattande nedan. Fullständig information om alla support alternativ finns i [Azure IoT-support och hjälp alternativ](https://aka.ms/iothelp). 
 
 **Rapporterings buggar** – buggar i enhets-SDK: erna kan rapporteras på sidan problem i relevant GitHub-projekt. Du kan snabbt göra sitt sätt från projektet i till produkt uppdateringar.
 
@@ -137,6 +137,8 @@ Om du får problem när du använder SDK: er för Azure IoT-enheter finns det fl
 * [Problem med Azure IoT Hub Node.js SDK](https://github.com/Azure/azure-iot-sdk-node/issues)
 
 * [Problem med Azure IoT Hub python SDK](https://github.com/Azure/azure-iot-sdk-python/issues)
+
+**Tekniska frågor** – du kan ställa tekniska frågor om både [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-iot-sdk.html) och [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-sdk) med hjälp av taggen *Azure-IoT-SDK*.
 
 **Microsofts kund support team** – användare som har ett [support](https://azure.microsoft.com/support/plans/) avtal kan engagera Microsofts kund support team genom att skapa en ny supportbegäran direkt från [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 

@@ -5,23 +5,24 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: how-to
-ms.openlocfilehash: 90653db4c572877a728964851a99beebf2e823a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e9cb216c100f1732230a90572284bd3f8462584
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80681485"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433135"
 ---
 # <a name="override-materials-during-model-conversion"></a>Åsidosätta material under modellkonverteringen
 
-Under konverteringen används material inställningarna i käll modellen för att definiera det PBR- [material](../../overview/features/pbr-materials.md) som används av åter givningen.
+Material inställningarna i käll modellen används för att definiera det PBR- [material](../../overview/features/pbr-materials.md) som används av åter givningen.
 Ibland ger [standard konverteringen](../../reference/material-mapping.md) inga önskade resultat och du måste göra ändringar.
 När en modell konverteras för användning i Azure-fjärrrendering kan du ange en material-åsidosättande fil för att anpassa hur material konvertering sker per material.
 Avsnittet om hur du [konfigurerar modell konvertering](configure-model-conversion.md) har instruktioner för att deklarera fil namnet för åsidosättning av material.
 
 ## <a name="the-override-file-used-during-conversion"></a>Den åsidosättande fil som används under konverteringen
 
-Ett enkelt exempel är att anta att en box-modell har ett enda material, som kallas "default". Albedo-färgen måste justeras för användning i ARR.
+Ett enkelt exempel är att anta att en box-modell har ett enda material, som kallas "default".
+Låt oss säga att dess albedo-färg måste justeras för användning i ARR.
 I det här fallet `box_materials_override.json` kan en fil skapas på följande sätt:
 
 ```json
@@ -38,7 +39,7 @@ I det här fallet `box_materials_override.json` kan en fil skapas på följande 
 ]
 ```
 
-`box_materials_override.json`Filen placeras i behållaren för indata och en `ConversionSettings.json` läggs till bredvid `box.fbx` , vilket anger att konverteringen ska hitta åsidosättning-filen (se [Konfigurera modell konverteringen](configure-model-conversion.md)):
+`box_materials_override.json`Filen placeras i behållaren för indata och en `box.ConversionSettings.json` läggs till bredvid `box.fbx` , vilket anger att konverteringen ska hitta åsidosättning-filen (se [Konfigurera modell konverteringen](configure-model-conversion.md)):
 
 ```json
 {
@@ -51,7 +52,7 @@ När modellen konverteras används de nya inställningarna.
 ### <a name="color-materials"></a>Färgmaterial
 
 [Färg Materials](../../overview/features/color-materials.md) modellen beskriver en konstant skuggad yta som är oberoende av belysningen.
-Detta är användbart för till gångar som görs av Photogrammetry-algoritmer, till exempel.
+Färg material är användbart för till gångar som görs av Photogrammetry-algoritmer, till exempel.
 Vid åsidosättning av materialiserade filer kan ett material deklareras som ett färg material genom att ställa in `unlit` på `true` .
 
 ```json

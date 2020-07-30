@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: mahain
-ms.openlocfilehash: a4d2e810144e7c3d36545cb1e965aec40980c1d2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 84798dbcd158b62ce6714bf73494a9e85bf932a8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118825"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387956"
 ---
 # <a name="avs-assessments-in-azure-migrate-server-assessment"></a>AVS-utvärderingar i Azure Migrate: Server utvärdering
 
@@ -26,14 +26,14 @@ Server utvärdering är ett verktyg i Azure Migrate som bedömer lokala servrar 
 
 Utvärderingar som du skapar med Server utvärdering är en tidpunkts ögonblicks bild av data. Det finns två typer av utvärderingar som du kan skapa med hjälp av Azure Migrate: Server utvärdering.
 
-**Bedömnings typ** | **Detaljer**
+**Bedömnings typ** | **Information**
 --- | --- 
 **Azure VM** | Utvärderingar för att migrera dina lokala servrar till Azure Virtual Machines. <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md), [virtuella Hyper-V-datorer](how-to-set-up-appliance-hyper-v.md)och [fysiska servrar](how-to-set-up-appliance-physical.md) för migrering till Azure med hjälp av den här utvärderings typen. [Läs mer](concepts-assessment-calculation.md)
 **Azure VMware Solution (AVS)** | Utvärderingar för att migrera dina lokala servrar till [Azure VMware-lösningen (AVS)](../azure-vmware/introduction.md). <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till Azure VMware-lösningen (AVS) med den här utvärderings typen. [Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
 
 Azure VMware Solution (AVS)-utvärdering i Server utvärdering ger två storlekar för storleks villkor:
 
-**Utvärdering** | **Detaljer** | **Data**
+**Utvärdering** | **Information** | **Data**
 --- | --- | ---
 **Prestanda-baserade** | Utvärderingar baserade på insamlade prestanda data för lokala virtuella datorer. | **Rekommenderad Node-storlek**: baserat på CPU-och minnes användnings data tillsammans med nodtypen, lagrings typ och FTT-inställning som du väljer för utvärderingen.
 **Som lokalt** | Utvärderingar baserade på lokal storlek. | **Rekommenderad Node-storlek**: baserat på den lokala virtuella dator storleken tillsammans med den nodtyp, lagrings typ och FTT-inställning som du väljer för utvärderingen.
@@ -116,7 +116,7 @@ Beräkningarna sker i föregående ordning. En dator server flyttas till ett sen
 Här är what's som ingår i en AVS-utvärdering i Server utvärderingen:
 
 
-| **Egenskap** | **Detaljer** 
+| **Egenskap** | **Information** 
 | - | - 
 | **Målplats** | Anger den plats för molnets privata moln som du vill migrera till.<br/><br/> AVS-utvärderingen i Server utvärderingen stöder för närvarande dessa mål regioner: östra USA, västra Europa, västra USA. 
 | **Lagringstyp** | Anger den lagrings motor som ska användas i AVS.<br/><br/> AVS-utvärderingar stöder endast virtuellt San som standard lagrings typ. 
@@ -150,9 +150,9 @@ Server utvärderingen granskar datorns egenskaper för att fastställa Azure-ber
 Server utvärderingen granskar följande egenskap för den lokala virtuella datorn för att avgöra om den kan köras på Azure VMware-lösning (AVS).
 
 
-| **Egenskap** | **Detaljer** | **Status för AVS-beredskap** 
+| **Egenskap** | **Information** | **Status för AVS-beredskap** 
 | - | - | - 
-| **Internet Protocol** | AVS stöder för närvarande inte IPv6-Internet adressering.<br/><br/> Kontakta ditt lokala team för MSFT-GBB för vägledning om hur du får vägledning om din dator identifieras med IPv6.| Villkorligt klar Internet Protocol
+| **Internet Protocol** | AVS stöder för närvarande inte IPv6 för Internetadressering.<br/><br/> Kontakta ditt lokala MSFT-GBB-team för vägledning om din dator identifieras med IPv6.| Villkorligt klar Internet Protocol
 
 
 ### <a name="guest-operating-system"></a>Gästoperativsystem
@@ -172,15 +172,15 @@ När en dator har marker ATS som klar för AVS, gör AVS-utvärderingen i Server
 
 ### <a name="ftt-sizing-parameters"></a>Parametrar för FTT storlek
 
-Den lagrings motor som används i AVS är virtuellt San. Virtuellt San lagrings principer definierar lagrings krav för dina virtuella datorer. Dessa principer garanterar den tjänst nivå som krävs för dina virtuella datorer eftersom de fastställer hur lagringen allokeras till den virtuella datorn. De tillgängliga FTT-RAID-kombinationerna är: 
+Den lagrings motor som används i AVS är virtuellt San. Virtuellt San lagrings principer definierar lagrings krav för dina virtuella datorer. Med dessa principer garanteras den tjänstnivå som krävs för dina virtuella datorer eftersom de fastställer hur lagringen allokeras till den virtuella datorn. De tillgängliga FTT-RAID-kombinationerna är: 
 
-**Problem som kan tolereras (FTT)** | **RAID-konfiguration** | **Lägsta antal värdar som krävs** | **Storleks ändring**
+**Fel som ska kunna hanteras (FTT)** | **RAID-konfiguration** | **Lägsta antal värdar som krävs** | **Storleksövervägande**
 --- | --- | --- | --- 
-1 | RAID-1 (spegling) | 3 | En 100 GB virtuell dator skulle förbruka 200 GB.
-1 | RAID-5 (raderings kod) | 4 | En 100 GB virtuell dator skulle förbruka 133.33 GB
-2 | RAID-1 (spegling) | 5 | En 100 GB virtuell dator skulle förbruka 300 GB.
-2 | RAID-6 (raderings kod) | 6 | En virtuell dator på 100 GB använder 150 GB.
-3 | RAID-1 (spegling) | 7 | En 100 GB virtuell dator skulle förbruka 400 GB.
+1 | RAID-1 (spegling) | 3 | En virtuell dator på 100 GB skulle förbruka 200 GB.
+1 | RAID-5 (raderingsskyddad kod) | 4 | En virtuell dator på 100 GB skulle förbruka 133,33 GB
+2 | RAID-1 (spegling) | 5 | En virtuell dator på 100 GB skulle förbruka 300 GB.
+2 | RAID-6 (raderingsskyddad kod) | 6 | En virtuell dator på 100 GB skulle förbruka 150 GB.
+3 | RAID-1 (spegling) | 7 | En virtuell dator på 100 GB skulle förbruka 400 GB.
 
 ### <a name="performance-based-sizing"></a>Prestanda-baserad storlek
 
@@ -197,11 +197,11 @@ När det effektiva användning svärdet har fastställts hanteras lagring, nätv
 
 **Lagrings storlek**: Azure Migrate använder det totala disk utrymmet för den lokala virtuella datorn som en beräknings parameter för att fastställa lagrings krav för AVS-virtuellt San utöver den KUNDvalda FTT-inställningen. FTT – fel som kan tolereras och kräver minst antal noder per FTT avgör den totala virtuellt San-lagringen som krävs kombinerat med kravet på VM-diskar.
 
-**Nätverks storlek**: Server utvärderingen tar för närvarande inte hänsyn till några nätverks inställningar för AVS-bedömningar.
+**Nätverksstorlek**: I serverutvärderingen tas för närvarande inga nätverksinställningar i beaktande för AVS-utvärderingar.
 
 **Beräknings storlek**: när den beräknar lagrings kraven tar Server utvärderingen hänsyn till processor-och minnes krav för att fastställa antalet noder som krävs för AVS-baserat på nodtypen.
 
-- Utifrån storleks kriterierna tittar Server utvärderingen antingen på de prestandabaserade VM-data eller den lokala VM-konfigurationen. Inställningen bekvämlighets faktor gör det möjligt att ange en tillväxt faktor för klustret. För närvarande är hyperthreading aktive rad som standard och en 36-Core-noder kommer att ha 72 virtuella kärnor. 4 virtuella kärnor per fysisk används för att fastställa CPU-tröskelvärden per kluster med VMware-standarden av högst 80% användning för att tillåta underhåll eller fel som ska hanteras utan att klustrets tillgänglighet äventyras. Det finns för närvarande ingen åsidosättning tillgänglig för att ändra överprenumerations värden och vi kan ha detta i framtida versioner.
+- Utifrån storleks kriterierna tittar Server utvärderingen antingen på de prestandabaserade VM-data eller den lokala VM-konfigurationen. Inställningen bekvämlighets faktor gör det möjligt att ange en tillväxt faktor för klustret. För närvarande är hypertrådning aktiverat som standard och noder med 36 kärnor har därmed 72 virtuella kärnor. 4 virtuella kärnor per fysisk kärna används för att fastställa CPU-tröskelvärden per kluster med VMware-standarden med högst 80 procents användning så att underhåll eller fel kan hanteras utan att klustrets tillgänglighet äventyras. Det finns för närvarande ingen åsidosättning tillgänglig för att ändra överprenumerations värden och vi kan ha detta i framtida versioner.
 
 ### <a name="as-on-premises-sizing"></a>Som lokal storlek
 
@@ -255,9 +255,9 @@ Observera att när Azure VMware-lösningen (AVS) är i för hands version, är n
 
 ## <a name="migration-tool-guidance"></a>Vägledning för Migreringsverktyg
 
-I Azure readiness-rapporten för Azure VMware Solution (AVS)-utvärdering kan du se följande rekommenderade verktyg: 
+I Azure-beredskapsrapporten för Azure VMware Solution (AVS)-utvärdering föreslås följande verktyg: 
 - **VMware HCX eller Enterprise**: för VMware-datorer är HCX-lösningen (VMware Hybrid Cloud Extensions) det rekommenderade Migreringsverktyg för att migrera din lokala arbets belastning till ditt Azure VMware-lösning (AVS) privat moln. [Läs mer](../azure-vmware/hybrid-cloud-extension-installation.md).
-- **Okänd**: för datorer som importeras via en CSV-fil är standard verktyget för migrering okänt. Även för VMware-datorer rekommenderar vi att du använder HCX-lösningen (VMWare Hybrid Cloud Extension).
+- **Okänt**: Standardmigreringsverktyget är okänt för datorer som importerats via en CSV-fil. Även för VMware-datorer rekommenderar vi att du använder HCX-lösningen (VMware Hybrid Cloud Extension).
 
 ## <a name="next-steps"></a>Nästa steg
 

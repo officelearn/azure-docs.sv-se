@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: anropa din Anpassad sökning i Bing-slutpunkt med Node. js | Microsoft Docs'
+title: 'Snabb start: anropa din Anpassad sökning i Bing-slutpunkt med Node.js | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: Använd den här snabb starten för att börja begära Sök Resultat från Anpassad sökning i Bing-instansen med hjälp av Node. js.
+description: Använd den här snabb starten för att börja begära Sök Resultat från Anpassad sökning i Bing-instansen med hjälp av Node.js.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,14 +10,15 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 34d64db9caefd26adc91471ed67e528a6e3196dc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom: devx-track-javascript
+ms.openlocfilehash: dcfb5ed0b7a7fe2ec004ef5ceebf9ee51112c67c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199848"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406460"
 ---
-# <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>Snabb start: anropa din Anpassad sökning i Bing slut punkt med Node. js
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>Snabb start: anropa din Anpassad sökning i Bing slut punkt med Node.js
 
 Använd den här snabb starten för att lära dig hur du begär Sök Resultat från Anpassad sökning i Bing-instansen. Även om det här programmet är skrivet i Java Script är API för anpassad Bing-sökning en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingCustomSearchv7.js).
 
@@ -25,7 +26,7 @@ Använd den här snabb starten för att lära dig hur du begär Sök Resultat fr
 
 - En instans av anpassad Bing-sökning. Mer information finns i [snabb start: skapa din första anpassad sökning i Bing-instans](quick-start.md).
 
-- [Node. js JavaScript-körning](https://www.nodejs.org/).
+- [Node.js JavaScript-körning](https://www.nodejs.org/).
 
 - [Java Script Request-biblioteket](https://github.com/request/request).
 

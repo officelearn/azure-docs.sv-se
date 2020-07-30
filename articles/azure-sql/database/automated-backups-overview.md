@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 07/20/2020
-ms.openlocfilehash: 0eea1b696d8eae8606c0b6009f248a215d12db57
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ed3f23b13920a9c3220a030059fdc8471f350d28
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515142"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428228"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Automatiserade säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 
@@ -161,6 +161,9 @@ Om du vill förstå kostnader för säkerhets kopierings lagring går du till **
 Lägg till ett filter för **tjänst namn**och välj sedan **SQL-databas** i list rutan. Använd filtret under **kategori för mätning** för att välja fakturerings räknare för din tjänst. För en enskild databas eller en Elastic Database-pool väljer du **Single/elastisk pool pitr backup Storage**. För en hanterad instans väljer du **mi pitr backup Storage**. Under kategorierna för **lagring** och **beräkning** kan intresserar dig också, men de är inte kopplade till reserv lagrings kostnader.
 
 ![Kostnads analys för lagring av säkerhets kopior](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
+
+  >[!NOTE]
+  > Mätare är bara synliga för räknare som används för närvarande. Om en räknare inte är tillgänglig är det troligt att kategorin inte används för närvarande. Räknare för hanterade instanser är till exempel inte tillgängliga för kunder som inte har distribuerat en hanterad instans. På samma sätt visas inte lagrings räknare för resurser som inte konsumerar lagring. 
 
 ## <a name="encrypted-backups"></a>Krypterade säkerhets kopior
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75b6ba110264ae3826093222e9cd3c4073bc17f0
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0e16fdaed8ce7e73718569652e88e66844850175
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683590"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416608"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Amazon Web Services (AWS)
 
@@ -34,7 +34,7 @@ Mer information om SaaS app integration med Azure AD finns i [Vad är program å
 
 ![Diagram över Azure AD-och AWS-relationer](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
-Du kan konfigurera flera identifierare för flera instanser. Till exempel:
+Du kan konfigurera flera identifierare för flera instanser. Exempel:
 
 * `https://signin.aws.amazon.com/saml#1`
 
@@ -53,7 +53,7 @@ Vi rekommenderar den här metoden av följande orsaker:
 > [!Note]
 > Se till att du endast använder ett galleri program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -105,7 +105,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat och de nödvändiga URL: erna är redan ifyllda med Azure. Användaren måste spara konfigurationen genom att välja **Spara**.
+1. I avsnittet **grundläggande SAML-konfiguration** uppdaterar du båda **identifieraren (entitets-ID)** och **svars-URL** med samma standardvärde: `https://signin.aws.amazon.com/saml` . Du måste välja **Spara** för att spara konfigurations ändringarna.
 
 1. Ange ett ID-värde när du konfigurerar fler än en instans. Använd följande format från den andra instansen, inklusive ett **#** tecken för att ange ett unikt SPN-värde.
 
@@ -117,13 +117,21 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig AWS-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
     
-    | Name  | Källattribut  | Namnområde |
+    | Namn  | Källattribut  | Namnområde |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
     | Roll            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes` |
     | SessionDuration             | ”ange ett värde mellan 900 sekunder (15 minuter) och 43 200 sekunder (12 timmar)” |  `https://aws.amazon.com/SAML/Attributes` |
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i dialog rutan **SAML-signeringscertifikat** (steg 3), väljer du **Lägg till ett certifikat**.
+
+    ![Skapa nytt SAML-certifikat](common/add-saml-certificate.png)
+
+1. Generera ett nytt certifikat för SAML-signering och välj sedan **nytt certifikat**. Ange en e-postadress för certifikat aviseringar.
+   
+    ![Nytt SAML-certifikat](common/new-saml-certificate.png) 
+
+1. I avsnittet **SAML-signeringscertifikat** kan du hitta **XML för federationsmetadata** och välja **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
@@ -140,7 +148,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -386,7 +394,7 @@ När du klickar på Amazon Web Services (AWS)-panelen i åtkomstpanelen bör du 
 
 - [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova Amazon Web Services (AWS) med Azure AD](https://aad.portal.azure.com/)
 

@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1df88e26284dc868267cbc79e27df6f0e25f1250
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5aa84faea43846a2f930373529769e62f76e5bbf
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035068"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419554"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Självstudie: skydda användar inloggnings händelser med Azure Multi-Factor Authentication
 
@@ -39,7 +39,7 @@ I den här guiden får du lära du dig hur man:
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
-* En fungerande Azure AD-klient med Azure AD Premium-eller utvärderings licens aktive rad.
+* En fungerande Azure AD-klient med minst en Azure AD Premium P1-eller utvärderings licens aktive rad.
     * Om det behövs kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Ett konto med *Global administratörs* behörighet.
 * En icke-administratörs användare med ett lösen ord som du känner till, till exempel *testuser*. Du testar slutanvändarens Azure Multi-Factor Authentication-upplevelse med det här kontot i den här självstudien.
@@ -65,7 +65,7 @@ Börja med att skapa en princip för villkorlig åtkomst och tilldela din test g
 1. Markera kryss rutan för **användare och grupper**och **Välj** sedan för att bläddra bland tillgängliga Azure AD-användare och-grupper.
 1. Bläddra efter och välj din Azure AD-grupp, till exempel *MFA-test-Group*, och välj sedan **Välj**.
 
-    [![](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png "Select your Azure AD group to use with the Conditional Access policy")](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
+    [![Välj din Azure AD-grupp som ska användas med principen ](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png) för villkorlig åtkomst](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
 
 1. Om du vill tillämpa principen för villkorlig åtkomst för gruppen väljer du **slutförd**.
 

@@ -95,7 +95,7 @@
               href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
             - name: Kom igång med R Server på HDInsight
               href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
-        - name: Azure Machine Learning-arbetsyta
+        - name: Arbetsyta i Azure Machine Learning Studio (klassisk)
           href: /azure/machine-learning/studio/create-workspace?context=azure/machine-learning/team-data-science-process/context/ml-context
     - name: Analysera verksamhetsbehov
       items:
@@ -192,8 +192,6 @@
       href: deploy-models-in-production.md
 - name: Relaterat
   items:
-    - name: Azure Machine Learning
-      href: ../
     - name: Cognitive Services
       href: 'https://docs.microsoft.com/azure/cognitive-services/'
     - name: Avvikelseidentifiering

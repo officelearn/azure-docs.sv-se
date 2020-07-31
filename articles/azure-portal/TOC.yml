@@ -12,9 +12,13 @@
   items:
     - name: Skapa en virtuell dator i portalen
       href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
-    - name: Skapa en instrumentpanel – ARM-mall
-      displayName: Resource Manager
-      href: quick-create-template.md
+    - name: Skapa en instrumentpanel
+      items:
+        - name: Azure PowerShell
+          href: quickstart-portal-dashboard-powershell.md
+        - name: ARM-mall
+          displayName: Resource Manager
+          href: quick-create-template.md
 - name: Begrepp
   items:
     - name: Dela instrumentpaneler med rollbaserad åtkomstkontroll

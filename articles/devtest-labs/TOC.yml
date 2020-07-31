@@ -232,6 +232,10 @@
           href: devtest-lab-mandatory-artifacts.md
         - name: Felsöka problem med att använda artefakter
           href: devtest-lab-troubleshoot-apply-artifacts.md
+    - name: Kryptera lagring och OS-diskar som används av labb
+      items:
+        - name: Kryptera lagring som används av labb
+          href: encrypt-storage.md
     - name: Integrera med CI/CD
       items:
         - name: Integrera labb i CI/CD-pipelinen i Azure Pipelines

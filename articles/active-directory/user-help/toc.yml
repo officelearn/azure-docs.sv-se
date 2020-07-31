@@ -68,7 +68,9 @@
       href: my-account-portal-privacy-page.md
     - name: Visa din senaste inloggningsaktivitet
       href: my-account-portal-sign-ins-page.md
-- name: Hjälp om säkerhetsinformation (förhandsversion)
+    - name: Ändra dina portalinställningar
+      href: my-account-portal-settings.md
+- name: Hjälp om säkerhetsinformation
   items:
     - name: Lägga till säkerhetsinformation under inloggning
       href: security-info-setup-signin.md

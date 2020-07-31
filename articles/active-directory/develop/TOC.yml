@@ -512,6 +512,8 @@
           href: active-directory-claims-mapping.md
         - name: Konfigurera valfria anspråk
           href: active-directory-optional-claims.md
+        - name: Använda attribut för katalogschematillägg i anspråk
+          href: active-directory-schema-extensions.md
         - name: Konfigurera livslängd för token
           href: active-directory-configurable-token-lifetimes.md
         - name: Hantera SameSite-cookieändringar i webbläsaren Chrome

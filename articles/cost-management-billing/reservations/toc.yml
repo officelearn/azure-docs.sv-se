@@ -51,6 +51,8 @@
       items:
         - name: Visa reservationer och användning
           href: view-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Visa reservationer som en molnlösningsleverantör
+          href: how-to-view-csp-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Hantera reservationer
           href: manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Ändra optimeringsinställningen

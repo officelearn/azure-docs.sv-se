@@ -304,6 +304,8 @@
               items:
                 - name: Visa reservationer och användning
                   href: reservations/view-reservations.md?toc=/azure/cost-management-billing/toc.json
+                - name: Visa reservationer som en molnlösningsleverantör
+                  href: reservations/how-to-view-csp-reservations.md?toc=/azure/cost-management-billing/toc.json
                 - name: Hantera reservationer
                   href: reservations/manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/toc.json
                 - name: Byten och återbetalningar av reservationer

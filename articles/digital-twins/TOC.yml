@@ -42,8 +42,10 @@
           href: how-to-use-cli.md
         - name: Konfigurera en instans och autentisering (skript)
           href: how-to-set-up-instance-scripted.md
-        - name: Konfigurera en instans och autentisering (manuell)
-          href: how-to-set-up-instance-manual.md
+        - name: Konfigurera en instans och autentisering (CLI)
+          href: how-to-set-up-instance-cli.md
+        - name: Konfigurera en instans och autentisering (portalen)
+          href: how-to-set-up-instance-portal.md
         - name: Skriva appautentiseringskod
           href: how-to-authenticate-client.md
     - name: Utforma modeller

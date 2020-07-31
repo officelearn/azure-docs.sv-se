@@ -42,6 +42,8 @@
   items:
     - name: Använda formigenkänning med Cognitive Search
       href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
+    - name: Använda Formigenkänning med AI Builder
+      href: tutorial-ai-builder.md
 - name: Anvisningar
   items:
     - name: Skapa en träningsdatauppsättning

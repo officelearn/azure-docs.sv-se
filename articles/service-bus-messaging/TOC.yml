@@ -220,11 +220,11 @@
               href: service-bus-resource-manager-namespace-topic-with-rule.md
     - name: Skydda
       items:
-        - name: Konfigurera brandväggar
+        - name: Tillåta åtkomst från specifika IP-adresser
           href: service-bus-ip-filtering.md
-        - name: Konfigurera tjänstslutpunkter för virtuellt nätverk
+        - name: Tillåta åtkomst från specifika virtuella nätverk
           href: service-bus-service-endpoints.md
-        - name: Konfigurera privata slutpunkter
+        - name: Tillåta åtkomst via privata slutpunkter
           href: private-link-service.md
         - name: Konfigurera kundhanterade nycklar
           href: configure-customer-managed-key.md

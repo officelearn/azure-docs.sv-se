@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 07/30/2020
-  ms.openlocfilehash: 1006874272fa4798d9e56cbc76d7b039e697c413
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: 066f82bf214a9a5a2a364bc9dc021a1baa31feac
+  ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87047793"
+  ms.lasthandoff: 07/30/2020
+  ms.locfileid: "87433079"
 landingContent:
 - title: Kom igång med maskininlärning
   linkLists:
@@ -31,7 +31,7 @@ landingContent:
       url: tutorial-first-experiment-automated-ml.md
     - text: RStudio
       url: tutorial-1st-r-experiment.md
-- title: Använda designern och AutoML i studio
+- title: Använda AutoML och dra och släpp i studio
   linkLists:
   - linkListType: overview
     links:
@@ -51,6 +51,12 @@ landingContent:
       url: tutorial-designer-automobile-price-train-score.md
     - text: Skapa etiketteringsprojekt för avbildningar
       url: tutorial-labeling.md
+- title: Överför din modell till Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Distribuera en lokal modell till molnet
+      url: how-to-deploy-existing-model.md
 - title: Träna med Python SDK
   linkLists:
   - linkListType: tutorial

@@ -8,6 +8,7 @@
     - name: Vad är enkel inloggning (SSO)?
       href: what-is-single-sign-on.md
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Visa dina appar
       href: view-applications-portal.md
@@ -30,7 +31,7 @@
     - name: Azure PowerShell-exempel för Application Proxy
       href: application-proxy-powershell-samples.md
 - name: Begrepp
-  expanded: true
+  expanded: false
   items:
     - name: Metodtips för apphantering
       href: application-management-fundamentals.md
@@ -97,195 +98,177 @@
         - name: Jämförelse mellan fjärråtkomstlösningar
           href: application-proxy-migration.md
 - name: Anvisningar
-  expanded: true
+  expanded: false
   items:
-    - name: Molnappar och enkel inloggning
+    - name: Konfigurera enkel inloggning
       items:
-        - name: Konfigurera enkel inloggning
-          items:
-            - name: Konfigurera SAML-baserad enkel inloggning
-              items:
-                - name: Konfigurera SAML-baserad enkel inloggning
-                  href: configure-saml-single-sign-on.md
-                - name: Anpassa användarattribut och anspråk
-                  items:
-                    - name: Konfigurera gruppanspråk
-                      href: /azure/active-directory/hybrid/how-to-connect-fed-group-claims?context=azure/active-directory/manage-apps/context/manage-apps-context
-                    - name: Konfigurera rollanspråk
-                      href: /azure/active-directory/develop/active-directory-enterprise-app-role-management?context=azure/active-directory/manage-apps/context/manage-apps-context
-                    - name: Anpassa anspråk i portalen
-                      href: /azure/active-directory/develop/active-directory-saml-claims-customization?context=azure/active-directory/manage-apps/context/manage-apps-context
-                    - name: Anpassa anspråk med PowerShell
-                      href: /azure/active-directory/develop/active-directory-claims-mapping?context=azure/active-directory/manage-apps/context/manage-apps-context
-                    - name: Konfigurera valfria anspråk
-                      href: /azure/active-directory/develop/active-directory-optional-claims?context=azure/active-directory/manage-apps/context/manage-apps-context
-                    - name: Konfigurera livslängd för token
-                      href: /azure/active-directory/develop/active-directory-configurable-token-lifetimes?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Konfigurera lösenordsbaserad inloggning
-              href: configure-password-single-sign-on-non-gallery-applications.md
-            - name: Konfigurera länkad inloggning
-              href: configure-linked-sign-on.md
-        - name: Tilldela användare och hantera åtkomst till appar
-          items:
-            - name: Konfigurera användarmedgivande
-              href: configure-user-consent.md
-            - name: Hantera och utvärdera samtyckesbegäranden
-              href: manage-consent-requests.md
-            - name: Bevilja administratörsmedgivande för hela klientorganisationen
-              href: grant-admin-consent.md
-            - name: Konfigurera arbetsflöde för administratörsmedgivande (förhandsversion)
-              href: configure-admin-consent-workflow.md
-            - name: Tilldela en användare eller grupp till en app
-              href: assign-user-or-group-access-portal.md
-            - name: Granska behörigheter som har beviljats för appar
-              href: manage-application-permissions.md
-            - name: Skapa samlingar i Mina appar
-              href: access-panel-collections.md
-            - name: Använda appåtkomst via självbetjäning
-              href: access-panel-manage-self-service-access.md
-            - name: Metoder för att ta bort en användares åtkomst till en app
-              href: methods-for-removing-user-access.md
-            - name: Ta bort användar- eller gruppåtkomst
-              href: remove-user-or-group-access-portal.md
-            - name: Göm en app från en användare
-              href: hide-application-from-user-portal.md
-            - name: Inaktivera användarinloggning
-              href: disable-user-sign-in-portal.md
-            - name: Konfigurera apptilldelning via självbetjäning
-              href: manage-self-service-access.md
-            - name: Upptäckt av hemsfär
-              href: configure-authentication-for-federated-users-portal.md
+        - name: Konfigurera SAML-baserad enkel inloggning
+          href: configure-saml-single-sign-on.md
+        - name: Konfigurera lösenordsbaserad inloggning
+          href: configure-password-single-sign-on-non-gallery-applications.md
+        - name: Konfigurera länkad inloggning
+          href: configure-linked-sign-on.md
         - name: 'Automatisera SAML-baserad enkel inloggning med MS Graph API:er'
           href: application-saml-sso-configure-api.md
-        - name: Migrera appar till Azure AD
-          items:
-            - name: Migreringsresurser
-              href: migration-resources.md
-            - name: Migrera en ADFS-app till Azure
-              href: migrate-adfs-apps-to-azure.md
-            - name: Använda AD FS-programaktivitetsrapporten (förhandsversion)
-              href: migrate-adfs-application-activity.md
-        - name: Felsöka
-          items:
-            - name: Felsöka processen för att lägga till appar
-              items:
-                - name: Vanliga problem – galleriappar
-                  href: adding-gallery-app-common-problems.md
-                - name: Vanliga problem – inte galleriappar
-                  href: adding-non-gallery-app-common-problems.md
-            - name: Felsöka användarinloggning
-              items:
-                - name: Oväntad fråga om medgivande
-                  href: application-sign-in-unexpected-user-consent-prompt.md
-                - name: Fel vid användarmedgivande
-                  href: application-sign-in-unexpected-user-consent-error.md
-                - name: Problem vid inloggning från den anpassade portalen
-                  href: application-sign-in-other-problem-deeplink.md
-                - name: Problem vid inloggning från åtkomstpanelen
-                  href: application-sign-in-other-problem-access-panel.md
-                - name: Fel på inloggningssidan för programmet
-                  href: application-sign-in-problem-application-error.md
-                - name: Problem med enkel inloggning med lösenord – inte galleriapp
-                  href: application-sign-in-problem-password-sso-non-gallery.md
-                - name: Problem med enkel inloggning med lösenord – galleriapp
-                  href: application-sign-in-problem-password-sso-gallery.md
-                - name: Problem med att logga in i en Microsoft-app
-                  href: application-sign-in-problem-first-party-microsoft.md
-                - name: Problem med extern enkel inloggning – inte galleriapp
-                  href: application-sign-in-problem-federated-sso-non-gallery.md
-                - name: Problem med extern enkel inloggning – galleriapp
-                  href: application-sign-in-problem-federated-sso-gallery.md
-                - name: Problem med egenutvecklad app
-                  href: application-sign-in-problem-custom-dev.md
-            - name: Felsöka enkel inloggning
-              items:
-                - name: Vanliga problem vid konfiguration av externa – galleriappar
-                  href: configure-federated-single-sign-on-gallery-applications-problems.md
-                - name: Vanliga problem vid konfiguration av externa – inte galleriappar
-                  href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-                - name: Vanliga problem vid konfiguration av lösenord – galleriappar
-                  href: configure-password-single-sign-on-gallery-applications-problems.md
-                - name: Vanliga problem vid konfiguration av lösenord – inte galleriappar
-                  href: configure-password-single-sign-on-non-gallery-applications-problems.md
-            - name: Felsöka applistor och tilldelning
-              items:
-                - name: Hantera listan med program för klientorganisationen
-                  href: application-types.md
-                - name: Oväntad tilldelad användare
-                  href: ways-users-get-assigned-to-applications.md
-            - name: Felsöka åtkomstpanelen
-              items:
-                - name: Hantera webbläsartillägg
-                  href: manage-access-panel-browser-extension.md
-                - name: Appen visas inte
-                  href: access-panel-troubleshoot-application-not-appearing.md
-                - name: Oväntad app visas
-                  href: access-panel-troubleshoot-unexpected-application.md
-                - name: Det går inte att logga in
-                  href: access-panel-troubleshoot-web-sign-in-problem.md
-                - name: Fel vid installation av webbläsartillägg
-                  href: access-panel-extension-problem-installing.md
-                - name: Fel vid användning av appåtkomst via självbetjäning
-                  href: access-panel-troubleshoot-self-service-access.md
-    - name: Programproxy för lokala appar
+    - name: Tilldela användare och hantera åtkomst till appar
       items:
-        - name: Konfigurera anslutningsappar
+        - name: Konfigurera användarmedgivande
+          href: configure-user-consent.md
+        - name: Hantera och utvärdera samtyckesbegäranden
+          href: manage-consent-requests.md
+        - name: Bevilja administratörsmedgivande för hela klientorganisationen
+          href: grant-admin-consent.md
+        - name: Konfigurera arbetsflöde för administratörsmedgivande (förhandsversion)
+          href: configure-admin-consent-workflow.md
+        - name: Tilldela en användare eller grupp till en app
+          href: assign-user-or-group-access-portal.md
+        - name: Granska behörigheter som har beviljats för appar
+          href: manage-application-permissions.md
+        - name: Skapa samlingar i Mina appar
+          href: access-panel-collections.md
+        - name: Använda appåtkomst via självbetjäning
+          href: access-panel-manage-self-service-access.md
+        - name: Metoder för att ta bort en användares åtkomst till en app
+          href: methods-for-removing-user-access.md
+        - name: Ta bort användar- eller gruppåtkomst
+          href: remove-user-or-group-access-portal.md
+        - name: Göm en app från en användare
+          href: hide-application-from-user-portal.md
+        - name: Inaktivera användarinloggning
+          href: disable-user-sign-in-portal.md
+        - name: Konfigurera apptilldelning via självbetjäning
+          href: manage-self-service-access.md
+        - name: Upptäckt av hemsfär
+          href: configure-authentication-for-federated-users-portal.md
+    - name: Migrera identitetshantering till Azure Active Directory
+      items:
+        - name: Migreringsresurser
+          href: migration-resources.md
+        - name: Migrera en ADFS-app till Azure
+          href: migrate-adfs-apps-to-azure.md
+        - name: Använda AD FS-programaktivitetsrapporten (förhandsversion)
+          href: migrate-adfs-application-activity.md
+    - name: Konfigurera lokala anslutningsprogram
+      items:
+        - name: Konfigurera med proxyservrar
+          href: application-proxy-configure-connectors-with-proxy-servers.md
+        - name: Registrera anslutningsapp – tyst installation
+          href: application-proxy-register-connector-powershell.md
+    - name: Konfigurera lokal appåtkomst
+      items:
+        - name: Konfigurera anspråksmedvetna appar
+          href: application-proxy-configure-for-claims-aware-applications.md
+        - name: 'Ge mobilappar och skrivbordsappar åtkomst till lokala API:er'
+          href: application-proxy-secure-api-access.md
+        - name: Konfigurera mobil- och skrivbordsklientappar
+          href: application-proxy-configure-native-client-application.md
+        - name: Konfigurera anpassad startsida
+          href: application-proxy-configure-custom-home-page.md
+        - name: Översätt infogade länkar
+          href: application-proxy-configure-hard-coded-link-translation.md
+        - name: Konfigurera cookie-inställningar
+          href: application-proxy-configure-cookie-settings.md
+        - name: Publicera med jokertecken
+          href: application-proxy-wildcard.md
+        - name: Ta bort personliga data
+          href: application-proxy-remove-personal-data.md
+        - name: Konfigurera anpassat domän
+          href: application-proxy-configure-custom-domain.md
+        - name: Enkel inloggning med programproxy
           items:
-            - name: Konfigurera med proxyservrar
-              href: application-proxy-configure-connectors-with-proxy-servers.md
-            - name: Registrera anslutningsapp – tyst installation
-              href: application-proxy-register-connector-powershell.md
-        - name: Konfigurera programåtkomst
+            - name: Begränsad Kerberos-delegering (KCD)
+              href: application-proxy-configure-single-sign-on-with-kcd.md
+            - name: Lösenordsvalv
+              href: application-proxy-configure-single-sign-on-password-vaulting.md
+            - name: Rubriker
+              href: application-proxy-configure-single-sign-on-with-ping-access.md
+            - name: SAML SSO
+              href: application-proxy-configure-single-sign-on-on-premises-apps.md
+        - name: Skydda äldre appar med appars leveranskontroller eller nätverk
+          href: secure-hybrid-access.md
+        - name: Publicera genomgångar
           items:
-            - name: Konfigurera anspråksmedvetna appar
-              href: application-proxy-configure-for-claims-aware-applications.md
-            - name: 'Ge mobilappar och skrivbordsappar åtkomst till lokala API:er'
-              href: application-proxy-secure-api-access.md
-            - name: Konfigurera mobil- och skrivbordsklientappar
-              href: application-proxy-configure-native-client-application.md
-            - name: Konfigurera anpassad startsida
-              href: application-proxy-configure-custom-home-page.md
-            - name: Översätt infogade länkar
-              href: application-proxy-configure-hard-coded-link-translation.md
-            - name: Konfigurera cookie-inställningar
-              href: application-proxy-configure-cookie-settings.md
-            - name: Publicera med jokertecken
-              href: application-proxy-wildcard.md
-            - name: Ta bort personliga data
-              href: application-proxy-remove-personal-data.md
-            - name: Konfigurera anpassat domän
-              href: application-proxy-configure-custom-domain.md
-            - name: Enkel inloggning med programproxy
-              items:
-                - name: Begränsad Kerberos-delegering (KCD)
-                  href: application-proxy-configure-single-sign-on-with-kcd.md
-                - name: Lösenordsvalv
-                  href: application-proxy-configure-single-sign-on-password-vaulting.md
-                - name: Rubriker
-                  href: application-proxy-configure-single-sign-on-with-ping-access.md
-                - name: SAML SSO
-                  href: application-proxy-configure-single-sign-on-on-premises-apps.md
-            - name: Publicera genomgångar
-              items:
-                - name: Integrera med programproxy på en NDES-server
-                  href: active-directory-app-proxy-protect-ndes.md
-                - name: Integrera med Azure AD Domain Services
-                  href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
-                - name: Integrera med Power BI
-                  href: application-proxy-integrate-with-power-bi.md
-                - name: Integrera med Cloud App Security
-                  href: application-proxy-integrate-with-microsoft-cloud-application-security.md
-                - name: Integrera med Fjärrskrivbord
-                  href: application-proxy-integrate-with-remote-desktop-services.md
-                - name: Integrera med SharePoint
-                  href: application-proxy-integrate-with-sharepoint-server.md
-                - name: Integrera med Teams
-                  href: application-proxy-integrate-with-teams.md
-                - name: Integrera med Tableau
-                  href: application-proxy-integrate-with-tableau.md
-                - name: Integrera med Qlik
-                  href: application-proxy-qlik.md
-        - name: Felsöka programproxyn
+            - name: Integrera med programproxy på en NDES-server
+              href: active-directory-app-proxy-protect-ndes.md
+            - name: Integrera med Azure AD Domain Services
+              href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
+            - name: Integrera med Power BI
+              href: application-proxy-integrate-with-power-bi.md
+            - name: Integrera med Cloud App Security
+              href: application-proxy-integrate-with-microsoft-cloud-application-security.md
+            - name: Integrera med Fjärrskrivbord
+              href: application-proxy-integrate-with-remote-desktop-services.md
+            - name: Integrera med SharePoint
+              href: application-proxy-integrate-with-sharepoint-server.md
+            - name: Integrera med Teams
+              href: application-proxy-integrate-with-teams.md
+            - name: Integrera med Tableau
+              href: application-proxy-integrate-with-tableau.md
+            - name: Integrera med Qlik
+              href: application-proxy-qlik.md
+    - name: Felsöka
+      items:
+        - name: Felsöka processen för att lägga till appar
+          items:
+            - name: Vanliga problem – galleriappar
+              href: adding-gallery-app-common-problems.md
+            - name: Vanliga problem – inte galleriappar
+              href: adding-non-gallery-app-common-problems.md
+        - name: Felsöka användarinloggning
+          items:
+            - name: Oväntad fråga om medgivande
+              href: application-sign-in-unexpected-user-consent-prompt.md
+            - name: Fel vid användarmedgivande
+              href: application-sign-in-unexpected-user-consent-error.md
+            - name: Problem vid inloggning från den anpassade portalen
+              href: application-sign-in-other-problem-deeplink.md
+            - name: Problem vid inloggning från åtkomstpanelen
+              href: application-sign-in-other-problem-access-panel.md
+            - name: Fel på inloggningssidan för programmet
+              href: application-sign-in-problem-application-error.md
+            - name: Problem med enkel inloggning med lösenord – inte galleriapp
+              href: application-sign-in-problem-password-sso-non-gallery.md
+            - name: Problem med enkel inloggning med lösenord – galleriapp
+              href: application-sign-in-problem-password-sso-gallery.md
+            - name: Problem med att logga in i en Microsoft-app
+              href: application-sign-in-problem-first-party-microsoft.md
+            - name: Problem med extern enkel inloggning – inte galleriapp
+              href: application-sign-in-problem-federated-sso-non-gallery.md
+            - name: Problem med extern enkel inloggning – galleriapp
+              href: application-sign-in-problem-federated-sso-gallery.md
+            - name: Problem med egenutvecklad app
+              href: application-sign-in-problem-custom-dev.md
+        - name: Felsöka enkel inloggning
+          items:
+            - name: Vanliga problem vid konfiguration av externa – galleriappar
+              href: configure-federated-single-sign-on-gallery-applications-problems.md
+            - name: Vanliga problem vid konfiguration av externa – inte galleriappar
+              href: configure-federated-single-sign-on-non-gallery-applications-problems.md
+            - name: Vanliga problem vid konfiguration av lösenord – galleriappar
+              href: configure-password-single-sign-on-gallery-applications-problems.md
+            - name: Vanliga problem vid konfiguration av lösenord – inte galleriappar
+              href: configure-password-single-sign-on-non-gallery-applications-problems.md
+        - name: Felsöka applistor och tilldelning
+          items:
+            - name: Hantera listan med program för klientorganisationen
+              href: application-types.md
+            - name: Oväntad tilldelad användare
+              href: ways-users-get-assigned-to-applications.md
+        - name: Felsöka åtkomstpanelen
+          items:
+            - name: Hantera webbläsartillägg
+              href: manage-access-panel-browser-extension.md
+            - name: Appen visas inte
+              href: access-panel-troubleshoot-application-not-appearing.md
+            - name: Oväntad app visas
+              href: access-panel-troubleshoot-unexpected-application.md
+            - name: Det går inte att logga in
+              href: access-panel-troubleshoot-web-sign-in-problem.md
+            - name: Fel vid installation av webbläsartillägg
+              href: access-panel-extension-problem-installing.md
+            - name: Fel vid användning av appåtkomst via självbetjäning
+              href: access-panel-troubleshoot-self-service-access.md
+        - name: Felsöka lokala appar
           items:
             - name: Felsökning av programproxy
               href: application-proxy-troubleshoot.md
@@ -319,10 +302,6 @@
               href: application-sign-in-problem-on-premises-application-proxy.md
             - name: CORS-problem i programproxyn
               href: application-proxy-understand-cors-issues.md
-    - name: Skydda hybridåtkomst (i molnet och lokalt)
-      items:
-        - name: Skydda äldre appar med appars leveranskontroller eller nätverk
-          href: secure-hybrid-access.md
 - name: Referens
   items:
     - name: Vanliga frågor och svar om programproxy

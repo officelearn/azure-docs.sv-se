@@ -4,6 +4,8 @@
   items:
     - name: Om Azure App Configuration
       href: overview.md
+    - name: Bästa praxis
+      href: howto-best-practices.md
     - name: VANLIGA FRÅGOR OCH SVAR
       href: faq.md
 - name: Snabbstarter
@@ -34,26 +36,32 @@
           href: quickstart-feature-flag-spring-boot.md
 - name: Självstudier
   items:
-    - name: Aktivera dynamisk konfiguration i ASP.NET Core
-      href: enable-dynamic-configuration-aspnet-core.md
-    - name: Aktivera dynamisk konfiguration i en .NET Core-app
-      href: enable-dynamic-configuration-dotnet-core.md
-    - name: Aktivera dynamisk konfiguration i .NET Framework
-      href: enable-dynamic-configuration-dotnet.md
-    - name: Aktivera dynamisk konfiguration i Azure Functions
-      href: enable-dynamic-configuration-azure-functions-csharp.md
-    - name: Aktivera dynamisk konfiguration i Spring Boot
-      href: enable-dynamic-configuration-java-spring-app.md
-    - name: Använda funktionsflaggor i en .NET Core-app
-      href: use-feature-flags-dotnet-core.md
-    - name: Använda funktionsflaggor i en Spring Boot-app
-      href: use-feature-flags-spring-boot.md
+    - name: Aktivera dynamisk konfiguration
+      items:
+        - name: ASP.NET Core
+          href: enable-dynamic-configuration-aspnet-core.md
+        - name: .NET Core
+          href: enable-dynamic-configuration-dotnet-core.md
+        - name: .NET Framework
+          href: enable-dynamic-configuration-dotnet.md
+        - name: Azure Functions
+          href: enable-dynamic-configuration-azure-functions-csharp.md
+        - name: Spring Boot
+          href: enable-dynamic-configuration-java-spring-app.md
+    - name: Använda funktionsflaggor
+      items:
+        - name: .NET Core
+          href: use-feature-flags-dotnet-core.md
+        - name: Spring Boot
+          href: use-feature-flags-spring-boot.md
     - name: Hantera funktionsflaggor
       href: manage-feature-flags.md
-    - name: Använda Key Vault-referenser i ASP.NET Core
-      href: use-key-vault-references-dotnet-core.md
-    - name: Använda Key Vault-referenser i Spring Boot
-      href: use-key-vault-references-spring-boot.md
+    - name: Använda Key Vault-referenser
+      items:
+        - name: ASP.NET Core
+          href: use-key-vault-references-dotnet-core.md
+        - name: Spring Boot
+          href: use-key-vault-references-spring-boot.md
     - name: Integrera med en CI/CD-pipeline
       href: integrate-ci-cd-pipeline.md
     - name: Integrera med Kubernetes-distribution med hjälp av Helm
@@ -105,8 +113,6 @@
       href: howto-app-configuration-event.md
     - name: Lagra konfiguration för säkerhetskopiering automatiskt
       href: howto-backup-config-store.md
-    - name: Bästa praxis
-      href: howto-best-practices.md
 - name: Referens
   items:
     - name: Konfiguration
@@ -141,7 +147,7 @@
           href: 'https://docs.microsoft.com/rest/api/appconfiguration/'
 - name: Resurser
   items:
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/app-configuration/'
     - name: Videoklipp
       items:

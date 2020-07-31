@@ -4,17 +4,17 @@ description: I den här självstudien skapar du en Azure Machine Learning modell
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5bfbf4a432f720b683ded4c85530135d86b24eba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ae76fab6359675a87ad252a08ebb199bf724f129
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76773008"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439370"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Distribuera Azure Machine Learning som en IoT Edge-modul (förhandsversion)
 
@@ -30,14 +30,14 @@ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
-> * Skapa en Azure Machine Learning-modul
-> * Push-överför en modulbehållare till ett Azure-containerregister
-> * Distribuera Azure Machine Learning-modul till din IoT Edge-enhet
-> * Visa genererade data
+> * Skapa en Azure Machine Learning-modul.
+> * Skicka en modul-behållare till ett Azure Container Registry.
+> * Distribuera en Azure Machine Learning-modul till din IoT Edge-enhet.
+> * visa genererade data.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En Azure IoT Edge-enhet:
 
@@ -59,7 +59,7 @@ I det här avsnittet konverterar du tränade Machine Learning-modeller och till 
 
 2. Välj **Ladda upp GitHub lagrings platsen**.
 
-3. Ange följande namn på GitHub-databasen `Azure/ai-toolkit-iot-edge`:. Avmarkera den **offentliga** rutan om du vill hålla ditt projekt privat. Välj **Importera**.
+3. Ange följande namn på GitHub-databasen: `Azure/ai-toolkit-iot-edge` . Avmarkera den **offentliga** rutan om du vill hålla ditt projekt privat. Välj **Importera**.
 
 4. När importen är färdig navigerar du till det nya **AI-Toolkit-IoT-Edge** -projektet och öppnar mappen **IoT Edge självstudie för avvikelse identifiering** .
 
@@ -67,7 +67,7 @@ I det här avsnittet konverterar du tränade Machine Learning-modeller och till 
 
    ![Kör vid kostnads fri beräkning](./media/tutorial-deploy-machine-learning/run-on-free-compute.png)
 
-6. Öppna filen **aml_config/config.JSON** .
+6. Öppna filen **aml_config/config.js** .
 
 7. Redigera konfigurations filen så att den innehåller värdena för ditt Azure-prenumerations-ID, en resurs grupp i din prenumeration och din Azure Machine Learning arbets ytans namn. Du kan hämta alla dessa värden från **översikts** avsnittet på din arbets yta i Azure.
 
@@ -79,7 +79,7 @@ I det här avsnittet konverterar du tränade Machine Learning-modeller och till 
 
 11. Redigera den första cellen i antecknings boken enligt anvisningarna i kommentarerna. Använd samma resurs grupp, prenumerations-ID och namn på arbets ytan som du har lagt till i konfigurations filen.
 
-12. Kör cellerna i antecknings boken genom att markera dem **Run** och välja kör `Shift + Enter`eller tryck på.
+12. Kör cellerna i antecknings boken genom att markera dem och välja **Kör** eller tryck på `Shift + Enter` .
 
     >[!TIP]
     >Några av cellerna i själv studie kursen om avvikelse identifiering är valfria, eftersom de skapar resurser som vissa användare kan eller ännu inte har, till exempel en IoT Hub. Om du infogar din befintliga resursinformation i den första cellen får du fel meddelanden om du kör cellerna som skapar nya resurser eftersom Azure inte skapar några dubbla resurser. Detta är bra och du kan ignorera felen eller hoppa över dessa valfria avsnitt helt och hållet.
@@ -94,13 +94,13 @@ Kontrol lera att behållar avbildningen har skapats och lagrats i Azure Containe
 
 2. I **översikts** avsnittet visas information om arbets ytan och dess tillhör ande resurser. Välj **registervärdet** , som ska vara namnet på din arbets yta följt av slumpmässiga tal.
 
-3. I behållar registret väljer du **databaser**. Du bör se en databas med namnet **tempanomalydetection** som har skapats av den antecknings bok som du körde i föregående avsnitt.
+3. Välj **databaser**under **tjänster**i behållar registret. Du bör se en databas med namnet **tempanomalydetection** som har skapats av den antecknings bok som du körde i föregående avsnitt.
 
 4. Välj **tempanomalydetection**. Du bör se att lagrings platsen har en tagg: **1**.
 
-   Nu när du känner till register namnet, databas namnet och taggen, känner du till den fullständiga avbildnings Sök vägen för behållaren. Bild Sök vägar ser ut som ** \<\>registry_name. azurecr.io/tempanomalydetection:1**. Du kan använda avbildningssökvägen för att distribuera containern till IoT Edge-enheter.
+   Nu när du känner till register namnet, databas namnet och taggen, känner du till den fullständiga avbildnings Sök vägen för behållaren. Bild Sök vägar ser ut så här ** \<registry_name\> . azurecr.io/tempanomalydetection:1**. Du kan använda avbildningssökvägen för att distribuera containern till IoT Edge-enheter.
 
-5. I behållar registret väljer du **åtkomst nycklar**. Du bör se ett antal autentiseringsuppgifter, till exempel **inloggnings Server** och **användar namn**och **lösen ord** för en administratörs användare.
+5. Välj **åtkomst nycklar**under **Inställningar**i behållar registret. Du bör se ett antal autentiseringsuppgifter, till exempel **inloggnings Server** och **användar namn**och **lösen ord** för en administratörs användare.
 
    Dessa autentiseringsuppgifter kan ingå i distributionsmanifestet så att IoT Edge-enheten kan hämta containeravbildningar från registret.
 
@@ -114,7 +114,7 @@ Du kan visa meddelanden som skapas av varje IoT Edge-modul och du kan visa medde
 
 Du kan visa de meddelanden som skickas från varje enskild modul på din IoT Edge-enhet.
 
-Du kan behöva använda `sudo` för att få utökade behörigheter för `iotedge` att köra kommandon. Om du loggar ut och loggar in igen på enheten uppdateras dina behörigheter automatiskt.
+Du kan behöva använda `sudo` för att få utökade behörigheter för att köra `iotedge` kommandon. Om du loggar ut och loggar in igen på enheten uppdateras dina behörigheter automatiskt.
 
 1. Visa alla moduler på din IoT Edge-enhet.
 
@@ -134,17 +134,11 @@ Du kan visa meddelanden från enheten till molnet som din IoT hub tar emot med h
 
 Följande steg visar hur du ställer in Visual Studio Code för att övervaka meddelanden från enhet till moln som kommer till din IoT Hub.
 
-1. Välj **IoT Hub-enheter** i Visual Studio Code.
+1. I Visual Studio Code Explorer, under avsnittet **Azure IoT Hub** , expanderar du **enheter** för att se listan med IoT-enheter.
 
-2. Välj **...** och sedan alternativet för att **ställa in IoT Hub-anslutningssträngen** på menyn.
+2. Högerklicka på namnet på din IoT Edge enhet och välj **starta övervakning inbyggd händelse slut punkt**.
 
-   ![Ange IoT-hubbens anslutningssträng](./media/tutorial-deploy-machine-learning/set-connection.png)
-
-3. Ange anslutningssträngen iothubowner för din IoT Hub i textrutan som visas överst på sidan. Enhetens IoT Edge-enhet bör visas i listan över IoT Hub-enheter.
-
-4. Välj **...** igen och välj **starta övervakning inbyggd händelse slut punkt**.
-
-5. Kontrollera meddelandena som kommer från tempSensor var femte sekund. Meddelande texten innehåller en egenskap som kallas **avvikelse**, som machinelearningmodule ger med värdet true eller false. Egenskapen **AzureMLResponse** innehåller värdet "OK" om modellen har körts med lyckat resultat.
+3. Notera meddelandena som kommer från tempSensor var femte sekund. Meddelandena innehåller egenskapen **anomaly**, som machinelearningmodule tilldelar värdet true eller false. Egenskapen **AzureMLResponse** innehåller värdet ”OK” om modellen har körts med lyckat resultat.
 
    ![Azure Machine Learning svar i meddelande texten](./media/tutorial-deploy-machine-learning/ml-output.png)
 

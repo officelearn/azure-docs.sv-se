@@ -4,15 +4,15 @@ description: En lokal gateway krävs om din Analysis Services-server i Azure ska
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 648646b6f973762245c344cd2629a874a219b170
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee332eb7dea86e07c2d8f9b75a0e152dc7482a41
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76310160"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87438830"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Ansluta till lokala data källor med lokal datagateway
 
@@ -28,12 +28,12 @@ För Azure Analysis Services hämtar installationen med gatewayen första gånge
 
 - **Skapa en gateway-resurs i Azure** – i det här steget skapar du en gateway-resurs i Azure.
 
-- **Anslut dina servrar till din gateway-resurs** – när du har en gateway-resurs kan du börja ansluta servrar till den. Du kan ansluta flera servrar och andra resurser förutsatt att de finns i samma region.
+- **Anslut Gateway-resursen till-servrar** – när du har en gateway-resurs kan du börja ansluta servrar till den. Du kan ansluta flera servrar och andra resurser förutsatt att de finns i samma region.
 
 
 
-## <a name="how-it-works"></a><a name="how-it-works"> </a>Så här fungerar det
-Den gateway som du installerar på en dator i din organisation körs som en Windows-tjänst, **lokal datagateway**. Den här lokala tjänsten registreras för gatewaymolntjänsten via Azure Service Bus. Sedan skapar du en lokal datagateway-resurs för din Azure-prenumeration. Dina Azure Analysis Services-servrar ansluts sedan till din Azure gateway-resurs. När modeller på servern måste ansluta till dina lokala data källor för frågor eller bearbetning, passerar en fråga och ett data flöde Gateway-resursen, Azure Service Bus, lokal datagateway-tjänst och data källor. 
+## <a name="how-it-works"></a>Så här fungerar det
+Den gateway som du installerar på en dator i din organisation körs som en Windows-tjänst, **lokal datagateway**. Den här lokala tjänsten registreras för gatewaymolntjänsten via Azure Service Bus. Sedan skapar du en lokal datagateway-resurs för en Azure-prenumeration. Dina Azure Analysis Services-servrar ansluts sedan till din Azure gateway-resurs. När modeller på servern måste ansluta till dina lokala data källor för frågor eller bearbetning, passerar en fråga och ett data flöde Gateway-resursen, Azure Service Bus, lokal datagateway-tjänst och data källor. 
 
 ![Så här fungerar det](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
@@ -46,9 +46,13 @@ Frågor och dataflöde:
 5. Gatewayen skickar frågan till datakällan för körning.
 6. Resultaten skickas från datakällan tillbaka till gatewayen och sedan till molntjänsten och din server.
 
-## <a name="installing"></a>Installerar
+## <a name="installing"></a>Installera
 
 När du installerar för en Azure Analysis Services-miljö är det viktigt att du följer stegen som beskrivs i [Installera och konfigurera en lokal datagateway för Azure Analysis Services](analysis-services-gateway-install.md). Den här artikeln är unik för Azure Analysis Services. Den innehåller ytterligare steg som krävs för att konfigurera en lokal datagateway-resurs i Azure och ansluta din Azure Analysis Services-server till resursen.
+
+## <a name="connecting-to-a-gateway-resource-in-a-different-subscription"></a>Ansluta till en gateway-resurs i en annan prenumeration
+
+Vi rekommenderar att du skapar din Azure gateway-resurs i samma prenumeration som servern. Du kan dock konfigurera servrarna så att de ansluter till en gateway-resurs i en annan prenumeration. Det går inte att ansluta till en gateway-resurs i en annan prenumeration när du konfigurerar befintliga Server inställningar eller skapar en ny server i portalen, men kan konfigureras med hjälp av PowerShell. Läs mer i [ansluta gateway-resurs till Server](analysis-services-gateway-install.md#connect-gateway-resource-to-server).
 
 ## <a name="ports-and-communication-settings"></a>Portar och kommunikations inställningar
 
@@ -58,7 +62,7 @@ Du kan behöva inkludera IP-adresser för ditt data område i brand väggen. Du 
 
 Följande är fullständigt kvalificerade domän namn som används av gatewayen.
 
-| Domännamn | Utgående portar | Beskrivning |
+| Domännamn | Utgående portar | Description |
 | --- | --- | --- |
 | *.powerbi.com |80 |HTTP används för att hämta installationsprogrammet. |
 | *.powerbi.com |443 |HTTPS |
@@ -71,9 +75,9 @@ Följande är fullständigt kvalificerade domän namn som används av gatewayen.
 | login.microsoftonline.com |443 |HTTPS |
 | *.msftncsi.com |443 |Används för att testa Internetanslutningen om denna gateway inte kan nås av Power BI-tjänsten. |
 | *.microsoftonline-p.com |443 |Används för autentisering beroende på konfiguration. |
-| dc.services.visualstudio.com  |443 |Används av AppInsights för att samla in telemetri. |
+| dc.services.visualstudio.com    |443 |Används av AppInsights för att samla in telemetri. |
 
-### <a name="forcing-https-communication-with-azure-service-bus"></a><a name="force-https"></a>Tvinga HTTPS-kommunikation med Azure Service Bus
+### <a name="forcing-https-communication-with-azure-service-bus"></a>Tvinga HTTPS-kommunikation med Azure Service Bus
 
 Du kan tvinga gatewayen att kommunicera med Azure Service Bus genom att använda HTTPS i stället för direkt TCP. Det kan dock försämra prestanda avsevärt. Du kan ändra *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* -filen genom att ändra värdet från `AutoDetect` till `Https` . Den här filen finns vanligt vis i *C:\Program Files\On-premises data Gateway*.
 

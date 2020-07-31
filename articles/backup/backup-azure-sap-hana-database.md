@@ -3,12 +3,12 @@ title: Säkerhetskopiera en SAP HANA-databas till Azure med Azure Backup
 description: I den här artikeln lär du dig hur du säkerhetskopierar en SAP HANA-databas till virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 273ba40feee01c2dd2bfe68d1660a5c94f254062
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2f42b119c361eaddcb84dda738b50c8accc84f9c
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513887"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439740"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Säkerhetskopiera SAP HANA-databaser i virtuella Azure-datorer
 
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig att:
 > * Köra ett säkerhets kopierings jobb på begäran
 
 >[!NOTE]
->[Kom igång](./tutorial-backup-sap-hana-db.md) med SAP HANA backup Preview för RHEL (7,4, 7,6, 7,7 eller 8,1). Skriv till oss vid ytterligare frågor [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+>Från och med den 1 augusti 2020 är SAP HANA säkerhets kopiering för RHEL (7,4, 7,6, 7,7 & 8,1) allmänt tillgänglig.
 
 >[!NOTE]
 >**Mjuk borttagning för SQL Server i Azure VM och mjuk borttagning för SAP HANA i Azure VM-arbetsbelastningar** finns nu i för hands version.<br>
@@ -67,7 +67,7 @@ Om du använder nätverks säkerhets grupper (NSG) använder du tjänst tag gen 
 
 1. Klicka på **Lägg till** för att spara den nyligen skapade utgående säkerhets regeln.
 
-Du kan också skapa NSG utgående säkerhets regler för Azure Storage och Azure AD.
+Du kan också skapa NSG utgående säkerhets regler för Azure Storage och Azure AD. Mer information om service märken finns i [den här artikeln](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
 
 #### <a name="azure-firewall-tags"></a>Azure Firewall-Taggar
 

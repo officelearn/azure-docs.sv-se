@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 075837d0c382f5bc6f436a63dfe227c17f0a57a3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f3eacbe6f93388756ce26324babeb2ca38bd09a5
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128666"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87438903"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Åtkomst och identitetsalternativ för Azure Kubernetes Service (AKS)
 
@@ -74,8 +74,6 @@ Säkerheten för AKS-kluster kan förbättras med integrering av Azure Active Di
 Med Azure AD-integrerade AKS-kluster kan du ge användare eller grupper åtkomst till Kubernetes-resurser inom ett namn område eller över klustret. För att hämta en `kubectl` konfigurations kontext kan en användare köra kommandot [AZ AKS get-credentials][az-aks-get-credentials] . När en användare interagerar med AKS-klustret med `kubectl` , uppmanas de att logga in med sina autentiseringsuppgifter för Azure AD. Den här metoden ger en enda källa för användar konto hantering och autentiseringsuppgifter för lösen ord. Användaren kan bara komma åt resurserna som definieras av kluster administratören.
 
 Azure AD-autentisering tillhandahålls för AKS-kluster med OpenID Connect. OpenID Connect är ett identitets lager som byggts ovanpå OAuth 2,0-protokollet. Mer information om OpenID Connect finns i [Open ID Connect-dokumentationen][openid-connect]. Från inifrån Kubernetes-klustret används [webhook-token-autentisering][webhook-token-docs] för att verifiera autentiseringstoken. Webhook-token-autentisering konfigureras och hanteras som en del av AKS-klustret.
-
-Från inifrån Kubernetes-klustret används webhook-token-autentisering för att verifiera autentiseringstoken. Webhook-token-autentisering konfigureras och hanteras som en del av AKS-klustret.
 
 ### <a name="webhook-and-api-server"></a>Webhook och API-Server
 

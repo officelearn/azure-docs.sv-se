@@ -14,20 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 0e477b95f43c091bf17ec54d2fef9f971d5f6986
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 761a508543af79f3a242bfa2133e22a00b0ca689
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000168"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439609"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Kryptera ditt innehåll med lagrings kryptering 
 
 > [!NOTE]
 > Du behöver ett Azure-konto för att genomföra kursen. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).   > inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](../latest/index.yml). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
->   
-
-Vi rekommenderar starkt att du krypterar ditt innehåll lokalt med AES-256-bitars kryptering och laddar sedan upp det till Azure Storage där det lagras krypterat i vila.
+>
 
 Den här artikeln ger en översikt över AMS Storage Encryption och visar hur du överför det krypterade lagrings innehållet:
 
@@ -46,7 +44,7 @@ När du använder entiteter i Media Services måste du ange vissa huvud fält oc
 
 ### <a name="storage-side-encryption"></a>Kryptering på lagrings Sidan
 
-|Krypterings alternativ|Beskrivning|Media Services v2|Media Services v3|
+|Krypterings alternativ|Description|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Media Services lagrings kryptering|AES-256-kryptering, nyckel som hanteras av Media Services|Stöds<sup>(1)</sup>|Stöds inte<sup>(2)</sup>|
 |[Kryptering för lagringstjänst för vilande data](../../storage/common/storage-service-encryption.md)|Kryptering på Server sidan som erbjuds av Azure Storage, nyckel som hanteras av Azure eller av kunden|Stöds|Stöds|
@@ -113,7 +111,7 @@ Följande är allmänna steg för att skapa innehålls nycklar som du associerar
 
     För lagrings kryptering ska följande egenskaper tas med i begär ande texten.
 
-    Egenskap för begär ande brödtext    | Beskrivning
+    Egenskap för begär ande brödtext    | Description
     ---|---
     Id | ContentKey-ID: t genereras med följande format: "OBS: barn: UUID: \<NEW GUID> ".
     ContentKeyType | Innehålls nyckel typen är ett heltal som definierar nyckeln. För lagrings krypterings format är värdet 1.
@@ -203,7 +201,7 @@ Ett av värdena som du måste ange när du skapar innehålls nyckeln är typen. 
 
 I följande exempel visas hur du skapar en **ContentKey** med en **ContentKeyType** som är inställd för lagrings kryptering ("1") och **ProtectionKeyType** har angetts till "0" för att INDIKERA att skydds nyckelns ID är X. 509-certifikatets tumavtryck.  
 
-Begäran
+Förfrågan
 
 ```console
 POST https://media.windows.net/api/ContentKeys HTTP/1.1

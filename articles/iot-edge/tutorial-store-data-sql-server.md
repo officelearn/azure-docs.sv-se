@@ -9,12 +9,12 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c239c16103dc0c1f847c5d4354aed89a143a28c6
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 25da32c8aef4ca2accf53f90c0cae6f2a3f96de3
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745500"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439635"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Självstudie: Lagra data på gränsen med SQL Server-databaser
 
@@ -24,7 +24,7 @@ Använda Azure IoT Edge och SQL Server för att lagra och fråga efter data på 
 
 Den här artikeln innehåller instruktioner för hur man distribuerar en SQL Server-databas till en IoT Edge-enhet. Azure Functions körs på IoT Edge-enheten och strukturerar inkommande data och skickar dem sedan till databasen. Stegen i den här artikeln kan också tillämpas på andra databaser som fungerar i containrar, t.ex. MySQL eller PostgreSQL.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -35,7 +35,7 @@ I de här självstudierna får du lära dig att
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här självstudien bör du ha gått igenom den föregående kursen för att konfigurera din utvecklings miljö för att utveckla Linux-behållare: [utveckla IoT Edge moduler för Linux-enheter](tutorial-develop-for-linux.md). När du har slutfört den här självstudien bör du ha följande krav på plats:
 
@@ -71,13 +71,15 @@ Följande steg visar hur du skapar en IoT Edge-funktion med Visual Studio Code o
    | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen, till exempel **SqlSolution**, eller acceptera standardnamnet. |
    | Välj modulmall | Välj **Azure Functions - C#**. |
    | Ange ett modulnamn | Ge modulen namnet **sqlFunction**. |
-   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen har fyllts i från föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. <br><br>Den sista strängen ser ut som \< register namn \> . azurecr.io/sqlfunction. |
+   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen har fyllts i från föregående steg. Ersätt **localhost: 5000** med **inloggnings serverns** värde från Azure Container Registry. Du kan hämta inloggnings servern från sidan Översikt i behållar registret i Azure Portal. <br><br>Den sista strängen ser ut som \<registry name\> . azurecr.io/sqlfunction. |
 
    VS Code läser in arbetsytan för IoT Edge-lösningen.
 
 ### <a name="add-your-registry-credentials"></a>Lägg till autentiseringsuppgifter för registret
 
 Miljöfilen lagrar autentiseringsuppgifterna för containerregistret och delar dem med körningsmiljön för IoT Edge. Körningen behöver dessa autentiseringsuppgifter för att hämta dina privata avbildningar till IoT Edge-enheten.
+
+IoT Edge-tillägget försöker hämta dina autentiseringsuppgifter för behållar registret från Azure och fylla dem i miljö filen. Kontrol lera om dina autentiseringsuppgifter redan ingår. Om inte, lägger du till dem nu:
 
 1. Öppna .env-filen i VS Code-utforskaren.
 2. Uppdatera fälten med det **användarnamn** och **lösenord** som du kopierade från Azure Container-registret.
@@ -93,9 +95,19 @@ För närvarande kan Visual Studio Code utveckla C-moduler för Linux AMD64-och 
 
 ### <a name="update-the-module-with-custom-code"></a>Uppdatera modulen med anpassad kod
 
-1. I vs Code-Utforskaren öppnar du **moduler**  >  **sqlFunction**  >  **sqlFunction.cs**.
+1. I vs Code-Utforskaren öppnar du **modules**  >  **sqlFunction**  >  **sqlFunction. CSPROJ**.
 
-2. Ersätt hela innehållet i filen med följande kod:
+2. Hitta gruppen med paket referenser och Lägg till en ny för att ta med SqlClient.
+
+   ```csproj
+   <PackageReference Include="System.Data.SqlClient" Version="4.5.1"/>
+   ```
+
+3. Spara filen **sqlFunction.csproj**.
+
+4. Öppna filen **sqlFunction.cs** .
+
+5. Ersätt hela innehållet i filen med följande kod:
 
    ```csharp
    using System;
@@ -184,23 +196,13 @@ För närvarande kan Visual Studio Code utveckla C-moduler för Linux AMD64-och 
    }
    ```
 
-3. I rad 35 ersätter du strängen ** \< SQL \> ** -anslutningssträngen med följande sträng. **Data källans** egenskap refererar till SQL Server container, som ännu inte finns. Du kommer att skapa den med namnet **SQL** i nästa avsnitt.
+6. Ersätt strängen **\<sql connection string\>** med följande sträng i rad 35. **Data källans** egenskap refererar till SQL Server container, som ännu inte finns. Du kommer att skapa den med namnet **SQL** i nästa avsnitt.
 
    ```csharp
    Data Source=tcp:sql,1433;Initial Catalog=MeasurementsDB;User Id=SA;Password=Strong!Passw0rd;TrustServerCertificate=False;Connection Timeout=30;
    ```
 
-4. Spara filen **sqlFunction.cs**.
-
-5. Öppna filen **sqlFunction.csproj**.
-
-6. Hitta gruppen med paket referenser och Lägg till en ny för att ta med SqlClient.
-
-   ```csproj
-   <PackageReference Include="System.Data.SqlClient" Version="4.5.1"/>
-   ```
-
-7. Spara filen **sqlFunction.csproj**.
+7. Spara filen **sqlFunction.cs**.
 
 ## <a name="add-the-sql-server-container"></a>Lägg till SQL Server container
 
@@ -212,7 +214,7 @@ Ett [distributionsmanifest](module-composition.md) deklarerar vilka moduler IoT 
 
    | Fält | Värde |
    | ----- | ----- |
-   | Välj distributionsmallfil | Paletten Command visar filen Deployment. template. json i din aktuella Solution-mapp. Välj den filen.  |
+   | Välj distributionsmallfil | Paletten Command visar **deployment.template.jspå** filen i din aktuella Solution-mapp. Välj den filen.  |
    | Välj modulmall | Välj **modul från Azure Marketplace**. |
 
 3. I Azure IoT Edge module Marketplace söker du efter och väljer **SQL Server modul**.
@@ -221,14 +223,14 @@ Ett [distributionsmanifest](module-composition.md) deklarerar vilka moduler IoT 
 
 5. Välj **Importera** för att lägga till modulen i din lösning.
 
-6. Öppna filen **Deployment. template. JSON** i mappen Solution.
+6. Öppna den **deployment.template.js** filen i Solution-mappen.
 
 7. Leta upp avsnittet **modules** (moduler). Du bör se tre moduler. Modulen *SimulatedTemperatureSensor* ingår som standard i nya lösningar och ger test data som ska användas med dina andra moduler. Modulen *sqlFunction* är den modul som du ursprungligen skapade och uppdaterade med ny kod. Slutligen har modulen *SQL* importer ATS från Azure Marketplace.
 
    >[!Tip]
    >Modulen SQL Server innehåller ett standard lösen ord som anges i miljövariablerna i distributions manifestet. Varje gång du skapar en SQL Server-container i en produktionsmiljö bör du [ändra standardlösenord för systemadministratören](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker).
 
-8. Stäng filen **Deployment. template. JSON** .
+8. Stäng **deployment.template.jspå** filen.
 
 ## <a name="build-your-iot-edge-solution"></a>Skapa din IoT Edge-lösning
 
@@ -244,31 +246,33 @@ I föregående avsnitt skapade du en lösning med en modul och lade sedan till e
 
     Du kan se en säkerhets varning som rekommenderar att parametern--Password-STDIN används. Även om användning av denna ligger utanför vad som tas upp i denna artikel rekommenderar vi att du följer denna bästa metod. Mer information finns i kommando referensen [Docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
 
-1. I VS Code-Utforskaren högerklickar du på filen **Deployment. template. JSON** och väljer **Build och push IoT Edge-lösning**.
+1. I VS Code-Utforskaren högerklickar du på **deployment.template.jspå** filen och väljer **Build och push IoT Edge-lösning**.
 
-När du anger Visual Studio Code för att bygga din lösning, tar den först med informationen i distributions mal len och genererar en distributions-JSON-fil i en ny mapp med namnet **config**. Sedan kör den två kommandon i den integrerade terminalen: `docker build` och `docker push` . Kommandot build skapar koden och lägger modulen. Sedan skickar push-kommandot koden till det behållar register som du angav när du initierade lösningen.
+   Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** som innehåller det fullständiga distributions manifestet, som bygger på information i distributions mal len och andra lösningsfiler. Sedan körs den `docker build` för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs den `docker push` för att skicka avbildnings lagrings platsen till behållar registret.
 
-Du kan kontrol lera att modulen sqlFunction har skickats till behållar registret. I Azure Portal navigerar du till behållar registret. Välj **databaser** och Sök efter **sqlFunction**. De andra två modulerna, SimulatedTemperatureSensor och SQL, kommer inte att flyttas till behållar registret eftersom deras databaser redan finns i Microsofts register.
+   Den här processen kan ta flera minuter första gången, men går snabbare nästa gång du kör kommandona.
+
+   Du kan kontrol lera att modulen sqlFunction har skickats till behållar registret. I Azure Portal navigerar du till behållar registret. Välj **databaser** och Sök efter **sqlFunction**. De andra två modulerna, SimulatedTemperatureSensor och SQL, kommer inte att flyttas till behållar registret eftersom deras databaser redan finns i Microsofts register.
 
 ## <a name="deploy-the-solution-to-a-device"></a>Distribuera lösningen till en enhet
 
 Du kan ange moduler på en enhet via IoT Hub, men du kan också komma åt din IoT Hub och enheter via Visual Studio Code. I det här avsnittet kan du konfigurera åtkomst till din IoT Hub och sedan använda VS Code för att distribuera din lösning till IoT Edge-enheten.
 
-1. I VS Code-utforskaren expanderar du avsnittet **Azure IoT Hub-enheter**.
+1.  I Visual Studio Code Explorer, under avsnittet **Azure IoT Hub** , expanderar du **enheter** för att se listan med IoT-enheter.
 
-2. Högerklicka på den enhet som du vill ha som mål för distributionen och välj **Skapa distribution för enskild enhet**.
+2. Högerklicka på den enhet som du vill använda som mål för distributionen och välj **skapa distribution för en enskild enhet**.
 
-3. I filutforskaren går du till **config**-mappen i din lösning och väljer **deployment.amd64**. Klicka på **Välj distributionsmanifest för Edge**.
+3. Välj **deployment.amd64.js** filen i mappen **config** och klicka sedan på **Välj gräns distributions manifest**. Använd inte filen deployment.template.json.
 
-   Använd inte filen Deployment. template. JSON som distributions manifest.
+4. Under din enhet expanderar du **moduler** för att se en lista över distribuerade och aktiva moduler. Klicka på uppdateringsknappen. Du bör se de nya **SQL** -och **sqlFunction** -modulerna som körs tillsammans med **SimulatedTemperatureSensor** -modulen och **$edgeAgent** och **$edgeHub**.
 
-Om distributionen lyckas skrivs ett bekräftelsemeddelande ut i utdata för VS Code.
-
-Uppdatera statusen för din enhet i avsnittet Azure IoT Hub-enheter i VS Code. De nya modulerna visas och börjar rapportera som körande under de närmaste minuterna när containrarna installeras och startas. Du kan också kontrollera att alla moduler är igång på enheten. Kör följande kommando på IoT Edge-enheten för att se status för modulerna.
+    Du kan också kontrollera att alla moduler är igång på enheten. Kör följande kommando på IoT Edge-enheten för att se status för modulerna.
 
    ```cmd/sh
    iotedge list
    ```
+
+    Det kan ta några minuter innan modulerna startar. Den IoT Edge körnings miljön måste ta emot sitt nya distributions manifest, Hämta modulens avbildningar från container körningen och sedan starta varje ny modul.
 
 ## <a name="create-the-sql-database"></a>Skapa SQL-databasen
 

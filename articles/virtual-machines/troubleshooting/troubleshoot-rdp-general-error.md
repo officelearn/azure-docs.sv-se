@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: df318fea4960601dcbfa84149fdc47bedc9104a2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2a1a5f3eaf79a345b0d33f43d260fe6aa15236b
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079833"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439249"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Felsöka ett RDP-allmänt fel i virtuell Azure-dator
 
@@ -81,7 +81,7 @@ Innan du följer de här stegen ska du ta en ögonblicks bild av OS-disken för 
 1. Kontrol lera om RDP har inaktiverats av grup principer.
 
     ```
-    REM Get the group policy 
+    REM Get the group policy setting
     reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
     ```
     Om grup principen anger att RDP är inaktive rad (fDenyTSConnections-värdet är 0x1) kör du följande kommando för att aktivera TermService-tjänsten. Om register nyckeln inte hittas finns det ingen grup princip konfigurerad för att inaktivera RDP. Du kan gå vidare till nästa steg.

@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 09d039801107a44df4f3bf3745a1e074e6d708b8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2da31944a58fb3e5834938b7de32348f30ed7e25
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76760972"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439807"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudie: utveckla en C IoT Edge-modul för Windows-enheter
 
@@ -39,11 +39,11 @@ Den här självstudien visar hur du utvecklar en modul i **C** med **Visual Stud
 
 Använd följande tabell för att förstå alternativen för att utveckla och distribuera C-moduler till Windows-enheter:
 
-| C | Visual Studio-koden | Visual Studio 2017/2019 |
+| C | Visuell Studio-kod | Visual Studio 2017/2019 |
 | -- | ------------------ | ------------------ |
 | **Windows AMD64** |  | ![Utveckla C-moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här självstudien bör du ha gått igenom den föregående själv studie kursen för att konfigurera utvecklings miljön för utveckling av Windows-behållare: [utveckla IoT Edge moduler för Windows-enheter](tutorial-develop-for-windows.md). När du har slutfört den här självstudien bör du ha följande krav på plats:
 
@@ -85,11 +85,11 @@ Skapa en C-lösningsmall som du kan anpassa med din egen kod.
 
 4. Konfigurera ditt projekt med följande värden:
 
-   | Field | Värde |
+   | Fält | Värde |
    | ----- | ----- |
    | Välj en mall | Välj **C-modul**. |
    | Modulnamn projekt namn | Ge modulen namnet **CModule**. |
-   | Docker-avbildningens lagrings plats | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Behållar avbildningen fylls i automatiskt från värdet för modulens projekt namn. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. <br><br> Den slutliga avbildningsplatsen ser ut så här: \<registernamn\>.azurecr.io/cmodule. |
+   | Docker-avbildningens lagrings plats | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Behållar avbildningen fylls i automatiskt från värdet för modulens projekt namn. Ersätt **localhost: 5000** med **inloggnings serverns** värde från Azure Container Registry. Du kan hämta inloggnings servern från sidan Översikt i behållar registret i Azure Portal. <br><br> Den slutliga avbildnings lagrings platsen ser ut som \<registry name\> . azurecr.io/cmodule. |
 
    ![Konfigurera ditt projekt för mål enheten, modultypen och behållar registret](./media/tutorial-c-module-windows/add-application-and-module.png)
 
@@ -99,7 +99,7 @@ Skapa en C-lösningsmall som du kan anpassa med din egen kod.
 
 Distributions manifestet delar autentiseringsuppgifterna för behållar registret med IoT Edge Runtime. Körningen behöver dessa autentiseringsuppgifter för att hämta dina privata avbildningar till IoT Edge-enheten. Använd autentiseringsuppgifterna från avsnittet **åtkomst nycklar** i Azure Container Registry.
 
-1. Öppna filen **Deployment. template. JSON** i Visual Studio-Solution Explorer.
+1. Öppna **deployment.template.jspå** filen i Visual Studio-Solution Explorer.
 
 2. Hitta egenskapen **registryCredentials** i önskade egenskaper för $edgeAgent. Den bör ha en ifylld registrerings adress från den information som du angav när du skapade projektet. Fälten username och Password måste innehålla variabel namn. Ett exempel:
 
@@ -113,7 +113,7 @@ Distributions manifestet delar autentiseringsuppgifterna för behållar registre
    }
    ```
 
-3. Öppna **. kuvert** -filen i din modul-lösning. (Den är dold som standard i Solution Explorer, så du kan behöva välja knappen **Visa alla filer** för att visa den.) . Kuvert-filen ska innehålla samma användar namn och lösen ord som du såg i filen Deployment. template. JSON.
+3. Öppna **. kuvert** -filen i din modul-lösning. (Den är dold som standard i Solution Explorer, så du kan behöva välja knappen **Visa alla filer** för att visa den.) . Kuvert-filen ska innehålla samma användar namn och lösen ord som du såg i deployment.template.jsi filen.
 
 4. Lägg till värdena för **användar namn** och **lösen ord** från Azure Container Registry.
 
@@ -127,7 +127,7 @@ Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem v
 
    1. Ladda ned [Parson GitHub-lagringsplatsen](https://github.com/kgabis/parson). Kopiera **Parson. c** -och **Parson. h** -filerna till **CModule** -projektet.
 
-   2. I Visual Studio öppnar du filen **CMakeLists. txt** från projektmappen CModule. Längst upp i filen importerar du Parson-filerna som ett bibliotek med namnet **my_parson**.
+   2. Öppna **CMakeLists.txt** -filen från projektmappen CModule i Visual Studio. Längst upp i filen importerar du Parson-filerna som ett bibliotek med namnet **my_parson**.
 
       ```txt
       add_library(my_parson
@@ -136,17 +136,17 @@ Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem v
       )
       ```
 
-   3. Lägg `my_parson` till i listan över bibliotek i avsnittet **Target_link_libraries** i filen CMakeLists. txt.
+   3. Lägg till i `my_parson` listan över bibliotek i avsnittet **target_link_libraries** i CMakeLists.txts filen.
 
    4. Spara filen **CMakeLists.txt**.
 
-   5. Öppna **CModule** > **main. c**. Lägg till en ny som ska inkluderas `parson.h` för JSON-stöd längst ned i listan över include-instruktioner:
+   5. Öppna **CModule**  >  **main. c**. Lägg till en ny som ska inkluderas för JSON-stöd längst ned i listan över include-instruktioner `parson.h` :
 
       ```c
       #include "parson.h"
       ```
 
-2. I filen **main. c** lägger du till en global variabel som `temperatureThreshold` heter bredvid variabeln messagesReceivedByInput1Queue. Variabeln anger det värde som den uppmätta temperaturen måste överstiga för att data ska skickas till IoT Hub.
+2. I filen **main. c** lägger du till en global variabel `temperatureThreshold` som heter bredvid variabeln messagesReceivedByInput1Queue. Variabeln anger det värde som den uppmätta temperaturen måste överstiga för att data ska skickas till IoT Hub.
 
     ```c
     static double temperatureThreshold = 25;
@@ -296,7 +296,7 @@ Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem v
 
 7. Spara filen main.c.
 
-8. Öppna filen **Deployment. template. JSON** .
+8. Öppna filen **deployment.template.js** .
 
 9. Lägg till CModule-modultvillingen till distributionsmanifestet. Infoga följande JSON-innehåll längst ned i avsnittet `moduleContent` efter `$edgeHub`-modultvillingen:
 
@@ -316,23 +316,35 @@ Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem v
 
 I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i **CModule** för att filtrera bort meddelanden där den rapporterade dator temperaturen är under det acceptabla tröskelvärdet. Nu behöver du skapa lösningen som en containeravbildning och push-överföra den till ditt containerregister.
 
-1. Använd följande kommando för att logga in på Docker på din utvecklings dator. Logga in med användar namnet, lösen ordet och inloggnings servern från Azure Container Registry. Du kan hämta dessa värden från avsnittet **åtkomst nycklar** i registret i Azure Portal.
+### <a name="sign-in-to-docker"></a>Logga in på Docker
+
+Ange dina autentiseringsuppgifter för behållar registret till Docker på din utvecklings dator så att den kan push-överföra din behållar avbildning till att lagras i registret.
+
+1. Öppna PowerShell eller en kommando tolk.
+
+2. Logga in på Docker med de autentiseringsuppgifter för Azure Container Registry som du sparade när du skapade registret.
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   Du kan få en säkerhets varning som rekommenderar att du använder `--password-stdin`. Det bästa tillvägagångs sättet rekommenderas för produktions scenarier, men det ligger utanför omfånget för den här självstudien. Mer information finns i [inloggnings referens för Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
+   Du kan få en säkerhets varning som rekommenderar att du använder `--password-stdin` . Det bästa tillvägagångs sättet rekommenderas för produktions scenarier, men det ligger utanför omfånget för den här självstudien. Mer information finns i [inloggnings referens för Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
 
-2. Högerklicka på det projekt namn som du vill bygga i Visual Studio-Solution Explorer. Standard namnet är **AzureIotEdgeApp1** och eftersom du skapar en Windows-modul bör tillägget vara **Windows. amd64**.
+### <a name="build-and-push"></a>Bygg och skicka
 
-3. Välj **build-och push-IoT Edge moduler**.
+Nu har din utvecklings dator åtkomst till ditt behållar register, och dina IoT Edge enheter är också. Det är dags att omvandla projekt koden till en behållar avbildning.
 
-   Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** som innehåller det fullständiga distributions manifestet, som bygger ut information i distributions mal len och andra lösningsfiler. Sedan körs `docker build` den för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs `docker push` den för att skicka avbildnings lagrings platsen till behållar registret.
+1. Högerklicka på det projekt namn som du vill bygga i Visual Studio-Solution Explorer. Standard namnet är **AzureIotEdgeApp1**. I den här självstudien valdes namnet **CTutorialApp** . Eftersom du skapar en Windows-modul bör tillägget vara **Windows. amd64**.
+
+2. Välj **build-och push-IoT Edge moduler**.
+
+   Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** som innehåller det fullständiga distributions manifestet, som bygger ut information i distributions mal len och andra lösningsfiler. Sedan körs den `docker build` för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs den `docker push` för att skicka avbildnings lagrings platsen till behållar registret.
+
+   Den här processen kan ta flera minuter första gången, men går snabbare nästa gång du kör kommandona.
 
 ## <a name="deploy-modules-to-device"></a>Distribuera moduler till enhet
 
-Använd Visual Studio Cloud Explorer och tillägget Azure IoT Edge Tools för att distribuera modulfönstret till din IoT Edge-enhet. Du har redan ett distributions manifest som är för berett för ditt scenario, filen **Deployment. JSON** i mappen config. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
+Använd Visual Studio Cloud Explorer och tillägget Azure IoT Edge Tools för att distribuera modulfönstret till din IoT Edge-enhet. Du har redan ett distributions manifest som är för berett för ditt scenario, **deployment.windows-amd64.js** filen i mappen config. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
 
 Kontrol lera att din IoT Edges enhet är igång.
 
@@ -364,11 +376,11 @@ Du kan använda tillägget IoT Edge-verktyg för att visa meddelanden när de ko
 
 Vi använde CModule-modulen för att ange temperatur tröskeln vid 25 grader. Du kan använda modulen för att ändra funktionen utan att behöva uppdatera modulens kod.
 
-1. Öppna filen **Deployment. Windows-amd64. JSON** i Visual Studio. (Inte filen Deployment. template. Om du inte ser distributions manifestet i konfigurations filen i Solution Explorer väljer du ikonen **Visa alla filer** i Explorer-verktygsfältet.)
+1. Öppna filen **deployment.windows-amd64.js** i Visual Studio. (Inte filen Deployment. template. Om du inte ser distributions manifestet i konfigurations filen i Solution Explorer väljer du ikonen **Visa alla filer** i Explorer-verktygsfältet.)
 
 2. Hitta CModule och ändra värdet för parametern **temperatureThreshold** till en ny temperatur på 5 grader till 10 grader högre än den senaste rapporterade temperaturen.
 
-3. Spara filen **Deployment. Windows-amd64. JSON** .
+3. Spara **deployment.windows-amd64.jspå** filen.
 
 4. Följ distributions stegen igen för att tillämpa det uppdaterade distributions manifestet på enheten.
 
@@ -389,7 +401,7 @@ I den här självstudien skapade du en IoT Edge-modul med kod för att filtrera 
 Du kan fortsätta till nästa självstudier för att lära dig hur Azure IoT Edge kan hjälpa dig att distribuera Azure Cloud Services för att bearbeta och analysera data i gränsen.
 
 > [!div class="nextstepaction"]
-> [Funktioner](tutorial-deploy-function.md)
-> [Stream Analytics](tutorial-deploy-stream-analytics.md)Stream Analytics
-> [Machine Learning](tutorial-deploy-machine-learning.md)Machine Learning
-> [Custom vision service](tutorial-deploy-custom-vision.md)
+> [Functions](tutorial-deploy-function.md) 
+>  [Stream Analytics](tutorial-deploy-stream-analytics.md) 
+>  [Machine Learning](tutorial-deploy-machine-learning.md) 
+>  [Custom vision service](tutorial-deploy-custom-vision.md)

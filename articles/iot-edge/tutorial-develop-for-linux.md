@@ -4,17 +4,17 @@ description: Den här själv studie kursen beskriver hur du konfigurerar en utve
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ba10ed068e0a537d7a759f533dbada865f639e7b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c6cdde3ae63a2f816db7a978557f72b4b60d2677
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419945"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439135"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Självstudie: utveckla IoT Edge moduler för Linux-enheter
 
@@ -45,7 +45,7 @@ Den här kursen riktar sig till Linux-enheter som kör IoT Edge. Du kan använda
 
 I följande tabell visas de utvecklings scenarier som stöds för **Linux-behållare** i Visual Studio Code och Visual Studio.
 
-|   | Visual Studio-koden | Visual Studio 2017/2019 |
+|   | Visuell Studio-kod | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Arkitektur för Linux-enhet** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
 | **Azure-tjänster** | Azure Functions <br> Azure Stream Analytics <br> Azure Machine Learning |   |

@@ -3,16 +3,16 @@ title: Självstudie – Stream Analytics på gränsen med Azure IoT Edge
 description: I den här självstudien distribuerar du Azure Stream Analytics som en modul till en IoT Edge enhet
 author: kgremban
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 62ee95db0e3b35c996cb4ee68d772a21c00778fb
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: c259e913a8ee5181bc58aea651af62324cf01fcb
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220271"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439409"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Självstudie: Distribuera Azure Stream Analytics som en IoT Edge modul
 
@@ -69,7 +69,7 @@ När du skapar ett Azure Stream Analytics-jobb som ska köras på en IoT Edge-en
    | Prenumeration | Välj samma prenumeration som din IoT-hubb. |
    | Resursgrupp | Vi rekommenderar att du använder samma resurs grupp för alla test resurser för IoT Edge snabb starter och självstudier. Till exempel **IoTEdgeResources**. |
    | Name | Ange ett unikt namn för lagringskontot. |
-   | Location | Välj en plats i närheten av dig. |
+   | Position | Välj en plats i närheten av dig. |
 
 1. Behåll standardvärdena för de andra fälten och välj **Granska + skapa**.
 
@@ -86,7 +86,7 @@ När du skapar ett Azure Stream Analytics-jobb som ska köras på en IoT Edge-en
    | Jobbnamn | Ange ett namn för ditt jobb. Till exempel **IoTEdgeJob** |
    | Prenumeration | Välj samma prenumeration som din IoT-hubb. |
    | Resursgrupp | Vi rekommenderar att du använder samma resursgrupp för alla testresurser som du skapar i snabbstarterna och självstudierna om IoT Edge. Till exempel **IoTEdgeResources**. |
-   | Location | Välj en plats i närheten av dig. |
+   | Position | Välj en plats i närheten av dig. |
    | Värdmiljö | Välj **Gräns**. |
 
 1. Välj **Skapa**.
@@ -119,7 +119,7 @@ I det här avsnittet används de tre elementen för indata, utdata och fråga f�
 
 1. Behåll standardvärdena för de andra fälten och välj **Spara**.
 
-1. Välj **Fråga** under **Jobbtopologi**.
+1. Under **jobb sto pol Ogin**väljer du **fråga**.
 
 1. Ersätt standardtexten med följande fråga. SQL-koden skickar ett återställningskommando till aviseringens utdata om medeltemperaturen under ett 30-sekundersintervall når 70 grader. Återställningskommandot har förprogrammerats i sensorn som en åtgärd som kan utföras.
 
@@ -134,7 +134,7 @@ I det här avsnittet används de tre elementen för indata, utdata och fråga f�
     HAVING Avg(machine.temperature) > 70
     ```
 
-1. Välj **Spara**.
+1. Välj **Spara fråga**.
 
 ### <a name="configure-iot-edge-settings"></a>Konfigurera IoT Edge-inställningar
 

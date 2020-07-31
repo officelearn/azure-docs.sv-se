@@ -5,19 +5,19 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/04/2019
+ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: d40ab7a7173265812483e29127e9f8fd919dc4a4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 86c2bc86a4eeea8b04c4f22c20edade2eac2a811
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323340"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439035"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Självstudie: utveckla en Java IoT Edge-modul för Linux-enheter
 
@@ -40,12 +40,12 @@ Den här självstudien visar hur du utvecklar en modul i **Java** med **Visual S
 
 Använd följande tabell för att förstå alternativen för att utveckla och distribuera Java-moduler:
 
-| Java | Visual Studio-koden | Visual Studio 2017/2019 |
+| Java | Visuell Studio-kod | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Använda VS Code för Java-moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Använda VS Code för Java-moduler på Linux-ARM32](./media/tutorial-c-module/green-check.png) |  |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här självstudien bör du ha gått igenom den föregående kursen för att konfigurera din utvecklings miljö för att utveckla Linux-behållare: [utveckla IoT Edge moduler för Linux-enheter](tutorial-develop-for-linux.md). Genom att slutföra någon av de här självstudierna bör du ha följande krav på plats:
 
@@ -60,6 +60,9 @@ Om du vill utveckla en IoT Edge-modul i Java installerar du följande ytterligar
 * [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) för Visual Studio Code.
 * [Java SE Development Kit 10](https://aka.ms/azure-jdks), och [ange `JAVA_HOME`miljövariabeln](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) så att den pekar mot din JDK-installation.
 * [Maven](https://maven.apache.org/)
+
+   >[!TIP]
+   >Miljövariabler för Java och maven kommer att läggas till under installations processerna. Du måste starta om alla Visual Studio Code-terminaler-, PowerShell-eller kommando tolks instanser som du har öppnat när du lade till dessa miljövariabler. På så sätt ser du att Java-och maven-kommandona känns igen av dessa verktyg.
 
 ## <a name="create-a-module-project"></a>Skapa ett modul-projekt
 
@@ -78,9 +81,9 @@ Skapa en Java-lösningsmall som du kan anpassa med din egen kod.
    | Välj mapp | Välj den plats på utvecklingsdatorn där Visual Studio Code ska skapa lösningsfilerna. |
    | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen eller acceptera standardnamnet **EdgeSolution**. |
    | Välj modulmall | Välj **Java-modul**. |
-   | Ange ett värde för groupId | Ange ett grupp-ID-värde eller acceptera standardvärdet **com.edgemodule**. |
    | Ange ett modulnamn | Ge modulen namnet **JavaModule**. |
-   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen fylls i baserat på det namn du angav i föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. <br><br>Den slutliga avbildnings lagrings platsen ser ut som \<registry name\> . azurecr.io/javamodule. |
+   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen fylls i baserat på det namn du angav i föregående steg. Ersätt **localhost: 5000** med **inloggnings serverns** värde från Azure Container Registry. Du kan hämta inloggnings servern från sidan Översikt i behållar registret i Azure Portal. <br><br>Den slutliga avbildnings lagrings platsen ser ut som \<registry name\> . azurecr.io/javamodule. |
+   | Ange ett värde för groupId | Ange ett grupp-ID-värde eller acceptera standardvärdet **com.edgemodule**. |
 
    ![Ange lagringsplatsen för Docker-avbildningen](./media/tutorial-java-module/repository.png)
 
@@ -97,6 +100,8 @@ Om du inte angav ett containerregister när du skapade lösningen, men acceptera
 ### <a name="add-your-registry-credentials"></a>Lägg till autentiseringsuppgifter för registret
 
 Miljöfilen lagrar autentiseringsuppgifterna för containerregistret och delar dem med körningsmiljön för IoT Edge. Körningen behöver dessa autentiseringsuppgifter för att hämta dina privata avbildningar till IoT Edge-enheten.
+
+IoT Edge-tillägget försöker hämta dina autentiseringsuppgifter för behållar registret från Azure och fylla dem i miljö filen. Kontrol lera om dina autentiseringsuppgifter redan ingår. Om inte, lägger du till dem nu:
 
 1. Öppna .env-filen i VS Code-utforskaren.
 2. Uppdatera fälten med det **användarnamn** och **lösenord** som du kopierade från Azure Container-registret.
@@ -237,7 +242,7 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **Jav
 
 1. Öppna den vs Code-integrerade terminalen genom att välja **Visa**  >  **Terminal**.
 
-1. Logga in på Docker genom att ange följande kommando i terminalen. Logga in med användar namnet, lösen ordet och inloggnings servern från Azure Container Registry. Du kan hämta dessa värden från avsnittet **åtkomst nycklar** i registret i Azure Portal.
+2. Logga in på Docker genom att ange följande kommando i terminalen. Logga in med användar namnet, lösen ordet och inloggnings servern från Azure Container Registry. Du kan hämta dessa värden från avsnittet **åtkomst nycklar** i registret i Azure Portal.
 
    ```bash
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -245,29 +250,31 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **Jav
 
    Du kan få en säkerhets varning som rekommenderar att du använder `--password-stdin` . Det bästa tillvägagångs sättet rekommenderas för produktions scenarier, men det ligger utanför omfånget för den här självstudien. Mer information finns i [inloggnings referens för Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
 
-1. I VS Code-Utforskaren högerklickar du på **deployment.template.jspå** filen och väljer **Build och push IoT Edge-lösning**.
+3. I VS Code-Utforskaren högerklickar du på **deployment.template.jspå** filen och väljer **Build och push IoT Edge-lösning**.
 
    Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** som innehåller det fullständiga distributions manifestet, som bygger på information i distributions mal len och andra lösningsfiler. Sedan körs den `docker build` för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs den `docker push` för att skicka avbildnings lagrings platsen till behållar registret.
 
+   Den här processen kan ta flera minuter första gången, men går snabbare nästa gång du kör kommandona.
+
 ## <a name="deploy-modules-to-device"></a>Distribuera moduler till enhet
 
-Använd Visual Studio Code Explorer och tillägget Azure IoT Tools för att distribuera modulfönstret till din IoT Edge-enhet. Du har redan ett distributions manifest som är för berett för ditt scenario, **deployment.js** filen i mappen config. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
+Använd Visual Studio Code Explorer och tillägget Azure IoT Tools för att distribuera modulfönstret till din IoT Edge-enhet. Du har redan ett distributions manifest som är för berett för ditt scenario, **deployment.amd64.js** filen i mappen config. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
 
 Kontrol lera att din IoT Edges enhet är igång.
 
-1. I Visual Studio Code Explorer expanderar du avsnittet **Azure IoT Hub-enheter** för att se din lista över IoT-enheter.
+1. I Visual Studio Code Explorer, under avsnittet **Azure IoT Hub** , expanderar du **enheter** för att se listan med IoT-enheter.
 
 2. Högerklicka på namnet för din IoT Edge-enhet och välj sedan **Create Deployment for Single Device** (Skapa distribution för en enskild enhet).
 
-3. Välj filen **deployment.json** i mappen **config** och klicka sedan på **Select Edge Deployment Manifest** (Välj distributionsmanifest för Edge). Använd inte filen deployment.template.json.
+3. Välj **deployment.amd64.js** filen i mappen **config** och klicka sedan på **Välj gräns distributions manifest**. Använd inte filen deployment.template.json.
 
-4. Klicka på uppdateringsknappen. Du bör se den nya **JavaModule** som körs tillsammans med **SimulatedTemperatureSensor** -modulen och **$edgeAgent** och **$edgeHub**.  
+4. Under din enhet expanderar du **moduler** för att se en lista över distribuerade och aktiva moduler. Klicka på uppdateringsknappen. Du bör se den nya **JavaModule** som körs tillsammans med **SimulatedTemperatureSensor** -modulen och **$edgeAgent** och **$edgeHub**.  
+
+    Det kan ta några minuter innan modulerna startar. Den IoT Edge körnings miljön måste ta emot sitt nya distributions manifest, Hämta modulens avbildningar från container körningen och sedan starta varje ny modul.
 
 ## <a name="view-the-generated-data"></a>Visa genererade data
 
 När du tillämpar distributionsmanifestet till din IoT Edge-enhet samlar IoT Edge-körningen in den nya distributionsinformationen och börjar köra på den. Alla moduler som körs på enheten som inte finns med i distributionsmanifestet har stoppats. Alla moduler som saknas från enheten startas.
-
-Du kan visa statusen för din IoT Edge-enhet i avsnittet om **Azure IoT Hub-enheter** i Visual Studio Code-utforskaren. Expandera enhetsinformationen så ser du en lista med moduler som distribueras och körs.
 
 1. I Visual Studio Code Explorer högerklickar du på namnet på din IoT Edge enhet och väljer **starta övervakning inbyggd händelse slut punkt**.
 

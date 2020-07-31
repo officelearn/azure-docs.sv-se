@@ -3,16 +3,16 @@ title: Exempel på Canada Federal PBMM-skiss – översikt
 description: Översikt över Canada Federal PBMM-skissexemplet. Det här skissexemplet hjälper kunderna att utvärdera specifika Canada Federal PBMM-kontroller.
 ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: fcaf4a844db10f4a87b205d08cfe3a86a6182957
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: a33cba28459b1d01e816babbfc65c1b662bd2718
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005686"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419690"
 ---
 # <a name="overview-of-the-canada-federal-pbmm-blueprint-sample"></a>Översikt över Canada Federal PBMM-skissexemplet
 
-Skissexemplet Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM) innehåller en uppsättning styrningsriktlinjer med [Azure Policy](../../../policy/overview.md) som hjälper dig att uppnå [Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html#toc4)-attestering. 
+Skissexemplet Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM) innehåller en uppsättning styrningsriktlinjer med [Azure Policy](../../../policy/overview.md) som hjälper dig att uppnå [Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html)-attestering. 
 
 ## <a name="blueprint-sample"></a>Skissexempel
 

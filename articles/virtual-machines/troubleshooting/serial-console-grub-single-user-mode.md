@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 3b074bb1d439a6d20ac476f4e10b6a26b7107be8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5341cc62a7d02c3072df90becf893dec18427ac2
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284718"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439546"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Använd serie konsolen för att komma åt GRUB och enanvändarläge
 GRand Unified Starter (GRUB) är förmodligen det första du ser när du startar en virtuell dator (VM). Eftersom det visas innan operativ systemet har startats går det inte att komma åt GRUB via SSH. I GRUB kan du ändra start konfigurationen till att starta i enanvändarläge, bland annat.
 
 Enanvändarläge är en minimal miljö med minimal funktionalitet. Det kan vara användbart för att undersöka start problem, problem med fil systemet eller nätverks problem. Färre tjänster kan köras i bakgrunden och, beroende på runlevel, kan ett fil system inte ens monteras automatiskt.
 
-Enanvändarläge är också användbart i situationer där din virtuella dator kan konfigureras för att endast godkänna SSH-nycklar för inloggning. I det här fallet kanske du kan använda enanvändarläge för att skapa ett konto med lösenordsautentisering. 
+Enanvändarläge är också användbart i situationer där din virtuella dator kan konfigureras för att endast godkänna SSH-nycklar för inloggning. I det här fallet kanske du kan använda enanvändarläge för att skapa ett konto med lösenordsautentisering.
 
 > [!NOTE]
 > Tjänsten för seriella konsoler tillåter endast användare med *deltagar* nivå eller högre behörighet att komma åt den seriella konsolen för en virtuell dator.
@@ -66,6 +66,9 @@ RHEL levereras med GRUB aktive rad. Om du vill ange GRUB startar du om den virtu
 
 **För RHEL 8**
 
+>[!NOTE]
+> Red Hat rekommenderar att du använder grubby för att konfigurera kommando rads parametrar för kernel i RHEL 8 +. Det går för närvarande inte att uppdatera grub-timeout och Terminal-parametrar med grubby. Om du vill ändra uppdatering av argumentet GRUB_CMDLINE_LINUX för alla start poster kör du `grubby --update-kernel=ALL --args="console=ttyS0,115200 console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"` . Mer information finns [här](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel).
+
 ```
 GRUB_TIMEOUT=5
 GRUB_TERMINAL="serial console"
@@ -90,8 +93,7 @@ Rot användaren är inaktive rad som standard. Single-User-läget i RHEL kräver
 1. Växla till roten.
 1. Aktivera lösen ordet för rot användaren genom att göra följande:
     * Kör `passwd root` (ange ett starkt rot lösen ord).
-1. Se till att rot användaren bara kan logga in via ttyS0 genom att göra följande:  
-    a. Kör `edit /etc/ssh/sshd_config` och se till att PermitRootLogIn är inställt på `no` .  
+1. Se till att rot användaren bara kan logga in via ttyS0 genom att göra följande: a. Kör `edit /etc/ssh/sshd_config` och se till att PermitRootLogIn är inställt på `no` .
     b. Kör `edit /etc/securetty file` endast för att tillåta inloggning via ttyS0.
 
 Nu kan du logga in med rot lösen ordet om systemet startar i enanvändarläge.
@@ -106,7 +108,7 @@ Om du har konfigurerat GRUB och rot åtkomst genom att följa anvisningarna ovan
 1. Hitta kernel-raden. I Azure börjar den med *linux16*.
 1. Tryck på CTRL + E för att gå till slutet av raden.
 1. I slutet av raden lägger du till *system. Unit = räddning. Target*.
-    
+
     Den här åtgärden startar dig i enanvändarläge. Om du vill använda nöd läge, lägger du till *system. Unit = nödfall. Target* i slutet av raden (i stället för *systemed. Unit = räddning. Target*).
 
 1. Tryck på CTRL + X för att avsluta och starta om med de tillämpade inställningarna.
@@ -130,11 +132,11 @@ Om du inte har aktiverat rot användaren genom att följa de tidigare anvisninga
     Den här åtgärden avbryter start processen innan kontrollen skickas från `initramfs` till `systemd` , enligt beskrivningen i [Red Hat-dokumentationen](https://aka.ms/rhel7rootpassword).
 1. Tryck på CTRL + X för att avsluta och starta om med de tillämpade inställningarna.
 
-   När du har startat om, släpps du i nödfalls läge med ett skrivskyddat fil system. 
-   
+   När du har startat om, släpps du i nödfalls läge med ett skrivskyddat fil system.
+
 1. I gränssnittet anger `mount -o remount,rw /sysroot` du för att montera om rot fil systemet med Läs-/Skriv behörighet.
 1. När du har startat i enanvändarläge anger du `chroot /sysroot` för att växla till `sysroot` jailbrokad.
-1. Du är nu i roten. Du kan återställa rot lösen ordet genom att ange `passwd` och sedan använda föregående instruktioner för att ange läget för en enskild användare. 
+1. Du är nu i roten. Du kan återställa rot lösen ordet genom att ange `passwd` och sedan använda föregående instruktioner för att ange läget för en enskild användare.
 1. När du är klar anger du `reboot -f` för att starta om.
 
 ![Animerad bild som visar ett kommando rads gränssnitt. Användaren väljer en server, letar upp slutet på kernel-raden och anger de angivna kommandona.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)

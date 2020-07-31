@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, tracking-python, devx-track-javascript
-ms.openlocfilehash: 01c7973efd2619a37ea77dfe4dad131b14144991
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c72cde577ee51353dc4193adaac0e3b5b585fa47
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420149"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439637"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Självstudie: utveckla och distribuera en Node.js IoT Edge modul för Linux-enheter
 
@@ -39,7 +39,7 @@ Den här självstudien visar hur du utvecklar en modul i **Node.js** att använd
 
 Använd följande tabell för att förstå alternativen för att utveckla och distribuera Node.js moduler:
 
-| Node.js | Visual Studio-koden | Visual Studio 2017/2019 |
+| Node.js | Visuell Studio-kod | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Använda VS Code för Node.js moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Använda VS Code för Node.js moduler på Linux-ARM32](./media/tutorial-c-module/green-check.png) |  |
@@ -86,13 +86,15 @@ Använd **npm** för att skapa en Node.js-lösningsmall som du kan utgå ifrån.
    | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen eller acceptera standardnamnet **EdgeSolution**. |
    | Välj modulmall | Välj **Node.js-modulen**. |
    | Ange ett modulnamn | Ge modulen namnet **NodeModule**. |
-   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen fylls i baserat på det namn du angav i föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. <br><br>Den slutliga avbildnings lagrings platsen ser ut som \<registry name\> . azurecr.io/nodemodule. |
+   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen fylls i baserat på det namn du angav i föregående steg. Ersätt **localhost: 5000** med **inloggnings serverns** värde från Azure Container Registry. Du kan hämta inloggnings servern från sidan Översikt i behållar registret i Azure Portal. <br><br>Den slutliga avbildnings lagrings platsen ser ut som \<registry name\> . azurecr.io/nodemodule. |
 
    ![Ange lagringsplatsen för Docker-avbildningen](./media/tutorial-node-module/repository.png)
 
 ### <a name="add-your-registry-credentials"></a>Lägg till autentiseringsuppgifter för registret
 
 Miljöfilen lagrar autentiseringsuppgifterna för containerlagringsplatsen och delar dem med IoT Edge-körningsmiljön. Körningen behöver dessa autentiseringsuppgifter för att hämta dina privata avbildningar till IoT Edge-enheten.
+
+IoT Edge-tillägget försöker hämta dina autentiseringsuppgifter för behållar registret från Azure och fylla dem i miljö filen. Kontrol lera om dina autentiseringsuppgifter redan ingår. Om inte, lägger du till dem nu:
 
 1. Öppna **. kuvert** -filen i vs Code-Utforskaren.
 2. Uppdatera fälten med det **användarnamn** och **lösenord** som du kopierade från Azure Container-registret.
@@ -187,7 +189,7 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i NodeM
 
 1. Öppna den vs Code-integrerade terminalen genom att välja **Visa**  >  **Terminal**.
 
-1. Logga in på Docker genom att ange följande kommando i terminalen. Logga in med användar namnet, lösen ordet och inloggnings servern från Azure Container Registry. Du kan hämta dessa värden från avsnittet **åtkomst nycklar** i registret i Azure Portal.
+2. Logga in på Docker genom att ange följande kommando i terminalen. Logga in med användar namnet, lösen ordet och inloggnings servern från Azure Container Registry. Du kan hämta dessa värden från avsnittet **åtkomst nycklar** i registret i Azure Portal.
 
    ```bash
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -195,23 +197,27 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lagt till kod i NodeM
 
    Du kan få en säkerhets varning som rekommenderar att du använder `--password-stdin` . Det bästa tillvägagångs sättet rekommenderas för produktions scenarier, men det ligger utanför omfånget för den här självstudien. Mer information finns i [inloggnings referens för Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
 
-1. I VS Code-Utforskaren högerklickar du på **deployment.template.jspå** filen och väljer **Build och push IoT Edge-lösning**.
+3. I VS Code-Utforskaren högerklickar du på **deployment.template.jspå** filen och väljer **Build och push IoT Edge-lösning**.
 
    Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** och som innehåller det fullständiga distributions manifestet, och bygger ut information i distributions mal len och andra filer i lösningen. Sedan körs den `docker build` för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs den `docker push` för att skicka avbildnings lagrings platsen till behållar registret.
 
+   Den här processen kan ta flera minuter första gången, men går snabbare nästa gång du kör kommandona.
+
 ## <a name="deploy-modules-to-device"></a>Distribuera moduler till enhet
 
-Använd Visual Studio Code Explorer och tillägget Azure IoT Tools för att distribuera modulfönstret till din IoT Edge-enhet. Du har redan ett distributions manifest som är för berett för ditt scenario, **deployment.js** filen i mappen config. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
+Använd Visual Studio Code Explorer och tillägget Azure IoT Tools för att distribuera modulfönstret till din IoT Edge-enhet. Du har redan ett distributions manifest som är för berett för ditt scenario, **deployment.amd64.js** filen i mappen config. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
 
 Kontrol lera att din IoT Edges enhet är igång.
 
-1. I Visual Studio Code Explorer expanderar du avsnittet **Azure IoT Hub-enheter** för att se din lista över IoT-enheter.
+1. I Visual Studio Code Explorer, under avsnittet **Azure IoT Hub** , expanderar du **enheter** för att se listan med IoT-enheter.
 
 2. Högerklicka på namnet för din IoT Edge-enhet och välj sedan **Create Deployment for Single Device** (Skapa distribution för en enskild enhet).
 
-3. Välj filen **deployment.json** i mappen **config** och klicka sedan på **Select Edge Deployment Manifest** (Välj distributionsmanifest för Edge). Använd inte filen deployment.template.json.
+3. Välj **deployment.amd64.js** filen i mappen **config** och klicka sedan på **Välj gräns distributions manifest**. Använd inte filen deployment.template.json.
 
-4. Klicka på uppdateringsknappen. Du bör se den nya **NodeModule** som körs tillsammans med **SimulatedTemperatureSensor** -modulen och **$edgeAgent** och **$edgeHub**.
+4. Under din enhet expanderar du **moduler** för att se en lista över distribuerade och aktiva moduler. Klicka på uppdateringsknappen. Du bör se den nya **NodeModule** som körs tillsammans med **SimulatedTemperatureSensor** -modulen och **$edgeAgent** och **$edgeHub**.
+
+    Det kan ta några minuter innan modulerna startar. Den IoT Edge körnings miljön måste ta emot sitt nya distributions manifest, Hämta modulens avbildningar från container körningen och sedan starta varje ny modul.
 
 ## <a name="view-the-generated-data"></a>Visa genererade data
 

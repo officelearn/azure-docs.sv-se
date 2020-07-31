@@ -3,12 +3,12 @@ title: Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
 description: Beskriver hur du säkerhetskopierar virtuella Azure-datorer i ett Recovery Services valv med hjälp av Azure Backup
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: c4fbafc63ce063159d0524ddf26bb936c53328df
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b9d57449e56fb50bfbfddb627a1d6bb379710da4
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373946"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439717"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
 
@@ -88,7 +88,7 @@ Konfigurera en säkerhets kopierings policy för valvet.
      ![Fönstret Välj virtuella datorer](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
     >[!NOTE]
-    > Alla virtuella datorer i samma region och prenumeration som för valvet är tillgängliga för att konfigurera säkerhets kopiering. När du konfigurerar säkerhets kopiering kan du bläddra till namnet på den virtuella datorn och dess resurs grupp, även om du inte har den behörighet som krävs för de virtuella datorerna.  
+    > Alla virtuella datorer i samma region och prenumeration som för valvet är tillgängliga för att konfigurera säkerhets kopiering. När du konfigurerar säkerhets kopiering kan du bläddra till namnet på den virtuella datorn och dess resurs grupp, även om du inte har den behörighet som krävs för de virtuella datorerna. Om den virtuella datorn är i läget tyst Borttagning visas den inte i listan. Om du behöver skydda den virtuella datorn igen måste du vänta tills den mjuka borttagnings perioden upphör att gälla eller ta bort den virtuella datorn från listan över överförbara rader. Mer information finns i [artikeln om mjuk borttagning för virtuella datorer](soft-delete-virtual-machines.md#soft-delete-for-vms-using-azure-portal).
 
 1. I **säkerhets kopiering**väljer du **Aktivera säkerhets kopiering**. Detta distribuerar principen till valvet och till de virtuella datorerna och installerar säkerhets kopierings tillägget på VM-agenten som körs på den virtuella Azure-datorn.
 
@@ -147,10 +147,10 @@ Jobbets status kan variera beroende på följande scenarier:
 
 **Ögonblicks bild** | **Överför data till valv** | **Jobb status**
 --- | --- | ---
-Slutfört | Pågår | Pågår
-Slutfört | Överhoppad | Slutfört
-Slutfört | Slutfört | Slutfört
-Slutfört | Misslyckad | Slutfört med varning
+Slutförd | Pågår | Pågår
+Slutförd | Överhoppad | Slutförd
+Slutförd | Slutförd | Slutförd
+Slutförd | Misslyckad | Slutfört med varning
 Misslyckad | Misslyckad | Misslyckad
 
 Med den här funktionen kan två säkerhets kopior för samma virtuella dator köras parallellt, men i båda skedet (ögonblicks bilder, överför data till valv) kan endast en under aktivitet köras. I scenarier där en pågående säkerhets kopiering resulterade i att säkerhets kopieringen av nästa dag Miss Miss kan det undvikas med den här kopplings funktionen. De efterföljande dagarnas säkerhets kopieringar kan göra att ögonblicks bilden slutförs, medan **överföring av data till valvet** hoppas över om en tidigare daglig säkerhets kopierings jobb pågår.

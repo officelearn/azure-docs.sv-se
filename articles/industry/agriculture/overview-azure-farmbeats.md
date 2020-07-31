@@ -5,19 +5,19 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6f0a782309edc33a8a5ce661652922494ead2ec0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 12bb0b0098b5108bf780b88fc42b86861ea6fcdc
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80667313"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439555"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Översikt över Azure-FarmBeats (för hands version)
 
 Azure FarmBeats är ett affärs-till-affärs erbjudande som är tillgängligt på Azure Marketplace. Det möjliggör agg regering av jordbruks data uppsättningar mellan leverantörer. Med Azure FarmBeats kan du bygga artificiell intelligens (AI) eller Machine Learning-modeller (ML) baserat på säkrade data uppsättningar. Med hjälp av Azure FarmBeats kan jordbrukets företag fokusera på kärn värde – lägger till i stället för den avskilda kraftigt avlyftningen av data teknik.
 
 > [!NOTE]
-> Azure FarmBeats är för närvarande en offentlig för hands version. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure FarmBeats tillhandahålls utan service nivå avtal. Använd [Azure FarmBeats-forumet](https://aka.ms/FarmBeatsMSDN ) för support.
+> Azure FarmBeats är för närvarande en offentlig för hands version. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure FarmBeats tillhandahålls utan service nivå avtal. Använd support [forum för Azure FarmBeats](https://aka.ms/farmbeatssupport) för support.
 
 ![Taktslag i projekt grupp](./media/architecture-for-farmbeats/farmbeats-architecture-1.png)
 

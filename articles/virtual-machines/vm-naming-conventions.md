@@ -1,5 +1,5 @@
 ---
-title: Namn konventioner för Azure VM-storlekar
+title: Namnkonventioner för Azure VM-storlekar
 description: Förklarar namngivnings konventioner som används för virtuella Azure-storlekar
 ms.service: virtual-machines
 subservice: sizes
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/22/2020
 ms.author: mimckitt
 ms.custom: sttsinar
-ms.openlocfilehash: 2059c6f374e4cd5c2518e2fc0ac0da5858b99825
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3af4387723f74c1e09597564bc5330183fe1df69
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131726"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439449"
 ---
 # <a name="azure-virtual-machine-sizes-naming-conventions"></a>Namngivnings konventioner för virtuella Azure-datorer
 
@@ -29,7 +29,7 @@ Den här sidan beskriver namngivnings konventionerna som används för virtuella
 | Familj | Anger serien för VM-serien| 
 | * Under serie | Används endast för specialiserade VM-differentieringar|
 | antal virtuella processorer| Anger antalet virtuella processorer för den virtuella datorn |
-| Additiva funktioner | En eller flera gemener anger additiva funktioner, till exempel: <br> a = AMD-baserad processor <br> d = disk (lokal temporär disk finns); Det här är för nya virtuella Azure-datorer, se [Ddv4 och Ddsv4-serien](./ddv4-ddsv4-series.md) <br> h = stöd för vilo läge <br> i = isolerat <br> l = ont om minne <br> m = minnes intensiv <br> t = litet minne <br> r = RDMA <br> s = Premium Storage möjligt, inklusive eventuell användning av [Ultra SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk) (Obs! vissa nyare storlekar utan attributet för s kan fortfarande stödja Premium Storage, t. ex. M128, M64 osv.)<br> |
+| Additiva funktioner | En eller flera gemener anger additiva funktioner, till exempel: <br> a = AMD-baserad processor <br> d = disk (lokal temporär disk finns); Det här är för nya virtuella Azure-datorer, se [Ddv4 och Ddsv4-serien](./ddv4-ddsv4-series.md) <br> h = stöd för vilo läge <br> i = isolerad storlek <br> l = ont om minne; en mindre mängd minne än minnes intensiv storlek <br> m = minnes intensiv; den största mängden minne i en viss storlek <br> t = litet minne; den minsta mängden minne i en viss storlek <br> r = RDMA-kompatibel <br> s = Premium Storage möjligt, inklusive eventuell användning av [Ultra SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk) (Obs! vissa nyare storlekar utan attributet för s kan fortfarande stödja Premium Storage, t. ex. M128, M64 osv.)<br> |
 | * Typ av Accelerator | Anger typen av maskin varu Accelerator i specialiserade/GPU-SKU: er. Endast de nya specialiserade/GPU-SKU: er som lanserats från Q3 2020 kommer att ha maskin varu acceleratorn i namnet. |
 | Version | Anger versionen för VM-serien |
 

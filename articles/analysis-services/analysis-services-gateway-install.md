@@ -4,15 +4,15 @@ description: Lär dig hur du installerar och konfigurerar en lokal datagateway f
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f6218b32fb9574adf62384d2a6ee5a62f3788de8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d090070dd7b2afe5ea1ece9b5da8b8b5b7b0780
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77062157"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87438962"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installera och konfigurera lokal datagateway
 
@@ -20,7 +20,7 @@ En lokal datagateway krävs när en eller flera Azure Analysis Services-servrar 
 
 Mer information om hur Azure Analysis Services fungerar med gatewayen finns i [ansluta till lokala data källor](analysis-services-gateway.md). Mer information om avancerade installations scenarier och gatewayen i allmänhet finns i [dokumentationen om lokala datagatewayer](/data-integration/gateway/service-gateway-onprem).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 **Minimi krav:**
 
@@ -44,11 +44,11 @@ Mer information om hur Azure Analysis Services fungerar med gatewayen finns i [a
 * Logga in på Azure med ett konto i Azure AD för samma [klient organisation](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) som den prenumeration som du registrerar gatewayen i. Konton för Azure B2B (gäst) stöds inte när du installerar och registrerar en gateway.
 * Om data källor finns på ett Azure-Virtual Network (VNet) måste du konfigurera egenskapen [AlwaysUseGateway](analysis-services-vnet-gateway.md) Server.
 
-## <a name="download"></a><a name="download"></a>Ladda ned
+## <a name="download"></a>Ladda ned
 
  [Hämta gatewayen](https://go.microsoft.com/fwlink/?LinkId=820925&clcid=0x409)
 
-## <a name="install"></a><a name="install"></a>Installera
+## <a name="install"></a>Installera
 
 1. Kör installations programmet.
 
@@ -67,7 +67,7 @@ Mer information om hur Azure Analysis Services fungerar med gatewayen finns i [a
    > [!NOTE]
    > Om du loggar in med ett domän konto mappas det till ditt organisations konto i Azure AD. Ditt organisations konto används som gateway-administratör.
 
-## <a name="register"></a><a name="register"></a>Registrera dig
+## <a name="register"></a>Registrera dig
 
 För att kunna skapa en gateway-resurs i Azure måste du registrera den lokala instansen som du installerade med Gateway-moln tjänsten. 
 
@@ -83,7 +83,7 @@ För att kunna skapa en gateway-resurs i Azure måste du registrera den lokala i
    ![Registrera dig](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
-## <a name="create-an-azure-gateway-resource"></a><a name="create-resource"></a>Skapa en Azure gateway-resurs
+## <a name="create-an-azure-gateway-resource"></a>Skapa en Azure gateway-resurs
 
 När du har installerat och registrerat din gateway måste du skapa en gateway-resurs i Azure. Logga in på Azure med samma konto som du använde när du registrerade gatewayen.
 
@@ -107,7 +107,12 @@ När du har installerat och registrerat din gateway måste du skapa en gateway-r
 
      När du är klar klickar du på **skapa**.
 
-## <a name="connect-servers-to-the-gateway-resource"></a><a name="connect-servers"></a>Anslut servrar till gateway-resursen
+## <a name="connect-gateway-resource-to-server"></a>Anslut gateway-resurs till Server
+
+> [!NOTE]
+> Att ansluta till en gateway-resurs i en annan prenumeration från servern stöds inte i portalen, men stöds med PowerShell.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Klicka på **lokal datagateway**i Azure Analysis Services server översikt.
 
@@ -124,6 +129,27 @@ När du har installerat och registrerat din gateway måste du skapa en gateway-r
 
 
     ![Anslutning av server till gateway-resurs lyckades](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Använd [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) för att hämta Gateway-ResourceID. Anslut sedan Gateway-resursen till en befintlig eller ny server genom att ange **-GatewayResourceID** i [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) eller [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver).
+
+Hämta gatewayens resurs-ID:
+
+```azurepowershell-interactive
+Connect-AzAccount -Tenant $TenantId -Subscription $subscriptionIdforGateway -Environment "AzureCloud"
+$GatewayResourceId = $(Get-AzResource -ResourceType "Microsoft.Web/connectionGateways" -Name $gatewayName).ResourceId  
+
+```
+
+Så här konfigurerar du en befintlig server:
+
+```azurepowershell-interactive
+Connect-AzAccount -Tenant $TenantId -Subscription $subscriptionIdforAzureAS -Environment "AzureCloud"
+Set-AzAnalysisServicesServer -ResourceGroupName $RGName -Name $servername -GatewayResourceId $GatewayResourceId
+
+```
+---
 
 Och sedan är du klar. Om du behöver öppna portar eller göra en fel sökning måste du ta en titt [på den lokala datagatewayen](analysis-services-gateway.md).
 

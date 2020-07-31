@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: de7ead8acd059d957673b2f063dd3d330cf473f5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9aa0ca41f63da94e2dedaffe65ea518b8adff0dc
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525508"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439475"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Översikt över Red Hat Enterprise Linux avbildningar
 
@@ -100,6 +100,9 @@ För RHEL 7. x-bilder finns det några olika bild typer. I följande tabell visa
 
 ## <a name="rhel-8-image-types"></a>RHEL 8-bildtyper
 
+>[!NOTE]
+> Red Hat rekommenderar att du använder grubby för att konfigurera kommando rads parametrar för kernel i RHEL 8 +. Mer information finns [här](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel).
+
 Information om typer av RHEL 8-avbildningar finns nedan.
 
 |Publisher | Erbjudande | SKU-värde | Version | Information
@@ -142,7 +145,7 @@ Informationen i följande tabell gäller för RHEL-avbildningar som är anslutna
 >
 > Mer information om RHEL EUS-tillgänglighet finns i [Red Hat Enterprise Linux livs cykel](https://access.redhat.com/support/policy/updates/errata).
 
-Lägre version |Exempel på EUS-avbildning              |Status för EUS                                                   |
+Delversion |Exempel på EUS-avbildning              |Status för EUS                                                   |
 :-------------|:------------------------------|:------------------------------------------------------------|
 RHEL 7,4      |RedHat: RHEL: 7.4:7.4.2019041718 | Avbildningar som publicerats april 2019 och senare är EUS som standard.|
 RHEL 7.5      |RedHat: RHEL: 7.5:7.5.2019060305 | Avbildningar som publicerats i juni 2019 och senare är EUS som standard. |

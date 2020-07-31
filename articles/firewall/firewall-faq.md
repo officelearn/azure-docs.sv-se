@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: bd849a413d718ba5a25839c50c63ec2ad39be440
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3f2b844163abce0946dc5df29c3121691e83035b
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128105"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439214"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure-brandvägg
 
@@ -80,7 +80,7 @@ Se [priser för Azure-brandvägg](https://azure.microsoft.com/pricing/details/az
 
 Du kan använda Azure PowerShell *frigör* och *allokera* metoder.
 
-Exempel:
+Ett exempel:
 
 ```azurepowershell
 # Stop an existing firewall
@@ -168,7 +168,9 @@ Den första data flödes kapaciteten i Azure Firewall är 2,5-3 Gbit/s och den s
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Hur lång tid tar det för Azure-brandväggen att skala ut?
 
-Azure-brandväggen skalas gradvis när genomsnitts data flödet eller CPU-förbrukningen är 60%. Skala ut tar fem till sju minuter. När du testar prestanda kontrollerar du att du testar minst 10 till 15 minuter och startar nya anslutningar för att dra nytta av de nyligen skapade brand Väggs noderna.
+Azure-brandväggen skalas gradvis när genomsnitts data flödet eller CPU-förbrukningen är 60%. Ett maximalt standard flöde för distribution är cirka 2,5-3 Gbit/s och börjar skala ut när det når 60% av det numret. Skala ut tar fem till sju minuter. 
+
+När du testar prestanda kontrollerar du att du testar minst 10 till 15 minuter och startar nya anslutningar för att dra nytta av de nyligen skapade brand Väggs noderna.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Tillåter Azure-brandväggen åtkomst till Active Directory som standard?
 
@@ -219,4 +221,4 @@ Nej, för närvarande måste du Distribuera Azure-brandväggen med en offentlig 
 
 ## <a name="where-does-azure-firewall-store-customer-data"></a>Var lagrar Azure Firewall kund information?
 
-Azure-brandväggen flyttar eller lagrar inte kund information från den region där den distribueras.
+Azure-brandväggen flyttar eller lagrar inte kund information från den region som den har distribuerats i.

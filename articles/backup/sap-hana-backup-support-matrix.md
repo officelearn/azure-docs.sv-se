@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig om de scenarier och begränsningar 
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: beea96180e9e8bc8d128e8970d0149922161398c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 674bbf968b42f66a4c421aec6653881c8fd52a8b
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076992"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439572"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Supportmatris för säkerhetskopiering av SAP HANA-databaser på virtuella Azure-datorer
 
@@ -24,7 +24,7 @@ Azure Backup stöder säkerhets kopiering av SAP HANA-databaser till Azure. Den 
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Topologi**               | Endast SAP HANA som körs i virtuella Azure Linux-datorer                    | HANA stora instanser (HLI)                                   |
 | **Regioner**                   | **GA**<br> **Amerika** – centrala USA, östra USA 2, östra USA, norra centrala USA, södra centrala USA, västra USA 2, västra centrala USA, västra USA, centrala Kanada, Östra Kanada, södra Brasilien <br> **Asien och Stillahavsområdet** – Australien, centrala Australien 2, östra Australien, sydöstra Australien, Östra Japan, västra Japan, centrala Korea, södra, Asien, östra, Sydostasien, centrala Indien, södra Indien, västra indien, Kina, östra, Kina, norra, Kina östra, Kina, norra 2 <br> **Europa** – Västeuropa, Nord Europa, Frankrike Central, Storbritannien, södra, Storbritannien, västra, Tyskland, norra, Tyskland, västra centrala, Schweiz, norra, Schweiz, västra, Central Schweiz, norra, östra Norge, västra Norge <br> **Afrika/me** – Sydafrika, västra Sydafrika, västra Förenade Arabemiraten Nord, Förenade Arabemiraten Central  <BR>  **Azure Government-regioner** | Södra Frankrike, centrala Tyskland, Tyskland nordöstra, US Gov IOWA |
-| **OS-versioner**            | SLES 12 med SP2, SP3 och SP4; SLES 15 med SP0 och SP1 <br><br>   **Preview** – RHEL 7,4, 7,6, 7,7 och 8,1  <br>     [Kom igång](./tutorial-backup-sap-hana-db.md) med SAP HANA backup Preview för RHEL (7,4, 7,6, 7,7 och 8,1). Skriv till oss vid ytterligare frågor [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .                |                                             |
+| **OS-versioner**            | SLES 12 med SP2, SP3 och SP4; SLES 15 med SP0 och SP1 <br><br>  Från och med den 1 augusti 2020 är SAP HANA säkerhets kopiering för RHEL (7,4, 7,6, 7,7 & 8,1) allmänt tillgänglig.                |                                             |
 | **HANA-versioner**          | SDC på HANA 1. x, MDC på HANA 2. x <= SPS04 rev 48, SPS05 (som ännu ska verifieras för krypterings aktiverade scenarier)      |                                                            |
 | **HANA-distributioner**       | SAP HANA på en enda virtuell Azure VM-skalning. <br><br> För distributioner med hög tillgänglighet behandlas båda noderna på de två olika datorerna som enskilda noder med separata data kedjor.               | Utskalning <br><br> Vid distributioner med hög tillgänglighet redundansväxlas inte säkerhets kopieringen till den sekundära noden automatiskt. Konfiguration av säkerhets kopiering bör göras separat för varje nod.                                           |
 | **HANA-instanser**         | En enda SAP HANA instans på en enda virtuell Azure-dator – skala upp | Flera SAP HANA-instanser på en enskild virtuell dator                  |
@@ -44,11 +44,11 @@ Azure Backup stöder säkerhets kopiering av SAP HANA-databaser till Azure. Den 
 
 
 > [!NOTE]
-> Nu kan du [övervaka säkerhets kopierings-och återställnings](./sap-hana-db-manage.md#monitor-manual-backup-jobs-in-the-portal) jobben (till samma dator) som utlöses från Hana-ursprungliga klienter (SAP HANA Studio/cockpit/DBA-cockpit) i Azure Portal.
+> Nu kan du [övervaka säkerhets kopierings-och återställnings](./sap-hana-db-manage.md#monitor-manual-backup-jobs-in-the-portal) jobben (till samma dator) som har utlösts från Hana-ursprungliga klienter (SAP HANA Studio/cockpit/DBA-cockpit) i Azure Portal.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [Säkerhetskopierar SAP HANA databaser som körs på virtuella Azure-datorer](./backup-azure-sap-hana-database.md)
+* Lär dig hur du [säkerhetskopierar SAP HANA databaser som körs på virtuella Azure-datorer](./backup-azure-sap-hana-database.md)
 * Lär dig hur du [återställer SAP HANA databaser som körs på virtuella Azure-datorer](./sap-hana-db-restore.md)
 * Lär dig hur du [hanterar SAP HANA databaser som säkerhets kopie ras med Azure Backup](sap-hana-db-manage.md)
 * Lär dig hur du [felsöker vanliga problem när du säkerhetskopierar SAP HANA databaser](./backup-azure-sap-hana-database-troubleshoot.md)

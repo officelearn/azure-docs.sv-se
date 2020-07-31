@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 07/30/2020
 ms.author: absha
-ms.openlocfilehash: 20d1dfea251fdfd0bd6e8432d1ea0c7af7284cb5
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 9315884db30c053d86c889ff3b45aaea17d48b17
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428170"
+ms.locfileid: "87438908"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway konfiguration
 
@@ -122,11 +122,19 @@ I det här scenariot använder du NSG: er i under nätet Application Gateway. L�
 
 ## <a name="front-end-ip"></a>Klient delens IP-adress
 
-Du kan konfigurera programgatewayen att ha en offentlig IP-adress, en privat IP-adress eller både och. En offentlig IP-adress krävs när du är värd för en server del som klienterna måste komma åt via Internet via en virtuell IP-adress (VIP). 
+Du kan konfigurera programgatewayen att ha en offentlig IP-adress, en privat IP-adress eller både och. En offentlig IP-adress krävs när du är värd för en server del som klienterna måste komma åt via Internet via en virtuell IP-adress (VIP).
+
+> [!NOTE]
+> Application Gateway v2 stöder för närvarande inte enbart privat IP-läge. Det stöder följande kombinationer:
+>* Privat IP och offentlig IP
+>* Endast offentlig IP
+>
+> Mer information finns i [vanliga frågor och svar om Application Gateway](application-gateway-faq.md#how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address).
+
 
 Det krävs ingen offentlig IP-adress för en intern slut punkt som inte är exponerad för Internet. Det kallas för en *intern belastningsutjämnare* (ILB) eller privat klient dels-IP. En Application Gateway-ILB är användbar för interna branschspecifika program som inte är utsatta för Internet. Det är också användbart för tjänster och nivåer i ett program med flera nivåer inom en säkerhets gränser som inte exponeras för Internet men som kräver belastnings fördelning för resursallokering, varaktighet eller TLS-avslutning.
 
-Endast 1 offentlig IP-adress eller en privat IP-adress stöds. Du väljer klient delens IP-adress när du skapar programgatewayen.
+Det finns bara stöd för en offentlig IP-adress eller en privat IP-adress. Du väljer klient delens IP-adress när du skapar programgatewayen.
 
 - För en offentlig IP-adress kan du skapa en ny offentlig IP-adress eller använda en befintlig offentlig IP-adress på samma plats som Application Gateway. Mer information finns i [statisk eller dynamisk offentlig IP-adress](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address).
 

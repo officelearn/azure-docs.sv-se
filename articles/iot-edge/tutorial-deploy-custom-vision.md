@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/15/2020
+ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 07350ffe4a57bfe4a79bfce5d821b51535867935
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5d4b87c14422744fd62d42a4d8e5b1ca0f34ffac
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76167001"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439725"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Självstudie: Utföra bildklassificering på gränsen med Custom Vision Service
 
@@ -37,7 +37,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 >[!TIP]
 >Den här självstudien är en förenklad version av [Custom vision och Azure IoT Edge på ett Raspberry Pi 3](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) -exempel projekt. Den här självstudien har utformats för att köras på en virtuell dator i molnet och använder statiska avbildningar för att träna och testa avbildnings klassificeraren, vilket är användbart för någon som börjar utvärdera Custom Vision på IoT Edge. Exempel projektet använder fysisk maskin vara och konfigurerar en live-kamera för att träna och testa bildklassificeraren, vilket är användbart för någon som vill testa ett mer detaljerat scenario med verklig livs längd.
@@ -72,14 +72,14 @@ När din bildklassificerare har skapats och tränats kan du exportera den som en
 
 4. Skapa ditt projekt med följande värden:
 
-   | Field | Värde |
+   | Fält | Värde |
    | ----- | ----- |
    | Namn | Ange ett namn för projektet, till exempel **EdgeTreeClassifier**. |
-   | Beskrivning | Valfri projektbeskrivning. |
+   | Description | Valfri projektbeskrivning. |
    | Resurs | Välj en av dina Azure-resurs grupper som innehåller en Custom Vision Service resurs eller **skapa en ny** om du ännu inte har lagt till en. |
    | Projekttyper | **Klassificering** |
-   | Klassificeringstyper | **Multiklass (enskild tagg per bild)** |
-   | Domäner | **Allmän (kompakt)** |
+   | Klassificeringstyper | **Multiklass (en tagg per bild)** |
+   | Domains | **Allmän (kompakt)** |
    | Exportera funktioner | **Basic-plattformar (Tensorflow, CoreML, ONNX,...)** |
 
 5. Välj **Skapa projekt**.
@@ -142,17 +142,17 @@ Nu har du filerna för en containerversion av bildklassificeraren på din utveck
 
 En lösning är ett logiskt sätt att utveckla och organisera flera moduler för en enskild IoT Edge-distribution. En lösning innehåller kod för en eller flera moduler samt det distributionsmanifest som deklarerar hur de ska konfigureras på en IoT Edge-enhet. 
 
-1. Välj **Visa** > **kommando palett** för att öppna kommando paletten vs Code. 
+1. I Visual Studio Code väljer du **Visa**  >  **kommando-palett** för att öppna kommando paletten vs Code. 
 
 1. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) på kommandopaletten. Ange följande information i kommandopaletten för att skapa din lösning: 
 
-   | Field | Värde |
+   | Fält | Värde |
    | ----- | ----- |
    | Välj mapp | Välj den plats på utvecklingsdatorn där Visual Studio Code ska skapa lösningsfilerna. |
    | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen, till exempel **CustomVisionSolution**, eller acceptera standardnamnet. |
    | Välj modulmall | Välj **Python-modul**. |
    | Ange ett modulnamn | Ge modulen namnet **classifier** (klassificerare).<br><br>Det är viktigt att modulnamnet endast innehåller gemener. IoT Edge är skiftlägeskänsligt när det gäller referenser till moduler, och den här lösningen använder ett bibliotek som formaterar alla begäranden som gemener. |
-   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen har fyllts i från föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen.<br><br>Den sista strängen ser ut som ** \<register\>namn. azurecr.io/classifier**. |
+   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen har fyllts i från föregående steg. Ersätt **localhost: 5000** med **inloggnings serverns** värde från Azure Container Registry. Du kan hämta inloggnings servern från sidan Översikt i behållar registret i Azure Portal.<br><br>Den sista strängen ser ut som ** \<registry name\> . azurecr.io/classifier**. |
  
    ![Ange lagringsplatsen för Docker-avbildningen](./media/tutorial-deploy-custom-vision/repository.png)
 
@@ -161,6 +161,8 @@ Visual Studio Code-fönstret läser in arbetsytan för IoT Edge-lösningen.
 ### <a name="add-your-registry-credentials"></a>Lägg till autentiseringsuppgifter för registret
 
 Miljöfilen lagrar autentiseringsuppgifterna för containerregistret och delar dem med körningsmiljön för IoT Edge. Körningen behöver dessa autentiseringsuppgifter för att hämta dina privata avbildningar till IoT Edge-enheten.
+
+IoT Edge-tillägget försöker hämta dina autentiseringsuppgifter för behållar registret från Azure och fylla dem i miljö filen. Kontrol lera om dina autentiseringsuppgifter redan ingår. Om inte, lägger du till dem nu:
 
 1. Öppna .env-filen i VS Code-utforskaren.
 2. Uppdatera fälten med det **användarnamn** och **lösenord** som du kopierade från Azure Container-registret.
@@ -212,12 +214,12 @@ I det här avsnittet lägger du till en ny modul i samma CustomVisionSolution oc
 
 1. I samma Visual Studio Code-fönster använder du kommandopaletten för att köra **Azure IoT Edge: Lägg till IoT Edge-modul**. I kommandopaletten anger du följande information för den nya modulen: 
 
-   | Uppmaning | Värde | 
+   | Prompt | Värde | 
    | ------ | ----- |
-   | Välj distributionsmallfil | Välj filen deployment.template.json i mappen CustomVisionSolution. |
+   | Välj distributionsmallfil | Välj **deployment.template.js** filen i mappen CustomVisionSolution |
    | Välj modulmall | Välj **Python-modul** |
    | Ange ett modulnamn | Ge modulen namnet **cameraCapture** |
-   | Ange Docker-bildlagringsplats för modulen | Ersätt **localhost:5000** med värdet för inloggningsservern för ditt Azure-containerregister.<br><br>Den sista strängen ser ut ** \<som\>registryname. azurecr.io/cameracapture**. |
+   | Ange Docker-bildlagringsplats för modulen | Ersätt **localhost: 5000** med **inloggnings serverns** värde för Azure Container Registry.<br><br>Den sista strängen ser ut som ** \<registryname\> . azurecr.io/cameracapture**. |
 
    VS Code-fönstret läser in den nya modulen på lösningens arbetsyta och uppdaterar filen deployment.template.json. Nu bör du se två modulmappar: classifier och cameraCapture. 
 
@@ -322,11 +324,11 @@ I det här avsnittet lägger du till en ny modul i samma CustomVisionSolution oc
 
 I stället för att använda en verklig kamera för att ge en bildfeed för det här scenariot använder vi en enskild testbild. En testbild ingår i den GitHub-lagringsplats som du laddade ned för träningsbilderna tidigare i självstudien. 
 
-1. Gå**till test** / avbildningen, som finns i **CustomVision-** / **test**för Windows-**exempel** / . 
+1. Gå till test avbildningen, som finns i **CustomVision-test för Windows-**  /  **exempel**  /  **Images**  /  **Test**. 
 
 2. Kopiera **test_image.jpg** 
 
-3. Bläddra till din IoT Edge lösnings katalog och klistra in test avbildningen i mappen **modules** / **cameraCapture** . Bilden ska vara i samma mapp som filen main.py, som du redigerade i föregående avsnitt. 
+3. Bläddra till din IoT Edge lösnings katalog och klistra in test avbildningen i mappen **modules**  /  **cameraCapture** . Bilden ska vara i samma mapp som filen main.py, som du redigerade i föregående avsnitt. 
 
 4. I Visual Studio Code öppnar du filen **Dockerfile.amd64** för modulen cameraCapture.
 
@@ -364,7 +366,7 @@ IoT Edge-tillägget för Visual Studio Code innehåller en mall i varje IoT Edge
 
     ```json
         "routes": {
-          "CameraCaptureToIoTHub": "FROM /messages/modules/cameraCapture/outputs/* INTO $upstream"
+          "cameraCaptureToIoTHub": "FROM /messages/modules/cameraCapture/outputs/* INTO $upstream"
         },
     ```
 
@@ -372,31 +374,51 @@ IoT Edge-tillägget för Visual Studio Code innehåller en mall i varje IoT Edge
 
 7. Spara filen **deployment.template.json**.
 
-## <a name="build-and-deploy-your-iot-edge-solution"></a>Skapa och distribuera IoT Edge-lösningen
+## <a name="build-and-push-your-iot-edge-solution"></a>Bygg och skicka din IoT Edge-lösning
 
-Nu när båda modulerna har skapat s och distributionsmanifestmallen har konfigurerats är du redo att skapa containerbilderna och överföra dem till containerregistret. 
+Nu när båda modulerna har skapat s och distributionsmanifestmallen har konfigurerats är du redo att skapa containerbilderna och överföra dem till containerregistret.
 
 När bilderna finns i registret kan du distribuera lösningen till en IoT Edge-enhet. Du kan ange moduler på en enhet via IoT Hub, men du kan också komma åt din IoT Hub och enheter via Visual Studio Code. I det här avsnittet kan du konfigurera åtkomst till din IoT Hub och sedan använda VS Code för att distribuera din lösning till IoT Edge-enheten.
 
-Först skapar och överför du lösningen till ditt containerregister. 
+Först skapar och överför du lösningen till ditt containerregister.
 
-1. I VS Code-Utforskaren högerklickar du på filen **Deployment. template. JSON** och väljer **Build och push IoT Edge-lösning**. Du kan se förloppet för den här åtgärden i den integrerade terminalen i VS Code. 
-2. Observera att en ny mapp har lagts till i din lösning, **config**. Expandera den här mappen och öppna filen **Deployment. JSON** i.
-3. Granska informationen i filen deployment.json. Filen deployment.json skapas (eller uppdateras) automatiskt baserat på den distributionsmallfil som du konfigurerade samt information från lösningen, inklusive .env-filen och module.json-filerna. 
+1. Öppna den vs Code-integrerade terminalen genom att välja **Visa**  >  **Terminal**.
 
-Välj sedan din enhet och distribuera din lösning.
+2. Logga in på Docker genom att ange följande kommando i terminalen. Logga in med användar namnet, lösen ordet och inloggnings servern från Azure Container Registry. Du kan hämta dessa värden från avsnittet **åtkomst nycklar** i registret i Azure Portal.
 
-1. I VS Code-utforskaren expanderar du avsnittet **Azure IoT Hub-enheter**. 
-2. Högerklicka på den enhet som du vill ha som mål för distributionen och välj **Skapa distribution för enskild enhet**. 
-3. I filutforskaren går du till **config**-mappen i din lösning och väljer **deployment.json**. Klicka på **Välj distributionsmanifest för Edge**. 
+   ```bash
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
+   ```
 
-Om distributionen lyckas skrivs ett bekräftelsemeddelande ut i utdata för VS Code. I VS Code-Utforskaren expanderar du information om den IoT Edge-enhet som du använde för den här distributionen. Hovra markören på rubriken **Azure IoT Hub Devices** (Azure IoT Hub-enheter) för att aktivera uppdateringsknappen om modulerna inte visas direkt. Det kan ta en liten stund innan modulerna startas och rapporterar tillbaka till IoT Hub. 
+   Du kan få en säkerhets varning som rekommenderar att du använder `--password-stdin` . Det bästa tillvägagångs sättet rekommenderas för produktions scenarier, men det ligger utanför omfånget för den här självstudien. Mer information finns i [inloggnings referens för Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
 
-Du kan även kontrollera att alla moduler är igång på själva enheten. Kör följande kommando på IoT Edge-enheten för att se status för modulerna. Det kan ta en liten stund innan modulerna startas.
+3. I VS Code-Utforskaren högerklickar du på **deployment.template.jspå** filen och väljer **Build och push IoT Edge-lösning**.
+
+   Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** som innehåller det fullständiga distributions manifestet, som bygger på information i distributions mal len och andra lösningsfiler. Sedan körs den `docker build` för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs den `docker push` för att skicka avbildnings lagrings platsen till behållar registret.
+
+   Den här processen kan ta flera minuter första gången, men går snabbare nästa gång du kör kommandona.
+
+## <a name="deploy-modules-to-device"></a>Distribuera moduler till enhet
+
+Använd Visual Studio Code Explorer och tillägget Azure IoT Tools för att distribuera modulfönstret till din IoT Edge-enhet. Du har redan ett distributions manifest som är för berett för ditt scenario, **deployment.amd64.js** filen i mappen config. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
+
+Kontrol lera att din IoT Edges enhet är igång.
+
+1. I Visual Studio Code Explorer, under avsnittet **Azure IoT Hub** , expanderar du **enheter** för att se listan med IoT-enheter.
+
+2. Högerklicka på namnet för din IoT Edge-enhet och välj sedan **Create Deployment for Single Device** (Skapa distribution för en enskild enhet).
+
+3. Välj **deployment.amd64.js** filen i mappen **config** och klicka sedan på **Välj gräns distributions manifest**. Använd inte filen deployment.template.json.
+
+4. Under din enhet expanderar du **moduler** för att se en lista över distribuerade och aktiva moduler. Klicka på uppdateringsknappen. Du bör se de nya **klassificerar** -och **cameraCapture** -modulerna som körs tillsammans med **$edgeAgent** och **$edgeHub**.  
+
+Du kan även kontrollera att alla moduler är igång på själva enheten. Kör följande kommando på IoT Edge-enheten för att se status för modulerna.
 
    ```bash
    iotedge list
    ```
+
+Det kan ta några minuter innan modulerna startar. Den IoT Edge körnings miljön måste ta emot sitt nya distributions manifest, Hämta modulens avbildningar från container körningen och sedan starta varje ny modul.
 
 ## <a name="view-classification-results"></a>Visa klassificeringsresultat
 
@@ -410,7 +432,12 @@ Från enheten visar du loggarna för modulen cameraCapture för att se meddeland
 
 Från Visual Studio Code högerklickar du på namnet på din IoT Edge enhet och väljer **starta övervakning inbyggd händelse slut punkt**. 
 
-Resultatet från Custom Vision-modulen, som skickas som meddelanden från modulen cameraCapture, innefattar sannolikheten att bilden föreställer antingen en hemlockgran eller ett körsbärsträd. Eftersom bilden föreställer en hemlockgran bör du se sannolikheten 1.0. 
+> [!NOTE]
+> Du kan först se vissa anslutnings fel i utdata från cameraCapture-modulen. Detta beror på fördröjningen mellan moduler som distribueras och startas.
+>
+> CameraCapture-modulen kommer automatiskt att försöka ansluta igen tills den är klar. Därefter bör du börja se de förväntade bild klassificerings meddelandena som beskrivs nedan.
+
+Resultatet från Custom Vision-modulen, som skickas som meddelanden från modulen cameraCapture, innefattar sannolikheten att bilden föreställer antingen en hemlockgran eller ett körsbärsträd. Eftersom bilden föreställer en hemlockgran bör du se sannolikheten 1.0.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

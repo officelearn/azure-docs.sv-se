@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2020
 ms.author: memildin
-ms.openlocfilehash: 17b54eb747e3ddd3b381659031171bc795b61f54
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: bf503cf90df7b08e5a957416d66eae2f1a599bed
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430464"
+ms.locfileid: "87438941"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -32,11 +32,11 @@ Den här sidan uppdateras regelbundet, så du kan uppdatera den ofta. Om du sök
 ## <a name="july-2020"></a>Juli 2020
 
 I juli ingår följande uppdateringar:
-- [Sårbarhets bedömning för virtuella datorer är nu tillgängligt för icke-Marketplace-avbildningar](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)automatiskt        
+- [Sårbarhets bedömning för virtuella datorer är nu tillgängligt för avbildningar som inte är Marketplace](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)
 - [Skydd mot Azure Storage utökas till att omfatta Azure Files och Azure Data Lake Storage Gen2 (förhands granskning)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
 - [Åtta nya rekommendationer för att aktivera hot skydds funktioner](#eight-new-recommendations-to-enable-threat-protection-features)
 - [Förbättringar av behållar säkerhet – snabbare register genomsökning och uppdaterad dokumentation](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
-- [Ny rekommendation för att uppdatera regler för anpassningsbara program kontroller](#new-recommendation-to-update-your-adaptive-application-controls-rules)
+- [Anpassningsbara program kontroller uppdaterade med en ny rekommendation och stöd för jokertecken i Sök vägs regler](#adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules)
 - [Sex principer för avancerad data säkerhet i SQL är inaktuell](#six-policies-for-sql-advanced-data-security-deprecated)
 
 
@@ -115,11 +115,16 @@ Läs mer om Security Center behållar säkerhet i följande artiklar:
 
 
 
-### <a name="new-recommendation-to-update-your-adaptive-application-controls-rules"></a>Ny rekommendation för att uppdatera regler för anpassningsbara program kontroller
+### <a name="adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules"></a>Anpassningsbara program kontroller uppdaterade med en ny rekommendation och stöd för jokertecken i Sök vägs regler
 
-Funktionen för anpassningsbara program kontroller övervakar kontinuerligt aktiviteten för datorer i konfigurerade grupper. Från den här uppdateringen får du ett meddelande om potentiellt legitimt beteende som inte tidigare har tillåtits och som kan orsaka falska positiva varningar.
+Funktionen för anpassningsbara program kontroller har tagit emot två viktiga uppdateringar:
 
-Den nya rekommendationen, **tillåten-regler i din anpassningsbar program kontroll princip ska uppdateras**, och du uppmanas att lägga till nya regler i den befintliga principen för att minska antalet falska positiva identifieringar i adaptiva program kontroller fel aviseringar.
+- En ny rekommendation identifierar potentiellt legitimt beteende som inte tidigare har tillåtits. Den nya rekommendationen, **tillåten-regler i din anpassningsbar program kontroll princip ska uppdateras**, och du uppmanas att lägga till nya regler i den befintliga principen för att minska antalet falska positiva identifieringar i adaptiva program kontroller fel aviseringar.
+
+- Sök vägs regler stöder nu jokertecken. Från den här uppdateringen kan du konfigurera tillåtna Sök vägs regler med hjälp av jokertecken. Det finns två scenarier som stöds:
+
+    - Använda jokertecken i slutet av en sökväg för att tillåta alla körbara filer i den här mappen och undermappar
+    - Använd ett jokertecken i mitten av en sökväg för att aktivera ett känt körbart namn med ett ändrat mappnamn (t. ex. personliga användarmappar med en känd körbar fil, automatiskt genererade mappnamn osv.). 
 
 [Läs mer om anpassningsbara program kontroller](security-center-adaptive-application.md).
 

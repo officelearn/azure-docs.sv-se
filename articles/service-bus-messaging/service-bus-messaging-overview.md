@@ -3,12 +3,12 @@ title: Översikt över Azure Service Bus-meddelanden | Microsoft Docs
 description: Den här artikeln innehåller en översikt på hög nivå av Azure Service Bus, en fullständigt hanterad Message Broker för företags integrering.
 ms.topic: overview
 ms.date: 06/23/2020
-ms.openlocfilehash: 8583996cde23b056261662a0640aa310e63d45a9
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 5adcdf10898a7b0ee2d551a3a24b9f80195d645f
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341661"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449124"
 ---
 # <a name="what-is-azure-service-bus"></a>Vad är Azure Service Bus?
 
@@ -39,7 +39,7 @@ Meddelanden i köer ordnas och tidsstämplas vid ankomsten. När de har godkänt
 
 Du kan också använda *ämnen* för att skicka och ta emot meddelanden. Medan en kö oftast används för kommunikation från punkt till punkt är ämnen användbara i scenarier med publicering/prenumeration.
 
-![Ämne](./media/service-bus-messaging-overview/about-service-bus-topic.png)
+![Avsnitt](./media/service-bus-messaging-overview/about-service-bus-topic.png)
 
 Ämnen kan ha flera oberoende prenumerationer. En prenumerant på ett ämne får en kopia av varje meddelande. Prenumerationer kallas entiteter. Prenumerationerna är kvar, men kan förfalla eller autota bort.
 
@@ -92,7 +92,7 @@ Ett fel kan orsaka att klienten tvekar om resultatet av en skicka-åtgärd. Dubb
 ### <a name="security-protocols"></a>Säkerhets protokoll
 <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>
 
-Service Bus stöder säkerhetsprotokoll som [signaturer för delad åtkomst](service-bus-sas.md) (SAS), [rollbaserad åtkomstkontroll](authenticate-application.md) (RBAC) och [hanterade identiteter för Azure-resurser](service-bus-managed-service-identity.md).
+Service Bus stöder säkerhets protokoll som [signaturer för delad åtkomst](service-bus-sas.md) (SAS), [rollbaserad åtkomst kontroll](authenticate-application.md) i Azure (RBAC) och [hanterade identiteter för Azure-resurser](service-bus-managed-service-identity.md).
 
 ### <a name="geo-disaster-recovery"></a>Geohaveriberedskap
 

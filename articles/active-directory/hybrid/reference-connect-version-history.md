@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72acf60bd9bc5baeba37d8ccffa79fe597954f16
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 04f97dc7296dd2ca9e9f869373cbf82838aa79f5
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230391"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445331"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Versionshistorik för Azure AD Connect
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -29,7 +29,7 @@ Den här tabellen är en lista över närliggande ämnen:
 Avsnitt |  Information
 --------- | --------- |
 Steg för att uppgradera från Azure AD Connect | Olika metoder för att [Uppgradera från en tidigare version till den senaste versionen av](how-to-upgrade-previous-version.md) Azure AD Connect.
-Nödvändiga behörigheter | För behörigheter som krävs för att tillämpa en uppdatering, se [konton och behörigheter](reference-connect-accounts-permissions.md#upgrade).
+Behörigheter som krävs | För behörigheter som krävs för att tillämpa en uppdatering, se [konton och behörigheter](reference-connect-accounts-permissions.md#upgrade).
 Ladda ned| [Ladda ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
@@ -47,6 +47,20 @@ Det är inte alla versioner av Azure AD Connect som görs tillgängliga för aut
 >Om du har aktiverat Azure AD Connect för synkronisering börjar du snart att automatiskt få hälso aviseringar som varnar dig om kommande inläsningar när du kör någon av de äldre versionerna.
 >
 >Mer information om hur du uppgraderar Azure AD Connect till den senaste versionen finns i [den här artikeln](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) .
+
+## <a name="15450"></a>1.5.45.0
+
+### <a name="release-status"></a>Versionsstatus
+07/29/2020: har släppts för nedladdning
+
+### <a name="functional-changes"></a>Funktionella ändringar
+Detta är en version av fel korrigering. Det finns inga funktionella ändringar i den här versionen.
+
+### <a name="fixed-issues"></a>Åtgärdade problem
+
+- Ett problem där administratören inte kan aktivera "sömlös enkel inloggning" har åtgärd ATS om AZUREADSSOACC dator konto redan finns i "Active Directory".
+- Ett problem har åtgärd ATS som orsakade ett mellanlagrings fel under v2-API delta import för ett objekt som har reparerats via hälso portalen.
+- Ett problem har åtgärd ATS i import/export-konfigurationen där inaktiverade anpassad regel har importer ATS som aktive rad.
 
 ## <a name="15420"></a>1.5.42.0
 
@@ -585,7 +599,7 @@ Lås åtkomst till AD DS-kontot genom att implementera följande behörighets ä
 *   Ta bort alla ACE: er för det angivna objektet, förutom åtkomst till sig själv. Vi vill behålla standard behörigheterna när det kommer till dig själv.
 *   Tilldela följande behörigheter:
 
-Typ     | Namn                          | Access               | Gäller för
+Typ     | Name                          | Access               | Gäller för
 ---------|-------------------------------|----------------------|--------------|
 Tillåt    | SYSTEM                        | Fullständig kontroll         | Det här objektet  |
 Tillåt    | Företagsadministratörer             | Fullständig kontroll         | Det här objektet  |

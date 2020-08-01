@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: b08670c51b56f01ad1193d2729ecc77821242a19
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: ae3d0ac6fb332fa17fbe938572b94c51e0785089
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200743"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449014"
 ---
 # <a name="tutorial-interfaces-and-custom-models"></a>Självstudie: gränssnitt och anpassade modeller
 
@@ -23,7 +23,7 @@ I den här guiden får du lära dig att:
 > * Konfigurera Azure-Blob Storage för modell inmatning
 > * Ladda upp och bearbeta modeller för åter givning
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Den här självstudien bygger på [Självstudier: Visa en fjärrrenderad modell](../view-remote-models/view-remote-models.md).
 
@@ -33,7 +33,7 @@ MRTK (Mixed Reality Toolkit) är en plattforms oberoende verktygs uppsättning f
 
 Om du vill lägga till MRTK följer du de [steg som krävs](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#required) i [komma igång med MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html).
 
-De här stegen är:
+Dessa steg är:
  - [Hämta de senaste MRTK-Unit-paketen](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#get-the-latest-mrtk-unity-packages)
      - Även om det står "senaste" är detta för version 2,3.
      - Vi använder bara *Foundation* -paketet i den här självstudien. Paketen för *tillägg*, *verktyg*och *exempel* krävs inte.
@@ -75,14 +75,14 @@ Nu kan du lägga till Prefab- **AppMenu** till scenen för visuell feedback för
 1. Leta upp **AppMenu** -Prefab i *assets/RemoteRenderingTutorial/Prefabs/AppMenu*
 1. Dra **AppMenu** -Prefab till scenen.
 1. Du ser förmodligen en dialog ruta för **tmp-import**, eftersom det är första gången vi inkluderar *text nät Pro* -tillgångar i scenen. Följ anvisningarna för att **Importera tmp Essentials**. Stäng sedan import dialog rutan, exemplen och tillägg behövs inte.
-1. **AppMenu** har kon figurer ATS för att automatiskt ansluta och tillhandahålla spärren för att kunna ansluta till en session, så att vi kan ta bort den tidigare placerade. På **RemoteRenderingCoordinator** -GameObject tar du bort bypass för auktorisering som vi har implementerat tidigare genom att trycka på knappen "-" på **begäran om auktorisation** . \
- ![Ta bort förbikoppling ](./media/remove-bypass-event.png) . \
+1. **AppMenu** har kon figurer ATS för att automatiskt ansluta och tillhandahålla spärren för att kunna ansluta till en session, så att vi kan ta bort den tidigare placerade. På **RemoteRenderingCoordinator** -GameObject tar du bort bypass för auktorisering som vi har implementerat tidigare genom att trycka på knappen "-" på **begäran om auktorisation** .
+ ![Ta bort förbikoppling ](./media/remove-bypass-event.png) .
 1. Testa visnings styrenheten genom att trycka på **spela upp** i Unity-redigeraren.
 1. Nu när MRTK har kon figurer ATS i redigerings programmet kan du använda WASD-nycklarna för att ändra placeringen av vyn och placera den högra mus knappen + Flytta musen för att ändra din visnings riktning. Prova att "köra" runt scenen en bit för att få en känsla för kontrollerna.
 1. På enhet kan du skapa en Palm-enhet för att kalla **AppMenu**, i Unity-redigeraren, använder du snabb tangenten '.
 1. Om du har förlorat menyns blick trycker du på "m"-tangenten för att kalla menyn. Menyn placeras nära kameran för enkel interaktion.
-1. Auktoriseringen visas nu som en begäran till höger om **AppMenu**, från och med nu kan du använda den för att auktorisera appen för att hantera sessioner för fjärrrendering. \
- ![UI-auktorisering](./media/authorize-request-ui.png)\
+1. Auktoriseringen visas nu som en begäran till höger om **AppMenu**, från och med nu kan du använda den för att auktorisera appen för att hantera sessioner för fjärrrendering.
+ ![UI-auktorisering](./media/authorize-request-ui.png)
 1. Stoppa enhets omslutning för att fortsätta med självstudien.
 
 ## <a name="manage-model-state"></a>Hantera modell tillstånd
@@ -255,11 +255,11 @@ I de mest grundläggande villkoren innehåller **RemoteRenderedModel** de data s
 Nu ska vi testa det nya skriptet genom att läsa in test modellen igen. Vi ska skapa ett spel objekt som innehåller skriptet och vara överordnat test modellen.
 
 1. Skapa ett nytt tomt spel objekt i scenen och ge det namnet **TestModel**.
-1. Lägg till *RemoteRenderedModel* -skriptet i **TestModel**. \
+1. Lägg till *RemoteRenderedModel* -skriptet i **TestModel**.
 ![Lägg till RemoteRenderedModel-komponent](./media/add-remote-rendered-model-script.png)
-1. Fyll i `Model Display Name` och `Model Path` med "*TestModel*" respektive "*Builtin://Engine*". \
+1. Fyll i `Model Display Name` och `Model Path` med "*TestModel*" respektive "*Builtin://Engine*".
 ![Ange modell information](./media/add-model-script.png)
-1. Placera **TestModel** -objektet framför kameran, vid position **x = 0, y = 0, z = 3**. \
+1. Placera **TestModel** -objektet framför kameran, vid position **x = 0, y = 0, z = 3**.
 ![Placera objekt](./media/test-model-position.png)
 1. Se till att **AutomaticallyLoad** har Aktiver ATS.
 1. Tryck på **Play** i Unity-redigeraren för att testa programmet.
@@ -280,7 +280,7 @@ Följ stegen som anges i [snabb starten: konvertera en modell för åter givning
 ## <a name="load-and-rendering-a-custom-model"></a>Läs in och återge en anpassad modell
 
 1. Skapa en ny tom GameObject i scenen och ge den samma namn som din anpassade modell.
-1. Lägg till *RemoteRenderedModel* -skriptet till den nyligen skapade GameObject. \
+1. Lägg till *RemoteRenderedModel* -skriptet till den nya GameObject.
  ![Lägg till RemoteRenderedModel-komponent](./media/add-remote-rendered-model-script.png)
 1. Fyll i `Model Display Name` med ett lämpligt namn för din modell.
 1. Fyll i `Model Path` med modellens *SAS-URI (signatur för delad åtkomst)* som du skapade i stegen ovan.

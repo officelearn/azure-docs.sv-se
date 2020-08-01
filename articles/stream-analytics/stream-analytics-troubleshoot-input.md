@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3cac20e33ff865058ce41799ae8841a05716edc9
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f4f79a28dbe8a49e608ca6fae1781a1e19646619
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045084"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448876"
 ---
 # <a name="troubleshoot-input-connections"></a>Felsöka indataanslutningar
 
@@ -118,7 +118,7 @@ FROM inputEventHub
 …
 ```
 
-Använd den här frågan:
+Använder du den här frågan:
 
 ```SQL
 WITH data AS (
@@ -160,6 +160,10 @@ UNION
 SELECT foo FROM DataTwo
 
 ```
+
+## <a name="readers-per-partition-exceeds-iot-hub-limit"></a>Läsarna per partition överskrider IoT Hub gränsen
+
+Stream Analytics-jobb använder IoT Hub inbyggda [Event Hub-kompatibla slut punkter](../iot-hub/iot-hub-devguide-messages-read-builtin.md) för att ansluta och läsa händelser från IoT Hub. Om din läsning per partition överskrider gränserna för IoT Hub kan du använda [lösningarna för Event Hub](#readers-per-partition-exceeds-event-hubs-limit) för att lösa problemet. Du kan skapa en konsument grupp för den inbyggda slut punkten via IoT Hub portalens slut punkt session eller genom [IoT Hub SDK](https://docs.microsoft.com/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup).
 
 ## <a name="get-help"></a>Få hjälp
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: juliako
-ms.openlocfilehash: e358742635d9ed939bbc62bb0d54e8169382e7de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c2845cd0fad8375db67d1aa86333f144222dc0aa
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043493"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446336"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Azure Media Services kvoter och begränsningar
@@ -28,14 +28,14 @@ Den här artikeln innehåller några av de vanligaste Microsoft Azure Media Serv
 
 ## <a name="account-limits"></a>Konto gränser
 
-| Resurs | Standardgräns | 
-| --- | --- | 
+| Resurs | Standardgräns |
+| --- | --- |
 | [Media Services konton](media-services-account-concept.md) i en enda prenumeration | 25 (fast) |
 
 ## <a name="asset-limits"></a>Till gångs gränser
 
-| Resurs | Standardgräns | 
-| --- | --- | 
+| Resurs | Standardgräns |
+| --- | --- |
 | [Till gångar](assets-concept.md) per Media Services konto | 1,000,000|
 
 ## <a name="storage-limits"></a>Lagrings gränser
@@ -86,9 +86,10 @@ Eventuella jobb poster i ditt konto som är äldre än 90 dagar tas bort automat
 
 ## <a name="packaging--delivery-limits"></a>Leverans gränser för paketering &
 
-| Resurs | Standardgräns | 
-| --- | --- | 
+| Resurs | Standardgräns |
+| --- | --- |
 | [Slut punkter för direkt uppspelning](streaming-endpoint-concept.md) (stoppad eller igång) per Media Services konto|2 |
+| Premium enheter för strömning | 10 |
 | [Filter för dynamiskt manifest](filters-dynamic-manifest-overview.md)|100|
 | [Strömmande principer](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | Unika [strömmande positionerare](streaming-locators-concept.md) som är associerade med en till gång vid ett tillfälle | 100<sup>(7)</sup> (fast) |

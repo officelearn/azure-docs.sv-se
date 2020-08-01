@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 10802cd141e0b10e30cb01d3d1dc385aedf7fc1e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 11b532b5ece10c8a9ac6dad61e4ca64a9f19f901
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387021"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445205"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Azures säkerhets bas linje för Virtuella Windows-datorer
 
@@ -620,9 +620,9 @@ Microsoft använder TLS-protokollet (Transport Layer Security) för att skydda d
 
 **Vägledning**: använd Azure uppdateringshantering-lösningen för att hantera uppdateringar och korrigeringar för dina virtuella datorer. Uppdateringshantering använder den lokalt konfigurerade uppdaterings databasen för att korrigera Windows-system som stöds. Med verktyg som System Center Updates Publisher (Updates Publisher) kan du publicera anpassade uppdateringar i Windows Server Update Services (WSUS). Med det här scenariot kan Uppdateringshantering korrigera datorer som använder Configuration Manager som sitt uppdaterings lager med program vara från tredje part.
 
-* [Uppdateringshantering lösning i Azure](../../automation/automation-update-management.md)
+* [Uppdateringshantering lösning i Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](../../automation/automation-tutorial-update-management.md)
+* [Hantera uppdateringar och korrigeringar för dina virtuella datorer](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -632,9 +632,9 @@ Microsoft använder TLS-protokollet (Transport Layer Security) för att skydda d
 
 **Vägledning**: du kan använda en lösning för korrigerings hantering från tredje part. Du kan använda Azure Uppdateringshantering-lösningen för att hantera uppdateringar och korrigeringar för dina virtuella datorer. Uppdateringshantering använder den lokalt konfigurerade uppdaterings databasen för att korrigera Windows-system som stöds. Med verktyg som System Center Updates Publisher (Updates Publisher) kan du publicera anpassade uppdateringar i Windows Server Update Services (WSUS). Med det här scenariot kan Uppdateringshantering korrigera datorer som använder Configuration Manager som sitt uppdaterings lager med program vara från tredje part.
 
-* [Uppdateringshantering lösning i Azure](../../automation/automation-update-management.md)
+* [Uppdateringshantering lösning i Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](../../automation/automation-tutorial-update-management.md)
+* [Hantera uppdateringar och korrigeringar för dina virtuella datorer](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Azure Security Center övervakning**: inte tillgänglig
 

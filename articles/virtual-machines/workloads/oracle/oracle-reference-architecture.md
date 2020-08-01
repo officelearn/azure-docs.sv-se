@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2019
 ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: dd5e3cf8ce9e52768c28598a819a28ad1ec4413c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4be24d645d2145ee07f9b9a4696b825a26dcf5c9
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525525"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448768"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Referens arkitekturer för Oracle Database Enterprise Edition på Azure
 
@@ -211,7 +211,7 @@ Under den inledande begäran ansluter program servern till Shard-regissören i s
 
 När du distribuerar dina Oracle-arbetsbelastningar till Azure tar Microsoft hand om all korrigering av värd operativ system nivå. Alla planerade underhåll av OS-nivåer skickas till kunder i förväg för att tillåta kunden att göra det här planerade underhållet. Två servrar från två olika Tillgänglighetszoner korrigeras aldrig samtidigt. Mer information om underhåll och korrigeringar för virtuella datorer finns i [Hantera tillgängligheten för virtuella datorer](../../../virtual-machines/linux/manage-availability.md) . 
 
-Korrigering av den virtuella datorns operativ system kan automatiseras med hjälp av [Azure Automation](../../../automation/automation-tutorial-update-management.md). Uppdatering och underhåll av Oracle-databasen kan automatiseras och schemaläggas med hjälp av [Azure-pipeliner](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) eller [Azure Automation](../../../automation/automation-tutorial-update-management.md) för att minimera stillestånds tiden. Se [kontinuerliga leveranser och blå/gröna distributioner](/azure/devops/learn/what-is-continuous-delivery) för att förstå hur det kan användas i samband med dina Oracle-databaser.
+Korrigering av den virtuella datorns operativ system kan automatiseras med hjälp av [Azure Automation uppdateringshantering](../../../automation/update-management/update-mgmt-overview.md). Uppdatering och underhåll av Oracle-databasen kan automatiseras och schemaläggas med hjälp av [Azure-pipeliner](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) eller [Azure Automation uppdateringshantering](../../../automation/update-management/update-mgmt-overview.md) för att minimera stillestånds tiden. Se [kontinuerliga leveranser och blå/gröna distributioner](/azure/devops/learn/what-is-continuous-delivery) för att förstå hur det kan användas i samband med dina Oracle-databaser.
 
 ## <a name="architecture-and-design-considerations"></a>Arkitektur och design överväganden
 

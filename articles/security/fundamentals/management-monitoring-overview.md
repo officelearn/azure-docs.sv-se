@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 7ad7a29a92d25556190b4cf44f4e48158a6f0952
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e6fe4f0db31687d402f960f2752fe021d3ec9d3
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73162741"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448359"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Översikt över Azure Security Management och Monitoring
 Den här artikeln innehåller en översikt över de säkerhetsfunktioner och tjänster som Azure tillhandahåller för att hjälpa till med hantering och övervakning av Azure Cloud Services och Virtual Machines.
@@ -32,7 +32,7 @@ Rollbaserad Access Control (RBAC) ger detaljerad åtkomst hantering för Azure-r
 Läs mer:
 
 * [Active Directory Team blogg på RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
-* [Rollbaserad Access Control i Azure](../../role-based-access-control/role-assignments-portal.md)
+* [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Programvara mot skadlig kod
 
@@ -138,7 +138,7 @@ Intelligent Security Graph ger skydd mot hot i real tid i Microsofts produkter o
 
 * [Intelligent Security Graph](https://www.microsoft.com/security/intelligence)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Lär dig mer om den [delade ansvars modellen](shared-responsibility.md) och vilka säkerhets uppgifter som hanteras av Microsoft och vilka aktiviteter som hanteras av dig.
 
 Mer information om säkerhets hantering finns [i säkerhets hantering i Azure](management.md).

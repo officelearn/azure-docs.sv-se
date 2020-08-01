@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 49a40d78b4ba3bc1e90bb341cca90bece0b998a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03258bf204491afce4635828b3a33a06886aca2d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81450045"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448407"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Säkerhetsmetodtips för IaaS-arbetsbelastningar i Azure
 Den här artikeln beskriver rekommenderade säkerhets metoder för virtuella datorer och operativ system.
@@ -84,7 +84,7 @@ Du kan integrera Microsofts lösningar för program mot skadlig kod och partner 
 Virtuella Azure-datorer, precis som alla lokala virtuella datorer, är avsedda att hanteras av användaren. Azure skickar inte Windows-uppdateringar till dem. Du måste hantera dina VM-uppdateringar.
 
 **Bästa praxis**: Håll dina virtuella datorer aktuella.   
-**Information**: Använd [uppdateringshantering](../../automation/automation-update-management.md) -lösningen i Azure Automation för att hantera operativ system uppdateringar för dina Windows-och Linux-datorer som distribueras i Azure, i lokala miljöer eller i andra moln leverantörer. Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och hantera installationsprocessen för nödvändiga uppdateringar för servrar.
+**Information**: Använd [uppdateringshantering](../../automation/update-management/update-mgmt-overview.md) -lösningen i Azure Automation för att hantera operativ system uppdateringar för dina Windows-och Linux-datorer som distribueras i Azure, i lokala miljöer eller i andra moln leverantörer. Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och hantera installationsprocessen för nödvändiga uppdateringar för servrar.
 
 Datorer som hanteras med Uppdateringshantering använder följande konfigurationer för att utföra utvärdering och uppdateringsdistributioner:
 

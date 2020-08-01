@@ -1,6 +1,6 @@
 ---
-title: Lägger till stöd för lång data typ | Microsoft Docs
-description: Stöd för långa data typer
+title: Stöd för lång datatyp i Azure Time Series Insights Gen2 | Microsoft Docs
+description: Stöd för långa data typer i Azure Time Series Insights Gen2.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,44 +10,65 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: dpalled
-ms.openlocfilehash: c31ca7fd3eca89159d583b8a51b59a7bd6b8ed67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 34cf770a8ac75c2516480ec3136e61da15f4e4ff
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531939"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446636"
 ---
-# <a name="adding-support-for-long-data-type"></a>Lägger till stöd för lång data typ
+# <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Lägger till stöd för lång datatyp i Azure Time Series Insights Gen2
 
-De här ändringarna används endast i Gen2-miljöer. Om du har en gen1-miljö kan du bortse från dessa ändringar.
+Tillägget av stöd för långa data typer påverkar hur vi lagrar och indexerar numeriska data i Azure Time Series Insights Gen2-miljöer. Om du har en gen1-miljö kan du bortse från dessa ändringar.
 
-Vi gör ändringar i hur vi lagrar och indexerar numeriska data i Azure Time Series Insights Gen2 som kan påverka dig. Om du påverkas av något av fallen nedan gör du nödvändiga ändringar så snart som möjligt. Dina data kommer att börja indexeras som långa och dubblas mellan 29 juni och 30 juni 2020, beroende på din region. Om du har några frågor eller problem med den här ändringen kan du skicka ett support ärende via Azure Portal och nämna denna kommunikation.
+Från och med den 29 juni eller den 30 juni 2020, beroende på din region, kommer dina data att indexeras som **långa** och **dubbla**.  Om du har några frågor eller problem med den här ändringen kan du skicka ett support ärende via Azure Portal och nämna denna kommunikation.
 
-Den här ändringen påverkar dig i följande fall:
+Om du påverkas av något av följande fall gör du de rekommenderade ändringarna:
 
-1. Om du för närvarande använder modell variabler för tids serier och bara skickar heltals data typer i dina telemetridata.
-1. Om du för närvarande använder modell variabler för tids serier och skickar data typerna integral och data som inte är Integral i dina telemetridata.
-1. Om du använder kategoriska-variabler för att mappa heltals värden till kategorier.
-1. Om du använder Java Script SDK för att bygga ett anpassat klient program.
-1. Om du närmar dig gränsen för 1 000-egenskaps namn i varmt lagrings utrymme (WS) och skickar både heltals-och data som inte är Integral kan du Visa antalet egenskaper som ett mått i [Azure Portal](https://portal.azure.com/).
+- **Fall 1**: du använder för närvarande tids serie modell variabler och skickar endast integrala data typer i dina telemetridata.
+- **Fall 2**: du använder för närvarande tids serie modell variabler och skickar data typerna integral och inte integral i dina telemetridata.
+- **Fall 3**: du kan använda kategoriska-variabler för att mappa heltals värden till kategorier.
+- **Fall 4**: du kan använda Java Script SDK för att bygga ett anpassat klient program.
+- **Fall 5**: du närmar dig gränsen för 1 000-egenskaps namn i varmt lager och skickar både heltals-och data som inte är Integral. Antalet egenskaper kan visas som ett mått i [Azure Portal](https://portal.azure.com/).
 
-Om någon av ovanstående fall gäller för dig måste du göra ändringar i din modell för att kunna hantera den här ändringen. Uppdatera Time Series-uttrycket i variabel definitionen i både Azure Time Series Insights Gen2 Explorer och i en anpassad klient med hjälp av våra API: er med de rekommenderade ändringarna. Se nedan för mer information.
+Om något av fallen gäller dig, gör du ändringar i din modell. Uppdatera Time Series-uttrycket (TSX) i variabel definitionen med de rekommenderade ändringarna. Uppdatera båda:
 
-Beroende på din IoT-lösning och begränsningar kanske du inte har insyn i de data som skickas till din Azure Time Series Insights Gen2-miljö. Om du är osäker på om dina data endast är integrala eller både integrala och inintegrala har du några alternativ. Du kan vänta tills funktionen släpps och utforska dina obehandlade händelser i användar gränssnittet i Utforskaren för att förstå vilka egenskaper som har sparats i två separata kolumner. Du kan förebyggande syfte göra ändringarna nedan för alla numeriska taggar eller tillfälligt dirigera en delmängd av händelser till lagring för att bättre förstå och utforska ditt schema. Om du vill lagra händelser aktiverar du [händelse fångsten](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) för Event Hubs eller [dirigerar](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-storage) från IoT Hub till Azure Blob Storage. Data kan också observeras via [Event Hub Explorer](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer)eller med hjälp av [händelse bearbetnings värden](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events). Om du använder IoT Hub kan du läsa mer [i dokumentationen om](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) hur du kommer åt den inbyggda slut punkten.
+- Azure Time Series Insights Gen2 Explorer
+- Alla anpassade klienter som använder våra API: er
 
-Observera att om du påverkas av dessa ändringar och inte kan göra dem med ovanstående datum, kan det uppstå ett avbrott där de inaktuella tidsserie-variablerna som nås via fråge-API: erna eller Time Series Insights Explorer kommer att returnera *Null* (d.v.s. Visa inga data i Utforskaren).
+Beroende på din IoT-lösning och begränsningar kanske du inte har insyn i de data som skickas till din Azure Time Series Insights Gen2-miljö. Om du är osäker på om dina data endast är integrala eller både integrala och inintegrala har du några alternativ:
+
+- Du kan vänta på att funktionen släpps. Utforska sedan dina obehandlade händelser i användar gränssnittet i Utforskaren för att förstå vilka egenskaper som sparas i två separata kolumner.
+- Du kan förebyggande syfte göra de rekommenderade ändringarna för alla numeriska taggar.
+- Du kan tillfälligt dirigera en delmängd av händelser till lagring för att bättre förstå och utforska ditt schema.
+
+Om du vill lagra händelser aktiverar du [händelse fångst](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) för Azure Event Hubs eller [dirigerar](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-storage) från din IoT Hub till Azure Blob Storage.
+
+Data kan också observeras via [Event Hub Explorer](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer)eller med hjälp av [händelse bearbetnings värden](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events).
+
+Om du använder IoT Hub går du till [läsa "enhet till molnet"-meddelanden från den inbyggda slut punkten](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) för att få åtkomst till den inbyggda slut punkten.
+
+> [!NOTE]
+> Du kan uppleva ett avbrott om du inte gör de rekommenderade ändringarna. Till exempel returnerar de påverkade Time Series Insights variablerna som nås via fråge-API: erna eller Time Series Insights Explorer **Null** (det vill säga inga data i Utforskaren).
 
 ## <a name="recommended-changes"></a>Rekommenderade ändringar
 
-Fall 1 & 2: **använda variabler för tids serie modeller och skicka endast heltals data typer eller skicka både integrala och inintegrala typer i telemetridata.**
+### <a name="case-1-using-time-series-model-variables-and-sending-only-integral-data-types-in-telemetry-data"></a>Fall 1: använda tids serie modell variabler och skicka endast integrala data typer i telemetridata
 
-Om du för närvarande skickar språktelemetri-data delas dina data in i två kolumner: "propertyValue_double" och "propertyValue_long".
+De rekommenderade ändringarna för fall 1 är desamma som för fall 2. Följ anvisningarna i avsnittet för fall 2.
 
-Dina heltals data skrivs till "propertyValue_long" när ändringarna börjar gälla och sedan tidigare skrevs in (och framtida inmatade) numeriska data i "propertyValue_double" inte kopieras över.
+### <a name="case-2-using-time-series-model-variables-and-sending-both-integral-and-nonintegral-types-in-telemetry-data"></a>Fall 2: använda modell variabler för tids serier och skicka både integrala och inintegrala typer i telemetridata
 
-Om du vill fråga efter data över de här två kolumnerna för egenskapen "propertyValue" måste du använda den skalära funktionen *sammanslagning ()* i din TSX. Funktionen accepterar argument av samma datatyp och returnerar det första värdet som inte är null i argument listan (Läs mer om användning [här](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions)).
+Om du för närvarande skickar språktelemetri-data, delas dina data in i två kolumner:
 
-### <a name="variable-definition-in-time-series-explorer---numeric"></a>Variabel definition i Time Series Explorer – numerisk
+- **propertyValue_double**
+- **propertyValue_long**
+
+Dina heltals data skrivs till **propertyValue_long**. Tidigare inmatade numeriska data (och framtida inmatade) i **propertyValue_double** kopieras inte över.
+
+Om du vill fråga efter data över de här två kolumnerna för egenskapen **propertyValue** måste du använda den skalära funktionen **sammanslagning ()** i din TSX. Funktionen accepterar argument av samma **datatyp** och returnerar det första värdet som inte är null i argument listan. Mer information finns i [Azure Time Series Insights Gen2 Data Access Concepts](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions).
+
+#### <a name="variable-definition-in-tsx---numeric"></a>Variabel definition i TSX-numerisk
 
 *Definition av föregående variabel:*
 
@@ -57,9 +78,9 @@ Om du vill fråga efter data över de här två kolumnerna för egenskapen "prop
 
 [![Ny variabel definition](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
-Du kan också använda *"sammanslagning ($Event. propertyValue. Double, toDouble ($Event. propertyValue. Long))"* som ett anpassat [tids serie uttryck.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+Du kan också använda **sammanslagning ($Event. propertyValue. Double, toDouble ($Event. propertyValue. Long))** som uttryck för anpassad [tids serie](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
-### <a name="inline-variable-definition-using-time-series-query-apis---numeric"></a>Infogad variabel definition med Time Series-frågas-API: n-numeriskt
+#### <a name="inline-variable-definition-using-tsx-query-apis---numeric"></a>Infogad variabel definition med TSX-frågas-API: n-numeriskt
 
 *Definition av föregående variabel:*
 
@@ -105,16 +126,16 @@ Du kan också använda *"sammanslagning ($Event. propertyValue. Double, toDouble
 }
 ```
 
-Du kan också använda *"sammanslagning ($Event. propertyValue. Double, toDouble ($Event. propertyValue. Long))"* som ett anpassat [tids serie uttryck.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+Du kan också använda **sammanslagning ($Event. propertyValue. Double, toDouble ($Event. propertyValue. Long))** som uttryck för anpassad [tids serie](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 > [!NOTE]
-> Vi rekommenderar att du uppdaterar dessa variabler på alla platser som de kan användas (tids serie modell, sparade frågor, Power BI anslutnings frågor).
+> Vi rekommenderar att du uppdaterar dessa variabler på alla platser som de kan användas. Dessa platser omfattar tids serie modellen, sparade frågor och Power BI anslutnings frågor.
 
-Fall 3: **använda kategoriska-variabler för att mappa heltals värden till kategorier**
+### <a name="case-3-using-categorical-variables-to-map-integer-values-to-categories"></a>Fall 3: använda kategoriska-variabler för att mappa heltals värden till kategorier
 
-Om du för närvarande använder kategoriska-variabler som mappar heltals värden till kategorier, använder du förmodligen funktionen toLong för att konvertera data från Double-typ till en lång typ. Precis som i exemplen ovan måste du slå samman kolumnerna Double och Long types.
+Om du för närvarande använder kategoriska-variabler som mappar heltals värden till kategorier, använder du förmodligen funktionen **toLong** för att konvertera data från **Double** -typ till **lång** typ. Precis som fall 1 och 2 måste du slå samman kolumnerna **Double** och **Long** **types** .
 
-### <a name="variable-definition-in-time-series-explorer---categorical"></a>Variabel definition i Time Series Explorer – kategoriska
+#### <a name="variable-definition-in-time-series-explorer---categorical"></a>Variabel definition i Time Series Explorer – kategoriska
 
 *Definition av föregående variabel:*
 
@@ -124,11 +145,11 @@ Om du för närvarande använder kategoriska-variabler som mappar heltals värde
 
 [![Ny variabel definition](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
 
-Du kan också använda *"sammanslagning ($Event. propertyValue. Double, toDouble ($Event. propertyValue. Long))"* som ett anpassat [tids serie uttryck.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+Du kan också använda **sammanslagning ($Event. propertyValue. Double, toDouble ($Event. propertyValue. Long))** som uttryck för anpassad [tids serie](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
-Kategoriska-variabler kräver fortfarande att värdet är av en heltals typ. Data typen för alla argument i sammanslagning () måste vara av typen Long i det anpassade [tids serie uttrycket.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+Kategoriska-variabler kräver fortfarande att värdet är av en heltals typ. **Data typen** för alla argument i **sammanslagning ()** måste vara av typen **Long** i det anpassade [tids serie uttrycket.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
 
-### <a name="inline-variable-definition-using-time-series-query-apis---categorical"></a>Infogad variabel definition med Time Series-fråge-API: er – kategoriska
+#### <a name="inline-variable-definition-using-tsx-query-apis---categorical"></a>Infogad variabel definition med TSX-fråge-API: er – kategoriska
 
 *Definition av föregående variabel:*
 
@@ -206,19 +227,19 @@ Kategoriska-variabler kräver fortfarande att värdet är av en heltals typ. Dat
 }
 ```
 
-Kategoriska-variabler kräver fortfarande att värdet är av en heltals typ. Data typen för alla argument i sammanslagning () måste vara av typen Long i det anpassade [tids serie uttrycket.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+Kategoriska-variabler kräver fortfarande att värdet är av en heltals typ. **Data typen** för alla argument i **sammanslagning ()** måste vara av typen **Long** i det anpassade [tids serie uttrycket](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 > [!NOTE]
-> Vi rekommenderar att du uppdaterar dessa variabler på alla platser som de kan användas (tids serie modell, sparade frågor, Power BI anslutnings frågor).
+> Vi rekommenderar att du uppdaterar dessa variabler på alla platser som de kan användas. Dessa platser omfattar tids serie modellen, sparade frågor och Power BI anslutnings frågor.
 
-Fall 4: **använda Java Script SDK för att bygga ett anpassat klient program**
+### <a name="case-4-using-the-javascript-sdk-to-build-a-custom-front-end-application"></a>Fall 4: använda Java Script SDK för att bygga ett anpassat klient program
 
-Om du påverkas av fall 1-3 ovan och skapar anpassade program, måste du uppdatera dina frågor för att använda funktionen *sammanslagning ()* , som visas i exemplen ovan.
+Om du påverkas av fall 1 till 3 och skapar anpassade program måste du uppdatera dina frågor för att använda funktionen **sammanslagning ()** , vilket visas i föregående exempel.
 
-Fall 5: **närmar sig det varmt arkivet 1 000 egenskaps gräns**
+### <a name="case-5-nearing-warm-store-1000-property-limit"></a>Fall 5: närmar sig det varmt arkivet 1 000 egenskaps gräns
 
-Om du är en användare av varma butiker med ett stort antal egenskaper och tror att den här ändringen skulle leda till att din miljö överförs över egenskapen för 1 000 WS-namn, skickar du ett support ärende via Azure Portal och nämner denna kommunikation.
+Om du är en varm användare med ett stort antal egenskaper och tror att den här ändringen skulle leda till att din miljö skickas över den 1 000 varmt Store-egenskapen namn, skicka ett support ärende via Azure Portal och nämna denna kommunikation.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Se de [data typer som stöds](concepts-supported-data-types.md) för att visa en fullständig lista över data typer som stöds.
+- Visa en fullständig lista över [data typer som stöds](concepts-supported-data-types.md).

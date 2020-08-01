@@ -3,12 +3,12 @@ title: Azures säkerhets bas linje för Azure DevTest Labs
 description: Azures säkerhets bas linje för Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 7f0dc1fb18740e2b0611b5954821a5ceda2d2657
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: b392af17a24b0a5aabdd245af236caa743762244
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387837"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448969"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Azures säkerhets bas linje för Azure DevTest Labs
 
@@ -275,7 +275,7 @@ Microsoft utför sårbarhets hantering på de underliggande resurser som har st�
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5,2: Distribuera automatiserad hanterings lösning för operativ system
 **Vägledning:** Använd Azure Uppdateringshantering för att se till att de senaste säkerhets uppdateringarna är installerade på dina virtuella Windows-och Linux-datorer inom DevTest Labs. För virtuella Windows-datorer kontrollerar du att Windows Update har Aktiver ATS och kon figurer ATS för automatisk uppdatering. Den här inställningen är för närvarande inte tillgänglig för konfigurering genom DevTest Labs, men labb administratören/prenumerations administratören kan konfigurera den här inställningen på de underliggande virtuella datorerna i prenumerationen. 
 
-- [Så här konfigurerar du Uppdateringshantering för virtuella datorer i Azure](../automation/automation-update-management.md)
+- [Så här konfigurerar du Uppdateringshantering för virtuella datorer i Azure](../automation/update-management/update-mgmt-overview.md)
 - [Förstå Azures säkerhets principer som övervakas av Security Center](../security-center/security-center-policy-definitions.md)
 
 **Azure Security Center övervakning:** Ej tillämpligt
@@ -289,8 +289,8 @@ Lär dig mer om [DevTest Labs image Factory](image-factory-create.md), som är e
 
 Som prenumerations administratör kan du också använda Azure Uppdateringshantering-lösningen för att hantera uppdateringar och korrigeringar för virtuella datorer med DevTest Labs. Uppdateringshantering använder den lokalt konfigurerade uppdaterings databasen för att korrigera Windows-system som stöds. Med verktyg som System Center Updates Publisher (Updates Publisher) kan du publicera anpassade uppdateringar i Windows Server Update Services (WSUS). Med det här scenariot kan Uppdateringshantering korrigera datorer som använder Configuration Manager som sitt uppdaterings lager med program vara från tredje part.
 
-- [Uppdateringshantering lösning i Azure](../automation/automation-update-management.md)
-- [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](../automation/automation-tutorial-update-management.md)
+- [Uppdateringshantering lösning i Azure](../automation/update-management/update-mgmt-overview.md)
+- [Hantera uppdateringar och korrigeringar för dina virtuella datorer](../automation/update-management/update-mgmt-overview.md)
 
 **Azure Security Center övervakning:** Ej tillämpligt
 

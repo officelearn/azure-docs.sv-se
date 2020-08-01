@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: b914292e03078021c02d777505543a537b50260f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16cba1896a9e9e4038091769fb78ca0c0469710e
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367622"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448835"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Självstudie: Konfigurera iProva för automatisk användar etablering
 
@@ -124,7 +124,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
    |---|---|
    |aktiv|Boolesk|
    |displayName|Sträng|
-   |rubrik|Sträng|
+   |title|Sträng|
    |e-postmeddelanden [typ EQ "Work"]. värde|Sträng|
    |preferredLanguage|Sträng|
    |userName|Sträng|
@@ -150,7 +150,6 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
    |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: costCenter|Sträng|
    |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: organisation|Sträng|
    |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: employeeNumber|Sträng|
-   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Manager|Referens|
 
 
 10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till iProva**.

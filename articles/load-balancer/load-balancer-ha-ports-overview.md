@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: da776c679d5ded6f53cd0d224828fffee058d37d
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 62c3dad980b65c3e8cfc64c98ba173f667e0b5fe
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920621"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447066"
 ---
 # <a name="high-availability-ports-overview"></a>Översikt över portar med hög tillgänglighet
 
@@ -32,7 +32,7 @@ Belastnings Utjämnings reglerna för HA-portar konfigureras när du ställer in
 
 ## <a name="why-use-ha-ports"></a>Varför ska man använda HA-portar?
 
-### <a name="network-virtual-appliances"></a><a name="nva"></a>Virtuella nätverksinstallationer
+### <a name="network-virtual-appliances"></a><a name="nva"></a>Virtuella nätverks enheter
 
 Du kan använda NVA för att skydda din Azure-arbetsbelastning från flera typer av säkerhetshot. När du använder NVA i dessa scenarier måste de vara pålitliga och hög tillgängliga och de måste skalas upp för efter frågan.
 
@@ -99,5 +99,5 @@ Du kan konfigurera *en* offentlig standard Load Balancer resurs för Server dels
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du konfigurerar HA-portar för din ILB via portal (tutorial-Load-Balancer-standard-Internal-Portal. mdl # Create-a-Load-Balancer-Rule), [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)eller [templates](load-balancer-get-started-ilb-arm-template.md).
+- [Lär dig hur du konfigurerar ha-portar för din ILB via portal](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule), [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)eller [mallar](load-balancer-get-started-ilb-arm-template.md).
 - [Läs mer om Standard Load Balancer](load-balancer-standard-overview.md)

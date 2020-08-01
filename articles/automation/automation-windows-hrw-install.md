@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 31c769039009889559b6aa05bb76139d63c42feb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 634f200280a85ff865741cd03905101ff1e5c19f
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015025"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448051"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuera en Windows-Hybrid Runbook Worker
 
@@ -18,7 +18,7 @@ Du kan använda Hybrid Runbook Worker funktionen i Azure Automation för att kö
 
 När du har distribuerat en Runbook Worker granskar du [Kör Runbooks på en hybrid Runbook Worker](automation-hrw-run-runbooks.md) för att lära dig hur du konfigurerar dina runbooks för att automatisera processer i ditt lokala data Center eller annan moln miljö.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kontrol lera att du har följande innan du börjar.
 
@@ -28,7 +28,7 @@ Hybrid Runbook Worker-rollen beror på en Azure Monitor Log Analytics arbets yta
 
 Om du inte har en Azure Monitor Log Analytics arbets yta granskar du [rikt linjerna för Azure Monitor logg design](../azure-monitor/platform/design-logs-deployment.md) innan du skapar arbets ytan.
 
-Om du har en arbets yta, men inte är länkad till ditt Automation-konto, så lägger en automatiserings funktion till funktioner för Azure Automation, inklusive stöd för Hybrid Runbook Worker. När du aktiverar någon av de Azure Automation funktionerna i Log Analytics-arbetsytan, specifikt [uppdateringshantering](automation-update-management.md) eller [ändringsspårning och inventering](change-tracking.md), flyttas Worker-komponenterna automatiskt till agent datorn.
+Om du har en arbets yta, men inte är länkad till ditt Automation-konto, så lägger en automatiserings funktion till funktioner för Azure Automation, inklusive stöd för Hybrid Runbook Worker. När du aktiverar någon av de Azure Automation funktionerna i Log Analytics-arbetsytan, specifikt [uppdateringshantering](update-management/update-mgmt-overview.md) eller [ändringsspårning och inventering](change-tracking.md), flyttas Worker-komponenterna automatiskt till agent datorn.
 
    Om du vill lägga till funktionen Uppdateringshantering i din arbets yta kör du följande PowerShell-cmdlet:
 
@@ -77,7 +77,7 @@ Information om hur du får fler nätverks krav för Hybrid Runbook Worker finns 
 Du kan lägga till arbets datorn i en Hybrid Runbook Worker grupp i ditt Automation-konto. Observera att du måste ha stöd för Automation-runbooks så länge du använder samma konto för både Azure Automation-funktionen och Hybrid Runbook Workers grupp medlemskapet. Den här funktionen har lagts till i version 7.2.12024.0 av Hybrid Runbook Worker.
 
 >[!NOTE]
->När du aktiverar Azure Automation [uppdateringshantering](automation-update-management.md) konfigureras automatiskt en Windows-dator som är ansluten till din Log Analytics arbets yta som en hybrid Runbook Worker för att stödja hanteringen av sina operativ system uppdateringar. Den här arbetaren är dock inte registrerad med Hybrid Runbook Worker grupper som redan har definierats i ditt Automation-konto.
+>När du aktiverar Azure Automation [uppdateringshantering](update-management/update-mgmt-overview.md) konfigureras automatiskt en Windows-dator som är ansluten till din Log Analytics arbets yta som en hybrid Runbook Worker för att stödja hanteringen av sina operativ system uppdateringar. Den här arbetaren är dock inte registrerad med Hybrid Runbook Worker grupper som redan har definierats i ditt Automation-konto.
 
 ## <a name="enabling-machines-for-management-with-azure-automation-state-configuration"></a>Aktivera datorer för hantering med Azure Automation tillstånds konfiguration
 
@@ -169,7 +169,7 @@ Heartbeat
 
 I Sök resultaten bör du se pulsslags poster för datorn, vilket indikerar att den är ansluten och rapporterar till tjänsten. Som standard vidarebefordrar varje agent en pulsslags post till den tilldelade arbets ytan. Använd följande steg för att slutföra Agent installationen och installationen.
 
-1. Aktivera funktionen för att lägga till agent datorn. För Uppdateringshantering och virtuella Azure-datorer, se [Aktivera virtuella Azure-datorer](automation-onboard-solutions-from-automation-account.md#enable-azure-vms)och för icke-virtuella datorer i Azure se [Aktivera datorer i arbets ytan](automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace). För Ändringsspårning och virtuella Azure-datorer, se [Aktivera virtuella Azure-datorer](automation-enable-changes-from-auto-acct.md#enable-azure-vms)och för icke-virtuella datorer i Azure se [Aktivera datorer i arbets ytan](automation-enable-changes-from-auto-acct.md#enable-machines-in-the-workspace).
+1. Aktivera funktionen för att lägga till agent datorn. För Uppdateringshantering och virtuella Azure-datorer, se [aktivera uppdateringshantering från ett Automation-konto](update-management/update-mgmt-enable-automation-account.md), [Aktivera uppdateringshantering genom att bläddra bland Azure Portal](update-management/update-mgmt-enable-portal.md), [Aktivera uppdateringshantering från en Runbook](update-management/update-mgmt-enable-runbook.md)eller [Aktivera uppdateringshantering från en virtuell Azure-dator](update-management/update-mgmt-enable-vm.md). För Ändringsspårning och virtuella Azure-datorer, se [Aktivera virtuella Azure-datorer](automation-enable-changes-from-auto-acct.md#enable-azure-vms)och för icke-virtuella datorer i Azure se [Aktivera datorer i arbets ytan](automation-enable-changes-from-auto-acct.md#enable-machines-in-the-workspace).
 
 2. Om du vill bekräfta versionen av Hybrid Runbook Worker bläddrar du till `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` och noterar undermappen **version** .
 

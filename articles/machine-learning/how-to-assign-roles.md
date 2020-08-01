@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 2e787bb494c1e919a235b762b4d8c5250c8cda61
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6a49497cbe71dddb8ab6e76be9b3679dd62b0cee
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321623"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449038"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -369,7 +369,7 @@ De kan även finnas i listan över [resurs leverantörs åtgärder](/azure/role-
 
 ### <a name="q-what-are-some-common-gotchas-when-using-azure-rbac"></a>F. Vad är några vanliga information när du använder Azure RBAC?
 
-Här är några saker som du bör känna till när du använder Azure Role-baserade åtkomst kontroller:
+Här är några saker som du bör känna till när du använder rollbaserad åtkomst kontroll i Azure (Azure RBAC):
 
 - När du skapar en resurs i Azure, t. ex. en arbets yta, är du inte direkt ägaren till arbets ytan. Rollen ärvs från den högsta omfattnings rollen som du har behörighet för i den prenumerationen. Om du till exempel är nätverks administratör och har behörighet att skapa en Machine Learning arbets yta, kan du tilldela rollen som nätverks administratör till arbets ytan och inte till ägar rollen.
 - Om det finns två roll tilldelningar till samma AAD-användare med motstridiga avsnitt i Actions/NotActions, kanske dina åtgärder som anges i NotActions från en roll inte börjar gälla om de också visas som åtgärder i en annan roll. Om du vill veta mer om hur Azure kan parsa roll tilldelningar läser du [hur Azure RBAC avgör om en användare har åtkomst till en resurs](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)

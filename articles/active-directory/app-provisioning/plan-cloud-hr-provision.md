@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 09ecaf327b2030a77f8a91d99f291cebb0281235
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dd108e8c2877c7fe459819bf01b0e5b206cd9c0
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781607"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445563"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planera molnet HR Application för att Azure Active Directory användar etablering
 
@@ -56,7 +56,7 @@ Cloud HR app-integrering med Azure AD-användar etablering passar utmärkt för 
 
 Användar etablering skapar en grund för pågående identitets styrning. Det förbättrar kvaliteten på affärs processer som förlitar sig på auktoritativa identitets data.
 
-### <a name="terms"></a>Termer
+### <a name="terms"></a>Villkor
 
 I den här artikeln används följande villkor:
 
@@ -79,7 +79,7 @@ Om du vill konfigurera Cloud HR-appen till Azure AD-integrering av användar eta
 
 Du måste också ha en giltig Azure AD Premium P1 eller högre prenumerations licens för varje användare som kommer att skickas från Cloud HR-appen och tillhandahålls till antingen Active Directory eller Azure AD. Ett felaktigt antal licenser som ägs i Cloud HR-appen kan leda till fel vid användar etablering.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - Azure AD [hybrid Identity-administratör](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator) för att konfigurera Azure AD Connect etablerings agenten.
 - Azure AD- [programadministratörs](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) roll för att konfigurera etablerings appen i Azure Portal
@@ -99,7 +99,7 @@ Du måste också ha en giltig Azure AD Premium P1 eller högre prenumerations li
 | VANLIGA FRÅGOR OCH SVAR | [Automatiserad användar etablering](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Etablering från Workday till Azure AD](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 
-### <a name="solution-architecture"></a>Lösningsarkitektur
+### <a name="solution-architecture"></a>Lösningsarkitekturen
 
 I följande exempel beskrivs den kompletta lösningen för användar etablerings lösningen för vanliga hybrid miljöer och inkluderar:
 
@@ -398,13 +398,12 @@ Azure AD Connect etablerings agenten som är installerad på Windows Server skap
 
 Azure AD Provisioning-tjänsten genererar inte rapporter, utför analyser eller ger insikter mer än 30 dagar eftersom tjänsten inte lagrar, bearbetar eller behåller några data längre än 30 dagar.
 
-### <a name="troubleshoot"></a>Felsök
+### <a name="troubleshoot"></a>Felsöka
 
 Information om hur du felsöker problem som kan uppstå under etableringen finns i följande artiklar:
 
 - [Problem med att konfigurera användar etablering i ett Azure AD Gallery-program](application-provisioning-config-problem.md)
 - [Synkronisera ett attribut från din lokala Active Directory till Azure AD för etablering till ett program](user-provisioning-sync-attributes-for-mapping.md)
-- [Användar etablering i ett Azure AD Gallery-program tar flera timmar eller mer](application-provisioning-when-will-provisioning-finish.md)
 - [Problem med att spara administratörsautentiseringsuppgifter när du konfigurerar användar etablering till ett Azure Active Directory Galleri program](application-provisioning-config-problem-storage-limit.md)
 - [Inga användare tillhandahålls till ett Azure AD Gallery-program](application-provisioning-config-problem-no-users-provisioned.md)
 - [Fel uppsättning användare tillhandahålls till ett Azure AD Gallery-program](application-provisioning-config-problem-wrong-users-provisioned.md)

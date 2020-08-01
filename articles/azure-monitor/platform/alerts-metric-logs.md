@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: b8e2f580bb21d2f432ce5dcbc3e06c15ba6f380b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7085dd601499004a91fc77a9181f0b097d0b543a
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327216"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446171"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Skapa mått varningar för loggar i Azure Monitor
 
@@ -25,7 +25,7 @@ Du kan använda mått varningar på populära Log Analytics loggar som har extra
 
 - [Prestanda räknare](./data-sources-performance-counters.md) för Windows & Linux-datorer
 - [Pulsslags poster för Agenthälsa](../insights/solution-agenthealth.md)
-- [Uppdatera hanterings](../../automation/automation-update-management.md) poster
+- [Uppdatera hanterings](../../automation/update-management/update-mgmt-overview.md) poster
 - [Händelse data](./data-sources-windows-events.md) loggar
 
 Det finns många fördelar med att använda **mått aviseringar för loggar** över frågor baserade [logg aviseringar](./alerts-log.md) i Azure. en del av dem visas nedan:
@@ -55,7 +55,7 @@ Innan Mät värdet för loggar som samlats in på Log Analytics data fungerar m�
 
 1. **Arbets ytan aktiv Log Analytics**: det måste finnas en giltig och Log Analytics aktiv arbets yta. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../learn/quick-create-workspace.md).
 2. **Agenten har kon figurer ATS för Log Analytics arbets yta**: agenten måste konfigureras för virtuella Azure-datorer (och/eller) lokala virtuella datorer för att skicka data till arbets ytan Log Analytics som används i föregående steg. Mer information finns i [Översikt över Log Analytics-agenten](./agents-overview.md).
-3. **Log Analytics lösningar som stöds är installerade**: Log Analytics lösning bör konfigureras och skicka data till Log Analytics lösningar för arbets ytor som stöds är [prestanda räknare för Windows & Linux](./data-sources-performance-counters.md), [pulsslags poster för agenthälsa](../insights/solution-agenthealth.md), [uppdaterings hantering](../../automation/automation-update-management.md)och [händelse data](./data-sources-windows-events.md).
+3. **Log Analytics lösningar som stöds är installerade**: Log Analytics lösning bör konfigureras och skicka data till Log Analytics lösningar för arbets ytor som stöds är [prestanda räknare för Windows & Linux](./data-sources-performance-counters.md), [pulsslags poster för agenthälsa](../insights/solution-agenthealth.md), [uppdaterings hantering](../../automation/update-management/update-mgmt-overview.md)och [händelse data](./data-sources-windows-events.md).
 4. **Log Analytics lösningar som har kon figurer ATS för att skicka loggar**: Log Analytics lösning ska ha nödvändiga loggar/data som motsvarar [mått som stöds för Log Analytics arbets ytor som](./metrics-supported.md#microsoftoperationalinsightsworkspaces) är aktiverade. Till exempel måste för den *% tillgängliga minnes* räknaren konfigureras i lösningen för [prestanda räknare](./data-sources-performance-counters.md) först.
 
 ## <a name="configuring-metric-alert-for-logs"></a>Konfigurera mått avisering för loggar

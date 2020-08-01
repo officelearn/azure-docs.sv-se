@@ -1,6 +1,6 @@
 ---
 title: Konfigurera Azure MFA NPS-tillägget – Azure Active Directory
-description: När du har installerat NPS-tillägget använder du de här stegen för Avancerad konfiguration som IP-vit listning och UPN-ersättning.
+description: När du har installerat NPS-tillägget använder du de här stegen för Avancerad konfiguration som tillåtna IP-listor och UPN-ersättning.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34d92af88106151e7efba679c53c5b5bd1c07dcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: beaed8a3e23cba90b2afe476b1e993ed1f99dae7
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80653787"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445515"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Avancerade konfigurationsalternativ för NPS-tillägget för multifaktorautentisering
 
@@ -30,7 +30,7 @@ I NPS-tillägget kan du ange ett Active Directory-attribut som ska användas i s
 
 Om du vill konfigurera alternativa inloggnings-ID: n går du till `HKLM\SOFTWARE\Microsoft\AzureMfa` och redigerar följande register värden:
 
-| Name | Typ | Standardvärde | Beskrivning |
+| Namn | Typ | Standardvärde | Beskrivning |
 | ---- | ---- | ------------- | ----------- |
 | LDAP_ALTERNATE_LOGINID_ATTRIBUTE | sträng | Tom | Ange namnet på Active Directory attributet som du vill använda i stället för UPN. Det här attributet används som AlternateLoginId-attribut. Om registervärdet är inställt på ett [giltigt Active Directory-attribut](https://msdn.microsoft.com/library/ms675090.aspx) (till exempel e-post eller DisplayName) används attributets värde i stället för användarens UPN för autentisering. Om registervärdet är tomt eller inte har kon figurer ATS så inaktive ras AlternateLoginId och användarens UPN används för autentisering. |
 | LDAP_FORCE_GLOBAL_CATALOG | boolean | Falskt | Använd den här flaggan om du vill framtvinga användning av global katalog för LDAP-sökningar när du söker efter AlternateLoginId. Konfigurera en domänkontrollant som global katalog, Lägg till attributet AlternateLoginId i den globala katalogen och aktivera sedan den här flaggan. <br><br> Om LDAP_LOOKUP_FORESTS har kon figurer ATS (inte tom) **tillämpas den här flaggan som sant**, oavsett värdet för register inställningen. I det här fallet kräver NPS-tillägget att den globala katalogen konfigureras med attributet AlternateLoginId för varje skog. |
@@ -44,7 +44,7 @@ Om du behöver övervaka Server tillgänglighet, t. ex. om belastnings utjämnin
 
 Om du vill konfigurera en lista över tillåtna IP-adresser går du till `HKLM\SOFTWARE\Microsoft\AzureMfa` och konfigurerar följande register värde:
 
-| Name | Typ | Standardvärde | Beskrivning |
+| Namn | Typ | Standardvärde | Beskrivning |
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | sträng | Tom | Ange en semikolonavgränsad lista med IP-adresser. Inkludera IP-adresserna för datorer där tjänst begär Anden kommer, som NAS/VPN-servern. IP-intervall och undernät stöds inte. <br><br> Till exempel *10.0.0.1; 10.0.0.2; 10.0.0.3*.
 

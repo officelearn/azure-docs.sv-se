@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 69680fbb442b4e636b72f480ed21f36924362a13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4d29979e28140b728478d405db934cb41783f4b0
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024834"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448081"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Översikt över Hybrid Runbook Worker
 
@@ -90,13 +90,13 @@ Azure Automation Hybrid Runbook Worker kan användas i Azure Government för att
 
 ## <a name="update-management-on-hybrid-runbook-worker"></a>Uppdateringshantering på Hybrid Runbook Worker
 
-När Azure Automation [uppdateringshantering](automation-update-management.md) är aktive rad konfigureras alla datorer som är anslutna till din Log Analytics-arbetsyta automatiskt som en hybrid Runbook Worker. Varje arbets tagare kan stödja Runbooks riktade mot hantering av uppdateringar.
+När Azure Automation [uppdateringshantering](update-management/update-mgmt-overview.md) är aktive rad konfigureras alla datorer som är anslutna till din Log Analytics-arbetsyta automatiskt som en hybrid Runbook Worker. Varje arbets tagare kan stödja Runbooks riktade mot hantering av uppdateringar.
 
 En dator som har kon figurer ATS på det här sättet är inte registrerad med Hybrid Runbook Worker grupper som redan har definierats i ditt Automation-konto. Du kan lägga till datorn i en Hybrid Runbook Worker grupp, men du måste använda samma konto för både Uppdateringshantering och Hybrid Runbook Worker grupp medlemskapet. Den här funktionen har lagts till i version 7.2.12024.0 av Hybrid Runbook Worker.
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Uppdateringshantering adresser för Hybrid Runbook Worker
 
-Utöver de standard adresser och portar som krävs för Hybrid Runbook Worker har Uppdateringshantering ytterligare krav på nätverks konfiguration som beskrivs i avsnittet [nätverks planering](automation-update-management.md#ports) .
+Utöver de standard adresser och portar som krävs för Hybrid Runbook Worker har Uppdateringshantering ytterligare krav på nätverks konfiguration som beskrivs i avsnittet [nätverks planering](update-management/update-mgmt-overview.md#ports) .
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Azure Automation tillstånds konfiguration på en Hybrid Runbook Worker
 

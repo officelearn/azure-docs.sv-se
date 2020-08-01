@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: dd5248996661be6d4ace81afd7ab942ab70eb4ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cecea24fe002ee64d54052635a6d7dec982aeee2
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781641"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445650"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planera en distribution med automatisk användaretablering
 
@@ -50,7 +50,7 @@ Azure AD tillhandahåller självbetjänings integrering av alla program med hjä
 
 Du behöver rätt licenser för de program som du vill etablera automatiskt. Diskutera med program ägare om de användare som har tilldelats programmet har rätt licenser för sina program roller. Om Azure AD hanterar automatisk etablering baserat på roller måste rollerna som tilldelats i Azure AD anpassas till program licenser. Felaktiga licenser som ägs i programmet kan leda till fel vid etablering/uppdatering av en användare.
 
-### <a name="terms"></a>Termer
+### <a name="terms"></a>Villkor
 
 I den här artikeln används följande villkor:
 
@@ -256,7 +256,7 @@ Välj de steg som passar dina lösnings krav.
 
 När Azure AD Provisioning-tjänsten körs för första gången skapar den första cykeln mot käll system-och mål systemen en ögonblicks bild av alla användar objekt för varje mål system.
 
-När du aktiverar automatisk etablering för ett program kan den första cykeln ta var som helst från 20 minuter till flera timmar. Varaktigheten beror på storleken på Azure AD-katalogen och antalet användare i omfånget för etablering. Se [hur du kan förbättra etablerings prestanda](../app-provisioning/application-provisioning-when-will-provisioning-finish.md).
+När du aktiverar automatisk etablering för ett program kan den första cykeln ta var som helst från 20 minuter till flera timmar. Varaktigheten beror på storleken på Azure AD-katalogen och antalet användare i omfånget för etablering.
 
 Etablerings tjänsten lagrar tillstånd för båda systemen efter den första cykeln, vilket förbättrar prestandan för efterföljande stegvisa cykler.
 
@@ -292,15 +292,13 @@ Administratörer bör kontrol lera sammanfattnings rapporten för etablering fö
 
 Vi rekommenderar att du förbrukar ägande rätt till och använder dessa rapporter på en takt som uppfyller organisationens krav. Azure AD behåller de flesta gransknings data i 30 dagar.
 
-### <a name="troubleshoot"></a>Felsök
+### <a name="troubleshoot"></a>Felsöka
 
 Se följande länkar för att felsöka eventuella problem som kan uppstå under etableringen:
 
 * [Problem med att konfigurera användar etablering i ett Azure AD Gallery-program](../app-provisioning/application-provisioning-config-problem.md)
 
 * [Synkronisera ett attribut från din lokala Active Directory till Azure AD för etablering till ett program](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
-
-* [Användar etablering i ett Azure AD Gallery-program tar flera timmar eller mer](../app-provisioning/application-provisioning-when-will-provisioning-finish.md)
 
 * [Problem med att spara administratörsautentiseringsuppgifter när du konfigurerar användar etablering till ett Azure Active Directory Galleri program](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 0231070e73c5b38562e8d110d80a2fba3c28724d
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: b0e8de797d66b875b65c1b6b593852707c587e6e
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385491"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446546"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Azures säkerhets bas linje för Virtuella Linux-datorer
 
@@ -628,9 +628,9 @@ Microsoft använder TLS-protokollet (Transport Layer Security) för att skydda d
 
 **Vägledning**: använd Azure uppdateringshantering-lösningen för att hantera uppdateringar och korrigeringar för dina virtuella datorer. Uppdateringshantering är beroende av den lokalt konfigurerade uppdaterings databasen för att korrigera system som stöds.
 
-* [Uppdateringshantering lösning i Azure](../../automation/automation-update-management.md)
+* [Uppdateringshantering lösning i Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](../../automation/automation-tutorial-update-management.md)
+* [Hantera uppdateringar och korrigeringar för dina virtuella datorer](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -640,9 +640,9 @@ Microsoft använder TLS-protokollet (Transport Layer Security) för att skydda d
 
 **Vägledning**: du kan använda en lösning för korrigerings hantering från tredje part. Du kan använda Azure Uppdateringshantering-lösningen för att hantera uppdateringar och korrigeringar för dina virtuella datorer. Uppdateringshantering är beroende av den lokalt konfigurerade uppdaterings databasen för att korrigera system som stöds.
 
-* [Uppdateringshantering lösning i Azure](../../automation/automation-update-management.md)
+* [Uppdateringshantering lösning i Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](../../automation/automation-tutorial-update-management.md)
+* [Hantera uppdateringar och korrigeringar för dina virtuella datorer](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Azure Security Center övervakning**: inte tillgänglig
 

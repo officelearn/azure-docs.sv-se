@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 4eee6aeaff045264c8d23276ac91a83592ddc601
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 297241c5f939ae15fc77b29614b55d9b2bd63c84
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207802"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445911"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Självstudie: skydda Azure-fjärråter givning och modell lagring
 
@@ -22,7 +22,7 @@ I den här guiden får du lära dig att:
 > * Autentisera med Azure AD för att få åtkomst till din Azure Remote rendering-instans
 > * Använd Azure-autentiseringsuppgifter för Azure-fjärrrendering-autentisering
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Den här självstudien bygger på [Självstudier: förfina material, belysning och effekter](..\materials-lighting-effects\materials-lighting-effects.md).
 
@@ -143,7 +143,7 @@ Nu ska vi ändra **RemoteRenderingCoordinator** för att läsa in en anpassad mo
     }
     ```
 
-    Den här koden lägger till tre ytterligare String-variabler i **RemoteRenderingCoordinator** -komponenten. \
+    Den här koden lägger till tre ytterligare String-variabler i **RemoteRenderingCoordinator** -komponenten.
     ![Länkad modell](./media/storage-account-linked-model.png)
 
 1. Lägg till dina värden i **RemoteRenderingCoordinator** -komponenten. När du har följt [snabb starten för modell konverteringen](../../../quickstarts/convert-model.md)ska värdena vara:
@@ -156,7 +156,7 @@ Nu ska vi ändra **RemoteRenderingCoordinator** för att läsa in en anpassad mo
     > Om du [kör **Conversion.ps1** ](../../../quickstarts/convert-model.md#run-the-conversion) skriptet, utan argumentet "-UseContainerSas", kommer skriptet att mata ut alla ovanstående värden för din i stället för SAS-token. ![Länkad modell](./media/converted-output.png)
 1. För tiden tar du bort eller inaktiverar GameObject- **TestModel**för att göra plats för din anpassade modell att läsa in.
 1. Spela upp scenen och Anslut till en fjärran sluten session.
-1. Högerklicka på din **RemoteRenderingCoordinator** och välj **Läs in länkad anpassad modell**. \
+1. Högerklicka på din **RemoteRenderingCoordinator** och välj **Läs in länkad anpassad modell**.
     ![Läs in länkad modell](./media/load-linked-model.png)
 
 De här stegen har ökat säkerheten för programmet genom att ta bort SAS-token från det lokala programmet.
@@ -176,16 +176,13 @@ Med AAD-autentisering kan du avgöra vilka individer eller grupper som använder
 1. Följ anvisningarna för [att: Konfigurera autentisering-autentisering för distribuerade program](../../../how-tos/authentication.md#authentication-for-deployed-applications), i synnerhet du följer anvisningarna i dokumentationen för Azures ankare i Azure [AD User Authentication](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication). Det innebär att registrera ett nytt Azure Active Directory program och konfigurera åtkomst till din ARR-instans.
 1. När du har konfigurerat det nya AAD-programmet kontrollerar du att AAD-programmet ser ut som följande bilder:
 
-    **AAD-program – > autentisering**\
-    ![Appautentisering](./media/app-authentication-public.png)
+    **AAD-program – > autentisering** ![ App-autentisering](./media/app-authentication-public.png)
 
-    **AAD-program – > API-behörigheter**\
-    ![App-API: er](./media/request-api-permissions-step-five.png)
+    **AAD-program – > API-behörigheter** ![ App-API: er](./media/request-api-permissions-step-five.png)
 
 1. När du har konfigurerat ditt konto för fjärrrendering kontrollerar du att konfigurationen ser ut som på följande bild:
 
-    **AAR-> AccessControl (IAM)**\
-    ![ARR-roll](./media/azure-remote-rendering-role-assignment-complete.png)
+    **AAR-> AccessControl (IAM)** ![ ARR-roll](./media/azure-remote-rendering-role-assignment-complete.png)
 
     >[!NOTE]
     > En *ägar* roll är inte tillräcklig för att hantera sessioner via klient programmet. För varje användare som du vill ge möjlighet att hantera sessioner måste du tillhandahålla rollen **Remote rendering-klient**. För varje användare som du vill hantera sessioner och konvertera modeller måste du ange rollen som **administratör för Fjärrrendering**.
@@ -356,10 +353,8 @@ När AAD-autentisering är aktiv i Unity-redigeraren måste du autentisera varje
 
 1. Tryck på Play i Unity-redigeraren och medgivande till att köra en session.
     Eftersom **AADAuthentication** -komponenten har en Visa kontrollant, kopplas den automatiskt för att visa en prompt efter den modala panel som har behörighet för sessionen.
-1. Följ anvisningarna som finns i panelen till höger om **AppMenu**. \
-    Du bör se något som liknar detta: \
-    ![AAD auth-komponent](./media/device-flow-instructions.png)\
-    När du har angett den angivna koden på den sekundära enheten (eller webbläsaren på samma enhet) och logga in med dina autentiseringsuppgifter, returneras en åtkomsttoken till det begär ande programmet, i det här fallet Unit-redigeraren.
+1. Följ anvisningarna som finns i panelen till höger om **AppMenu**.
+    Du bör se något som liknar detta: ![ AAD auth-komponenten ](./media/device-flow-instructions.png) när du har angett den angivna koden på den sekundära enheten (eller webbläsaren på samma enhet) och loggat in med dina autentiseringsuppgifter, så returneras en åtkomsttoken till det begär ande programmet, i det här fallet Unit-redigeraren.
 1. Efter den här punkten bör allt i programmet fortsätta normalt. Kontrol lera om det finns fel i enhets konsolen om du inte går igenom stegen som förväntat.
 
 ## <a name="build-to-device"></a>Bygg till enhet

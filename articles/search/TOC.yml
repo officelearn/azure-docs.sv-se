@@ -110,6 +110,11 @@
           href: knowledge-store-projection-overview.md
         - name: Inkrementellt berikande
           href: cognitive-search-incremental-indexing-conceptual.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetskontroller av Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
 - name: Anvisningar
   items:
     - name: Skapa index och konstruktioner

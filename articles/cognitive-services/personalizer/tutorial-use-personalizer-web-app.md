@@ -3,12 +3,12 @@ title: Använda Web App-personanpassar
 description: Anpassa en C# .NET-webbapp med en personanpassa-slinga för att ge rätt innehåll till en användare baserat på åtgärder (med funktioner) och kontext funktioner.
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: b8b5c005f7003f9b0d9ac228c5a5961c80c85599
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 6e3373ef8ace401ff40b3d48026fc46b96f1ad79
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133137"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446362"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Självstudie: Lägg till en Personanpassare till en .NET-webbapp
 
@@ -41,7 +41,7 @@ I den här självstudien är åtgärderna typer av livsmedel:
 * kaffe
 * soppor
 
-För att hjälpa personanpassa att lära sig mer om dina åtgärder, skicka båda _-_åtgärder med funktioner_ och _kontext funktioner_ med varje rang-API-begäran.
+För att hjälpa personanpassa att lära sig mer om dina åtgärder, skicka båda _åtgärderna med funktioner_ och _kontext funktioner_ med varje rang-API-begäran.
 
 En **funktion** i modellen är information om den åtgärd eller kontext som kan aggregeras (grupperas) över medlemmar i din webbapp användar bas. En funktion _är inte_ individuellt angiven (t. ex. ett användar-ID) eller mycket särskilt (till exempel en exakt tid på dagen).
 

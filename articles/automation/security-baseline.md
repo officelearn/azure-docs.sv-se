@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 3b86c249630f7bfa5c2d319577c66d750b0f6268
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 948ada46085d83c8cf453cdde23cb407ea2dd2d8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045903"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447702"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Azures säkerhets bas linje för Automation
 
@@ -220,7 +220,7 @@ Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en
 
 * [Regioner som stöder länkade Log Analytics-arbetsytor](./how-to/region-mappings.md)
 
-* [Fråga Uppdateringshantering loggar](./automation-update-management-query-logs.md)
+* [Fråga Uppdateringshantering loggar](./update-management/update-mgmt-query-logs.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -646,9 +646,9 @@ När du använder hybrid Runbook-arbetare, krypteras de virtuella diskarna på d
 
 Om du använder hybrid Runbook Worker som backas upp av virtuella Azure-datorer kan du använda Azure Uppdateringshantering för att hantera uppdateringar och korrigeringar för dina virtuella datorer. Uppdateringshantering använder den lokalt konfigurerade uppdaterings databasen för att korrigera Windows-system som stöds. Med verktyg som System Center Updates Publisher (Updates Publisher) kan du publicera anpassade uppdateringar i Windows Server Update Services (WSUS). Med det här scenariot kan Uppdateringshantering korrigera datorer som använder Configuration Manager som sitt uppdaterings lager med program vara från tredje part.
 
-* [Uppdateringshantering i Azure](./automation-update-management.md)
+* [Uppdateringshantering i Azure](./update-management/update-mgmt-overview.md)
 
-* [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](./automation-tutorial-update-management.md)
+* [Hantera uppdateringar och korrigeringar för dina virtuella datorer](./update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -660,9 +660,9 @@ Om du använder hybrid Runbook Worker som backas upp av virtuella Azure-datorer 
 
 Om du använder hybrid Runbook Worker som backas upp av virtuella Azure-datorer kan du använda Azure Uppdateringshantering för att hantera uppdateringar och korrigeringar för dina virtuella datorer. Uppdateringshantering använder den lokalt konfigurerade uppdaterings databasen för att korrigera Windows-system som stöds. Med verktyg som System Center Updates Publisher (Updates Publisher) kan du publicera anpassade uppdateringar i Windows Server Update Services (WSUS). Med det här scenariot kan Uppdateringshantering korrigera datorer som använder Configuration Manager som sitt uppdaterings lager med program vara från tredje part.
 
-* [Uppdateringshantering lösning i Azure](./automation-update-management.md)
+* [Uppdateringshantering lösning i Azure](./update-management/update-mgmt-overview.md)
 
-* [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](./automation-tutorial-update-management.md)
+* [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](./update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

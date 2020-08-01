@@ -7,13 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 07/16/2020
-ms.openlocfilehash: c0a397ac71c7c466145357093b6c22f78e627d1c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/29/2020
+ms.custom: generated
+ms.openlocfilehash: edf0d0085a8f1f9446e9c699c15b1eebb0a2d004
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511593"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448891"
 ---
 # <a name="azure-built-in-roles"></a>Inbyggda roller i Azure
 
@@ -180,6 +181,7 @@ Följande tabell innehåller en kort beskrivning och det unika ID: t för varje 
 > | [Cost Management deltagare](#cost-management-contributor) | Kan visa kostnader och hantera kostnads konfiguration (t. ex. budgetar, exporter) | 434105ed-43f6-45c7-a02f-909b2ba83430 |
 > | [Cost Management läsare](#cost-management-reader) | Kan visa kostnads data och konfiguration (t. ex. budgetar, exporter) | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
 > | [Administratör för hierarkiska inställningar](#hierarchy-settings-administrator) | Tillåter användare att redigera och ta bort inställningar för hierarki | 350f8d15-c687-4448-8ae1-157740a3936d |
+> | [Kubernetes-kluster – Azure Arc onboarding](#kubernetes-cluster---azure-arc-onboarding) | Roll definition som tillåter att en användare/tjänst skapar connectedClusters-resurs | 34e09817-6cbe-4d01-b1a2-e0eac5743d41 |
 > | [Rollen hanterad program deltagare](#managed-application-contributor-role) | Gör det möjligt att skapa hanterade program resurser. | 641177b8-a67a-45b9-a033-47bc880bb21e |
 > | [Rollen hanterad program operatör](#managed-application-operator-role) | Gör att du kan läsa och utföra åtgärder på hanterade program resurser | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | [Läsare för hanterade program](#managed-applications-reader) | Låter dig läsa resurser i en hanterad app och begära JIT-åtkomst. | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
@@ -3097,7 +3099,7 @@ Visa lista över autentiseringsuppgifter för kluster användare. [Läs mer](../
 
 ### <a name="azure-kubernetes-service-contributor-role"></a>Rollen Azure Kubernetes service Contributor
 
-Ger åtkomst till läsa och skriva Azure Kubernetes service-kluster
+Ger åtkomst till läsa och skriva Azure Kubernetes service-kluster [Läs mer](../aks/concepts-identity.md)
 
 > [!div class="mx-tableFixed"]
 > | Åtgärder | Beskrivning |
@@ -3140,7 +3142,7 @@ Ger åtkomst till läsa och skriva Azure Kubernetes service-kluster
 
 ### <a name="azure-kubernetes-service-rbac-admin"></a>RBAC-administratör för Azure Kubernetes-tjänsten
 
-Gör att du kan hantera alla resurser under kluster/namn område, förutom att uppdatera eller ta bort resurs kvoter och namn områden. [Läs mer](../aks/concepts-identity.md)
+Gör att du kan hantera alla resurser under kluster/namn område, förutom att uppdatera eller ta bort resurs kvoter och namn områden. [Läs mer](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Åtgärder | Beskrivning |
@@ -3203,7 +3205,7 @@ Gör att du kan hantera alla resurser under kluster/namn område, förutom att u
 
 ### <a name="azure-kubernetes-service-rbac-cluster-admin"></a>Azure Kubernetes service RBAC-kluster administratör
 
-Gör att du kan hantera alla resurser i klustret. [Läs mer](../aks/concepts-identity.md)
+Gör att du kan hantera alla resurser i klustret. [Läs mer](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Åtgärder | Beskrivning |
@@ -3258,7 +3260,7 @@ Gör att du kan hantera alla resurser i klustret. [Läs mer](../aks/concepts-ide
 
 ### <a name="azure-kubernetes-service-rbac-reader"></a>RBAC-läsare för Azure Kubernetes service
 
-Gör att du kan visa alla resurser i kluster/namn område, förutom hemligheter. [Läs mer](../aks/concepts-identity.md)
+Gör att du kan visa alla resurser i kluster/namn område, förutom hemligheter. [Läs mer](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Åtgärder | Beskrivning |
@@ -3319,7 +3321,7 @@ Gör att du kan visa alla resurser i kluster/namn område, förutom hemligheter.
 
 ### <a name="azure-kubernetes-service-rbac-writer"></a>RBAC-skrivare för Azure Kubernetes service
 
-Låter dig uppdatera allt i kluster/namn område, förutom resurs kvoter, namn områden, Pod säkerhets principer, certifikat signerings begär Anden, (kluster) roller och roll bindningar (kluster). [Läs mer](../aks/concepts-identity.md)
+Låter dig uppdatera allt i kluster/namn område, förutom resurs kvoter, namn områden, Pod säkerhets principer, certifikat signerings begär Anden, (kluster) roller och roll bindningar (kluster). [Läs mer](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Åtgärder | Beskrivning |
@@ -4058,7 +4060,7 @@ Gör att du kan hantera SQL-servrar och databaser, men inte åtkomst till dem oc
 }
 ```
 
-## <a name="analytics"></a>Analys
+## <a name="analytics"></a>Analytics
 
 
 ### <a name="azure-event-hubs-data-owner"></a>Azure Event Hubs data ägare
@@ -6486,12 +6488,12 @@ Visa behörigheter för Security Center. Kan visa rekommendationer, aviseringar,
 > | Åtgärder | Beskrivning |
 > | --- | --- |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Läs roller och roll tilldelningar |
-> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Skapa och hantera en klassisk måtta avisering |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)-/alertRules/Read | Läs en klassisk måtta avisering |
 > | [Microsoft. operationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/*/Read | Visa Log Analytics-data |
-> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Skapa och hantera en distribution |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/*/Read |  |
 > | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)-/Subscriptions/resourceGroups/Read | Hämtar eller listar resurs grupper. |
 > | [Microsoft. Security](resource-provider-operations.md#microsoftsecurity)/*/Read | Läsa säkerhets komponenter och principer |
-> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Skapa och uppdatera ett support ärende |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/*/Read |  |
 > | [Microsoft. Management](resource-provider-operations.md#microsoftmanagement)-/managementGroups/Read | Visa en lista med hanterings grupper för den autentiserade användaren. |
 > | **NotActions** |  |
 > | *inget* |  |
@@ -6512,12 +6514,12 @@ Visa behörigheter för Security Center. Kan visa rekommendationer, aviseringar,
     {
       "actions": [
         "Microsoft.Authorization/*/read",
-        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/alertRules/read",
         "Microsoft.operationalInsights/workspaces/*/read",
-        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/*/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Security/*/read",
-        "Microsoft.Support/*",
+        "Microsoft.Support/*/read",
         "Microsoft.Management/managementGroups/read"
       ],
       "notActions": [],
@@ -7646,6 +7648,61 @@ Tillåter användare att redigera och ta bort inställningar för hierarki
 }
 ```
 
+### <a name="kubernetes-cluster---azure-arc-onboarding"></a>Kubernetes-kluster – Azure Arc onboarding
+
+Roll definition som tillåter att alla användare/tjänster skapar connectedClusters-resurs [Läs mer](../azure-arc/kubernetes/connect-cluster.md)
+
+> [!div class="mx-tableFixed"]
+> | Åtgärder | Beskrivning |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Läs roller och roll tilldelningar |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Skapa och hantera en klassisk måtta avisering |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)-/Deployments/Write | Skapar eller uppdaterar en distribution. |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)-/Subscriptions/operationresults/Read | Hämta prenumerations åtgärds resultatet. |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)-/Subscriptions/Read | Hämtar listan över prenumerationer. |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)-/Subscriptions/resourceGroups/Read | Hämtar eller listar resurs grupper. |
+> | [Microsoft. Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/Write | Skriver connectedClusters |
+> | [Microsoft. Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/Read | Läs connectedClusters |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Skapa och uppdatera ett support ärende |
+> | **NotActions** |  |
+> | *inget* |  |
+> | **DataActions** |  |
+> | *inget* |  |
+> | **NotDataActions** |  |
+> | *inget* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Role definition to authorize any user/service to create connectedClusters resource",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/34e09817-6cbe-4d01-b1a2-e0eac5743d41",
+  "name": "34e09817-6cbe-4d01-b1a2-e0eac5743d41",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Kubernetes/connectedClusters/Write",
+        "Microsoft.Kubernetes/connectedClusters/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Kubernetes Cluster - Azure Arc Onboarding",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="managed-application-contributor-role"></a>Rollen hanterad program deltagare
 
 Gör det möjligt att skapa hanterade program resurser.
@@ -8500,7 +8557,7 @@ Låter dig hantera Taggar i entiteter utan att ge åtkomst till själva entitete
 }
 ```
 
-## <a name="other"></a>Annat
+## <a name="other"></a>Övrigt
 
 
 ### <a name="biztalk-contributor"></a>BizTalk-deltagare

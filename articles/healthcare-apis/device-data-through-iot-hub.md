@@ -8,18 +8,18 @@ ms.subservice: iomt
 ms.topic: tutorial
 ms.date: 06/27/2020
 ms.author: punagpal
-ms.openlocfilehash: aeed0c90eeecd59e23a1d87a3ebc1e1a836a84ec
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: d606cd4f5c4b901c060c97d73524997b94eaf225
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116842"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446288"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Självstudie: ta emot enhets data via Azure IoT Hub
 
 IoT Connector ger dig möjlighet att mata in data från IoMT-enheter (Internet of Medicine saker) till Azure API för FHIR. [Deploy IoT Connector (för hands version) med Azure Portal](iot-fhir-portal-quickstart.md) snabb start visade ett exempel på en enhet som hanteras av Azure IoT Central [Skicka telemetri](iot-fhir-portal-quickstart.md#connect-your-devices-to-iot) till IoT Connector. IoT Connector kan också arbeta med enheter som tillhandahålls och hanteras via Azure IoT Hub. Den här självstudien visar hur du ansluter och dirigerar enhets data från Azure IoT Hub till IoT Connector.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En aktiv Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Azure API för FHIR-resurs med minst en IoT-koppling – [distribuera IoT Connector (för hands version) med Azure Portal](iot-fhir-portal-quickstart.md)
@@ -51,7 +51,7 @@ Här är listan över parametrar som ska användas med kommandot för att skapa 
 |PowerShell-parameter|CLI-parameter|Beskrivning|
 |---|---|---|
 |ResourceGroupName|resource-group|Resurs grupps namnet för din IoT Hub-resurs.|
-|Namn|hubb-namn|Namnet på din IoT Hub-resurs.|
+|Name|hubb-namn|Namnet på din IoT Hub-resurs.|
 |EndpointName|slut punkt-namn|Använd ett namn som du vill tilldela till slut punkten som skapas.|
 |EndpointType|slut punkt-typ|Typ av slut punkt som IoT Hub måste ansluta till. Använd literal-värdet "EventHub" för PowerShell och "eventhub" för CLI.|
 |EndpointResourceGroup|slut punkt-resurs grupp|Resurs grupps namn för din IoT Connectors Azure API för FHIR-resurs. Du kan hämta det här värdet från översikts sidan för Azure API för FHIR.|
@@ -66,7 +66,7 @@ Här är listan över parametrar som ska användas med kommandot för att skapa 
 |PowerShell-parameter|CLI-parameter|Beskrivning|
 |---|---|---|
 |ResourceGroupName|g|Resurs grupps namnet för din IoT Hub-resurs.|
-|Namn|hubb-namn|Namnet på din IoT Hub-resurs.|
+|Name|hubb-namn|Namnet på din IoT Hub-resurs.|
 |EndpointName|slut punkt-namn|Namnet på den slut punkt som du har skapat ovan.|
 |RouteName|flödes namn|Ett namn som du vill tilldela till den meddelande väg som skapas.|
 |Källa|typ av källa|Typ av data som ska skickas till slut punkten. Använd litteralt värde för "DeviceMessages" för PowerShell och "DeviceMessages" för CLI.|
@@ -96,7 +96,7 @@ Använd din enhet (verklig eller simulerad) om du vill skicka ett exempel på et
 Du kan visa de FHIR observations resurser som skapats av IoT Connector på Azure API för FHIR med Postman. Konfigurera din [Postman för att få åtkomst till Azure API för FHIR](access-fhir-postman-tutorial.md) och gör en `GET` begäran till `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` att Visa observations FHIR resurser med ett hjärta pris värde som skickats i ovanstående exempel meddelande.
 
 > [!TIP]
-> Se till att användaren har rätt åtkomst till Azure API för FHIR-dataplan. Använd [Azure Role Based Access Control](configure-azure-rbac.md) för att tilldela nödvändiga data Plans roller.
+> Se till att användaren har rätt åtkomst till Azure API för FHIR-dataplan. Använd [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](configure-azure-rbac.md) för att tilldela nödvändiga data Plans roller.
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -114,4 +114,3 @@ Lär dig hur du konfigurerar IoT Connector med hjälp av mallar för enhets-och 
 >[Mallar för mappning i IoT-anslutningsprogram](iot-mapping-templates.md)
 
 FHIR är ett registrerat varumärke som tillhör HL7 och används med tillåtelse av HL7.
-

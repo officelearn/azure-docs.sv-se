@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: mihansen
 author: hansenms
 ms.date: 02/07/2019
-ms.openlocfilehash: 684f85042fd09c14621801ec017fea0e632f2598
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: f6c3b1f4c24ad2bce68c1cff7b22f0059d3534a2
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "84872679"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446064"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Få åtkomst till Azure API för FHIR med Postman
 
@@ -69,7 +69,7 @@ Du behöver lite information:
 | Auth URL (Auktoriseringswebbadress)              | `https://login.microsoftonline.com/{TENANT-ID}/oauth2/authorize?resource=<audience>` | `audience`är `https://MYACCOUNT.azurehealthcareapis.com` för Azure API för FHIR |
 | Access Token URL (Webbadress för åtkomsttoken)      | `https://login.microsoftonline.com/{TENANT ID}/oauth2/token`                                                      |                            |
 | Klient-ID             | `XXXXXXXX-XXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                            | Program-ID             |
-| Klienthemlighet         | `XXXXXXXX`                                                                                                        | Hemlig klient nyckel          |
+| Client Secret (Klienthemlighet)         | `XXXXXXXX`                                                                                                        | Hemlig klient nyckel          |
 | Omfång | `<Leave Blank>` |
 | Status                 | `1234`                                                                                                            |                            |
 | Klientautentisering | Skicka klientautentiseringsuppgifter i brödtext                                                                                 |                 
@@ -108,7 +108,7 @@ Om du inspekterar åtkomsttoken med ett verktyg som [https://jwt.ms](https://jwt
 }
 ```
 
-I fel söknings situationer kontrollerar du att du har rätt mål grupp ( `aud` anspråk) och är en bra plats att starta. Om din token kommer från rätt utfärdare ( `iss` anspråk) och har rätt mål grupp ( `aud` anspråk), men du fortfarande inte har åtkomst till FHIR-API: et, är det troligt att användaren eller tjänstens huvud namn ( `oid` anspråk) inte har åtkomst till FHIR-dataplanen. Vi rekommenderar att du [använder Azure Role-baserade Access Control](configure-azure-rbac.md) för att tilldela data Plans roller till användare. Om du använder en extern, sekundär Azure Active Directory-klient för ditt data plan måste du [Konfigurera lokala RBAC-tilldelningar](configure-local-rbac.md).
+I fel söknings situationer kontrollerar du att du har rätt mål grupp ( `aud` anspråk) och är en bra plats att starta. Om din token kommer från rätt utfärdare ( `iss` anspråk) och har rätt mål grupp ( `aud` anspråk), men du fortfarande inte har åtkomst till FHIR-API: et, är det troligt att användaren eller tjänstens huvud namn ( `oid` anspråk) inte har åtkomst till FHIR-dataplanen. Vi rekommenderar att du [använder rollbaserad åtkomst kontroll i Azure (Azure RBAC)](configure-azure-rbac.md) för att tilldela användare data plan roller. Om du använder en extern, sekundär Azure Active Directory-klient för ditt data plan måste du [Konfigurera lokala RBAC-tilldelningar](configure-local-rbac.md).
 
 Det är också möjligt att [Hämta en token för Azure API för FHIR med hjälp av Azure CLI](get-healthcare-apis-access-token-cli.md). Om du använder en token som hämtats med Azure CLI bör du använda autentiseringstypen "Bearer token" och klistra in token direkt.
 

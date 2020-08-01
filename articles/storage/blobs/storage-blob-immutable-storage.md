@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 69c921ba67159d28a913173cee5e90fb04dcbf0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54014a0d76130b82788a1ae432e42baec28df2c2
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561046"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448336"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Lagra affärs kritiska BLOB-data med oföränderlig lagring
 
@@ -76,9 +76,9 @@ Följande begränsningar gäller för bevarande principer:
 
 ### <a name="allow-protected-append-blobs-writes"></a>Tillåt att skyddade bifogade blobbar skrivs
 
-Tillägg av blobar består av data block och är optimerade för data tilläggs åtgärder som krävs av gransknings-och loggnings scenarier. Genom att lägga till blobar tillåts du bara lägga till nya block till slutet av blobben. Oavsett oföränderlighets, är det grundläggande inte tillåtet att ändra eller ta bort befintliga block i en tilläggs-blob. Mer information om hur du lägger till blobar finns i avsnittet [om att lägga till blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
+Tillägg av blobar består av data block och optimerade för data tilläggs åtgärder som krävs av gransknings-och loggnings scenarier. Genom att lägga till blobar tillåts du bara lägga till nya block till slutet av blobben. Oavsett oföränderlighets, är det grundläggande inte tillåtet att ändra eller ta bort befintliga block i en tilläggs-blob. Mer information om hur du lägger till blobar finns i avsnittet [om att lägga till blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
-Endast tidsbaserade bevarande principer har en `allowProtectedAppendWrites` inställning som gör det möjligt att skriva nya block till en append-BLOB samtidigt som oföränderlighets skydd och efterlevnad upprätthålls. Om aktive rad, kan du skapa en tilläggs-BLOB direkt i den skyddade behållaren och fortsätta att lägga till nya data block i slutet av befintliga tilläggs-blobar med hjälp av *AppendBlock* -API: et. Det går bara att lägga till nya block och befintliga block kan inte ändras eller tas bort. Oföränderlighets-skydd för tids kvarhållning gäller fortfarande, vilket förhindrar borttagning av tilläggs-bloben tills den gällande kvarhållningsperioden har förflutit. Aktivering av den här inställningen påverkar inte oföränderlighets beteendet för block-blobbar eller Page blobbar.
+Endast tidsbaserade bevarande principer har en `allowProtectedAppendWrites` inställning som gör det möjligt att skriva nya block till en append-BLOB samtidigt som oföränderlighets skydd och efterlevnad upprätthålls. Om den här inställningen är aktive rad, kan du skapa en tilläggs-BLOB direkt i den skyddade behållaren och fortsätta att lägga till nya data block i slutet av befintliga tilläggs-blobar med hjälp av *AppendBlock* -API: et. Det går bara att lägga till nya block och befintliga block kan inte ändras eller tas bort. Oföränderlighets-skydd för tids kvarhållning gäller fortfarande, vilket förhindrar borttagning av tilläggs-bloben tills den gällande kvarhållningsperioden har förflutit. Aktivering av den här inställningen påverkar inte oföränderlighets beteendet för block-blobbar eller Page blobbar.
 
 Eftersom den här inställningen är en del av en tidsbaserad bevarande princip stannar de bifogade Blobbarna kvar i det oföränderliga läget för varaktigheten för den *gällande* kvarhållningsperioden. Eftersom nya data kan läggas till utöver den inledande skapandet av tilläggs-bloben, finns det en liten skillnad i hur kvarhållningsperioden fastställs. Den effektiva kvarhållning är skillnaden mellan bifogad blobs **senaste ändrings tid** och det användardefinierade kvarhållningsintervall. På samma sätt som kvarhållningsintervallet är utökad använder oföränderlig lagring det senaste värdet för det användardefinierade kvarhållningsintervallet för att beräkna den effektiva kvarhållningsperioden.
 
@@ -88,7 +88,7 @@ Vid låsning av tidsbaserade tidsbaserade bevarande principer kan `allowProtecte
 
 Juridiska undantags principer kan inte aktive ras `allowProtectedAppendWrites` och alla juridiska undantag kommer att upphäver egenskapen "allowProtectedAppendWrites". Om ett juridiskt undantag tillämpas på en tidsbaserad bevarande princip som `allowProtectedAppendWrites` är aktive rad, Miss *AppendBlock* API: et tills det juridiska undantaget lyfts upp.
 
-## <a name="legal-holds"></a>Bevarande av juridiska skäl
+## <a name="legal-holds"></a>Kvarhållning av juridiska skäl
 
 Juridiska undantag är temporära undantag som kan användas för juridisk undersökning eller allmänna skydds principer. Varje princip för juridiskt bevarande måste associeras med en eller flera taggar. Taggar används som en namngiven identifierare, t. ex. ett ärende-ID eller en händelse, för att kategorisera och beskriva syftet med undantagen.
 

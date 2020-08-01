@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f9bfd601642ff9d6b5b5c5a1c2c508d1821e19c7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 64798e22a893c87a17e3f17077860537c7694c40
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042188"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448204"
 ---
 # <a name="use-an-app-service-environment"></a>Använd App Service Environment
 
@@ -126,15 +126,15 @@ När du använder en extern ASE registreras appar i dina ASE med Azure DNS. Det 
 
 Så här konfigurerar du DNS på din egen DNS-server med din ILB-ASE:
 
-1. skapa en zon för <ASE name> . appserviceenvironment.net
+1. skapa en zon för &lt; ASE name &gt; . appserviceenvironment.net
 1. skapa en A-post i den zonen som pekar på ILB IP-adress
 1. skapa en A-post i den zonen som pekar @ på ILB IP-adress
-1. skapa en zon i <ASE name> . appserviceenvironment.net med namnet SCM
+1. skapa en zon i &lt; ASE name &gt; . appserviceenvironment.net med namnet SCM
 1. skapa en A-post i SCM-zonen som pekar på ILB IP-adress
 
 Så här konfigurerar du DNS i Azure DNS privata zoner:
 
-1. skapa en Azure DNS privat zon med namnet <ASE name> . appserviceenvironment.net
+1. skapa en Azure DNS privat zon med namnet &lt; ASE name &gt; . appserviceenvironment.net
 1. skapa en A-post i den zonen som pekar på ILB IP-adress
 1. skapa en A-post i den zonen som pekar @ på ILB IP-adress
 1. skapa en A-post i den zonen som pekar *. scm till ILB-IP-adressen

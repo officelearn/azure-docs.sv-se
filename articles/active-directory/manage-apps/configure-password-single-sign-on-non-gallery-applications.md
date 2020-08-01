@@ -10,36 +10,36 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: c3f9f96c6429d4925c60a56cd450a9c2ee7dde24
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 1193e6f9ed637f6bd28b2fef6488b2d4902ec67b
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419962"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87459393"
 ---
 # <a name="configure-password-based-single-sign-on"></a>Konfigurera lösenordsbaserad enkel inloggning
 
-I [snabb starts serien](view-applications-portal.md) för program hantering har du lärt dig hur du använder Azure AD som identitets leverantör (IdP) för ett program. I snabb start guiden ställer du in SAML-baserad SSO. Förutom SAML finns det ett alternativ för lösenordsbaserad SSO. Den här artikeln beskriver det lösen ordsbaserade alternativet för enkel inloggning. 
+I [snabb starts serien](view-applications-portal.md) för program hantering har du lärt dig hur du använder Azure AD som identitets leverantör (IdP) för ett program. I snabb start guiden ställer du in SAML-baserad SSO. Ett annat alternativ är lösenordsbaserad SSO. Den här artikeln går till mer information om det lösenordsbaserade SSO-alternativet. 
 
-Det här alternativet är tillgängligt för alla webbplatser med en HTML-inloggnings sida. Lösenordsbaserad SSO, som även kallas lösen ords valv, gör att du kan hantera användar åtkomst och lösen ord för webb program som inte stöder identitets Federation. Det är också användbart för scenarier där flera användare behöver dela ett enda konto, t. ex. till din organisations konton för sociala media. 
+Det här alternativet är tillgängligt för alla webbplatser med en HTML-inloggnings sida. Lösenordsbaserad SSO kallas även för lösen ords valv. Med lösenordsbaserad SSO kan du hantera användar åtkomst och lösen ord för webb program som inte har stöd för identitets Federation. Det är också användbart där flera användare behöver dela ett enda konto, t. ex. till din organisations konton för sociala media.
 
 Lösenordsbaserad SSO är ett bra sätt att komma igång med att integrera program i Azure AD snabbt och gör att du kan:
 
-- Aktivera enkel inloggning för dina användare genom säker lagring och uppspelning av användar namn och lösen ord för det program som du har integrerat med Azure AD
+- Aktivera enkel inloggning för dina användare genom säker lagring och omuppspelning av användar namn och lösen ord
 
 - Stöd för program som kräver flera inloggnings fält för program som kräver mer än bara användar namn och lösen ords fält för att logga in
 
-- Anpassa etiketterna för fälten användar namn och lösen ord indatatyper som användarna ser på [program åtkomst panelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) när de anger sina autentiseringsuppgifter
+- Anpassa etiketterna för fälten användar namn och lösen ord som användarna ser på [program åtkomst panelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) när de anger sina autentiseringsuppgifter
 
-- Tillåt att användarna anger sina egna användar namn och lösen ord för befintliga program konton som de skriver i manuellt.
+- Tillåt användarna att ange sina egna användar namn och lösen ord för alla befintliga program konton som de skriver i manuellt.
 
 - Tillåt en medlem i företags gruppen att ange användar namn och lösen ord som tilldelats en användare med hjälp av funktionen för [självbetjänings åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
 
--   Tillåt en administratör att ange ett användar namn och lösen ord som ska användas av personer eller grupper vid inloggning till programmet med hjälp av funktionen uppdatera autentiseringsuppgifter 
+-   Tillåt en administratör att ange ett användar namn och lösen ord som ska användas av personer eller grupper när de loggar in i programmet med funktionen uppdatera autentiseringsuppgifter 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Att använda Azure AD som identitets leverantör och konfigurera enkel inloggning (SSO) kan vara enkelt eller komplext beroende på vilket program som används. Vissa program kan konfigureras med bara några få åtgärder. Andra kräver djupgående konfiguration. Kom igång snabbt genom att gå igenom [snabb starts serien](view-applications-portal.md) för program hantering. Om det program som du lägger till är enkelt, behöver du förmodligen inte läsa den här artikeln. Om programmet som du lägger till kräver anpassad konfiguration och du behöver använda lösenordsbaserad SSO, är den här artikeln för dig.
+Att använda Azure AD som identitets leverantör (IdP) och konfigurera enkel inloggning (SSO) kan vara enkelt eller komplext beroende på vilket program som används. Vissa program kan konfigureras med bara några få åtgärder. Andra kräver djupgående konfiguration. Kom igång snabbt genom att gå igenom [snabb starts serien](view-applications-portal.md) för program hantering. Om det program som du lägger till är enkelt, behöver du förmodligen inte läsa den här artikeln. Om programmet som du lägger till kräver anpassad konfiguration och du behöver använda lösenordsbaserad SSO, är den här artikeln för dig.
 
 > [!IMPORTANT] 
 > Det finns vissa scenarier där alternativet för **enkel inloggning** inte kommer att ingå i navigeringen för ett program i **företags program**. 
@@ -51,13 +51,13 @@ Att använda Azure AD som identitets leverantör och konfigurera enkel inloggnin
 
 ## <a name="basic-configuration"></a>Grundläggande konfiguration
 
-I [snabb starts serien](view-applications-portal.md)har du lärt dig hur du lägger till en app till din klient organisation så att Azure AD vet att den används som identitets leverantör (IdP) för appen. Vissa appar är redan förkonfigurerade och visas i Azure AD-galleriet. Andra appar finns inte i galleriet och du måste skapa en allmän app och konfigurera den manuellt. Beroende på appen kanske det lösen ordsbaserade SSO-alternativet inte är tillgängligt. Om du inte ser den lösenordsbaserade alternativ listan på sidan för enkel inloggning för appen, är den inte tillgänglig.
+I [snabb starts serien](view-applications-portal.md)har du lärt dig hur du lägger till en app till din klient, vilket gör att Azure AD vet att den används som identitets leverantör (IdP) för appen. Vissa appar är redan förkonfigurerade och visas i Azure AD-galleriet. Andra appar finns inte i galleriet och du måste skapa en allmän app och konfigurera den manuellt. Beroende på appen kanske det lösen ordsbaserade SSO-alternativet inte är tillgängligt. Om du inte ser den lösenordsbaserade alternativ listan på sidan för enkel inloggning för appen, är den inte tillgänglig.
 
 Konfigurations sidan för lösenordsbaserad enkel inloggning är enkel. Den innehåller bara webb adressen till inloggnings sidan som appen använder. Den här strängen måste vara sidan som innehåller fältet username.
 
-När du har angett URL: en väljer du **Spara**. Azure AD tolkar HTML på inloggnings sidan för fälten användar namn och lösen ord. Om försöket lyckas är du klar.
+När du har angett URL: en väljer du **Spara**. Azure AD parsar HTML-koden för inloggnings sidan för fälten användar namn och lösen ord. Om försöket lyckas är du klar.
  
-Nästa steg är att [tilldela användare eller grupper till programmet](methods-for-assigning-users-and-groups.md). När du har tilldelat användare och grupper kan du ange autentiseringsuppgifter som ska användas för en användares räkning när de loggar in i programmet. Välj **användare och grupper**, markera kryss rutan för användarens eller gruppens rad och välj sedan **uppdatera autentiseringsuppgifter**. Ange sedan användar namnet och lösen ordet som ska användas för användarens eller gruppens räkning. Annars uppmanas användarna att ange autentiseringsuppgifterna vid start.
+Nästa steg är att [tilldela användare eller grupper till programmet](methods-for-assigning-users-and-groups.md). När du har tilldelat användare och grupper kan du ange autentiseringsuppgifter som ska användas för en användare när de loggar in i programmet. Välj **användare och grupper**, markera kryss rutan för användarens eller gruppens rad och välj sedan **uppdatera autentiseringsuppgifter**. Ange slutligen det användar namn och lösen ord som ska användas för användaren eller gruppen. Om du inte gör det uppmanas användarna att ange autentiseringsuppgifterna vid start.
  
 
 ## <a name="manual-configuration"></a>Manuell konfiguration

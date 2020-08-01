@@ -8,12 +8,12 @@ ms.reviewer: mihansen
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/22/2019
-ms.openlocfilehash: 896d5bafd879ff3ba09bd5b8922cde4cd8345689
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64bdc60f8f9e291c4dc084b23f8ec5054cdc528f
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871954"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447272"
 ---
 # <a name="additional-settings-for-azure-api-for-fhir"></a>Ytterligare inställningar för Azure API för FHIR
 
@@ -29,7 +29,7 @@ Mer information om hur du ändrar standardinställningarna finns i [Konfigurera 
 
 ## <a name="access-control"></a>Åtkomstkontroll
 
-Azure API för FHIR tillåter endast behöriga användare att komma åt FHIR-API: et. Du kan konfigurera behöriga användare genom två olika mekanismer. Det primära och rekommenderade sättet att konfigurera åtkomst kontroll är att använda [Azure Role Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/), som är tillgängligt via det **åtkomst kontroll bladet (IAM)** . Azure RBAC fungerar bara om du vill skydda data Plans åtkomst med hjälp av den Azure Active Directory klient som är associerad med din prenumeration. Om du vill använda en annan klient, erbjuder Azure-API: et för FHIR en lokal mekanism för åtkomst kontroll för data planet. Konfigurations alternativen är inte lika avancerade när du använder den lokala RBAC-mekanismen. Om du vill ha mer information väljer du något av följande alternativ:
+Azure API för FHIR tillåter endast behöriga användare att komma åt FHIR-API: et. Du kan konfigurera behöriga användare genom två olika mekanismer. Det primära och rekommenderade sättet att konfigurera åtkomst kontroll är att använda [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/), som kan nås via det **åtkomst kontroll bladet (IAM)** . Azure RBAC fungerar bara om du vill skydda data Plans åtkomst med hjälp av den Azure Active Directory klient som är associerad med din prenumeration. Om du vill använda en annan klient, erbjuder Azure-API: et för FHIR en lokal mekanism för åtkomst kontroll för data planet. Konfigurations alternativen är inte lika avancerade när du använder den lokala RBAC-mekanismen. Om du vill ha mer information väljer du något av följande alternativ:
 
 * [Azure RBAC för FHIR data plan](configure-azure-rbac.md). Det här är det bästa alternativet när du använder den Azure Active Directory klient som är associerad med din prenumeration.
 * [Lokal FHIR data Plans åtkomst kontroll](configure-local-rbac.md). Använd bara det här alternativet om du behöver använda en extern Azure Active Directory-klient för åtkomst kontroll för data plan. 
@@ -40,7 +40,7 @@ Du kanske vill aktivera diagnostikloggning som en del av installationen för att
 ## <a name="use-custom-headers-to-add-data-to-audit-logs"></a>Använd anpassade rubriker för att lägga till data i gransknings loggar
 I Azure API för FHIR kanske du vill inkludera ytterligare information i loggarna, som kommer från det anropande systemet. Om du vill använda den här informationen kan du använda anpassade sidhuvuden.
 
-Du kan använda anpassade rubriker för att avbilda flera typer av information. Till exempel:
+Du kan använda anpassade rubriker för att avbilda flera typer av information. Exempel:
 
 * Information om identitet eller auktorisering
 * Anroparens ursprung

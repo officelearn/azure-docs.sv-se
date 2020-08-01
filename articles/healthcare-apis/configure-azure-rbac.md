@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Azure Role based Access Control (RBAC) för Azure API för FHIR
+title: Konfigurera rollbaserad åtkomst kontroll i Azure (Azure RBAC) för Azure API för FHIR
 description: Den här artikeln beskriver hur du konfigurerar Azure RBAC för Azure API för FHIR data plan
 author: hansenms
 ms.service: healthcare-apis
@@ -7,16 +7,16 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: mihansen
-ms.openlocfilehash: 3fbbfd931efb0e570bc96639bc6b7943fddc0237
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a3cdb5a640e09c0095db79f5e3a43b455a1a5705
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417683"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447169"
 ---
 # <a name="configure-azure-rbac-for-fhir"></a>Konfigurera Azure RBAC för FHIR 
 
-I den här artikeln får du lära dig hur du använder [Azure Role Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/) för att tilldela åtkomst till Azure-API: et för FHIR data plan. Azure RBAC är de bästa metoderna för att tilldela data Plans åtkomst när data planet användare hanteras i den Azure Active Directory klient som är associerad med din Azure-prenumeration. Om du använder en extern Azure Active Directory klient organisation, se den [lokala referensen för RBAC-tilldelning](configure-local-rbac.md).
+I den här artikeln får du lära dig hur du använder [Azures rollbaserad åtkomst kontroll (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/) för att tilldela åtkomst till Azure-API: et för FHIR data plan. Azure RBAC är de bästa metoderna för att tilldela data Plans åtkomst när data planet användare hanteras i den Azure Active Directory klient som är associerad med din Azure-prenumeration. Om du använder en extern Azure Active Directory klient organisation, se den [lokala referensen för RBAC-tilldelning](configure-local-rbac.md).
 
 ## <a name="confirm-azure-rbac-mode"></a>Bekräfta Azure RBAC-läge
 

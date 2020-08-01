@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: quickstart
 ms.date: 05/11/2020
 ms.author: punagpal
-ms.openlocfilehash: bc85765666ba3baeae7ec795118f615f6b4b4368
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 95f5b5f13401c224ccf67c5f013deedf00379de7
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102374"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446813"
 ---
 # <a name="quickstart-deploy-iot-connector-preview-using-azure-portal"></a>Snabb start: Distribuera IoT Connector (för hands version) med Azure Portal
 
@@ -50,7 +50,7 @@ Ange inställningar för den nya IoT-anslutningen. Klicka på knappen **skapa** 
 
 [![Skapa IoT-koppling](media/quickstart-iot-fhir-portal/portal-iot-connector-create.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-create.jpg#lightbox)
 
-|Inställning|Värde|Beskrivning |
+|Inställningen|Värde|Beskrivning |
 |---|---|---|
 |Anslutnings namn|Ett unikt namn|Ange ett namn för att identifiera din IoT-anslutning. Det här namnet måste vara unikt inom en Azure API för FHIR-resurs. Namnet får endast innehålla gemener, siffror och bindestreck (-). Det måste börja och sluta med en bokstav eller en siffra, och måste vara mellan 3-24 tecken långt.|
 |Lösnings typ|Sök eller skapa|Välj **Lookup** om du har en out-of-band-process för att skapa [enhets](https://www.hl7.org/fhir/device.html) -och [patient](https://www.hl7.org/fhir/patient.html) FHIR-resurser i ditt Azure API för FHIR. IoT Connector använder referenser till dessa resurser när du skapar en [observations](https://www.hl7.org/fhir/observation.html) FHIR-resurs som representerar enhets data. Välj **skapa** när du vill att IoT Connector ska skapa enheter för Bare-ben och patient resurser i Azure API för FHIR med hjälp av respektive Identifier-värden som finns i enhetens data.|
@@ -181,7 +181,7 @@ När du har distribuerat ditt IoT Central-program börjar du skapa telemetri gen
 Du kan visa de FHIR-baserade observations resurserna som skapats av IoT Connector på Azure API för FHIR med Postman. Konfigurera din [Postman för att få åtkomst till Azure API för FHIR](access-fhir-postman-tutorial.md) och gör en `GET` begäran till `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` att Visa observations FHIR resurser med ett hjärta pris värde. 
 
 > [!TIP]
-> Se till att användaren har rätt åtkomst till Azure API för FHIR-dataplan. Använd [Azure Role Based Access Control](configure-azure-rbac.md) för att tilldela nödvändiga data Plans roller.
+> Se till att användaren har rätt åtkomst till Azure API för FHIR-dataplan. Använd [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](configure-azure-rbac.md) för att tilldela nödvändiga data Plans roller.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

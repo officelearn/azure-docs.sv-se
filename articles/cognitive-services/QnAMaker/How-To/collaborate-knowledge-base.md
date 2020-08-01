@@ -1,14 +1,14 @@
 ---
 title: Samar beta på kunskaps bas – QnA Maker
-description: QnA Maker gör det möjligt för flera personer att samar beta i en kunskaps bas. Den här funktionen tillhandahålls med Azure-rollbaserade Access Control.
+description: QnA Maker gör det möjligt för flera personer att samar beta i en kunskaps bas. Den här funktionen ingår i rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 4c550a36dd045873df4bc4a382e1c884466f95ad
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 20eb58f346322cb78bff85af3d6a0d366090763d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054092"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446936"
 ---
 # <a name="collaboration-with-authors-and-editors"></a>Samarbete med författare och redigerare
 

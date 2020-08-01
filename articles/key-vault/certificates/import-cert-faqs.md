@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 1063f7189de4bdf1aaca4a6d72c979476433c32f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 493c77a8f875018627bfe3167e66addeaf65d089
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099956"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445781"
 ---
 # <a name="frequently-asked-questions---azure-key-vault-certificate-import"></a>Vanliga frågor och Azure Key Vault certifikat import
 
@@ -64,6 +64,9 @@ Ja, du kan importera certifikat från alla certifikat utfärdare, men nyckel val
 
 ### <a name="if-i-import-a-certificate-from-a-partner-ca-will-the-auto-renew-feature-still-work"></a>Om jag importerar ett certifikat från en partner certifikat utfärdare kommer funktionen för automatisk förnyelse fortfarande att fungera?
 Ja, du måste se till att när du har laddat upp en autorotation i certifikatets utgivnings princip. Ändringarna kommer också att avspeglas tills nästa cykel eller certifikat version.
+
+### <a name="unable-to-see-the-app-service-certificate-imported-to-key-vault"></a>Det går inte att se App Service Certificate som importer ATS till Key Vault? 
+Om certifikatet har importer ATS kan du gå igenom bladet hemligheter.
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -7,13 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 07/16/2020
-ms.openlocfilehash: d28f852ad4159472b7fcb3289a322db54be8af1e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 07/29/2020
+ms.custom: generated
+ms.openlocfilehash: 753ee8eef1af1dbac9c776ed0410d2143cd71735
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387395"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449069"
 ---
 # <a name="azure-resource-provider-operations"></a>Azure Resource Provider-åtgärder
 
@@ -143,6 +144,7 @@ Klicka på namnet på resurs leverantören i följande tabell om du vill se en l
 | [Microsoft. features](#microsoftfeatures) |
 | [Microsoft. GuestConfiguration](#microsoftguestconfiguration) |
 | [Microsoft. HybridCompute](#microsofthybridcompute) |
+| [Microsoft. Kubernetes](#microsoftkubernetes) |
 | [Microsoft. ManagedServices](#microsoftmanagedservices) |
 | [Microsoft. Management](#microsoftmanagement) |
 | [Microsoft. PolicyInsights](#microsoftpolicyinsights) |
@@ -913,6 +915,9 @@ Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure s
 > | Microsoft. Network/firewallPolicies/JOIN/åtgärd | Ansluter till en brand Väggs princip. Det går inte att avisera. |
 > | Microsoft. Network/firewallPolicies/certifikat/åtgärd | Skapa certifikat för brand Väggs principer |
 > | Microsoft. Network/firewallPolicies/Delete | Tar bort en brand Väggs princip |
+> | Microsoft. Network/firewallPolicies/ruleCollectionGroups/Read | Hämtar en regel samlings grupp för brand Väggs principer |
+> | Microsoft. Network/firewallPolicies/ruleCollectionGroups/Write | Skapar en samlings grupp för brand Väggs principer eller uppdaterar en befintlig regel samlings grupp för brand Väggs policy |
+> | Microsoft. Network/firewallPolicies/ruleCollectionGroups/Delete | Tar bort en regel samlings grupp för brand Väggs principer |
 > | Microsoft. Network/firewallPolicies/ruleGroups/Read | Hämtar en regel grupp för brand Väggs principer |
 > | Microsoft. Network/firewallPolicies/ruleGroups/Write | Skapar en regel grupp för brand Väggs policy eller uppdaterar en befintlig regel grupp för brand Väggs policy |
 > | Microsoft. Network/firewallPolicies/ruleGroups/Delete | Tar bort en regel grupp för brand Väggs principer |
@@ -982,6 +987,7 @@ Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure s
 > | Microsoft. Network/locations/checkAcceleratedNetworkingSupport/Action | Kontrollerar accelererat nätverks stöd |
 > | Microsoft. Network/locations/checkPrivateLinkServiceVisibility/Action | Kontrollerar synlighet för privata länk tjänster |
 > | Microsoft. Network/locations/bareMetalTenants/Action | Allokerar eller validerar en Bare Metal-klient |
+> | Microsoft. Network/locations/setLoadBalancerFrontendPublicIpAddresses/Action | SetLoadBalancerFrontendPublicIpAddresses riktar IP-konfigurationer på klient dels IP-konfigurationer för 2 belastnings utjämning. Azure Resource Manager-ID: n för IP-konfigurationer finns i bröd texten i begäran. |
 > | Microsoft. Network/locations/autoApprovedPrivateLinkServices/Read | Hämtar automatiskt godkända privata länk tjänster |
 > | Microsoft. Network/locations/availableDelegations/Read | Hämtar tillgängliga delegeringar |
 > | Microsoft. Network/locations/availablePrivateEndpointTypes/Read | Hämtar tillgängliga privata slut punkts resurser |
@@ -1087,6 +1093,7 @@ Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure s
 > | Microsoft. Network/p2sVpnGateways/Read | Hämtar en P2SVpnGateway. |
 > | Microsoft. Network/p2sVpnGateways/Write | Placerar en P2SVpnGateway. |
 > | Microsoft. Network/p2sVpnGateways/Delete | Tar bort en P2SVpnGateway. |
+> | Microsoft. Network/p2sVpnGateways/reset/Action | Återställer en P2SVpnGateway |
 > | Microsoft. Network/p2sVpnGateways/generatevpnprofile/Action | Generera VPN-profil för P2SVpnGateway |
 > | Microsoft. Network/p2sVpnGateways/getp2svpnconnectionhealth/Action | Hämtar hälso tillståndet för P2S VPN-anslutning för P2SVpnGateway |
 > | Microsoft. Network/p2sVpnGateways/getp2svpnconnectionhealthdetailed/Action | Hämtar en hälso status för P2S VPN-anslutning som är detaljerad för P2SVpnGateway |
@@ -1281,6 +1288,8 @@ Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure s
 > | Microsoft. Network/vpnGateways/vpnConnections/Read | Hämtar en VpnConnection. |
 > | Microsoft. Network/vpnGateways/vpnConnections/Write | Placerar en VpnConnection. |
 > | Microsoft. Network/vpnGateways/vpnConnections/Delete | Tar bort en VpnConnection. |
+> | Microsoft. Network/vpnGateways/vpnConnections/startpacketcapture/Action | Starta paket fångst för vald länkad i VPN-anslutning |
+> | Microsoft. Network/vpnGateways/vpnConnections/stoppacketcapture/Action | Stoppa paket fångst för vald länkad i VPN-anslutning |
 > | Microsoft. Network/vpnGateways/vpnConnections/vpnLinkConnections/Read | Hämtar en anslutning till en VPN-anslutning |
 > | Microsoft. Network/vpnServerConfigurations/Read | Hämta VpnServerConfiguration |
 > | Microsoft. Network/vpnServerConfigurations/Write | Skapa eller uppdatera VpnServerConfiguration |
@@ -2524,7 +2533,7 @@ Azure-tjänst: [App Service](../app-service/index.yml), [Azure Functions](../azu
 > | Microsoft. Web/staticSites/customdomains/validate/Action | Verifiera att en anpassad domän kan läggas till på en statisk plats |
 > | Microsoft. Web/staticSites/Functions/Read | Visa en lista över funktioner för en statisk plats |
 
-## <a name="containers"></a>Containers
+## <a name="containers"></a>Containrar
 
 ### <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
@@ -3248,6 +3257,8 @@ Azure-tjänst: [Azure Database for MariaDB](../mariadb/index.yml)
 > | Microsoft. DBforMariaDB/performanceTiers/Read | Returnerar listan med tillgängliga prestanda nivåer. |
 > | Microsoft. DBforMariaDB/servers/queryTexts/åtgärd | Returnera texterna för en lista med frågor |
 > | Microsoft. DBforMariaDB/servers/queryTexts/åtgärd | Returnera texten för en fråga |
+> | Microsoft. DBforMariaDB/servrar/start/åtgärd | Startar en speciell Server. |
+> | Microsoft. DBforMariaDB/servrar/stoppa/åtgärd | Stoppar en speciell Server. |
 > | Microsoft. DBforMariaDB/servrar/läsa | Returnera listan över servrar eller hämtar egenskaperna för den angivna servern. |
 > | Microsoft. DBforMariaDB/servrar/Skriv | Skapar en server med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna servern. |
 > | Microsoft. DBforMariaDB/servers/Delete | Tar bort en befintlig server. |
@@ -3324,6 +3335,9 @@ Azure-tjänst: [Azure Database for MySQL](../mysql/index.yml)
 > | Microsoft. DBforMySQL/locations/serverKeyOperationResults/Read | Hämtar pågående åtgärder på data krypterings Server nycklar |
 > | Microsoft. DBforMySQL/Operations/Read | Returnera listan över MySQL-åtgärder. |
 > | Microsoft. DBforMySQL/performanceTiers/Read | Returnerar listan med tillgängliga prestanda nivåer. |
+> | Microsoft. DBforMySQL/servrar/start/åtgärd | Startar en speciell Server. |
+> | Microsoft. DBforMySQL/servrar/stoppa/åtgärd | Stoppar en speciell Server. |
+> | Microsoft. DBforMySQL/-servrar/export/åtgärd |  |
 > | Microsoft. DBforMySQL/servers/queryTexts/åtgärd | Returnera texterna för en lista med frågor |
 > | Microsoft. DBforMySQL/servers/queryTexts/åtgärd | Returnera texten för en fråga |
 > | Microsoft. DBforMySQL/servrar/läsa | Returnera listan över servrar eller hämtar egenskaperna för den angivna servern. |
@@ -3695,6 +3709,8 @@ Azure-tjänst: [Azure Cosmos DB](../cosmos-db/index.yml)
 > | Microsoft.DocumentDB/locations/deleteVirtualNetworkOrSubnets/Action | Meddelar Microsoft.DocumentDB att VirtualNetwork eller undernät tas bort |
 > | Microsoft.DocumentDB/locations/deleteVirtualNetworkOrSubnets/operationResults/Read | Läs status för asynkron åtgärd för deleteVirtualNetworkOrSubnets |
 > | Microsoft.DocumentDB/locations/operationsStatus/Read | Läser status för asynkrona åtgärder |
+> | Microsoft.DocumentDB/locations/restorableDatabaseAccounts/Read | Läs ett återställas Database-konto eller lista alla återställas Database-konton |
+> | Microsoft.DocumentDB/locations/restorableDatabaseAccounts/Restore/Action | Skicka en begäran om återställning |
 > | Microsoft.DocumentDB/operationResults/Read | Läs status för den asynkrona åtgärden |
 > | Microsoft.DocumentDB/åtgärder/läsa | Läs åtgärder som är tillgängliga för Microsoft-DocumentDB  |
 
@@ -3727,6 +3743,8 @@ Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL
 > | Microsoft. SQL/locations/elasticPoolOperationResults/Read | Hämtar resultatet av en åtgärd för elastisk pool. |
 > | Microsoft. SQL/locations/encryptionProtectorAzureAsyncOperation/Read | Hämtar pågående åtgärder för transparent data kryptering krypterings skydd |
 > | Microsoft. SQL/locations/encryptionProtectorOperationResults/Read | Hämtar pågående åtgärder för transparent data kryptering krypterings skydd |
+> | Microsoft. SQL/locations/exportManagedDatabaseOperationResults/Read | Hämtar pågående hanterade databas export åtgärder |
+> | Microsoft. SQL/locations/exportManagedInstanceOperationResults/Read | Hämtar pågående export åtgärder |
 > | Microsoft. SQL/locations/extendedAuditingSettingsAzureAsyncOperation/Read | Hämta resultatet av åtgärden uppsättnings princip för utökad server-BLOB-granskning |
 > | Microsoft. SQL/locations/extendedAuditingSettingsOperationResults/Read | Hämta resultatet av åtgärden uppsättnings princip för utökad server-BLOB-granskning |
 > | Microsoft. SQL/locations/firewallRulesAzureAsyncOperation/Read | Hämtar status för en brand Väggs regel åtgärd. |
@@ -3796,6 +3814,7 @@ Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL
 > | Microsoft. SQL/managedInstances/databaser/läsa | Hämtar befintlig hanterad databas |
 > | Microsoft. SQL/managedInstances/databaser/Delete | Tar bort en befintlig hanterad databas |
 > | Microsoft. SQL/managedInstances/databaser/skriva | Skapar en ny databas eller uppdaterar en befintlig databas. |
+> | Microsoft. SQL/managedInstances/databaser/export/åtgärd | Exporterar användar databaserna. |
 > | Microsoft. SQL/managedInstances/databaser/completeRestore/åtgärd | Slutför återställnings åtgärden för hanterade databaser |
 > | Microsoft. SQL/managedInstances/databaser/backupLongTermRetentionPolicies/Write | Uppdaterar en långsiktig bevarande princip för en hanterad databas |
 > | Microsoft. SQL/managedInstances/databaser/backupLongTermRetentionPolicies/Read | Hämtar en långsiktig bevarande princip för en hanterad databas |
@@ -3838,7 +3857,6 @@ Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL
 > | Microsoft. SQL/managedInstances/encryptionProtector/revalidate/åtgärd | Uppdatera egenskaperna för det angivna Server krypterings skyddet. |
 > | Microsoft. SQL/managedInstances/encryptionProtector/Read | Returnerar en lista över Server krypterings skydd eller hämtar egenskaperna för det angivna Server krypterings skyddet. |
 > | Microsoft. SQL/managedInstances/encryptionProtector/Write | Uppdatera egenskaperna för det angivna Server krypterings skyddet. |
-> | Microsoft. SQL/managedInstances/exportOperationResults/Read | Hämtar pågående export åtgärder |
 > | Microsoft. SQL/managedInstances/inaccessibleManagedDatabases/Read | Hämtar en lista över otillgängliga hanterade databaser i en hanterad instans |
 > | Microsoft. SQL/managedInstances/Keys/Read | Returnera listan över hanterade instans nycklar eller hämtar egenskaperna för den angivna hanterade instans nyckeln. |
 > | Microsoft. SQL/managedInstances/Keys/Write | Skapar en nyckel med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna hanterade instans nyckeln. |
@@ -4139,7 +4157,7 @@ Azure-tjänst: [SQL Server på azure Virtual Machines](../azure-sql/virtual-mach
 > | Microsoft. SqlVirtualMachine/sqlVirtualMachines/Write | Skapa en ny eller ändra egenskaper för befintlig virtuell SQL-dator |
 > | Microsoft. SqlVirtualMachine/sqlVirtualMachines/Delete | Ta bort befintlig virtuell SQL-dator |
 
-## <a name="analytics"></a>Analys
+## <a name="analytics"></a>Analytics
 
 ### <a name="microsoftanalysisservices"></a>Microsoft. AnalysisServices
 
@@ -4180,6 +4198,14 @@ Azure-tjänst: [Azure Databricks](https://docs.microsoft.com/azure/databricks/)
 > | Microsoft. Databricks/arbets ytor/updateDenyAssignment/åtgärd | Uppdatera neka tilldelning inte åtgärder för en hanterad resurs grupp för en arbets yta |
 > | Microsoft. Databricks/arbets ytor/refreshWorkspaces/åtgärd | Uppdatera en arbets yta med ny information som URL |
 > | Microsoft. Databricks/arbets ytor/dbWorkspaces/Write | Initierar Databricks-arbetsytan (endast intern) |
+> | Microsoft. Databricks/arbets ytor/privateEndpointConnectionProxies/Read | Hämta anslutnings proxy för privat slutpunkt |
+> | Microsoft. Databricks/arbets ytor/privateEndpointConnectionProxies/validate/åtgärd | Verifiera privata slut punkts anslutnings-proxy |
+> | Microsoft. Databricks/arbets ytor/privateEndpointConnectionProxies/Write | Lägg till proxyservrar för privat slut punkt anslutning |
+> | Microsoft. Databricks/arbets ytor/privateEndpointConnectionProxies/Delete | Ta bort proxy för privat slut punkt anslutning |
+> | Microsoft. Databricks/arbets ytor/privateEndpointConnections/Read | Lista privata slut punkts anslutningar |
+> | Microsoft. Databricks/arbets ytor/privateEndpointConnections/Write | Godkänn anslutningar för privata slut punkter |
+> | Microsoft. Databricks/arbets ytor/privateEndpointConnections/Delete | Ta bort anslutning till privat slutpunkt |
+> | Microsoft. Databricks/arbets ytor/privateLinkResources/Read | Visa en lista över privata länk resurser |
 > | Microsoft. Databricks/arbets ytor/providers/Microsoft. Insights/diagnosticSettings/Read | Ställer in tillgängliga diagnostikinställningar för arbets ytan Databricks |
 > | Microsoft. Databricks/arbets ytor/providers/Microsoft. Insights/diagnosticSettings/Write | Lägg till eller ändra diagnostikinställningar. |
 > | Microsoft. Databricks/arbets ytor/providers/Microsoft. Insights/logDefinitions/Read | Hämtar tillgängliga logg definitioner för arbets ytan Databricks |
@@ -4546,10 +4572,30 @@ Azure-tjänst: [Azure bot service](https://docs.microsoft.com/azure/bot-service/
 > | Microsoft. BotService/botServices/Channels/Write | Skriv en bot-tjänst kanal |
 > | Microsoft. BotService/botServices/Channels/Delete | Ta bort en bot-tjänst kanal |
 > | Microsoft. BotService/botServices/Channels/listchannelwithkeys/Action | Visa en lista över Botservice-kanaler med hemligheter |
+> | Microsoft. BotService/botServices/Channels/providers/Microsoft. Insights/diagnosticSettings/Read | Hämtar den diagnostiska inställningen för resursen |
+> | Microsoft. BotService/botServices/Channels/providers/Microsoft. Insights/diagnosticSettings/Write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
+> | Microsoft. BotService/botServices/Channels/providers/Microsoft. Insights/logDefinitions/Read | Hämtar de tillgängliga loggarna för &lt; resursens namn&gt; |
+> | Microsoft. BotService/botServices/Channels/providers/Microsoft. Insights/metricDefinitions/Read | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
 > | Microsoft. BotService/botServices/Connections/Read | Läs en bot-tjänst anslutning |
 > | Microsoft. BotService/botServices/Connections/Write | Skriv en bot-tjänst anslutning |
 > | Microsoft. BotService/botServices/Connections/Delete | Ta bort en bot-tjänst anslutning |
 > | Microsoft. BotService/botServices/Connections/listwithsecrets/Write | Skriv en anslutnings lista för bot-tjänsten  |
+> | Microsoft. BotService/botServices/Connections/providers/Microsoft. Insights/diagnosticSettings/Read | Hämtar den diagnostiska inställningen för resursen |
+> | Microsoft. BotService/botServices/Connections/providers/Microsoft. Insights/diagnosticSettings/Write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
+> | Microsoft. BotService/botServices/Connections/providers/Microsoft. Insights/logDefinitions/Read | Hämtar de tillgängliga loggarna för &lt; resursens namn&gt; |
+> | Microsoft. BotService/botServices/Connections/providers/Microsoft. Insights/metricDefinitions/Read | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
+> | Microsoft. BotService/botServices/providers/Microsoft. Insights/diagnosticSettings/Read | Hämtar den diagnostiska inställningen för resursen |
+> | Microsoft. BotService/botServices/providers/Microsoft. Insights/diagnosticSettings/Write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
+> | Microsoft. BotService/botServices/providers/Microsoft. Insights/logDefinitions/Read | Hämtar de tillgängliga loggarna för &lt; resursens namn&gt; |
+> | Microsoft. BotService/botServices/providers/Microsoft. Insights/metricDefinitions/Read | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
+> | Microsoft. BotService/checknameavailability/providers/Microsoft. Insights/diagnosticSettings/Read | Hämtar den diagnostiska inställningen för resursen |
+> | Microsoft. BotService/checknameavailability/providers/Microsoft. Insights/diagnosticSettings/Write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
+> | Microsoft. BotService/checknameavailability/providers/Microsoft. Insights/logDefinitions/Read | Hämtar de tillgängliga loggarna för &lt; resursens namn&gt; |
+> | Microsoft. BotService/checknameavailability/providers/Microsoft. Insights/metricDefinitions/Read | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
+> | Microsoft. BotService/listauthserviceproviders/providers/Microsoft. Insights/diagnosticSettings/Read | Hämtar den diagnostiska inställningen för resursen |
+> | Microsoft. BotService/listauthserviceproviders/providers/Microsoft. Insights/diagnosticSettings/Write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
+> | Microsoft. BotService/listauthserviceproviders/providers/Microsoft. Insights/logDefinitions/Read | Hämtar de tillgängliga loggarna för &lt; resursens namn&gt; |
+> | Microsoft. BotService/listauthserviceproviders/providers/Microsoft. Insights/metricDefinitions/Read | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
 > | Microsoft. BotService/locations/operationresults/Read | Läs status för en asynkron åtgärd |
 > | Microsoft. BotService/Operations/Read | Läs åtgärder för alla resurs typer |
 
@@ -4930,7 +4976,7 @@ Azure-tjänst: [Machine Learning tjänst](../machine-learning/index.yml)
 > | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. MachineLearningServices/register/åtgärd | Registrerar prenumerationen för Machine Learning Services Resource Provider |
-> | Microsoft. MachineLearningServices/locations/updateQuotas/Action | Uppdatera kvoten för varje VM-serie på arbets ytan. |
+> | Microsoft. MachineLearningServices/locations/updateQuotas/Action | Uppdatera kvoten för varje VM-serie på en prenumeration eller på en arbets ytans nivå. |
 > | Microsoft. MachineLearningServices/locations/computeoperationsstatus/Read | Hämtar status för en viss beräknings åtgärd |
 > | Microsoft. MachineLearningServices/locations/kvoter/read | Hämtar de nuvarande tilldelade kvoterna för arbets ytan baserat på VMFamily. |
 > | Microsoft. MachineLearningServices/platser/användning/läsa | Användnings rapport för AML-beräknings resurser i en prenumeration |
@@ -6929,7 +6975,7 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/VMwareSites/vCenter/Read | Hämtar egenskaperna för en VMware vCenter |
 > | Microsoft. OffAzure/VMwareSites/vCenter/Write | Skapar eller uppdaterar VMware vCenter |
 
-## <a name="monitor"></a>Monitor
+## <a name="monitor"></a>Övervaka
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft. AlertsManagement
 
@@ -7339,6 +7385,9 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/arbets ytor/fråga/AADDomainServicesPolicyChange/läsa | Läsa data från tabellen AADDomainServicesPolicyChange |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/AADDomainServicesPrivilegeUse/läsa | Läsa data från tabellen AADDomainServicesPrivilegeUse |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/AADDomainServicesSystemSecurity/läsa | Läsa data från tabellen AADDomainServicesSystemSecurity |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/AADManagedIdentitySignInLogs/läsa | Läsa data från tabellen AADManagedIdentitySignInLogs |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/AADNonInteractiveUserSignInLogs/läsa | Läsa data från tabellen AADNonInteractiveUserSignInLogs |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/AADServicePrincipalSignInLogs/läsa | Läsa data från tabellen AADServicePrincipalSignInLogs |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/ADAssessmentRecommendation/läsa | Läsa data från tabellen ADAssessmentRecommendation |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/AddonAzureBackupAlerts/läsa | Läsa data från tabellen AddonAzureBackupAlerts |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/AddonAzureBackupJobs/läsa | Läsa data från tabellen AddonAzureBackupJobs |
@@ -8182,6 +8231,317 @@ Azure-tjänst: [Azure-båge](../azure-arc/index.yml)
 > | Microsoft. HybridCompute/Machines/Extensions/Write | Installerar eller uppdaterar ett Azure Arc-tillägg |
 > | Microsoft. HybridCompute/Machines/Extensions/Delete | Tar bort ett Azure-båg tillägg |
 > | Microsoft. HybridCompute/Operations/Read | Läs alla åtgärder för Azure-båge för servrar |
+
+### <a name="microsoftkubernetes"></a>Microsoft. Kubernetes
+
+Azure-tjänst: [Azure Arc-aktiverad Kubernetes](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)
+
+> [!div class="mx-tableFixed"]
+> | Åtgärd | Beskrivning |
+> | --- | --- |
+> | Microsoft. Kubernetes/connectedClusters/Read | Läs connectedClusters |
+> | Microsoft. Kubernetes/connectedClusters/Write | Skriver connectedClusters |
+> | Microsoft. Kubernetes/connectedClusters/Delete | Tar bort connectedClusters |
+> | Microsoft. Kubernetes/connectedClusters/listClusterUserCredentials/Action | Visa lista clusterUser Credential |
+> | Microsoft. Kubernetes/RegisteredSubscriptions/Read | Läser registrerade prenumerationer |
+> | **DataAction** | **Beskrivning** |
+> | Microsoft. Kubernetes/connectedClusters/admissionregistration. K8s. io/initializerconfigurations/Read | Läser initializerconfigurations |
+> | Microsoft. Kubernetes/connectedClusters/admissionregistration. K8s. io/initializerconfigurations/Write | Skriver initializerconfigurations |
+> | Microsoft. Kubernetes/connectedClusters/admissionregistration. K8s. io/initializerconfigurations/Delete | Tar bort initializerconfigurations |
+> | Microsoft. Kubernetes/connectedClusters/admissionregistration. K8s. io/mutatingwebhookconfigurations/Read | Läser mutatingwebhookconfigurations |
+> | Microsoft. Kubernetes/connectedClusters/admissionregistration. K8s. io/mutatingwebhookconfigurations/Write | Skriver mutatingwebhookconfigurations |
+> | Microsoft. Kubernetes/connectedClusters/admissionregistration. K8s. io/mutatingwebhookconfigurations/Delete | Tar bort mutatingwebhookconfigurations |
+> | Microsoft. Kubernetes/connectedClusters/admissionregistration. K8s. io/validatingwebhookconfigurations/Read | Läser validatingwebhookconfigurations |
+> | Microsoft. Kubernetes/connectedClusters/admissionregistration. K8s. io/validatingwebhookconfigurations/Write | Skriver validatingwebhookconfigurations |
+> | Microsoft. Kubernetes/connectedClusters/admissionregistration. K8s. io/validatingwebhookconfigurations/Delete | Tar bort validatingwebhookconfigurations |
+> | Microsoft. Kubernetes/connectedClusters/API/läsa | Läser API |
+> | Microsoft. Kubernetes/connectedClusters/API/v1/Read | Läser API/v1 |
+> | Microsoft. Kubernetes/connectedClusters/apiextensions. K8s. io/customresourcedefinitions/Read | Läser customresourcedefinitions |
+> | Microsoft. Kubernetes/connectedClusters/apiextensions. K8s. io/customresourcedefinitions/Write | Skriver customresourcedefinitions |
+> | Microsoft. Kubernetes/connectedClusters/apiextensions. K8s. io/customresourcedefinitions/Delete | Tar bort customresourcedefinitions |
+> | Microsoft. Kubernetes/connectedClusters/apiregistration. K8s. io/apiservices/Read | Läser apiservices |
+> | Microsoft. Kubernetes/connectedClusters/apiregistration. K8s. io/apiservices/Write | Skriver apiservices |
+> | Microsoft. Kubernetes/connectedClusters/apiregistration. K8s. io/apiservices/Delete | Tar bort apiservices |
+> | Microsoft. Kubernetes/connectedClusters/API/Read | Läser API: er |
+> | Microsoft. Kubernetes/connectedClusters/API/admissionregistration. K8s. io/läsning | Läser admissionregistration.k8s.io |
+> | Microsoft. Kubernetes/connectedClusters/API/admissionregistration. K8s. io/v1/Read | Läser admissionregistration.k8s.io/v1 |
+> | Microsoft. Kubernetes/connectedClusters/API/admissionregistration. K8s. io/v1beta1/Read | Läser admissionregistration.k8s.io/v1beta1 |
+> | Microsoft. Kubernetes/connectedClusters/API/apiextensions. K8s. io/läsning | Läser apiextensions.k8s.io |
+> | Microsoft. Kubernetes/connectedClusters/API/apiextensions. K8s. io/v1/Read | Läser apiextensions.k8s.io/v1 |
+> | Microsoft. Kubernetes/connectedClusters/API/apiextensions. K8s. io/v1beta1/Read | Läser apiextensions.k8s.io/v1beta1 |
+> | Microsoft. Kubernetes/connectedClusters/API/apiregistration. K8s. io/läsning | Läser apiregistration.k8s.io |
+> | Microsoft. Kubernetes/connectedClusters/API/apiregistration. K8s. io/v1/Read | Läser apiregistration.k8s.io/v1 |
+> | Microsoft. Kubernetes/connectedClusters/API/apiregistration. K8s. io/v1beta1/Read | Läser apiregistration.k8s.io/v1beta1 |
+> | Microsoft. Kubernetes/connectedClusters/API: er/appar/läsa | Läser appar |
+> | Microsoft. Kubernetes/connectedClusters/API: er/appar/v1beta1/Read | Läser appar/v1beta1 |
+> | Microsoft. Kubernetes/connectedClusters/API: er/appar/v1beta2/Read | Läser v1beta2 |
+> | Microsoft. Kubernetes/connectedClusters/API/Authentication. K8s. io/Read | Läser authentication.k8s.io |
+> | Microsoft. Kubernetes/connectedClusters/API/Authentication. K8s. io/v1/Read | Läser authentication.k8s.io/v1 |
+> | Microsoft. Kubernetes/connectedClusters/API/Authentication. K8s. io/v1beta1/Read | Läser authentication.k8s.io/v1beta1 |
+> | Microsoft. Kubernetes/connectedClusters/API/Authorization. K8s. io/Read | Läser authorization.k8s.io |
+> | Microsoft. Kubernetes/connectedClusters/API/Authorization. K8s. io/v1/Read | Läser authorization.k8s.io/v1 |
+> | Microsoft. Kubernetes/connectedClusters/API/Authorization. K8s. io/v1beta1/Read | Läser authorization.k8s.io/v1beta1 |
+> | Microsoft. Kubernetes/connectedClusters/Apis/automatisk skalning/läsa | Läser automatisk skalning |
+> | Microsoft. Kubernetes/connectedClusters/Apis/autoskalning/v1/Read | Läser automatisk skalning/v1 |
+> | Microsoft. Kubernetes/connectedClusters/Apis/autoskalning/v2beta1/Read | Läser autoskalning/v2beta1 |
+> | Microsoft. Kubernetes/connectedClusters/Apis/autoskalning/v2beta2/Read | Läser autoskalning/v2beta2 |
+> | Microsoft. Kubernetes/connectedClusters/Apis/batch/läsa | Läser batch |
+> | Microsoft. Kubernetes/connectedClusters/Apis/batch/v1/Read | Läser batch/v1 |
+> | Microsoft. Kubernetes/connectedClusters/Apis/batch/v1beta1/Read | Läser batch-v1beta1 |
+> | Microsoft. Kubernetes/connectedClusters/API/certificates. K8s. io/Read | Läser certificates.k8s.io |
+> | Microsoft. Kubernetes/connectedClusters/API/certificates. K8s. io/v1beta1/Read | Läser certificates.k8s.io/v1beta1 |
+> | Microsoft. Kubernetes/connectedClusters/API/Coordination. K8s. io/Read | Läser coordination.k8s.io |
+> | Microsoft. Kubernetes/connectedClusters/API/Coordination. K8s. io/v1/Read | Läser samordning/v1 |
+> | Microsoft. Kubernetes/connectedClusters/API/Coordination. K8s. io/v1beta1/Read | Läser coordination.k8s.io/v1beta1 |
+> | Microsoft. Kubernetes/connectedClusters/API/events. K8s. io/Read | Läser events.k8s.io |
+> | Microsoft. Kubernetes/connectedClusters/API/events. K8s. io/v1beta1/Read | Läser events.k8s.io/v1beta1 |
+> | Microsoft. Kubernetes/connectedClusters/Apis/tillägg/läsa | Läser tillägg |
+> | Microsoft. Kubernetes/connectedClusters/Apis/tillägg/v1beta1/Read | Läser tillägg/v1beta1 |
+> | Microsoft. Kubernetes/connectedClusters/API/Metrics. K8s. io/Read | Läser metrics.k8s.io |
+> | Microsoft. Kubernetes/connectedClusters/API/Metrics. K8s. io/v1beta1/Read | Läser metrics.k8s.io/v1beta1 |
+> | Microsoft. Kubernetes/connectedClusters/API/Network. K8s. io/Read | Läser networking.k8s.io |
+> | Microsoft. Kubernetes/connectedClusters/API/Network. K8s. io/v1/Read | Läser nätverk/v1 |
+> | Microsoft. Kubernetes/connectedClusters/API/Network. K8s. io/v1beta1/Read | Läser networking.k8s.io/v1beta1 |
+> | Microsoft. Kubernetes/connectedClusters/API: er/Node. K8s. io/Read | Läser node.k8s.io |
+> | Microsoft. Kubernetes/connectedClusters/API/Node. K8s. io/v1beta1/läsa | Läser node.k8s.io/v1beta1 |
+> | Microsoft. Kubernetes/connectedClusters/API/policy/Read | Läser princip |
+> | Microsoft. Kubernetes/connectedClusters/Apis/princip/v1beta1/Read | Läser princip-v1beta1 |
+> | Microsoft. Kubernetes/connectedClusters/API: er/RBAC. Authorization. K8s. io/Read | Läser rbac.authorization.k8s.io |
+> | Microsoft. Kubernetes/connectedClusters/API: er/RBAC. Authorization. K8s. io/v1/Read | Läser RBAC. Authorization/v1 |
+> | Microsoft. Kubernetes/connectedClusters/API/RBAC. Authorization. K8s. io/v1beta1/Read | Läser rbac.authorization.k8s.io/v1beta1 |
+> | Microsoft. Kubernetes/connectedClusters/API/Scheduling/schemaläggning. K8s. io/Read | Läser scheduling.k8s.io |
+> | Microsoft. Kubernetes/connectedClusters/API/schemaläggning. K8s. io/v1/Read | Läser schemaläggning/v1 |
+> | Microsoft. Kubernetes/connectedClusters/API/schemaläggning. K8s. io/v1beta1/Read | Läser scheduling.k8s.io/v1beta1 |
+> | Microsoft. Kubernetes/connectedClusters/API/Storage. K8s. io/Read | Läser storage.k8s.io |
+> | Microsoft. Kubernetes/connectedClusters/API/Storage. K8s. io/v1/Read | Läser lagring/v1 |
+> | Microsoft. Kubernetes/connectedClusters/API/Storage. K8s. io/v1beta1/Read | Läser storage.k8s.io/v1beta1 |
+> | Microsoft. Kubernetes/connectedClusters/Apps/controllerrevisions/Read | Läser controllerrevisions |
+> | Microsoft. Kubernetes/connectedClusters/Apps/controllerrevisions/Write | Skriver controllerrevisions |
+> | Microsoft. Kubernetes/connectedClusters/Apps/controllerrevisions/Delete | Tar bort controllerrevisions |
+> | Microsoft. Kubernetes/connectedClusters/Apps/daemonsets/Read | Läser daemonsets |
+> | Microsoft. Kubernetes/connectedClusters/Apps/daemonsets/Write | Skriver daemonsets |
+> | Microsoft. Kubernetes/connectedClusters/Apps/daemonsets/Delete | Tar bort daemonsets |
+> | Microsoft. Kubernetes/connectedClusters/Apps/distribution/läsa | Läser distributioner |
+> | Microsoft. Kubernetes/connectedClusters/Apps/distributioner/Write | Skriver distributioner |
+> | Microsoft. Kubernetes/connectedClusters/Apps/distributioner/Delete | Tar bort distributioner |
+> | Microsoft. Kubernetes/connectedClusters/Apps/replicasets/Read | Läser replicasets |
+> | Microsoft. Kubernetes/connectedClusters/Apps/replicasets/Write | Skriver replicasets |
+> | Microsoft. Kubernetes/connectedClusters/Apps/replicasets/Delete | Tar bort replicasets |
+> | Microsoft. Kubernetes/connectedClusters/Apps/statefulsets/Read | Läser statefulsets |
+> | Microsoft. Kubernetes/connectedClusters/Apps/statefulsets/Write | Skriver statefulsets |
+> | Microsoft. Kubernetes/connectedClusters/Apps/statefulsets/Delete | Tar bort statefulsets |
+> | Microsoft. Kubernetes/connectedClusters/Authentication. K8s. io/tokenreviews/Write | Skriver tokenreviews |
+> | Microsoft. Kubernetes/connectedClusters/Authentication. K8s. io/userextras/impersonate/åtgärd | Personifiera userextras |
+> | Microsoft. Kubernetes/connectedClusters/Authorization. K8s. io/localsubjectaccessreviews/Write | Skriver localsubjectaccessreviews |
+> | Microsoft. Kubernetes/connectedClusters/Authorization. K8s. io/selfsubjectaccessreviews/Write | Skriver selfsubjectaccessreviews |
+> | Microsoft. Kubernetes/connectedClusters/Authorization. K8s. io/selfsubjectrulesreviews/Write | Skriver selfsubjectrulesreviews |
+> | Microsoft. Kubernetes/connectedClusters/Authorization. K8s. io/subjectaccessreviews/Write | Skriver subjectaccessreviews |
+> | Microsoft. Kubernetes/connectedClusters/autoskalning/horizontalpodautoscalers/Read | Läser horizontalpodautoscalers |
+> | Microsoft. Kubernetes/connectedClusters/autoskalning/horizontalpodautoscalers/Write | Skriver horizontalpodautoscalers |
+> | Microsoft. Kubernetes/connectedClusters/autoskalning/horizontalpodautoscalers/Delete | Tar bort horizontalpodautoscalers |
+> | Microsoft. Kubernetes/connectedClusters/batch/cronjobs/Read | Läser cronjobs |
+> | Microsoft. Kubernetes/connectedClusters/batch/cronjobs/Write | Skriver cronjobs |
+> | Microsoft. Kubernetes/connectedClusters/batch/cronjobs/Delete | Tar bort cronjobs |
+> | Microsoft. Kubernetes/connectedClusters/batch/Jobs/Read | Läser jobb |
+> | Microsoft. Kubernetes/connectedClusters/batch/Jobs/Write | Skriver jobb |
+> | Microsoft. Kubernetes/connectedClusters/batch/Jobs/Delete | Tar bort jobb |
+> | Microsoft. Kubernetes/connectedClusters/bindings/Write | Skriver bindningar |
+> | Microsoft. Kubernetes/connectedClusters/certificates. K8s. io/certificatesigningrequests/Read | Läser certificatesigningrequests |
+> | Microsoft. Kubernetes/connectedClusters/certificates. K8s. io/certificatesigningrequests/Write | Skriver certificatesigningrequests |
+> | Microsoft. Kubernetes/connectedClusters/certificates. K8s. io/certificatesigningrequests/Delete | Tar bort certificatesigningrequests |
+> | Microsoft. Kubernetes/connectedClusters/clusterconfig. Azure. com/azureclusteridentityrequests/Read | Läser azureclusteridentityrequests |
+> | Microsoft. Kubernetes/connectedClusters/clusterconfig. Azure. com/azureclusteridentityrequests/Write | Skriver azureclusteridentityrequests |
+> | Microsoft. Kubernetes/connectedClusters/clusterconfig. Azure. com/azureclusteridentityrequests/Delete | Tar bort azureclusteridentityrequests |
+> | Microsoft. Kubernetes/connectedClusters/componentstatuses/Read | Läser componentstatuses |
+> | Microsoft. Kubernetes/connectedClusters/componentstatuses/Write | Skriver componentstatuses |
+> | Microsoft. Kubernetes/connectedClusters/componentstatuses/Delete | Tar bort componentstatuses |
+> | Microsoft. Kubernetes/connectedClusters/configmaps/Read | Läser configmaps |
+> | Microsoft. Kubernetes/connectedClusters/configmaps/Write | Skriver configmaps |
+> | Microsoft. Kubernetes/connectedClusters/configmaps/Delete | Tar bort configmaps |
+> | Microsoft. Kubernetes/connectedClusters/Coordination. K8s. io/lån/läsning | Läser lån |
+> | Microsoft. Kubernetes/connectedClusters/Coordination. K8s. io/leasing/lån/skrivning | Skriver lån |
+> | Microsoft. Kubernetes/connectedClusters/Coordination. K8s. io/leasing/lån/Delete | Tar bort lån |
+> | Microsoft. Kubernetes/connectedClusters/endpoints/Read | Läser slut punkter |
+> | Microsoft. Kubernetes/connectedClusters/slut punkter/skrivning | Skriver slut punkter |
+> | Microsoft. Kubernetes/connectedClusters/endpoints/Delete | Tar bort slut punkter |
+> | Microsoft. Kubernetes/connectedClusters/Events/Read | Läser händelser |
+> | Microsoft. Kubernetes/connectedClusters/Events/Write | Skriver händelser |
+> | Microsoft. Kubernetes/connectedClusters/Events/Delete | Tar bort händelser |
+> | Microsoft. Kubernetes/connectedClusters/events. K8s. io/Events/Read | Läser händelser |
+> | Microsoft. Kubernetes/connectedClusters/events. K8s. io/Events/Write | Skriver händelser |
+> | Microsoft. Kubernetes/connectedClusters/events. K8s. io/Events/Delete | Tar bort händelser |
+> | Microsoft. Kubernetes/connectedClusters/Extensions/daemonsets/Read | Läser daemonsets |
+> | Microsoft. Kubernetes/connectedClusters/Extensions/daemonsets/Write | Skriver daemonsets |
+> | Microsoft. Kubernetes/connectedClusters/Extensions/daemonsets/Delete | Tar bort daemonsets |
+> | Microsoft. Kubernetes/connectedClusters/tillägg/distributioner/läsa | Läser distributioner |
+> | Microsoft. Kubernetes/connectedClusters/Extensions/distributioner/Write | Skriver distributioner |
+> | Microsoft. Kubernetes/connectedClusters/Extensions/distributioner/Delete | Tar bort distributioner |
+> | Microsoft. Kubernetes/connectedClusters/Extensions/ingress/Read | Läser inträngande |
+> | Microsoft. Kubernetes/connectedClusters/Extensions/ingress/Write | Skriver ingress |
+> | Microsoft. Kubernetes/connectedClusters/Extensions/ingress/Delete | Tar bort ingress |
+> | Microsoft. Kubernetes/connectedClusters/Extensions/networkpolicies/Read | Läser networkpolicies |
+> | Microsoft. Kubernetes/connectedClusters/Extensions/networkpolicies/Write | Skriver networkpolicies |
+> | Microsoft. Kubernetes/connectedClusters/Extensions/networkpolicies/Delete | Tar bort networkpolicies |
+> | Microsoft. Kubernetes/connectedClusters/Extensions/podsecuritypolicies/Read | Läser podsecuritypolicies |
+> | Microsoft. Kubernetes/connectedClusters/Extensions/podsecuritypolicies/Write | Skriver podsecuritypolicies |
+> | Microsoft. Kubernetes/connectedClusters/Extensions/podsecuritypolicies/Delete | Tar bort podsecuritypolicies |
+> | Microsoft. Kubernetes/connectedClusters/Extensions/replicasets/Read | Läser replicasets |
+> | Microsoft. Kubernetes/connectedClusters/Extensions/replicasets/Write | Skriver replicasets |
+> | Microsoft. Kubernetes/connectedClusters/Extensions/replicasets/Delete | Tar bort replicasets |
+> | Microsoft. Kubernetes/connectedClusters/Groups/impersonate/Action | Personifiera grupper |
+> | Microsoft. Kubernetes/connectedClusters/healthz/Read | Läser healthz |
+> | Microsoft. Kubernetes/connectedClusters/healthz/autoregister-completion/Read | Läser autoregistrering-slut för ande |
+> | Microsoft. Kubernetes/connectedClusters/healthz/etcd/Read | Läser etcd |
+> | Microsoft. Kubernetes/connectedClusters/healthz/log/Read | Läser logg |
+> | Microsoft. Kubernetes/connectedClusters/healthz/ping/Read | Läser ping |
+> | Microsoft. Kubernetes/connectedClusters/healthz/poststarthook/apiservice-openapi-Controller/Read | Läser apiservice-openapi |
+> | Microsoft. Kubernetes/connectedClusters/healthz/poststarthook/apiservice-Registration-Controller/Read | Läser apiservice-Registration-Controller |
+> | Microsoft. Kubernetes/connectedClusters/healthz/poststarthook/apiservice-status-tillgängligt-Controller/Read | Läser apiservice-status-tillgängligt-Controller |
+> | Microsoft. Kubernetes/connectedClusters/healthz/poststarthook/bootstrap-Controller/Read | Läser start kontroll |
+> | Microsoft. Kubernetes/connectedClusters/healthz/poststarthook/ca-Registration/Read | Läser ca-registrering |
+> | Microsoft. Kubernetes/connectedClusters/healthz/poststarthook/CRD-Informer-synced/Read | Läsningar CRD-Informer-synced |
+> | Microsoft. Kubernetes/connectedClusters/healthz/poststarthook/Generic-apiserver-InForms/Read | Läser generiska-apiserver – start-informar |
+> | Microsoft. Kubernetes/connectedClusters/healthz/poststarthook/Kube-apiserver-autoregistrering/läsa | Läser Kube-apiserver-autoregistrering |
+> | Microsoft. Kubernetes/connectedClusters/healthz/poststarthook/RBAC/bootstrap-roles/Read | Läser start roller |
+> | Microsoft. Kubernetes/connectedClusters/healthz/poststarthook/Scheduling/bootstrap-system prioritet-klasser/läsa | Läser start-systemets prioritets klasser |
+> | Microsoft. Kubernetes/connectedClusters/healthz/poststarthook/start-apiextensions-controllers/Read | Läser start-apiextensions-controllers |
+> | Microsoft. Kubernetes/connectedClusters/healthz/poststarthook/start-apiextensions-InForms/Read | Läser start-apiextensions-informar |
+> | Microsoft. Kubernetes/connectedClusters/healthz/poststarthook/start-Kube-Aggregator-InForms/Read | Läser start-Kube-Aggregator-informor |
+> | Microsoft. Kubernetes/connectedClusters/healthz/poststarthook/start-Kube-apiserver-Admission-initierare/läsa | Läser start-Kube-apiserver-Admission-initierare |
+> | Microsoft. Kubernetes/connectedClusters/limitranges/Read | Läser limitranges |
+> | Microsoft. Kubernetes/connectedClusters/limitranges/Write | Skriver limitranges |
+> | Microsoft. Kubernetes/connectedClusters/limitranges/Delete | Tar bort limitranges |
+> | Microsoft. Kubernetes/connectedClusters/livez/Read | Läser livez |
+> | Microsoft. Kubernetes/connectedClusters/livez/autoregister-completion/Read | Läser autoregistrering-slut för ande |
+> | Microsoft. Kubernetes/connectedClusters/livez/etcd/Read | Läser etcd |
+> | Microsoft. Kubernetes/connectedClusters/livez/log/Read | Läser logg |
+> | Microsoft. Kubernetes/connectedClusters/livez/ping/Read | Läser ping |
+> | Microsoft. Kubernetes/connectedClusters/livez/poststarthook/apiservice-openapi-Controller/Read | Läser apiservice-openapi |
+> | Microsoft. Kubernetes/connectedClusters/livez/poststarthook/apiservice-Registration-Controller/Read | Läser apiservice-Registration-Controller |
+> | Microsoft. Kubernetes/connectedClusters/livez/poststarthook/apiservice-status-tillgängligt-Controller/Read | Läser apiservice-status-tillgängligt-Controller |
+> | Microsoft. Kubernetes/connectedClusters/livez/poststarthook/bootstrap-Controller/Read | Läser start kontroll |
+> | Microsoft. Kubernetes/connectedClusters/livez/poststarthook/ca-Registration/Read | Läser ca-registrering |
+> | Microsoft. Kubernetes/connectedClusters/livez/poststarthook/CRD-Informer-synced/Read | Läsningar CRD-Informer-synced |
+> | Microsoft. Kubernetes/connectedClusters/livez/poststarthook/Generic-apiserver-InForms/Read | Läser generiska-apiserver – start-informar |
+> | Microsoft. Kubernetes/connectedClusters/livez/poststarthook/Kube-apiserver-autoregistrering/läsa | Läser Kube-apiserver-autoregistrering |
+> | Microsoft. Kubernetes/connectedClusters/livez/poststarthook/RBAC/bootstrap-roles/Read | Läser start roller |
+> | Microsoft. Kubernetes/connectedClusters/livez/poststarthook/Scheduling/bootstrap-system prioritet-klasser/läsa | Läser start-systemets prioritets klasser |
+> | Microsoft. Kubernetes/connectedClusters/livez/poststarthook/start-apiextensions-controllers/Read | Läser start-apiextensions-controllers |
+> | Microsoft. Kubernetes/connectedClusters/livez/poststarthook/start-apiextensions-InForms/Read | Läser start-apiextensions-informar |
+> | Microsoft. Kubernetes/connectedClusters/livez/poststarthook/start-Kube-Aggregator-InForms/Read | Läser start-Kube-Aggregator-informor |
+> | Microsoft. Kubernetes/connectedClusters/livez/poststarthook/start-Kube-apiserver-Admission-initierare/läsa | Läser start-Kube-apiserver-Admission-initierare |
+> | Microsoft. Kubernetes/connectedClusters/logs/Read | Läser loggar |
+> | Microsoft. Kubernetes/connectedClusters/Metrics/Read | Läser mått |
+> | Microsoft. Kubernetes/connectedClusters/Metrics. K8s. io/Nodes/Read | Läser noder |
+> | Microsoft. Kubernetes/connectedClusters/Metrics. K8s. io/poddar/Read | Läser poddar |
+> | Microsoft. Kubernetes/connectedClusters/Namespaces/Read | Läser namn områden |
+> | Microsoft. Kubernetes/connectedClusters/Namespaces/Write | Skriver namn områden |
+> | Microsoft. Kubernetes/connectedClusters/Namespaces/Delete | Tar bort namn områden |
+> | Microsoft. Kubernetes/connectedClusters/Networking. K8s. io/ingress/Read | Läser inträngande |
+> | Microsoft. Kubernetes/connectedClusters/Networking. K8s. io/ingress/Write | Skriver ingress |
+> | Microsoft. Kubernetes/connectedClusters/Networking. K8s. io/ingress/Delete | Tar bort ingress |
+> | Microsoft. Kubernetes/connectedClusters/Networking. K8s. io/networkpolicies/Read | Läser networkpolicies |
+> | Microsoft. Kubernetes/connectedClusters/Networking. K8s. io/networkpolicies/Write | Skriver networkpolicies |
+> | Microsoft. Kubernetes/connectedClusters/Networking. K8s. io/networkpolicies/Delete | Tar bort networkpolicies |
+> | Microsoft. Kubernetes/connectedClusters/Node. K8s. io/runtimeclasses/Read | Läser runtimeclasses |
+> | Microsoft. Kubernetes/connectedClusters/Node. K8s. io/runtimeclasses/Write | Skriver runtimeclasses |
+> | Microsoft. Kubernetes/connectedClusters/Node. K8s. io/runtimeclasses/Delete | Tar bort runtimeclasses |
+> | Microsoft. Kubernetes/connectedClusters/Nodes/Read | Läser noder |
+> | Microsoft. Kubernetes/connectedClusters/Nodes/Write | Skriver noder |
+> | Microsoft. Kubernetes/connectedClusters/Nodes/Delete | Tar bort noder |
+> | Microsoft. Kubernetes/connectedClusters/openapi/v2/Read | Läser v2 |
+> | Microsoft. Kubernetes/connectedClusters/persistentvolumeclaims/Read | Läser persistentvolumeclaims |
+> | Microsoft. Kubernetes/connectedClusters/persistentvolumeclaims/Write | Skriver persistentvolumeclaims |
+> | Microsoft. Kubernetes/connectedClusters/persistentvolumeclaims/Delete | Tar bort persistentvolumeclaims |
+> | Microsoft. Kubernetes/connectedClusters/persistentvolumes/Read | Läser persistentvolumes |
+> | Microsoft. Kubernetes/connectedClusters/persistentvolumes/Write | Skriver persistentvolumes |
+> | Microsoft. Kubernetes/connectedClusters/persistentvolumes/Delete | Tar bort persistentvolumes |
+> | Microsoft. Kubernetes/connectedClusters/poddar/Read | Läser poddar |
+> | Microsoft. Kubernetes/connectedClusters/poddar/Write | Skriver poddar |
+> | Microsoft. Kubernetes/connectedClusters/poddar/Delete | Tar bort poddar |
+> | Microsoft. Kubernetes/connectedClusters/podtemplates/Read | Läser podtemplates |
+> | Microsoft. Kubernetes/connectedClusters/podtemplates/Write | Skriver podtemplates |
+> | Microsoft. Kubernetes/connectedClusters/podtemplates/Delete | Tar bort podtemplates |
+> | Microsoft. Kubernetes/connectedClusters/policy/poddisruptionbudgets/Read | Läser poddisruptionbudgets |
+> | Microsoft. Kubernetes/connectedClusters/policy/poddisruptionbudgets/Write | Skriver poddisruptionbudgets |
+> | Microsoft. Kubernetes/connectedClusters/policy/poddisruptionbudgets/Delete | Tar bort poddisruptionbudgets |
+> | Microsoft. Kubernetes/connectedClusters/policy/podsecuritypolicies/Read | Läser podsecuritypolicies |
+> | Microsoft. Kubernetes/connectedClusters/policy/podsecuritypolicies/Write | Skriver podsecuritypolicies |
+> | Microsoft. Kubernetes/connectedClusters/policy/podsecuritypolicies/Delete | Tar bort podsecuritypolicies |
+> | Microsoft. Kubernetes/connectedClusters/policy/podsecuritypolicies/Använd/åtgärd | Använd åtgärd på podsecuritypolicies |
+> | Microsoft. Kubernetes/connectedClusters/RBAC. Authorization. K8s. io/clusterrolebindings/Read | Läser clusterrolebindings |
+> | Microsoft. Kubernetes/connectedClusters/RBAC. Authorization. K8s. io/clusterrolebindings/Write | Skriver clusterrolebindings |
+> | Microsoft. Kubernetes/connectedClusters/RBAC. Authorization. K8s. io/clusterrolebindings/Delete | Tar bort clusterrolebindings |
+> | Microsoft. Kubernetes/connectedClusters/RBAC. Authorization. K8s. io/clusterroles/Read | Läser clusterroles |
+> | Microsoft. Kubernetes/connectedClusters/RBAC. Authorization. K8s. io/clusterroles/Write | Skriver clusterroles |
+> | Microsoft. Kubernetes/connectedClusters/RBAC. Authorization. K8s. io/clusterroles/Delete | Tar bort clusterroles |
+> | Microsoft. Kubernetes/connectedClusters/RBAC. Authorization. K8s. io/clusterroles/bind/Action | Binder clusterroles |
+> | Microsoft. Kubernetes/connectedClusters/RBAC. Authorization. K8s. io/clusterroles/eskalera/åtgärd | Eskalerar |
+> | Microsoft. Kubernetes/connectedClusters/RBAC. Authorization. K8s. io/rolebindings/Read | Läser rolebindings |
+> | Microsoft. Kubernetes/connectedClusters/RBAC. Authorization. K8s. io/rolebindings/Write | Skriver rolebindings |
+> | Microsoft. Kubernetes/connectedClusters/RBAC. Authorization. K8s. io/rolebindings/Delete | Tar bort rolebindings |
+> | Microsoft. Kubernetes/connectedClusters/RBAC. Authorization. K8s. io/roller/läsa | Läser roller |
+> | Microsoft. Kubernetes/connectedClusters/RBAC. Authorization. K8s. io/roller/skriva | Skriver roller |
+> | Microsoft. Kubernetes/connectedClusters/RBAC. Authorization. K8s. io/roles/Delete | Tar bort roller |
+> | Microsoft. Kubernetes/connectedClusters/RBAC. Authorization. K8s. io/roller/bindning/åtgärd | Binder roller |
+> | Microsoft. Kubernetes/connectedClusters/RBAC. Authorization. K8s. io/roller/eskalera/åtgärd | Eskalerar roller |
+> | Microsoft. Kubernetes/connectedClusters/readyz/Read | Läser readyz |
+> | Microsoft. Kubernetes/connectedClusters/readyz/autoregister-completion/Read | Läser autoregistrering-slut för ande |
+> | Microsoft. Kubernetes/connectedClusters/readyz/etcd/Read | Läser etcd |
+> | Microsoft. Kubernetes/connectedClusters/readyz/log/Read | Läser logg |
+> | Microsoft. Kubernetes/connectedClusters/readyz/ping/Read | Läser ping |
+> | Microsoft. Kubernetes/connectedClusters/readyz/poststarthook/apiservice-openapi-Controller/Read | Läser apiservice-openapi |
+> | Microsoft. Kubernetes/connectedClusters/readyz/poststarthook/apiservice-Registration-Controller/Read | Läser apiservice-Registration-Controller |
+> | Microsoft. Kubernetes/connectedClusters/readyz/poststarthook/apiservice-status-tillgängligt-Controller/Read | Läser apiservice-status-tillgängligt-Controller |
+> | Microsoft. Kubernetes/connectedClusters/readyz/poststarthook/bootstrap-Controller/Read | Läser start kontroll |
+> | Microsoft. Kubernetes/connectedClusters/readyz/poststarthook/ca-Registration/Read | Läser ca-registrering |
+> | Microsoft. Kubernetes/connectedClusters/readyz/poststarthook/CRD-Informer-synced/Read | Läsningar CRD-Informer-synced |
+> | Microsoft. Kubernetes/connectedClusters/readyz/poststarthook/Generic-apiserver-InForms/Read | Läser generiska-apiserver – start-informar |
+> | Microsoft. Kubernetes/connectedClusters/readyz/poststarthook/Kube-apiserver-autoregistrering/läsa | Läser Kube-apiserver-autoregistrering |
+> | Microsoft. Kubernetes/connectedClusters/readyz/poststarthook/RBAC/bootstrap-roles/Read | Läser start roller |
+> | Microsoft. Kubernetes/connectedClusters/readyz/poststarthook/Scheduling/bootstrap-system prioritet-klasser/läsa | Läser start-systemets prioritets klasser |
+> | Microsoft. Kubernetes/connectedClusters/readyz/poststarthook/start-apiextensions-controllers/Read | Läser start-apiextensions-controllers |
+> | Microsoft. Kubernetes/connectedClusters/readyz/poststarthook/start-apiextensions-InForms/Read | Läser start-apiextensions-informar |
+> | Microsoft. Kubernetes/connectedClusters/readyz/poststarthook/start-Kube-Aggregator-InForms/Read | Läser start-Kube-Aggregator-informor |
+> | Microsoft. Kubernetes/connectedClusters/readyz/poststarthook/start-Kube-apiserver-Admission-initierare/läsa | Läser start-Kube-apiserver-Admission-initierare |
+> | Microsoft. Kubernetes/connectedClusters/readyz/shutdown/Read | Läser avstängning |
+> | Microsoft. Kubernetes/connectedClusters/replicationcontrollers/Read | Läser replicationcontrollers |
+> | Microsoft. Kubernetes/connectedClusters/replicationcontrollers/Write | Skriver replicationcontrollers |
+> | Microsoft. Kubernetes/connectedClusters/replicationcontrollers/Delete | Tar bort replicationcontrollers |
+> | Microsoft. Kubernetes/connectedClusters/resetMetrics/Read | Läser resetMetrics |
+> | Microsoft. Kubernetes/connectedClusters/resourcequotas/Read | Läser resourcequotas |
+> | Microsoft. Kubernetes/connectedClusters/resourcequotas/Write | Skriver resourcequotas |
+> | Microsoft. Kubernetes/connectedClusters/resourcequotas/Delete | Tar bort resourcequotas |
+> | Microsoft. Kubernetes/connectedClusters/Scheduling. K8s. io/priorityclasses/Read | Läser priorityclasses |
+> | Microsoft. Kubernetes/connectedClusters/Scheduling. K8s. io/priorityclasses/Write | Skriver priorityclasses |
+> | Microsoft. Kubernetes/connectedClusters/Scheduling. K8s. io/priorityclasses/Delete | Tar bort priorityclasses |
+> | Microsoft. Kubernetes/connectedClusters/hemligheter/läsa | Läser hemligheter |
+> | Microsoft. Kubernetes/connectedClusters/hemligheter/Write | Skriver hemligheter |
+> | Microsoft. Kubernetes/connectedClusters/hemligheter/Delete | Tar bort hemligheter |
+> | Microsoft. Kubernetes/connectedClusters/serviceaccounts/Read | Läser serviceaccounts |
+> | Microsoft. Kubernetes/connectedClusters/serviceaccounts/Write | Skriver serviceaccounts |
+> | Microsoft. Kubernetes/connectedClusters/serviceaccounts/Delete | Tar bort serviceaccounts |
+> | Microsoft. Kubernetes/connectedClusters/serviceaccounts/impersonate/åtgärd | Personifiera serviceaccounts |
+> | Microsoft. Kubernetes/connectedClusters/Services/Read | Läser tjänster |
+> | Microsoft. Kubernetes/connectedClusters/Services/Write | Skriver tjänster |
+> | Microsoft. Kubernetes/connectedClusters/Services/Delete | Tar bort tjänster |
+> | Microsoft. Kubernetes/connectedClusters/Storage. K8s. io/csidrivers/Read | Läser csidrivers |
+> | Microsoft. Kubernetes/connectedClusters/Storage. K8s. io/csidrivers/Write | Skriver csidrivers |
+> | Microsoft. Kubernetes/connectedClusters/Storage. K8s. io/csidrivers/Delete | Tar bort csidrivers |
+> | Microsoft. Kubernetes/connectedClusters/Storage. K8s. io/csinodes/Read | Läser csinodes |
+> | Microsoft. Kubernetes/connectedClusters/Storage. K8s. io/csinodes/Write | Skriver csinodes |
+> | Microsoft. Kubernetes/connectedClusters/Storage. K8s. io/csinodes/Delete | Tar bort csinodes |
+> | Microsoft. Kubernetes/connectedClusters/Storage. K8s. io/storageclasses/Read | Läser storageclasses |
+> | Microsoft. Kubernetes/connectedClusters/Storage. K8s. io/storageclasses/Write | Skriver storageclasses |
+> | Microsoft. Kubernetes/connectedClusters/Storage. K8s. io/storageclasses/Delete | Tar bort storageclasses |
+> | Microsoft. Kubernetes/connectedClusters/Storage. K8s. io/volumeattachments/Read | Läser volumeattachments |
+> | Microsoft. Kubernetes/connectedClusters/Storage. K8s. io/volumeattachments/Write | Skriver volumeattachments |
+> | Microsoft. Kubernetes/connectedClusters/Storage. K8s. io/volumeattachments/Delete | Tar bort volumeattachments |
+> | Microsoft. Kubernetes/connectedClusters/Swagger-API/läsa | Läser Swagger – API |
+> | Microsoft. Kubernetes/connectedClusters/Swagger-UI/Read | Läser Swagger-UI |
+> | Microsoft. Kubernetes/connectedClusters/UI/Read | Läser användar gränssnitt |
+> | Microsoft. Kubernetes/connectedClusters/Users/impersonate/Action | Personifiera användare |
+> | Microsoft. Kubernetes/connectedClusters/version/Read | Läser version |
 
 ### <a name="microsoftmanagedservices"></a>Microsoft. ManagedServices
 

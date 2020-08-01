@@ -10,12 +10,12 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: a8b5f14147ee748f5d32d794f51d5437eeddfb51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e5cad25c80661f9e707f545929e6ffcb00a1e42
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261196"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447867"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regioner som stöder länkade Log Analytics-arbetsytor
 
@@ -78,11 +78,11 @@ När funktionerna har tagits bort kan du följa stegen nedan för att ta bort l�
 
 Du kan också ta bort länken för arbets ytan från ditt Automation-konto på arbets ytan.
 
-1. I arbets ytan väljer du **Automation-konto** under **relaterade resurser**. 
+1. I arbets ytan väljer du **Automation-konto** under **relaterade resurser**.
 2. På sidan Automation-konto väljer du **ta bort länk till konto**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om Uppdateringshantering i [uppdateringshantering översikt](../automation-update-management.md).
+* Läs mer om Uppdateringshantering i [uppdateringshantering översikt](../update-management/update-mgmt-overview.md).
 * Läs mer om Ändringsspårning och inventering i [ändringsspårning och inventerings översikt](../change-tracking.md).
 * Läs mer om Starta/stoppa virtuella datorer när de inte används i [Starta/stoppa virtuella datorer när de inte används översikt](../automation-solution-vm-management.md).

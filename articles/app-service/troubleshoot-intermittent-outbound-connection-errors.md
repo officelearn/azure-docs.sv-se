@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations
-ms.openlocfilehash: 4d337c9cff4b0d7dbfb18a7ba0cf213265286017
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5e1f2108c5607917c77330f362952f960e57e03a
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289152"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447915"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Felsöka återkommande utgående anslutnings fel i Azure App Service
 
@@ -38,7 +38,7 @@ När program eller funktioner snabbt öppnar en ny anslutning kan de snabbt för
 
 ## <a name="avoiding-the-problem"></a>Undvika problemet
 
-Om målet är en Azure-tjänst som stöder tjänst slut punkter kan du undvika problem med SNAT-portar genom att använda [VNet-integrering](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) och tjänst slut punkter. När du använder VNet-integrering och placerar tjänst slut punkter i integrations under nätet, kommer din app utgående trafik till dessa tjänster inte att ha några utgående SNAT-port begränsningar.
+Om målet är en Azure-tjänst som stöder tjänst slut punkter kan du undvika problem med SNAT-portar genom att använda [regional VNet-integrering](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) och tjänst slut punkter eller privata slut punkter. När du använder regional VNet-integrering och placerar tjänst slut punkter i integrations under nätet, kommer din app utgående trafik till dessa tjänster inte att ha några utgående SNAT-port begränsningar. Om du använder regional VNet-integrering och privata slut punkter får du inte heller några utgående SNAT-ports problem till det målet. 
 
 Att undvika problem med SNAT-porten innebär att undvika att nya anslutningar skapas upprepade gånger till samma värd och port.
 

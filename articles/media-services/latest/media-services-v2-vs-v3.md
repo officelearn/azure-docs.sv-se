@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: 091a5d33e49e2abe811bf3cc250d04d69506165d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dfbe1e7fdfca6f9959218f47d903301cb4b6d899
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011642"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448382"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services v2 vs. v3
 
@@ -83,7 +83,8 @@ V3-API: et har följande funktions luckor i relation till v2-API: et. Att stäng
     * Infoga ett tyst ljud spår när indata inte har något ljud
     * Infoga ett video spår när inmatningen saknar video
 * Live-händelser med omkodning stöder för närvarande inte mellanliggande infogning och infogning av AD-markörer via API-anrop. 
- 
+* Se `https://github.com/Azure-Samples/media-services-v2-dotnet-core-restsharp-sample.git` exempel kod för metod tips och mönster angående hur du använder v2-REST API på. NetCore SDK.
+
 ## <a name="asset-specific-changes"></a>Till gångs vissa ändringar
 
 ### <a name="map-v3-asset-properties-to-v2"></a>Mappa v3 till gångs egenskaper till v2

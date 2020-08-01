@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 4928938c38df8a1ed0f1e31c73e755a4f7f6c371
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ea951943c3f48443e4348d633c16ed61303f7aa8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367638"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449058"
 ---
 # <a name="tutorial-manipulating-models"></a>Självstudie: ändra modeller
 
@@ -332,18 +332,14 @@ När en Ray-Cast har slutförts korrekt i **RemoteRayCastPointerHandler**generer
 
 2. Lägg till både **RemoteRayCastPointerHandler** -komponenten och **RemoteEntityHelper** -komponenten på **TestModel** -GameObject som skapades tidigare.
 1. Tilldela `EntityToDebugLog` metoden till `OnRemoteEntityClicked` händelsen. När händelsens Utdatatyp och metod stämmer, kan vi använda enhetens dynamiska Event-Anslut, som automatiskt skickar händelse värdet till-metoden.
-    1. Skapa ett nytt återanrops fält \
-    ![Lägg till motringning](./media/add-callback-remote-entity-clicked.png)
-    1. Dra komponenten **Fjärrentitets hjälp** till fältet objekt för att referera till den överordnade GameObject \
-    ![Tilldela objekt](./media/assign-object.png)
-    1. Tilldela `EntityToDebugLog` som motringning \
-    ![Tilldela motringning](./media/remote-entity-event.png)
+    1. Skapa ett nytt återanrops fält ![ Lägg till motringning](./media/add-callback-remote-entity-clicked.png)
+    1. Dra komponenten **Fjärrentitets hjälp** till fältet objekt för att referera till det överordnade GameObject ![ tilldela-objektet](./media/assign-object.png)
+    1. Tilldela `EntityToDebugLog` som motringning ![ till motringning](./media/remote-entity-event.png)
 1. Tryck på Play i Unity-redigeraren för att starta scenen, Anslut till en fjärrsession och Läs in test modellen.
 1. Använd MRTK för manuell simulering och håll vänster SKIFT-tangenten nedtryckt.
 1. Styr den simulerade handen så att hand Ray pekar på test modellen.
 1. Klicka länge för att simulera en Lufts knackning och köra `OnPointerClicked` händelsen.
-1. Observera enhets konsolen för ett logg meddelande med namnet på den underordnade entiteten som valts. Exempel: \
-![Exempel på underordnad entitet](./media/child-entity-example.png)
+1. Observera enhets konsolen för ett logg meddelande med namnet på den underordnade entiteten som valts. Exempel: ![ exempel på underordnad entitet](./media/child-entity-example.png)
 
 ## <a name="synchronizing-the-remote-object-graph-into-the-unity-hierarchy"></a>Synkronisera objektet i fjärrobjektet i Union-hierarkin
 
@@ -351,9 +347,9 @@ Hittills har vi bara sett en enda lokal GameObject som representerar hela modell
 
 1. Starta scenen och Läs in test modellen.
 1. Expandera de underordnade objekten till **TestModel** -GameObject i enhetens hierarki och välj **TestModel_Entity** GameObject.
-1. I kontrollen klickar du på knappen *Visa underordnade* . \
+1. I kontrollen klickar du på knappen *Visa underordnade* .
 ![Visa underordnade](./media/show-remote-children.png)
-1. Fortsätt att expandera underordnade i hierarkin och klicka på *Visa underordnade* tills en stor lista över underordnade visas. \
+1. Fortsätt att expandera underordnade i hierarkin och klicka på *Visa underordnade* tills en stor lista över underordnade visas.
 ![Alla underordnade](./media/test-model-children.png)
 
 En lista med dussin tals entiteter fyller nu i hierarkin. Om du väljer en av dem visas- `Transform` och- `RemoteEntitySyncObject` komponenterna i kontrollanten. Som standard synkroniseras inte varje entitet automatiskt varje ram, så lokala ändringar i den `Transform` synkroniseras inte på servern. Du kan kontrol lera *synkronisera varje ram* och sedan flytta, skala eller rotera transformeringen i vyn scen. du kommer inte att se den åter givnings modellen i vyn scen, titta på spel-vyn för att se modellens position och rotation visuellt uppdatering.
@@ -371,13 +367,13 @@ Samma process kan utföras program mässigt och är det första steget med att �
     }
     ```
 
-1. Lägg till ytterligare en motringning till **RemoteRayCastPointerHandler** `OnRemoteEntityClicked` -händelsen och Ställ in den på `MakeSyncedGameObject` . \
+1. Lägg till ytterligare en motringning till **RemoteRayCastPointerHandler** `OnRemoteEntityClicked` -händelsen och Ställ in den på `MakeSyncedGameObject` .
 ![Ytterligare motringning](./media/additional-callback.png)
 1. Använd MRTK för manuell simulering och håll vänster SKIFT-tangenten nedtryckt.
 1. Styr den simulerade handen så att hand Ray pekar på test modellen.
 1. Klicka länge för att simulera en Lufts knackning och köra `OnPointerClicked` händelsen.
-1. Markera och expandera hierarkin om du vill se ett nytt underordnat objekt som representerar den klickade entiteten. \
-![GameObject-representation](./media/gameobject-representing-entity.png)\
+1. Markera och expandera hierarkin om du vill se ett nytt underordnat objekt som representerar den klickade entiteten.
+![GameObject-representation](./media/gameobject-representing-entity.png)
 1. När du har testat tar du bort återanropet för `MakeSyncedGameObject` , eftersom vi införlivar detta som en del av andra effekter senare.
 
 > [!NOTE]

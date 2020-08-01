@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 611cb5b94ee2ad458fa00a61af673696d7e7a212
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ae83d8f68b78a3b13f9ebafe3c7cedd18a29de53
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085154"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449128"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -33,18 +33,19 @@ Genom att utveckla funktioner på den lokala datorn och publicera dem på Azure 
 
 Det finns tre versioner av Azure Functions Core Tools. Vilken version du använder beror på din lokala utvecklings miljö, [Val av språk](supported-languages.md)och support nivå som krävs:
 
-+ **Version 1. x**: stöder version 1. x av Azure Functions Runtime. Den här versionen av verktygen stöds endast på Windows-datorer och installeras från ett [NPM-paket](https://www.npmjs.com/package/azure-functions-core-tools).
-
 + [**Version 3. x/2. x**](#v2): stöder antingen [version 3. x eller 2. x av Azure Functions runtime](functions-versions.md). Dessa versioner stöder [Windows](?tabs=windows#v2), [MacOS](?tabs=macos#v2)och [Linux](?tabs=linux#v2) och använder plattformsspecifika paket hanterare eller NPM för installation.
 
++ **Version 1. x**: stöder version 1. x av Azure Functions Runtime. Den här versionen av verktygen stöds endast på Windows-datorer och installeras från ett [NPM-paket](https://www.npmjs.com/package/azure-functions-core-tools).
+
 Om inget annat anges är exemplen i den här artikeln för version 3. x.
+
+## <a name="prerequisites"></a>Krav
+
+Azure Functions Core Tools är för närvarande beroende av Azure CLI för autentisering med ditt Azure-konto. Det innebär att du måste [Installera Azure CLI lokalt](/cli/azure/install-azure-cli) för att kunna [Publicera till Azure](#publish) från Azure Functions Core tools. 
 
 ## <a name="install-the-azure-functions-core-tools"></a>Installera Azure Functions Core Tools
 
 [Azure Functions Core tools] innehåller en version av samma körnings miljö som har behörighet Azure Functions runtime som du kan köra på din lokala utvecklings dator. Den innehåller också kommandon för att skapa funktioner, ansluta till Azure och distribuera funktions projekt.
-
->[!IMPORTANT]
->Du måste ha installerat [Azure CLI](/cli/azure/install-azure-cli) lokalt för att kunna publicera till Azure från Azure Functions Core tools.  
 
 ### <a name="version-3x-and-2x"></a><a name="v2"></a>Version 3. x och 2. x
 
@@ -55,27 +56,12 @@ Version 3. x/2. x av verktygen använder den Azure Functions runtime som bygger 
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
-I följande steg används NPM för att installera kärn verktyg i Windows. Du kan också använda [choklad](https://chocolatey.org/). Mer information finns i Readme- [verktyg för viktiga verktyg](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
+Följande steg använder en Windows Installer (MSI) för att installera Core tools v3. x. Mer information om andra paketbaserade installations program, som krävs för att installera Core tools v2. x, finns i viktigt om [viktiga verktyg](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Installera [Node.js], som innehåller NPM.
-    - För version 3. x av verktygen stöds endast Node.js 10 och senare versioner.
-    - För version 2. x av verktygen stöds endast Node.js 8,5 och senare versioner.
+1. Hämta och kör installations programmet för huvud verktyg, baserat på din version av Windows:
 
-1. Installera paketet core tools:
-
-    ##### <a name="v3x-recommended"></a>v3. x (rekommenderas)
-
-    ```cmd
-    npm install -g azure-functions-core-tools@3
-    ```
-
-    ##### <a name="v2x"></a>v2. x
-
-    ```cmd
-    npm install -g azure-functions-core-tools@2
-    ```
-
-   Det kan ta några minuter för NPM att hämta och installera Core Tools-paketet.
+    - [v3. x-Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2135274) (rekommenderas. [Visual Studio Code-felsökning](functions-develop-vs-code.md#debugging-functions-locally) kräver 64-bitars.)
+    - [v3. x-Windows 32-bitars](https://go.microsoft.com/fwlink/?linkid=2135275)
 
 1. Om du inte planerar att använda [tilläggs paket](functions-bindings-register.md#extension-bundles)installerar du [.net Core 3. x SDK för Windows](https://dotnet.microsoft.com/download).
 
@@ -526,7 +512,7 @@ Följande publicerings alternativ stöds bara för version 2. x och senare versi
 | **`--nozip`** | Stänger av standard `Run-From-Package` läget. |
 | **`--build-native-deps`** | Hoppar över genereringen av. Wheels-mappen när du publicerar python Function-appar. |
 | **`--build`**, **`-b`** | Utför Bygg åtgärd när du distribuerar till en Linux Function-app. Accepterar: `remote` och `local` . |
-| **`--additional-packages`** | Lista över paket som ska installeras när du skapar interna beroenden. Till exempel: `python3-dev libevent-dev`. |
+| **`--additional-packages`** | Lista över paket som ska installeras när du skapar interna beroenden. Exempel: `python3-dev libevent-dev`. |
 | **`--force`** | Ignorera för publicerings verifiering i vissa scenarier. |
 | **`--csx`** | Publicera ett C#-skript (. CSX)-projekt. |
 | **`--no-build`** | Projektet har inte skapats under publiceringen. För python `pip install` utförs inte. |

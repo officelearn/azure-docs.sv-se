@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: a9786c1f596a9f59e63886fa503bddac58ee7a8e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c6aea3be5782c967c5816a1e40dc5443306671b3
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325346"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445300"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Översikt över Azure Monitor agenter
 
@@ -62,7 +62,7 @@ Använd Log Analytics-agenten om du behöver:
 * Skicka data till en Log Analytics arbets yta för att dra nytta av funktioner som stöds av [Azure Monitor loggar](data-platform-logs.md#what-can-you-do-with-azure-monitor-logs) som [logg frågor](../log-query/log-query-overview.md).
 * Använd [Azure Monitor for VMS](../insights/vminsights-overview.md) som gör att du kan övervaka dina virtuella datorer i skala och övervaka deras processer och beroenden på andra resurser och externa processer..  
 * Hantera säkerheten för dina virtuella datorer med hjälp av [Azure Security Center](../../security-center/security-center-intro.md) eller [Azure Sentinel](../../sentinel/overview.md).
-* Använd [Azure Automation uppdaterings hantering](../../automation/automation-update-management.md), [Azure Automation tillstånds konfiguration](../../automation/automation-dsc-overview.md)eller [Azure Automation ändringsspårning och inventering](../../automation/change-tracking.md) för att leverera omfattande hantering av dina virtuella Azure-datorer
+* Använd [Azure Automation uppdaterings hantering](../../automation/update-management/update-mgmt-overview.md), [Azure Automation tillstånds konfiguration](../../automation/automation-dsc-overview.md)eller [Azure Automation ändringsspårning och inventering](../../automation/change-tracking.md) för att leverera omfattande hantering av dina virtuella Azure-datorer
 * Använd olika [lösningar](../monitor-reference.md#insights-and-core-solutions) för att övervaka en viss tjänst eller ett visst program.
 
 Begränsningar för Log Analytics agenten är:
@@ -118,6 +118,6 @@ Log Analytics-tillägget för [Windows](../../virtual-machines/extensions/oms-wi
 Få mer information om var och en av agenterna på följande sätt:
 
 - [Översikt över Log Analytics agent](log-analytics-agent.md)
-- [Översikt över Azure-diagnostik-tillägg](diagnostics-extension-overview.md)
+- [Översikt över Azure Diagnostics-tillägg](diagnostics-extension-overview.md)
 - [Samla in anpassade mått för en virtuell Linux-dator med InfluxData-agenten för teleympkvistar](collect-custom-metrics-linux-telegraf.md)
 

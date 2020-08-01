@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 03/20/2019
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ace8d170a5ba48c00775c3b376df8bb70a337d5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31388f27eddcef2c75d4ad4d2030655b35f6aa1c
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76897034"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446965"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Versionshistorik för Azure AD Connect Health
 Azure Active Directorys teamet uppdaterar regelbundet Azure AD Connect Health med nya funktioner. Den här artikeln innehåller de versioner och funktioner som har släppts.  
@@ -217,7 +217,7 @@ Azure AD Connect Health för synkronisering är integrerat med Azure AD Connect 
 ## <a name="november-2015"></a>November 2015
 **Nya funktioner:**
 
-* Stöd för [rollbaserad Access Control](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
+* Stöd för [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
 
 **Nya för hands versions funktioner:**
 
@@ -253,4 +253,3 @@ Azure AD Connect Health för synkronisering är integrerat med Azure AD Connect 
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om [att övervaka din lokala identitets infrastruktur och synkroniseringstjänst i molnet](whatis-hybrid-identity-health.md).
-

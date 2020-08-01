@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: ricarlse
 ms.custom: seodec18
-ms.openlocfilehash: 5bf7a1e3cc2bfa8ccf42d05e199c58b8c9314fce
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 99b51610e41aaf8358e7e3069d38dfd8c68ae422
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281709"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446772"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute för Cloud Solution Providers (CSP)
 Microsoft tillhandahåller storskaliga tjänster för traditionella återförsäljare och distributörer (CSP), för att de snabbt ska kunna etablera nya tjänster och lösningar för sina kunder utan att behöva investera i att utveckla dessa nya tjänster. Om du vill ge CSP:n (Cloud Solution Provider) möjlighet att direkt hantera dessa nya tjänster, erbjuder Microsoft program och API:er som tillåter CSP:n att hantera Microsoft Azure-resurser åt dina kunder. En av resurserna är ExpressRoute. Med ExpressRoute kan CSP:n ansluta befintliga kundresurser till Azure-tjänster. ExpressRoute är en privat kommunikationslänk med hög hastighet till tjänster i Azure. 
@@ -60,7 +60,7 @@ Det här anslutningsscenariot kräver att kunden ansluter direkt via ett kundnä
 
 Valet mellan dessa två alternativ baseras på dina kunders behov och ditt aktuella behov att tillhandahålla Azure-tjänster. Information om dessa modeller och associerad rollbaserad åtkomststyrning, nätverk och identitetsdesignmönster beskrivs i informationen i följande länkar:
 
-* **Rollbaserad åtkomstkontroll (RBAC)** – RBAC baseras på Azure Active Directory.  Läs mer om Azure RBAC [här](../role-based-access-control/role-assignments-portal.md).
+* **Rollbaserad åtkomst kontroll i Azure (Azure RBAC)** – RBAC baseras på Azure Active Directory.  Läs mer om Azure RBAC [här](../role-based-access-control/role-assignments-portal.md).
 * **Nätverk** – Beskriver olika delar av nätverk i Microsoft Azure.
 * **Azure Active Directory (Azure AD)** – Azure AD innehåller identitetshantering för Microsoft Azure och SaaS-program från tredje part. Mer information om Azure AD finns [här](https://azure.microsoft.com/documentation/services/active-directory/).  
 

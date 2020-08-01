@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 98675b0f986ecb78ff122ed052a01d521aac1f6f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 40dd81b9eb7ff2b20abb1bf3ea4337b63fb2a831
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114218"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447076"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Utvärdera servrar med hjälp av importerade data
 
@@ -42,7 +42,7 @@ I den här guiden får du lära dig att:
 > [!NOTE]
 > Självstudier visar dig den enklaste distributions vägen för ett scenario, så att du snabbt kan konfigurera ett koncept bevis. Självstudier använder standard alternativ där det är möjligt, och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i instruktions guiderna.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 ## <a name="set-azure-permissions-for-azure-migrate"></a>Ange Azure-behörigheter för Azure Migrate
 
@@ -103,31 +103,31 @@ Samla in Server data och Lägg till dem i CSV-filen.
 
 I följande tabell sammanfattas fil fälten som ska fyllas i:
 
-**Fältnamn** | **Erforderlig** | **Detaljer**
+**Fältnamn** | **Erforderlig** | **Information**
 --- | --- | ---
-**Servernamn** | Yes | Vi rekommenderar att du anger det fullständigt kvalificerade domän namnet (FQDN).
-**IP-adress** | No | Server adress.
-**Kärnor** | Yes | Antal processor kärnor som har allokerats till servern.
-**Minne** | Yes | Totalt RAM-minne, i MB, allokeras till servern.
-**OS-namn** | Yes | Serveroperativ system. <br/> Operativ system namn som matchar eller innehåller namnen [i listan känns](#supported-operating-system-names) igen av utvärderingen.
-**OS-version** | No | Serverns operativ system version.
-**OS-arkitektur** | No | Serverns OS-arkitektur <br/> Giltiga värden är: x64, x86, amd64, 32-bitars eller 64-bit
-**Antal diskar** | No | Behövs inte om enskilda disk uppgifter anges.
-**Disk 1-storlek**  | No | Maximal disk storlek i GB.<br/>Du kan lägga till information om fler diskar genom [att lägga till kolumner](#add-multiple-disks) i mallen. Du kan lägga till upp till åtta diskar.
-**Disk 1, Läs OPS** | No | Disk läsnings åtgärder per sekund.
-**Disk 1 Skriv OPS** | No | Disk skrivnings åtgärder per sekund.
-**Disk 1 Läs data flöde** | No | Data läses från disken per sekund, i MB per sekund.
-**Disk 1 Skriv data flöde** | No | Data som skrivs till disk per sekund, i MB per sekund.
-**Procent andel CPU-användning** | No | Procent andel CPU som används.
-**Procent andel minnes användning** | No | Procent andelen RAM-minne som används.
-**Totalt antal diskar Read OPS** | No | Disk läsnings åtgärder per sekund.
-**Skriv Ops totalt antal diskar** | No | Disk-Skriv åtgärder per sekund.
-**Totalt antal diskar läsnings data flöde** | No | Data läses från disken, i MB per sekund.
-**Totalt antal diskar Skriv data flöde** | No | Data som skrivs till disk, i MB per sekund.
-**Nätverk i data flöde** | No | Data som tagits emot av servern, i MB per sekund.
-**Nätverks utflöde** | No | Data som överförs av servern, i MB per sekund.
-**Typ av inbyggd program vara** | No | Serverns inbyggda program vara. Värdena kan vara "BIOS" eller "UEFI".
-**MAC-adress**| No | Serverns MAC-adress.
+**Servernamn** | Ja | Vi rekommenderar att du anger det fullständigt kvalificerade domän namnet (FQDN).
+**IP-adress** | Inga | Server adress.
+**Kärnor** | Ja | Antal processor kärnor som har allokerats till servern.
+**Minne** | Ja | Totalt RAM-minne, i MB, allokeras till servern.
+**OS-namn** | Ja | Serveroperativ system. <br/> Operativ system namn som matchar eller innehåller namnen [i listan känns](#supported-operating-system-names) igen av utvärderingen.
+**OS-version** | Inga | Serverns operativ system version.
+**OS-arkitektur** | Inga | Serverns OS-arkitektur <br/> Giltiga värden är: x64, x86, amd64, 32-bitars eller 64-bit
+**Antal diskar** | Inga | Behövs inte om enskilda disk uppgifter anges.
+**Disk 1-storlek**  | Inga | Maximal disk storlek i GB.<br/>Du kan lägga till information om fler diskar genom [att lägga till kolumner](#add-multiple-disks) i mallen. Du kan lägga till upp till åtta diskar.
+**Disk 1, Läs OPS** | Inga | Disk läsnings åtgärder per sekund.
+**Disk 1 Skriv OPS** | Inga | Disk skrivnings åtgärder per sekund.
+**Disk 1 Läs data flöde** | Inga | Data läses från disken per sekund, i MB per sekund.
+**Disk 1 Skriv data flöde** | Inga | Data som skrivs till disk per sekund, i MB per sekund.
+**Procent andel CPU-användning** | Inga | Procent andel CPU som används.
+**Procent andel minnes användning** | Inga | Procent andelen RAM-minne som används.
+**Totalt antal diskar Read OPS** | Inga | Disk läsnings åtgärder per sekund.
+**Skriv Ops totalt antal diskar** | Inga | Disk-Skriv åtgärder per sekund.
+**Totalt antal diskar läsnings data flöde** | Inga | Data läses från disken, i MB per sekund.
+**Totalt antal diskar Skriv data flöde** | Inga | Data som skrivs till disk, i MB per sekund.
+**Nätverk i data flöde** | Inga | Data som tagits emot av servern, i MB per sekund.
+**Nätverks utflöde** | Inga | Data som överförs av servern, i MB per sekund.
+**Typ av inbyggd program vara** | Inga | Serverns inbyggda program vara. Värdena kan vara "BIOS" eller "UEFI".
+**MAC-adress**| Inga | Serverns MAC-adress.
 
 
 ### <a name="add-operating-systems"></a>Lägg till operativ system
@@ -180,16 +180,16 @@ Så här kontrollerar du att servrarna visas i Azure Portal efter identifiering:
 Du kan skapa två typer av utvärderingar med hjälp av Server utvärdering.
 
 
-**Bedömnings typ** | **Detaljer**
+**Bedömnings typ** | **Information**
 --- | --- 
-**Azure VM** | Utvärderingar för att migrera dina lokala servrar till Azure Virtual Machines. <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md), [virtuella Hyper-V-datorer](how-to-set-up-appliance-hyper-v.md)och [fysiska servrar](how-to-set-up-appliance-physical.md) för migrering till Azure med hjälp av den här utvärderings typen. (concepts-assessment-calculation.md)
+**Azure VM** | Utvärderingar för att migrera dina lokala servrar till Azure Virtual Machines. <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md), [virtuella Hyper-V-datorer](how-to-set-up-appliance-hyper-v.md)och [fysiska servrar](how-to-set-up-appliance-physical.md) för migrering till Azure med hjälp av den här utvärderings typen.
 **Azure VMware Solution (AVS)** | Utvärderingar för att migrera dina lokala servrar till [Azure VMware-lösningen (AVS)](../azure-vmware/introduction.md). <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till Azure VMware-lösningen (AVS) med den här utvärderings typen. [Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
 
 ### <a name="sizing-criteria"></a>Storleks villkor
 
 Server utvärderingen innehåller två alternativ för storleks ändring:
 
-**Storleks villkor** | **Detaljer** | **Data**
+**Storleks villkor** | **Information** | **Data**
 --- | --- | ---
 **Prestanda-baserade** | Utvärderingar som gör rekommendationer baserat på insamlade prestanda data | **Utvärdering**av virtuell Azure-dator: rekommendation för virtuell dator baseras på data från processor-och minnes användning.<br/><br/> Disk typs rekommendation (standard HDD/SSD eller Premium-Managed Disks) baseras på IOPS och data flödet för lokala diskar.<br/><br/> **Azure VMware-lösning (AVS)-utvärdering**: AVS-nodernas rekommendation baseras på data från processor-och minnes användning.
 **Som lokal** | Utvärderingar som inte använder prestanda data för att göra rekommendationer. | **Utvärdering**av virtuell Azure-dator: rekommendationen för VM-storlek baseras på den lokala virtuella dator storleken<br/><br> Den rekommenderade disk typen baseras på vad du väljer i inställningen lagrings typ för utvärderingen.<br/><br/> **Azure VMware Solution (AVS)-utvärdering**: AVS-nodernas rekommendation baseras på den lokala virtuella dator storleken.

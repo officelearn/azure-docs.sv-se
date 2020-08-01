@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c35204e37e3aae930577697779b8f945c4fbfbcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01ec7f8210df9e41b2620e639eddbc98d4bcb73d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727219"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448670"
 ---
 # <a name="linkedin-account-connections-data-sharing-and-consent"></a>LinkedIn-konto anslutningar data delning och medgivande
 
@@ -39,7 +39,9 @@ Om du vill se LinkedIn-information i Microsoft-appar och-tjänster måste använ
 Du måste vara Azure Active Directory administratör för att kunna hantera inställningen för din organisation. Du kan aktivera det för alla användare eller för en speciell uppsättning användare.
 
 1. Om du vill aktivera eller inaktivera integrationen följer du stegen i [medgivande till LinkedIn-integrering för din Azure AD-organisation](linkedin-integration.md).
-2. När du tillkännager LinkedIn-integreringen i din organisation kan du peka dina användare till vanliga frågor och svar om [LinkedIn-information i Microsoft-appar och-tjänster](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381). Artikeln innehåller information om var LinkedIn-information visas, hur du ansluter konton med mera.
+2. När du tillkännager LinkedIn-integreringen i din organisation kan du peka dina användare till vanliga frågor och svar om [LinkedIn-information i Microsoft-appar och-tjänster](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381). Artikeln innehåller information om var LinkedIn-information visas, [data delning och sekretess](https://support.microsoft.com/office/your-data-ae9c08a7-4d06-45b5-a065-320a97bc1400), [hur man ansluter konton](https://support.microsoft.com/office/connect-your-linkedin-and-work-or-school-accounts-c7c245f2-fa56-4c9b-ba20-3fceb23c5772) med mera.
+
+Du måste tillkännage LinkedIn-integrering till dina användare och ge dem all information som rör data delning och sekretess för LinkedIn-integrering. För att användarna ska kunna ansluta konton i listan med licenser 
 
 ## <a name="user-consent-for-data-access-in-microsoft-and-linkedin"></a>Användar medgivande för data åtkomst i Microsoft och LinkedIn
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 31dfae60b1967e221e294195f66bb7fe59a15e64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69926671730e41845cd28df3108ec86b24a57075
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84187526"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448519"
 ---
 # <a name="network-topologies-for-azure-sql-managed-instance-migrations-using-azure-database-migration-service"></a>Nätverkstopologier för migrering av Azure SQL-hanterade instanser med hjälp av Azure Database Migration Service
 
@@ -39,7 +39,7 @@ Använd den här topologin om din Azure SQL-hanterade instans är ansluten till 
 Använd den här nätverks sto pol Ogin om din miljö kräver ett eller flera av följande scenarier:
 
 - SQL-hanterad instans är isolerad från lokal anslutning, men Azure Database Migration Service-instansen är ansluten till det lokala nätverket.
-- Om rollbaserade Access Control-principer (RBAC) är på plats och du behöver begränsa användarna till att komma åt samma prenumeration som är värd för SQL-hanterad instans.
+- Om Azure RBAC-principer (rollbaserad åtkomst kontroll) är på plats och du behöver begränsa användarna till att komma åt samma prenumeration som är värd för SQL-hanterad instans.
 - De virtuella nätverk som används för SQL-hanterad instans och Azure Database Migration Service finns i olika prenumerationer.
 
 ![Nätverkstopologi för en hanterad instans som är isolerad från det lokala nätverket](media/resource-network-topologies/mi-isolated-workload.png)
@@ -64,7 +64,7 @@ Använd den här topologin om käll SQL Server finns i en virtuell Azure-dator o
 Använd den här nätverks sto pol Ogin om din miljö kräver ett eller flera av följande scenarier:
 
 - SQL-hanterad instans är etablerad i ett isolerat virtuellt nätverk.
-- Om rollbaserade Access Control-principer (RBAC) är på plats och du behöver begränsa användarna till att komma åt samma prenumeration som är värd för SQL-hanterad instans.
+- Om Azure RBAC-principer (rollbaserad åtkomst kontroll) är på plats och du behöver begränsa användarna till att komma åt samma prenumeration som är värd för SQL-hanterad instans.
 - De virtuella nätverk som används för SQL-hanterad instans och Azure Database Migration Service finns i olika prenumerationer.
 
 ![Nätverkstopologi för moln-till-moln-migrering med ett isolerat VNet](media/resource-network-topologies/cloud-to-cloud-isolated.png)
@@ -77,18 +77,18 @@ Använd den här nätverks sto pol Ogin om din miljö kräver ett eller flera av
 
 | **NAMN**   | **LASTNING** | **PROTOKOLLHANTERARE** | **KÄLLICENSSERVERN** | **MÅL** | **TGÄRD** |
 |------------|----------|--------------|------------|-----------------|------------|
-| DMS_subnet | Alla      | Alla          | DMS-UNDERNÄT | Alla             | Tillåt      |
+| DMS_subnet | Valfri      | Valfri          | DMS-UNDERNÄT | Valfri             | Tillåt      |
 
 ## <a name="outbound-security-rules"></a>Säkerhetsregler för utgående trafik
 
 | **NAMN**                  | **LASTNING**                                              | **PROTOKOLLHANTERARE** | **KÄLLICENSSERVERN** | **MÅL**           | **TGÄRD** | **Orsak för regel**                                                                                                                                                                              |
 |---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| management                | 443, 9354                                              | TCP          | Alla        | Alla                       | Tillåt      | Hanterings Plans kommunikation via Service Bus och Azure Blob Storage. <br/>(Om Microsoft-peering har Aktiver ATS kanske du inte behöver den här regeln.)                                                             |
-| Diagnostik               | 12000                                                 | TCP          | Alla        | Alla                       | Tillåt      | DMS använder den här regeln för att samla in diagnostikinformation i fel söknings syfte.                                                                                                                      |
-| SQL-webbserver         | 1433 (eller TCP IP-port som SQL Server lyssnar på) | TCP          | Alla        | Lokalt adressutrymme | Tillåt      | SQL Server käll anslutning från DMS <br/>(Om du har plats-till-plats-anslutning kanske du inte behöver den här regeln.)                                                                                       |
-| SQL Server namngiven instans | 1434                                                  | UDP          | Alla        | Lokalt adressutrymme | Tillåt      | SQL Server namngiven instans källa anslutning från DMS <br/>(Om du har plats-till-plats-anslutning kanske du inte behöver den här regeln.)                                                                        |
-| SMB-resurs                 | 445                                                   | TCP          | Alla        | Lokalt adressutrymme | Tillåt      | SMB-nätverks resurs för DMS för lagring av säkerhetskopierade databasfiler för migrering till Azure SQL Database MI-och SQL-servrar på den virtuella Azure-datorn <br/>(Om du har plats-till-plats-anslutning kanske du inte behöver den här regeln). |
-| DMS_subnet                | Alla                                                   | Alla          | Alla        | DMS_Subnet                | Tillåt      |                                                                                                                                                                                                  |
+| management                | 443, 9354                                              | TCP          | Valfri        | Valfri                       | Tillåt      | Hanterings Plans kommunikation via Service Bus och Azure Blob Storage. <br/>(Om Microsoft-peering har Aktiver ATS kanske du inte behöver den här regeln.)                                                             |
+| Diagnostik               | 12000                                                 | TCP          | Valfri        | Valfri                       | Tillåt      | DMS använder den här regeln för att samla in diagnostikinformation i fel söknings syfte.                                                                                                                      |
+| SQL-webbserver         | 1433 (eller TCP IP-port som SQL Server lyssnar på) | TCP          | Valfri        | Lokalt adressutrymme | Tillåt      | SQL Server käll anslutning från DMS <br/>(Om du har plats-till-plats-anslutning kanske du inte behöver den här regeln.)                                                                                       |
+| SQL Server namngiven instans | 1434                                                  | UDP          | Valfri        | Lokalt adressutrymme | Tillåt      | SQL Server namngiven instans källa anslutning från DMS <br/>(Om du har plats-till-plats-anslutning kanske du inte behöver den här regeln.)                                                                        |
+| SMB-resurs                 | 445                                                   | TCP          | Valfri        | Lokalt adressutrymme | Tillåt      | SMB-nätverks resurs för DMS för lagring av säkerhetskopierade databasfiler för migrering till Azure SQL Database MI-och SQL-servrar på den virtuella Azure-datorn <br/>(Om du har plats-till-plats-anslutning kanske du inte behöver den här regeln). |
+| DMS_subnet                | Valfri                                                   | Valfri          | Valfri        | DMS_Subnet                | Tillåt      |                                                                                                                                                                                                  |
 
 ## <a name="see-also"></a>Se även
 

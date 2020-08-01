@@ -3,12 +3,12 @@ title: Azure Machine Learning som Event Grid källa
 description: Beskriver de egenskaper som har angetts för Machine Learning-arbetsyta händelser med Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: e256dbcef8c4e4a1354455843e4466d666c7d7b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb8cd76829622962b642580bbda7f2a655604c2f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090679"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87458050"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning som en Event Grid källa
 
@@ -257,11 +257,11 @@ Data-objektet har följande egenskaper för varje händelse typ:
 ## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
 | Rubrik | Beskrivning |
 | ----- | ----- |
-| [Använda Azure Machine Learning händelser](../machine-learning/concept-event-grid-integration.md) | Översikt över att integrera Azure Machine Learning med Event Grid. |
+| [Använda Azure Machine Learning händelser](../machine-learning/how-to-use-event-grid.md) | Översikt över att integrera Azure Machine Learning med Event Grid. |
 
 ## <a name="next-steps"></a>Nästa steg
 
 * En introduktion till Azure Event Grid finns i [Vad är event Grid?](overview.md)
 * Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Event Grid prenumerations schema](subscription-creation-schema.md)
-* En introduktion till att använda Azure Event Grid med Azure Machine Learning finns i [använda Azure Machine Learning händelser](/azure/machine-learning/concept-event-grid-integration)
-* Ett exempel på hur du använder Azure Event Grid med Azure Machine Learning finns i [Skapa event drived Machine Learning-arbetsflöden](/azure/machine-learning/how-to-use-event-grid)
+* En introduktion till att använda Azure Event Grid med Azure Machine Learning finns i [använda Azure Machine Learning händelser](../machine-learning/how-to-use-event-grid.md)
+* Ett exempel på hur du använder Azure Event Grid med Azure Machine Learning finns i [Skapa event drived Machine Learning-arbetsflöden](../machine-learning/how-to-use-event-grid.md)

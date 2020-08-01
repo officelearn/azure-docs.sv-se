@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9bd6a7ff943b5f3750ce8aaeada32010b88272c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c8238e6e0b52a625c76f79fa0dd5a91dd640fb8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83745628"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447840"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migrera Azure Monitor loggar uppdaterings distributioner till Azure Portal
 
@@ -19,7 +19,7 @@ Hanterings portalen för Operations Management Suite (OMS) är [inaktuell](../az
 ## <a name="key-information"></a>Viktig information
 
 * Befintliga distributioner fortsätter att fungera. När du har återskapat distributionen i Azure kan du ta bort din gamla distribution.
-* Alla befintliga funktioner som du hade i OMS är tillgängliga i Azure. Mer information om Uppdateringshantering finns i [uppdateringshantering översikt](automation-update-management.md).
+* Alla befintliga funktioner som du hade i OMS är tillgängliga i Azure. Mer information om Uppdateringshantering finns i [uppdateringshantering översikt](update-management/update-mgmt-overview.md).
 
 ## <a name="access-the-azure-portal"></a>Åtkomst till Azure-portalen
 
@@ -74,4 +74,4 @@ Följ dessa steg om du vill använda den befintliga sparade sökningen:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Uppdateringshantering i Azure Automation finns i [uppdateringshantering översikt](automation-update-management.md).
+Mer information om Uppdateringshantering i Azure Automation finns i [uppdateringshantering översikt](update-management/update-mgmt-overview.md).

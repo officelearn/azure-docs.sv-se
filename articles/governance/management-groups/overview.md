@@ -3,12 +3,12 @@ title: Organisera dina resurser med hanterings grupper – Azure-styrning
 description: Läs om hanteringsgrupperna, hur behörigheterna fungerar och hur du använder dem.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: 8c8c254b2156a6f710c7130503b7c2a18d7168b0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 7c6d5d752886f47da1321289696feb4261abe7e5
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420523"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447119"
 ---
 # <a name="what-are-azure-management-groups"></a>Vad är Azures hanterings grupper?
 
@@ -82,7 +82,7 @@ Om du har frågor om återfyllningsprocessen kan du kontakta: `managementgroups@
   
 ## <a name="management-group-access"></a>Åtkomst till hanteringsgrupp
 
-Azure-hanteringsgrupper har stöd för [Azures rollbaserade åtkomstkontroll (RBAC)](../../role-based-access-control/overview.md) för alla resursåtkomster och rolldefinitioner.
+Azures hanterings grupper har stöd för [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md) för alla resurs åtkomster och roll definitioner.
 Dessa behörigheter ärvs av underordnade resurser som finns i hierarkin. En RBAC-roll kan tilldelas till en hanterings grupp som ärver hierarkin till resurserna. RBAC-rollen VM-deltagare kan till exempel tilldelas till en hanteringsgrupp. Rollen har ingen åtgärd för hanteringsgruppen, men ärver av alla virtuella datorer under hanteringsgruppen.
 
 Följande diagram visar listan över roller och åtgärder som stöds för hanteringsgrupper.

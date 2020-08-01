@@ -1,14 +1,14 @@
 ---
-title: Vägledning och bästa praxis
+title: Vägledning och metodtips
 description: Upptäck de bästa metoderna och vägledningen för att säkerhetskopiera molnet och den lokala arbets belastningen till molnet
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 4a5f7e1f55eb5b4a68ee889ef6e1378eb573a6a5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d0ce7877ebd33385deb98977c9439bf8a05b5325
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100295"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447286"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Säkerhetskopiera molnet och lokala arbets belastningar till molnet
 
@@ -26,7 +26,7 @@ Den primära mål gruppen för den här artikeln är IT-administratörer och pro
 
 ## <a name="architecture"></a>Arkitektur
 
-![Azure Backup-arkitekturen](./media/guidance-best-practices/azure-backup-architecture.png)
+![Azure Backup-arkitektur](./media/guidance-best-practices/azure-backup-architecture.png)
 
 ### <a name="workloads"></a>Arbetsbelastningar
 
@@ -137,7 +137,7 @@ För att hjälpa dig att skydda dina säkerhets kopierings data och uppfylla ver
 
 ### <a name="authentication-and-authorization"></a>Autentisering och auktorisering
 
-* Med Azure Role-baserade Access Control (RBAC) kan du få detaljerad åtkomst hantering, uppdelning av uppgifter i ditt team och endast ge åtkomst till de användare som krävs för att utföra sina jobb. [Läs mer här](backup-rbac-rs-vault.md).
+* Rollbaserad åtkomst kontroll i Azure (Azure RBAC) möjliggör detaljerad åtkomst hantering, uppdelning av uppgifter i teamet och ger endast åtkomst till de användare som krävs för att utföra sina jobb. [Läs mer här](backup-rbac-rs-vault.md).
 
 * Azure Backup innehåller tre inbyggda roller för att kontrol lera säkerhets kopierings hanterings åtgärder: säkerhets kopierings deltagare, operatörer och läsare. [Läs mer här](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions).
 

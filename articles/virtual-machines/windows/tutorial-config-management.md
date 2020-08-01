@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cf01e4baf96e4403dae443fa6c98f74c571641a8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2b88c053e1f9029f916d9a180221a3bb58629608
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508326"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448861"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Självstudie: övervaka ändringar och uppdatera en virtuell Windows-dator i Azure
 
-Med Azure [ändringsspårning](../../automation/change-tracking.md) och [uppdateringshantering](../../automation/automation-update-management.md)kan du enkelt identifiera ändringar i dina virtuella Windows-datorer i Azure och hantera uppdateringar av operativ system för de virtuella datorerna.
+Med Azure [ändringsspårning](../../automation/change-tracking.md) och [uppdateringshantering](../../automation/update-management/update-mgmt-overview.md)kan du enkelt identifiera ändringar i dina virtuella Windows-datorer i Azure och hantera uppdateringar av operativ system för de virtuella datorerna.
 
 I den här guiden får du lära dig att:
 
@@ -112,10 +112,10 @@ Om du vill schemalägga en ny uppdaterings distribution för den virtuella dator
 | --- | --- |
 | **Namn** |Ange ett unikt namn som identifierar uppdaterings distributionen. |
 |**Operativsystem**| Välj antingen **Linux** eller **Windows**.|
-| **Grupper att uppdatera** |Definiera en fråga baserat på en kombination av prenumeration, resurs grupper, platser och taggar för virtuella datorer som finns på Azure. Den här frågan skapar en dynamisk grupp med virtuella datorer i Azure som ska ingå i distributionen. </br></br>Välj en befintlig sparad sökning för virtuella datorer som inte finns på Azure. Med den här sökningen kan du välja en grupp med de virtuella datorerna som ska ingå i distributionen. </br></br> Mer information finns i [dynamiska grupper](../../automation/automation-update-management-groups.md).|
+| **Grupper att uppdatera** |Definiera en fråga baserat på en kombination av prenumeration, resurs grupper, platser och taggar för virtuella datorer som finns på Azure. Den här frågan skapar en dynamisk grupp med virtuella datorer i Azure som ska ingå i distributionen. </br></br>Välj en befintlig sparad sökning för virtuella datorer som inte finns på Azure. Med den här sökningen kan du välja en grupp med de virtuella datorerna som ska ingå i distributionen. </br></br> Mer information finns i [dynamiska grupper](../../automation/update-management/update-mgmt-groups.md).|
 | **Datorer som ska uppdateras** |Välj **Sparad sökning**, **importerad grupp**eller **datorer**.<br/><br/>Om du väljer **datorer**kan du välja enskilda datorer i den nedrullningsbara listan. Beredskapen för varje dator visas i kolumnen **Uppdatera agent beredskap** i tabellen.</br></br> Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../../azure-monitor/platform/computer-groups.md) |
 |**Uppdaterings klassificeringar**|Välj alla nödvändiga uppdaterings klassificeringar.|
-|**Inkludera/exkludera uppdateringar**|Välj det här alternativet för att öppna fönstret **Inkludera/exkludera** . Uppdateringar som ska tas med och de som ska undantas finns på separata flikar. Mer information om hur inkludering hanteras finns i [Schemalägga en uppdaterings distribution](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment). |
+|**Inkludera/exkludera uppdateringar**|Välj det här alternativet för att öppna fönstret **Inkludera/exkludera** . Uppdateringar som ska tas med och de som ska undantas finns på separata flikar. Mer information om hur inkludering hanteras finns i [Schemalägga en uppdaterings distribution](../../automation/update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment). |
 |**Schema inställningar**|Välj tid för start och välj antingen **en gång** eller **återkommande**.|
 | **Före skript + efter skript**|Välj de skript som ska köras före och efter distributionen.|
 | **Underhålls period** | Ange antalet minuter som ska uppdateras. Giltiga värden är mellan 30 och 360 minuter. |

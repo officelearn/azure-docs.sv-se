@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: da09f78817e1271832397b4a130195385207645f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e20b2f8c0e12fdb23668d16e2cbd7936cc4e48c
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477795"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445460"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Så här: begränsa din Azure AD-App till en uppsättning användare i en Azure AD-klient
 
@@ -26,7 +26,7 @@ Program som är registrerade i en Azure Active Directory-klient (Azure AD) är s
 
 På samma sätt kommer alla användare i Azure AD-klienten där den här appen är etablerad att kunna komma åt det här programmet när de har autentiserat sig i deras respektive klient organisationer, om det finns en app [med flera klienter](howto-convert-app-to-be-multi-tenant.md) .
 
-Klient organisations administratörer och utvecklare har ofta krav på när en app måste begränsas till en viss uppsättning användare. Utvecklare kan utföra samma med hjälp av populära behörighets mönster som rollbaserad Access Control (RBAC), men den här metoden kräver en stor mängd arbete på en del av utvecklaren.
+Klient organisations administratörer och utvecklare har ofta krav på när en app måste begränsas till en viss uppsättning användare. Utvecklare kan utföra samma användnings mönster med hjälp av populära behörighets mönster som rollbaserad åtkomst kontroll i Azure (Azure RBAC), men den här metoden kräver en stor mängd arbete på en del av utvecklaren.
 
 Klient organisations administratörer och utvecklare kan begränsa en app till en särskild uppsättning användare eller säkerhets grupper i klient organisationen genom att använda den här inbyggda funktionen i Azure AD också.
 

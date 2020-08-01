@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/02/2020
-ms.openlocfilehash: 27de2d3926a1f03cbd9169216e8f68c8ca81f2a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/29/2020
+ms.openlocfilehash: d28cd7a7edd5d6405761bf21ee87ec39dc9ec9cb
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84298609"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448540"
 ---
 # <a name="data-flow-script-dfs"></a>Data flödes skript (DFS)
 
@@ -195,13 +195,21 @@ Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
 ```
 
 ### <a name="count-number-of-updates-upserts-inserts-deletes"></a>Antal uppdateringar, upsertar, infogningar, borttagningar
-När du använder en Alter Row-omvandling kanske du vill räkna antalet uppdateringar, upsertar, infogningar, och ta bort resultatet från dina Alter Row-principer. Lägg till en aggregerad omvandling efter din Alter-rad och klistra in det här data flödes skriptet i den sammanställda inventeringen för dessa räknare:
+När du använder en Alter Row-omvandling kanske du vill räkna antalet uppdateringar, upsertar, infogningar, och ta bort resultatet från dina Alter Row-principer. Lägg till en sammanställd omvandling efter din Alter-rad och klistra in det här data flödes skriptet i den sammanställda inventeringen.
 
 ```
 aggregate(updates = countIf(isUpdate(), 1),
         inserts = countIf(isInsert(), 1),
         upserts = countIf(isUpsert(), 1),
         deletes = countIf(isDelete(),1)) ~> RowCount
+```
+
+### <a name="distinct-row-using-all-columns"></a>Distinkt rad med alla kolumner
+Det här kodfragmentet lägger till en ny aggregerad omvandling till ditt data flöde som tar alla inkommande kolumner, genererar en hash som används för gruppering för att eliminera dubbletter, och sedan ange den första förekomsten av varje dubblett som utdata. Du behöver inte uttryckligen namnge kolumnerna, de skapas automatiskt från din inkommande data ström.
+
+```
+aggregate(groupBy(mycols = sha2(256,columns())),
+    each(match(true()), $$ = first($$))) ~> DistinctRows
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: d956ce273a7ea630bfdcf900fbbba5e8be30b254
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 940a24aedb8592d0e809bc79dc1c8977bc3abd38
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288458"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448986"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Snabb steg: skapa och använda ett offentligt privat privat nyckel par för virtuella Linux-datorer i Azure
 
@@ -37,10 +37,10 @@ Följande kommando skapar ett SSH-nyckelpar med RSA-kryptering och en bit-längd
 ssh-keygen -m PEM -t rsa -b 4096
 ```
 
-Om du använder [Azure CLI](/cli/azure) för att skapa en virtuell dator med kommandot [AZ VM Create](/cli/azure/vm#az-vm-create) kan du välja att generera offentliga och privata nyckel filer för SSH med `--generate-ssh-keys` alternativet. De viktigaste filerna lagras i katalogen ~/.ssh, om inget annat anges med `--ssh-dest-key-path` alternativet. Det `--generate-ssh-keys` går inte att skriva över befintliga viktiga filer i stället för att returnera ett fel. I följande kommando ersätter du *VMName* och *RGname* med dina egna värden:
+Om du använder [Azure CLI](/cli/azure) för att skapa en virtuell dator med kommandot [AZ VM Create](/cli/azure/vm#az-vm-create) kan du välja att generera offentliga och privata nyckel filer för SSH med `--generate-ssh-keys` alternativet. De viktigaste filerna lagras i katalogen ~/.ssh, om inget annat anges med `--ssh-dest-key-path` alternativet. Om det redan finns ett SSH-nyckelpar och `--generate-ssh-keys` alternativet används, genereras inte ett nytt nyckel par, utan i stället används det befintliga nyckel paret. I följande kommando ersätter du *VMName* och *RGname* med dina egna värden:
 
 ```azurecli
-az vm create --name VMname --resource-group RGname --generate-ssh-keys 
+az vm create --name VMname --resource-group RGname --image UbuntuLTS --generate-ssh-keys 
 ```
 
 ## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>Ange en offentlig SSH-nyckel när du distribuerar en virtuell dator

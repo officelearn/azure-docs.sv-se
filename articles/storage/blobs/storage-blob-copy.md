@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: f4e6e2f2732d1c90e8fe669788d82692c8016fd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce0c16d43e6de9bada5d747949e370eb83f85826
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463458"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446852"
 ---
 # <a name="copy-a-blob-with-net"></a>Kopiera en blob med .NET
 
@@ -23,7 +23,7 @@ Den här artikeln visar hur du kopierar en blob med ett Azure Storage-konto. Det
 
 När du kopierar en BLOB inom samma lagrings konto är det en synkron åtgärd. När du kopierar mellan-konton är det en asynkron åtgärd. Metoderna [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) och [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) returnerar ett kopierings-ID-värde som används för att kontrol lera status eller avbryta kopierings åtgärden.
 
-Käll-bloben för en kopierings åtgärd kan vara en Block-Blob, en tilläggs-BLOB, en sid-BLOB eller en ögonblicks bild. Om det redan finns en mål-BLOB måste den vara av samma Blob-typ som käll-bloben. Alla befintliga mål-blobar skrivs över. 
+Käll-bloben för en kopierings åtgärd kan vara en Block-Blob, en tilläggs-BLOB, en sid-BLOB eller en ögonblicks bild. Om det redan finns en mål-BLOB måste den vara av samma Blob-typ som käll-bloben. En befintlig mål-BLOB skrivs över.
 
 Det går inte att ändra mål-bloben medan en kopierings åtgärd pågår. En mål-BLOB kan bara ha en utestående kopierings-BLOB-åtgärd. Med andra ord kan en BLOB inte vara målet för flera väntande kopierings åtgärder.
 
@@ -35,18 +35,18 @@ För alla BLOB-typer kan du kontrol lera egenskapen [CopyState. status](/dotnet/
 
 En kopierings åtgärd kan ha följande format:
 
-  - Du kan kopiera en käll-blob till en mål-BLOB med ett annat namn. Mål-bloben kan vara en befintlig blob av samma Blob-typ (block, tillägg eller sida) eller kan vara en ny blob som skapats av kopierings åtgärden.
-  - Du kan kopiera en käll-blob till en mål-BLOB med samma namn, vilket i själva verket ersätter mål-bloben. En sådan kopierings åtgärd tar bort alla icke allokerade block och skriver över målets BLOB-metadata.
-  - Du kan kopiera en källfil i Azure File Service till en mål-blob. Mål-bloben kan vara en befintlig Block-Blob eller en ny Block-Blob som skapats av kopierings åtgärden. Det finns inte stöd för att kopiera från filer till Page blobbar eller bifogade blobbar.
-  - Du kan kopiera en ögonblicks bild över dess bas-blob. Genom att befordra en ögonblicks bild till positionen för bas-bloben kan du återställa en tidigare version av en blob.
-  - Du kan kopiera en ögonblicks bild till en mål-BLOB med ett annat namn. Den resulterande mål-bloben är en skrivbar blob och inte en ögonblicks bild.
+- Du kan kopiera en käll-blob till en mål-BLOB med ett annat namn. Mål-bloben kan vara en befintlig blob av samma Blob-typ (block, tillägg eller sida) eller kan vara en ny blob som skapats av kopierings åtgärden.
+- Du kan kopiera en käll-blob till en mål-BLOB med samma namn, vilket i själva verket ersätter mål-bloben. En sådan kopierings åtgärd tar bort alla icke allokerade block och skriver över målets BLOB-metadata.
+- Du kan kopiera en källfil i Azure File Service till en mål-blob. Mål-bloben kan vara en befintlig Block-Blob eller en ny Block-Blob som skapats av kopierings åtgärden. Det finns inte stöd för att kopiera från filer till Page blobbar eller bifogade blobbar.
+- Du kan kopiera en ögonblicks bild över dess bas-blob. Genom att befordra en ögonblicks bild till positionen för bas-bloben kan du återställa en tidigare version av en blob.
+- Du kan kopiera en ögonblicks bild till en mål-BLOB med ett annat namn. Den resulterande mål-bloben är en skrivbar blob och inte en ögonblicks bild.
 
 ## <a name="copy-a-blob"></a>Kopiera en BLOB
 
 Om du vill kopiera en BLOB anropar du någon av följande metoder:
 
- - [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet)
- - [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet)
+- [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet)
+- [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet)
 
 I följande kod exempel hämtas en referens till en blob som skapats tidigare och kopierar den till en ny BLOB i samma behållare:
 

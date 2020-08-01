@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 38ddfad179a8ef459b5c10f84619a836193ee092
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7dae16140c376bc9288fec5b8744ac6cd14051e5
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781658"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445610"
 ---
 # <a name="how-provisioning-works"></a>Så här fungerar etablering
 
@@ -162,7 +162,7 @@ Etablerings jobbet avslutar karantän när alla fel som är felaktiga har åtgä
 
 ### <a name="how-long-provisioning-takes"></a>Hur lång tid tar etableringen?
 
-Prestanda beror på om ditt etablerings jobb kör en inledande etablerings cykel eller en stegvis cykel. Mer information om hur lång etablering tar och hur du övervakar etablerings tjänstens status finns i [kontrol lera status för användar etablering](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md).
+Prestanda beror på om ditt etablerings jobb kör en inledande etablerings cykel eller en stegvis cykel. Mer information om hur lång etablering tar och hur du övervakar etablerings tjänstens status finns i [kontrol lera status för användar etablering](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 ### <a name="how-to-tell-if-users-are-being-provisioned-properly"></a>Så här ser du om användarna är korrekt etablerade
 
@@ -186,7 +186,7 @@ Om någon av ovanstående fyra händelser inträffar och mål programmet inte st
 
 Om du ser ett attribut IsSoftDeleted i dina attributmappning, används det för att fastställa användarens tillstånd och om du vill skicka en uppdateringsbegäran med aktiv = falskt för att ta bort användaren. 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 [Planera en distribution med automatisk användaretablering](../app-provisioning/plan-auto-user-provisioning.md)
 

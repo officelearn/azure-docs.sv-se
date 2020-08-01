@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 043c30af6d28e61a532c8030dabdc17b73303e7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b139441adb02f5fb33ae8c4a70aaa9b423f0d0e
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360137"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447102"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: aktiverar tillbakaskrivning av enhet
 > [!NOTE]
@@ -61,7 +61,7 @@ Installera Azure AD Connect med anpassade eller Express inställningar. Microsof
 
     a. **Ange autentiseringsuppgifter för företags administratör**: om företags administratörens autentiseringsuppgifter har angetts för den skog där enheterna behöver skrivas tillbaka, så förbereder Azure AD Connect skogen automatiskt under konfigurationen av tillbakaskrivning av enhet.
 
-    b. **Ladda ned PowerShell-skript**: Azure AD Connect automatiskt genererar ett PowerShell-skript som kan förbereda Active Directory för tillbakaskrivning av enheter. Om autentiseringsuppgifter för företags administratören inte kan tillhandahållas i Azure AD Connect, rekommenderar vi att du hämtar PowerShell-skriptet. Ange det nedladdade PowerShell-skriptet **CreateDeviceContainer. PSQ** till företags administratören för den skog där enheterna skrivs tillbaka till.
+    b. **Ladda ned PowerShell-skript**: Azure AD Connect automatiskt genererar ett PowerShell-skript som kan förbereda Active Directory för tillbakaskrivning av enheter. Om autentiseringsuppgifter för företags administratören inte kan tillhandahållas i Azure AD Connect, rekommenderar vi att du hämtar PowerShell-skriptet. Ange det hämtade PowerShell-skriptet **CreateDeviceContainer.ps1** till företags administratören för den skog där enheterna skrivs tillbaka till.
     ![Förbered Active Directory-skog](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     Följande åtgärder utförs för att förbereda Active Directory-skogen:

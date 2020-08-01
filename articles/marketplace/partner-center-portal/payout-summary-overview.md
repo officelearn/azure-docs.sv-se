@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 0f19d63bd5f22dc7bc60ceb76ef5bdbeff717dbb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4ee970f7e4a1228d40a284372300ed9e95c00b7e
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325737"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460396"
 ---
 # <a name="payout-summary-overview"></a>Översikt över utbetalningssammanfattning
 
@@ -23,7 +23,7 @@ Om du säljer erbjudanden i Azure Marketplace ser du också information om lycka
 > [!NOTE]
 > För att bli berättigad till utbetalning måste du ha uppnått [betalnings tröskeln](./payment-thresholds-methods-timeframes.md) på $50. Mer information om betalnings tröskeln finns i [Microsoft Azure Marketplace Publisher-avtalet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
 
-Alla rapporter och insikter för alternativet Transact Publishing är tillgängliga i avsnittet Analytics i Partner Center, som nås med hjälp av den här ikonen i det övre högra hörnet i portalen:
+Om du vill visa utbetalnings information loggar du in på [partner Center](https://partner.microsoft.com/dashboard/home) och väljer utbetalnings ikonen i det övre högra hörnet på skärmen:
 
 ![Visar utbetalnings ikonen i det övre högra hörnet på Partner Center-portalen.](./media/payout-overview.png)
 

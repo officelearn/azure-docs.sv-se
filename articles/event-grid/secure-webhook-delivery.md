@@ -3,16 +3,16 @@ title: Säker webhook-leverans med Azure AD i Azure Event Grid
 description: Beskriver hur du levererar händelser till HTTPS-slutpunkter som skyddas av Azure Active Directory att använda Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b0503d7da9e191e9d6764076392ead8faa5109a1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 90d06f203bc93177101a87a7a774d816b11b16f6
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119131"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460719"
 ---
-# <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicera händelser till Azure Active Directory skyddade slut punkter
+# <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicera händelser till Azure Active Directory-skyddade slutpunkter
 
-Den här artikeln beskriver hur du kan dra nytta av Azure Active Directory för att skydda anslutningen mellan händelse prenumerationen och webhook-slutpunkten. En översikt över Azure AD-program och tjänst huvud namn finns i [Översikt över Microsoft Identity Platform (v 2.0)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
+Den här artikeln beskriver hur du kan dra nytta av Azure Active Directory för att skydda anslutningen mellan händelse prenumerationen och webhook-slutpunkten. En översikt över Azure AD-program och tjänst huvud namn finns i [Översikt över Microsoft Identity Platform (v 2.0)](../active-directory/develop/v2-overview.md).
 
 I den här artikeln används Azure Portal för demonstration, men funktionen kan också aktive ras med CLI, PowerShell eller SDK: er.
 
@@ -28,7 +28,7 @@ Börja med att skapa ett Azure AD-program för den skyddade slut punkten. Se htt
 Använd PowerShell-skriptet nedan för att skapa en roll och tjänstens huvud namn i Azure AD-programmet. Du behöver klient-ID och objekt-ID från ditt Azure AD-program:
 
    > [!NOTE]
-   > Du måste vara medlem i [rollen Azure AD-programadministratör](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) för att köra det här skriptet.
+   > Du måste vara medlem i [rollen Azure AD-programadministratör](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles) för att köra det här skriptet.
     
 1. Ändra PowerShell-skriptets $myTenantId att använda ditt Azure AD-klient-ID.
 1. Ändra PowerShell-skriptets $myAzureADApplicationObjectId att använda objekt-ID: t för ditt Azure AD-program

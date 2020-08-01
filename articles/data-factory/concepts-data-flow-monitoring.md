@@ -1,19 +1,19 @@
 ---
-title: Kartlägger visuell övervakning av data flöde
-description: Övervaka Azure Data Factory data flöden visuellt
+title: Övervaka data flöden för mappning
+description: Övervaka mappning av data flöden visuellt i Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/03/2020
-ms.openlocfilehash: 1126f73b4d2e51e952a7cf971363020242838c34
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ad5fb077596b6cc444c1c4df81af32cbcfa7c1db
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958912"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475557"
 ---
 # <a name="monitor-data-flows"></a>Övervaka data flöden
 
@@ -27,7 +27,7 @@ När du kör din pipeline kan du övervaka pipelinen och alla aktiviteter som fi
 
 Du ser statistik på den här nivån även körnings tiderna och-statusen. Körnings-ID: t på aktivitets nivån skiljer sig från körnings-ID: t på pipelin nivån. Körnings-ID: t på den föregående nivån är för pipelinen. Genom att välja glasögon får du djupgående information om din data flödes körning.
 
-![Övervakning av data flöde](media/data-flow/mon002.png "Dataflödesövervakning")
+![Övervakning av data flöde](media/data-flow/monitoring-details.png "Dataflödesövervakning")
 
 När du befinner dig i vyn övervakning av grafisk nod kan du se en förenklad visnings version av data flödes diagrammet.
 

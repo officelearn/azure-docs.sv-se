@@ -1,14 +1,14 @@
 ---
 title: Bästa praxis
 description: Lär dig metod tips och användbara tips för att utveckla din Azure Batch-lösning.
-ms.date: 07/14/2020
+ms.date: 07/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 32610f54cc41bd5d7feb965b9a82903acc23c33c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 535deebd0ba683d9387408ad081d165a504c91d1
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497785"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474911"
 ---
 # <a name="azure-batch-best-practices"></a>Metod tips för Azure Batch
 
@@ -56,6 +56,10 @@ Allokeringsfel för pooler kan inträffa när som helst under första allokering
 Batch-pooler kan uppleva stillestånds händelser i Azure. Tänk på detta när du planerar och utvecklar ditt scenario eller ett arbets flöde för batch.
 
 Om en nod Miss lyckas försöker batch automatiskt återställa de här Compute-noderna åt dig. Detta kan utlösa en omschemaläggningen av alla pågående aktiviteter på den nod som återställs. Se [utforma för nya försök](#design-for-retries-and-re-execution) för att lära dig mer om avbrutna uppgifter.
+
+### <a name="third-party-images"></a>Avbildningar från tredje part
+
+Pooler kan skapas med avbildningar från tredje part som publicerats på Azure Marketplace. Med batch-konton för användar prenumerations läge kan du se felet "tilldelningen misslyckades på grund av kontroll av marknads plats inköp" när du skapar en pool med vissa avbildningar från tredje part. För att lösa det här felet accepterar du villkoren som anges av avbildningens utgivare. Du kan göra det med hjälp av [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms?view=azurermps-6.13.0) eller [Azure CLI](https://docs.microsoft.com/cli/azure/vm/image/terms?view=azure-cli-latest).
 
 ### <a name="azure-region-dependency"></a>Azure-region beroende
 
@@ -165,7 +169,7 @@ När du har överfört mallen till den nya regionen måste du återskapa certifi
 
 Mer information om Resource Manager och mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
-## <a name="connectivity"></a>Anslutningar
+## <a name="connectivity"></a>Anslutning
 
 Läs följande vägledning när du överväger anslutningen i dina batch-lösningar.
 

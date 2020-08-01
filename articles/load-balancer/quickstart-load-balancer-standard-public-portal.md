@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f9d736098e42bf5ca07eca0cb952275c5e39c2a9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 1864ce5a3c1b5b0b2e0cfe757e66fca2074b764c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125198"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475814"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabb start: skapa en belastningsutjämnare för att belastningsutjämna virtuella datorer med hjälp av Azure Portal
+# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabb start: skapa en offentlig belastningsutjämnare för att belastningsutjämna virtuella datorer med hjälp av Azure Portal
 
 Kom igång med Azure Load Balancer genom att använda Azure Portal för att skapa en offentlig belastningsutjämnare och tre virtuella datorer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -36,7 +36,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ---
 
-# <a name="option-1-default-create-a-load-balancer-standard-sku"></a>[Alternativ 1 (standard): skapa en belastningsutjämnare (standard-SKU)](#tab/option-1-create-load-balancer-standard)
+# <a name="option-1-default-create-a-public-load-balancer-standard-sku"></a>[Alternativ 1 (standard): skapa en offentlig belastningsutjämnare (standard-SKU)](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >Standard-SKU-belastningsutjämnare rekommenderas för produktions arbets belastningar.  Mer information om SKU: er finns i **[Azure Load Balancer SKU: er](skus.md)**.
@@ -51,11 +51,11 @@ När du skapar en offentlig belastningsutjämnare, skapar du en ny offentlig IP-
 
 2. På fliken **grundläggande** på sidan **skapa belastnings utjämning** anger eller väljer du följande information: 
 
-    | Inställning                 | Värde                                              |
+    | Inställningen                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa nytt** och ange **myResourceGroupLB** i text rutan.|
-    | Namn                   | Ange **myLoadBalancer**                                   |
+    | Name                   | Ange **myLoadBalancer**                                   |
     | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentlig**.                                        |
     | SKU           | Välj **standard** |
@@ -76,7 +76,7 @@ I det här avsnittet konfigurerar du:
 
 * Inställningar för belastnings utjämning för en backend-adresspool.
 * En hälso avsökning.
-* En belastnings Utjämnings regel och en automatisk utgående regel.
+* En belastnings Utjämnings regel.
 
 ### <a name="create-a-backend-pool"></a>Skapa en serverdelspool
 
@@ -102,7 +102,7 @@ Skapa en hälsoavsökning med namnet **myHealthProbe** så att du kan övervaka 
 
 2. Välj **hälso avsökningar**under **Inställningar**och välj sedan **Lägg till**.
     
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Namn | Ange **myHealthProbe**. |
     | Protokoll | Välj **http**. |
@@ -130,7 +130,7 @@ I det här avsnittet ska du skapa en belastnings Utjämnings regel:
 
 3. Använd de här värdena för att konfigurera belastnings Utjämnings regeln:
     
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Namn | Ange **myHTTPRule**. |
     | IP-version | Välj **IPv4** |
@@ -179,7 +179,7 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
    
 2. I **skapa en virtuell dator**skriver eller väljer du värdena på fliken **grundläggande** :
 
-    | Inställning | Värde                                          |
+    | Inställningen | Värde                                          |
     |-----------------------|----------------------------------|
     | **Projekt information** |  |
     | Prenumeration | Välj din Azure-prenumeration |
@@ -194,14 +194,14 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
     | Storlek | Välj storlek på virtuell dator eller Ställ in standardinställningen |
     | **Administratörs konto** |  |
     | Användarnamn | Ange ett användar namn |
-    | Lösenord | Ange ett lösen ord |
+    | lösenordsinställning | Ange ett lösen ord |
     | Bekräfta lösenord | Ange lösen ordet igen |
 
 3. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**.
   
 4. På fliken nätverk väljer eller anger du:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     |-|-|
     | **Nätverksgränssnitt** |  |
     | Virtuellt nätverk | **myVNet** |
@@ -220,7 +220,7 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
 
 6. På fliken **hantering** väljer eller anger du:
     
-    | Inställning | Värde |
+    | Inställningen | Värde |
     |-|-|
     | **Övervakning** |  |
     | Startdiagnostik | Välj **av** |
@@ -231,9 +231,9 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
 
 9. Följ steg 1 till 8 för att skapa två ytterligare virtuella datorer med följande värden och alla andra inställningar på samma sätt som **myVM1**:
 
-    | Inställning | VM 2| VM 3|
+    | Inställningen | VM 2| VM 3|
     | ------- | ----- |---|
-    | Namn |  **myVM2** |**myVM3**|
+    | Name |  **myVM2** |**myVM3**|
     | Tillgänglighetszon | **2** |**3**|
     | Nätverkssäkerhetsgrupp | Välj den befintliga **myNSG**| Välj den befintliga **myNSG**|
 
@@ -250,7 +250,7 @@ Mer information om utgående anslutningar finns i [utgående anslutningar i Azur
 
 3. Använd de här värdena för att konfigurera de utgående reglerna:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Namn | Ange **myOutboundRule**. |
     | IP-adress för klient del | Välj **Skapa ny**. </br> I **namn**anger du **LoadBalancerFrontEndOutbound**. </br> Välj **IP-adress** eller **IP-prefix**. </br> Välj **Skapa ny** under **offentlig IP-adress** eller **offentlig IP-prefix**. </br> Som namn anger du **myPublicIPOutbound** eller **myPublicIPPrefixOutbound**. </br> Välj **OK**. </br> Välj **Lägg till**.|
@@ -281,7 +281,7 @@ Mer information om utgående anslutningar finns i [utgående anslutningar i Azur
 
 8. Välj **Spara**.
 
-# <a name="option-2-create-a-load-balancer-basic-sku"></a>[Alternativ 2: skapa en belastningsutjämnare (Basic SKU)](#tab/option-1-create-load-balancer-basic)
+# <a name="option-2-create-a-public-load-balancer-basic-sku"></a>[Alternativ 2: skapa en offentlig belastningsutjämnare (grundläggande SKU)](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >Standard-SKU-belastningsutjämnare rekommenderas för produktions arbets belastningar.  Mer information om SKU: er finns i **[Azure Load Balancer SKU: er](skus.md)**.
@@ -296,11 +296,11 @@ När du skapar en offentlig belastningsutjämnare, skapar du en ny offentlig IP-
 
 2. På fliken **grundläggande** på sidan **skapa belastnings utjämning** anger eller väljer du följande information: 
 
-    | Inställning                 | Värde                                              |
+    | Inställningen                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv **myResourceGroupLB** i text rutan.|
-    | Namn                   | Ange **myLoadBalancer**                                   |
+    | Name                   | Ange **myLoadBalancer**                                   |
     | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentlig**.                                        |
     | SKU           | Välj **grundläggande** |
@@ -351,7 +351,7 @@ Skapa **myBackendPool** för backend-adresspoolen för att inkludera virtuella d
 
 3. På sidan **Lägg till en server dels grupp** anger eller väljer du:
     
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Namn | Ange **myBackendPool**. |
     | Virtuellt nätverk | Välj **myVNet**. |
@@ -369,7 +369,7 @@ Skapa en hälsoavsökning med namnet **myHealthProbe** så att du kan övervaka 
 
 2. Välj **hälso avsökningar**under **Inställningar**och välj sedan **Lägg till**.
     
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Namn | Ange **myHealthProbe**. |
     | Protokoll | Välj **http**. |
@@ -397,7 +397,7 @@ I det här avsnittet ska du skapa en belastnings Utjämnings regel:
 
 3. Använd de här värdena för att konfigurera belastnings Utjämnings regeln:
     
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Namn | Ange **myHTTPRule**. |
     | IP-version | Välj **IPv4** |
@@ -432,7 +432,7 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
    
 2. I **skapa en virtuell dator**skriver eller väljer du värdena på fliken **grundläggande** :
 
-    | Inställning | Värde                                          |
+    | Inställningen | Värde                                          |
     |-----------------------|----------------------------------|
     | **Projekt information** |  |
     | Prenumeration | Välj din Azure-prenumeration |
@@ -447,14 +447,14 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
     | Storlek | Välj storlek på virtuell dator eller Ställ in standardinställningen |
     | **Administratörs konto** |  |
     | Användarnamn | Ange ett användar namn |
-    | Lösenord | Ange ett lösen ord |
+    | lösenordsinställning | Ange ett lösen ord |
     | Bekräfta lösenord | Ange lösen ordet igen |
 
 3. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**.
   
 4. På fliken nätverk väljer eller anger du:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     |-|-|
     | **Nätverksgränssnitt** |  |
     | Virtuellt nätverk | Välj **myVNet** |
@@ -468,8 +468,9 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
 5. Välj fliken **Hantering** eller **Nästa** > **Hantering**.
 
 6. På fliken **hantering** väljer eller anger du:
-    | Inställning | Värde |
-    |-|-|
+    
+    | Inställningen | Värde |
+    |---|---|
     | **Övervakning** | |
     | Startdiagnostik | Välj **av** |
 
@@ -479,11 +480,29 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
 
 9. Följ steg 1 till 8 för att skapa två ytterligare virtuella datorer med följande värden och alla andra inställningar på samma sätt som **myVM1**:
 
-    | Inställning | VM 2| VM 3|
+    | Inställningen | VM 2| VM 3|
     | ------- | ----- |---|
-    | Namn |  **myVM2** |**myVM3**|
+    | Name |  **myVM2** |**myVM3**|
     | Tillgänglighetsuppsättning| Välj **myAvailabilitySet** | Välj **myAvailabilitySet**|
     | Nätverkssäkerhetsgrupp | Välj den befintliga **myNSG**| Välj den befintliga **myNSG**|
+
+### <a name="add-virtual-machines-to-the-backend-pool"></a>Lägg till virtuella datorer i backend-poolen
+
+De virtuella datorerna som skapades i föregående steg måste läggas till i backend-poolen för **myLoadBalancer**.
+
+1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myLoadBalancer** i listan resurser.
+
+2. Under **Inställningar**väljer du **Server dels pooler**och väljer sedan **myBackendPool**.
+
+3. Välj **virtuella datorer** i **kopplade till**.
+
+4. I avsnittet **virtuella datorer** väljer du **+ Lägg till**.
+
+5. Markera rutorna bredvid **myVM1**, **myVM2**och **myVM3**.
+
+6. Välj **Lägg till**.
+
+7. Välj **Spara**.
 
 ---
 

@@ -2,14 +2,14 @@
 title: Spara utdata till Azure Storage med batch-tjänst-API
 description: Lär dig hur du använder batch-tjänstens API för att spara batch-aktivitet och utskrifts data till Azure Storage.
 ms.topic: how-to
-ms.date: 03/05/2019
+ms.date: 07/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 24e9f242b3c71965984534ac986031757bbc8420
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 964ffea2ed1536dc1851aefc03c735cb08ba7ed7
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143511"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475625"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Spara uppgifts data till Azure Storage med batch-tjänstens API
 
@@ -19,6 +19,9 @@ Batch-tjänstens API har stöd för att spara utdata till Azure Storage för akt
 
 En fördel med att använda batch-tjänstens API för att spara Uppgiftsutdata är att du inte behöver ändra det program som aktiviteten körs på. I stället kan du spara aktivitetens utdata från samma kod som skapar uppgiften i stället för att få några ändringar i klient programmet.
 
+> [!IMPORTANT]
+> Att spara uppgifts data till Azure Storage med batch-tjänstens API fungerar inte med pooler som skapats före den [1 februari 2018](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md#1204).
+
 ## <a name="when-do-i-use-the-batch-service-api-to-persist-task-output"></a>När ska jag använda batch-tjänstens API för att spara Uppgiftsutdata?
 
 Azure Batch innehåller fler än ett sätt att spara Uppgiftsutdata. Att använda batch-tjänstens API är en praktisk metod som passar bäst för dessa scenarier:
@@ -26,9 +29,9 @@ Azure Batch innehåller fler än ett sätt att spara Uppgiftsutdata. Att använd
 - Du vill skriva kod för att spara Uppgiftsutdata från ditt klient program, utan att ändra det program som aktiviteten körs på.
 - Du vill spara utdata från batch-uppgifter och jobb Manager-aktiviteter i pooler som skapats med den virtuella dator konfigurationen.
 - Du vill spara utdata till en Azure Storage behållare med ett godtyckligt namn.
-- Du vill spara utdata till en Azure Storage-behållare med namnet enligt [satserna i satsen för fil konventioner som standard](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). 
+- Du vill spara utdata till en Azure Storage-behållare med namnet enligt [satserna i satsen för fil konventioner som standard](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files).
 
-Om ditt scenario skiljer sig från de som anges ovan kan du behöva överväga en annan metod. Batch-tjänstens API stöder till exempel inte strömmande utdata till Azure Storage medan aktiviteten körs. Om du vill strömma utdata kan du använda biblioteket med kommando fils konventioner, som är tillgängligt för .NET. För andra språk måste du implementera din egen lösning. Mer information om andra alternativ för att spara Uppgiftsutdata finns i [Spara jobb-och Uppgiftsutdata till Azure Storage](batch-task-output.md).
+Om ditt scenario skiljer sig från de som anges ovan kan du behöva överväga en annan metod. Batch-tjänstens API stöder till exempel inte strömmande utdata till Azure Storage medan aktiviteten körs. Om du vill strömma utdata kan du använda biblioteket med kommando fils konventioner, som är tillgängligt för .NET. För andra språk måste du implementera din egen lösning. Information om andra alternativ för att spara Uppgiftsutdata finns i [Spara jobb-och Uppgiftsutdata till Azure Storage](batch-task-output.md).
 
 ## <a name="create-a-container-in-azure-storage"></a>Skapa en behållare i Azure Storage
 
@@ -88,6 +91,9 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
             uploadCondition: OutputFileUploadCondition.TaskCompletion)),
 }
 ```
+
+> [!NOTE]
+> Om du använder det här exemplet med Linux ska du se till att ändra omvända snedstreck för att vidarebefordra snedstreck.
 
 ### <a name="specify-a-file-pattern-for-matching"></a>Ange ett fil mönster för matchning
 
@@ -169,7 +175,7 @@ Om du utvecklar på ett annat språk än C# måste du implementera filen Convent
 
 ## <a name="code-sample"></a>Kodexempel
 
-[PersistOutputs][github_persistoutputs] -exempelprojektet är ett av [Azure Batch kod exempel][github_samples] på GitHub. Den här Visual Studio-lösningen visar hur du använder batch-klientens bibliotek för .NET för att spara Uppgiftsutdata till varaktig lagring. Följ dessa steg om du vill köra exemplet:
+[PersistOutputs](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs) -exempelprojektet är ett av [Azure Batch kod exempel](https://github.com/Azure/azure-batch-samples) på GitHub. Den här Visual Studio-lösningen visar hur du använder batch-klientens bibliotek för .NET för att spara Uppgiftsutdata till varaktig lagring. Följ dessa steg om du vill köra exemplet:
 
 1. Öppna projektet i **Visual Studio 2019**.
 2. Lägg till dina autentiseringsuppgifter för batch-och lagrings **konto** i **AccountSettings. settings** i Microsoft.Azure.BatCH. Samples. common Project.
@@ -182,7 +188,4 @@ Om du utvecklar på ett annat språk än C# måste du implementera filen Convent
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om att spara Uppgiftsutdata med fil konventions biblioteket för .NET finns i [Spara jobb-och uppgifts data till Azure Storage med bibliotek för batch-Filkonventioner för .net](batch-task-output-file-conventions.md).
-- Information om andra metoder för att spara utdata i Azure Batch finns i [Spara jobb-och Uppgiftsutdata för att Azure Storage](batch-task-output.md).
-
-[github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs
-[github_samples]: https://github.com/Azure/azure-batch-samples
+- Information om andra metoder för att bevara utdata i Azure Batch finns i [Spara jobb-och Uppgiftsutdata för att Azure Storage](batch-task-output.md).

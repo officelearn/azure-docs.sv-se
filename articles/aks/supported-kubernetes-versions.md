@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: fc50934b4c301b4eea509ecc22e00c62ca091d75
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 273c41a523de8b2776982e5229c5a8b618b82c19
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056558"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475200"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes Service (AKS)
 
@@ -91,6 +91,14 @@ New Supported Version List
 1.17.*9*, 1.17.*8*, 1.16.*11*, 1.16.*10*
 ```
 
+### <a name="supported-kubectl-versions"></a>Versioner som stöds `kubectl`
+
+Du kan använda en lägre version som är äldre än eller senare i `kubectl` förhållande till din *Kube-apiserver-* version, som är konsekvent med [Kubernetes-Supportens princip för kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
+
+Om din *Kube-apiserver* till exempel är på *1,17*, kan du använda versioner *1,16* till *1,18* av `kubectl` med *Kube-apiserver*.
+
+För att installera eller uppdatera din version av `kubectl` , kör `az aks install-cli` .
+
 ## <a name="release-and-deprecation-process"></a>Version och utfasnings process
 
 Du kan referera till kommande versions utgåvor och utfasningar i [AKS Kubernetes release-kalendern](#aks-kubernetes-release-calendar).
@@ -121,7 +129,6 @@ Om du vill ta reda på vilka versioner som för närvarande är tillgängliga f�
 az aks get-versions --location eastus --output table
 ```
 
-
 ## <a name="aks-kubernetes-release-calendar"></a>AKS Kubernetes, versions kalender
 
 Den senaste versions historiken finns [här](https://en.wikipedia.org/wiki/Kubernetes#History).
@@ -135,7 +142,7 @@ Den senaste versions historiken finns [här](https://en.wikipedia.org/wiki/Kuber
 
 \*Datum bekräftelse för väntande lansering av uppladdning.
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **Vad händer när en användare uppgraderar ett Kubernetes-kluster med en lägre version som inte stöds?**
 

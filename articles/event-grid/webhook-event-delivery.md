@@ -3,19 +3,19 @@ title: Leverans av webhook-händelser
 description: I den här artikeln beskrivs webhook-händelsen leverans och slut punkts verifiering när du använder Webhooks.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b616c82092ad896da82d0f98f37e3c45f3ba1014
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e9a52d0cb3e4e880d91e1b748d97ef3041298930
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118961"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461246"
 ---
 # <a name="webhook-event-delivery"></a>Leverans av webhook-händelser
 Webhooks är ett av många sätt att ta emot händelser från Azure Event Grid. När en ny händelse är klar skickar Event Grid tjänsten en HTTP-begäran till den konfigurerade slut punkten med händelsen i begär ande texten.
 
 Precis som många andra tjänster som har stöd för webhookar kräver Event Grid att du förvarar ägarskapet för webhook-slutpunkten innan den börjar leverera händelser till den slut punkten. Detta krav förhindrar att en obehörig användare översvämmar din slut punkt med händelser. När du använder någon av de tre Azure-tjänsterna i listan nedan hanterar Azure-infrastrukturen automatiskt den här verifieringen:
 
-- Azure Logic Apps med [Event Grid koppling](https://docs.microsoft.com/connectors/azureeventgrid/)
+- Azure Logic Apps med [Event Grid koppling](/connectors/azureeventgrid/)
 - Azure Automation via [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
 - Azure Functions med [Event Grid-utlösare](../azure-functions/functions-bindings-event-grid.md)
 

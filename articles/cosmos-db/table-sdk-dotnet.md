@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: 419c3f21c8606bb16112fd18cfe141655fd7b868
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f735668e1519a6a12082537dabfe17be3e96ffdd
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84168156"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460019"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tabell .NET API: Hämta och viktig information
 
@@ -28,7 +28,7 @@ ms.locfileid: "84168156"
 |---|---|
 |**SDK-hämtning**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)|
 |**Snabbstart**|[Azure Cosmos DB: Bygg en app med .NET och Tabell-API](create-table-dotnet.md)|
-|**Självstudier**|[Azure Cosmos DB: Utveckla med tabell-API i .NET](tutorial-develop-table-dotnet.md)|
+|**Självstudie**|[Azure Cosmos DB: Utveckla med tabell-API i .NET](tutorial-develop-table-dotnet.md)|
 |**Aktuellt ramverk som stöds**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
@@ -82,10 +82,7 @@ Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för 
 
 `Microsoft.Azure.CosmosDB.Table`Biblioteket är för närvarande endast tillgängligt för .NET Framework och är i underhålls läge och kommer att bli inaktuellt snart. Nya funktioner och funktioner och optimeringar läggs bara till i .NET standard-biblioteket [Microsoft. Azure. Cosmos. table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), så vi rekommenderar att du uppgraderar till [Microsoft. Azure. Cosmos. table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table).
 
-[Windowsazure. Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) för hands versions paketet är inaktuell. WindowsAzure. Storage-PremiumTable SDK kommer att dras tillbaka den 15 november 2018, där det inte är tillåtet att begära förfrågningar till det tillbakadragna SDK: n. 
-
-Förfrågningar till Azure Cosmos DB med hjälp av en tillbakadragen SDK avvisas av tjänsten.
-<br/>
+[Windowsazure. Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) för hands versions paketet är inaktuell. WindowsAzure. Storage-PremiumTable SDK kommer att dras tillbaka den 15 november 2018, där det inte är tillåtet att begära förfrågningar till det tillbakadragna SDK: n.
 
 | Version | Lanserings datum | Förfallodatum |
 | --- | --- | --- |

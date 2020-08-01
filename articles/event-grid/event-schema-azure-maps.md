@@ -3,16 +3,16 @@ title: Azure Maps som Event Grid källa
 description: Beskriver de egenskaper och schema som anges för Azure Maps händelser med Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8aa29d003483536ef33a32616af1553e1bbe8204
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4203bdf5222278b698d656835afebd9769557303
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106696"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461994"
 ---
 # <a name="azure-maps-as-an-event-grid-source"></a>Azure Maps som en Event Grid källa
 
-Den här artikeln innehåller egenskaper och schema för Azure Maps händelser. En introduktion till händelse scheman finns i [Azure Event Grid händelse schema](https://docs.microsoft.com/azure/event-grid/event-schema). Du får också en lista med snabb starter och självstudier för att använda Azure Maps som en händelse källa.
+Den här artikeln innehåller egenskaper och schema för Azure Maps händelser. En introduktion till händelse scheman finns i [Azure Event Grid händelse schema](./event-schema.md). Du får också en lista med snabb starter och självstudier för att använda Azure Maps som en händelse källa.
 
 ## <a name="event-grid-event-schema"></a>Event Grid-händelseschema
 
@@ -20,7 +20,7 @@ Den här artikeln innehåller egenskaper och schema för Azure Maps händelser. 
 
 Ett Azure Maps konto avger följande händelse typer:
 
-| Händelsetyp | Description |
+| Händelsetyp | Beskrivning |
 | ---------- | ----------- |
 | Microsoft. Maps. GeofenceEntered | Utlöses när de mottagna koordinaterna har flyttats från utsidan av ett angivet geografiskt avgränsnings tecken till inom |
 | Microsoft. Maps. GeofenceExited | Utlöses när de mottagna koordinaterna har flyttats från ett angivet geografiskt avgränsnings tecken till utsidan |
@@ -103,7 +103,7 @@ En händelse har följande data på översta nivån:
 | Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
-| motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
+| Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
 | Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
 | Händelsetid | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | id | sträng | Unikt ID för händelsen. |
@@ -162,7 +162,7 @@ Data-objektet har följande egenskaper:
 | isEventPublished | boolean | Sant om minst en händelse publiceras till Azure Maps händelse prenumerant, falskt om ingen händelse publiceras till Azure Maps händelse prenumerant. |
 
 ## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 | [Reagera på Azure Maps händelser med Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Översikt över att integrera Azure Maps med Event Grid. |
 | [Självstudie: Konfigurera en gräns](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Den här självstudien vägleder dig igenom de grundläggande stegen för att konfigurera geofence med hjälp av Azure Maps. Du använder Azure Event Grid för att strömma de gränsade resultaten och ställa in ett meddelande baserat på de gränser som anges i det här resultatet. |

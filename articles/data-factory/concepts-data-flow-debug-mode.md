@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/06/2019
-ms.openlocfilehash: 4a763a3bb4d46ba03808423d4d1283381c1174a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02ec26c80a8a64f88a30ded2067a377c292d621d
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81605395"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475608"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mappa fel söknings läge för data flöde
 
@@ -25,7 +25,7 @@ Med fel söknings läget Azure Data Factory mappnings data flödet kan du intera
 
 ![Felsöka skjutreglage](media/data-flow/debugbutton.png "Felsöka skjutreglage")
 
-När du har aktiverat skjutreglaget uppmanas du att välja vilken integration runtime-konfiguration som du vill använda. Om du väljer AutoResolveIntegrationRuntime, kommer ett kluster med åtta kärnor i allmän beräkning med en tid på 60 minuter att leva upp. Mer information om data flödes integrerings körningar finns i [prestanda för data flöde](concepts-data-flow-performance.md#increasing-compute-size-in-azure-integration-runtime).
+När du har aktiverat skjutreglaget uppmanas du att välja vilken integration runtime-konfiguration som du vill använda. Om du väljer AutoResolveIntegrationRuntime, kommer ett kluster med åtta kärnor i allmän beräkning med en tid på 60 minuter att leva upp. Mer information om data flödes integrerings körningar finns i [prestanda för data flöde](concepts-data-flow-performance.md#ir).
 
 ![Felsök IR-val](media/data-flow/debugbutton2.png "Felsök IR-val")
 

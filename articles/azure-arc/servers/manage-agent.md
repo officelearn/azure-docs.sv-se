@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/14/2020
+ms.date: 07/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 122f88e8bf14d3e3b082930716cffc3621afd336
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 80c133eceb6af419d0eb5aa35ff784a0f9321d37
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067706"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474962"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Hantera och underhålla den anslutna dator agenten
 
@@ -146,7 +146,7 @@ Du kan utföra en **anslutning**, koppla **från**och **återansluta** manuellt 
 >[!NOTE]
 >Du måste ha *rot* åtkomst behörighet på Linux-datorer för att kunna köra **azcmagent**.
 
-### <a name="connect"></a>Anslut
+### <a name="connect"></a>Ansluta
 
 Den här parametern anger en resurs i Azure Resource Manager som representerar datorn som skapas i Azure. Resursen är i den angivna prenumerations-och resurs gruppen och data om datorn lagras i den Azure-region som anges av `--location` inställningen. Standard resurs namnet är värd namnet för den här datorn om inget värde anges.
 
@@ -181,6 +181,9 @@ Kör följande kommando för att koppla bort med dina förhöjda inloggade auten
 `azcmagent disconnect --tenant-id <tenantID>`
 
 ### <a name="reconnect"></a>Återansluta
+
+> [!WARNING]
+> `reconnect`Kommandot är föråldrat och bör inte användas. Kommandot tas bort i en framtida agent version och befintliga agenter kommer inte att kunna slutföra begäran om åter anslutning. Koppla i stället [bort](#disconnect) datorn och [Anslut](#connect) den sedan igen.
 
 Den här parametern återansluter den redan registrerade eller anslutna datorn med Azure Arc for Servers (för hands version). Detta kan vara nödvändigt om datorn har inaktiverats, minst 45 dagar, för att certifikatet ska upphöra att gälla. Den här parametern använder de autentiseringsalternativ som finns för att hämta nya autentiseringsuppgifter som motsvarar den Azure Resource Manager resursen som representerar den här datorn.
 

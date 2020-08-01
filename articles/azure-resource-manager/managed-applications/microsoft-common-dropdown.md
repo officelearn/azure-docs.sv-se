@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: f5eac1d331bd439ad4066d1dea1b9aa950fcce60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cc50e49d4bc59235a147d114d86ecdff95dca797
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004501"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474350"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>GRÄNSSNITTs element för Microsoft. Common. list rutan
 
@@ -47,6 +47,7 @@ När filtrering är aktiverat innehåller kontrollen en text ruta för att lägg
     "name": "element1",
     "type": "Microsoft.Common.DropDown",
     "label": "Example drop down",
+    "placeholder": "",
     "defaultValue": "Value two",
     "toolTip": "",
     "multiselect": true,  
@@ -90,6 +91,7 @@ När filtrering är aktiverat innehåller kontrollen en text ruta för att lägg
 - `constraints.allowedValues`måste ha minst ett objekt.
 - För att emulera ett värde som inte krävs lägger du till ett objekt med etiketten och värdet `""` (tom sträng) till `constraints.allowedValues` .
 - `defaultDescription`Egenskapen används för objekt som inte har någon beskrivning.
+- `placeholder`Egenskapen är hjälp text som försvinner när användaren börjar redigera. Om `placeholder` och `defaultValue` båda definieras prioriteras `defaultValue` och visas.
 
 ## <a name="next-steps"></a>Nästa steg
 

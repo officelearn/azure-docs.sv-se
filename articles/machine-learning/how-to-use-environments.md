@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: c1c146783d54bf2df25a130b73ab430c6edeaef7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d39b5f414b1998a4c0eacbbf8fd792d27c70309c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319464"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474588"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Skapa & använda program varu miljöer i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -262,7 +262,8 @@ myenv.docker.enabled = True
 
 Som standard visas den nyligen inbyggda Docker-avbildningen i behållar registret som är kopplat till arbets ytan.  Databas namnet har formatet *azureml/azureml_ \<uuid\> *. Den unika identifieraren (*UUID*) i namnet motsvarar en hash som beräknas från miljö konfigurationen. Den här korrespondensen gör att tjänsten kan avgöra om det redan finns en avbildning för den aktuella miljön för åter användning.
 
-Dessutom använder tjänsten automatiskt en av de Ubuntu Linux-baserade [bas avbildningarna](https://github.com/Azure/AzureML-Containers). De angivna python-paketen installeras. Bas avbildningen har processor versioner och GPU-versioner. Azure Machine Learning identifierar automatiskt vilken version som ska användas. Det är också möjligt att använda en [anpassad Docker-bas avbildning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image).
+### <a name="use-a-custom-docker-image-or-dockerfile"></a>Använd en anpassad Docker-avbildning eller Dockerfile 
+Tjänsten använder automatiskt en av de Ubuntu Linux-baserade [bas avbildningarna](https://github.com/Azure/AzureML-Containers). De angivna python-paketen installeras. Bas avbildningen har processor versioner och GPU-versioner. Azure Machine Learning identifierar automatiskt vilken version som ska användas. Det är också möjligt att använda en [anpassad Docker-bas avbildning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image).
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
@@ -407,7 +408,9 @@ service = Model.deploy(
     deployment_config = deployment_config)
 ```
 
-## <a name="example-notebooks"></a>Exempelnotebook-filer
+## <a name="notebooks"></a>Notebooks
+
+Den här [artikeln](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#add-new-kernels) innehåller information om hur du installerar en Conda-miljö som en kernel i en bärbar dator.
 
 Den här [exempel antecknings boken](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) expanderas efter koncept och metoder som visas i den här artikeln.
 

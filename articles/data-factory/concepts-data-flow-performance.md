@@ -6,171 +6,277 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 07/06/2020
-ms.openlocfilehash: 9f420b37bd44a46d4149e89cf5876d8e8b712581
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/27/2020
+ms.openlocfilehash: 55483b93b770687703b381366d48edbc7d48f26e
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114388"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475346"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Prestanda-och justerings guiden för att mappa data flöden
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Att mappa data flöden i Azure Data Factory tillhandahålla ett kod fritt gränssnitt för att utforma, distribuera och dirigera data transformationer i stor skala. Om du inte är bekant med att mappa data flöden kan du läsa [Översikt över kart data flödet](concepts-data-flow-overview.md).
+Att mappa data flöden i Azure Data Factory tillhandahålla ett kod fritt gränssnitt för att utforma och köra data transformationer i stor skala. Om du inte är bekant med att mappa data flöden kan du läsa [Översikt över kart data flödet](concepts-data-flow-overview.md). I den här artikeln beskrivs olika sätt att finjustera och optimera dina data flöden så att de uppfyller dina prestanda mått.
 
-När du utformar och testar data flöden från ADF-UX måste du växla till fel söknings läge för att köra dina data flöden i real tid utan att vänta på att ett kluster ska värmas upp. Mer information finns i [fel söknings läge](concepts-data-flow-debug-mode.md).
+Titta på videon nedan och se några exempel på tids inställningar som omvandlar data med data flöden.
 
-I den här videon visas några exempel på tids inställningar för omvandling av data med data flöden:
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rNxM]
+
+## <a name="testing-data-flow-logic"></a>Testa data flödes logik
+
+När du designar och testar data flöden från ADF-UX kan du i fel söknings läge interaktivt testa mot ett aktivt Spark-kluster. På så sätt kan du förhandsgranska data och köra dina data flöden utan att vänta på att ett kluster ska värmas upp. Mer information finns i [fel söknings läge](concepts-data-flow-debug-mode.md).
 
 ## <a name="monitoring-data-flow-performance"></a>Prestanda för övervakning av data flöde
 
-När du skapar mappnings data flöden kan du Unit testa varje omvandling genom att klicka på fliken Data förhands granskning på konfigurations panelen. När du har verifierat din logik kan du testa ditt data flöde från slut punkt till slut punkt som en aktivitet i en pipeline. Lägg till aktiviteten kör data flöde och Använd knappen Felsök för att testa data flödets prestanda. Öppna körnings planen och prestanda profilen för ditt data flöde genom att klicka på glasögon-ikonen under "åtgärder" på fliken utmatning i pipelinen.
+När du har verifierat din omvandlings logik med fel söknings läge kör du ditt data flöde från slut punkt till slut punkt som en aktivitet i en pipeline. Data flöden fungerar i en pipeline med hjälp av [aktiviteten kör data flöde](control-flow-execute-data-flow-activity.md). Data flödes aktiviteten har en unik övervaknings upplevelse jämfört med andra Azure Data Factory aktiviteter som visar en detaljerad körnings plan och prestanda profil för omvandlings logiken. Om du vill visa detaljerad övervaknings information för ett data flöde klickar du på glasögon-ikonen i aktiviteten kör utdata för en pipeline. Mer information finns i [övervaka mappning av data flöden](concepts-data-flow-monitoring.md).
 
-![Data flödes övervakare](media/data-flow/mon002.png "Data flödes övervakare 2")
+![Data flödes övervakare](media/data-flow/monitoring-details.png "Data flödes övervakare 2")
 
- Du kan använda den här informationen för att uppskatta prestanda för ditt data flöde mot olika data källor. Mer information finns i [övervaka mappning av data flöden](concepts-data-flow-monitoring.md).
+När du övervakar data flödes prestanda finns det fyra möjliga Flask halsar att se ut för:
 
-![Övervakning av data flöde](media/data-flow/mon003.png "Data flödes övervakare 3")
+* Kluster start tid
+* Läser från en källa
+* Omvandlings tid
+* Skriver till en mottagare 
 
- För pipeliniska fel söknings körningar krävs en minut i kluster konfigurations tiden i de övergripande prestanda beräkningarna för ett varmt kluster. Om du initierar standard Azure Integration Runtime kan tiden ta ungefär 4 minuter.
+![Övervakning av data flöde](media/data-flow/monitoring-performance.png "Data flödes övervakare 3")
 
-## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Ökande beräknings storlek i Azure Integration Runtime
+Kluster start tid är den tid det tar att skapa ett Apache Spark-kluster. Det här värdet finns i det övre högra hörnet på övervaknings skärmen. Data flöden körs på en just-in-Time-modell där varje jobb använder ett isolerat kluster. Den här start tiden tar vanligt vis 3-5 minuter. För sekventiella jobb kan detta minskas genom att ett TTL-värde aktive ras. Mer information finns i [optimera Azure integration runtime](#ir).
 
-En Integration Runtime med fler kärnor ökar antalet noder i beräknings miljöerna för Spark och ger mer processor kraft för att läsa, skriva och transformera dina data. I ADF-dataflöden används Spark för Compute-motorn. Spark-miljön fungerar mycket bra för minnesoptimerade resurser.
+Data flöden använder en spark-optimering som ordnar om och kör affärs logiken i "faser" för att utföra så snabbt som möjligt. För varje mottagare som data flödet skriver till visar övervaknings resultatet varaktigheten för varje omvandlings steg, tillsammans med den tid det tar att skriva data till mottagaren. Tiden som är störst är sannolikt Flask halsen för ditt data flöde. Om det omvandlings steg som tar störst innehåller en källa kanske du vill titta närmare på att optimera din läsnings tid. Om en omvandling tar lång tid kan du behöva partitionera om eller öka storleken på integrerings körningen. Om bearbetnings tiden för mottagaren är stor kan du behöva skala upp databasen eller kontrol lera att du inte lägger till en enskild fil.
 
-Vi rekommenderar att du använder **minnesoptimerade** för produktion av de flesta arbets belastningar. Du kommer att kunna lagra mer data i minnet och minimera fel i slut på minne. Minnesoptimerade har en högre pris nivå per kärna än beräkning optimerad, men kommer troligen att resultera i snabbare omvandlings hastigheter och fler lyckade pipeliner. Om det uppstår minnes fel när du kör dina data flöden växlar du till en minnesoptimerade Azure IR-konfiguration.
+När du har identifierat Flask halsen för ditt data flöde kan du använda följande optimerings strategier för att förbättra prestanda.
 
-**Compute-optimerade** kan vara tillräckligt för fel sökning och data för hands version av ett begränsat antal rader med data. Beräknad optimering kommer förmodligen inte att fungera tillsammans med produktions arbets belastningar.
+## <a name="optimize-tab"></a>Fliken Optimera
 
-![Ny IR](media/data-flow/ir-new.png "Ny IR")
+Fliken **Optimize** innehåller inställningar för att konfigurera partitionerings schema för Spark-klustret. Den här fliken finns i varje omvandling av data flöde och anger om du vill partitionera om data **efter** att omvandlingen har slutförts. Genom att justera partitionering får du kontroll över distributionen av dina data över Compute-noder och optimeringar av data lokaler som kan ha både positiva och negativa effekter på dina övergripande data flödes prestanda.
+
+![Optimera](media/data-flow/optimize.png "Optimera")
+
+Som standard är *Använd aktuell partitionering* markerad, vilket instruerar Azure Data Factory att behålla den aktuella utdata-partitionering av omvandlingen. Eftersom ompartitionering av data tar tid rekommenderas *Använd nuvarande partitionering* i de flesta fall. Scenarier där du kanske vill partitionera om dina data är efter AGG regeringar och kopplingar som påtagligt snedställer data eller när du använder käll partitionering på en SQL-databas.
+
+Om du vill ändra partitionering för en omvandling väljer du fliken **optimera** och väljer alternativ knappen **Ange partitionering** . Du får en serie alternativ för partitionering. Den bästa metoden för partitionering skiljer sig beroende på dina data volymer, kandidat nycklar, null-värden och kardinalitet. 
+
+> [!IMPORTANT]
+> En enskild partition kombinerar alla distribuerade data till en enda partition. Det här är en mycket långsam åtgärd som också påverkar all underordnad omvandling och skrivning. Azure Data Factory starkt rekommenderar att du använder det här alternativet om det inte finns ett explicit affärs skäl.
+
+Följande partitionerings alternativ är tillgängliga i varje omvandling:
+
+### <a name="round-robin"></a>Resursallokering 
+
+Round Robin distribuerar data jämnt mellan partitioner. Använd Round-Robin när du inte har bra viktiga kandidater för att implementera en solid, smart partitionerings strategi. Du kan ange antalet fysiska partitioner.
+
+### <a name="hash"></a>Hash
+
+Azure Data Factory skapar en hash av kolumner för att skapa enhetliga partitioner, så att rader med liknande värden hamnar i samma partition. När du använder hash-alternativet kan du testa om det finns en sned partition. Du kan ange antalet fysiska partitioner.
+
+### <a name="dynamic-range"></a>Dynamiskt intervall
+
+Det dynamiska intervallet använder Spark-dynamiska intervall baserat på de kolumner eller uttryck som du anger. Du kan ange antalet fysiska partitioner. 
+
+### <a name="fixed-range"></a>Fast intervall
+
+Bygg ett uttryck som ger ett fast intervall för värden i dina partitionerade data kolumner. För att undvika separering av partitionen bör du ha en god förståelse för dina data innan du använder det här alternativet. De värden som du anger för uttrycket används som en del av en partitions funktion. Du kan ange antalet fysiska partitioner.
+
+### <a name="key"></a>Nyckel
+
+Om du har en god förståelse för data kardinalitet kan nyckel partitionering vara en god strategi. Med nyckel partitionering skapas partitioner för varje unikt värde i kolumnen. Du kan inte ange antalet partitioner eftersom antalet baseras på unika värden i data.
+
+> [!TIP]
+> Genom att ange partitionerings schema manuellt kan du blanda data och förskjuta fördelarna med Spark optimering. Vi rekommenderar att du inte anger partitionering manuellt om du inte behöver det.
+
+## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a>Optimera Azure Integration Runtime
+
+Data flöden körs i Spark-kluster som är i körnings läge. Konfigurationen för det använda klustret definieras i aktivitetens integration Runtime (IR). Det finns tre prestanda saker att göra när du definierar integration Runtime: kluster typ, kluster storlek och tid till Live.
 
 Mer information om hur du skapar en Integration Runtime finns [i integration runtime i Azure Data Factory](concepts-integration-runtime.md).
 
-### <a name="increase-the-size-of-your-debug-cluster"></a>Öka storleken på ditt fel söknings kluster
+### <a name="cluster-type"></a>Kluster typ
 
-Som standard använder fel söknings programmet standard Azure integration runtime som skapas automatiskt för varje data fabrik. Standardvärdet Azure IR har angetts till åtta kärnor, fyra för en driver-nod och fyra för en arbetsnoden, med hjälp av allmänna beräknings egenskaper. När du testar med större data kan du öka storleken på ditt fel söknings kluster genom att skapa en Azure IR med större konfigurationer och välja den nya Azure IR när du växlar vid fel sökning. Detta instruerar ADF att använda den här Azure IR för för hands versionen av data och pipeline-felsökning med data flöden.
+Det finns tre tillgängliga alternativ för typen av Spark-kluster: generell användning, minnesoptimerade och Compute-optimerad.
 
-### <a name="decrease-cluster-compute-start-up-time-with-ttl"></a>Minska kluster beräkningens start tid med TTL
+**Generella användnings** kluster är standard valet och är perfekt för de flesta arbets belastningar för data flöde. Dessa tenderar att bli bästa möjliga balans mellan prestanda och kostnad.
 
-Det finns en egenskap i Azure IR under egenskaper för data flöde som gör att du kan skapa en pool med kluster beräknings resurser för din fabrik. Med den här poolen kan du skicka data flödes aktiviteter i turordning för körning. När poolen har upprättats tar varje efterföljande jobb 1-2 minuter för Spark-klustret på begäran för att köra jobbet. Den inledande konfiguration av resurspoolen tar cirka 4 minuter. Ange hur lång tid du vill underhålla resurspoolen i TTL-inställningen (Time-to-Live).
+Om ditt data flöde har många kopplingar och uppslag, kanske du vill **använda ett minnesoptimerade** kluster. Minnesoptimerade kluster kan lagra mer data i minnet och minimera eventuella slut på minnes fel som du kan få. Minnesoptimerade har det högsta pris-/Core-priset, men det kan också leda till en mer framgångs rik pipeline. Om du får slut på minnes fel när du kör data flöden växlar du till en minnes optimerad Azure IR konfiguration. 
 
-## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse-synapse"></a>Optimering för Azure SQL Database och Azure SQL Data Warehouse Synapse
+**Compute-optimerad** är inte idealisk för ETL-arbetsflöden och rekommenderas inte av Azure Data Factory-teamet för de flesta produktions arbets belastningar. För enklare icke-minnes intensiva data transformationer som att filtrera data eller lägga till härledda kolumner, kan Compute-optimerade kluster användas till ett billigare pris per kärna.
 
-### <a name="partitioning-on-source"></a>Partitionering på källa
+### <a name="cluster-size"></a>Kluster storlek
 
-1. Gå till fliken **optimera** och välj **Ange partitionering**
-1. Välj **källa**.
-1. Under **antal partitioner**anger du det maximala antalet anslutningar till din Azure SQL-databas. Du kan prova en högre inställning för att få parallella anslutningar till databasen. Vissa fall kan dock leda till snabbare prestanda med ett begränsat antal anslutningar.
-1. Välj om du vill partitionera med en speciell tabell kolumn eller en fråga.
-1. Om du har valt **kolumn**väljer du kolumnen partition.
-1. Om du har valt **fråga**anger du en fråga som matchar partitionerings schemats databas tabell. Med den här frågan kan käll databas motorn utnyttja partition Eli minering. Käll databas tabellerna behöver inte partitioneras. Om källan inte redan är partitionerad använder ADF fortfarande data partitionering i miljön Spark-omvandling baserat på den nyckel som du väljer i käll omvandlingen.
+Data flöden distribuerar data bearbetningen över olika noder i ett Spark-kluster för att utföra åtgärder parallellt. Ett Spark-kluster med fler kärnor ökar antalet noder i beräknings miljön. Fler noder ökar bearbetnings kraften hos data flödet. Att öka kluster storleken är ofta ett enkelt sätt att minska bearbetnings tiden.
 
-![Käll del](media/data-flow/sourcepart3.png "Käll del")
+Standard kluster storleken är fyra driv rutins noder och fyra arbetsnoder.  När du bearbetar mer data rekommenderas större kluster. Nedan visas möjliga alternativ för storleks ändring:
+
+| Arbets kärnor | Driv rutins kärnor | Totalt antal kärnor | Anteckningar |
+| ------------ | ------------ | ----------- | ----- |
+| 4 | 4 | 8 | Inte tillgängligt för beräknings optimering |
+| 8 | 8 | 16 | |
+| 16 | 16 | 32 | |
+| 32 | 16 | 48 | |
+| 64 | 16 | 80 | |
+| 128 | 16 | 144 | |
+| 256 | 16 | 272 | |
+
+Data flöden priss ätts i vCore, vilket innebär att både kluster storlek och körnings tids faktor i detta. När du skalar upp ökar din kluster kostnad per minut, men den totala tiden minskar.
+
+> [!TIP]
+> Det finns ett tak för hur mycket kluster storleken påverkar ett data flödes prestanda. Beroende på storleken på dina data kommer det att gå att öka prestandan genom att öka storleken på ett kluster. Om du till exempel har fler noder än datapartitioner kan du inte lägga till fler noder. Ett bra tips är att starta små och skala upp för att uppfylla dina prestanda behov. 
+
+### <a name="time-to-live"></a>Time to live
+
+Varje data flödes aktivitet snurrar som standard ett nytt kluster baserat på IR-konfigurationen. Kluster start tiden tar några minuter och data bearbetningen kan inte starta förrän den är klar. Om pipelinen innehåller flera **sekventiella** data flöden kan du aktivera ett TTL-värde (Time to Live). Om du anger ett TTL-värde för en viss tids period, är ett kluster aktivt under en viss tids period när körningen har slutförts. Om ett nytt jobb startar med IR under TTL-tiden återanvänds det befintliga klustret och start tiden på några sekunder i stället för minuter. När det andra jobbet har slutförts kommer klustret återigen att vara i drift för TTL-tiden.
+
+Endast ett jobb kan köras i ett enskilt kluster i taget. Om det finns ett tillgängligt kluster, men två data flöden startar, använder bara ett aktivt kluster. Det andra jobbet kommer att skapa ett eget isolerat kluster.
+
+Om de flesta data flöden körs parallellt rekommenderar vi inte att du aktiverar TTL. 
 
 > [!NOTE]
-> En praktisk guide som hjälper dig att välja antalet partitioner för din källa baseras på antalet kärnor som du har angett för din Azure Integration Runtime och multiplicerar det talet med fem. Om du till exempel omvandlar en serie filer i dina ADLS-mappar och du ska använda en Azure IR på 32 kärnor, är antalet partitioner som du skulle använda som mål 32 x 5 = 160 partitioner.
+> Time to Live är inte tillgängligt när integrerings körningen för automatisk lösning används
 
-### <a name="source-batch-size-input-and-isolation-level"></a>Käll grupps storlek, Indatatyp och isolerings nivå
+## <a name="optimizing-sources"></a>Optimera källor
 
-Under **käll alternativ** i käll omvandlingen kan följande inställningar påverka prestanda:
+För varje källa förutom Azure SQL Database rekommenderar vi att du behåller den **aktuella partitionering** som det valda värdet. Vid läsning från alla andra käll system, flödar data automatiskt partitionerar data jämnt baserat på data storleken. En ny partition skapas för ungefär var 128 MB data. När data storleken ökar ökar antalet partitioner.
 
-* Batch-storlek instruerar ADF att lagra data i mängder i Spark-minnet i stället för rad för rad. Batchstorleken är en valfri inställning och du kan få slut på resurser på datornoderna om de inte ändras korrekt. Om den här egenskapen inte anges används Spark caching batch-standardvärden.
-* Genom att ställa in en fråga kan du filtrera rader på källan innan de anländer till data flödet för bearbetning. Detta kan göra den första data hämtningen snabbare. Om du använder en fråga kan du lägga till valfria frågeuttryck för din Azure SQL DB, till exempel READ uncommitted.
-* Vid Läs behörighet får du snabbare frågeresultat om käll omvandling
+Eventuell Anpassad partitionering sker *efter* att Spark har lästs in i data och påverkar prestandan för data flödet negativt. Detta rekommenderas inte eftersom data är jämnt partitionerade vid läsning. 
 
-![Källa](media/data-flow/source4.png "Källa")
+> [!NOTE]
+> Läs hastigheten kan begränsas av data flödet i ditt käll system.
 
-### <a name="sink-batch-size"></a>Grupp storlek för mottagare
+### <a name="azure-sql-database-sources"></a>Azure SQL Database källor
 
-Om du vill undvika rad-för-rad-bearbetning av dina data flöden ställer du in **batchstorleken** på fliken Inställningar för Azure SQL DB och Azure SQL DW-mottagare. Om batchstorleken anges, bearbetar ADF databas skrivningar i batchar baserat på den storlek som angetts. Om den här egenskapen inte anges används Spark caching batch-standardvärden.
+Azure SQL Database har ett unikt partitionerings alternativ som kallas källa partitionering. Att aktivera käll partitionering kan förbättra dina Läs tider från Azure SQL DB genom att aktivera parallella anslutningar i käll systemet. Ange antalet partitioner och hur dina data ska partitioneras. Använd en partition kolumn med hög kardinalitet. Du kan också ange en fråga som matchar partitionerings schemat i käll tabellen.
 
-![Kanalmottagare](media/data-flow/sink4.png "Kanalmottagare")
+> [!TIP]
+> För käll partitionering är I/O i SQL Server Flask halsen. Om du lägger till för många partitioner kan käll databasen fylla. Normalt är fyra eller fem partitioner idealiska när du använder det här alternativet.
 
-### <a name="partitioning-on-sink"></a>Partitionering på handfat
+![Käll partitionering](media/data-flow/sourcepart3.png "Käll partitionering")
 
-Även om du inte har dina data partitionerade i mål tabellerna rekommenderar vi att du har dina data partitionerade i Sink-omvandlingen. Partitionerade data resulterar ofta i mycket snabbare inläsningar för att tvinga alla anslutningar att använda en enda nod/partition. Gå till fliken optimera i din mottagare och *Välj partitionering med resursallokering för* att välja det idealiska antalet partitioner som ska skrivas till din mottagare.
+#### <a name="isolation-level"></a>Isolerings nivå
 
-### <a name="disable-indexes-on-write"></a>Inaktivera index vid skrivning
+Isolerings nivån för läsningen på ett Azure SQL-källdokument påverkar prestandan. Om du väljer Läs ej allokerat får du snabbast prestanda och förhindrar alla databas lås. Om du vill veta mer om isolerings nivåer för SQL kan du se [förstå isolerings nivåer](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15).
 
-I din pipeline lägger du till en [lagrad procedur aktivitet](transform-data-using-stored-procedure.md) innan data flödes aktiviteten som inaktiverar index i mål tabellerna som skrivs från din mottagare. Efter din data flödes aktivitet lägger du till en annan lagrad procedur aktivitet som aktiverar dessa index. Eller använda skriptet för för bearbetning och bearbetning efter bearbetning i en databas mottagare.
+#### <a name="read-using-query"></a>Läsa med fråga
 
-### <a name="increase-the-size-of-your-azure-sql-db-and-dw"></a>Öka storleken på din Azure SQL DB och DW
+Du kan läsa från Azure SQL Database med hjälp av en tabell eller en SQL-fråga. Om du kör en SQL-fråga måste frågan slutföras innan omvandlingen kan starta. SQL-frågor kan vara användbara för push-åtgärder som kan köras snabbare och minska mängden data som läses från en SQL Server, till exempel SELECT, WHERE och JOIN-instruktioner. När du använder åtgärder förlorar du möjligheten att spåra härkomst och prestanda för omvandlingarna innan data kommer in i data flödet.
+
+### <a name="azure-synapse-analytics-sources"></a>Azure Synapse Analytics-källor
+
+När du använder Azure Synapse Analytics finns det en inställning som kallas **Aktivera mellanlagring** i käll alternativen. Detta gör att ADF kan läsa från Synapse med [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15), vilket avsevärt förbättrar Läs prestanda. Om du aktiverar PolyBase måste du ange en Azure-Blob Storage eller Azure Data Lake Storage Gen2 mellanlagrings plats i data flödets aktivitets inställningar.
+
+![Aktivera mellanlagring](media/data-flow/enable-staging.png "Aktivera mellanlagring")
+
+### <a name="file-based-sources"></a>Filbaserade källor
+
+Medan data flöden stöder en mängd olika filtyper rekommenderar Azure Data Factory att använda Spark-Native Parquet-formatet för optimala Läs-och skriv tider.
+
+Om du kör samma data flöde på en uppsättning filer rekommenderar vi att du läser från en mapp med sökvägar till jokertecken eller läser från en lista med filer. En enda körning av data flödes aktivitet kan bearbeta alla filer i batch. Mer information om hur du anger dessa inställningar finns i anslutnings dokumentationen, till exempel [Azure Blob Storage](connector-azure-blob-storage.md#source-transformation).
+
+Undvik om möjligt att använda for-each-aktiviteten för att köra data flöden över en uppsättning filer. Detta medför varje iteration av for-each för att skapa ett eget Spark-kluster, vilket ofta inte är nödvändigt och kan vara dyrt. 
+
+## <a name="optimizing-sinks"></a>Optimera Sinks
+
+När data flödar till handfat sker eventuell Anpassad partitionering omedelbart före skrivningen. Precis som källan rekommenderar vi i de flesta fall att du behåller den **aktuella** partitionering som alternativet för den valda partitionen. Partitionerade data skrivs betydligt snabbare än opartitionerade data, även om målet inte är partitionerat. Nedan visas de enskilda övervägandena för olika typer av mottagare. 
+
+### <a name="azure-sql-database-sinks"></a>Azure SQL Database mottagare
+
+Med Azure SQL Database bör standard partitionering fungera i de flesta fall. Det finns en risk att din mottagare kan ha för många partitioner för att din SQL-databas ska kunna hantera. Om du kör i det här fallet minskar du antalet partitioner som anges av din SQL Database-mottagare.
+
+#### <a name="disabling-indexes-using-a-sql-script"></a>Inaktivera index med ett SQL-skript
+
+Inaktive ring av index innan en belastning i en SQL-databas kan förbättra prestanda vid skrivning till tabellen. Kör kommandot nedan innan du skriver till din SQL-mottagare.
+
+`ALTER INDEX ALL ON dbo.[Table Name] DISABLE`
+
+När skrivningen har slutförts bygger du om indexen med följande kommando:
+
+`ALTER INDEX ALL ON dbo.[Table Name] REBUILD`
+
+De kan båda göras inbyggda med pre-och post-SQL-skript i en Azure SQL DB-eller Synapse-mottagare i mappnings data flöden.
+
+![Inaktivera index](media/data-flow/disable-indexes-sql.png "Inaktivera index")
+
+> [!WARNING]
+> Vid inaktive ring av index tar data flödet effektiv kontroll över en databas och frågor är sannolikt inte att lyckas för tillfället. Därför utlöses många ETL-jobb mitt i natten för att undvika den här konflikten. Mer information finns i [begränsningarna vid inaktive ring av index](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15)
+
+#### <a name="scaling-up-your-database"></a>Skala upp databasen
 
 Schemalägg en storleks ändring för din källa och mottagar Azure SQL DB och DW innan din pipeline kör för att öka data flödet och minimera Azure-begränsningen när du når DTU-gränser. När din pipeline-körning har slutförts ändrar du storlek på databaserna till normal körnings frekvens.
 
-* SQL DB-källdokument med 887k-rader och 74-kolumner till en SQL DB-tabell med en enda härledd kolumn-omvandling tar cirka tre minuter från slut punkt till slut punkt med minnesoptimerade 80-Core fel sökning Azure IRs.
+### <a name="azure-synapse-analytics-sinks"></a>Azure Synapse Analytics-mottagare
 
-### <a name="azure-synapse-sql-dw-only-use-staging-to-load-data-in-bulk-via-polybase"></a>[Endast Azure Synapse SQL DW] Använd mellanlagring för att läsa in data i bulk via PolyBase
+När du skriver till Azure Synapse Analytics ska du kontrol lera att **Aktivera mellanlagring** är inställt på sant. Detta gör att ADF kan skriva med [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) som effektivt läser in data i bulk. Du måste referera till ett Azure Data Lake Storage Gen2-eller Azure Blob Storage-konto för att kunna mellanlagra data när du använder PolyBase.
 
-Om du vill undvika rad-för-rad-infogningar i din DW kontrollerar du **Aktivera mellanlagring** i mottagar inställningarna så att ADF kan använda [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide). PolyBase gör att ADF kan läsa in data i bulk.
-* När du kör data flödes aktiviteten från en pipeline måste du välja en BLOB eller ADLS Gen2 lagrings plats för att mellanlagra dina data under Mass inläsning.
+Förutom PolyBase gäller samma metod tips för Azure Synapse Analytics som Azure SQL Database.
 
-* Fil källan för 421Mb-filen med 74 kolumner till en Synapse-tabell och en enda härledd kolumn-omvandling tar cirka 4 minuter från slut punkt till slut punkt med minnesoptimerade 80-Core-felsökning Azure IRs.
+### <a name="file-based-sinks"></a>Filbaserade handfat 
 
-## <a name="optimizing-for-files"></a>Optimera för filer
+Medan data flöden stöder en mängd olika filtyper rekommenderar Azure Data Factory att använda Spark-Native Parquet-formatet för optimala Läs-och skriv tider.
 
-Vid varje omvandling kan du ange det partitionerings schema som du vill att Data Factory ska använda på fliken optimera. Det är en bra idé att först testa filbaserade Sinks och behålla standardpartitionering och optimering. Om du lämnar partitionering till "nuvarande partitionering" i mottagare för ett fil mål kommer Spark att ställa in en lämplig standardpartitionering för dina arbets belastningar. Standard partitionering använder 128 MB per partition.
+Om data är jämnt distribuerade, är **Använd aktuell partitionering** det snabbaste partitionering alternativet för att skriva filer.
 
-* För mindre filer kan det hända att du väljer färre partitioner kan ibland fungera bättre och snabbare än att be Spark att partitionera dina små filer.
-* Om du inte har tillräckligt med information om dina källdata väljer du *resursallokering* partitionering och anger antalet partitioner.
-* Om dina data innehåller kolumner som kan vara användbara hash-nycklar väljer du *hash-partitionering*.
+#### <a name="file-name-options"></a>Alternativ för fil namn
 
-* Fil källan med filsink för en 421Mb-fil med 74 kolumner och en enda härledd kolumn-omvandling tar cirka 2 minuter från slut punkt till slut punkt med minnesoptimerade 80-Core-felsökning Azure IRs.
+När du skriver filer kan du välja mellan olika namngivnings alternativ som påverkar prestandan.
 
-Vid fel sökning i data förhands granskning och fel sökning av pipelinen gäller gräns-och samplings storlekarna för filbaserade käll data uppsättningar endast för det antal rader som returneras, inte antalet rader som läses. Detta kan påverka prestandan för dina fel söknings körningar och möjligen orsaka att flödet slutar fungera.
-* Fel söknings kluster är små kluster med en nod som standard och vi rekommenderar att du använder små exempel filer för fel sökning. Gå till fel söknings inställningar och peka på en liten delmängd av dina data med en temporär fil.
+![Mottagar alternativ](media/data-flow/file-sink-settings.png "mottagar alternativ")
 
-    ![Fel söknings inställningar](media/data-flow/debugsettings3.png "Fel söknings inställningar")
+Om du väljer **standard** alternativet skrivs det snabbast. Varje partition kommer att likställas med en fil med Spark-standardnamnet. Detta är användbart om du bara läser från mappen med data.
 
-### <a name="file-naming-options"></a>Fil namns alternativ
+Om du anger ett namn **mönster** byts varje partition till ett mer användarvänligt namn. Den här åtgärden sker efter skrivning och är något långsammare än om du väljer standardvärdet. Per partition kan du namnge varje enskild partition manuellt.
 
-Det vanligaste sättet att skriva transformerade data i mappnings data flöden skriver BLOB eller ADLS File Store. I din mottagare måste du välja en data uppsättning som pekar på en behållare eller mapp, inte en namngiven fil. När data flödet för mappning använder Spark för körning, delas utdata ut över flera filer baserat på ditt partitionerings schema.
+Om en kolumn motsvarar hur du vill att data ska matas ut, kan du välja **som data i kolumnen**. Detta blandar data och kan påverka prestanda om kolumnerna inte är jämnt fördelade.
 
-Ett gemensamt partitionerings schema är att välja _utdata till en fil_, som sammanfogar alla filer i utdatafilen till en enda fil i din mottagare. Den här åtgärden kräver att utdata minskar till en enda partition på en enskild klusternod. Du kan ta bort resurser för klusternoden om du kombinerar många stora källfiler till en enda utdatafil.
+**Utdata till en enskild fil** kombinerar alla data till en enda partition. Detta leder till långa Skriv tider, särskilt för stora data uppsättningar. Azure Data Factorys teamet rekommenderar starkt att du **inte** väljer det här alternativet om det inte finns ett explicit affärs skäl.
 
-För att undvika att beräkna resurser för beräknings resurser, Behåll standardvärdet optimerat schema i data flöde och Lägg till en kopierings aktivitet i din pipeline som sammanfogar alla delfiler från mappen utdata till en ny fil. Den här tekniken separerar åtgärden för omvandling från fil sammanslagning och ger samma resultat som _att ange utdata till en enskild fil_.
+### <a name="cosmosdb-sinks"></a>CosmosDB-mottagare
 
-### <a name="looping-through-file-lists"></a>Loopa igenom fil listor
+När du skriver till CosmosDB kan du förbättra prestanda genom att ändra genomflödet och batchstorleken under körningen av data flödet. Ändringarna börjar gälla under körningen av data flödes aktiviteten och återgår till de ursprungliga samlings inställningarna efter slut satsen. 
 
-Ett data flöde för mappning kommer att köras bättre när käll omvandlingen upprepas över flera filer i stället för slingor via för varje aktivitet. Vi rekommenderar att du använder jokertecken eller fil listor i din käll omvandling. Data flödes processen körs snabbare genom att tillåta att slingor uppstår i Spark-klustret. Mer information finns i [jokertecken i käll omvandling](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
+**Batchstorlek:** Beräkna den grova rad storleken för dina data och se till att rad storleken * batchstorleken är mindre än 2 000 000. Om så är fallet ökar du batchstorleken för att få bättre data flöde
 
-Om du till exempel har en lista med datafiler från 2019 juli som du vill bearbeta i en mapp i Blob Storage, kan du använda ett jokertecken i din käll omvandling.
+**Data flöde:** Ange en högre data flödes inställning här så att dokument kan skrivas snabbare till CosmosDB. Kom ihåg de högre RU-kostnaderna baserat på en hög data flödes inställning.
 
-```DateFiles/*_201907*.txt```
+**Skriv data flödes budget:** Använd ett värde som är mindre än det totala antalet ru: er per minut. Om du har ett data flöde med ett stort antal Spark-partitioner, kan du ställa in en budget genom strömning för att öka balansen mellan dessa partitioner.
 
-Genom att använda jokertecken innehåller pipelinen bara en data flödes aktivitet. Detta kommer att utföra bättre än en sökning mot BLOB Store som sedan itererar över alla matchade filer med hjälp av en förvarsin aktivitet med data flödes aktiviteten Kör i.
 
-Pipelinen för varje i parallellt läge skapar flera kluster genom att snurra jobb kluster för varje utförd data flödes aktivitet. Detta kan orsaka en begränsning i Azure-tjänsten med ett stort antal samtidiga körningar. Användningen av kör data flöde inuti en för varje med sekventiell uppsättning i pipelinen kommer dock att undvika begränsning och resurs överbelastning. Detta tvingar Data Factory att köra var och en av dina filer mot ett data flöde i tur och ordning.
+## <a name="optimizing-transformations"></a>Optimera omvandlingar
 
-Om du använder för var och en med ett data flöde i följd rekommenderar vi att du använder TTL-inställningen i Azure Integration Runtime. Detta beror på att varje fil kommer att ådra sig en fullständig kluster start tid på 4 minuter i din iterator.
+### <a name="optimizing-joins-exists-and-lookups"></a>Optimera kopplingar, finns och uppslag
 
-### <a name="optimizing-for-cosmosdb"></a>Optimering för CosmosDB
+#### <a name="broadcasting"></a>Broadcasting
 
-Inställning av data flödes-och batch-egenskaper på CosmosDB-mottagare börjar bara gälla när data flödet körs från en pipeline-dataflöde-aktivitet. De ursprungliga samlings inställningarna kommer att hanteras av CosmosDB när data flödet har körts.
+I kopplingar, sökningar och exists-transformeringar, om en eller båda data strömmarna är tillräckligt små för att passa in i arbetsnodens minne, kan du optimera prestanda genom att aktivera **sändning**. Sändning är när du skickar små data ramar till alla noder i klustret. Detta gör att Spark-motorn kan utföra en koppling utan att reshuffling data i den stora data strömmen. Som standard bestämmer Spark-motorn om en sida av en anslutning ska sändas automatiskt eller inte. Om du är bekant med inkommande data och vet att en data ström kommer att vara betydligt mindre än den andra kan du välja **fast** sändning. Fast sändning tvingar Spark att sända den valda strömmen. 
 
-* Batchstorlek: beräkna den grova rad storleken för dina data och se till att rowSize * batchstorleken är mindre än 2 000 000. Om så är fallet ökar du batchstorleken för att få bättre data flöde
-* Data flöde: Ange en högre data flödes inställning här så att dokument kan skrivas snabbare till CosmosDB. Kom ihåg de högre RU-kostnaderna baserat på en hög data flödes inställning.
-*   Budget för Skriv data flöde: Använd ett värde som är mindre än det totala antalet ru: er per minut. Om du har ett data flöde med ett stort antal Spark-partitioner, kan du ange en budget genom strömning för att öka balansen mellan dessa partitioner.
+Om storleken på de distribuerade data är för stor för Spark-noden kan du få ett slut på minnes fel. Använd **minnesoptimerade** kluster för att undvika minnes fel. Om du upplever sändnings tids gränser vid körning av data flöden kan du inaktivera sändnings optimering. Detta kommer dock att leda till långsammare data flöden.
 
-## <a name="join-and-lookup-performance"></a>Prestanda för anslutning och uppslag
+![Optimering av kopplings omvandling](media/data-flow/joinoptimize.png "Delta i optimering")
 
-Att hantera prestanda för kopplingar i ditt data flöde är en mycket vanlig åtgärd som du kommer att utföra under hela livs cykeln för dina data transformationer. I ADF kräver data flöden inte data som ska sorteras före koppling när de här åtgärderna utförs som hash-kopplingar i Spark. Du kan dock dra nytta av förbättrad prestanda med anslutnings optimeringen "sändning" som gäller för kopplingar, finns och söka transformeringar.
+#### <a name="cross-joins"></a>Kors kopplingar
 
-På så sätt undviker du att blanda genom att trycka ned innehållet på någon av sidorna av kopplings förhållandet till Spark-noden. Detta fungerar bra för mindre tabeller som används för referens sökningar. Större tabeller som kanske inte passar i nodens minne är inte lämpliga kandidater för sändnings optimering.
+Om du använder litterala värden i dina kopplings villkor eller har flera matchningar på båda sidor av en koppling, kommer Spark att köra kopplingen som en kors koppling. En kors koppling är en fullständig kartesiska-produkt som sedan filtrerar ut de kopplade värdena. Detta är betydligt långsammare än andra kopplings typer. Se till att du har kolumn referenser på båda sidor om dina kopplings villkor för att undvika prestanda påverkan.
 
-Den rekommenderade konfigurationen för data flöden med många kopplings åtgärder är att hålla optimeringen inställd på "Auto" för "broadcast" och använda en ***minnesoptimerade*** Azure integration runtime konfiguration. Om du får slut på minnes fel eller sändnings-timeout under data flödes körningar kan du inaktivera sändnings optimeringen. Detta kommer dock att leda till långsammare data flöden. Du kan också instruera data flödet att endast mottagnings till vänster eller höger om kopplingen eller båda.
+#### <a name="sorting-before-joins"></a>Sortera före kopplingar
 
-![Sändnings inställningar](media/data-flow/newbroad.png "Sändnings inställningar")
+Till skillnad från sammanfognings koppling i verktyg som SSIS är Join-omvandlingen inte en obligatorisk sammanfognings kopplings åtgärd. Kopplings nycklarna kräver inte sortering före transformeringen. Azure Data Factory-teamet rekommenderar inte att du använder sorterings omvandlingar i mappnings data flöden.
 
-En annan kopplings optimering är att bygga dina kopplingar på ett sådant sätt att det gör att Spark är tendenser att implementera kors kopplingar. Om du till exempel inkluderar litterala värden i dina kopplings villkor kan Spark se att som ett krav för att utföra en fullständig kartesiska-produkt först och sedan filtrera ut de kopplade värdena. Men om du ser till att du har kolumn värden på båda sidor om ditt kopplings villkor kan du undvika den här Spark-inducerade kartesiska-produkten och förbättra prestanda för dina anslutningar och data flöden.
+### <a name="repartitioning-skewed-data"></a>Ompartitionering av skevade data
+
+Vissa transformeringar, till exempel sammanfogningar och aggregat, kommer att blanda dina datapartitioner och kan ibland leda till skevade data. Skevade data innebär att data inte är jämnt fördelade över partitionerna. Mycket sneda data kan leda till långsammare omvandlingar och Sink-skrivningar. Du kan kontrol lera snedheten för dina data när som helst i en data flödes körning genom att klicka på omvandlingen i övervaknings visningen.
+
+![Snedhet och-avvikelse](media/data-flow/skewness-kurtosis.png "Snedhet och-avvikelse")
+
+Övervaknings visningen visar hur data fördelas på varje partition tillsammans med två mått, snedhet och värde. **Snedheten** är ett mått på hur asymmetrisk data är och kan ha ett positivt, noll, negativt eller odefinierat värde. Negativ skevning innebär att den vänstra änden är längre än höger. **Grund är** måttet på huruvida data är tungt eller ljusa. Höga värden är inte önskvärda. De perfekta intervallen för snedheten är mellan-3 och 3 och intervall med för-och-värden är mindre än 10. Ett enkelt sätt att tolka dessa tal är att titta på partitionerings diagrammet och se om 1 bar är betydligt större än resten.
+
+Om dina data inte är jämnt partitionerade efter en omvandling kan du använda [fliken optimera](#optimize-tab) för att partitionera om. Reshuffling-data tar tid och förbättrar inte prestandan för data flödet.
+
+> [!TIP]
+> Om du partitionerar om data, men har underordnade omvandlingar som blandar dina data, använder du hash-partitionering i en kolumn som används som kopplings nyckel.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Se andra data flödes artiklar relaterade till prestanda:
 
-- [Fliken optimera data flöde](concepts-data-flow-overview.md#optimize)
 - [Data flödes aktivitet](control-flow-execute-data-flow-activity.md)
 - [Övervaka data flödes prestanda](concepts-data-flow-monitoring.md)

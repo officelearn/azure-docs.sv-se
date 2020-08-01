@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: e8efb43ac0711bac1324ac2c9e3b59373ce59419
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 850879675d4554329f24c86f2ac28660b303084c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84635141"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475574"
 ---
 # <a name="what-are-mapping-data-flows"></a>Vad är Mappa dataflöden?
 
@@ -93,41 +93,9 @@ Den första fliken i varje omvandlings konfigurations fönster innehåller inst�
 
 #### <a name="optimize"></a>Optimera
 
-Fliken **Optimize** innehåller inställningar för att konfigurera partitionerings scheman.
+Fliken **Optimize** innehåller inställningar för att konfigurera partitionerings scheman. Mer information om hur du optimerar dina data flöden finns i [prestanda guiden för att mappa data flödet](concepts-data-flow-performance.md).
 
-![Optimera](media/data-flow/optimize1.png "Optimera")
-
-Standardvärdet **använder nuvarande partitionering**, vilket instruerar Azure Data Factory att använda partitionerings schema som är inbyggt i data flöden som körs på Spark. I de flesta fall rekommenderar vi den här inställningen.
-
-Det finns instanser där du kanske vill justera partitionering. Om du till exempel vill att dina omvandlingar ska matas ut till en enda fil i sjön väljer du **enskild partition** i en Sink-omvandling.
-
-Ett annat fall där du kanske vill kontrol lera partitionerings scheman är att optimera prestandan. Genom att justera partitionering får du kontroll över distributionen av dina data över Compute-noder och optimeringar av data lokaler som kan ha både positiva och negativa effekter på dina övergripande data flödes prestanda. Mer information finns i [prestanda guiden för data flöde](concepts-data-flow-performance.md).
-
-Om du vill ändra partitionering för en omvandling väljer du fliken **optimera** och väljer alternativ knappen **Ange partitionering** . Du får en serie alternativ för partitionering. Den bästa metoden för partitionering skiljer sig beroende på dina data volymer, kandidat nycklar, null-värden och kardinalitet. 
-
-Vi rekommenderar att du börjar med standardpartitionering och sedan provar olika partitionerings alternativ. Du kan testa genom att använda fel söknings körningar för pipeline och Visa körnings tid och partitionera användning i varje omvandlings grupp från vyn övervakning. Mer information finns i [övervaka data flöden](concepts-data-flow-monitoring.md).
-
-Följande partitionerings alternativ är tillgängliga.
-
-##### <a name="round-robin"></a>Resursallokering 
-
-Resursallokering är en enkel partition som automatiskt distribuerar data jämnt mellan partitioner. Använd Round-Robin när du inte har bra viktiga kandidater för att implementera en solid, smart partitionerings strategi. Du kan ange antalet fysiska partitioner.
-
-##### <a name="hash"></a>Hash
-
-Azure Data Factory skapar en hash av kolumner för att skapa enhetliga partitioner, så att rader med liknande värden hamnar i samma partition. När du använder hash-alternativet kan du testa om det finns en sned partition. Du kan ange antalet fysiska partitioner.
-
-##### <a name="dynamic-range"></a>Dynamiskt intervall
-
-Det dynamiska intervallet använder Spark-dynamiska intervall baserat på de kolumner eller uttryck som du anger. Du kan ange antalet fysiska partitioner. 
-
-##### <a name="fixed-range"></a>Fast intervall
-
-Bygg ett uttryck som ger ett fast intervall för värden i dina partitionerade data kolumner. För att undvika separering av partitionen bör du ha en god förståelse för dina data innan du använder det här alternativet. De värden som du anger för uttrycket används som en del av en partitions funktion. Du kan ange antalet fysiska partitioner.
-
-##### <a name="key"></a>Tangent
-
-Om du har en god förståelse för data kardinalitet kan nyckel partitionering vara en god strategi. Med nyckel partitionering skapas partitioner för varje unikt värde i kolumnen. Du kan inte ange antalet partitioner eftersom antalet baseras på unika värden i data.
+![Optimera](media/data-flow/optimize.png "Optimera")
 
 #### <a name="inspect"></a>Allmänt
 

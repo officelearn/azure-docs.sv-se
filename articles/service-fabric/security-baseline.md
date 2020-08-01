@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 97285ae9eadee3717f0b1a1510627392250424b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 108882fd9e585fadc98436c3404bd8945e80080f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037873"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460685"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Azures säkerhets bas linje för Service Fabric
 
@@ -100,7 +100,7 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: Distribuera nätverksbaserade intrångs identifiering/system för skydd mot intrång (ID/IP-adresser)
 
-**Vägledning**: Välj ett erbjudande från Azure Marketplace som stöder ID/IP-funktioner med funktioner för nytto Last kontroll. Om intrångs identifiering och/eller skydd som baseras på nytto lasts granskning inte är ett krav kan du använda Azure-brandväggen med hot information. Azure Firewall Threat Intelligence-baserad filtrering kan varna och neka trafik till och från kända skadliga IP-adresser och domäner. IP-adresserna och domänerna är källor från Microsoft Threat Intelligence-flödet.
+**Vägledning**: Välj ett erbjudande från Azure Marketplace som stöder ID/IP-funktioner med funktioner för nytto Last kontroll. Om intrångs identifiering och/eller skydd som baseras på nytto lasts granskning inte är ett krav kan du använda Azure-brandväggen med hot information. Azure Firewall Threat Intelligence-baserad filtrering kan varna och neka trafik till och från kända skadliga IP-adresser och domäner. IP-adresserna och domänerna hämtas från Microsoft Threat Intelligence-flödet.
 
 Distribuera den brand Väggs lösning som du väljer för var och en av organisationens nätverks gränser för att upptäcka och/eller neka skadlig trafik.
 
@@ -626,7 +626,7 @@ Om du vill testa OS-korrigeringsfiler först innan du går vidare till produktio
 
 * [Så här tar du med virtuella datorer uppdaterade med den senaste skalnings uppsättnings modellen](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
 
-* [Översikt över Azure Automation Uppdateringshantering](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Översikt över Azure Automation Uppdateringshantering](https://docs.microsoft.com/azure/automation/update-management/update-mgmt-overview)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 

@@ -7,12 +7,12 @@ ms.date: 07/22/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 7d88ac62d9117df9d24c6d865e684a0972c87dae
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d8efec0517cd0b4bdcba643a0936b474593d58c4
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337321"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475472"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Ord lista med villkor för för hands versionen av IoT Plug and Play
 
@@ -95,13 +95,9 @@ Det IoT Hub frågespråket används i flera olika syfte. Du kan till exempel anv
 
 En IoT Plug and Play-enhet är vanligt vis en småskalig, fristående data behandlings enhet som samlar in data eller styr andra enheter och som kör program vara eller inbyggd program vara som implementerar en [enhets modell](#device-model).  En IoT Plug and Play-enhet kan till exempel vara en miljö övervaknings enhet eller en kontrollant för ett bevattnings system med Smart-jordbruk. Du kan skriva en molnbaserad IoT-lösning i molnet för att kommando, kontrol lera och ta emot data från IoT Plug and Play-enheter.
 
-## <a name="iot-plug-and-play-conventions"></a>IoT Plug and Play-konventioner
+## <a name="iot-plug-and-play-conventions"></a>Konventioner för IoT Plug and Play
 
 IoT Plug and Play- [enheter](#iot-plug-and-play-device) förväntas följa en uppsättning [konventioner](concepts-convention.md) när de utbyter data med en lösning.
-
-## <a name="model-discovery"></a>Modellidentifiering
-
-När en [iot plug and Play-enhet](#iot-plug-and-play-device) ansluter till en IoT-lösning kan lösningen identifiera funktionerna i enheten genom att söka efter [enhets modellen](#device-model). Lösningen kan hitta en enhets modell i en [modell databas](#model-repository) eller på en annan plats.
 
 ## <a name="model-id"></a>Modell-ID
 

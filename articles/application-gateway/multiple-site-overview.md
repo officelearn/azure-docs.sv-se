@@ -5,20 +5,20 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.date: 07/20/2020
-ms.author: amsriva
+ms.author: surmb
 ms.topic: conceptual
-ms.openlocfilehash: 23f76f18256ecadcbef59a498292222ea358008f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 53f6f37454de886934a483b40daad24204958baf
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290982"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474333"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Flera webbplatser i Application Gateway
 
-Med värd tjänster för flera webbplatser kan du konfigurera fler än ett webb program på samma port i en Programgateway. Det gör att du kan konfigurera en effektivare topologi för dina distributioner genom att lägga till upp till 100 + webbplatser i en Application Gateway. Varje webbplats kan dirigeras till en egen serverdelspool. Till exempel, tre domäner, contoso.com, fabrikam.com och adatum.com, pekar du på IP-adressen för programgatewayen. Du skapar tre lyssnare för flera platser och konfigurerar varje lyssnare för respektive port-och protokoll inställning. 
+Med värd tjänster för flera webbplatser kan du konfigurera fler än ett webb program på samma port i en Programgateway. Den här funktionen gör att du kan konfigurera en mer effektiv topologi för dina distributioner genom att lägga till fler än 100 webbplatser i samma appgateway. Varje webbplats kan dirigeras till en egen serverdelspool. Tänk dig till exempel att de tre domänerna contoso.com, fabrikam.com och adatum.com pekar på appgatewayens IP-adress. Du skapar tre lyssnare för flera platser och konfigurerar varje lyssnare enligt respektive inställningar för port och protokoll. 
 
-Du kan också definiera jokertecken som värdnamn i en lyssnare för flera platser och upp till 5 värdnamn per lyssnare. Mer information finns i [namn på jokertecken i lyssnaren](#wildcard-host-names-in-listener-preview).
+Du kan också definiera värdnamn med jokertecken i lyssnare för flera platser och upp till 5 värdnamn per lyssnare. Mer information finns i [namn på jokertecken i lyssnaren](#wildcard-host-names-in-listener-preview).
 
 :::image type="content" source="./media/multiple-site-overview/multisite.png" alt-text="Application Gateway för flera platser":::
 
@@ -42,6 +42,7 @@ Med ett jokertecken i värd namnet kan du matcha flera värdnamn i en enda lyssn
 
 >[!NOTE]
 >Den här funktionen är för närvarande endast tillgänglig via [Azure PowerShell](tutorial-multiple-sites-powershell.md) och [Azure CLI](tutorial-multiple-sites-cli.md). Portal support kommer snart.
+> Observera att eftersom Portal stödet inte är helt tillgängligt, och om du bara använder parametern HostName, visas lyssnaren som en grundläggande lyssnare i portalen och kolumnen värd namn i list visningen visar inte värd namnen som är konfigurerade. Om du vill ändra en lyssnare med jokertecken kontrollerar du att du använder Azure PowerShell eller CLI tills det stöds i portalen.
 
 I [Azure PowerShell](tutorial-multiple-sites-powershell.md)måste du använda `-HostNames` i stället för `-HostName` . Med värd namn kan du nämna upp till 5 värdnamn som kommaavgränsade värden och använda jokertecken. Till exempel `-HostNames "*.contoso.com,*.fabrikam.com"`
 

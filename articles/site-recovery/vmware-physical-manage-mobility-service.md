@@ -7,17 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 9be758c286e072b0fbefc5f8b20b7accc4e6741b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff77d6cad60b459b1fe6a4f83641c7aebe204dfa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79256970"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460107"
 ---
 # <a name="manage-the-mobility-agent"></a>Hantera mobilitetsagenten 
 
 Du konfigurerar mobilitets agenten på servern när du använder Azure Site Recovery för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure. Mobilitets agenten samordnar kommunikationen mellan den skyddade datorn, konfigurations servern/skalbar processervern och hanterar datareplikering. Den här artikeln sammanfattar vanliga uppgifter för att hantera mobilitets agenten när den har distribuerats.
 
+>[!TIP]
+>Information om hur du hämtar installations programmet för en speciell OS/Linux-distribution finns i vägledningen [här](vmware-physical-mobility-service-overview.md#locate-installer-files). Om du vill uppdatera från portalen automatiskt behöver du inte hämta installations programmet. [ASR hämtar automatiskt installations programmet från konfigurations servern och uppdaterar agenten](#update-mobility-service-from-azure-portal).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -33,7 +35,7 @@ Du konfigurerar mobilitets agenten på servern när du använder Azure Site Reco
 
      ![Lista över replikerade objekt för virtuella datorer](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
-5. Jobbet Uppdatera mobilitets tjänsten startar för var och en av de valda datorerna.
+5. Jobbet Uppdatera mobilitets tjänsten startar för var och en av de valda datorerna. Mobilitets agenten har uppdaterats till-versionen av konfigurations servern. Om konfigurations servern till exempel är i version 9,33, har mobilitets agenten på en skyddad virtuell dator också uppdaterats till 9,33 version.
 
 ## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Uppdatera mobilitets tjänsten via PowerShell-skript på Windows Server
 

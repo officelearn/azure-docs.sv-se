@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16203ab972f6117cec41e43ee5dd89cda7e95ede
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c4b9ae0ed682d6b34099c8eff941f1d0b6cabad
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025707"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461773"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Gör så här: planera din hybrid Azure Active Directory delta-implementering
 
@@ -30,7 +30,7 @@ När du börjar använda dina enheter med Azure Active Directory maximerar du an
 
 Om du har en lokal Active Directory (AD)-miljö och vill ansluta till dina AD-domänanslutna datorer till Azure AD kan du göra detta genom att göra en hybrid Azure AD-anslutning. Den här artikeln innehåller relaterade steg för att implementera en hybrid Azure AD-anslutning i din miljö. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du är bekant med [introduktionen till enhets identitets hantering i Azure Active Directory](../device-management-introduction.md).
 
@@ -121,6 +121,9 @@ Hybrid Azure AD Join fungerar med både hanterade och federerade miljöer beroen
 En hanterad miljö kan distribueras antingen via [PHS (Password hash Sync)](/azure/active-directory/hybrid/whatis-phs) eller [genom strömning (PTA)](/azure/active-directory/hybrid/how-to-connect-pta) med [sömlös enkel inloggning](/azure/active-directory/hybrid/how-to-connect-sso).
 
 De här scenarierna kräver inte att du konfigurerar en Federations Server för autentisering.
+
+> [!NOTE]
+> [Molnbaserad autentisering med stegvis](/hybrid/how-to-connect-staged-rollout) distribution stöds endast vid start av Windows 10 1903 Update
 
 ### <a name="federated-environment"></a>Federerad miljö
 

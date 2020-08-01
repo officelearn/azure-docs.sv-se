@@ -3,12 +3,12 @@ title: Installera Hybrid Cloud Extension (HCX)
 description: Konfigurera VMware Hybrid Cloud Extension (HCX)-lösningen för Azure VMware-lösningen (AVS) privat moln
 ms.topic: how-to
 ms.date: 07/15/2020
-ms.openlocfilehash: b897a44fb6811c4e3564c59a8ab2c064506f0a4f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ea968cb21812f7273af342763d307c2faba1eea6
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539167"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475455"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Installera HCX för Azure VMware-lösning
 
@@ -19,7 +19,7 @@ HCX Advanced, standard-installationen stöder upp till tre vCenter. Om fler än 
 
 Noggrant granska [innan du börjar](#before-you-begin), [program versions krav](#software-version-requirements)och [förutsättningar](#prerequisites) först. 
 
-Sedan går vi igenom alla nödvändiga procedurer för att:
+Sedan kommer vi att gå igenom alla nödvändiga procedurer för att:
 
 > [!div class="checklist"]
 > * Distribuera de lokala HCX-EMBRYOna
@@ -31,10 +31,10 @@ När du har slutfört installationen kan du följa de rekommenderade nästa steg
 
 ## <a name="before-you-begin"></a>Innan du börjar
     
-* Gå igenom [självstudien](tutorial-network-checklist.md) för den grundläggande SDDC-serien (definition Software Defined Data Center)
-* Granska och referera till [VMware HCX-dokumentationen](https://docs.vmware.com/en/VMware-HCX/index.html) inklusive användar handboken för HCX
-* Granska VMware-dokument [migrera Virtual Machines med VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)
-* Om du vill kan du granska [överväganden vid distribution av VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html)
+* Gå igenom [självstudien](tutorial-network-checklist.md)för den grundläggande SDDC-serien (definitions paket).
+* Granska och referera till [VMware HCX-dokumentationen](https://docs.vmware.com/en/VMware-HCX/index.html) inklusive användar handboken för HCX.
+* Granska VMware-dokument [migrera Virtual Machines med VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g).
+* Du kan också gå igenom de [överväganden för distribution av VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html).
 * Du kan också granska relaterade VMware-material på HCX, t. ex. VMware vSphere [blogg Serien](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) på HCX. 
 * Beställ en AVS-HCX Enterprise-aktivering via support kanaler för AVS.
 
@@ -50,9 +50,9 @@ Infrastruktur komponenter måste köra den lägsta version som krävs.
 | NSX    | För HCX nätverks tillägg för logiska växlar vid källan: NSXv 6.2 + eller NSX-T 2.4 +   | NSXv 6.2 + eller NSX-T 2.4 +<br/><br/>För HCX närhet: NSXv 6.4 + (närhets dirigering stöds inte med NSX-T) |
 | vCloud-regissör   | Krävs inte – ingen interoperabilitet med vCloud Director på käll platsen | När du integrerar mål miljön med vCloud Director är minimivärdet 9.1.0.2.  |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Global räckvidd bör konfigureras mellan lokala och AVS-SDDC ER-kretsar.
+* ExpressRoute-Global Reach bör konfigureras mellan lokala och AVS SDDC ExpressRoute-kretsar.
 
 * Alla portar som krävs måste vara öppna mellan lokala och AVS-SDDC (se [VMware HCX-dokumentation](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html)).
 

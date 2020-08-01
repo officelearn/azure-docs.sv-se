@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 64bc8e76a4dcce963251219528bd93dd786f01cf
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ddbbb9f39dd17daf5c500bf582c100b4e1754a15
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419622"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461365"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK för SQL API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -410,17 +410,8 @@ Inte alltid de mest synliga ändringarna, men de hjälper vårt team att leverer
 * GA SDK.
 
 ## <a name="release--retirement-dates"></a>Frisläpp & indragnings datum
-Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för att dra tillbaka en SDK för att utjämna över gången till en nyare/version som stöds.
 
-Nya funktioner och funktioner och optimeringar läggs bara till i den aktuella SDK: n, så vi rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så tidigt som möjligt.
-
-Alla förfrågningar till Cosmos DB med hjälp av en tillbakadragen SDK avvisas av tjänsten.
-
-> [!WARNING]
-> Alla versioner **1. x** av nodens klient-SDK för SQL API kommer att dras tillbaka den **30 augusti 2020**. Detta påverkar bara noden på klient sidans nod-SDK och påverkar inte skript på Server sidan (lagrade procedurer, utlösare och UDF: er).
-> 
->
-<br/>
+Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för att dra tillbaka en SDK för att utjämna över gången till en nyare/version som stöds. Nya funktioner och funktioner och optimeringar läggs bara till i den aktuella SDK: n, så vi rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så tidigt som möjligt.
 
 | Version | Lanserings datum | Förfallodatum |
 | --- | --- | --- |
@@ -477,7 +468,7 @@ Alla förfrågningar till Cosmos DB med hjälp av en tillbakadragen SDK avvisas 
 | [1.0.1](#1.0.1) |15 maj, 2015 |30 augusti 2020 |
 | [1.0.0](#1.0.0) |08, 2015 |30 augusti 2020 |
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se även

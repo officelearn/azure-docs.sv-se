@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
-ms.openlocfilehash: f212143d90b6a6bf9c8f1f597c276b9ab4100617
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 60ad7f5df4f13d626d7a2c24990c7f48db28d01d
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406268"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475234"
 ---
 # <a name="iot-plug-and-play-preview-refresh"></a>IoT Plug and Play för hands versions uppdatering
 
@@ -86,7 +86,7 @@ Service SDK är tillgängligt i [Node.js](https://github.com/Azure/azure-iot-sdk
 
 Tillägget [Azure IoT Device Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) ger redigerings stöd för DTDL v1, integrering med den tidigare versionen av modell lagringen och kodgenerering.
 
-Om du behöver redigerings stöd för DTDL v2 i VS Code installerar du det nya [DTDL-tillägget](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) i vs Code. Tillägget ger inte integrering med modell databasen eller kodgenerering. Att hantera modeller i databasen görs nu med ett [webb gränssnitt](https://aka.ms/iotmodelrepo).
+Om du behöver redigerings stöd för DTDL v2 i VS Code installerar du det nya [DTDL-tillägget](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) i vs Code. Tillägget ger inte integrering med modell databasen eller kodgenerering. Att hantera modeller i databasen görs nu med ett [webb gränssnitt](https://aka.ms/iotmodelrepo) eller [CLI](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest).
 
 ## <a name="digital-twin-service-side-rest-apis"></a>Digitals dubbla REST-API: er på tjänst Sidan
 
@@ -103,8 +103,6 @@ Befintliga REST-API: er fortsätter att stödjas i den här versionen.
 Nu finns det en enda modell lagrings plats som innehåller både offentliga publicerade modeller och privata RBAC-skyddade företags modeller. Alla modeller har en unik identifierare och är oföränderliga när de skapas.
 
 Befintliga företags modell databaser från den tidigare versionen stöds inte i den här versionen. Du kan fortsätta att använda [Azure-certifierad för IoT](https://preview.catalog.azureiotsolutions.com/products) -webbplatsen för att hantera de gamla DTDL v1-modellerna. Du kan dock inte längre använda den här webbplatsen för att registrera, testa och certifiera enheter.
-
-Azure IoT-tillägget för Azure CLI stöder inte den nya modell lagrings platsen. - `az iot pnp` Kommandona fungerar bara för modell databaserna från den tidigare versionen.
 
 ## <a name="azure-iot-central"></a>Azure IoT Central
 

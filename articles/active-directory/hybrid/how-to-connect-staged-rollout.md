@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f547aa900c1b8dbea27eceff7ac7ebc86a83e33
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d582db4bd7ef99d86602f49bc9046aadb8c3e8f0
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019836"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460617"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrera till molnbaserad autentisering med stegvis distribution (för hands version)
 
@@ -33,7 +33,7 @@ En översikt över funktionen finns i "Azure Active Directory: Vad är mellanlag
 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 -   Du har en Azure Active Directory-klient (Azure AD) med federerade domäner.
 
@@ -50,6 +50,8 @@ En översikt över funktionen finns i "Azure Active Directory: Vad är mellanlag
 -   Om du vill använda funktionen för stegvis distribution måste du vara global administratör för din klient.
 
 -   Om du vill aktivera *sömlös SSO* på en speciell Active Directory skog måste du vara domän administratör.
+
+-  Om du distribuerar hybrid Azure AD eller Azure AD Join måste du uppgradera till Windows 10 1903 Update.
 
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds

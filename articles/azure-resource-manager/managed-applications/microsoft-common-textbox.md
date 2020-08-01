@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 547b3ed84c8e4406b65ee8cf51c0db10b6878793
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c89bc434d9d67144a95b5c2f23e7664078fe7825
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87063829"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474316"
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>GRÄNSSNITTs element för Microsoft. Common. text Rute
 
@@ -29,6 +29,7 @@ En kontroll som kan användas för att redigera oformaterad text.
     "label": "Name",
     "defaultValue": "contoso123",
     "toolTip": "Use only allowed characters",
+    "placeholder": "",
     "constraints": {
         "required": true,
         "validations": [
@@ -60,6 +61,7 @@ En kontroll som kan användas för att redigera oformaterad text.
 - `isValid`Egenskapen innehåller ett uttryck som utvärderas till true eller false. I uttrycket definierar du villkoret som avgör om text rutan är giltig.
 - `message`Egenskapen är en sträng som visas när text rutans värde inte kan verifieras.
 - Det är möjligt att ange ett värde för `regex` när `required` är inställt på **falskt**. I det här scenariot krävs inget värde för att text rutan ska verifieras korrekt. Om en anges måste den matcha mönstret för reguljära uttryck.
+- `placeholder`Egenskapen är hjälp text som försvinner när användaren börjar redigera. Om `placeholder` och `defaultValue` båda definieras prioriteras `defaultValue` och visas.
 
 ## <a name="example"></a>Exempel
 

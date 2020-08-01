@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 07/10/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71d0a1f2551338207a71b6c547d9c2cd57fea777
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 918675b111b7b1b85669692b63fed683ea2831f8
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284395"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475642"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Tilldela begränsade roller till en administrativ enhet
 
@@ -40,13 +40,13 @@ Användar administratör  |  Kan hantera alla aspekter av användare och grupper
 
 ## <a name="assign-a-scoped-role"></a>Tilldela en omfattnings roll
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 Gå till **Azure AD > administrativa enheter** i portalen. Välj den administrativa enhet som du vill tilldela rollen till en användare. I den vänstra rutan väljer du roller och administratörer för att visa en lista över alla tillgängliga roller.
 
 ![Välj en administrativ enhet för att ändra roll omfånget](./media/roles-admin-units-assign-roles/select-role-to-scope.png)
 
-Välj den roll som ska tilldelas och välj sedan **Lägg till tilldelningar**. Då öppnas en panel till höger där du kan välja en eller flera användare som ska tilldelas rollen.
+Välj den roll som ska tilldelas och välj sedan **Lägg till tilldelningar**. En panel öppnas till höger där du kan välja en eller flera användare som ska tilldelas rollen.
 
 ![Välj rollen som definitions område och välj sedan Lägg till tilldelningar](./media/roles-admin-units-assign-roles/select-add-assignment.png)
 
@@ -80,7 +80,7 @@ Request body
 
 ## <a name="list-the-scoped-admins-on-an-au"></a>Visa en lista över omfångs administratörer på en AU
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 Alla roll tilldelningar som har gjorts med en administrativ enhets omfattning kan visas i [avsnittet administrativa enheter i Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). Gå till **Azure AD > administrativa enheter** i portalen. Välj admin-enheten för roll tilldelningarna som du vill visa. Välj **roller och administratörer** och öppna en roll för att Visa tilldelningarna i admin-enheten.
 
@@ -104,4 +104,5 @@ Request body
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Fel sökning av administrativa enheter och vanliga frågor och svar](roles-admin-units-faq-troubleshoot.md)
+- [Använd moln grupper för att hantera roll tilldelningar](roles-groups-concept.md)
+- [Fel söknings roller tilldelade till moln grupper](roles-groups-faq-troubleshooting.md)

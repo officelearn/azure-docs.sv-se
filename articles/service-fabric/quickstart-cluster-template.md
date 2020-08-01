@@ -6,13 +6,13 @@ ms.service: service-fabric
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: edoyle
-ms.date: 04/24/2020
-ms.openlocfilehash: 70b5387e5e58bd30aa61feefc1bf4e5e98af9b1d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/29/2020
+ms.openlocfilehash: 359b527733ee8eebf7e1e7d12c40a0c74ec1c9bd
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259347"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460311"
 ---
 # <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>Snabb start: skapa ett Service Fabric kluster med ARM-mall
 
@@ -22,7 +22,7 @@ Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att
 
 Detta Windows-kluster med fem noder skyddas med ett självsignerat certifikat som därför endast är avsett för instruktions ändamål (i stället för produktions arbets belastningar). Vi använder Azure PowerShell för att distribuera mallen. Förutom Azure PowerShell kan du också använda Azure Portal, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-portal.md).
 
-Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
 
 [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-secure-cluster-5-node-1-nodetype%2Fazuredeploy.json)
 
@@ -42,7 +42,7 @@ För att slutföra den här snabb starten måste du:
 
 Klona eller hämta [Azure Resource Manager snabb starts mallar](https://github.com/Azure/azure-quickstart-templates) lagrings platsen. Du kan också kopiera nedåt lokalt följande filer som vi kommer att använda från mappen *Service-Fabric-Secure-Cluster-5-Node-1-NodeType* :
 
-* [New-ServiceFabricClusterCertificate.ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/New-ServiceFabricClusterCertificate.ps1)
+* [New-ServiceFabricClusterCertificate.ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/scripts/New-ServiceFabricClusterCertificate.ps1)
 * [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json)
 * [azuredeploy.parameters.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.parameters.json)
 
@@ -68,10 +68,10 @@ $keyVaultName = "SFQuickstartKV"
 New-AzResourceGroup -Name $resourceGroupName -Location SouthCentralUS
 
 # Create a Key Vault enabled for deployment
-New-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $resourceGroupName -Location SouthCentralUS -EnabledForDeployment
+New-AzKeyVault -VaultName $keyVaultName -ResourceGroupName $resourceGroupName -Location SouthCentralUS -EnabledForDeployment
 
 # Generate a certificate and upload it to Key Vault
-.\New-ServiceFabricClusterCertificate.ps1
+.\scripts\New-ServiceFabricClusterCertificate.ps1
 ```
 
 Skriptet kommer att uppmana dig att ange följande (se till att ändra *CertDNSName* och *KeyVaultName* från exempel värden nedan):
@@ -91,7 +91,7 @@ $certThumbprint = "<Certificate Thumbprint>"
 
 ## <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). Mallen för den här artikeln är för lång för att kunna visas här. Om du vill visa mallen går du till [azuredeploy.jspå](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json) filen.
+Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). Mallen för den här artikeln är för lång för att kunna visas här. Om du vill visa mallen går du till [azuredeploy.jspå](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json) filen.
 
 Flera Azure-resurser har definierats i mallen:
 
@@ -178,6 +178,18 @@ När de inte längre behövs tar du bort resurs gruppen, som tar bort resurserna
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
+```
+
+Ta sedan bort kluster certifikatet från det lokala arkivet. Lista installerade certifikat för att hitta tumavtrycket för klustret:
+
+```powershell
+Get-ChildItem Cert:\CurrentUser\My\
+```
+
+Ta sedan bort certifikatet:
+
+```powershell
+Get-ChildItem Cert:\CurrentUser\My\{THUMBPRINT} | Remove-Item
 ```
 
 ## <a name="next-steps"></a>Nästa steg

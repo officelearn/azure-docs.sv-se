@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 70a4d6f01271c5026463ac0dc946fb1b2991de09
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2de46f050d17049848024d70f43bd23621b43b13
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323833"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461042"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -256,19 +256,11 @@ Det här är den ursprungliga Azure Cosmos DB synkronisera Java SDK v2 för SQL 
 * GA SDK
 
 ## <a name="release-and-retirement-dates"></a>Datum för lansering och indragning
-Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för att dra tillbaka en SDK för att utjämna över gången till en nyare/version som stöds.
 
-Nya funktioner och funktioner och optimeringar läggs bara till i den aktuella SDK: n, eftersom det rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så tidigt som möjligt.
-
-Alla förfrågningar till Cosmos DB med hjälp av en tillbakadragen SDK avvisas av tjänsten.
+Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för att dra tillbaka en SDK för att utjämna över gången till en nyare/version som stöds. Nya funktioner och funktioner och optimeringar läggs bara till i den aktuella SDK: n, eftersom det rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så tidigt som möjligt.
 
 > [!WARNING]
-> Alla versioner **1. x** av SQL SDK för Java kommer att dras tillbaka den **30 maj 2020**.
-> 
->
-
-> [!WARNING]
-> Alla versioner av SQL SDK för Java före version **1.0.0** drogs tillbaka den **29 februari 2016**.
+> Alla versioner **1. x** av SQL SDK för Java kommer att dras tillbaka den **30 maj 2020**. Alla versioner av SQL SDK för Java före version **1.0.0** drogs tillbaka den **29 februari 2016**.
 > 
 > 
 

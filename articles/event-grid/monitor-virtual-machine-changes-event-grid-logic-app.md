@@ -9,16 +9,16 @@ ms.author: estfan
 ms.reviewer: estfan, LADocs
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 91ff67f886dbf54b93e9b91822b5f8535ea77e06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7af555a634f0e362bdf2d530627a782843105bdf
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079195"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461280"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Självstudier: Övervaka ändringar av virtuella maskiner med Azure Event Grid och Logic Apps
 
-Om du vill övervaka och svara på vissa händelser som inträffar i Azure-resurser eller resurser från tredje part, kan du automatisera och köra uppgifter som ett arbets flöde genom att skapa en [Logic-app](../logic-apps/logic-apps-overview.md) som använder minimal kod. Dessa resurser kan publicera händelser till ett [Azure Event-rutnät](../event-grid/overview.md). Händelserutnätet skickar i sin tur händelserna vidare till prenumeranter som har köer, webhooks eller [händelsehubbar](../event-hubs/event-hubs-what-is-event-hubs.md) som slutpunkter. Som prenumerant kan din Logi Kap par vänta på dessa händelser från händelse rutnätet innan automatiserade arbets flöden körs för att utföra åtgärder.
+Om du vill övervaka och svara på vissa händelser som inträffar i Azure-resurser eller resurser från tredje part, kan du automatisera och köra uppgifter som ett arbets flöde genom att skapa en [Logic-app](../logic-apps/logic-apps-overview.md) som använder minimal kod. Dessa resurser kan publicera händelser till ett [Azure Event-rutnät](../event-grid/overview.md). Händelserutnätet skickar i sin tur händelserna vidare till prenumeranter som har köer, webhooks eller [händelsehubbar](../event-hubs/event-hubs-about.md) som slutpunkter. Som prenumerant kan din Logi Kap par vänta på dessa händelser från händelse rutnätet innan automatiserade arbets flöden körs för att utföra åtgärder.
 
 Här är exempel på händelser som utgivare kan skicka till prenumeranter via tjänsten Azure Event Grid:
 
@@ -50,7 +50,7 @@ I den här guiden får du lära dig att:
   I den här självstudien används ett Office 365 Outlook-konto. Om du använder ett annat e-postkonto är stegen desamma, men användargränssnittet kan vara lite annorlunda.
 
   > [!IMPORTANT]
-  > Om du vill använda Gmail Connector kan endast företags konton i G-Suite använda den här anslutningen utan begränsning i Logic Apps. Om du har ett Gmail-konto kan du använda den här anslutningen med endast vissa Google-godkända tjänster, eller så kan du [skapa en Google-klient som används för autentisering med din Gmail-anslutning](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Mer information finns i [principer för data säkerhet och sekretess för Google Connectors i Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Om du vill använda Gmail Connector kan endast företags konton i G-Suite använda den här anslutningen utan begränsning i Logic Apps. Om du har ett Gmail-konto kan du använda den här anslutningen med endast vissa Google-godkända tjänster, eller så kan du [skapa en Google-klient som används för autentisering med din Gmail-anslutning](/connectors/gmail/#authentication-and-bring-your-own-application). Mer information finns i [principer för data säkerhet och sekretess för Google Connectors i Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * En [virtuell dator](https://azure.microsoft.com/services/virtual-machines) som är fristående i sin egen Azure-resurs grupp. Om du inte redan har gjort det skapar du en virtuell dator via [själv studie kursen skapa en virtuell dator](../virtual-machines/windows/quick-create-portal.md). [Du behöver inte göra något mer](../event-grid/overview.md) för att den virtuella datorn ska publicera händelser.
 
@@ -68,10 +68,10 @@ I den här guiden får du lära dig att:
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Namn** | Yes | <*Logic – App-Name*> | Ange ett unikt namn för din Logic app. |
-   | **Prenumeration** | Yes | <*Azure-prenumeration-namn*> | Välj samma Azure-prenumeration för alla tjänster i den här självstudien. |
-   | **Resursgrupp** | Yes | <*Azure-resurs-grupp*> | Namnet på Azure-resurs gruppen för din Logic app, som du kan välja för alla tjänster i den här självstudien. |
-   | **Plats** | Yes | <*Azure-region*> | Välj samma region för alla tjänster i den här självstudiekursen. |
+   | **Namn** | Ja | <*Logic – App-Name*> | Ange ett unikt namn för din Logic app. |
+   | **Prenumeration** | Ja | <*Azure-prenumeration-namn*> | Välj samma Azure-prenumeration för alla tjänster i den här självstudien. |
+   | **Resursgrupp** | Ja | <*Azure-resurs-grupp*> | Namnet på Azure-resurs gruppen för din Logic app, som du kan välja för alla tjänster i den här självstudien. |
+   | **Plats** | Ja | <*Azure-region*> | Välj samma region för alla tjänster i den här självstudiekursen. |
    |||
 
 1. När Azure har distribuerat din Logic app visas en sida med en introduktions video och ofta använda utlösare i Logic Apps designer. Rulla förbi videon och utlösarna.
@@ -103,11 +103,11 @@ Lägg nu till den Event Grid utlösare som du använder för att övervaka resur
 
    | Egenskap | Krävs | Värde | Beskrivning |
    | -------- | -------- | ----- | ----------- |
-   | **Prenumeration** | Yes | <*händelse-utgivare-Azure-Subscription-namn*> | Välj namnet på den Azure-prenumeration som är associerad med *händelse utgivaren*. I den här självstudien väljer du namnet på Azure-prenumerationen för den virtuella datorn. |
-   | **Resurstyp** | Yes | <*händelse – utgivare – Azure-resurs-typ*> | Välj resurs typen Azure för händelse utgivaren. Mer information om resurs typer i Azure finns i [Azure Resource providers och-typer](../azure-resource-manager/management/resource-providers-and-types.md). I den här självstudien väljer du `Microsoft.Resources.ResourceGroups` värdet för att övervaka Azures resurs grupper. |
-   | **Resursnamn** |  Yes | <*händelse – utgivare – Azure-resurs-namn*> | Välj Azure-resursens namn för händelse utgivaren. Den här listan varierar beroende på vilken resurs typ du har valt. I den här självstudien väljer du namnet på den Azure-resurs grupp som innehåller den virtuella datorn. |
-   | **Objekt i händelse typ** |  No | <*händelse typer*> | Välj en eller flera speciella händelse typer som ska filtreras och skickas till Event Grid. Du kan till exempel lägga till dessa händelse typer för att upptäcka när resurser ändras eller tas bort: <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>Mer information finns i de här ämnena: <p><p>- [Azure Event Grid händelse schema för resurs grupper](../event-grid/event-schema-resource-groups.md) <br>- [Förstå händelse filtrering](../event-grid/event-filtering.md) <br>- [Filtrera händelser för Event Grid](../event-grid/how-to-filter-events.md) |
-   | Om du vill lägga till valfria egenskaper väljer du **Lägg till ny parameter**och väljer sedan de egenskaper som du vill använda. | No | {se beskrivningar} | * **Prefix filter**: i den här självstudien lämnar du den här egenskapen tom. Standardbeteendet matchar alla värden. Du kan dock ange en prefixsträng som ett filter, till exempel en sökväg och en parameter för en specifik resurs. <p>* **Suffix filter**: i den här självstudien lämnar du den här egenskapen tom. Standardbeteendet matchar alla värden. Du kan dock ange en suffixsträng som ett filter, till exempel ett filnamnstillägg, om du bara vill använda specifika filtyper. <p>* **Prenumerations namn**: i den här självstudien kan du ange ett unikt namn för din händelse prenumeration. |
+   | **Prenumeration** | Ja | <*händelse-utgivare-Azure-Subscription-namn*> | Välj namnet på den Azure-prenumeration som är associerad med *händelse utgivaren*. I den här självstudien väljer du namnet på Azure-prenumerationen för den virtuella datorn. |
+   | **Resurstyp** | Ja | <*händelse – utgivare – Azure-resurs-typ*> | Välj resurs typen Azure för händelse utgivaren. Mer information om resurs typer i Azure finns i [Azure Resource providers och-typer](../azure-resource-manager/management/resource-providers-and-types.md). I den här självstudien väljer du `Microsoft.Resources.ResourceGroups` värdet för att övervaka Azures resurs grupper. |
+   | **Resursnamn** |  Ja | <*händelse – utgivare – Azure-resurs-namn*> | Välj Azure-resursens namn för händelse utgivaren. Den här listan varierar beroende på vilken resurs typ du har valt. I den här självstudien väljer du namnet på den Azure-resurs grupp som innehåller den virtuella datorn. |
+   | **Objekt i händelse typ** |  Inga | <*händelse typer*> | Välj en eller flera speciella händelse typer som ska filtreras och skickas till Event Grid. Du kan till exempel lägga till dessa händelse typer för att upptäcka när resurser ändras eller tas bort: <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>Mer information finns i de här ämnena: <p><p>- [Azure Event Grid händelse schema för resurs grupper](../event-grid/event-schema-resource-groups.md) <br>- [Förstå händelse filtrering](../event-grid/event-filtering.md) <br>- [Filtrera händelser för Event Grid](../event-grid/how-to-filter-events.md) |
+   | Om du vill lägga till valfria egenskaper väljer du **Lägg till ny parameter**och väljer sedan de egenskaper som du vill använda. | Inga | {se beskrivningar} | * **Prefix filter**: i den här självstudien lämnar du den här egenskapen tom. Standardbeteendet matchar alla värden. Du kan dock ange en prefixsträng som ett filter, till exempel en sökväg och en parameter för en specifik resurs. <p>* **Suffix filter**: i den här självstudien lämnar du den här egenskapen tom. Standardbeteendet matchar alla värden. Du kan dock ange en suffixsträng som ett filter, till exempel ett filnamnstillägg, om du bara vill använda specifika filtyper. <p>* **Prenumerations namn**: i den här självstudien kan du ange ett unikt namn för din händelse prenumeration. |
    |||
 
 1. Spara logikappen. I verktygsfältet designer väljer du **Spara**. Om du vill komprimera och dölja en åtgärds information i din Logic app väljer du åtgärdens namn List.
@@ -201,9 +201,9 @@ Lägg nu till en [*åtgärd*](../logic-apps/logic-apps-overview.md#logic-app-con
 
    | Egenskap | Krävs | Värde | Beskrivning |
    | -------- | -------- | ----- | ----------- |
-   | **Att** | Yes | <*mottagar \@ domän*> | Ange mottagarens e-postadress. I testsyfte kan du använda din egen e-postadress. |
-   | **Ämne** | Yes | `Resource updated:`**Ämne** | Ange innehållet för e-postmeddelandets ämne. I den här självstudien anger du den angivna texten och väljer händelsens **ämnes** fält. Här innehåller e-postmeddelandets ämne namnet på den uppdaterade resursen (virtuell dator). |
-   | **Brödtext** | Yes | `Resource:` **Avsnitt** <p>`Event type:`**Händelse typ**<p>`Event ID:`**ID**<p>`Time:`**Tid för händelsen** | Ange innehållet för e-postmeddelandets ämne. I den här självstudien anger du den angivna texten och väljer händelsens **ämne**, **händelse typ**, **ID**och **tids** fält för händelsen så att din e-post innehåller den resurs som utlöste händelsen, händelse typen, händelsens tidstämpel och händelse-ID för uppdateringen. I den här självstudien är resursen den Azure-resurs grupp som valts i utlösaren. <p>Tryck på Skift+Retur om du vill lägga till tomma rader i innehållet. |
+   | **Att** | Ja | <*mottagar \@ domän*> | Ange mottagarens e-postadress. I testsyfte kan du använda din egen e-postadress. |
+   | **Ämne** | Ja | `Resource updated:` **Ämne** | Ange innehållet för e-postmeddelandets ämne. I den här självstudien anger du den angivna texten och väljer händelsens **ämnes** fält. Här innehåller e-postmeddelandets ämne namnet på den uppdaterade resursen (virtuell dator). |
+   | **Brödtext** | Ja | `Resource:` **Avsnitt** <p>`Event type:`**Händelse typ**<p>`Event ID:` **ID**<p>`Time:`**Tid för händelsen** | Ange innehållet för e-postmeddelandets ämne. I den här självstudien anger du den angivna texten och väljer händelsens **ämne**, **händelse typ**, **ID**och **tids** fält för händelsen så att din e-post innehåller den resurs som utlöste händelsen, händelse typen, händelsens tidstämpel och händelse-ID för uppdateringen. I den här självstudien är resursen den Azure-resurs grupp som valts i utlösaren. <p>Tryck på Skift+Retur om du vill lägga till tomma rader i innehållet. |
    ||||
 
    > [!NOTE]

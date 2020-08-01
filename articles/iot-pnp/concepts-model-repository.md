@@ -1,18 +1,18 @@
 ---
 title: Förstå koncepten i Azure IoT Model-lagringsplatsen | Microsoft Docs
 description: Som en lösnings utvecklare eller IT-proffs kan du läsa om de grundläggande begreppen i Azure IoT Model-lagringsplatsen.
-author: JimacoMS3
-ms.author: v-jambra
+author: prashmo
+ms.author: prashmo
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 53ae5bf15c303f26d48550734f46e69ef1fcdd75
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 7d736721e2676a42da90aead3144f8016329f730
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352487"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475506"
 ---
 # <a name="azure-iot-model-repository"></a>Azure IoT Model-lagringsplats
 
@@ -42,7 +42,7 @@ Om du vill visa en offentlig modell program mässigt med hjälp av REST API, se 
 
 ```csharp
 var httpClient = new HttpClient();
-httpClient.BaseAddress = new Uri("<url>");
+httpClient.BaseAddress = new Uri("https://repo.azureiotrepository.com");
 
 var modelId = "dtmi:com:mxchip:model;1";
 var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
@@ -68,7 +68,7 @@ Information om hur du konfigurerar en Azure AD-klient och hur du skapar en anvä
 
 I följande tabell sammanfattas de funktioner som stöds i företags modellens databas och deras associerade behörigheter:
 
-| Funktion  | Behörighet| Beskrivning|
+| Kapacitet  | Behörighet| Beskrivning|
 |-------------|-----------|------------|
 |Läsa modeller|Läsa modeller|Som standard kan alla användare i företagets klient organisation se sina företags modeller. Dessutom kan användaren även visa den eller de privata modeller som delas av andra företag.|
 |Hantera åtkomst|Hantera åtkomst|Hantera tilldelningen av användar roller (Lägg till eller ta bort) för andra användare i organisationen.|
@@ -77,7 +77,7 @@ I följande tabell sammanfattas de funktioner som stöds i företags modellens d
 
 I följande tabell sammanfattas de roller som stöds och deras funktioner i modell databasen som kan användas för åtkomst hantering.
 
-|Roll|Funktion|
+|Roll|Kapacitet|
 |----|----------|
 |TenantAdministrator|Hantera åtkomst, läsa modeller|
 |Creator|Skapa modeller, läsa modeller|

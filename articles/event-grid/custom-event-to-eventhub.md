@@ -3,12 +3,12 @@ title: 'Snabb start: skicka anpassade händelser till Event Hubs-Event Grid, Azu
 description: 'Snabb start: Använd Azure Event Grid och Azure CLI för att publicera ett ämne och prenumerera på händelsen. En händelsehubb används för slutpunkten.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 77268dde90959298c76813fb146e972ecfa3685d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1d27ebe0151c6a49d21975216e146f1daa20e4e2
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104103"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87462045"
 ---
 # <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Snabb start: dirigera anpassade händelser till Azure Event Hubs med Azure CLI och Event Grid
 
@@ -97,8 +97,8 @@ Gå till händelsehubben i portalen och kontrollera att Event Grid skickade de t
 
 Vanligtvis skapar du ett program som hämtar händelser från händelsehubben. Om du vill skapa ett program som får meddelanden från en händelsehubb, se:
 
-* [Börja ta emot meddelanden med EventProcessorHost i .NET Standard](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
-* [Ta emot händelser från Azure Event Hubs med Java](../event-hubs/event-hubs-java-get-started-receive-eph.md)
+* [Börja ta emot meddelanden med EventProcessorHost i .NET Standard](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+* [Ta emot händelser från Azure Event Hubs med Java](../event-hubs/event-hubs-java-get-started-send.md)
 * [Ta emot händelser från Event Hubs med Apache Storm](../event-hubs/event-hubs-storm-getstarted-receive.md)
 
 ## <a name="clean-up-resources"></a>Rensa resurser

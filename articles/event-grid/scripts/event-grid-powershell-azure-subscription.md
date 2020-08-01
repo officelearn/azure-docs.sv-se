@@ -4,12 +4,12 @@ description: Den här artikeln innehåller ett exempel på Azure PowerShell-skri
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 07/08/2020
-ms.openlocfilehash: 7540c8eb181e064c5df5372a4bc9b27ebe16bf56
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0aae1d64b789cedab6420ac1f323a2379bff17be
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171252"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460821"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-powershell"></a>Prenumerera på händelser för en Azure-prenumeration med PowerShell
 
@@ -37,9 +37,9 @@ Det här skriptet använder följande kommandon för att skapa händelseprenumer
 
 | Kommando | Anteckningar |
 |---|---|
-| [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Skapa en Event Grid-prenumeration. |
+| [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) | Skapa en Event Grid-prenumeration. |
 
 ## <a name="next-steps"></a>Nästa steg
 
 * En introduktion till hanterade program finns i [Azure Managed Application overview](../overview.md) (Översikt över Azure Managed Application).
-* Mer information om PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Mer information om PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/get-started-azureps).

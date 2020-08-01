@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: 599620c5fcc3ad1802527bd66e2dbead1b97d11d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 28cd26532ca5bdf83902854b7910f7d6c18a4eab
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079022"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460158"
 ---
 # <a name="fqdn-filtering-in-network-rules-preview"></a>FQDN-filtrering i nätverks regler (förhands granskning)
 
@@ -20,13 +20,16 @@ ms.locfileid: "87079022"
 > FQDN-filtrering i nätverks regler är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Ett fullständigt kvalificerat domän namn (FQDN) representerar ett domän namn för en värd. Ett domän namn är associerat med en eller flera IP-adresser. Du kan tillåta eller blockera FQDN: er och FQDN-Taggar i program regler. Med anpassade inställningar för DNS och DNS-proxy kan du också använda FQDN-filtrering i nätverks regler.
+Ett fullständigt kvalificerat domän namn (FQDN) representerar ett domän namn för en värd eller IP-adress (er). Du kan använda FQDN: er i nätverks regler baserat på DNS-matchning i Azure brand vägg och brand Väggs princip. Med den här funktionen kan du filtrera utgående trafik med valfritt TCP/UDP-protokoll (inklusive NTP, SSH, RDP och mer). Du måste aktivera DNS-proxy för att använda FQDN i dina nätverks regler. Mer information finns i [DNS-inställningar för Azure Firewall-principer (för hands version)](dns-settings.md).
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
-Azure-brandväggen översätter FQDN till en IP-adress (er) med sina DNS-inställningar och bearbetar regel bearbetningen baserat på Azure DNS eller en anpassad DNS-konfiguration.
+När du har definierat vilken DNS-Server din organisation behöver (Azure DNS eller din egen anpassade DNS) översätter Azure-brandväggen FQDN till en IP-adress (er) baserat på den valda DNS-servern. Den här översättningen sker för bearbetning av både program-och nätverks regler.
 
-Om du vill använda FQDN i nätverks regler bör du aktivera DNS-proxy. Om du inte aktiverar DNS-proxy, är tillförlitlig regel bearbetning utsatt för risk. När den är aktive rad dirigeras DNS-trafik till Azure-brandväggen där du kan konfigurera en anpassad DNS-server. Sedan använder brand väggen och klienterna samma konfigurerade DNS-server. Om DNS-proxy inte är aktive rad kan Azure-brandväggen producera ett annat svar eftersom klienten och brand väggen kan använda olika servrar för namn matchning. FQDN-filtrering i nätverks regler kan vara fel eller inkonsekvent om klienten och brand väggen får olika DNS-svar.
+Vad är skillnaden mellan att använda domän namn i program regler jämfört med det för nätverks regler? 
+
+- FQDN-filtrering i program regler för HTTP/S och MSSQL baseras på en transparent proxy för program nivå och SNI-huvudet. Det kan till exempel fram mellan två FQDN som har matchats till samma IP-adress. Detta är inte fallet med FQDN-filtrering i nätverks regler. Använd alltid program regler när det är möjligt.
+- I program regler kan du använda HTTP/S och MSSQL som de valda protokollen. I nätverks regler kan du använda valfritt TCP/UDP-protokoll med dina mål-FQDN.
 
 ## <a name="next-steps"></a>Nästa steg
 

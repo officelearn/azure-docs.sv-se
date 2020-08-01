@@ -5,36 +5,49 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: de4194671f09bde65bee0a1d0d86ffacdcedfbf3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/30/2020
+ms.openlocfilehash: 3cf1767d35100dd0133d2df7e61d884fa1bf4738
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61091635"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461977"
 ---
 # <a name="azure-database-for-postgresql-videos"></a>Azure Database for PostgreSQL videor
 
-[Översikt: Azure Database for PostgreSQL och MySQL](https://channel9.msdn.com/Events/Connect/2017/T147)
+Den här sidan innehåller video innehåll för att lära dig mer om Azure Database for PostgreSQL.
 
->[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T147/player]
+## <a name="overview-azure-database-for-postgresql-and-mysql"></a>Översikt: Azure Database for PostgreSQL och MySQL
+
+>[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T147/player] 
+[Öppna i kanal 9](https://channel9.msdn.com/Events/Connect/2017/T147)
 
 Azure Database for PostgreSQL och Azure Database for MySQL samla ihop Community Edition-databaser och-funktioner i en fullständigt hanterad tjänst – så att du kan fokusera på dina appar i stället för att behöva hantera en databas. Titta på för att få en snabb överblick över fördelarna med att använda tjänsten och se några av funktionerna i praktiken.
 
-[Djupgående om hanterade tjänst funktioner för MySQL och PostgreSQL](https://channel9.msdn.com/Events/Connect/2017/T148)
+## <a name="create-a-postgresql-or-mysql-server"></a>Skapa en PostgreSQL-eller MySQL-Server
+Azure Database for PostgreSQL och Azure Database for MySQL är hanterade tjänster som du använder för att köra, hantera och skala hög tillgängliga Community Edition-databas motorer i molnet. De här video kurserna visar hur du skapar en PostgreSQL-eller MySQL-server på ungefär tre minuter med hjälp av Azure Portal. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+
+* [PostgreSQL Video-självstudie](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-postgresql-server-in-the-azure-portal)
+
+* [Självstudie för MySQL-video](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-mysql-server-by-using-the-azure-portal)
+
+## <a name="deep-dive-on-managed-service-capabilities-for-mysql-and-postgresql"></a>Djupgående om hanterade tjänst funktioner för MySQL och PostgreSQL
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T148/player]
+[Öppna i kanal 9](https://channel9.msdn.com/Events/Connect/2017/T148)
 
 Azure Database for PostgreSQL och Azure Database for MySQL samla ihop Community Edition-databas motorer och funktionerna i en fullständigt hanterad tjänst. Kom igång och få en översikt över hur dessa tjänster fungerar, hur vi garanterar hög tillgänglighet och snabb skalning (inom några sekunder), så att du kan uppfylla kundernas behov. Du får också lära dig om några av de underliggande investeringarna i säkerhet och tillgänglighet i hela världen.
 
-[Utveckla en intelligent Analytics-app med PostgreSQL](https://channel9.msdn.com/Events/Connect/2017/T149)
+## <a name="develop-an-intelligent-analytics-app-with-postgresql"></a>Utveckla en intelligent Analytics-app med PostgreSQL
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T149/player]
+[Öppna i kanal 9](https://channel9.msdn.com/Events/Connect/2017/T149)
 
 Azure Database for PostgreSQL samlar in Community Edition-databasmotorn och funktioner i en fullständigt hanterad tjänst – så att du kan fokusera på dina appar i stället för att behöva hantera en databas. Titta på hur enkelt det är att skapa nya upplevelser som att lägga till Cognitive Services i dina appar på grund av att de är på Azure.
 
-[Så här kommer du igång med den nya Azure Database for PostgreSQL tjänsten](https://channel9.msdn.com/events/Build/2017/B8046)
+## <a name="how-to-get-started-with-the-new-azure-database-for-postgresql-service"></a>Så här kommer du igång med den nya Azure Database for PostgreSQL tjänsten
 
 >[!VIDEO https://channel9.msdn.com/Events/Build/2017/B8046/player]
+[Öppna i kanal 9](https://channel9.msdn.com/events/Build/2017/B8046)
 
 I den här videon från 2017 Microsoft build-konferensen lär du dig från två tidiga antagande kunder hur de har använt Azure Database for PostgreSQL service för att förnya snabbare. Lär dig hur de migreras till tjänsten och diskutera nästa steg i deras program utveckling. Videon går igenom några av de viktigaste funktionerna i tjänsten och diskuterar hur du som utvecklare kan migrera dina befintliga program eller utveckla nya program som använder den här hanterade PostgreSQL-tjänsten i Azure.

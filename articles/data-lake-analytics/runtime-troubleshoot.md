@@ -7,12 +7,12 @@ ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/10/2019
-ms.openlocfilehash: 54524b0528f94ca9386c2d0d45ba4393c965fa88
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 39b4a3bc5e5f70a5699f4fd84ec86dc61cf21483
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128819"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475268"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Lär dig hur du felsöker U-SQL runtime-fel på grund av körnings ändringar
 
@@ -46,11 +46,6 @@ release_YYYYMMDD_adl_buildno [_modifier]
 
 Release_20190318_adl_3394512_2 innebär till exempel den andra versionen av version 3394512 av körnings versionen av mars 18 2019 och release_20190318_adl_3394512_private innebär en privat version av samma version. Obs! datumet är relaterat till när den senaste incheckningen har gjorts för den versionen och inte nödvändigt vis det officiella lanserings datumet.
 
-Följande är de versioner som är tillgängliga för närvarande.
-
-- release_20190318_adl_3394512
-- release_20190318_adl_5832669 aktuella standard
-- release_20190703_adl_4713356
 
 ## <a name="troubleshooting-u-sql-runtime-version-issues"></a>Felsöka U-SQL runtime-versions problem
 

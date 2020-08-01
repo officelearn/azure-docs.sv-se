@@ -7,24 +7,35 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c3933e9165160c16a9e533bf8bf95f1533dff1cc
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 006825b5040db482262f79497b9fd810ed3b790c
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386698"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460634"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
 
 Vi rekommenderar starkt att du läser [planering för en Azure Files distribution](storage-files-planning.md) och [planering för en Azure File Sync distribution](storage-sync-files-planning.md) innan du slutför stegen som beskrivs i den här artikeln.
 
-## <a name="prerequisites"></a>Förutsättningar
-* En Azure-filresurs i samma region som du vill distribuera Azure File Sync. Mer information finns i:
+## <a name="prerequisites"></a>Krav
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. En Azure-filresurs i samma region som du vill distribuera Azure File Sync. Mer information finns i:
     - [Regions tillgänglighet](storage-sync-files-planning.md#azure-file-sync-region-availability) för Azure File Sync.
     - [Skapa en fil resurs](storage-how-to-create-file-share.md) för en steg-för-steg-beskrivning av hur du skapar en fil resurs.
-* Minst en instans av Windows Server eller Windows Server-klustret som stöds för synkronisering med Azure File Sync. Mer information om vilka versioner av Windows Server och rekommenderade system resurser som stöds finns i [Windows fil Server överväganden](storage-sync-files-planning.md#windows-file-server-considerations).
-* PowerShell-modulen AZ kan användas med antingen PowerShell 5,1 eller PowerShell 6 +. Du kan använda AZ PowerShell-modulen för Azure File Sync på alla system som stöds, inklusive icke-Windows-system, men Server registrerings cmdleten måste alltid köras på den Windows Server-instans som du registrerar (detta kan göras direkt eller via PowerShell-fjärrkommunikation). På Windows Server 2012 R2 kan du kontrol lera att du kör minst PowerShell 5,1. \* genom att titta på värdet för egenskapen **PSVersion** för **$PSVersionTable** -objektet:
+1. Minst en instans av Windows Server eller Windows Server-klustret som stöds för synkronisering med Azure File Sync. Mer information om vilka versioner av Windows Server och rekommenderade system resurser som stöds finns i [Windows fil Server överväganden](storage-sync-files-planning.md#windows-file-server-considerations).
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+1. En Azure-filresurs i samma region som du vill distribuera Azure File Sync. Mer information finns i:
+    - [Regions tillgänglighet](storage-sync-files-planning.md#azure-file-sync-region-availability) för Azure File Sync.
+    - [Skapa en fil resurs](storage-how-to-create-file-share.md) för en steg-för-steg-beskrivning av hur du skapar en fil resurs.
+1. Minst en instans av Windows Server eller Windows Server-klustret som stöds för synkronisering med Azure File Sync. Mer information om vilka versioner av Windows Server och rekommenderade system resurser som stöds finns i [Windows fil Server överväganden](storage-sync-files-planning.md#windows-file-server-considerations).
+
+1. PowerShell-modulen AZ kan användas med antingen PowerShell 5,1 eller PowerShell 6 +. Du kan använda AZ PowerShell-modulen för Azure File Sync på alla system som stöds, inklusive icke-Windows-system, men Server registrerings cmdleten måste alltid köras på den Windows Server-instans som du registrerar (detta kan göras direkt eller via PowerShell-fjärrkommunikation). På Windows Server 2012 R2 kan du kontrol lera att du kör minst PowerShell 5,1. \* genom att titta på värdet för egenskapen **PSVersion** för **$PSVersionTable** -objektet:
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -37,7 +48,7 @@ Vi rekommenderar starkt att du läser [planering för en Azure Files distributio
     > [!Important]  
     > Om du planerar att använda användar gränssnittet för Server registrering i stället för att registrera direkt från PowerShell måste du använda PowerShell 5,1.
 
-* Om du har valt att använda PowerShell 5,1 kontrollerar du att minst .NET 4.7.2 är installerat. Läs mer om [.NET Framework versioner och beroenden](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) i systemet.
+1. Om du har valt att använda PowerShell 5,1 kontrollerar du att minst .NET 4.7.2 är installerat. Läs mer om [.NET Framework versioner och beroenden](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) i systemet.
 
     > [!Important]  
     > Om du installerar .NET 4.7.2 + på Windows Server Core måste du installera med-och- `quiet` `norestart` flaggorna eller så Miss söker installationen. Om du till exempel installerar .NET 4,8 ser kommandot ut så här:
@@ -45,10 +56,51 @@ Vi rekommenderar starkt att du läser [planering för en Azure Files distributio
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
 
-* AZ PowerShell-modulen som kan installeras genom att följa anvisningarna här: [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+1. AZ PowerShell-modulen som kan installeras genom att följa anvisningarna här: [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
      
     > [!Note]  
     > Modulen AZ. StorageSync installeras nu automatiskt när du installerar AZ PowerShell-modulen.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+1. En Azure-filresurs i samma region som du vill distribuera Azure File Sync. Mer information finns i:
+    - [Regions tillgänglighet](storage-sync-files-planning.md#azure-file-sync-region-availability) för Azure File Sync.
+    - [Skapa en fil resurs](storage-how-to-create-file-share.md) för en steg-för-steg-beskrivning av hur du skapar en fil resurs.
+1. Minst en instans av Windows Server eller Windows Server-klustret som stöds för synkronisering med Azure File Sync. Mer information om vilka versioner av Windows Server och rekommenderade system resurser som stöds finns i [Windows fil Server överväganden](storage-sync-files-planning.md#windows-file-server-considerations).
+
+1. [Installera Azure CLI](/cli/azure/install-azure-cli)
+
+   Om du vill kan du också använda Azure Cloud Shell för att slutföra stegen i den här självstudien.  Azure Cloud Shell är en interaktiv gränssnitts miljö som du använder via webbläsaren.  Starta Cloud Shell med någon av följande metoder:
+
+   - Välj **Prova** i det övre högra hörnet av ett kodblock. **Prova** att öppna Azure Cloud Shell, men kopierar inte koden automatiskt till Cloud Shell.
+
+   - Öppna Cloud Shell genom att gå till[https://shell.azure.com](https://shell.azure.com)
+
+   - Välj knappen **Cloud Shell** på Meny raden i det övre högra hörnet i [Azure Portal](https://portal.azure.com)
+
+1. Logga in.
+
+   Logga in med kommandot [AZ login](/cli/azure/reference-index#az-login) om du använder en lokal installation av cli.
+
+   ```azurecli
+   az login
+   ```
+
+    Slutför autentiseringsprocessen genom att följa stegen som visas i terminalen.
+
+1. Installera [AZ FileSync](/cli/azure/ext/storagesync/storagesync) Azure CLI-tillägget.
+
+   ```azurecli
+   az extension add --name storagesync
+   ```
+
+   När du har installerat **storagesync** -tilläggs referensen visas följande varning.
+
+   ```output
+   The installed extension 'storagesync' is experimental and not covered by customer support. Please use with discretion.
+   ```
+
+---
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Förbereda Windows Server för användning med Azure File Sync
 Inaktivera **förbättrad säkerhets konfiguration i Internet Explorer**för varje server som du vill använda med Azure File Sync, inklusive varje servernod i ett kluster för växling vid fel. Detta krävs endast för inledande Server registrering. Du kan aktivera det igen när servern har registrerats.
@@ -87,6 +139,10 @@ if ($installType -ne "Server Core") {
     Stop-Process -Name iexplore -ErrorAction SilentlyContinue
 }
 ``` 
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Följ anvisningarna för Azure Portal eller PowerShell.
 
 ---
 
@@ -155,6 +211,10 @@ $storageSyncName = "<my_storage_sync_service>"
 $storageSync = New-AzStorageSyncService -ResourceGroupName $resourceGroup -Name $storageSyncName -Location $region
 ```
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Följ anvisningarna för Azure Portal eller PowerShell.
+
 ---
 
 ## <a name="install-the-azure-file-sync-agent"></a>Installera Azure File Sync-agenten
@@ -207,6 +267,9 @@ Start-Process -FilePath "StorageSyncAgent.msi" -ArgumentList "/quiet" -Wait
 # You may remove the temp folder containing the MSI and the EXE installer
 Remove-Item -Path ".\StorageSyncAgent.msi" -Recurse -Force
 ```
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Följ anvisningarna för Azure Portal eller PowerShell.
 
 ---
 
@@ -242,6 +305,9 @@ När du har valt lämplig information väljer du **Registrera** för att slutfö
 ```powershell
 $registeredServer = Register-AzStorageSyncServer -ParentObject $storageSync
 ```
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Följ anvisningarna för Azure Portal eller PowerShell.
 
 ---
 
@@ -312,6 +378,27 @@ New-AzStorageSyncCloudEndpoint `
     -AzureFileShareName $fileShare.Name
 ```
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Använd kommandot [AZ storagesync Sync-Group](/cli/azure/ext/storagesync/storagesync/sync-group#ext-storagesync-az-storagesync-sync-group-create) för att skapa en ny Sync-grupp.  Om du vill använda en resurs grupp som standard för alla CLI-kommandon använder du [AZ konfigurera](/cli/azure/reference-index#az-configure).
+
+```azurecli
+az storagesync sync-group create --resource-group myResourceGroupName \
+                                 --name myNewSyncGroupName \
+                                 --storage-sync-service myStorageSyncServiceName \
+```
+
+Använd kommandot [AZ storagesync Sync-Group Cloud-Endpoint](/cli/azure/ext/storagesync/storagesync/sync-group/cloud-endpoint#ext-storagesync-az-storagesync-sync-group-cloud-endpoint-create) för att skapa en ny moln slut punkt.
+
+```azurecli
+az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup \
+                                                --storage-sync-service myStorageSyncServiceName \
+                                                --sync-group-name mySyncGroupName \
+                                                --name myNewCloudEndpointName \
+                                                --storage-account mystorageaccountname \
+                                                --azure-file-share-name azure-file-share-name
+```
+
 ---
 
 ## <a name="create-a-server-endpoint"></a>Skapa en serverslutpunkt
@@ -365,11 +452,39 @@ if ($cloudTieringDesired) {
 }
 ```
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Använd kommandot [AZ storagesync Sync-Group Server-Endpoint](/cli/azure/ext/storagesync/storagesync/sync-group/server-endpoint#ext-storagesync-az-storagesync-sync-group-server-endpoint-create) för att skapa en ny server slut punkt.
+
+```azurecli
+# Create a new sync group server endpoint 
+az storagesync sync-group server-endpoint create --resource-group myResourceGroupName \
+                                                 --name myNewServerEndpointName
+                                                 --registered-server-id 91beed22-7e9e-4bda-9313-fec96cf286e0
+                                                 --server-local-path d:\myPath
+                                                 --storage-sync-service myStorageSyncServiceNAme
+                                                 --sync-group-name mySyncGroupName
+
+# Create a new sync group server endpoint with additional optional parameters
+az storagesync sync-group server-endpoint create --resource-group myResourceGroupName \
+                                                 --name myNewServerEndpointName \
+                                                 --registered-server-id 91beed22-7e9e-4bda-9313-fec96cf286e0 \
+                                                 --server-local-path d:\myPath \
+                                                 --storage-sync-service myStorageSyncServiceName \
+                                                 --sync-group-name mySyncGroupName \
+                                                 --cloud-tiering on \
+                                                 --offline-data-transfer on \
+                                                 --offline-data-transfer-share-name myfilesharename \
+                                                 --tier-files-older-than-days 15 \
+                                                 --volume-free-space-percent 85 \
+
+```
+
 ---
 
 ## <a name="configure-firewall-and-virtual-network-settings"></a>Konfigurera inställningar för brandvägg och virtuellt nätverk
 
-### <a name="portal"></a>Portal
+### <a name="portal"></a>Portalen
 Gör så här om du vill konfigurera Azure File Sync så att den fungerar med brand vägg och inställningar för virtuellt nätverk:
 
 1. Från Azure Portal navigerar du till det lagrings konto som du vill skydda.

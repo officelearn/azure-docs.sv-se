@@ -3,12 +3,12 @@ title: Konfigurera webbappsanalyser för ASP.NET med Application Insights | Micr
 description: Konfigurera prestanda-, tillgänglighets-och användar beteende analys verktyg för din ASP.NET-webbplats, som finns lokalt eller i Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: 4e51fb43a9e088c991af2132b6a5d2257da8d78a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: acfba63cba520631831888a1480929be3b1897f0
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324224"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475540"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Konfigurera Application Insights för din ASP.NET-webbplats
 
@@ -112,7 +112,10 @@ Azure-resursen som tar emot din apps telemetri identifieras med en *instrumenter
 
 
 ## <a name="upgrade-to-future-sdk-versions"></a>Uppgradera till framtida SDK-versioner
-Om du vill uppgradera till en [ny SDK-version](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases) öppnar du **NuGet-pakethanteraren** och filtrerar på installerade paket. Välj **Microsoft. ApplicationInsights. Web**och välj **Uppgradera**.
+
+* [Viktig information](./release-notes.md)
+
+Om du vill uppgradera till en ny version av SDK öppnar du **NuGet Package Manager**och filtrerar på installerade paket. Välj **Microsoft. ApplicationInsights. Web**och välj **Uppgradera**.
 
 Om du har gjort anpassningar i ApplicationInsights.config sparar du en kopia av den innan du uppgraderar. Sammanfogar sedan dina ändringar i den nya versionen.
 

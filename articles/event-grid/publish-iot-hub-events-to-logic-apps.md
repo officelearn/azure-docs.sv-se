@@ -7,12 +7,12 @@ ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.author: robinsh
-ms.openlocfilehash: b9c2fc636b08e872b9ea5288eb6205d905885f0e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 49c91a2b96ebf02ec87637c3176e9263302184bf
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120491"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460940"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Självstudier: Skicka e-postmeddelanden om Azure IoT Hub-händelser med Event Grid och Logic Apps
 
@@ -20,16 +20,16 @@ Med Azure Event Grid kan du reagera på händelser i IoT Hub genom att utlösa �
 
 Den här artikeln beskriver en exempel konfiguration som använder IoT Hub och Event Grid. I slutet har du konfigurerat en Azure Logic app som skickar ett e-postmeddelande varje gång en enhet läggs till i IoT Hub. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En aktiv Azure-prenumeration. Om du inte har någon prenumeration kan du [skapa ett kostnads fritt Azure-konto](https://azure.microsoft.com/pricing/free-trial/).
 
-* Ett e-postkonto från valfri e-postleverantör som stöds av Azure Logic Apps, till exempel Office 365 Outlook, Outlook.com eller Gmail. Det här e-postkontot används för att skicka händelsemeddelandena. En fullständig lista över Logic app-kopplingar som stöds finns i [Översikt över anslutningar](https://docs.microsoft.com/connectors/).
+* Ett e-postkonto från valfri e-postleverantör som stöds av Azure Logic Apps, till exempel Office 365 Outlook, Outlook.com eller Gmail. Det här e-postkontot används för att skicka händelsemeddelandena. En fullständig lista över Logic app-kopplingar som stöds finns i [Översikt över anslutningar](/connectors/).
 
   > [!IMPORTANT]
-  > Innan du använder Gmail bör du kontrol lera om du har ett företags konto i G-serien (e-postadress med en anpassad domän) eller ett Gmail-användarkonto (e-postadress med @gmail.com eller @googlemail.com ). Endast företags konton i G-serien kan använda Gmail-anslutningen med andra anslutningar utan begränsning i Logic Apps. Om du har ett Gmail-konto kan du använda Gmail-anslutningen med endast vissa Google-godkända tjänster, eller så kan du [skapa en Google-app som ska användas för autentisering](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Mer information finns i [principer för data säkerhet och sekretess för Google Connectors i Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Innan du använder Gmail bör du kontrol lera om du har ett företags konto i G-serien (e-postadress med en anpassad domän) eller ett Gmail-användarkonto (e-postadress med @gmail.com eller @googlemail.com ). Endast företags konton i G-serien kan använda Gmail-anslutningen med andra anslutningar utan begränsning i Logic Apps. Om du har ett Gmail-konto kan du använda Gmail-anslutningen med endast vissa Google-godkända tjänster, eller så kan du [skapa en Google-app som ska användas för autentisering](/connectors/gmail/#authentication-and-bring-your-own-application). Mer information finns i [principer för data säkerhet och sekretess för Google Connectors i Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* En IoT-hubb i Azure. Om du inte redan har skapat en hubb läser du genomgången i [Kom igång med IoT Hub](../iot-hub/iot-hub-csharp-csharp-getstarted.md).
+* En IoT-hubb i Azure. Om du inte redan har skapat en hubb läser du genomgången i [Kom igång med IoT Hub](../iot-hub/quickstart-send-telemetry-dotnet.md).
 
 ## <a name="create-a-logic-app"></a>Skapa en logikapp
 
@@ -133,11 +133,11 @@ En utlösare är en specifik händelse som startar din logikapp. I den här sjä
 
 1. Logga in på ditt e-postkonto om du uppmanas att göra det. 
 
-1. Skapa e-postmallen. 
+1. Skapa din e-postmall. 
 
-   * **Till**: Ange e-postadressen som meddelandena ska skickas till. I den här självstudiekursen använder du ett e-postkonto som du kan komma åt för testning. 
+   * **Till**: Ange e-postadressen som e-postaviseringarna ska skickas till. I den här självstudien använder du ett e-postkonto som du kan komma åt för testning. 
 
-   * **Subject**: Fyll i texten för ämnet. När du klickar på text rutan ämne kan du välja dynamiskt innehåll som ska inkluderas. I den här självstudien används till exempel `IoT Hub alert: {event Type}` . Om du inte kan se dynamiskt innehåll, väljer du hyperlänken **Lägg till dynamiskt innehåll** – detta växlar till och från.
+   * **Ämne**: Fyll i ämnestexten. När du klickar på text rutan ämne kan du välja dynamiskt innehåll som ska inkluderas. I den här självstudien används till exempel `IoT Hub alert: {event Type}` . Om du inte kan se dynamiskt innehåll, väljer du hyperlänken **Lägg till dynamiskt innehåll** – detta växlar till och från.
 
    * **Brödtext**: Skriv texten för e-postmeddelandet. Välj JSON-egenskaper från valverktyget för att ta med dynamiskt innehåll baserat på händelsedata. Om du inte kan se det dynamiska innehållet väljer du hyperlänken **Lägg till dynamiskt innehåll** under text rutan **brödtext** . Om du inte ser de fält som du vill ha klickar du på *mer* på skärmen med dynamiskt innehåll för att ta med fälten från föregående åtgärd.
 
@@ -145,7 +145,7 @@ En utlösare är en specifik händelse som startar din logikapp. I den här sjä
 
    ![Fyll i e-postinformation](./media/publish-iot-hub-events-to-logic-apps/email-content.png)
 
-1. Spara din logikapp. 
+1. Spara logikappen. 
 
 ### <a name="copy-the-http-url"></a>Kopiera HTTP-URL:en
 
@@ -192,62 +192,62 @@ I det här avsnittet ska du konfigurera din IoT-hubb så att den publicerar hän
 
          ![webbadress till vald slutpunkt](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
 
-         När du är klar bör fönstret se ut som i följande exempel: 
+         När du är färdig ska fönstret se ut som i följande exempel: 
 
         ![Exempelformulär för händelseprenumeration](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
-5. Du kan spara händelseprenumerationen här och få meddelanden för alla enheter som har skapats i IoT-hubben. I den här självstudien ska vi dock använda de valfria fälten för att filtrera efter specifika enheter. Välj **filter** överst i fönstret.
+5. Du kan spara händelseprenumerationen här och få meddelanden för alla enheter som har skapats i IoT-hubben. I den här självstudien ska vi dock använda de valfria fälten till att filtrera efter vissa enheter. Välj **Filter** högst upp i fönstret.
 
-6. Välj **Lägg till nytt filter**. Fyll i fälten med följande värden:
+6. Välj **Lägg till nytt filter**. Fyll i fälten med dessa värden:
 
-   * **Nyckel**: Välj `Subject` .
+   * **Nyckel**: Välj `Subject`.
 
-   * **Operator**: Välj `String begins with` .
+   * **Operator**: Välj `String begins with`.
 
    * **Värde**: ange `devices/Building1_` om du vill filtrera enhets händelser i byggnad 1.
   
    Lägg till ett annat filter med följande värden:
 
-   * **Nyckel**: Välj `Subject` .
+   * **Nyckel**: Välj `Subject`.
 
-   * **Operator**: Välj `String ends with` .
+   * **Operator**: Välj `String ends with`.
 
-   * **Värde**: ange `_Temperature` om du vill filtrera enhets händelser relaterade till temperatur.
+   * **Värde**: Ange `_Temperature` för att filtrera efter enhetshändelser relaterade till temperatur.
 
    Fliken **filter** i din händelse prenumeration bör nu se ut ungefär som den här bilden:
 
    ![Lägga till filter i händelse prenumerationen](./media/publish-iot-hub-events-to-logic-apps/event-subscription-filters.png)
 
-7. Spara händelseprenumerationen genom att välja **Skapa**.
+7. Välj **Skapa** för att spara händelseprenumerationen.
 
 ## <a name="create-a-new-device"></a>Skapa en ny enhet
 
-Testa logikappen genom att skapa en ny enhet för att utlösa ett e-postmeddelande med en händelseavisering. 
+Testa din logikapp genom att skapa en ny enhet som ska utlösa ett e-postmeddelande med händelseaviseringen. 
 
-1. Välj **IoT-enheter** från din IoT-hubb. 
+1. Från din IoT Hub väljer du **IoT-enheter**. 
 
-2. Välj **Ny**.
+2. Välj **Nytt**.
 
 3. Ange `Building1_Floor1_Room1_Light` för **Enhets-ID**.
 
 4. Välj **Spara**. 
 
-5. Du kan lägga till flera enheter med olika enhets-ID:n för att testa händelseprenumerationsfiltren. Prova de här exemplen: 
+5. Du kan lägga till flera enheter med olika enhets-ID:n för att testa händelseprenumerationsfiltren. Du kan prova de här: 
 
    * Building1_Floor1_Room1_Light
    * Building1_Floor2_Room2_Temperature
    * Building2_Floor1_Room1_Temperature
    * Building2_Floor1_Room1_Light
 
-   Om du har lagt till de fyra exemplen bör listan över IoT-enheter se ut som på följande bild:
+   Om du har lagt till de fyra exemplen bör listan med IoT-enheter se ut som i den följande bilden:
 
-   ![IoT Hub enhets lista](./media/publish-iot-hub-events-to-logic-apps/iot-hub-device-list.png)
+   ![Lista med IoT Hub-enheter](./media/publish-iot-hub-events-to-logic-apps/iot-hub-device-list.png)
 
 6. När du har lagt till några enheter till IoT-hubben öppnar du din e-post för att se vilka som utlöste logikappen. 
 
 ## <a name="use-the-azure-cli"></a>Använda Azure CLI
 
-Om du vill kan du utföra IoT Hub-stegen med hjälp av Azure CLI i stället för att använda Azure Portal. Mer information finns i Azure CLI-sidorna för att [skapa en händelse prenumeration](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) och [skapa en IoT-enhet](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity).
+Om du vill kan du utföra IoT Hub-stegen med hjälp av Azure CLI i stället för att använda Azure Portal. Mer information finns i Azure CLI-sidorna för att [skapa en händelse prenumeration](/cli/azure/eventgrid/event-subscription) och [skapa en IoT-enhet](/cli/azure/ext/azure-iot/iot/hub/device-identity).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

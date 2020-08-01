@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 07/07/2020
 ms.author: eamono
-ms.openlocfilehash: 79f3d83417a99d40ea0d4bd101a89300bc85a393
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3b9b49a4d38566891f442a3d2d7eac9bf1d36465
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114524"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87462011"
 ---
 # <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Självstudie: integrera Azure Automation med Event Grid och Microsoft Teams
 
@@ -27,13 +27,13 @@ I den här guiden får du lära dig att:
 > * Skapa en Event Grid-prenumeration.
 > * Skapa en virtuell dator som utlöser runbooken.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-För slutföra den här självstudien krävs ett [Azure Automation-konto](../automation/automation-offering-get-started.md) för att lagra den runbook som utlöses från Azure Event Grid-prenumerationen.
+För slutföra den här självstudien krävs ett [Azure Automation-konto](../automation/index.yml) för att lagra den runbook som utlöses från Azure Event Grid-prenumerationen.
 
 * Modulen `AzureRM.Tags` måste läsas in på ditt Automation-konto. Se sidan om [hur du importerar moduler i Azure Automation](../automation/automation-update-azure-modules.md) för att lära dig hur du importerar moduler till Azure Automation.
 

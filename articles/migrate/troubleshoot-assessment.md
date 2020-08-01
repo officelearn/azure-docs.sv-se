@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: b47c6c7d2137737021766f239fdb6ab1c64bd12f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f9598ad508e3760bf1bad04f8694838465e4961f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422869"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460991"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Felsöka utvärdering/beroendevisualisering
 
@@ -66,6 +66,9 @@ När det gäller VMware-och Hyper-V-datorer markerar Server utvärderingen virtu
 
 Denna lucka kan åtgärdas genom att aktivera [program identifiering](./how-to-discover-applications.md) på de virtuella VMware-datorerna. Server utvärderingen använder det operativ system som identifierats från den virtuella datorn med autentiseringsuppgifterna för gäst. Detta operativ system data identifierar rätt operativ Systems information när det gäller virtuella Windows-och Linux-datorer.
 
+## <a name="operating-system-version-not-available"></a>Operativ system versionen är inte tillgänglig
+
+För fysiska servrar bör den lägre versions informationen för operativ systemet vara tillgänglig. Kontakta Microsoft Support om den inte är tillgänglig. För VMware-datorer använder Server utvärderingen den operativ Systems information som anges för den virtuella datorn i vCenter Server. VCenter Server tillhandahåller dock inte den lägre versionen av operativ system. För att identifiera den lägre versionen måste du konfigurera [program identifiering](./how-to-discover-applications.md). För virtuella Hyper-V-datorer stöds inte identifiering av lägre operativ system versioner. 
 
 ## <a name="azure-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Azure-SKU: er större än lokalt i en Azure VM-utvärdering
 

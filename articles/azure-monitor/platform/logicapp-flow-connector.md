@@ -7,15 +7,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 6048b5f0a3702e95cef9175933041fe36f2f07bb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2ef7095d186902425adb5065c470325be1283023
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081567"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475744"
 ---
-# <a name="azure-monitor-logs-connector-for-logic-apps-and-flow"></a>Azure Monitor loggar Connector för Logic Apps och Flow
-Med [Azure Logic Apps](../../logic-apps/index.yml) och [energi spar läge](https://ms.flow.microsoft.com) kan du skapa automatiserade arbets flöden med hundratals åtgärder för olika tjänster. Med anslutnings programmet för Azure Monitor loggar kan du bygga arbets flöden som hämtar data från en Log Analytics arbets yta eller ett Application Insights program i Azure Monitor. I den här artikeln beskrivs de åtgärder som ingår i kopplingen och en genom gång av hur du skapar ett arbets flöde med dessa data.
+# <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Azure Monitor loggar Connector för Logic Apps och energi automatisering
+Med [Azure Logic Apps](../../logic-apps/index.yml) och [energi spar läge](https://flow.microsoft.com) kan du skapa automatiserade arbets flöden med hundratals åtgärder för olika tjänster. Med anslutnings programmet för Azure Monitor loggar kan du bygga arbets flöden som hämtar data från en Log Analytics arbets yta eller ett Application Insights program i Azure Monitor. I den här artikeln beskrivs de åtgärder som ingår i kopplingen och en genom gång av hur du skapar ett arbets flöde med dessa data.
 
 Du kan till exempel skapa en Logic app för att använda Azure Monitor loggdata i ett e-postmeddelande från Office 365, skapa en bugg i Azure DevOps eller skicka ett slack-meddelande.  Du kan utlösa ett arbets flöde med ett enkelt schema eller från en åtgärd i en ansluten tjänst, till exempel när ett e-postmeddelande eller en tweet tas emot. 
 
@@ -126,4 +126,4 @@ När Logic-appen har slutförts, kontrol lera e-postmeddelandets mottagare som d
 
 - Lär dig mer om [logg frågor i Azure Monitor](../log-query/log-query-overview.md).
 - Läs mer om [Logic Apps](../../logic-apps/index.yml)
-- Läs mer om [Microsoft Flow](https://ms.flow.microsoft.com).
+- Lär dig mer om att [Automatisera energi](https://flow.microsoft.com).

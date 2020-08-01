@@ -7,16 +7,16 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 3699213fe61c64d7677ba026a8df54ccbbfe4b33
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: dadb1f044547acd6e5f0d274143123e89d7dae46
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352360"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475489"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Installera och använda Azure IoT-tillägget för Azure CLI
 
-[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) är ett kommando rads verktyg med öppen källkod för flera plattformar för att hantera Azure-resurser som IoT Hub. Azure CLI är tillgängligt på Windows, Linux och MacOS. Azure CLI är också förinstallerat i [Azure Cloud Shell](https://shell.azure.com). Med Azure CLI kan du hantera Azure IoT Hub-resurser, enhets etablerings tjänst instanser och länkade hubbar utan att installera några tillägg.
+[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) är ett kommando rads verktyg med öppen källkod för flera plattformar för att hantera Azure-resurser som IoT Hub. Azure CLI är tillgängligt på Windows, Linux och macOS. Med Azure CLI kan du hantera Azure IoT Hub-resurser, enhets etablerings tjänst instanser och länkade hubbar utan att installera några tillägg.
 
 Azure IoT-tillägget för Azure CLI är ett kommando rads verktyg för att interagera med och testa IoT Plug and Play Preview-enheter. Du kan använda tillägget för att:
 
@@ -51,9 +51,6 @@ Logga in på din Azure-prenumeration genom att köra följande kommando:
 ```azurecli
 az login
 ```
-
-> [!NOTE]
-> Om du använder Azure Cloud Shell loggas du automatiskt in och du behöver inte köra föregående kommando.
 
 Om du vill använda Azure IoT-tillägget för Azure CLI behöver du:
 
@@ -109,6 +106,65 @@ az iot pnp twin invoke-command --cn getMaxMinReport -n {iothub_name} -d {device_
 az iot hub monitor-events -n {iothub_name} -d {device_id} -i {interface_id}
 ```
 
+### <a name="manage-models-in-the-model-repository"></a>Hantera modeller i modell databasen
+
+Du kan använda databas kommandona för Azure CLI-modellen för att hantera modeller i lagrings platsen.
+
+#### <a name="create-model-repository"></a>Skapa modell databas
+
+Skapa en ny IoT Plug and Play företags databas för din klient om du är den första användaren i din klient organisation:
+
+```azurecli
+az iot pnp repo create
+```
+
+#### <a name="manage-model-repository-tenant-roles"></a>Hantera klient organisations rollerna för modell databasen
+
+Skapa en roll tilldelning för en användare eller tjänstens huvud namn till en angiven resurs.
+
+Ge till exempel user@consoso.com rollen **ModelsCreator** för klienten:
+
+```azurecli
+az iot pnp role-assignment create --resource-id {tenant_id} --resource-type Tenant --subject-id {user@contoso.com} --subject-type User --role ModelsCreator
+```
+
+Eller ge user@consoso.com rollen **ModelAdministrator** för en speciell modell:
+
+```azurecli
+az iot pnp role-assignment create --resource-id {model_id} --resource-type Model --subject-id {user@contoso.com} --subject-type User --role ModelAdministrator
+```
+
+#### <a name="create-a-model"></a>Skapa en modell
+
+Skapa en ny modell i företags databasen:
+
+```azurecli
+az iot pnp model create --model {model_json or path_to_file}
+```
+
+#### <a name="search-a-model"></a>Sök i en modell
+
+Lista modeller som matchar ett angivet nyckelord:
+
+```azurecli
+az iot pnp model list -q {search_keyword}
+```
+
+#### <a name="publish-a-model"></a>Publicera en modell
+
+Publicera en enhets modell som finns på företags databasen till den offentliga lagrings platsen.
+
+Gör till exempel offentlig modell med ID `dtmi:com:example:ClimateSensor;1` :
+
+```azurecli
+az iot pnp model publish --dtmi "dtmi:com:example:ClimateSensor;1"
+```
+
+Om du vill publicera en modell måste följande krav uppfyllas:
+
+- Företaget eller organisationens klient organisation måste vara en Microsoft-partner. 
+- Användarens eller tjänstens huvud namn måste vara medlem i plats innehavarens **utgivar** roll.
+
 ## <a name="next-steps"></a>Nästa steg
 
-I den här instruktions artikeln har du lärt dig hur du installerar och använder Azure IoT-tillägget för Azure CLI för att interagera med dina Plug and Play-enheter. Ett förslag till nästa steg är att lära dig hur du använder [Azure IoT Explorer med dina enheter](./howto-use-iot-explorer.md).
+I den här instruktions artikeln har du lärt dig hur du installerar och använder Azure IoT-tillägget för Azure CLI för att interagera med IoT Plug and Play-enheter. Ett förslag till nästa steg är att lära dig hur du använder [Azure IoT Explorer med dina enheter](./howto-use-iot-explorer.md).

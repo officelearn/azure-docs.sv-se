@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/28/2020
-ms.openlocfilehash: 904b3ce1c2d05d713ee1ae99662148217f2a358e
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d0fd11ce5b25b8796b07176a4ba83091a8f7cc0b
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337831"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461025"
 ---
 # <a name="export-data-module"></a>Exportera datamodul
 
@@ -26,8 +26,8 @@ Den här modulen stöder export av data till följande moln data tjänster:
 
 - Azure Blob-behållare
 - Azure-filresurs
-- Azure Data Lake
-- Azure Data Lake Gen2
+- Azure Data Lake Storage Gen1
+- Azure Data Lake Storage Gen2
 - Azure SQL-databas
 
 Innan du exporterar dina data måste du först registrera ett data lager på din Azure Machine Learning-arbetsyta. Mer information finns i [få åtkomst till data i Azure Storage-tjänster](../how-to-access-data.md).
@@ -43,7 +43,7 @@ Innan du exporterar dina data måste du först registrera ett data lager på din
 1. För **data lager**väljer du ett befintligt data lager i list rutan. Du kan också skapa ett nytt data lager. Se hur du [använder åtkomst data i Azure Storage-tjänster](../how-to-access-data.md).
 
     > [!NOTE]
-    > Export av data för en viss datatyp till en SQL Database-kolumn som har angetts som en annan datatyp stöds inte.
+    > Export av data för en viss datatyp till en SQL Database-kolumn som har angetts som en annan datatyp stöds inte. Mål tabellen behöver inte existera först.
 
 1. Kryss rutan **skapa utdata**igen, bestämmer om modulen ska köras för att återskapa utdata vid körning. 
 

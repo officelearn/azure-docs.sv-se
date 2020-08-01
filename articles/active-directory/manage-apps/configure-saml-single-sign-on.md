@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 1abde88b653ae0f0ef3651b161e806047e143078
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 82b10525fe4d8b9db88300b61ae2da6630030dfd
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418788"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461195"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>Konfigurera SAML-baserad enkel inloggning
 
@@ -25,7 +25,7 @@ I [snabb starts serien](view-applications-portal.md) för program hantering har 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Att använda Azure AD som identitets leverantör och konfigurera enkel inloggning (SSO) kan vara enkelt eller komplext beroende på vilket program som används. Vissa program kan konfigureras med bara några få åtgärder. Andra kräver djupgående konfiguration. Kom igång snabbt genom att gå igenom [snabb starts serien](view-applications-portal.md) för program hantering. Om det program som du lägger till är enkelt, behöver du förmodligen inte läsa den här artikeln. Om det program som du lägger till kräver anpassad konfiguration för SAML-baserad SSO, är den här artikeln för dig.
+Att använda Azure AD som identitets leverantör (IdP) och konfigurera enkel inloggning (SSO) kan vara enkelt eller komplext beroende på vilket program som används. Vissa program kan konfigureras med bara några få åtgärder. Andra kräver djupgående konfiguration. Kom igång snabbt genom att gå igenom [snabb starts serien](view-applications-portal.md) för program hantering. Om det program som du lägger till är enkelt, behöver du förmodligen inte läsa den här artikeln. Om det program som du lägger till kräver anpassad konfiguration för SAML-baserad SSO, är den här artikeln för dig.
 
 I [snabb starts serien](view-applications-portal.md)finns det en artikel om hur du konfigurerar enkel inloggning. I det här avsnittet får du lära dig hur du kommer åt sidan SAML-konfiguration för en app. Sidan SAML-konfiguration innehåller fem avsnitt. Dessa avsnitt beskrivs i detalj i den här artikeln.
 
@@ -44,7 +44,7 @@ Du bör hämta värdena från program leverantören. Du kan ange värdena manuel
 > [!TIP]
 > Många appar har redan förkonfigurerats för att fungera med Azure AD. De här apparna visas i galleriet med appar som du kan bläddra när du lägger till en app i Azure AD-klienten. [Snabb starts serien](view-applications-portal.md) vägleder dig genom processen. För apparna i galleriet hittar du detaljerade steg-för-steg-anvisningar. Du kan komma åt stegen genom att klicka på länken på sidan SAML-konfiguration för appen enligt beskrivningen i snabb starts serien eller så kan du bläddra i en lista över alla program konfigurations guider i [självstudier för SaaS app Configuration](../saas-apps/tutorial-list.md).
 
-| Grundläggande konfigurations inställning för SAML | SP-initierad | idP-initierad | Description |
+| Grundläggande konfigurations inställning för SAML | SP-initierad | idP-initierad | Beskrivning |
 |:--|:--|:--|:--|
 | **Identifierare (entitets-ID)** | Krävs för vissa appar | Krävs för vissa appar | Identifierar programmet unikt. Azure AD skickar identifieraren till programmet som målgruppsparametern för SAML-token. Programmet förväntas verifiera den. Detta värde visas även som entitets-ID i alla SAML-metadata som anges av programmet. Ange en URL som använder följande mönster: "https:// <subdomain> . contoso.com" *du hittar det här värdet som **Issuer** -element i **AuthnRequest** (SAML-begäran) som skickas av programmet.* |
 | **Svarswebbadress** | Obligatorisk | Obligatorisk | Anger var programmet förväntas ta emot SAML-token. Svars-URL:en kallas även för URL för konsumenttjänst för försäkran (ACS-URL). Du kan använda ytterligare svars-URL-fält för att ange flera svars-URL: er. Du kan till exempel behöva ytterligare svars-URL: er för flera under domäner. I test syfte kan du ange flera svars-URL: er (lokala värden och offentliga URL: er) i taget. |

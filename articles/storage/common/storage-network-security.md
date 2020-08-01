@@ -9,16 +9,16 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 61c2b2b8bce676bd7032eb65fcf48b5ad07092ad
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d45b792c655820b771ba956721e9169750c39fbd
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070656"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475421"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage brand väggar och virtuella nätverk
 
-Azure Storage tillhandahåller en skiktbaserad säkerhetsmodell. Med den här modellen kan du skydda och kontrol lera åtkomst nivån till dina lagrings konton som dina program och företags miljöer kräver, baserat på typ och delmängd av nätverk som används. När nätverks regler har kon figurer ATS kan endast program som begär data i den angivna uppsättningen nätverk komma åt ett lagrings konto. Du kan begränsa åtkomsten till ditt lagrings konto till begär Anden som kommer från angivna IP-adresser, IP-intervall eller från en lista över undernät i ett Azure-Virtual Network (VNet).
+Azure Storage tillhandahåller en säkerhetsmodell i flera lager. Med den här modellen kan du skydda och kontrollera den nivå av åtkomst till dina lagringskonton som behövs för dina appar och företagsmiljöer, beroende på vilken typ och delmängd av nätverk som används. När nätverks regler har kon figurer ATS kan endast program som begär data i den angivna uppsättningen nätverk komma åt ett lagrings konto. Du kan begränsa åtkomsten till ditt lagrings konto till begär Anden som kommer från angivna IP-adresser, IP-intervall eller från en lista över undernät i ett Azure-Virtual Network (VNet).
 
 Lagrings konton har en offentlig slut punkt som kan nås via Internet. Du kan också skapa [privata slut punkter för ditt lagrings konto](storage-private-endpoints.md), som tilldelar en privat IP-adress från ditt VNet till lagrings kontot och skyddar all trafik mellan ditt VNet och lagrings kontot över en privat länk. Azure Storage-brandväggen ger åtkomst kontroll för den offentliga slut punkten för ditt lagrings konto. Du kan också använda brand väggen för att blockera all åtkomst via den offentliga slut punkten när du använder privata slut punkter. Konfigurationen av lagrings brand väggen aktiverar även de betrodda Azure Platform-tjänsterna för att få åtkomst till lagrings kontot på ett säkert sätt.
 
@@ -60,7 +60,7 @@ Som standard godkänner lagringskonton anslutningar från klienter i alla nätve
 
 Du kan hantera standard regler för nätverks åtkomst för lagrings konton via Azure Portal, PowerShell eller CLIv2.
 
-#### <a name="azure-portal"></a>Azure-portalen
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Gå till det lagringskonto som du vill skydda.
 
@@ -120,7 +120,7 @@ Du kan konfigurera lagrings konton så att endast åtkomst från vissa undernät
 
 Aktivera en [tjänst slut punkt](/azure/virtual-network/virtual-network-service-endpoints-overview) för Azure Storage i VNet. Tjänst slut punkten dirigerar trafik från VNet via en optimal sökväg till Azure Storage tjänsten. Identiteterna för under nätet och det virtuella nätverket överförs också med varje begäran. Administratörer kan sedan konfigurera nätverks regler för det lagrings konto som tillåter att förfrågningar tas emot från vissa undernät i ett VNet. Klienter som beviljats åtkomst via dessa nätverks regler måste fortsätta att uppfylla kraven för auktorisering av lagrings kontot för att komma åt data.
 
-Varje lagrings konto har stöd för upp till 100 virtuella nätverks regler, som kan kombineras med [IP-nätverks-regler](#grant-access-from-an-internet-ip-range).
+Varje lagrings konto har stöd för upp till 200 virtuella nätverks regler, som kan kombineras med [IP-nätverks-regler](#grant-access-from-an-internet-ip-range).
 
 ### <a name="available-virtual-network-regions"></a>Tillgängliga virtuella nätverks regioner
 
@@ -131,7 +131,7 @@ När du planerar för haveri beredskap under ett regionalt avbrott bör du skapa
 > [!NOTE]
 > Tjänstens slut punkter gäller inte för trafik utanför regionen för det virtuella nätverket och det angivna region paret. Du kan bara använda nätverks regler som beviljar åtkomst från virtuella nätverk till lagrings konton i den primära regionen för ett lagrings konto eller i den angivna kopplade regionen.
 
-### <a name="required-permissions"></a>Nödvändiga behörigheter
+### <a name="required-permissions"></a>Behörigheter som krävs
 
 Om du vill tillämpa en virtuell nätverks regel på ett lagrings konto måste användaren ha rätt behörighet för de undernät som läggs till. Den behörighet som krävs är *Anslut till ett undernät* och ingår i den inbyggda rollen *lagrings konto deltagare* . Den kan också läggas till i anpassade roll definitioner.
 
@@ -144,7 +144,7 @@ Lagrings kontot och de virtuella nätverk som beviljats åtkomst kan finnas i ol
 
 Du kan hantera virtuella nätverks regler för lagrings konton via Azure Portal, PowerShell eller CLIv2.
 
-#### <a name="azure-portal"></a>Azure-portalen
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Gå till det lagringskonto som du vill skydda.
 
@@ -268,7 +268,7 @@ Om du använder [ExpressRoute](/azure/expressroute/expressroute-introduction) lo
 
 Du kan hantera IP-nätverks regler för lagrings konton via Azure Portal, PowerShell eller CLIv2.
 
-#### <a name="azure-portal"></a>Azure-portalen
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Gå till det lagringskonto som du vill skydda.
 
@@ -410,7 +410,7 @@ I vissa fall krävs åtkomst till läsa resurs loggar och mät värden utanför 
 
 Du kan hantera nätverks regel undantag via Azure Portal, PowerShell eller Azure CLI v2.
 
-#### <a name="azure-portal"></a>Azure-portalen
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Gå till det lagringskonto som du vill skydda.
 

@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du återställer filer och mapp
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: a594b9636dcb4e584fd10a17bca6c48c2d1fb960
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2488bbded1b4d55f3c4cf21c63e9fcb90e9bfb4f
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514092"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475064"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -132,28 +132,96 @@ Kör kommandona i följande avsnitt om du vill ta med dessa partitioner online.
 
 #### <a name="for-lvm-partitions"></a>För LVM-partitioner
 
-Så här visar du volym grupp namnen under en fysisk volym:
+När skriptet har körts monteras LVM-partitionerna i de fysiska volym (er)/disk som anges i utdata för skriptet. Processen är att
+
+1. Hämta en unik lista över volym grupp namn från fysiska volymer eller diskar
+2. Lista de logiska volymerna i dessa volym grupper
+3. Montera sedan de logiska volymerna till en önskad sökväg.
+
+##### <a name="listing-volume-group-names-from-physical-volumes"></a>Visar volym grupp namn från fysiska volymer
+
+Så här visar du volym grupp namnen:
+
+```bash
+pvs -o +vguuid
+```
+
+Det här kommandot visar en lista över alla fysiska volymer (inklusive de som finns innan skriptet körs), motsvarande volym grupp namn och volym gruppens unika användar-ID (UUID). Ett exempel på utdata från kommandot visas nedan.
+
+```bash
+PV         VG        Fmt  Attr PSize   PFree    VG UUID
+
+  /dev/sda4  rootvg    lvm2 a--  138.71g  113.71g EtBn0y-RlXA-pK8g-de2S-mq9K-9syx-B29OL6
+
+  /dev/sdc   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sde   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sdf   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
+
+  /dev/sdd   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
+```
+
+Den första kolumnen (PV) visar den fysiska volymen, de efterföljande kolumnerna visar relevanta volym grupp namn, format, attribut, storlek, ledigt utrymme och det unika ID: t för volym gruppen. Kommandoutdata visar alla fysiska volymer. Se utdata för skriptet och identifiera de volymer som är relaterade till säkerhets kopian. I exemplet ovan skulle utdata i skriptet ha visat/dev/SDF och/dev/SDD. Det datavg_db volym gruppen tillhör skriptet och Appvg_new volym gruppen tillhör datorn. Den sista idén är att se till att ett unikt volym grupps namn ska ha 1 unikt ID.
+
+###### <a name="duplicate-volume-groups"></a>Duplicera volym grupper
+
+Det finns scenarier där volym grupp namn kan ha 2 UUID: er när skriptet har körts. Det innebär att volym grupp namnen på datorn där skriptet körs och i den säkerhetskopierade virtuella datorn är desamma. Sedan måste vi byta namn på de säkerhetskopierade virtuella dator volym grupperna. Ta en titt på exemplet nedan.
+
+```bash
+PV         VG        Fmt  Attr PSize   PFree    VG UUID
+
+  /dev/sda4  rootvg    lvm2 a--  138.71g  113.71g EtBn0y-RlXA-pK8g-de2S-mq9K-9syx-B29OL6
+
+  /dev/sdc   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sde   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sdg   APPvg_new lvm2 a--  <75.00g  508.00m lCAisz-wTeJ-eqdj-S4HY-108f-b8Xh-607IuC
+
+  /dev/sdh   APPvg_new lvm2 a--  <75.00g  508.00m lCAisz-wTeJ-eqdj-S4HY-108f-b8Xh-607IuC
+
+  /dev/sdm2  rootvg    lvm2 a--  194.57g  127.57g efohjX-KUGB-ETaH-4JKB-MieG-EGOc-XcfLCt
+```
+
+Skriptets utdata skulle ha visat/dev/SDG,/dev/SDH,/dev/sdm2 som bifogad. Det betyder att motsvarande VG-namn är Appvg_new och rootvg. Men samma namn finns också i datorns VG-lista. Vi kan kontrol lera att 1 VG namn har 2 UUID: er.
+
+Nu måste vi byta namn på VG namn för skriptbaserade volymer, t. ex./dev/SDG,/dev/SDH,/dev/sdm2. Om du vill byta namn på volym gruppen använder du följande kommando
+
+```bash
+vgimportclone -n rootvg_new /dev/sdm2
+vgimportclone -n APPVg_2 /dev/sdg /dev/sdh
+```
+
+Nu har vi alla VG-namn med unika ID: n.
+
+###### <a name="active-volume-groups"></a>Aktiva volym grupper
+
+Se till att volym grupperna som motsvarar skriptets volymer är aktiva. Kommandot nedan används för att visa aktiva volym grupper. Kontrol lera om skriptets relaterade volym grupper finns i den här listan.
+
+```bash
+vgdisplay -a
+```  
+
+Annars aktiverar du volym gruppen genom att använda kommandot nedan.
 
 ```bash
 #!/bin/bash
-pvs <volume name as shown above in the script output>
+vgchange –a y  <volume-group-name>
 ```
 
-Om du vill visa en lista över alla logiska volymer, namn och deras sökvägar i en volym grupp:
+##### <a name="listing-logical-volumes-within-volume-groups"></a>Lista logiska volymer i volym grupper
+
+När vi hämtar den unika, aktiva listan över VGs som är relaterade till skriptet, kan de logiska volymer som finns i dessa volym grupper listas med kommandot nedan.
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs commands results>
+lvdisplay <volume-group-name>
 ```
 
-```lvdisplay```Kommandot visar även om volym grupperna är aktiva. Om volym gruppen är markerad som inaktiv måste den aktive ras igen för att kunna monteras. Om volym gruppen visas som inaktiv använder du följande kommando för att aktivera den.
+Det här kommandot visar sökvägen för varje logisk volym som "LV-sökväg".
 
-```bash
-#!/bin/bash
-vgchange –a y  <volume-group-name from the pvs commands results>
-```
-
-När volym gruppens namn är aktivt kör du ```lvdisplay``` kommandot en gång till för att se alla relevanta attribut.
+##### <a name="mounting-logical-volumes"></a>Montera logiska volymer
 
 Montera de logiska volymerna till valfri sökväg:
 
@@ -161,6 +229,9 @@ Montera de logiska volymerna till valfri sökväg:
 #!/bin/bash
 mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
+
+> [!WARNING]
+> Använd inte "Mount-a". Det här kommandot monterar alla enheter som beskrivs i '/etc/fstab '. Detta kan betyda att dubbla enheter kan monteras. Data kan omdirigeras till enheter som skapats av skript, som inte bevarar data och kan därför leda till data förlust.
 
 #### <a name="for-raid-arrays"></a>För RAID-matriser
 

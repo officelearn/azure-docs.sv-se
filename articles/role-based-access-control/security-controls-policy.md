@@ -7,16 +7,16 @@ author: rolyon
 ms.author: rolyon
 ms.service: role-based-access-control
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 3ac67d6222e6b7df1d7989c234c3ef0a5fa137f9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a40244fb958993cbed9e8585190939eb43e5acc2
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328552"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461790"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-rbac"></a>Azure Policy regler för regelefterlevnad för Azure RBAC
 
-[Azure policy](../governance/policy/index.yml) kan använda RUELs för dina Azure-resurser så att din infrastruktur är kompatibel med företags standarder.
+[Azure policy](../governance/policy/index.yml) kan tillämpa regler för dina Azure-resurser så att din infrastruktur är kompatibel med företags standarder.
 Regelefterlevnad [i Azure policy](../governance/policy/concepts/regulatory-compliance.md) ger Microsoft skapade och hanterade initiativ definitioner, som kallas _inbyggda moduler_, för **domäner** och **säkerhets kontroller** som är relaterade till olika efterlevnads standarder. Den här sidan listar **domäner för efterlevnad** och **säkerhets kontroller** för rollbaserad åtkomst kontroll i Azure (Azure RBAC). Du kan tilldela de inbyggda programmen för en **säkerhets kontroll** individuellt för att hjälpa dina Azure-resurser att vara kompatibla med den aktuella standarden.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]

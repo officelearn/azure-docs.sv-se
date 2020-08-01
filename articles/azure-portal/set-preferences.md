@@ -5,22 +5,23 @@ services: azure-portal
 keywords: inställningar, tids gräns, språk, regional
 author: mgblythe
 ms.author: mblythe
-ms.date: 12/19/2019
+ms.date: 07/30/2020
 ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: d4c675ab18a7a9231229ce0c7de9a7450dc1baa8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8ce638bf61c69fb732d94d537218aabaeaa9a7c
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763966"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461956"
 ---
 # <a name="set-your-azure-portal-preferences"></a>Ange Azure-portalinställningar
 
 Du kan ändra standardinställningarna för Azure Portal så att de passar dina egna inställningar. Var och en av inställningarna i listan nedan kan ändras:
 
 * [Tids gräns för inaktiv session](#change-the-idle-duration-for-inactive-sign-out)
+* [Standard prenumeration](#choose-your-default-subscription)
 * [Standardvy](#choose-your-default-view)
 * [Meny läge för Portal](#choose-a-portal-menu-mode)
 * [Tema för färg och hög kontrast](#choose-a-theme)
@@ -54,6 +55,18 @@ Om din administratör har aktiverat en timeout-princip för inaktivitet markerar
 > [!NOTE]
 > Om du är administratör och vill framtvinga en inaktiv timeout-inställning för alla användare av Azure Portal, se [Ange tids gräns för inaktivitet i katalog nivå för användare av Azure Portal](admin-timeout.md)
 >
+
+### <a name="choose-your-default-subscription"></a>Välj din standard prenumeration
+
+Du kan ändra den prenumeration som öppnas som standard när du loggar in på Azure Portal. Detta är användbart om du har en primär prenumeration som du arbetar med, men använder andra ibland. 
+
+:::image type="content" source="media/set-preferences/filter-subscription-default-view.png" alt-text="Filtrera resurs lista efter prenumeration.":::
+
+1. Välj ikonen katalog och prenumerations filter i det övre navigerings fönstret.
+1. Välj de prenumerationer som du vill använda som standard prenumerationer när du startar portalen. 
+
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Välj de prenumerationer som du vill använda som standard prenumerationer när du startar portalen."::: 
+
 
 ### <a name="choose-your-default-view"></a>Välj standardvy 
 

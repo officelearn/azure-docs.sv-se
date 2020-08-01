@@ -4,12 +4,12 @@ description: Den här artikeln innehåller ett exempel på ett Azure CLI-skript 
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/08/2020
-ms.openlocfilehash: 11935866f37dfaae15f25dac6deeace4e89547fc
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0d8287100eb4a16572fd5fbd764549b62a284c93
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171303"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460872"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-azure-cli"></a>Prenumerera på händelser för en resursgrupp och filtrera efter en resurs med Azure CLI
 
@@ -35,10 +35,10 @@ Det här skriptet använder följande kommandon för att skapa händelseprenumer
 
 | Kommando | Anteckningar |
 |---|---|
-| [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Skapa en Event Grid-prenumeration. |
+| [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Skapa en Event Grid-prenumeration. |
 | [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) – version av tillägg | Skapa en Event Grid-prenumeration. |
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om att köra frågor mot prenumerationer finns i [Query Event Grid subscriptions](../query-event-subscriptions.md) (Köra frågor mot Event Grid-prenumerationer).
-* Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
+* Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).

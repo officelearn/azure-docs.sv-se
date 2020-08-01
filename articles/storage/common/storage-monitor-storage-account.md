@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 6f53d5ec2d73c9edbb7e24c24107b2a6d6deb167
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46ff6fb26cf568474b24d941e4a174b425bf5207
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83684673"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474367"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Övervaka ett lagringskonto i Azure-portalen
 
@@ -141,7 +141,7 @@ Du kan instruera Azure Storage att spara diagnostikloggar för läsnings-, skriv
     ![Konfigurera loggning i Azure Portal.](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. Klicka på **Spara**.
 
-Diagnostikloggar sparas i en BLOB-behållare med namnet *$logs* i ditt lagrings konto. Du kan visa loggdata med hjälp av en lagrings Utforskare som [Microsoft Storage Explorer](https://storageexplorer.com)eller program mässigt med hjälp av lagrings klient biblioteket eller PowerShell.
+Diagnostikloggar sparas i en BLOB-behållare med namnet *$logs* i ditt lagrings konto. Du kan visa loggdata med hjälp av en lagrings Utforskare som [Microsoft Azure Storage Explorer](https://storageexplorer.com)eller program mässigt med hjälp av lagrings klient biblioteket eller PowerShell.
 
 Information om hur du kommer åt $logs-behållaren finns i [Storage Analytics-loggning](storage-analytics-logging.md).
 

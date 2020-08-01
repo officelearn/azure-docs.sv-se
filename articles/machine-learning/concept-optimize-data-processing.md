@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: b0badd92a3156f76f99bf1f48fca2093a2bca2f5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f95c4256f4a0a3fdf410efecf9c22d578d1963a2
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012645"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461807"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Optimera data bearbetning med Azure Machine Learning
 
@@ -82,4 +82,4 @@ Du kan skapa `Dask` kluster i Azure ml Compute-kluster med [dask-cloudprovider-]
 ## <a name="next-steps"></a>Nästa steg
 
 * [Alternativ för data inmatning med Azure Machine Learning](concept-data-ingestion.md).
-* [Data inmatning med Azure Data Factory](how-to-data-ingest-adf.md).
+* [Skapa och registrera data uppsättningar](how-to-create-register-datasets.md).

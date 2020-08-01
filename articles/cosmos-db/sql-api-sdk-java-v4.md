@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 6cd4d64361e1975a6752ff3a15600923ce3fdf98
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 45da3ec95167cbb4fa087435e0e88f85c0eb6463
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322898"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461059"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core (SQL) API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -138,6 +138,7 @@ Azure Cosmos DB Java SDK v4 for Core (SQL) kombinerar ett asynkront API och ett 
 * Optimering av frågor genom att ta bort dubbel serialisering/deserialisering. 
 * Optimeringar av svars rubriker genom att ta bort onödig kopiering och tillbaka. 
 * Optimerad `ByteBuffer` serialisering/deserialisering genom att ta bort mellanliggande strängars instansiering.
+
 #### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
 * Undantag för fast ConnectionPolicy `toString()` null-pekare.
 * Fast problem vid parsning av frågeresultat i händelse av frågor om värde ordning. 

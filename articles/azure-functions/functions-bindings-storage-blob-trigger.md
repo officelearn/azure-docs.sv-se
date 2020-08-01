@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 6b9cf3f76afecb1e6f7ad00a18eb7290b8decb5f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 06c4ecd92368487af3110e84391ec721700a95aa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056043"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461178"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Blob Storage-utlösare för Azure Functions
 
@@ -331,7 +331,7 @@ Följande exempel utlöser bara blobar i `input` behållaren som börjar med str
 "path": "input/original-{name}",
 ```
 
-Om BLOB-namnet är *original-Blob1.txt*är värdet för `name` variabeln i funktions koden `Blob1` .
+Om BLOB-namnet är *original-Blob1.txt*är värdet för `name` variabeln i funktions koden `Blob1.txt` .
 
 ### <a name="filter-on-file-type"></a>Filtrera efter filtyp
 

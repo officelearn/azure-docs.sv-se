@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 07/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 43dc0020f64a80e10f179fd194c4878f2fec41ad
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e7f2fb966aa323063220bc798706c8401745ba20
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243213"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461008"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Så här delegerar du användar registrering och produkt prenumeration
 
@@ -49,8 +49,6 @@ Nu måste du skapa **Delegerings slut punkten**. Det måste utföra ett antal å
 1. Ta emot en begäran i följande format:
    
    > *http: \/ /www.yourwebsite.com/apimdelegation?operation=SignIn&ReturnUrl = {URL till käll sidan} &salt = {String} &sig = {String}*
-   > 
-   > 
    
     Frågeparametrar för inloggnings-/registrerings fallet:
    
@@ -84,6 +82,7 @@ Förutom **inloggnings** åtgärden kan du också utföra konto hantering genom 
 * **ChangePassword**
 * **ChangeProfile**
 * **CloseAccount**
+* **Utloggning**
 
 Du måste skicka följande frågeparametrar för konto hanterings åtgärder.
 
@@ -93,6 +92,7 @@ Du måste skicka följande frågeparametrar för konto hanterings åtgärder.
 * **sig**: en beräknad säkerhets-hash som ska användas för jämförelse med din egen beräknade hash
 
 ## <a name="delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>Delegera produkt prenumeration
+
 Att delegera produkt prenumeration fungerar på samma sätt som att delegera användar inloggning. Det slutliga arbets flödet skulle vara följande:
 
 1. Utvecklare väljer en produkt i API Management Developer-portalen och klickar på knappen Prenumerera.
@@ -114,9 +114,9 @@ Se sedan till att Delegerings slut punkten utför följande åtgärder:
      * "Prenumerera": en begäran om att prenumerera på användaren till en viss produkt med angivet ID (se nedan)
      * "Avregistrera": en begäran om att avbryta prenumerationen på en användare från en produkt
      * "Förnya": en begäran om att förnya en prenumeration (till exempel som kan upphöra att gälla)
-   * **Produktnr**: ID för produkten som användaren har begärt att prenumerera på
+   * **productId**: vid *prenumeration* – ID för produkten som användaren har begärt att prenumerera på
    * **subscriptionId**: vid avregistrering och *förnyelse* -ID: *t för produkt* prenumerationen
-   * **userId**: ID för den användare som begäran görs om
+   * **userId**: vid *prenumeration* – ID för användaren som begäran görs om
    * **salt**: en särskild salt sträng som används för att beräkna en säkerhets-hash
    * **sig**: en beräknad säkerhets-hash som ska användas för jämförelse med din egen beräknade hash
 

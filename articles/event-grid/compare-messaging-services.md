@@ -3,20 +3,20 @@ title: Jämföra Azure-meddelandetjänster
 description: Beskriver de tre Azure-meddelandetjänsterna – Azure Event Grid, Event Hubs och Service Bus. Rekommenderar vilken tjänst som ska användas för olika scenarier.
 ms.topic: overview
 ms.date: 07/07/2020
-ms.openlocfilehash: 9c539accbc41f56e4421b9e793c25496987363aa
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7a3a0cd7f63a67206053ae55f33bd71aee2c19c6
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101383"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460413"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Välj mellan Azure-meddelandetjänster – Event Grid, Event Hubs och Service Bus
 
 Azure erbjuder tre tjänster som hjälp med att leverera händelsemeddelanden i en lösning. Dessa tjänster är:
 
-* [Event Grid](/azure/event-grid/)
-* [Event Hubs](/azure/event-hubs/)
-* [Service Bus](/azure/service-bus-messaging/)
+* [Event Grid](./index.yml)
+* [Event Hubs](../event-hubs/index.yml)
+* [Service Bus](../service-bus-messaging/index.yml)
 
 Även om de har vissa likheter är varje tjänst utformad för särskilda scenarier. I den här artikeln beskrivs skillnaderna mellan dessa tjänster, vilket hjälper dig förstå vilken som ska väljas för ditt program. I många fall kompletterar meddelandetjänsterna varandra och kan användas tillsammans.
 

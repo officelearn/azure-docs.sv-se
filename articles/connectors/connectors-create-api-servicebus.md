@@ -3,16 +3,16 @@ title: Exchange-meddelanden med Azure Service Bus
 description: Skapa automatiserade uppgifter och arbets flöden som skickar och tar emot meddelanden med hjälp av Azure Service Bus i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 07/31/2020
 tags: connectors
-ms.openlocfilehash: 870ec6997b0abf5afc1c1bfa788bbca18c08ead7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 768186d4b1cf9ac62d4ffdb0af8fdb3df04e9b19
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284004"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461642"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Exchange-meddelanden i molnet med hjälp av Azure Logic Apps och Azure Service Bus
 
@@ -29,9 +29,9 @@ Du kan använda utlösare som får svar från Service Bus och göra utdata tillg
 
 [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
+* Ett Azure-konto och prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
 * En Service Bus namnrymd och meddelande enhet, till exempel en kö. Dessa objekt och din Logic app måste använda samma Azure-prenumeration. Om du inte har dessa objekt kan du läsa om hur du [skapar Service Bus namnrymd och en kö](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
@@ -45,7 +45,7 @@ Du kan använda utlösare som får svar från Service Bus och göra utdata tillg
 
 Bekräfta att din Logic app har behörighet att komma åt din Service Bus-namnrymd.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in med ditt Azure-konto i [Azure Portal](https://portal.azure.com).
 
 1. Gå till din Service Bus *namnrum*. På sidan namn område under **Inställningar**väljer du **principer för delad åtkomst**. Under **anspråk**kontrollerar du att du har behörighet att **Hantera** för det namn området.
 
@@ -54,7 +54,7 @@ Bekräfta att din Logic app har behörighet att komma åt din Service Bus-namnry
 1. Hämta anslutnings strängen för Service Bus namn området. Du behöver den här strängen när du anger anslutnings informationen i din Logic app.
 
    1. I fönstret **principer för delad åtkomst** väljer du **RootManageSharedAccessKey**.
-   
+
    1. Välj knappen Kopiera bredvid din primära anslutnings sträng. Spara anslutnings strängen för senare användning.
 
       ![Kopiera Service Bus namn områdets anslutnings sträng](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
@@ -171,4 +171,3 @@ För annan teknisk information om utlösare, åtgärder och begränsningar, som 
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)
-

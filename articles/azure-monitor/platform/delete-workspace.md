@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: e6ecd40d34233ba6f0b886f4b55aedf4339bf6de
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ba079e76ea806bb12bff16eb636d0fa21b0e152b
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505201"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461739"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Ta bort och återställa Azure Log Analytics-arbetsytan
 
@@ -43,7 +43,7 @@ Borttagnings åtgärden för arbets ytan tar bort resurs hanterarens Resource Ma
 
 Du kan ta bort en arbets yta med [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [REST API](/rest/api/loganalytics/workspaces/delete)eller i [Azure Portal](https://portal.azure.com).
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 2. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**.
@@ -64,7 +64,7 @@ Metoden mjuk borttagning får inte plats i vissa scenarier som utveckling och te
 > [!IMPORTANT]
 > Använd permanent borttagnings åtgärd för arbets ytor med försiktighet eftersom den inte kan återställas och att du inte kan återställa din arbets yta och dess data.
 
-Lägg till taggen-forceDelete för att ta bort arbets ytan permanent:
+Lägg till taggen-ForceDelete för att ta bort arbets ytan permanent. Alternativet-ForceDelete är för närvarande tillgängligt med AZ. OperationalInsights 2.3.0 eller högre. 
 
 ```powershell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete
@@ -80,7 +80,7 @@ Du kan återställa arbets ytan under den mjuka borttagnings perioden, inklusive
 - Namn på arbetsyta
 - Region
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 2. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**. Du ser listan över arbets ytor som du har i det valda omfånget.

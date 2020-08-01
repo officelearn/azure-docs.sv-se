@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: 20372d9584becf18c65e13c81b99403ce88d27e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5192ecb31c71364bdf1301b13da0b0742625d44f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85569045"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460141"
 ---
 # <a name="ip-groups-in-azure-firewall-policy"></a>IP-grupper i Azure brand Väggs princip
 
@@ -27,7 +27,7 @@ En IP-grupp kan ha en enskild IP-adress, flera IP-adresser eller ett eller flera
 
 IP-grupper kan återanvändas i Azure brand Väggs DNAT, nätverks-och program regler för flera brand väggar mellan regioner och prenumerationer i Azure. Grupp namn måste vara unika. Du kan konfigurera en IP-grupp i Azure Portal, Azure CLI eller REST API. En exempel mall är avsedd att hjälpa dig att komma igång.
 
-## <a name="sample-format"></a>Exempel format
+## <a name="sample-format"></a>Samplingsformat
 
 Följande exempel på IPv4-adress format är giltiga för användning i IP-grupper:
 
@@ -66,43 +66,7 @@ Nu kan du välja **IP-grupp** som **ursprungs typ** eller **måltyp** för IP-ad
 
 ## <a name="ip-address-limits"></a>IP-adress gränser
 
-För 50 IP-grupper eller mindre kan du ha högst 5000 enskilda IP-adresser per brand Väggs instans. För 51 till 100 IP-grupper kan du ha 500 enskilda IP-adresser varje per brand Väggs instans.
-
-### <a name="examples"></a>Exempel
-
-#### <a name="example-1-supported"></a>Exempel 1: stöds
-
-|IP-grupper  |Antal IP-adresser  |Notation  |Regel  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Regel 1|
-|IPGroup2     |3|196.0.0.0 - 196.0.0.2|Regel 1|
-|IPGroup3     |1|formatet|Regel 1|
-|     |**Totalt 4100**|         |         |
-|     |         |         |         |
-
-#### <a name="example-2-supported"></a>Exempel 2: stöds
-
-|IP-grupper  |Antal IP-adresser  |Notation  |Regel  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Regel 1|
-|IPGroup2     |4096|11.0.0.0/20|Regel 1|
-|     |**Totalt 8192**|         |         |
-
-#### <a name="example-3-not-supported"></a>Exempel 3: stöds inte
-
-|IP-grupper  |Antal IP-adresser  |Notation  |Regel  |
-|---------|---------|---------|---------|
-|IPGroup1 |8192     |10.0.0.0/20, 11.0.0.0/20  |Regel 1|
-|     |**Totalt 8192**|||
-
-#### <a name="example-4-supported"></a>Exempel 4: stöds
-
-|IP-grupper  |Antal IP-adresser  |Notation  |Regel  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Regel 1|
-|IPGroup2     |4096|11.0.0.0/20|Regel 2|
-|     |**Totalt 8192**|         |         |
-
+Du kan ha högst 100 IP-grupper per brand vägg med högst 5000 enskilda IP-adresser eller IP-prefix per IP-grupp.
 
 ## <a name="related-azure-powershell-cmdlets"></a>Relaterade Azure PowerShell-cmdletar
 

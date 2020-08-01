@@ -1,6 +1,6 @@
 ---
-title: Länkad inloggning för Azure AD-appar – Microsoft Identity Platform
-description: Konfigurera länkad enkel inloggning (SSO) till dina Azure AD Enterprise-program i Microsoft Identity Platform (Azure AD)
+title: Konfigurera länkad inloggning i Azure Active Directory
+description: Konfigurera länkad inloggning i Azure AD.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -8,44 +8,47 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 07/30/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cfcece43ae1b7d7bcf0c38feba14f1e82b29f18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2269a8f7f58d35fee5e2ca30a77af5e8cba83678
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763490"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87459342"
 ---
 # <a name="configure-linked-sign-on"></a>Konfigurera länkad inloggning
 
-När du lägger till ett galleri eller ett webb program som inte är Galleri, [länkas](what-is-single-sign-on.md)ett av de alternativ för enkel inloggning som är tillgängligt för dig. Välj det här alternativet om du vill lägga till en länk till programmet i organisationens Azure AD Access-panel eller Office 365-portal. Du kan använda den här metoden för att lägga till länkar till anpassade webb program som för närvarande använder Active Directory Federation Services (AD FS) (eller andra Federations tjänster) i stället för Azure AD för autentisering. Du kan också lägga till djup länkar till vissa SharePoint-sidor eller andra webb sidor som du bara vill ska visas på användarens åtkomst paneler.
+I [snabb starts serien](view-applications-portal.md) för program hantering har du lärt dig hur du använder Azure AD som identitets leverantör (IdP) för ett program. I snabb start guiden ställer du in SAML-baserad SSO. Ett annat alternativ är **länkat**. Den här artikeln går till mer information om det länkade alternativet.
+
+Med det **länkade** alternativet kan du konfigurera mål platsen när en användare väljer appen i din organisations [Mina appar](https://myapplications.microsoft.com/) eller på Office 365-portalen.
+
+Några vanliga scenarier där länk alternativet är värdefullt är:
+- Lägg till en länk till ett anpassat webb program som för närvarande använder Federation, till exempel Active Directory Federation Services (AD FS) (AD FS).
+- Lägg till djup länkar till vissa SharePoint-sidor eller andra webb sidor som du bara vill ska visas på användarens åtkomst paneler.
+- Lägg till en länk till en app som inte kräver autentisering. 
+ 
+ Det **länkade** alternativet ger inte inloggnings funktioner via autentiseringsuppgifter för Azure AD. Men du kan fortfarande använda några av de andra funktionerna i **företags program**. Du kan till exempel använda gransknings loggar och lägga till en anpassad logo typ och ett namn på appen.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Om programmet inte har lagts till i din Azure AD-klient kan du läsa [Lägg till en Galleri app](add-gallery-app.md) eller [lägga till en app som inte är en Galleri](add-non-gallery-app.md).
+Kom igång snabbt genom att gå igenom [snabb starts serien](view-applications-portal.md) för program hantering. I snabb starten, där du konfigurerar enkel inloggning, hittar du också det **länkade** alternativet. 
 
-### <a name="open-the-app-and-select-linked-sign-on"></a>Öppna appen och välj länkad inloggning
+Det **länkade** alternativet ger inte inloggnings funktioner via Azure AD. Alternativet anger bara de plats användare som ska skickas till när de väljer appen i [Mina appar](https://myapplications.microsoft.com/) eller Microsoft 365 App Launcher.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) som administratör för molnprogram eller programadministratör för din Azure AD-klientorganisation.
+> [!IMPORTANT] 
+> Det finns vissa scenarier där alternativet för **enkel inloggning** inte kommer att ingå i navigeringen för ett program i **företags program**. 
+>
+> Om programmet registrerades med **Appregistreringar** konfigureras funktionen för enkel inloggning så att den använder OIDC OAuth som standard. I det här fallet visas inte alternativet för **enkel inloggning** i navigeringen under **företags program**. När du använder **Appregistreringar** för att lägga till din anpassade app konfigurerar du alternativ i manifest filen. Mer information om manifest filen finns i [Azure Active Directory app manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Mer information om SSO-standarder finns i [autentisering och auktorisering med Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+>
+> Andra scenarier där **enkel inloggning** kommer att saknas i navigeringen är när ett program finns i en annan klient organisation eller om ditt konto inte har de behörigheter som krävs (global administratör, moln program administratör, program administratör eller ägare till tjänstens huvud namn). Behörigheter kan också orsaka ett scenario där du kan öppna **enkel inloggning** men inte kan spara. Mer information om administrativa roller i Azure AD finns i ( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
-1. Gå till **Azure Active Directory**  >  **företags program**. Ett slumpmässigt exempel på programmen i din Azure AD-klient visas. 
+### <a name="configure-link"></a>Konfigurera länk
 
-1. I menyn **program typ** väljer du **alla program**och väljer sedan **Använd**.
-
-1. Ange namnet på programmet i sökrutan och välj sedan programmet från resultaten.
-
-1. Under avsnittet **Hantera** väljer du **enkel inloggning**. 
-
-1. Välj **länkad**.
-
-1. Ange URL: en för det program som ska länkas till. Skriv in URL: en och välj **Spara**. 
+Om du vill ange en länk till en app väljer du **länkad** på sidan **enkel inloggning** . Ange sedan länken och välj **Spara**. Behöver du en påminnelse om var du hittar de här alternativen? Kolla in [snabb starts serien](view-applications-portal.md).
  
-1. Du kan tilldela användare och grupper till programmet, vilket gör att programmet visas i [Office 365 App Launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) eller [Azure AD-åtkomst panelen](end-user-experiences.md) för dessa användare.
-
-1. Välj **Spara**.
+När du har konfigurerat en app tilldelar du den till användare och grupper. När du tilldelar användare kan du styra när programmet ska visas i [Mina appar](https://myapplications.microsoft.com/) eller i Microsoft 365 App Launcher.
 
 ## <a name="next-steps"></a>Nästa steg
 

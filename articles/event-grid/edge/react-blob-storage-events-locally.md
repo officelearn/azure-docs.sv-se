@@ -7,12 +7,12 @@ ms.author: arduppal
 ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
-ms.openlocfilehash: 9389e0aff04baa18cb216f2a7ab6da42eb7031f2
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 230e158a970f8c815b1575403c013e30749124c5
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171439"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87462028"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Självstudie: reagera på Blob Storage händelser på IoT Edge (förhands granskning)
 Den här artikeln visar hur du distribuerar Azure Blob Storage i IoT-modulen, som fungerar som en Event Grid utgivare för att skicka händelser vid skapande av BLOB och blob-borttagning till Event Grid.  
@@ -341,7 +341,7 @@ Data-objektet har följande egenskaper:
 | -------- | ---- | ----------- |
 | api | sträng | Den åtgärd som utlöste händelsen. Det kan vara något av följande värden: <ul><li>BlobCreated-tillåtna värden är: `PutBlob` och`PutBlockList`</li><li>BlobDeleted-tillåtna värden är `DeleteBlob` `DeleteAfterUpload` och `AutoDelete` . <p>`DeleteAfterUpload`Händelsen genereras när BLOB tas bort automatiskt eftersom den önskade deleteAfterUpload-egenskapen har angetts till true. </p><p>`AutoDelete`händelsen genereras när blobben tas bort automatiskt eftersom det önskade egenskap svärdet för deleteAfterMinutes har upphört att gälla.</p></li></ul>|
 | clientRequestId | sträng | ett ID för begäran som tillhandahållits för Storage API-åtgärden. Detta ID kan användas för att korrelera Azure Storage diagnostikloggar med hjälp av fältet "client-Request-ID" i loggarna och kan tillhandahållas i klient begär Anden med hjälp av huvudet "x-MS-client-Request-ID". Mer information finns i [logg format](/rest/api/storageservices/storage-analytics-log-format). |
-| requestId | sträng | Service-genererat förfrågnings-ID för Storage API-åtgärden. Kan användas för att korrelera Azure Storage diagnostikloggar som använder fältet "Request-ID-huvud" i loggarna och returneras från initiering av API-anrop i huvudet "x-MS-Request-ID". Se [logg format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
+| requestId | sträng | Service-genererat förfrågnings-ID för Storage API-åtgärden. Kan användas för att korrelera Azure Storage diagnostikloggar som använder fältet "Request-ID-huvud" i loggarna och returneras från initiering av API-anrop i huvudet "x-MS-Request-ID". Se [logg format](/rest/api/storageservices/storage-analytics-log-format). |
 | eTag | sträng | Det värde som du kan använda för att utföra åtgärder villkorligt. |
 | Innehålls | sträng | Den innehålls typ som angetts för blobben. |
 | contentLength | heltal | Storleken på blobben i byte. |

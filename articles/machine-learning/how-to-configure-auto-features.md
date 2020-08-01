@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: b01d6c36b31ef4f03522d03ca327439cfa31be8d
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 1c26164ed7a2b7c335d3977e143fcef28c8955db
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373750"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475829"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Funktionalisering i Automatisk maskin inlärning
 
@@ -64,7 +64,7 @@ I följande tabell sammanfattas de tekniker som automatiskt tillämpas på dina 
 | ------------- | ------------- |
 |**Släpp hög kardinalitet eller inga varians funktioner*** |Släpp dessa funktioner från utbildning och validerings uppsättningar. Gäller för funktioner med alla värden som saknas, med samma värde för alla rader eller med hög kardinalitet (till exempel hash-värden, ID: n eller GUID).|
 |**Imputerade värden som saknas*** |För numeriska funktioner måste du räkna ut med medelvärdet av värdena i kolumnen.<br/><br/>För kategoriska-funktioner ska du räkna med det vanligaste värdet.|
-|**Generera ytterligare funktioner*** |För DateTime-funktioner: år, månad, dag, veckodag, dag på år, kvartal, vecka på år, timme, minut och sekund.<br/><br/>För text funktioner: term frekvens baserat på unigrams, bigram och trigrams. Läs mer om [hur detta görs med Bert.](#bert-integration)|
+|**Generera ytterligare funktioner*** |För DateTime-funktioner: år, månad, dag, veckodag, dag på år, kvartal, vecka på år, timme, minut och sekund.<br><br> Följande ytterligare DateTime-funktioner skapas *i prognos uppgifter* : ISO Year, halvår, kalender månad som sträng, vecka, veckodag som sträng, dag i kvartal, dag på år, fm/em (0 om timme är före 12.00 (12 PM), 1, AM/PM som sträng, timvärdet (12hr-bas)<br/><br/>För text funktioner: term frekvens baserat på unigrams, bigram och trigrams. Läs mer om [hur detta görs med Bert.](#bert-integration)|
 |**Transformera och koda***|Transformera numeriska funktioner med några få unika värden i kategoriska-funktioner.<br/><br/>En-frekvent kodning används för kategoriska-funktioner med låg kardinalitet. En-frekvent-hash-kodning används för kategoriska-funktioner med hög kardinalitet.|
 |**Word-inbäddningar**|En text upplärda konverterar vektorer med text-token till menings vektorer med hjälp av en förtränad modell. Varje ords inbäddnings vektor i ett dokument sammanställs med resten för att skapa en dokument funktions vektor.|
 |**Mål kodningar**|För kategoriska-funktioner mappar det här steget varje kategori med ett genomsnittligt målvärde för Regressions problem, och till sannolikheten för varje klass för klassificerings problem. Frekvens-baserad viktning och n:te kors validering används för att minska överanpassningen av mappningen och bruset som orsakas av glesa data kategorier.|
@@ -163,9 +163,11 @@ text_transformations_used
 
 3. I steget för funktions rensning jämför AutoML BERT mot bas linjen (säck med ord funktioner + förtränade ord inbäddningar) på ett exempel av data och avgör om BERT skulle ge precisions förbättringar. Om det fastställer att BERT fungerar bättre än bas linjen använder AutoML BERT för text funktionalisering som den optimala funktionalisering strategin och fortsätter med featurizing hela data. I så fall visas "PretrainedTextDNNTransformer" i den slutliga modellen.
 
+BERT körs vanligt vis längre än de flesta andra featurizers. Det kan sped upp genom att tillhandahålla mer beräkning i klustret. AutoML kommer att distribuera BERT-utbildning över flera noder om de är tillgängliga (upp till högst 8 noder). Detta kan göras genom att ange [max_concurrent_iterations](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) till högre än 1. För bättre prestanda rekommenderar vi att du använder SKU: er med RDMA-funktioner (till exempel "STANDARD_NC24r" eller "STANDARD_NC24rs_V3")
+
 AutoML stöder för närvarande cirka 100 språk och, beroende på data uppsättningens språk, väljer AutoML lämplig BERT-modell. För tyska data använder vi den tyska BERT-modellen. För engelska använder vi den engelska BERT-modellen. För alla andra språk använder vi den flerspråkiga BERT-modellen.
 
-I följande kod utlöses den tyska BERT-modellen eftersom data uppsättnings språket anges till "deu", den tre bokstavs språk koden för tyska enligt [ISO-klassificering](https://iso639-3.sil.org/code/hbs):
+I följande kod utlöses den tyska BERT-modellen eftersom data uppsättnings språket anges till "deu", den tre bokstavs språk koden för tyska enligt [ISO-klassificering](https://iso639-3.sil.org/code/deu):
 
 ```python
 from azureml.automl.core.featurization import FeaturizationConfig

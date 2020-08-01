@@ -7,14 +7,14 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b06edb83e85ef6d56cf8bf8f91551fe99535eba1
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 126673391b49f884a51521d462060c425a314667
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352420"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475676"
 ---
-# <a name="iot-plug-and-play-conventions"></a>IoT Plug and Play-konventioner
+# <a name="iot-plug-and-play-conventions"></a>Konventioner för IoT Plug and Play
 
 IoT Plug and Play Preview-enheter bör följa en uppsättning konventioner när de utbyter meddelanden med en IoT-hubb. IoT Plug and Play Preview-enheter använder MQTT-protokollet för att kommunicera med IoT Hub.
 
@@ -25,11 +25,11 @@ Du beskriver telemetri, egenskaper och kommandon som en IoT Plug and Play-enhet 
 
 Mer information finns i [IoT plug and Play-komponenter i modeller](concepts-components.md).
 
-## <a name="model-discovery"></a>Modellidentifiering
+## <a name="identify-the-model"></a>Identifiera modellen
 
 För att meddela att modellen den implementerar, innehåller en IoT Plug and Play-enhet modell-ID: t i anslutnings paketet MQTT genom att lägga till `model-id` i `USERNAME` fältet.
 
-För att identifiera vilken modell en enhet implementerar kan en tjänst Hämta modell-ID: t från:
+För att identifiera vilken modell en enhet implementerar, kan en tjänst Hämta modell-ID: t från:
 
 - Enhetens dubbla `modelId` fält.
 - Det digitala dubbla `$metadata.$model` fältet.

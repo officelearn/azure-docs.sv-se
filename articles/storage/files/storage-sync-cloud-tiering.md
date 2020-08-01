@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 23e98c40420a5f1ed9b048d5530eacfe5eedfb32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74887e6ee4656091aa647b481bc406dcc23b9c12
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85413985"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460090"
 ---
 # <a name="cloud-tiering-overview"></a>Översikt över moln nivåer
 Moln nivåer är en valfri funktion i Azure File Sync där ofta använda filer cachelagras lokalt på servern medan alla andra filer är i nivå av Azure Files baserat på princip inställningar. När en fil skiktas, ersätter Azure File Sync fil system filtret (StorageSync.sys) filen lokalt med en pekare eller referens punkt. Referens punkten representerar en URL till filen i Azure Files. En fil med flera nivåer har både attributet "offline" och attributet FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS som har angetts i NTFS så att tredjepartsprogram kan identifiera nivåbaserade filer på ett säkert sätt.
@@ -40,16 +40,19 @@ Moln nivåer är inte beroende av NTFS-funktionen för att spåra senaste åtkom
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Vilken är den minsta fil storleken för en fil till-nivån?
 
-För agent versioner 9 och senare baseras den minsta fil storleken för en fil på nivån på fil systemets kluster storlek. I följande tabell visas de minsta fil storlekarna som kan vara i nivå, baserat på volym kluster storleken:
+För agent versioner 9 och senare baseras den minsta fil storleken för en fil på nivån på fil systemets kluster storlek. Den minsta fil storlek som är berättigad till moln skiktning beräknas med dubbelt så stor kluster storlek som kluster storlek och minst 8 KB. I följande tabell visas de minsta fil storlekarna som kan vara i nivå, baserat på volym kluster storleken:
 
 |Volym kluster storlek (byte) |Filer av den här storleken eller större kan skiktas  |
 |----------------------------|---------|
-|4 KB (4096)                 | 8 kB    |
+|4 KB eller mindre (4096)      | 8 kB    |
 |8 KB (8192)                 | 16 kB   |
 |16 KB (16384)               | 32 KB   |
-|32 KB (32768) och större    | 64 kB   |
+|32 KB (32768)               | 64 kB   |
+|64 KB (65536)               | 128 kB  |
 
-Alla fil system som används i Windows ordnar din hård disk baserat på kluster storlek (även kallat storlek på allokeringsenhet). Kluster storleken representerar den minsta mängd disk utrymme som kan användas för att lagra en fil. Om fil storlekar inte kommer ut till en till följd av kluster storleken, måste ytterligare utrymme användas för att lagra filen (upp till nästa multipel av kluster storleken).
+Med Windows Server 2019 och Azure File Sync-agent version 12 och senare, stöds även kluster storlekar på upp till 2 MB och nivåer på de större kluster storlekarna fungerar på samma sätt. Äldre operativ system eller agent versioner stöder kluster storlekar upp till 64 KB.
+
+Alla fil system som används av Windows, organisera din hård disk baserat på kluster storlek (även kallat storlek på allokeringsenhet). Kluster storleken representerar den minsta mängd disk utrymme som kan användas för att lagra en fil. Om fil storlekar inte kommer ut till en till följd av kluster storleken, måste ytterligare utrymme användas för att lagra filen till nästa multipel av kluster storleken.
 
 Azure File Sync stöds på NTFS-volymer med Windows Server 2012 R2 och senare. I följande tabell beskrivs standard storlekarna för klustret när du skapar en ny NTFS-volym. 
 
@@ -62,7 +65,9 @@ Azure File Sync stöds på NTFS-volymer med Windows Server 2012 R2 och senare. I
 |128TB – 256 TB | 64 kB         |
 |> 256 TB       | Stöds inte |
 
-När volymen har skapats har du kanske formaterat volymen manuellt med en annan storlek för klustret (allokeringsenhet). Om volymen härrör från en äldre version av Windows kan standard kluster storlekarna också vara olika. [Den här artikeln innehåller mer information om standard kluster storlekar.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat)
+När volymen har skapats har du kanske formaterat volymen manuellt med en annan kluster storlek. Om volymen härrör från en äldre version av Windows kan standard kluster storlekarna också vara olika. [Den här artikeln innehåller mer information om standard kluster storlekar.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) Även om du väljer en kluster storlek som är mindre än 4 KB, så gäller en 8 KB-gräns som den minsta fil storleken som kan skiktas, gäller fortfarande. (Även om den tekniskt 2x kluster storleken skulle likställas med mindre än 8 KB.)
+
+Orsaken till det absoluta minimivärdet finns på hur NTFS lagrar mycket små filer-1 KB till 4 KB stora filer. Beroende på andra parametrar för volymen är det möjligt att små filer inte lagras i ett kluster på disken alls. Det är förmodligen mer effektivt att lagra sådana filer direkt i volymens huvud fil tabell eller "MFT-post". Referens punkten för moln skiktning lagras alltid på disk och tar upp exakt ett kluster. Att dela upp sådana små filer kan leda till att det inte går att spara. Extrema fall kan till och med få plats med mer utrymme med aktiverat moln skiktning. För att skydda mot detta är den minsta storleken på en fil som moln skikts nivån är 8 KB på en 4 KB eller mindre kluster storlek.
 
 <a id="afs-volume-free-space"></a>
 ### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>Hur fungerar nivåprincipen för ledigt utrymme på volymen?
@@ -95,7 +100,7 @@ Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
 
 Tänk på att principen för ledigt utrymme på volymen alltid har företräde, och när det inte finns tillräckligt med ledigt utrymme på volymen för att bevara så många dagar filer som beskrivs i datum principen, Azure File Sync fortsätter att placera coldest-filerna i nivå tills volymens lediga utrymme är uppfyllt.
 
-Anta till exempel att du har en datum-baserad nivå princip på 60 dagar och en princip för ledigt utrymme på 20%. Om det finns mindre än 20% ledigt utrymme på volymen efter att ha tillämpat datum policyn, så kommer principen för ledigt utrymme i volymen att tillämpas och åsidosätta datum principen. Detta leder till att fler filer på nivå, så att mängden data som lagras på servern kan minskas från 60 dagars data till 45 dagar. Det innebär att den här principen tvingar fram en nivå av filer som ligger utanför tidsintervallet, även om du inte har nått tröskelvärdet för ledigt utrymme – så att en fil som är 61 dagar gammal kommer att skiktas även om volymen är tom.
+Anta till exempel att du har en datum-baserad nivå princip på 60 dagar och en princip för ledigt utrymme på 20%. Om det finns mindre än 20% ledigt utrymme på volymen efter att ha tillämpat datum policyn, kommer den lediga mängden ledigt utrymme att tillämpas och åsidosätta datum principen. Detta leder till att fler filer på nivå, så att mängden data som lagras på servern kan minskas från 60 dagars data till 45 dagar. Det innebär att den här principen tvingar fram en nivå av filer som ligger utanför tidsintervallet, även om du inte har nått tröskelvärdet för ledigt utrymme – så att en fil som är 61 dagar gammal kommer att skiktas även om volymen är tom.
 
 <a id="volume-free-space-guidelines"></a>
 ### <a name="how-do-i-determine-the-appropriate-amount-of-volume-free-space"></a>Hur vet jag vad som är lämplig mängd ledigt utrymme på volymen?
@@ -203,5 +208,5 @@ Det finns två orsaker till varför skiktade filer kan finnas på Server slut pu
 - Om moln skiktning har Aktiver ATS på Server slut punkten och sedan inaktiverats, kommer filer att fortsätta att vara i nivå tills de nås.
 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 * [Planera för en Azure File Sync distribution](storage-sync-files-planning.md)

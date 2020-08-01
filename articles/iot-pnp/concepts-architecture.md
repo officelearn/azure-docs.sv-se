@@ -9,14 +9,14 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: f2d9407d9c7172839027e2650486695244f67889
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: f656de0bb2e5244e137ae21a6d7af88f3430b12c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352347"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475693"
 ---
-# <a name="iot-plug-and-play-preview-architecture"></a>IoT Plug and Play förhands gransknings arkitektur
+# <a name="iot-plug-and-play-preview-architecture"></a>Arkitektur för IoT Plug and Play-förhandsversion
 
 IoT Plug and Play Preview gör det möjligt för lösnings byggare att integrera smarta enheter med sina lösningar utan manuell konfiguration. I IoT Plug and Play är en enhets _modell_ som beskriver enhetens funktioner för ett IoT plug and Play-aktiverat program. Den här modellen är strukturerad som en uppsättning gränssnitt som definierar:
 
@@ -38,7 +38,7 @@ Med webb gränssnittet kan du hantera modeller och gränssnitt.
 
 Modell databasen använder RBAC så att du kan begränsa åtkomsten till gränssnitts definitioner.
 
-## <a name="devices"></a>Enheter
+## <a name="devices"></a>Egenskaper
 
 En Device Builder implementerar koden som ska köras på en smart IoT-enhet med hjälp av en av [Azure IoT-enhetens SDK](./libraries-sdks.md): er. Enhets-SDK: erna hjälper enhets byggare att:
 
@@ -79,5 +79,5 @@ Server dels lösningen kan använda informationen från gränssnitts definitione
 Nu när du har en översikt över arkitekturen i en IoT Plug and Play-lösning är nästa steg att lära dig mer om:
 
 - [Modell databasen](./concepts-model-repository.md)
-- [Process för modell identifiering](./concepts-model-discovery.md)
+- [Digital integrering av dubbla modeller](./concepts-model-discovery.md)
 - [Utveckla för IoT Plug and Play](./concepts-developer-guide.md)

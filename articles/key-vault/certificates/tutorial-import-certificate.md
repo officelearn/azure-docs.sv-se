@@ -8,15 +8,15 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: abf7e864398d48742e0cbf99a9a7b7dae56b9c5d
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: ebf687716c8898acffb5e081fbf2f6217fe0f943
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100932"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503131"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Självstudie: importera ett certifikat i Azure Key Vault
 
@@ -33,7 +33,7 @@ Självstudien visar hur du:
 
 Läs [Key Vault grundläggande koncept](../general/basic-concepts.md)innan du börjar. 
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -90,7 +90,7 @@ När du har fått ett meddelande om att certifikatet har importer ATS kan du kli
 
 ## <a name="import-a-certificate-using-azure-cli"></a>Importera ett certifikat med Azure CLI
 
-Importera ett certifikat till ett angivet nyckel valv. Om du vill importera ett befintligt giltigt certifikat som innehåller en privat nyckel till Azure Key Vault, kan filen som ska importeras vara antingen i PFX-eller PEM-format. Om certifikatet är i PEM-format måste PEM-filen innehålla nyckeln och x509-certifikat. Den här åtgärden kräver behörigheten certifikat/import.
+Importera ett certifikat till ett angivet nyckel valv. Om du vill importera ett befintligt giltigt certifikat som innehåller en privat nyckel till Azure Key Vault, kan filen som ska importeras vara antingen i PFX-eller PEM-format. Om certifikatet är i PEM-format måste PEM-filen innehålla nyckeln och x509-certifikat. Den här åtgärden kräver certifikat-/importbehörighet.
 
 ```azurecli
 az keyvault certificate import --file

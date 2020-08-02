@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 09f866d7ed72e82770a7f3a0fe5da24bb864851f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 7f9af576640e6d269ff5a44d7b0e2a529c20c505
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126082"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502944"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Lägga till en användare i Azure-portalen
 
@@ -33,7 +33,7 @@ Bevilja "R-X" eller "RWX", om det behövs, i mappar som innehåller indata och u
 1.  Hitta ditt Azure Data Lake Storage Gen1-konto.
 2.  Klicka på **Användare**.
 3. Klicka på **Lägg till**.
-4.  Välj en Azure RBAC-roll för att tilldela den här gruppen.
+4.  Välj en Azure-roll för att tilldela den här gruppen.
 5.  Tilldela till läsar roll. Den här rollen har den minsta uppsättning behörigheter som krävs för att bläddra/hantera data som lagras i ADLSGen1. Tilldela den här rollen om gruppen inte är avsedd för hantering av Azure-tjänster.
 6.  Skriv in namnet på gruppen.
 7.  Klicka på **OK**.
@@ -54,4 +54,3 @@ Exempel kommandot för att ge användarna åtkomst till att skicka jobb, Visa ny
 * [Översikt över Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Kom igång med Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-get-started-portal.md)
 * [Hantera Azure Data Lake Analytics med Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-

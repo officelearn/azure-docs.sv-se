@@ -4,19 +4,19 @@ description: Azure CLI-exempel skript för att återställa en databas i Azure S
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
-ms.custom: ''
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: a03dd719dfeebfaf76a3f33748715d8c31df8ff5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 363278e0b9969dad652dd00debe4ffc0138e9a97
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070826"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503794"
 ---
 # <a name="use-cli-to-restore-a-single-database-in-azure-sql-database-to-an-earlier-point-in-time"></a>Använd CLI för att återställa en enskild databas i Azure SQL Database till en tidigare tidpunkt
 

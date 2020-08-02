@@ -7,12 +7,13 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
-ms.openlocfilehash: 3b1eb164d367aa968b599c6d3e92c48fd94b0098
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 5073cd33d9dada666324e92f3418b2548d9af374
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118723"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502570"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure Database for MariaDB med Azure CLI
 
@@ -69,7 +70,7 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 
 `az mariadb server restore`Kommandot kräver följande parametrar:
 
-| Inställningen | Föreslaget värde | Description  |
+| Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resurs gruppen där käll servern finns.  |
 | name | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
@@ -111,12 +112,12 @@ az mariadb server georestore --resource-group newresourcegroup --name mydemoserv
 
 `az mariadb server georestore`Kommandot kräver följande parametrar:
 
-| Inställningen | Föreslaget värde | Description  |
+| Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Namnet på den resurs grupp som den nya servern ska tillhöra.|
 |name | mydemoserver – omåterställd | Namnet på den nya servern. |
 |source-server | mydemoserver | Namnet på den befintliga server vars geo-redundanta säkerhets kopieringar används. |
-|location | eastus | Platsen för den nya servern. |
+|location | USA, östra | Platsen för den nya servern. |
 |sku-name| GP_Gen5_8 | Den här parametern anger pris nivån, beräknings genereringen och antalet virtuella kärnor för den nya servern. GP_Gen5_8 mappar till en Generell användning, gen 5-Server med 8 virtuella kärnor.|
 
 När du skapar en ny server med en geo-återställning ärver den samma lagrings storlek och pris nivå som käll servern. Dessa värden kan inte ändras när de skapas. När den nya servern har skapats kan dess lagrings storlek skalas upp.

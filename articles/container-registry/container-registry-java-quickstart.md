@@ -2,22 +2,22 @@
 title: Snabb start – bygga och skicka Java-behållar avbildningar till Azure Container Registry med Maven och kran
 description: Bygg en Java-app i behållare och skicka den till Azure Container Registry med hjälp av maven kran-plugin-programmet.
 author: KarlErickson
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: 9310fb92b4b0ad1163d343f13daf42c15923ec20
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e87e2d59dd70fbf96c04d9cd467594aa6576639b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327420"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501312"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Snabb start: bygga och skicka Java-behållar avbildningar till Azure Container Registry
 
 Den här snabb starten visar hur du skapar en Java-app i behållare och push-överför den till Azure Container Registry med hjälp av maven kran-plugin-programmet. Användningen av Maven och kran är ett exempel på att använda utvecklarverktyg för att interagera med ett Azure Container Registry.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte redan har en Azure-prenumeration kan du aktivera din [MSDN-prenumerantförmån](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) eller registrera dig för ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/pricing/free-trial).
 * [Azures kommandoradsgränssnitt (CLI)](/cli/azure/overview).

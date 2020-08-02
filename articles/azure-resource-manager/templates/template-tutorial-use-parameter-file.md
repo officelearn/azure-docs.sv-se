@@ -5,18 +5,19 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b91041b96a3819dbace3898d92226f0351f0f973
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: bd7917a96550d45b14eb5a5b5cae1ac957aa78b5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80411510"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502808"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Självstudie: använda parameter-filer för att distribuera ARM-mallen
 
 I den här självstudien får du lära dig hur du använder [parameter-filer](parameter-files.md) för att lagra de värden som du skickar i under distributionen. I de föregående självstudierna använde du infogade parametrar med ditt distributions kommando. Den här metoden fungerade för att testa din Azure Resource Manager-mall (ARM), men när du automatiserar distributioner kan det vara lättare att skicka en uppsättning värden för din miljö. Parameter-filer gör det lättare att paketera parameter värden för en speciell miljö. I den här självstudien skapar du parameterstyrda filer för utvecklings-och produktions miljöer. Det tar ungefär **12 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi rekommenderar att du slutför [självstudien om Taggar](template-tutorial-add-tags.md), men det är inte obligatoriskt.
 
@@ -34,13 +35,13 @@ Den här mallen fungerar bra, men nu vill du enkelt hantera de parametrar som du
 
 Parameter-filer är JSON-filer med en struktur som liknar din mall. I filen anger du de parameter värden som du vill skicka under distributionen.
 
-I VS Code skapar du en ny fil med följande innehåll. Spara filen med namnet **azuredeploy. Parameters. dev. JSON**.
+I VS Code skapar du en ny fil med följande innehåll. Spara filen med namnet **azuredeploy.parameters.dev.jspå**.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json":::
 
 Den här filen är din parameter fil för utvecklings miljön. Observera att den använder Standard_LRS för lagrings kontot, namnger resurser med ett **dev** -prefix och ställer in **miljö** tag gen på **dev**.
 
-Skapa en ny fil med följande innehåll. Spara filen med namnet **azuredeploy. Parameters. prod. JSON**.
+Skapa en ny fil med följande innehåll. Spara filen med namnet **azuredeploy.parameters.prod.jspå**.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json":::
 
@@ -71,7 +72,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill köra det här distributions kommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
+För att köra det här distributionskommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
 
 ```azurecli
 templateFile="{path-to-the-template-file}"

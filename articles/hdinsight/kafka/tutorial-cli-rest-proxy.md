@@ -7,12 +7,13 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 02/27/2020
-ms.openlocfilehash: 6ba5e433839d1f27c9522749fd7a8831c7243aae
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 44951fc19f36bb6652caf79ded96484bcc4b38f1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78201887"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503148"
 ---
 # <a name="tutorial-create-an-apache-kafka-rest-proxy-enabled-cluster-in-hdinsight-using-azure-cli"></a>Självstudie: skapa ett Apache Kafka REST proxy-aktiverat kluster i HDInsight med Azure CLI
 
@@ -28,7 +29,7 @@ I den här självstudien får du lära dig:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett program som är registrerat i Azure AD. Klient programmen som du skriver för att interagera med Kafka REST-proxyn använder programmets ID och hemlighet för att autentisera till Azure. Mer information finns i [Registrera ett program med Microsoft Identity Platform](../../active-directory/develop/quickstart-register-app.md).
 
@@ -52,13 +53,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
     |Variabel | Beskrivning |
     |---|---|
     |resourceGroupName|Ersätt RESOURCEGROUPNAME med namnet på den nya resurs gruppen.|
-    |location|Ersätt plats med en region där klustret ska skapas. Om du vill ha en lista över giltiga platser `az account list-locations` använder du kommandot|
+    |location|Ersätt plats med en region där klustret ska skapas. Om du vill ha en lista över giltiga platser använder du `az account list-locations` kommandot|
     |clusterName|Ersätt kluster namn med ett globalt unikt namn för det nya klustret.|
     |storageAccount|Ersätt STORAGEACCOUNTNAME med ett namn för ditt nya lagrings konto.|
     |httpPassword|Ersätt lösen ordet med ett lösen ord för kluster inloggningen, **admin**.|
     |sshPassword|Ersätt PASSWORD med ett lösen ord för Secure Shell-användarnamnet, **sshuser**.|
-    |securityGroupName|Ersätt SECURITYGROUPNAME med klientens AAD-säkerhetsgrupp namn för Kafka rest proxy. Variabeln skickas till- `--kafka-client-group-name` parametern för. `az-hdinsight-create`|
-    |securityGroupID|Ersätt SECURITYGROUPID med klientens AAD-säkerhetsgrupp-ID för Kafka rest proxy. Variabeln skickas till- `--kafka-client-group-id` parametern för. `az-hdinsight-create`|
+    |securityGroupName|Ersätt SECURITYGROUPNAME med klientens AAD-säkerhetsgrupp namn för Kafka rest proxy. Variabeln skickas till- `--kafka-client-group-name` parametern för `az-hdinsight-create` .|
+    |securityGroupID|Ersätt SECURITYGROUPID med klientens AAD-säkerhetsgrupp-ID för Kafka rest proxy. Variabeln skickas till- `--kafka-client-group-id` parametern för `az-hdinsight-create` .|
     |storageContainer|Lagrings behållare som klustret ska använda, lämna det som är i den här självstudien. Den här variabeln kommer att anges med namnet på klustret.|
     |workernodeCount|Antalet arbetsnoder i klustret, lämna det som är i den här självstudien. För att garantera hög tillgänglighet kräver Kafka minst tre arbetsnoder|
     |clusterType|Typ av HDInsight-kluster, lämna det som är i den här självstudien.|
@@ -142,9 +143,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
         |--version|HDInsight-klustrets version måste vara minst 4,0. Värdet skickas från variabeln **$clusterVersion**.|
         |--komponent-version|Kafka-versionen måste vara minst 2,1. Värdet skickas från variabeln **$componentVersion**.|
     
-        Om du vill skapa klustret utan rest proxy, `--kafka-management-node-size`eliminera, `--kafka-client-group-id`och `--kafka-client-group-name` från `az hdinsight create` kommandot.
+        Om du vill skapa klustret utan REST proxy, eliminera `--kafka-management-node-size` , `--kafka-client-group-id` och `--kafka-client-group-name` från `az hdinsight create` kommandot.
 
-    1. Om du har ett befintligt virtuellt nätverk lägger du till parametrarna `--vnet-name` och `--subnet`, och deras värden.
+    1. Om du har ett befintligt virtuellt nätverk lägger du till parametrarna `--vnet-name` och `--subnet` , och deras värden.
 
     Ange följande kommando för att skapa klustret:
 

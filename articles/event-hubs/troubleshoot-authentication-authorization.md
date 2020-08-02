@@ -3,18 +3,18 @@ title: Felsök problem med autentisering och auktorisering – Azure Event Hubs
 description: Den här artikeln innehåller information om hur du felsöker problem med autentisering och auktorisering med Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 1c053f60c877cdd26655948c37ab81a5e4d61cf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6fca0c29c20e2bfe0c3ec64e3068b61bd5147bdb
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322425"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502111"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Felsök problem med autentisering och auktorisering – Azure Event Hubs
 Artikeln [Felsöka anslutnings problem](troubleshooting-guide.md) innehåller tips för fel sökning av anslutnings problem med Azure Event Hubs. Den här artikeln innehåller tips och rekommendationer för att felsöka problem med autentisering och auktorisering med Azure Event Hubs. 
 
 ## <a name="if-you-are-using-azure-active-directory"></a>Om du använder Azure Active Directory
-Om du använder Azure Active Directory (Azure AD) för att autentisera och auktorisera med Azure Event Hubs bekräftar du att identiteten som har åtkomst till händelsehubben är medlem i den **rollbaserade rollen för rollbaserad åtkomst kontroll (RBAC)** i rätt **resurs omfång** (konsument grupp, händelsehubben, namnrymd, resurs grupp eller prenumeration).
+Om du använder Azure Active Directory (Azure AD) för att autentisera och auktorisera med Azure Event Hubs bekräftar du att identiteten som har åtkomst till händelsehubben är medlem av rätt Azure- **roll** i rätt **resurs omfång** (konsument grupp, händelsehubben, namnrymd, resurs grupp eller prenumeration).
 
 ### <a name="rbac-roles"></a>RBAC-roller
 - [Azure Event Hubs data ägare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) för fullständig åtkomst till Event Hubs resurser.

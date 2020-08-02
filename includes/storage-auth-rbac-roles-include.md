@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: c0ca96d1829a73f856de021d1286e53007b03219
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: bc5d4e5a8a9607f74eb8733855a216b83520ff11
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87368989"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503724"
 ---
 Azure tillhandahåller följande inbyggda Azure-roller för att auktorisera åtkomst till blob-och Queue-data med hjälp av Azure AD och OAuth:
 
@@ -28,7 +28,7 @@ Azure tillhandahåller följande inbyggda Azure-roller för att auktorisera åtk
 
 Endast roller som uttryckligen definierats för data åtkomst tillåter ett säkerhets objekt att komma åt BLOB-eller Queue data. Inbyggda roller som **ägare**, **deltagare**och **lagrings konto deltagare** tillåter ett säkerhets objekt att hantera ett lagrings konto, men ger inte till gång till BLOB-eller Queue-data inom kontot via Azure AD. Men om en roll innehåller **Microsoft. Storage/storageAccounts/listnycklar/åtgärd**, kan en användare som rollen har tilldelats åtkomst till data i lagrings kontot via autentisering med delad nyckel med konto åtkomst nycklarna. Mer information finns i [använda Azure Portal för att få åtkomst till BLOB-eller Queue-data](../articles/storage/common/storage-access-blobs-queues-portal.md).
 
-Detaljerad information om inbyggda Azure-roller för Azure Storage för både data tjänsterna och hanterings tjänsten finns i avsnittet **lagring** i [inbyggda Azure-roller för Azure RBAC](../articles/role-based-access-control/built-in-roles.md#storage). Dessutom finns information om de olika typerna av roller som ger behörigheter i Azure i den [klassiska prenumerations administratörs rollerna, Azure RBAC-roller och Azure AD-roller](../articles/role-based-access-control/rbac-and-directory-admin-roles.md).
+Detaljerad information om inbyggda Azure-roller för Azure Storage för både data tjänsterna och hanterings tjänsten finns i avsnittet **lagring** i [inbyggda Azure-roller för Azure RBAC](../articles/role-based-access-control/built-in-roles.md#storage). Dessutom finns information om de olika typerna av roller som ger behörigheter i Azure i de klassiska rollerna för [prenumerationer, Azure-roller och Azure AD-roller](../articles/role-based-access-control/rbac-and-directory-admin-roles.md).
 
 > [!IMPORTANT]
-> Det kan ta upp till fem minuter att sprida RBAC-roll tilldelningar.
+> Det kan ta upp till fem minuter innan Azures roll tilldelningar sprids.

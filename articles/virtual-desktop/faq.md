@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 721f9c623255b964e38da1c0f4b7bbf72d0c721d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6867d24d84f6dfb51b2ca7b86ec882102b96552b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075623"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504423"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Vanliga frågor och svar om Windows Virtual Desktop
 
@@ -46,7 +46,7 @@ För att begränsa en administratör till att endast hantera användarsessioner,
 
 ## <a name="does-windows-virtual-desktop-support-split-azure-active-directory-models"></a>Stöder Windows Virtual Desktop delade Azure Active Directory modeller?
 
-När en användare tilldelas en app-grupp gör tjänsten en enkel roll tilldelning för rollbaserad åtkomst kontroll (RBAC) i Azure. Därför måste användarens Azure Active Directory (AD) och app-gruppens Azure AD finnas på samma plats. Alla tjänst objekt, till exempel värdar, app-grupper och arbets ytor, måste också finnas i samma Azure AD som användaren.
+När en användare tilldelas en app-grupp gör tjänsten en enkel roll tilldelning i Azure. Därför måste användarens Azure Active Directory (AD) och app-gruppens Azure AD finnas på samma plats. Alla tjänst objekt, till exempel värdar, app-grupper och arbets ytor, måste också finnas i samma Azure AD som användaren.
 
 Du kan skapa virtuella datorer i en annan Azure AD så länge som du synkroniserar Active Directory med användarens Azure AD i samma virtuella nätverk (VNET).
 

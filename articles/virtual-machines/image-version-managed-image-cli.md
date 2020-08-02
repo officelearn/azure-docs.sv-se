@@ -9,12 +9,13 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 2ef54da76750617a77c4b2e117b694cb170ff752
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 8631a411b26f91bc72e23ac7ff9fb2278f61168c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502902"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502893"
 ---
 # <a name="migrate-from-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Migrera från en hanterad avbildning till en avbildnings version med hjälp av Azure CLI
 Om du har en befintlig hanterad avbildning som du vill migrera till ett delat avbildnings Galleri kan du skapa en avbildning av en delad avbildning direkt från den hanterade avbildningen. När du har testat din nya avbildning kan du ta bort den hanterade käll avbildningen. Du kan också migrera från en hanterad avbildning till ett delat avbildnings galleri med hjälp av [PowerShell](image-version-managed-image-powershell.md).

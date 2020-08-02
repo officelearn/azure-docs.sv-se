@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: storage
 author: alkohli
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: 4ba5c8b69776b39d8a6640744b0c24600f3a0d5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7bdeeedaac65f67a3224e824c19e8cad794682b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67187530"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507199"
 ---
 #### <a name="to-create-a-new-service"></a>Skapa en ny tjänst
 
@@ -29,7 +29,7 @@ ms.locfileid: "67187530"
 
     2.  Välj en **prenumeration** från listrutan. Prenumerationen är kopplad till ditt faktureringskonto. Det här fältet syns inte om du bara har en prenumeration.
 
-    3.  För **resurs grupp**väljer du en befintlig eller skapar en ny grupp. Mer information finns i avsnittet om [Azure-resursgrupper](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+    3.  För **resurs grupp**väljer du en befintlig eller skapar en ny grupp. Mer information finns i avsnittet om [Azure-resursgrupper](/azure/azure-resource-manager/management/manage-resource-groups-portal).
 
     4.  Ange en **plats** för din tjänst. Mer information om vilka tjänster som är tillgängliga i vilken region finns i [Azure-regioner](https://azure.microsoft.com/regions/#services) . I allmänhet väljer du en **plats** närmast den geografiska region där du vill distribuera enheten. Du kan också ta med följande i beräkningarna:
 

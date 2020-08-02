@@ -6,19 +6,19 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 3/18/2020
-ms.openlocfilehash: 8579f9294f55293cd32c8dfc1c13f9d4570aed67
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f73fd033f299ffe1656ea1f131bcd78181c026b0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110342"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502213"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mariadb"></a>Azure CLI-exempel för Azure Database for MariaDB 
 Följande tabell innehåller länkar till Azure CLI-exempelskript för Azure Database for MariaDB.
 
-| Exempel länk | Description  |
+| Exempel länk | Beskrivning  |
 |---|---|
 |**Skapa en server**||
 | [Skapa en server och brandväggsregel](./scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | Azure CLI-skript som skapar en enskild Azure Database for MariaDB-server och konfigurerar en brandväggsregel på servernivå. |

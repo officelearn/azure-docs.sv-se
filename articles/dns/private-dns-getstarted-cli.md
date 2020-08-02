@@ -7,18 +7,19 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 10/05/2019
 ms.author: rohink
-ms.openlocfilehash: 34a9858ffbec2360a347b8c765d53551fd2d9fc0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 8fdf78c0a3dd2f7a130d827751ce93c5539575df
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76935432"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502967"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-cli"></a>Snabb start: skapa en privat Azure-DNS-zon med Azure CLI
 
 Den här snabb starten vägleder dig genom stegen för att skapa din första privata DNS-zon och-post med hjälp av Azure CLI.
 
-En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i det virtuella nätverket anger du den lista över virtuella nätverk som får lösa poster i zonen.  Dessa kallas *länkade* virtuella nätverk. När autoregistrering har Aktiver ATS uppdaterar Azure DNS även zon posterna när en virtuell dator skapas, ändrar dess IP-adress eller raderas.
+En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i ett virtuellt nätverk anger du listan med virtuella nätverk som får matcha poster i zonen.  Dessa kallas *länkade* virtuella nätverk. När autoregistrering har Aktiver ATS uppdaterar Azure DNS även zon posterna när en virtuell dator skapas, ändrar dess IP-adress eller raderas.
 
 I den här snabbstarten lär du dig att:
 
@@ -34,7 +35,7 @@ Om du vill kan du slutföra den här snabb starten med [Azure PowerShell](privat
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-the-resource-group"></a>Skapa en resursgrupp
+## <a name="create-the-resource-group"></a>Skapa resursgruppen
 
 Först skapar du en resursgrupp som ska innehålla DNS-zonen: 
 
@@ -160,7 +161,7 @@ Upprepa för myVM02.
    ping myVM01.private.contoso.com
    ```
 
-   Du bör se utdata som liknar följande:
+   Du bör se utdata som liknar det här:
 
    ```
    PS C:\> ping myvm01.private.contoso.com
@@ -184,7 +185,7 @@ Upprepa för myVM02.
    ping db.private.contoso.com
    ```
 
-   Du bör se utdata som liknar följande:
+   Du bör se utdata som liknar det här:
 
    ```
    PS C:\> ping db.private.contoso.com

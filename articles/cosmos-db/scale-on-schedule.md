@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 9f538b02e81d885e22a6417d7c1f139c22635b0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 670a38b48ee89930078078dc4a8ac1a2876648e2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262488"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503743"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Skala Azure Cosmos DB genom att använda Azure Functions timer-utlösare
 
 Prestanda för ett Azure Cosmos-konto baseras på mängden allokerat data flöde som uttrycks i enheter för programbegäran per sekund (RU/s). Etableringen är i en andra kornig het och faktureras baserat på flest RU/s per timme. Den här etablerade kapacitets modellen gör det möjligt för tjänsten att tillhandahålla ett förutsägbart och konsekvent data flöde, garanterad låg latens och hög tillgänglighet. De flesta produktions arbets belastningar de här funktionerna. I utvecklings-och testnings miljöer där Azure Cosmos DB endast används under arbets tid kan du skala upp data flödet i morgon och skala upp i kväll efter arbets tid.
 
-Du kan ställa in data flödet via [Azure Resource Manager mallar](resource-manager-samples.md), [Azure CLI](cli-samples.md)och [PowerShell](powershell-samples-sql.md), för kärn-(SQL) API-konton eller med hjälp av språkspecifika Azure Cosmos DB SDK: er. Fördelen med att använda Resource Manager-mallar, Azure CLI eller PowerShell är att de stöder alla Azure Cosmos DB modell-API: er.
+Du kan ställa in data flödet via [Azure Resource Manager mallar](resource-manager-samples.md), [Azure CLI](cli-samples.md)och [PowerShell](powershell-samples.md), för kärn-(SQL) API-konton eller med hjälp av språkspecifika Azure Cosmos DB SDK: er. Fördelen med att använda Resource Manager-mallar, Azure CLI eller PowerShell är att de stöder alla Azure Cosmos DB modell-API: er.
 
 ## <a name="throughput-scheduler-sample-project"></a>Exempel projekt för data flödes scheman
 
@@ -25,6 +25,6 @@ För att förenkla processen att skala Azure Cosmos DB enligt ett schema har vi 
 
 Du kan klona det här projektet lokalt, ändra det för att ange Azure Cosmos DB resurser som ska skalas upp och ned och schemat ska köras. Senare kan du distribuera den i en Azure-prenumeration och skydda den med hjälp av hanterad tjänst identitet med RBAC-behörighet ( [Role-based Access Control](role-based-access-control.md) ) med rollen "Azure Cosmos DB operatör" för att ange data flöde för dina Azure Cosmos-konton.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Läs mer och hämta exemplet från [Azure Cosmos DB Scheduler Scheduler](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler).

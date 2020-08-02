@@ -9,12 +9,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 3e014504fc1e94c3b323a49b408fa992de00d14a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 991471f43c92b12073062db1e4e5fdb32fb4b0f6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77523638"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494799"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Exportera från ett Azure App Configuration-arkiv
 
@@ -41,7 +42,7 @@ az appconfig kv export --name myTestAppConfigStore --file ~/Export.json
 
 Det här skriptet använder följande kommandon för att exportera från ett konfigurations lager för appar. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
 | [AZ appconfig kv export](/cli/azure/appconfig/kv#az-appconfig-kv-export) | Exporterar från en app Configuration Store-resurs. |
 

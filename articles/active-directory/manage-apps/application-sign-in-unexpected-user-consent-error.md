@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2a7709cf0522727257025b2dddc495b20fe8448
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0be99a673fe3d062e114f375891f3c821c118d76
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763762"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499508"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Ett oväntat fel inträffade vid godkännande av ett program
 
@@ -38,6 +38,8 @@ Vissa villkor måste vara uppfyllda för att en användare ska kunna godkänna d
 Felet uppstår när en användare som inte är en företags administratör försöker använda ett program som begär behörigheter som bara en administratör kan bevilja. Det här felet kan lösas av en administratör som beviljar åtkomst till programmet för organisationens räkning.
 
 Det här felet kan också inträffa när en användare hindras från att komma åt ett program på grund av att det finns risk för behörighets förfrågan. I det här fallet loggas även en gransknings händelse med en kategori av typen "ApplicationManagement", aktivitets typen "medgivande till program" och status orsaken "riskfylld program upptäcktes".
+
+Ett annat scenario där det här felet kan inträffa är när användar tilldelningen krävs för programmet, men inget administratörs medgivande angavs. I det här fallet måste administratören först ge administratörs tillåtelse.   
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Princip förhindrar beviljande av behörighets fel
 * **AADSTS90093:** En administratör för &lt; tenantDisplayName &gt; har angett en princip som förhindrar att du beviljar &lt; namn på appen &gt; de behörigheter som begärs. Kontakta en administratör för &lt; tenantDisplayName &gt; , som kan ge behörighet till den här appen för din räkning.

@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: 3fe4a70d2cf59f003c785740b55634d44863dc9c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: b657231cb6b896479766654e5bd989468d9b73e7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87009534"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501158"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Azure-diagnostik tillägg för virtuella Windows-datorer
 
@@ -72,7 +73,7 @@ Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsök
+### <a name="troubleshoot"></a>Felsöka
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och med hjälp av Azure CLI. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure CLI.
 
@@ -86,6 +87,6 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Du kan också skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj få support. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 * [Läs mer om Azure-diagnostik-tillägget](../../azure-monitor/platform/diagnostics-extension-overview.md)
 * [Granska tilläggs schema och-versioner](../../azure-monitor/platform/diagnostics-extension-schema-windows.md)

@@ -6,14 +6,14 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 02/28/2018
-ms.openlocfilehash: 1f772f710f0146048fcde04d884fbe3458722743
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7b02b81e650eabea6f3f5f09347dc4aa2382671a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "66154535"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496516"
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>Återställ en Azure Database for PostgreSQL-server med hjälp av Azure CLI
 Det här CLI-exempelskriptet återställer en enda Azure Database for PostgreSQL-server till en tidigare tidpunkt.
@@ -33,7 +33,7 @@ När skriptet har körts kan följande kommando användas för att ta bort resur
 ## <a name="script-explanation"></a>Förklaring av skript
 Det här skriptet använder de kommandon som beskrivs i följande tabell:
 
-| **Kommandoprompt** | **Obs!** |
+| **Kommando** | **Kommentarer** |
 |---|---|
 | [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az postgresql server create](/cli/azure/postgres/server#az-postgres-server-create) | Skapar en PostgreSQL-server som är värd för databaserna. |

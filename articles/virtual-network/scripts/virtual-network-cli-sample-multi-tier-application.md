@@ -12,12 +12,13 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
-ms.openlocfilehash: 2dfbb7a7a046486a04bd55f8c4486d448c131486
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 44b60d7b3a303e833d6915591cc1475751582e97
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073975"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87492572"
 ---
 # <a name="create-a-virtual-network-for-multi-tier-applications-using-an-azure-cli-script-sample"></a>Skapa ett virtuellt nätverk för program med flera nivåer med hjälp av ett skript exempel för Azure CLI
 
@@ -45,7 +46,7 @@ az group delete --name MyResourceGroup --yes
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, ett virtuellt nätverk och nätverkssäkerhetsgrupper. Varje kommando i följande tabell länkar till kommandospecifik dokumentation:
 
-| Kommando | Kommentarer |
+| Kommando | Anteckningar |
 |---|---|
 | [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az network vnet create](/cli/azure/network/vnet) | Skapar ett virtuellt Azure-nätverk och klientdelsundernät. |

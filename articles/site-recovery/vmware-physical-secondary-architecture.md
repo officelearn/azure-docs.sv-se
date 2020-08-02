@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 9b16a0edc1549a1b4d8ef5ba53d8b795f6d74e07
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 7c884ce839523706e67e4278f43e237e1a2b0580
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418329"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496975"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Arkitektur för replikering av VMware/fysisk server till en sekundär lokal plats
 
@@ -55,9 +55,7 @@ Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgåend
 2. Efter den första replikeringen skickar agenten på varje dator förändringsreplikeringar till processervern.
 3. Processervern optimerar data och överför dem till huvudmålservern på den sekundära platsen. Konfigurationsservern hanterar replikeringen.
 
-**Bild 6: VMware till VMware-replikering**
-
-![VMware till VMware](./media/site-recovery-components/vmware-to-vmware.png)
+![Diagram som visar replikering av virtuella VMware-datorer och fysiska servrar till ett sekundärt Data Center](./media/site-recovery-components/vmware-to-vmware.png)
 
 
 

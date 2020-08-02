@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 3be81d104e32946e2bfd7dc76052dad464f95623
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4e28a46b8d231b3f228a95ea06b7b9cada50de54
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130982"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498998"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Förbereda Azure-resurser för haveri beredskap för Hyper-V
 
@@ -63,7 +63,7 @@ Avbildningar av replikerade datorer lagras i Azure-lagringen. Virtuella Azure-da
 9. I **plats**väljer du den geografiska platsen för ditt lagrings konto. I den här självstudien använder du **Västeuropa**.
 10. Skapa lagringskontot genom att välja **Skapa**.
 
-   ![skapar ett lagringskonto](media/tutorial-prepare-azure/create-storageacct.png)
+   ![Skärm bild av alternativen för att skapa ett lagrings konto.](media/tutorial-prepare-azure/create-storageacct.png)
 
 ## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 
@@ -74,7 +74,7 @@ Avbildningar av replikerade datorer lagras i Azure-lagringen. Virtuella Azure-da
 3. I **plats**väljer du den region där valvet ska placeras. I den här självstudien använder du **Västeuropa**.
 4. Om du snabbt vill komma åt valvet från instrument panelen väljer du **Fäst på instrument panelen**  >  **skapa**.
 
-![Skapa ett nytt valv](./media/tutorial-prepare-azure/new-vault-settings.png)
+![Skärm bild av sidan Skapa Recovery Services valv.](./media/tutorial-prepare-azure/new-vault-settings.png)
 
 Det nya valvet visas på **instrument panelen**  >  **alla resurser**och på huvud sidan **Recovery Services valv** .
 
@@ -91,7 +91,7 @@ När de virtuella Azure-datorerna har skapats från minnet efter redundansen, ä
 7. Låt standard alternativen för grundläggande DDoS-skydd vara kvar, utan tjänst slut punkt i nätverket.
 8. Välj **Skapa**.
 
-![Skapa ett virtuellt nätverk](media/tutorial-prepare-azure/create-network.png)
+![Skärm bild av alternativen för att skapa virtuella nätverk.](media/tutorial-prepare-azure/create-network.png)
 
 Det tar några sekunder att skapa ditt virtuella nätverk. När den har skapats visas den i Azure Portal instrument panelen.
 

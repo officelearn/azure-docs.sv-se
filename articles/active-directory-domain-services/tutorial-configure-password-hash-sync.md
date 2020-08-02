@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: e9d6f31674db0744e220a9cd88033a32bb5c1e17
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 02828e0c159e2d30dacc5759f1239dae1268dac5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024697"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87491790"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Självstudie: Aktivera Lösenordssynkronisering i Azure Active Directory Domain Services för Hybrid miljöer
 
@@ -22,7 +22,7 @@ I hybrid miljöer kan en Azure Active Directory (Azure AD)-klient konfigureras f
 
 Om du vill använda Azure AD DS med konton som är synkroniserade från en lokal AD DS-miljö måste du konfigurera Azure AD Connect för att synkronisera de lösen ords-hashar som krävs för NTLM-och Kerberos-autentisering. När Azure AD Connect har kon figurer ATS synkroniseras även en tjänst för att skapa ett lokalt konto eller lösen ords ändring.
 
-Du behöver inte utföra de här stegen om du använder enbart moln konton utan en lokal AD DS-miljö.
+Du behöver inte utföra de här stegen om du använder moln konton utan någon lokal AD DS-miljö eller om du använder en *resurs skog*. För hanterade domäner som använder en resurs skog synkroniseras aldrig lokala lösenords-hashvärden. Autentisering för lokala konton använder skogs förtroenden (s) på dina egna AD DS-domänkontrollanter.
 
 I den här självstudien får du lära dig:
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig:
 
 Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser:
 

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.custom: mvc,seodec18
-ms.openlocfilehash: 17ca58a8c03def3565bf7e38099d84cf767d333c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mvc,seodec18, devx-track-azurecli
+ms.openlocfilehash: 00b6f0d79427cf1f4af2c1669f514aaf6fe7558a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010111"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500342"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Exportera/kopiera en hanterad disk till ett lagringskonto med hjälp av Azure CLI
 
@@ -38,7 +38,7 @@ Det här skriptet exporterar den underliggande virtuella hårddisken från en ha
 
 Det här skriptet använder följande kommandon för att generera SAS-URI:n för en hanterad disk och kopierar den underliggande virtuella hårddisken till ett lagringskonto med hjälp av SAS-URI:n. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Anteckningar |
 |---|---|
 | [az disk grant-access](/cli/azure/disk?view=azure-cli-latest#az-disk-grant-access) | Genererar skrivskyddad SAS som används för att kopiera den underliggande VHD-filen till ett lagringskonto eller för att ladda ned den till en lokal plats  |
 | [az storage blob copy start](/cli/azure/storage/blob/copy) | Kopierar en blob asynkront från ett lagringskonto till ett annat |

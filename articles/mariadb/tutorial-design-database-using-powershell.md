@@ -7,13 +7,13 @@ ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.custom: mvc
-ms.openlocfilehash: 6af5fa85306db885359d3de66a9a50f187015b75
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 6c17c746dfe0ce81da4cfe486b830837c37cdda4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053317"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496040"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-powershell"></a>Självstudie: utforma en Azure Database for MariaDB med hjälp av PowerShell
 
@@ -80,7 +80,7 @@ Värdet för **SKU** -parametern följer konventions **pris-nivå \_ beräknings
 
 - `-Sku B_Gen5_1` mappar till Basic, Gen 5 och 1 virtuell kärna. Det här alternativet är minsta tillgängliga SKU.
 - `-Sku GP_Gen5_32` mappar till generell användning, Gen 5 och 32 vCores.
-- `-Sku MO_Gen5_2` mappar till minnesoptimerad, Gen 5 och 2 vCores.
+- `-Sku MO_Gen5_2` mappar till minnesoptimerad, Gen 5 och 2 virtuella kärnor.
 
 Information om giltiga **SKU** -värden per region och för nivåer finns i [Azure Database for MariaDB pris nivåer](./concepts-pricing-tiers.md).
 

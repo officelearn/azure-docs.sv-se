@@ -3,13 +3,13 @@ title: Skapa en Function-app med ansluten lagring – Azure CLI
 description: Exempel på Azure CLI-skript – Skapa en Azure-funktion som ansluter till Azure Storage
 ms.topic: sample
 ms.date: 04/20/2017
-ms.custom: mvc
-ms.openlocfilehash: 833b9223d473c8bfc62485e9e47ba662a4f0e154
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 3eec4e22f80d1efd180dc6770a781ee14db680be
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75922678"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498556"
 ---
 # <a name="create-a-function-app-with-a-named-storage-account-connection"></a>Skapa en Function-app med en namngiven lagrings konto anslutning 
 
@@ -33,7 +33,7 @@ Det här exemplet skapar en Azure-funktionsapp och lägger till anslutningssträ
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapa en resursgrupp med en plats. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Skapa ett lagringskonto. |

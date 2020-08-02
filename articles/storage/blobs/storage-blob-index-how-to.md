@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: hux
-ms.openlocfilehash: d4ea5889cbecbbb8609f90eed83ec9bd6b0032f9
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 57366011c93065803162164c03c7878e1610af9f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448231"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500393"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Använd BLOB-Taggar (för hands version) för att hantera och hitta data i Azure Blob Storage
 
@@ -24,7 +24,7 @@ Mer information om BLOB-indexet finns i [Hantera och hitta data på Azure Blob S
 > [!NOTE]
 > BLOB-indexet finns i en offentlig för hands version och är tillgängligt i regionerna **Kanada**, **östra**, Australien, **centrala** och **Frankrike, södra** . Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 - Prenumeration registrerad och godkänd för åtkomst till för hands versionen av BLOB-index
 - Åtkomst till [Azure Portal](https://portal.azure.com/)
@@ -32,11 +32,9 @@ Mer information om BLOB-indexet finns i [Hantera och hitta data på Azure Blob S
 # <a name="net"></a>[.NET](#tab/net)
 Eftersom BLOB-indexet finns i en offentlig för hands version, släpps .NET Storage-paketet i NuGet-flödet för för hands versionen. Det här biblioteket kan ändras mellan nu och när det blir officiellt. 
 
-1. I Visual Studio lägger du till URL: en `https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json` till dina NuGet-paket källor. 
+1. Skapa ett Visual Studio-projekt för att komma igång med Azure Blob Storage-V12 för .NET. Läs mer i [.net snabb start](storage-quickstart-blobs-dotnet.md)
 
-   Mer information finns i [paket källor](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
-
-2. Leta upp paketet **Azure. Storage. blobs** i NuGet Package Manager och installera version **12.5.0-dev. 20200422.2** i projektet. Du kan också köra kommandot```Install-Package Azure.Storage.Blobs -Version 12.5.0-dev.20200422.2```
+2. I NuGet Package Manager letar du upp paketet **Azure. Storage. blobs** och installerar version **12.5.0 – Preview. 6** eller senare i projektet. Du kan också köra kommandot```Install-Package Azure.Storage.Blobs -Version 12.5.0-preview.6```
 
    Mer information finns i [hitta och installera ett paket](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 

@@ -6,12 +6,13 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 78634ee7236c8bc0d256bac7eea521e699c0c39d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 105cb38ccb65c96e2a1177e09839fc9d295c2b80
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113300"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489953"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Skapa och hantera en privat länk för Azure Database for MySQL med CLI
 
@@ -131,7 +132,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 1. Välj knappen **Anslut**. När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn**.
 
-1. Välj **Ladda ned RDP-fil**. Azure skapar en *.rdp*-fil (Remote Desktop Protocol) och laddar ned den till datorn.
+1. Välj **Hämta RDP-fil**. Azure skapar en *.rdp*-fil (Remote Desktop Protocol) och laddar ned den till datorn.
 
 1. Öppna den *nedladdade RDP* -filen.
 

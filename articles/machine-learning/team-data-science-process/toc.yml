@@ -209,7 +209,7 @@
     - name: Organisationer som använder TDSP
       items:
         - name: Ny signatur
-          href: 'https://newsignature.com/services/professional-services/advanced-analytics/'
+          href: 'https://newsignature.com/services/'
         - name: Blue Granite
           href: 'https://www.blue-granite.com/blog/getting-more-from-your-data-science-teams-organization-and-process-considerations'
     - name: Relaterade Microsoft-resurser

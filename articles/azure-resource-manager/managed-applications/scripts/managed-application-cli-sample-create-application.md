@@ -6,12 +6,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 0c2fc3dc4e76f295dff94ebda71d54bad425b621
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: a9912f5134c3596740ef53f23531d57fe9467682
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056148"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497876"
 ---
 # <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Distribuera ett hanterat program för tjänstkatalogen med Azure CLI
 
@@ -31,7 +32,7 @@ Det här skriptet distribuerar en definition för hanterade program från tjäns
 
 Det här skriptet använder följande kommando för att distribuera det hanterade programmet. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
 | [az managedapp create](/cli/azure/managedapp#az-managedapp-create) | Skapa ett hanterat program. Ange definitions-ID och parametrar för mallen. |
 

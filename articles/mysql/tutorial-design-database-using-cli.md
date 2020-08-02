@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/02/2019
-ms.custom: mvc
-ms.openlocfilehash: 080e4b119048f2c204e6617405c7c053c7f24cea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 6f79460f00ce52fd54d0cda34467d3df35185ba0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80382842"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496805"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Självstudie: Utforma Azure Database for MySQL med Azure CLI
 
@@ -53,7 +53,7 @@ az group create --name myresourcegroup --location westus
 ## <a name="create-an-azure-database-for-mysql-server"></a>Skapa en Azure Database för MySQL-server
 Skapa en Azure Database for MySQL-server med kommandot az mysql server create. En server kan hantera flera databaser. Normalt används en separat databas för varje projekt eller för varje användare.
 
-I följande exempel skapas en Azure Database för MySQL-server i `westus` i resursgruppen `myresourcegroup` med namnet `mydemoserver`. Servern har en administratörs användare med `myadmin`namnet. Det här är 5:e generationens server för generell användning med 2 virtuella kärnor. Ersätt `<server_admin_password>` med ditt eget värde.
+I följande exempel skapas en Azure Database för MySQL-server i `westus` i resursgruppen `myresourcegroup` med namnet `mydemoserver`. Servern har en administratörs användare med namnet `myadmin` . Det här är 5:e generationens server för generell användning med 2 virtuella kärnor. Ersätt `<server_admin_password>` med ditt eget värde.
 
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
@@ -61,7 +61,7 @@ az mysql server create --resource-group myresourcegroup --name mydemoserver --lo
 Parametervärdet för sku-namn följer namngivningskonventionen {prisnivå}\_{compute-generering}\_{vCores} som i exemplen nedan:
 + `--sku-name B_Gen5_2`mappar till Basic, gen 5 och 2 virtuella kärnor.
 + `--sku-name GP_Gen5_32` mappar till generell användning, Gen 5 och 32 vCores.
-+ `--sku-name MO_Gen5_2` mappar till minnesoptimerad, Gen 5 och 2 vCores.
++ `--sku-name MO_Gen5_2` mappar till minnesoptimerad, Gen 5 och 2 virtuella kärnor.
 
 Se dokumentationen om [prisnivåer](./concepts-pricing-tiers.md) för mer information om giltiga värden per region och nivå.
 
@@ -185,7 +185,7 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 
 Följande parametrar behövs för kommandot `az mysql server restore`:
 
-| Inställningen | Föreslaget värde | Beskrivning  |
+| Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resursgruppen där källservern finns.  |
 | name | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |

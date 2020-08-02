@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 4da024eb4eb3747b8e0d6b291ca5b00df12aaeab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 08a65ff8d276cd27c9f8fa07393600bc24e7b17f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367528"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500308"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Metod tips för Azure App konfiguration
 
@@ -86,6 +86,10 @@ För många begär anden till app-konfigurationen kan leda till begränsning ell
 ## <a name="importing-configuration-data-into-app-configuration"></a>Importera konfigurations data till konfigurations program
 
 Med konfiguration av appar kan du välja Mass [import](https://aka.ms/azconfig-importexport1) av konfigurations inställningar från dina aktuella konfigurationsfiler med hjälp av antingen Azure Portal eller cli. Du kan också använda samma alternativ för att exportera värden från App-konfigurationen, till exempel mellan relaterade butiker. Om du vill konfigurera en pågående synkronisering med din GitHub-lagrings platsen kan du använda vår [GitHub-åtgärd](https://aka.ms/azconfig-gha2) så att du kan fortsätta att använda dina befintliga käll kontroll metoder samtidigt som du får fördelarna med app-konfigurationen.
+
+## <a name="multi-region-deployment-in-app-configuration"></a>Distribution i flera regioner i appens konfiguration
+
+Konfiguration av appar är regional tjänst. För program med olika konfigurationer per region kan du skapa en enskild felpunkt genom att lagra dessa konfigurationer i en instans. Att distribuera en instans av konfigurations instanser per region i flera regioner kan vara ett bättre alternativ. Det kan hjälpa till med regional haveri beredskap, prestanda och säkerhets silo. Att konfigurera efter region förbättrar också svars tiden och använder separerade begränsnings kvoter, eftersom begränsningen är per instans. Om du vill tillämpa minskning av haveri beredskap kan du använda [flera konfigurations lager](./concept-disaster-recovery.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 

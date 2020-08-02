@@ -3,15 +3,15 @@ title: Publicera hanterad app för tjänst katalog
 description: Visar hur du skapar ett Azure-hanterat program som är avsett för medlemmar i din organisation.
 author: tfitzmac
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: d0a3e2a435be679a2a35941dfa24978ae77291b0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f6a3a16fe7fd6b0036b36520262e85a9066a4e63
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249044"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497862"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Snabbstart: Skapa och publicera en definition för det hanterade programmet
 
@@ -195,7 +195,7 @@ az storage blob upload \
 
 ### <a name="create-an-azure-active-directory-user-group-or-application"></a>Skapa en Azure Active Directory-användargrupp eller ett Azure Active Directory-program
 
-Nästa steg är att välja en användar grupp, användare eller ett program för att hantera resurser för kunden. Den här identiteten har behörigheter på den hanterade resursgruppen enligt den roll som är tilldelad. Rollen kan vara en inbyggd roll för rollbaserad åtkomstkontroll (RBAC) som Ägare eller Deltagare. Information om hur du skapar en ny Active Directory-användargrupp finns i [Skapa en grupp och lägga till medlemmar i Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+Nästa steg är att välja en användar grupp, användare eller ett program för att hantera resurser för kunden. Den här identiteten har behörigheter på den hanterade resursgruppen enligt den roll som är tilldelad. Rollen kan vara valfri inbyggd Azure-roll som ägare eller deltagare. Information om hur du skapar en ny Active Directory-användargrupp finns i [Skapa en grupp och lägga till medlemmar i Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Du behöver objekt-ID:t för den användargrupp som du vill använda för att hantera resurser. 
 
@@ -311,7 +311,7 @@ Kopiera lagrings kontots resurs-ID. Den kommer att användas senare när du dist
 
 Innan din definition av hanterade program kan distribueras till ditt lagrings konto måste du ge deltagar behörighet till enhets **resurs leverantörs** rollen så att den kan skriva definitions filerna till lagrings kontots behållare.
 
-1. I [Azure Portal](https://portal.azure.com)navigerar du till ditt lagrings konto.
+1. Navigera till ditt lagringskonto på [Azure-portalen](https://portal.azure.com).
 1. Välj **åtkomst kontroll (IAM)** om du vill visa inställningarna för åtkomst kontroll för lagrings kontot. Välj fliken **roll tilldelningar** om du vill se en lista över roll tilldelningar.
 1. I fönstret **Lägg till roll tilldelning** väljer du rollen **deltagare** . 
 1. I fältet **tilldela åtkomst till väljer du** **Azure AD-användare, grupp eller tjänstens huvud namn**.

@@ -4,18 +4,18 @@ description: Läs om de LINQ-operatörer som stöds och hur LINQ-frågorna mappa
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 7/29/2020
 ms.author: tisande
-ms.openlocfilehash: 3f8753518e1d54ddba4fc15a5a030308d0c112a1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f2a7570b7ebed26a06e1bd075c2904bc29061c21
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042500"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498862"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ to SQL-översättning
 
-Azure Cosmos DB Query-providern utför en mappning från en LINQ-fråga till en Cosmos DB SQL-fråga. Om du vill hämta SQL-frågan som har översatts till LINQ använder du `ToString()` metoden på det genererade `IQueryable` objektet. Följande beskrivning förutsätter en grundläggande kunskap om LINQ.
+Azure Cosmos DB Query-providern utför en mappning från en LINQ-fråga till en Cosmos DB SQL-fråga. Om du vill hämta SQL-frågan som har översatts från LINQ använder du `ToString()` metoden på det genererade `IQueryable` objektet. Följande beskrivning förutsätter en grundläggande kunskap om [LINQ](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
 
 Typ systemet för fråged provider stöder endast JSON primitiva typer: numeric, Boolean, String och null.
 
@@ -23,7 +23,7 @@ Frågans provider stöder följande skalära uttryck:
 
 - Konstanta värden, inklusive konstanta värden för primitiva data typer vid frågans utvärderings tid.
   
-- Index uttryck för egenskap/mat ris som refererar till egenskapen för ett objekt eller ett mat ris element. Ett exempel:
+- Index uttryck för egenskap/mat ris som refererar till egenskapen för ett objekt eller ett mat ris element. Exempel:
   
   ```
     family.Id;
@@ -32,7 +32,7 @@ Frågans provider stöder följande skalära uttryck:
     family.children[n].grade; //n is an int variable
   ```
   
-- Aritmetiska uttryck, inklusive vanliga aritmetiska uttryck för numeriska och booleska värden. En fullständig lista finns i [Azure Cosmos DB SQL-specifikationen](https://go.microsoft.com/fwlink/p/?LinkID=510612).
+- Aritmetiska uttryck, inklusive vanliga aritmetiska uttryck för numeriska och booleska värden. En fullständig lista finns i [Azure Cosmos DB SQL-specifikationen](sql-query-system-functions.md).
   
   ```
     2 * family.children[0].grade;
@@ -54,31 +54,52 @@ Frågans provider stöder följande skalära uttryck:
     new int[] { 3, child.grade, 5 };
   ```
 
+## <a name="using-linq"></a>Använda LINQ
+
+Du kan skapa en LINQ-fråga med `GetItemLinqQueryable` . Det här exemplet visar generering av LINQ-frågor och asynkron körning med en `FeedIterator` :
+
+```csharp
+using (FeedIterator<Book> setIterator = container.GetItemLinqQueryable<Book>()
+                      .Where(b => b.Title == "War and Peace")
+                      .ToFeedIterator<Book>())
+ {
+     //Asynchronous query execution
+     while (setIterator.HasMoreResults)
+     {
+         foreach(var item in await setIterator.ReadNextAsync()){
+         {
+             Console.WriteLine(item.cost);
+         }
+       }
+     }
+ }
+```
+
 ## <a name="supported-linq-operators"></a><a id="SupportedLinqOperators"></a>LINQ-operatorer som stöds
 
 LINQ-providern som ingår i SQL .NET SDK stöder följande operatorer:
 
-- **Välj**: projektioner översätts till SQL SELECT, inklusive objekt konstruktion.
-- **Där**: filter översätter till SQL WHERE, och stöder översättning mellan `&&` , `||` , och `!` till SQL-operatörerna
-- **SelectMany**: Tillåter uppspolning av matriser till SQL JOIN-satsen. Används för att kedja eller kapsla uttryck för att filtrera på mat ris element.
-- **OrderBy** och **OrderByDescending**: Översätt till order by med ASC eller DESC.
-- Operatorerna **Count**, **Sum**, **Min**, **Max** och **Average** för sammansättning och deras async-motsvarigheter **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** och **AverageAsync**.
+- **Välj**: projektioner översätts till [Välj](sql-query-select.md), inklusive objekt konstruktion.
+- **Där**: filter översätter till [WHERE](sql-query-where.md), och stöder översättning mellan `&&` , `||` , och `!` till SQL-operatörerna
+- **SelectMany**: tillåter avlindning av matriser till [Join](sql-query-join.md) -satsen. Används för att kedja eller kapsla uttryck för att filtrera på mat ris element.
+- **OrderBy** och **OrderByDescending**: Översätt till [order by](sql-query-order-by.md) med ASC eller DESC.
+- **Count**-, **Sum**-, **min**-, **Max**-och **genomsnitts** operatorer för [agg regering](sql-query-aggregates.md)och deras async-motsvarigheter **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**och **AverageAsync**.
 - **CompareTo**: Översätts till intervalljämförelser. Används ofta för strängar, eftersom de inte är jämförbara i .NET.
-- **Hoppa över** och **vidta**: ÖVERsätts till SQL-förskjutning och gräns för begränsning av resultat från en fråga och sid brytning.
-- **Matematiska funktioner**: stöder översättning från .net `Abs` , `Acos` , `Asin` , `Atan` , `Ceiling` , `Cos` , `Exp` , `Floor` , `Log` , `Log10` , `Pow` , `Round` , `Sign` , `Sin` , `Sqrt` , `Tan` , och `Truncate` till motsvarande inbyggda SQL-funktioner.
-- **Sträng funktioner**: stöder översättning från .net `Concat` , `Contains` , `Count` , `EndsWith` , `IndexOf` , `Replace` , `Reverse` , `StartsWith` , `SubString` , `ToLower` , `ToUpper` , `TrimEnd` , och `TrimStart` till motsvarande inbyggda SQL-funktioner.
-- **Mat ris funktioner**: stöder översättning från .net `Concat` , `Contains` och `Count` till motsvarande inbyggda SQL-funktioner.
-- **Geospatiala utöknings funktioner**: stöder översättning från stub-metoder,,, `Distance` `IsValid` `IsValidDetailed` och `Within` till motsvarande inbyggda SQL-funktioner.
-- **Användardefinierad funktions utöknings funktion**: stöder översättning från stub-metoden `UserDefinedFunctionProvider.Invoke` till motsvarande användardefinierade funktion.
-- **Diverse**: stöder översättning av `Coalesce` och villkorliga operatorer. Kan översättas `Contains` till sträng innehåller, ARRAY_CONTAINS eller SQL i, beroende på kontext.
+- **Hoppa över** och **vidta**: översätts till [förskjutning och gräns](sql-query-offset-limit.md) för begränsning av resultat från en fråga och sid brytning.
+- **Matematiska funktioner**: stöder översättning från .net,,,,,, `Abs` `Acos` `Asin` `Atan` `Ceiling` `Cos` `Exp` , `Floor` , `Log` , `Log10` , `Pow` , `Round` , `Sign` , `Sin` , `Sqrt` , `Tan` , och `Truncate` motsvarande [inbyggda matematiska funktioner](sql-query-mathematical-functions.md).
+- **Sträng funktioner**: stöder översättning från .net `Concat` , `Contains` ,,,,, `Count` `EndsWith` `IndexOf` `Replace` `Reverse` , `StartsWith` , `SubString` , `ToLower` , `ToUpper` , `TrimEnd` , och `TrimStart` till motsvarande [inbyggda sträng funktioner](sql-query-string-functions.md).
+- **Mat ris funktioner**: stöder översättning från .net `Concat` , `Contains` och `Count` till motsvarande [inbyggda mat ris funktioner](sql-query-array-functions.md).
+- **Geospatiala utöknings funktioner**: stöder översättning från stub `Distance` -metoder, `IsValid` ,, `IsValidDetailed` och `Within` till motsvarande [inbyggda geospatiala funktioner](sql-query-geospatial-query.md).
+- **Användardefinierad funktions utöknings funktion**: stöder översättning från stub-metoden `UserDefinedFunctionProvider.Invoke` till motsvarande [användardefinierade funktion](sql-query-udfs.md).
+- **Diverse**: stöder översättning av `Coalesce` och villkorliga [operatorer](sql-query-operators.md). Kan översättas `Contains` till sträng innehåller, ARRAY_CONTAINS eller i, beroende på kontext.
 
 ## <a name="examples"></a>Exempel
 
-I följande exempel visas hur några av de standardiserade LINQ Query-operatörerna översätts till Cosmos DB frågor.
+I följande exempel visas hur några av de standardiserade LINQ Query-operatörerna översätts till frågor i Azure Cosmos DB.
 
 ### <a name="select-operator"></a>Välj operator
 
-Syntaxen är `input.Select(x => f(x))`, där `f` är ett skalärt uttryck.
+Syntaxen är `input.Select(x => f(x))`, där `f` är ett skalärt uttryck. `input`I det här fallet är det ett `IQueryable` objekt.
 
 **Välj operatör, exempel 1:**
 
@@ -95,7 +116,7 @@ Syntaxen är `input.Select(x => f(x))`, där `f` är ett skalärt uttryck.
       FROM Families f
     ```
   
-**Välj Operator, exempel 2:** 
+**Välj Operator, exempel 2:**
 
 - **LINQ-lambdauttryck**
   
@@ -122,7 +143,7 @@ Syntaxen är `input.Select(x => f(x))`, där `f` är ett skalärt uttryck.
     });
   ```
   
-- **SQL** 
+- **SQL**
   
   ```sql
       SELECT VALUE {"name":f.children[0].familyName,
@@ -320,7 +341,6 @@ En kapslad fråga använder den inre frågan för varje element i den yttre beh�
       JOIN c IN f.children
       WHERE c.familyName = f.parents[0].familyName
   ```
-
 
 ## <a name="next-steps"></a>Nästa steg
 

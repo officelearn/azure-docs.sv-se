@@ -13,12 +13,13 @@ ms.date: 05/27/2020
 ms.author: dbradish
 ms.reviewer: sethm
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: d32bae48348e482e0e175760a416097ffbc17a1c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 3e76f2c23944dec69393a7b01dddc2d9f4fed7d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080955"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498012"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Snabb start: skapa en Azure Notification Hub med Azure CLI
 
@@ -26,7 +27,7 @@ Azure Notification Hubs innehåller en lättanvänd och uppskalad push-motor som
 
 I den här snabb starten skapar du en Notification Hub med hjälp av Azure CLI. Det första avsnittet innehåller steg för steg hur du skapar ett namn område för Notification Hub.  Det andra avsnittet innehåller steg för steg hur du skapar en Notification Hub i ett befintligt namn område.  Du lär dig också hur du skapar en anpassad åtkomst princip.  
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

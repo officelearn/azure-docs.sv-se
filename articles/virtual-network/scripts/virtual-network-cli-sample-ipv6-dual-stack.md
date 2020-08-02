@@ -12,12 +12,13 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/23/2019
 ms.author: kumud
-ms.openlocfilehash: 5f5e741e972015820af2e0e33372eb41c9e78210
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 4036bc50b08c93de768760aa4c0d3aaba398df92
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281607"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87492708"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Konfigurera IPv6-slutpunkter i skript exempel för virtuella nätverk (för hands version)
 
@@ -27,7 +28,7 @@ Du kan köra skriptet från Azure [Cloud Shell](https://shell.azure.com/bash) el
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill använda funktionen IPv6 för Azure Virtual Network måste du konfigurera din prenumeration bara en gång på följande sätt:
 
 ```azurecli
@@ -276,7 +277,7 @@ az group delete --name <resourcegroupname> --yes
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, virtuell dator, tillgänglighetsuppsättning, lastbalanserare och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az-network-vnet-create) | Skapar ett virtuellt Azure-nätverk och undernät. |

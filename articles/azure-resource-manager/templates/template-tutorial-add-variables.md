@@ -5,18 +5,19 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b1df86e5b593edec784de21e21a4399274d820bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 9607ddd4a44af6a515080d4fd6f0c475268470b9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80411690"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497502"
 ---
 # <a name="tutorial-add-variables-to-your-arm-template"></a>Självstudie: Lägg till variabler i ARM-mallen
 
 I den här självstudien får du lära dig hur du lägger till en variabel i din Azure Resource Manager-mall (ARM). Variabler fören klar dina mallar genom att göra det möjligt att skriva ett uttryck en gång och återanvända det i hela mallen. Den här självstudien tar **7 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi rekommenderar att du slutför [självstudien om functions](template-tutorial-add-functions.md), men det är inte obligatoriskt.
 
@@ -69,7 +70,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill köra det här distributions kommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
+För att köra det här distributionskommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
 
 ```azurecli
 az deployment group create \

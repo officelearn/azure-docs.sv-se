@@ -5,18 +5,19 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3e0deb53e57cd29cbfce4c37f2d6c6729f15bebd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: ce25047ae93a332b62b7e785b23da5794031a98b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80411711"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497519"
 ---
 # <a name="tutorial-add-tags-in-your-arm-template"></a>Självstudie: Lägg till taggar i ARM-mallen
 
 I den här självstudien får du lära dig hur du lägger till taggar till resurser i din Azure Resource Manager-mall (ARM). Med [taggar](../management/tag-resources.md) kan du logiskt organisera dina resurser. De märkes värden som visas i kostnads rapporter. Den här självstudien tar **8 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi rekommenderar att du slutför [självstudien om snabb starts mallar](template-tutorial-quickstart-template.md), men det är inget krav.
 
@@ -32,7 +33,7 @@ När du har distribuerat dessa resurser kan du behöva spåra kostnader och hitt
 
 ## <a name="add-tags"></a>Lägga till taggar
 
-Du kan tagga resurser för att lägga till värden som hjälper dig att identifiera användningen. Du kan till exempel lägga till taggar som visar miljön och projektet. Du kan lägga till taggar som identifierar ett kostnads ställe eller teamet som äger resursen. Lägg till värden som passar din organisation.
+Du kan tagga resurser om du vill lägga till värden som beskriver vad resurserna används för. Du kan till exempel lägga till taggar som visar miljön och projektet. Du kan lägga till taggar som identifierar ett kostnads ställe eller teamet som äger resursen. Lägg till valfria värden som passar din organisation.
 
 I följande exempel visas ändringarna i mallen. Kopiera hela filen och ersätt din mall med dess innehåll.
 
@@ -58,7 +59,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill köra det här distributions kommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
+För att köra det här distributionskommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
 
 ```azurecli
 az deployment group create \

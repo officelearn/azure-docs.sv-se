@@ -16,13 +16,13 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
-ms.custom: ''
-ms.openlocfilehash: 70f7bd4443602f6f18be54c5bc4ff038e868e58e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 027165f797977311fd77f3cd3e626b126c26e47b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84703357"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494680"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Dirigera nätverks trafik med en routningstabell med hjälp av Azure CLI
 
@@ -36,7 +36,7 @@ Azure dirigerar automatiskt trafik mellan alla undernät inom ett virtuella nät
 * Distribuera virtuella datorer till olika undernät
 * Dirigera trafik från ett undernät till ett annat via en NVA
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

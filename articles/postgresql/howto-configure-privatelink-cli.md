@@ -6,12 +6,13 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: c957e2ee1d1e596ca8e3525e0f4a9802c4039107
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: adb3104fe5874ab80134f267553b90a4b8823039
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206814"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497995"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Skapa och hantera en privat länk för Azure Database for PostgreSQL-enskild server med CLI
 
@@ -171,12 +172,12 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 4. I **ny anslutning**anger eller väljer du den här informationen:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Servertyp| Välj **postgresql**.|
     | Servernamn| Välj *mydemopostgresserver.privatelink.postgres.Database.Azure.com* |
     | Användarnamn | Ange användar namn som username@servername anges när postgresql-servern skapas. |
-    |Lösenord |Ange ett lösen ord som angavs när PostgreSQL-servern skapades. |
+    |lösenordsinställning |Ange ett lösen ord som angavs när PostgreSQL-servern skapades. |
     |SSL|Välj **obligatoriskt**.|
     ||
 

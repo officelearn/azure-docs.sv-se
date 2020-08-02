@@ -7,13 +7,13 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 3/18/2020
-ms.custom: mvc
-ms.openlocfilehash: 455d7a0c1b3826060ade1083ec6eea99e397574b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: f08f9065b2a7361294a2f6257c85be772d0f7119
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79534855"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496091"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Självstudie: Utforma en Azure Database for MariaDB med Azure CLI
 
@@ -61,7 +61,7 @@ az mariadb server create --resource-group myresourcegroup --name mydemoserver --
 Parametervärdet för sku-namn följer namngivningskonventionen {prisnivå}\_{compute-generering}\_{vCores} som i exemplen nedan:
 + `--sku-name B_Gen5_4` mappar till Basic, Gen 5 och 4 vCores.
 + `--sku-name GP_Gen5_32` mappar till generell användning, Gen 5 och 32 vCores.
-+ `--sku-name MO_Gen5_2` mappar till minnesoptimerad, Gen 5 och 2 vCores.
++ `--sku-name MO_Gen5_2` mappar till minnesoptimerad, Gen 5 och 2 virtuella kärnor.
 
 Se dokumentationen om [prisnivåer](./concepts-pricing-tiers.md) för mer information om giltiga värden per region och nivå.
 
@@ -185,7 +185,7 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 
 Följande parametrar behövs för kommandot `az mariadb server restore`:
 
-| Inställningen | Föreslaget värde | Beskrivning  |
+| Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resursgruppen där källservern finns.  |
 | name | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |

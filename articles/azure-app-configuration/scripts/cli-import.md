@@ -9,12 +9,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 71d6aafa82f647b9c6164ee9a06b43ed7e9a66af
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: fe4c22042c31d55575320d9c3823783902700f9f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77523635"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494782"
 ---
 # <a name="import-to-an-azure-app-configuration-store"></a>Importera till ett Azure App Configuration-arkiv
 
@@ -41,7 +42,7 @@ az appconfig kv import --name myTestAppConfigStore --source file --path ~/Import
 
 I det här skriptet används följande kommandon för att importera till ett konfigurations lager för appar. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
 | [AZ appconfig kv import](/cli/azure/appconfig/kv#az-appconfig-kv-import) | Importerar till en resurs för konfigurations Arkiv för appar. |
 

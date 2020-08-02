@@ -14,12 +14,13 @@ ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.openlocfilehash: 05d79d42ecf2f7ba5de3573cfe4c9d00d7749616
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: bcee06dbd330dbed2f682c31266477df0a3f173b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079918"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497912"
 ---
 # <a name="create-a-virtual-machine-with-the-azure-cli"></a>Skapa en virtuell dator med Azure CLI
 
@@ -45,7 +46,7 @@ az group delete --name myResourceGroup --yes
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, en virtuell dator och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Anteckningar |
 |---|---|
 | [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az network vnet create](/cli/azure/network/vnet) | Skapar ett virtuellt Azure-nätverk och undernät. |

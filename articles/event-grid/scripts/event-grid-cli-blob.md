@@ -4,12 +4,13 @@ description: Den här artikeln innehåller ett exempel på ett Azure CLI-skript 
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/08/2020
-ms.openlocfilehash: cb411d5f56da6e0f8b6053e924dc5e9482372eaa
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: b7648a8ef71b151c94fac4fa28cfa8eafa239c68
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460906"
+ms.locfileid: "87494153"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-azure-cli"></a>Prenumerera på händelser för ett Blob Storage-konto med Azure CLI
 

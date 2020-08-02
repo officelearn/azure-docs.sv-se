@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: c0426872c29fa126514f22a5f4fb57f19903c967
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 43942c20a353ff69383f3e721679e4c95ab9d230
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021672"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495951"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Konfigurera IP-adressering för att ansluta till en sekundär lokal plats efter redundans
 
@@ -63,11 +63,11 @@ Följande grafik illustrerar under näten före och efter redundansväxlingen.
 
 **Före redundans**
 
-![Före redundans](./media/hyper-v-vmm-networking/network-design2.png)
+![Diagram som visar under näten före redundansväxlingen.](./media/hyper-v-vmm-networking/network-design2.png)
 
 **Efter redundans**
 
-![Efter redundans](./media/hyper-v-vmm-networking/network-design3.png)
+![Diagram som visar under näten efter redundansväxlingen.](./media/hyper-v-vmm-networking/network-design3.png)
 
 Efter redundansväxlingen allokerar Site Recovery en IP-adress för varje nätverks gränssnitt på den virtuella datorn. Adressen tilldelas från den statiska IP-adresspoolen i det aktuella nätverket, för varje VM-instans.
 
@@ -118,11 +118,11 @@ I det här exemplet har vi olika IP-adresser för primära och sekundära platse
 
 **Före redundans**
 
-![Annan IP-adress – före redundans](./media/hyper-v-vmm-networking/network-design10.png)
+![Diagram som visar olika IP-adresser före redundans.](./media/hyper-v-vmm-networking/network-design10.png)
 
 **Efter redundans**
 
-![Annan IP-adress – efter redundans](./media/hyper-v-vmm-networking/network-design11.png)
+![Diagram som visar olika IP-adresser efter redundansväxlingen.](./media/hyper-v-vmm-networking/network-design11.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

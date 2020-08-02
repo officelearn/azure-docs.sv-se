@@ -5,18 +5,19 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: dcdbbb325e6589669abe6cf3d25ac5191e29118b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 0163fcc62ea6c813af8e9e5693ca35fa0e650f96
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80411736"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497536"
 ---
 # <a name="tutorial-add-a-resource-to-your-arm-template"></a>Självstudie: Lägg till en resurs i ARM-mallen
 
 I den [föregående själv studie kursen](template-tutorial-create-first-template.md)har du lärt dig hur du skapar en tom mall och distribuerar den. Nu är du redo att distribuera en faktisk resurs. I den här självstudien lägger du till ett lagrings konto. Det tar ungefär **9 minuter** att slutföra den här kursen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi rekommenderar att du slutför [introduktions kursen om mallar](template-tutorial-create-first-template.md), men det är inte obligatoriskt.
 
@@ -72,7 +73,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill köra det här distributions kommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
+För att köra det här distributionskommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
 
 ```azurecli
 az deployment group create \
@@ -124,4 +125,4 @@ Om du stoppar nu kanske du vill rensa de resurser som du har distribuerat genom 
 Du har skapat en enkel mall för att distribuera ett Azure Storage-konto.  I senare självstudier får du lära dig hur du lägger till parametrar, variabler, resurser och utdata i en mall. Dessa funktioner är Bygg stenar för mycket mer avancerade mallar.
 
 > [!div class="nextstepaction"]
-> [Lägg till parametrar](template-tutorial-add-parameters.md)
+> [Lägga till parametrar](template-tutorial-add-parameters.md)

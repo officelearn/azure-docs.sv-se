@@ -7,21 +7,22 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: 1dd20d94737df3e799876323d2aeb555dcb9a381
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 1a2b7ceea74091931c92d28f8fa47b9046b545fc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82146813"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496584"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Snabb start: Använd ett Azure CLI-kommando, AZ postgres (för hands version), för att skapa en Azure Database for PostgreSQL-enskild server
 
 > [!IMPORTANT]
 > [AZ postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI-kommandot är i för hands version.
 
-Azure Database för PostgreSQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabb starten visar hur du använder kommandot [AZ postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) för att skapa en Azure Database for postgresql-server med hjälp av Azure CLI. Förutom att skapa-servern skapar `az postgres up` kommandot en exempel databas, en rot användare i databasen, öppnar brand väggen för Azure-tjänster och skapar standard brand Väggs regler för klient datorn. Dessa standardvärden hjälper till att påskynda utvecklings processen.
+Azure Database för PostgreSQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabb starten visar hur du använder kommandot [AZ postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) för att skapa en Azure Database for postgresql-server med hjälp av Azure CLI. Förutom att skapa-servern `az postgres up` skapar kommandot en exempel databas, en rot användare i databasen, öppnar brand väggen för Azure-tjänster och skapar standard brand Väggs regler för klient datorn. Dessa standardvärden hjälper till att påskynda utvecklings processen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -39,7 +40,7 @@ Om du har flera prenumerationer ska du välja lämplig prenumeration där resurs
 az account set --subscription <subscription id>
 ```
 
-## <a name="create-an-azure-database-for-postgresql-server"></a>Skapa en Azure Database för PostgreSQL-server
+## <a name="create-an-azure-database-for-postgresql-server"></a>Skapa en Azure Database for PostgreSQL-server
 
 Om du vill använda kommandona installerar du [db-up-](/cli/azure/ext/db-up) tillägget. Om ett fel returneras kontrollerar du att du har installerat den senaste versionen av Azure CLI. Se [Installera Azure CLI](/cli/azure/install-azure-cli).
 
@@ -61,9 +62,9 @@ server-name | Genereras av systemet | Ett unikt namn som identifierar Azure Data
 resource-group | Genereras av systemet | En ny Azure-resurs grupp.
 sku-name | GP_Gen5_2 | Namnet på SKU:n. Följer konventionen {prisnivå}\_{beräkningsgenerering}\_{vCores} i snabbformat. Standardvärdet är en Generell användning Gen5-server med 2 virtuella kärnor. På vår [prissättnings sida](https://azure.microsoft.com/pricing/details/postgresql/) finns mer information om nivåerna.
 backup-retention | 7 | Hur länge en säkerhets kopia behålls. Enheten är dagar.
-geo-redundant-backup | Disabled | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern eller inte.
+geo-redundant-backup | Inaktiverad | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern eller inte.
 location | westus2 | Azure-platsen för servern.
-ssl-enforcement | Disabled | Om TLS/SSL ska vara aktiverat eller inte för den här servern.
+ssl-enforcement | Inaktiverad | Om TLS/SSL ska vara aktiverat eller inte för den här servern.
 storage-size | 5120 | Serverns lagringskapacitet (enheten är megabyte).
 version | 10 | Huvudversion för PostgreSQL.
 admin-user | Genereras av systemet | Administratörens användar namn.
@@ -74,7 +75,7 @@ admin-password | Genereras av systemet | Lösenordet för administratörsanvänd
 
 När servern har skapats levereras den med följande inställningar:
 
-- En brand Väggs regel med namnet "devbox" skapas. Azure CLI försöker identifiera datorns IP-adress som `az postgres up` kommandot körs från och WHITELISTS den IP-adressen.
+- En brand Väggs regel med namnet "devbox" skapas. Azure CLI försöker identifiera datorns IP-adress som `az postgres up` kommandot körs från och whitelists den IP-adressen.
 - "Tillåt åtkomst till Azure-tjänster" är inställt på på. Den här inställningen konfigurerar serverns brand vägg så att den accepterar anslutningar från alla Azure-resurser, inklusive resurser som inte finns i din prenumeration.
 - En tom databas med namnet "sampledb" skapas
 - En ny användare med namnet "rot" med behörighet till "sampledb" skapas

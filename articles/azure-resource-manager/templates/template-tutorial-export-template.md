@@ -5,18 +5,19 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f95efbaedc2718c968062c47427ab7765756bde7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 4042ed29b143ab160883ca46ecb1cc17d2e0c761
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80408557"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497162"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Självstudie: Använd exporterad mall från Azure Portal
 
 I den här själv studie serien har du skapat en mall för att distribuera ett Azure Storage-konto. I de kommande två självstudierna lägger du till en *App Service plan* och en *webbplats*. I stället för att skapa mallar från grunden får du lära dig hur du exporterar mallar från Azure Portal och hur du använder exempel mallar från [Azures snabb starts mallar](https://azure.microsoft.com/resources/templates/). Du anpassar mallarna efter din användning. Den här självstudien fokuserar på att exportera mallar och anpassa resultatet för din mall. Det tar ungefär **14 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi rekommenderar att du slutför [självstudien om utdata](template-tutorial-add-outputs.md), men det är inte obligatoriskt.
 
@@ -36,7 +37,7 @@ Den här mallen fungerar bra för att distribuera lagrings konton, men du kanske
 1. Välj **Skapa en resurs**.
 1. I **Sök på Marketplace**anger **App Service plan**och väljer sedan **App Service plan**.  Välj inte **App Service plan (klassisk)**
 1. Välj **Skapa**.
-1. Ange:
+1. Skriv:
 
     - **Prenumeration**: Välj din Azure-prenumeration.
     - **Resurs grupp**: Välj **Skapa ny** och ange sedan ett namn. Ange ett annat resurs grupps namn än det som du har använt i den här själv studie serien.
@@ -97,7 +98,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill köra det här distributions kommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
+För att köra det här distributionskommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
 
 ```azurecli
 az deployment group create \

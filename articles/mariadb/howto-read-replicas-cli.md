@@ -6,12 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: aff8eb27b1488f06edbc3ebd8c91b0a777837f91
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 0e63fe76c5ab5fe77f0dcb7f4903ee77dff208fd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121120"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498913"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Skapa och hantera Läs repliker i Azure Database for MariaDB med hjälp av Azure CLI och REST API
 
@@ -41,7 +42,7 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 
 `az mariadb server replica create`Kommandot kräver följande parametrar:
 
-| Inställningen | Exempelvärde | Description  |
+| Inställningen | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
 | name | mydemoreplicaserver | Namnet på den nya replik servern som skapas. |
@@ -71,7 +72,7 @@ az mariadb server replica list --server-name mydemoserver --resource-group myres
 
 `az mariadb server replica list`Kommandot kräver följande parametrar:
 
-| Inställningen | Exempelvärde | Description  |
+| Inställningen | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
 | server-name | mydemoserver | Namn eller ID för huvud servern. |
@@ -89,7 +90,7 @@ az mariadb server replica stop --name mydemoreplicaserver --resource-group myres
 
 `az mariadb server replica stop`Kommandot kräver följande parametrar:
 
-| Inställningen | Exempelvärde | Description  |
+| Inställningen | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resurs gruppen där replik servern finns.  |
 | name | mydemoreplicaserver | Namnet på replik servern där replikeringen ska stoppas. |

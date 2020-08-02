@@ -7,12 +7,13 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 1346d1402b46088ce0bed015c723cf817d982317
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 50875d0575da7287269bee55004a2acfa5396cd5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118111"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87493558"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Konfigurera och få åtkomst till Server loggar med hjälp av Azure CLI
 Du kan hämta fel loggarna för PostgreSQL-servern med hjälp av kommando rads gränssnittet (Azure CLI). Åtkomst till transaktions loggar stöds dock inte. 

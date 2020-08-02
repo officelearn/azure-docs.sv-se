@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
-ms.custom: jagaveer
-ms.openlocfilehash: 70d7eb000ed2d50bc22bb005621ee7515e5a2a61
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: jagaveer, devx-track-azurecli
+ms.openlocfilehash: 2898364811616c16a0c33ea26dcaacace9c2c4ed
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527463"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87491807"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Virtuella Azure-datorer för skalnings uppsättningar för virtuella datorer 
 
@@ -47,7 +47,7 @@ Om du vill distribuera virtuella datorer på skalnings uppsättningar kan du st�
 - [Azure-portalen](#portal)
 - [Azure CLI](#azure-cli)
 - [Azure PowerShell](#powershell)
-- [Azure Resource Manager mallar](#resource-manager-templates)
+- [Azure Resource Manager-mallar](#resource-manager-templates)
 
 ## <a name="portal"></a>Portalen
 
@@ -101,7 +101,7 @@ För distributioner av dekor mallar använder `"apiVersion": "2019-03-01"` eller
 
 Ändra parametern till om du vill ta bort instansen när den har avlägsnats `evictionPolicy` `Delete` .
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **F:** När det har skapats är en punkt instans samma som standard instans?
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 312723818c4cef82ad6c96b013d7ec81ede276cc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: ed517f2f6e04f60ec1c9c808f2fdf03203fb891b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130910"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498981"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Förbered Azure för lokal haveri beredskap till Azure
 
@@ -62,7 +62,7 @@ För att slutföra dessa uppgifter måste ditt konto tilldelas en inbyggd roll s
 6. I **region**väljer du den region där valvet ska placeras. Använder vi **Europa, västra**.
 7. Välj **Granska + skapa**.
 
-   ![Skapa ett nytt valv](./media/tutorial-prepare-azure/new-vault-settings.png)
+   ![Skärm bild av sidan Skapa Recovery Services valv.](./media/tutorial-prepare-azure/new-vault-settings.png)
 
    Det nya valvet visas nu i **instrument panelen**  >  **alla resurser**och på huvud sidan **Recovery Services valv** .
 
@@ -81,7 +81,7 @@ Lokala datorer replikeras till Azure Managed disks. När redundansväxlingen int
 9. Vi lämnar standard alternativen för grundläggande DDoS-skydd, utan tjänst slut punkt eller brand vägg i nätverket.
 9. Välj **Skapa**.
 
-   ![Skapa ett virtuellt nätverk](media/tutorial-prepare-azure/create-network.png)
+   ![Skärm bild av alternativen för att skapa virtuella nätverk.](media/tutorial-prepare-azure/create-network.png)
 
 Det tar några sekunder att skapa ditt virtuella nätverk. När den har skapats visas den i Azure Portal instrument panelen.
 

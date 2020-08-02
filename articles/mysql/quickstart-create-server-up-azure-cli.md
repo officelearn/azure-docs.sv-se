@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
-ms.custom: mvc
-ms.openlocfilehash: f2d0d0517579608a76ccf8c1e63aa993556e8d58
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 4f2c0a51f7c8d2441c9ddff2520dae2f5cc13565
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608033"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495358"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Snabb start: skapa en Azure Database for MySQL med ett enkelt Azure CLI-kommando – AZ MySQL up (för hands version)
 
@@ -22,7 +22,7 @@ ms.locfileid: "84608033"
 
 Azure Database för MySQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga MySQL-databaser i molnet. Azure CLI används för att skapa och hantera Azure-resurser från kommando raden eller i skript. Den här snabb starten visar hur du använder kommandot [AZ MySQL up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) för att skapa en Azure Database for MySQL-server med hjälp av Azure CLI. Förutom att skapa-servern `az mysql up` skapar kommandot en exempel databas, en rot användare i databasen, öppnar brand väggen för Azure-tjänster och skapar standard brand Väggs regler för klient datorn. Detta hjälper till att påskynda utvecklings processen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -62,7 +62,7 @@ server-name | Genereras av systemet | Ett unikt namn för Azure Database för My
 resource-group | Genereras av systemet | En ny Azure-resurs grupp.
 sku-name | GP_Gen5_2 | Namnet på SKU:n. Följer konventionen {prisnivå}\_{beräkningsgenerering}\_{vCores} i snabbformat. Standardvärdet är en Generell användning Gen5-server med 2 virtuella kärnor. På vår [prissättnings sida](https://azure.microsoft.com/pricing/details/mysql/) finns mer information om nivåerna.
 backup-retention | 7 | Hur länge en säkerhetskopia ska behållas. Enheten är dagar.
-geo-redundant-backup | Disabled | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern eller inte.
+geo-redundant-backup | Inaktiverad | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern eller inte.
 location | westus2 | Azure-platsen för servern.
 ssl-enforcement | Enabled | Om SSL ska vara aktiverat eller inte för den här servern.
 storage-size | 5120 | Serverns lagringskapacitet (enheten är megabyte).

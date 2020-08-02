@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 04/29/2020
-ms.custom: mvc
-ms.openlocfilehash: 6bb3c25d4d4d24e626ad210c78c6ac64c560e43e
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 32efda0c97bec10f2c8aa29d6f83a28538d64468
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614391"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496788"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-powershell"></a>Självstudie: utforma en Azure Database for MySQL med hjälp av PowerShell
 
@@ -28,14 +28,14 @@ Azure Database for MySQL är en relationsdatabastjänst i Microsoft-molnet som �
 > - Uppdatera data
 > - Återställa data
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 Om du väljer att använda PowerShell lokalt kräver den här artikeln att du installerar AZ PowerShell-modulen och ansluter till ditt Azure-konto med hjälp av cmdleten [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) . Mer information om hur du installerar AZ PowerShell-modulen finns i [installera Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
-> Även om modulen AZ. MySql PowerShell är i för hands version måste du installera den separat från AZ PowerShell-modulen med hjälp av följande `Install-Module -Name Az.MySql -AllowPrerelease`kommando:.
+> Även om modulen AZ. MySql PowerShell är i för hands version måste du installera den separat från AZ PowerShell-modulen med hjälp av följande kommando: `Install-Module -Name Az.MySql -AllowPrerelease` .
 > När AZ. MySql PowerShell-modulen är allmänt tillgänglig blir den en del av framtida versioner av AZ PowerShell-moduler och är tillgängliga internt från Azure Cloud Shell.
 
 Om det här är första gången du använder tjänsten Azure Database for MySQL måste du registrera Resource-providern för **Microsoft. DBforMySQL** .
@@ -76,11 +76,11 @@ $Password = Read-Host -Prompt 'Please enter your password' -AsSecureString
 New-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -Sku GP_Gen5_2 -GeoRedundantBackup Enabled -Location westus -AdministratorUsername myadmin -AdministratorLoginPassword $Password
 ```
 
-Värdet för **SKU** -parametern följer konventions **pris-\_nivå beräknings generationens\_virtuella kärnor** som visas i följande exempel.
+Värdet för **SKU** -parametern följer konventions **pris-nivå \_ beräknings generationens \_ virtuella kärnor** som visas i följande exempel.
 
 - `-Sku B_Gen5_1` mappar till Basic, Gen 5 och 1 virtuell kärna. Det här alternativet är minsta tillgängliga SKU.
 - `-Sku GP_Gen5_32` mappar till generell användning, Gen 5 och 32 vCores.
-- `-Sku MO_Gen5_2` mappar till minnesoptimerad, Gen 5 och 2 vCores.
+- `-Sku MO_Gen5_2` mappar till minnesoptimerad, Gen 5 och 2 virtuella kärnor.
 
 Information om giltiga **SKU** -värden per region och för nivåer finns i [Azure Database for MySQL pris nivåer](./concepts-pricing-tiers.md).
 
@@ -91,7 +91,7 @@ Information om giltiga **SKU** -värden per region och för nivåer finns i [Azu
 
 ## <a name="configure-a-firewall-rule"></a>Konfigurera en brandväggsregel
 
-Skapa Azure Database for MySQL en brand Väggs regel på `New-AzMySqlFirewallRule` server nivå med hjälp av cmdleten. En brand Väggs regel på `mysql` server nivå gör att ett externt program, till exempel kommando rads verktyget eller MySQL Workbench, kan ansluta till servern via Azure Database for MySQL tjänstens brand vägg.
+Skapa Azure Database for MySQL en brand Väggs regel på server nivå med hjälp av `New-AzMySqlFirewallRule` cmdleten. En brand Väggs regel på server nivå gör att ett externt program, till exempel `mysql` kommando rads verktyget eller MySQL Workbench, kan ansluta till servern via Azure Database for MySQL tjänstens brand vägg.
 
 I följande exempel skapas en brand Väggs regel med namnet **AllowMyIP** som tillåter anslutningar från en speciell IP-adress, 192.168.0.1. Ersätt en IP-adress eller ett intervall med IP-adresser som motsvarar den plats som du ansluter från.
 
@@ -188,7 +188,7 @@ SELECT * FROM inventory;
 
 Du kan återställa servern till en tidigare tidpunkt. Återställda data kopieras till en ny server och den befintliga servern lämnas oförändrad. Om en tabell t. ex. har släppts av misstag kan du återställa till den tid då bara den här minskningen ägde rum. Sedan kan du hämta den saknade tabellen och data från den återställda kopian av servern.
 
-Använd `Restore-AzMySqlServer` PowerShell-cmdleten för att återställa servern.
+Använd PowerShell-cmdleten för att återställa servern `Restore-AzMySqlServer` .
 
 ### <a name="run-the-restore-command"></a>Kör kommandot Restore
 

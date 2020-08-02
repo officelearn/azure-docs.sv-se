@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: caa73b5a86c5c245aefd18de9b60ec49616b3b84
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7d583172fe4021a2709a4d58b5488e9bc3898919
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281556"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497604"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Hantera ögonblicksbilder med hjälp av Azure NetApp Files
 
@@ -47,8 +47,22 @@ Du kan skapa ögonblicks bilder av volymen på begäran.
 
 Du kan schemalägga att ögonblicks bilder av volymen ska tas automatiskt med hjälp av ögonblicks bilds principer. Du kan också ändra en ögonblicks bild princip efter behov eller ta bort en ögonblicks bild princip som du inte längre behöver.  
 
-> [!IMPORTANT] 
-> Om du använder funktionen för ögonblicks bilds principer krävs vit listning. Skicka e-post anffeedback@microsoft.com med ditt prenumerations-ID för att begära den här funktionen.
+### <a name="register-the-feature"></a>Registrera funktionen
+
+1. Funktionen för **ögonblicks bilds principen** är för närvarande en för hands version. Om det här är första gången du använder den här funktionen ska du registrera funktionen innan du använder den: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
+    ```
+
+2. Kontrol lera status för funktions registreringen: 
+
+    > [!NOTE]
+    > **RegistrationState** kan vara i ett `Registering` tillstånd i flera minuter innan du ändrar till `Registered` . Vänta tills statusen har **registrerats** innan du fortsätter.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
+    ```
 
 ### <a name="create-a-snapshot-policy"></a>Skapa en ögonblicks bild princip 
 

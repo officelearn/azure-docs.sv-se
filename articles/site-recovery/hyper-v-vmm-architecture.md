@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: fbd11c279708cd828693baab3f9f6df91515bc48
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 703a6afdc12c8a9863ff0f480ec7a577ec31ef77
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133910"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496006"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>Arkitektur – Hyper-V-replikering till en sekundär plats
 
@@ -23,7 +23,7 @@ a
 
 Följande tabell och grafik ger en övergripande bild av de komponenter som används för Hyper-V-replikering till en sekundär plats.
 
-**Komponent** | **Krav** | **Detaljer**
+**Komponent** | **Krav** | **Information**
 --- | --- | ---
 **Azure** | Azure-prenumeration | Du kan skapa ett Recovery Services-valv i Azure-prenumerationen för att dirigera och hantera replikeringen mellan VMM-platser.
 **VMM-server** | Du behöver en primär och sekundär VMM-plats. | Vi rekommenderar att det finns en VMM-server på den primära platsen och en på den sekundära platsen.
@@ -32,7 +32,7 @@ Följande tabell och grafik ger en övergripande bild av de komponenter som anv�
 
 **Lokal till lokal arkitektur**
 
-![Lokal till lokal](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
+![Diagram över lokalt skydd på plats.](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
 
 ## <a name="replication-process"></a>Replikeringsprocessen
 

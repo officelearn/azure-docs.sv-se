@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 6571f4351fb3410d1c10079a41b7041eb85ee5e3
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 28563dc1e8acf4e521d75a7f4f8986d92d2a8348
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423770"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497944"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Ge åtkomst till blob-och Queue-data med hanterade identiteter för Azure-resurser
 
@@ -45,7 +45,7 @@ Efter autentiseringen får klient biblioteket för Azure Identity ett token-aute
 
 Mer information om klient biblioteket för Azure Identity för .NET finns i [klient biblioteket för Azure Identity för .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity). Referens dokumentation för klient biblioteket för Azure Identity finns i [namn området för Azure. Identity](/dotnet/api/azure.identity).
 
-### <a name="assign-role-based-access-control-rbac-roles-for-access-to-data"></a>Tilldela rollen rollbaserad åtkomst kontroll (RBAC) roller för åtkomst till data
+### <a name="assign-azure-roles-for-access-to-data"></a>Tilldela Azure-roller för åtkomst till data
 
 När ett Azure AD-säkerhetsobjekt försöker komma åt BLOB-eller Queue data, måste säkerhets objektets behörigheter ha behörighet till resursen. Om säkerhetsobjektet är en hanterad identitet i Azure eller ett Azure AD-användarkonto som kör kod i utvecklings miljön, måste säkerhets objekt tilldelas en RBAC-roll som ger åtkomst till BLOB-eller Queue-data i Azure Storage. Information om hur du tilldelar behörigheter via RBAC finns i avsnittet **tilldela RBAC-roller för åtkomst rättigheter** i [auktorisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
 

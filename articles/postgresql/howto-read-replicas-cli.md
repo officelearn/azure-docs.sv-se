@@ -6,12 +6,13 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: de74258cadcdf81da211561a84ff06927830e690
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 491b3ecfc950fa5f76bfe78eec52e81433294c23
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274415"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500086"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Skapa och hantera Läs repliker från Azure CLI REST API
 
@@ -31,7 +32,7 @@ Servern måste startas om efter en ändring av den här parametern. Internt ange
 ## <a name="azure-cli"></a>Azure CLI
 Du kan skapa och hantera Läs repliker med hjälp av Azure CLI.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - En [Azure Database for postgresql-server](quickstart-create-server-up-azure-cli.md) som ska vara huvud servern.
@@ -61,7 +62,7 @@ Du kan skapa och hantera Läs repliker med hjälp av Azure CLI.
 
 Kommandot [AZ postgres Server Replica Create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) kräver följande parametrar:
 
-| Inställning | Exempelvärde | Beskrivning  |
+| Inställningen | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
 | resource-group | myresourcegroup |  Resurs gruppen där replik servern kommer att skapas.  |
 | name | mydemoserver-replik | Namnet på den nya replik servern som skapas. |

@@ -5,18 +5,19 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 4b82e02ecc009e587b89d1fd151fd13f75a4bcf8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 90d5c2688d20b62a4a5fda78eb67ed01777bc28c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80408514"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496890"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Självstudie: Använd Azure snabb starts mallar
 
 [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/) är en lagrings plats för community-mallar. Du kan använda exempel mallarna i din mall utveckling. I den här självstudien hittar du en resurs definition för webbplatsen och lägger till den i din egen mall. Det tar ungefär **12 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi rekommenderar att du slutför [självstudien om exporterade mallar](template-tutorial-export-template.md), men det är inte obligatoriskt.
 
@@ -36,7 +37,7 @@ Den här mallen används för att distribuera lagrings konton och App Service-pl
 1. I **Sök**anger du **distribuera Linux-webbapp**.
 1. Välj den som innehåller rubriken **distribuera en grundläggande Linux-webbapp**. Om du har problem med att hitta det här är den [direkta länken](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
 1. Välj **Bläddra på GitHub**.
-1. Välj **azuredeploy. JSON**.
+1. Välj **azuredeploy.jspå**.
 1. Granska mallen. Leta särskilt efter `Microsoft.Web/sites` resursen.
 
     ![Snabb starts webbplats för Resource Manager-mall](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
@@ -77,7 +78,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill köra det här distributions kommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
+För att köra det här distributionskommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
 
 ```azurecli
 az deployment group create \

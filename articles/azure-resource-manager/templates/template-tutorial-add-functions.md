@@ -5,18 +5,19 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e4984b286bf031b66272919a487d09a90f972ce0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: fe6185f0e7d6ee570c1491f3b21b6aebe4f090ae
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80410966"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497570"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>Självstudie: Lägg till mallar i ARM-mallen
 
 I den här självstudien får du lära dig hur du lägger till [mallar](template-functions.md) i din Azure Resource Manager-mall (arm). Du använder funktioner för att dynamiskt konstruera värden. Förutom dessa funktioner som tillhandahålls av systemet kan du också skapa [användardefinierade funktioner](./template-user-defined-functions.md). Den här självstudien tar **7 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi rekommenderar att du slutför [självstudien om parametrar](template-tutorial-add-parameters.md), men det är inte obligatoriskt.
 
@@ -60,7 +61,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill köra det här distributions kommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
+För att köra det här distributionskommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
 
 ```azurecli
 az deployment group create \

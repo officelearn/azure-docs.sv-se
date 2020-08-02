@@ -7,13 +7,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 11/13/2018
 ms.author: zhshang
-ms.custom: mvc
-ms.openlocfilehash: eb45adb699ef0f97782e6cdb8e141e254b3993f9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 3b0d88b548f68bc365adfa3fdb3149db9c9f43f0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74158018"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494748"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>Skapa en SignalR Service med en App Service
 
@@ -78,7 +78,7 @@ Anteckna det faktiska namnet som genereras för den nya resursgruppen. Det visas
 
 Varje kommando i tabellen länkar till kommandospecifik dokumentation. I det här skriptet används följande kommandon:
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az signalr create](/cli/azure/signalr#az-signalr-create) | Skapar en Azure SignalR-tjänstresurs. |

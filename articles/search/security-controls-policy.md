@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: search
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: e030bc86dcdd36e6267345433510a79c5eb13bd0
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: b039073810b7b429a560485bcc55df3be569be17
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475013"
+ms.locfileid: "87494884"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cognitive-search"></a>Azure Policy kontroll av efterlevnad för Azure Kognitiv sökning
 
-Om du använder [Azure policy](../governance/policy/overview.md) för att genomdriva rekommendationerna i [Azure Security benchmark](../security/benchmarks/introduction.md)vet du förmodligen redan att du kan skapa principer för att identifiera och åtgärda icke-kompatibla tjänster. Dessa principer kan vara anpassade, eller så kan de baseras på inbyggda definitioner som innehåller villkor för efterlevnad och lämpliga lösningar.
+Om du använder [Azure policy](../governance/policy/overview.md) för att genomdriva rekommendationerna i [Azure Security benchmark](../security/benchmarks/introduction.md)vet du förmodligen redan att du kan skapa principer för att identifiera och åtgärda icke-kompatibla tjänster. Dessa principer kan vara anpassade, eller så kan de baseras på inbyggda definitioner som innehåller villkor för efterlevnad och lämpliga lösningar för välförståde metod tips.
 
-För Azure Kognitiv sökning finns det för närvarande en inbyggd definition som du kan använda i en princip tilldelning. Det inbyggda är för loggning och övervakning. Genom att använda den här inbyggda definitionen i en [princip som du skapar](../governance/policy/assign-policy-portal.md), söker systemet efter Sök tjänster som inte har [diagnostikloggning](search-monitor-logs.md)och aktiverar det därefter.
+För Azure Kognitiv sökning finns det för närvarande en inbyggd definition, som visas nedan, som du kan använda i en princip tilldelning. Det inbyggda är för loggning och övervakning. Genom att använda den här inbyggda definitionen i en [princip som du skapar](../governance/policy/assign-policy-portal.md), söker systemet efter Sök tjänster som inte har [diagnostikloggning](search-monitor-logs.md)och aktiverar det därefter.
 
 Regelefterlevnad som [följer Azure policy](../governance/policy/concepts/regulatory-compliance.md) tillhandahåller definitioner av Microsoft-skapade och hanterade initiativ, som kallas _inbyggda moduler_, för **domäner** och **säkerhets kontroller** som är relaterade till olika efterlevnads standarder. Den här sidan innehåller en lista över **domäner för efterlevnad** och **säkerhets kontroller** för Azure kognitiv sökning. Du kan tilldela de inbyggda programmen för en **säkerhets kontroll** individuellt för att hjälpa dina Azure-resurser att vara kompatibla med den aktuella standarden.
 

@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ec15f87bdbf381b71faa7cefd986dd5e55e17a19
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9db7f2016de01edbedfa9e7d7254561fea957d2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964999"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495309"
 ---
 # <a name="use-t-sql-loops-in-synapse-sql"></a>Använd T-SQL-slingor i Synapse SQL
 Den här artikeln innehåller viktiga tips för att använda T-SQL-slingor, ersätta markörer och utveckla relaterade lösningar med SQL-poolen i Synapse SQL.
@@ -26,7 +26,7 @@ Synapse SQL stöder [while](https://docs.microsoft.com/sql/t-sql/language-elemen
 
 Slingor i SQL-poolen är användbara för att ersätta markörer som definierats i SQL-kod. Lyckligt vis är nästan alla markörer som skrivs i SQL-kod av den snabba, skrivskyddade sorten. Därför är det ett bra alternativ att ersätta markörer med [WHILe]-slingor.
 
-## <a name="replacing-cursors-in-sql-pool"></a>Ersätta markörer i SQL-pool
+## <a name="replace-cursors-in-sql-pool"></a>Ersätt markörer i SQL-pool
 
 Innan simhopp i bör följande fråga beaktas: "kan den här markören skrivas om för att använda set-based Operations?" I många fall är svaret ja och det är ofta den bästa metoden. En fristående åtgärd körs ofta snabbare än en upprepad rad med rad-metod.
 

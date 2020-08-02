@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/29/2020
-ms.openlocfilehash: e8dadbad309a146500db342f55bee9339fde6172
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 07/30/2020
+ms.openlocfilehash: dba0fccaa3eb79ad297ce80462efea5b69a4a009
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430985"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497060"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Etablera data flöde för autoskalning på databas eller behållare i Azure Cosmos DB
 
@@ -244,11 +244,11 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 
 ## <a name="cassandra-api"></a>Cassandra-API
 
-Azure Cosmos DB konton för API för Cassandra kan tillhandahållas för autoskalning med [CQL-kommandon](manage-scale-cassandra.md#use-autoscale), [Azure CLI](cli-samples.md)eller [Azure Resource Manager mallar](resource-manager-samples.md).
+Azure Cosmos DB konton för API för Cassandra kan tillhandahållas för autoskalning med [CQL-kommandon](manage-scale-cassandra.md#use-autoscale), [Azure CLI](cli-samples.md), [Azure PowerShell](powershell-samples.md) eller [Azure Resource Manager mallar](resource-manager-samples.md).
 
 ## <a name="azure-cosmos-db-api-for-mongodb"></a>API för Azure Cosmos DB för MongoDB
 
-Azure Cosmos DB konton för MongoDB-API: et kan tillhandahållas för autoskalning med hjälp av [MongoDB-tilläggs kommandon](mongodb-custom-commands.md), [Azure CLI](cli-samples.md)eller [Azure Resource Manager mallar](resource-manager-samples.md).
+Azure Cosmos DB konton för MongoDB-API: et kan tillhandahållas för autoskalning med [MongoDB-tilläggs kommandon](mongodb-custom-commands.md), [Azure CLI](cli-samples.md), [Azure PowerShell](powershell-samples.md) eller [Azure Resource Manager mallar](resource-manager-samples.md).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -257,6 +257,10 @@ Azure Resource Manager mallar kan användas för att etablera data flöde för a
 ## <a name="azure-cli"></a>Azure CLI
 
 Azure CLI kan användas för att etablera autoskalning av data flödet på en databas eller behållares nivå resurser för alla Azure Cosmos DB-API: er. Exempel finns i exempel [på Azure CLI-exempel för Azure Cosmos DB](cli-samples.md).
+
+## <a name="azure-powershell"></a>Azure PowerShell
+
+Azure PowerShell kan användas för att etablera data flöde för autoskalning på en databas eller behållares nivå resurser för alla Azure Cosmos DB-API: er. Exempel finns [Azure PowerShell exempel för Azure Cosmos DB](powershell-samples.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

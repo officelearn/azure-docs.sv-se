@@ -9,14 +9,14 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: a1f6548a83736cfb0e519559fd22e16d4527ae0b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c578958616e4b4d2d7d3aef1de1650566e0bd40e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197666"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496414"
 ---
-# <a name="using-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Använda Multi-Factor AAD-autentisering med Synapse SQL (SSMS-stöd för MFA)
+# <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Använd Multi-Factor AAD-autentisering med Synapse SQL (SSMS-stöd för MFA)
 
 Synapse SQL-support anslutningar från SQL Server Management Studio (SSMS) med *Active Directory Universal Authentication*. 
 
@@ -45,7 +45,7 @@ Den interaktiva metoden är att även har stöd för Azure Multi-Factor Authenti
 
 - `Active Directory - Universal with MFA`
 
-Azures MFA bidrar till att skydda åtkomsten till data och program och tillgodoser samtidigt användarens önskemål om en enkel inloggningsprocess. Den ger stark autentisering med en rad enkla verifierings alternativ (telefonsamtal, textmeddelande, smartkort med PIN-kod eller meddelande för mobilapp), så att användarna kan välja den metod de föredrar. Interaktiv MFA med Azure AD kan resultera i en popup-dialogruta för verifiering.
+Azure MFA bidrar till att skydda åtkomsten till data och program och tillgodoser samtidigt användarens önskemål om en enkel inloggningsprocess. Den ger stark autentisering med en rad enkla verifierings alternativ (telefonsamtal, textmeddelande, smartkort med PIN-kod eller meddelande för mobilapp), så att användarna kan välja den metod de föredrar. Interaktiv MFA med Azure AD kan resultera i en popup-dialogruta för verifiering.
 
 En beskrivning av Multi-Factor Authentication finns i [Multi-Factor Authentication](../../active-directory/authentication//concept-mfa-howitworks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
@@ -84,13 +84,13 @@ Observera att användaren `steve@gmail.com` som gäst användare måste markera 
 
 ## <a name="universal-authentication-limitations-for-synapse-sql"></a>Begränsningar för Universal-autentisering för Synapse SQL
 
-- SSMS och SqlPackage. exe är de enda verktyg som är aktiverade för MFA genom Active Directory Universal Authentication.
+- SSMS och SqlPackage.exe är de enda verktyg som för närvarande är aktiverade för MFA genom Active Directory Universal-autentisering.
 - SSMS version 17,2, stöder samtidig åtkomst till flera användare med hjälp av Universal Authentication med MFA. Version 17,0 och 17,1, begränsad en inloggning för en instans av SSMS med hjälp av Universal Authentication till ett enda Azure Active Directory konto. Om du vill logga in som ett annat Azure AD-konto måste du använda en annan instans av SSMS. (Den här begränsningen är begränsad till Active Directory Universal Authentication. du kan logga in på olika servrar med Active Directory lösenordsautentisering, Active Directory integrerad autentisering eller SQL Server autentisering).
 - SSMS stöder Active Directory Universal Authentication för Object Explorer, Frågeredigeraren och visualisering av fråge arkiv.
 - SSMS version 17,2 ger stöd för DacFx-guiden för export/extrahering/distribution av data databaser. När en enskild användare har autentiserats via dialog rutan inledande autentisering med hjälp av Universal Authentication, fungerar DacFx-guiden på samma sätt som för alla andra autentiseringsmetoder.
 - SSMS-Tabelldesigner stöder inte Universal-autentisering.
 - Det finns inga ytterligare program varu krav för Active Directory Universal Authentication, förutom att du måste använda en version av SSMS som stöds.  
-- Active Directory-autentiseringsbibliotek-versionen (ADAL) för Universal Authentication har uppdaterats till den senaste ADAL. dll-3.13.9 tillgänglig version. Se [Active Directory-autentiseringsbibliotek 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
+- Active Directory-autentiseringsbibliotek-versionen (ADAL) för Universal Authentication har uppdaterats till den senaste ADAL.dll 3.13.9 tillgänglig version. Se [Active Directory-autentiseringsbibliotek 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information finns i avsnittet [ansluta till SYNAPSE SQL med SQL Server Management Studio](get-started-ssms.md) artikeln. 

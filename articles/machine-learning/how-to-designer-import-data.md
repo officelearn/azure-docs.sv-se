@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 01/16/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 92568ceb9c7f0a428189647f259a3f84278eb612
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d977c8e13ce75eb276c8fdb11e9dd40e40a923ad
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327012"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495379"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importera data till Azure Machine Learning designer (förhands granskning)
 
@@ -32,7 +32,7 @@ Vi rekommenderar att du använder data [uppsättningar](concept-data.md#datasets
 
 ### <a name="register-a-dataset"></a>Registrera en data uppsättning
 
-Du kan registrera befintliga data uppsättningar [program mässigt med SDK](how-to-create-register-datasets.md#use-the-sdk) eller [visuellt i Azure Machine Learning Studio](how-to-create-register-datasets.md#use-the-ui).
+Du kan registrera befintliga data uppsättningar [program mässigt med SDK](how-to-create-register-datasets.md#datasets-sdk) eller [visuellt i Azure Machine Learning Studio](how-to-create-register-datasets.md#datasets-ui).
 
 Du kan också registrera utdata för alla designer-moduler som en data uppsättning.
 
@@ -59,7 +59,7 @@ Vi rekommenderar att du använder data uppsättningar för att importera data, m
 Detaljerad information om hur du använder modulen importera data finns på [sidan Importera data referens](algorithm-module-reference/import-data.md).
 
 > [!NOTE]
-> Om din data uppsättning har för många kolumner kan följande fel uppstå: "verifieringen misslyckades på grund av storleks begränsning". Undvik detta genom att [registrera data uppsättningen i gränssnittet för data uppsättningar](how-to-create-register-datasets.md#use-the-ui).
+> Om din data uppsättning har för många kolumner kan följande fel uppstå: "verifieringen misslyckades på grund av storleks begränsning". Undvik detta genom att [registrera data uppsättningen i gränssnittet för data uppsättningar](how-to-create-register-datasets.md#datasets-ui).
 
 ## <a name="supported-sources"></a>Källor som stöds
 

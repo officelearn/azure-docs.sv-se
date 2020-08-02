@@ -4,18 +4,18 @@ description: Lär dig hur SQL-parametriserade frågor ger robust hantering och a
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: e15a8236723c1efd80f27f2d253e9bbc44af4b0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f66bc89ef56dd0c2291903d531a4637210abd8df
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74870827"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496992"
 ---
 # <a name="parameterized-queries-in-azure-cosmos-db"></a>Parametriserade frågor i Azure Cosmos DB
 
-Cosmos DB stöder frågor med parametrar som uttrycks av den välkända @-notationen. Parametriserade SQL ger robust hantering och avvisning av indata från användaren, och förhindrar oavsiktlig exponering av data via SQL-inmatning.
+Azure Cosmos DB stöder frågor med parametrar som uttrycks av den välkända @-notationen. Parametriserade SQL ger robust hantering och avvisning av indata från användaren, och förhindrar oavsiktlig exponering av data via SQL-inmatning.
 
 ## <a name="examples"></a>Exempel
 
@@ -27,7 +27,7 @@ Du kan till exempel skriva en fråga som använder `lastName` och `address.state
     WHERE f.lastName = @lastName AND f.address.state = @addressState
 ```
 
-Du kan sedan skicka denna begäran till Cosmos DB som en parameter-JSON-fråga som följande:
+Du kan sedan skicka denna begäran till Azure Cosmos DB som en parameter-JSON-fråga som följande:
 
 ```sql
     {
@@ -39,7 +39,7 @@ Du kan sedan skicka denna begäran till Cosmos DB som en parameter-JSON-fråga s
     }
 ```
 
-I följande exempel anges det översta argumentet med en parametriserad fråga: 
+I följande exempel anges det översta argumentet med en parametriserad fråga:
 
 ```sql
     {
@@ -50,8 +50,14 @@ I följande exempel anges det översta argumentet med en parametriserad fråga:
     }
 ```
 
-Parameter värden kan vara valfri giltig JSON: strängar, siffror, booleska värden, null, jämna matriser eller kapslad JSON. Eftersom Cosmos DB är schema löst val IDE ras inte parametrar mot någon typ.
+Parameter värden kan vara valfri giltig JSON: strängar, siffror, booleska värden, null, jämna matriser eller kapslad JSON. Eftersom Azure Cosmos DB är schema löst val IDE ras inte parametrar mot någon typ.
 
+Här följer några exempel på parametriserade frågor i varje Azure Cosmos DB SDK:
+
+- [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs#L195)
+- [Java](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L392-L421)
+- [Node.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ItemManagement.ts#L58-L79)
+- [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L66-L78)
 
 ## <a name="next-steps"></a>Nästa steg
 

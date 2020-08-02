@@ -9,12 +9,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 1a4edabe666a554ccd01d110f0f71226221dfc67
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: e3407a1da469bf4f31e5d54d83ee837bddbafffc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77523665"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494765"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Arbeta med nyckelvärden i ett Azure App Configuration-arkiv
 
@@ -81,7 +82,7 @@ az appconfig kv list --name $appConfigName
 
 I den här tabellen visas de kommandon som används i vårt exempel skript. 
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
 | [az appconfig kv set](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Skapa eller uppdatera ett nyckel/värde-par. |
 | [az appconfig kv list](/cli/azure/appconfig/kv#az-appconfig-kv-list) | Visa en lista med nyckel/värde-par i ett konfigurations Arkiv för appar. |

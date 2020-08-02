@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 111453b30a0c2fd7c0b2a2077b31b2cf16ebda06
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: d981bad30bf57fde64d1f6e903039dda5007e526
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445674"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87483917"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Vill du arkivera vad som är nytt i Azure Active Directory?
 
@@ -3307,7 +3307,7 @@ Mer information finns i:
 
 Nu kan du gå till åtkomst panelen och Visa användnings villkoren som du har accepterat tidigare.
 
-Följ de här stegen:
+Gör så här:
 
 1. Gå till portalen för mina [appar](https://myapps.microsoft.com)och logga in.
 
@@ -3407,7 +3407,7 @@ Med den offentliga förhands gransknings uppdateringen av Azure AD Privileged Id
 
 * Använd bara tillräckligt med administration.
 * Kräv godkännande för att aktivera resurs roller.
-* Schemalägg en framtida aktivering av en roll som kräver godkännande för både Azure AD-och Azure RBAC-roller.
+* Schemalägg en framtida aktivering av en roll som kräver godkännande för både Azure AD-och Azure-roller.
 
 Mer information finns i [Privileged Identity Management för Azure-resurser (för hands version)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
 

@@ -7,19 +7,20 @@ ms.topic: how-to
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ae40f94ca6c8c0b92c85a49e634aa02c81a98eff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: a5bdfbbc505f6abe4fee021df014e32d3ccae074
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509990"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497638"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Så här skapar du en Premium Azure-filresurs
 Premium-filresurser erbjuds på lagrings mediet SSD (solid-state disk) och är användbara för i/o-intensiva arbets belastningar, inklusive värd databaser och HPC (data behandling med höga prestanda). Premium-filresurser finns i en särskild typ av lagrings konto, vilket kallas ett FileStorage-konto. Premium-filresurser är utformade för högpresterande program och företags skalnings program, vilket ger konsekvent låg latens, höga IOPS och höga data flödes resurser.
 
 Den här artikeln visar hur du skapar den här nya konto typen med hjälp av [Azure Portal](https://portal.azure.com/), Azure PowerShell och Azure CLI.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en Azure-prenumeration för att få åtkomst till Azure-resurser, inklusive Premium Azure-filresurser. Om du inte redan har en prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

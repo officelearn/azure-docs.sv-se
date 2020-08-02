@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c36df4745e276471e35addf4774470dbaaa9e150
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1099c4e4dd69a8dc8caee96ec5dda633ce8b9d12
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080717"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496210"
 ---
 # <a name="database-collation-support-for-synapse-sql"></a>Stöd för databas sortering för Synapse SQL
 
@@ -23,7 +23,7 @@ Du kan ändra standard databas sorteringen från Azure Portal när du skapar en 
 
 Du kan ange standard sorteringen för SQL-Synapse på begäran när den skapas med instruktionen CREATE DATABASE.
 
-## <a name="changing-collation"></a>Ändrar sortering
+## <a name="change-collation"></a>Ändrings sortering
 Om du vill ändra standard sorteringen för SQL-pool-databasen kan du enkelt uppdatera sorterings fältet i etablerings upplevelsen. Om du till exempel vill ändra standard sorteringen till Skift läges känslig, behöver du bara byta namn på sorteringen från SQL_Latin1_General_CP1_CI_AS till SQL_Latin1_General_CP1_CS_AS. 
 
 Om du vill ändra standard sorteringen för SQL på begäran-databasen kan du använda ALTER DATABASE-instruktionen.
@@ -104,7 +104,7 @@ Dessutom stöder SQL-poolen inte följande sorterings typer:
 *    SQL_EBCDIC277_2_CP1_CS_AS
 *    UTF-8
 
-## <a name="checking-the-current-collation"></a>Kontrollerar den aktuella sorteringen
+## <a name="check-the-current-collation"></a>Kontrol lera den aktuella sorteringen
 Om du vill kontrol lera den aktuella sorteringen för databasen kan du köra följande T-SQL-kodfragment:
 ```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;

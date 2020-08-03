@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: mjbrown
-ms.openlocfilehash: 761789b36e85b16f0b4482cef12645e673c73be7
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6e62e307b6c5f5de939505eae8850f0117782a69
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429712"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498369"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Skapa en Azure Cosmos-container
 
@@ -119,17 +120,17 @@ För en lista över alla Azure CLI-exempel i alla Azure Cosmos DB API: er, se [A
 * [Skapa en Gremlin-graf med Azure CLI](./scripts/cli/gremlin/create.md)
 * [Skapa en Tabell-API tabell med Azure CLI](./scripts/cli/table/create.md)
 
-## <a name="create-a-container-using-powershella-idps-mongodba-idps-gremlin"></a>Skapa en behållare med hjälp av PowerShell<a id="ps-sql"></a><a id="ps-mongodb"><a id="ps-cassandra"></a><a id="ps-gremlin"><a id="ps-table"></a>
+## <a name="create-a-container-using-powershell"></a>Skapa en behållare med hjälp av PowerShell
 
 Länkarna nedan visar hur du skapar behållar resurser för Azure Cosmos DB med hjälp av PowerShell.
 
-En lista över alla PowerShell-exempel i alla Azure Cosmos DB API: er finns i [SQL API](powershell-samples-sql.md), [API för Cassandra](powershell-samples-cassandra.md), [MongoDB-API](powershell-samples-mongodb.md), [Gremlin-API](powershell-samples-gremlin.md)och [tabell-API](powershell-samples-table.md)
+En lista över alla PowerShell-exempel i alla Azure Cosmos DB API: er finns i [PowerShell-exempel](powershell-samples.md)
 
 * [Skapa en behållare med PowerShell](manage-with-powershell.md#create-container)
-* [Skapa en samling för Azure Cosmos DB för MongoDB-API med PowerShell](./scripts/powershell/mongodb/ps-mongodb-create.md)
-* [Skapa en Cassandra-tabell med PowerShell](./scripts/powershell/cassandra/ps-cassandra-create.md)
-* [Skapa ett Gremlin-diagram med PowerShell](./scripts/powershell/gremlin/ps-gremlin-create.md)
-* [Skapa en Tabell-API tabell med PowerShell](./scripts/powershell/table/ps-table-create.md)
+* [Skapa en samling för Azure Cosmos DB för MongoDB-API med PowerShell](./scripts/powershell/mongodb/create.md)
+* [Skapa en Cassandra-tabell med PowerShell](./scripts/powershell/cassandra/create.md)
+* [Skapa ett Gremlin-diagram med PowerShell](./scripts/powershell/gremlin/create.md)
+* [Skapa en Tabell-API tabell med PowerShell](./scripts/powershell/table/create.md)
 
 ## <a name="create-a-container-using-net-sdk"></a>Skapa en container med hjälp av .NET SDK
 

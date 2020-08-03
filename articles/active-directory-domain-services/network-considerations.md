@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: a3694b08bee732e3e2d3e7c0c339e5e0d94fe418
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c811240beea896683f891d9513a657b0689b8824
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040035"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488660"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Design överväganden för virtuellt nätverk och konfigurations alternativ för Azure Active Directory Domain Services
 
@@ -62,10 +62,10 @@ Som anges i föregående avsnitt kan du bara skapa en hanterad domän i ett enda
 
 Du kan ansluta program arbets belastningar som finns i andra virtuella Azure-nätverk med någon av följande metoder:
 
-* Virtuell nätverkspeering
+* Peering för virtuella nätverk
 * Virtuellt privat nätverk (VPN)
 
-### <a name="virtual-network-peering"></a>Virtuell nätverkspeering
+### <a name="virtual-network-peering"></a>Peering för virtuella nätverk
 
 Peering för virtuella nätverk är en mekanism som ansluter två virtuella nätverk i samma region via Azures stamnät nätverk. Global peering för virtuella nätverk kan ansluta till virtuella nätverk i Azure-regioner. När de två virtuella nätverken har peer-kopplats kan resurser, till exempel virtuella datorer, kommunicera med varandra direkt med hjälp av privata IP-adresser. Med hjälp av peering för virtuella nätverk kan du distribuera en hanterad domän med dina program arbets belastningar som distribueras i andra virtuella nätverk.
 
@@ -91,7 +91,7 @@ Du kan aktivera namn matchning med villkorliga DNS-vidarebefordrare på den DNS-
 
 En hanterad domän skapar vissa nätverks resurser under distributionen. De här resurserna behövs för lyckad åtgärd och hantering av den hanterade domänen och ska inte konfigureras manuellt.
 
-| Azure-resurs                          | Beskrivning |
+| Azure-resurs                          | Description |
 |:----------------------------------------|:---|
 | Nätverks gränssnitts kort                  | Azure AD DS är värd för den hanterade domänen på två domänkontrollanter (DCs) som körs på Windows Server som virtuella Azure-datorer. Varje virtuell dator har ett virtuellt nätverks gränssnitt som ansluter till det virtuella nätverkets undernät. |
 | Offentlig IP-adress för dynamisk standard      | Azure AD DS kommunicerar med tjänsten synkronisering och hantering med hjälp av en offentlig IP-adress för standard-SKU. Mer information om offentliga IP-adresser finns i [IP-diagramtyper och autentiseringsmetoder i Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
@@ -108,11 +108,13 @@ En [nätverks säkerhets grupp (NSG)](../virtual-network/virtual-networks-nsg.md
 
 Följande regler för nätverks säkerhets grupper krävs för att den hanterade domänen ska kunna tillhandahålla autentiserings-och hanterings tjänster. Redigera inte eller ta bort dessa regler för nätverks säkerhets grupper för det virtuella nätverkets undernät som din hanterade domän distribueras till.
 
-| Portnummer | Protokoll | Källa                             | Mål | Åtgärd | Obligatorisk | Syfte |
+| Portnummer | Protokoll | Källa                             | Mål | Action | Obligatorisk | Syfte |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Alla         | Tillåt  | Ja      | Synkronisering med din Azure AD-klient. |
-| 3389        | TCP      | CorpNetSaw                         | Alla         | Tillåt  | Ja      | Hantering av din domän. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Alla         | Tillåt  | Ja      | Hantering av din domän. |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | Valfri         | Tillåt  | Yes      | Synkronisering med din Azure AD-klient. |
+| 3389        | TCP      | CorpNetSaw                         | Valfri         | Tillåt  | Yes      | Hantering av din domän. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Valfri         | Tillåt  | Yes      | Hantering av din domän. |
+
+En Azure standard Load Balancer skapas som kräver att dessa regler placeras. Den här nätverks säkerhets gruppen säkrar Azure AD DS och krävs för att den hanterade domänen ska fungera korrekt. Ta inte bort den här nätverks säkerhets gruppen. Belastningsutjämnaren fungerar inte korrekt utan den.
 
 > [!WARNING]
 > Redigera inte dessa nätverks resurser och konfigurationer manuellt. När du associerar en felkonfigurerad nätverks säkerhets grupp eller en användardefinierad routningstabell med under nätet där den hanterade domänen distribueras, kan du störa Microsofts möjlighet att underhålla och hantera domänen. Synkronisering mellan din Azure AD-klient och din hanterade domän avbryts också.
@@ -167,5 +169,5 @@ Du måste också dirigera inkommande trafik från IP-adresserna som ingår i res
 Mer information om vissa nätverks resurser och anslutnings alternativ som används av Azure AD DS finns i följande artiklar:
 
 * [Peering för Azure Virtual Network](../virtual-network/virtual-network-peering-overview.md)
-* [Azure VPN-gatewayer](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
+* [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
 * [Azure-nätverkssäkerhetsgrupper](../virtual-network/security-overview.md)

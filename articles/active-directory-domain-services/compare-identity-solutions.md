@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 013b78e0e8ad47e98b1d192bfc48c5c4a4de0163
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1ed1305939f4f8a9de62de85a2f09c323a2636b1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555130"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489596"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Jämför självhanterade Active Directory Domain Services, Azure Active Directory och hanterade Azure Active Directory Domain Services
 
@@ -47,7 +47,7 @@ Om du har program och tjänster som behöver åtkomst till traditionella autenti
 
 Med Azure AD DS distribueras och underhålls kärn tjänst komponenterna av Microsoft som en *hanterad* domän upplevelse. Du distribuerar, hanterar, korrigerar och skyddar AD DS-infrastrukturen för komponenter som de virtuella datorerna, Windows Server-OPERATIVSYSTEMen eller domän kontrol Lanterna (DCs).
 
-Azure AD DS innehåller en mindre delmängd av funktioner för traditionell självhanterad AD DS-miljö, vilket minskar risken för design och hantering. Det finns till exempel inga AD-skogar, domäner, platser och länkar för att utforma och underhålla. Du kan fortfarande [skapa skogs förtroenden mellan Azure AD DS och lokala miljöer (för närvarande i för hands version)][create-forest-trust].
+Azure AD DS innehåller en mindre delmängd av funktioner för traditionell självhanterad AD DS-miljö, vilket minskar risken för design och hantering. Det finns till exempel inga AD-skogar, domäner, platser och länkar för att utforma och underhålla. Du kan fortfarande [skapa skogs förtroenden mellan Azure AD DS och lokala miljöer][create-forest-trust].
 
 För program och tjänster som körs i molnet och som behöver åtkomst till traditionella autentiseringsmekanismer som Kerberos eller NTLM ger Azure AD DS en hanterad domän upplevelse med minsta möjliga administrativa kostnader. Mer information finns i [hanterings begrepp för användar konton, lösen ord och administration i Azure AD DS][administration-concepts].
 

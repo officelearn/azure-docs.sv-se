@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/27/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e4ab560366a2d00773f9b186663831321b18566f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-azurecli
+ms.openlocfilehash: 029c2ffa548c8c99030f630a90eb07ac8ba063a0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87416527"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497009"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Konfigurera Time to Live i Azure Cosmos DB
 
@@ -202,7 +202,7 @@ Förutom att ställa in ett standard-TTL-värde i en container kan du ange du en
 
 * Om TTL är inaktiverat på containernivå ignoreras TTL-fältet på objektet tills TTL återaktiverats för containern.
 
-### <a name="azure-portal"></a><a id="portal-set-ttl-item"></a>Azure Portal
+### <a name="azure-portal"></a><a id="portal-set-ttl-item"></a>Azure-portalen
 
 Använd följande steg för att aktivera Time to Live på ett objekt:
 

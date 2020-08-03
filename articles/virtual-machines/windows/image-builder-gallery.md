@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 0db618d63964c6f271f9a14b91849e704cfd7820
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 907ea5c600202b65195ef61cf740b5711928225d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077515"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499406"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>För hands version: skapa en Windows-avbildning och distribuera den till ett delat avbildnings Galleri 
 
@@ -342,6 +342,6 @@ ta bort resurs gruppen.
 Remove-AzResourceGroup $imageResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Information om hur du uppdaterar avbildnings versionen som du skapade finns i [använda Azure Image Builder för att skapa en annan avbildnings version](image-builder-gallery-update-image-version.md).

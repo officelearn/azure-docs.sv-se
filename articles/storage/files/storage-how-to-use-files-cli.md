@@ -7,17 +7,18 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 95d7abca27ec9db46a72140bc8a61b2841c63fcb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 0d9d0bad982a12e3b96bdbe4f680f2501b33ec67
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77598603"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495783"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Snabbstart: Skapa och hantera Azure-filresurser med hjälp av Azure CLI
 Den här guiden vägleder dig igenom grunderna i att arbeta med [Azure-filresurser](storage-files-introduction.md) med hjälp av Azure CLI. Azure-filresurser är precis som andra filresurser men lagras i molnet och täcks av Azure-plattformen. Azure-filresurser stöder SMB-protokollet som är branschstandard och möjliggör fildelning på olika datorer, program och instanser. 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -59,7 +60,7 @@ az storage account create \
 ```
 
 > [!Note]  
-> Resurser som är större än 5 TiB (upp till högst 100 TiB per resurs) är bara tillgängliga i lagrings konton lokalt redundant (LRS) och zon redundant (ZRS). Ta bort `--enable-large-file-share` parametern om du vill skapa ett geo-REDUNDANT (GRS) eller Geo-redundant lagrings konto (GZRS).
+> Resurser som är större än 5 TiB (upp till högst 100 TiB per resurs) är bara tillgängliga i lagrings konton lokalt redundant (LRS) och zon redundant (ZRS). Ta bort parametern om du vill skapa ett Geo-redundant (GRS) eller Geo-redundant lagrings konto (GZRS) `--enable-large-file-share` .
 
 ### <a name="get-the-storage-account-key"></a>Hämta lagringskontonyckeln
 Lagringskontonycklar styr åtkomsten till resurser i ett lagringskonto. Nycklarna skapas automatiskt när du skapar ett lagringskonto. Du kan hämta lagringskontonycklarna till lagringskontot med kommandot [az storage account keys list](/cli/azure/storage/account/keys): 
@@ -107,7 +108,7 @@ Vi förväntar att de flesta som använder Azure Files vill arbeta med sin Azure
 I följande exempel visas hur du använder Azure CLI till att ändra din Azure-filresurs med fil-REST-protokollet. 
 
 ### <a name="create-a-directory"></a>Skapa en katalog
-Om du vill skapa en ny katalog med namnet min *katalog* i roten av Azure-filresursen [`az storage directory create`](/cli/azure/storage/directory) använder du kommandot:
+Om du vill skapa en ny katalog med namnet min *katalog* i roten av Azure-filresursen använder du [`az storage directory create`](/cli/azure/storage/directory) kommandot:
 
 ```azurecli-interactive
 az storage directory create \
@@ -118,8 +119,8 @@ az storage directory create \
    --output none
 ```
 
-### <a name="upload-a-file"></a>Överför en fil
-För att visa hur du laddar upp en fil med [`az storage file upload`](/cli/azure/storage/file) hjälp av kommandot måste du först skapa en fil som ska laddas upp på Cloud Shell Scratch-enheten. I följande exempel ska du skapa och ladda upp filen:
+### <a name="upload-a-file"></a>Ladda upp en fil
+För att visa hur du laddar upp en fil med hjälp av [`az storage file upload`](/cli/azure/storage/file) kommandot måste du först skapa en fil som ska laddas upp på Cloud Shell Scratch-enheten. I följande exempel ska du skapa och ladda upp filen:
 
 ```azurecli-interactive
 cd ~/clouddrive/
@@ -146,7 +147,7 @@ az storage file list \
     --output table
 ```
 
-### <a name="download-a-file"></a>Hämta en fil
+### <a name="download-a-file"></a>Ladda ned en fil
 Du kan använda [`az storage file download`](/cli/azure/storage/file) kommandot för att ladda ned en kopia av filen som du överförde till Cloud Shell Scratch-enhet:
 
 ```azurecli-interactive
@@ -202,7 +203,7 @@ az storage file list \
     --output table
 ```
 
-Även om `az storage file copy start` kommandot är bekvämt för fil flyttningar mellan Azure-filresurser, för migrering och större data förflyttning, rekommenderar `rsync` vi att du använder MacOS `robocopy` och Linux och Windows. `rsync`och `robocopy` använder SMB för att utföra data förflyttningar i stället för det fileraste API: et.
+Även om `az storage file copy start` kommandot är bekvämt för fil flyttningar mellan Azure-filresurser, för migrering och större data förflyttning, rekommenderar vi att du använder `rsync` MacOS och Linux och `robocopy` Windows. `rsync`och `robocopy` använder SMB för att utföra data förflyttningar i stället för det fileraste API: et.
 
 ## <a name="create-and-manage-share-snapshots"></a>Skapa och hantera ögonblicksbilder
 Ytterligare en användbar uppgift som du kan göra med en Azure-filresurs är att skapa resursögonblicksbilder. En ögonblicksbild bevarar en kopia vid en viss tidpunkt av en Azure-filresurs. Ögonblicksbilder av resurser liknar vissa av de operativsystemtekniker som du kanske redan är bekant med:
@@ -211,7 +212,7 @@ Ytterligare en användbar uppgift som du kan göra med en Azure-filresurs är at
 - [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) ögonblicksbilder för macOS.
 - [Tjänsten Volume Shadow Copy (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) för Windows-filsystem, till exempel NTFS och ReFS.
  
-Du kan skapa en resurs ögonblicks bild med [`az storage share snapshot`](/cli/azure/storage/share) hjälp av kommandot:
+Du kan skapa en resurs ögonblicks bild med hjälp av [`az storage share snapshot`](/cli/azure/storage/share) kommandot:
 
 ```azurecli-interactive
 snapshot=$(az storage share snapshot \
@@ -275,7 +276,7 @@ az storage file copy start \
 ```
 
 ### <a name="delete-a-share-snapshot"></a>Ta bort en resursögonblicksbild
-Du kan ta bort en resurs ögonblicks bild [`az storage share delete`](/cli/azure/storage/share) med hjälp av kommandot. Använd variabeln som innehåller referensen `$SNAPSHOT` till parametern `--snapshot`:
+Du kan ta bort en resurs ögonblicks bild med hjälp av [`az storage share delete`](/cli/azure/storage/share) kommandot. Använd variabeln som innehåller referensen `$SNAPSHOT` till parametern `--snapshot`:
 
 ```azurecli-interactive
 az storage share delete \

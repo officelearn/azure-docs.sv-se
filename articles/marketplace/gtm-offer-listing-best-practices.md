@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 8adffcc6c7ae4af2e33587f75c83430473180203
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 388fb7e36a823d7f6e9ee1d58220d3a1008d8cec
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118400"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498061"
 ---
 # <a name="offer-listing-best-practices"></a>Metodtips för erbjudandelistor
 
@@ -20,7 +20,7 @@ Den här artikeln innehåller förslag på hur du kan skapa och engagera kommers
 
 ## <a name="storefront-offer-details"></a>Information om butik-erbjudande
 
-| Butik-inställning | Regelverk |
+| Butik-inställning | Bästa praxis |
 |:--- |:--- |  
 | Erbjudandets namn | För appar anger du en tydlig rubrik som innehåller sökord för att hjälpa kunderna att identifiera ditt erbjudande. <br> <br> För konsult tjänster följer du detta format: [erbjudandets namn: [duration] [erbjudande typ] (till exempel contoso: 2-veckors implementering) <br> <br> Följ rikt linjerna för varumärken: Följ [rikt](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) linjerna för Microsofts varumärken och varumärke och andra relevanta, produktspecifika rikt linjer när du refererar till Microsofts varumärken och namn på Microsofts program varor, produkter och tjänster. |
 | Beskrivning av erbjudande | Ange en tydlig beskrivning som beskriver ditt erbjudandes värde i de första meningarna.  Tänk på att dessa meningar kan användas i sökmotorns resultat. Kärn komponenterna i dina värde förslag bör innefatta: <ul> <li>Beskrivning av produkten eller lösningen. </li> <li> Användar person som vill dra nytta av produkten eller lösningen. </li> <li> Kunden behöver eller smärta produkt-eller lösnings adresser. </li> </ul> <br> Använd terminologi för bransch standard eller förmånsberättigad formulering när det är möjligt.  Förlita dig inte på funktioner och funktioner för att sälja produkten.  Fokusera i stället på det värde som du levererar. <br> <br> För konsult tjänst listor, anger du tydligt den professionella tjänst som du tillhandahåller. |
@@ -56,89 +56,7 @@ Välj kategorier och under kategorier som passar bäst för ditt erbjudande och 
 * Upp till två (2) kategorier, inklusive en primär och en sekundär kategori (valfritt).
 * Upp till två (2) under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori har valts kan du fortfarande bara identifiera i den valda kategorin.
 
-| [**Azure Marketplace**](https://azuremarketplace.microsoft.com/marketplace/apps) (IT-proffs och utvecklare)  | [**AppSource**](https://appsource.microsoft.com/marketplace/apps) (företags användare)|
-| :------------------- |:----------------|
-|**Analys** | **Analys** |
-| &nbsp;&nbsp;Data insikter | &nbsp;&nbsp;Avancerad analys  |
-| &nbsp;&nbsp;Data analys |  &nbsp;&nbsp;Rapportering av visualiserings & |
-| &nbsp;&nbsp;Big data | **AI + Machine Learning**  |
-| &nbsp;&nbsp;Förutsägelse analys | &nbsp;&nbsp;AI för företag |
-| &nbsp;&nbsp;Real tids-/strömnings analys | &nbsp;&nbsp;Robot-appar |
-| **AI + Machine Learning** | **Samarbete** |
-| &nbsp;&nbsp;Bot-tjänst | &nbsp;&nbsp;Kontakta & personer |
-| &nbsp;&nbsp;Cognitive Services | &nbsp;&nbsp;Mötes hantering |
-| &nbsp;&nbsp;ML-tjänst | &nbsp;&nbsp;Webbplats design & hantering |
-| &nbsp;&nbsp;Automatiserad ML | &nbsp;&nbsp;Aktivitet & projekt hantering |
-| &nbsp;&nbsp;Automatisering av Business/robot process | &nbsp;&nbsp;Röst & video konferens |
-| &nbsp;&nbsp;Data etiketter | **Efterlevnad & Legal** |
-| &nbsp;&nbsp;Förberedelse av data | &nbsp;&nbsp;Skatte & granskning |
-| &nbsp;&nbsp;Kunskaps utvinning | &nbsp;&nbsp;A4 |
-| &nbsp;&nbsp;ML-åtgärder | &nbsp;&nbsp;Data, styrning & sekretess |
-| **Blockkedja**  | &nbsp;&nbsp;Hälso & säkerhet |
-| &nbsp;&nbsp;App-acceleratorer | **Customer Service**  |
-| &nbsp;&nbsp;Redovisning med en nod | &nbsp;&nbsp;Kontakta Center |
-| &nbsp;&nbsp;Redovisning med flera noder | &nbsp;&nbsp;Ansikte till ansikts tjänst |
-| &nbsp;&nbsp;Formateringsverktyg | &nbsp;&nbsp;Säkerhetskopiera Office & Employee service |
-| **Compute**  | &nbsp;&nbsp;Hantering av kunskaps & |
-| &nbsp;&nbsp;Program infrastruktur | &nbsp;&nbsp;Socialt medium & Omnichannel-engagemang |
-| &nbsp;&nbsp;Operativ system | **Ekonomi** |
-| &nbsp;&nbsp;Cache | &nbsp;&nbsp;Redovisning |
-| **Containrar**  | &nbsp;&nbsp;Till gångs hantering |
-| &nbsp;&nbsp;Kom igång med behållare | &nbsp;&nbsp;Analys, konsolidering & rapportering |
-| &nbsp;&nbsp;Behållar appar | &nbsp;&nbsp;Kredit & samlingar |
-| &nbsp;&nbsp;Behållar avbildningar | &nbsp;&nbsp;Hantering av & riskhantering |
-| **Databaser**  | **Geoplats** |
-| &nbsp;&nbsp;NoSQL-databaser | &nbsp;&nbsp;Intensitet |
-| &nbsp;&nbsp;Relations databaser | &nbsp;&nbsp;Nyheter & väder |
-| &nbsp;&nbsp;Ledger/blockchain-databaser | **Human Resources** |
-| &nbsp;&nbsp;Data sjöar | &nbsp;&nbsp;Personal-förvärv |
-| &nbsp;&nbsp;Informations lager | &nbsp;&nbsp;Hantering av personal |
-| **Utvecklarverktyg**  | &nbsp;&nbsp;HR-åtgärder |
-| &nbsp;&nbsp;Formateringsverktyg | &nbsp;&nbsp;Personal planering & analys |
-| &nbsp;&nbsp;Alfabet | **Hanterings verktyg för IT-&** |
-| &nbsp;&nbsp;Developer Service | &nbsp;&nbsp;Hanterings lösningar |
-| **DevOps**  | &nbsp;&nbsp;Business Applications |
-| **Integrering**  | **Sakernas Internet** |
-| &nbsp;&nbsp;Hantera | &nbsp;&nbsp;& åtgärder för till gångs hantering |
-| **Hanterings verktyg för IT-&**  | &nbsp;&nbsp;Anslutna produkter |
-| &nbsp;&nbsp;Hanterings lösningar | &nbsp;&nbsp;Intelligent leverans kedja |
-| &nbsp;&nbsp;Business Applications | &nbsp;&nbsp;Förutsägande underhåll |
-| **Identitet**  | &nbsp;&nbsp;Fjärrövervakning |
-| &nbsp;&nbsp;Åtkomst hantering | &nbsp;&nbsp;Säkerhet & säkerhet |
-| **Sakernas Internet**  | &nbsp;&nbsp;& resurser för smart infrastruktur |
-| &nbsp;&nbsp;IoT-anslutning | &nbsp;&nbsp;Fordon & Mobility |
-| &nbsp;&nbsp;IoT Core-tjänster | **Marknadsföring** |
-| &nbsp;&nbsp;IoT Edge moduler | &nbsp;&nbsp;Annons |
-| &nbsp;&nbsp;IoT-lösningar | &nbsp;&nbsp;Tjänstprogrammet |
-| &nbsp;&nbsp;Visualisering av data analys & | &nbsp;&nbsp;& automatisering av kampanj hantering |
-| **Media**  | &nbsp;&nbsp;E-postmarknadsföring |
-| &nbsp;&nbsp;Media Services | &nbsp;&nbsp;Händelser & resurs hantering |
-| &nbsp;&nbsp;Content Protection | &nbsp;&nbsp;Analys av forsknings & |
-| &nbsp;&nbsp;Live & strömning på begäran | &nbsp;&nbsp;Sociala medier |
-| **Övervaka & diagnostik**  | **Åtgärder & leverans kedja** |
-| **Migrering**  | &nbsp;&nbsp;Produktions hantering för till gång & |
-| &nbsp;&nbsp;Datamigrering | &nbsp;&nbsp;Prognoser för efter frågan |
-| **Mixed Reality**  | &nbsp;&nbsp;Informations hantering & anslutning |
-| **Nätverk**  | &nbsp;&nbsp;Planering, köpa & rapportering |
-| &nbsp;&nbsp;Utrustnings hanterare | &nbsp;&nbsp;Hantering av Quality &-tjänster |
-| &nbsp;&nbsp;Koppling | &nbsp;&nbsp;Försäljning & order hantering |
-| &nbsp;&nbsp;Brand väggar | &nbsp;&nbsp;Transport & lager hantering |
-| &nbsp;&nbsp;Belastnings utjämning | **Produktivitet** |
-| **Säkerhet**  | &nbsp;&nbsp;& hantering av innehålls skapande |
-| &nbsp;&nbsp;Identitets & åtkomst hantering | &nbsp;&nbsp;Dokument hantering |
-| &nbsp;&nbsp;Skydd mot hot | &nbsp;&nbsp;E-posthantering |
-| &nbsp;&nbsp;Information Protection | &nbsp;&nbsp;Språk & Översättning |
-| **Storage**  | &nbsp;&nbsp;Sök & referens |
-| &nbsp;&nbsp;Säkerhets kopiering & återställning | &nbsp;&nbsp;Spelifieringsprogram |
-| &nbsp;&nbsp;Enterprise hybrid Storage | **Försäljning** |
-| &nbsp;&nbsp;Fildelning | &nbsp;&nbsp;Telefonförsäljning |
-| &nbsp;&nbsp;Data livs cykel hantering | &nbsp;&nbsp;Konfigurera, pris, offert (CPQ) |
-| **Webb**  | &nbsp;&nbsp;Kontrakts hantering |
-| &nbsp;&nbsp;Bloggar & CMSs | &nbsp;&nbsp;UPPMANA |
-| &nbsp;&nbsp;Start Web Apps | &nbsp;&nbsp;E-handel |
-| &nbsp;&nbsp;E-handel | &nbsp;&nbsp;Affärs data-anrikning  |
-| &nbsp;&nbsp;Ramverk för webb program | &nbsp;&nbsp;Försäljnings aktivering  |
-| &nbsp;&nbsp;Web Apps |  |
+[!INCLUDE [categories and subcategories](./includes/categories.md)]
 
 **VIKTIGT: SaaS erbjuder och Microsoft 365 tillägg**
 
@@ -199,7 +117,7 @@ Välj de tillämpliga produkter som appen fungerar med för erbjudandet att visa
 Nyckelord kan hjälpa kunder att hitta ditt erbjudande när de söker. Identifiera de bästa Sök nyckelorden för ditt erbjudande, Lägg till dem i din erbjudande Sammanfattning och beskrivning samt i avsnittet nyckelord i avsnittet information om erbjudanden.
 
 ## <a name="storefront-marketing-details"></a>Marknadsförings information om butik
-| Butik-inställning | Regelverk |
+| Butik-inställning | Bästa praxis |
 |:--- |:--- |  
 | Erbjudande logo typ (PNG-format, 48 &nbsp; &times; &nbsp; 48): Sök sida | Utforma och optimera din logo typ för ett digitalt medium:<br>Ladda upp logo typen i PNG-format till Sök sidan för ditt erbjudande. |
 | Erbjudande logo typ (PNG-format, 216 &nbsp; &times; &nbsp; 216): Sidan information om app | Utforma och optimera din logo typ för ett digitalt medium:<br>Ladda upp logo typen i PNG-format till sidan med information om appar i ditt erbjudande. |

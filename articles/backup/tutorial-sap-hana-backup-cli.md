@@ -3,12 +3,13 @@ title: Självstudie – SAP HANA DB-säkerhetskopiering på Azure med CLI
 description: I den här självstudien får du lära dig hur du säkerhetskopierar SAP HANA databaser som körs på en virtuell Azure-dator till ett Azure Backup Recovery Services valv med Azure CLI.
 ms.topic: tutorial
 ms.date: 12/4/2019
-ms.openlocfilehash: 30e1f9fbda16841bbabf1407ef1f3d6ef658ecf9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 4113ba75f007bfa03fed5cfeaed7737797e37ed9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003465"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489528"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Självstudie: säkerhetskopiera SAP HANA databaser i en virtuell Azure-dator med Azure CLI
 

@@ -7,23 +7,24 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
-ms.openlocfilehash: cbbb38c645e56b2e7b8c70b437b1e5158b09a50b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: d0d621728ac1956b2c036c9a45202c5d75ee9153
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78207106"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499576"
 ---
 # <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: Azure CLI-exempel
 
 > [!div class="op_single_selector"]
-> [.Net-exempel](hdinsight-sdk-dotnet-samples.md)
-> [Python Examples](hdinsight-sdk-python-samples.md)
-> [på](hdinsight-sdk-java-samples.md) python-exempel i python
+> [.Net-exempel](hdinsight-sdk-dotnet-samples.md) 
+>  [Python-exempel](hdinsight-sdk-python-samples.md) 
+>  [Java-exempel](hdinsight-sdk-java-samples.md)
 
 Den här artikeln innehåller exempel skript för vanliga uppgifter. För varje exempel uppdaterar du variablerna med lämpliga värden och kör sedan kommandot.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure CLI. Se [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) för steg.
 

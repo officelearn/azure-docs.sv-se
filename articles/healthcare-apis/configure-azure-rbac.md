@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: mihansen
-ms.openlocfilehash: a3cdb5a640e09c0095db79f5e3a43b455a1a5705
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 8e4b5fdecfc5b9fcb2deb68a482b084a6e6ed6d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447169"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496176"
 ---
 # <a name="configure-azure-rbac-for-fhir"></a>Konfigurera Azure RBAC för FHIR 
 
@@ -30,7 +30,7 @@ För att kunna använda Azure RBAC måste ditt Azure API för FHIR konfigureras 
 
 Om du vill ge användare, tjänstens huvud namn eller grupper åtkomst till FHIR-dataplanen klickar du på **åtkomst kontroll (IAM)** och klickar sedan på **roll tilldelningar** och klickar på **+ Lägg till**:
 
-:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Lägg till Azure RBAC-roll tilldelning":::
+:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Lägg till roll tilldelning i Azure":::
 
 I **roll** valet söker du efter någon av de inbyggda rollerna för FHIR-dataplanen:
 
@@ -53,7 +53,7 @@ Azure API för FHIR kommer att cachelagra beslut i upp till 5 minuter. Om du bev
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du tilldelar Azure RBAC-roller för FHIR data planet. Härnäst lär du dig mer om ytterligare inställningar för Azure API för FHIR:
+I den här artikeln har du lärt dig hur du tilldelar Azure-roller för FHIR data planet. Härnäst lär du dig mer om ytterligare inställningar för Azure API för FHIR:
  
 >[!div class="nextstepaction"]
 >[Ytterligare inställningar Azure API för FHIR](azure-api-for-fhir-additional-settings.md)

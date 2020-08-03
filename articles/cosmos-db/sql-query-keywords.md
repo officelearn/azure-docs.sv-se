@@ -4,14 +4,14 @@ description: Läs om SQL-nyckelord för Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: 069548b9b69ef6f7f6bde85ede830d97f3d312db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f00e757f9b51da850c49924f6ae49bf00c9c53d1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81261575"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496689"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Nyckelord i Azure Cosmos DB
 
@@ -35,9 +35,6 @@ Du kan också använda `BETWEEN` nyckelordet i `SELECT` -satsen, som i följande
 ```
 
 I SQL API, till skillnad från ANSI SQL, kan du uttrycka intervall frågor mot egenskaper av blandade typer. Kan till exempel `grade` vara ett tal som `5` i vissa objekt och en sträng som `grade4` i andra. I dessa fall, som i Java Script, resulterar jämförelsen mellan de två olika typerna i `Undefined` , så objektet hoppas över.
-
-> [!TIP]
-> För snabbare körnings tider för frågor skapar du en index princip som använder en intervall index typ mot eventuella numeriska egenskaper eller sökvägar som `BETWEEN` satsen filtrerar.
 
 ## <a name="distinct"></a>DISTINKTA
 
@@ -76,7 +73,7 @@ Resultatet är:
 ]
 ```
 
-DISTINCT kan också användas i projektionen inom en under fråga:
+`DISTINCT`kan också användas i projektionen inom en under fråga:
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames

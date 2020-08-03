@@ -3,12 +3,13 @@ title: 'Snabb start: skicka anpassade händelser till lagrings kön – Event Gr
 description: 'Snabb start: Använd Azure Event Grid och Azure CLI för att publicera ett ämne och prenumerera på händelsen. En lagringskö används för slutpunkten.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 18f2bf42941ddd8f71f70b132ad52a47a62fc854
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: e2c017b95493000b3c206aa7b2398bbf7ef464ee
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112127"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497366"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Snabb start: dirigera anpassade händelser till Azure Queue Storage med Azure CLI och Event Grid
 

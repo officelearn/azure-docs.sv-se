@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: bb4c689da38606561c657a3e4d85fd9e391267bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b28507c072f338342dc1a936cb1ab5f3910eea1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056737"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498114"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Använda Azure RBAC för Kubernetes-auktorisering (förhandsversion)
 
@@ -283,7 +283,7 @@ az group delete -n MyResourceGroup
 
 - Läs mer om AKS-autentisering, auktorisering och RBAC [här](concepts-identity.md).
 - Läs mer om Azure RBAC [här](../role-based-access-control/overview.md).
-- Läs mer om alla åtgärder som du kan använda för att definiera anpassade Azure RBAC-roller för Kubernetes-auktorisering [här](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
+- Läs mer om alla åtgärder som du kan använda för att definiera anpassade Azure-roller för Kubernetes [-auktorisering i](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice)detalj.
 
 
 <!-- LINKS - Internal -->

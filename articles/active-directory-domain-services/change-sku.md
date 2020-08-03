@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 51f277827ac0865eaede141e5817962b04d2bd49
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: a9954b0ddd446c4e39d85ab6d3e37402176236d6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221463"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489647"
 ---
 # <a name="change-the-sku-for-an-existing-azure-active-directory-domain-services-managed-domain"></a>Ändra SKU: n för en befintlig Azure Active Directory Domain Services hanterad domän
 
-I Azure Active Directory Domain Services (Azure AD DS) baseras tillgängliga prestanda och funktioner på SKU-typen. Dessa funktions skillnader omfattar säkerhets kopierings frekvensen eller det maximala antalet enkelriktade utgående skogs förtroenden (för närvarande i för hands version).
+I Azure Active Directory Domain Services (Azure AD DS) baseras tillgängliga prestanda och funktioner på SKU-typen. Dessa funktions skillnader omfattar säkerhets kopierings frekvensen eller det maximala antalet enkelriktade utgående skogs förtroenden.
 
 Du väljer en SKU när du skapar den hanterade domänen och du kan växla SKU: er upp eller ned när ditt företags behov ändras efter att den hanterade domänen har distribuerats. Ändringar i affärs kraven kan omfatta behovet av mer frekventa säkerhets kopieringar eller för att skapa ytterligare skogs förtroenden. Mer information om begränsningar och priser för olika SKU: er finns i [Azure AD DS-koncept][concepts-sku] och pris sidor för [Azure AD DS][pricing] .
 
@@ -38,9 +38,9 @@ För att slutföra den här artikeln behöver du följande resurser och behörig
 
 ## <a name="sku-change-limitations"></a>Begränsningar för SKU-ändringar
 
-Du kan ändra SKU: er upp eller ned efter att den hanterade domänen har distribuerats. Men om du använder en resurs skog (för närvarande i för hands version) och har skapat enkelriktade utgående skogs förtroenden från Azure AD DS till en lokal AD DS-miljö finns det vissa begränsningar för ändrings åtgärden för SKU. *Premium* -och *Enterprise* -SKU: erna definierar en gräns för antalet förtroenden som du kan skapa. Du kan inte ändra till en SKU med en lägre Max gräns än vad du för närvarande har konfigurerat.
+Du kan ändra SKU: er upp eller ned efter att den hanterade domänen har distribuerats. Men om du använder en resurs skog och har skapat enkelriktade utgående skogs förtroenden från Azure AD DS till en lokal AD DS-miljö finns det vissa begränsningar för ändrings åtgärden för SKU. *Premium* -och *Enterprise* -SKU: erna definierar en gräns för antalet förtroenden som du kan skapa. Du kan inte ändra till en SKU med en lägre Max gräns än vad du för närvarande har konfigurerat.
 
-Till exempel:
+Ett exempel:
 
 * Om du har skapat två skogs förtroenden på *Premium* -SKU: n kan du inte ändra till *standard* -SKU: n. *Standard* -SKU: n har inte stöd för skogs förtroenden.
 * Eller, om du har skapat sju förtroenden på *Premium* -SKU: n, kan du inte ändra till *företags* -SKU: n. *Enterprise* -SKU: n stöder högst fem förtroenden.
@@ -66,7 +66,7 @@ Det kan ta en minut eller två att ändra SKU-typen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har en resurs skog och vill skapa ytterligare förtroenden när SKU-ändringen har ändrats, se [skapa en utgående skogs förtroende till en lokal domän i Azure AD DS (för hands version)][create-trust].
+Om du har en resurs skog och vill skapa ytterligare förtroenden när SKU-ändringen har ändrats, se [skapa en utgående skogs förtroende till en lokal domän i Azure AD DS][create-trust].
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

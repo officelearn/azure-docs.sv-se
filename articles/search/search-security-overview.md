@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/30/2020
-ms.openlocfilehash: 9fe9a431d7bbc3b0d3b4b95d9883ed8b5a1f4704
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: b5e408eeac024f63eb8e7ce47039dc4c0a6aa5b5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475438"
+ms.locfileid: "87501499"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Säkerhet i Azure Kognitiv sökning – översikt
 
@@ -107,7 +107,7 @@ Hur en användare kommer åt ett index och andra objekt bestäms av typen av API
 
 Om du behöver detaljerad kontroll över varje användare över Sök resultat kan du bygga säkerhets filter på dina frågor och returnera dokument som är associerade med en viss säkerhets identitet. I stället för fördefinierade roller och roll tilldelningar implementeras identitetsbaserade åtkomst kontroller som ett *filter* som trimmar Sök Resultat för dokument och innehåll baserat på identiteter. I följande tabell beskrivs två metoder för att trimma Sök Resultat av obehörigt innehåll.
 
-| Metod | Beskrivning |
+| Metod | Description |
 |----------|-------------|
 |[Säkerhets trimning baserat på identitets filter](search-security-trimming-for-azure-search.md)  | Dokumenterar det grundläggande arbets flödet för att implementera åtkomst kontroll för användar identitet. Det omfattar att lägga till säkerhets identifierare i ett index och sedan förklarar filtreringen för fältet för att trimma resultat från otillåtet innehåll. |
 |[Säkerhets trimning baserat på Azure Active Directory identiteter](search-security-trimming-for-azure-search-with-aad.md)  | Den här artikeln är utökad i föregående artikel, som innehåller steg för att hämta identiteter från Azure Active Directory (AAD), en av de [kostnads fria tjänsterna](https://azure.microsoft.com/free/) i Azure Cloud Platform. |
@@ -125,9 +125,11 @@ Administratörs rättigheter över innehåll som är värd för tjänsten, till 
 
 Azure Kognitiv sökning har certifierats vara kompatibel för flera globala, regionala och branschspecifika standarder för både det offentliga molnet och Azure Government. För den fullständiga listan hämtar du [fakta bladet om **Microsoft Azure regelefterlevnad** ](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) från sidan officiella gransknings rapporter.
 
-För efterlevnad kan du använda [Azure policy](../governance/policy/overview.md) för att hjälpa dig att implementera de bästa metoderna för säkerhet i [Azure](../security/benchmarks/introduction.md). Azure Security Benchmark är en samling säkerhets rekommendationer, som du kan använda för att mäta säkerhets kontroller som mappar till viktiga åtgärder som du bör vidta för att minimera hot mot tjänster och data. Det finns för närvarande 11 säkerhets kontroller, inklusive [nätverks säkerhet](../security/benchmarks/security-control-network-security.md), [loggning och övervakning](../security/benchmarks/security-control-logging-monitoring.md)och [data skydd](../security/benchmarks/security-control-data-protection.md) för att ge ett fåtal.
+Om du vill ha kompatibilitet kan du använda [Azure policy](../governance/policy/overview.md) för att implementera de bästa metoderna för säkerhet i [Azure](../security/benchmarks/introduction.md). Azure Security Benchmark är en samling säkerhets rekommendationer, som du kan använda för att mäta säkerhets kontroller som mappar till viktiga åtgärder som du bör vidta för att minimera hot mot tjänster och data. Det finns för närvarande 11 säkerhets kontroller, inklusive [nätverks säkerhet](../security/benchmarks/security-control-network-security.md), [loggning och övervakning](../security/benchmarks/security-control-logging-monitoring.md)och [data skydd](../security/benchmarks/security-control-data-protection.md) för att ge ett fåtal.
 
-Azure Policy är en inbyggd funktion i Azure som hjälper dig att hantera efterlevnad för flera standarder, inklusive de som ingår i Azures säkerhets benchmark. För välkända benchmarks kan Azure Policy tillhandahålla inbyggda definitioner så att du enkelt kan skapa principer. För Azure Kognitiv sökning finns för närvarande en inbyggd definition för diagnostikloggning, vilket innebär att du kan tilldela en princip som identifierar och åtgärdar en Sök tjänst som inte är kompatibel med säkerhets kontrollen logga och övervaka. Mer information finns i [Azure policy regler för regelefterlevnad för Azure kognitiv sökning](security-controls-policy.md).
+Azure Policy är en inbyggd funktion i Azure som hjälper dig att hantera efterlevnad för flera standarder, inklusive de som ingår i Azures säkerhets benchmark. För välkända benchmarks kan Azure Policy tillhandahålla inbyggda definitioner som ger både kriterier och ett åtgärds bara svar som behandlar icke-efterlevnad. 
+
+För Azure Kognitiv sökning finns det för närvarande en inbyggd definition. Det är för diagnostisk loggning. Med den här inbyggda kan du tilldela en princip som identifierar Sök tjänster som saknar diagnostikloggning och sedan aktiverar den. Mer information finns i [Azure policy regler för regelefterlevnad för Azure kognitiv sökning](security-controls-policy.md).
 
 ## <a name="see-also"></a>Se även
 

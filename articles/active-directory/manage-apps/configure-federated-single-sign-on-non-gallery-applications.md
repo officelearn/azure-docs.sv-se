@@ -15,19 +15,16 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28af2a51119cd8328f9fa29000ead1622ae5f5e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb4b9b3b93053756896dc60c61cdb15c7e521f5d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763558"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497247"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Så här konfigurerar du federerad enkel inloggning för ett program som inte är ett galleri program
 
-Om du vill konfigurera enkel inloggning för ett program som inte är ett galleri program *utan att skriva kod*, måste du ha en prenumeration eller Azure AD Premium och programmet måste ha stöd för SAML 2,0. Mer information om Azure AD-versioner finns i [priser för Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
-
-## <a name="overview-of-steps-required"></a>Översikt över de steg som krävs
-Nedan visas en översikt över de steg som krävs för att konfigurera federerad enkel inloggning med SAML 2,0 för ett icke-Galleri program (t. ex. anpassat).
+Den här artikeln innehåller en översikt över de steg som krävs för att konfigurera federerad enkel inloggning med SAML 2,0 för ett icke-Galleri (t. ex. anpassat) program.
 
 -   Konfigurera programmets metadata-värden i Azure AD (inloggnings-URL, identifierare, svars-URL)
 

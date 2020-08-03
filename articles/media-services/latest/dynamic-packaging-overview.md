@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/11/2020
+ms.date: 07/31/2020
 ms.author: juliako
-ms.openlocfilehash: f019ebd59b2d0b9d6bae8a5dc4904f1bcae0e6c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 032a3c719610d658ec32492033a04a610117643d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090118"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489783"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Dynamisk paketering i Media Services v3
 
@@ -33,6 +33,8 @@ I Media Services representerar en [strömmande slut punkt](streaming-endpoint-co
 ## <a name="to-prepare-your-source-files-for-delivery"></a>Förbereda dina källfiler för leverans
 
 Om du vill dra nytta av dynamisk paketering måste du [koda](encoding-concept.md) din mezzaninfil (källa) till en uppsättning MP4-filer med flera bit hastigheter (ISO Base 14496-12). Du måste ha en [till gång](assets-concept.md) med de KODAde MP4-och streaming-konfigurationsfiler som krävs för Media Services dynamisk paketering. Från den här uppsättningen MP4-filer kan du använda dynamisk paketering för att leverera video via protokollen för strömnings medier som beskrivs nedan.
+
+Azure Media Services dynamisk paketering stöder endast video-och ljud filen i formatet MP4-behållare. Ljudfiler måste kodas till en MP4-behållare även när du använder alternativa codec-filer som Dolby.  
 
 > [!TIP]
 > Ett sätt att hämta filerna för MP4 och strömmande konfiguration är att [koda din mezzaninfil-fil med Media Services](#encode-to-adaptive-bitrate-mp4s). 
@@ -87,7 +89,7 @@ I följande diagram visas strömning på begäran med det dynamiska arbets flöd
 
 ![Diagram över ett arbets flöde för strömning på begäran med dynamisk paketering](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-Hämtnings Sök vägen finns på bilden ovan bara för att visa att du kan ladda ned en MP4-fil direkt via *slut punkten för direkt uppspelning* (ursprung) (du anger den nedladdnings bara [streaming-principen](streaming-policy-concept.md) på streaming).<br/>Den dynamiska Paketeraren ändrar inte filen. 
+Hämtnings Sök vägen finns på bilden ovan bara för att visa att du kan ladda ned en MP4-fil direkt via *slut punkten för direkt uppspelning* (ursprung) (du anger den nedladdnings bara [streaming-principen](streaming-policy-concept.md) på streaming).<br/>Den dynamiska Paketeraren ändrar inte filen. Du kan välja att använda Azure Blob Storage-API: er för att få åtkomst till en MP4 direkt för progressiv nedladdning om du vill kringgå funktionerna för *strömnings slut punkt* (ursprung). 
 
 ### <a name="encode-to-adaptive-bitrate-mp4s"></a>Koda till hastigheter för anpassad bit hastighet
 
@@ -123,17 +125,17 @@ Information om Direktsänd strömning i Media Services v3 finns i [Översikt öv
 
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>Video-codec som stöds av dynamisk paketering
 
-Dynamisk paketering stöder MP4-filer som innehåller video som är kodad med [H. 264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC eller avc1) eller [H. 265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (hevc, hev1 eller hvc1).
+Dynamisk paketering stöder videofiler i fil formatet MP4-behållare och innehåller video som är kodad med [H. 264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC eller avc1) eller [H. 265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (hevc, hev1 eller hvc1).
 
 > [!NOTE]
 > Lösningar på upp till 4K och bild Rute hastigheter på upp till 60 bild rutor per sekund har testats med *dynamisk paketering*. [Premium-kodaren](../previous/media-services-encode-asset.md#media-encoder-premium-workflow) stöder kodning till H. 265 via äldre v2-API: er.
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Ljud-codec som stöds av dynamisk paketering
 
-Dynamisk paketering stöder ljud som är kodat med följande protokoll:
+Dynamisk paketering stöder också ljudfiler som lagras i filen med formatet MP4-filer som innehåller kodad ljud ström i någon av följande codecenheter:
 
-* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1 eller HE-AAC v2)
-* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (utökad AC-3 eller E-AC3)
+* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1 eller HE-AAC v2). 
+* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (utökad AC-3 eller E-AC3).  Det kodade ljudet måste lagras i MP4-behållar formatet för att fungera med dynamisk paketering.
 * Dolby Atmos
 
    Strömmande Dolby Atmos-innehåll stöds för standarder som MPEG-streck-protokollet med antingen common streaming format (CSF) eller common Media Application format (CMAF), fragmenterade MP4 och via HTTP Live Streaming (HLS) med CMAF.
@@ -146,6 +148,10 @@ Dynamisk paketering stöder ljud som är kodat med följande protokoll:
     * DTS-HD-förstörande (ingen kärna) (DTSL)
 
 Dynamisk paketering stöder flera ljud spår med bindestreck eller HLS (version 4 eller senare) för strömnings till gångar som har flera ljud spår med flera codecenheter och språk.
+
+För alla ljud-codecarna ovan måste det kodade ljudet lagras i formatet MP4-behållare för att fungera med dynamisk paketering. Tjänsten har inte stöd för RAW-elementets data ström fil format i Blob Storage (till exempel om följande inte stöds-. DTS,. AC3.) 
+
+Endast filer med fil namns tillägget. mp4 av. MP4A stöds för ljud paket. 
 
 ### <a name="limitations"></a>Begränsningar
 

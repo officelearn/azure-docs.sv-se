@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 45da3ec95167cbb4fa087435e0e88f85c0eb6463
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 51582fd9aba8721b28f6fb18daec4d0009d0ac15
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461059"
+ms.locfileid: "87500665"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core (SQL) API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -63,7 +63,30 @@ Azure Cosmos DB Java SDK v4 for Core (SQL) kombinerar ett asynkront API och ett 
 
 ## <a name="release-history"></a>Versions historik
 
+### <a name="440-beta1-unreleased"></a>4.4.0 – beta. 1 (frisläppt)
+
+### <a name="430-2020-07-29"></a>4.3.0 (2020-07-29)
+#### <a name="new-features"></a>Nya funktioner
+* Uppdaterad version av reaktor Core-bibliotek till `3.3.8.RELEASE` . 
+* Uppdaterad version av reaktor-nett bibliotek till `0.9.10.RELEASE` . 
+* Uppdaterade den uppdelade biblioteks versionen till `4.1.51.Final` . 
+* Nya Överlagrings-API: er har lagts till `upsertItem` i `partitionKey` . 
+* Stöd för öppen telemetri har lagts till. 
+#### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
+* Ett problem har åtgärd ATS där SSLException erhålls vid annullering av förfrågningar i GATEWAY-läge.
+* Princip för omförsök för fasta resurser för att köra lagrade procedurer.
+* Åtgärdat problem där SDK låser sig i fel SÖKNINGs läge på logg nivå. 
+* Fasta Periodiska toppar i svars tid i direkt läge. 
+* Fast problem med initierings tiden för den högsta klienten. 
+* Fel i fast http-proxy vid anpassning av klienten med direkt läge och gateway-läge. 
+* Fast potentiell NPE i användare skickar null-alternativ. 
+* Lade till timeUnit `requestLatency` i i diagnostik-strängen.
+* En dubblett av en URI-sträng togs bort från diagnostik strängen. 
+* Fast diagnostik-sträng i korrekt JSON-format för punkt åtgärder.
+* Åtgärdat problem med `.single()` operatör som gör att reaktor kedjan kan inblåsas i händelse av ett undantag som inte hittades. 
+
 ### <a name="420-2020-07-14"></a>4.2.0 (2020-07-14)
+#### <a name="new-features"></a>Nya funktioner
 * Skript loggning har Aktiver ATS för `CosmosStoredProcedureRequestOptions` .
 * Standardvärdet har uppdaterats `DirectConnectionConfig` `idleEndpointTimeout` till 1H och standardvärdet `connectTimeout` 5 SEK.
 #### <a name="key-bug-fixes"></a>Viktiga fel korrigeringar
@@ -148,7 +171,7 @@ Azure Cosmos DB Java SDK v4 for Core (SQL) kombinerar ett asynkront API och ett 
 * `ChangeFeedProcessor`fel korrigering vid synkronisering av låne uppdateringar mellan olika trådar.
 * Fast konkurrens tillstånd `ArrayIndexOutOfBound` som orsakar undantag i StoreReader
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se även

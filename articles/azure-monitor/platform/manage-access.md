@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: b9ca2dc9d907e65b2679c08d8d2b6482f02ba53d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 630364a95c4ee427b71aa5e8b763b4447a41c962
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327896"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489460"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Hantera åtkomst till loggdata och arbetsytor i Azure Monitor
 
@@ -20,7 +20,7 @@ Azure Monitor lagrar [loggdata](data-platform-logs.md) i en Log Analytics arbets
 Den här artikeln beskriver hur du hanterar åtkomst till loggar och administrerar de arbets ytor som innehåller dem, inklusive hur du beviljar åtkomst till: 
 
 * Arbets ytan med hjälp av arbets ytans behörigheter.
-* Användare som behöver åtkomst till loggdata från vissa resurser med hjälp av rollbaserad åtkomst kontroll i Azure (RBAC) – även kallat [resurs kontext](design-logs-deployment.md#access-mode)
+* Användare som behöver åtkomst till loggdata från vissa resurser med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC) – även kallat [resurs kontext](design-logs-deployment.md#access-mode)
 * Användare som behöver åtkomst till loggdata i en speciell tabell i arbets ytan med hjälp av Azure RBAC.
 
 Om du vill lära dig begrepp som rör RBAC-och åtkomst strategier läser du [utforma Azure Monitor loggar distribution](design-logs-deployment.md)
@@ -29,7 +29,7 @@ Om du vill lära dig begrepp som rör RBAC-och åtkomst strategier läser du [ut
 
 Du kan visa [åtkomst kontrol läget](design-logs-deployment.md) som kon figurer ATS på en arbets yta från Azure Portal eller med Azure PowerShell.  Du kan ändra den här inställningen med någon av följande metoder som stöds:
 
-* Azure Portal
+* Azure-portalen
 
 * Azure PowerShell
 
@@ -106,7 +106,7 @@ Varje arbets yta kan ha flera associerade konton, och varje konto kan ha åtkoms
 
 Följande aktiviteter kräver även Azure-behörigheter:
 
-|Åtgärd |Azure-behörigheter krävs |Obs! |
+|Action |Azure-behörigheter krävs |Kommentarer |
 |-------|-------------------------|------|
 | Lägga till och ta bort övervaknings lösningar | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Behörigheterna måste beviljas på resursgrupp- eller prenumerationsnivå. |
 | Ändra prisnivån | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -137,9 +137,9 @@ Rollen Log Analytics läsare innehåller följande Azure-åtgärder:
 | Typ    | Behörighet | Beskrivning |
 | ------- | ---------- | ----------- |
 | Åtgärd | `*/read`   | Möjlighet att visa alla Azure-resurser och resurs konfiguration. Detta omfattar visning av: <br> Status för tillägg för virtuell dator <br> Konfiguration av Azure Diagnostics för resurser <br> Alla egenskaper och inställningar för alla resurser. <br> För arbets ytor ger den fullständig obegränsad behörighet att läsa inställningarna för arbets ytan och köra frågor på data. Se fler detaljerade alternativ ovan. |
-| Åtgärd | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Föråldrad, du behöver inte tilldela dem till användarna. |
-| Åtgärd | `Microsoft.OperationalInsights/workspaces/search/action` | Föråldrad, du behöver inte tilldela dem till användarna. |
-| Åtgärd | `Microsoft.Support/*` | Kan öppna supportärenden |
+| Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Föråldrad, du behöver inte tilldela dem till användarna. |
+| Action | `Microsoft.OperationalInsights/workspaces/search/action` | Föråldrad, du behöver inte tilldela dem till användarna. |
+| Action | `Microsoft.Support/*` | Kan öppna supportärenden |
 |Ingen åtgärd | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Förhindrar läsning av arbets ytans nyckel som krävs för att använda API: et för data insamling och för att installera agenter. Detta förhindrar användaren från att lägga till nya resurser i arbets ytan |
 
 Medlemmar av *Log Analytics Contributor*-rollen kan:
@@ -162,7 +162,7 @@ Medlemmar av *Log Analytics Contributor*-rollen kan:
 
 Rollen Log Analytics Contributor innehåller följande Azure-åtgärder:
 
-| Behörighet | Beskrivning |
+| Behörighet | Description |
 | ---------- | ----------- |
 | `*/read`     | Kan visa alla resurser och resurskonfigurationer. Detta omfattar visning av: <br> Status för tillägg för virtuell dator <br> Konfiguration av Azure Diagnostics för resurser <br> Alla egenskaper och inställningar för alla resurser. <br> För arbets ytor ger den fullständig obegränsad behörighet att läsa inställningen arbets yta och köra fråga på data. Se fler detaljerade alternativ ovan. |
 | `Microsoft.Automation/automationAccounts/*` | Kan skapa och konfigurera Azure Automation-konton, inklusive lägga till och redigera runbookflöden |
@@ -189,7 +189,7 @@ Vi rekommenderar att du utför tilldelningar på resurs nivå (arbets yta) för 
 
 När användarna frågar efter loggar från en arbets yta med resurs kontext åtkomst har de följande behörigheter för resursen:
 
-| Behörighet | Beskrivning |
+| Behörighet | Description |
 | ---------- | ----------- |
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Exempel:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Möjlighet att visa alla logg data för resursen.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Möjlighet att konfigurera diagnostikinställningar för att tillåta konfiguration av loggar för den här resursen. |
@@ -313,4 +313,3 @@ Ibland kommer anpassade loggar från källor som inte är direkt kopplade till e
 * Se [Översikt över Log Analytics-agenten](./log-analytics-agent.md) för att samla in data från datorer i ditt data Center eller någon annan moln miljö.
 
 * Se [samla in data om virtuella Azure-datorer](../learn/quick-collect-azurevm.md) för att konfigurera data insamling från virtuella Azure-datorer.
-

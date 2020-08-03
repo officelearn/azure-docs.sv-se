@@ -3,12 +3,12 @@ title: Händelse leverans med hanterad tjänst identitet
 description: I den här artikeln beskrivs hur du aktiverar hanterad tjänst identitet för ett Azure Event Grid-ämne. Använd den för att vidarebefordra händelser till destinationer som stöds.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: c05eb2e78595e962494a60b1ffa8ead899aa0109
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b437d519a076104b64fb2df5cba1cd61a865b1fc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371268"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499831"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Händelse leverans med en hanterad identitet
 I den här artikeln beskrivs hur du aktiverar en [hanterad tjänst identitet](../active-directory/managed-identities-azure-resources/overview.md) för Azure Event Grid-ämnen eller-domäner. Använd den för att vidarebefordra händelser till stödda destinationer som Service Bus köer och ämnen, Event Hub och lagrings konton.
@@ -64,7 +64,7 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 Kommandot för att uppdatera en befintlig domän är liknande ( `az eventgrid domain update` ).
 
 ## <a name="supported-destinations-and-rbac-roles"></a>Destinationer och RBAC-roller som stöds
-När du har aktiverat identitet för ditt event Grid-ämne eller-domän skapas automatiskt en identitet i Azure Active Directory i Azure. Lägg till den här identiteten i lämpliga roller som baseras på rollbaserad åtkomst kontroll (RBAC) så att ämnet eller domänen kan vidarebefordra händelser till stödda destinationer. Du kan till exempel lägga till identiteten i rollen **azure Event Hubs data avsändare** för ett Azure Event Hubs-namnområde så att avsnittet Event Grid kan vidarebefordra händelser till händelse nav i det namn området. 
+När du har aktiverat identitet för ditt event Grid-ämne eller-domän skapas automatiskt en identitet i Azure Active Directory i Azure. Lägg till den här identiteten i lämpliga Azure-roller så att ämnet eller domänen kan vidarebefordra händelser till destinationer som stöds. Du kan till exempel lägga till identiteten i rollen **azure Event Hubs data avsändare** för ett Azure Event Hubs-namnområde så att avsnittet Event Grid kan vidarebefordra händelser till händelse nav i det namn området. 
 
 För närvarande stöder Azure Event Grid ämnen eller domäner som kon figurer ATS med en systemtilldelad hanterad identitet för att vidarebefordra händelser till följande destinationer. I den här tabellen får du också de roller som identiteten ska vara i så att avsnittet kan vidarebefordra händelserna.
 

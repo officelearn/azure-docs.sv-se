@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 03/27/2018
 ms.reviewer: jushiman
-ms.custom: mimckitt
-ms.openlocfilehash: b0b8cd79c464a101210d8ca56d09d9703abbc614
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: e62a60212495df033a2e967b3547f4ac98559cda
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088962"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499678"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-the-azure-cli"></a>Skapa en VM-skalningsuppsättning i en zon med Azure CLI
 Det här skriptet skapar en VM-skalningsuppsättning som kör Ubuntu i en enda tillgänglighetszon. När du kört skriptet har du åtkomst till den virtuella datorn över RDP.

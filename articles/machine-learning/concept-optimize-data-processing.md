@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: f95c4256f4a0a3fdf410efecf9c22d578d1963a2
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 6bb85ada5ab1cd443d47ed85024b45d98354e97f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461807"
+ms.locfileid: "87500971"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Optimera data bearbetning med Azure Machine Learning
 
@@ -51,7 +51,7 @@ För flera virtuella processorer, vCPU, Tänk på att du vill att en partition s
 
 Om du inte kan lägga till mer RAM-minne på datorn kan du använda följande tekniker för att minimera CPU-arbetsbelastningar och optimera bearbetnings tider. De här rekommendationerna gäller både enkla och distribuerade system.
 
-Teknik | Beskrivning
+Teknik | Description
 ----|----
 Komprimering | Använd en annan representation för dina data, på ett sätt som använder mindre minne och inte märkbart påverkar resultatet av beräkningen.<br><br>*Exempel:* I stället för att lagra poster som en sträng med cirka 10 byte eller mer per post, lagrar du dem som booleska, sanna eller falska, som du kan lagra på 1 byte.
 Segmentering | Läs in data i minnet i del mängder (segment), bearbeta data en delmängd vid tiden eller flera del mängder parallellt. Den här metoden fungerar bäst om du behöver bearbeta alla data, men behöver inte läsa in alla data i minnet samtidigt. <br><br>*Exempel:* I stället för att bearbeta data på hela året samtidigt kan du läsa in och bearbeta data en månad i taget.
@@ -64,7 +64,6 @@ Om de tidigare rekommendationerna inte räcker och du inte kan få en virtuell d
 * Använd ett ramverk som `Spark` eller `Dask` för att bearbeta data "slut på minne". I det här alternativet läses dataframe in i RAM-partitionen genom partition och bearbetning, med det slutliga resultatet som samlas in i slutet.  
 
 * Skala ut till ett kluster med hjälp av ett distribuerat ramverk. I det här alternativet delas data bearbetnings belastningen upp och bearbetas på flera processorer som fungerar parallellt, med det slutliga resultatet som samlas in i slutet.
-
 
 ### <a name="recommended-distributed-frameworks"></a>Rekommenderade distribuerade ramverk
 

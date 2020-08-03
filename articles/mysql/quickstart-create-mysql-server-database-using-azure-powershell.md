@@ -7,26 +7,26 @@ ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 04/28/2020
-ms.custom: mvc
-ms.openlocfilehash: 2e12da29a8388bf4a232930c3737be7ddce80d12
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 55805402037edac230aa225b74ce2eeb731945b7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611950"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495411"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>Snabb start: skapa en Azure Database for MySQL-server med PowerShell
 
 I den här snabb starten beskrivs hur du använder PowerShell för att skapa en Azure Database for MySQL-server i en Azure-resurs grupp. Du kan använda PowerShell för att skapa och hantera Azure-resurser interaktivt eller i skript.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 Om du väljer att använda PowerShell lokalt kräver den här artikeln att du installerar AZ PowerShell-modulen och ansluter till ditt Azure-konto med hjälp av cmdleten [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) . Mer information om hur du installerar AZ PowerShell-modulen finns i [installera Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
-> Även om modulen AZ. MySql PowerShell är i för hands version måste du installera den separat från AZ PowerShell-modulen med hjälp av följande `Install-Module -Name Az.MySql -AllowPrerelease`kommando:.
+> Även om modulen AZ. MySql PowerShell är i för hands version måste du installera den separat från AZ PowerShell-modulen med hjälp av följande kommando: `Install-Module -Name Az.MySql -AllowPrerelease` .
 > När AZ. MySql PowerShell-modulen är allmänt tillgänglig blir den en del av framtida versioner av AZ PowerShell-moduler och är tillgängliga internt från Azure Cloud Shell.
 
 Om det här är första gången du använder tjänsten Azure Database for MySQL måste du registrera Resource-providern för **Microsoft. DBforMySQL** .
@@ -63,21 +63,21 @@ Följande tabell innehåller en lista över parametrar och exempel värden som a
 | -------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Name                       | mydemoserver     | Välj ett globalt unikt namn i Azure som identifierar din Azure Database for MySQL-server. Server namnet får bara innehålla bokstäver, siffror och bindestreck (-). Alla versaler som anges konverteras automatiskt till gemener under skapande processen. Det måste innehålla mellan 3 och 63 tecken. |
 | ResourceGroupName          | myresourcegroup  | Ange namnet på Azure-resursgruppen.                                                                                                                                                                                                                                                                                            |
-| Sku                        | GP_Gen5_2        | Namnet på SKU:n. Följer konventions **pris – nivå\_för beräknings skapande\_virtuella kärnor** i korthet. Mer information om SKU-parametern finns i informationen som följer den här tabellen.                                                                                                                                           |
+| Sku                        | GP_Gen5_2        | Namnet på SKU:n. Följer konventions **pris – nivå för \_ beräknings skapande \_ virtuella kärnor** i korthet. Mer information om SKU-parametern finns i informationen som följer den här tabellen.                                                                                                                                           |
 | BackupRetentionDay         | 7                | Hur länge en säkerhetskopia ska behållas. Enheten är dagar. Intervallet är 7–35.                                                                                                                                                                                                                                                                       |
 | GeoRedundantBackup         | Enabled          | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern eller inte. Det går inte att aktivera det här värdet för servrar i den grundläggande pris nivån och det kan inte ändras efter att servern har skapats. Tillåtna värden: Enabled, Disabled.                                                                                                      |
-| Plats                   | westus           | Azure-regionen för-servern.                                                                                                                                                                                                                                                                                                         |
+| Location                   | westus           | Azure-regionen för-servern.                                                                                                                                                                                                                                                                                                         |
 | SslEnforcement             | Enabled          | Om SSL ska vara aktiverat eller inte för den här servern. Tillåtna värden: Enabled, Disabled.                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51200            | Serverns lagringskapacitet (enheten är megabyte). Giltig StorageInMb är minst 5120 MB och ökar i steg om 1024 MB. Mer information om lagrings storleks gränser finns i [Azure Database for MySQL pris nivåer](./concepts-pricing-tiers.md).                                                                               |
 | Version                    | 5.7              | Huvudversion för MySQL.                                                                                                                                                                                                                                                                                                                 |
 | AdministratorUserName      | myadmin          | Användarnamnet för administratörsinloggning. Det kan inte vara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | Lösen ordet för administratörs användaren i form av en säker sträng. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror och icke-alfanumeriska tecken.                                       |
 
-Värdet för **SKU** -parametern följer konventions **pris-\_nivå beräknings generationens\_virtuella kärnor** som visas i följande exempel.
+Värdet för **SKU** -parametern följer konventions **pris-nivå \_ beräknings generationens \_ virtuella kärnor** som visas i följande exempel.
 
 - `-Sku B_Gen5_1` mappar till Basic, Gen 5 och 1 virtuell kärna. Det här alternativet är minsta tillgängliga SKU.
 - `-Sku GP_Gen5_32` mappar till generell användning, Gen 5 och 32 vCores.
-- `-Sku MO_Gen5_2` mappar till minnesoptimerad, Gen 5 och 2 vCores.
+- `-Sku MO_Gen5_2` mappar till minnesoptimerad, Gen 5 och 2 virtuella kärnor.
 
 Information om giltiga **SKU** -värden per region och för nivåer finns i [Azure Database for MySQL pris nivåer](./concepts-pricing-tiers.md).
 
@@ -98,7 +98,7 @@ New-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -Sku GP_
 
 ## <a name="configure-a-firewall-rule"></a>Konfigurera en brandväggsregel
 
-Skapa Azure Database for MySQL en brand Väggs regel på `New-AzMySqlFirewallRule` server nivå med hjälp av cmdleten. En brand Väggs regel på `mysql` server nivå gör att ett externt program, till exempel kommando rads verktyget eller MySQL Workbench, kan ansluta till servern via Azure Database for MySQL tjänstens brand vägg.
+Skapa Azure Database for MySQL en brand Väggs regel på server nivå med hjälp av `New-AzMySqlFirewallRule` cmdleten. En brand Väggs regel på server nivå gör att ett externt program, till exempel `mysql` kommando rads verktyget eller MySQL Workbench, kan ansluta till servern via Azure Database for MySQL tjänstens brand vägg.
 
 I följande exempel skapas en brand Väggs regel med namnet **AllowMyIP** som tillåter anslutningar från en speciell IP-adress, 192.168.0.1. Ersätt en IP-adress eller ett intervall med IP-adresser som motsvarar den plats som du ansluter från.
 
@@ -228,7 +228,7 @@ Om resurserna som skapas i den här snabb starten inte behövs för en annan sna
 Remove-AzResourceGroup -Name myresourcegroup
 ```
 
-Om du bara vill ta bort den server som skapats i den här snabb starten utan att `Remove-AzMySqlServer` ta bort resurs gruppen använder du cmdleten.
+Om du bara vill ta bort den server som skapats i den här snabb starten utan att ta bort resurs gruppen använder du `Remove-AzMySqlServer` cmdleten.
 
 ```azurepowershell-interactive
 Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup

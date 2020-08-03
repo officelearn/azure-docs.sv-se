@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
 ms.custom: how-to, seodec18, tracking-python
-ms.openlocfilehash: ca7feacf5d631b4e85a0b3f4e7a039bbb79abe45
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: f30f2b45944281ed74da2026eb14e8938260b259
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460209"
+ms.locfileid: "87496108"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ansluta till Azure Storage-tjänster
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,10 +29,10 @@ Du kan skapa data lager från [dessa Azure Storage-lösningar](#matrix). **För 
 
 Information om var data lagret får plats i Azure Machine Learning det totala arbets flödet för data åtkomst finns i artikeln [säker åtkomst till data](concept-data.md#data-workflow) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver:
-- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Ett Azure Storage-konto med en [lagrings typ som stöds](#matrix).
 
@@ -92,13 +92,13 @@ Om ditt data lagrings konto finns i ett **virtuellt nätverk**krävs ytterligare
 
 ### <a name="access-validation"></a>Åtkomst verifiering
 
-**Som en del av den första processen för att skapa och registrera data lagret**, verifierar Azure Machine Learning automatiskt att den underliggande lagrings tjänsten finns och användarens huvud namn (användar namn, tjänstens huvud namn eller SAS-token) har åtkomst till den angivna lagrings platsen.
+**Som en del av processen för att skapa och registrera data lager**, validerar Azure Machine Learning automatiskt att den underliggande lagrings tjänsten finns och den användare som angav huvud konto (användar namn, tjänstens huvud namn eller SAS-token) har åtkomst till den angivna lagrings platsen.
 
 **När data lagret har skapats**utförs den här verifieringen bara för metoder som kräver åtkomst till den underliggande lagrings behållaren, **inte** varje gång som data lager objekt hämtas. Verifieringen sker till exempel om du vill hämta filer från ditt data lager. men om du bara vill ändra ditt standard data lager sker inte verifieringen.
 
 Om du vill autentisera din åtkomst till den underliggande lagrings tjänsten kan du ange antingen din konto nyckel, token för signaturer för delad åtkomst (SAS) eller tjänstens huvud namn i motsvarande `register_azure_*()` metod för den data lager typ som du vill skapa. I [matrisen lagrings typ](#matrix) visas de autentiseringstyper som stöds och som motsvarar varje data lager typ.
 
-Du hittar konto nyckel, SAS-token och tjänstens huvud namns information på din [Azure Portal](https://portal.azure.com).
+Du hittar konto nyckel, SAS-token och information om tjänstens huvud namn på din [Azure Portal](https://portal.azure.com).
 
 * Om du planerar att använda en konto nyckel eller SAS-token för autentisering väljer du **lagrings konton** i den vänstra rutan och väljer det lagrings konto som du vill registrera. 
   * **Översikts** sidan innehåller information som konto namn, behållare och fil resurs namn. 
@@ -113,7 +113,7 @@ Du hittar konto nyckel, SAS-token och tjänstens huvud namns information på din
 
 ### <a name="permissions"></a>Behörigheter
 
-För Azure Blob-behållare och Azure Data Lake gen 2-lagring ser du till att dina autentiseringsuppgifter har åtkomst till **lagrings-BLOB-dataläsaren** . Läs mer om [Storage BLOB data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
+För Azure Blob-behållare och Azure Data Lake gen 2-lagring, se till att dina autentiseringsuppgifter har åtkomst till **lagrings-BLOB-dataläsaren** . Läs mer om [Storage BLOB data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
 
 <a name="python"></a>
 
@@ -202,7 +202,9 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 
 <a name="studio"></a>
 
+
 ## <a name="create-datastores-in-the-studio"></a>Skapa data lager i Studio 
+
 
 Skapa ett nytt data lager med några steg med Azure Machine Learning Studio.
 
@@ -212,17 +214,16 @@ Skapa ett nytt data lager med några steg med Azure Machine Learning Studio.
 1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Välj **data lager** i det vänstra fönstret under **Hantera**.
 1. Välj **+ nytt data lager**.
-1. Fyll i formuläret för ett nytt data lager. Formuläret uppdateras intelligent baserat på dina val för Azures lagrings typ och autentiseringstyp. Se [avsnittet lagrings åtkomst och behörigheter](#access-validation) för att förstå var du hittar de autentiseringsuppgifter du behöver fylla i det här formuläret.
+1. Fyll i formuläret för ett nytt data lager. Formuläret uppdateras intelligent baserat på dina val för Azures lagrings typ och autentiseringstyp. Se [avsnittet lagrings åtkomst och behörigheter](#access-validation) för att förstå var du hittar autentiseringsuppgifterna för autentisering som du behöver fylla i det här formuläret.
 
 Följande exempel visar hur formuläret ser ut när du skapar ett **Azure Blob-datalager**: 
     
 ![Formulär för ett nytt data lager](media/how-to-access-data/new-datastore-form.png)
 
 <a name="train"></a>
-
 ## <a name="use-data-in-your-datastores"></a>Använda data i dina data lager
 
-När du har skapat ett data lager [skapar du en Azure Machine Learning data uppsättning](how-to-create-register-datasets.md) för att interagera med dina data. Data uppsättningar paketerar dina data i ett Lazy-utvärderat förbruknings Bart objekt för Machine Learning-uppgifter, till exempel utbildning. De ger också möjlighet att [Ladda ned eller montera](how-to-train-with-datasets.md#mount-vs-download) filer i alla format från Azure Storage-tjänster som Azure Blob Storage och ADLS gen 2. Du kan också använda dem för att läsa in tabell data i en Pandas-eller Spark-DataFrame.
+När du har skapat ett data lager [skapar du en Azure Machine Learning data uppsättning](how-to-create-register-datasets.md) för att interagera med dina data. Data uppsättningar paketerar dina data i ett Lazy utvärderat förbruknings Bart objekt för Machine Learning-uppgifter, till exempel träning. De ger också möjlighet att [Ladda ned eller montera](how-to-train-with-datasets.md#mount-vs-download) filer i alla format från Azure Storage-tjänster som Azure Blob Storage och ADLS gen 2. Du kan också använda dem för att läsa in tabell data i en Pandas-eller Spark-DataFrame.
 
 <a name="get"></a>
 
@@ -258,7 +259,7 @@ Du kan också ändra standard data lagret med följande kod. Den här funktionen
 
 Azure Machine Learning tillhandahåller flera olika sätt att använda dina modeller för att beräkna poäng. Några av dessa metoder ger inte åtkomst till data lager. Använd följande tabell för att förstå vilka metoder du kan använda för att komma åt data lager under poängsättningen:
 
-| Metod | Åtkomst till data lager | Beskrivning |
+| Metod | Åtkomst till data lager | Description |
 | ----- | :-----: | ----- |
 | [Batchförutsägelse](how-to-use-parallel-run-step.md) | ✔ | Göra förutsägelser kring stora mängder data asynkront. |
 | [Webb tjänst](how-to-deploy-and-where.md) | &nbsp; | Distribuera modeller som en webb tjänst. |

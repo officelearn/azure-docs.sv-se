@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 637bdb02cd9fc5296c74633bbfa381e62673a4bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b41609ec2b7cc9880fb22a76b9e3b40c315bc3c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355666"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499882"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Hantera och hitta data på Azure Blob Storage med BLOB-index (förhands granskning)
 
@@ -63,7 +63,7 @@ Du kan använda flera taggar i blobben för att vara mer beskrivande data.
 > "Prioritet" = ' 01 ' 
 >
 
-Om du vill ändra de befintliga attributen för index tag gen måste du först hämta befintliga taggattribut, ändra taggattribut och ersätta med SetBlobTags-åtgärden. Om du vill ta bort alla index taggar från blobben anropar du åtgärden SetBlobTags utan att ange några taggattribut. Eftersom BLOB index-taggar är en under resurs till BLOB-datainnehållet, ändrar SetBlobTags inte något underliggande innehåll och ändrar inte blobens senaste ändrings tid eller ETag (Entity tag). Du kan skapa eller ändra index taggar för alla aktuella bas-blobar och tidigare versioner. Det går dock inte att ändra taggar för ögonblicks bilder eller mjuk borttagna blobbar. 
+Om du vill ändra de befintliga attributen för index tag gen måste du först hämta befintliga taggattribut, ändra taggattribut och ersätta med SetBlobTags-åtgärden. Om du vill ta bort alla index taggar från blobben anropar du åtgärden SetBlobTags utan att ange några taggattribut. Eftersom BLOB index-taggar är en under resurs till BLOB-datainnehållet, ändrar SetBlobTags inte något underliggande innehåll och ändrar inte blobens senaste ändrings tid eller eTag (Entity tag). Du kan skapa eller ändra index taggar för alla aktuella bas-blobar och tidigare versioner. Det går dock inte att ändra taggar för ögonblicks bilder eller mjuk borttagna blobbar. 
 
 Följande begränsningar gäller för BLOB-index Taggar:
 - Varje Blob kan ha upp till 10 BLOB-Taggar
@@ -239,7 +239,7 @@ I följande tabell sammanfattas skillnaderna mellan metadata och blob-index Tagg
 
 |              |   Metadata   |   BLOB index-Taggar  |
 |--------------|--------------|--------------------|
-| **Begränsningar**         | Ingen numerisk gräns; totalt 8 KB; Skift läges okänslig | 10 Taggar per BLOB Max; 768 byte per tagg; Skift läges känslig |
+| **Gränser**         | Ingen numerisk gräns; totalt 8 KB; Skift läges okänslig | 10 Taggar per BLOB Max; 768 byte per tagg; Skift läges känslig |
 | **Uppdateringar**      | Tillåts inte på Arkiv nivå. SetBlobMetadata ersätter alla befintliga metadata. SetBlobMetadata ändrar blobens senaste ändrings tid | Tillåts för alla åtkomst nivåer. SetBlobTags ersätter alla befintliga taggar; SetBlobTags ändrar inte blobens senaste ändrings tid |
 | **Storage**        | Lagrad med BLOB-data |  Under resurs till BLOB-data | 
 | **Indexerar & frågor** | Ej tillämpligt, ursprungligt; måste använda en separat tjänst, till exempel Azure Search | Ja, inbyggd indexering och frågor om funktioner som är inbyggda i Blob Storage |
@@ -293,9 +293,10 @@ I det här avsnittet beskrivs kända problem och villkor i den aktuella offentli
 -   Redundansväxling av kontot stöds inte för närvarande. BLOB-indexet kanske inte uppdateras korrekt efter redundansväxlingen.
 -   Livs cykel hantering stöder för närvarande bara likhets kontroller med BLOB-index matchning.
 -   CopyBlob kopierar inte BLOB-index-taggar från käll-bloben till den nya mål-bloben. Du kan ange de taggar som du vill använda för mål-bloben under kopierings åtgärden. 
+- CopyBlob (asynkron kopia) från ett annat lagrings konto med tillämpade taggar på mål-bloben gör att BLOB-index motorn inte returnerar blobben och dess Taggar i filter uppsättningen. Vi rekommenderar att du använder CopyBlob från URL (synkronisera kopia) i Interim.
 -   Taggarna sparas när en ögonblicks bild skapas. Det finns för närvarande inte stöd för att befordra en ögonblicks bild och kan resultera i en tom tag-uppsättning.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 ### <a name="can-blob-index-help-me-filter-and-query-content-inside-my-blobs"></a>Kan du använda BLOB-index för att filtrera och fråga efter innehåll i mina blobbar? 
 Nej, BLOB index-taggar kan hjälpa dig att hitta de blobbar som du letar efter. Om du behöver söka i dina blobar använder du frågans acceleration eller Azure Search.
@@ -308,5 +309,7 @@ Nej, Azure Resource Manager Taggar hjälper till att organisera kontroll Plans r
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se ett exempel på hur du använder BLOB-index. Se [använda BLOB-index för att hantera och hitta data](storage-blob-index-how-to.md)
+Ett exempel på hur du använder BLOB-index finns i [använda BLOB-index för att hantera och söka efter data](storage-blob-index-how-to.md).
+
+Lär dig mer om [livs cykel hantering](storage-lifecycle-management-concepts.md) och ange en regel med matchning av BLOB-index.
 

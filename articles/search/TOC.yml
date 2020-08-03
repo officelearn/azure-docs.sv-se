@@ -112,6 +112,8 @@
           href: cognitive-search-incremental-indexing-conceptual.md
     - name: Säkerhet
       items:
+        - name: Säkerhetsöversikt
+          href: search-security-overview.md
         - name: Säkerhetskontroller av Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -329,8 +331,6 @@
           href: search-api-migration.md
     - name: Säkerhet
       items:
-        - name: Översikt
-          href: search-security-overview.md
         - name: Datakryptering
           items:
             - name: Kundhanterade nycklar
@@ -518,5 +518,5 @@
       href: search-faq-frequently-asked-questions.md
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/search/'
-    - name: Videoklipp
+    - name: Video
       href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

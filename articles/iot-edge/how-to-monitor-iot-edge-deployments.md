@@ -8,13 +8,14 @@ ms.date: 04/21/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
+ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 4ca22c39fcd7b488f527326e4fdeaa56b0485cb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc01c283fd4e2b6e3494c18c1908152aecee2c5f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84220299"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489120"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Övervaka IoT Edge-distributioner
 
@@ -24,7 +25,7 @@ Både enheter och moduler har liknande data, till exempel anslutningar, så att 
 
 IoT Hubs tjänsten samlar in data som rapporter ATS av enhet och modul, och innehåller antalet olika tillstånd som enheterna kan ha. Tjänsten IoT Hub organiserar dessa data i fyra grupper av mått:
 
-| Typ | Beskrivning |
+| Typ | Description |
 | --- | ---|
 | Riktad | Visar de IoT Edge enheter som matchar villkoret för distributions målet. |
 | Tillämpat | Visar mål IoT Edge enheter som inte är riktade till en annan distribution med högre prioritet. |

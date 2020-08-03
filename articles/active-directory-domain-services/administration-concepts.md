@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: 4f1f6c60ef2e0ccdd3e166e2272fe917ead3ed2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6266248b817485562c7ed2643b3dda5f32cecc53
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735055"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489681"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Hanterings begrepp för användar konton, lösen ord och administration i Azure Active Directory Domain Services
 
@@ -70,7 +70,7 @@ I Azure AD DS innehåller skogen bara en domän. Lokala AD DS-skogar innehåller
 
 Som standard skapas en hanterad domän som en *användar* skog. Den här typen av skog synkroniserar alla objekt från Azure AD, inklusive alla användar konton som skapats i en lokal AD DS-miljö. Användar konton kan autentiseras direkt mot den hanterade domänen, t. ex. för att logga in på en domänansluten virtuell dator. En användar skog fungerar när lösen ordets hash-värden kan synkroniseras och användarna inte använder exklusiva inloggnings metoder som smartkort-autentisering.
 
-I en Azure AD DS- *resurs* kan användare autentiseras över ett enkelriktat skogs *förtroende* från sina lokala AD DS. Med den här metoden synkroniseras inte användar objekt och lösen ordets hash-värden till Azure AD DS. Användar objekt och autentiseringsuppgifter finns bara i den lokala AD DS. Med den här metoden kan företag hantera resurser och programplattformar i Azure som är beroende av klassisk autentisering, t. ex. LDAP, Kerberos eller NTLM, men eventuella autentiseringsproblem eller problem tas bort. Azure AD DS resurs skogar är för närvarande en för hands version.
+I en Azure AD DS- *resurs* kan användare autentiseras över ett enkelriktat skogs *förtroende* från sina lokala AD DS. Med den här metoden synkroniseras inte användar objekt och lösen ordets hash-värden till Azure AD DS. Användar objekt och autentiseringsuppgifter finns bara i den lokala AD DS. Med den här metoden kan företag hantera resurser och programplattformar i Azure som är beroende av klassisk autentisering, t. ex. LDAP, Kerberos eller NTLM, men eventuella autentiseringsproblem eller problem tas bort.
 
 Mer information om skogs typer i Azure AD DS finns i [Vad är resurs skogar?][concepts-forest] och [Hur fungerar skogs förtroenden i Azure AD DS?][concepts-trust]
 
@@ -81,7 +81,7 @@ I Azure AD DS baseras tillgängliga prestanda och funktioner på SKU: n. Du väl
 | SKU-namn   | Maximalt antal objekt | Säkerhetskopieringsfrekvens | Maximalt antal utgående skogs förtroenden |
 |------------|----------------------|------------------|----|
 | Standard   | Obegränsat            | Var sjunde dag     | 0  |
-| Enterprise | Obegränsat            | Var 3 dag     | 5  |
+| Stora företag | Obegränsat            | Var 3 dag     | 5  |
 | Premium    | Obegränsat            | Varje dag            | 10 |
 
 Innan dessa Azure AD DS-SKU: er användes en fakturerings modell baserat på antalet objekt (användar-och dator konton) i den hanterade domänen. Det finns inte längre någon varierande prissättning baserat på antalet objekt i den hanterade domänen.
@@ -102,7 +102,7 @@ När SKU-nivån ökar ökar frekvensen för dessa ögonblicks bilder av säkerhe
 
 ### <a name="outbound-forest-trusts"></a>Utgående skogs förtroenden
 
-I föregående avsnitt beskrivs enkelriktade utgående skogs förtroenden från en hanterad domän till en lokal AD DS-miljö (för närvarande i för hands version). SKU: n bestämmer det maximala antalet skogs förtroenden som du kan skapa för en hanterad domän. Granska ditt företags-och program krav för att avgöra hur många förtroenden du faktiskt behöver och välj lämplig Azure AD DS-SKU. Om ditt företags behov ändras och du behöver skapa ytterligare skogs förtroenden kan du byta till en annan SKU.
+I föregående avsnitt beskrivs enkelriktade utgående skogs förtroenden från en hanterad domän till en lokal AD DS-miljö. SKU: n bestämmer det maximala antalet skogs förtroenden som du kan skapa för en hanterad domän. Granska ditt företags-och program krav för att avgöra hur många förtroenden du faktiskt behöver och välj lämplig Azure AD DS-SKU. Om ditt företags behov ändras och du behöver skapa ytterligare skogs förtroenden kan du byta till en annan SKU.
 
 ## <a name="next-steps"></a>Nästa steg
 

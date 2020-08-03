@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/17/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0446dd9e316e145cf93c503ab9634d4eedbc299b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b834dda926b7da1241a325e1453143eccafaf30
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85387838"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488779"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Skicka en åtkomsttoken via ett användar flöde till ditt program i Azure Active Directory B2C
 
@@ -24,9 +24,9 @@ Ett [användar flöde](user-flow-overview.md) i Azure Active Directory B2C (Azur
 
 Azure AD B2C stöder för närvarande bara att skicka åtkomsttoken för [OAuth 2,0](authorization-code-flow.md) -identitets leverantörer, som innehåller [Facebook](identity-provider-facebook.md) och [Google](identity-provider-google.md). För alla andra identitets leverantörer returneras anspråket tomt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Ditt program måste använda ett [v2-användar flöde](user-flow-versions.md).
+* Ditt program måste använda ett [rekommenderat användar flöde](user-flow-versions.md).
 * Ditt användar flöde har kon figurer ATS med en identitets leverantör för OAuth 2,0.
 
 ## <a name="enable-the-claim"></a>Aktivera anspråket

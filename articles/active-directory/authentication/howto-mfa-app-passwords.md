@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b247b64d563bc2b12c5bffff6a460d77cb96207
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6bd09a24202b599c1f008e7b046ea5f93ff0323
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485604"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489800"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Aktivera och Använd Azure Multi-Factor Authentication med äldre program med applösenord
 
@@ -88,6 +88,12 @@ Som standard kan användarna inte skapa applösenord. Funktionen applösenord m�
 5. På sidan **tjänst inställningar** väljer du alternativet **Tillåt användare att skapa applösenord för att logga in på icke-webbläsarbaserade appar** .
 
     ![Skärm bild av Azure Portal som visar tjänst inställningarna för Multi-Factor Authentication för att tillåta användare av applösenord](media/concept-authentication-methods/app-password-authentication-method.png)
+    
+> [!NOTE]
+>
+> När du inaktiverar möjligheten för användare att skapa applösenord, fortsätter befintliga applösenord att fungera. Användare kan dock inte hantera eller ta bort de befintliga applösenord när du har inaktiverat den här funktionen.
+>
+> När du inaktiverar möjligheten att skapa applösenord, rekommenderar vi också att du [skapar en princip för villkorlig åtkomst för att inaktivera användningen av äldre autentisering](../conditional-access/block-legacy-authentication.md). Den här metoden förhindrar att befintliga applösenord fungerar och tvingar användningen av moderna autentiseringsmetoder.
 
 ## <a name="create-an-app-password"></a>Skapa ett applösenord
 

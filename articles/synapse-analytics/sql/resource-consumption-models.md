@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: a358052d5f3959a236f29461890c989e77edb4dc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 086c853b21301074cf35f13db52db1fdb145518c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369024"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489579"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse för SQL-resursförbrukning
 
@@ -27,7 +27,7 @@ SQL på begäran är en betal tjänst per fråga som inte kräver att du väljer
 
 Rekommendationer för att välja det idealiska antalet informations lager enheter (DWU: er) för att optimera pris och prestanda och hur du ändrar antalet enheter.
 
-### <a name="what-are-data-warehouse-units"></a>Vad är informations lager enheter
+### <a name="data-warehouse-units"></a>Informationslagerenheter
 
 En Synapse SQL-pool representerar en samling analys resurser som tillhandahålls. Analys resurser definieras som en kombination av CPU, minne och IO. Dessa tre resurser paketeras i enheter med beräknings skala som kallas informations lager enheter (DWU: er). En DWU representerar ett abstrakt, normaliserat mått för beräkningsresurser och prestanda. En ändring av Service nivån ändrar antalet DWU: er som är tillgängliga för systemet, vilket i sin tur justerar prestandan och kostnaden för systemet.
 
@@ -79,7 +79,7 @@ När du ökar informations lager enheter är du linjärt ökande data bearbetnin
 
 Varje SQL Server (till exempel myserver.database.windows.net) har en kvot för [databas transaktions enhet (DTU)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) som tillåter ett angivet antal informations lager enheter. Mer information finns i [kapacitets gränser för arbets belastnings hantering](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
 
-### <a name="how-many-data-warehouse-units-do-i-need"></a>Hur många data lager enheter behöver jag
+### <a name="assess-the-number-of-data-warehouse-units-you-need"></a>Utvärdera antalet data lager enheter som du behöver
 
 Det idealiska antalet data lager enheter är beroende av arbets belastningen och mängden data som du har läst in i systemet.
 
@@ -120,7 +120,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 ### <a name="change-data-warehouse-units"></a>Ändra informations lager enheter
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 Ändra DWU: er:
 

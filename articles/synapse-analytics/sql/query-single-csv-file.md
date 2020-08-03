@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1d033a904087bf8ff32721372209820a64090502
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 63755616bb524226d3c40d32b9695f4b787860d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383893"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489715"
 ---
 # <a name="query-csv-files"></a>Fråga CSV-filer
 
@@ -31,7 +31,7 @@ Alla ovanstående variationer kommer att täckas av nedan.
 
 `OPENROWSET`funktionen gör att du kan läsa innehållet i CSV-filen genom att ange URL: en till filen.
 
-### <a name="reading-csv-file"></a>Läser CSV-fil
+### <a name="read-a-csv-file"></a>Läs en CSV-fil
 
 Det enklaste sättet att se innehållet i `CSV` filen är att ange fil-URL: en för `OPENROWSET` funktionen, ange csv och `FORMAT` 2,0 `PARSER_VERSION` . Om filen är offentligt tillgänglig eller om din Azure AD-identitet har åtkomst till den här filen bör du kunna se innehållet i filen med frågan som visas i följande exempel:
 
@@ -46,7 +46,7 @@ from openrowset(
 
 Alternativet `firstrow` används för att hoppa över den första raden i CSV-filen som representerar rubriken i det här fallet. Se till att du har åtkomst till den här filen. Om filen skyddas med SAS-nyckel eller anpassad identitet måste du konfigurera [autentiseringsuppgifter på server nivå för SQL-inloggning](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
-### <a name="using-data-source"></a>Använda data Källa
+### <a name="data-source-usage"></a>Data källans användning
 
 I föregående exempel används den fullständiga sökvägen till filen. Alternativt kan du skapa en extern data källa med platsen som pekar på rotmappen för lagringen:
 
@@ -214,7 +214,7 @@ WHERE
 > [!NOTE]
 > Den här frågan returnerar samma resultat om du utelämnade parametern FIELDQUOTE eftersom standardvärdet för FIELDQUOTE är ett dubbelt citat tecken.
 
-## <a name="escaping-characters"></a>Undantagna tecken
+## <a name="escape-characters"></a>Escape-tecken
 
 Följande fråga visar hur du läser en fil med en rubrik rad, med en ny rad med UNIX-typ, kommaavgränsade kolumner och ett escape-tecken som används för fält avgränsare (komma) i värden. Observera den olika platsen för filen jämfört med de andra exemplen.
 
@@ -246,7 +246,7 @@ WHERE
 > [!NOTE]
 > Den här frågan kan inte utföras om ESCAPECHAR inte anges eftersom kommatecknet i "slov, enia" behandlas som fält avgränsare i stället för en del av landets/regionens namn. "Slov, enia" behandlas som två kolumner. Därför skulle den aktuella raden ha en kolumn mer än de andra raderna, och en kolumn mer än du definierade i WITH-satsen.
 
-### <a name="escaping-quoting-characters"></a>Hoppar över citat tecken
+### <a name="escape-quoting-characters"></a>Undanta citat tecken
 
 Följande fråga visar hur du läser en fil med en rubrik rad, med en ny rad med UNIX-format, kommaavgränsade kolumner och ett escapeed Double citat tecken inom värden. Observera den olika platsen för filen jämfört med de andra exemplen.
 
@@ -306,7 +306,7 @@ WHERE
     AND year = 2017
 ```
 
-## <a name="returning-subset-of-columns"></a>Returnerar delmängd av kolumner
+## <a name="return-a-subset-of-columns"></a>Returnera en delmängd av kolumner
 
 Hittills har du angett CSV-filschemat med med och visar alla kolumner. Du kan bara ange kolumner som du faktiskt behöver i frågan genom att använda ett ordnings tal för varje kolumn som behövs. Du kommer också att utelämna kolumner utan intresse.
 

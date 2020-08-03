@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 556871b55de60ee592622f9f93c7b7123ba2ed32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c26951d5ab7552dc6c63288ce92cdb8134bd58ed
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731978"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498233"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegera administration i Azure Active Directory
 
@@ -38,7 +38,7 @@ När en organisation växer kan det vara svårt att hålla reda på vilka använ
 
 I Azure AD-portalen kan du [Visa alla medlemmar i en roll](directory-manage-roles-portal.md), vilket kan hjälpa dig att snabbt kontrol lera dina distributions-och ombuds behörigheter.
 
-Om du är intresse rad av att delegera åtkomst till Azure-resurser i stället för administrativ åtkomst i Azure AD, se [tilldela en rollbaserad åtkomst kontroll (RBAC) roll](../../role-based-access-control/role-assignments-portal.md).
+Om du är intresse rad av att delegera åtkomst till Azure-resurser i stället för administrativ åtkomst i Azure AD, se [tilldela en Azure-roll](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="delegation-planning"></a>Delegerings planering
 

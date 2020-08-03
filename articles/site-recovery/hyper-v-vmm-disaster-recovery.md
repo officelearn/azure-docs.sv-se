@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 482a3808065bb2ec565bad7e760b9337b3db7007
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b2164f8927e5c3224f8b07c30d057f48fb7bbc32
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134007"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495987"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Konfigurera haveriberedskap för virtuella Hyper-V-datorer till en sekundär lokal plats
 
@@ -80,7 +80,7 @@ Installera Azure Site Recovery-providern på VMM-servrarna och identifiera och r
 4. Ladda ned installationsfilen för Azure Site Recovery-providern.
 5. Ladda ned registreringsnyckeln. Du behöver detta när du installerar providern. Nyckeln är giltig i fem dagar efter att du har genererat den.
 
-    ![Konfigurera källan](./media/hyper-v-vmm-disaster-recovery/source-settings.png)
+    ![Skärm bild av alternativen för att ladda ned Provider och registrerings nyckel.](./media/hyper-v-vmm-disaster-recovery/source-settings.png)
 
 6. Installera providern på varje VMM-server. Du behöver inte installera något uttryckligen på Hyper-V-värdar.
 
@@ -94,7 +94,7 @@ Installera Azure Site Recovery-providern på VMM-servrarna och identifiera och r
 4. I **Installation** accepterar du eller ändrar standardinstallationsplatsen och klickar på **Installera**.
 5. När installationen är klar klickar du på **Registrera** för att registrera servern i valvet.
 
-    ![Installationsplats](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
+    ![Skärm bild av installations skärmen för providern, inklusive installations platsen.](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
 6. I **Valvnamn** kontrollerar du namnet på valvet som servern ska registreras i. Klicka på **Nästa**.
 7. I **proxyanslutning** anger du hur den provider som körs på VMM-servern ska ansluta till Azure.
    - Du kan ange att providern ska ansluta direkt till Internet eller via en proxy. Ange proxyinställningar efter behov.
@@ -115,7 +115,7 @@ Välj VMM-målservern och molnet:
 1. Klicka på **Förbered infrastruktur**  >  **mål**och välj mål-VMM-servern.
 2. VMM-moln som är synkroniserade med Site Recovery visas. Välj målmolnet.
 
-   ![Mål](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
+   ![Skärm bild av målets VMM-Server och moln val.](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
 
 
 ## <a name="set-up-a-replication-policy"></a>Konfigurerar en replikeringsprincip
@@ -138,7 +138,7 @@ Innan du börjar bör du se till att alla värdar som använder principen har sa
 5. Välj **Delete replica VM** (Ta bort virtuell replikdator) för att ange att den replikerade virtuella datorn ska tas bort om du inaktiverar skydd för den virtuella källdatorn. Om du aktiverar den här inställningen gäller att när du inaktiverar skydd för den virtuella källdatorn så tas den bort från Site Recovery-konsolen, Site Recovery-inställningarna för VMM tas bort från VMM-konsolen och repliken tas bort.
 6. I **Metod för inledande replikering** gäller att om du replikerar över nätverket så anger du huruvida du vill starta den inledande replikeringen eller schemalägga den. För att spara nätverksbandbredd kan det vara bra att schemalägga den utanför kontorstid. Klicka sedan på **OK**.
 
-     ![Replikeringsprincip](./media/hyper-v-vmm-disaster-recovery/replication-policy.png)
+     ![Skärm bild av alternativ för replikeringsprincipen.](./media/hyper-v-vmm-disaster-recovery/replication-policy.png)
      
 7. Den nya principen associeras automatiskt med VVM-molnet. I **Replikeringsprincip** klickar du på **OK**. 
 

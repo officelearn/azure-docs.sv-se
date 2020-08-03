@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 9a9518eb4c8635275b9cbf0467f3091eca10f647
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 880ccf9a69d5898da98aeabcfd89d05ff94e3b43
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223014"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489817"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Skapa en Azure Active Directory Domain Services hanterad domän med hjälp av en Azure Resource Manager mall
 
@@ -126,7 +126,7 @@ Som en del av resurs definitionen för Resource Manager krävs följande konfigu
 | Namn              | DNS-domännamnet för din hanterade domän, med hänsyn till föregående punkter om namngivning av prefix och konflikter. |
 | filteredSync            | Med Azure AD DS kan du synkronisera *alla* användare och grupper som är tillgängliga i Azure AD, eller en *begränsad* synkronisering av enbart vissa grupper.<br /><br /> Mer information om omfångs synkronisering finns i [Azure AD Domain Services omfångs synkronisering][scoped-sync].|
 | notificationSettings    | Om det finns aviseringar som genererats i den hanterade domänen kan e-postmeddelanden skickas ut. <br /><br />*Globala administratörer* av Azure-klienten och medlemmar i gruppen *AAD DC-administratörer* kan *aktive ras* för dessa aviseringar.<br /><br /> Om du vill kan du lägga till ytterligare mottagare för aviseringar när det finns aviseringar som kräver åtgärder.|
-| domainConfigurationType | Som standard skapas en hanterad domän som en *användar* skog. Den här typen av skog synkroniserar alla objekt från Azure AD, inklusive alla användar konton som skapats i en lokal AD DS-miljö. Du behöver inte ange ett *domainConfiguration* -värde för att skapa en användar skog.<br /><br /> En *resurs* skog synkroniserar bara användare och grupper som skapats direkt i Azure AD. Resurs skogar är för närvarande i för hands version. Ställ in värdet på *ResourceTrusting* för att skapa en resurs skog.<br /><br />Mer information om *resurs* skogar, inklusive varför du kan använda en och hur du skapar skogs förtroenden med lokala AD DS-domäner finns i [Översikt över Azure AD DS resurs skogar][resource-forests].|
+| domainConfigurationType | Som standard skapas en hanterad domän som en *användar* skog. Den här typen av skog synkroniserar alla objekt från Azure AD, inklusive alla användar konton som skapats i en lokal AD DS-miljö. Du behöver inte ange ett *domainConfiguration* -värde för att skapa en användar skog.<br /><br /> En *resurs* skog synkroniserar bara användare och grupper som skapats direkt i Azure AD. Ställ in värdet på *ResourceTrusting* för att skapa en resurs skog.<br /><br />Mer information om *resurs* skogar, inklusive varför du kan använda en och hur du skapar skogs förtroenden med lokala AD DS-domäner finns i [Översikt över Azure AD DS resurs skogar][resource-forests].|
 
 I följande dekomprimerade Parameters-definition visas hur dessa värden deklareras. En användar skog med namnet *aaddscontoso.com* skapas med alla användare från Azure AD synkroniserat till den hanterade domänen:
 

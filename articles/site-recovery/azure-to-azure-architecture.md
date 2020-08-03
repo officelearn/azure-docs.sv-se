@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: e5daf318088cb71b6a1819db71e3c597a9fa94db
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3cd64de05c44729f1aa714849e12fc8f69998334
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421458"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498624"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Haveriberedskapsarkitektur för Azure till Azure
 
@@ -34,7 +34,7 @@ De komponenter som ingår i haveri beredskap för virtuella Azure-datorer samman
 **Lagrings konto för cache** | Du behöver ett cache Storage-konto i käll nätverket. Under replikeringen lagras VM-ändringar i cachen innan de skickas till mål lagringen.  Cache Storage-konton måste vara standard.<br/><br/> Användningen av en cache garanterar minimal påverkan på produktions program som körs på en virtuell dator.<br/><br/> [Läs mer](azure-to-azure-support-matrix.md#cache-storage) om cache Storage-krav. 
 **Mål resurser** | Mål resurserna används vid replikering och när en redundansväxling sker. Site Recovery kan konfigurera mål resurs som standard, eller så kan du skapa/anpassa dem.<br/><br/> I mål regionen kontrollerar du att du kan skapa virtuella datorer och att din prenumeration har tillräckligt med resurser för att stödja VM-storlekar som kommer att behövas i mål regionen. 
 
-![Käll-och mål replik](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
+![Diagram över käll-och mål replikering.](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
 
 ## <a name="target-resources"></a>Mål resurser
 
@@ -116,7 +116,7 @@ När du aktiverar replikering för en virtuell Azure-dator händer följande:
 4. Site Recovery bearbetar data i cachen och skickar dem till mål lagrings kontot, eller till replik Managed disks.
 5. När data har bearbetats genereras kraschbaserade återställnings punkter var femte minut. Programkonsekventa återställnings punkter genereras enligt den inställning som anges i replikeringsprincipen.
 
-![Aktivera replikeringsprincip, steg 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
+![Diagram som visar den replikerade processen, steg 2.](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
 
 **Replikeringsprocessen**
 
@@ -191,7 +191,7 @@ Om du aktiverar konsekvens för flera virtuella datorer kommunicerar datorer i r
 
 När du initierar en redundansväxling skapas de virtuella datorerna i mål resurs gruppen, målets virtuella nätverk, mål under nätet och målets tillgänglighets uppsättning. Under en redundansväxling kan du använda alla återställnings punkter.
 
-![Redundansväxling](./media/concepts-azure-to-azure-architecture/failover-v2.png)
+![Diagram som visar redundansväxlingen med käll-och mål miljöer.](./media/concepts-azure-to-azure-architecture/failover-v2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

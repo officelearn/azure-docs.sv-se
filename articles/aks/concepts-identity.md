@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: f3eacbe6f93388756ce26324babeb2ca38bd09a5
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: f87e3f4add0cb5949036ec6caca2e361e2e88ea0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87438903"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498131"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Åtkomst och identitetsalternativ för Azure Kubernetes Service (AKS)
 
@@ -119,7 +119,7 @@ Se mer information om hur du använder Azure RBAC för att skydda åtkomsten til
 
 ### <a name="azure-rbac-for-kubernetes-authorization-preview"></a>Azure RBAC för Kubernetes-auktorisering (för hands version)
 
-Med Azure RBAC-integrering använder AKS en Kubernetes-auktoriserings-webhook-Server för att hantera behörigheter och tilldelningar av Azure AD-integrerade K8s kluster resurser med hjälp av Azure RBAC-roll definition och roll tilldelningar.
+Med Azure RBAC-integrering använder AKS en Kubernetes-auktoriserings-webhook-server så att du kan hantera behörigheter och tilldelningar av Azure AD-integrerade K8s kluster resurser med roll definitions-och roll tilldelningar i Azure.
 
 ![Azure RBAC för Kubernetes-auktoriseringsarkiv](media/concepts-identity/azure-rbac-k8s-authz-flow.png)
 

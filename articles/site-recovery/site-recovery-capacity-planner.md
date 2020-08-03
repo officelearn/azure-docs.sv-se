@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a622179d1e83b41e906a9d276377f5c9474264b9
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: a5764e44db31755110ac99a3e8e8e0984cdf9604
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86129965"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87490582"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planera kapacitet för haveri beredskap för Hyper-V-VM 
 
@@ -47,7 +47,7 @@ Du kan köra verktyget i två lägen:
 
 2. I list rutan **Välj en planerings typ** väljer du **snabb planering**.
 
-   ![Kom igång](./media/site-recovery-capacity-planner/getting-started.png)
+   ![Skärm bild av alternativet Välj en planerings typ, med snabb planerare valt.](./media/site-recovery-capacity-planner/getting-started.png)
 
 3. Ange den information som krävs i kalkyl bladet **Capacity Planner** . Fyll i alla fält som är inringade i rött i följande skärm bild:
 
@@ -61,7 +61,7 @@ Du kan köra verktyget i två lägen:
 
    e. I **antal timmar där inledande replikering för batchen av virtuella datorer ska slutföras** och **antalet virtuella datorer per inledande replikering**, anger du inställningar som används för att beräkna inledande replikerings krav. När Site Recovery distribueras överförs hela den ursprungliga data uppsättningen.
 
-   ![Indata](./media/site-recovery-capacity-planner/inputs.png)
+   ![Skärm bild av Capacity Planner kalkyl bladet som visar nödvändig information om indata.](./media/site-recovery-capacity-planner/inputs.png)
 
 4. När du har angett värden för käll miljön innehåller utdata som visas:
 
@@ -77,7 +77,7 @@ Du kan köra verktyget i två lägen:
    * **Antal ytterligare processerver som krävs**: visar om det krävs ytterligare process servrar, utöver den processerver som körs på konfigurations servern som standard.
    * **100% ytterligare lagrings utrymme på källan**: visar om ytterligare lagrings utrymme krävs på käll platsen.
 
-      ![Utdata](./media/site-recovery-capacity-planner/output.png)
+      ![Skärm bild av de utdata som visas baserat på angivna indata.](./media/site-recovery-capacity-planner/output.png)
 
 ## <a name="run-the-detailed-planner"></a>Kör den detaljerade planeraren
 
@@ -85,7 +85,7 @@ Du kan köra verktyget i två lägen:
 
 2. I **Välj en planerings typ**väljer du **detaljerad Planner** i list rutan.
 
-   ![Guide för att komma igång](./media/site-recovery-capacity-planner/getting-started-2.png)
+   ![Skärm bild av alternativet Välj en planerings typ, där detaljerad Planner har valts.](./media/site-recovery-capacity-planner/getting-started-2.png)
 
 3. Ange den information som krävs i kalkyl bladet för **arbets belastnings kvalificering** . Du måste fylla i alla markerade fält.
 
@@ -105,7 +105,7 @@ Du kan köra verktyget i två lägen:
 
    h. I **avbilda storlek på virtuell Azure-dator**anger du storleken på den virtuella Azure-datorn som du vill mappa. Om du inte vill göra detta manuellt väljer du **Compute IaaS VM**. Om du anger en manuell inställning och sedan väljer **Compute IaaS VM**: ar, kan den manuella inställningen skrivas över. Beräknings processen identifierar automatiskt den bästa matchningen på storleken på den virtuella Azure-datorn.
 
-   ![Kalkyl blad för arbets belastnings kvalificering](./media/site-recovery-capacity-planner/workload-qualification.png)
+   ![Skärm bild av kalkyl bladet arbets belastnings kvalificering som visar nödvändig information.](./media/site-recovery-capacity-planner/workload-qualification.png)
 
 4. Gör så här om du väljer **Compute IaaS VM**: ar:
 
@@ -117,12 +117,12 @@ Du kan köra verktyget i två lägen:
 
 Kolumner AA to AE är utdata och ger information för varje virtuell dator.
 
-![Utdatakolumner AA till AE](./media/site-recovery-capacity-planner/workload-qualification-2.png)
+![Skärm bild som visar utdatakolumner AA till AE.](./media/site-recovery-capacity-planner/workload-qualification-2.png)
 
 ### <a name="example"></a>Exempel
 Som exempel, för sex virtuella datorer med värdena som visas i tabellen, beräknar verktyget och tilldelar den bästa matchningen av virtuella Azure-datorer och Azure Storage-kraven.
 
-![Tilldelningar av arbets belastning](./media/site-recovery-capacity-planner/workload-qualification-3.png)
+![Skärm bild som visar tilldelningar av arbets belastning.](./media/site-recovery-capacity-planner/workload-qualification-3.png)
 
 * Tänk på följande i exemplet på utdata:
 
@@ -144,7 +144,7 @@ När all information har angetts väljer du **skicka data till Planner-verktyget
 
 2. Om du vill göra ändringar måste du ändra kalkyl bladet **arbets belastnings kvalificering** . Välj sedan **skicka data till Planner-verktyget** igen.
 
-   ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
+   ![Skärm bild som visar ändrade indata och resulterande utdata i kalkyl bladet Capacity Planner.](./media/site-recovery-capacity-planner/capacity-planner.png)
 
 ## <a name="next-steps"></a>Nästa steg
 [Lär dig hur du kör](./hyper-v-deployment-planner-overview.md) kapacitets planerings verktyget.

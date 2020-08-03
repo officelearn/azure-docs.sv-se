@@ -3,12 +3,13 @@ title: 'Snabb start: din första Azure CLI-fråga'
 description: I den här snabb starten följer du stegen för att aktivera resurs diagram tillägget för Azure CLI och kör din första fråga.
 ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 1c7c3a37c2fc5b6aebaa42cacba71897684b2207
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 82e36027e5016554770fc9359f413c1fff6fe227
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871980"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500682"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Snabb start: kör din första resurs diagram fråga med Azure CLI
 
@@ -16,7 +17,7 @@ Det första steget till att använda Azure Resource Graph är att kontrollera at
 
 I slutet av den här processen kommer du att ha lagt till tillägget till valfri Azure CLI-installation och kört din första Resource Graph-fråga.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 867babcf7160ce6e589197be0a3186e5a2156238
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4061d7a3d21b8c2db2bf161c422994cb2742b0b4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423583"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489885"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -67,7 +67,7 @@ De flesta exempel i dokumentationen och exemplen använder interaktiv autentiser
 
 ## <a name="service-principal-authentication"></a>Autentisering av tjänstens huvudnamn
 
-Om du vill använda tjänstens huvud namn (SP)-autentisering måste du först skapa SP och ge den åtkomst till din arbets yta. Som tidigare nämnts används Azure rollbaserad åtkomst kontroll (RBAC) för att kontrol lera åtkomsten, så du måste också bestämma vilken åtkomst som ska ge SP.
+Om du vill använda tjänstens huvud namn (SP)-autentisering måste du först skapa SP och ge den åtkomst till din arbets yta. Som tidigare nämnts används Azure rollbaserad åtkomst kontroll (Azure RBAC) för att kontrol lera åtkomsten, så du måste också bestämma vilken åtkomst som ska ge SP.
 
 > [!IMPORTANT]
 > När du använder ett huvud namn för tjänsten ger du det den __lägsta åtkomst som krävs för den aktivitet__ som används för. Du skulle till exempel inte bevilja tjänstens huvud namn ägare eller deltagar åtkomst om all den används för läser in åtkomsttoken för en webb distribution.

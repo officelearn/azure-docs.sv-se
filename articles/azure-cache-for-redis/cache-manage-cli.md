@@ -6,12 +6,13 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: c0e94c0bef5087665ca8746a65ccd34a0f61deef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: db55ac4ce868f2e6ce2afbfbf014aac67653ce4a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829745"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500512"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Så här skapar och hanterar du Azure cache för Redis med hjälp av den klassiska Azure-CLI
 > [!div class="op_single_selector"]
@@ -25,7 +26,7 @@ Den klassiska Azure CLI är ett bra sätt att hantera din Azure-infrastruktur fr
 > [!NOTE]
 > De senaste skripten för Azure CLI-exempel finns i [Azure CLI Azure cache för Redis-exempel](cli-samples.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste utföra följande steg för att skapa och hantera Azure cache för Redis-instanser med hjälp av den klassiska Azure-CLI: t.
 
 * Du måste ha ett Azure-konto. Om du inte har någon kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några få minuter.
@@ -36,7 +37,7 @@ Du måste utföra följande steg för att skapa och hantera Azure cache för Red
 ## <a name="azure-cache-for-redis-properties"></a>Egenskaper för Azure Cache for Redis
 Följande egenskaper används när du skapar och uppdaterar Azure cache för Redis-instanser.
 
-| Egenskap | Växel | Beskrivning |
+| Egenskap | Switch | Description |
 | --- | --- | --- |
 | name |-n,--namn |Namnet på Azure-cachen för Redis. |
 | Resursgrupp |-g,--resurs grupp |Namnet på resurs gruppen. |

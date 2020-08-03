@@ -5,12 +5,13 @@ ms.date: 06/23/2020
 ms.topic: tutorial
 author: spelluru
 ms.author: spelluru
-ms.openlocfilehash: 5340ec8d3d7a479fb349ce5ed1d32f917668d0d8
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: cdbde84780ed7c64f9ad3f4284a74261d2f4a728
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340995"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500478"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Självstudie: Uppdatera lagret med CLI och ämnen/prenumerationer
 
@@ -30,7 +31,7 @@ Ett exempel på det här scenariot är en uppdatering av lagersortimentet för f
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnads fritt konto][] innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna utveckla Service Bus-appar med Java, måste du ha följande installerat:
 

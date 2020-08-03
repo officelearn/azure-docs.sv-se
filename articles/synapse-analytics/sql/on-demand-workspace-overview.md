@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35e75037b4bf759fe90d608be0682004d3d3f23c
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: fc306dbca3191f04a85f2c5cc88d41336c13e09c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85480447"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496397"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL på begäran (för hands version) i Azure Synapse Analytics 
 
@@ -31,7 +31,7 @@ SQL på begäran är Server lös, därför finns det ingen infrastruktur för at
 
 Om du använder Apache Spark för Azure-Synapse i din datapipeline för förberedelse av data, rengöring eller anrikning, kan du [fråga externa Spark-tabeller](develop-storage-files-spark-tables.md) som du har skapat i processen direkt från SQL på begäran. Använd [privat länk](../security/how-to-connect-to-workspace-with-private-links.md) för att flytta din SQL-slutpunkt på begäran till din [hanterade VNet-VNet](../security/synapse-workspace-managed-vnet.md).  
 
-## <a name="who-is-sql-on-demand-for"></a>Vem är SQL på begäran för
+## <a name="sql-on-demand-benefits"></a>SQL-förmåner på begäran
 
 Om du behöver utforska data i data Lake, få insikter från den eller optimera din befintliga pipeline för datatransformering kan du dra nytta av SQL på begäran. Det är lämpligt för följande scenarier:
 
@@ -46,7 +46,7 @@ Olika professionella roller kan dra nytta av SQL på begäran:
 - Data analytiker kan [utforska data och Spark-externa tabeller](develop-storage-files-spark-tables.md) som skapats av data experter eller data tekniker som använder välbekanta T-SQL-språk eller deras favorit verktyg, som kan ansluta till SQL på begäran.
 - BI-proffs kan snabbt [skapa Power BI rapporter ovanpå data i sjö](tutorial-connect-power-bi-desktop.md) -och Spark-tabellerna.
 
-## <a name="what-do-i-need-to-do-to-start-using-it"></a>Vad behöver jag för att börja använda det?
+## <a name="how-to-start-using-sql-on-demand"></a>Börja använda SQL på begäran
 
 En slut punkt för SQL på begäran finns i varje Azure Synapse-arbetsyta. Du kan skapa en arbets yta och börja fråga efter data direkt med hjälp av verktyg som du är van vid.
 
@@ -54,7 +54,7 @@ En slut punkt för SQL på begäran finns i varje Azure Synapse-arbetsyta. Du ka
 
 SQL på begäran aktiverar befintliga SQL ad-hoc-frågor och Business Intelligence verktyg för att trycka på data Lake. Eftersom det ger en välbekant T-SQL-syntax kan alla verktyg som kan upprätta SQL-erbjudanden för TDS-anslutning [ansluta till och fråga SYNAPSE SQL](connect-overview.md) på begäran. Du kan ansluta till Azure Data Studio och köra Ad hoc-frågor eller ansluta till Power BI för att få insikter på några minuter.
 
-## <a name="is-full-t-sql-supported"></a>Stöds full T-SQL?
+## <a name="t-sql-support"></a>T-SQL-stöd
 
 SQL på begäran erbjuder T-SQL frågor på Surface-området, som är något förbättrat/utökat i vissa aspekter för att få plats med frågor om att fråga om delvis strukturerade och ostrukturerade data. Dessutom stöds inte vissa aspekter av T-SQL-språket på grund av utformningen av SQL på begäran, som ett exempel på att DML-funktionen inte stöds för närvarande.
 

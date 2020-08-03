@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: bf62d57aab07f5b1f2839b9e6e45c42e6b1b2c51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6beda409f03938f471f089bceebaa97c6d02ae7e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478424"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496227"
 ---
-# <a name="using-file-metadata-in-queries"></a>Använda fil-metadata i frågor
+# <a name="use-file-metadata-in-queries"></a>Använda fil-metadata i frågor
 
 SQL-tjänsten på begäran kan adressera flera filer och mappar enligt beskrivningen i artikeln [frågenoder och flera filer](query-folders-multiple-csv-files.md) . I den här artikeln får du lära dig hur du använder metadatainformation om fil-och mappnamn i frågorna.
 
@@ -24,11 +24,11 @@ Ibland kan du behöva veta vilken fil eller mapp källa som motsvarar en speciel
 
 Du kan använda funktionen `filepath` och `filename` för att returnera fil namn och/eller sökvägen i resultat uppsättningen. Eller så kan du använda dem för att filtrera data baserat på fil namnet och/eller mappsökvägen. Dessa funktioner beskrivs i funktionen syntax i avsnittet [filename](query-data-storage.md#filename-function) och funktionen fil [Sök väg](query-data-storage.md#filepath-function). Nedan hittar du korta beskrivningar utmed exempel.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ditt första steg är att **skapa en databas** med en data källa som refererar till ett lagrings konto. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Det här installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i de här exemplen.
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funktioner
 
 ### <a name="filename"></a>Sökväg
 

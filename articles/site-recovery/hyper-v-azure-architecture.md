@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 6dfa162de02174ac4a1a8251457249bd5ea4d766
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: af387b063a3c07d8b6b6c544814565e2a5ebdd46
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87416340"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495734"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Haveriberedskapsarkitektur för Hyper-V till Azure
 
@@ -36,7 +36,7 @@ Följande tabell och grafik ger en övergripande bild av de komponenter som anv�
 
 **Arkitektur för Hyper-V till Azure (utan VMM)**
 
-![Arkitektur](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
+![Diagram över lokal Hyper-V-plats till Azure-arkitektur utan VMM.](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
 ## <a name="architectural-components---hyper-v-with-vmm"></a>Arkitektur komponenter – Hyper-V med VMM
@@ -53,7 +53,7 @@ Följande tabell och grafik ger en övergripande bild av de komponenter som anv�
 
 **Arkitektur för Hyper-V till Azure (med VMM)**
 
-![Komponenter](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
+![Diagram över en lokal Hyper-V-plats till Azure-arkitekturen med VMM.](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
 
 ## <a name="set-up-outbound-network-connectivity"></a>Konfigurera utgående nätverks anslutning
 
@@ -76,7 +76,7 @@ Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgåend
 
 ## <a name="replication-process"></a>Replikeringsprocessen
 
-![Hyper-V till Azure-replikering](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
+![Diagram som visar replikeringen av Hyper-V till Azure](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
 
 **Process för replikering och återställning**
 
@@ -86,7 +86,7 @@ Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgåend
 1. När du har aktiverat skydd för en virtuell Hyper-V-dator i Azure Portal eller lokalt startar **Aktivera skydd**.
 2. Jobbet kontrollerar att datorn uppfyller kraven och anropar sedan metoden [CreateReplicationRelationship](/windows/win32/hyperv_v2/createreplicationrelationship-msvm-replicationservice) som konfigurerar replikering med de inställningar som du har konfigurerat.
 3. Jobbet startar den initiala replikeringen genom att aktivera metoden [StartReplication](/windows/win32/hyperv_v2/startreplication-msvm-replicationservice) för att initiera en fullständig VM-replikering och skicka de virtuella datorernas diskar till Azure.
-4. Du kan övervaka jobbet på fliken **jobb** .      ![Jobb lista ](media/hyper-v-azure-architecture/image1.png) ![ Aktivera skydds granskning nedåt](media/hyper-v-azure-architecture/image2.png)
+4. Du kan övervaka jobbet på fliken **jobb** .      ![Skärm bild av listan jobb på fliken jobb. ](media/hyper-v-azure-architecture/image1.png) Skärm ![ bild av skärmen Aktivera skydd med mer information.](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Inledande datareplikering
@@ -123,7 +123,7 @@ Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgåend
 2. När omsynkroniseringen är klar ska den normala deltareplikeringen återupptas.
 3. Om du inte vill vänta på omsynkroniseringen av standardvärdet utanför timmar kan du synkronisera om en virtuell dator manuellt. Till exempel om ett avbrott inträffar. Det gör du genom att välja den virtuella datorn > **omsynkronisering**i Azure Portal.
 
-    ![Manuell omsynkronisering](./media/hyper-v-azure-architecture/image4-site.png)
+    ![Skärm bild som visar omsynkroniserings-alternativet.](./media/hyper-v-azure-architecture/image4-site.png)
 
 
 ### <a name="retry-process"></a>Försök att bearbeta igen

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 60f2a1992750950b50995fcf36513e44e377004d
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: fb56c4da77ddeb87ebc3724a3b138994e4da98e7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386613"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489698"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Fråga efter kapslade typer i Parquet-och JSON-filer med SQL on-demand (för hands version) i Azure Synapse Analytics
 
@@ -117,7 +117,7 @@ FROM
 
 Resultatet visas i följande tabell:
 
-|title  | first_author_name | body_text | complex_column |
+|rubrik  | first_author_name | body_text | complex_column |
 | --- | --- | --- | --- |
 | Extra information ett eko-epidemiolo... | Julien   | – Bild S1: Phylogeny av... | `{    "paper_id": "000b7d1517ceebb34e1e3e817695b6de03e2fa78",    "metadata": {        "title": "Supplementary Information An eco-epidemiological study of Morbilli-related paramyxovirus infection in Madagascar bats reveals host-switching as the dominant macro-evolutionary mechanism",        "authors": [            {                "first": "Julien"` |
 
@@ -203,7 +203,7 @@ FROM
 
 Strukturen `MapOfPersons` returneras som en `VARCHAR` kolumn och formateras som JSON-sträng.
 
-## <a name="projecting-values-from-repeated-columns"></a>Projicera värden från upprepade kolumner
+## <a name="project-values-from-repeated-columns"></a>Projicera värden från upprepade kolumner
 
 Om du har en matris med skalära värden (till exempel `[1,2,3]` ) i vissa kolumner kan du enkelt expandera dem och koppla dem till huvud raden med hjälp av följande skript:
 

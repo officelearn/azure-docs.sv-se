@@ -4,12 +4,12 @@ description: Ta med dina egna nycklar (BYOK) för att kryptera AKS OS-och data d
 services: container-service
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: d8443c9c7a0af7bfb7f146904c913663d82786b8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f0b96b3f78adf4a7efb1d43626a5aaf82a5b5d43
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057302"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499627"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Ta med dina egna nycklar (BYOK) med Azure-diskar i Azure Kubernetes service (AKS)
 
@@ -161,8 +161,7 @@ kubectl apply -f byok-azure-disk.yaml
 
 ## <a name="limitations"></a>Begränsningar
 
-* Data disk kryptering som stöds med Kubernetes version 1,17 och senare   
-* Endast tillgängligt i regioner där BYOK stöds
+* Data disk kryptering som stöds med Kubernetes version 1,17 och senare
 * Kryptering med Kundhanterade nycklar för närvarande endast för nya AKS-kluster, går det inte att uppgradera befintliga kluster
 
 ## <a name="next-steps"></a>Nästa steg

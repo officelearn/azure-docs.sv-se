@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 880238558c03cca6a582960eef4e647c0e6875e8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fe05a474f4f6ee70c07e0e19621487d51d92966d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084117"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87490634"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Indexera dokument i Azure Data Lake Storage Gen2
 
@@ -44,7 +44,7 @@ Indexering av innehåll i Data Lake Storage Gen2 är identiskt med indexering av
 
 ## <a name="access-control"></a>Åtkomstkontroll
 
-Azure Data Lake Storage Gen2 implementerar en [åtkomst kontroll modell](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) som stöder både RBAC (Azure rollbaserad åtkomst kontroll) och POSIX-liknande åtkomst kontrol listor (ACL: er). När du indexerar innehåll från Data Lake Storage Gen2 kommer Azure Kognitiv sökning inte att extrahera RBAC-och ACL-information från innehållet. Detta innebär att den här informationen inte ingår i ditt Azure Kognitiv sökning-index.
+Azure Data Lake Storage Gen2 implementerar en [modell för åtkomst kontroll](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) som stöder både Azure-rollbaserad åtkomst kontroll (Azure RBAC) och POSIX-liknande åtkomst kontrol listor (ACL: er). När du indexerar innehåll från Data Lake Storage Gen2 kommer Azure Kognitiv sökning inte att extrahera RBAC-och ACL-information från innehållet. Detta innebär att den här informationen inte ingår i ditt Azure Kognitiv sökning-index.
 
 Om det är viktigt att ha åtkomst kontroll på varje dokument i indexet är det upp till programutvecklaren att implementera [säkerhets trimning](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search).
 

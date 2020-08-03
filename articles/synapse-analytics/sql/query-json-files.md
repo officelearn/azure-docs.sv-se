@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8b95f6b6eca0f1464a7d09d2810aa66836d76f8f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04b2d7842222426010b76a1a7ed4c72ee74e3d87
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386647"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489732"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Fråga JSON-filer med SQL på begäran (för hands version) i Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ I den här artikeln får du lära dig hur du skriver en fråga med SQL på begä
 - Standard-JSON-filer där flera JSON-dokument lagras som en JSON-matris.
 - Tabbavgränsade JSON-filer, där JSON-dokument skiljs åt med rad matnings tecknen. Vanliga tillägg för dessa typer av filer är `jsonl` , `ldjson` och `ndjson` .
 
-## <a name="reading-json-documents"></a>Läsa JSON-dokument
+## <a name="read-json-documents"></a>Läsa JSON-dokument
 
 Det enklaste sättet att se innehållet i JSON-filen är att ange fil-URL: en som `OPENROWSET` fungerar, ange CSV `FORMAT` och ange värden `0x0b` för `fieldterminator` och `fieldquote` . Om du behöver läsa tabbavgränsade JSON-filer räcker detta. Om du har en klassisk JSON-fil måste du ange värden `0x0b` för `rowterminator` . `OPENROWSET`funktionen kommer att parsa JSON och returnera varje dokument i följande format:
 
@@ -60,7 +60,7 @@ from openrowset(
 
 Den här frågan returnerar varje JSON-dokument som en separat rad i resultat uppsättningen. Se till att du har åtkomst till den här filen. Om filen skyddas med SAS-nyckel eller anpassad identitet måste du konfigurera [autentiseringsuppgifter på server nivå för SQL-inloggning](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
 
-### <a name="using-data-source"></a>Använda data Källa
+### <a name="data-source-usage"></a>Data källans användning
 
 I föregående exempel används den fullständiga sökvägen till filen. Alternativt kan du skapa en extern data källa med den plats som pekar på lagrings platsens rotmapp och använda denna data källa och den relativa sökvägen till filen i `OPENROWSET` funktionen:
 

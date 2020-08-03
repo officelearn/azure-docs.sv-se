@@ -7,13 +7,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
-ms.custom: mqtt
-ms.openlocfilehash: 78aee7829e58feede3360f30f10260903713c52f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-azurecli
+ms.openlocfilehash: b3a049d76f880f590060a999ddda00e3706bac94
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81770081"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500222"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Självstudie: Använd Azure IoT Hub meddelande-anrikning
 
@@ -36,9 +36,9 @@ Här är de uppgifter du utför för att slutföra den här självstudien:
 > * Kör en app som simulerar en IoT-enhet som skickar meddelanden till hubben.
 > * Visa resultaten och kontrol lera att meddelandets anrikning fungerar som förväntat.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Du måste ha en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* Du måste ha en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 * Installera [Visual Studio](https://www.visualstudio.com/).
 
 * Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här självstudien använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
@@ -356,7 +356,7 @@ Appen skickar ett nytt enhet till molnet-meddelande till IoT-hubben varje sekund
 
 Visa data när flera lagrings meddelanden har skickats.
 
-1. Välj **Resursgrupper**. Hitta din resurs grupp, **ContosoResourcesMsgEn**och välj den.
+1. Välj **resurs grupper**. Hitta din resurs grupp, **ContosoResourcesMsgEn**och välj den.
 
 2. Välj ditt lagrings konto, som är **contosostorage**. Välj **Storage Explorer (för hands version)** i det vänstra fönstret.
 

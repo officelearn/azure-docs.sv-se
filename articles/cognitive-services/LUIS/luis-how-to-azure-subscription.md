@@ -4,12 +4,13 @@ description: Första gången du använder Language Understanding (LUIS) behöver
 services: cognitive-services
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: dfe5c416adeb4ff850dfe8f28ae4c61c8bb0844f
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6bd8cc807a393d6c8027f5990b9897d93f2b78d2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144633"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496907"
 ---
 # <a name="create-luis-resources"></a>Skapa LUIS-resurser
 
@@ -58,7 +59,7 @@ Publicerings regioner skiljer sig från redigerings områden. Se till att du ska
 
 Användnings gränser baseras på pris nivån.
 
-Om du överskrider kvoten för transaktioner per sekund (TPS) får du ett HTTP 429-fel. Om du överskrider kvoten för din transaktion per månad (TPS) får du ett HTTP 403-fel.
+Om du överskrider kvoten för transaktioner per sekund (TPS) får du ett HTTP 429-fel. Om du överskrider kvoten för transaktioner per månad (TPM) får du ett HTTP 403-fel.
 
 
 ### <a name="reset-authoring-key"></a>Återställ redigerings nyckel
@@ -102,7 +103,7 @@ För närvarande finns det inte någon katalog med offentliga appar.
 
 Ägaren och alla deltagare har åtkomst för att redigera appen.
 
-|Redigerings åtkomst inkluderar|Anteckningar|
+|Redigerings åtkomst inkluderar|Kommentarer|
 |--|--|
 |Lägga till eller ta bort slut punkts nycklar||
 |Exporterar version||
@@ -232,7 +233,7 @@ I automatiserings syfte, till exempel en CI/CD-pipeline, kanske du vill automati
 
     Detta POST-API kräver följande inställningar:
 
-    |Huvud|Värde|
+    |Sidhuvud|Värde|
     |--|--|
     |`Authorization`|Värdet för `Authorization` är `Bearer {token}` . Observera att token-värdet måste föregås av ordet `Bearer` och ett blank steg.|
     |`Ocp-Apim-Subscription-Key`|Din redigerings nyckel.|
@@ -243,11 +244,11 @@ I automatiserings syfte, till exempel en CI/CD-pipeline, kanske du vill automati
 
     Detta POST-API kräver följande inställningar:
 
-    |Typ|Inställning|Värde|
+    |Typ|Inställningen|Värde|
     |--|--|--|
-    |Huvud|`Authorization`|Värdet för `Authorization` är `Bearer {token}` . Observera att token-värdet måste föregås av ordet `Bearer` och ett blank steg.|
-    |Huvud|`Ocp-Apim-Subscription-Key`|Din redigerings nyckel.|
-    |Huvud|`Content-type`|`application/json`|
+    |Sidhuvud|`Authorization`|Värdet för `Authorization` är `Bearer {token}` . Observera att token-värdet måste föregås av ordet `Bearer` och ett blank steg.|
+    |Sidhuvud|`Ocp-Apim-Subscription-Key`|Din redigerings nyckel.|
+    |Sidhuvud|`Content-type`|`application/json`|
     |Mängden|`appid`|LUIS-app-ID.
     |Brödtext||{"AzureSubscriptionId": "ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "ResourceGroup-2",<br>"AccountName": "Luis-USWest-S0-2"}|
 

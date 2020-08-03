@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d87da234e675059ba2c170f4322d0ba53965dc89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c5d23770aab0bde745152d918adfe83209819899
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075695"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500767"
 ---
-# <a name="using-transactions-in-sql-pool"></a>Använda transaktioner i SQL-pool
+# <a name="use-transactions-in-sql-pool"></a>Använda transaktioner i SQL-pool
 
 Tips för att implementera transaktioner i SQL-poolen (informations lager) för att utveckla lösningar.
 
@@ -183,7 +183,7 @@ Allt som har ändrats är att återställningen av transaktionen måste ske inna
 
 Det är också värt att notera att SQL-poolen inte implementerar eller stöder funktionen ERROR_LINE (). Om du har det här i din kod måste du ta bort den för att vara kompatibel med SQL-poolen. Använd fråge etiketter i koden i stället för att implementera motsvarande funktioner. Mer information finns i artikeln om [Etiketter](develop-label.md) .
 
-## <a name="using-throw-and-raiserror"></a>Använda THROW och RAISERROR
+## <a name="use-of-throw-and-raiserror"></a>Använda THROW-och RAISERROR
 
 THROW är den mer moderna implementeringen för att generera undantag i SQL-poolen, men RAISERROR stöds också. Det finns några skillnader som är intressanta att betala.
 

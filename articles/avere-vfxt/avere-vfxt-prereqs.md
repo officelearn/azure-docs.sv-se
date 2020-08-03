@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 24c803bd94f56af551f3afa2cb7350219b4fa448
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 538f3f18e1c8889834b9ee6588b85c9094dfbebe
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124739"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496720"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Förbereda för att skapa Avere vFXT
 
@@ -32,7 +32,7 @@ För att skapa en ny Azure-prenumeration i Azure Portal:
 
 En användare med ägar behörigheter för prenumerationen bör skapa vFXT-klustret. För att skapa kluster krävs en ägare för att godkänna program varu villkoren och för att tillåta ändringar i nätverks-och lagrings resurser.
 
-Det finns vissa lösningar för att tillåta att en icke-ägare skapar ett AVERT vFXT för Azure-kluster. I dessa scenarier ingår att begränsa resurser och tilldela ytterligare rollen som rollbaserad åtkomst kontroll (RBAC) till Skaparen. I alla dessa fall måste en prenumerations ägare också [godkänna vFXT-programtermerna](#accept-software-terms) i förväg.
+Det finns vissa lösningar för att tillåta att en icke-ägare skapar ett AVERT vFXT för Azure-kluster. I dessa scenarier ingår att begränsa resurser och tilldela ytterligare Azure-roller till Skaparen. I alla dessa fall måste en prenumerations ägare också [godkänna vFXT-programtermerna](#accept-software-terms) i förväg.
 
 | Scenario | Begränsningar | Åtkomst roller som krävs för att skapa ett AVERT vFXT-kluster |
 |----------|--------|-------|

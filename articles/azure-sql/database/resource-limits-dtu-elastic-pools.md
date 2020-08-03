@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 07/28/2020
-ms.openlocfilehash: 0fd875b2c02f5d61663339ac523fd6733732ad01
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 0dd15fe5d68a521293f279978c668bc88599115e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420999"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498301"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Resurs begränsningar för elastiska pooler med inköps modellen DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ För Azure SQL Database elastiska pooler visar följande tabeller de resurser so
 
 Resurs gränserna för enskilda databaser i elastiska pooler är vanligt vis samma som för enskilda databaser utanför pooler baserat på DTU: er och tjänst nivån. Till exempel är maximalt antal samtidiga arbetare för en S2-databas 120 arbetare. Därför är det högsta antalet samtidiga arbetare för en databas i en standard-pool också 120 arbetare om max värdet för DTU per databas i poolen är 50 DTU: er (som motsvarar S2).
  
-Resurserna som tillhandahålls till en elastisk pool kan överskrida resurserna som tillhandahålls till en enda databas utanför en elastisk pool för samma antal DTU: er. Det innebär att det är möjligt att använda eDTU-användningen av en elastisk pool för att vara mindre än summan av DTU-användningen mellan databaser i poolen, beroende på arbets belastnings mönster. I ett extrema fall med bara en databas i en elastisk pool där databas-DTU-användningen är 100% är det möjligt att använda pool-eDTU-användning som 50% för vissa arbets belastnings mönster. Detta kan inträffa även om ingen explicit Max DTU per databas har angetts. I så fall är den sammanslagna databasen DTU-förbrukning begränsad på samma sätt som DTU-förbrukningen för en enskild databas med matchande tjänst mål.
+För samma antal DTU: er kan resurser som tillhandahålls till en elastisk pool överskrida resurserna som tillhandahålls till en enskild databas utanför en elastisk pool. Det innebär att det är möjligt att använda eDTU-användningen av en elastisk pool för att vara mindre än summan av DTU-användningen mellan databaser i poolen, beroende på arbets belastnings mönster. I ett extrema fall med bara en databas i en elastisk pool där databas-DTU-användningen är 100% är det möjligt att använda pool-eDTU-användning som 50% för vissa arbets belastnings mönster. Detta kan inträffa även om max DTU per databas är kvar vid det högsta värdet som stöds för den angivna pool storleken.
 
 > [!NOTE]
 > Resurs gränsen för lagring per pool i följande tabeller inkluderar inte tempdb och logg lagring.
@@ -51,12 +51,12 @@ Resurserna som tillhandahålls till en elastisk pool kan överskrida resurserna 
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Inkluderat lagrings utrymme per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Högsta lagringsutrymme per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Högsta minnes intern OLTP-lagring per pool (GB) | E.t. | E.t. | E.t. | E.t. | E.t. | E.t. | E.t. | E.t. |
+| Högsta minnes intern OLTP-lagring per pool (GB) | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas |
 | Max antal databaser per pool <sup>1</sup> | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Maximalt antal samtidiga arbetare (begär Anden) per pool <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Maximalt antal samtidiga sessioner per pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
-| Minsta eDTU: er alternativ per databas | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
-| Max alternativ för eDTU: er per databas | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
+| Minsta DTU per databas val | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
+| Max DTU per databas val | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
 | Största lagringsutrymme per databas (GB) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
 ||||||||
 
@@ -70,12 +70,12 @@ Resurserna som tillhandahålls till en elastisk pool kan överskrida resurserna 
 |:---|---:|---:|---:| ---: | ---: | ---: |
 | Inkluderat lagrings utrymme per pool (GB) <sup>1</sup> | 50 | 100 | 200 | 300 | 400 | 800 |
 | Högsta lagringsutrymme per pool (GB) | 500 | 750 | 1024 | 1280 | 1536 | 2048 |
-| Högsta minnes intern OLTP-lagring per pool (GB) | E.t. | E.t. | E.t. | E.t. | E.t. | E.t. |
+| Högsta minnes intern OLTP-lagring per pool (GB) | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas |
 | Högsta antal databaser per pool <sup>2</sup> | 100 | 200 | 500 | 500 | 500 | 500 |
 | Maximalt antal samtidiga arbetare (begär Anden) per pool <sup>3</sup> | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Maximalt antal samtidiga sessioner per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Minsta eDTU: er alternativ per databas | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
-| Max alternativ för eDTU: er per databas | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
+| Minsta DTU per databas val | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
+| Max DTU per databas val | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
 | Största lagringsutrymme per databas (GB) | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
 ||||||||
 
@@ -91,12 +91,12 @@ Resurserna som tillhandahålls till en elastisk pool kan överskrida resurserna 
 |:---|---:|---:|---:| ---: | ---: |
 | Inkluderat lagrings utrymme per pool (GB) <sup>1</sup> | 1200 | 1600 | 2000 | 2500 | 3000 |
 | Högsta lagringsutrymme per pool (GB) | 2560 | 3072 | 3584 | 4096 | 4096 |
-| Högsta minnes intern OLTP-lagring per pool (GB) | E.t. | E.t. | E.t. | E.t. | E.t. |
+| Högsta minnes intern OLTP-lagring per pool (GB) | Saknas | Saknas | Saknas | Saknas | Saknas |
 | Högsta antal databaser per pool <sup>2</sup> | 500 | 500 | 500 | 500 | 500 |
 | Maximalt antal samtidiga arbetare (begär Anden) per pool <sup>3</sup> | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Maximalt antal samtidiga sessioner per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Minsta eDTU: er alternativ per databas | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
-| Max alternativ för eDTU: er per databas | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
+| Minsta DTU per databas val | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
+| Max DTU per databas val | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Största lagringsutrymme per databas (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 
@@ -137,8 +137,8 @@ Resurserna som tillhandahålls till en elastisk pool kan överskrida resurserna 
 | Högsta antal databaser per pool <sup>2</sup> | 100 | 100 | 100 | 100 | 100 |
 | Maximalt antal samtidiga arbetare (begär Anden) per pool <sup>3</sup> | 3200 | 4000 | 4800 | 5600 | 6400 |
 | Maximalt antal samtidiga sessioner per pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Minsta eDTU: er alternativ per databas | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
-| Max alternativ för eDTU: er per databas | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
+| Minsta DTU per databas val | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
+| Max DTU per databas val | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Största lagringsutrymme per databas (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 

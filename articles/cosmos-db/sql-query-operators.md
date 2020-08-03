@@ -4,14 +4,14 @@ description: Lär dig om SQL-operatorer som likheter, jämförelse och logiska o
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: 8ef41edb687a5df39243880c897d12e83c008ec9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd1652781d7eae8beb400c52137a8f16891e2b2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80063563"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498845"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operatorer i Azure Cosmos DB
 
@@ -21,19 +21,27 @@ Den här artikeln beskriver de olika operatörer som stöds av Azure Cosmos DB.
 
 I följande tabell visas resultatet av likhetsjämförelser i SQL API mellan två godtyckliga JSON-typer.
 
-| **Op** | **Odefinierad** | **Null** | **Boolesk** | **Nummer** | **Sträng** | **Objekt** | **Lagringsmatriser** |
+| **Op** | **Odefinierad** | **Null** | **Boolesk** | **Nummer** | **Sträng** | **Jobbobjektet** | **Lagringsmatriser** |
 |---|---|---|---|---|---|---|---|
 | **Odefinierad** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
 | **Null** | Undefined (Odefinierad) | **Okej** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
 | **Boolesk** | Undefined (Odefinierad) | Undefined (Odefinierad) | **Okej** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
 | **Nummer** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Okej** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
 | **Sträng** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Okej** | Undefined (Odefinierad) | Undefined (Odefinierad) |
-| **Objekt** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Okej** | Undefined (Odefinierad) |
+| **Jobbobjektet** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Okej** | Undefined (Odefinierad) |
 | **Lagringsmatriser** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Okej** |
 
 Jämförelse operatorer som `>` ,, `>=` , `!=` `<` och `<=` , jämförelse mellan typer eller mellan två objekt eller matriser skapar `Undefined` .  
 
 Om resultatet av det skalära uttrycket är är `Undefined` objektet inte inkluderat i resultatet, eftersom det `Undefined` inte är lika med `true` .
+
+Följande frågans jämförelse mellan ett tal och ett sträng värde genererar till exempel `Undefined` . Filtret innehåller därför inte några resultat.
+
+```sql
+SELECT *
+FROM c
+WHERE 7 = 'a'
+```
 
 ## <a name="logical-and-or-and-not-operators"></a>Logiska operatorer (AND, OR och NOT) (och, eller samt inte)
 
@@ -43,20 +51,20 @@ Logiska operatorer arbetar med booleska värden. I följande tabeller visas de l
 
 Returnerar `true` när något av villkoren är `true` .
 
-|  | **True** | **!** | **Odefinierad** |
+|  | **True** | **False** | **Odefinierad** |
 | --- | --- | --- | --- |
 | **True** |Sant |Sant |Sant |
-| **!** |Sant |Falskt |Undefined (Odefinierad) |
+| **False** |Sant |Falskt |Undefined (Odefinierad) |
 | **Odefinierad** |Sant |Undefined (Odefinierad) |Undefined (Odefinierad) |
 
 **Operatorn AND** (OCH)
 
 Returnerar `true` när båda uttrycken är `true` .
 
-|  | **True** | **!** | **Odefinierad** |
+|  | **True** | **False** | **Odefinierad** |
 | --- | --- | --- | --- |
 | **True** |Sant |Falskt |Undefined (Odefinierad) |
-| **!** |Falskt |Falskt |Falskt |
+| **False** |Falskt |Falskt |Falskt |
 | **Odefinierad** |Undefined (Odefinierad) |Falskt |Undefined (Odefinierad) |
 
 **Operatorn NOT** (INTE)
@@ -66,7 +74,7 @@ Kastar om värdet för booleska uttryck.
 |  | **Ogiltigt** |
 | --- | --- |
 | **True** |Falskt |
-| **!** |Sant |
+| **False** |Sant |
 | **Odefinierad** |Undefined (Odefinierad) |
 
 **Prioritet för Operator**
@@ -114,4 +122,4 @@ Använd?? operatör för att effektivt söka efter en egenskap i ett objekt vid 
 
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Nyckelord](sql-query-keywords.md)
-- [SELECT-sats](sql-query-select.md)
+- [SELECT-satsen](sql-query-select.md)

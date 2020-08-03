@@ -8,21 +8,29 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/26/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3d0cb06f84fdd96d099e05f55ba62c37cb1192c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4548b50e4168f260cb401c40dd4e61192cea1015
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78183983"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489545"
 ---
 # <a name="page-layout-versions"></a>Sidlayoutversioner
 
 Sid inlayout-paket uppdateras regelbundet för att inkludera korrigeringar och förbättringar i sina sid element. Följande ändrings logg anger de ändringar som införs i varje version.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
+
+## <a name="210"></a>2.1.0
+
+- Själv kontrollerad sida ( `selfasserted` )
+  - Lokaliserings-och tillgänglighets korrigeringar.
+- Enhetlig SSP-sida ( `unifiedssp` )
+  - Stöd har lagts till för flera registrerings länkar.
+  - Stöd har lagts till för verifiering av användarindata enligt de predikat som definierats i principen.
 
 ## <a name="200"></a>2.0.0
 
@@ -40,6 +48,8 @@ Sid inlayout-paket uppdateras regelbundet för att inkludera korrigeringar och f
   - Stöd för Chrome-Översättning
 - Enhetliga och självkontrollerade sidor
   - Fälten användar namn/e-post och lösen ord använder nu `form` HTML-elementet för att tillåta att Edge och Internet Explorer (IE) sparar informationen på rätt sätt.
+- Själv kontrollerad sida
+  - Har lagt till en konfigurerbar verifierings fördröjning för användarindata för förbättrad användar upplevelse.
 
 ## <a name="110"></a>1.1.0
 

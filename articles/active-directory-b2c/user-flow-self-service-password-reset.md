@@ -7,22 +7,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/30/2018
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 465643d21d3059cd41948ff682d7464b00f749c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c9edaf3356ea4c1a521a89f2ec60a4b6ba1a5ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85384013"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481503"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Konfigurera lösen ords återställning via självbetjäning för dina kunder
 
 Med funktionen för lösen ords återställning via självbetjäning kan dina kunder som har registrerat sig för lokala konton återställa sina lösen ord på egen hand. Detta minskar avsevärt belastningen på support personalen, särskilt om ditt program har miljon tals kunder som använder det regelbundet. För närvarande är den enda återställnings metoden som stöds med hjälp av en verifierad e-postadress.
 
 > [!NOTE]
-> Den här artikeln gäller lösen ords återställning via självbetjäning som används i kontexten för användar flödet v1-inloggning, som använder **sig** av inloggning som identitets leverantör för **lokalt konto** . Om du behöver fullständigt anpassningsbara lösen ords återställning av användar flöden som anropas från din app, se [den här artikeln](user-flow-overview.md).
+> Den här artikeln gäller lösen ords återställning via självbetjäning som används i kontexten för standard **inloggnings** användar flödet, som använder sig av inloggning som identitets leverantör för **lokalt konto** . Om du behöver fullständigt anpassningsbara lösen ords återställning av användar flöden som anropas från din app, se [den här artikeln](user-flow-overview.md).
 >
 >
 

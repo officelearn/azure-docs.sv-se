@@ -7,20 +7,24 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 05bcbf8df695ba308a6eaff5e7401f0a6d638747
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 3e7ee90d75a2ff2b3552992c19f11cc86b6109ca
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337610"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486670"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Skicka frågor till Azure Digitals dubbla grafer
 
 Den här artikeln innehåller exempel och mer information om hur du använder [Azure Digitals frågor](concepts-query-language.md) för att skicka frågor till den [dubbla grafen](concepts-twins-graph.md) . Du kör frågor i grafen med hjälp av Azures digitala dubbla [**API: er för frågor**](how-to-use-apis-sdks.md).
 
+[!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
+
+Resten av den här artikeln innehåller exempel på hur du använder dessa åtgärder.
+
 ## <a name="query-syntax"></a>Frågesyntax
 
-Här följer några exempel frågor som illustrerar frågans språk struktur och utför möjliga fråge åtgärder.
+Det här avsnittet innehåller exempel frågor som illustrerar frågans språk struktur och utför möjliga fråge åtgärder.
 
 Hämta [digitala dubbla](concepts-twins-graph.md) med egenskaper (inklusive ID och metadata):
 ```sql
@@ -31,16 +35,55 @@ AND T.$dtId in ['123', '456']
 AND T.Temperature = 70
 ```
 
-Hämta digitala dubbla med [modell](concepts-models.md)
-```sql
-SELECT  * 
-FROM DigitalTwins T  
-WHERE IS_OF_MODEL(T , 'dtmi:com:contoso:Space;3')
-AND T.roomSize > 50
-```
-
 > [!TIP]
 > ID: t för en digital delad frågas med hjälp av fältet metadata `$dtId` .
+
+Du kan också få dubbla på sina *Taggegenskaper* genom att följa anvisningarna i [lägga till taggar till digitala dubbla](how-to-use-tags.md):
+```sql
+select * from digitaltwins where is_defined(tags.red) 
+```
+
+### <a name="select-top-items"></a>Markera de översta objekten
+
+Du kan välja flera "Top"-objekt i en fråga med hjälp av- `Select TOP` satsen.
+
+```sql
+SELECT TOP (5)
+FROM DIGITALTWINS
+WHERE property = 42
+```
+
+### <a name="query-by-model"></a>Fråga efter modell
+
+`IS_OF_MODEL`Operatorn kan användas för att filtrera baserat på den dubbla [modellen](concepts-models.md). Det stöder arv och har flera alternativ för överlagring.
+
+Den enklaste användningen av `IS_OF_MODEL` tar bara en `twinTypeName` parameter: `IS_OF_MODEL(twinTypeName)` .
+Här är ett exempel på en fråga som skickar ett värde i den här parametern:
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1')
+```
+
+Om du vill ange en dubbel samling att söka i när det finns mer än en (t. ex. När en `JOIN` används) lägger du till `twinCollection` parametern: `IS_OF_MODEL(twinCollection, twinTypeName)` .
+Här är ett exempel på en fråga som lägger till ett värde för den här parametern:
+
+```sql
+SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1')
+```
+
+Om du vill göra en exakt matchning lägger du till `exact` parametern: `IS_OF_MODEL(twinTypeName, exact)` .
+Här är ett exempel på en fråga som lägger till ett värde för den här parametern:
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1', exact)
+```
+
+Du kan också skicka alla tre argumenten tillsammans: `IS_OF_MODEL(twinCollection, twinTypeName, exact)` .
+Här är ett exempel på en fråga som anger ett värde för alla tre parametrar:
+
+```sql
+SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', exact)
+```
 
 ### <a name="query-based-on-relationships"></a>Fråga baserat på relationer
 

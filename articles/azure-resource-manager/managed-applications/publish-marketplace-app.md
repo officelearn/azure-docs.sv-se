@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: dcd036f09982cba8271ed6057a167eb7440303a9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: a5e2a3569c70404d64d24ecfc35a8258ea864a4f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054499"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87480432"
 ---
 # <a name="tutorial-publish-azure-managed-applications-in-the-marketplace"></a>Självstudie: publicera Azure-hanterade program på Marketplace
 
@@ -98,7 +98,7 @@ En SKU visas under det överordnade erbjudandet på Marketplace. Det visas som e
 
      Information om tillgängliga åtgärder finns i [Azure Resource Manager Resource Provider-åtgärder](../../role-based-access-control/resource-provider-operations.md). Om du till exempel vill tillåta att användare startar om virtuella datorer kan du lägga till dem `Microsoft.Compute/virtualMachines/restart/action` i de tillåtna åtgärderna. `*/read`Åtgärden tillåts automatiskt så att du inte behöver ta med den inställningen.
    * **PrincipalId**: den här egenskapen är Azure Active Directory-ID (Azure AD-ID) för en användare, en användargrupp eller ett program som beviljas åtkomst till resurser i kundens prenumeration. Rolldefinitionen beskriver behörigheterna.
-   * **Rolldefinition**: Den här egenskapen är en lista med alla inbyggda RBAC-roller (rollbaserade åtkomstkontroller) som tillhandahålls av Azure AD. Välj den roll som är mest lämplig för hantering av resurserna för kundens räkning.
+   * **Roll definition**: den här egenskapen är en lista över alla inbyggda Azure-roller som tillhandahålls av Azure AD. Välj den roll som är mest lämplig för hantering av resurserna för kundens räkning.
    * **Principinställningar**: Använd [Azure Policy](../../governance/policy/overview.md) på det hanterade programmet och ange efterlevnadskrav för de distribuerade lösningarna. Välj vilka principer du vill använda bland de tillgängliga alternativen. I fältet **Principparametrar** anger du en JSON-sträng med parametervärdena. Du kan läsa om principdefinitioner och parametervärdenas format i [Azure Policy-exempel](../../governance/policy/samples/index.md).
 
 Du kan lägga till flera auktoriseringar. Vi rekommenderar att du skapar en AD-användargrupp och anger gruppens ID i **PrincipalId**. På det sättet kan du lägga till fler användare i användargruppen utan att behöva uppdatera SKU:n.
@@ -131,7 +131,7 @@ På fliken **Prenumerationer + priser** för det hanterade programmet visas föl
 
 ![Marketplace-prenumerationer](./media/publish-marketplace-app/publishvm15.png)
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 I sammanfattningen av det hanterade programmet visas följande fält:
 

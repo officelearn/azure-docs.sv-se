@@ -1,5 +1,6 @@
 ---
 title: Användar flöden i Azure Active Directory B2C | Microsoft Docs
+titleSuffix: Azure AD B2C
 description: Lär dig mer om den utöknings bara princip ramverket för Azure Active Directory B2C och hur du skapar olika användar flöden.
 services: active-directory-b2c
 author: msmimart
@@ -7,24 +8,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 07/30/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1dc0e297ca16bf2605993e36942de9d31c331680
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 7a7736602fafb740d1d76fa09fd26da25e4ff9f5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115852"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481605"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Användar flöden i Azure Active Directory B2C
 
-Den utöknings bara princip ramverket för Azure Active Directory B2C (Azure AD B2C) är tjänstens kärn styrka. Principer beskriver fullständigt identitets upplevelser som registrering, inloggning eller profil redigering. För att hjälpa dig att skapa de vanligaste identitets uppgifterna innehåller Azure AD B2C portalen fördefinierade, konfigurerbara principer som kallas **användar flöden**.
-
-## <a name="what-are-user-flows"></a>Vad är användar flöden?
-
-Med ett användar flöde kan du styra beteenden i dina program genom att konfigurera följande inställningar:
+För att hjälpa dig att skapa de vanligaste identitets uppgifterna för dina program, innehåller Azure AD B2C Portal fördefinierade, konfigurerbara principer som kallas **användar flöden**. Med ett användar flöde kan du bestämma hur användare interagerar med ditt program när de gör saker som att logga in, registrera sig, redigera en profil eller återställa ett lösen ord. Med användar flöden kan du kontrol lera följande funktioner:
 
 - Konto typer som används för inloggning, till exempel sociala konton som ett Facebook-eller lokala konto
 - Attribut som ska samlas in från konsumenten, till exempel förnamn, post nummer och sko storlek
@@ -62,13 +59,21 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="user-flow-versions"></a>Användarflödesversioner
 
-I Azure Portal läggs nya [versioner av användar flöden](user-flow-versions.md) till hela tiden. När du kommer igång med Azure AD B2C rekommenderar vi att du använder och testar användar flöden. När du skapar ett nytt användar flöde väljer du det användar flöde som du behöver från den **rekommenderade** fliken.
+Azure AD B2C innehåller flera typer av användar flöden:
 
-Följande användar flöden rekommenderas för närvarande:
-
-- **Registrera dig och logga in** – hanterar både registrerings-och inloggnings upplevelser med en enda konfiguration. Användarna utsätts för rätt sökväg beroende på kontexten. Vi rekommenderar att du använder det här användar flödet över ett **registrerings** användar flöde eller ett **inloggnings** användar flöde.
+- **Registrera dig och logga in** – hanterar både registrerings-och inloggnings upplevelser med en enda konfiguration. Användarna utsätts för rätt sökväg beroende på kontexten. Dessutom ingår separata användar flöden för **registrering** eller **inloggning** . Men vi rekommenderar vanligt vis det kombinerade registrerings-och inloggnings användar flödet.
 - **Profil redigering** – gör att användare kan redigera profil informationen.
 - **Lösen ords återställning** – låter dig konfigurera om och hur användarna kan återställa sina lösen ord.
+
+De flesta typer av användar flöden har både en **Rekommenderad** version och en **standard** version. Mer information finns i [användar flödes versioner](user-flow-versions.md).
+
+> [!IMPORTANT]
+> Om du har arbetat med användar flöden i Azure AD B2C tidigare, ser vi att vi har ändrat hur vi refererar till användar flödes versioner. Tidigare erbjöd vi v1 (produktions klara) versioner och V 1.1 och v2 (för hands version). Nu har vi konsoliderat användar flöden i två versioner:
+>
+>- **Rekommenderade** användar flöden är de nya för hands versionerna av användar flöden. De har testats noggrant och kombinerar alla funktioner i äldre **v2** -och **v 1.1** -versioner. De nya rekommenderade användar flödena kommer att behållas och uppdateras. När du flyttar till dessa nya rekommenderade användar flöden har du till gång till nya funktioner när de släpps.
+>- **Standard** användar flöden, som tidigare kallats **v1**, är allmänt tillgängliga, produktions färdiga användar flöden. Om dina användar flöden är verksamhets kritiska och är beroende av hög stabila versioner, kan du fortsätta att använda standard användar flöden, vilket innebär att dessa versioner inte upprätthålls och uppdateras.
+>
+>Alla äldre förhands gransknings användar flöden (V 1.1 och v2) finns på en sökväg till utfasningen den **1 augusti 2021**. När så är möjligt rekommenderar vi starkt att du [växlar till de nya **rekommenderade** användar flödena](user-flow-versions.md#how-to-switch-to-a-new-recommended-user-flow) så snart som möjligt, så att du alltid kan dra nytta av de senaste funktionerna och uppdateringarna.
 
 ## <a name="linking-user-flows"></a>Länka användar flöden
 

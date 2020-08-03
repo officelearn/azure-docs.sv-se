@@ -7,21 +7,21 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 4ee970f7e4a1228d40a284372300ed9e95c00b7e
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 2e7658e965931dd78a6db0e2c9fee36edffff98b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460396"
+ms.locfileid: "87479820"
 ---
 # <a name="payout-summary-overview"></a>Översikt över utbetalningssammanfattning
 
 [Sammanfattningen av utbetalningen](./payout-summary.md) visar information om de pengar som du har fått av Microsoft. Du kan också se när du får betalningar och hur mycket du betalar.
 
-Om du säljer erbjudanden i Azure Marketplace ser du också information om lyckade utbetalningar i sammanfattningen av utbetalningen. Mer information om Azure Marketplace-betalning finns i [principer för att delta i Azure Marketplace](https://docs.microsoft.com/legal/marketplace/participation-policy) och [Microsoft Azure Marketplace Publisher-avtal](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+Om du säljer erbjudanden i Azure Marketplace ser du också information om lyckade utbetalningar i sammanfattningen av utbetalningen. Mer information om Azure Marketplace-betalning finns i [principer för att delta i Azure Marketplace](https://docs.microsoft.com/legal/marketplace/participation-policy) och [Microsoft Azure Marketplace Publisher-avtal](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
-> För att bli berättigad till utbetalning måste du ha uppnått [betalnings tröskeln](./payment-thresholds-methods-timeframes.md) på $50. Mer information om betalnings tröskeln finns i [Microsoft Azure Marketplace Publisher-avtalet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+> För att bli berättigad till utbetalning måste du ha uppnått [betalnings tröskeln](./payment-thresholds-methods-timeframes.md) på $50. Mer information om betalnings tröskeln finns i [Microsoft Azure Marketplace Publisher-avtalet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 Om du vill visa utbetalnings information loggar du in på [partner Center](https://partner.microsoft.com/dashboard/home) och väljer utbetalnings ikonen i det övre högra hörnet på skärmen:
 
@@ -51,7 +51,7 @@ För en diskussion om betalnings scheman, inklusive anläggnings perioder, partn
 
 Det här alternativet ger en nedladdning av varje rad objekt som visas på sidan transaktions historik. Detta inkluderar typ, datum, tillhör ande transaktions belopp, kund, produkt och annan transaktionell information som är relaterad till stimulans programmet.
 
-| Kolumnnamn | Beskrivning |
+| Kolumnnamn | Description |
 | --- | --- |
 | earningId | Unikt ID för varje tilltjänande |
 | participantId | Den primära identiteten för partnern enligt programmet |

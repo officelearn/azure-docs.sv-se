@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 84e9dab149cfed265833336577d718e57bd9bc2d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: fa1ed25e8c9a80dda2bf0e4625d28a3befaa49c9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165336"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87479854"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga frågor och svar om Trafikanalys
 
@@ -36,7 +36,7 @@ Trafikanalys kräver följande krav:
 
 Ditt konto måste uppfylla något av följande för att aktivera trafik analys:
 
-- Ditt konto måste ha någon av följande roller för rollbaserad åtkomst kontroll (RBAC) i prenumerations omfånget: ägare, deltagare, läsare eller nätverks deltagare.
+- Ditt konto måste ha någon av följande Azure-roller i prenumerations omfånget: ägare, deltagare, läsare eller nätverks deltagare.
 - Om ditt konto inte har tilldelats någon av de tidigare angivna rollerna, måste det tilldelas en anpassad roll som har tilldelats följande åtgärder på prenumerations nivå.
             
     - Microsoft. Network/applicationGateways/Read
@@ -75,7 +75,7 @@ Du kan använda Traffic Analytics för NSG: er i någon av följande regioner:
 - USA, västra 2
 - Frankrike, centrala
 - Europa, västra
-- Europa, norra
+- Norra Europa
 - Brasilien, södra
 - Storbritannien, västra
 - Storbritannien, södra
@@ -103,7 +103,7 @@ Arbets ytan Log Analytics måste finnas i följande regioner:
 - USA, västra 2
 - Frankrike, centrala
 - Europa, västra
-- Europa, norra
+- Norra Europa
 - Storbritannien, västra
 - Storbritannien, södra
 - Australien, östra
@@ -401,4 +401,3 @@ Sidan topologier för virtuella under nätverk innehåller två huvud avsnitt:
 - Om du vill flytta till andra markerade noder i vyn topologi använder du `Shift+Right arrow` nyckeln för Forward transport. 
 - På markerade noder flyttar fokus till **rutan informations verktyg** för noden. Fokus flyttar som standard till knappen **Mer information** i **rutan information-verktyg**. Om du vill flytta i **rutan** ytterligare, använder `Right arrow` `Left arrow` du och nycklar för att flytta framåt respektive bakåt. Att trycka på `Enter` har samma resultat som om du väljer knappen fokuserad i **rutan information-verktyg**.
 - Vid val av sådana noder kan du gå till alla dess anslutningar, en i taget, genom att trycka på `Shift+Left arrow` nyckel. Fokus flyttas till **rutan informations verktyg** i anslutningen. I någon punkt kan fokus flyttas tillbaka till noden genom att trycka på `Shift+Right arrow` igen.    
-

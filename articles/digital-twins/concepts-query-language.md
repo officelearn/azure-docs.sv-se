@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f7e9a76309b4d9dcd010b85d1b55f340374be5c4
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 960fff073353375cd50b31bc7284134ca733f142
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337933"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488031"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Om frågespråket för Azure Digitals dubbla
 
@@ -20,23 +20,7 @@ Kom ihåg att mitten av Azure Digitals flätas är den [**dubbla grafen**](conce
 
 Om du vill skicka en fråga till tjänsten från en klient app använder du Azure Digital- [**fråge-API: et**](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.digitaltwinsclient.query?view=azure-dotnet-preview). Detta gör det möjligt för utvecklare att skriva frågor och applicera filter för att hitta uppsättningar digitala dubbla i det dubbla diagrammet och annan information om det digitala Azure-scenariot.
 
-## <a name="query-language-features"></a>Funktioner i frågespråk
-
-Azure Digitals dubbla ger omfattande fråge funktioner mot den dubbla grafen. Frågor beskrivs med hjälp av SQL-like syntax, i ett frågespråk som liknar det [IoT Hub frågespråket](../iot-hub/iot-hub-devguide-query-language.md) med många jämförbara funktioner.
-
-> [!NOTE]
-> Alla frågor om Azure Digitals dubbla frågor är Skift läges känsliga.
-
-Här är de åtgärder som är tillgängliga i Azure Digitals:
-* Hämta dubbla "egenskaper för Digitals" (inklusive [taggar](how-to-use-tags.md)).
-* Få dubbla med digitala dubbla gränssnitts gränssnitt.
-* Hämta dubbla i Relations egenskaper.
-* Hämta dubblare över flera Relations typer ( `JOIN` frågor). Det finns begränsningar för antalet s som `JOIN` tillåts (en nivå för offentlig för hands version).
-* Använd anpassad funktion `IS_OF_MODEL(twinCollection, twinTypeName)` som tillåter filtrering baserat på den dubbla [modellen](concepts-models.md). Det stöder arv.
-* Använd skalära funktioner:,,,,,,, `IS_BOOL` `IS_DEFINED` `IS_NULL` `IS_NUMBER` `IS_OBJECT` `IS_PRIMITIVE` `IS_STRING` `STARTS_WITH` , `ENDS_WITH` .
-* Använd jämförelse operatorer för frågor:,,,,, `IN` / `NIN` `=` `!=` `<` `>` `<=` , `>=` .
-* Använd valfri kombination ( `AND` , `OR` `NOT` operator) av ovanstående.
-* Använd fortsättning: frågespråket instansieras med en sid storlek (upp till 100). Du kan hämta den digitala gränsen en sida i taget genom att tillhandahålla en fortsättnings-token i efterföljande anrop till API: et.
+[!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: a4b969ecbc92df45021b4a9ec711960171d77d4e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: abc1f1de45fe846f9f50a6a7aa3dae2ed837b52b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495303"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486802"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Fråga efter data från Azure Time Series Insights Gen2
 
@@ -37,7 +37,7 @@ Följande kärn-API: er stöds.
 
 ## <a name="environment-apis"></a>Miljö-API: er
 
-* [Hämta miljöer API](https://docs.microsoft.com/rest/api/time-series-insights/management/environments/get): returnerar listan över miljöer som anroparen har behörighet att komma åt.
+* [Hämta miljöer API](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment): returnerar listan över miljöer som anroparen har behörighet att komma åt.
 * [Hämta tillgänglighets-API för miljöer](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/getavailability): returnerar fördelningen av antal händelser över händelsens tidsstämpel `$ts` . Det här API: et hjälper till att avgöra om det finns några händelser i miljön genom att returnera antalet händelser som är brutna i tidsintervall, om sådana finns.
 * [Hämta API för händelse schema](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/geteventschema): Returnerar metadata för händelse schema för ett angivet Sök omfång. Med detta API kan du hämta alla metadata och egenskaper som är tillgängliga i schemat för angivet Sök omfång.
 

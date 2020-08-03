@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/11/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 235fd429707a418fa193e986b95c9b38fa6c8101
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29a03f1d1b1007845c1df516192da22d74705af0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385033"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481741"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Självstudie: anpassa gränssnittet för användar upplevelser i Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ I den här artikeln kan du se hur du:
 > * Uppdatera användar flödet för att använda filerna
 > * Testa det anpassade användar gränssnittet
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -139,7 +139,7 @@ I den här självstudien lagrar du de filer som du skapade i lagrings kontot så
 ## <a name="update-the-user-flow"></a>Uppdatera användar flödet
 
 1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
-2. Välj **användar flöden (principer)** och välj sedan *B2C_1_signupsignin1* användar flödet.
+2. Välj **användar flöden**och välj sedan *B2C_1_signupsignin1* användar flödet.
 3. Välj **sidlayouter**och klicka sedan på **Ja** under **enhetlig registrering eller inloggnings sida**för att **använda anpassat sid innehåll**.
 4. Ange URI: n för den *custom-ui.html* -fil som du tidigare spelat in i **URI för anpassad sida**.
 5. Välj **Spara**längst upp på sidan.

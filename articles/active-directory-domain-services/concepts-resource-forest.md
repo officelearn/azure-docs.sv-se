@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 310527d8e98e474faa43f19406f037e1a3835756
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 62a2ffeea1d15a16c4ec4aa6a2b88c8e34763064
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040273"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87480415"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Principer och funktioner för resurs skogar för Azure Active Directory Domain Services
 
@@ -23,10 +23,7 @@ Azure Active Directory Domain Services (Azure AD DS) är en inloggnings upplevel
 
 Även om det är säkert och ger ytterligare säkerhets förmåner, kan vissa organisationer inte synkronisera dessa hashar för användar lösen ord till Azure AD eller Azure AD DS. Användare i en organisation kanske inte känner till sitt lösen ord eftersom de bara använder autentisering med smartkort. De här begränsningarna förhindrar att vissa organisationer använder Azure AD DS för att lyfta och byta lokala klassiska program till Azure.
 
-För att lösa dessa behov och begränsningar kan du skapa en hanterad domän som använder en resurs skog. I den här konceptuella artikeln förklaras vad skogar är och hur de litar på andra resurser för att tillhandahålla en säker autentiseringsmetod. Azure AD DS resurs skogar är för närvarande en för hands version.
-
-> [!IMPORTANT]
-> Azure AD DS-resurs skogar har för närvarande inte stöd för Azure HDInsight eller Azure Files. Standard användar skogar i Azure AD DS stöder båda dessa ytterligare tjänster.
+För att lösa dessa behov och begränsningar kan du skapa en hanterad domän som använder en resurs skog. I den här konceptuella artikeln förklaras vad skogar är och hur de litar på andra resurser för att tillhandahålla en säker autentiseringsmetod.
 
 ## <a name="what-are-forests"></a>Vad är skogar?
 
@@ -36,7 +33,7 @@ I en Azure AD DS-hanterad domän innehåller skogen bara en domän. Lokala AD DS
 
 Som standard skapas en hanterad domän som en *användar* skog. Den här typen av skog synkroniserar alla objekt från Azure AD, inklusive alla användar konton som skapats i en lokal AD DS-miljö. Användar konton kan autentiseras direkt mot den hanterade domänen, t. ex. för att logga in på en domänansluten virtuell dator. En användar skog fungerar när lösen ordets hash-värden kan synkroniseras och användarna inte använder exklusiva inloggnings metoder som smartkort-autentisering.
 
-I en hanterad domän *resurs* skog autentiseras användare över ett enkelriktat skogs *förtroende* från sina lokala AD DS. Med den här metoden synkroniseras inte användar objekt och lösen ordets hash-värden till den hanterade domänen. Användar objekt och autentiseringsuppgifter finns bara i den lokala AD DS. Med den här metoden kan företag hantera resurser och programplattformar i Azure som är beroende av klassisk autentisering, t. ex. LDAP, Kerberos eller NTLM, men eventuella autentiseringsproblem eller problem tas bort. Azure AD DS resurs skogar är för närvarande en för hands version.
+I en hanterad domän *resurs* skog autentiseras användare över ett enkelriktat skogs *förtroende* från sina lokala AD DS. Med den här metoden synkroniseras inte användar objekt och lösen ordets hash-värden till den hanterade domänen. Användar objekt och autentiseringsuppgifter finns bara i den lokala AD DS. Med den här metoden kan företag hantera resurser och programplattformar i Azure som är beroende av klassisk autentisering, t. ex. LDAP, Kerberos eller NTLM, men eventuella autentiseringsproblem eller problem tas bort.
 
 Resurs skogar ger också möjlighet att lyfta och flytta dina program en komponent i taget. Många äldre lokala program är flera nivåer, ofta med hjälp av en webb server eller klient del och många databasbaserade komponenter. Dessa nivåer gör det svårt att lyfta upp och ned hela programmet till molnet i ett enda steg. Med resurs skogar kan du lyfta ditt program till molnet i stegvisa metoder, vilket gör det enklare att flytta ditt program till Azure.
 
@@ -116,7 +113,7 @@ Förtroenden tillhandahåller den här metoden för att verifiera autentiserings
 
 Mer information om förtroenden finns i [Hur fungerar skogs förtroenden i Azure AD DS?][concepts-trust]
 
-För att komma igång med att skapa en hanterad domän med en resurs skog, se [skapa och konfigurera en Azure AD DS-hanterad domän][tutorial-create-advanced]. Du kan sedan [skapa ett utgående skogs förtroende till en lokal domän (för hands version)][create-forest-trust].
+För att komma igång med att skapa en hanterad domän med en resurs skog, se [skapa och konfigurera en Azure AD DS-hanterad domän][tutorial-create-advanced]. Du kan sedan [skapa ett utgående skogs förtroende till en lokal domän][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

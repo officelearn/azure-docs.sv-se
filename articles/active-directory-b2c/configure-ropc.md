@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/12/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4f44e9853182a8fcb222b8f895796cf5efc67def
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3dbafac99ebc1b7472bf884647ad5e8657f0de0b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389606"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482863"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord i Azure AD B2C
 
@@ -30,13 +30,14 @@ ROPC-flödet (Resource Owner Password Credential) är ett OAuth-standardautentis
 
 1. Logga in på Azure Portal som global administratör för Azure AD B2C-klientorganisationen.
 2. Om du vill växla till Azure AD B2C klient väljer du katalogen B2C i det övre högra hörnet i portalen.
-3. Klicka på **användar flöden**och välj **nytt användar flöde**.
-4. Klicka på fliken **alla** och välj **Logga in med ROPC**.
-5. Ange ett namn för användar flödet, t. ex. *ROPC_Auth*.
-6. Under **program anspråk**klickar du på **Visa fler**.
-7. Välj de program anspråk som du behöver för ditt program, till exempel visnings namn, e-postadress och identitets leverantör.
-8. Välj **OK** och sedan **Skapa**.
-9. Klicka på **Kör användar flöde**.
+3. Välj **användar flöden**och välj **nytt användar flöde**.
+4. Välj **Logga in med autentiseringsuppgifter för resurs ägar lösen ord (ROPC)**.
+5. Under **version**kontrollerar du att **förhands granskning** är markerat och väljer sedan **skapa**.
+7. Ange ett namn för användar flödet, t. ex. *ROPC_Auth*.
+8. Under **program anspråk**klickar du på **Visa fler**.
+9. Välj de program anspråk som du behöver för ditt program, till exempel visnings namn, e-postadress och identitets leverantör.
+10. Välj **OK** och sedan **Skapa**.
+11. Klicka på **Kör användar flöde**.
 
    Sedan visas en slut punkt som till exempel:
 
@@ -131,7 +132,3 @@ Ett lyckat svar ser ut som i följande exempel:
 Azure AD B2C-implementeringen uppfyller OAuth 2,0-standarder för offentliga autentiseringsuppgifter för klient resurs ägare och bör vara kompatibel med de flesta klient-SDK: er. Vi har testat det här flödet i stor utsträckning i produktion med AppAuth för iOS och AppAuth för Android. Den senaste informationen finns i [native app SDK för OAuth 2,0 och OpenID Connect implementering av moderna bästa metoder](https://appauth.io/).
 
 Hämta arbets exempel som har kon figurer ATS för användning med Azure AD B2C från GitHub, [för Android](https://aka.ms/aadb2cappauthropc) och [för iOS](https://aka.ms/aadb2ciosappauthropc).
-
-
-
-

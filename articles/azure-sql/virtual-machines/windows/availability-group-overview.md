@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mathoma
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 0e676e1c97c0039490137aa12b06fc88e457646f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: seo-lt-2019, devx-track-azurecli
+ms.openlocfilehash: bc0d5b0cdf616904ee7ed61fdc681ba60bff8f75
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286825"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87480296"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introduktion till SQL Server Always on-tillgänglighetsgrupper på Azure Virtual Machines
 
@@ -41,8 +41,8 @@ För att öka redundansen och hög tillgänglighet ska de virtuella SQL Server d
 
 |  | Windows Server-version | SQL Server version | SQL Servers utgåva | Konfiguration av WSFC-kvorum | DR med flera regioner | Stöd för flera undernät | Stöd för en befintlig AD | DR med samma region med flera zoner | Dist-AG-stöd utan AD-domän | Förd-AG-stöd utan kluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| **[SQL VM CLI](availability-group-az-cli-configure.md)** | 2016 | 2017 </br>2016   | ENT | Molnvittne | Nej | Ja | Ja | Ja | Nej | Nej |
-| **[Snabb starts mallar](availability-group-quickstart-template-configure.md)** | 2016 | 2017</br>2016  | ENT | Molnvittne | Nej | Ja | Ja | Ja | Nej | Nej |
+| **[SQL VM CLI](availability-group-az-cli-configure.md)** | 2016 | 2017 </br>2016   | ENT | Molnvittne | No | Ja | Ja | Ja | Inga | Inga |
+| **[Snabb starts mallar](availability-group-quickstart-template-configure.md)** | 2016 | 2017</br>2016  | ENT | Molnvittne | No | Ja | Ja | Ja | Inga | Inga |
 | **[Manuell](availability-group-manually-configure-prerequisites-tutorial.md)** | Alla | Alla | Alla | Alla | Ja | Ja | Ja | Ja | Ja | Ja |
 
 Mallen **SQL Server AlwaysOn-kluster (för hands version)** har tagits bort från Azure Marketplace och är inte längre tillgänglig. 

@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: ca41a403f789fd529ac65c21799d3d3e7f3becf6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: bbd3cb88b017209adff58a646e274caf31ab425f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285466"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486450"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Felsöka live video analys på IoT Edge
 
@@ -136,7 +136,7 @@ Så här åtgärdar du problemet:
     ```
 1. Se till att du har installerat följande tillägg. Från och med publiceringen av den här artikeln är tilläggen och deras versioner:
 
-    | Filnamnstillägg | Version |
+    | Anknytning | Version |
     |---|---|
     |azure-cli   |      2.5.1|
     |kommandot-modules-nspkg         |   2.0.3|
@@ -234,7 +234,7 @@ Live video analys via HTTP-tillägget kan utöka medie grafen för att skicka oc
 
     ![Skärm bild som visar körnings status för moduler i Azure IoT Hub.](./media/troubleshoot-how-to/iot-hub.png)
 
-* Kontrol lera om du skickar händelser till rätt URL-slutpunkt. Den externa AI-behållaren exponerar en URL och en port som tar emot och returnerar data från POST-begäranden. Den här URL-adressen anges som en `endpoint: url` egenskap för HTTP-tilläggs processorn. Som det visas i [topologins URL](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json), anges slut punkten som inferencing URL-parameter. Kontrol lera att standardvärdet för [parametern](http://yolov3/score) eller det skickade värdet är korrekt. Du kan testa för att se om det fungerar genom att använda klientens URL (sväng).  
+* Kontrol lera om du skickar händelser till rätt URL-slutpunkt. Den externa AI-behållaren exponerar en URL och en port som tar emot och returnerar data från POST-begäranden. Den här URL-adressen anges som en `endpoint: url` egenskap för HTTP-tilläggs processorn. Som det visas i [topologins URL](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json), anges slut punkten som inferencing URL-parameter. Kontrol lera att standardvärdet för parametern eller det skickade värdet är korrekt. Du kan testa för att se om det fungerar genom att använda klientens URL (sväng).  
 
     Här är ett exempel en Yolo v3-behållare som körs på den lokala datorn med IP-adressen 172.17.0.3. Använd Docker för att kontrol lera IP-adressen.
 

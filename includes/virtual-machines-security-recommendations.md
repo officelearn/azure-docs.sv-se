@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines
 author: msmbaldwin
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: 30f852f1bf4994f525ccb65c3827af8f8ae02f96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e64e6b6abc921b1db6614ed36ba2e9c04fc86b1f
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85839031"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87451176"
 ---
 Den här artikeln innehåller säkerhets rekommendationer för Azure Virtual Machines. Följ dessa rekommendationer för att uppfylla de säkerhets skyldigheter som beskrivs i vår modell för delat ansvar. Rekommendationerna hjälper dig också att förbättra den övergripande säkerheten för dina webb programs lösningar. Mer information om vad Microsoft gör för att uppfylla ansvaret för service leverantörer finns i [delade ansvars områden för molnbaserad data behandling](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
 
@@ -26,7 +26,7 @@ Allmän information om Azure Security Center finns i [Azure Security Center?](..
 | Rekommendation | Kommentarer | Security Center |
 |-|----|--|
 | När du skapar anpassade VM-avbildningar ska du använda de senaste uppdateringarna. | Innan du skapar avbildningar installerar du de senaste uppdateringarna för operativ systemet och för alla program som ska ingå i din avbildning.  | - |
-| Se till att dina virtuella datorer är aktuella. | Du kan använda [uppdateringshantering](../articles/automation/automation-update-management.md) lösning i Azure Automation för att hantera operativ system uppdateringar för dina Windows-och Linux-datorer i Azure. | [Ja](../articles/security-center/security-center-apply-system-updates.md) |
+| Se till att dina virtuella datorer är aktuella. | Du kan använda [uppdateringshantering](../articles/automation/update-management/update-mgmt-overview.md) lösning i Azure Automation för att hantera operativ system uppdateringar för dina Windows-och Linux-datorer i Azure. | [Ja](../articles/security-center/security-center-apply-system-updates.md) |
 | Säkerhetskopiera dina virtuella datorer. | [Azure Backup](../articles/backup/backup-overview.md) hjälper till att skydda dina program data och har minimala drifts kostnader. Program fel kan skada dina data och mänskliga fel kan leda till buggar i dina program. Azure Backup skyddar dina virtuella datorer som kör Windows och Linux. | - |
 | Använd flera virtuella datorer för större återhämtning och tillgänglighet. | Om din virtuella dator kör program som måste ha hög tillgänglighet kan du använda flera virtuella datorer eller [tillgänglighets uppsättningar](../articles/virtual-machines/windows/manage-availability.md). | - |
 | Anta en strategi för affärs kontinuitet och haveri beredskap (BCDR). | Med Azure Site Recovery kan du välja mellan olika alternativ som har utformats för att stödja affärs kontinuitet. Det stöder olika scenarier för replikering och redundans. Mer information finns i [About Site Recovery](../articles/site-recovery/site-recovery-overview.md). | - |

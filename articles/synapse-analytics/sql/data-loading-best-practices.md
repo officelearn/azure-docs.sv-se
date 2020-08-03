@@ -11,18 +11,18 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 6321fa484c883e196279ddf33661e78397bc3855
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: acfb2af7d482f9c0a51596818b1302584277defb
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963894"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486824"
 ---
 # <a name="best-practices-for-loading-data-for-data-warehousing"></a>Regelverk för inläsning av data för datalagerhantering
 
 Rekommendationer och prestanda optimeringar för att läsa in data
 
-## <a name="preparing-data-in-azure-storage"></a>Förbereda data i Azure Storage
+## <a name="prepare-data-in-azure-storage"></a>Förbereda data i Azure Storage
 
 Minska svarstiden genom att samplacera ditt lagringsskikt och datalager.
 
@@ -34,13 +34,13 @@ Alla filformat har olika prestandaegenskaper. Den snabbaste inläsningen får du
 
 Dela upp stora komprimerade filer i små komprimerade filer.
 
-## <a name="running-loads-with-enough-compute"></a>Köra belastningar med tillräckligt med beräkning
+## <a name="run-loads-with-enough-compute"></a>Kör belastningar med tillräckligt med beräkning
 
 För högsta hastighet för inläsning, kör du bara ett inläsningsjobb i taget. Om detta inte är möjligt, kör du ett minimalt antal belastningar samtidigt. Om du förväntar dig ett stort inläsnings jobb kan du skala upp SQL-poolen före belastningen.
 
 För att köra inläsningar med lämpliga beräkningsresurser skapar du inläsningsanvändare som är avsedda att köra inläsningar. Tilldela varje inläsnings användare till en angiven resurs klass eller arbets belastnings grupp. Om du vill köra en inläsning loggar du in som en inläsnings användare och kör sedan belastningen. Inläsningen körs med användarens resursklass.  Den här metoden är enklare än att försöka ändra en användares resursklass så att den passar det aktuella behovet av resursklass.
 
-### <a name="example-of-creating-a-loading-user"></a>Exempel på att skapa en inläsningsanvändare
+### <a name="create-a-loading-user"></a>Skapa en inläsnings användare
 
 I det här exemplet skapas en inläsningsanvändare för resursklassen staticrc20. Det första steget är att **ansluta till huvudservern** och skapa en inloggning.
 
@@ -62,7 +62,7 @@ Om du vill köra en belastning med resurser för resurs klasserna staticRC20 log
 
 Kör inläsningar under statiska i stället för dynamiska resursklasser. Att använda statiska resurs klasser garanterar samma resurser oavsett dina [informations lager enheter](resource-consumption-models.md). Om du använder en dynamisk resursklass varierar resurserna beroende på din servicenivå. För dynamiska klasser innebär en lägre servicenivå att du troligtvis behöver använda en större resursklass för din inläsningsanvändare.
 
-## <a name="allowing-multiple-users-to-load"></a>Tillåta många användare att läsa in
+## <a name="allow-multiple-users-to-load"></a>Tillåt att flera användare läser in
 
 Det finns ofta ett behov av att ha flera användare som kan läsa in data i informationslagret. Inläsning med [CREATE TABLE as Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) kräver kontroll behörigheter för databasen.  CONTROL-behörigheten ger kontrollbehörighet till alla scheman. Du kanske inte vill att alla användare som läser in ska ha behörighet för alla scheman. Om du vill begränsa behörigheten använder du DENY CONTROL-instruktionen.
 
@@ -75,13 +75,13 @@ Anta att du har följande databasscheman: schema_A för avdelning A och schema_B
 
 User_A och user_B är nu utelåsta från det andra avd-schemat.
 
-## <a name="loading-to-a-staging-table"></a>Inläsning i en mellanlagringstabell
+## <a name="load-to-a-staging-table"></a>Inläsning i en mellanlagringstabell
 
 För att uppnå högsta inläsningshastighet vid flytt av data till en informationslagertabell, läs in data i en mellanlagringstabellen.  Definiera mellanlagringstabellen som en heap och använd resursallokering som distributionsalternativ.
 
 Överväg att inläsning vanligtvis är en tvåstegsprocess där du först läser in till en mellanlagringstabellen och sedan infogar data i en informationslagertabell för produktion. Om produktionstabellen använder en hash-distribution, kan den totala tiden för att läsa in och infoga bli snabbare om du definierar mellanlagringstabellen i hash-distributionen. Inläsning till mellanlagringstabellen tar längre tid, men det andra steget i att infoga rader i produktionstabellen skapar inte dataförflyttning över distributioner.
 
-## <a name="loading-to-a-columnstore-index"></a>Inläsning till ett columnstore-index
+## <a name="load-to-a-columnstore-index"></a>Läs in till ett columnstore-index
 
 Kolumnlagringsindex kräver en stor mängd minne för att komprimera data i högkvalitativa radgrupper. För bästa komprimerings- och indexeffektivitet behöver kolumnlagringsindexet komprimera högst 1 048 576 rader till varje radgrupp. Vid brist på minne kanske kolumnlagringsindexet inte kan uppnå den maximala komprimeringsgraden. Detta påverkar i sin tur frågeprestanda. Mer detaljer finns i [Minnesoptimering för kolumnlagring](data-load-columnstore-compression.md).
 
@@ -92,19 +92,19 @@ Kolumnlagringsindex kräver en stor mängd minne för att komprimera data i hög
 
 Som nämnts tidigare ger inläsning med PolyBase det högsta data flödet med Synapse SQL-pool. Om du inte kan använda PolyBase för att läsa in och måste använda SQLBulkCopy-API (eller BCP) bör du fundera på att öka batchstorleken för bättre data flöde – en bra tumregel är en batchstorlek mellan 100 000 och 1 miljon rader.
 
-## <a name="handling-loading-failures"></a>Hantera inläsningsfel
+## <a name="manage-loading-failures"></a>Hantera inläsnings problem
 
 Vid en inläsning med en extern tabell kan ett felmeddelande som ser ut ungefär så här visas: *"Frågan avbröts. Det högsta tröskelvärdet för avslag nåddes vid inläsning från en extern källa"*. Detta meddelande anger att dina externa data innehåller ändrade poster. En datapost anses vara ändrade om datatyperna och antalet kolumner inte matchar kolumndefinitionen för den externa tabellen eller om data inte följer det angivna externa filformatet.
 
 Du kan åtgärda de ändrade posterna genom att se till att definitionerna för den externa tabellen och det externa filformatet är korrekta och att dina externa data följer dessa definitioner. Om en delmängd av de externa dataposterna är felaktiga kan du välja att avvisa dessa poster för dina frågor genom att använda avvisningsalternativen i CREATE EXTERNAL TABLE.
 
-## <a name="inserting-data-into-a-production-table"></a>Infoga data i en produktionstabell
+## <a name="insert-data-into-a-production-table"></a>Infoga data i en produktions tabell
 
 En engångsinläsning i en liten tabell med en [INSERT-instruktion](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) eller till och med en regelbunden inläsning på nytt av en sökning kan fungera tillräckligt bra för dina behov med en instruktion som `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Enskilda infogningar är emellertid inte lika effektiva som en massinläsning.
 
 Om du har tusentals eller fler enskilda infogningar under dagen bör du gruppera dem så att du kan infoga dem med en massinläsning.  Utveckla dina processer så att enskilda infogningar bifogas i en fil och skapa sedan en annan process som regelbundet läser in filen.
 
-## <a name="creating-statistics-after-the-load"></a>Skapa statistik efter inläsningen
+## <a name="create-statistics-after-the-load"></a>Skapa statistik efter inläsningen
 
 För att få bättre frågeprestanda är det viktigt att skapa statistik på alla kolumner i alla tabeller efter den första inläsningen eller efter betydande dataändringar.  Detta kan göras manuellt eller så kan du aktivera [statistik för automatisk skapande](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 

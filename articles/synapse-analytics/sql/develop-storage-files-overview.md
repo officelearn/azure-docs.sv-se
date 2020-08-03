@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d7f990b059346c4c782ca923e663997317c4df16
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3c33e2152fc120d406886d89adda26603126a8ba
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046877"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87483560"
 ---
-# <a name="accessing-external-storage-in-synapse-sql-on-demand"></a>Åtkomst till extern lagring i Synapse SQL (på begäran)
+# <a name="access-external-storage-in-synapse-sql-on-demand"></a>Åtkomst till extern lagring i Synapse SQL (på begäran)
 
 I det här dokumentet beskrivs hur kan användare läsa data från filerna som lagras på Azure Storage i Synapse SQL (på begäran). Användare har följande alternativ för åtkomst till lagring:
 
@@ -59,7 +59,7 @@ Om det inte finns några AUTENTISERINGSUPPGIFTER på server nivå som matchar UR
 > [!NOTE]
 > Den här versionen av OpenRowSet är utformad för snabb och enkel data utforskning med standardautentisering. Om du vill utnyttja personifiering eller hanterad identitet använder du OpenRowSet med DATASOURCE enligt beskrivningen i nästa avsnitt.
 
-### <a name="querying-data-sources-using-openrowset"></a>Fråga data källor med OpenRowSet
+### <a name="query-data-sources-using-openrowset"></a>Fråga data källor med hjälp av OpenRowSet
 
 OpenRowSet gör det möjligt för användaren att fråga filerna som placerats på en extern data Källa:
 
@@ -91,7 +91,7 @@ Anroparen måste ha någon av följande behörigheter för att köra OpenRowSet-
   - `ADMINISTER DATABASE BULK OPERATIONS`gör det möjligt för databas omfattnings användare att köra OpenRowSet-funktionen.
 - REFERERAR till DATABASens begränsade AUTENTISERINGSUPPGIFTER till autentiseringsuppgiften som refereras i den externa DATA källan
 
-#### <a name="accessing-anonymous-data-sources"></a>Åtkomst till anonyma data källor
+#### <a name="access-anonymous-data-sources"></a>Åtkomst till anonyma data källor
 
 Användaren kan skapa en extern DATA källa utan AUTENTISERINGSUPPGIFTER som ska hänvisa till offentlig åtkomst lagring eller använda Azure AD passthrough-autentisering:
 
@@ -132,7 +132,7 @@ CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 
 DATABASens begränsade AUTENTISERINGSUPPGIFTER anger hur du kommer åt filer på den refererade data källan.
 
-### <a name="reading-external-files-with-external-table"></a>Läser externa filer med extern tabell
+### <a name="read-external-files-with-external-table"></a>Läsa externa filer med extern tabell
 
 Med den externa tabellen kan du läsa data från filer som refereras via data källa med standard SQL SELECT-instruktionen:
 
@@ -149,7 +149,7 @@ Anroparen måste ha följande behörigheter för att kunna läsa data:
 
 I följande tabell visas de behörigheter som krävs för de åtgärder som anges ovan.
 
-| Söka i data | Nödvändiga behörigheter|
+| Söka i data | Behörigheter som krävs|
 | --- | --- |
 | OpenRowSet (BULK) utan DataSource | `ADMINISTER BULK OPERATIONS`, `ADMINISTER DATABASE BULK OPERATIONS` eller SQL-inloggningen måste ha referenser till autentiseringsuppgifter:: \<URL> för SAS-skyddad lagring |
 | OpenRowSet (BULK) med DataSource utan autentiseringsuppgifter | `ADMINISTER BULK OPERATIONS`eller `ADMINISTER DATABASE BULK OPERATIONS` , |

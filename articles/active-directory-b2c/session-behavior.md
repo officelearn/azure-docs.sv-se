@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ed10a9258590f8f9037a574bd0322a82dd309a5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c47b0249824a3683b8f24cc01cc5eea5ccf32585
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385254"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482676"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Konfigurera sessionens beteende i Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Du kan använda följande egenskaper för att hantera WebApplication-sessioner:
     - Minst (inklusive) = 15 minuter.
     - Max (inklusive) = 1440 minuter.
 - **Timeout för webbapp** – [sessionens utgångs typ](session-overview.md#session-expiry-type), *rullande*eller *absolut*. 
-- **Konfiguration av enkel inloggning** – [sessionens omfång](session-overview.md#session-scope) för beteendet enkel inloggning (SSO) i flera appar och användar flöden i din Azure AD B2C klient. 
+- **Konfiguration av enkel inloggning** – [sessionens omfång](session-overview.md#session-scope) för beteendet enkel inloggning (SSO) i flera appar och användar flöden i din Azure AD B2C klient.
 
 
 ## <a name="configure-the-properties"></a>Konfigurera egenskaperna
@@ -38,7 +38,7 @@ Du kan använda följande egenskaper för att hantera WebApplication-sessioner:
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD B2C-klient.
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
-4. Välj **användar flöden (principer)**.
+4. Välj **användar flöden**.
 5. Öppna det användar flöde som du skapade tidigare.
 6. Välj **Egenskaper**.
 7. Konfigurera **livs längd för webbappens session (minuter)**, **tids gräns för webbapp**, **konfiguration av enkel inloggning**och **Kräv ID-token i utloggnings begär Anden** efter behov.

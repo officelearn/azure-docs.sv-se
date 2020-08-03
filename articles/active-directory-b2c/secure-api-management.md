@@ -7,21 +7,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1ea11008155899e09bf461e56a8bb4981d37238d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e8802d612f2497cc58c90856e9a5a5572a142f1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385424"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482846"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Skydda ett Azure API Management-API med Azure AD B2C
 
 Lär dig hur du begränsar åtkomsten till ditt Azure API Management-API (APIM) till klienter som har autentiserats med Azure Active Directory B2C (Azure AD B2C). Följ stegen i den här artikeln för att skapa och testa en inkommande princip i APIM som begränsar åtkomsten till de begär Anden som innehåller en giltig Azure AD B2C-utfärdad åtkomsttoken.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande resurser på plats innan du fortsätter med stegen i den här artikeln:
 
@@ -60,7 +60,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår
 Sedan hämtar du den välkända konfigurations-URL: en för en av dina Azure AD B2C användar flöden. Du behöver också slut punkts-URI för token som du vill ha stöd för i Azure API Management.
 
 1. Bläddra till Azure AD B2C-klienten i [Azure Portal](https://portal.azure.com).
-1. Under **principer**väljer du **användar flöden (principer)**.
+1. Under **principer**väljer du **användar flöden**.
 1. Välj en befintlig princip, till exempel *B2C_1_signupsignin1*, och välj sedan **Kör användar flöde**.
 1. Registrera URL: en i en hyperlänk som visas under rubriken **Kör användar flöde** längst upp på sidan. Den här URL: en är den OpenID anslutnings välkända identifierings slut punkten för användar flödet och du använder den i nästa avsnitt när du konfigurerar den inkommande principen i Azure API Management.
 
@@ -126,7 +126,7 @@ Om du vill anropa API: et behöver du både en åtkomsttoken som utfärdats av A
 Du behöver först en token som utfärdats av Azure AD B2C att använda i `Authorization` rubriken i Postman. Du kan få en genom att använda funktionen **Kör nu** i ditt inloggnings-eller inloggnings användar flöde som du har skapat som en av kraven.
 
 1. Bläddra till Azure AD B2C-klienten i [Azure Portal](https://portal.azure.com).
-1. Under **principer**väljer du **användar flöden (principer)**.
+1. Under **principer**väljer du **användar flöden**.
 1. Välj ett befintligt inloggnings-eller inloggnings användar flöde, till exempel *B2C_1_signupsignin1*.
 1. För **program**väljer du *webapp1*.
 1. För **svars-URL**väljer du `https://jwt.ms` .

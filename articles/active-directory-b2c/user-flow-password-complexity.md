@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/11/2019
+ms.date: 07/30/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ce4574870ad8c0bfd945e49f129b82177b3138a1
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 9c7f0ead3a2f93d7f390106b8e7471d58b709023
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115699"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481571"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Konfigurera komplexitets krav för lösen ord i Azure Active Directory B2C
 
@@ -41,13 +41,13 @@ Om du använder anpassade principer kan du ([Konfigurera lösen ords komplexitet
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 3. I Azure Portal söker du efter och väljer **Azure AD B2C**.
-4. Välj **användar flöden (principer)**.
+4. Välj **användar flöden**.
 2. Välj ett användar flöde och klicka på **Egenskaper**.
 3. Under **lösen ords komplexitet**ändrar du lösen ords komplexiteten för det här användar flödet till **enkel**, **stark**eller **anpassad**.
 
 ### <a name="comparison-chart"></a>Jämförelse diagram
 
-| Komplexitet | Beskrivning |
+| Komplexitet | Description |
 | --- | --- |
 | Enkelt | Ett lösen ord som består av minst 8 till 64 tecken. |
 | Stark | Ett lösen ord som består av minst 8 till 64 tecken. Det kräver 3 av 4 av gemener, versaler, siffror eller symboler. |

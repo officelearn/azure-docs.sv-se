@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/04/2020
+ms.date: 07/30/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6bcf268ba45ee8fefa027263a25ff411344b4669
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 8c0b6ba4045e1e92d395752f106258d3c0709108
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116439"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486753"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Anpassa användar gränssnittet i Azure Active Directory B2C
 
@@ -188,7 +188,7 @@ När du har konfigurerat företags anpassning aktiverar du det i dina användar 
 
 1. På den vänstra menyn i Azure Portal väljer du **Azure AD B2C**.
 1. Under **principer**väljer du **användar flöden (principer)**.
-1. Välj det användar flöde som du vill aktivera företags anpassning för. Företags anpassning **stöds inte** för användar flödes typerna *Logga in v1* och *profil redigering v1* .
+1. Välj det användar flöde som du vill aktivera företags anpassning för. Företags anpassning **stöds inte** för standard *inloggnings* -och standard *profil redigering* av användar flödes typer.
 1. Under **Anpassa** **väljer du sidlayouter och**väljer sedan den layout som du vill anpassa. Välj till exempel **enhetlig registrering eller inloggnings sida**.
 1. För sidlayouten **(för hands version)** väljer du version **1.2.0** eller senare.
 1. Välj **Spara**.

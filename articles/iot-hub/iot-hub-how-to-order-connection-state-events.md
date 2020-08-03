@@ -7,12 +7,13 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: 8d84db9f9c36dc2818c78c5091b1ebe29c35f865
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: af8bd9a0420c90df4dea16fa8ebacbf4ea6494db
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83726204"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488136"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Begär enhetsanslutningshändelser från Azure IoT Hub med hjälp av Azure Cosmos DB
 
@@ -20,7 +21,7 @@ Azure Event Grid hjälper dig att bygga händelsebaserade program och enkelt int
 
 Sekvensnumret är en sträng representation av ett hexadecimalt tal. Du kan använda sträng jämförelse för att identifiera det större talet. Om du konverterar strängen till hex blir talet ett 256-bitars tal. Sekvensnumret är helt ökande och den senaste händelsen har en högre siffra än andra händelser. Detta är användbart om du ofta har en enhet som är ansluten och frånkopplad och vill se till att endast den senaste händelsen används för att utlösa en underordnad åtgärd, eftersom Azure Event Grid inte stöder sortering av händelser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett aktivt Azure-konto. Om du inte har någon kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -236,7 +237,7 @@ I ditt Logic app-arbetsflöde kan villkor hjälpa dig att köra vissa åtgärder
 
    ![Fyll i Logic app för – varje](./media/iot-hub-how-to-order-connection-state-events/logicapp-foreach-body.png)
 
-8. Spara din logikapp.
+8. Spara logikappen.
 
 ### <a name="copy-the-http-url"></a>Kopiera HTTP-URL:en
 
@@ -278,7 +279,7 @@ I det här avsnittet ska du konfigurera din IoT-hubb så att den publicerar hän
 
    ![Exempelformulär för händelseprenumeration](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
 
-   Spara händelseprenumerationen genom att välja **Skapa**.
+   Välj **Skapa** för att spara händelseprenumerationen.
 
 ## <a name="observe-events"></a>Observera händelser
 
@@ -286,7 +287,7 @@ Nu när din händelse prenumeration har kon figurer ATS kan vi testa genom att a
 
 ### <a name="register-a-device-in-iot-hub"></a>Registrera en enhet i IoT Hub
 
-1. Välj **IoT-enheter** från din IoT-hubb.
+1. Från din IoT Hub väljer du **IoT-enheter**.
 
 2. Välj **+ Lägg till** överst i fönstret.
 

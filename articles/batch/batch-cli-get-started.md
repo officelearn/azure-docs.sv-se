@@ -3,13 +3,13 @@ title: Kom igång med Azure CLI för batch
 description: Få en snabb introduktion till Batch-kommandon i Azure CLI för att hantera Azure Batch-tjänstens resurser
 ms.topic: how-to
 ms.date: 07/24/2018
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b07045bc0a756c5565356bb0a674188cf84c8785
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: H1Hack27Feb2017, devx-track-azurecli
+ms.openlocfilehash: ea3f91615a488a1013ac4821ce7ba14b2006c14a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960868"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494952"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Hantera Batch-resurser med Azure CLI
 
@@ -141,7 +141,7 @@ När du ställer frågor mot Batch-tjänsten med en `list`-åtgärd kan du ange 
 
 I följande tabell beskrivs de OData-satser som stöds av Batch-tjänsten:
 
-| Sats | Beskrivning |
+| Sats | Description |
 |---|---|
 | `--select-clause [select-clause]` | Returnerar en delmängd av egenskaperna för varje entitet. |
 | `--filter-clause [filter-clause]` | Returnerar endast de enheter som matchar det angivna OData-uttrycket. |

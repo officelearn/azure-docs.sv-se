@@ -7,12 +7,13 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 56af984ef83d2e237f0aa05af5cfef4dd6205256
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 2d8ad6b90f533161835ab12a43865b177c24c14e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738336"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503590"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Skapa och ändra en ExpressRoute-krets med hjälp av CLI
 
@@ -20,10 +21,10 @@ ms.locfileid: "84738336"
 Den här artikeln beskriver hur du skapar en Azure ExpressRoute-krets med hjälp av kommando rads gränssnittet (CLI). Den här artikeln visar också hur du kontrollerar status, uppdaterar eller tar bort och avetablerar en krets. Om du vill använda en annan metod för att arbeta med ExpressRoute-kretsar kan du välja artikeln i följande lista:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure-portalen](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
-> * [Azure Resource Manager-mall](expressroute-howto-circuit-resource-manager-template.md)
+> * [Azure Resource Manager mall](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video – Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klassisk)](expressroute-howto-circuit-classic.md)
 >

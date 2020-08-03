@@ -6,12 +6,13 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.openlocfilehash: 20175e252d009620585e20cf76cdb634549b4f1d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3097dcb0444bc8b73d89b42d73ad1f5b9306ab09
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323918"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502825"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>Skapa Azure-prenumerationer program mässigt (för hands version)
 
@@ -26,7 +27,7 @@ När du skapar en Azure-prenumeration via programmering, styrs prenumerationen a
 
 Använd informationen i följande avsnitt för att skapa EA-prenumerationer.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha en ägar roll på ett registrerings konto för att kunna skapa en prenumeration. Det finns två sätt att hämta rollen:
 
@@ -153,8 +154,8 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 | Elementnamn  | Krävs | Typ   | Beskrivning                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Nej      | Sträng | Visnings namnet för prenumerationen. Om inget annat anges anges namnet på erbjudandet, t. ex. "Microsoft Azure Enterprise".                                 |
-| `offerType`   | Ja      | Sträng | Prenumerationens erbjudande. De två alternativen för EA är [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (produktions användning) och [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, måste [aktive ras med hjälp av EA-portalen](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `owners`      | Nej       | Sträng | Objekt-ID för en användare som du vill lägga till som en RBAC-ägare för prenumerationen när den skapas.  |
+| `offerType`   | Yes      | Sträng | Prenumerationens erbjudande. De två alternativen för EA är [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (produktions användning) och [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, måste [aktive ras med hjälp av EA-portalen](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `owners`      | No       | Sträng | Objekt-ID för en användare som du vill lägga till som en RBAC-ägare för prenumerationen när den skapas.  |
 
 Som en del av sidhuvudet i svaret `Location` får du tillbaka en URL som du kan fråga efter status för åtgärden för att skapa prenumerationer. När prenumerationen har skapats returnerar en GET- `Location` URL ett `subscriptionLink` -objekt som har prenumerations-ID: t. Mer information finns i [prenumerations-API-dokumentationen](https://docs.microsoft.com/rest/api/subscription/)
 
@@ -171,11 +172,11 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 | Elementnamn  | Krävs | Typ   | Beskrivning                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `Name` | Nej      | Sträng | Visnings namnet för prenumerationen. Om inget annat anges anges namnet på erbjudandet, t. ex. "Microsoft Azure Enterprise".                                 |
-| `OfferType`   | Ja      | Sträng | Prenumerationens erbjudande. De två alternativen för EA är [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (produktions användning) och [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, måste [aktive ras med hjälp av EA-portalen](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `EnrollmentAccountObjectId`      | Ja       | Sträng | Objekt-ID för det registrerings konto som prenumerationen skapas under och faktureras till. Det här värdet är ett GUID som du får från `Get-AzEnrollmentAccount` . |
-| `OwnerObjectId`      | Nej       | Sträng | Objekt-ID för en användare som du vill lägga till som en RBAC-ägare för prenumerationen när den skapas.  |
-| `OwnerSignInName`    | Nej       | Sträng | E-postadressen till en användare som du vill lägga till som en RBAC-ägare för prenumerationen när den skapas. Du kan använda den här parametern i stället för `OwnerObjectId` .|
-| `OwnerApplicationId` | Nej       | Sträng | Program-ID för alla tjänst objekt som du vill lägga till som en RBAC-ägare för prenumerationen när den skapas. Du kan använda den här parametern i stället för `OwnerObjectId` . När du använder den här parametern måste tjänstens huvud namn ha [Läs behörighet till katalogen](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
+| `OfferType`   | Yes      | Sträng | Prenumerationens erbjudande. De två alternativen för EA är [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (produktions användning) och [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, måste [aktive ras med hjälp av EA-portalen](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `EnrollmentAccountObjectId`      | Yes       | Sträng | Objekt-ID för det registrerings konto som prenumerationen skapas under och faktureras till. Det här värdet är ett GUID som du får från `Get-AzEnrollmentAccount` . |
+| `OwnerObjectId`      | No       | Sträng | Objekt-ID för en användare som du vill lägga till som en RBAC-ägare för prenumerationen när den skapas.  |
+| `OwnerSignInName`    | No       | Sträng | E-postadressen till en användare som du vill lägga till som en RBAC-ägare för prenumerationen när den skapas. Du kan använda den här parametern i stället för `OwnerObjectId` .|
+| `OwnerApplicationId` | No       | Sträng | Program-ID för alla tjänst objekt som du vill lägga till som en RBAC-ägare för prenumerationen när den skapas. Du kan använda den här parametern i stället för `OwnerObjectId` . När du använder den här parametern måste tjänstens huvud namn ha [Läs behörighet till katalogen](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
 Om du vill se en fullständig lista över alla parametrar, se [New-AzSubscription](/powershell/module/az.subscription/New-AzSubscription).
 
@@ -190,14 +191,14 @@ Kör kommandot [AZ Account Create](/cli/azure/ext/subscription/account?view=azur
 az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
-| Elementnamn  | Krävs | Typ   | Beskrivning                                                                                               |
+| Elementnamn  | Krävs | Typ   | Description                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `display-name` | Nej      | Sträng | Visnings namnet för prenumerationen. Om inget annat anges anges namnet på erbjudandet, t. ex. "Microsoft Azure Enterprise".                                 |
-| `offer-type`   | Ja      | Sträng | Prenumerationens erbjudande. De två alternativen för EA är [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (produktions användning) och [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, måste [aktive ras med hjälp av EA-portalen](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `enrollment-account-object-id`      | Ja       | Sträng | Objekt-ID för det registrerings konto som prenumerationen skapas under och faktureras till. Det här värdet är ett GUID som du får från `az billing enrollment-account list` . |
-| `owner-object-id`      | Nej       | Sträng | Objekt-ID för en användare som du vill lägga till som en RBAC-ägare för prenumerationen när den skapas.  |
-| `owner-upn`    | Nej       | Sträng | E-postadressen till en användare som du vill lägga till som en RBAC-ägare för prenumerationen när den skapas. Du kan använda den här parametern i stället för `owner-object-id` .|
-| `owner-spn` | Nej       | Sträng | Program-ID för alla tjänst objekt som du vill lägga till som en RBAC-ägare för prenumerationen när den skapas. Du kan använda den här parametern i stället för `owner-object-id` . När du använder den här parametern måste tjänstens huvud namn ha [Läs behörighet till katalogen](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
+| `offer-type`   | Yes      | Sträng | Prenumerationens erbjudande. De två alternativen för EA är [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (produktions användning) och [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, måste [aktive ras med hjälp av EA-portalen](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `enrollment-account-object-id`      | Yes       | Sträng | Objekt-ID för det registrerings konto som prenumerationen skapas under och faktureras till. Det här värdet är ett GUID som du får från `az billing enrollment-account list` . |
+| `owner-object-id`      | No       | Sträng | Objekt-ID för en användare som du vill lägga till som en RBAC-ägare för prenumerationen när den skapas.  |
+| `owner-upn`    | No       | Sträng | E-postadressen till en användare som du vill lägga till som en RBAC-ägare för prenumerationen när den skapas. Du kan använda den här parametern i stället för `owner-object-id` .|
+| `owner-spn` | No       | Sträng | Program-ID för alla tjänst objekt som du vill lägga till som en RBAC-ägare för prenumerationen när den skapas. Du kan använda den här parametern i stället för `owner-object-id` . När du använder den här parametern måste tjänstens huvud namn ha [Läs behörighet till katalogen](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
 Om du vill se en fullständig lista över alla parametrar, se [AZ Account Create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create).
 
@@ -213,7 +214,7 @@ Om du vill se en fullständig lista över alla parametrar, se [AZ Account Create
 
 ## <a name="create-subscriptions-for-an-mca-account"></a>Skapa prenumerationer för ett MCA-konto
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha rollen ägare, deltagare eller Azure-prenumerations skapare i avsnittet faktura eller ägare eller deltagare i en fakturerings profil eller ett fakturerings konto för att skapa prenumerationer. Mer information finns i [Roller och uppgifter för prenumerationsfakturering](../../cost-management-billing/manage/understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
@@ -344,17 +345,17 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
 | Elementnamn  | Krävs | Typ   | Beskrivning                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Ja      | Sträng | Visnings namnet för prenumerationen.|
-| `billingProfileId`   | Ja      | Sträng | ID för den fakturerings profil som ska faktureras för prenumerationens kostnader.  |
-| `skuId` | Ja      | Sträng | Det SKU-ID som avgör typen av Azure-plan. |
-| `owners`      | Nej       | Sträng | Objekt-ID för användare eller tjänstens huvud namn som du vill lägga till som en RBAC-ägare för prenumerationen när den skapas.  |
-| `costCenter` | Nej      | Sträng | Det kostnads ställe som är associerat med prenumerationen. Den visas i CSV-filen för användning. |
-| `managementGroupId` | Nej      | Sträng | ID för den hanterings grupp som prenumerationen ska läggas till i. Information om hur du hämtar listan över hanterings grupper finns i [hanteringsgrupper-List-API](/rest/api/resources/managementgroups/list). Använd ID för en hanterings grupp från API: et. |
+| `billingProfileId`   | Yes      | Sträng | ID för den fakturerings profil som ska faktureras för prenumerationens kostnader.  |
+| `skuId` | Yes      | Sträng | Det SKU-ID som avgör typen av Azure-plan. |
+| `owners`      | No       | Sträng | Objekt-ID för användare eller tjänstens huvud namn som du vill lägga till som en RBAC-ägare för prenumerationen när den skapas.  |
+| `costCenter` | No      | Sträng | Det kostnads ställe som är associerat med prenumerationen. Den visas i CSV-filen för användning. |
+| `managementGroupId` | No      | Sträng | ID för den hanterings grupp som prenumerationen ska läggas till i. Information om hur du hämtar listan över hanterings grupper finns i [hanteringsgrupper-List-API](/rest/api/resources/managementgroups/list). Använd ID för en hanterings grupp från API: et. |
 
 I svaret får du tillbaka ett `subscriptionCreationResult` objekt för övervakning. När prenumerationen har skapats `subscriptionCreationResult` returnerar objektet ett `subscriptionLink` -objekt som har prenumerations-ID: t.
 
 ## <a name="create-subscriptions-for-an-mpa-billing-account"></a>Skapa prenumerationer för ett produkt aktiverings fakturerings konto
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha en rollen global administratör eller administratör i din organisations konto för moln lösnings leverantör för att skapa en prenumeration för ditt fakturerings konto. Mer information finns i [partner Center – tilldela användare roller och behörigheter](/partner-center/permissions-overview).
 
@@ -509,8 +510,8 @@ POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/c
 | Elementnamn  | Krävs | Typ   | Beskrivning                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Ja      | Sträng | Visnings namnet för prenumerationen.|
-| `skuId` | Ja      | Sträng | SKU-ID för Azure-planen. Använd *0001* för prenumerationer av typen Microsoft Azure plan |
-| `resellerId`      | Nej       | Sträng | MPN-ID för den åter försäljare som ska associeras med prenumerationen.  |
+| `skuId` | Yes      | Sträng | SKU-ID för Azure-planen. Använd *0001* för prenumerationer av typen Microsoft Azure plan |
+| `resellerId`      | No       | Sträng | MPN-ID för den åter försäljare som ska associeras med prenumerationen.  |
 
 I svaret får du tillbaka ett `subscriptionCreationResult` objekt för övervakning. När prenumerationen har skapats `subscriptionCreationResult` returnerar objektet ett `subscriptionLink` -objekt som har prenumerations-ID: t.
 

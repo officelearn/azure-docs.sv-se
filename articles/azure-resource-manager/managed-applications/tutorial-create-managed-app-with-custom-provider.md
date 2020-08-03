@@ -5,16 +5,17 @@ ms.topic: tutorial
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
-ms.openlocfilehash: c3750da6bd76c8cb3908fbdc71ba676f09d77def
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: e8824f534f573d97353cc86d2a1b112b1acdb211
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75650081"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494510"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Självstudie: skapa ett hanterat program med anpassade åtgärder och resurser
 
-I den här självstudien skapar du ett eget hanterat program med anpassade åtgärder och resurser. Det hanterade programmet kommer att innehålla en anpassad åtgärd `Overview` på sidan, en anpassad resurs typ som visas som ett separat meny `Table of Content` alternativ i och en anpassad kontext åtgärd på sidan för en anpassad resurs.
+I den här självstudien skapar du ett eget hanterat program med anpassade åtgärder och resurser. Det hanterade programmet kommer att innehålla en anpassad åtgärd på `Overview` sidan, en anpassad resurs typ som visas som ett separat meny alternativ i `Table of Content` och en anpassad kontext åtgärd på sidan för en anpassad resurs.
 
 Den här självstudien innehåller följande steg:
 
@@ -26,7 +27,7 @@ Den här självstudien innehåller följande steg:
 > * Distribuera en instans av ett hanterat program
 > * Utföra anpassade åtgärder och skapa anpassade resurser
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien måste du känna till följande:
 
@@ -40,7 +41,7 @@ För att slutföra den här självstudien måste du känna till följande:
 
 I den här självstudien skapar du ett hanterat program och dess hanterade resurs grupp kommer att innehålla anpassad Provider-instans, lagrings konto och funktion. Azure-funktionen som används i det här exemplet implementerar ett API som hanterar anpassade Provider-åtgärder för åtgärder och resurser. Azure Storage kontot används som grundläggande lagring för dina anpassade Provider-resurser.
 
-Definitionen av användar gränssnittet för att skapa en hanterad program `funcname` instans `storagename` innehåller och inmatade element. Lagrings kontots namn och funktions namn måste vara globalt unikt. Som standard kommer Function-filer att distribueras från [exempel funktions paketet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), men du kan ändra det genom att lägga till ett inmatat element för en paket länk i *createUIDefinition. JSON*:
+Definitionen av användar gränssnittet för att skapa en hanterad program instans innehåller `funcname` och `storagename` inmatade element. Lagrings kontots namn och funktions namn måste vara globalt unikt. Som standard kommer filerna att distribueras från [exempel funktions paketet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), men du kan ändra det genom att lägga till ett inmatat element för en paket länk i *createUIDefinition.jspå*:
 
 ```json
 {
@@ -73,7 +74,7 @@ Definitionen av användar gränssnittet för att skapa en hanterad program `func
 }
 ```
 
-och utdata i *createUIDefinition. JSON*:
+och utdata i *createUIDefinition.jspå*:
 
 ```json
   "funcname": "[steps('applicationSettings').funcname]",
@@ -81,13 +82,13 @@ och utdata i *createUIDefinition. JSON*:
   "zipFileBlobUri": "[steps('applicationSettings').zipFileBlobUri]"
 ```
 
-Det fullständiga *createUIDefinition. JSON* -exemplet finns i [referensen: artefakter för användar gränssnitts element](reference-createuidefinition-artifact.md).
+Du hittar en fullständig *createUIDefinition.jsför* samplet i [referensen: artefakter för användar gränssnitts element](reference-createuidefinition-artifact.md).
 
 ## <a name="template-with-custom-provider"></a>Mall med anpassad Provider
 
-Om du vill skapa en hanterad program instans med en anpassad Provider måste du definiera en anpassad Provider-resurs med namnet **offentlig** och skriva **Microsoft. CustomProviders/resourceProviders** i **mainTemplate. JSON**. I den resursen definierar du resurs typer och åtgärder för din tjänst. För att distribuera Azure Function-och Azure Storage konto instanser definiera resurser `Microsoft.Web/sites` av `Microsoft.Storage/storageAccounts` typen respektive.
+Om du vill skapa en hanterad program instans med en anpassad Provider måste du definiera en anpassad Provider-resurs med namnet **offentlig** och skriva **Microsoft. CustomProviders/resourceProviders** i **mainTemplate.jspå**. I den resursen definierar du resurs typer och åtgärder för din tjänst. För att distribuera Azure Function-och Azure Storage konto instanser definiera resurser av typen `Microsoft.Web/sites` respektive `Microsoft.Storage/storageAccounts` .
 
-I den här självstudien får du `users` skapa en resurs `ping` typ, en anpassad `users/contextAction` åtgärd och en anpassad åtgärd som ska utföras i en `users` kontext för en anpassad resurs. För varje resurs typ och åtgärd tillhandahåller en slut punkt som pekar på funktionen med namnet som anges i [createUIDefinition. JSON](#user-interface-definition). Ange **routingType** som `Proxy,Cache` för resurs typer och `Proxy` för åtgärder:
+I den här självstudien får du skapa en `users` resurs typ, en `ping` anpassad åtgärd och en `users/contextAction` anpassad åtgärd som ska utföras i en kontext för en `users` anpassad resurs. För varje resurs typ och åtgärd tillhandahåller en slut punkt som pekar på funktionen med namnet som anges i [createUIDefinition.jspå](#user-interface-definition). Ange **routingType** som `Proxy,Cache` för resurs typer och `Proxy` för åtgärder:
 
 ```json
 {
@@ -122,16 +123,16 @@ I den här självstudien får du `users` skapa en resurs `ping` typ, en anpassad
 }
 ```
 
-Du hittar det fullständiga *mainTemplate. JSON* -exemplet på [referensen: distributions mal len artefakt](reference-main-template-artifact.md).
+Du hittar den fullständiga *mainTemplate.jsför* samplet på [referensen: distributions mal len artefakt](reference-main-template-artifact.md).
 
 ## <a name="view-definition-artifact"></a>Visa definitionsartefakt
 
-Om du vill definiera ett användar gränssnitt som innehåller anpassade åtgärder och anpassade resurser i det hanterade programmet måste du redigera **viewDefinition. JSON** -artefakt. Mer information om Visa definitions artefakt finns [i Visa definitions artefakt i Azure Managed Applications](concepts-view-definition.md).
+Om du vill definiera ett användar gränssnitt som innehåller anpassade åtgärder och anpassade resurser i det hanterade programmet måste du skapa **viewDefinition.jspå** artefakten. Mer information om Visa definitions artefakt finns [i Visa definitions artefakt i Azure Managed Applications](concepts-view-definition.md).
 
 I den här självstudien definierar du:
-* En *översikts* sida med en verktygsfälts knapp som representerar `TestAction` en anpassad åtgärd med grundläggande text ingångar.
-* En *användare* -sida som representerar en anpassad resurs `users`typ.
-* En anpassad resurs åtgärd `users/contextAction` på sidan *användare* som ska utföras i ett sammanhang med en anpassad resurs av `users`typen.
+* En *översikts* sida med en verktygsfälts knapp som representerar en anpassad åtgärd `TestAction` med grundläggande text ingångar.
+* En *användare* -sida som representerar en anpassad resurs typ `users` .
+* En anpassad resurs åtgärd `users/contextAction` på sidan *användare* som ska utföras i ett sammanhang med en anpassad resurs av typen `users` .
 
 I följande exempel visas Visa konfiguration för en "Översikt"-sida:
 
@@ -174,15 +175,15 @@ I exemplet nedan visas sidan "användare" för resurs konfiguration med anpassad
   }
 ```
 
-Du hittar det fullständiga *viewDefinition. JSON* -exemplet i [referensen: Visa definitions artefakt](reference-view-definition-artifact.md).
+Det går att hitta den fullständiga *viewDefinition.jsför* samplet i [referensen: Visa definitions artefakt](reference-view-definition-artifact.md).
 
 ## <a name="managed-application-definition"></a>Definition av hanterade program
 
 Paketera följande hanterade program artefakter till zip-arkivet och överför dem till lagring:
 
-* createUiDefinition. JSON
-* mainTemplate. JSON
-* viewDefinition. JSON
+* createUiDefinition.jspå
+* mainTemplate.jspå
+* viewDefinition.jspå
 
 Alla filer måste finnas på rotnivå. Paketet med artefakter kan lagras i vilken lagring som helst, till exempel GitHub BLOB eller Azure Storage konto-blob. Här är ett skript för att ladda upp programpaketet till lagrings kontot: 
 
@@ -244,7 +245,7 @@ az managedapp definition create \
   --package-file-uri "path to your app.zip package"
 ```
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du och väljer **hanterade program Center**.
 2. I **Center för hanterade program**väljer du **tjänst katalog program definition** och klickar på **Lägg till**. 
@@ -300,7 +301,7 @@ az managedapp create \
   --parameters "{\"funcname\": {\"value\": \"managedusersappfunction\"}, \"storageName\": {\"value\": \"managedusersappstorage\"}}"
 ```
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du och väljer **hanterade program Center**.
 2. I den **hanterade program Center**väljer du **tjänst katalog program** och klickar på **Lägg till**. 
@@ -326,7 +327,7 @@ az managedapp create \
 
 ## <a name="custom-actions-and-resources"></a>Anpassade åtgärder och resurser
 
-När tjänst katalogens program instans har distribuerats har du två nya resurs grupper. Den första resurs `applicationGroup` gruppen innehåller en instans av det hanterade programmet, den `managedResourceGroup` andra resurs gruppen innehåller resurserna för det hanterade programmet, inklusive **anpassad Provider**.
+När tjänst katalogens program instans har distribuerats har du två nya resurs grupper. Den första resurs gruppen `applicationGroup` innehåller en instans av det hanterade programmet, den andra resurs gruppen innehåller `managedResourceGroup` resurserna för det hanterade programmet, inklusive **anpassad Provider**.
 
 ![Program resurs grupper](./media/tutorial-create-managed-app-with-custom-provider/application-resource-groups.png)
 

@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 427d936353b47e951f8faaf90483691bab856767
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 538cbfea2480573c190a1dd0ee0480e21aecefe2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510735"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502094"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Aktivera och skapa stora fil resurser
 
@@ -20,7 +21,7 @@ När du aktiverar stora fil resurser på ditt lagrings konto kan fil resurserna 
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+- Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - Om du tänker använda Azure CLI [installerar du den senaste versionen](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 - Om du tänker använda Azure PowerShell [installerar du den senaste versionen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0).
 
@@ -36,7 +37,7 @@ Att aktivera stora fil resurser på ett konto är en oåterkallelig process. Nä
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **Alla tjänster** i Azure-portalen. 
-1. Ange **lagrings konton**i listan över resurser. När du skriver filtreras listan baserat på dina inaktuella inaktuella inaktuella inaktuella. Välj **Lagringskonton**.
+1. Ange **lagrings konton**i listan över resurser. När du skriver filtreras listan baserat på dina inaktuella inaktuella inaktuella inaktuella. Välj **lagrings konton**.
 1. I fönstret **lagrings konton** som visas väljer du **Lägg till**.
 1. Välj den prenumeration som du ska använda för att skapa lagrings kontot.
 1. Under fältet **Resursgrupp** väljer du **Skapa ny**. Ange ett namn för din nya resurs grupp.
@@ -48,7 +49,7 @@ Att aktivera stora fil resurser på ett konto är en oåterkallelig process. Nä
 1. Ange replikeringen till antingen **Lokalt Redundant lagring** eller **zon-redundant lagring**.
 1. Lämna dessa fält till standardvärdena:
 
-   |Field  |Värde  |
+   |Fält  |Värde  |
    |---------|---------|
    |Distributionsmodell     |Resource Manager         |
    |Prestanda     |Standard         |

@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e66af8e55f7b60347d9577c64b7183c6ef8b44f4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6b1fe78ac00b57d7627a64970e84ae8b717ae5c3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089319"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501924"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Skydda din Synapse-arbetsyta (för hands version)
 
@@ -36,7 +36,7 @@ För att skydda en Synapse-arbetsyta (för hands version) följer du ett mönste
 
 I det här dokumentet används standard namn för att förenkla anvisningarna. Ersätt dem med valfritt namn.
 
-|Inställning | Exempelvärde | Beskrivning |
+|Inställningen | Exempelvärde | Description |
 | :------ | :-------------- | :---------- |
 | **Synapse-arbetsyta** | WS1 |  Namnet som Synapse-arbetsytan kommer att ha. |
 | **ADLSGEN2-konto** | STG1 | ADLS-kontot som ska användas med din arbets yta. |
@@ -82,7 +82,7 @@ I Azure Portal skapar du en arbets yta för Synapse:
   - Tilldela **WS1 \_ SparkAdmins** till Synapse Spark-administratörer
   - Tilldela **WS1- \_ SQLAdmins** till Synapse SQL-administratörer
 
-## <a name="step-4-configuring-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>STEG 4: Konfigurera Data Lake Storage Gen2 som ska användas av Synapse-arbetsytan
+## <a name="step-4-configure-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>STEG 4: Konfigurera Data Lake Storage Gen2 som ska användas av Synapse-arbetsytan
 
 Synapse-arbetsytan behöver åtkomst till STG1 och CNT1 så att den kan köra pipeliner och utföra system uppgifter.
 
@@ -100,7 +100,7 @@ Synapse-arbetsytan behöver åtkomst till STG1 och CNT1 så att den kan köra pi
 - Under **Inställningar**klickar du på **SQL Active Directory admin**
 - Klicka på **Ange administratör** och välj WS1 \_ SQLAdmins
 
-## <a name="step-6-maintaining-access-control"></a>STEG 6: upprätthålla åtkomst kontroll
+## <a name="step-6-maintain-access-control"></a>STEG 6: Behåll åtkomst kontroll
 
 Konfigurationen är färdig.
 
@@ -140,7 +140,7 @@ Din arbets yta är nu helt konfigurerad och säker.
 
 Synapse Studio fungerar olika beroende på användar roller. Vissa objekt kan vara dolda eller inaktiverade om en användare inte har tilldelats roller som ger lämplig åtkomst. I följande tabell sammanfattas effekterna på Synapse Studio.
 
-| Uppgift | Arbets ytans administratörer | Spark-administratörer | SQL-administratörer |
+| Aktivitet | Arbets ytans administratörer | Spark-administratörer | SQL-administratörer |
 | --- | --- | --- | --- |
 | Öppna Synapse Studio | JA | JA | JA |
 | Visa Home Hub | JA | JA | JA |

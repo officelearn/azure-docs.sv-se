@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: cshoe
-ms.openlocfilehash: d035ef4bc90410cbf0899c038047dd5e6a001f10
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 3e38fae84f63f4867befbc3695242dc62dc8dbe8
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87462365"
+ms.locfileid: "87502655"
 ---
 # <a name="shifting-from-expressjs-to-azure-functions"></a>Växlar från Express.js till Azure Functions
 
@@ -24,7 +24,7 @@ När du migrerar kod till en server lös arkitektur, påverkar omfabriker Expres
 
 - **Standard väg**: Azure Functions slut punkter visas som standard under `api` vägen. Routningsregler kan konfigureras via [ `routePrefix` i _host.jsi_ filen](./functions-bindings-http-webhook-output.md#hostjson-settings).
 
-- **Konfiguration och konventioner**: en Functions-app använder _function.jspå_ filen för att definiera HTTP-verb, definiera säkerhets principer och kan konfigurera funktionens [indata och utdata](./functions-triggers-bindings.md). Som standard definierar mappnamnet som innehåller funktions namnen namnet på slut punkten, men du kan ändra namnet via egenskapen Route i filen [function.js](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) .
+- **Konfiguration och konventioner**: en Functions-app använder _function.jspå_ filen för att definiera HTTP-verb, definiera säkerhets principer och kan konfigurera funktionens [indata och utdata](./functions-triggers-bindings.md). Som standard definierar mappnamnet som innehåller funktions namnen namnet på slut punkten, men du kan ändra namnet via `route` egenskapen i [function.js](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) filen.
 
 > [!TIP]
 > Läs mer i de interaktiva självstudierna [Node.js-och Express-API: er till Server lös API: er med Azure Functions](https://docs.microsoft.com/learn/modules/shift-nodejs-express-apis-serverless/).

@@ -1,19 +1,19 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 05/13/2020
+ms.date: 07/31/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 1d14ee849c89e6c3807636d0a728157abd9de97a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc2393cfe87e2639ce40e66e6053d4d430518719
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83650645"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87515331"
 ---
 ## <a name="1-download-the-file"></a>1. Hämta filen
 
@@ -31,7 +31,7 @@ Extrahera zip-filen. Filen innehåller följande mappar:
 
 * AzureVPN
 * Allmänna
-* OpenVPN (om du har aktiverat inställningarna för OpenVPN och Azure AD-autentisering på gatewayen). Mer VPN Gateway finns i [skapa en klient](../articles/vpn-gateway/openvpn-azure-ad-tenant.md). För virtuellt WAN-nätverk, se [skapa en klient-VWAN](../articles/virtual-wan/openvpn-azure-ad-tenant.md).
+* OpenVPN (om du har aktiverat OpenVPN med inställningar för **Azure-certifikat** eller **RADIUS-autentisering** på gatewayen). Mer VPN Gateway finns i [skapa en klient](../articles/vpn-gateway/openvpn-azure-ad-tenant.md). För virtuellt WAN-nätverk, se [skapa en klient-VWAN](../articles/virtual-wan/openvpn-azure-ad-tenant.md).
 
 ## <a name="3-retrieve-information"></a>3. Hämta information
 

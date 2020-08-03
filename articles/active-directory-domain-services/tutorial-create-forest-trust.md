@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 40dd7f1b177fd1319b145036c8263ba2c6e30137
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a17764984e33e4312b9d81a5743d851dc14b5c05
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024680"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87492164"
 ---
-# <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Självstudie: skapa en utgående skogs förtroende till en lokal domän i Azure Active Directory Domain Services (för hands version)
+# <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Självstudie: skapa en utgående skogs förtroende till en lokal domän i Azure Active Directory Domain Services
 
-I miljöer där du inte kan synkronisera lösen ord, eller om du har användare som enbart loggar in med smartkort så att de inte känner till sitt lösen ord, kan du använda en resurs skog i Azure Active Directory Domain Services (Azure AD DS). En resurs skog använder ett enkelriktat utgående förtroende från Azure AD DS till en eller flera lokala AD DS-miljöer. Den här förtroende relationen låter användare, program och datorer autentisera mot en lokal domän från den hanterade domänen i Azure AD DS. Azure AD DS resurs skogar är för närvarande en för hands version.
+I miljöer där du inte kan synkronisera lösen ord, eller om du har användare som enbart loggar in med smartkort så att de inte känner till sitt lösen ord, kan du använda en resurs skog i Azure Active Directory Domain Services (Azure AD DS). En resurs skog använder ett enkelriktat utgående förtroende från Azure AD DS till en eller flera lokala AD DS-miljöer. Den här förtroende relationen låter användare, program och datorer autentisera mot en lokal domän från den hanterade domänen i Azure AD DS. I en resurs skog synkroniseras aldrig lokala lösenords-hashvärden.
 
 ![Diagram över skogs förtroende från Azure AD DS till lokal AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 

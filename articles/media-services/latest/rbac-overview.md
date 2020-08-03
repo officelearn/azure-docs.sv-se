@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 1872d0dd56a0459988e65852340c36493ee53f9f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: c75b6e67932cfd26a3374eab3f3efa34ceade577
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132253"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504491"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Rollbaserad åtkomst kontroll (RBAC) för Media Services-konton
 
@@ -40,8 +40,8 @@ Den [inbyggda roll definitions](../../role-based-access-control/built-in-roles.m
 
 Mer information finns i följande artiklar:
 
-- [Administratörsroller för klassiska prenumerationer, Azure RBAC-roller och administratörsroller för Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-- [Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC)?](../../role-based-access-control/overview.md)
+- [Klassiska administratörs roller för prenumeration, Azure-roller och Azure AD-administratörskonton](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Vad är rollbaserad åtkomstkontroll i Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
 - [Använd RBAC för att hantera åtkomst](../../role-based-access-control/role-assignments-rest.md)
 - [Åtgärder för Media Services Resource Provider](../../role-based-access-control/resource-provider-operations.md#microsoftmedia)
 

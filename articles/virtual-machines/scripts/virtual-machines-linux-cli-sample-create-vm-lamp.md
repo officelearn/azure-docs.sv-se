@@ -11,14 +11,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 04/05/2017
-ms.openlocfilehash: 471690c5c0f5ebb4cea111b85cab1fe0524a36cd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e71b2f940c637a8b1375be71f9b6ca95fd76628e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509731"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501873"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>Distribuera LAMP-stacken i en belastningsutjämnad skalningsuppsättning med virtuella datorer
 
@@ -30,7 +30,7 @@ Det här exemplet skapar en skalningsuppsättning med virtuella datorer och anv�
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/build-stack.sh "Create virtual machine scale set with LAMP stack")]
 
-## <a name="connect"></a>Anslut
+## <a name="connect"></a>Ansluta
 
 Använd den här koden för att se hur du ansluter till dina virtuella datorer och din skalningsuppsättning.
 
@@ -48,7 +48,7 @@ az group delete -n myResourceGroup
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, virtuell dator, tillgänglighetsuppsättning, lastbalanserare och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Kommentarer |
 |---|---|
 | [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az vmss create](/cli/azure/vmss) | Skapar en skalningsuppsättning med virtuella datorer |

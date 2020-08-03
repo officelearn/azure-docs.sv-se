@@ -10,12 +10,13 @@ ms.date: 03/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 7f16902a779fdb7c86fb7506711d2bce77ca9d05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 5e3dba072179b57576b387bdabd624372988e975
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809227"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495037"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Avgöra vilken Azure Storage krypterings nyckel modell som används för lagrings kontot
 
@@ -32,7 +33,7 @@ Mer information om krypterings nycklar finns [Azure Storage kryptering av data i
 
 Använd någon av följande metoder för att avgöra om ett lagrings konto använder Microsoft-hanterade nycklar eller kund hanterade nycklar för kryptering.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 Följ dessa steg om du vill kontrol lera krypterings modellen för lagrings kontot med hjälp av Azure Portal:
 

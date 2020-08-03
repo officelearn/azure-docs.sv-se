@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 4b52fe22e455f5b0ebce6960b40bcc80c46079c3
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: eab2beecc4153bdb2b74ca81bb43f86e2e29a778
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421356"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504151"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomstkontroll i Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 implementerar en åtkomst kontroll modell som stöder både RBAC (Azure rollbaserad åtkomst kontroll) och POSIX-liknande åtkomst kontrol listor (ACL: er). I den här artikeln sammanfattas grunderna för åtkomst kontroll modellen för Data Lake Storage Gen2.
+Azure Data Lake Storage Gen2 implementerar en modell för åtkomst kontroll som stöder både Azure-rollbaserad åtkomst kontroll (Azure RBAC) och POSIX-liknande åtkomst kontrol listor (ACL: er). I den här artikeln sammanfattas grunderna för åtkomst kontroll modellen för Data Lake Storage Gen2.
 
 <a id="azure-role-based-access-control-rbac"></a>
 
@@ -251,7 +251,7 @@ När du skapar en fil eller katalog, används umask för att ändra hur standard
 
 Umask för Azure Data Lake Storage Gen2 ett konstant värde som är inställt på 007. Det här värdet översätts till:
 
-| umask-komponent     | Numeriskt format | Kortformat | Betydelse |
+| umask-komponent     | Numeriskt format | Kortformat | Innebörd |
 |---------------------|--------------|------------|---------|
 | umask. owning_user   |    0         |   `---`      | För ägande användare kopierar du den överordnade standard-ACL: en till barnets åtkomst-ACL | 
 | umask. owning_group  |    0         |   `---`      | För ägande grupp kopierar du den överordnade standard-ACL: en till barnets åtkomst-ACL | 

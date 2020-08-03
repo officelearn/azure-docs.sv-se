@@ -5,19 +5,19 @@ description: Med grupper för automatisk redundans kan du hantera replikering oc
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: high-availability
-ms.custom: sqldbrb=2
+ms.custom: sqldbrb=2, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2020
-ms.openlocfilehash: e6c83c37e5b24df28f3cbb4509f0f72e2fde278e
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 00b7f675e7dd8fb347399ee7740318e129f12746
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448652"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504185"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -55,7 +55,7 @@ För att uppnå verklig affärs kontinuitet är det bara en del av lösningen at
 
      Med-servrar kan vissa eller alla användar databaser på en server placeras i en grupp för växling vid fel. Dessutom stöder en server flera grupper för växling vid fel på en enskild server.
 
-- **Primär**
+- **Primär kontakt**
 
   Servern eller den hanterade instans som är värd för de primära databaserna i gruppen för växling vid fel.
 
@@ -415,7 +415,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-| Kommando | Beskrivning |
+| Kommando | Description |
 | --- | --- |
 | [AZ SQL-redundans – grupp skapa](/cli/azure/sql/failover-group#az-sql-failover-group-create) |Det här kommandot skapar en redundans grupp och registrerar den på både primära och sekundära servrar|
 | [AZ SQL-redundans – grupp Delete](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | Tar bort en failover-grupp från servern |
@@ -425,7 +425,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 
 # <a name="rest-api"></a>[REST-API](#tab/rest-api)
 
-| API | Beskrivning |
+| API | Description |
 | --- | --- |
 | [Skapa eller uppdatera redundans grupp](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Skapar eller uppdaterar en failover-grupp |
 | [Ta bort redundans grupp](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Tar bort en failover-grupp från servern |
@@ -453,7 +453,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-| Kommando | Beskrivning |
+| Kommando | Description |
 | --- | --- |
 | [AZ SQL-redundans – grupp skapa](/cli/azure/sql/failover-group#az-sql-failover-group-create) |Det här kommandot skapar en redundans grupp och registrerar den på både primära och sekundära servrar|
 | [AZ SQL-redundans – grupp Delete](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | Tar bort en failover-grupp från servern |
@@ -463,7 +463,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 
 # <a name="rest-api"></a>[REST-API](#tab/rest-api)
 
-| API | Beskrivning |
+| API | Description |
 | --- | --- |
 | [Skapa eller uppdatera redundans grupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Skapar eller uppdaterar en konfiguration för redundans gruppen |
 | [Ta bort redundans grupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Tar bort en redundans-grupp från instansen |

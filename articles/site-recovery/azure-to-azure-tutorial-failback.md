@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f73d20c19e8fc26c553490772f5374e8a88a77b2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 432c92bcfa8a2e0df26adf1516f5bdc9ee73d267
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289300"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502383"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Återställa en virtuell Azure-dator mellan Azure-regioner
 
@@ -42,7 +42,7 @@ När de virtuella datorerna har återskyddats kan du växla tillbaka till den pr
 
 1. I valvet väljer du **replikerade objekt**och väljer sedan den virtuella dator som har återskyddats.
 
-    ![Återställning efter fel till primär](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback.png)
+    ![Skärm bild som visar återställning efter fel till primär i Azure Portal.](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback.png)
 
 2. I **replikerade objekt**väljer du den virtuella datorn och väljer sedan **redundans**.
 3. I **redundans**väljer du en återställnings punkt att redundansväxla till:
@@ -55,7 +55,7 @@ När de virtuella datorerna har återskyddats kan du växla tillbaka till den pr
 7. När du har verifierat redundansväxlingen väljer du **genomför redundansväxlingen**. Commit tar bort alla tillgängliga återställnings punkter. Alternativet ändra återställnings punkt är inte längre tillgängligt.
 8. Den virtuella datorn ska visa som misslyckad över och kunde inte återställas.
 
-    ![VM i primär och sekundär region](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
+    ![Skärm bild som visar VM i primär och sekundär region.](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
 
 > [!NOTE]
 > För datorer som använder hanterade diskar och kör Site Recovery Extension-versionen 9.28. x. x och med [Samlad uppdatering 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) Site Recovery rensar datorer i den sekundära Disaster Recovery-regionen efter att återställning efter fel har slutförts och virtuella datorer skyddas på nytt. Det finns inget behov av att manuellt ta bort virtuella datorer och nätverkskort i den sekundära regionen. Observera att virtuella datorer med ohanterade diskar inte rensas. Om du inaktiverar replikeringen helt efter att du har återställt igen rensar Site Recovery diskarna i Disaster Recovery-regionen, utöver de virtuella datorerna och nätverkskorten.

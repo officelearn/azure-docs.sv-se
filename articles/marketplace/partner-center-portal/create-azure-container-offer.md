@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 103a5534c143e5edf87f70570eb941dfa72bd45b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8148163dc969920b473f12a7162c6f317d85b3c8
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317832"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503233"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Skapa ett Azure Container-erbjudande på Azure Marketplace
 
@@ -50,7 +50,7 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På sidan **erbjudande översikt** visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den här sidan visar olika länkar baserat på erbjudandet aktuella status. Till exempel:
+Den här sidan visar olika länkar baserat på erbjudandet aktuella status. Ett exempel:
 
 - Om erbjudandet är ett utkast – [ta bort utkast erbjudande](update-existing-offer.md#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan)
@@ -133,7 +133,7 @@ På den här sidan kan du definiera information om erbjudandet som visas på den
 > [!NOTE]
 > Erbjudande information krävs inte på engelska om erbjudande beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på [icke-engelska]". Det går också att tillhandahålla en användbar länk för att erbjuda innehåll på ett annat språk än det som används i listan med erbjudande information.
 
-### <a name="name"></a>Namn
+### <a name="name"></a>Name
 
 Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
 
@@ -151,7 +151,7 @@ En kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt oc
 
 En mer detaljerad beskrivning av ditt erbjudande. Detta kan vara upp till 256 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Beskrivning
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -284,9 +284,7 @@ På den här fliken kan du välja vilka moln som planen är tillgänglig i. Dina
 
 Alla planer för Azure Container-erbjudanden görs automatiskt tillgängliga i **Azure Global**.  Din prenumeration kan användas av kunder i alla globala Azure-regioner som använder den kommersiella marknads platsen. Mer information finns i [stöd för geografisk tillgänglighet och valuta](../marketplace-geo-availability-currencies.md).
 
-Välj alternativet [**Azure Government**](../../azure-government/documentation-government-welcome.md) för att se till att din lösning visas här. Det här är ett offentligt community-moln med kontrollerad åtkomst till kunder från amerikanska federala, S] (. /Marketplace-geo-Availability-currencies.MD) EM. Som utgivare är du ansvarig för alla kontroller, säkerhets åtgärder och bästa praxis för moln gruppen. Azure Government använder fysiskt isolerade Data Center och nätverk (som finns i USA).
-
-Innan du [publicerar](../../azure-government/documentation-government-manage-marketplace-partners.md) till Azure Government ska du testa och bekräfta din lösning inom det här avsnittet eftersom resultatet kan skilja sig. Du kan skapa och testa din lösning genom att begära ett utvärderings konto från [Microsoft Azure Government utvärderings version](https://azure.microsoft.com/global-infrastructure/government/request/).
+Välj alternativet [Azure Government](../../azure-government/documentation-government-welcome.md) för att se till att din lösning visas här. Det här är ett offentligt community-moln med kontrollerad till gång för kunder från amerikanska federala, statliga och lokala myndigheter eller stambaserad myndigheter, samt partner som är berättigade att betjäna dem. Som utgivare är du ansvarig för alla kontroller, säkerhets åtgärder och bästa praxis för moln gruppen. Azure Government använder fysiskt isolerade Data Center och nätverk (som finns i USA). Innan du [publicerar](../../azure-government/documentation-government-manage-marketplace-partners.md) till Azure Government ska du testa och bekräfta din lösning inom det här avsnittet eftersom resultatet kan skilja sig. Du kan skapa och testa din lösning genom att begära ett utvärderings konto från [Microsoft Azure Government utvärderings version](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
 > När planen har publicerats och är tillgänglig i en speciell region kan du inte ta bort den regionen.

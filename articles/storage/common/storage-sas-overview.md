@@ -10,12 +10,12 @@ ms.date: 07/17/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 108dd37370290a68d620a61f84b4553ed59792ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 185992284e353c3e58104bc46296c1741fbca7d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077875"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502179"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Bevilja begränsad åtkomst till Azure Storage resurser med signaturer för delad åtkomst (SAS)
 
@@ -58,7 +58,7 @@ Du kan signera en SAS på ett av två sätt:
 
 - Med en *användar Delegerings nyckel* som skapades med Azure Active Directory (autentiseringsuppgifter för Azure AD). En användar Delegerings-SAS är signerad med användar Delegerings nyckeln.
 
-    För att hämta användar Delegerings nyckeln och skapa SAS måste ett Azure AD-säkerhetsobjekt tilldelas en rollbaserad åtkomst kontroll (RBAC) roll som innehåller åtgärden **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** . För detaljerad information om RBAC-roller med behörighet att hämta användar Delegerings nyckeln, se [skapa en användar delegering SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
+    För att hämta användar Delegerings nyckeln och skapa SAS måste ett Azure AD-säkerhetsobjekt tilldelas en Azure-roll som innehåller åtgärden **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** . För detaljerad information om Azure-roller med behörighet att hämta användar Delegerings nyckeln, se [skapa en användar delegering SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
 
 - Med lagrings konto nyckeln. Både en tjänst-SAS och ett konto säkerhets associationer signeras med lagrings konto nyckeln. För att skapa en SAS som är signerad med konto nyckeln måste ett program ha åtkomst till konto nyckeln.
 

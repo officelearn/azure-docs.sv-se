@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9cb1ddceff30b247caf3ecd9ee3bc21d5addb519
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2b11f11ac8a0d4f3a0623c2903dfc9355e875d14
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089455"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501941"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Bevilja behörigheter till hanterad identitet för arbets ytan (för hands version)
 
@@ -22,7 +22,7 @@ Den här artikeln lär dig hur du beviljar behörigheter till den hanterade iden
 >[!NOTE]
 >Den här arbets ytans hanterade identitet kallas hanterad identitet genom resten av det här dokumentet.
 
-## <a name="grant-the-managed-identity--permissions-to-the-sql-pool"></a>Ge hanterade identitets behörigheter till SQL-poolen
+## <a name="grant-managed-identity-permissions-to-the-sql-pool"></a>Bevilja hanterade identitets behörigheter till SQL-poolen
 
 Den hanterade identiteten ger behörighet till SQL-pooler i arbets ytan. Med behörigheter som har beviljats kan du dirigera pipeliner som utför SQL-pool-relaterade aktiviteter. När du skapar en Azure dataSynapses-arbetsyta med hjälp av Azure Portal kan du bevilja behörighet för hanterad identitets kontroll på SQL-pooler.
 

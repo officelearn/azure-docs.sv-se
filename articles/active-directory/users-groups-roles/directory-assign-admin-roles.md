@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f87f732fbfff23e71096a89a7c04c65d1bd7959
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: a88e30e85402f60489839b0a34b5a793fd7192df
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432342"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502485"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -392,7 +392,7 @@ Användare med den här rollen kan ange eller återställa autentiseringsuppgift
 
 ### <a name="privileged-role-administrator"></a>[Privilegie rad roll administratör](#privileged-role-administrator-permissions)
 
-Användare med den här rollen kan hantera roll tilldelningar i Azure Active Directory, samt i Azure AD Privileged Identity Management. Dessutom tillåter den här rollen hantering av alla aspekter av Privileged Identity Management och administrativa enheter.
+Användare med den här rollen kan hantera roll tilldelningar i Azure Active Directory, samt i Azure AD Privileged Identity Management. De kan skapa och hantera grupper som kan tilldelas till Azure AD-roller. Dessutom tillåter den här rollen hantering av alla aspekter av Privileged Identity Management och administrativa enheter.
 
 > [!IMPORTANT]
 > Den här rollen ger möjlighet att hantera tilldelningar för alla Azure AD-roller, inklusive rollen global administratör. Den här rollen omfattar inte andra privilegierade förmågor i Azure AD som att skapa eller uppdatera användare. Användare som har tilldelats den här rollen kan dock ge sig själva eller andra ytterligare behörigheter genom att tilldela ytterligare roller.
@@ -748,6 +748,9 @@ Kan hantera alla aspekter av Azure AD och Microsoft-tjänster som använder Azur
 | Microsoft. Directory/directoryRoleTemplates/allProperties/allTasks | Skapa och ta bort directoryRoleTemplates och läsa och uppdatera alla egenskaper i Azure Active Directory. |
 | Microsoft. Directory/Domains/allProperties/allTasks | Skapa och ta bort domäner och läsa och uppdatera alla egenskaper i Azure Active Directory. |
 | Microsoft. Directory/Groups/allProperties/allTasks | Skapa och ta bort grupper och läsa och uppdatera alla egenskaper i Azure Active Directory. |
+| Microsoft. Directory/groupsAssignableToRoles/allProperties/Update | Uppdatera grupper med egenskapen isAssignableToRole inställd på True i Azure Active Directory. |
+| Microsoft. Directory/groupsAssignableToRoles/Create | Skapa grupper med egenskapen isAssignableToRole inställd på True i Azure Active Directory. |
+| Microsoft. Directory/groupsAssignableToRoles/Delete | Ta bort grupper med egenskapen isAssignableToRole inställd på True i Azure Active Directory. |
 | Microsoft. Directory/groupSettings/allProperties/allTasks | Skapa och ta bort groupSettings och läsa och uppdatera alla egenskaper i Azure Active Directory. |
 | Microsoft. Directory/groupSettingTemplates/allProperties/allTasks | Skapa och ta bort groupSettingTemplates och läsa och uppdatera alla egenskaper i Azure Active Directory. |
 | Microsoft. Directory/loginTenantBranding/allProperties/allTasks | Skapa och ta bort loginTenantBranding och läsa och uppdatera alla egenskaper i Azure Active Directory. |
@@ -1582,7 +1585,10 @@ Kan hantera roll tilldelningar i Azure AD och alla aspekter av Privileged Identi
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. AAD. privilegedIdentityManagement/upplånade/allTasks | Skapa och ta bort alla resurser och läsa och uppdatera standard egenskaper i Microsoft. AAD. privilegedIdentityManagement. |
+| Microsoft. Directory/groupsAssignableToRoles/allProperties/Update | Uppdatera grupper med egenskapen isAssignableToRole inställd på True i Azure Active Directory. |
+| Microsoft. Directory/groupsAssignableToRoles/Create | Skapa grupper med egenskapen isAssignableToRole inställd på True i Azure Active Directory. |
+| Microsoft. Directory/groupsAssignableToRoles/Delete | Ta bort grupper med egenskapen isAssignableToRole inställd på True i Azure Active Directory. |
+| Microsoft. Directory/privilegedIdentityManagement/upplånade/allTasks | Skapa och ta bort alla resurser och läsa och uppdatera standard egenskaper i Microsoft. AAD. privilegedIdentityManagement. |
 | Microsoft. Directory/Service princip ALS/appRoleAssignedTo/allTasks | Läsa och konfigurera service princip ALS. appRoleAssignedTo-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/Service princip ALS/oAuth2PermissionGrants/allTasks | Läsa och konfigurera service princip ALS. oAuth2PermissionGrants-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/administrativeUnits/allProperties/allTasks | Skapa och hantera administrativa enheter (inklusive medlemmar) |

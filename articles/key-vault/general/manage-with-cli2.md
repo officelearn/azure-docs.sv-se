@@ -9,12 +9,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 127f0cdfc8cecf9789a68210f4b7ce1927333cc8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: dc60d2b6cef8ad19526c5ec243ae1c43529954a6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422587"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504542"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Hantera Key Vault med Azure CLI 
 
@@ -38,7 +39,7 @@ Azure Key Vault är tillgängligt i de flesta regioner. Mer information finns p�
 
 En översikt över Azure Key Vault finns i [Vad är Azure Key Vault?](overview.md)) Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda Azure CLI-kommandona i den här artikeln måste du ha följande objekt:
 
@@ -64,7 +65,7 @@ Du kan också läsa följande artiklar för att bekanta dig med Azure Resource M
 
 ## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>Så här skapar du en härdnings behållare (ett valv) i Azure
 
-Valv är skyddade behållare som backas upp av säkerhetsmoduler för maskin vara. Med valv så minskar risken för att säkerhetsinformation förloras av misstag eftersom lagringen av hemligheter centraliseras. Key Vaults styr och loggar dessutom åtkomsten till informationen du lagrar. Azure Key Vault kan hantera förfrågningar om och förnyande av TLS-certifikat (Transport Layer Security), och du har tillgång till alla de funktioner som krävs för en robust livscykelhantering av certifikat. I nästa steg ska du skapa ett valv.
+Valv är skyddade behållare som backas upp av säkerhetsmoduler för maskin vara. Med valv så minskar risken för att säkerhetsinformation förloras av misstag eftersom lagringen av hemligheter centraliseras. Key Vault kontrollerar och loggar dessutom åtkomsten till allt som lagras i valven. Azure Key Vault kan hantera förfrågningar om och förnyelser av TLS-certifikat (Transport Layer Security), och ger tillgång till alla de funktioner som krävs för en robust livscykelhantering av certifikat. I nästa steg ska du skapa ett valv.
 
 ### <a name="connect-to-your-subscriptions"></a>Ansluta till dina prenumerationer
 
@@ -128,7 +129,7 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 Utdata från det här kommandot visar egenskaper för nyckel valvet som du har skapat. De två viktigaste egenskaperna är:
 
 * **namn**: i exemplet är namnet ContosoKeyVault. Du kommer att använda det här namnet för andra Key Vault-kommandon.
-* **vaultUri**: i exemplet är https://contosokeyvault.vault.azure.netURI: n. Program som använder ditt valv via dess REST-API måste använda denna URI.
+* **vaultUri**: i exemplet är URI: n https://contosokeyvault.vault.azure.net . Program som använder ditt valv via dess REST-API måste använda denna URI.
 
 Nu har ditt Azure-konto behörighet att utföra åtgärder i det här nyckelvalvet. Från och med har ingen annan behörighet.
 
@@ -204,7 +205,7 @@ az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --skip-assignment
 
 ## <a name="authorizing-an-application-to-use-a-key-or-secret"></a>Auktorisera ett program för att använda en nyckel eller hemlighet
 
-Använd `az keyvault set-policy` kommandot för att ge programmet åtkomst till nyckeln eller hemligheten i valvet.
+Använd kommandot för att ge programmet åtkomst till nyckeln eller hemligheten i valvet `az keyvault set-policy` .
 
 Om ditt valv till exempel är ContosoKeyVault har programmet ett appID för 8f8c4bbd-485b-45FD-98f7-ec6300b7b4ed och du vill ge programmet behörighet att dekryptera och signera med nycklar i valvet, använder du följande kommando:
 

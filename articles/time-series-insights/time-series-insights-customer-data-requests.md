@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: 3578710bf066e7745215d8efacafd2cf6c005eac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30b3832dfe3e1c4564d1d89b5c318421e48f554f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81640499"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501703"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Sammanfattning av funktioner för begäranden om kunddata
 
@@ -36,7 +36,7 @@ En klient organisations administratör kan ta bort kund information med hjälp a
 
 Men innan du tar bort kunddata via portalen bör du ta bort användarens åtkomst principer från Time Series Insights miljön i Azure Portal. Mer information finns i avsnittet [bevilja åtkomst till en Time Series Insights miljö med hjälp av Azure Portal](time-series-insights-data-access.md).
 
-Du kan också utföra borttagnings åtgärder på åtkomst principer med hjälp av REST API. Mer information finns i avsnittet om [åtkomst principer – ta bort](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/delete).
+Du kan också utföra borttagnings åtgärder på åtkomst principer med hjälp av REST API. Mer information finns i avsnittet om [åtkomst principer – ta bort](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/delete).
 
 Time Series Insights är integrerat med princip bladet i Azure Portal. Både Time Series Insights och princip bladet gör att du kan visa, exportera och ta bort användar data som lagras i tjänsten. Eventuella borttagnings åtgärder som vidtas på bladet princip i Azure Portal resulterar i att användar data tas bort i Time Series Insights. Om en användare till exempel har sparat en personlig fråga, tas frågan bort permanent från Time Series Insights Explorer. Om användaren har en sparad delad fråga kvarstår frågan, men användar informationen tas bort permanent. Följande kommentar innehåller instruktioner om hur du utför dessa uppgifter.
 
@@ -48,7 +48,7 @@ På samma sätt som för att ta bort data kan en innehavaradministratör Visa oc
 
 Om du är klient organisations administratör kan du visa data åtkomst principer i Time Series Insightss miljön i Azure Portal. Mer information finns i avsnittet [bevilja åtkomst till en Time Series Insights miljö med hjälp av Azure Portal](time-series-insights-data-access.md).
 
-Du kan också utföra export åtgärder på åtkomst principer med hjälp av åtgärden "lista efter miljö" i den angivna REST API. Mer information finns i avsnittet om [åtkomst principer – lista efter miljö](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/listbyenvironment).
+Du kan också utföra export åtgärder på åtkomst principer med hjälp av åtgärden "lista efter miljö" i den angivna REST API. Mer information finns i avsnittet om [åtkomst principer – lista efter miljö](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment).
 
 ## <a name="to-delete-data-stored-within-time-series-insights"></a>Ta bort data som lagras i Time Series Insights
 

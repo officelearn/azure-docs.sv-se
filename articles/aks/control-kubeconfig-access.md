@@ -4,12 +4,12 @@ description: Lär dig hur du styr åtkomsten till konfigurations filen för Kube
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 4d25babd13bb8ecdcd8c9eb60a976a05702fb9b6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5ed2f74d9de30b5fbdeaeb38316831db0777a0d6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255276"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501635"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Använd Azures rollbaserade åtkomst kontroller för att definiera åtkomst till konfigurations filen Kubernetes i Azure Kubernetes service (AKS)
 
@@ -27,7 +27,7 @@ Den här artikeln kräver också att du kör Azure CLI-version 2.0.65 eller sena
 
 När du interagerar med ett AKS-kluster med `kubectl` verktyget används en konfigurations fil som definierar kluster anslutnings information. Den här konfigurations filen lagras vanligt vis i *~/.Kube/config*. Flera kluster kan definieras i den här *kubeconfig* -filen. Du växlar mellan kluster med kommandot [kubectl config use-context][kubectl-config-use-context] .
 
-Med kommandot [AZ AKS get-credentials][az-aks-get-credentials] kan du hämta autentiseringsuppgifter för ett AKS-kluster och slå samman dem till *kubeconfig* -filen. Du kan använda Azures rollbaserade åtkomst kontroller (RBAC) för att kontrol lera åtkomsten till dessa autentiseringsuppgifter. Med dessa Azure RBAC-roller kan du definiera vem som kan hämta *kubeconfig* -filen och vilka behörigheter de har i klustret.
+Med kommandot [AZ AKS get-credentials][az-aks-get-credentials] kan du hämta autentiseringsuppgifter för ett AKS-kluster och slå samman dem till *kubeconfig* -filen. Du kan använda Azures rollbaserade åtkomst kontroller (RBAC) för att kontrol lera åtkomsten till dessa autentiseringsuppgifter. Med de här Azure-rollerna kan du definiera vem som kan hämta *kubeconfig* -filen och vilka behörigheter de har i klustret.
 
 De två inbyggda rollerna är:
 

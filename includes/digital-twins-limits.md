@@ -5,21 +5,23 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 3035bd71a91f7cad6fb951d74081b77d8445a81f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 64b3bf87df7d0b10f8a69e8303010f64b3e68f79
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133918"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507567"
 ---
 ### <a name="functional-limits"></a>Funktionella gränser
 
 I tabellen nedan visas funktionella gränser för Azure Digital-dubbla i den aktuella för hands versionen.
 
-| Område | Funktion | Standardgräns | Justerbar? |
+| Område | Kapacitet | Standardgräns | Justerbar? |
 | --- | --- | --- | --- |
 | Azure-resurs | Antal Azure Digitals dubbla instanser i en region, per prenumeration | 10 | Yes |
-| Digitala dubbla | Antal dubbla i en digital Azure-instans | 200 000 | Yes |
+| Digitala tvillingenheter | Antal dubbla i en digital Azure-instans | 200 000 | Yes |
+| Digitala tvillingenheter | Antal inkommande relationer till en enda | 5 000 | No |
+| Digitala tvillingenheter | Antal utgående relationer från en enda delad | 5 000 | No |
 | Routning | Antal slut punkter för en enskild Azure Digitals dubbla instans | 6 | No |
 | Routning | Antal vägar för en enda digital Azure-instans | 6 | Yes |
 | Modeller | Antal modeller inom en enskild Azure Digital-instans | 10 000 | Yes |
@@ -35,7 +37,7 @@ I tabellen nedan visas funktionella gränser för Azure Digital-dubbla i den akt
 
 Den här tabellen visar frekvens gränserna för olika API: er.
 
-| API | Funktion | Standardgräns | Justerbar? |
+| API | Kapacitet | Standardgräns | Justerbar? |
 | --- | --- | --- | --- |
 | Modell-API | Antal begär Anden per sekund | 100 | Yes |
 | Digitals dubbla API | Antal begär Anden per sekund | 1 000 | Yes |

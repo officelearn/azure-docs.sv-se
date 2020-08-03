@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: b7c91d648c06970d53799c6ff505919dea17b3c0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b664303d86f8588fc210b11b363b21d523d63295
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032244"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507533"
 ---
 För att börja arbeta med Azure Digitals dubbla i ett öppet [Azure Cloud Shells](https://shell.azure.com) fönster, är det första att göra-loggen att logga in och ange gränssnitts kontexten till din prenumeration för den här sessionen. Kör de här kommandona i Cloud Shell:
 
@@ -29,32 +29,7 @@ az provider register --namespace 'Microsoft.DigitalTwins'
 
 Härnäst ska du lägga till [**Microsoft Azure IoT-tillägget för Azure CLI**](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) till din Cloud Shell, för att aktivera kommandon för att interagera med Azure Digitals och andra IoT-tjänster. 
 
-Kör först det här kommandot för att se en lista över alla tillägg som du redan har installerat.
-
-```azurecli-interactive
-az extension list
-```
-
-Utdata är en matris med alla tillägg som du för närvarande har. Leta efter `"name"` fältet för varje List post om du vill se tilläggets namn.
-
-Använd utdata för att avgöra vilka av följande kommandon som ska köras för installations programmet (du kan köra fler än en).
-* Om listan innehåller `azure-iot` : du har redan tillägget. Kör det här kommandot för att kontrol lera att du har den senaste uppdateringen och att det inte finns några tillgängliga uppdateringar:
-
-   ```azurecli-interactive
-   az extension update --name azure-iot
-   ```
-
-* Om listan **inte** innehåller `azure-iot` : du måste installera tillägget. Använd det här kommandot:
-
-    ```azurecli-interactive
-    az extension add --name azure-iot
-    ```
-
-* Om listan innehåller `azure-iot-cli-ext` : det här är den äldre versionen av tillägget. Det går bara att installera en version av tillägget i taget, så du bör avinstallera det äldre tillägget. Använd det här kommandot:
-
-   ```azurecli-interactive
-   az extension remove --name azure-cli-iot-ext
-   ```
+[!INCLUDE [digital-twins-cloud-shell-extensions.md](digital-twins-cloud-shell-extensions.md)]
 
 Nu är du redo att arbeta med Azure Digitals dubbla i Cloud Shell.
 

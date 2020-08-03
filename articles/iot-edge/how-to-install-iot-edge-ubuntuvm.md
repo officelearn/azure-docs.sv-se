@@ -9,16 +9,17 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: pdecarlo
-ms.openlocfilehash: 050631731a04e4c2ea89d8c7792ec093d6ab316e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: e70b22b3edaae96e00306d5d0a93d229e11aac41
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800570"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494085"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Kör Azure IoT Edge på Ubuntu Virtual Machines
 
-Azure IoT Edge runtime är vad som förvandlar en enhet till en IoT Edge enhet. Körningen kan distribueras på enheter så små som Raspberry Pi eller lika stora som en industriell Server. När en enhet har kon figurer ATS med IoT Edge runtime kan du börja distribuera affärs logiken till den från molnet.
+Azure IoT Edge runtime är vad som förvandlar en enhet till en IoT Edge enhet. Körningen kan distribueras på enheter så små som Raspberry Pi eller lika stora som en industriell Server. När en enhet har konfigurerats med IoT Edge-körningen kan du börja distribuera affärslogiken till den från molnet.
 
 Mer information om hur IoT Edge runtime fungerar och vilka komponenter som ingår finns i [förstå Azure IoT Edge Runtime och dess arkitektur](iot-edge-runtime.md).
 
@@ -34,12 +35,12 @@ Vid den första starten installerar Ubuntu 18,04 LTS Virtual Machine [den senast
 
 1. Vi distribuerar en Azure IoT Edge aktive rad virtuell Linux-dator med Azure Resource Manager mallen iotedge-VM-Deploy.  Börja genom att klicka på knappen nedan:
 
-    [![Distribuera till Azure-knapp för iotedge-VM-Deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
+    [![Knappen Distribuera till Azure för iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
 
 1. Fyll i de tillgängliga formulär fälten i fönstret nyligen startade:
 
     > [!div class="mx-imgBorder"]
-    > [![Skärm bild som visar mallen iotedge-VM-Deploy](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)
+    > [![Skärmbild med mallen iotedge-vm-deploy](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)
 
     **Prenumeration**: den aktiva Azure-prenumerationen för att distribuera den virtuella datorn till.
 
@@ -63,9 +64,9 @@ Vid den första starten installerar Ubuntu 18,04 LTS Virtual Machine [den senast
 
     När alla fält har fyllts i markerar du kryss rutan längst ned på sidan för att acceptera villkoren och väljer **köp** för att starta distributionen.
 
-1. Kontrol lera att distributionen har slutförts.  En virtuell dator resurs måste ha distribuerats till den valda resurs gruppen.  Anteckna dator namnet. formatet bör vara i formatet `vm-0000000000000` . Anteckna också det associerade **DNS-namnet**som ska vara i formatet `<dnsLabelPrefix>` . `<location>` . cloudapp.azure.com.
+1. Verifiera att distributionen slutfördes korrekt.  En VR-resurs bör ha distribuerats till den valda resursgruppen.  Anteckna dator namnet. formatet bör vara i formatet `vm-0000000000000` . Notera även det associerade **DNS-namnet**, som ska ha formatet `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
-    **DNS-namnet** kan hämtas från **översikts** avsnittet på den nyligen distribuerade virtuella datorn i Azure Portal.
+    **DNS-namnet** kan hämtas från avsnittet **Översikt** i den nyligen distribuerade virtuella datorn i Azure-portalen.
 
     > [!div class="mx-imgBorder"]
     > [![Skärm bild som visar DNS-namnet för den virtuella iotedge-datorn](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
@@ -138,7 +139,7 @@ Vid den första starten installerar Ubuntu 18,04 LTS Virtual Machine [den senast
     --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
     ```
 
-1. Kontrol lera att distributionen har slutförts.  En virtuell dator resurs måste ha distribuerats till den valda resurs gruppen.  Anteckna dator namnet. formatet bör vara i formatet `vm-0000000000000` . Anteckna också det associerade **DNS-namnet**som ska vara i formatet `<dnsLabelPrefix>` . `<location>` . cloudapp.azure.com.
+1. Verifiera att distributionen slutfördes korrekt.  En VR-resurs bör ha distribuerats till den valda resursgruppen.  Anteckna dator namnet. formatet bör vara i formatet `vm-0000000000000` . Notera även det associerade **DNS-namnet**, som ska ha formatet `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
     **DNS-namnet** kan hämtas från JSON-formaterade utdata från föregående steg i avsnittet **utdata** som en del av den **offentliga SSH** -posten.  Värdet för den här posten kan användas för att använda SSH i till den nyligen distribuerade datorn.
 

@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ef87d5da2c2d56a4fdc3873410bb5a6e5c711d01
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0156cfb0720e78b87abc36f0811db69bc8435894
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075714"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503199"
 ---
-# <a name="optimizing-transactions-in-sql-pool"></a>Optimera transaktioner i SQL-pool
+# <a name="optimize-transactions-in-sql-pool"></a>Optimera transaktioner i SQL-poolen
 
 Lär dig hur du optimerar prestandan för transaktions koden i SQL-poolen samtidigt som du minimerar risken för långa återställningar.
 
@@ -82,7 +82,7 @@ Det är värt att notera att alla skrivningar för att uppdatera sekundära elle
 
 Inläsning av data i en icke-tom tabell med ett grupperat index kan ofta innehålla en blandning av fullständigt loggade och minimalt loggade rader. Ett grupperat index är ett balanserat träd (b-Tree) av sidor. Om sidan som skrivs till redan innehåller rader från en annan transaktion, kommer dessa skrivningar att loggas fullständigt. Men om sidan är tom loggas skrivningen till sidan av minimalt.
 
-## <a name="optimizing-deletes"></a>Optimerar borttagningar
+## <a name="optimize-deletes"></a>Optimera borttagningar
 
 TA bort är en fullständigt loggad åtgärd.  Om du behöver ta bort en stor mängd data i en tabell eller partition är det ofta mer meningsfullt för `SELECT` de data som du vill behålla, vilket kan köras som en minimalt loggad åtgärd.  Om du vill välja data skapar du en ny tabell med [CTAs](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  När du har skapat använder du [rename](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att byta ut den gamla tabellen med den tabell som skapats nyligen.
 
@@ -114,7 +114,7 @@ RENAME OBJECT [dbo].[FactInternetSales]   TO [FactInternetSales_old];
 RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
-## <a name="optimizing-updates"></a>Optimera uppdateringar
+## <a name="optimize-updates"></a>Optimera uppdateringar
 
 UPPDATERINGEN är en fullständigt loggad åtgärd.  Om du behöver uppdatera ett stort antal rader i en tabell eller partition, kan det ofta vara mycket mer effektivt att använda en minimalt loggad åtgärd, till exempel [CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) .
 
@@ -179,7 +179,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 > [!NOTE]
 > Att återskapa stora tabeller kan dra nytta av SQL-poolens funktioner för hantering av arbets belastning. Mer information finns i [resurs klasser för hantering av arbets belastning](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-## <a name="optimizing-with-partition-switching"></a>Optimera med partition växling
+## <a name="optimize-with-partition-switching"></a>Optimera med partition växling
 
 Om det står i stor skala i storskaliga ändringar i en [Table partition](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), är ett mönster för partitions växlingen begripligt. Om data ändringen är betydande och sträcker sig över flera partitioner, uppnås samma resultat om du går igenom partitionerna.
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 0ef3135f572b00176ff2a114fd02db82c7a05bca
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1d924e96cfc287060107f541e44980295eb24745
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258401"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494493"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Spårning och händelse loggning för din Azure Data Box och Azure Data Box Heavy export order
 
@@ -26,7 +26,7 @@ I följande tabell visas en översikt över de Data Box-enhet stegen för att ex
 | Data Box-enhet export order fas       | Verktyg för att spåra och granska                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | Skapa order               | [Konfigurera åtkomst kontroll på ordern via RBAC](#set-up-access-control-on-the-order) <br> [Aktivera utförlig logg i ordern](#enable-verbose-log-in-the-order)                                                    |
-| Bearbetad beställning            | [Spåra beställningen](#track-the-order) genom <ul><li> Azure Portal </li><li> Frakt bär Vågs webbplats </li><li>E-postmeddelanden</ul> |
+| Bearbetad beställning            | [Spåra beställningen](#track-the-order) genom <ul><li> Azure-portalen </li><li> Frakt bär Vågs webbplats </li><li>E-postmeddelanden</ul> |
 | Konfigurera enhet              | Autentiseringsuppgifter [för åtkomst till](#query-activity-logs-during-setup) inloggnings uppgifter för enhet              |
 | Data kopiering från enhet        | [Granska kopierings loggar](#copy-log) <br> [Granska utförliga loggar](#verbose-log) innan du kopierar data            |
 | Data radering från enhet   | [Visa kedja av vårdnads loggar](#get-chain-of-custody-logs-after-data-erasure) inklusive gransknings loggar och order historik                |
@@ -34,7 +34,7 @@ I följande tabell visas en översikt över de Data Box-enhet stegen för att ex
 
 ## <a name="set-up-access-control-on-the-order"></a>Konfigurera åtkomst kontroll på ordern
 
-Du kan styra vem som kan komma åt din beställning när ordern först skapas. Konfigurera rollbaserade Access Control-roller (RBAC) i olika omfång för att kontrol lera åtkomsten till Data Box-enhets ordningen. En RBAC-roll bestämmer typ av åtkomst – Läs-och Skriv behörighet, skrivskyddad, Läs-och skriv åtgärder för en del av åtgärderna.
+Du kan styra vem som kan komma åt din beställning när ordern först skapas. Konfigurera Azure-roller i olika scope för att kontrol lera åtkomsten till Data Box-enhets ordningen. En Azure-roll avgör typ av åtkomst – Läs-och Skriv behörighet, skrivskyddad, Läs-och skriv åtgärder för en delmängd åtgärder.
 
 De två roller som kan definieras för den Azure Data Box tjänsten är:
 
@@ -306,7 +306,3 @@ BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig hur du [felsöker problem på data Box-enhet och data Box Heavy](data-box-troubleshoot.md).
-
-
-
-

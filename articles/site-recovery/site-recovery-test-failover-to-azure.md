@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 26c734b7a2e9f5592ee6d51dfee4650a3998ab1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4233df62de48dd7a7253c488b0cd69c38cd8d445
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699064"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503505"
 ---
 # <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Köra ett redundanstest (haveri beredskap) till Azure 
 
@@ -25,7 +25,7 @@ Du kör ett redundanstest för att verifiera din strategi för replikering och h
 ## <a name="run-a-test-failover"></a>Köra ett redundanstest
 Den här proceduren beskriver hur du kör ett redundanstest för en återställnings plan. Om du vill köra ett redundanstest för en enskild virtuell dator följer du stegen som beskrivs [här](tutorial-dr-drill-azure.md#run-a-test-failover-for-a-single-vm)
 
-![Testa redundans](./media/site-recovery-test-failover-to-azure/TestFailover.png)
+![Skärm bild av sidan testa redundans i Azure Portal.](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
 1. I Site Recovery i Azure Portal klickar du på **återställnings planer**  >  *recoveryplan_name*  >  **testa redundans**.
@@ -48,7 +48,7 @@ Den här proceduren beskriver hur du kör ett redundanstest för en återställn
 8. I **Kommentarer** skriver du och sparar eventuella observationer från redundanstestningen.
 
 
-![Testa redundans](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
+![Skärm bild av fliken testa jobb för redundans.](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
 
 När ett redundanstest utlöses inträffar följande:
 
@@ -103,7 +103,7 @@ Om du vill köra ett redundanstest för program testning behöver du en kopia av
 
 Om du vill ansluta till virtuella Azure-datorer med RDP/SSH efter redundans följer du de krav som sammanfattas i tabellen.
 
-**Redundans** | **Position** | **Åtgärder**
+**Redundans** | **Plats** | **Åtgärder**
 --- | --- | ---
 **Virtuell Azure-dator som kör Windows** | Lokal dator före redundans | För att få åtkomst till den virtuella Azure-datorn via Internet aktiverar du RDP och kontrollerar att TCP-och UDP-regler har lagts till för **offentlig**och att RDP tillåts för alla profiler i **Windows-brandväggen**  >  **tillåtna appar**.<br/><br/> För att komma åt den virtuella Azure-datorn via en plats-till-plats-anslutning aktiverar du RDP på datorn och ser till att RDP tillåts i **Windows-brandväggen**  ->  **tillåtna appar och funktioner**för **domän nätverk och privata** nätverk.<br/><br/>  Kontrol lera att SAN-principen för operativ systemet är inställd på **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135).<br/><br/> Se till att inga Windows-uppdateringar väntar på den virtuella datorn när du aktiverar en redundansväxling. Windows Update kan starta när du växlar över och du kan inte logga in på den virtuella datorn förrän uppdateringen är klar.
 **Virtuell Azure-dator som kör Windows** | Virtuell Azure-dator efter redundans |  [Lägg till en offentlig IP-adress](https://aka.ms/addpublicip) för den virtuella datorn.<br/><br/> Reglerna för nätverks säkerhets gruppen på den misslyckade virtuella datorn (och det Azure-undernät som den är ansluten till) måste tillåta inkommande anslutningar till RDP-porten.<br/><br/> Kontrol lera **startdiagnostik** för att verifiera en skärm bild av den virtuella datorn.<br/><br/> Om du inte kan ansluta kontrollerar du att den virtuella datorn körs och läser igenom de här [fel söknings tipsen](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).

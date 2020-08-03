@@ -7,12 +7,13 @@ ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.openlocfilehash: 95a999f38104e0bb3cfd6a510bd8f9e3d5440562
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 70a0620369792c1aaf2c11867fd468f42d6bb9ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521096"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494697"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrera Key Vault med Azure Private Link
 
@@ -155,9 +156,9 @@ När du skapar en privat slut punkt måste anslutningen godkännas. Om den resur
 
 Det finns fyra etablerings tillstånd:
 
-| Åtgärd för att tillhandahålla tjänst | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
+| Åtgärd för att tillhandahålla tjänst | Status för privat slut punkt för tjänst förbrukare | Description |
 |--|--|--|
-| Inga | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
+| Ingen | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
 | Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |
 | Avvisa | Avslagen | Anslutningen avvisades av ägaren till den privata länk resursen. |
 | Ta bort | Frånkopplad | Anslutningen togs bort av ägaren till den privata länk resursen, den privata slut punkten blir informativ och bör tas bort för rensning. |
@@ -234,6 +235,38 @@ Aliases:  <your-key-vault-name>.vault.azure.net
           <your-key-vault-name>.privatelink.vaultcore.azure.net
 ```
 
+## <a name="troubleshooting-guide"></a>Felsökningsguide
+
+* Kontrol lera att den privata slut punkten är i stadiet godkänt. 
+    1. Du kan kontrol lera och åtgärda detta i Azure Portal. Öppna Key Vault resurs och klicka på alternativet nätverk. 
+    2. Välj sedan fliken anslutningar för privat slut punkt. 
+    3. Kontrol lera att anslutnings status har godkänts och att etablerings statusen har slutförts. 
+    4. Du kan också navigera till den privata slut punkts resursen och granska samma egenskaper där, och kontrol lera att det virtuella nätverket motsvarar det som du använder.
+
+* Kontrol lera att du har en Privat DNS zon resurs. 
+    1. Du måste ha en Privat DNS zon resurs med det exakta namnet: privatelink.vaultcore.azure.net. 
+    2. Information om hur du konfigurerar detta finns i följande länk. [Privat DNS zoner](https://docs.microsoft.com/azure/dns/private-dns-privatednszone)
+    
+* Kontrol lera att zonen Privat DNS inte är länkad till Virtual Network. Detta kan vara ett problem om du fortfarande får den offentliga IP-adressen som returnerades. 
+    1. Om DNS för den privata zonen inte är länkat till det virtuella nätverket, returnerar DNS-frågan från det virtuella nätverket den offentliga IP-adressen för nyckel valvet. 
+    2. Navigera till resursen Privat DNS zon i Azure Portal och klicka på alternativet virtuella nätverks länkar. 
+    4. Det virtuella nätverk som ska utföra anrop till nyckel valvet måste anges. 
+    5. Om det inte finns där lägger du till det. 
+    6. Detaljerade anvisningar finns i följande dokument [länk Virtual Network till privat DNS zon](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
+
+* Kontrol lera att zonen Privat DNS inte saknar en A-post för nyckel valvet. 
+    1. Gå till sidan Privat DNS zon. 
+    2. Klicka på Översikt och kontrol lera om det finns en post med det enkla namnet på ditt nyckel valv (t. ex. Fabrikam). Ange inget suffix.
+    3. Se till att du kontrollerar stavningen och antingen skapar eller åtgärdar en post. Du kan använda ett TTL-värde på 3600 (1 timme). 
+    4. Se till att du anger rätt privat IP-adress. 
+    
+* Kontrol lera att en post har rätt IP-adress. 
+    1. Du kan bekräfta IP-adressen genom att öppna den privata slut punkts resursen i Azure Portal 
+    2. Gå till Microsoft. Network/privateEndpoints-resursen, i Azure Portal (inte i Key Vault-resursen)
+    3. På sidan Översikt letar du efter nätverks gränssnitt och klickar på länken. 
+    4. Länken visar en översikt över NIC-resursen, som innehåller egenskapen privat IP-adress. 
+    5. Kontrol lera att det här är rätt IP-adress som anges i A-posten.
+
 ## <a name="limitations-and-design-considerations"></a>Begränsningar och design överväganden
 
 > [!NOTE]
@@ -249,7 +282,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 Mer information finns i [Azure Private Link service: begränsningar](../../private-link/private-link-service-overview.md#limitations)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Läs mer om [Azures privata länk](../../private-link/private-link-service-overview.md)
 - Läs mer om [Azure Key Vault](overview.md)

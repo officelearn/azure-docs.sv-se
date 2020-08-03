@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 047b689b10d03cf92e5cc744aa707b3f70fe77bd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 766d0a763f7d69ec58851116e18510235f39b364
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529038"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495071"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Övervaka Site Recovery med Azure Monitor-loggar
 
@@ -44,14 +44,14 @@ Vi rekommenderar att du läser igenom [vanliga övervaknings frågor](monitoring
 
 1. I valvet klickar du på **diagnostiska inställningar**  >  **Lägg till diagnostisk inställning**.
 
-    ![Välj resurs loggning](./media/monitoring-log-analytics/add-diagnostic.png)
+    ![Skärm bild som visar alternativet Lägg till diagnostisk inställning.](./media/monitoring-log-analytics/add-diagnostic.png)
 
 2. I **diagnostikinställningar**anger du ett namn och markerar kryss rutan **Skicka till Log Analytics**.
 3. Välj prenumerationen Azure Monitor loggar och Log Analytics arbets ytan.
 4. Välj **Azure-diagnostik** i växla.
 5. I listan logg väljer du alla loggar med prefixet **AzureSiteRecovery**. Klicka sedan på **OK**.
 
-    ![Välj arbetsyta](./media/monitoring-log-analytics/select-workspace.png)
+    ![Skärm bild av skärmen diagnostik inställning.](./media/monitoring-log-analytics/select-workspace.png)
 
 Site Recovery loggar börjar mata in i en tabell (**AzureDiagnostics**) i den valda arbets ytan.
 
@@ -125,7 +125,7 @@ rpoInSeconds_d <= 1800, "15-30Min", ">30Min") 
 | render barchart 
 ```
 
-![Skicka fråga](./media/monitoring-log-analytics/example1.png)
+![Skärm bild som visar ett stapeldiagram med virtuella Azure-datorer som replikeras med Site Recovery.](./media/monitoring-log-analytics/example1.png)
 
 ### <a name="query-site-recovery-jobs"></a>Fråga Site Recovery jobb
 
@@ -190,7 +190,7 @@ AzureDiagnostics  
 | project TimeGenerated, name_s , RPO_in_seconds = rpoInSeconds_d   
 | render timechart 
 ```
-![Fråga datorns återställnings punkt](./media/monitoring-log-analytics/example2.png)
+![Skärm bild av ett trend diagram som spårar återställningen av en enskild virtuell Azure-dator.](./media/monitoring-log-analytics/example2.png)
 
 ### <a name="query-data-change-rate-churn-and-upload-rate-for-an-azure-vm"></a>Fråga om data ändrings takt (omsättning) och uppladdnings takt för en virtuell Azure-dator
 
@@ -207,7 +207,7 @@ Category contains "Upload", "UploadRate", "none") 
 | project TimeGenerated , InstanceWithType , Churn_MBps = todouble(Value_s)/1048576   
 | render timechart  
 ```
-![Fråga efter data ändring](./media/monitoring-log-analytics/example3.png)
+![skärm bild av ett trend diagram för en angiven virtuell Azure-dator.](./media/monitoring-log-analytics/example3.png)
 
 ### <a name="query-data-change-rate-churn-and-upload-rate-for-a-vmware-or-physical-machine"></a>Fråga om data ändrings frekvens (omsättning) och uppladdnings takt för en VMware-eller fysisk dator
 

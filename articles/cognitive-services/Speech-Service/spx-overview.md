@@ -10,14 +10,15 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: trbye
-ms.openlocfilehash: 3fb0b71cbb82b3b9acad1d1ce093baa86c700a51
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: ab019250e03feb9a776d628c06e792b884252260
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800341"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501822"
 ---
-# <a name="what-is-the-speech-cli"></a>Vad är tal CLI?
+# <a name="what-is-the-speech-cli"></a>Vad är Speech CLI?
 
 Tal-CLI är ett kommando rads verktyg för att använda tal tjänsten utan att skriva någon kod. Tal CLI kräver minimal installation, och det är enkelt att börja experimentera med viktiga funktioner i tal tjänsten för att se om dina användnings fall kan uppfyllas. Inom några minuter kan du köra enkla test arbets flöden som batch tal igenkänning från en katalog med filer eller text till tal i en samling med strängar från en fil. I många enkla arbets flöden är tal CLI produktions klart och kan skalas upp för att köra större processer med hjälp av automatiserade `.bat` eller Shell-skript.
 

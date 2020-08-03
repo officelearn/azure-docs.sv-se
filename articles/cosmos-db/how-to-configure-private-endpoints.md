@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.author: thweiss
-ms.openlocfilehash: bb1310d0f45f945fc150e0ae011ede0d102a5918
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: aa8fd911aaf5c61fc8c33ca469798291fca3d3d1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259107"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502128"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurera en privat Azure-länk för ett Azure Cosmos-konto
 
@@ -35,19 +36,19 @@ Använd följande steg för att skapa en privat slut punkt för ett befintligt A
 
 1. I fönstret **skapa en privat slut punkt – grundläggande** anger eller väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | **Projekt information** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj en resursgrupp.|
     | **Instans information** |  |
-    | Namn | Ange ett namn för din privata slut punkt. Om det här namnet tas skapar du ett unikt. |
+    | Name | Ange ett namn för din privata slut punkt. Om det här namnet tas skapar du ett unikt. |
     |Region| Välj den region där du vill distribuera privat länk. Skapa den privata slut punkten på samma plats som det virtuella nätverket finns på.|
     |||
 1. Välj **Nästa: resurs**.
 1. I **skapa en privat slut punkt – resurs**, anger eller väljer du den här informationen:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     |Anslutningsmetod  | Välj **Anslut till en Azure-resurs i min katalog**. <br/><br/> Du kan sedan välja en av dina resurser för att konfigurera en privat länk. Eller så kan du ansluta till någon annans resurs genom att använda ett resurs-ID eller alias som de har delat med dig.|
     | Prenumeration| Välj din prenumeration. |
@@ -59,7 +60,7 @@ Använd följande steg för att skapa en privat slut punkt för ett befintligt A
 1. Välj **Nästa: konfiguration**.
 1. I **skapa en privat slut punkt – konfiguration**anger eller väljer du den här informationen:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     |**Nätverk**| |
     | Virtuellt nätverk| Välj ditt virtuella nätverk. |
@@ -83,8 +84,8 @@ Följande tabell visar mappningen mellan olika Azure Cosmos-kontos API-typer, un
 |Mongo   |  MongoDB       |  privatelink.mongo.cosmos.azure.com    |
 |Gremlin     | Gremlin        |  privatelink.gremlin.cosmos.azure.com   |
 |Gremlin     |  SQL       |  privatelink.documents.azure.com    |
-|Tabell    |    Tabell     |   privatelink.table.cosmos.azure.com    |
-|Tabell     |   SQL      |  privatelink.documents.azure.com    |
+|Tabeller    |    Tabeller     |   privatelink.table.cosmos.azure.com    |
+|Tabeller     |   SQL      |  privatelink.documents.azure.com    |
 
 ### <a name="fetch-the-private-ip-addresses"></a>Hämta de privata IP-adresserna
 
@@ -398,7 +399,7 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
 $deploymentOutput
 ```
 
-I PowerShell-skriptet `GroupId` kan variabeln bara innehålla ett värde. Det här värdet är kontots API-typ. Tillåtna värden är: `Sql` , `MongoDB` , `Cassandra` , `Gremlin` och `Table` . Vissa Azure Cosmos-konto typer är tillgängliga via flera API: er. Exempel:
+I PowerShell-skriptet `GroupId` kan variabeln bara innehålla ett värde. Det här värdet är kontots API-typ. Tillåtna värden är: `Sql` , `MongoDB` , `Cassandra` , `Gremlin` och `Table` . Vissa Azure Cosmos-konto typer är tillgängliga via flera API: er. Ett exempel:
 
 * Ett Gremlin-API-konto kan nås från både Gremlin-och SQL-API-konton.
 * Ett Tabell-API konto kan nås från både tabell-och SQL-API-konton.

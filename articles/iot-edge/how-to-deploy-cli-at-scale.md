@@ -8,13 +8,14 @@ ms.author: kgremban
 ms.date: 4/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
+ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: a7bb2cc23374110d447ec7526ada75f7e36a966e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebc4f25496588eeaffbfe89e110bad57dbbc848e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83726170"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501567"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuera och övervaka IoT Edge moduler i skala med hjälp av Azure CLI
 
@@ -196,7 +197,7 @@ Kommandot för att skapa distribution tar följande parametrar:
 * **--Deployment-ID** – namnet på den distribution som ska skapas i IoT Hub. Ge din distribution ett unikt namn som består av upp till 128 små bokstäver. Undvik blank steg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /` . Obligatorisk parameter.
 * **--innehålls** -sökväg till distributions manifest-JSON. Obligatorisk parameter.
 * **--hubb-Name** -namnet på den IoT-hubb som distributionen ska skapas i. Navet måste finnas i den aktuella prenumerationen. Ändra den aktuella prenumerationen med `az account set -s [subscription name]` kommandot.
-* **--Etiketter** – Lägg till etiketter som hjälper dig att spåra dina distributioner. Etiketter är namn, värdepar som beskriver din distribution. Etiketter tar JSON-formatering för namn och värden. Till exempel, `{"HostPlatform":"Linux", "Version:"3.0.1"}`
+* **--Etiketter** – Lägg till etiketter som hjälper dig att spåra dina distributioner. Etiketter är namn, värdepar som beskriver din distribution. Etiketter tar JSON-formatering för namn och värden. Till exempel `{"HostPlatform":"Linux", "Version:"3.0.1"}`
 * **--mål villkor** – ange ett mål villkor för att avgöra vilka enheter som ska vara mål för distributionen.Villkoret baseras på enhetens dubbla taggar eller enhets egenskaper med dubbla rapporter och ska överensstämma med uttrycks formatet.Till exempel `tags.environment='test' and properties.reported.devicemodel='4000x'`.
 * **--prioritet** -ett positivt heltal. I händelse av att två eller flera distributioner är riktade mot samma enhet gäller distributionen med det högsta numeriska värdet för prioritet.
 * **--mått** – skapa mått som frågar edgeHub-rapporterade egenskaper för att spåra statusen för en distribution. Måtten tar JSON-inmatade eller en fil Sök väg. Till exempel `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`.

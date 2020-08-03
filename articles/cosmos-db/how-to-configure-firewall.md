@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: b1f1ac9e7c5d44fd5cf6e7d692a71f5cf34b48df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 36afc42844203436313f2a5b15975746f2acd349
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261689"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494363"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Konfigurera IP-brandvägg i Azure Cosmos DB
 
@@ -163,7 +164,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 Du kan felsöka problem med en kontroll princip för IP-åtkomst med hjälp av följande alternativ:
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 Genom att aktivera en princip för IP-åtkomstkontroll för ditt Azure Cosmos DB-konto blockerar du alla förfrågningar till ditt konto från datorer utanför listan över tillåtna IP-adressintervall. Om du vill aktivera data Plans åtgärder på portalen som att söka efter behållare och fråga dokument måste du uttryckligen tillåta Azure Portal åtkomst med hjälp av **brand Väggs** fönstret i portalen.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/17/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2ef1fab7a6f32f45ee3047a24610085a2133a339
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6ba9147aefb793387b429702623639bbccf0beea
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87103031"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507237"
 ---
 ## <a name="benefits-of-managed-disks"></a>Fördelar med hanterade diskar
 
@@ -41,7 +41,7 @@ För att skydda mot regionala haverier kan [Azure Backup](../articles/backup/bac
 
 ### <a name="granular-access-control"></a>Detaljerad åtkomst kontroll
 
-Du kan använda [rollbaserad åtkomst kontroll (RBAC) i Azure](../articles/role-based-access-control/overview.md) för att tilldela vissa behörigheter för en hanterad disk till en eller flera användare. Hanterade diskar visar en rad olika åtgärder, inklusive läsa, skriva (Skapa/uppdatera), ta bort och hämta en [URL för signatur för delad åtkomst (SAS)](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) för disken. Du kan bevilja åtkomst till endast de åtgärder som en person behöver för att utföra sitt jobb. Om du till exempel inte vill att en person ska kopiera en hanterad disk till ett lagrings konto kan du välja att inte bevilja åtkomst till export åtgärden för den hanterade disken. Om du inte vill att en person ska använda en SAS-URI för att kopiera en hanterad disk kan du välja att inte bevilja den här behörigheten till den hanterade disken.
+Du kan använda [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../articles/role-based-access-control/overview.md) för att tilldela vissa behörigheter för en hanterad disk till en eller flera användare. Hanterade diskar visar en rad olika åtgärder, inklusive läsa, skriva (Skapa/uppdatera), ta bort och hämta en [URL för signatur för delad åtkomst (SAS)](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) för disken. Du kan bevilja åtkomst till endast de åtgärder som en person behöver för att utföra sitt jobb. Om du till exempel inte vill att en person ska kopiera en hanterad disk till ett lagrings konto kan du välja att inte bevilja åtkomst till export åtgärden för den hanterade disken. Om du inte vill att en person ska använda en SAS-URI för att kopiera en hanterad disk kan du välja att inte bevilja den här behörigheten till den hanterade disken.
 
 ### <a name="upload-your-vhd"></a>Ladda upp din virtuella hård disk
 
@@ -105,7 +105,7 @@ Mer information om hur du skapar ögonblicks bilder för Managed disks finns i f
 * [Skapa en ögonblicks bild av en hanterad disk i Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
 * [Skapa en ögonblicks bild av en hanterad disk i Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
-### <a name="images"></a>Bilder
+### <a name="images"></a>Avbildningar
 
 Managed disks stöder också skapande av en hanterad anpassad avbildning. Du kan skapa en avbildning från din anpassade virtuella hård disk i ett lagrings konto eller direkt från en generaliserad (Sysprep) virtuell dator. Den här processen fångar upp en enda avbildning. Den här avbildningen innehåller alla hanterade diskar som är associerade med en virtuell dator, inklusive både operativ system och data diskar. Den här hanterade anpassade avbildningen gör det möjligt att skapa hundratals virtuella datorer med din anpassade avbildning utan att behöva kopiera eller hantera lagrings konton.
 

@@ -10,12 +10,13 @@ ms.date: 06/11/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: cbdeb1c55af157a0bf5160d2420974fd014ea3b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 01718b4f3d539f77f4496a7914b027335cc45618
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807597"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503284"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Initiera redundans för lagrings konto
 
@@ -28,7 +29,7 @@ Den här artikeln visar hur du startar en konto redundansväxling för ditt lagr
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan utföra en redundansväxling på ditt lagrings konto kontrollerar du att ditt lagrings konto har kon figurer ATS för geo-replikering. Ditt lagrings konto kan använda något av följande alternativ för redundans:
 

@@ -3,12 +3,12 @@ title: Skydda Azure Functions
 description: Lär dig mer om hur du gör funktions koden igång i Azure säkrare från vanliga attacker.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: bdb012c3f379b1e0314364f79ccc4aa49eba4bd3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0c5036681aace103ea69d1e9cc73e96dc30821f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079697"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502689"
 ---
 # <a name="securing-azure-functions"></a>Skydda Azure Functions
 
@@ -58,7 +58,7 @@ System nycklarnas omfattning bestäms av tillägget, men det gäller vanligt vis
 
 I följande tabell jämförs användningen av olika typer av åtkomst nycklar:
 
-| Åtgärd                                        | Omfång                    | Giltiga nycklar         |
+| Action                                        | Omfång                    | Giltiga nycklar         |
 |-----------------------------------------------|--------------------------|--------------------|
 | Köra en funktion                            | Speciell funktion        | Funktion           |
 | Köra en funktion                            | Alla funktioner             | Funktion eller värd   |
@@ -83,7 +83,7 @@ Precis som med alla program och tjänster, kör målet din Function-app med läg
 
 #### <a name="user-management-permissions"></a>Användar hanterings behörigheter
 
-Functions stöder inbyggd [rollbaserad åtkomst kontroll (RBAC) i Azure](../role-based-access-control/overview.md). RBAC-roller som stöds av Functions är [deltagare](../role-based-access-control/built-in-roles.md#contributor), [ägare](../role-based-access-control/built-in-roles.md#owner)och [läsare](../role-based-access-control/built-in-roles.md#owner). 
+Functions stöder inbyggd [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](../role-based-access-control/overview.md). Azure-roller som stöds av Functions är [deltagare](../role-based-access-control/built-in-roles.md#contributor), [ägare](../role-based-access-control/built-in-roles.md#owner)och [läsare](../role-based-access-control/built-in-roles.md#owner). 
 
 Behörigheter är effektiva på funktionens app-nivå. Deltagar rollen krävs för att utföra de flesta funktioner på program nivå. Endast ägar rollen kan ta bort en Function-app. 
 
@@ -207,4 +207,3 @@ Gateway-tjänster, till exempel [Azure Application Gateway](../application-gatew
 
 + [Azures säkerhets bas linje för Azure Functions](security-baseline.md)
 + [Azure Functions diagnostik](functions-diagnostics.md)
-        

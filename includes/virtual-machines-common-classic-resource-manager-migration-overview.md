@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines
 author: tanmaygore
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: 4e07334e859f2c1401547cc3f88988830b71c5e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b874cefc2521089da02b90b9241be93e80836d6e
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77192767"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507381"
 ---
 Den här artikeln beskriver hur du migrerar infrastruktur som en tjänst (IaaS) resurser från de klassiska distributions modellerna för Resource Manager och hur du ansluter resurser från de två distributions modeller som finns i din prenumeration med hjälp av virtuella nätverks plats-till-plats-gatewayer. Du kan läsa mer om [Azure Resource Manager funktioner och förmåner](../articles/azure-resource-manager/management/overview.md). 
 
@@ -22,10 +22,10 @@ Med Resource Manager kan du distribuera komplexa program via mallar, konfigurera
 
 Nästan alla funktioner från den klassiska distributions modellen stöds för beräkning, nätverk och lagring under Azure Resource Manager. Om du vill dra nytta av de nya funktionerna i Azure Resource Manager kan du migrera befintliga distributioner från den klassiska distributions modellen.
 
-## <a name="supported-resources-for-migration"></a>Resurser som stöds för migrering
-Dessa klassiska IaaS-resurser stöds under migreringen
+## <a name="supported-resources--configurations-for-migration"></a>Resurser som stöds & konfigurationer för migrering
 
-* Virtuella datorer
+### <a name="supported-resources-for-migration"></a>Resurser som stöds för migrering
+* Virtual Machines
 * Tillgänglighetsuppsättningar
 * Lagringskonton
 * Virtuella nätverk
@@ -34,6 +34,13 @@ Dessa klassiska IaaS-resurser stöds under migreringen
 * Nätverkssäkerhetsgrupper
 * Routningstabeller
 * Reserverade ip-adresser
+
+## <a name="supported-configurations-for-migration"></a>Konfigurationer som stöds för migrering
+Dessa klassiska IaaS-resurser stöds under migreringen
+
+| Tjänst | Konfiguration |
+| --- | --- |
+| Azure AD Domain Services | [Virtuella nätverk som innehåller Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet) |
 
 ## <a name="supported-scopes-of-migration"></a>Omfång som stöds för migrering
 Det finns fyra olika sätt att slutföra migreringen av beräknings-, nätverks-och lagrings resurser:
@@ -129,5 +136,4 @@ Följande konfigurationer stöds inte för närvarande.
 | Azure App Service |Virtuella nätverk som innehåller App Service miljöer |Detta stöds inte för närvarande. |
 | Azure HDInsight |Virtuella nätverk som innehåller HDInsight-tjänster |Detta stöds inte för närvarande. |
 | Microsoft Dynamics Lifecycle-tjänster |Virtuella nätverk som innehåller virtuella datorer som hanteras av Dynamics Lifecycle Services |Detta stöds inte för närvarande. |
-| Azure AD Domain Services |Virtuella nätverk som innehåller Azure AD Domain Services |Detta stöds inte för närvarande. |
 | Azure API Management |Virtuella nätverk som innehåller Azure API Management-distributioner |Detta stöds inte för närvarande. Om du vill migrera IaaS VNET ändrar du VNET för API Management distributionen, vilket inte är en drift stillestånds åtgärd. |

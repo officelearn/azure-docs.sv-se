@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: tracking-python
-ms.openlocfilehash: c4969628bb80d63cafc9537ec511ac218ff87ca7
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: ceaca3b7d91bf27262f1326000796cd605b0c3c4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84738302"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494595"
 ---
 # <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 
@@ -36,7 +36,7 @@ Tjänsten samverkar också med populära djup inlärnings-och förstärknings ve
 
 Maskininlärning är en datavetenskapsteknik som gör att datorer kan använda befintliga data för att göra prognoser om framtida beteenden, resultat och trender. Genom att använda maskininlärning kan datorer lära sig utan att vara explicit programmerade.
 
-Prognoser eller förutsägelser från maskininlärning kan göra appar och enheter smartare. När du handlar på nätet kan maskininlärning till exempel användas för att rekommendera andra produkter som du kanske gillar baserat på vad du har köpt. När ditt kreditkort dras används maskininlärning för att jämföra transaktionen med en transaktionsdatabas, vilket gör det lättare att upptäcka bedrägerier. När din robotdammsugare dammsuger ett rum tar den hjälp av maskininlärning för att avgöra om jobbet är klart.
+Prognoser eller förutsägelser från maskininlärning kan göra appar och enheter smartare. När du handlar på nätet kan maskininlärning till exempel användas för att rekommendera andra produkter som du kanske gillar baserat på vad du har köpt. När ditt kreditkort används så kontrollerar maskininlärningen transaktionen mot en databas med transaktioner vilket hjälper till att upptäcka bedrägerier. När din robotdammsugare dammsuger ett rum tar den hjälp av maskininlärning för att avgöra om jobbet är klart.
 
 ## <a name="machine-learning-tools-to-fit-each-task"></a>Maskin inlärnings verktyg för att passa varje uppgift 
 
@@ -51,7 +51,7 @@ Azure Machine Learning innehåller alla verktyg och data forskare som behöver f
 
 + [Visual Studio Code-tillägg](tutorial-setup-vscode-extension.md)
 
-+ [Machine Learning CLI](reference-azure-machine-learning-cli.md)
++ [Maskininlärning CLI](reference-azure-machine-learning-cli.md)
 
 + Ramverk med öppen källkod, till exempel PyTorch, TensorFlow och scikit – lära och många fler
 
@@ -110,7 +110,7 @@ Azure Machine Learning fungerar med andra tjänster på Azure-plattformen och in
 + Compute-mål som __Azure Kubernetes service__, __Azure Container instances__, __Azure Databricks__, __Azure Data Lake Analytics__och __Azure HDInsight__. Mer information om Compute-mål finns i [Vad är Compute-mål?](concept-compute-target.md).
 + __Azure Event Grid__. Mer information finns i [använda Azure Machine Learning händelser](concept-event-grid-integration.md).
 + __Azure Monitor__. Mer information finns i [övervaknings Azure Machine Learning](monitor-azure-machine-learning.md).
-+ Data lager som __Azure Storage konton__, __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__och __Azure Open-datauppsättningar__. Mer information finns i [få åtkomst till data i Azure Storage Services](how-to-access-data.md) och [skapa data uppsättningar med Azure Open data uppsättningar](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets).
++ Data lager som __Azure Storage konton__, __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__och __Azure Open-datauppsättningar__. Mer information finns i [få åtkomst till data i Azure Storage Services](how-to-access-data.md) och [skapa data uppsättningar med Azure Open data uppsättningar](how-to-create-register-datasets.md).
 + __Virtuella Azure-nätverk__. Mer information finns i [säker experimentering och härledning i ett virtuellt nätverk](how-to-enable-virtual-network.md).
 + __Azure-pipeliner__. Mer information finns i [träna och distribuera Machine Learning-modeller](/azure/devops/pipelines/targets/azure-machine-learning).
 + __Git-lagringsplatsens loggar__. Mer information finns i [git-integrering](concept-train-model-git-integration.md).

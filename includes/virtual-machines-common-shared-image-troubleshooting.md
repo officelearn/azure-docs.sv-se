@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 7aad1eb10018445150fb5cf3ac01b97480da674b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: c043cfb6cf437ab55cc4a48ced716798738adbef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226442"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507188"
 ---
 Om du får problem när du utför åtgärder i delade bildgallerier, eller för bilddefinitioner och bildversioner, kan du köra det misslyckade kommandot igen i felsökningsläge. Fel söknings läge aktive ras genom att skicka `--debug` växeln med CLI och `-Debug` växeln med PowerShell. När du har hittat felet följer du det här dokumentet för att felsöka felen.
 
@@ -76,7 +76,7 @@ Möjliga orsaker:
 
 *Användaren som försöker skapa en virtuell dator eller skalnings uppsättning för virtuell dator har inte Läs behörighet till avbildnings versionen.*
 
-Kontakta Prenumerationens ägare och be dem att ge Läs behörighet till avbildnings versionen eller de överordnade resurserna (t. ex. det delade avbildnings galleriet eller avbildnings definitionen) via [rollbaserad Access Control](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+Kontakta Prenumerationens ägare och be dem att ge Läs behörighet till avbildnings versionen eller de överordnade resurserna (t. ex. galleriet för delad avbildning eller avbildnings definition) via [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
 
 *Det gick inte att hitta avbildnings versionen.*
 
@@ -97,6 +97,3 @@ Använd flaggan **--Expand ReplicationStatus** för att kontrol lera om repliker
 ## <a name="azure-limits-and-quotas"></a>Begränsningar och kvoter för Azure 
 
 [Azure-gränser och kvoter](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) gäller för alla delade avbildnings gallerier, avbildnings definitioner och avbildnings versions resurser. Se till att du är inom gränserna för dina prenumerationer. 
-
-
-

@@ -8,12 +8,13 @@ ms.service: cache
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
-ms.openlocfilehash: 199c5707e9ecd887af64e271184e151ce0966745
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 9fef834e550f144075ec9cc72cac3b11cc1e99e4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75411306"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504219"
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-cache-for-redis"></a>Hämta värdnamn, portar och nycklar för Azure cache för Redis
 
@@ -30,7 +31,7 @@ I det här scenariot får du lära dig hur du hämtar värdnamn, portar och nyck
 
 Det här skriptet använder följande kommandon för att hämta värdnamn, nycklar och portar för en Azure-cache för Redis-instans. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [AZ Redis show](https://docs.microsoft.com/cli/azure/redis) | Hämta information om en Azure-cache för Redis-instansen. |
 | [AZ Redis-lista – nycklar](https://docs.microsoft.com/cli/azure/redis) | Hämta åtkomst nycklar för en Azure-cache för Redis-instans. |

@@ -4,15 +4,15 @@ description: Beskriver data källor och anslutningar som stöds för tabell 1200
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dc25c853a37de5c310d37e7ee64c6f762283cb0a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 72a1a37bf240355e6bc87cbfd62b0dc2d25ce68b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077447"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503607"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Datakällor som stöds i Azure Analysis Services
 
@@ -20,17 +20,17 @@ Data källor och anslutningar som visas i guiden hämta data eller tabell import
 
 ## <a name="azure-data-sources"></a>Azure-datakällor
 
-|Datakälla  |Minnesintern  |DirectQuery  |Kommentarer |
+|Datakälla  |Minnesintern  |DirectQuery  |Anteckningar |
 |---------|---------|---------|---------|
 |Azure SQL Database      |   Ja      |    Yes      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
 |Azure Synapse Analytics (SQL DW)      |   Ja      |   Yes       |<sup>[2](#azprovider)</sup>|
-|Azure Blob Storage      |   Yes       |    Nej      | <sup>[81.1](#tab1400a)</sup> |
-|Azure Table Storage     |   Yes       |    Nej      | <sup>[81.1](#tab1400a)</sup>|
-|Azure Cosmos DB     |  Yes        |  Nej        |<sup>[81.1](#tab1400a)</sup> |
-|Azure Data Lake Store gen1      |   Yes       |    Nej      |<sup>[81.1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen2       |   Yes       |    Nej      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
-|Azure HDInsight HDFS    |     Yes     |   Nej       |<sup>[81.1](#tab1400a)</sup> |
-|Azure HDInsight Spark     |   Yes       |   Nej       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
+|Azure Blob Storage      |   Yes       |    Inga      | <sup>[1](#tab1400a)</sup> |
+|Azure Table Storage     |   Yes       |    Inga      | <sup>[1](#tab1400a)</sup>|
+|Azure Cosmos DB     |  Yes        |  Inga        |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store gen1      |   Yes       |    Inga      |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen2       |   Yes       |    Inga      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
+|Azure HDInsight HDFS    |     Yes     |   Inga       |<sup>[1](#tab1400a)</sup> |
+|Azure HDInsight Spark     |   Yes       |   Inga       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
 ||||
 
 **Anteckningar:**
@@ -45,42 +45,42 @@ Data källor och anslutningar som visas i guiden hämta data eller tabell import
 
 |Datakälla | Minnesintern | DirectQuery |Kommentarer   |
 |  --- | --- | --- | --- |
-|Access-databas     |  Yes | Nej |  |
-|Active Directory     |  Yes | Nej | <sup>[3-6](#tab1400b)</sup>  |
-|Analysis Services     |  Yes | Nej |  |
-|Analys plattforms system     |  Yes | Nej |  |
-|CSV-fil  |Yes | Nej |  |
-|Dynamics 365     |  Yes | Nej | <sup>[3-6](#tab1400b)</sup> |
-|Excel-arbetsbok     |  Yes | Nej |  |
-|Exchange      |  Yes | Nej | <sup>[3-6](#tab1400b)</sup> |
-|Mapp      |Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|IBM Informix  |Yes | Nej |  |
-|JSON-dokument      |  Yes | Nej | <sup>[3-6](#tab1400b)</sup> |
-|Rader från binär      | Yes | Nej | <sup>[3-6](#tab1400b)</sup> |
-|MySQL-databas     | Yes | Nej |  |
-|OData-feed      |  Yes | Nej | <sup>[3-6](#tab1400b)</sup> |
-|ODBC-fråga     | Yes | Nej |  |
-|OLE DB     |   Yes | Nej |  |
+|Access-databas     |  Yes | Inga |  |
+|Active Directory     |  Yes | Inga | <sup>[3-6](#tab1400b)</sup>  |
+|Analysis Services     |  Yes | Inga |  |
+|Analys plattforms system     |  Yes | Inga |  |
+|CSV-fil  |Yes | Inga |  |
+|Dynamics 365     |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Excel-arbetsbok     |  Yes | Inga |  |
+|Exchange      |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Mapp      |Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
+|IBM Informix  |Yes | Inga |  |
+|JSON-dokument      |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Rader från binär      | Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|MySQL-databas     | Yes | Inga |  |
+|OData-feed      |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|ODBC-fråga     | Yes | Inga |  |
+|OLE DB     |   Yes | Inga |  |
 |Oracle  | Ja  |Yes  | <sup>[9](#oracle)</sup> |
-|PostgreSQL-databas   | Yes | Nej | <sup>[3-6](#tab1400b)</sup> |
-|Salesforce-objekt|  Yes | Nej | <sup>[3-6](#tab1400b)</sup> |
-|Salesforce-rapporter |Yes | Nej | <sup>[3-6](#tab1400b)</sup> |
-|SAP HANA     |  Yes | Nej |  |
-|SAP Business Warehouse    |  Yes | Nej | <sup>[3-6](#tab1400b)</sup> |
-|SharePoint-lista      |   Yes | Nej | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
+|PostgreSQL-databas   | Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Salesforce-objekt|  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Salesforce-rapporter |Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|SAP HANA     |  Yes | Inga |  |
+|SAP Business Warehouse    |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|SharePoint-lista      |   Yes | Inga | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
 |SQL Server |Ja   | Yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
 |SQL Server informations lager |Ja   | Yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
 |Sybase-databas     |  Yes | Nej |  |
 |Teradata | Ja  | Yes  | <sup>[10](#teradata)</sup> |
-|TXT-fil  |Yes | Nej |  |
-|XML-tabell    |  Yes | Nej | <sup>[3-6](#tab1400b)</sup> |
+|TXT-fil  |Yes | Inga |  |
+|XML-tabell    |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
 | | | |
 
 **Anteckningar:**  
 <a name="tab1400b">6</a> -tabell 1400 och högre modeller.  
 <a name="sqlim">7</a> – när du har angett som en *Provider* -datakälla i tabell 1200 och högre modeller, anger du Microsoft OLE DB driv rutin för SQL Server MSOLEDBSQL (rekommenderas), SQL Server Native Client 11,0 eller .NET Framework Data Provider för SQL Server.  
 <a name="instgw">8</a> – om du anger MSOLEDBSQL som dataprovider kan det vara nödvändigt att ladda ned och installera [Microsoft OLE DB-drivrutinen för SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) på samma dator som den lokala datagatewayen.  
-<a name="oracle">9</a> – för tabell 1200-modeller, eller som en *Provider* -datakälla i tabell 1400 +-modeller, anger du Oracle Data Provider för .net.  
+<a name="oracle">9</a> – för tabell 1200-modeller, eller som en *Provider* -datakälla i tabell 1400 +-modeller, anger du Oracle Data Provider för .net. Om det har angetts som en strukturerad data källa, se till att [Aktivera Oracle-Hanterad provider](#enable-oracle-managed-provider).   
 <a name="teradata">10</a> – för tabell 1200-modeller, eller som en *Provider* -datakälla i tabell 1400 +-modeller, anger du Teradata-dataprovider för .net.  
 <a name="filesSP">11</a> -filer i lokala SharePoint-versioner stöds inte.
 
@@ -123,6 +123,43 @@ För moln data Källor:
 För tabell modeller på nivån 1400 och högre med i-minnes läge, Azure SQL Database, Azure-Synapse (tidigare SQL Data Warehouse), Dynamics 365 och SharePoint-lista stöder OAuth-autentiseringsuppgifter. Azure Analysis Services hanterar token-uppdatering för OAuth-datakällor för att undvika tids gränser för tids krävande uppdaterings åtgärder. Ange autentiseringsuppgifter genom att använda SSMS för att generera giltiga tokens.
 
 Direct Query-läget stöds inte med OAuth-autentiseringsuppgifter.
+
+## <a name="enable-oracle-managed-provider"></a>Aktivera Oracle-Hanterad provider
+
+I vissa fall kan DAX-frågor till en Oracle-datakälla returnera oväntade resultat. Detta kan bero på att providern används för anslutningen till data källan.
+
+Som det beskrivs i avsnittet [förstå providers](#understanding-providers) , ansluter tabell modeller till data källor som antingen en *strukturerad* data källa eller en *Provider* -datakälla. För modeller med en Oracle-datakälla som angetts som Provider-datakälla, se till att den angivna providern är Oracle-dataprovider för .NET (Oracle. DataAccess. Client). 
+
+Om Oracle-datakällan har angetts som en strukturerad data källa aktiverar du egenskapen **MDataEngine\UseManagedOracleProvider** -Server. Genom att ange den här egenskapen ser du till att din modell ansluter till Oracle-datakällan med rekommenderad Oracle-dataprovider för .NET-Hanterad provider.
+ 
+Så här aktiverar du Oracle-Hanterad provider:
+
+1. I SQL Server Management Studio ansluter du till servern.
+2. Skapa en XMLA-fråga med följande skript. Ersätt **servername** med det fullständiga Server namnet och kör sedan frågan.
+
+    ```xml
+    <Alter AllowCreate="true" ObjectExpansion="ObjectProperties" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+        <Object />
+        <ObjectDefinition>
+            <Server xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" 
+    xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" 
+    xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" 
+    xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500">
+                <ID>ServerName</ID>
+                <Name>ServerName</Name>
+                <ServerProperties>
+                    <ServerProperty>
+                        <Name>MDataEngine\UseManagedOracleProvider</Name>
+                        <Value>1</Value>
+                    </ServerProperty>
+                </ServerProperties>
+            </Server>
+        </ObjectDefinition>
+    </Alter>
+    ```
+
+3. Starta om servern.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

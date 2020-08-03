@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9bc0d25e19ad3412e62eb3386b0faf3ae5d2a444
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8d38aa513b0829c2626fcd4a92c40faabff1f83e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68782597"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502400"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Redundansväxla och återaktivera skyddet av virtuella Azure-datorer mellan regioner
 
@@ -28,7 +28,7 @@ I den här självstudien beskrivs hur du växlar över en virtuell Azure-dator (
 > Den här självstudien innehåller den enklaste sökvägen med standardinställningar och minimal anpassning. För mer komplexa scenarier använder du artiklarna under "How to" för virtuella Azure-datorer.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Innan du börjar bör du läsa igenom [vanliga frågor](site-recovery-faq.md#failover) om redundans.
 - Se till att du genomfört ett [programåterställningstest](azure-to-azure-tutorial-dr-drill.md) och kontrollerat att allt fungerar som väntat.
@@ -38,7 +38,7 @@ I den här självstudien beskrivs hur du växlar över en virtuell Azure-dator (
 
 1. I **Replikerade objekt** väljer du den virtuella dator som ska redundansväxlas > **Redundans**
 
-   ![Redundans](./media/azure-to-azure-tutorial-failover-failback/failover.png)
+   ![Skärm bild som visar alternativ för redundans för en virtuell dator.](./media/azure-to-azure-tutorial-failover-failback/failover.png)
 
 2. I **Redundans** väljer du en **återställningspunkt** att redundansväxla till. Du kan välja något av följande alternativ:
 
@@ -46,7 +46,7 @@ I den här självstudien beskrivs hur du växlar över en virtuell Azure-dator (
    * **Senaste bearbetade**: återställer den virtuella datorn till den senaste återställnings punkten som har bearbetats av site Recoverys tjänsten.
    * **Anpassad**: växlar över till en viss återställnings punkt. Det här alternativet är användbart för att utföra test av redundansväxling.
 
-3. Välj **Stäng datorn innan du påbörjar redundans** om du vill att Site Recovery försöker stänga av virtuella käll datorer innan du utlöser redundansväxlingen. Avstängning bidrar till att förhindra data förlust. Redundansen fortsätter även om avstängningen misslyckas. Site Recovery rensar inte källan efter redundansväxlingen.
+3. Välj **Stäng datorn innan du påbörjar redundans** om du vill att Site Recovery försöker stänga av virtuella käll datorer innan du utlöser redundansväxlingen. Avstängning bidrar till att förhindra data förlust. Redundansväxlingen fortsätter även om avstängningen misslyckas. Site Recovery rensar inte källan efter redundansväxlingen.
 
 4. Följ redundansförloppet på sidan **Jobb**.
 
@@ -58,16 +58,16 @@ I den här självstudien beskrivs hur du växlar över en virtuell Azure-dator (
 > [!NOTE]
 > När du växlar över en virtuell dator som du lägger till en disk efter att du har aktiverat replikering för den virtuella datorn, visar replikerings platserna de diskar som är tillgängliga för återställning. Om en virtuell dator till exempel har en enskild disk och du lägger till en ny, kommer de replikerings punkter som skapades innan du lade till disken att visa att replikerings platsen består av "1 av 2 diskar".
 
-![Redundansväxla med en tillagd disk](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
+![Skärm bild som visar redundans med en extra disk.](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
 
 ## <a name="reprotect-the-secondary-vm"></a>Återaktivera skyddet för den sekundära virtuella datorn
 
 När den virtuella datorn redundansväxlats måste du återaktivera skyddet för den så att den replikeras tillbaka till den primära regionen.
 
 1. Se till att den virtuella datorn har läget **redundansväxling bekräftad** och kontrollera att den primära regionen är tillgänglig och att du kan skapa och komma åt nya resurser i den.
-2. I **valv** > **replikerade objekt**högerklickar du på den virtuella datorn som har redundansväxlats och väljer sedan **skydda igen**.
+2. I **valv**  >  **replikerade objekt**högerklickar du på den virtuella datorn som har redundansväxlats och väljer sedan **skydda igen**.
 
-   ![Högerklicka för att återaktivera skyddet](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
+   ![Skärm bild av alternativet för omskydd för en virtuell dator.](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
 
 2. Kontrol lera att skydds riktningen, den sekundära till den primära regionen, redan har valts.
 3. Granska informationen om **resursgrupp, nätverk, lagring och tillgänglighetsuppsättningar**. Alla resurser som marker ATS som nya skapas som en del av återskydds åtgärden.

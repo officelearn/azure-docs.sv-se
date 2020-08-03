@@ -8,13 +8,13 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 87f6febaf89f82c2c81b397c94d744229b3f4b34
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: daee09de544e12d07b28d4e88a4847f71bd2e01f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80239490"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502723"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Självstudie: Skapa en programgateway med webbadressbaserad omdirigering i Azure CLI
 
@@ -34,7 +34,7 @@ I följande exempel visas hur trafiken kommer från portarna 8080 och 8081 och d
 
 Om du vill kan du utföra den här självstudien med [Azure PowerShell](tutorial-url-redirect-powershell.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -284,7 +284,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel, `http://40.121.222.19` `http://40.121.222.19:8080/images/test.htm` `http://40.121.222.19:8080/video/test.htm`,, eller `http://40.121.222.19:8081/images/test.htm`.
+Hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel,,, `http://40.121.222.19` `http://40.121.222.19:8080/images/test.htm` `http://40.121.222.19:8080/video/test.htm` eller `http://40.121.222.19:8081/images/test.htm` .
 
 ```azurecli-interactive
 az network public-ip show \
@@ -296,15 +296,15 @@ az network public-ip show \
 
 ![Testa basadressen i programgatewayen](./media/tutorial-url-redirect-cli/application-gateway-nginx.png)
 
-Ändra URL: en till&lt;http://IP-&gt;Address: 8080/images/test.html, Ersätt din IP- &lt;adress för IP&gt;-adress och du bör se något som liknar följande exempel:
+Ändra URL: en till http:// &lt; IP-address &gt; : 8080/images/test.html, Ersätt IP-adressen för &lt; IP-adress &gt; och du bör se något som liknar följande exempel:
 
 ![Testa bildadressen i programgatewayen](./media/tutorial-url-redirect-cli/application-gateway-nginx-images.png)
 
-Ändra URL: en till&lt;http://IP-&gt;Address: 8080/video/test.html, Ersätt din IP- &lt;adress för IP&gt;-adress och du bör se något som liknar följande exempel:
+Ändra URL: en till http:// &lt; IP-address &gt; : 8080/video/test.html, Ersätt IP-adressen för &lt; IP-adress &gt; och du bör se något som liknar följande exempel:
 
 ![Testa videoadressen i programgatewayen](./media/tutorial-url-redirect-cli/application-gateway-nginx-video.png)
 
-Ändra nu URL: en till http://&lt;IP-address&gt;: 8081/images/test.htm, Ersätt IP-adressen för &lt;IP-adress&gt;och du bör se trafik som omdirigeras tillbaka till avbildningens backend-pool&lt;på http://IP&gt;-Address: 8080/images.
+Ändra nu URL: en till http:// &lt; IP-address &gt; : 8081/images/test.htm, Ersätt din IP-adress för &lt; IP-adress &gt; och du bör se trafik som omdirigeras tillbaka till avbildningens backend-pool på http:// &lt; IP-address &gt; : 8080/images.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

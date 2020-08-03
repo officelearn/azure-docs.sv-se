@@ -3,12 +3,12 @@ title: Fel sökning – QnA Maker
 description: Den granskade listan med de vanligaste frågorna om QnA Maker tjänsten hjälper dig att komma igång med tjänsten snabbare och med bättre resultat.
 ms.topic: troubleshooting
 ms.date: 03/25/2020
-ms.openlocfilehash: ec994677b17ee21dbf4ee6091be3bdf943572b2e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 50823e29eb5c276c00a1c8f0e3227ec67999a703
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131998"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502587"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Fel sökning för QnA Maker
 
@@ -87,7 +87,7 @@ Alla borttagningar är permanenta, inklusive frågor och svars par, filer, URL: 
 <details>
 <summary><b>Kan du dela en kunskaps bas med en deltagare som inte tillhör samma AAD-klient, för att ändra en kunskaps bas?</b></summary>
 
-**Svar**: delning baseras på rollbaserad åtkomst kontroll (RBAC) i Azure. Om du kan dela _en_ resurs i Azure med en annan användare kan du också dela QNA Maker.
+**Svar**: delning baseras på rollbaserad åtkomst kontroll i Azure (Azure RBAC). Om du kan dela _en_ resurs i Azure med en annan användare kan du också dela QNA Maker.
 
 </details>
 

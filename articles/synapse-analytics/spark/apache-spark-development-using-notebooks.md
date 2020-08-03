@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: tracking-python
-ms.openlocfilehash: e0b0525035732a54965f7c391ac6041b114d7304
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a7dc0fcae9a6fea789d30bac10511007454ecc5f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045696"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504015"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Skapa, utveckla och underhålla antecknings böcker för Synapse Studio (för hands version) i Azure Synapse Analytics
 
@@ -71,7 +71,7 @@ Du kan ställa in det primära språket för nya tillagda celler i list rutan i 
 
 Du kan använda flera språk i en bärbar dator genom att ange rätt språk-Magic-kommando i början av en cell. I följande tabell visas Magic-kommandon för att växla mellan cell språk.
 
-|Magiskt kommando |Språk | Beskrivning |  
+|Magiskt kommando |Språk | Description |  
 |---|------|-----|
 |%% pyspark| Python | Kör en **python** -fråga mot Spark-kontext.  |
 |%% Spark| Scala | Kör en **Scala** -fråga mot Spark-kontext.  |  
@@ -119,7 +119,7 @@ IntelliSense-funktionerna finns på olika förfallo nivåer för olika språk. A
 |PySpark (python)|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Spark (Scala)|Ja|Ja|Ja|Ja|-|-|-|Ja|
 |SparkSQL|Ja|Ja|-|-|-|-|-|-|
-|.NET för Spark (C#)|Ja|-|-|-|-|-|-|-|
+|.NET för Spark (C#)|Yes|-|-|-|-|-|-|-|
 
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Formatera en text cell med knappar i verktygsfältet
 
@@ -191,6 +191,10 @@ Om du vill komma åt menyn ytterligare cell åtgärder längst till höger välj
    ![Run-cellernas över-eller-under](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
 
+### <a name="cancel-all-running-cells"></a>Avbryt alla celler som körs
+Klicka på knappen **Avbryt alla** om du vill avbryta körningen av celler eller celler som väntar i kön. 
+   ![Avbryt – alla celler](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
+
 ### <a name="cell-status-indicator"></a>Cell status indikator
 
 En steg-för-steg-cells körnings status visas under cellen för att hjälpa dig att se den aktuella förloppet. När cell körningen är klar visas en körnings översikt med den totala varaktigheten och slut tiden, där det finns en framtida referens.
@@ -200,6 +204,7 @@ En steg-för-steg-cells körnings status visas under cellen för att hjälpa dig
 ### <a name="spark-progress-indicator"></a>Status indikator för Spark
 
 Azure Synapse Studio-anteckningsbok är enbart Spark-baserad. Kod celler körs i Spark-poolen via fjärr anslutning. En status indikator för Spark-jobbet visas med en förlopps indikator i real tid som hjälper dig att förstå jobb körnings statusen.
+Antalet aktiviteter per jobb eller steg hjälper dig att identifiera parallell nivån för ditt Spark-jobb. Du kan också gå djupare till Spark-ANVÄNDARGRÄNSSNITTET för ett bestämt jobb (eller steg) genom att klicka på länken på jobbets (eller scenens) namn.
 
 
 ![Spark-Progress-Indicator](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
@@ -208,7 +213,11 @@ Azure Synapse Studio-anteckningsbok är enbart Spark-baserad. Kod celler körs i
 
 Du kan ange tids längd, antal och storlek på körningar för att ge den aktuella Spark-sessionen i **Konfigurera session**. Starta om Spark-sessionen för att konfigurations ändringarna ska börja gälla. Alla cachelagrade Notebook-variabler rensas.
 
-![hantering av sessioner](./media/apache-spark-development-using-notebooks/synapse-spark-session-mgmt.png)
+[![session-hantering](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png#lightbox)
+
+En spark-session rekommenderar att du nu är tillgänglig på konfigurations panelen i Spark-sessionen. Du kan välja en spark-pool direkt från konfigurations panelen för sessionen och se hur många noder som används och hur många återstående körningar som är tillgängliga. Den här informationen kan hjälpa dig att ange en lämplig storlek i stället för att ändra den och tillbaka.
+
+![session – rekommendera](./media/apache-spark-development-using-notebooks/synapse-spark-session-recommender.png)
 
 
 ## <a name="bring-data-to-a-notebook"></a>Hämta data till en bärbar dator
@@ -264,15 +273,25 @@ Du kan komma åt data i det primära lagrings kontot direkt. Du behöver inte an
 
 ## <a name="visualize-data-in-a-notebook"></a>Visualisera data i en bärbar dator
 
-### <a name="display"></a>Visa ()
+### <a name="produce-rendered-table-view"></a>Producera åter givnings tabell visning
 
 En vy med tabell resultat tillhandahålls med möjligheten att skapa ett stapeldiagram, linje diagram, cirkel diagram, punkt diagram och ytdiagram. Du kan visualisera dina data utan att behöva skriva kod. Diagrammen kan anpassas i **diagram alternativen**. 
 
-Utdata från **%% SQL** Magic-kommandon visas som standard i vyn renderad tabell. Du kan anropa **Display ( `<DataFrame name>` )** i Spark-DataFrames eller elastiska distribuerade data uppsättningar (RDD)-funktionen för att skapa den åter givnings tabellen.
+Utdata från **%% SQL** Magic-kommandon visas som standard i vyn renderad tabell. Du kan anropa <code>display(df)</code> en spark-DataFrames eller en RDD-funktion (elastiskt distribuerade data uppsättningar) för att skapa den åter givnings tabell som visas.
 
-   ![inbyggt – diagram](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)
+   [![inbyggt – diagram](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
 
-### <a name="displayhtml"></a>DisplayHTML()
+### <a name="visualize-built-in-charts-from-large-scale-dataset"></a>Visualisera inbyggda diagram från storskalig data uppsättning 
+
+Som standard <code>display(df)</code> tar funktionen bara de första 1000 raderna i data för att återge diagram. Kontrol lera **agg regeringen för alla resultat** och klicka på knappen **tillämpa** . du kommer att använda diagrammets generering från hela data uppsättningen. Ett Spark-jobb utlöses när diagram inställningen ändras, det tar en stund att slutföra beräkningen och återge diagrammet. 
+    [![Builtin – diagram – agg regering – alla](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png#lightbox)
+
+
+### <a name="visualize-data-statistic-information"></a>Visualisera information om data statistik
+Du kan använda <code>display(df, summary = true)</code> för att kontrol lera statistik sammanfattningen för en specifik Spark-DataFrame som innehåller kolumn namn, kolumn typ, unika värden och saknade värden för varje kolumn. Du kan också välja en speciell kolumn för att se dess minimala värde, maximalt värde, medelvärde och standard avvikelse.
+    [![Builtin – diagram – Sammanfattning ](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png#lightbox)
+
+### <a name="render-html-or-interactive-libraries"></a>Återge HTML eller interaktiva bibliotek
 
 Du kan återge HTML-eller interaktiva bibliotek, som **bokeh**, med hjälp av **displayHTML ()**.
 
@@ -332,9 +351,36 @@ I egenskaperna för antecknings boken kan du konfigurera om du vill ta med celle
 ## <a name="magic-commands"></a>Magic-kommandon
 Du kan använda dina välkända Jupyter Magic-kommandon i Azure Synapse Studio-anteckningsböcker. Kontrol lera listan nedan som de aktuella tillgängliga Magic-kommandona. Berätta för oss dina användnings fall på GitHub så att vi kan fortsätta att bygga upp fler Magic-kommandon för att uppfylla dina behov.
 
-Tillgängliga rad Magic: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% Time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% timeIt](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
+Tillgängliga rad Magic: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% Time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% tid](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
 
 Tillgängliga cell Magic: [%% Time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%% timeIt](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%% Capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%% WriteFile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%% SQL](#use-multiple-languages), [%% pyspark](#use-multiple-languages), [%% Spark](#use-multiple-languages), [%% csharp](#use-multiple-languages)
+
+
+## <a name="orchestrate-notebook"></a>Dirigera antecknings bok
+
+### <a name="add-a-notebook-to-a-pipeline"></a>Lägga till en antecknings bok i en pipeline
+
+Klicka på knappen **Lägg till i** det övre högra hörnet för att lägga till en antecknings bok till en befintlig pipeline eller skapa en ny pipeline.
+
+![Lägg till i pipeline](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
+
+### <a name="designate-a-parameters-cell"></a>Ange en parameter cell
+
+Om du vill Parameterisera din bärbara dator väljer du ellipserna (...) för att få åtkomst till menyn ytterligare cell åtgärder längst till höger. Välj sedan **Växla parameter cell** för att ange cellen som parameter cellen.
+
+![Växla-parameter](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
+
+Azure Data Factory letar efter parameter cellen och behandlar den här cellen som standard för de parametrar som skickas vid körningen. Körnings motorn lägger till en ny cell under parameter cellen med indataparametrarna för att skriva över standardvärdena. När det inte finns någon parameter cell, infogas den inmatade cellen längst upp i antecknings boken.
+
+### <a name="assign-parameters-values-from-a-pipeline"></a>Tilldela parameter värden från en pipeline
+
+När du har skapat en antecknings bok med parametrar kan du köra den från en pipeline med Azure Synapse Notebook-aktiviteten. När du har lagt till aktiviteten till din pipeline-arbetsyta kan du ange parametrar-värden under avsnittet **grundläggande parametrar** på fliken **Inställningar** . 
+
+![tilldela parameter](./media/apache-spark-development-using-notebooks/assign-parameter.png)
+
+När du tilldelar parameter värden kan du använda [uttrycks språket](../../data-factory/control-flow-expression-language-functions.md) eller [systemvariablerna](../../data-factory/control-flow-system-variables.md)för pipelinen.
+
+
 
 ## <a name="shortcut-keys"></a>Kortkommandon
 
@@ -352,7 +398,7 @@ I likhet med Jupyter-anteckningsböcker har Azure Synapse Studio-anteckningsboka
 
 Med följande kortkommandon kan du enkelt navigera och köra kod i Azure Synapse Notebooks.
 
-| Åtgärd |Genvägar till Synapse Studio-anteckningsbok  |
+| Action |Genvägar till Synapse Studio-anteckningsbok  |
 |--|--|
 |Kör den aktuella cellen och välj nedan | SKIFT + RETUR |
 |Kör den aktuella cellen och infoga den nedan | ALT + RETUR |
@@ -371,7 +417,7 @@ Med följande kortkommandon kan du enkelt navigera och köra kod i Azure Synapse
 
 Med följande kortkommandon kan du enkelt navigera och köra kod i Azure Synapse Notebooks i redigerings läge.
 
-| Åtgärd |Genvägar till Synapse Studio-anteckningsbok  |
+| Action |Genvägar till Synapse Studio-anteckningsbok  |
 |--|--|
 |Flytta markören uppåt | Upp |
 |Flytta markören nedåt|Ned|
@@ -390,7 +436,7 @@ Med följande kortkommandon kan du enkelt navigera och köra kod i Azure Synapse
 |Växla till kommando läge| Esc |
 
 ## <a name="next-steps"></a>Nästa steg
-
+- [Kolla Synapse-exempel Notebooks](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
 - [Snabb start: skapa en Apache Spark pool (förhands granskning) i Azure Synapse Analytics med hjälp av webb verktyg](../quickstart-apache-spark-notebook.md)
 - [Vad är Apache Spark i Azure Synapse Analytics](apache-spark-overview.md)
 - [Använda .NET för Apache Spark med Azure Synapse Analytics](spark-dotnet.md)

@@ -10,15 +10,15 @@ keywords: azure media services, strömma
 ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
-ms.custom: ''
+ms.custom: devx-track-azurecli
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 91259e10966173cb701b867f5b3ed362112beef3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5a90e1fdc50a6e2b1544a06f587362bf43b80369
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80382791"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504457"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---azure-cli"></a>Självstudie: koda en fjärrfil baserat på URL och strömma videon – Azure CLI
 
@@ -44,11 +44,11 @@ Ditt Media Services-konto och alla tillhör ande lagrings konton måste finnas i
 az group create -n amsResourceGroup -l westus2
 ```
 
-### <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
+### <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
 
 I det här exemplet skapar vi ett allmänt standard LRS-konto.
 
-Om du vill experimentera med lagringskonton använder du `--sku Standard_LRS`. När du väljer en SKU för produktion kan du överväga att `--sku Standard_RAGRS`använda, som tillhandahåller geografisk replikering för affärs kontinuitet. Mer information finns i [lagringskonton](/cli/azure/storage/account).
+Om du vill experimentera med lagringskonton använder du `--sku Standard_LRS`. När du väljer en SKU för produktion kan du överväga att använda `--sku Standard_RAGRS` , som tillhandahåller geografisk replikering för affärs kontinuitet. Mer information finns i [lagringskonton](/cli/azure/storage/account).
 
 ```azurecli-interactive
 az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup
@@ -192,7 +192,7 @@ När du kör `az ams job start` kan du applicera en etikett på jobbets utdata. 
 - Om du tilldelar ett värde till etiketten anger du "-output-assets" till "assetname = Label".
 - Om du inte tilldelar ett värde till etiketten anger du "--output-assets" till "assetname =".
 
-  Observera att vi lägger till "=" i `output-assets`.
+  Observera att vi lägger till "=" i `output-assets` .
 
 ```azurecli-interactive
 az ams job start --name testJob001 --transform-name testEncodingTransform --base-uri 'https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/' --files 'Ignite-short.mp4' --output-assets testOutputAssetName= -a amsaccount -g amsResourceGroup
@@ -308,7 +308,7 @@ Du får ett svar så här:
 }
 ```
 
-Kopiera HLS-sökvägen (HTTP Live streaming). I det här fallet är `/e01b2be1-5ea4-42ca-ae5d-7fe704a5962f/ignite.ism/manifest(format=m3u8-aapl)`det.
+Kopiera HLS-sökvägen (HTTP Live streaming). I det här fallet är det `/e01b2be1-5ea4-42ca-ae5d-7fe704a5962f/ignite.ism/manifest(format=m3u8-aapl)` .
 
 ## <a name="build-the-url"></a>Bygg URL: en
 
@@ -318,7 +318,7 @@ Kopiera HLS-sökvägen (HTTP Live streaming). I det här fallet är `/e01b2be1-5
 az ams streaming-endpoint list -a amsaccount -g amsResourceGroup -n default
 ```
 
-Kopiera värdet `hostName`. I det här fallet är `amsaccount-usw22.streaming.media.azure.net`det.
+Kopiera värdet `hostName`. I det här fallet är det `amsaccount-usw22.streaming.media.azure.net` .
 
 ### <a name="assemble-the-url"></a>Montera URL: en
 
@@ -333,7 +333,7 @@ Här är ett exempel:
 > [!NOTE]
 > Om en spelare finns på en HTTPS-plats måste du starta URL: en med "https".
 
-1. Öppna en webbläsare och gå till [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
+1. Öppna en webbläsare och gå till [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/) .
 2. I rutan **URL** klistrar du in webb adressen som du skapade i föregående avsnitt. Du kan klistra in URL: en i HLS, tank streck eller smidigt format. Azure Media Player använder automatiskt ett lämpligt strömnings protokoll för uppspelning på enheten.
 3. Välj **uppdaterings spelaren**.
 

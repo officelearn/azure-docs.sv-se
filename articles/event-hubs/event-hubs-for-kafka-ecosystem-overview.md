@@ -3,12 +3,12 @@ title: Använda händelsehubben från Apache Kafka app – Azure Event Hubs | Mi
 description: Den här artikeln innehåller information om Apache Kafka support av Azure Event Hubs.
 ms.topic: article
 ms.date: 07/20/2020
-ms.openlocfilehash: 6dad797f6769e9804cce7d47ed74794fdddcfb0b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 94e0993c192cb735d6a4f0f3f7ec484c830902e9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002486"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501601"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Använda Azure Event Hubs från Apache Kafka-program
 Event Hubs tillhandahåller en Kafka-slutpunkt som kan användas av dina befintliga Kafka-baserade program som ett alternativ till att köra ditt eget Kafka-kluster. Event Hubs stöder [Apache Kafka protocol 1,0 och senare](https://kafka.apache.org/documentation/)och fungerar med dina befintliga Kafka-program, inklusive MirrorMaker.  
@@ -65,6 +65,9 @@ security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
+
+> [!NOTE]
+> När du använder SAS-autentisering med Kafka-klienter kopplas inte etablerade anslutningar bort när SAS-nyckeln återskapas. 
 
 #### <a name="samples"></a>Exempel 
 En **själv studie kurs** med stegvisa instruktioner för att skapa en händelsehubben och komma åt den med SAS eller OAuth finns i [snabb start: Data strömning med Event Hubs med Kafka-protokollet](event-hubs-quickstart-kafka-enabled-event-hubs.md).

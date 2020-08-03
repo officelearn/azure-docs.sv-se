@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 0f88b994104ed8a2d80fb3b16f125f8a087cbe3c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2b106a28514179d9be43b3c56ea8030eaf7ba13f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958386"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495003"
 ---
 # <a name="use-stored-procedures-in-sql-pool"></a>Använda lagrade procedurer i SQL-poolen
 
@@ -27,7 +27,7 @@ SQL-poolen stöder många av de T-SQL-funktioner som används i SQL Server. Det 
 
 Men för att upprätthålla skalning och prestanda i SQL-poolen finns det också vissa funktioner och funktioner som har beteende skillnader och andra som inte stöds.
 
-## <a name="introducing-stored-procedures"></a>Introduktion till lagrade procedurer
+## <a name="stored-procedures-in-sql-pool"></a>Lagrade procedurer i SQL-poolen
 
 Lagrade procedurer är ett bra sätt att kapsla in din SQL-kod. lagra den nära dina data i informations lagret. Lagrade procedurer hjälper utvecklare att modularize sina lösningar genom att kapsla in koden i hanterbara enheter. underlättar bättre åter användning av kod. Varje lagrad procedur kan också acceptera parametrar för att göra dem ännu mer flexibla.
 

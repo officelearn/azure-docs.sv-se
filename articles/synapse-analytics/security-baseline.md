@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ef8c4754afc921eaeb68a84fbd8147f336a4940c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 2cd42d8d4ba1ecabc1b87942536e2ef9a9017b22
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370282"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501958"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Azures säkerhets bas linje för Synapse-analys
 
@@ -584,7 +584,7 @@ Dessutom kan du konfigurera en princip för dynamisk data maskering (DDM) i Azur
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
 
-**Vägledning**: Använd Azure rollbaserad åtkomst kontroll (RBAC) för att hantera åtkomst till Azure SQL-databaser i din Synapse SQL-pool.
+**Vägledning**: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att hantera åtkomst till Azure SQL-databaser i din Synapse SQL-pool.
 
 Auktoriseringen styrs av ditt användar kontos databas roll medlemskap och behörigheter på objekt nivå. Ett bra tips är att du ska ge användare så få behörigheter som möjligt.
 
@@ -1014,7 +1014,7 @@ Förskanna allt innehåll som laddas upp till Azure-resurser som inte är Comput
 
 **Vägledning**: ögonblicks bilder av din Synapse SQL-pool tas automatiskt under dagen som skapar återställnings punkter som är tillgängliga i sju dagar. Kvarhållningsperioden kan inte ändras. SQL-poolen har stöd för ett återställnings punkt mål på 8 timmar. Du kan återställa ditt informations lager i den primära regionen från någon av de ögonblicks bilder som tagits under de senaste sju dagarna. Observera att du även kan utlösa ögonblicks bilder manuellt om det behövs.
 
-* [Säkerhets kopiering och återställning i Azure Synapse SQL-poolen](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Säkerhets kopiering och återställning i Azure Synapse SQL-poolen](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

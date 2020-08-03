@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 33c3cf4b9da33b15d7a7d1c14b0c3fb892b60121
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e2ce35158e8f9a3a2ad9da2b3d67a3f35d5a8c80
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317815"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503573"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Transact-funktioner för kommersiella Marketplace
 
 ## <a name="transactions-by-publishing-option"></a>Transaktioner per publicerings alternativ
 
-Antingen utgivaren eller Microsoft ansvarar för att hantera program licens transaktioner för erbjudanden på den kommersiella marknaden. Det publicerings alternativ du väljer för ditt erbjudande avgör vem som hanterar transaktionen. Se [bestämma publicerings alternativ](./determine-your-listing-type.md#choose-a-publishing-option) för tillgänglighet och förklaringar för varje publicerings alternativ.
+Antingen utgivaren eller Microsoft ansvarar för att hantera program licens transaktioner för erbjudanden på den kommersiella marknaden. Det publicerings alternativ du väljer för ditt erbjudande avgör vem som hanterar transaktionen. Se [bestämma publicerings alternativ](./determine-your-listing-type.md#choose-a-call-to-action) för tillgänglighet och förklaringar för varje publicerings alternativ.
 
 ### <a name="list-trial-and-byol-publishing-options"></a>Publicerings alternativ för lista, utvärdering och BYOL
 
@@ -136,7 +136,7 @@ I det här scenariot fakturerar Microsoft $100,00 för din program varu licens o
 |Microsoft betalar 80% av din licens kostnad <br> \*Microsoft betalar 90% av din licens kostnad för kvalificerade SaaS-appar   |   $80,00 per månad <br> \*$90,00 per månad    |
 |Microsoft behåller 20% av din licens kostnad <br> \*Microsoft behåller 10% av din licens kostnad för alla kvalificerade SaaS-appar.  |  $20,00 per månad <br> \*$10,00     |
 
-För vissa erbjudanden som du publicerar på den kommersiella marknaden kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i Microsoft Publisher Agreement) till 10%. För dina erbjudanden som ska kvalificeras måste ditt erbjudande ha utsetts av Microsoft som Azure IP Co-Sälj-incetivized. Berättigande måste uppfyllas minst fem (5) arbets dagar före slutet av varje kalender månad för att ta emot den minskade service avgiften för Marketplace för månaden. Den minskade service avgiften för Marketplace gäller för Azure IP Co-Sälj motiverade-SaaS, virtuella datorer, hanterade appar och andra kvalificerade IaaS-erbjudanden som görs tillgängliga via den kommersiella Marketplace.
+För vissa erbjudanden som du publicerar på den kommersiella marknaden kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i Microsoft Publisher Agreement) till 10%. För dina erbjudanden som ska kvalificeras måste ditt erbjudande ha utsetts av Microsoft som Azure IP Co-Sälj-motiverade. Berättigande måste uppfyllas minst fem (5) arbets dagar före slutet av varje kalender månad för att ta emot den minskade service avgiften för Marketplace för månaden. Den minskade service avgiften för Marketplace gäller för Azure IP Co-Sälj motiverade-SaaS, virtuella datorer, hanterade appar och andra kvalificerade IaaS-erbjudanden som görs tillgängliga via den kommersiella Marketplace.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Kund fakturering, betalning, fakturering och samlingar
 
@@ -163,7 +163,7 @@ Kunderna köper vanligt vis med Enterprise-avtal eller ett kredit kort aktiverat
 
 #### <a name="billing-questions-and-support"></a>Fakturerings frågor och support
 
-Mer information och juridiska principer finns i [utgivar avtalet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) (tillgängligt i Partner Center).
+Mer information och juridiska principer finns i [utgivar avtalet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx) (tillgängligt i Partner Center).
 
 Om du behöver hjälp med fakturerings frågor kontaktar du [supporten för support för Microsoft Marketplace](https://aka.ms/marketplacepublishersupport).
 

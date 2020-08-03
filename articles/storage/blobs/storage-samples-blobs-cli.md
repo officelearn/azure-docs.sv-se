@@ -7,18 +7,19 @@ ms.date: 06/13/2017
 ms.service: storage
 ms.subservice: blobs
 ms.topic: sample
-ms.openlocfilehash: aa9dcc45656256e1f666bbf1b096c5c66b123b31
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 2efb46e0ca6408136387ca1549305ba421d23b77
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528510"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503488"
 ---
 # <a name="azure-cli-samples-for-azure-blob-storage"></a>Azure CLI-exempel för Azure Blob Storage
 
 Följande tabell innehåller länkar till Bash-skript som har utvecklats med Azure CLI och som skapar och hanterar Azure Storage.
 
-| Skript | Beskrivning |
+| Skript | Description |
 |---|---|
 |**Lagringskonton**||
 | [Skapa ett lagringskonto och hämta/rotera åtkomstnycklarna](../scripts/storage-common-rotate-account-keys-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar ett Azure Storage-konto och hämtar och roterar dess åtkomstnycklar. |

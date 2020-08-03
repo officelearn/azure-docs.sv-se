@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c62cb9b64c42446c1f4ba8f6eb496fc792ff59a1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8d672c1113f265f9fbbabc7caed8df071f548f2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281284"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503828"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrera servrar som kör Windows Server 2008 till Azure
 
@@ -51,7 +51,7 @@ Azure Migrate stöder migrering av servrar som kör Windows Server 2008.
 > - Se till att du har senaste service pack och Windows-uppdateringar installerade innan du migrerar.
 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar är det bra att granska Azure Site Recovery arkitekturen för migrering av [VMware och fysisk server](vmware-azure-architecture.md) eller [migrering av virtuella Hyper-V-datorer](hyper-v-azure-architecture.md) 
 
@@ -104,7 +104,7 @@ Utför följande uppgifter för att förbereda Azure-prenumerationen och den lok
 5. Ange en Azure-region. Information om vilka regioner som stöds finns under Geografisk tillgänglighet i avsnittet med [Azure Site Recovery-prisinformation](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. För att snabbt komma åt valvet från instrumentpanelen klickar du på **Fäst på instrumentpanelen** och sedan på **Skapa**.
 
-   ![Nytt valv](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
+   ![Skärm bild som visar nya alternativ för att skapa valv.](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
 
 Det nya valvet läggs till på **Instrumentpanelen** under **Alla resurser** och på huvudsidan för **Recovery Services-valv**.
 
@@ -136,15 +136,15 @@ Principen associeras automatiskt med konfigurationsservern.
 > [!WARNING]
 > Se till att du anger **AV** i inställningen Frekvens för appkonsekvent ögonblicksbild för replikeringsprincipen. Endast kraschkonsekventa återställningspunkter stöds vid replikering av servrar som kör Windows Server 2008. Om du anger ett annat värde i Frekvens för appkonsekvent ögonblicksbild resulterar i falska aviseringar genom replikeringsstatusen för servern blir kritisk på grund av bristen på appkonsekventa återställningspunkter.
 
-   ![Skapa replikeringsprincip](media/migrate-tutorial-windows-server-2008/create-policy.png)
+   ![Skärm bild som visar alternativ för att skapa replikeringsprincipen.](media/migrate-tutorial-windows-server-2008/create-policy.png)
 
 ### <a name="enable-replication"></a>Aktivera replikering
 
 [Aktivera replikering](physical-azure-disaster-recovery.md#enable-replication) för Windows Server 2008 SP2-/Windows Server 2008 R2 SP1-servern som ska migreras.
    
-   ![Lägga till fysisk server](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
+   ![Skärm bild som visar alternativ för att lägga till fysiska datorer.](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
 
-   ![Aktivera replikering](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
+   ![Skärm bild som visar alternativ för att aktivera replikering.](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
 
 ### <a name="run-a-test-migration"></a>Kör en testmigrering
 
@@ -152,7 +152,7 @@ Du kan utföra ett redundanstest för servrar som ska replikeras när den inleda
 
 Kör en [testredundansväxling](tutorial-dr-drill-azure.md) till Azure för att kontrollera att allt fungerar som förväntat.
 
-   ![Redundanstest](media/migrate-tutorial-windows-server-2008/testfailover.png)
+   ![Skärm bild som visar kommandot testa redundans.](media/migrate-tutorial-windows-server-2008/testfailover.png)
 
 
 ### <a name="migrate-to-azure"></a>Migrera till Azure
@@ -168,7 +168,7 @@ Kör en redundansväxling för de datorer som du vill migrera.
     - Avslutar migreringsprocessen, stoppar replikeringen för servern och stoppar Site Recovery-debitering för servern.
     - Det här steget rensar replikeringsdata. Men det raderar inte de migrerade virtuella datorerna.
 
-   ![Slutföra migrering](media/migrate-tutorial-windows-server-2008/complete-migration.png)
+   ![Skärm bild som visar kommandot fullständig migrering.](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]

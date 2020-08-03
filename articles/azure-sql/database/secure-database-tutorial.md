@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 73ffe7fe6336d9547ebbbf4c894bd1b9398e0900
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 12c3a35e12e3f432345ea788893d0d0ae6e6433f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092940"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496924"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Självstudie: skydda en databas i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -190,7 +190,7 @@ Så här lägger du till en användare med SQL-autentisering:
 Azure Active Directory-autentisering kräver att databasanvändare skapas som användare av oberoende databas. En oberoende databasanvändare mappar till en identitet i Azure AD-katalogen som är kopplad till databasen och har ingen inloggning i *master*-databasen. Azure AD-identiteten kan vara antingen ett enskilt användarkonto eller en grupp. Mer information finns i avsnittet om [oberoende databasanvändare, göra databasen portabel](/sql/relational-databases/security/contained-database-users-making-your-database-portable) och läs [Azure AD-självstudien](authentication-aad-configure.md) om hur du autentiserar med hjälp av Azure AD.
 
 > [!NOTE]
-> Databasanvändare (exklusive administratörer) kan inte skapas med hjälp av Azure-portalen. Azure RBAC-roller sprids inte till SQL-servrar, databaser eller datalager. De används endast för att hantera Azure-resurser och gäller inte för databasbehörigheter.
+> Databasanvändare (exklusive administratörer) kan inte skapas med hjälp av Azure-portalen. Azure-roller sprids inte till SQL-servrar, databaser eller informations lager. De används endast för att hantera Azure-resurser och gäller inte för databasbehörigheter.
 >
 > Till exempel beviljar rollen *SQL Server-deltagare* inte åtkomst för att ansluta till en databas eller ett datalager. Den här behörigheten måste beviljas i databasen med hjälp av T-SQL-instruktioner.
 

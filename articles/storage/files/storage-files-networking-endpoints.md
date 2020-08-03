@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0859b034cf0caa60039fbf9eb4dd9be54448a940
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: cef1aab42eea84c737d5c0173bd4d0e0aa509fe4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510318"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497774"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Konfigurera Azure Files nätverks slut punkter
 Azure Files tillhandahåller två huvud typer av slut punkter för åtkomst till Azure-fil resurser: 
@@ -155,5 +156,5 @@ När du begränsar lagrings kontot till specifika virtuella nätverk kan du till
 
 ## <a name="see-also"></a>Se även
 - [Azure Files nätverks överväganden](storage-files-networking-overview.md)
-- [Konfigurera DNS-vidarebefordran för Azure Files](storage-files-networking-dns.md)
+- [Konfigurera DNS-vidarebefordring för Azure Files](storage-files-networking-dns.md)
 - [Konfigurerar S2S VPN för Azure Files](storage-files-configure-s2s-vpn.md)

@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: 09b4f36a5c97b6bcc0a8d11d2fb1ee0893fae80a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3517938ae0e08af62a6fcf0d3d0a43a5eaee48dd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130145"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496125"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Så här konfigurerar du en CI/CD-pipeline för Azure Data Lake Analytics  
 
@@ -35,7 +35,7 @@ Ett U-SQL-projekt kan byggas med Microsoft build Engine (MSBuild) genom att skic
 
 Kontrol lera att du har den senaste versionen av U-SQL-projektet innan du konfigurerar en build-uppgift för ett U-SQL-projekt. Öppna U-SQL-projektfilen i redigeraren och kontrol lera att du har dessa import objekt:
 
-```   
+```xml
 <!-- check for SDK Build target in current path then in USQLSDKPath-->
 <Import Project="UsqlSDKBuild.targets" Condition="Exists('UsqlSDKBuild.targets')" />
 <Import Project="$(USQLSDKPath)\UsqlSDKBuild.targets" Condition="!Exists('UsqlSDKBuild.targets') And '$(USQLSDKPath)' != '' And Exists('$(USQLSDKPath)\UsqlSDKBuild.targets')" />
@@ -66,14 +66,14 @@ U-SQL-skript i ett U-SQL-projekt kan ha frågeuttryck för U-SQL Database-objekt
 Läs mer om [U-SQL Database-projekt](data-lake-analytics-data-lake-tools-develop-usql-database.md).
 
 >[!NOTE]
->DROP-instruktionen kan orsaka problem med borttagningen av misstag. Om du vill aktivera DROP-instruktionen måste du uttryckligen ange MSBuild-argumenten. **AllowDropStatement** kommer att aktivera icke-datarelaterad Drop-åtgärd, t. ex. drop Assembly och Drop Table Value-funktion. **AllowDataDropStatement** kommer att aktivera data relaterad Drop-åtgärd, t. ex. drop Table och Drop schema. Du måste aktivera AllowDropStatement innan du använder AllowDataDropStatement.
+> DROP-instruktionen kan orsaka en oavsiktlig borttagning. Om du vill aktivera DROP-instruktionen måste du uttryckligen ange MSBuild-argumenten. **AllowDropStatement** kommer att aktivera icke-datarelaterad Drop-åtgärd, t. ex. drop Assembly och Drop Table Value-funktion. **AllowDataDropStatement** kommer att aktivera data relaterad Drop-åtgärd, t. ex. drop Table och Drop schema. Du måste aktivera AllowDropStatement innan du använder AllowDataDropStatement.
 >
 
 ### <a name="build-a-u-sql-project-with-the-msbuild-command-line"></a>Bygg ett U-SQL-projekt med kommando raden för MSBuild
 
 Migrera först projektet och hämta NuGet-paketet. Anropa sedan standard kommando raden för MSBuild med följande ytterligare argument för att bygga ditt U-SQL-projekt: 
 
-``` 
+```console
 msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL.SDK.1.3.180615\build\runtime;USQLTargetType=SyntaxCheck;DataRoot=datarootfolder;/p:EnableDeployment=true
 ``` 
 
@@ -100,7 +100,7 @@ Förutom kommando raden kan du också använda Visual Studio-versionen eller en 
 
     ![Definiera CI/CD MSBuild-variabler för ett U-SQL-projekt](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables.png) 
 
-    ```
+    ```console
     /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime /p:USQLTargetType=SyntaxCheck /p:DataRoot=$(Build.SourcesDirectory) /p:EnableDeployment=true
     ```
 
@@ -109,9 +109,7 @@ Förutom kommando raden kan du också använda Visual Studio-versionen eller en 
 När du har kört en version skapas alla skript i U-SQL-projektet och skickas till en zip-fil med namnet `USQLProjectName.usqlpack` . Mappstrukturen i ditt projekt behålls i det zippade build-resultatet.
 
 > [!NOTE]
->
 > Bakomliggande filer för varje U-SQL-skript kommer att slås samman som ett infogat uttryck till skriptets build-utdata.
->
 
 ## <a name="test-u-sql-scripts"></a>Testa U-SQL-skript
 
@@ -229,6 +227,10 @@ Function Main()
 
 Main
 ```
+
+>[!NOTE]
+> Kommandona: `Submit-AzDataLakeAnalyticsJob` och `Wait-AzDataLakeAnalyticsJob` är båda Azure PowerShell-cmdletar för Azure Data Lake Analytics i Azure Resource Manager Framework. Du behöver en arbets station med Azure PowerShell installerad. Du kan referera till [kommando listan](https://docs.microsoft.com/powershell/module/Az.DataLakeAnalytics/?view=azps-4.3.0) för fler kommandon och exempel.
+>
 
 ### <a name="deploy-u-sql-jobs-through-azure-data-factory"></a>Distribuera U-SQL-jobb via Azure Data Factory
 

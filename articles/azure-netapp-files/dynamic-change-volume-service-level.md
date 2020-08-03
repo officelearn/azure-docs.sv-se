@@ -14,19 +14,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: bd28f949d35d38c9e64af7ff4196aa1754fbc37a
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 5097a5dfa6dd9b8fd46e4bcbcee72319af51f86f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172667"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499372"
 ---
-# <a name="dynamically-change-the-service-level-of-a-volume"></a>Ändra service nivån för en volym dynamiskt
+# <a name="dynamically-change-the-service-level-of-a-volume"></a>Ändra tjänstnivå för en volym dynamiskt
 
 Du kan ändra service nivån för en befintlig volym genom att flytta volymen till en annan kapacitets pool som använder den [tjänste nivå](azure-netapp-files-service-levels.md) som du vill använda för volymen. Den här ändringar på plats på service nivå för volymen kräver inte att du migrerar data. Det påverkar inte heller åtkomsten till volymen.  
-
-> [!IMPORTANT] 
-> Om du använder den här funktionen krävs vit listning. Skicka e-post anffeedback@microsoft.com med ditt prenumerations-ID för att begära den här funktionen.
 
 Med den här funktionen kan du uppfylla dina arbets belastnings behov på begäran.  Du kan ändra en befintlig volym för att använda en högre service nivå för bättre prestanda eller för att använda en lägre service nivå för kostnads optimering. Om volymen till exempel för närvarande finns i en kapacitetsutnyttjande som använder *standard* Service nivån och du vill att volymen ska använda Service nivån *Premium* , kan du flytta volymen dynamiskt till en pool som använder *Premium* Service-nivån.  
 
@@ -39,7 +36,24 @@ Den kapacitets grupp som du vill flytta volymen till måste redan finnas. Kapaci
 * Om du flyttar en volym till en kapacitets uppsättning med en högre service nivå (till exempel genom att flytta från *standard* till *Premium* eller *Ultra* Service Level) måste du vänta minst sju dagar innan du kan flytta volymen till en kapacitets pool med en lägre service nivå igen (till exempel genom att flytta från *Ultra* till *Premium* eller *standard*).  
 Den här vänte perioden gäller inte om du flyttar volymen till en kapacitets grupp som har samma service nivå eller lägre service nivå.
 
-## <a name="steps"></a>Steg
+## <a name="register-the-feature"></a>Registrera funktionen
+
+1. Funktionen för att flytta en volym till en annan kapacitets pool är för närvarande en för hands version. Om det här är första gången du använder den här funktionen ska du registrera funktionen innan du använder den: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
+    ```
+
+2. Kontrol lera status för funktions registreringen: 
+
+    > [!NOTE]
+    > **RegistrationState** kan vara i ett `Registering` tillstånd i flera minuter innan du ändrar till `Registered` . Vänta tills statusen har **registrerats** innan du fortsätter.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
+    ```
+
+## <a name="move-a-volume-to-another-capacity-pool"></a>Flytta en volym till en annan kapacitets grupp
 
 1.  På sidan volymer högerklickar du på den volym vars service nivå du vill ändra. Välj **ändra pool**.
 

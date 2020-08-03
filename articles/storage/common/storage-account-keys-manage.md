@@ -8,12 +8,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram
-ms.openlocfilehash: 79712c50a5ad46d7d435868606011f458fe48e2e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 8fda0384dacaf1183458e90688b1f6b63cc63a35
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370759"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501346"
 ---
 # <a name="manage-storage-account-access-keys"></a>Hantera åtkomst nycklar för lagrings konton
 
@@ -65,7 +66,7 @@ az storage account keys list \
 
 Du kan använda någon av de två nycklarna för att komma åt Azure Storage, men i allmänhet är det en bra idé att använda den första nyckeln och reservera användningen av den andra nyckeln för när du roterar nycklar.
 
-Om du vill visa eller läsa ett kontos åtkomst nycklar måste användaren antingen vara tjänst administratör eller ha tilldelats en RBAC-roll som innehåller **Microsoft. Storage/storageAccounts/listnycklar/Action**. Vissa inbyggda Azure-roller som innehåller den här åtgärden är roll rollerna **ägare**, **deltagare**och **lagrings konto nyckel operatörer** . Mer information om rollen tjänst administratör finns i [klassisk prenumerations administratörs roller, RBAC-roller i Azure och Azure AD-roller](../../role-based-access-control/rbac-and-directory-admin-roles.md). Detaljerad information om inbyggda roller för Azure Storage finns i avsnittet **Storage** i [inbyggda Azure-roller för Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
+Om du vill visa eller läsa ett kontos åtkomst nycklar måste användaren antingen vara tjänst administratör eller ha tilldelats en Azure-roll som innehåller **Microsoft. Storage/storageAccounts/listnycklar/Action**. Vissa inbyggda Azure-roller som innehåller den här åtgärden är roll rollerna **ägare**, **deltagare**och **lagrings konto nyckel operatörer** . Mer information om tjänst administratörs rollen finns i [klassiska prenumerationer på administratörs roller, Azure-roller och Azure AD-roller](../../role-based-access-control/rbac-and-directory-admin-roles.md). Detaljerad information om inbyggda roller för Azure Storage finns i avsnittet **Storage** i [inbyggda Azure-roller för Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
 
 ## <a name="use-azure-key-vault-to-manage-your-access-keys"></a>Använd Azure Key Vault för att hantera dina åtkomst nycklar
 
@@ -132,7 +133,7 @@ Så här roterar du dina åtkomst nycklar för lagrings konton med Azure CLI:
 > [!NOTE]
 > Microsoft rekommenderar att du bara använder en av nycklarna i alla dina program på samma tidpunkt. Om du använder nyckel 1 på vissa platser och nyckel 2 i andra kommer du inte att kunna rotera dina nycklar utan att några program förlorar åtkomst.
 
-Användaren måste antingen vara tjänst administratör för att kunna rotera ett kontos åtkomst nycklar eller måste tilldelas en RBAC-roll som innehåller **Microsoft. Storage/storageAccounts/regeneratekey/Action**. Vissa inbyggda Azure-roller som innehåller den här åtgärden är roll rollerna **ägare**, **deltagare**och **lagrings konto nyckel operatörer** . Mer information om rollen tjänst administratör finns i [klassisk prenumerations administratörs roller, RBAC-roller i Azure och Azure AD-roller](../../role-based-access-control/rbac-and-directory-admin-roles.md). Detaljerad information om inbyggda Azure-roller för Azure Storage finns i avsnittet **Storage** i [inbyggda Azure-roller för Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
+Användaren måste antingen vara tjänst administratör eller ha tilldelats en Azure-roll som innehåller **Microsoft. Storage/storageAccounts/regeneratekey/åtgärd**för att kunna rotera ett kontos åtkomst nycklar. Vissa inbyggda Azure-roller som innehåller den här åtgärden är roll rollerna **ägare**, **deltagare**och **lagrings konto nyckel operatörer** . Mer information om tjänst administratörs rollen finns i [klassiska prenumerationer på administratörs roller, Azure-roller och Azure AD-roller](../../role-based-access-control/rbac-and-directory-admin-roles.md). Detaljerad information om inbyggda Azure-roller för Azure Storage finns i avsnittet **Storage** i [inbyggda Azure-roller för Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
 
 ## <a name="next-steps"></a>Nästa steg
 

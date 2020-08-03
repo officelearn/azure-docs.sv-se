@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 7679148e195bd67ab5da58636552a684c25c31b0
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4816b597d66aea3bbe7f834004f924b5108de939
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131977"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499763"
 ---
 # <a name="troubleshoot-the-process-server"></a>Felsöka processervern
 
@@ -32,7 +32,7 @@ Innan du påbörjar fel sökningen:
 
 För optimala prestanda för processervern har vi sammanfattat ett antal allmänna bästa metoder.
 
-**Bästa praxis** | **Detaljer**
+**Bästa praxis** | **Information**
 --- |---
 **Användning** | Kontrol lera att konfigurations servern/fristående processervern endast används för avsett syfte. Kör inte något annat på datorn.
 **IP-adress** | Kontrol lera att processervern har en statisk IPv4-adress och att NAT inte har kon figurer ATS.
@@ -91,7 +91,7 @@ Om det inte finns något pulsslag från processervern (felkod 806) gör du följ
 
  Inledande och pågående replikeringsfel orsakas ofta av anslutnings problem mellan käll datorer och processervern, eller mellan processervern och Azure. De här stegen sammanfattas i följande bild, följt av procedurer som hjälper dig att utföra stegen.
 
-![Felsöka anslutningar och replikering](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
+![Flödes schema som visar steg för att felsöka anslutningar och replikering.](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
 
 
 ## <a name="step-4-verify-time-sync-on-source-machine"></a>Steg 4: verifiera tidssynkronisering på käll datorn
@@ -113,7 +113,7 @@ Kontrol lera att inget antivirus program på den replikerade datorn blockerar Si
 3. Kontrol lera om anslutningen lyckades.
 
 
-**Anslutningsmöjligheter** | **Detaljer** | **Åtgärd**
+**Anslutning** | **Information** | **Åtgärd**
 --- | --- | ---
 **Lyckad** | Telnet visar en tom skärm och processervern kan komma åt den. | Ingen ytterligare åtgärd krävs.
 **Misslyckade** | Du kan inte ansluta | Kontrol lera att den inkommande port 9443 är tillåten på processervern. Om du till exempel har ett perimeternätverk eller ett skärmat undernät. Kontrol lera anslutningen igen.
@@ -170,7 +170,7 @@ Kontrol lera om processervern aktivt skickar data till Azure.
   2. Välj fliken **prestanda** > **öppna resursövervakare**.
   3. På sidan **resursövervakare** väljer du fliken **nätverk** . Under **processer med nätverks aktivitet**kontrollerar du om cbengine.exe aktivt skickar en stor mängd data.
 
-       ![Volymer under processer med nätverks aktivitet](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
+       ![Skärm bild som visar ett stort antal volymer under processer med nätverks aktivitet.](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
   Om cbengine.exe inte skickar en stor mängd data, slutför du stegen i följande avsnitt.
 
@@ -179,7 +179,7 @@ Kontrol lera om processervern aktivt skickar data till Azure.
 1. I resursövervakare väljer du **cbengine.exe**.
 2. Under **TCP-anslutningar**kontrollerar du om det finns en anslutning från processervern till Azure Storage.
 
-  ![Anslutning mellan cbengine.exe och Azure Blob Storage-URL: en](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
+  ![Skärm bild som visar anslutningen mellan cbengine.exe och Azure Blob Storage-URL: en.](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
 
 ### <a name="check-services"></a>Kontrol lera tjänster
 

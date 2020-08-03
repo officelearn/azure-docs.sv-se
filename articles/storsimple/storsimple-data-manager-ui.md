@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 85be49ad88ac62d90235c3da6b89b0da6a11487c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00748cfa60882e49336c3a0ac3ecfdec389021ac
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78933760"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496448"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Hantera tjänsten StorSimple Data Manager i Azure Portal
 
@@ -42,7 +42,7 @@ Utför följande steg för att skapa en StorSimple Data Manager-tjänst.
 
    2. Välj en **prenumeration** i list rutan. Prenumerationen är kopplad till ditt faktureringskonto. Det här fältet fylls i automatiskt (och går inte att markera) om du bara har en prenumeration.
 
-   3. Välj en befintlig resurs grupp eller skapa en ny grupp. Mer information finns i avsnittet om [Azure-resursgrupper](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+   3. Välj en befintlig resurs grupp eller skapa en ny grupp. Mer information finns i avsnittet om [Azure-resursgrupper](/azure/azure-resource-manager/management/manage-resource-groups-portal).
 
    4. Ange **platsen** för din tjänst som hus dina lagrings konton och din StorSimple Data Manager-tjänst. Din StorSimple-Enhetshanteraren tjänst, Data Manager tjänst och det associerade lagrings kontot bör vara i de regioner som stöds.
     
@@ -54,7 +54,7 @@ Utför följande steg för att skapa en StorSimple Data Manager-tjänst.
 
 Det tar några minuter att skapa tjänsten. Du ser ett meddelande när tjänsten har skapats och den nya tjänsten visas.
 
-### <a name="create-a-data-transformation-job-definition"></a>Skapa en data omvandlings jobb definition
+### <a name="create-a-data-transformation-job-definition"></a>Skapa en definition för ett dataomvandlingsjobb
 
 I en StorSimple Data Manager tjänst måste du skapa en data omvandlings jobb definition. En jobb definition anger information om de StorSimple-data som du är intresse rad av att flytta till ett lagrings konto i det interna formatet. När du har skapat en jobb definition kan du köra det här jobbet igen med olika körnings inställningar.
 
@@ -131,7 +131,7 @@ Utför följande steg för att skapa en jobb definition.
 
     Den nyligen skapade jobb definitionen läggs till i listan över jobb definitioner för den här tjänsten.
 
-### <a name="run-the-job-definition"></a>Kör jobb definitionen
+### <a name="run-the-job-definition"></a>Köra jobbdefinitionen
 
 När du behöver flytta data från StorSimple till det lagrings konto som du har angett i jobb definitionen måste du köra det. Vid körning kan vissa parametrar anges på olika sätt. Stegen är följande:
 

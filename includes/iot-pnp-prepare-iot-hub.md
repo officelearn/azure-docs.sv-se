@@ -14,7 +14,7 @@ ms.locfileid: "87336912"
 ---
 ## <a name="prepare-an-iot-hub"></a>Förbered en IoT-hubb
 
-Du behöver en Azure IoT-hubb i din Azure-prenumeration för att kunna slutföra stegen i den här artikeln. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Du behöver en Azure IoT-hubb i din Azure-prenumeration för att kunna slutföra stegen i den här artikeln. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 Om du använder Azure CLI lokalt loggar du först in på Azure-prenumerationen med `az login` . Om du kör de här kommandona i Azure Cloud Shell är du inloggad automatiskt.
 

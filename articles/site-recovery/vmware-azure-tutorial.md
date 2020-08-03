@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 317cc5222b3444ae2ed242df694d317503c72a87
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9831305f3889f977a270630b40fa0d78ec1085bd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290657"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501209"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Konfigurera katastrofåterställning till Azure för lokala virtuella VMware-datorer
 
@@ -87,7 +87,7 @@ Alla dessa komponenter installeras tillsammans på de lokala datorer som är kä
 1. Logga in på VMware vCenter-servern eller vSphere ESXi-värden med VMware vSphere-klienten.
 2. I menyn **Arkiv** väljer du **distribuera OVF-mallen** för att starta **guiden Distribuera OVF-mall**.
 
-     ![OVF-mall](./media/vmware-azure-tutorial/vcenter-wizard.png)
+     ![Skärm bild av kommandot distribuera OVF-mall i VMWare vSphere-klienten.](./media/vmware-azure-tutorial/vcenter-wizard.png)
 
 3. På **Välj källa** anger du platsen för den nedladdade OVF:en.
 4. På **Detaljer för recensionen** väljer du **Nästa**.
@@ -153,7 +153,7 @@ Välj och kontrollera målresurserna.
 1. Välj **Förbered infrastruktur**  >  **mål**. Ange den prenumeration som du vill använda. Vi använder en Resource Manager-modell.
 2. Site Recovery kontrollerar att det finns ett eller flera virtuella nätverk. Du bör ha dessa när du konfigurerar Azure komponenterna i den [första självstudien](tutorial-prepare-azure.md) i den här serien med självstudier.
 
-   ![Fliken Mål](./media/vmware-azure-tutorial/storage-network.png)
+   ![Skärm bild av > mål alternativ för förberedelse av infrastruktur.](./media/vmware-azure-tutorial/storage-network.png)
 
 ## <a name="create-a-replication-policy"></a>Skapa replikeringsprincip
 
@@ -165,7 +165,7 @@ Välj och kontrollera målresurserna.
 6. I **Återställningspunkt för kvarhållning** anger du hur länge varje återställningspunkt finns kvar. I den här självstudien använder vi 72 timmar. Replikerade virtuella datorer kan återställas till valfri punkt i ett kvarhållningsfönster.
 7. I **Frekvens för programkonsekventa ögonblicksbilder** anger du hur ofta programkonsekventa ögonblicksbilder skapas. Vi använder standardinställningen 60 minuter. Välj **OK** för att skapa principen.
 
-   ![Skapa replikeringsprincip](./media/vmware-azure-tutorial/replication-policy.png)
+   ![Skärm bild av alternativen för att skapa replikeringsprincipen.](./media/vmware-azure-tutorial/replication-policy.png)
 
 - Principen associeras automatiskt med konfigurationsservern.
 - Som standard skapas automatiskt en matchande princip för återställning efter fel. Om replikeringsprincipen till exempel är **rep-policy** är failback-principen **rep-policy-failback**. Den här principen används inte förrän du initierar en återställning efter fel från Azure.

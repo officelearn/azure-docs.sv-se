@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c24023bdd3540785dec58ebeaa14d99ab659ab1
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 713b4ed2559e3cd16943af92e68818047e249ef4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848367"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501022"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Bevilja administratörsmedgivande för hela klientorganisationen till ett program
 
@@ -25,15 +25,22 @@ Lär dig hur du fören klar användar upplevelsen genom att bevilja en klients a
 
 Mer information om samtycker till program finns i [Azure Active Directory medgivande Framework](../develop/consent-framework.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att bevilja administratörs tillåtelse för hela klienten måste du logga in som [Global administratör](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), en [program administratör](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)eller en [moln program administratör](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
 
 > [!IMPORTANT]
 > När ett program har beviljats administratörs medgivande kan alla användare logga in på appen om den inte har kon figurer ATS för att kräva användar tilldelning. För att begränsa vilka användare som kan logga in i ett program, kräver användar tilldelning och tilldelar sedan användare eller grupper till programmet. Mer information finns i [metoder för att tilldela användare och grupper](methods-for-assigning-users-and-groups.md).
+>
+> Rollen global administratör krävs för att ge administrativt medgivande för Microsoft Graph API.
+>
+
 
 > [!WARNING]
 > Om du beviljar administratörs medgivande för klient organisationer till ett program får appen och appens utgivare åtkomst till din organisations data. Noggrant granska de behörigheter som programmet begär innan medgivande beviljas.
+>
+> Rollen global administratör krävs för att ge administrativt medgivande för Microsoft Graph API.
+>
 
 ## <a name="grant-admin-consent-from-the-azure-portal"></a>Bevilja administratörs medgivande från Azure Portal
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: b65d9579686cdf53f1cac35ba47bc5850b45c8e2
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 50dbbe3a6a1af1e73cdf1ee7f5bd3a63cf2f6a50
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86204309"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498811"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Spårning och händelse loggning för din Azure Data Box och Azure Data Box Heavy import ordning
 
@@ -35,7 +35,7 @@ Den här artikeln beskriver i detalj vilka olika mekanismer eller verktyg som ä
 
 ## <a name="set-up-access-control-on-the-order"></a>Konfigurera åtkomst kontroll på ordern
 
-Du kan styra vem som kan komma åt din beställning när ordern först skapas. Konfigurera rollbaserade Access Control-roller (RBAC) i olika omfång för att kontrol lera åtkomsten till Data Box-enhets ordningen. En RBAC-roll bestämmer typ av åtkomst – Läs-och Skriv behörighet, skrivskyddad, Läs-och skriv åtgärder för en del av åtgärderna.
+Du kan styra vem som kan komma åt din beställning när ordern först skapas. Konfigurera Azure-roller i olika scope för att kontrol lera åtkomsten till Data Box-enhets ordningen. En Azure-roll avgör typ av åtkomst – Läs-och Skriv behörighet, skrivskyddad, Läs-och skriv åtgärder för en delmängd åtgärder.
 
 De två roller som kan definieras för den Azure Data Box tjänsten är:
 
@@ -295,7 +295,7 @@ Här är ett exempel på en kopierings logg där blobbar eller filer som inte ö
 
 När data har raderats från Data Box-enhet diskar enligt rikt linjerna för NIST SP 800-88 Revision 1 är kedjan med vårdnads loggar tillgänglig. Loggarna innehåller gransknings loggarna och order historiken. STRUKTURLISTE-eller manifest filerna kopieras också med gransknings loggarna.
 
-### <a name="audit-logs"></a>Spårningsloggar
+### <a name="audit-logs"></a>Granskningsloggar
 
 Gransknings loggar innehåller information om hur du kan sätta igång och få åtkomst till resurser på Data Box-enhet eller Data Box Heavy när de är utanför Azure-datacenter. Loggarna finns på:`storage-account/azuredatabox-chainofcustodylogs`
 

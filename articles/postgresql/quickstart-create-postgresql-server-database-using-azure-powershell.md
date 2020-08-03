@@ -7,19 +7,19 @@ ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 06/08/2020
-ms.custom: mvc
-ms.openlocfilehash: 844b9a725a74034b8970e344cc1907eeec42ccc4
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 76c5bac600f05094f2e2a354cd5cf5895d9d45d2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740423"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496618"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-powershell"></a>Snabb start: skapa en Azure Database for PostgreSQL-enskild server med PowerShell
 
 I den här snabb starten beskrivs hur du använder PowerShell för att skapa en Azure Database for PostgreSQL-server i en Azure-resurs grupp. Du kan använda PowerShell för att skapa och hantera Azure-resurser interaktivt eller i skript.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -53,7 +53,7 @@ I följande exempel skapas en resurs grupp med namnet **myresourcegroup** i regi
 New-AzResourceGroup -Name myresourcegroup -Location westus
 ```
 
-## <a name="create-an-azure-database-for-postgresql-server"></a>Skapa en Azure Database för PostgreSQL-server
+## <a name="create-an-azure-database-for-postgresql-server"></a>Skapa en Azure Database for PostgreSQL-server
 
 Skapa en Azure Database for PostgreSQL-server med `New-AzPostgreSqlServer` cmdleten. En server kan hantera flera databaser. Normalt används en separat databas för varje projekt eller för varje användare.
 
@@ -77,7 +77,7 @@ Värdet för **SKU** -parametern följer konventions **pris-nivå \_ beräknings
 
 - `-Sku B_Gen5_1` mappar till Basic, Gen 5 och 1 virtuell kärna. Det här alternativet är minsta tillgängliga SKU.
 - `-Sku GP_Gen5_32` mappar till generell användning, Gen 5 och 32 vCores.
-- `-Sku MO_Gen5_2` mappar till minnesoptimerad, Gen 5 och 2 vCores.
+- `-Sku MO_Gen5_2` mappar till minnesoptimerad, Gen 5 och 2 virtuella kärnor.
 
 Information om giltiga **SKU** -värden per region och för nivåer finns i [Azure Database for PostgreSQL pris nivåer](./concepts-pricing-tiers.md).
 

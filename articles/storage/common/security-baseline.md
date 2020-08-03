@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4e10843eab8ac2ccbda3d6876f51c88a598d7139
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 36f3c4192f43e323df2aaf9397364dfd1b4da731
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371693"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501380"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Azures säkerhets bas linje för Azure Storage
 
@@ -292,7 +292,7 @@ Aktivera också Avancerat skydd för ditt Azure Storage-konto. Avancerat skydd f
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3,2: ändra standard lösen ord där tillämpligt
 
-**Vägledning**: Azure Storage konton eller Azure Active Directory har begreppet standard-eller tomt lösen ord. Azure Storage implementerar en modell för åtkomst kontroll som har stöd för rollbaserad åtkomst kontroll i Azure (RBAC) samt delad nyckel och signaturer för delad åtkomst (SAS). En egenskap för delad nyckel och SAS-autentisering är att ingen identitet är associerad med anroparen och därför kan inte behörigheten för säkerhets objekts behörighet utföras. 
+**Vägledning**: Azure Storage konton eller Azure Active Directory har begreppet standard-eller tomt lösen ord. Azure Storage implementerar en modell för åtkomst kontroll som stöder rollbaserad åtkomst kontroll i Azure (Azure RBAC) samt delade nycklar och signaturer för delad åtkomst (SAS). En egenskap för delad nyckel och SAS-autentisering är att ingen identitet är associerad med anroparen och därför kan inte behörigheten för säkerhets objekts behörighet utföras. 
 
 - [Auktorisera åtkomst till data i Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
 

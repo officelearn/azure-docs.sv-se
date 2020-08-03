@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 65778d0a6ba3bd5cdc719609ae4c2d18bf05aab9
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4b1b8a0cfa98d48d7cb92474c1572f17c79ffd0d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424417"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498960"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Katastrof återställnings arkitektur för VMware till Azure
 
@@ -30,9 +30,7 @@ Följande tabell och grafik ger en övergripande bild av de komponenter som anv�
 **VMware-servrar** | Virtuella VMware-datorer finns på lokala vSphere ESXi-servrar. Vi rekommenderar att en vCenter-Server hanterar värdarna. | När du Site Recovery distribution lägger du till VMware-servrar i Recovery Services-valvet.
 **Replikerade datorer** | Mobilitets tjänsten är installerad på varje virtuell VMware-dator som du replikerar. | Vi rekommenderar att du tillåter automatisk installation från processervern. Alternativt kan du installera tjänsten manuellt eller använda en automatiserad distributions metod, till exempel Configuration Manager.
 
-**Arkitektur för VMware till Azure**
-
-![Komponenter](./media/vmware-azure-architecture/arch-enhanced.png)
+![Diagram som visar arkitektur relationer för VMware till Azure-replikering.](./media/vmware-azure-architecture/arch-enhanced.png)
 
 ## <a name="set-up-outbound-network-connectivity"></a>Konfigurera utgående nätverks anslutning
 
@@ -71,9 +69,7 @@ Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgåend
     - Processervern tar emot replikeringsdata, optimerar och krypterar den och skickar den till Azure Storage via port 443 utgående.
 5. Replikeringsdata loggar första marken i ett cache Storage-konto i Azure. Dessa loggar bearbetas och data lagras på en Azure-hanterad disk (kallas för automatisk start disk). Återställnings punkterna skapas på den här disken.
 
-**Replikering av VMware till Azure-replikering**
-
-![Replikeringsprocessen](./media/vmware-azure-architecture/v2a-architecture-henry.png)
+![Diagram över VMware till Azure-replikeringen.](./media/vmware-azure-architecture/v2a-architecture-henry.png)
 
 ## <a name="resynchronization-process"></a>Process för omsynkronisering
 
@@ -108,9 +104,8 @@ När replikeringen har kon figurer ATS och du kör en haveri beredskap (testa re
     - Steg 3: när arbets belastningarna har misslyckats igen återaktiverar du replikeringen för de lokala virtuella datorerna.
     
  
-**VMware-återställning från Azure**
 
-![Återställning efter fel](./media/vmware-azure-architecture/enhanced-failback.png)
+![Diagram över VMware-återställning från Azure.](./media/vmware-azure-architecture/enhanced-failback.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

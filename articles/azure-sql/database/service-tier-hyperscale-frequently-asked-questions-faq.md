@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: 983bf848b3be2501b70ba1c0396207e514b7b8d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 359de25d2bdb57ad5c6386586f987942acc120ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024035"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500154"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Vanliga frågor och svar om Azure SQL Database storskalig
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -331,7 +331,7 @@ För de flesta prestanda problem, särskilt de som inte har rotats i lagrings pr
 
 ### <a name="how-long-would-it-take-to-scale-up-and-down-a-compute-replica"></a>Hur lång tid tar det att skala upp och ned en beräknings replik
 
-Skalnings beräkningar bör ta 5-10 minuter oavsett data storlek.
+Skalnings beräkning upp eller ned tar vanligt vis upp till 2 minuter, oavsett data storlek.
 
 ### <a name="is-my-database-offline-while-the-scaling-updown-operation-is-in-progress"></a>Är min databas offline medan åtgärden för att skala upp/ned pågår
 

@@ -7,18 +7,19 @@ ms.service: application-gateway
 ms.topic: sample
 ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: 0df0ace18e39a3920354e6c713843adc55bf1394
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 3f957d8b7512d2eddd6c9f4cc412a2cd1d05bb08
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086905"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497723"
 ---
 # <a name="azure-cli-examples-for-azure-application-gateway"></a>Azure CLI-exempel för Azure Application Gateway
 
 Följande tabell innehåller länkar till exempel på Azure CLI-skript för Azure Application Gateway.
 
-| Exempel | Beskrivning |
+| Exempel | Description |
 |-------- | ----------- |
 | [Hantera webbtrafik](./scripts/create-vmss-cli.md) | Skapar en Application Gateway och alla relaterade resurser. |
 | [Begränsa webbtrafik](./scripts/create-vmss-waf-cli.md) | Skapar en Programgateway som begränsar trafik med hjälp av OWASP-regler.|

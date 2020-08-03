@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: a3b012d86444ca2bb9b84af37aa17424221457d1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d476bef6faa19defad1d2e1ef1a90f7e5d83def5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955071"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495700"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Prestandajustering med materialiserade vyer
 
@@ -31,16 +31,16 @@ En materialiserad vy för beräkning, lager och underhåll av data i SQL-poolen 
 
 De flesta standard kraven för standardvyn gäller fortfarande för en materialiserad vy. Mer information om syntaxen för materialiserad vy och andra krav finns i [skapa materialiserad vy som Välj](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-| Jämförelse                     | Visa                                         | Materialiserad vy
+| Jämförelse                     | Vy                                         | Materialiserad vy
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
 |Visa definition                 | Lagras i Azure Data Warehouse.              | Lagras i Azure Data Warehouse.
 |Visa innehåll                    | Genereras varje gång som vyn används.   | Förbehandlade och lagrade i Azure Data Warehouse när du skapar vyn. Uppdateras när data läggs till i de underliggande tabellerna.
 |Datauppdatering                    | Alltid uppdaterad                               | Alltid uppdaterad
-|Hastighet för att hämta visnings data från komplexa frågor     | Långsam                                         | Snabbväxande  
-|Extra lagrings utrymme                   | Nej                                           | Ja
+|Hastighet för att hämta visnings data från komplexa frågor     | Långsam                                         | Snabb  
+|Extra lagrings utrymme                   | Inga                                           | Ja
 |Syntax                          | SKAPA VY                                  | SKAPA MATERIALISERAD VY SOM VÄLJ
 
-## <a name="benefits-of-using-materialized-views"></a>Fördelar med att använda materialiserade vyer
+## <a name="benefits-of-materialized-views"></a>Fördelar med materialiserade vyer
 
 En korrekt utformad materialiserad vy ger följande fördelar:
 

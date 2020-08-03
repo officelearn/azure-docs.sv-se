@@ -7,12 +7,13 @@ ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: 879dec5ec34482c677730ad4e675916da0200553
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6fe9fdd68f9419a9f730ea64b5aea19f583d751c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120593"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496754"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-postgresql-server-using-powershell"></a>Säkerhetskopiera och återställa en Azure Database for PostgreSQL-server med hjälp av PowerShell
 
@@ -74,7 +75,7 @@ Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 Parameter uppsättningen **PointInTimeRestore** för `Restore-AzPostgreSqlServer` cmdleten kräver följande parametrar:
 
-| Inställningen | Föreslaget värde | Description  |
+| Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Resurs gruppen där käll servern finns.  |
 | Name | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
@@ -116,11 +117,11 @@ Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 Parameter **uppsättningen för den här** `Restore-AzPostgreSqlServer` cmdleten måste ha följande parametrar:
 
-| Inställningen | Föreslaget värde | Description  |
+| Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | Namnet på den resurs grupp som den nya servern tillhör.|
 |Name | mydemoserver – omåterställd | Namnet på den nya servern. |
-|Location | eastus | Platsen för den nya servern. |
+|Location | USA, östra | Platsen för den nya servern. |
 |UseGeoRestore | `<SwitchParameter>` | Använd geo-läge för att återställa. |
 
 När du skapar en ny server med geo Restore ärver den samma lagrings storlek och pris nivå som käll servern om inte parametern **SKU** anges.

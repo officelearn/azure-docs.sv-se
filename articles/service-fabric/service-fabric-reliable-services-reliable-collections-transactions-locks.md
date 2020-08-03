@@ -4,12 +4,12 @@ description: Azure Service Fabric Reliable State Manager och Reliable Collection
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.custom: sfrev
-ms.openlocfilehash: c7d0970918b0fc60f1208b5997d696a57e5bc698
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d1094462ebabcea1fbead3d5b30fdfb8dda6463a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245117"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500290"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transaktioner och lås lägen i Azure Service Fabric Reliable Collections
 
@@ -68,7 +68,7 @@ Ett uppdaterings lås är ett asymmetriskt lås som används för att förhindra
 
 Matrisen för att låsa kompatibilitet finns i följande tabell:
 
-| Begäran har beviljats | Inga | Delad | Uppdatera | Öppna |
+| Begäran har beviljats | Ingen | Delad | Uppdatera | Öppna |
 | --- |:--- |:--- |:--- |:--- |
 | Delad |Ingen konflikt |Ingen konflikt |Konflikt |Konflikt |
 | Uppdatera |Ingen konflikt |Ingen konflikt |Konflikt |Konflikt |

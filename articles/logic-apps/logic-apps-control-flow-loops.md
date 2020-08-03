@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 0ffcda4a33c43866c3b580a60c87c1ffca59bbc4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8a72dff055f2733a07b6da705b66da939ad29bae
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066339"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495615"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Skapa loopar som upprepar arbetsflödesåtgärder eller processmatriser i Azure Logic Apps
 
@@ -24,7 +24,7 @@ Om du vill upprepa åtgärder tills ett villkor uppfylls eller ett tillstånd ä
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
+* Ett Azure-konto och prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
 * Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -32,11 +32,11 @@ Om du vill upprepa åtgärder tills ett villkor uppfylls eller ett tillstånd ä
 
 ## <a name="foreach-loop"></a>"Förgrunds"-loop
 
-En "förgrunds slinga" upprepar en eller flera åtgärder på varje mat ris objekt och fungerar bara på matriser. Iterationer i en "förgrunds" loop körs parallellt. Du kan dock köra iterationer en i taget genom att ställa in en [sekventiell "förgrunds"-slinga](#sequential-foreach-loop). 
+En "förgrunds slinga" upprepar en eller flera åtgärder på varje mat ris objekt och fungerar bara på matriser. Här följer några saker att tänka på när du använder "förgrunds" slingor:
 
-Här följer några saker att tänka på när du använder "förgrunds" slingor:
+* Som standard körs iterationer i en "förgrunds" loop vid samma tidpunkt eller parallellt. Det här beteendet skiljer sig från automatisk [energi förbrukning **för varje** slinga](/power-automate/apply-to-each) där iterationer körs en i taget eller sekventiellt. Du kan dock [ställa in sekventiella upprepningar av "förgrunds slingor"](#sequential-foreach-loop). Om du till exempel vill pausa nästa iteration i en "förgrunds" slinga med hjälp av [fördröjnings åtgärden](../connectors/connectors-native-delay.md)måste du ställa in loopen så att den körs sekventiellt.
 
-* I kapslade slingor körs iterationer alltid sekventiellt, inte parallellt. Om du vill köra åtgärder parallellt för objekt i en kapslad slinga skapar och [anropar du en underordnad Logic-app](../logic-apps/logic-apps-http-endpoint.md).
+  Undantaget till standard beteendet är kapslade slingor där iterationer alltid körs sekventiellt, inte parallellt. Om du vill köra åtgärder parallellt för objekt i en kapslad slinga skapar och [anropar du en underordnad Logic-app](../logic-apps/logic-apps-http-endpoint.md).
 
 * För att få förutsägbara resultat från åtgärder på variabler under varje upprepnings slinga, kör du dessa slingor i tur och ordning. Till exempel, när en slinga som körs samtidigt, ökar, minskar och lägger till variabel åtgärder returnerar förutsägbara resultat. Men under varje iteration i den körnings bara loopen kan dessa åtgärder returnera oförutsägbara resultat. 
 
@@ -192,7 +192,7 @@ Från och med 8:00 varje dag, ökar den här exempel Logic app en variabel tills
    | Egenskap | Värde | Beskrivning |
    | -------- | ----- | ----------- |
    | **Namn** | Gräns | Variabelns namn | 
-   | **Typ** | Heltal | Variabelns datatyp | 
+   | **Typ** | Integer | Variabelns datatyp | 
    | **Värde** | 0 | Variabelns start värde | 
    |||| 
 
@@ -247,9 +247,9 @@ Från och med 8:00 varje dag, ökar den här exempel Logic app en variabel tills
 
 En "till"-loop har standard gränser som slutar köras om något av dessa villkor inträffar:
 
-| Egenskap | Standardvärde | Beskrivning | 
+| Egenskap | Standardvärde | Description | 
 | -------- | ------------- | ----------- | 
-| **Antal** | 60 | Det högsta antalet slingor som körs innan loopen avslutas. Standardvärdet är 60. | 
+| **Reparationer** | 60 | Det högsta antalet slingor som körs innan loopen avslutas. Standardvärdet är 60. | 
 | **Standardvärde** | PT1H | Det mesta av tiden att köra en loop innan loopen avslutas. Standardvärdet är en timme och anges i ISO 8601-format. <p>Timeout-värdet utvärderas för varje loop-cykel. Om en åtgärd i slingan tar längre tid än tids gränsen, stoppas inte den aktuella cykeln. Nästa cykel startar dock inte eftersom gräns villkoret inte är uppfyllt. | 
 |||| 
 

@@ -4,13 +4,13 @@ description: Skapa en server lös python-Function-app med hjälp av Azure CLI
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 11/23/2019
-ms.custom: tracking-python
-ms.openlocfilehash: 3bcefe59bfec5f3d76ecbc04a5b46a9285fc381b
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.custom: tracking-python, devx-track-azurecli
+ms.openlocfilehash: c0c94c8682cdd3c5509bca1e223e28b3bef94a28
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561207"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498267"
 ---
 # <a name="create-a-serverless-python-function-app-using-azure-cli"></a>Skapa en server lös python-Function-app med Azure CLI
 
@@ -37,7 +37,7 @@ Det här skriptet skapar en Azure Function-app med hjälp av [förbruknings plan
 
 Varje kommando i tabellen länkar till kommandospecifik dokumentation. I det här skriptet används följande kommandon:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Konfigurerar ett Azure Storage-konto. |

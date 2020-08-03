@@ -3,14 +3,15 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 04/14/2020
-ms.openlocfilehash: cc4cd4b099a37ef103e2da79b8c15269008e7423
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 0cb31f5470519e33b76c6cad83d7b47972f21381
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837883"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407325"
 ---
-Den här artikeln visar hur du kommer igång med Custom Vision SDK med Node. js för att skapa en modell för objekt identifiering. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, Hämta projektets publicerade slut punkts-URL och använda slut punkten för att testa en avbildning. Använd det här exemplet som mall för att skapa ditt eget Node.js-program.
+Den här artikeln visar hur du kommer igång med Custom Vision SDK med Node.js för att skapa en modell för objekt identifiering. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, Hämta projektets publicerade slut punkts-URL och använda slut punkten för att testa en avbildning. Använd det här exemplet som mall för att skapa ditt eget Node.js-program.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -25,7 +26,7 @@ Den här artikeln visar hur du kommer igång med Custom Vision SDK med Node. js 
 
 ## <a name="install-the-custom-vision-sdk"></a>Installera Custom Vision-SDK
 
-Om du vill installera Custom Vision tjänst-SDK: er för Node. js i projektet kör du följande kommandon:
+Om du vill installera Custom Vision tjänst-SDK: er för Node.js i projektet kör du följande kommandon:
 
 ```shell
 npm install @azure/cognitiveservices-customvision-training

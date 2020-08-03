@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 6c50ceae36c784b8b869977f14351ab5858fc7c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cfe5f763b3dedd68c5180f5a0a3c7a3f4ea3e93
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466025"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496431"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrera Azure Data Lake Storage från gen1 till Gen2
 
@@ -81,7 +81,7 @@ Migrera data, arbets belastningar och program med hjälp av det mönster som du 
    
 6. Sök efter URI-referenser som innehåller strängen `adl://` i kodfragment, eller i Databricks-anteckningsböcker, Apache HIVE HQL-filer eller andra filer som används som en del av dina arbets belastningar. Ersätt dessa referenser med [Gen2-formaterad URI](data-lake-storage-introduction-abfs-uri.md) för ditt nya lagrings konto. Till exempel: gen1-URI: n `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` kan bli `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile` . 
 
-7. Konfigurera säkerheten på ditt konto för att inkludera [rollbaserad åtkomst kontroll (RBAC) roller](../common/storage-auth-aad-rbac-portal.md), säkerhet på [fil-och mappnivå](data-lake-storage-access-control.md)samt [Azure Storage brand väggar och virtuella nätverk](../common/storage-network-security.md).
+7. Konfigurera säkerheten på ditt konto för att inkludera [Azure-roller](../common/storage-auth-aad-rbac-portal.md), [säkerhet på fil-och mappnivå](data-lake-storage-access-control.md)och [Azure Storage brand väggar och virtuella nätverk](../common/storage-network-security.md).
 
 ### <a name="step-4-cutover-from-gen1-to-gen2"></a>Steg 4: Start punkt från gen1 till Gen2
 
@@ -97,7 +97,7 @@ I den här tabellen jämförs funktionerna i gen1 med Gen2.
 |---|---|---|
 |Data organisation|[Hierarkiskt namn område](data-lake-storage-namespace.md)<br>Stöd för filer och mappar|[Hierarkiskt namn område](data-lake-storage-namespace.md)<br>Stöd för behållare, filer och mappar |
 |GEO-redundans| [LRS](../common/storage-redundancy.md#locally-redundant-storage)| [LRS](../common/storage-redundancy.md#locally-redundant-storage), [ZRS](../common/storage-redundancy.md#zone-redundant-storage), [GRS](../common/storage-redundancy.md#geo-redundant-storage), [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
-|Autentisering|[AAD-hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Tjänstens huvudnamn](../../active-directory/develop/app-objects-and-service-principals.md)|[AAD-hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Tjänstens huvudnamn](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Delad åtkomst nyckel](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
+|Autentisering|[AAD-hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Tjänsters huvudnamn](../../active-directory/develop/app-objects-and-service-principals.md)|[AAD-hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Tjänsters huvudnamn](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Delad åtkomst nyckel](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
 |Auktorisering|Hantering- [RBAC](../../role-based-access-control/overview.md)<br>Data – [ACL: er](data-lake-storage-access-control.md)|Hantering – [RBAC](../../role-based-access-control/overview.md)<br>Data – [ACL: er](data-lake-storage-access-control.md), [RBAC](../../role-based-access-control/overview.md) |
 |Kryptering – vilande data|Server sidan – med [Microsoft-hanterade](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) eller [kund hanterade](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) nycklar|Server sidan – med [Microsoft-hanterade](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) eller [kund hanterade](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) nycklar|
 |VNET-stöd|[VNET-integration](../../data-lake-store/data-lake-store-network-security.md)|[Tjänst slut punkter](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [privata slut punkter](../common/storage-private-endpoints.md)|
@@ -207,4 +207,3 @@ Detta är det enklaste mönstret.
 - Lär dig mer om de olika delarna av att ställa in säkerhet för ett lagrings konto. Se [Azure Storage säkerhets guide](../common/storage-security-guide.md).
 - Optimera prestandan för din Data Lake Store. Se [optimera Azure Data Lake Storage Gen2 för prestanda](data-lake-storage-performance-tuning-guidance.md)
 - Läs igenom metod tipsen för att hantera Data Lake Store. Se [metod tips för att använda Azure Data Lake Storage Gen2](data-lake-storage-best-practices.md)
-

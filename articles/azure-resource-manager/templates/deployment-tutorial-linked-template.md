@@ -4,18 +4,19 @@ description: Lär dig hur du distribuerar en länkad mall
 ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 177a994450b6ffe5489a8c95c3b484521fd9b77b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 63383f810b6f5643bad9feb86360745cd2f9b000
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80672920"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501141"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Självstudie: Distribuera en länkad mall
 
-I de [föregående självstudierna](./deployment-tutorial-local-template.md)har du lärt dig hur du distribuerar en mall som lagras på din lokala dator. Om du vill distribuera komplexa lösningar kan du dela upp en mall i flera mallar och distribuera dessa mallar via en huvud-mall. I den här självstudien får du lära dig hur du distribuerar en huvud-mall som innehåller referensen till en länkad mall. När huvud mal len distribueras utlöser den den länkade mallens distribution. Du lär dig också hur du lagrar och skyddar den länkade mallen med hjälp av SAS-token. Det tar ungefär **12 minuter** att slutföra.
+I de [föregående självstudierna](./deployment-tutorial-local-template.md)har du lärt dig hur du distribuerar en mall som lagras på din lokala dator. Om du vill distribuera komplexa lösningar kan du dela upp en mall i flera mallar och distribuera dessa mallar via en huvud-mall. I den här självstudien får du lära dig hur du distribuerar en huvud-mall som innehåller referensen till en länkad mall. När huvudmallen distribueras utlöser den den länkade mallens distribution. Du lär dig också hur du lagrar och skyddar den länkade mallen med hjälp av SAS-token. Det tar ungefär **12 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi rekommenderar att du slutför den föregående själv studie kursen, men det är inget krav.
 
@@ -35,7 +36,7 @@ Följande mall är huvud mal len.  Det markerade objektet **Microsoft. Resources
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="27-32,40-58":::
 
-Spara en kopia av huvudmallen på din lokala dator med. JSON-tillägget, till exempel azuredeploy. JSON. Du behöver inte spara en kopia av den länkade mallen.  Den länkade mallen kommer att kopieras från en GitHub-lagringsplats till ett lagrings konto.
+Spara en kopia av huvudmallen på din lokala dator med. JSON-tillägget, till exempel azuredeploy.jspå. Du behöver inte spara en kopia av den länkade mallen.  Den länkade mallen kommer att kopieras från en GitHub-lagringsplats till ett lagrings konto.
 
 ## <a name="store-the-linked-template"></a>Lagra den länkade mallen
 

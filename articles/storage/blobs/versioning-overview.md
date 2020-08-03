@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: fd620e253e661f986f67a440272937026cb4ff7f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 2085f0e8a148e27914b517f25e48894009592dd2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528415"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498607"
 ---
 # <a name="blob-versioning-preview"></a>Blob-version (för hands version)
 
@@ -176,7 +177,7 @@ BLOB-versioner är utformad för att skydda dina data från oavsiktlig eller ska
 
 I följande tabell visas vilka RBAC-åtgärder som stöder borttagning av BLOB-eller BLOB-versioner.
 
-| Beskrivning | Blob Service åtgärd | Åtgärd för RBAC-data krävs | Stöd för RBAC-inbyggd roll |
+| Description | Blob Service åtgärd | Åtgärd för RBAC-data krävs | Stöd för RBAC-inbyggd roll |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Tar bort den aktuella versionen av blobben | Ta bort blob | **Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/Delete** | Storage BLOB data-deltagare |
 | Tar bort en version | Ta bort blob | **Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/deleteBlobVersion/åtgärd** | Storage BLOB data-ägare |
@@ -196,7 +197,7 @@ I följande tabell visas den behörighet som krävs för en SAS för att ta bort
 BLOB-versioner är tillgängliga i för hands versionen i följande regioner:
 
 - USA, östra 2
-- USA, centrala
+- Central US
 - Norra Europa
 - Europa, västra
 - Frankrike, centrala

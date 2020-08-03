@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 04/24/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 15cf4aa6adda26991e76ec8a5e7378766fe2a21f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6234e9efe4f6dd122a22ee834ef9c35269eea95f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84552645"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500988"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Skydda data åtkomst i Azure Machine Learning
 
@@ -50,7 +50,7 @@ Följande diagram innehåller en visuell demonstration av detta rekommenderade a
 
 ![Data-Concept-diagram](./media/concept-data/data-concept-diagram.svg)
 
-## <a name="datastores"></a>Data lager
+## <a name="datastores"></a>Datalager
 
 Azure Machine Learning data lager sparar säkert anslutnings informationen i Azure Storage, så du behöver inte koda den i dina skript. [Registrera och skapa ett data lager](how-to-access-data.md) för att enkelt ansluta till ditt lagrings konto och få åtkomst till data i din underliggande Azure Storage-tjänst. 
 
@@ -67,14 +67,17 @@ Molnbaserade lagrings tjänster som stöds i Azure och som kan registreras som d
 
 ## <a name="datasets"></a>Datauppsättningar
 
-Azure Machine Learning data uppsättningar är referenser som pekar på data i lagrings tjänsten. De är inte kopior av dina data, så ingen extra lagrings kostnad uppstår. Om du vill interagera med dina data i lagring [skapar du en data uppsättning](how-to-create-register-datasets.md) för att paketera dina data i ett förbruknings Bart objekt för Machine Learning-uppgifter. Registrera data uppsättningen på din arbets yta för att dela och återanvända den över olika experiment utan komplexa data inmatningar.
+Azure Machine Learning data uppsättningar är referenser som pekar på data i lagrings tjänsten. De är inte kopior av dina data, så ingen extra lagrings kostnad uppstår och integriteten hos dina ursprungliga data källor är inte utsatt för risk.
+
+ Om du vill interagera med dina data i lagring [skapar du en data uppsättning](how-to-create-register-datasets.md) för att paketera dina data i ett förbruknings Bart objekt för Machine Learning-uppgifter. Registrera data uppsättningen på din arbets yta för att dela och återanvända den över olika experiment utan komplexa data inmatningar.
 
 Data uppsättningar kan skapas från lokala filer, offentliga URL: er, [öppna data uppsättningar i Azure](https://azure.microsoft.com/services/open-datasets/)eller Azure Storage-tjänster via data lager. Om du vill skapa en data uppsättning från en i minnet Pandas dataframe skriver du data till en lokal fil, t. ex. en Parquet och skapar din data uppsättning från den filen.  
 
 Vi stöder 2 typer av data uppsättningar: 
-+ En [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representerar data i tabell format genom att parsa den angivna filen eller listan med filer. Du kan läsa in en TabularDataset i en Pandas eller Spark-DataFrame för ytterligare manipulering och rengöring. En fullständig lista över data format som du kan skapa TabularDatasets från finns i [TabularDatasetFactory-klassen](https://aka.ms/tabulardataset-api-reference).
 
-+ En [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) refererar till en eller flera filer i dina data lager eller offentliga URL: er. Du kan [Ladda ned eller montera filer](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) som FileDatasets refererar till i ditt beräknings mål.
++ En [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) refererar till en eller flera filer i dina data lager eller offentliga URL: er. Om dina data redan har rensats och är redo att användas i övnings experiment, kan du [Hämta eller montera filer](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) som FileDatasets till ditt beräknings mål.
+
++ En [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representerar data i tabell format genom att parsa den angivna filen eller listan med filer. Du kan läsa in en TabularDataset i en Pandas eller Spark-DataFrame för ytterligare manipulering och rengöring. En fullständig lista över data format som du kan skapa TabularDatasets från finns i [TabularDatasetFactory-klassen](https://aka.ms/tabulardataset-api-reference).
 
 Ytterligare data uppsättnings funktioner finns i följande dokumentation:
 

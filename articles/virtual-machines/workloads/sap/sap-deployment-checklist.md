@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 47f412dae6b467518fb1b51518716625c1395717
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 98cad9a359a9a2807b1f1f3f2daba45759471718
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035833"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495666"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>SAP-arbetsbelastningar på Azure: planering och distribution check lista
 
@@ -174,7 +174,7 @@ Vi rekommenderar att du ställer in och validerar en fullständig HADR-lösning 
    3. Testa din säkerhets kopierings-/återställnings ordning och tids inställning och gör eventuella ändringar om du behöver. Kontrol lera att säkerhets kopierings tiderna räcker. Du måste också testa återställnings-och tids återställnings aktiviteterna. Se till att återställnings tiderna är i din RTO-service avtal där din RTO förlitar sig på en databas eller återställnings process för virtuella datorer.
    4. Testa DR-funktioner och arkitektur för flera regioner.
 1. Säkerhets kontroller.
-   1. Testa giltigheten hos RBAC-arkitekturen (rollbaserad åtkomst kontroll) i Azure. Målet är att separera och begränsa åtkomsten och behörigheterna för olika team. Till exempel bör SAP basen-team medlemmar kunna distribuera virtuella datorer och tilldela diskar från Azure Storage till ett specifikt virtuellt Azure-nätverk. Men SAP-basen bör inte kunna skapa egna virtuella nätverk eller ändra inställningarna för befintliga virtuella nätverk. Medlemmar i nätverks teamet bör inte kunna distribuera virtuella datorer till virtuella nätverk där SAP-program och virtuella DBMS-datorer körs. Eller om medlemmar i det här teamet ska kunna ändra attribut för virtuella datorer eller till och med ta bort virtuella datorer eller diskar.  
+   1. Testa giltigheten för Azure-rollbaserad åtkomst kontrolls arkitektur (Azure RBAC). Målet är att separera och begränsa åtkomsten och behörigheterna för olika team. Till exempel bör SAP basen-team medlemmar kunna distribuera virtuella datorer och tilldela diskar från Azure Storage till ett specifikt virtuellt Azure-nätverk. Men SAP-basen bör inte kunna skapa egna virtuella nätverk eller ändra inställningarna för befintliga virtuella nätverk. Medlemmar i nätverks teamet bör inte kunna distribuera virtuella datorer till virtuella nätverk där SAP-program och virtuella DBMS-datorer körs. Eller om medlemmar i det här teamet ska kunna ändra attribut för virtuella datorer eller till och med ta bort virtuella datorer eller diskar.  
    1.  Kontrol lera att [nätverks säkerhets gruppen och ASC](../../../virtual-network/security-overview.md) -reglerna fungerar som förväntat och kontrol lera de skyddade resurserna.
    1.  Kontrol lera att alla resurser som behöver krypteras är krypterade. Definiera och implementera processer för att säkerhetskopiera certifikat, lagra och komma åt dessa certifikat och återställa de krypterade entiteterna.
    1.  Använd [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) för OS-diskar där det är möjligt från en OS-support punkt i vyn.

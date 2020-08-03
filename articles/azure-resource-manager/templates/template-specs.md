@@ -2,28 +2,34 @@
 title: Översikt över mall-specifikationer
 description: Beskriver hur du skapar specifikationer för mallar och delar dem med andra användare i din organisation.
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 07/31/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 47dcf44b35ad5c0b77dd0b88d683071a7f2f4ecb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 829aaa41bc60b3dcbf78ef6083457fff3b794914
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099739"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497808"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specifikationer för Azure Resource Manager mall (för hands version)
 
-En mall specifikation är en ny resurs typ för att lagra en Azure Resource Manager-mall (ARM-mall) i Azure för senare distribution. Med den här resurs typen kan du dela ARM-mallar med andra användare i din organisation. Precis som med andra Azure-resurser kan du använda rollbaserad åtkomst kontroll (RBAC) för att dela mallen specifikation. användarna behöver bara Läs behörighet till mallen för att distribuera mallen, så du kan dela mallen utan att tillåta andra att ändra den.
+En mall specifikation är en ny resurs typ för att lagra en Azure Resource Manager-mall (ARM-mall) i Azure för senare distribution. Med den här resurs typen kan du dela ARM-mallar med andra användare i din organisation. Precis som med andra Azure-resurser kan du använda rollbaserad åtkomst kontroll (RBAC) för att dela specifikationen för mallen.
 
 **Microsoft. Resources/templateSpecs** är den nya resurs typen för specifikationer för mallar. Det består av en huvudmall och ett valfritt antal länkade mallar. Azure sparar säkert mall-specifikationer i resurs grupper. Mall-specifikationer stöder [versions hantering](#versioning).
 
 Om du vill distribuera en mall använder du standard Azure-verktyg som PowerShell, Azure CLI, Azure Portal, REST och andra SDK: er och klienter som stöds. Du använder samma kommandon och skickar i samma parametrar för mallen.
 
-Fördelen med att använda mall-specifikationer är att team i din organisation inte behöver återskapa eller kopiera mallar för vanliga scenarier. Du skapar kanoniska mallar och delar dem. Mallarna som du lägger till i en mall specifikation bör verifieras av administratörer i organisationen för att följa organisationens krav och vägledning.
-
 > [!NOTE]
 > Mallens specifikationer är för närvarande en för hands version. Du måste [Registrera dig för listan vänte tid för](https://aka.ms/templateSpecOnboarding)att kunna använda den.
+
+## <a name="why-use-template-specs"></a>Varför ska jag använda mall-specifikationer?
+
+Om du för närvarande har dina mallar i ett GitHub-lagrings platsen eller lagrings konto kan du köra flera utmaningar när du försöker dela och använda mallarna. För att en användare ska kunna distribuera den måste mallen antingen vara lokal eller URL: en för mallen måste vara offentligt tillgänglig. För att komma runt den här begränsningen kan du dela kopior av mallen med användare som behöver distribuera den, eller öppna åtkomst till lagrings platsen eller lagrings kontot. När användare äger lokala kopior av en mall kan de här kopiorna gå till och med den ursprungliga mallen. När du gör en lagrings platsen eller ett lagrings konto offentligt tillgängligt kan du tillåta oönskade användare att komma åt mallen.
+
+Fördelen med att använda mall-specifikationer är att du kan skapa kanoniska mallar och dela dem med team i din organisation. Mallens specifikationer är säkra eftersom de är tillgängliga för Azure Resource Manager för distribution, men inte är tillgängliga för användare utan RBAC-behörighet. Användare behöver bara Läs behörighet till mallen mall för att distribuera dess mall, så att du kan dela mallen utan att tillåta andra att ändra den.
+
+Mallarna som du lägger till i en mall specifikation bör verifieras av administratörer i organisationen för att följa organisationens krav och vägledning.
 
 ## <a name="create-template-spec"></a>Skapa mall-specifikation
 

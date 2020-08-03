@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: c3d4a2120f86a03508b91d4b2dea52e629dc0f79
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1fdfe57c2995628855ea8e068c4f8eb2f2ac466a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130187"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500443"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Konfigurera katastrof återställning till Azure för lokala fysiska servrar
 
@@ -111,7 +111,7 @@ Konfigurera konfigurations servern, registrera den i valvet och identifiera virt
 4. Hämta installations filen Site Recovery Unified setup.
 5. Ladda ned valvregistreringsnyckeln. Du behöver det när du kör enhetlig installation. Nyckeln är giltig i fem dagar efter att du har genererat den.
 
-   ![Konfigurera källan](./media/physical-azure-disaster-recovery/source-environment.png)
+   ![Skärm bild som visar alternativen för att ladda ned installations filen och registrerings nyckeln.](./media/physical-azure-disaster-recovery/source-environment.png)
 
 
 ### <a name="register-the-configuration-server-in-the-vault"></a>Registrera konfigurations servern i valvet
@@ -136,7 +136,6 @@ Kör enhetlig installation som lokal administratör för att installera konfigur
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
-När registreringen är klar visas konfigurations servern på sidan **Inställningar**  >  **servrar** i valvet.
 
 ## <a name="set-up-the-target-environment"></a>Konfigurera målmiljön
 
@@ -146,7 +145,7 @@ Välj och kontrollera målresurserna.
 2. Ange mål distributions modell.
 3. Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringskonton och Azure-nätverk.
 
-   ![Mål](./media/physical-azure-disaster-recovery/network-storage.png)
+   ![Skärm bild av alternativen för att konfigurera mål miljön.](./media/physical-azure-disaster-recovery/network-storage.png)
 
 
 ## <a name="create-a-replication-policy"></a>Skapa replikeringsprincip
@@ -157,7 +156,7 @@ Välj och kontrollera målresurserna.
 4. I **Återställningspunkt för kvarhållning** anger du kvarhållningsperioden (i antal timmar) för varje återställningspunkt. Replikerade virtuella datorer kan återställas till valfri punkt i ett fönster. Upp till 24 timmars kvarhållning stöds för datorer replikerade till premiumlagring och 72 timmar för standardlagring.
 5. I **frekvens för programkonsekventa ögonblicks bilder**anger du hur ofta återställnings punkter (i minuter) som innehåller programkonsekventa ögonblicks bilder ska skapas. Klicka på **OK** för att skapa principen.
 
-    ![Replikeringsprincip](./media/physical-azure-disaster-recovery/replication-policy.png)
+    ![Skärm bild av alternativen för att skapa en replikeringsprincip.](./media/physical-azure-disaster-recovery/replication-policy.png)
 
 
 Principen associeras automatiskt med konfigurationsservern. Som standard skapas automatiskt en matchande princip för återställning efter fel. Om replikeringsprincipen till exempel är **rep-princip** skapas **en princip för återställning efter fel** . Den här principen används inte förrän du initierar en återställning efter fel från Azure.

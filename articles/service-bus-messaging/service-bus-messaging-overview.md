@@ -3,12 +3,12 @@ title: Översikt över Azure Service Bus-meddelanden | Microsoft Docs
 description: Den här artikeln innehåller en översikt på hög nivå av Azure Service Bus, en fullständigt hanterad Message Broker för företags integrering.
 ms.topic: overview
 ms.date: 06/23/2020
-ms.openlocfilehash: 5adcdf10898a7b0ee2d551a3a24b9f80195d645f
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 478dd0debb5117e76cf8d0ab6599dcf363c12ab3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449124"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501482"
 ---
 # <a name="what-is-azure-service-bus"></a>Vad är Azure Service Bus?
 
@@ -92,7 +92,7 @@ Ett fel kan orsaka att klienten tvekar om resultatet av en skicka-åtgärd. Dubb
 ### <a name="security-protocols"></a>Säkerhets protokoll
 <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>
 
-Service Bus stöder säkerhets protokoll som [signaturer för delad åtkomst](service-bus-sas.md) (SAS), [rollbaserad åtkomst kontroll](authenticate-application.md) i Azure (RBAC) och [hanterade identiteter för Azure-resurser](service-bus-managed-service-identity.md).
+Service Bus stöder säkerhets protokoll som [signaturer för delad åtkomst](service-bus-sas.md) (SAS), [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](authenticate-application.md) och [hanterade identiteter för Azure-resurser](service-bus-managed-service-identity.md).
 
 ### <a name="geo-disaster-recovery"></a>Geohaveriberedskap
 

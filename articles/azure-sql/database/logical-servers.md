@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: b45714489f13d33d90b5694f458e6339e33595f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbcc82d3ec4b50cf51210f8a4319bbf374185a88
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367587"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498097"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Vad är en logisk SQL-Server i Azure SQL Database-och Azure-Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -34,7 +34,7 @@ En server i SQL Database och Azure-Synapse:
 - Är den överordnade resursen för databaser, elastiska pooler och informationslager.
 - Innehåller ett namn område för databaser, elastiska pooler och informations lager databasen
 - Är en logisk behållare med en stark livs längd – ta bort en server och tar bort dess databaser, elastiska pooler och SQK pooler
-- Deltar i [Azure rollbaserad åtkomst kontroll (RBAC)](/azure/role-based-access-control/overview) – databaser, elastiska pooler och informations lager databasen i en server ärver åtkomst rättigheter från servern
+- Deltar i [Azure rollbaserad åtkomst kontroll (Azure RBAC)](/azure/role-based-access-control/overview) -databaser, elastiska pooler och informations lager databasen i en server ärver åtkomst rättigheter från servern
 - Är ett högordnat element i identiteten för databaser, elastiska pooler och informations lager databasen för Azure Resource Management-syfte (se URL-schemat för databaser och pooler)
 - Samlar resurser i en region.
 - Tillhandahåller en anslutningsslutpunkt för databasåtkomst (`<serverName>`.database.windows.net)

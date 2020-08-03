@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1c5ce50a3736d6e96620e25cf084c5c66c456a5f
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: bde1ff4003ba69a4c5449996f4e18d646e6ecff6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85375120"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498352"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Azures säkerhets bas linje för Cognitive Services
 
@@ -28,7 +28,7 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: skydda Azure-resurser i virtuella nätverk
 
-**Vägledning**: Azure Cognitive Services tillhandahåller en skiktad säkerhets modell. Med den här modellen kan du skydda dina Cognitive Services-konton till en viss del av nätverk. När nätverks regler har kon figurer ATS kan endast program som begär data i den angivna uppsättningen nätverk komma åt kontot. Du kan begränsa åtkomsten till dina resurser med filtrering av förfrågningar, så att endast begär Anden som kommer från angivna IP-adresser, IP-adressintervall eller från en lista över undernät i virtuella Azure-nätverk.
+**Vägledning**: Azure Cognitive Services tillhandahåller en skiktad säkerhets modell. Med den här modellen kan du begränsa åtkomsten till dina Cognitive Services-konton till utvalda nätverk. När du har konfigurerat nätverksregler kan endast program som begär data över den angivna uppsättningen nätverk komma åt kontot. Du kan begränsa åtkomsten till dina resurser med filtrering av förfrågningar, så att endast begär Anden som kommer från angivna IP-adresser, IP-adressintervall eller från en lista över undernät i virtuella Azure-nätverk.
 
 Stöd för virtuella nätverk och tjänst slut punkter för Cognitive Services är begränsat till en viss uppsättning regioner.
 
@@ -73,7 +73,7 @@ Observera också att du måste inaktivera djup paket inspektion för brand Vägg
 **Vägledning**: när virtuella datorer distribueras i samma virtuella nätverk som din Azure Cognitive Services-behållare, definiera och implementera standardkonfigurations inställningar för relaterade nätverks resurser med Azure policy. Använd Azure Policy alias i namn områdena "Microsoft. CognitiveServices" och "Microsoft. Network" om du vill skapa anpassade principer för granskning eller tillämpa nätverks konfigurationen för Azure cache för Redis-instanser. Du kan också använda inbyggda princip definitioner som:
 - DDoS Protection standard ska vara aktive rad
 
-Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager mallar, rollbaserad åtkomst kontroll i Azure (RBAC) och principer, i en enda skiss definition. Använd enkelt skissen på nya prenumerationer och miljöer och finjustera kontroll och hantering genom versions hantering.
+Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager mallar, rollbaserad åtkomst kontroll i Azure (Azure RBAC) och principer, i en enda skiss definition. Använd enkelt skissen på nya prenumerationer och miljöer och finjustera kontroll och hantering genom versions hantering.
 
 Om du använder Cognitive Services i en behållare kan du utöka behållar distributionen med en frontend-lösning för webb program som filtrerar skadlig trafik och stöder kryptering från slut punkt till slut punkt, så att behållarens slut punkt hålls privat och säker.
 

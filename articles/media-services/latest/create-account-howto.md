@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/15/2020
 ms.author: juliako
-ms.openlocfilehash: e32a9053e4ab7cc3618f7b50b7291a660a14e1b1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: b48aa215b621ab617ef3ff99ce66d972059a4ffc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053499"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498764"
 ---
 # <a name="create-a-media-services-account"></a>Skapa ett Media Services-konto
 
@@ -51,7 +52,7 @@ I den här artikeln beskrivs hur man skapar ett Media Services-konto i Azure-por
 1. Klicka på **+ skapa en resurs**  >  **medie**  >  **Media Services**.
 1. I avsnittet **skapa ett Media Services konto** anger du de värden som krävs.
     
-    | Namn | Beskrivning |
+    | Name | Beskrivning |
     | ---|---|
     |**Kontonamn**|Ange namnet på det nya Media Services kontot. Namnet på ett Media Services-konto består av gemena bokstäver eller siffror utan blanksteg och 3 till 24 tecken.|
     |**Prenumeration**|Om du har mer än en prenumeration väljer du en i listan med Azure-prenumerationer som du har åtkomst till.|

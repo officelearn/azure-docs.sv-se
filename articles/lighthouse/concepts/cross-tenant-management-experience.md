@@ -1,14 +1,14 @@
 ---
 title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
-ms.date: 07/24/2020
+ms.date: 07/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: 979891a3ebea8070c6882fff62ed4a7954041d3e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a6d5c7e06ed59ab76b15f4f8ae880408dc6f7835
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371047"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500886"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -33,9 +33,7 @@ Azure Lighthouse ger större flexibilitet för att hantera resurser för flera k
 
 Du kan utföra hanterings uppgifter för delegerade resurser antingen direkt i portalen eller med hjälp av API: er och hanterings verktyg (till exempel Azure CLI och Azure PowerShell). Alla befintliga API: er kan användas när du arbetar med delegerade resurser, så länge som funktionerna stöds för hantering av flera innehavare och användaren har rätt behörigheter.
 
-[Cmdleten Azure PowerShell get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) visar `tenantID` för varje prenumeration, så att du kan identifiera om en returnerad prenumeration hör till din tjänst leverantörs klient eller till en hanterad kund klient.
-
-På samma sätt visar Azure CLI-kommandon som [AZ-konto lista](/cli/azure/account?view=azure-cli-latest#az-account-list) **HomeTenantId** -och **managedByTenants** -attribut.
+Azure CLI-kommandon som [AZ-konto lista](/cli/azure/account?view=azure-cli-latest#az-account-list) visar **HomeTenantId** -och **managedByTenants** -attribut för varje prenumeration, så att du kan identifiera om en returnerad prenumeration hör till din tjänst leverantörs klient eller till en hanterad kund klient.
 
 > [!TIP]
 > Om du inte ser dessa värden när du använder Azure CLI kan du försöka rensa cacheminnet genom att köra `az account clear` följt av `az login --identity` .
@@ -70,7 +68,7 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
 
 [Azure Cost Management + fakturering](../../cost-management-billing/index.yml):
 
-- Från hanterings klient organisationen kan CSP-partner Visa, hantera och analysera konsumtions kostnader (inte inklusive inköp) för kunder som följer Azure-planen. Kostnaden baseras på detaljist avgifter och den Azure rollbaserad åtkomst kontroll (RBAC) som partnern har för kundens prenumeration.
+- Från hanterings klient organisationen kan CSP-partner Visa, hantera och analysera konsumtions kostnader (inte inklusive inköp) för kunder som följer Azure-planen. Kostnaden baseras på återförsäljarversionen och den Azure rollbaserad åtkomst kontroll (Azure RBAC) som partnern har för kundens prenumeration.
 
 [Azure Kubernetes service (AKS)](../../aks/index.yml):
 

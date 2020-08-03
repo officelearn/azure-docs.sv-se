@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f5699624300d262630c9582131d00f33f5ce5be9
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 497c6f669699f1e1ce879c0c7da2593256b97448
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212895"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501107"
 ---
 # <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Ansluta till Synapse SQL med Power BI Professional
 
@@ -23,12 +23,12 @@ ms.locfileid: "85212895"
 > - [Azure Data Studio](get-started-azure-data-studio.md)
 > - [Power BI](get-started-power-bi-professional.md)
 > - [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-> - [SQLCMD](../sql/get-started-connect-sqlcmd.md)
+> - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
 I den här självstudien ska vi gå igenom stegen för att ansluta Power BI Desktop till SQL på begäran (för hands version).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Verktyg för att utfärda frågor:
 
@@ -90,7 +90,7 @@ SECRET = '';
 GO
 ```
 
-## <a name="creating-power-bi-desktop-report"></a>Skapar Power BI Desktop-rapport
+## <a name="create-a-power-bi-desktop-report"></a>Skapa en Power BI Desktop-rapport
 
 Öppna Power BI Desktop-programmet och välj alternativet **Hämta data** .
 

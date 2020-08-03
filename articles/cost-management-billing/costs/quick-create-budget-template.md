@@ -6,14 +6,14 @@ ms.author: banders
 tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.topic: quickstart
-ms.date: 06/10/2020
+ms.date: 07/28/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 5bff8e6057475701a2e78835fb5a950dcb8c8fcb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 984f2d82e21344dd7e3bb8b7267e289832343e1b
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252461"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385795"
 ---
 # <a name="quickstart-create-a-budget-with-an-arm-template"></a>Snabbstart: Skapa en budget med en ARM-mall
 
@@ -29,13 +29,31 @@ Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar v
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-ARM-mallen stöder endast Azure-prenumerationer för Enterprise-avtal (EA). Andra prenumerationstyper stöds inte av mallen.
-
-Du måste ha deltagarbehörighet för att skapa och hantera budgetar. Du kan skapa enskilda budgetar för EA-prenumerationer och resursgrupper. Men du kan inte skapa budgetar för EA-faktureringskonton. För Azure EA-prenumerationer måste du ha läsbehörighet för att visa budgetar.
-
-När du har skapat en budget behöver du minst läsbehörighet för ditt Azure-konto för att visa den.
-
 Om du har en ny prenumeration kan du inte skapa en budget eller använda Cost Management-funktioner direkt. Det kan ta upp till 48 timmar innan du kan använda alla Cost Management-funktioner.
+
+Budgetar stöds för följande typer av Azure-konton och omfång:
+
+- Omfång för rollbaserad åtkomstkontroll i Azure
+    - Hanteringsgrupper
+    - Prenumeration
+- Omfång för Enterprise-avtal
+    - Faktureringskonto
+    - Avdelning
+    - Registreringskonto
+- Enskilda avtal
+    - Faktureringskonto
+- Omfång för Microsoft-kundavtal
+    - Faktureringskonto
+    - Faktureringsprofil
+    - Fakturaavsnitt
+    - Kund
+- AWS-omfång
+    - Externt konto
+    - Extern prenumeration
+
+Om du vill visa budgetar behöver du minst läsbehörighet för ditt Azure-konto.
+
+För Azure EA-prenumerationer måste du ha läsbehörighet för att visa budgetar. Du måste ha deltagarbehörighet för att skapa och hantera budgetar.
 
 Följande Azure-behörigheter, eller -omfång, stöds per prenumeration för budgetar efter användare och grupp. Mer information om omfång finns i [Förstå och arbeta med omfång](understand-work-scopes.md).
 
@@ -49,7 +67,7 @@ Mer information om hur du tilldelar åtkomst till Cost Management-data finns i [
 
 Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/create-budget).
 
-:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json" range="1-146" highlight="110-139":::
+:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json" :::
 
 En Azure-resurs har definierats i mallen:
 
@@ -63,27 +81,29 @@ En Azure-resurs har definierats i mallen:
 
 2. Välj eller ange följande värden.
 
-   [![Resource Manager-mall, skapa budget, distribuera portal](./media/quick-create-budget-template/create-budget-using-template-portal.png)](./media/quick-create-budget-template/create-budget-using-template-portal.png#lightbox)
-
+   :::image type="content" source="./media/quick-create-budget-template/create-budget-using-template-portal.png" alt-text="Resource Manager-mall, Skapa budget, distribuera portal]" lightbox="./media/quick-create-budget-template/create-budget-using-template-portal.png" :::
+   
     * **Prenumeration**: välj en Azure-prenumeration.
-    * **Resursgrupp** – välj **Skapa ny** och ange ett unikt namn för resursgruppen och klicka på **OK** eller välj en befintlig resursgrupp.
-    * **Plats**: välj en plats. Välj till exempel **USA, centrala**.
+    * **Resursgrupp**: om det behövs väljer du en befintlig resursgrupp eller **skapar en ny**.
+    * **Region**: välj en Azure-region. Välj till exempel **USA, centrala**.
     * **Budgetnamn**: ange ett namn på budgeten. Det ska vara unikt inom sin resursgrupp. Endast alfanumeriska tecken, understreck och bindestreck får användas.
-    * **Belopp**: Ange den totala kostnaden eller användningen för att spåra med budgeten.
-    * **Budgetkategori**: välj kategori för budgeten, om budgeten spårar **kostnad** eller **användning**.
+    * **Belopp**: ange den totala kostnaden att spåra med budgeten.
     * **Tidsenhet**: Ange tiden som omfattas av en budget. Tillåtna värden är månadsvis, kvartalsvis eller varje år. Budgeten återställs i slutet av tidsenheten.
     * **Startdatum**: Ange startdatumet med den första dagen i månaden i formatet ÅÅÅÅ-MM-DD. Ett startdatum får i framtiden inte ligga längre bort än tre månader från i dag. Du kan ange ett tidigare startdatum med tidsintervallperioden.
-    * **Slutdatum**: ange slutdatumet för budgeten i formatet ÅÅÅÅ-MM-DD. Om detta inte anges är standardvärdet inställt på 10 år från startdatumet.
-    * **Operator**: Välj en jämförelseoperator. Möjliga värden är EqualTo, GreaterThan eller GreaterThanOrEqualTo.
-    * **Tröskel**: ange ett tröskelvärde för meddelandet. Ett meddelande skickas när kostnaden överskrider tröskeln. Det är alltid procent och måste vara mellan 0 och 1000.
-    * **Kontakt-e-post** anger en lista över e-postadresser för att skicka budgetmeddelandet när tröskelvärdet har överskridits. Förväntat format är `["user1@domain.com","user2@domain.com"]`.
+    * **Slutdatum**: ange slutdatumet för budgeten i formatet ÅÅÅÅ-MM-DD. 
+    * **Första tröskel**: ange ett tröskelvärde för den första aviseringen. Ett meddelande skickas när kostnaden överskrider tröskeln. Det är alltid procent och måste vara mellan 0 och 1000.
+    * **Andra tröskel**: ange ett tröskelvärde för den andra aviseringen. Ett meddelande skickas när kostnaden överskrider tröskeln. Det är alltid procent och måste vara mellan 0 och 1000.
     * **Kontaktroller** anger listan över kontaktroller för att skicka budgetmeddelandet när tröskelvärdet har överskridits. Standardvärden är ägare, deltagare och läsare. Förväntat format är `["Owner","Contributor","Reader"]`.
+    * **Kontakt-e-post**: ange en lista med e-postadresser som budgetaviseringen ska skickas till när tröskelvärdet överskrids. Förväntat format är `["user1@domain.com","user2@domain.com"]`.
     * **Kontaktgrupper** anger en lista över resurs-ID:er för åtgärdsgrupper, som fullständiga resurs-URI:er, för att skicka budgetmeddelandet när tröskelvärdet har överskridits. Den accepterar matris med strängar. Förväntat format är `["action group resource ID1","action group resource ID2"]`. Om du inte vill använda åtgärdsgrupper anger du `[]`.
-    * **Resursfiltret** anger en lista med filter för resurser. Förväntat format är `["Resource Filter Name1","Resource Filter Name2"]`. Om du inte vill använda ett filter anger du `[]`. Om du anger ett resursfilter måste du också ange värden för **mätfilter**.
-    * **Mätfilter** anger en lista med filter för mätare. De är obligatoriska för budgetar med kategorin **Användning**. Förväntat format är `["Meter Filter Name1","Meter Filter Name2"]`. Om du inte har angett ett **resursfilter** anger du `[]`.
-    * **Jag godkänner villkoren ovan**: Välj.
+    * **Värden för resursgruppsfiler**: ange en lista med resursgruppsnamn som ska filtreras. Förväntat format är `["Resource Group Name1","Resource Group Name2"]`. Om du inte vill använda ett filter anger du `[]`. 
+    * **Värden för mätarkategorifilter**: ange en lista med mätarkategorier i Azure-tjänsten. Förväntat format är `["Meter Category1","Meter Category2"]`. Om du inte vill använda ett filter anger du `[]`.
+   
+3. Beroende på typen av Azure-prenumeration gör du något av följande:
+   - Välj **Granska + skapa**.
+   - Granska villkoren, välj **Jag godkänner villkoren ovan** och sedan **Köp**.
 
-3. Välj **Köp**. När du har distribuerat budgeten får du ett meddelande:
+4. Om du valde **Granska och skapa** verifieras mallen. Välj **Skapa**.  
 
    ![Resource Manager-mall, budget, distribuera portalmeddelande](./media/quick-create-budget-template/resource-manager-template-portal-deployment-notification.png)
 

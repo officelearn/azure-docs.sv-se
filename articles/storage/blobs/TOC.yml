@@ -262,7 +262,7 @@
           items:
             - name: Övervaka ett lagringskonto
               href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Migrera från klassiska mått
+            - name: Övergång från klassiska mått
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Övervakning (klassisk)
               items:
@@ -685,7 +685,7 @@
           items:
             - name: Övervaka ett lagringskonto
               href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Migrera från klassiska mått
+            - name: Övergång från klassiska mått
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Övervakning (klassisk)
               items:

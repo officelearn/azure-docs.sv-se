@@ -3,16 +3,16 @@ title: Fakturor för Azure Enterprise-registrering
 description: Den här artikeln förklarar hur du hanterar och använder din Azure Enterprise-faktura.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/06/2020
+ms.date: 07/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 5276780d06671b8358f615b1fcb6447c8e1310f9
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 13e2aeb23402aa1ce9e8aa3756ca33b322243576
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044880"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371336"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fakturor för Azure Enterprise-registrering
 
@@ -228,7 +228,7 @@ Det finns inga kostnader för utgående data mellan tjänster i samma datacenter
 
 ### <a name="azure-prepayment-and-unbilled-usage"></a>Azure-förskottsbetalningar och ej fakturerad användning
 
-Azure-förskottsbetalningar är ett belopp som betalas i förskott för Azure-tjänster. Azure-förskottsbetalningen förbrukas när tjänster används. Första parts Azure-tjänster debiteras mot Azure-förskottsbetalningar. Men vissa avgifter debiteras separat och Azure Marketplace-tjänster förbrukar inte Azure-förskottsbetalningar.
+Azure-förskottsbetalningar är ett belopp du betalar i förväg för Azure-tjänster. Azure-förskottsbetalningen förbrukas när tjänster används. Första parts Azure-tjänster debiteras mot Azure-förskottsbetalningar. Men vissa avgifter debiteras separat och Azure Marketplace-tjänster förbrukar inte Azure-förskottsbetalningar.
 
 ### <a name="charges-billed-separately"></a>Avgifter som debiteras separat
 

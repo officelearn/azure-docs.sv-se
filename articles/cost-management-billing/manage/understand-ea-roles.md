@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 07/13/2020
 ms.author: banders
-ms.openlocfilehash: b8693ea09ccbb6f0a3f8dfe0846a9b1b256872b6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2cd786304180369fee39c7b362f27a44728f3ad8
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045152"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124348"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Hantera Azure Enterprise-roller
 
@@ -32,7 +32,7 @@ Den första registreringsadministratören som konfigureras under registreringset
 
 Om till exempel den inledande autentiseringstypen har ställts in som Blandat, läggs EA till som ett Microsoft-konto och faktureringskontakten har endast skrivskyddade EA-administratörsprivilegier. Om EA-administratören inte godkänner Microsoft-kontoauktorisering för en befintlig faktureringskontakt, kan EA-administratören ta bort användaren i fråga och be kunden att lägga till användaren igen som en skrivskyddad administratör med ett arbets- eller skolkonto som bara anges på registreringsnivå i EA-portalen.
 
-De här rollerna gäller särskilt för hantering av Azure Enterprise-avtal och används utöver de fördefinierade roller som används till att styra åtkomsten till resurser i Azure. Mer information finns i [Inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
+De här rollerna gäller särskilt för hantering av Azure Enterprise-avtal och används utöver de fördefinierade roller som används till att styra åtkomsten till resurser i Azure. Mer information finns i [Inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md).
 
 I följande avsnitt beskrivs begränsningarna och funktionerna för varje roll.
 
@@ -121,4 +121,4 @@ Du ställer in administratörsroller för Enterprise och visar policyer för avg
 
 - [Hantera åtkomst till faktureringsinformation för Azure](manage-billing-access.md)
 - [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md)
-- [Inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md)
+- [Inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md)

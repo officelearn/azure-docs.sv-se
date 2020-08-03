@@ -3,19 +3,19 @@ title: Faktureringsroller för Microsofts-kundavtal – Azure
 description: Lär dig mer om faktureringsroller för faktureringskonton i Azure för Microsoft-kundavtal.
 author: amberbhargava
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/13/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 76aa21aea647e5096ba47fb691622ea5146d9901
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 84cb68c4cae962fd985a02a72cc85c6b2cf1aa1d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207206"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286588"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Förstå administrativa roller för Microsoft-kundavtal i Azure
 
-För hantering av ditt faktureringskonto för ett Microsoft-kundavtal använder du de roller som beskrivs i följande avsnitt. De här rollerna gäller utöver de fördefinierade roller som finns i Azure för kontroll av åtkomst till resurser. Mer information finns i [Inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
+För hantering av ditt faktureringskonto för ett Microsoft-kundavtal använder du de roller som beskrivs i följande avsnitt. De här rollerna gäller utöver de fördefinierade roller som finns i Azure för kontroll av åtkomst till resurser. Mer information finns i [Inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md).
 
 Den här artikeln gäller ett faktureringskonto för ett Microsoft-kundavtal. Kontrollera om du har åtkomst till ett Microsoft-kundavtal.
 

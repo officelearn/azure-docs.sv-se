@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 309016821eb13ef6332ba248a11593fec8da9f75
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 6d16e663626a1b19271b7d37b39202a0a9b605b9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267570"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126133"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Lägg till eller ändra administratörer för en Azure-prenumeration
 
@@ -22,7 +22,7 @@ Du måste ha rätt administratörsroll för att hantera åtkomst till Azure-resu
 
 I den här artikeln beskrivs hur du lägger till eller ändrar administratörsroller för användare med RBAC i ett prenumerationsomfång.
 
-Microsoft rekommenderar att du hanterar åtkomsten till resurser med RBAC. Om du fortfarande använder den klassiska distributionsmodellen och hanterar de klassiska resurserna med hjälp av [Azure Service Management Powershell-modulen](https://docs.microsoft.com/powershell/module/servicemanagement/azure) måste du använda en klassisk administratör.
+Microsoft rekommenderar att du hanterar åtkomsten till resurser med RBAC. Om du fortfarande använder den klassiska distributionsmodellen och hanterar de klassiska resurserna med hjälp av [Azure Service Management Powershell-modulen](/powershell/module/servicemanagement/azure.service) måste du använda en klassisk administratör.
 
 > [!TIP]
 > Om du bara använder Microsoft Azure-portalen för att hantera de klassiska resurserna behöver du inte använda den klassiska administratören.
@@ -69,7 +69,7 @@ Om du inte vet som är kontoadministratör för en prenumeration, tar du reda p�
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Vad är rollbaserad åtkomstkontroll (RBAC)?](../../role-based-access-control/overview.md)
+* [Vad är rollbaserad åtkomstkontroll i Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
 * [Förstå de olika rollerna i Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Associera eller lägga till en Azure-prenumeration till Azure Active Directory-klienten](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Behörigheter för administratörsrollen i Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)

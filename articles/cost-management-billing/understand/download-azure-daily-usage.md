@@ -7,13 +7,13 @@ ms.author: banders
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/19/2020
-ms.openlocfilehash: 3a7e1e8670911d361b3c59aacc0973eac035fb70
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/27/2020
+ms.openlocfilehash: bf9a98d6484e7f78a80a4e3018afdec00df51337
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80065750"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322046"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Visa och ladda ned information om din användning och dina avgifter i Azure
 
@@ -21,7 +21,7 @@ Du kan ladda ned en daglig uppdelning av din Azure-användning och dina kostnade
 
 Om du har ett Microsoft-kundavtal (MCA) måste du vara ägare, deltagare, läsare eller fakturaansvarig för fakturaprofilen för att kunna visa användning och avgifter för Azure.  Om du har ett Microsoft-partneravtal (MPA) är det bara rollerna global administratör och administratörsrepresentant i partnerorganisationen som kan visa och ladda ned användning och avgifter för Azure. [Kontrollera typen av faktureringskonto i Azure-portalen](#check-your-billing-account-type).
 
-Beroende på vilken typ av prenumeration du har varierar alternativen för att ladda ned användnings- och kostnadsinformation. 
+Beroende på vilken typ av prenumeration du har varierar alternativen för att ladda ned användnings- och kostnadsinformation.
 
 ## <a name="download-usage-from-the-azure-portal-csv"></a>Ladda ned användningsinformation från Azure-portalen (.csv)
 
@@ -34,7 +34,6 @@ Beroende på vilken typ av prenumeration du har varierar alternativen för att l
 1. Välj **nedladdningsikonen** eller ellipsen (`...`) till höger.  
   ![Skärmbild som visar nedladdningsplatsen för att hämta användnings- och kostnadsinformation](./media/download-azure-daily-usage/download-usage-others.png)  
 1. Nedladdningsfönstret öppnas till höger. Välj **Ladda ned** i avsnittet **Användningsinformation**.  
-
 
 ## <a name="download-usage-for-ea-customers"></a>Ladda ned användningsdata för EA-kunder
 
@@ -54,10 +53,9 @@ Om du har ett Microsoft-kundavtal kan du ladda ned månadens användning fram ti
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Sök efter *Kostnadshantering + fakturering*.
 3. Välj en faktureringsprofil. Beroende på din åtkomst kan du behöva välja ett faktureringskonto först.
-4. I området **Översikt** finns nedladdningslänkarna nedanför avgifterna hittills under månaden.
-5. Välj **Användning och avgifter för Azure**.
-
-    ![Skärmbild som visar nedladdning från Översikt](./media/download-azure-daily-usage/open-usage01.png)
+4. I området **Översikt** finns nedladdningslänkarna under de senaste ändringarna.
+5. Välj **Ladda ned användning och prissättning**.  
+    :::image type="content" source="./media/download-azure-daily-usage/open-usage01.png" alt-text="Skärmbild som visar nedladdning från Översikt" lightbox="./media/download-azure-daily-usage/open-usage01.png" :::
 
 ## <a name="check-your-billing-account-type"></a>Kontrollera typen av faktureringskonto
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]

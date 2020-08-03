@@ -4,15 +4,15 @@ description: Lär dig mer om viktiga aspekter som hjälp när du ska köpa en Az
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 05/04/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 609ca56419ed14f3cf4e449e9b906a75a4ff20ab
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 68bcf725a6043b8ab19717845fa8005de2f88e35
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807789"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287630"
 ---
 # <a name="buy-a-reservation"></a>Köpa en reservation
 
@@ -36,7 +36,10 @@ Du kan välja mellan tre reservationsomfång, beroende på dina behov:
 
 - **Omfång för enskild resursgrupp** – reservationsrabatten tillämpas endast på matchande resurser i den valda resursgruppen.
 - **Omfång för enskild prenumeration** – reservationsrabatten tillämpas på matchande resurser i den valda prenumerationen.
-- **Delat omfång** – reservationsrabatten tillämpas på matchande resurser i berättigade prenumerationer i faktureringskontexten. För Enterprise-avtalskunder är det registreringen som är faktureringskontext. För kunder med Microsoft-kundavtal är faktureringsomfånget samma som faktureringsprofilen. För enskilda prenumerationer med betalning per användning är faktureringsomfånget alla berättigade prenumerationer som kontoadministratören har skapat.
+- **Delat omfång** – reservationsrabatten tillämpas på matchande resurser i berättigade prenumerationer i faktureringskontexten.
+    - För Enterprise-avtalskunder är det registreringen som är faktureringskontext. Det delade reservationsomfånget innehåller flera Active Directory-klientorganisationer i en registrering.
+    - För kunder med Microsoft-kundavtal är faktureringsomfånget faktureringsprofilen.
+    - För enskilda prenumerationer med betalning per användning är faktureringsomfånget alla berättigade prenumerationer som kontoadministratören har skapat.
 
 När Azure tillämpar reservationsrabatter för din användning bearbetas reservationen i följande ordning:
 

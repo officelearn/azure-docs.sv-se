@@ -1,6 +1,6 @@
 ---
 title: Översikt över virtuella Windows-datorer | Microsoft Docs
-description: Hjälpinnehåll för översikt över virtuella Windows-datorer på Azure Portal
+description: Hjälpinnehåll för virtuella Windows-datorer i Azure-portalen
 services: virtual-machines-windows
 author: sewatson
 manager: lwelicki
@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 15a89a03e07deb02a812e54c01e857f972681931
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0fa1ff016ed787725ffde10ade67040a09c7e238
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "64710788"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285925"
 ---
 # <a name="windows-virtual-machines-documentation"></a>Dokumentation om virtuella Windows-datorer
 
@@ -23,9 +23,9 @@ Virtuella Windows-datorer i Azure tillhandahåller en säker, virtualiserad infr
 
 Lär dig hur du distribuerar en IIS-webbserver i en virtuell dator som kör Windows Server 2016:
 
-- [Azure Portal](/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-- [Azure PowerShell](/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-- [Azure CLI](/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Azure Portal](../../articles/virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Azure PowerShell](../../articles/virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Azure CLI](../../articles/virtual-machines/windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="step-by-step-tutorials"></a>Steg för steg-självstudier
 

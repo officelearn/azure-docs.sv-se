@@ -3,17 +3,17 @@ title: Kom igång med Azure Cost Management för partner
 description: I den här artikeln förklaras hur partner använder Azure Cost Management-funktioner och hur de ger Cost Management-åtkomst för sina kunder.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 0b0b5eb8ec41eccf99c23b671cef42a9c1bc8859
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 25a64dd4d06c24b0f7e1f8433a1abf5f67fa6eba
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849853"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372152"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Kom igång med Azure Cost Management för partner
 
@@ -123,9 +123,9 @@ Oavsett principen kan leverantörens globala administratörer och administratör
 
 ### <a name="enable-the-policy-to-view-azure-usage-charges"></a>Aktivera principen för att visa användningsavgifter för Azure
 
-Partner använder följande information för att aktivera principen för att visa användningsavgifter för Azure för sina kunder.
+Du måste vara medlem i gruppen **adminagent** för att kunna visa och uppdatera policyn. Använd följande information när du ska aktivera policyn så att kunder kan visa användningsavgifter för Azure.
 
-Logga in på partnerklienten i Azure Portal och välj **Cost Management + Fakturering**. Välj önskat faktureringskonto för Microsoft-partneravtal och välj sedan **Kunder**. Listan över kunder är kopplad till faktureringskontot.
+Logga in på partnerklienten i Azure Portal och välj **Cost Management + Fakturering**. Välj önskat faktureringsomfång i området Faktureringsomfång och välj sedan **Kunder**. Listan över kunder är kopplad till faktureringskontot.
 
 I listan över kunder väljer du den kund som du vill tillåta visning av kostnader.
 

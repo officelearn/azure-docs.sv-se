@@ -16,7 +16,7 @@
     - name: Skapa funktion
       expanded: true
       items:
-        - name: Visual Studio-koden
+        - name: Visual Studio Code
           href: ./functions-create-first-function-vs-code.md
         - name: Visual Studio
           href: functions-create-your-first-function-visual-studio.md
@@ -27,7 +27,7 @@
           href: functions-create-first-function-resource-manager.md
     - name: Ansluta till lagring
       items:
-        - name: Visual Studio-koden
+        - name: Visual Studio Code
           href: functions-add-output-binding-storage-queue-vs-code.md
         - name: Visual Studio
           href: functions-add-output-binding-storage-queue-vs.md
@@ -129,6 +129,10 @@
           href: functions-reference-python.md
         - name: TypeScript
           href: functions-reference-node.md#typescript
+    - name: Ramverk
+      items:
+        - name: Express.js
+          href: shift-expressjs.md
     - name: Säkerhet
       items:
         - name: Säkerhetsöversikt

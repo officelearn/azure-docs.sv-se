@@ -11,13 +11,13 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 07/07/2020
-  ms.openlocfilehash: 4a40b64c72946c84d034e13f3a22b7cda2b9c6aa
-  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+  ms.date: 07/30/2020
+  ms.openlocfilehash: 6a21841d24fcafefe25473e428e1926849f5e9cf
+  ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 07/08/2020
-  ms.locfileid: "86118876"
+  ms.lasthandoff: 07/30/2020
+  ms.locfileid: "87446742"
 landingContent:
 - title: Om ARM-mallar
   linkLists:
@@ -31,6 +31,8 @@ landingContent:
       url: template-best-practices.md
     - text: Vanliga frågor och svar
       url: frequently-asked-questions.md
+    - text: Mallspecifikationer
+      url: template-specs.md
     - text: Distributionsmodeller
       url: deployment-modes.md
     - text: Länkade mallar
@@ -47,18 +49,18 @@ landingContent:
       url: quickstart-create-templates-use-the-portal.md
     - text: Skapa mallar – VS Code
       url: quickstart-create-templates-use-visual-studio-code.md
-    - text: Skapa mallar – Visual Studio
-      url: create-visual-studio-deployment-project.md
   - linkListType: tutorial
     links:
     - text: Självstudier för nybörjare
       url: template-tutorial-create-first-template.md
-    - text: Distribuera flera instanser
-      url: template-tutorial-create-multiple-instances.md
-    - text: Ange distributionsordning
-      url: template-tutorial-create-templates-with-dependent-resources.md
-    - text: Integrera nyckelvalv
-      url: template-tutorial-use-key-vault.md
+    - text: Distribution
+      url: deployment-tutorial-local-template.md
+  - linkListType: learn
+    links:
+    - text: Konsekvent infrastruktur
+      url: /learn/modules/create-azure-resource-manager-template-vs-code/
+    - text: Flera miljöer
+      url: /learn/modules/modify-azure-resource-manager-template-reuse/
 - title: Utveckla mallar
   linkLists:
   - linkListType: how-to-guide
@@ -91,6 +93,8 @@ landingContent:
       url: deploy-portal.md
     - text: REST-API
       url: deploy-rest.md
+    - text: Distribuera till Azure (knapp)
+      url: deploy-to-azure-button.md
     - text: Konsekvensdistribution
       url: template-deploy-what-if.md
 - title: Omfångsdistributioner
@@ -103,6 +107,8 @@ landingContent:
       url: deploy-to-management-group.md
     - text: Klientorganisation
       url: deploy-to-tenant.md
+    - text: Distributioner mellan omfång
+      url: cross-scope-deployment.md
 - title: Utforska referensinnehåll
   linkLists:
   - linkListType: reference
@@ -125,6 +131,8 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Testverktygssats
+      url: test-toolkit.md
     - text: Exportera mallar
       url: export-template-portal.md
     - text: CI/CD

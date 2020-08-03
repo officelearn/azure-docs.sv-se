@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 07/30/2020
-  ms.openlocfilehash: 066f82bf214a9a5a2a364bc9dc021a1baa31feac
-  ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+  ms.openlocfilehash: 40a8fc105dd297ec4bc70ecc0a27b9fa295d3fe1
+  ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 07/30/2020
-  ms.locfileid: "87433079"
+  ms.lasthandoff: 07/31/2020
+  ms.locfileid: "87474520"
 landingContent:
 - title: Kom igång med maskininlärning
   linkLists:
@@ -25,12 +25,18 @@ landingContent:
     links:
     - text: Python-anteckningsböcker
       url: tutorial-1st-experiment-sdk-setup.md
-    - text: Designern (dra och släpp)
-      url: tutorial-designer-automobile-price-train-score.md
     - text: AutoML (ingen kod/låg kod)
       url: tutorial-first-experiment-automated-ml.md
+    - text: Designer (dra och släpp)
+      url: tutorial-designer-automobile-price-train-score.md
     - text: RStudio
       url: tutorial-1st-r-experiment.md
+- title: Ta din ML-modell till Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Distribuera en lokal modell till molnet
+      url: how-to-deploy-existing-model.md
 - title: Använda AutoML och dra och släpp i studio
   linkLists:
   - linkListType: overview
@@ -45,50 +51,10 @@ landingContent:
     links:
     - text: 'AutoML: skapa en klassificeringsmodell'
       url: tutorial-first-experiment-automated-ml.md
-    - text: 'AutoML: träna och distribuera ML-modeller'
-      url: how-to-use-automated-ml-for-ml-models.md
     - text: 'Designern: förutsäga bilpriser'
       url: tutorial-designer-automobile-price-train-score.md
-    - text: Skapa etiketteringsprojekt för avbildningar
+    - text: Etikettbilder för klassificering
       url: tutorial-labeling.md
-- title: Överför din modell till Azure
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Distribuera en lokal modell till molnet
-      url: how-to-deploy-existing-model.md
-- title: Träna med Python SDK
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Skapa ditt första ML-experiment
-      url: tutorial-1st-experiment-sdk-setup.md
-    - text: Klassificera bilder
-      url: tutorial-train-models-with-aml.md
-    - text: Förutsäga taxipriser med AutoML
-      url: tutorial-auto-train-models.md
-    - text: Skapa Azure ML-pipelines
-      url: tutorial-pipeline-batch-scoring-classification.md
-  - linkListType: how-to-guide
-    links:
-    - text: Konfigurera din miljö
-      url: how-to-configure-environment.md
-    - text: Tolka och förklara modeller
-      url: how-to-machine-learning-interpretability.md
-    - text: Djupinlärning eller ML
-      url: concept-deep-learning-vs-machine-learning.md
-    - text: Träna och registrera Scikit-learn-modeller
-      url: how-to-train-scikit-learn.md
-    - text: Träna och registrera TensorFlow-modeller
-      url: how-to-train-tensorflow.md
-    - text: Träna och registrera PyTorch-modeller
-      url: how-to-train-pytorch.md
-    - text: Träna och registrera Keras-modeller
-      url: how-to-train-keras.md
-    - text: Kunskapsförmedling
-      url: how-to-use-reinforcement-learning.md
-    - text: Vad är ML-pipelines?
-      url: concept-ml-pipelines.md
 - title: 'MLOps: Distribuera och hantera modeller'
   linkLists:
   - linkListType: how-to-guide
@@ -101,6 +67,34 @@ landingContent:
       url: how-to-consume-web-service.md
     - text: Batchförutsägelse
       url: how-to-use-parallel-run-step.md
+    - text: MLOps-lagringsplats för exempel
+      url: https://github.com/microsoft/MLOps
+- title: Träna med Python SDK
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Skapa ditt första ML-experiment
+      url: tutorial-1st-experiment-sdk-setup.md
+    - text: Förutsäga taxipriser med AutoML
+      url: tutorial-auto-train-models.md
+    - text: Skapa Azure ML-pipelines
+      url: tutorial-pipeline-batch-scoring-classification.md
+    - text: Klassificera bilder
+      url: tutorial-train-models-with-aml.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera din miljö
+      url: how-to-configure-environment.md
+    - text: Träna Scikit-learn-modeller
+      url: how-to-train-scikit-learn.md
+    - text: Utbilda TensorFlow-modeller
+      url: how-to-train-tensorflow.md
+    - text: Utbilda PyTorch-modeller
+      url: how-to-train-pytorch.md
+    - text: Träna Keras-modeller
+      url: how-to-train-keras.md
+    - text: Vad är ML-pipelines?
+      url: concept-ml-pipelines.md
 - title: Gå till referensdokument
   linkLists:
   - linkListType: reference
@@ -109,8 +103,6 @@ landingContent:
       url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
     - text: Designeralgoritmer och -moduler
       url: algorithm-module-reference/module-reference.md
-    - text: MLOps-lagringsplats för exempel
-      url: https://github.com/microsoft/MLOps
     - text: REST-API
       url: https://docs.microsoft.com/rest/api/azureml/
     - text: Maskininlärning CLI

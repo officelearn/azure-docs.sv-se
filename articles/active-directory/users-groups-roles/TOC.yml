@@ -175,6 +175,22 @@
               href: roles-custom-available-permissions.md
             - name: Delegera behörigheter för appadministratörer
               href: roles-delegate-app-roles.md
+        - name: Hantera rolltilldelningar med hjälp av grupper
+          items:
+            - name: Förhandsgranskning av gruppbaserad rolltilldelning
+              href: roles-groups-concept.md
+            - name: Skapa en rolltilldelningsbar grupp
+              href: roles-groups-create-eligible.md
+            - name: Tilldela roller till en grupp
+              href: roles-groups-assign-role.md
+            - name: Ta bort rolltilldelningar från en grupp
+              href: roles-groups-remove-assignment.md
+            - name: Visa en grupps rolltilldelningar
+              href: roles-groups-view-assignments.md
+            - name: Göra en grupp tilldelningsbar för en roll i PIM
+              href: roles-groups-pim-eligible.md
+            - name: Vanliga frågor och felsökning
+              href: roles-groups-faq-troubleshooting.md
         - name: Lägsta behörighetsroller efter uppgift
           href: roles-delegate-by-task.md
         - name: Microsoft 365-roller
@@ -189,11 +205,11 @@
           items:
             - name: Administrativa enheter – översikt
               href: directory-administrative-units.md
-            - name: 'Lägga till och hantera AU:er'
+            - name: Lägga till och hantera administrativa enheter
               href: roles-admin-units-manage.md
-            - name: 'Lägga till och hantera användare i AU:er'
+            - name: Lägga till och hantera användare i administrativa enheter
               href: roles-admin-units-add-manage-users.md
-            - name: 'Lägga till och hantera grupper i AU:er'
+            - name: Lägga till och hantera grupper i administrativa enheter
               href: roles-admin-units-add-manage-groups.md
             - name: Tilldela en roll med AU-omfånget
               href: roles-admin-units-assign-roles.md

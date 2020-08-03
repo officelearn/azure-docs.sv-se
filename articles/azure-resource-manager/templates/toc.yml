@@ -10,7 +10,7 @@
       href: quickstart-create-templates-use-the-portal.md
     - name: Skapa mallar – VS Code
       href: quickstart-create-templates-use-visual-studio-code.md
-    - name: Skapa och distribuera mallspecifikation
+    - name: Skapa och distribuera mallspecifikationer
       href: quickstart-create-template-specs.md
     - name: Azure-tjänster
       items:
@@ -210,8 +210,10 @@
     - name: Mallspecifikationer
       items:
         - name: Skapa med länkade mallar
+          displayName: template specs
           href: template-specs-create-linked.md
         - name: Distribuera som länkad mall
+          displayName: template specs
           href: template-specs-deploy-linked-template.md
     - name: Avancerade mallar
       items:
@@ -366,8 +368,8 @@
           href: deploy-to-management-group.md
         - name: Klientorganisation
           href: deploy-to-tenant.md
-        - name: Grupp med flera resurser
-          href: cross-resource-group-deployment.md
+        - name: Distributioner mellan omfång
+          href: cross-scope-deployment.md
     - name: Ange parametrar
       items:
         - name: Skapa parameterfil

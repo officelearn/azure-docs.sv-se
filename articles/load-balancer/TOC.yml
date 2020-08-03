@@ -10,14 +10,16 @@
       href: load-balancer-faqs.md
 - name: Snabbstart
   items:
-    - name: Skapa lastbalanserare – portalen
+    - name: Skapa offentlig lastbalanserare – portalen
       href: quickstart-load-balancer-standard-public-portal.md
-    - name: Skapa lastbalanserare – Azure CLI
+    - name: Skapa offentlig lastbalanserare – Azure CLI
       href: quickstart-load-balancer-standard-public-cli.md
-    - name: Skapa lastbalanserare – Azure PowerShell
+    - name: Skapa offentlig lastbalanserare – Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Skapa lastbalanserare – ARM-mall
+    - name: Skapa offentlig lastbalanserare – ARM-mall
       href: quickstart-load-balancer-standard-public-template.md
+    - name: Skapa intern lastbalanserare – portalen
+      href: quickstart-load-balancer-standard-internal-portal.md
   expanded: true
 - name: Självstudier
   items:

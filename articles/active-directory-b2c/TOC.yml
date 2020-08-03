@@ -452,6 +452,8 @@
       displayName: security
     - name: Användarflödesversioner
       href: user-flow-versions.md
+    - name: Äldre användarflödesversioner
+      href: user-flow-versions-legacy.md
 - name: Resurser
   items:
     - name: Azure-översikt

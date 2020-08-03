@@ -45,7 +45,7 @@
           href: pim-resource-roles-activate-your-roles.md
     - name: Hantera Azure AD-roller
       items:
-        - name: Funktionsuppdatering
+        - name: Översikt över funktioner
           href: azure-ad-roles-features.md
         - name: PowerShell för Azure AD-roller
           href: powershell-for-azure-ad-roles.md
@@ -87,6 +87,22 @@
           href: azure-pim-resource-rbac.md
         - name: Använd anpassade roller
           href: pim-resource-roles-custom-role-policy.md
+    - name: Hantera grupper för privilegierad åtkomst (förhandsversion)
+      items:
+        - name: Översikt över privilegierad åtkomst
+          href: groups-features.md
+        - name: Utforska grupper
+          href: groups-discover-groups.md
+        - name: Tilldela medlem eller ägare
+          href: groups-assign-member-owner.md
+        - name: Godkänn förfrågningar
+          href: groups-approval-workflow.md
+        - name: Utöka eller förnya tilldelningar
+          href: groups-renew-extend.md
+        - name: Konfigurera rollinställningar
+          href: groups-role-settings.md
+        - name: Visa granskningshistorik
+          href: groups-audit.md
     - name: Felsöka PIM
       href: pim-troubleshoot.md
     - name: Åtkomstgranskningar

@@ -9,7 +9,7 @@
 - name: Självstudier
   expanded: true
   items:
-    - name: Skapa en enkel hanterad domän
+    - name: Skapa en hanterad domän
       href: tutorial-create-instance.md
     - name: Konfigurera det virtuella nätverket för appar
       href: tutorial-configure-networking.md
@@ -21,9 +21,11 @@
       href: tutorial-configure-ldaps.md
     - name: Konfigurera synkronisering av lösenordshash
       href: tutorial-configure-password-hash-sync.md
-    - name: Skapa en avancerad hanterad domän
+    - name: Skapa en replikuppsättning (förhandsversion)
+      href: tutorial-create-replica-set.md
+    - name: Skapa en anpassad hanterad domän
       href: tutorial-create-instance-advanced.md
-    - name: Skapa ett skogsförtroende (förhandsversion)
+    - name: Skapa ett skogsförtroende
       href: tutorial-create-forest-trust.md
 - name: Exempel
   items:
@@ -33,12 +35,16 @@
       href: template-create-instance.md
     - name: Konfigurera omfångsbegränsad synkronisering med Azure AD PowerShell
       href: powershell-scoped-synchronization.md
+    - name: Skapa en resursskog och ett förtroende med hjälp av Azure PowerShell
+      href: create-resource-forest-powershell.md
 - name: Begrepp
   items:
     - name: Grundläggande om administration
       href: administration-concepts.md
     - name: Vanliga distributionsscenarier
       href: scenarios.md
+    - name: Replikuppsättningar (förhandsversion)
+      href: concepts-replica-sets.md
     - name: Skogar och förtroenden
       items:
         - name: Resursskogar

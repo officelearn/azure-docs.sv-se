@@ -46,18 +46,24 @@
       href: manage-dhcp.md
     - name: Haveriberedskap
       href: disaster-recovery.md
-    - name: Azure Backup Server för AVS
-      items:
-        - name: Konfigurera Azure Backup Server för AVS
-          href: set-up-mabs-for-avs.md
-        - name: Säkerhetskopiera virtuella AVS-datorer med Azure Backup Server
-          href: backup-avs-vms-with-mabs.md
     - name: Inbyggd Azure-integrering
       items:
         - name: API Management
           href: concepts-api-management.md
         - name: Nav och ekrar
           href: concepts-avs-hub-and-spoke-integration.md
+        - name: Azure Backup Server för AVS
+          items:
+            - name: Konfigurera Backup Server för AVS
+              href: set-up-mabs-for-avs.md
+            - name: Säkerhetskopiera virtuella AVS-datorer med Backup Server
+              href: backup-avs-vms-with-mabs.md
+        - name: Application Gateway på AVS
+          href: protect-avs-web-apps-with-app-gateway.md
+    - name: VMware-lösningar
+      items:
+        - name: Konfigurera vRealize Operations för AVS
+          href: vrealize-operations-for-avs.md
 - name: Referens
   items: null
 - name: Resurser

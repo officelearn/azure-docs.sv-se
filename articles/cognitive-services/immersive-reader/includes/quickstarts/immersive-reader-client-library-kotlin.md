@@ -9,18 +9,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/10/2020
 ms.author: dylankil
-ms.openlocfilehash: 7db367222d96d7bc9dae48242992ee76a89c849d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 0b4016d696231fd500f6b5e9b487fc4e0f984693
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544468"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425055"
 ---
 Den [fördjupade läsaren](https://www.onenote.com/learningtools) är ett särskilt utformat verktyg som implementerar beprövade tekniker för att förbättra läsningen av förståelse.
 
 I den här snabb starten skapar du en Android-app från grunden och integrerar den fördjupade läsaren. Ett fullständigt fungerande exempel på den här snabb starten finns [på GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-kotlin).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -604,7 +605,7 @@ Eftersom programmet måste göra nätverks anrop till den fördjupade läsaren S
 </manifest>
 ```
 
-## <a name="run-the-app"></a>Köra appen
+## <a name="run-the-app"></a>Kör appen
 
 Använd Android Studio för att köra appen på en enhets-emulator. När du väljer **Avancerad läsare**öppnas den fördjupade läsaren med innehållet i appen.
 

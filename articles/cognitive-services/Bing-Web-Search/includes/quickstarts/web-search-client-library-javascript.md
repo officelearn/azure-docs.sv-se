@@ -8,21 +8,22 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 0380dc8d2ff34cf9eecaad063a305491a357ca29
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 0a505e5fb11e776a90c8e198b2568e2ac0bd1854
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78924994"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406390"
 ---
-Med Webbsökning i Bing klient biblioteket är det enkelt att integrera Webbsökning i Bing i Node. js-programmet. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
+Med Webbsökning i Bing klient biblioteket är det enkelt att integrera Webbsökning i Bing i Node.js program. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
 
 Vill du se koden på en gång? Exempel på [Bing-sökning klient bibliotek för Java Script](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples) finns på GitHub.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
-* [Node. js 6](https://nodejs.org/en/download/) eller senare
+* [Node.js 6](https://nodejs.org/en/download/) eller senare
 * En prenumerationsnyckel  
 
 [!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
@@ -54,7 +55,7 @@ Vi börjar med att konfigurera utvecklingsmiljön för Node.js-projektet.
 
 ## <a name="create-a-project-and-declare-required-modules"></a>Skapa ett projekt och deklarera nödvändiga moduler
 
-I samma katalog som din `package.json` skapar du ett nytt Node.js-projekt med hjälp av valfri IDE eller redigeringsprogram. Till exempel: `sample.js`.
+I samma katalog som din `package.json` skapar du ett nytt Node.js-projekt med hjälp av valfri IDE eller redigeringsprogram. Exempel: `sample.js`.
 
 Kopiera den här koden till projektet. Den läser in de moduler som installerades i föregående avsnitt.
 

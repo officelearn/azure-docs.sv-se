@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: e0d963d6491574bf630061749ba4d3538549fa34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16b9342f0374377349f338db7ce5c8389c77ea18
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85570176"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425171"
 ---
 I det här steget ska du utvärdera hur många Azure-filresurser du behöver. En enda Windows Server-instans (eller kluster) kan synkronisera upp till 30 Azure-filresurser.
 
@@ -68,7 +68,7 @@ I din situation är det möjligt att en uppsättning mappar kan synkroniseras lo
 
 :::row:::
     :::column:::
-        [![](media/storage-files-migration-namespace-mapping/namespace-mapping.png "An example of a mapping table. Download the file below to experience and use the content of this image.")](media/storage-files-migration-namespace-mapping/namespace-mapping-expanded.png#lightbox)
+        [![Ett exempel på en mappnings tabell. Hämta filen nedan för att uppleva och använda innehållet i den här avbildningen.](media/storage-files-migration-namespace-mapping/namespace-mapping.png)](media/storage-files-migration-namespace-mapping/namespace-mapping-expanded.png#lightbox)
     :::column-end:::
     :::column:::
         Använd en kombination av de tidigare begreppen för att avgöra hur många Azure-filresurser du behöver, och vilka delar av dina befintliga data som kommer att få plats i Azure-filresursen.

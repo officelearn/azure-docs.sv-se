@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 07/28/2020
 ms.topic: include
-ms.custom: include file
+ms.custom: include file, devx-track-javascript
 ms.author: diberry
-ms.openlocfilehash: 6d805dfc15264a34abe1f177f688dae96d4a49f7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 88a9c2f18237974a0188f6cf387bf98ebfa2b211
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369466"
+ms.locfileid: "87424974"
 ---
 Använd Language Understanding (LUIS) Authoring Client library för Node.js till:
 
@@ -27,7 +27,7 @@ Använd Language Understanding (LUIS) Authoring Client library för Node.js till
 
 [Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring)  |  NPM-, NPM-exempel ( [Authoring Package)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring), [runtime-paket ()](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)  |  [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/node-sdk-authoring-prediction/luis_authoring_quickstart.js)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Language Understanding redigerings resurs: [skapa en i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 * [Node.js](https://nodejs.org)

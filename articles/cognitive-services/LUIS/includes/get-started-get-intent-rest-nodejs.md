@@ -1,5 +1,5 @@
 ---
-title: Hämta avsikt med REST-anrop i Node. js
+title: Kom avsikt med REST-anrop i Node.js
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -8,27 +8,28 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/03/2020
 ms.author: diberry
-ms.openlocfilehash: 05142c1d98906a591fae41658c5c7b9d36cdb8c4
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 0c8217ba2c8c6c7681e649f4e519ef14ced6f596
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84418078"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405285"
 ---
 [Referens dokumentation](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/node-predict-with-rest/predict.js)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Programmeringsspråket [Node.js](https://nodejs.org/)
-* [Visual Studio-koden](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 
 ## <a name="create-pizza-app"></a>Skapa pizza-app
 
 [!INCLUDE [Create pizza app](get-started-get-intent-create-pizza-app.md)]
 
-## <a name="create-the-nodejs-project"></a>Skapa Node. js-projektet
+## <a name="create-the-nodejs-project"></a>Skapa Node.js-projektet
 
-1. Skapa en ny mapp som innehåller Node. js-projektet, till exempel `node-predict-with-rest` .
+1. Skapa en ny mapp som ska innehålla Node.js-projektet, till exempel `node-predict-with-rest` .
 
 1. Öppna en ny kommando tolk, navigera till mappen som du skapade och kör följande kommando:
 
@@ -48,7 +49,7 @@ ms.locfileid: "84418078"
 
 ## <a name="get-intent-programmatically"></a>Hämta avsikter programmatiskt
 
-Använd Node. js för att fråga efter [förutsägelse slut punkten](https://aka.ms/luis-apim-v3-prediction) och få ett förutsägelse resultat.
+Använd Node.js för att fråga efter [förutsägelse slut punkten](https://aka.ms/luis-apim-v3-prediction) och få ett förutsägelse resultat.
 
 1. Kopiera följande kodfragment till en fil med namnet `predict.js` :
 
@@ -60,7 +61,7 @@ Använd Node. js för att fråga efter [förutsägelse slut punkten](https://aka
     |--|--|
     |`YOUR-APP-ID`|Ditt app-ID. Finns på LUIS-portalen, sidan program inställningar för din app.
     |`YOUR-PREDICTION-KEY`|Din nyckel för att förutsäga 32-tecknen. Finns på LUIS-portalen, sidan Azure-resurser för din app.
-    |`YOUR-PREDICTION-ENDPOINT`| URL-slutpunkten för förutsägelse. Finns på LUIS-portalen, sidan Azure-resurser för din app.<br>Exempelvis `https://westus.api.cognitive.microsoft.com/`.|
+    |`YOUR-PREDICTION-ENDPOINT`| URL-slutpunkten för förutsägelse. Finns på LUIS-portalen, sidan Azure-resurser för din app.<br>Till exempel `https://westus.api.cognitive.microsoft.com/`.|
 
  1. Granska det förutsägelse svar som returneras som JSON:
 

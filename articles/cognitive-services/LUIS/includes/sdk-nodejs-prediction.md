@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 07/28/2020
 ms.topic: include
-ms.custom: include file
+ms.custom: include file, devx-track-javascript
 ms.author: diberry
-ms.openlocfilehash: 19da911cbc662f47e7bbd16aaddf8803d4109d6a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 2cf75056cd045822e083a15f7590bf020db8cd5e
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369296"
+ms.locfileid: "87425269"
 ---
 Använd klient biblioteket Language Understanding (LUIS) för att Node.js till:
 
@@ -24,7 +24,7 @@ Använd klient biblioteket Language Understanding (LUIS) för att Node.js till:
 
 [Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-runtime)  |  [Runtime-paket (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/node-sdk-authoring-prediction/luis_prediction.js)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Language Understanding runtime-resurs: [skapa en i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 * [Node.js](https://nodejs.org)

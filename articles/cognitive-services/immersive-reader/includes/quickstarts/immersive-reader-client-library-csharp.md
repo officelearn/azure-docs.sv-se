@@ -9,25 +9,26 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
-ms.openlocfilehash: a5bd7b3e6262fa21865f04a6b65d1a75faafefa4
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 68009797e48ab15c1c8df983b3413d7b7dac54b0
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038686"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425168"
 ---
 Den [fördjupade läsaren](https://www.onenote.com/learningtools) är ett särskilt utformat verktyg som implementerar beprövade tekniker för att förbättra läsningen av förståelse.
 
 I den här snabb starten skapar du en webbapp från grunden och integrerar den fördjupade läsaren med hjälp av klient biblioteket för avancerad läsare. Ett fullständigt fungerande exempel på den här snabb starten finns [här](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads)
 * En fördjupad läsar resurs som kon figurer ATS för Azure Active Directory autentisering. Följ [dessa instruktioner](../../how-to-create-immersive-reader.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar exempel projekt egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
 
-## <a name="create-a-web-app-project"></a>Skapa ett webbapp
+## <a name="create-a-web-app-project"></a>Skapa ett webbappsprojekt
 
 Skapa ett nytt projekt i Visual Studio med hjälp av mallen ASP.NET Core Web App med inbyggd modell-View-Controller och ASP.NET Core 2,1. Ge projektet namnet "QuickstartSampleWebApp".
 
@@ -289,7 +290,7 @@ Lägg till följande kod längst ned i _Views\Home\Index.cshtml_:
 }
 ```
 
-## <a name="build-and-run-the-app"></a>Skapa och kör appen
+## <a name="build-and-run-the-app"></a>Kompilera och köra appen
 
 I meny raden väljer du **felsök > starta fel sökning**eller trycker på **F5** för att starta programmet.
 

@@ -63,7 +63,7 @@ När du skapar din Azure Database for PostgreSQL-server skapas en standard datab
    psql "host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"
    ```
 
-   Kopiera strängen. Du måste ersätta "{ditt\_lösen ord}" med det administrativa lösen ord som du valde tidigare. Systemet lagrar inte lösen ordet i klartext och kan därför inte Visa det åt dig i anslutnings strängen.
+   Kopiera strängen. Du måste ersätta "{ditt \_ lösen ord}" med det administrativa lösen ord som du valde tidigare. Systemet lagrar inte lösen ordet i klartext och kan därför inte Visa det åt dig i anslutnings strängen.
 
 2. Öppna ett terminalfönster på den lokala datorn.
 

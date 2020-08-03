@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d2cf7dbcd97c8f740447607eaf443bc3ea4a6733
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f6175a797b14077cafacaca1f2fd48f36e945d9e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500620"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425190"
 ---
 Att aktivera delade diskar är bara tillgängligt för en delmängd disk typer. För närvarande kan endast Ultra disks och Premium-SSD aktivera delade diskar. Varje hanterad disk som har delade diskar aktiverade omfattas av följande begränsningar, ordnade efter disk typ:
 
@@ -25,6 +25,8 @@ När du delar Ultra disks har de följande ytterligare begränsningar:
 
 - För närvarande begränsad till Azure Resource Manager-eller SDK-support. 
 - Det går bara att använda standard diskar med vissa versioner av Windows Server-redundanskluster, mer information finns i [maskin varu krav och lagrings alternativ för redundanskluster](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
+
+Delade Ultra disks är tillgängliga i alla regioner som stöder Ultra disks som standard och kräver inte att du registrerar dig för åtkomst för att använda dem.
 
 ### <a name="premium-ssds"></a>Premium SSD
 
@@ -38,4 +40,4 @@ När du delar Ultra disks har de följande ytterligare begränsningar:
 - Det går bara att använda standard diskar med vissa versioner av Windows Server-redundanskluster, mer information finns i [maskin varu krav och lagrings alternativ för redundanskluster](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
 - Azure Backup och Azure Site Recovery support är ännu inte tillgängligt.
 
-Om du är intresse rad av att testa delade diskar kan du [Registrera dig för åtkomst](https://aka.ms/AzureSharedDiskGASignUp).
+Om du är intresse rad av att testa Shared Premium-SSD kan du [Registrera dig för åtkomst](https://aka.ms/AzureSharedDiskGASignUp).

@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: data-factory
 author: linda33wj
 ms.service: data-factory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/08/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 995339f91be37b71d73b409f3eaeafb3dd1777ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfb42e0ba81eef145932db072c8a80a2f8e00932
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84754634"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425019"
 ---
 Azure Data Factory är en tjänst för flera innehavare som har följande standard gränser på plats för att se till att kund prenumerationer skyddas från var and ras arbets belastningar. Kontakta supporten om du vill höja gränserna upp till max gränsen för din prenumeration.
 
@@ -22,7 +22,7 @@ Azure Data Factory är en tjänst för flera innehavare som har följande standa
 | Resurs | Standardgräns | Övre gräns |
 | -------- | ------------- | ------------- |
 | Data fabriker i en Azure-prenumeration | 800 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Totalt antal entiteter, till exempel pipelines, data uppsättningar, utlösare, länkade tjänster och integrerings körningar i en data fabrik | 5 000 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Totalt antal entiteter, till exempel pipelines, data uppsättningar, utlösare, länkade tjänster, privata slut punkter och integrerings körningar i en data fabrik | 5 000 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Totalt antal processor kärnor för Azure-SSIS integration runtime under en prenumeration | 256 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Samtidiga pipeline körs per data fabrik som delas mellan alla pipeliner i fabriken | 10 000  | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Samtidig extern aktivitet körs per prenumeration per [Azure integration runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Externa aktiviteter hanteras i integration runtime men körs på länkade tjänster, inklusive Databricks, lagrad procedur, HDInsights, webb och andra.</small> | 3000 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
@@ -43,7 +43,7 @@ Azure Data Factory är en tjänst för flera innehavare som har följande standa
 | Data integrerings enheter<sup>1</sup> per kopierings aktivitets körning | 256 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Skriv API-anrop | 1200/h<br/><br/> Denna gräns införs av Azure Resource Manager, inte Azure Data Factory. | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Läs API-anrop | 12500/h<br/><br/> Denna gräns införs av Azure Resource Manager, inte Azure Data Factory. | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Övervaka frågor per minut | 1,000 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Övervaka frågor per minut | 1 000 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Entitet CRUD-åtgärder per minut | 50 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Maximal tid för fel sökning av data flöde | 8 timmar | 8 timmar |
 | Samtidiga antalet data flöden per integration runtime | 50 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
@@ -73,7 +73,7 @@ Azure Data Factory är en tjänst för flera innehavare som har följande standa
 | Byte per objekt för data uppsättning och länkade tjänst objekt<sup>1</sup> |100 kB |2 000 KB |
 | Azure HDInsight-kluster kärnor på begäran i en prenumeration<sup>2</sup> |60 |[Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Moln data förflyttnings enheter per kopierings aktivitet kör<sup>3</sup> |32 |[Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Antal återförsök för pipeline-aktiviteter körs |1,000 |MaxInt (32 bitar) |
+| Antal återförsök för pipeline-aktiviteter körs |1 000 |MaxInt (32 bitar) |
 
 <sup>1</sup> pipeline, data uppsättning och länkade tjänst objekt representerar en logisk gruppering av arbets belastningen. Gränserna för de här objekten relaterar inte till mängden data som du kan flytta och bearbeta med Azure Data Factory. Data Factory är utformad för att skalas för att hantera petabyte av data.
 

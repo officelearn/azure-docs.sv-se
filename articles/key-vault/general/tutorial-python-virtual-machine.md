@@ -9,28 +9,26 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 453307b304c4cb1899b1de31117c944ac66fcddb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 29317e9d5972faf9326a17ebbbe83063f79cdf23
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101882"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512827"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>Självstudie: använda Azure Key Vault med en virtuell dator i python
 
-Azure Key Vault hjälper dig att skydda hemligheter, t. ex. API-nycklar, databas anslutnings strängarna som du behöver för att få åtkomst till dina program, tjänster och IT-resurser.
+Azure Key Vault hjälper dig att skydda nycklar, hemligheter och certifikat, till exempel API-nycklar och databas anslutnings strängar.
 
-I den här självstudien får du lära dig hur du hämtar ett konsol program för att läsa information från Azure Key Vault. Om du vill göra det använder du hanterade identiteter för Azure-resurser. 
-
-Självstudien visar hur du:
+I den här självstudien ställer du in ett python-program för att läsa information från Azure Key Vault med hjälp av hanterade identiteter för Azure-resurser. Lär dig att:
 
 > [!div class="checklist"]
-> * Skapa ett nyckelvalv.
-> * Lägg till en hemlighet i nyckelvalvet.
-> * Hämta en hemlighet från nyckelvalvet.
-> * Skapa en virtuell dator i Azure.
-> * Aktivera en hanterad identitet.
-> * Tilldela behörigheter till den virtuella datorns identitet.
+> * Skapa ett nyckelvalv
+> * Lagra en hemlighet i Key Vault
+> * Skapa en virtuell Azure Linux-dator
+> * Aktivera en [hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md) för den virtuella datorn
+> * Ge nödvändiga behörigheter för konsol programmet för att läsa data från Key Vault
+> * Hämta en hemlighet från Key Vault
 
 Läs [Key Vault grundläggande koncept](basic-concepts.md)innan du börjar. 
 
@@ -50,34 +48,43 @@ Om du vill logga in i Azure med hjälp av Azure CLI anger du:
 az login
 ```
 
-### <a name="create-a-resource-group-and-key-vault"></a>Skapa en resurs grupp och ett nyckel valv
+## <a name="create-a-resource-group-and-key-vault"></a>Skapa en resurs grupp och ett nyckel valv
 
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
-## <a name="add-a-secret-to-the-key-vault"></a>Lägga till en hemlighet i nyckelvalvet
+## <a name="populate-your-key-vault-with-a-secret"></a>Fyll i nyckel valvet med en hemlighet
 
-Vi lägger till en hemlighet för att illustrera hur detta fungerar. Hemligheten kan vara en SQL-anslutningssträng eller annan information som du behöver för att hålla både säkra och tillgängliga för ditt program.
-
-Om du vill skapa en hemlighet i nyckel valvet som heter **AppSecret**, anger du följande kommando:
-
-```azurecli
-az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
-```
-
-Den här hemligheten lagrar värdet **MySecret**.
+[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
-Du kan skapa en virtuell dator med någon av följande metoder:
 
-* [Azure CLI](../../virtual-machines/windows/quick-create-cli.md)
-* [PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
-* [Azure Portal](../../virtual-machines/windows/quick-create-portal.md)
+Skapa en virtuell dator med namnet **myVM** med någon av följande metoder:
+
+| Linux | Windows |
+|--|--|
+| [Azure CLI](../../virtual-machines/linux/quick-create-cli.md) | [Azure CLI](../../virtual-machines/windows/quick-create-cli.md) |
+| [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) |
+| [Azure-portalen](../../virtual-machines/linux/quick-create-portal.md) | [Azure Portal](../../virtual-machines/windows/quick-create-portal.md) |
+
+Om du vill skapa en virtuell Linux-dator med Azure CLI använder du kommandot [AZ VM Create](/cli/azure/vm) .  I följande exempel lägger du till ett användar konto med namnet *azureuser*. Parametern `--generate-ssh-keys` används för att automatiskt generera en SSH-nyckel och placera den på standardnyckelplatsen (*~/.ssh*). 
+
+```azurecli-interactive
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --generate-ssh-keys
+```
+
+Observera värdet för `publicIpAddress` i utdata.
 
 ## <a name="assign-an-identity-to-the-vm"></a>Tilldela en identitet till den virtuella datorn
-I det här steget skapar du en systemtilldelad identitet för den virtuella datorn genom att köra följande kommando i Azure CLI:
+
+Skapa en systemtilldelad identitet för den virtuella datorn med hjälp av kommandot Azure CLI [AZ VM Identity Assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) :
 
 ```azurecli
-az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
+az vm identity assign --name "myVM" --resource-group "myResourceGroup"
 ```
 
 Observera den systemtilldelade identiteten som visas i följande kod. Utdata från föregående kommando skulle vara: 
@@ -90,65 +97,73 @@ Observera den systemtilldelade identiteten som visas i följande kod. Utdata fr�
 ```
 
 ## <a name="assign-permissions-to-the-vm-identity"></a>Tilldela behörigheter till VM-identiteten
+
 Nu kan du tilldela de tidigare skapade identitets behörigheterna till ditt nyckel valv genom att köra följande kommando:
 
 ```azurecli
-az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
+az keyvault set-policy --name "<your-unique-keyvault-name>" --object-id "<systemAssignedIdentity>" --secret-permissions get list
 ```
 
-## <a name="log-on-to-the-virtual-machine"></a>Logga in på den virtuella datorn
+## <a name="log-in-to-the-vm"></a>Logga in på den virtuella datorn
 
-Om du vill logga in på den virtuella datorn följer du anvisningarna i [Anslut och logga in på en virtuell Azure-dator som kör Windows](../../virtual-machines/windows/connect-logon.md).
+Logga in på den virtuella datorn genom att följa anvisningarna i [Anslut och logga in på en virtuell Azure-dator som kör Linux](../../virtual-machines/linux/login-using-aad.md) eller [Anslut och logga in på en virtuell Azure-dator som kör Windows](../../virtual-machines/windows/connect-logon.md).
 
-## <a name="create-and-run-a-sample-python-app"></a>Skapa och kör en exempel-python-app
 
-I nästa avsnitt finns en exempel fil med namnet *Sample.py*. Det använder ett [begär](https://2.python-requests.org/en/master/) ande bibliotek för att göra HTTP GET-anrop.
+Om du vill logga in på en virtuell Linux-dator kan du använda SSH-kommandot med alternativet " <publicIpAddress> " som angetts i steget [skapa en virtuell dator](#create-a-virtual-machine) :
 
-## <a name="edit-samplepy"></a>Redigera Sample.py
+```terminal
+ssh azureuser@<PublicIpAddress>
+```
 
-När du har skapat *Sample.py*öppnar du filen och kopierar koden i det här avsnittet. 
+## <a name="install-python-libraries-on-the-vm"></a>Installera Python-bibliotek på den virtuella datorn
 
-Koden visar en två stegs process:
-1. Hämta en token från den lokala MSI-slutpunkten på den virtuella datorn.  
-  Om du gör det hämtas även en token från Azure AD.
-1. Skicka token till nyckel valvet och hämta sedan din hemlighet. 
+På den virtuella datorn installerar du de två python-bibliotek som vi kommer att använda i python-skriptet: `azure-keyvault-secrets` och `azure.identity` .  
+
+På en virtuell Linux-dator kan du till exempel installera dessa med `pip3` :
+
+```bash
+pip3 install azure-keyvault-secrets
+
+pip3 install azure.identity
+```
+
+## <a name="create-and-edit-the-sample-python-script"></a>Skapa och redigera exempel på python-skriptet
+
+Skapa en python-fil med namnet **Sample.py**på den virtuella datorn. Redigera filen så att den innehåller följande kod och Ersätt "<ditt unika nyckel valv-namn>" med namnet på ditt nyckel valv:
 
 ```python
-    # importing the requests library 
-    import requests 
+from azure.keyvault.secrets import SecretClient
+from azure.identity import DefaultAzureCredential
 
-    # Step 1: Fetch an access token from a Managed Identity enabled azure resource.
-    # Resources with an MSI configured recieve an AAD access token by using the Azure Instance Metadata Service (IMDS)
-    # IMDS provides an endpoint accessible to all IaaS VMs using a non-routable well-known IP Address
-    # To learn more about IMDS and MSI Authentication see the following link: https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service
-    # Note that the resource here is https://vault.azure.net for public cloud and api-version is 2018-02-01
-    MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net"
-    r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"}) 
-      
-    # extracting data in json format 
-    # This request gets an access_token from Azure AD by using the local MSI endpoint.
-    data = r.json() 
-    
-    # Step 2: Pass the access_token received from previous HTTP GET call to your key vault.
-    KeyVaultURL = "https://{YOUR KEY VAULT NAME}.vault.azure.net/secrets/{YOUR SECRET NAME}?api-version=2016-10-01"
-    kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
-    
-    print(kvSecret.json()["value"])
+keyVaultName = "<your-unique-keyvault-name>"
+KVUri = f"https://{keyVaultName}.vault.azure.net"
+secretName = "mySecret"
+
+credential = DefaultAzureCredential()
+client = SecretClient(vault_url=KVUri, credential=credential)
+retrieved_secret = client.get_secret(secretName)
+
+print(f"The value of secret '{secretName}' in '{keyVaultName}' is: '{retrieved_secret.value}'")
 ```
 
-Du kan visa det hemliga värdet genom att köra följande kod: 
+## <a name="run-the-sample-python-app"></a>Kör exempel på python-appen
 
-```console
-python Sample.py
+Kör slutligen **Sample.py**. Om alla har varit väl, ska det returnera värdet för din hemlighet:
+
+```bash
+python3 sample.py
+
+The value of secret 'mySecret' in '<your-unique-keyvault-name>' is: 'Success!'
 ```
-
-Följande kod visar hur du utför åtgärder med Azure Key Vault på en virtuell Windows-dator. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När de inte längre behövs tar du bort den virtuella datorn och nyckel valvet.
+När de inte längre behövs tar du bort den virtuella datorn och nyckel valvet.  Du kan göra detta snabbt genom att helt enkelt ta bort resurs gruppen som de tillhör:
+
+```azurecli
+az group delete -g myResourceGroup
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [REST API för Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/)
+[REST API för Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/)

@@ -9,15 +9,15 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 04/20/2020
+ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 47dec238474558869d6c8f7fc876e72bb5be6ff5
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: caaf1a2622d4642850d0d981e813ee438eb4eca8
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87457659"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513782"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Träna med data uppsättningar i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ I den här artikeln får du lära dig hur du arbetar med [Azure Machine Learning
 
 Azure Machine Learning data uppsättningar ger en sömlös integrering med Azure Machine Learning utbildnings produkter som [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [uppskattare](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py), [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py) och [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att skapa och träna med data uppsättningar behöver du:
 
@@ -191,17 +191,6 @@ y_train = load_data(y_train_path, True).reshape(-1)
 y_test = load_data(y_test, True).reshape(-1)
 ```
 
-## <a name="accessing-source-code-during-training"></a>Åtkomst till käll kod under träning
-
-Azure Blob Storage har högre överföringshastigheter än en Azure-filresurs och kommer att skalas till ett stort antal jobb som startas parallellt. Därför rekommenderar vi att du konfigurerar dina körningar för att använda blob-lagring för överföring av källfiler.
-
-I följande kod exempel anges i den körnings konfiguration som BLOB data lager ska användas för käll kods överföringar.
-
-```python 
-# workspaceblobstore is the default blob storage
-run_config.source_directory_data_store = "workspaceblobstore" 
-```
-
 ## <a name="mount-vs-download"></a>Montering mot nedladdning
 
 Det finns stöd för att montera eller hämta filer av alla format för data uppsättningar som skapats från Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database och Azure Database for PostgreSQL. 
@@ -226,6 +215,38 @@ mount_context.start()
 import os
 print(os.listdir(mounted_path))
 print (mounted_path)
+```
+
+## <a name="access-datasets-in-your-script"></a>Få åtkomst till data uppsättningar i skriptet
+
+Registrerade data uppsättningar kan nås både lokalt och via fjärr anslutning på beräknings kluster som Azure Machine Learning Compute. Använd följande kod för att komma åt din arbets yta och registrerad data uppsättning efter namn för att få åtkomst till din registrerade data uppsättning över experiment. Som standard [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) returnerar metoden i `Dataset` klassen den senaste versionen av data uppsättningen som är registrerad på arbets ytan.
+
+```Python
+%%writefile $script_folder/train.py
+
+from azureml.core import Dataset, Run
+
+run = Run.get_context()
+workspace = run.experiment.workspace
+
+dataset_name = 'titanic_ds'
+
+# Get a dataset by name
+titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
+
+# Load a TabularDataset into pandas DataFrame
+df = titanic_ds.to_pandas_dataframe()
+```
+
+## <a name="accessing-source-code-during-training"></a>Åtkomst till käll kod under träning
+
+Azure Blob Storage har högre överföringshastigheter än en Azure-filresurs och kommer att skalas till ett stort antal jobb som startas parallellt. Därför rekommenderar vi att du konfigurerar dina körningar för att använda blob-lagring för överföring av källfiler.
+
+I följande kod exempel anges i den körnings konfiguration som BLOB data lager ska användas för käll kods överföringar.
+
+```python 
+# workspaceblobstore is the default blob storage
+run_config.source_directory_data_store = "workspaceblobstore" 
 ```
 
 ## <a name="notebook-examples"></a>Exempel på bärbara datorer

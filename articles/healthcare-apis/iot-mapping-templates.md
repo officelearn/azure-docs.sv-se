@@ -1,26 +1,26 @@
 ---
-title: 'Begrepp: mappa mallar i IoT Connector (för hands version) i Azure API för FHIR'
-description: Lär dig hur du skapar två typer av mappnings mallar i IoT Connector. Enhets mappnings mal len omvandlar enhets data till ett normaliserat schema. FHIR-mappnings mal len transformerar ett normaliserat meddelande till en FHIR-baserad observations resurs.
+title: 'Begrepp: mappa mallar i Azure IoT Connector för FHIR (för hands version) i Azure API för FHIR'
+description: Lär dig hur du skapar två typer av mappnings mallar i Azure IoT Connector för FHIR (för hands version). Enhets mappnings mal len omvandlar enhets data till ett normaliserat schema. FHIR-mappnings mal len transformerar ett normaliserat meddelande till en FHIR-baserad observations resurs.
 services: healthcare-apis
 author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 05/14/2020
+ms.date: 07/31/2020
 ms.author: punagpal
-ms.openlocfilehash: dadd14d4ca28f367eaa7fd07099514bf420af5af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cc8b7d46e1018974c6a88cef9e4f4a9f9a09caa7
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100427"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513357"
 ---
-# <a name="iot-connector-preview-mapping-templates"></a>IoT Connector (för hands version) mappar mallar
-Den här artikeln beskriver hur du konfigurerar IoT Connector med hjälp av mappar.
+# <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Mappnings-mallar för Azure IoT Connector för FHIR (för hands version)
+Den här artikeln beskriver hur du konfigurerar Azure IoT Connector för FHIR * med hjälp av mappning av mallar.
 
-IoT-anslutningen kräver två typer av JSON-baserade mappnings-mallar. Den första typen, **enhets mappningen**är ansvarig för att mappa enhetens nytto laster som skickas till `devicedata` slut punkten för Azure Event Hub. Den extraherar typer, enhets identifierare, datum/tid för mätning och mått värden. Den andra typen, **FHIR-mappning**, styr mappningen för FHIR-resursen. Det gör det möjligt att konfigurera längden på observations perioden, FHIR-datatypen som används för att lagra värdena och terminologins kod (er). 
+Azure IoT-anslutningen för FHIR kräver två typer av JSON-baserade mappnings-mallar. Den första typen, **enhets mappningen**är ansvarig för att mappa enhetens nytto laster som skickas till `devicedata` slut punkten för Azure Event Hub. Den extraherar typer, enhets identifierare, datum/tid för mätning och mått värden. Den andra typen, **FHIR-mappning**, styr mappningen för FHIR-resursen. Det gör det möjligt att konfigurera längden på observations perioden, FHIR-datatypen som används för att lagra värdena och terminologins kod (er). 
 
-Mappnings mallarna består av ett JSON-dokument baserat på deras typ. Dessa JSON-dokument läggs sedan till i IoT-anslutningen via Azure Portal. Enhets mappnings dokumentet läggs till via sidan **Konfigurera enhets mappning** och FHIR mappnings dokument via sidan **Konfigurera FHIR-mappning** .
+Mappnings mallarna består av ett JSON-dokument baserat på deras typ. Dessa JSON-dokument läggs sedan till i din Azure IoT-anslutning för FHIR via Azure Portal. Enhets mappnings dokumentet läggs till via sidan **Konfigurera enhets mappning** och FHIR mappnings dokument via sidan **Konfigurera FHIR-mappning** .
 
 > [!NOTE]
 > Mappar mallar lagras i en underliggande blob-lagring och läses in från BLOB per beräknings körning. När de har uppdaterats bör de börja gälla omedelbart. 
@@ -562,10 +562,11 @@ Representerar data typen [CodeableConcept](http://hl7.org/fhir/datatypes.html#Co
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ta en titt på vanliga frågor om IoT Connector
+Ta en titt på vanliga frågor om Azure IoT Connector för FHIR (för hands version).
 
 >[!div class="nextstepaction"]
->[Vanliga frågor och svar om IoT Connector](fhir-faq.md#iot-connector-preview)
+>[Vanliga frågor och svar om Azure IoT Connector för FHIR](fhir-faq.md#iot-connector-preview)
 
+* I Azure Portal kallas Azure IoT Connector för FHIR IoT Connector (för hands version).
 
 FHIR är ett registrerat varumärke som tillhör HL7 och används med tillåtelse av HL7.

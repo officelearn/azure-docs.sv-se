@@ -6,29 +6,41 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 9b306bc55c97b977d0f06fa3e7a56f734f2f9db9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2c2fbb3352b159ce9f5231c56399638a1d393366
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030648"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513867"
 ---
 # <a name="azure-database-for-mysql-videos"></a>Azure Database for MySQL videor
 
-[Översikt: Azure Database for PostgreSQL och MySQL](https://channel9.msdn.com/Events/Connect/2017/T147)
+Den här sidan innehåller video innehåll för att lära dig mer om Azure Database for MySQL.
 
->[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T147/player]
+## <a name="overview-azure-database-for-postgresql-and-mysql"></a>Översikt: Azure Database for PostgreSQL och MySQL
 
-Azure Database for PostgreSQL och Azure Database for MySQL samla ihop Community Edition-databaser och-funktioner i en fullständigt hanterad tjänst – så att du kan fokusera på dina appar i stället för att behöva hantera en databas. Titta på för att få en snabb överblick över fördelarna med att använda tjänsten och se några av funktionerna i praktiken. Se hur du skapar en [Azure Database for PostgreSQL](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-postgresql-server-in-the-azure-portal) och [Azure Database for MySQL](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-mysql-server-by-using-the-azure-portal).
+>[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T147/player] 
+[Öppna i kanal 9](https://channel9.msdn.com/Events/Connect/2017/T147)
 
-[Djupgående om hanterade tjänst funktioner för MySQL och PostgreSQL](https://channel9.msdn.com/Events/Connect/2017/T148)
+Azure Database for PostgreSQL och Azure Database for MySQL samla ihop Community Edition-databaser och-funktioner i en fullständigt hanterad tjänst – så att du kan fokusera på dina appar i stället för att behöva hantera en databas. Titta på för att få en snabb överblick över fördelarna med att använda tjänsten och se några av funktionerna i praktiken.
+
+## <a name="create-a-postgresql-or-mysql-server"></a>Skapa en PostgreSQL-eller MySQL-Server
+Azure Database for PostgreSQL och Azure Database for MySQL är hanterade tjänster som du använder för att köra, hantera och skala hög tillgängliga Community Edition-databas motorer i molnet. De här video kurserna visar hur du skapar en PostgreSQL-eller MySQL-server på ungefär tre minuter med hjälp av Azure Portal. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+
+* [PostgreSQL Video-självstudie](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-postgresql-server-in-the-azure-portal)
+
+* [Självstudie för MySQL-video](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-mysql-server-by-using-the-azure-portal)
+
+## <a name="deep-dive-on-managed-service-capabilities-for-mysql-and-postgresql"></a>Djupgående om hanterade tjänst funktioner för MySQL och PostgreSQL
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T148/player]
+[Öppna i kanal 9](https://channel9.msdn.com/Events/Connect/2017/T148)
 
 Azure Database for PostgreSQL och Azure Database for MySQL samla ihop Community Edition-databas motorer och funktionerna i en fullständigt hanterad tjänst. Kom igång och få en översikt över hur dessa tjänster fungerar, hur vi garanterar hög tillgänglighet och snabb skalning (inom några sekunder), så att du kan uppfylla kundernas behov. Du får också lära dig om några av de underliggande investeringarna i säkerhet och tillgänglighet i hela världen.
 
-[Så här kommer du igång med den nya Azure Database for MySQL tjänsten](https://channel9.msdn.com/events/Build/2017/B8045)
+## <a name="how-to-get-started-with-the-new-azure-database-for-mysql-service"></a>Så här kommer du igång med den nya Azure Database for MySQL tjänsten
 
 >[!VIDEO https://channel9.msdn.com/Events/Build/2017/B8045/player]
+[Öppna i kanal 9](https://channel9.msdn.com/events/Build/2017/B8045)
 
 I den här videon från den 2017 Microsoft build-konferensen kan du läsa mer om Microsofts hanterade MySQL-erbjudande i Azure. Videon går igenom Microsofts strategi för att stödja databas system med öppen källkod i Azure. Videon diskuterar vad det innebär för dig som utvecklare att utveckla och distribuera program som använder MySQL i Azure. Den här videon visar en översikt över tjänstens arkitektur och visar Azure Database for MySQL är integrerat med andra Azure-tjänster som Web Apps.

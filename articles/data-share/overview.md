@@ -1,17 +1,17 @@
 ---
 title: Vad är Azure Data Share?
 description: Lär dig mer om att dela data på ett säkert sätt till flera kunder och partner med hjälp av Azure Data Share.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: overview
-ms.date: 07/10/2019
-ms.openlocfilehash: fa90f272a05b7449981ca5d4ccab161fb1e39e9e
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.date: 07/30/2020
+ms.openlocfilehash: 0dd0fbdd9bcf4d4fab2ffe9f420264ab737a700b
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636790"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87511929"
 ---
 # <a name="what-is-azure-data-share"></a>Vad är Azure Data Share?
 
@@ -25,7 +25,7 @@ En DataProvider kan hålla kontrollen över hur deras data hanteras genom att an
 
 Azure Data Share hjälper till att förbättra insikter genom att göra det enkelt att kombinera data från tredje part för att utöka analys-och AI-scenarier. Du kan enkelt använda kraften i Azure Analytics-verktyg för att förbereda, bearbeta och analysera data som delas med Azure Data Share. 
 
-Både data leverantören och data konsumenten måste ha en Azure-prenumeration för att kunna dela och ta emot data. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+Både data leverantören och data konsumenten måste ha en Azure-prenumeration för att kunna dela och ta emot data. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
 ## <a name="scenarios-for-azure-data-share"></a>Scenarier för Azure Data Share
 

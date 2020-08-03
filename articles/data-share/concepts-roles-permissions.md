@@ -1,17 +1,17 @@
 ---
 title: Roller och krav för Azure Data Share
 description: Läs om de behörigheter som krävs för att dela och ta emot data med Azure Data Share.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 07/10/2019
-ms.openlocfilehash: 229d4fd6647a8a1b756fedee2a864d00b9c7de62
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/30/2020
+ms.openlocfilehash: 84d1ba6ff343b5f3d1f88d7ae5c618601f416e2c
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111005"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513773"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Roller och krav för Azure Data Share 
 
@@ -90,7 +90,13 @@ Mer information om hur du lägger till en roll tilldelning finns i [den här dok
 
 ## <a name="resource-provider-registration"></a>Registrering av resurs leverantör 
 
-Om du vill visa Azure Data Share-inbjudan för första gången i din Azure-klient kan du behöva registrera Microsoft. DataShare-resurs leverantören manuellt i din Azure-prenumeration. Följ de här stegen för att registrera Microsoft. DataShare-resurs leverantören i din Azure-prenumeration. Du behöver *deltagar* åtkomst till Azure-prenumerationen för att registrera resurs leverantören.
+Du kan behöva registrera Microsoft. DataShare-resurs leverantören manuellt i din Azure-prenumeration i följande scenarier: 
+
+* Visa Azure Data Share-inbjudan för första gången i din Azure-klient
+* Dela data från ett Azure-datalager i en annan Azure-prenumeration från din Azure Data Share-resurs
+* Ta emot data till ett Azure-datalager i en annan Azure-prenumeration från din Azure Data Resource-resurs
+
+Följ de här stegen för att registrera Microsoft. DataShare-resurs leverantören i din Azure-prenumeration. Du behöver *deltagar* åtkomst till Azure-prenumerationen för att registrera resurs leverantören.
 
 1. I Azure Portal navigerar du till **prenumerationer**.
 1. Välj den prenumeration som du använder för Azure Data-resursen.

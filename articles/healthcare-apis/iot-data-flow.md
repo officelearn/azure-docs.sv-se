@@ -1,30 +1,32 @@
 ---
-title: 'Begrepp: data flöde i IoT Connector (för hands version) i Azure API för FHIR'
-description: Förstå IoT Connectors data flöde. IoT Connector-inmatningar, normalisering, grupper, transformeringar och bevarar IoMT-data till Azure API för FHIR.
+title: 'Begrepp: data flöde i Azure IoT Connector för FHIR (för hands version) i Azure API för FHIR'
+description: Förstå Azure IoT Connector för FHIR (förhands granskning) data flödet. Azure IoT Connector för FHIR (för hands version) matar in, normaliserar, grupper, transformerar och behåller IoMT data till Azure API för FHIR.
 services: healthcare-apis
 author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 07/31/2020
 ms.author: punagpal
-ms.openlocfilehash: c2d150fcd35bc51478a1d7f4a0407abce1446c06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 43b7bcba97617d6931fd5c191e62e833a25bf89d
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100278"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513389"
 ---
-# <a name="iot-connector-preview-data-flow"></a>IoT Connector (förhands granskning) data flöde
+# <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Azure IoT Connector för FHIR (förhands granskning) data flöde
 
-Den här artikeln innehåller en översikt över data flödet i IoT Connector. Du lär dig mer om olika data bearbetnings faser i IoT Connector som omvandlar enhets data till FHIR [observations](https://www.hl7.org/fhir/observation.html) resurser.
+Den här artikeln innehåller en översikt över data flödet i Azure IoT Connector för FHIR *. Du lär dig mer om olika data bearbetnings faser i Azure IoT Connector för FHIR som omvandlar enhets data till FHIR-baserade [observations](https://www.hl7.org/fhir/observation.html) resurser.
 
-![Dataflöde i IoT-anslutningsprogram](media/concepts-iot-data-flow/iot-connector-data-flow.png)
+![Azure IoT-anslutning för FHIR data flöde](media/concepts-iot-data-flow/iot-connector-data-flow.png)
 
-Diagrammet ovan visar olika data flödes faser i IoT Connector. 
+Diagrammet ovan visar vanliga data flöden med Azure IoT Connector för FHIR. 
+
+Nedan visas olika steg som data går igenom när de tas emot av Azure IoT Connector för FHIR.
 
 ## <a name="ingest"></a>Mata in
-Inmatning är det första steget där enhets data tas emot i IoT-anslutningen. Inmatnings slut punkten för enhets data finns i en [Azure Event Hub](https://docs.microsoft.com/azure/event-hubs/). Azure Event Hub-plattformen stöder hög skalning och data flöde med möjlighet att ta emot och bearbeta miljon tals meddelanden per sekund. Du kan också använda IoT Connector för att använda meddelanden asynkront och ta bort behovet av enheter för att vänta medan enhets data bearbetas.
+Inmatning är det första steget där enhets data tas emot i Azure IoT Connector för FHIR. Inmatnings slut punkten för enhets data finns i en [Azure Event Hub](https://docs.microsoft.com/azure/event-hubs/). Azure Event Hub-plattformen stöder hög skalning och data flöde med möjlighet att ta emot och bearbeta miljon tals meddelanden per sekund. Det gör det också möjligt för Azure IoT Connector för FHIR att använda meddelanden asynkront, vilket tar bort behovet av enheter för att vänta medan enhets data bearbetas.
 
 > [!NOTE]
 > JSON är det enda format som stöds för tillfället för enhets data.
@@ -37,7 +39,7 @@ Normaliserings processen fören klar inte bara data bearbetning i senare skeden,
 ## <a name="group"></a>Grupp
 Grupp är nästa steg där de normaliserade meddelanden som är tillgängliga från föregående steg grupperas med hjälp av tre olika parametrar: enhets identitet, mätnings typ och tids period.
 
-Gruppering av enhets identitet och mått typ möjliggör användning av [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) -mått typ. Den här typen är ett koncist sätt att representera en tidsbaserad serie mätningar från en enhet i FHIR. Tids perioden styr svars tiden då observations resurser som genereras av IoT Connector skrivs till Azure API för FHIR.
+Gruppering av enhets identitet och mått typ möjliggör användning av [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) -mått typ. Den här typen är ett koncist sätt att representera en tidsbaserad serie mätningar från en enhet i FHIR. Tids perioden styr svars tiden då observations resurser som genereras av Azure IoT Connector för FHIR skrivs till Azure API för FHIR.
 
 > [!NOTE]
 > Värdet för tids perioden är standard 15 minuter och kan inte konfigureras för för hands versionen.
@@ -50,7 +52,7 @@ I det här läget hämtas även [enhets](https://www.hl7.org/fhir/device.html) r
 > [!NOTE]
 > Alla identiteter som ser ut cachelagras när de har lösts för att minska belastningen på FHIR-servern. Om du planerar att återanvända enheter med flera patienter rekommenderar vi att du skapar en virtuell enhets resurs som är unik för patienten och skickar den virtuella enhets identifieraren i meddelande nytto lasten. Den virtuella enheten kan länkas till den faktiska enhets resursen som överordnad.
 
-Om det inte finns någon enhets resurs för en angiven enhets identifierare i FHIR-servern beror resultatet av värdet i `Resolution Type` uppsättningen vid tidpunkten för skapandet. När det är inställt på `Lookup` , ignoreras det angivna meddelandet och pipelinen fortsätter att bearbeta andra inkommande meddelanden. Om detta är inställt på `Create` , skapar IoT Connector en enhet med ett helt ben och patient resurser på FHIR-servern.  
+Om det inte finns någon enhets resurs för en angiven enhets identifierare i FHIR-servern beror resultatet av värdet i `Resolution Type` uppsättningen vid tidpunkten för skapandet. När det är inställt på `Lookup` , ignoreras det angivna meddelandet och pipelinen fortsätter att bearbeta andra inkommande meddelanden. Om det är inställt på `Create` , skapar Azure IoT-anslutaren för FHIR en enhet med inga ben och patient resurser på FHIR-servern.  
 
 ## <a name="persist"></a>Försöker
 När observations FHIR-resursen har genererats i Transformations fasen sparas resursen i Azure API för FHIR. Om FHIR-resursen är ny kommer den att skapas på servern. Om FHIR-resursen redan finns kommer den att uppdateras.
@@ -60,7 +62,8 @@ När observations FHIR-resursen har genererats i Transformations fasen sparas re
 Klicka nedan för att lära dig hur du skapar mallar för enhets-och FHIR mappar.
 
 >[!div class="nextstepaction"]
->[Mallar för mappning i IoT-anslutningsprogram](iot-mapping-templates.md)
+>[FHIR för Azure IoT Connector för mappning av](iot-mapping-templates.md)
 
+* I Azure Portal kallas Azure IoT Connector för FHIR IoT Connector (för hands version).
 
 FHIR är ett registrerat varumärke som tillhör HL7 och används med tillåtelse av HL7.

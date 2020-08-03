@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/11/2019
+ms.date: 07/29/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e08ef72dca09f873ad1cfcc91e132063b88406b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fd85b66894afbd239954f5f32b8297757caddc44
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74227522"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513323"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Freshservice
 
@@ -33,7 +32,7 @@ I den här självstudien får du lära dig hur du integrerar Freshservice med Az
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -45,6 +44,7 @@ För att komma igång behöver du följande objekt:
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * Freshservice stöder **IDP**-initierad enkel inloggning
+* När du har konfigurerat Freshservice kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-freshservice-from-the-gallery"></a>Lägga till Freshservice från galleriet
 
@@ -82,7 +82,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<democompany>.freshservice.com`
+    a. I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<democompany>.freshservice.com`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<democompany>.freshservice.com`
 
@@ -92,20 +92,6 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
-
-1. Freshservice kräver SHA-256-finger avtryck för att få SSO-arbete. Utför följande steg för att få SHA-256-finger avtryck:
-
-    ![Läsa](./media/freshservice-tutorial/ic790821.png "Läsa")
-
-    1. Öppna [länken](https://www.samltool.com/fingerprint.php) i en annan webbläsare.
-
-    1. Öppna filen med hämtade certifikat (base64) i anteckningar och klistra in innehåll i text rutan **X. 509-certifikat** .
-
-    1. För algoritmen väljer du **SHA256** i list rutan.
-
-    1. Klicka på **Beräkna finger avtryck**.
-
-    1. Klicka på kopierings ikonen för att kopiera det genererade **finger avtrycket** och spara det på datorn.
 
 1. I avsnittet **Konfigurera Freshservice** på **Azure Portal**kopierar du lämpliga URL: er baserat på ditt krav.
 
@@ -119,7 +105,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -143,41 +129,38 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-freshservice-sso"></a>Konfigurera Freshservice SSO
 
-1. Om du vill automatisera konfigurationen i Freshservice måste du installera **Mina appar säker inloggnings webb läsar tillägg** genom att klicka på **installera tillägget**.
+1. Öppna ett nytt webbläsarfönster och logga in på din Freshservice företags webbplats som administratör.
 
-    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
+1. Klicka på **admin** på menyn till vänster och välj **supportavdelningen** i de **allmänna inställningarna**.
 
-2. När du har lagt till tillägg i webbläsaren, klickar du på **installations Freshservice** för att dirigera dig till Freshservice-programmet. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på Freshservice. Webb läsar tillägget kommer automatiskt att konfigurera programmet åt dig och automatisera steg 3-6.
+    ![Administratör](./media/freshservice-tutorial/configure-1.png "Administratör")
 
-    ![Konfigurera konfiguration](common/setup-sso.png)
+1. I **säkerhet**klickar **du på gå till Freshworks 360-säkerhet**.
 
-3. Om du vill konfigurera Freshservice manuellt öppnar du ett nytt webbläsarfönster och loggar in på din Freshservice-företags webbplats som administratör och utför följande steg:
+    ![Säkerhet](./media/freshservice-tutorial/configure-2.png "Säkerhet")
 
-4. På menyn längst upp klickar du på **Admin**.
+1. I avsnittet **säkerhet** utför du följande steg:
 
-    ![Administratör](./media/freshservice-tutorial/ic790814.png "Admin")
+    ![Enkel inloggning](./media/freshservice-tutorial/configure-3.png "Enkel inloggning")
+  
+    a. För **enkel inloggning**väljer du **på**.
 
-5. I **kundportalen** klickar du på **Säkerhet**.
+    b. I **inloggnings metoden**väljer du **SAML SSO**.
 
-    ![Säkerhet](./media/freshservice-tutorial/ic790815.png "Säkerhet")
+    c. I det **entitets-ID som tillhandahålls av** text rutan IDP klistrar du in **entitets-ID** -värdet, som du har kopierat från Azure Portal.
 
-6. I avsnittet **säkerhet** utför du följande steg:
+    d. I text rutan för **SAML SSO URL** klistrar du in **inloggnings-URL** -värde, som du har kopierat från Azure Portal.
 
-    ![Enkel inloggning](./media/freshservice-tutorial/ic790816.png "Enkel inloggning")
+    e. I **signerings alternativen**väljer du **enbart signerade intyg** från List rutan.
 
-    a. Växla **Enkel inloggning**.
+    f. I textrutan **Utloggnings-URL** klistrar du värdet för den **utloggnings-URL** som du har kopierat från Azure-portalen.
 
-    b. Välj **SAML SSO**.
+    ex. I text rutan **säkerhetscertifikat** , klistra in **certifikat (base64)** som du har hämtat tidigare.
+  
+    h. Klicka på **Spara**.
 
-    c. I textrutan för **inloggnings-URL för SAML** klistrar du in värdet för den **inloggnings-URL** som du har kopierat från Azure-portalen.
 
-    d. I text rutan **utloggnings-URL** klistrar du in värdet för **URL för utloggning**som du har kopierat från Azure Portal.
-
-    e. I text rutan **finger avtryck för säkerhetscertifikat** klistrar du in **finger avtrycks** värdet som du har genererat tidigare.
-
-    f. Klicka på **Spara**
-
-### <a name="create-freshservice-test-user"></a>Skapa Freshservice-testanvändare
+## <a name="create-freshservice-test-user"></a>Skapa Freshservice-testanvändare
 
 Om du vill att Azure AD-användare ska kunna logga in på FreshService måste de tillhandahållas i FreshService. När det gäller FreshService är etablering en manuell aktivitet.
 
@@ -185,32 +168,25 @@ Om du vill att Azure AD-användare ska kunna logga in på FreshService måste de
 
 1. Logga in på din **FreshService** -företags webbplats som administratör.
 
-2. På menyn längst upp klickar du på **Admin**.
-
-    ![Administratör](./media/freshservice-tutorial/ic790814.png "Admin")
+2. Klicka på **admin**i menyn till vänster.
 
 3. I avsnittet **Användarhantering** klickar du på **Beställare**.
 
-    ![Frågare](./media/freshservice-tutorial/ic790818.png "Frågare")
+    ![Frågare](./media/freshservice-tutorial/create-user-1.png "Frågare")
 
 4. Klicka på **Ny beställare**.
 
-    ![Nya beställare](./media/freshservice-tutorial/ic790819.png "Nya beställare")
+    ![Nya beställare](./media/freshservice-tutorial/create-user-2.png "Nya beställare")
 
-5. I avsnittet **Ny beställare** utför du följande steg:
-
-    ![Ny beställare](./media/freshservice-tutorial/ic790820.png "Ny beställare")  
-
-    a. Ange attributen **Förnamn** och **E-post** för ett giltigt Azure Active Directory-konto som du vill etablera i de relaterade textrutorna.
-
-    b. Klicka på **Spara**.
+5. I avsnittet **ny beställare** anger du de obligatoriska fälten och klickar på **Spara**.
+    ![Ny beställare](./media/freshservice-tutorial/create-user-3.png "Ny beställare")  
 
     > [!NOTE]
     > Azure Active Directory-kontoinnehavaren får ett e-postmeddelande med en länk för att bekräfta kontot innan det blir aktivt
     >  
 
-> [!NOTE]
-> Du kan använda andra verktyg för FreshService av användar konton eller API: er som tillhandahålls av FreshService för att etablera Azure AD-användarkonton.
+    > [!NOTE]
+    > Du kan använda andra verktyg för FreshService av användar konton eller API: er som tillhandahålls av FreshService för att etablera Azure AD-användarkonton.
 
 ## <a name="test-sso"></a>Testa SSO
 
@@ -224,6 +200,6 @@ När du klickar på Freshservice-panelen i åtkomstpanelen bör du automatiskt l
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova Freshservice med Azure AD](https://aad.portal.azure.com/)

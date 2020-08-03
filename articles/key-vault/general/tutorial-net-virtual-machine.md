@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: e77701e17ef1b47aa6b8e3b8f2d10e93bf5e054e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ead0c13a1fce0b5d56c9dd875c594a2269e2c78c
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101705"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513119"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Självstudie: använda Azure Key Vault med en virtuell dator i .NET
 
@@ -56,21 +56,15 @@ Om du vill logga in i Azure med hjälp av Azure CLI anger du:
 az login
 ```
 
-### <a name="create-a-resource-group-and-key-vault"></a>Skapa en resurs grupp och ett nyckel valv
+## <a name="create-a-resource-group-and-key-vault"></a>Skapa en resurs grupp och ett nyckel valv
 
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
-### <a name="populate-your-key-vault-with-a-secret"></a>Fyll i nyckel valvet med en hemlighet
+## <a name="populate-your-key-vault-with-a-secret"></a>Fyll i nyckel valvet med en hemlighet
 
-Lägg nu till en hemlighet till ditt nyckel valv med hjälp av kommandot [AZ Key Vault Secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) . Om du vill skapa en hemlighet i nyckel valvet som heter **hemligt**, anger du följande kommando:
+[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
 
-```azurecli
-az keyvault secret set --vault-name "<your-unique-key-vault-name>" --name "mySecret" --value "MySecret"
-```
-
-Den här hemligheten lagrar värdet **MySecret**.
-
-### <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
+## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 Skapa en virtuell Windows-eller Linux-dator med någon av följande metoder:
 
 | Windows | Linux |
@@ -79,7 +73,7 @@ Skapa en virtuell Windows-eller Linux-dator med någon av följande metoder:
 | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) |
 | [Azure-portalen](../../virtual-machines/windows/quick-create-portal.md) | [Azure-portalen](../../virtual-machines/linux/quick-create-portal.md) |
 
-### <a name="assign-an-identity-to-the-vm"></a>Tilldela en identitet till den virtuella datorn
+## <a name="assign-an-identity-to-the-vm"></a>Tilldela en identitet till den virtuella datorn
 Skapa en systemtilldelad identitet för den virtuella datorn med kommandot [AZ VM Identity Assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) :
 
 ```azurecli
@@ -95,16 +89,16 @@ Observera den systemtilldelade identiteten som visas i följande kod. Utdata fr�
 }
 ```
 
-### <a name="assign-permissions-to-the-vm-identity"></a>Tilldela behörigheter till VM-identiteten
+## <a name="assign-permissions-to-the-vm-identity"></a>Tilldela behörigheter till VM-identiteten
 Tilldela de tidigare skapade identitets behörigheterna till ditt nyckel valv med kommandot [AZ-nyckel valv set-princip](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) :
 
 ```azurecli
 az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-### <a name="sign-in-to-the-virtual-machine"></a>Logga in på den virtuella datorn
+## <a name="sign-in-to-the-virtual-machine"></a>Logga in på den virtuella datorn
 
-Logga in på den virtuella datorn genom att följa anvisningarna i [Anslut och logga in på en virtuell Azure-dator som kör Windows](../../virtual-machines/windows/connect-logon.md) eller [Anslut och logga in på en virtuell Azure-dator som kör Linux](../../virtual-machines/linux/login-using-aad.md).
+Om du vill logga in på den virtuella datorn följer du anvisningarna i [Anslut och logga in på en virtuell Azure Windows-dator](../../virtual-machines/windows/connect-logon.md) eller [ansluter och loggar in på en virtuell Azure Linux-dator](../../virtual-machines/linux/login-using-aad.md).
 
 ## <a name="set-up-the-console-app"></a>Konfigurera konsol programmet
 

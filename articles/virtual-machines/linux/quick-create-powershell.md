@@ -5,21 +5,21 @@ author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 10/17/2018
+ms.date: 07/31/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e18f66beb8f318e993bd9367f5e50740d76db73f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e3d400726bfb65b2548bc773ffb460fe1ad426a0
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510335"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513459"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Snabbstart: Skapa en virtuell Linux-dator i Azure med PowerShell
 
-Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. Den här snabbstarten beskriver hur du använder Azure PowerShell-modulen för att distribuera en virtuell Linux-dator (VM) i Azure. Den här snabbstarten använder Ubuntu 16.04 LTS Marketplace-avbildningen från Canonical. För att se hur den virtuella datorn fungerar i praktiken använder du sedan SSH för att ansluta till den virtuella datorn och installerar NGINX-webbservern.
+Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. Den här snabbstarten beskriver hur du använder Azure PowerShell-modulen för att distribuera en virtuell Linux-dator (VM) i Azure. I den här snabb starten används Ubuntu 18,04 LTS Marketplace-avbildningen från kanoniskt. För att se hur den virtuella datorn fungerar i praktiken använder du sedan SSH för att ansluta till den virtuella datorn och installerar NGINX-webbservern.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
@@ -29,17 +29,18 @@ Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra h
 
 ## <a name="create-ssh-key-pair"></a>Skapa SSH-nyckelpar
 
-Du behöver ett SSH-nyckelpar för att slutföra den här snabbstarten. Om du redan har ett SSH-nyckelpar kan du hoppa över det här steget.
+Använd [ssh-keygen](https://www.ssh.com/ssh/keygen/) för att skapa ett SSH-nyckelpar. Om du redan har ett SSH-nyckelpar kan du hoppa över det här steget.
 
-Öppna bash-gränssnittet och använd [ssh-keygen](https://www.ssh.com/ssh/keygen/) för att skapa ett SSH-nyckelpar. Om du inte har något bash-gränssnitt på den lokala datorn kan du använda [Azure Cloud Shell](https://shell.azure.com/bash).  
 
 ```azurepowershell-interactive
-ssh-keygen -t rsa -b 2048
+ssh-keygen -m PEM -t rsa -b 4096
 ```
 
-Mer detaljerad information om hur du skapar SSH-nyckelpar, inklusive användning av PuTTy, finns i [Använd SSH-nycklar med Windows](ssh-from-windows.md).
+Du uppmanas att ange ett fil namn för nyckel paret eller så kan du trycka på **RETUR** om du vill använda standard platsen för `/home/<username>/.ssh/id_rsa` . Du kommer också att kunna skapa ett lösen ord för nycklarna, om du vill.
 
-Om du skapar ditt SSH-nyckelpar med hjälp av Cloud Shell lagras det i en containeravbildning på ett [lagringskonto som skapas automatiskt av Cloud Shell](../../cloud-shell/persisting-shell-storage.md). Ta inte bort lagringskontot, eller filerna på det, innan du har hämtat dina nycklar. Annars förlorar du åtkomsten till den virtuella datorn. 
+Mer detaljerad information om hur du skapar SSH-nyckelpar finns i [så här använder du SSH-nycklar med Windows](ssh-from-windows.md).
+
+Om du skapar ett SSH-nyckelpar med hjälp av Cloud Shell kommer det att lagras i ett [lagrings konto som skapas automatiskt av Cloud Shell](../../cloud-shell/persisting-shell-storage.md). Ta inte bort lagrings kontot eller fil resursen i det förrän du har hämtat dina nycklar eller om du kommer att förlora åtkomsten till den virtuella datorn. 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -147,7 +148,7 @@ Set-AzVMOperatingSystem `
 Set-AzVMSourceImage `
   -PublisherName "Canonical" `
   -Offer "UbuntuServer" `
-  -Skus "16.04-LTS" `
+  -Skus "18.04-LTS" `
   -Version "latest" | `
 Add-AzVMNetworkInterface `
   -Id $nic.Id
@@ -178,7 +179,7 @@ Skapa en SSH-anslutning med den virtuella datorn med hjälp av en offentlig IP-a
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 ```
 
-Med hjälp av samma bash-gränssnitt som du använde för att skapa ditt SSH-nyckelpar (som [Azure Cloud Shell](https://shell.azure.com/bash) eller ditt lokala bash-gränssnitt) klistrar du in kommandot för SSH-anslutning i gränssnittet för att skapa en SSH-session.
+Med samma gränssnitt som du använde för att skapa SSH-nyckelpar klistrar du in följande kommando i gränssnittet för att skapa en SSH-session. Ersätt *10.111.12.123* med IP-adressen för den virtuella datorn.
 
 ```bash
 ssh azureuser@10.111.12.123

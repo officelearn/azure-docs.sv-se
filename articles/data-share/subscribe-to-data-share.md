@@ -1,17 +1,17 @@
 ---
 title: 'Självstudie: Godkänn & ta emot data – Azure Data Share'
 description: Självstudie – acceptera och ta emot data med Azure Data Share
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 07/10/2019
-ms.openlocfilehash: 4dff48f909cd3febbbb7e92dcf96070020b8f57c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/30/2020
+ms.openlocfilehash: 999d99b0ed4701eb6758ed0bf7a71ca625e622b5
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82145142"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512099"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Självstudie: Godkänn och ta emot data med Azure Data Share  
 
@@ -23,13 +23,13 @@ I den här självstudien får du lära dig hur du godkänner en data delnings-in
 > * Ange ett mål för dina data
 > * Skapa en prenumeration på din data resurs för schemalagd uppdatering
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du kan acceptera en inbjudan till en data resurs måste du etablera ett antal Azure-resurser som visas nedan. 
 
 Se till att alla krav är uppfyllda innan du accepterar en inbjudan om data delning. 
 
 * Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* Inbjudan till en data resurs: en inbjudan från Microsoft Azure med ett ämne med rubriken "Azure Data Share- **<yourdataprovider@domain.com>** inbjudan från".
+* Inbjudan till en data resurs: en inbjudan från Microsoft Azure med ett ämne med rubriken "Azure Data Share-inbjudan från **<yourdataprovider@domain.com>** ".
 * Registrera [resurs leverantören Microsoft. DataShare](concepts-roles-permissions.md#resource-provider-registration) i Azure-prenumerationen där du ska skapa en data resurs resurs och Azure-prenumerationen där dina Azure-datalager finns.
 
 ### <a name="receive-data-into-a-storage-account"></a>Ta emot data till ett lagrings konto: 

@@ -11,16 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8ceb375eb9da853b4c89ffe278d3483f6a4fa72
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a3a06f01507ad5715d1e8a3f828ab008e1e8ce65
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050957"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512983"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Kombinerad säkerhets informations registrering för Azure Active Directory översikt
 
 Innan en kombinerad registrering har användare registrerat autentiseringsmetoder för Azure Multi-Factor Authentication och lösen ords återställning via självbetjäning (SSPR) separat. Personer har förvirrat att liknande metoder användes för Multi-Factor Authentication och SSPR, men de var tvungna att registrera sig för båda funktionerna. Med kombinerad registrering kan användarna registrera sig en gång och få fördelarna med både Multi-Factor Authentication-och SSPR.
+
+> [!NOTE]
+> Från den 15 augusti 2020 aktive ras alla nya Azure AD-klienter automatiskt för kombinerad registrering.
 
 Den här artikeln beskriver hur kombinerad säkerhets registrering är. Information om hur du kommer igång med kombinerad säkerhets registrering finns i följande artikel:
 
@@ -50,15 +53,15 @@ Kombinerad registrering stöder följande autentiseringsmetoder och åtgärder:
 
 | Metod | Registrera dig | Ändra | Ta bort |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Ja (högst 5) | No | Yes |
-| Annan Authenticator-app | Ja (högst 5) | No | Yes |
-| Maskinvaru-token | Inga | Inga | Yes |
+| Microsoft Authenticator | Ja (högst 5) | Inga | Ja |
+| Annan Authenticator-app | Ja (högst 5) | Inga | Ja |
+| Maskinvaru-token | Inga | Inga | Ja |
 | Telefon | Ja | Ja | Ja |
 | Alternativ telefon | Ja | Ja | Ja |
 | Arbetstelefon | Inga | Inga | Inga |
 | E-post | Ja | Ja | Ja |
-| Säkerhetsfrågor | Yes | No | Yes |
-| Applösenord | Yes | No | Yes |
+| Säkerhetsfrågor | Ja | Inga | Ja |
+| Applösenord | Ja | Inga | Ja |
 | FIDO2 säkerhets nycklar<br />*Endast hanterat läge från sidan [säkerhets information](https://mysignins.microsoft.com/security-info)*| Ja | Ja | Ja |
 
 > [!NOTE]

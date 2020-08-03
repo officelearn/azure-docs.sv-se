@@ -5,13 +5,13 @@ author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 07/10/2019
-ms.openlocfilehash: a8265680f74b2d5679d1ebfbb2873dd096f498a3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/30/2020
+ms.openlocfilehash: 1de793dc2f4f72efb67c954e60262c3d7f1b74fc
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77083058"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87511981"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Självstudie: dela data med Azure Data Share  
 
@@ -25,7 +25,7 @@ I den här självstudien får du lära dig att:
 > * Aktivera ett ögonblicks bild schema för data resursen. 
 > * Lägg till mottagare i dataresursen. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Mottagarens e-postadress för Azure-inloggning (med deras e-postalias fungerar inte).
@@ -86,7 +86,7 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
     | Name | *datashareacount* | Ange ett namn för ditt data resurs konto. |
     | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som du vill använda för ditt data resurs konto.|
     | Resursgrupp | *test-resurs-grupp* | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
-    | Plats | *USA, östra 2* | Välj en region för ditt data resurs konto.
+    | Position | *USA, östra 2* | Välj en region för ditt data resurs konto.
     | | |
 
 1. Välj **skapa** för att etablera ditt data resurs konto. Det tar vanligt vis ungefär 2 minuter att tillhandahålla ett nytt data resurs konto. 
@@ -135,7 +135,7 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
 
 1. Välj **Fortsätt**
 
-1. På fliken Granska + skapa granskar du paket innehåll, inställningar, mottagare och synkroniseringsinställningar. Välj **skapa**
+1. På fliken Granska + skapa granskar du paket innehåll, inställningar, mottagare och synkroniseringsinställningar. Välj **Skapa**
 
 Din Azure Data-resurs har nu skapats och mottagaren av din data resurs är nu klar att acceptera din inbjudan. 
 

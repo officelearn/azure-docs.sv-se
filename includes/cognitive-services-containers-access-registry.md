@@ -15,13 +15,13 @@ ms.locfileid: "67704163"
 
 Du kan autentisera med det privata behållar registret för Cognitive Services behållare på något av flera sätt, men den rekommenderade metoden från kommando raden är att använda [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/).
 
-Använd [ `docker login` kommandot](https://docs.docker.com/engine/reference/commandline/login/), som du ser i följande exempel, för att logga in till `containerpreview.azurecr.io`, det privata behållar registret för Cognitive Services behållare. Ersätt * \<username\> * med användar namnet och * \<lösen ordet\> * med det lösen ord som anges i de autentiseringsuppgifter som du fick från Azure Cognitive Services-teamet.
+Använd [ `docker login` kommandot](https://docs.docker.com/engine/reference/commandline/login/), som du ser i följande exempel, för att logga in till `containerpreview.azurecr.io` , det privata behållar registret för Cognitive Services behållare. Ersätt * \< username \> * med användar namnet och * \< lösen ordet \> * med det lösen ord som anges i de autentiseringsuppgifter som du fick från Azure Cognitive Services-teamet.
 
 ```
 docker login containerpreview.azurecr.io -u <username> -p <password>
 ```
 
-Om du har skyddat dina autentiseringsuppgifter i en textfil kan du sammanfoga innehållet i den text filen med hjälp av `cat` kommandot till `docker login` kommandot, som du ser i följande exempel. Ersätt * \<passwordFile\> * med sökvägen till och namnet på text filen som innehåller lösen ordet och * \<användar\> * namnet med det användar namn som anges i dina autentiseringsuppgifter.
+Om du har skyddat dina autentiseringsuppgifter i en textfil kan du sammanfoga innehållet i den text filen med hjälp av `cat` kommandot till `docker login` kommandot, som du ser i följande exempel. Ersätt * \< passwordFile \> * med sökvägen till och namnet på text filen som innehåller lösen ordet och * \< användar \> * namnet med det användar namn som anges i dina autentiseringsuppgifter.
 
 ```
 cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin

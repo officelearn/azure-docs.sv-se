@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
-ms.openlocfilehash: 4931556aa6948b6b05b2bbbfa62e281e21aa6058
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ebcdeed608a5b9dc6202071869c4df1dcfd327a8
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367477"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512762"
 ---
 # <a name="high-availability-and-disaster-recovery-guidance-for-data-lake-storage-gen1"></a>Vägledning för hög tillgänglighet och katastrof återställning för Data Lake Storage Gen1
 
@@ -34,11 +34,11 @@ Om ett regionalt avbrott inträffar kan du sedan komma åt dina data i den regio
 
 Medan Data Lake Storage Gen1 ger data återhämtning via automatiserade repliker, förhindrar detta inte att ditt program (eller utvecklare/användare) skadar data eller tar bort den av misstag.
 
-### <a name="best-practices"></a>Bästa praxis
-
 För att förhindra oavsiktlig borttagning rekommenderar vi att du först ställer in rätt åtkomst principer för ditt Data Lake Storage Gen1-konto. Detta omfattar att använda [Azure Resource](../azure-resource-manager/management/lock-resources.md) Locks för att låsa viktiga resurser och tillämpa åtkomst kontroll på konto-och filnivå med hjälp av de tillgängliga [data Lake Storage gen1 säkerhetsfunktionerna](data-lake-store-security-overview.md). Vi rekommenderar också att du regelbundet skapar kopior av dina viktiga data med [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) eller [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) i ett annat data Lake Storage gen1 konto, mapp eller Azure-prenumeration. Detta kan användas för att återställa från skadade data eller en borttagning. Azure Data Factory är användbart för att skapa och distribuera pipelines för datarörlighet regelbundet.
 
 Du kan också aktivera [diagnostikloggning](data-lake-store-diagnostic-logs.md) för ett data Lake Storage gen1 konto för att samla in gransknings historiken för data åtkomst. Gransknings historiken innehåller information om vem som kan ha tagit bort eller uppdaterat en fil.
+
+Du kan försöka återställa ett borttaget objekt med hjälp av modulen [AZ. DataLakeStore](https://docs.microsoft.com/powershell/module/az.datalakestore/) Azure PowerShell för data Lake Storage gen 1. Mer specifikt finns i kommandot [restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem) . Se till att läsa avsnittet [Beskrivning](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem#description) innan du försöker använda det här kommandot.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
 title: Utveckla för Azure NetApp Files med REST API | Microsoft Docs
-description: Beskriver hur du kommer igång med att använda Azure NetApp Files REST API.
+description: REST API för Azure NetApp Files-tjänsten definierar HTTP-åtgärder för resurser, till exempel NetApp-konto, kapacitets uppsättning, volymer och ögonblicks bilder.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: b-juche
-ms.openlocfilehash: 35800ef95e78a64d7aced13f496ec35d9fe60320
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 90d3ff807275c74ce4495c5631ab913971ebe3e3
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964608"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513017"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>Utveckla för Azure NetApp Files med REST-API 
 

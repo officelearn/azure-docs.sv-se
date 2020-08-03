@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8c52b2141d2f29303939facf89d4a59fb3d333fd
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 3d680fb105b6bde26e5b02544359009f316647bb
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171876"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513731"
 ---
 # <a name="about-virtual-hub-routing"></a>Om routning av virtuell hubb
 
@@ -27,7 +27,7 @@ Information om hur du konfigurerar routning finns i [så här konfigurerar du ro
 I följande avsnitt beskrivs viktiga begrepp i routning av virtuell hubb.
 
 > [!NOTE]
-> Några av dessa nya begrepp för NAV Route-tabellen, associationen, spridningen och statiska vägar i en virtuell nätverks anslutning kan fortfarande återställas och förväntas slutföras i veckan för aug tredje.
+> Några av dessa nya begrepp för NAV Route Table, Association, spridning och statiska vägar i en virtuell nätverks anslutning kan fortfarande distribueras och förväntas slutföras i veckan för Aug-17.
 >
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>Hubb väg tabell
@@ -77,9 +77,9 @@ Routningstabeller har nu funktioner för Association och spridning. En fördefin
 
 * **Virtuella standard WAN-kunder med redan befintliga vägar i virtuell hubb**:
 
-Om du vill använda nya funktioner i en routningstabell, vänta till en vecka om den tredje för distributionen i Azure ska slutföras. Om du har befintliga vägar i avsnittet routning för hubben i Azure Portal måste du först ta bort dem och sedan försöka skapa nya routningstabeller (finns i avsnittet Route tables för hubben i Azure Portal)
+Om du vill använda nya funktioner i en routningstabell väntar du tills veckan 17 för distributionen i Azure ska slutföras. Om du har befintliga vägar i avsnittet routning för hubben i Azure Portal måste du först ta bort dem och sedan försöka skapa nya routningstabeller (finns i avsnittet Route tables för hubben i Azure Portal)
 
-* **Grundläggande virtuella WAN-kunder med befintliga vägar i virtuell hubb**: om du vill använda de nya funktionerna i en routningstabell väntar du tills veckan på den tredje för distributionen i Azure ska slutföras. Om du har redan befintliga vägar i avsnittet routning för hubben i Azure Portal måste du först ta bort dem och sedan **Uppgradera** ditt grundläggande virtuella WAN-nätverk till standard. Se [uppgradera ett virtuellt WAN från Basic till standard](upgrade-virtual-wan.md).
+* **Grundläggande virtuella WAN-kunder med befintliga vägar i virtuell hubb**: om du vill använda de nya funktionerna för en routningstabell väntar du tills veckan i augusti 17 för distributionen i Azure ska slutföras. Om du har redan befintliga vägar i avsnittet routning för hubben i Azure Portal måste du först ta bort dem och sedan **Uppgradera** ditt grundläggande virtuella WAN-nätverk till standard. Se [uppgradera ett virtuellt WAN från Basic till standard](upgrade-virtual-wan.md).
 
 ## <a name="virtual-wan-routing-considerations"></a><a name="considerations"></a>Överväganden för virtuella WAN-routning
 

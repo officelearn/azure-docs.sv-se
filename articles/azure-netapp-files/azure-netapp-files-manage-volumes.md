@@ -1,6 +1,6 @@
 ---
 title: Hantera volymer med Azure NetApp Files | Microsoft Docs
-description: Beskriver hur du hanterar volymer med hjälp av tjänsten Azure NetApp Files.
+description: Lär dig att visa, uppdatera eller ta bort en volym i Azure NetApp Files. Om du vill ta bort en volym måste du först ta bort alla under objekt på en volym.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 64d83cc88f66eefad8980bead7fe37ad1782873f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a50de55846ba22a0be1bb2e9fa5a9224abe87a49
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483558"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513833"
 ---
 # <a name="manage-volumes-by-using-azure-netapp-files"></a>Hantera volymer med hjälp av Azure NetApp Files
 Du kan hantera en volym genom att visa, uppdatera eller ta bort volymen. 

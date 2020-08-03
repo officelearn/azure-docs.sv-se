@@ -7,16 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 940a24aedb8592d0e809bc79dc1c8977bc3abd38
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 33ba816227db4cf958fd30c9dac1a0745505c504
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448986"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513697"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Snabb steg: skapa och använda ett offentligt privat privat nyckel par för virtuella Linux-datorer i Azure
 
-Med ett SSH-nyckelpar (Secure Shell) kan du skapa virtuella datorer i Azure som använder SSH-nycklar för autentisering, vilket eliminerar behovet av lösen ord för att logga in. Den här artikeln visar hur du snabbt skapar och använder ett fil par för offentliga SSH-privata nycklar för virtuella Linux-datorer. Du kan utföra de här stegen med Azure Cloud Shell, en macOS-eller Linux-värd, Windows-undersystemet för Linux och andra verktyg som stöder OpenSSH. 
+Med ett SSH-nyckelpar (Secure Shell) kan du skapa virtuella datorer i Azure som använder SSH-nycklar för autentisering. Den här artikeln visar hur du snabbt skapar och använder ett fil par för offentliga SSH-privata nycklar för virtuella Linux-datorer. Du kan utföra de här stegen med Azure Cloud Shell, en macOS-eller Linux-värd. 
 
 > [!NOTE]
 > Virtuella datorer som skapats med SSH-nycklar konfigureras som standard med inaktiverade lösen ord, vilket avsevärt ökar svårigheten att knäcka gissnings attacker. 

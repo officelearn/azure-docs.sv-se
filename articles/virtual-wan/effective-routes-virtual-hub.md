@@ -7,19 +7,19 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 20cdc55b474034480392f9dfb05b20ad25df6939
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a7e42ddeb4abacd8707dda4cd558933b0d7a34f4
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037774"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513714"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>Visa effektiva vägar för virtuell hubb
 
 Du kan visa alla vägar för ditt virtuella WAN Hub i Azure Portal. Den här artikeln vägleder dig genom stegen för att Visa effektiva vägar. Mer information om routning av virtuell hubb finns i [om virtuell hubb](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> På Azure Portal kan vissa av dessa funktioner fortfarande utlösas och inte tillgänglig förrän den tredje veckan i augusti. 
+> På Azure Portal kan vissa av dessa funktioner fortfarande installeras och är inte tillgängliga förrän veckan på den 17 augusti. 
 >
 
 ## <a name="select-connections-or-route-tables"></a><a name="routing"></a>Välj anslutningar eller routningstabeller
@@ -52,7 +52,7 @@ Värdena i följande exempel tabell innebär att den virtuella Hub-anslutningen 
 
 Använd rullnings listen längst ned i tabellen om du vill visa "AS-sökväg".
 
-| **Protokollprefixet** |  **Nexthop-typ** | **Nästa hopp** |  **Flödes ursprung** |**SOM sökväg** |
+| **Protokollprefixet** |  **Nästa hopp typ** | **Nästa hopp** |  **Flödes ursprung** |**SOM sökväg** |
 | ---        | ---                | ---          | ---               | ---         |
 | 10.2.0.0/24| VPN_S2S_Gateway |10.1.0.6, 10.1.0.7|/Subscriptions/ `<sub id>` /resourceGroups/- `<resource group name>` /providers/Microsoft.Network/vpnGateways/vpngw| 20000|
 

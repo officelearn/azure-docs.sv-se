@@ -1,6 +1,6 @@
 ---
 title: Delegera ett undernät till Azure NetApp Files | Microsoft Docs
-description: Beskriver hur du delegerar ett undernät till Azure NetApp Files.
+description: Lär dig hur du delegerar ett undernät till Azure NetApp Files. Ange det delegerade under nätet när du skapar en volym.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 14c97fdea57fa50faf8b73275ec406ea36fbf552
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9bb3e93b99ce8d5a61501d417a71e5e38753f5ff
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420404"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513034"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegera ett undernät till Azure NetApp Files 
 

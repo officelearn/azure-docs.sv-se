@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 07/31/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: c79bca86ba253217012abd24d509d365a076b183
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0e7cedaea89e2ed3d998df6ffe0ecaa06115e265
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086038"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513799"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Blob Storage-funktioner som är tillgängliga i Azure Data Lake Storage Gen2
 
@@ -40,11 +40,11 @@ I den här tabellen visas de Blob Storage-funktioner som du kan använda med Azu
 |API: er för Blob Storage|Allmänt tillgänglig|Förhandsgranskning|[Snabbstart: Azure Blob Storage-klientbiblioteket v12 för .NET](storage-quickstart-blobs-dotnet.md)<br>[Snabb start: hantera blobbar med Java V12 SDK](storage-quickstart-blobs-java.md)<br>[Snabb start: hantera blobbar med python V12 SDK](storage-quickstart-blobs-python.md)<br>[Snabb start: hantera blobbar med Java Script V12 SDK i Node.js](storage-quickstart-blobs-nodejs.md)|
 |Diagnostikloggar|Allmänt tillgänglig|Förhandsgranskning <div role="complementary" aria-labelledby="diagnostic-logging"><sup>1</sup></div> |[Loggning med Azure-lagringsanalys](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Arkiv åtkomst nivå|Allmänt tillgänglig|Stöds inte|[Azure Blob Storage: nivåer för frekvent åtkomst, lågfrekvent åtkomst och arkivlagring](storage-blob-storage-tiers.md)|
+|Principer för livs cykel hantering|Allmänt tillgänglig|Stöds inte ännu|[Hantera Azure Blob Storage-livscykeln](storage-lifecycle-management-concepts.md)|
 |Logga in Azure Monitor|Förhandsgranskning |Stöds inte ännu|[Övervaknings Azure Storage](../common/monitor-storage.md)|
 |Ögonblicksbilder|Förhandsgranskning<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Stöds inte ännu|[BLOB-ögonblicksbilder](snapshots-overview.md)|
 |Statiska webbplatser|Förhandsgranskning<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Stöds inte ännu|[Hantering av statisk webbplats i Azure Storage](storage-blob-static-website.md)|
 |Oåterkalleligt lagrings utrymme|Förhandsgranskning<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Stöds inte ännu|[Lagra affärs kritiska BLOB-data med oföränderlig lagring](storage-blob-immutable-storage.md)|
-|Principer för livs cykel hantering|Förhandsgranskning|Stöds inte ännu|[Hantera Azure Blob Storage-livscykeln](storage-lifecycle-management-concepts.md)|
 |Blobfuse|Förhandsgranskning|Stöds inte ännu|[Montera Blob Storage som ett fil system med blobfuse](storage-how-to-mount-container-linux.md)|
 |Ändringsfeed|Stöds inte ännu|Stöds inte ännu|[Ändra feed-stöd i Azure Blob Storage](storage-blob-change-feed.md)|
 |Redundansväxling av konto|Stöds inte ännu|Stöds inte ännu|[Haveri beredskap och redundansväxling av konto](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|

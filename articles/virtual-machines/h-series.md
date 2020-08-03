@@ -5,14 +5,15 @@ author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.author: jushiman
-ms.openlocfilehash: 34f89656fc56b27edafeff0e60874a00139266dd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/01/2020
+ms.author: amverma
+ms.reviewer: jushiman
+ms.openlocfilehash: 797a036b9cf2e77dfbcdf8dc7596179c4673e6a6
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87268959"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513748"
 ---
 # <a name="h-series"></a>H-serien
 
@@ -98,4 +99,7 @@ Azure Marketplace har många Linux-distributioner som stöder RDMA-anslutning:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.
+- Lär dig mer om hur du optimerar dina HPC-program för Azure och några exempel på [HPC-arbetsbelastningar](./workloads/hpc/overview.md).
+- Läs om de senaste meddelandena och några HPC-exempel och resultat i [Azure Compute Tech community-Bloggar](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- En arkitektur för högre nivå för att köra HPC-arbetsbelastningar finns i [HPC (data behandling med höga prestanda) i Azure](/azure/architecture/topics/high-performance-computing/).
+- Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.

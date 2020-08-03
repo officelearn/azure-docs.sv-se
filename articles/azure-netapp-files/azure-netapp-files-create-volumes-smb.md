@@ -1,6 +1,6 @@
 ---
 title: Skapa en SMB-volym för Azure NetApp Files | Microsoft Docs
-description: Beskriver hur du skapar en SMB-volym för Azure NetApp Files.
+description: Den här artikeln visar hur du skapar en SMBv3-volym i Azure NetApp Files. Läs mer om kraven för Active Directory anslutningar och domän tjänster.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 848a5779538f4754ef038a1e88be63c33177bc82
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 24a5e342c66d8154f4635acc957084d243fbd75e
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169972"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513085"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
@@ -163,8 +163,20 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
      * **Användare av säkerhets kopierings princip**  
         Du kan inkludera ytterligare konton som kräver förhöjd behörighet för det dator konto som skapas för användning med Azure NetApp Files. De angivna kontona kommer att kunna ändra NTFS-behörigheter på fil-eller mappnivå. Du kan till exempel ange ett icke-privilegierat tjänst konto som används för att migrera data till en SMB-filresurs i Azure NetApp Files.  
 
-        > [!IMPORTANT] 
-        > Om du använder användar funktionen för säkerhets kopierings policyn krävs vit listning. Skicka e-post anffeedback@microsoft.com med ditt prenumerations-ID för att begära den här funktionen. 
+        Funktionen **säkerhets kopierings princip användare** är för närvarande en för hands version. Om det här är första gången du använder den här funktionen ska du registrera funktionen innan du använder den: 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
+        ```
+
+        Kontrol lera status för funktions registreringen: 
+
+        > [!NOTE]
+        > **RegistrationState** kan vara i ett `Registering` tillstånd i flera minuter innan du ändrar till `Registered` . Vänta tills statusen har **registrerats** innan du fortsätter.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
+        ```
 
     * Autentiseringsuppgifter, inklusive ditt **användar namn** och **lösen ord**
 

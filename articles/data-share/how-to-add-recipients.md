@@ -1,17 +1,17 @@
 ---
 title: Lägg till mottagare i Azure Data Share
 description: Lär dig hur du lägger till mottagare till en befintlig data resurs i Azure Data Share.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 07/10/2019
-ms.openlocfilehash: 8188fa4de91dd64589693026f69f7d142751e542
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/30/2020
+ms.openlocfilehash: 999966192d92481a9d3eec68cfe804566a27f71e
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110871"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513476"
 ---
 # <a name="how-to-add-a-recipient-to-an-existing-data-share-in-azure-data-share"></a>Så här lägger du till en mottagare i en befintlig data resurs i Azure Data Share
 

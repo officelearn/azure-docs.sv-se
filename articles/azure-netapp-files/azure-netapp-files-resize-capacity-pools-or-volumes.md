@@ -1,6 +1,6 @@
 ---
 title: Ändra storlek på kapacitets gruppen eller en volym för Azure NetApp Files | Microsoft Docs
-description: Beskriver hur du ändrar storleken på en kapacitets uppsättning eller en volym.
+description: Lär dig hur du ändrar storleken på en kapacitets uppsättning eller en volym. Om du ändrar storlek på kapacitetsutnyttjandet ändras den köpta Azure NetApp Files kapaciteten.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/14/2019
 ms.author: b-juche
-ms.openlocfilehash: 7da604e8e49b0732680e5f641d1ff6e899ad474d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d1c54d05430600e9fffa2659dbaaf6db0b086b5
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483490"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512881"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Ändra storlek på en kapacitetspool eller en volym
 Du kan ändra storleken på en kapacitets uppsättning eller en volym om det behövs. 

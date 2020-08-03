@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: c02b0d63db3a761f52c9ea15e6fc6ba3356cd4be
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 122a3e243f314395ea7b1d32b88a5e20b0965eef
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421373"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512014"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Datorer med hög prestanda beräknings storlek
 
@@ -42,9 +42,11 @@ Med det här gränssnittet kan de RDMA-kompatibla instanserna kommunicera över 
 > RDMA över IB stöds för alla RDMA-kompatibla virtuella datorer.
 > IP över IB stöds endast på de virtuella SR-IOV-datorer som är aktiverade.
 
-- **Operativ system** – Linux stöds för virtuella HPC-datorer. distributioner som CentOS, RHEL, Ubuntu, SUSE används ofta. För Windows-support stöds Windows Server 2016 och nyare versioner på alla virtuella datorer med HPC-serien. Windows Server 2012 R2, Windows Server 2012 stöds också på de virtuella datorer som inte är SR-IOV (H16r, H16mr, A8 och A9). Observera att [Windows Server 2012 R2 inte stöds på HBv2 och andra virtuella datorer med fler än 64 (virtuella eller fysiska) kärnor](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+- **Operativ system** – Linux stöds för virtuella HPC-datorer. distributioner som CentOS, RHEL, Ubuntu, SUSE används ofta. För Windows-support stöds Windows Server 2016 och nyare versioner på alla virtuella datorer med HPC-serien. Windows Server 2012 R2, Windows Server 2012 stöds också på de virtuella datorer som inte är SR-IOV (H16r, H16mr, A8 och A9). Observera att [Windows Server 2012 R2 inte stöds på HBv2 och andra virtuella datorer med fler än 64 (virtuella eller fysiska) kärnor](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Se [VM-avbildningar](./workloads/hpc/configure.md) för en lista över virtuella dator avbildningar som stöds på Marketplace och hur de kan konfigureras på rätt sätt.
 
-- **InfiniBand-och RDMA-drivrutiner** – på InfiniBand-aktiverade virtuella datorer krävs lämpliga driv rutiner för att aktivera RDMA. På Linux förkonfigureras de virtuella CentOS-HPC-avbildningarna på Marketplace för förkonfigurerade med lämpliga driv rutiner. De virtuella Ubuntu-avbildningarna kan konfigureras med rätt driv rutiner med hjälp av [instruktionerna här](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). I SR-IOV-aktiverade virtuella datorer i H-och N-serien kan [INFINIBANDDRIVERLINUX VM-tillägget](./extensions/hpc-compute-infiniband-linux.md) användas för att installera Mellanox ofed-drivrutinerna och aktivera InfiniBand. Läs mer om hur du aktiverar InfiniBand i VM-kompatibla VM- [arbetsbelastningar](./workloads/hpc/overview.md)med RDMA-stöd.
+- **InfiniBand-och RDMA-drivrutiner** – på InfiniBand-aktiverade virtuella datorer krävs lämpliga driv rutiner för att aktivera RDMA. På Linux, för både SR-IOV-och icke-SR-IOV-aktiverade virtuella datorer, förkonfigureras de virtuella CentOS-HPC-avbildningarna på Marketplace för förkonfigurerade med lämpliga driv rutiner. De virtuella Ubuntu-avbildningarna kan konfigureras med rätt driv rutiner med hjälp av [instruktionerna här](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Se [Konfigurera och optimera virtuella datorer för Linux OS](./workloads/hpc/configure.md) för mer information om färdiga virtuella datorer med Linux OS-avbildningar.
+
+   I Linux kan [INFINIBANDDRIVERLINUX VM-tillägget](./extensions/hpc-compute-infiniband-linux.md) användas för att installera Mellanox ofed-drivrutinerna och aktivera InfiniBand på de virtuella SR-IOV-datorerna H-och N-serien. Läs mer om hur du aktiverar InfiniBand på RDMA-kompatibla virtuella datorer på [HPC-arbetsbelastningar](./workloads/hpc/enable-infiniband.md).
 
    I Windows installerar [INFINIBANDDRIVERWINDOWS VM-tillägget](./extensions/hpc-compute-infiniband-windows.md) Windows Network Direct-drivrutiner (på datorer som inte är SR-IOV) eller Mellanox ofed-drivrutiner (på SR-IOV VM) för RDMA-anslutning. I vissa distributioner av A8-och A9-instanser läggs HpcVmDrivers-tillägget till automatiskt. Observera att HpcVmDrivers VM-tillägget är inaktuellt. den kommer inte att uppdateras.
 
@@ -99,5 +101,5 @@ Azure innehåller flera alternativ för att skapa kluster med virtuella Windows 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om hur du optimerar dina HPC-program för Azure och några exempel på [HPC-arbetsbelastningar](./workloads/hpc/overview.md).
-
 - Läs om de senaste meddelandena och några HPC-exempel och resultat i [Azure Compute Tech community-Bloggar](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- En arkitektur för högre nivå för att köra HPC-arbetsbelastningar finns i [HPC (data behandling med höga prestanda) i Azure](/azure/architecture/topics/high-performance-computing/).

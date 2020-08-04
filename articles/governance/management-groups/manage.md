@@ -3,16 +3,16 @@ title: Arbeta med hanterings grupper – Azure-styrning
 description: Lär dig att visa, underhålla, uppdatera och ta bort en hierarki för hanterings grupper.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: b60adbdf404f40739d6bcab7a0a3ceaf24c0b59f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5a0269935daedb3be478cc27d5ecaf87f3c97f7
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259413"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535016"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Hantera dina resurser med hanterings grupper
 
-Om din organisation har många prenumerationer kan det behövas ett effektivt sätt att hantera åtkomst, principer och efterlevnad för prenumerationerna. Med Azures hanteringsgrupper får du en hanteringsnivå över prenumerationsnivån. Du kan ordna prenumerationerna i containrar som kallas hanteringsgrupper och tillämpa styrningsvillkor för hanteringsgrupperna. Alla prenumerationer i en hanteringsgrupp ärver automatiskt de villkor som tillämpas för hanteringsgruppen.
+Om din organisation har många prenumerationer kan det behövas ett effektivt sätt att hantera åtkomst, principer och efterlevnad för prenumerationerna. Azure-hanteringsgrupper ger en omgångsnivå som omfattar prenumerationer. Du kan ordna prenumerationerna i containrar som kallas hanteringsgrupper och tillämpa styrningsvillkor för hanteringsgrupperna. Alla prenumerationer i en hanteringsgrupp ärver automatiskt de villkor som tillämpas för hanteringsgruppen.
 
 Hanteringsgrupper tillhandahåller hantering i företagsklass i stor skala oavsett vilken typ av prenumeration du har. Mer information om hanterings grupper finns i [ordna dina resurser med Azures hanterings grupper](./overview.md).
 
@@ -69,7 +69,7 @@ Om du vill ta bort en hanterings grupp måste följande krav uppfyllas:
 
    - Om du vill flytta en prenumeration eller hanterings grupp till en annan hanterings grupp läser du [flytta hanterings grupper och prenumerationer i hierarkin](#moving-management-groups-and-subscriptions).
 
-1. Du behöver Skriv behörighet för hanterings gruppen ("ägare", "deltagare" eller "hanterings grupp deltagare"). Om du vill se vilka behörigheter du har väljer du hanterings gruppen och väljer sedan **IAM**. Mer information om RBAC-roller finns i  
+1. Du behöver Skriv behörighet för hanterings gruppen ("ägare", "deltagare" eller "hanterings grupp deltagare"). Om du vill se vilka behörigheter du har väljer du hanterings gruppen och väljer sedan **IAM**. Mer information om Azure-roller finns i  
    [Hantera åtkomst och behörigheter med RBAC](../../role-based-access-control/overview.md).
 
 ### <a name="delete-in-the-portal"></a>Ta bort i portalen
@@ -113,7 +113,7 @@ az account management-group delete --name 'Contoso'
 
 ## <a name="view-management-groups"></a>Visa hanterings grupper
 
-Du kan visa en hanterings grupp som har en direkt eller ärvd RBAC-roll på.  
+Du kan visa en hanterings grupp som du har en direkt eller ärvd Azure-roll på.  
 
 ### <a name="view-in-the-portal"></a>Visa i portalen
 
@@ -215,7 +215,7 @@ Om du utför flytt åtgärden behöver du:
 
 Om ägar rollen för prenumerationen ärvs från den aktuella hanterings gruppen är dina flyttnings mål begränsade. Du kan bara flytta prenumerationen till en annan hanterings grupp där du har ägar rollen. Du kan inte flytta den till en hanterings grupp där du är deltagare eftersom du förlorar prenumerationens ägarskap. Om du är direkt tilldelad till ägar rollen för prenumerationen (ärvs inte från hanterings gruppen) kan du flytta den till en hanterings grupp där du är deltagare.
 
-Om du vill se vilka behörigheter du har i Azure Portal väljer du hanterings gruppen och väljer sedan **IAM**. Mer information om RBAC-roller finns i [Hantera åtkomst och behörigheter med RBAC](../../role-based-access-control/overview.md).
+Om du vill se vilka behörigheter du har i Azure Portal väljer du hanterings gruppen och väljer sedan **IAM**. Mer information om Azure-roller finns i [Hantera åtkomst och behörigheter med RBAC](../../role-based-access-control/overview.md).
 
 ## <a name="move-subscriptions"></a>Flytta prenumerationer 
 

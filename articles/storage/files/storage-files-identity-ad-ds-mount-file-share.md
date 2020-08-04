@@ -7,18 +7,18 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 40d372eb5569f3a4079acda3ab1e43b3e86cc113
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9807563c768b82c823ff754aaa679ddc917bf62d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999606"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535067"
 ---
 # <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>Del fyra: montera en fil resurs från en domänansluten virtuell dator
 
 Innan du börjar den här artikeln bör du se till att slutföra den föregående artikeln, [Konfigurera katalog-och filnivå behörigheter över SMB](storage-files-identity-ad-ds-configure-permissions.md).
 
-Processen som beskrivs i den här artikeln kontrollerar att fil resursen och åtkomst behörigheterna är korrekt konfigurerade och att du kan komma åt en Azure-filresurs från en domänansluten virtuell dator. Rollen som RBAC-roll tilldelning på resurs nivå kan ta lite tid att börja gälla. 
+Processen som beskrivs i den här artikeln kontrollerar att fil resursen och åtkomst behörigheterna är korrekt konfigurerade och att du kan komma åt en Azure-filresurs från en domänansluten virtuell dator. Roll tilldelning på resurs nivå kan ta lite tid att börja gälla. 
 
 Logga in på klienten genom att använda de autentiseringsuppgifter som du har beviljat behörigheter till, som du ser i följande bild.
 

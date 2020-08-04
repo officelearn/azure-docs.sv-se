@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 06/04/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 623eb7cdc9b2ff3df6bf2cbf9f337c262fecf060
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: eca67c4a5a942e6cd06f67cac868905da0e1f533
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501278"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535152"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Snabb start: skapa, ladda ned och lista blobar med Azure CLI
 
@@ -80,7 +80,7 @@ az storage account create \
 
 Blobar laddas alltid upp till en container. Du kan organisera grupper av blobbar i behållare på samma sätt som du ordnar dina filer på din dator i mappar. Skapa en behållare för att lagra blobar med kommandot [az storage container create](/cli/azure/storage/container). 
 
-I följande exempel används ditt Azure AD-konto för att auktorisera åtgärden att skapa behållaren. Innan du skapar behållaren ska du tilldela rollen [Storage BLOB data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) till dig själv. Även om du är kontots ägare behöver du explicita behörigheter för att utföra data åtgärder mot lagrings kontot. Mer information om hur du tilldelar RBAC-roller finns i [använda Azure CLI för att tilldela en RBAC-roll för åtkomst](../common/storage-auth-aad-rbac-cli.md?toc=/azure/storage/blobs/toc.json).  
+I följande exempel används ditt Azure AD-konto för att auktorisera åtgärden att skapa behållaren. Innan du skapar behållaren ska du tilldela rollen [Storage BLOB data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) till dig själv. Även om du är kontots ägare behöver du explicita behörigheter för att utföra data åtgärder mot lagrings kontot. Mer information om hur du tilldelar Azure-roller finns i [använda Azure CLI för att tilldela en Azure-roll för åtkomst](../common/storage-auth-aad-rbac-cli.md?toc=/azure/storage/blobs/toc.json).  
 
 Du kan också använda lagrings konto nyckeln för att ge åtgärden att skapa behållaren. Mer information om hur du auktoriserar data åtgärder med Azure CLI finns i [bevilja åtkomst till BLOB-eller köa data med Azure CLI](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
 

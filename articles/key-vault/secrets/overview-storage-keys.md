@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7819b62fb92945a409cab0dff926e281620dd80c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 727a5052b0531cc0a37cc631e11bc498498be5b3
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496652"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534982"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Hantera lagrings konto nycklar med Key Vault och Azure CLI
 
@@ -71,7 +71,7 @@ az login
 
 Använd kommandot [skapa roll tilldelning](/cli/azure/role/assignment?view=azure-cli-latest) för Azure CLI-AZ för att ge Key Vault åtkomst till ditt lagrings konto. Ange följande parameter värden för kommandot:
 
-- `--role`: Överför RBAC-rollen "lagrings kontots nyckel operatörs tjänst roll". Den här rollen begränsar åtkomstscope till ditt lagrings konto. För ett klassiskt lagrings konto skickar du i stället "klassisk lagrings kontots nyckel operatörs tjänst roll".
+- `--role`: Överför Azure-rollen "lagrings kontots nyckel operatörs tjänst roll". Den här rollen begränsar åtkomstscope till ditt lagrings konto. För ett klassiskt lagrings konto skickar du i stället "klassisk lagrings kontots nyckel operatörs tjänst roll".
 - `--assignee`: Skicka värdet " https://vault.azure.net ", som är URL: en för Key Vault i det offentliga Azure-molnet. (För Azure goverment Cloud use "--asingee-Object-ID" i stället, se [program-ID för tjänstens huvud namn](#service-principal-application-id).)
 - `--scope`: Skicka ditt lagrings kontos resurs-ID, som är i formatet `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>` . Du hittar ditt prenumerations-ID genom att använda kommandot Azure CLI [AZ Account List](/cli/azure/account?view=azure-cli-latest#az-account-list) . Om du vill hitta resurs gruppen för ditt lagrings konto namn och lagrings konto använder du kommandot Azure CLI [AZ Storage Account List](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) .
 

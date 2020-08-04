@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 58332be22600620e7a3ff1f455f96fe0d786d846
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 04993d36689c917db05a1b5f2132b107c7c9b412
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500052"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535118"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Rollbaserad Access Control för StorSimple
 
@@ -29,7 +29,7 @@ Den här artikeln gäller för enheter med StorSimple 8000-serien som kör uppda
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="rbac-roles-for-storsimple"></a>RBAC-roller för StorSimple
+## <a name="azure-roles-for-storsimple"></a>Azure-roller för StorSimple
 
 RBAC kan tilldelas baserat på roller. Rollerna säkerställer vissa behörighets nivåer baserat på tillgängliga resurser i miljön. Det finns två typer av roller som StorSimple användare kan välja bland: inbyggda eller anpassade.
 
@@ -58,7 +58,7 @@ I följande exempel börjar vi med den inbyggda roll **läsaren** som gör att a
     Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
-4. Öppna JSON-filen i Visual Studio. Du ser att en typisk RBAC-roll består av tre huvud avsnitt, **åtgärder**, **NotActions**och **AssignableScopes**.
+4. Öppna JSON-filen i Visual Studio. Du ser att en typisk Azure-roll består av tre huvud avsnitt, **åtgärder**, **NotActions**och **AssignableScopes**.
 
     I avsnittet **åtgärd** visas alla tillåtna åtgärder för den här rollen. Varje åtgärd tilldelas från en resurs leverantör. För en infrastruktur administratör för StorSimple använder du `Microsoft.StorSimple` resurs leverantören.
 
@@ -68,9 +68,9 @@ I följande exempel börjar vi med den inbyggda roll **läsaren** som gör att a
 
     Du kan också söka efter alla tillgängliga PowerShell-cmdletar för att hantera resurs leverantörer.
 
-    I avsnittet **NotActions** visas alla begränsade åtgärder för en viss RBAC-roll. I det här exemplet är inga åtgärder begränsade.
+    I avsnittet **NotActions** visas alla begränsade åtgärder för en viss Azure-roll. I det här exemplet är inga åtgärder begränsade.
     
-    Prenumerations-ID: n visas under **AssignableScopes**. Se till att RBAC-rollen innehåller det explicita prenumerations-ID där den används. Om rätt prenumerations-ID inte har angetts får du inte importera rollen i din prenumeration.
+    Prenumerations-ID: n visas under **AssignableScopes**. Se till att Azure-rollen innehåller det explicita prenumerations-ID där den används. Om rätt prenumerations-ID inte har angetts får du inte importera rollen i din prenumeration.
 
     Redigera filen genom att tänka på föregående överväganden.
 
@@ -109,7 +109,7 @@ I följande exempel börjar vi med den inbyggda roll **läsaren** som gör att a
 
 Den här rollen bör nu visas i listan över roller i **åtkomst kontroll** bladet.
 
-![Visa RBAC-roller](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
+![Visa Azure-roller](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
 Mer information finns i [anpassade roller](../role-based-access-control/custom-roles.md).
 
@@ -167,7 +167,7 @@ Du beviljar åtkomst inifrån resursen, resursgruppen eller prenumerationen som 
 
 1. Gå till **åtkomst kontroll (IAM)**. Klicka på **+ Lägg till** på bladet åtkomst kontroll.
 
-    ![Lägg till åtkomst till RBAC-rollen](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
+    ![Lägg till åtkomst till Azure-rollen](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
 
 2. Välj den roll som du vill tilldela, i det här fallet är det **StorSimple Infrastructure admin**.
 
@@ -175,7 +175,7 @@ Du beviljar åtkomst inifrån resursen, resursgruppen eller prenumerationen som 
 
 4. Klicka på **Spara** för att skapa tilldelningen.
 
-    ![Lägg till behörigheter för RBAC-rollen](./media/storsimple-8000-role-based-access-control/rbac-create-role-infra-admin.png)
+    ![Lägg till behörigheter i Azure-rollen](./media/storsimple-8000-role-based-access-control/rbac-create-role-infra-admin.png)
 
 Om du **lägger till ett användar** meddelande spåras förloppet. När användaren har lagts till uppdateras listan över användare i åtkomst kontrollen.
 

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: e2f38daea40f89e73422ca8115f2425758be81a4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 612584a71aa6be54d726ccdd74d9368ba9cddbc9
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413110"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535084"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Del ett: Aktivera AD DS-autentisering för dina Azure-filresurser 
 
@@ -30,7 +30,7 @@ Cmdletarna i AzFilesHybrid PowerShell-modulen gör nödvändiga ändringar och a
 
 - [Ladda ned och zippa upp AzFilesHybrid-modulen](https://github.com/Azure-Samples/azure-files-samples/releases) (ga-modulen: v 0.2.0 +)
 - Installera och kör modulen i en enhet som är domänansluten till lokala AD DS med AD DS-autentiseringsuppgifter som har behörighet att skapa ett tjänst inloggnings konto eller ett dator konto i mål AD.
--  Kör skriptet med en lokal AD DS-autentiseringsuppgift som synkroniseras med din Azure AD. Den lokala AD DS-autentiseringsuppgiften måste ha antingen lagrings kontots ägare eller rollen som deltagares RBAC-roll.
+-  Kör skriptet med en lokal AD DS-autentiseringsuppgift som synkroniseras med din Azure AD. Den lokala AD DS-autentiseringsuppgiften måste ha antingen lagrings kontots ägare eller rollen som deltagare i Azure.
 
 ### <a name="run-join-azstorageaccountforauth"></a>Kör Join-AzStorageAccountForAuth
 

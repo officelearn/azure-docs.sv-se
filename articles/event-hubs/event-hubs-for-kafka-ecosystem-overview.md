@@ -3,12 +3,12 @@ title: Använda händelsehubben från Apache Kafka app – Azure Event Hubs | Mi
 description: Den här artikeln innehåller information om Apache Kafka support av Azure Event Hubs.
 ms.topic: article
 ms.date: 07/20/2020
-ms.openlocfilehash: 94e0993c192cb735d6a4f0f3f7ec484c830902e9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ab29c9c4270514e95752ab2bbd085ffe1b0a2fb0
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501601"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534880"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Använda Azure Event Hubs från Apache Kafka-program
 Event Hubs tillhandahåller en Kafka-slutpunkt som kan användas av dina befintliga Kafka-baserade program som ett alternativ till att köra ditt eget Kafka-kluster. Event Hubs stöder [Apache Kafka protocol 1,0 och senare](https://kafka.apache.org/documentation/)och fungerar med dina befintliga Kafka-program, inklusive MirrorMaker.  
@@ -46,7 +46,7 @@ Azure Event Hubs tillhandahåller flera alternativ för att ge åtkomst till din
 - Signatur för delad åtkomst (SAS)
 
 #### <a name="oauth"></a>Arbeta
-Event Hubs integreras med Azure Active Directory (Azure AD), vilket ger en **OAuth** 2,0-kompatibel Central Authorization-Server. Med Azure AD kan du använda rollbaserad åtkomst kontroll (RBAC) för att ge detaljerade behörigheter till dina klient identiteter. Du kan använda den här funktionen med Kafka-klienter genom att ange **SASL_SSL** för protokollet och **OAUTHBEARER** för mekanismen. Mer information om RBAC-roller och nivåer för omfångs åtkomst finns i [ge åtkomst till Azure AD](authorize-access-azure-active-directory.md).
+Event Hubs integreras med Azure Active Directory (Azure AD), vilket ger en **OAuth** 2,0-kompatibel Central Authorization-Server. Med Azure AD kan du använda rollbaserad åtkomst kontroll (RBAC) för att ge detaljerade behörigheter till dina klient identiteter. Du kan använda den här funktionen med Kafka-klienter genom att ange **SASL_SSL** för protokollet och **OAUTHBEARER** för mekanismen. Mer information om Azure-roller och-nivåer för omfångs åtkomst finns i [ge åtkomst till Azure AD](authorize-access-azure-active-directory.md).
 
 ```xml
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093

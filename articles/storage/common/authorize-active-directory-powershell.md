@@ -1,7 +1,7 @@
 ---
 title: Kör PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-eller Queue-data
 titleSuffix: Azure Storage
-description: PowerShell har stöd för inloggning med Azure AD-autentiseringsuppgifter för att köra kommandon på Azure Storage blob-och köer-data. En åtkomsttoken har angetts för sessionen och används för att auktorisera anrops åtgärder. Behörigheter är beroende av den RBAC-roll som tilldelats Azure AD-säkerhetsobjektet.
+description: PowerShell har stöd för inloggning med Azure AD-autentiseringsuppgifter för att köra kommandon på Azure Storage blob-och köer-data. En åtkomsttoken har angetts för sessionen och används för att auktorisera anrops åtgärder. Behörigheter beror på den Azure-roll som tilldelats Azure AD-säkerhetsobjektet.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,18 +10,18 @@ ms.date: 12/30/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b7e93f54c1aa0eaa5edf3b3fcbfbf8bd9a6442d7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a99b2841441e43ac02688494b1324fa5d630dcd5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417547"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534931"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Kör PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-eller Queue-data
 
 Azure Storage innehåller tillägg för PowerShell som gör att du kan logga in och köra skript kommandon med Azure Active Directory (autentiseringsuppgifter för Azure AD). När du loggar in på PowerShell med autentiseringsuppgifter för Azure AD returneras en OAuth 2,0-åtkomsttoken. Denna token används automatiskt av PowerShell för att auktorisera efterföljande data åtgärder mot BLOB-eller Queue-lagring. För åtgärder som stöds behöver du inte längre skicka en konto nyckel eller SAS-token med kommandot.
 
-Du kan tilldela behörigheter till blob-och Queue-data till ett säkerhets objekt i Azure AD via rollbaserad åtkomst kontroll (RBAC). Mer information om RBAC-roller i Azure Storage finns i [Hantera åtkomst rättigheter för att Azure Storage data med RBAC](storage-auth-aad-rbac.md).
+Du kan tilldela behörigheter till blob-och Queue-data till ett säkerhets objekt i Azure AD via rollbaserad åtkomst kontroll (RBAC). Mer information om Azure-roller i Azure Storage finns i [Hantera åtkomst rättigheter för att Azure Storage data med RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="supported-operations"></a>Åtgärder som stöds
 
@@ -68,7 +68,7 @@ I följande exempel visas hur du skapar en behållare i ett nytt lagrings konto 
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Innan du skapar behållaren ska du tilldela rollen [Storage BLOB data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) till dig själv. Även om du är kontots ägare behöver du explicita behörigheter för att utföra data åtgärder mot lagrings kontot. Mer information om hur du tilldelar RBAC-roller finns i [bevilja åtkomst till Azure blob och Queue data med RBAC i Azure Portal](storage-auth-aad-rbac.md).
+1. Innan du skapar behållaren ska du tilldela rollen [Storage BLOB data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) till dig själv. Även om du är kontots ägare behöver du explicita behörigheter för att utföra data åtgärder mot lagrings kontot. Mer information om hur du tilldelar Azure-roller finns i [bevilja åtkomst till Azure blob och Queue data med RBAC i Azure Portal](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > Det kan ta några minuter att sprida Azures roll tilldelningar.
@@ -82,5 +82,5 @@ I följande exempel visas hur du skapar en behållare i ett nytt lagrings konto 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Använd PowerShell för att tilldela en RBAC-roll för åtkomst till blob-och Queue-data](storage-auth-aad-rbac-powershell.md)
+- [Använd PowerShell för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](storage-auth-aad-rbac-powershell.md)
 - [Ge åtkomst till blob-och Queue-data med hanterade identiteter för Azure-resurser](storage-auth-aad-msi.md)

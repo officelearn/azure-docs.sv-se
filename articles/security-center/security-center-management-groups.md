@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 2ef2cc86b3e12149977fa819a7e54ee9a1c0d7ac
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 43a6c10c8c73e8fb5189b6f085a6969c0d776593
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423991"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534914"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Få överblick över hela organisationen för Azure Security Center
 Den här artikeln förklarar hur du hanterar din organisations säkerhets position i stor skala genom att använda säkerhets principer för alla Azure-prenumerationer som är kopplade till din Azure Active Directory-klient.
@@ -60,10 +60,10 @@ Du kan organisera prenumerationer i hanterings grupper och tillämpa dina styrni
 
 ## <a name="grant-tenant-level-visibility-and-the-ability-to-assign-policies"></a>Bevilja synlighet på klient nivå och möjlighet att tilldela principer
 
-För att få insyn i säkerhets position för alla prenumerationer som registrerats i Azure AD-klienten, måste en RBAC-roll med tillräcklig Läs behörighet tilldelas till rot hanterings gruppen.
+För att få insyn i säkerhets position för alla prenumerationer som registrerats i Azure AD-klienten, måste en Azure-roll med tillräcklig Läs behörighet tilldelas till rot hanterings gruppen.
 
 ### <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Öka åtkomsten för en global administratör i Azure Active Directory
-En Azure Active Directory klient organisations administratör har inte direkt åtkomst till Azure-prenumerationer. Men som katalog administratör har de rätt att höja sig själva till en roll som har åtkomst. En Azure AD-innehavaradministratör måste utökas till användarens åtkomst administratör på rot hanterings gruppens nivå så att de kan tilldela RBAC-roller. PowerShell-instruktioner och ytterligare information finns [i öka åtkomsten för en global administratör i Azure Active Directory](../role-based-access-control/elevate-access-global-admin.md). 
+En Azure Active Directory klient organisations administratör har inte direkt åtkomst till Azure-prenumerationer. Men som katalog administratör har de rätt att höja sig själva till en roll som har åtkomst. En Azure AD-innehavaradministratör måste utökas till användarens åtkomst administratör på rot hanterings gruppens nivå så att de kan tilldela Azure-roller. PowerShell-instruktioner och ytterligare information finns [i öka åtkomsten för en global administratör i Azure Active Directory](../role-based-access-control/elevate-access-global-admin.md). 
 
 
 1. Logga in på [Azure Portal](https://portal.azure.com) eller [Azure Active Directory administrations Center](https://aad.portal.azure.com).
@@ -87,11 +87,11 @@ En Azure Active Directory klient organisations administratör har inte direkt å
 5. Utför de uppgifter du behöver för att göra den utökade åtkomsten. När du är klar väljer du växla tillbaka till **Nej**.
 
 
-### <a name="assign-rbac-roles-to-users"></a>Tilldela RBAC-roller till användare
-För att få insyn i alla prenumerationer måste klient organisations administratörerna tilldela rätt RBAC-roll till alla användare som de vill ge en synlig domänkontrollant, inklusive själva, på rot hanterings gruppens nivå. De rekommenderade rollerna som ska tilldelas är antingen **säkerhets administratör** eller **säkerhets läsare**. I allmänhet krävs rollen som säkerhets administratör för att tillämpa principer på rotnivån, medan säkerhets läsaren räcker för att tillhandahålla synligheten på klient nivå. Mer information om de behörigheter som har beviljats av de här rollerna finns i beskrivningen av den [inbyggda rollen säkerhets administratör](../role-based-access-control/built-in-roles.md#security-admin) eller den [inbyggda rollen säkerhets läsare](../role-based-access-control/built-in-roles.md#security-reader).
+### <a name="assign-azure-roles-to-users"></a>Tilldela Azure-roller till användare
+För att få insyn i alla prenumerationer måste klient organisations administratörerna tilldela rätt Azure-roll till alla användare som de vill bevilja en synlig klient för närvarande, även på rot hanterings gruppens nivå. De rekommenderade rollerna som ska tilldelas är antingen **säkerhets administratör** eller **säkerhets läsare**. I allmänhet krävs rollen som säkerhets administratör för att tillämpa principer på rotnivån, medan säkerhets läsaren räcker för att tillhandahålla synligheten på klient nivå. Mer information om de behörigheter som har beviljats av de här rollerna finns i beskrivningen av den [inbyggda rollen säkerhets administratör](../role-based-access-control/built-in-roles.md#security-admin) eller den [inbyggda rollen säkerhets läsare](../role-based-access-control/built-in-roles.md#security-reader).
 
 
-#### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Tilldela RBAC-roller till användare via Azure Portal: 
+#### <a name="assign-azure-roles-to-users-through-the-azure-portal"></a>Tilldela Azure-roller till användare via Azure Portal: 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 1. Om du vill visa hanterings grupper väljer du **alla tjänster** på huvud menyn i Azure och väljer sedan **hanteringsgrupper**.
@@ -108,7 +108,7 @@ För att få insyn i alla prenumerationer måste klient organisations administra
    ![Skärm bild för Lägg till säkerhets läsar roll](./media/security-center-management-groups/asc-security-reader.png)
 
 
-#### <a name="assign-rbac-roles-to-users-with-powershell"></a>Tilldela RBAC-roller till användare med PowerShell: 
+#### <a name="assign-azure-roles-to-users-with-powershell"></a>Tilldela Azure-roller till användare med PowerShell: 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -155,7 +155,7 @@ När du har förhöjd åtkomst, öppna eller uppdatera Azure Security Center fö
     ![Skärm bild av prenumerations täcknings lista](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>Ta bort utökad åtkomst 
-När RBAC-rollerna har tilldelats till användarna bör klient administratören ta bort sig själv från rollen som administratör för användar åtkomst.
+När Azure-rollerna har tilldelats till användarna bör klient administratören ta bort sig själv från rollen som administratör för användar åtkomst.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) eller [Azure Active Directory administrations Center](https://aad.portal.azure.com).
 
@@ -183,7 +183,7 @@ Du kan lägga till prenumerationer i hanterings gruppen som du skapade. De här 
 4. Upprepa steg 1 till 3 tills du har lagt till alla prenumerationer i omfånget.
 
    > [!NOTE]
-   > Hanterings grupper kan innehålla både prenumerationer och underordnade hanterings grupper. När du tilldelar en användare en RBAC-roll till den överordnade hanterings gruppen ärvs åtkomsten av prenumerationerna på den underordnade hanterings gruppen. Principer som anges i den överordnade hanterings gruppen ärvs också av de underordnade. 
+   > Hanterings grupper kan innehålla både prenumerationer och underordnade hanterings grupper. När du tilldelar en användare en Azure-roll till den överordnade hanterings gruppen ärvs åtkomsten av prenumerationerna på den underordnade hanterings gruppen. Principer som anges i den överordnade hanterings gruppen ärvs också av de underordnade. 
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig hur du får insyn i hela organisationen för Azure Security Center. I följande artiklar kan du lära dig mer om Security Center:

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4f04671283a4888770e29606b6869c832b22e6a3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a656ccc56d198943c8631077466115eb6411a64a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499168"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534897"
 ---
 # <a name="authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Ge åtkomst till BLOB-eller Queue-data med Azure CLI
 
@@ -43,7 +43,7 @@ Om du vill använda `--auth-mode` parametern kontrollerar du att du har installe
 
 När du loggar in på Azure CLI med Azure AD-autentiseringsuppgifter returneras en OAuth 2,0-åtkomsttoken. Token används automatiskt av Azure CLI för att auktorisera efterföljande data åtgärder mot BLOB-eller Queue-lagring. För åtgärder som stöds behöver du inte längre skicka en konto nyckel eller SAS-token med kommandot.
 
-Du kan tilldela behörigheter till blob-och Queue-data till ett säkerhets objekt i Azure AD via rollbaserad åtkomst kontroll (RBAC). Mer information om RBAC-roller i Azure Storage finns i [Hantera åtkomst rättigheter för att Azure Storage data med RBAC](storage-auth-aad-rbac.md).
+Du kan tilldela behörigheter till blob-och Queue-data till ett säkerhets objekt i Azure AD via rollbaserad åtkomst kontroll (RBAC). Mer information om Azure-roller i Azure Storage finns i [Hantera åtkomst rättigheter för att Azure Storage data med RBAC](storage-auth-aad-rbac.md).
 
 ### <a name="permissions-for-calling-data-operations"></a>Behörigheter för att anropa data åtgärder
 
@@ -55,7 +55,7 @@ Mer information om de behörigheter som krävs för varje Azure Storage-åtgärd
 
 I följande exempel visas hur du skapar en behållare från Azure CLI med dina autentiseringsuppgifter för Azure AD. Om du vill skapa behållaren måste du logga in på Azure CLI och du behöver en resurs grupp och ett lagrings konto. Information om hur du skapar dessa resurser finns i [snabb start: skapa, ladda ned och lista blobar med Azure CLI](../blobs/storage-quickstart-blobs-cli.md).
 
-1. Innan du skapar behållaren ska du tilldela rollen [Storage BLOB data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) till dig själv. Även om du är kontots ägare behöver du explicita behörigheter för att utföra data åtgärder mot lagrings kontot. Mer information om hur du tilldelar RBAC-roller finns i [bevilja åtkomst till Azure blob och Queue data med RBAC i Azure Portal](storage-auth-aad-rbac.md).
+1. Innan du skapar behållaren ska du tilldela rollen [Storage BLOB data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) till dig själv. Även om du är kontots ägare behöver du explicita behörigheter för att utföra data åtgärder mot lagrings kontot. Mer information om hur du tilldelar Azure-roller finns i [bevilja åtkomst till Azure blob och Queue data med RBAC i Azure Portal](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > Det kan ta några minuter att sprida Azures roll tilldelningar.
@@ -108,5 +108,5 @@ Du kan ange auktoriseringsregler i miljövariabler för att undvika att ta med d
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Använd Azure CLI för att tilldela en RBAC-roll för åtkomst till blob-och Queue-data](storage-auth-aad-rbac-cli.md)
+- [Använd Azure CLI för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](storage-auth-aad-rbac-cli.md)
 - [Ge åtkomst till blob-och Queue-data med hanterade identiteter för Azure-resurser](storage-auth-aad-msi.md)

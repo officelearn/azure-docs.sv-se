@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 3335bfbed592c9e13d5be437e8013a89ae86e970
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16c8058da30821a53a20cf3ea6afdb0e4dbfcb77
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510623"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535101"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Del två: tilldela behörigheter på resurs nivå till en identitet
 
@@ -38,11 +38,11 @@ Det finns tre inbyggda Azure-roller för att bevilja behörigheter på resurs ni
 
 Du kan använda Azure Portal, Azure PowerShell eller Azure CLI för att tilldela de inbyggda rollerna till Azure AD-identiteten för en användare för att bevilja behörigheter på resurs nivå.
 
-## <a name="assign-an-rbac-role"></a>Tilldela en RBAC-roll
+## <a name="assign-an-azure-role"></a>Tilldela en Azure-roll
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
-Följ dessa steg om du vill tilldela en RBAC-roll till en Azure AD-identitet med hjälp av [Azure Portal](https://portal.azure.com):
+Följ dessa steg om du vill tilldela en Azure-roll till en Azure AD-identitet med hjälp av [Azure Portal](https://portal.azure.com):
 
 1. I Azure Portal går du till fil resursen eller [skapar en fil resurs](storage-how-to-create-file-share.md).
 1. Välj **Access Control (IAM)**.
@@ -52,7 +52,7 @@ Följ dessa steg om du vill tilldela en RBAC-roll till en Azure AD-identitet med
 
 ### <a name="powershell"></a>PowerShell
 
-Följande PowerShell-exempel visar hur du tilldelar en RBAC-roll till en Azure AD-identitet baserat på inloggnings namn. Mer information om hur du tilldelar RBAC-roller med PowerShell finns i [Hantera åtkomst med RBAC och Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Följande PowerShell-exempel visar hur du tilldelar en Azure-roll till en Azure AD-identitet baserat på inloggnings namn. Mer information om hur du tilldelar Azure-roller med PowerShell finns i [Hantera åtkomst med RBAC och Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 Innan du kör följande exempel skript ska du ersätta plats hållarnas värden, inklusive hakparenteser, med dina värden.
 
@@ -67,7 +67,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 ### <a name="cli"></a>CLI
   
-Följande CLI 2,0-kommando tilldelar en RBAC-roll till en Azure AD-identitet baserat på inloggnings namn. Mer information om hur du tilldelar RBAC-roller med Azure CLI finns i [Hantera åtkomst med RBAC och Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
+Följande CLI 2,0-kommando tilldelar en Azure-roll till en Azure AD-identitet baserat på inloggnings namn. Mer information om hur du tilldelar Azure-roller med Azure CLI finns i [Hantera åtkomst med RBAC och Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
 
 Innan du kör följande exempel skript måste du komma ihåg att ersätta plats hållarnas värden, inklusive hakparenteser, med dina egna värden.
 

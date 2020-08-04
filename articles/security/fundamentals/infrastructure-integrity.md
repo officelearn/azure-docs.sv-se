@@ -1,6 +1,6 @@
 ---
 title: Integritet för Azure-infrastruktur
-description: Den här artikeln beskriver Azure-infrastrukturens integritet.
+description: Lär dig mer om Azures infrastruktur integritet och de steg som Microsoft vidtar för att skydda den, till exempel virus genomsökningar på program varu komponent versioner.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
-ms.openlocfilehash: ef81e74b07a351139aa8feefbdf1b89ea7e4994f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0df14dfcf66f53e01989a27a95afa5e19fcb2fe
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68727195"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543647"
 ---
 # <a name="azure-infrastructure-integrity"></a>Integritet för Azure-infrastruktur
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 0e538299dfc9c9406b519d888d1a92c5c643bb03
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: eea64520dd5440467c911b6de42d8c8c31fc1bde
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421747"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543460"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Felsöka & begränsningar i Azure Cloud Shell
 
@@ -151,7 +151,8 @@ Azure Cloud Shell tar dina personliga data på allvar, används de data som saml
 ### <a name="export"></a>Exportera
 För att kunna **Exportera** användar inställningarna Cloud Shell sparar till dig, till exempel prioriterat gränssnitt, tecken storlek och teckensnitts typ, kör följande kommandon.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+1. [![Bild som visar en knapp med etiketten starta Azure Cloud Shell.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+
 2. Kör följande kommandon i bash eller PowerShell:
 
 Bash
@@ -174,7 +175,8 @@ För att **ta bort** dina användar inställningar Cloud Shell sparar för dig s
 >[!Note]
 > Om du tar bort användar inställningarna tas inte den faktiska Azure Filess resursen bort. Gå till Azure Files för att slutföra åtgärden.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+1. [![Bild som visar en knapp med etiketten starta Azure Cloud Shell.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+
 2. Kör följande kommandon i bash eller PowerShell:
 
 Bash

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: c5369d63c0937605cc288e3a90466e723e69d163
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 037e07a1d8a6a3b4016d00f1b5a68bffc9caf335
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255446"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543375"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använda Kubernetes-nätverk med dina egna IP-adressintervall i Azure Kubernetes service (AKS)
 
@@ -20,7 +20,7 @@ Med [Azure Container Network Interface (cni)][cni-networking]hämtar varje Pod e
 
 Den här artikeln visar hur du använder *Kubernetes* -nätverk för att skapa och använda ett virtuellt nätverks under nät för ett AKS-kluster. Mer information om nätverks alternativ och överväganden finns i [nätverks koncept för Kubernetes och AKS][aks-network-concepts].
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Det virtuella nätverket för AKS-klustret måste tillåta utgående Internet anslutning.
 * Skapa inte fler än ett AKS-kluster i samma undernät.
@@ -47,6 +47,17 @@ Med *Kubernetes*får bara noderna en IP-adress i det virtuella nätverkets under
 Azure har stöd för högst 400 vägar i en UDR, så du kan inte ha ett AKS-kluster som är större än 400 noder. AKS [virtuella noder][virtual-nodes] och Azure Network policies stöds inte med *Kubernetes*.  Du kan använda [Calico nätverks principer][calico-network-policies]eftersom de stöds med Kubernetes.
 
 Med *Azure cni*får varje Pod en IP-adress i IP-undernätet och kan kommunicera direkt med andra poddar och tjänster. Klustren kan vara så stora som det IP-adressintervall som du anger. IP-adressintervallet måste dock planeras i förväg, och alla IP-adresser används av AKS-noderna baserat på det maximala antalet poddar som de kan stödja. Avancerade nätverksfunktioner och scenarier som [virtuella noder][virtual-nodes] eller nätverks principer (antingen Azure eller Calico) stöds med *Azure cni*.
+
+### <a name="limitations--considerations-for-kubenet"></a>Begränsningar & överväganden för Kubernetes
+
+* Det krävs ytterligare hopp vid utformningen av Kubernetes, vilket ger mindre svars tid till Pod-kommunikation.
+* Routningstabeller och användardefinierade vägar krävs för att använda Kubernetes, vilket ökar komplexiteten för åtgärder.
+* Direkt Pod-adressering stöds inte för Kubernetes på grund av Kubernetes design.
+* Till skillnad från Azure CNI-kluster kan flera Kubernetes-kluster inte dela ett undernät.
+* Funktioner som **inte stöds i Kubernetes** är:
+   * Nätverks [principer i Azure](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), men Calico nätverks principer stöds på Kubernetes
+   * [Windows-noder i pooler](windows-node-limitations.md)
+   * [Tillägg för virtuella noder](virtual-nodes-portal.md#known-limitations)
 
 ### <a name="ip-address-availability-and-exhaustion"></a>Tillgänglighet och utbelastning för IP-adress
 

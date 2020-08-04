@@ -1,16 +1,16 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 05/15/2020
+ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 0a4dcf749a76623df7f46d77bf3e4877f2c41900
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ad191ca0d31abf317bab521dfbbc7c2567c3450
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83821489"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87545233"
 ---
 Med standardiserade avbildningar av virtuella datorer kan organisationer migrera till molnet och säkerställa konsekvens i distributionerna. Bilder innehåller vanligt vis fördefinierade säkerhets-och konfigurations inställningar och nödvändig program vara. Att konfigurera din egen avbildnings pipeline kräver tid, infrastruktur och konfiguration, men med Azure VM Image Builder får du bara en enkel konfiguration som beskriver avbildningen, skickar den till tjänsten och avbildningen skapas och distribueras.
  
@@ -20,7 +20,7 @@ Med Azures avbildnings verktyg för virtuella datorer (Azure Image Builder) kan 
 > Azure Image Builder är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="preview-features"></a>Förhandsversionsfunktioner
+## <a name="preview-features"></a>Förhandsgranskningsfunktioner
 
 I för hands versionen stöds dessa funktioner:
 
@@ -35,12 +35,12 @@ I för hands versionen stöds dessa funktioner:
 
 ## <a name="regions"></a>Regioner
 Azure Image Builder-tjänsten är tillgänglig för för hands version i dessa regioner. Avbildningar kan distribueras utanför dessa regioner.
-- USA, östra
+- East US
 - USA, östra 2
 - USA, västra centrala
 - USA, västra
 - USA, västra 2
-- Europa, norra
+- Norra Europa
 - Europa, västra
 
 ## <a name="os-support"></a>OS-stöd
@@ -97,6 +97,9 @@ Under processen för att skapa avbildningar laddas filerna ned och lagras i `IT_
 Image Builder skapar en virtuell dator med en D1v2 VM-storlek, och lagrings utrymme och nätverk som krävs för den virtuella datorn. Dessa resurser kommer att vara sist under Bygg processen och tas bort när avbildnings verktyget har skapat avbildningen. 
  
 Azure Image Builder distribuerar avbildningen till dina valda regioner, vilket kan innebära att det tar betalt för nätverket.
+
+## <a name="hyper-v-generation"></a>Hyper V-generering
+Image Builder för närvarande stöder Hyper V generation 1-avbildningar och virtuella datorer.
  
 ## <a name="next-steps"></a>Nästa steg 
  

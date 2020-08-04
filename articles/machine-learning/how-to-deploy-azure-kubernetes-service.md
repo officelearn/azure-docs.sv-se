@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 58a8bd6b8e5594f36bf27a3ad76bee137fdd1160
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: bc53a243a58522a76be63536aa721f269ed4759a
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433224"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544055"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuera en modell till ett Azure Kubernetes service-kluster
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -65,7 +65,7 @@ AKS-klustret och arbets ytan AML kan finnas i olika resurs grupper.
 
 - Om du behöver ett Standard Load Balancer (SLB) distribuerat i klustret i stället för en grundläggande Load Balancer (BLB), skapar du ett kluster i AKS-portalen/CLI/SDK och kopplar det sedan till arbets ytan AML.
 
-- Om du ansluter ett AKS-kluster, som har ett [auktoriserat IP-adressintervall som är aktiverat för att få åtkomst till API-servern](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), aktiverar du AML conto-planens IP-intervall för AKS-klustret. Kontroll planet för AML distribueras i kopplade regioner och distribuerar inferencing-poddar i AKS-klustret. Inferencing-poddar kan inte distribueras utan åtkomst till API-servern. Använd [IP-intervallen](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) för båda [kopplade regionerna]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) när du aktiverar IP-intervall i ett AKS-kluster.
+- Om du ansluter ett AKS-kluster, som har ett [auktoriserat IP-adressintervall som är aktiverat för att få åtkomst till API-servern](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), aktiverar du IP-intervallen för AML Control plan för AKS-klustret. Kontroll planet för AML distribueras i kopplade regioner och distribuerar inferencing-poddar i AKS-klustret. Inferencing-poddar kan inte distribueras utan åtkomst till API-servern. Använd [IP-intervallen](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) för båda [kopplade regionerna]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) när du aktiverar IP-intervall i ett AKS-kluster.
 
 __Authroized IP-intervall fungerar endast med Standard Load Balancer.__
  
@@ -423,15 +423,12 @@ print(token)
 >
 > Om du vill hämta en token måste du använda kommandot Azure Machine Learning SDK eller [AZ ml-tjänsten get-Access-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token) .
 
-## <a name="update-the-web-service"></a>Uppdatera webb tjänsten
-
-[!INCLUDE [aml-update-web-service](../../includes/machine-learning-update-web-service.md)]
-
 ## <a name="next-steps"></a>Nästa steg
 
 * [Säker experimentering och härledning i ett virtuellt nätverk](how-to-enable-virtual-network.md)
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
 * [Distributions fel sökning](how-to-troubleshoot-deployment.md)
+* [Uppdatera webb tjänst](how-to-deploy-update-web-service.md)
 * [Använd TLS för att skydda en webb tjänst via Azure Machine Learning](how-to-secure-web-service.md)
 * [Använda en ML-modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)

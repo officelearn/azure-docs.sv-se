@@ -1,20 +1,20 @@
 ---
-title: Azure Disk Encryption för virtuella datorer och skalnings uppsättningar för virtuella datorer
-description: Den här artikeln innehåller en översikt över Azure Disk Encryption
+title: Azure Disk Encryption för virtuella datorer och VM-skalningsuppsättningar
+description: Lär dig mer om Azure Disk Encryption för virtuella datorer och VM Scale set. Azure Disk Encryption fungerar både för virtuella Linux-och Windows-datorer.
 author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: c881b2b9743766e4d35e6cb05f6f3469803850bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21194bf2fe76a7eb0ee034d4a502c20ee3032dd9
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80062116"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543681"
 ---
-# <a name="azure-disk-encryption-for-virtual-machines-and-virtual-machine-scale-sets"></a>Azure Disk Encryption för virtuella datorer och skalnings uppsättningar för virtuella datorer
+# <a name="azure-disk-encryption-for-virtual-machines-and-virtual-machine-scale-sets"></a>Azure Disk Encryption för virtuella datorer och VM-skalningsuppsättningar
 
 Azure Disk Encryption kan tillämpas på både virtuella Linux-och Windows-datorer, samt för skalnings uppsättningar för virtuella datorer. 
 

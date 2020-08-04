@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/07/2018
-ms.openlocfilehash: fd4b94f6a99241ffddd7ae359059c3a4a918934a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52dfc285deaa84792e37d0f012abd7702d856113
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84042129"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544089"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Distribuera och utforska ett fristående program med en enda klient som använder Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,13 +43,17 @@ Ytterligare självstudier kommer att släppas. De gör att du kan utforska en m�
 
 Distribuera appen för de tre tillhandahållna klient organisationerna:
 
-1. Klicka på knappen för varje blå **distribution till Azure** för att öppna distributions mal len i [Azure Portal](https://portal.azure.com). Varje mall kräver två parameter värden. ett namn för en ny resurs grupp och ett användar namn som särskiljer den här distributionen från andra distributioner av appen. Nästa steg innehåller information om hur du anger dessa värden.<br><br>
-    <a href="https://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Contoso konsert Hall**
-<br><br>
-    <a href="https://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Dogwood Dojo**
-<br><br>
-    <a href="https://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Fabrikam jazz-klubb**
+1. Klicka på knappen för varje blå **distribution till Azure** för att öppna distributions mal len i [Azure Portal](https://portal.azure.com). Varje mall kräver två parameter värden. ett namn för en ny resurs grupp och ett användar namn som särskiljer den här distributionen från andra distributioner av appen. Nästa steg innehåller information om hur du anger dessa värden.
 
+   **Contoso konsert Hall**   
+   [![Bild som visar en knapp med etiketten "distribuera till Azure".](media/saas-standaloneapp-get-started-deploy/deploy.png)](https://aka.ms/deploywingtipsa-contoso)
+
+   **Dogwood Dojo**   
+   [![Bild som visar en knapp med etiketten "distribuera till Azure".](media/saas-standaloneapp-get-started-deploy/deploy.png)](https://aka.ms/deploywingtipsa-dogwood)
+
+   **Fabrikam jazz-klubb**   
+   [![Bild som visar en knapp med etiketten "distribuera till Azure".](media/saas-standaloneapp-get-started-deploy/deploy.png)](https://aka.ms/deploywingtipsa-fabrikam)
+ 
 2. Ange nödvändiga parameter värden för varje distribution.
 
     > [!IMPORTANT]

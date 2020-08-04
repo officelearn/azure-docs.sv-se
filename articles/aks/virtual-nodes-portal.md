@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions
-ms.openlocfilehash: 277bdc19635231628cea8c308b30c57b129dc364
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8748e4f78582ab133d7e527daba1c126dcb7e7e2
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250710"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543715"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Skapa och konfigurera ett Azure Kubernetes Services-kluster (AKS) för att använda virtuella noder i Azure Portal
 
@@ -68,6 +68,7 @@ Funktioner för virtuella noder är kraftigt beroende av ACI funktions uppsättn
 * [Argument](../container-instances/container-instances-exec.md#restrictions) för exec i Aci
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) kommer inte att distribuera poddar till den virtuella noden
 * Virtuella noder stöder schemaläggning av Linux-poddar. Du kan manuellt installera den [virtuella KUBELET ACI](https://github.com/virtual-kubelet/azure-aci) -providern med öppen källkod för att schemalägga Windows Server-behållare till ACI.
+* Virtuella noder kräver AKS-kluster med Azure CNI Networking
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

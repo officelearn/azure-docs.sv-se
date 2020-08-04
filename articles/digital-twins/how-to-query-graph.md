@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3e7ee90d75a2ff2b3552992c19f11cc86b6109ca
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5d9d7c59244474c76e63271c0be92f835c2ed087
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486670"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543358"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Skicka frågor till Azure Digitals dubbla grafer
 
-Den här artikeln innehåller exempel och mer information om hur du använder [Azure Digitals frågor](concepts-query-language.md) för att skicka frågor till den [dubbla grafen](concepts-twins-graph.md) . Du kör frågor i grafen med hjälp av Azures digitala dubbla [**API: er för frågor**](how-to-use-apis-sdks.md).
+Den här artikeln innehåller exempel och mer information om hur du använder [Azures digitala dubbla frågespråk](concepts-query-language.md) för att skicka frågor till den [dubbla grafen](concepts-twins-graph.md) . Du kör frågor i grafen med hjälp av Azures digitala dubbla [**API: er för frågor**](how-to-use-apis-sdks.md).
 
 [!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
 
@@ -87,11 +87,11 @@ SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', ex
 
 ### <a name="query-based-on-relationships"></a>Fråga baserat på relationer
 
-När du frågar baserat på digitala dubbla relationer, har Azure Digitals frågor för Query Store en speciell syntax.
+När du frågar baserat på digitala dubbla relationer, har Azure Digitals interservers frågespråk en speciell syntax.
 
 Relationerna hämtas till fråge omfånget i- `FROM` satsen. En viktig skillnad från "klassiska" SQL-typ språk är att varje uttryck i den här `FROM` satsen inte är en tabell. i stället `FROM` uttrycker satsen en relation mellan olika enheter och är skriven med en digital Azure-version av `JOIN` . 
 
-Kom ihåg att med Azure Digitals dubbla [modell](concepts-models.md) funktioner, finns det inga relationer oberoende av varandra. Det innebär att Azures digitala dubbla band `JOIN` är lite annorlunda än den allmänna SQL `JOIN` , eftersom relationer här inte kan frågas separat och måste vara knutna till ett dubbel.
+Kom ihåg att med Azure Digitals dubbla [modell](concepts-models.md) funktioner, finns det inga relationer oberoende av varandra. Det innebär att Azure Digitals-frågespråket `JOIN` är lite annorlunda än den allmänna SQL `JOIN` , eftersom relationer här inte kan frågas oberoende och måste vara knutna till ett dubbel.
 För att ta med den här skillnaden `RELATED` används nyckelordet i- `JOIN` satsen för att referera till en grupp med dubbla relationer. 
 
 Följande avsnitt innehåller flera exempel på hur det ser ut.
@@ -117,7 +117,7 @@ WHERE T.$dtId = 'ABC'
 
 #### <a name="query-the-properties-of-a-relationship"></a>Fråga egenskaperna för en relation
 
-På samma sätt som digitala dubbla har egenskaper som beskrivs via DTDL, kan relationer också ha egenskaper. Med Azures digitala dubbla frågor för Query Store kan du filtrera och projicera relationer genom att tilldela ett alias till relationen i- `JOIN` satsen. 
+På samma sätt som digitala dubbla har egenskaper som beskrivs via DTDL, kan relationer också ha egenskaper. Med Azures digitala Flätaa frågespråk kan du filtrera och projicera relationer genom att tilldela ett alias till relationen i- `JOIN` satsen. 
 
 Anta till exempel en *servicedBy* -relation som har en *reportedCondition* -egenskap. I nedanstående fråga får den här relationen ett alias för R för att referera till egenskapen.
 

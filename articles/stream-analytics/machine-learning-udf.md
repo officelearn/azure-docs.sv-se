@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 30e70e56eb54815c26521829e4baf82dce574e43
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: e2277e2088a8cb386d6f19799b235d96e08959b0
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432600"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543443"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integrera Azure Stream Analytics med Azure Machine Learning (förhands granskning)
 
@@ -25,7 +25,7 @@ Slutför följande steg innan du lägger till en Machine Learning-modell som en 
 
 1. Använd Azure Machine Learning för att [distribuera din modell som en webb tjänst](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
 
-2. Ditt bedömnings skript ska ha [exempel på indata och utdata](../machine-learning/how-to-deploy-and-where.md#example-entry-script) som används av Azure Machine Learning för att generera en schema specifikation. Stream Analytics använder schemat för att förstå funktions signaturen för webb tjänsten. Du kan använda den här [exempel Swagger-definitionen](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) som en referens för att kontrol lera att du har konfigurerat den korrekt.
+2. Ditt bedömnings skript ska ha [exempel på indata och utdata](../machine-learning/how-to-deploy-and-where.md) som används av Azure Machine Learning för att generera en schema specifikation. Stream Analytics använder schemat för att förstå funktions signaturen för webb tjänsten. Du kan använda den här [exempel Swagger-definitionen](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) som en referens för att kontrol lera att du har konfigurerat den korrekt.
 
 3. Kontrol lera att din webb tjänst accepterar och returnerar JSON-serialiserade data.
 
@@ -147,7 +147,7 @@ Följande JSON är en exempel förfrågan från föregående fråga:
 
 ## <a name="optimize-the-performance-for-azure-machine-learning-udfs"></a>Optimera prestanda för Azure Machine Learning UDF: er
 
-När du distribuerar din modell till Azure Kubernetes-tjänsten kan du [profilera din modell för att avgöra resursutnyttjande](../machine-learning/how-to-deploy-and-where.md#profilemodel). Du kan också [aktivera App Insights för dina distributioner](../machine-learning/how-to-enable-app-insights.md) för att förstå begär ande frekvenser, svars tider och felaktiga frekvenser.
+När du distribuerar din modell till Azure Kubernetes-tjänsten kan du [profilera din modell för att avgöra resursutnyttjande](../machine-learning/how-to-deploy-profile-model.md). Du kan också [aktivera App Insights för dina distributioner](../machine-learning/how-to-enable-app-insights.md) för att förstå begär ande frekvenser, svars tider och felaktiga frekvenser.
 
 Om du har ett scenario med hög händelse genom strömning kan du behöva ändra följande parametrar i Stream Analytics för att uppnå optimala prestanda med låg latens från slut punkt till slut punkt:
 

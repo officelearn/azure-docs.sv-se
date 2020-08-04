@@ -1,6 +1,6 @@
 ---
 title: Säkerhet för Azure-infrastruktur | Microsoft Docs
-description: I artikeln beskrivs hur Microsoft arbetar för att skydda våra Azure-datacenter.
+description: Lär dig hur Microsoft arbetar för att skydda Azure-datacentren. Data centren hanteras, övervakas och administreras av Microsofts drift personal.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: terrylan
-ms.openlocfilehash: 10aecff797effb5abebea16a18dd4e02f40de326
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a9e61ec850d20ab9b630036cd265fbb7f3801ae
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72595396"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543936"
 ---
 # <a name="azure-infrastructure-security"></a>Säkerhet för Azure-infrastruktur
 Microsoft Azure körs i Data Center som hanteras och drivs av Microsoft. Dessa geografiskt spridda Data Center följer viktiga bransch standarder, till exempel ISO/IEC 27001:2013 och NIST SP 800-53, för säkerhet och tillförlitlighet. Data centren hanteras, övervakas och administreras av Microsofts drift personal. Drifts personalen har års erfarenhet av att leverera världens största onlinetjänster med 24 x 7-kontinuitet.
@@ -37,7 +37,7 @@ Den här artikel serien innehåller information om vad Microsoft gör för att s
 - [Åtgärder](infrastructure-operations.md)
 - [Övervakning](infrastructure-monitoring.md)
 - [Integritet](infrastructure-integrity.md)
-- [Data skydd](protection-customer-data.md)
+- [Dataskydd](protection-customer-data.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

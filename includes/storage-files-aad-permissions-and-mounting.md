@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: e1cc3bac56e659b9a020880a26fd3d539f987503
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 55e5290630185466ea0801b06ece71069fc94d89
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544760"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87545083"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2 tilldela åtkomst behörigheter till en identitet
 
@@ -28,15 +28,15 @@ Vi har introducerat tre inbyggda Azure-roller för att bevilja behörigheter på
 > [!IMPORTANT]
 > Fullständig administrativ kontroll av en fil resurs, inklusive möjligheten att bli ägare till en fil, kräver att du använder lagrings konto nyckeln. Administrativ kontroll stöds inte med autentiseringsuppgifter för Azure AD.
 
-Du kan använda Azure Portal, PowerShell eller Azure CLI för att tilldela de inbyggda rollerna till Azure AD-identiteten för en användare för att bevilja behörigheter på resurs nivå. Tänk på att tilldelningen av RBAC-rollen resurs nivå kan ta lite tid. 
+Du kan använda Azure Portal, PowerShell eller Azure CLI för att tilldela de inbyggda rollerna till Azure AD-identiteten för en användare för att bevilja behörigheter på resurs nivå. Tänk på att tilldelningen av Azure-rollen på resurs nivå kan ta lite tid. 
 
 > [!NOTE]
 > Kom ihåg att [Synkronisera dina AD DS-autentiseringsuppgifter till Azure AD](../articles/active-directory/hybrid/how-to-connect-install-roadmap.md) om du planerar att använda din lokala AD DS för autentisering. Password hash Sync från AD DS till Azure AD är valfritt. Behörigheten på resurs nivå beviljas den Azure AD-identitet som synkroniseras från din lokala AD DS.
 
 Den allmänna rekommendationen är att använda behörighet på resurs nivå för åtkomst hantering på hög nivå till en AD-grupp som representerar en grupp användare och identiteter, och sedan utnyttja NTFS-behörigheter för detaljerad åtkomst kontroll på katalog-/filnivå. 
 
-#### <a name="azure-portal"></a>Azure Portal
-Följ dessa steg om du vill tilldela en RBAC-roll till en Azure AD-identitet med hjälp av [Azure Portal](https://portal.azure.com):
+#### <a name="azure-portal"></a>Azure-portalen
+Följ dessa steg om du vill tilldela en Azure-roll till en Azure AD-identitet med hjälp av [Azure Portal](https://portal.azure.com):
 
 1. I Azure Portal går du till fil resursen eller [skapar en fil resurs](../articles/storage/files/storage-how-to-create-file-share.md).
 2. Välj **Access Control (IAM)**.
@@ -46,7 +46,7 @@ Följ dessa steg om du vill tilldela en RBAC-roll till en Azure AD-identitet med
 
 #### <a name="powershell"></a>PowerShell
 
-Följande PowerShell-exempel visar hur du tilldelar en RBAC-roll till en Azure AD-identitet baserat på inloggnings namn. Mer information om hur du tilldelar RBAC-roller med PowerShell finns i [Hantera åtkomst med RBAC och Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
+Följande PowerShell-exempel visar hur du tilldelar en Azure-roll till en Azure AD-identitet baserat på inloggnings namn. Mer information om hur du tilldelar Azure-roller med PowerShell finns i [Hantera åtkomst med RBAC och Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 Innan du kör följande exempel skript måste du komma ihåg att ersätta plats hållarnas värden, inklusive hakparenteser, med dina egna värden.
 
@@ -61,7 +61,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 #### <a name="cli"></a>CLI
   
-Följande CLI 2,0-kommando visar hur du tilldelar en RBAC-roll till en Azure AD-identitet baserat på inloggnings namn. Mer information om hur du tilldelar RBAC-roller med Azure CLI finns i [Hantera åtkomst med RBAC och Azure CLI](../articles/role-based-access-control/role-assignments-cli.md). 
+Följande CLI 2,0-kommando visar hur du tilldelar en Azure-roll till en Azure AD-identitet baserat på inloggnings namn. Mer information om hur du tilldelar Azure-roller med Azure CLI finns i [Hantera åtkomst med RBAC och Azure CLI](../articles/role-based-access-control/role-assignments-cli.md). 
 
 Innan du kör följande exempel skript måste du komma ihåg att ersätta plats hållarnas värden, inklusive hakparenteser, med dina egna värden.
 
@@ -130,7 +130,7 @@ Mer information om hur du använder icacls för att ange NTFS-behörigheter och 
 
 ## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4 montera en fil resurs från en domänansluten virtuell dator
 
-Följande process kontrollerar att fil resursen och åtkomst behörigheterna har ställts in korrekt och att du kan komma åt en Azure-filresurs från en domänansluten virtuell dator. Tänk på att tilldelningen av RBAC-rollen resurs nivå kan ta lite tid. 
+Följande process kontrollerar att fil resursen och åtkomst behörigheterna har ställts in korrekt och att du kan komma åt en Azure-filresurs från en domänansluten virtuell dator. Tänk på att tilldelningen av Azure-rollen på resurs nivå kan ta lite tid. 
 
 Logga in på den virtuella datorn med hjälp av den Azure AD-identitet som du har beviljat behörigheter för, som visas i följande bild. Om du har aktiverat AD DS-autentisering på plats för Azure Files använder du dina AD DS-autentiseringsuppgifter. Logga in med Azure AD-autentiseringsuppgifter för Azure AD DS-autentisering.
 

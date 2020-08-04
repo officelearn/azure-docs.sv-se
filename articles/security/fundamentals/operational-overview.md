@@ -1,6 +1,6 @@
 ---
 title: Översikt över Azures drift säkerhet | Microsoft Docs
-description: Den här artikeln ger en översikt över Azures drift säkerhet.
+description: Lär dig mer om Azures drift säkerhet i den här översikten. Drift säkerhet avser till gångs skydds tjänster,-kontroller och-funktioner.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 00a71fec9c0bfc1db45eee7129b7c2a8adaef0fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50fb9c597a74a7aa08dfc3d8b7acd9b94760a9df
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83674240"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542899"
 ---
 # <a name="azure-operational-security-overview"></a>Översikt över Azures drift säkerhet
 
@@ -64,7 +64,7 @@ Mer information finns i [tabellen Azure Backup-komponenter](/azure/backup/backup
 
 Azure AD innehåller också en fullständig uppsättning [funktioner för identitets hantering](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), inklusive följande:
 
-- [Multi-Factor Authentication](/azure/multi-factor-authentication/multi-factor-authentication)
+- [Multifaktorautentisering](/azure/multi-factor-authentication/multi-factor-authentication)
 - [Lösenordshantering via självbetjäning](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [Grupp hantering via självbetjäning](/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [Hantering av privilegierade konton](/azure/active-directory/active-directory-privileged-identity-management-configure)

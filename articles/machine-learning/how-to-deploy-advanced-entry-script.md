@@ -1,0 +1,277 @@
+---
+title: Authoring Entry-skript för avancerade scenarier
+titleSuffix: Azure Machine Learning entry script authoring
+author: gvashishtha
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: conceptual
+ms.date: 07/31/2020
+ms.author: gopalv
+ms.openlocfilehash: 0499cd6885454604e89ce4cadc313b2f68c45156
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544673"
+---
+# <a name="advanced-entry-script-authoring"></a>Avancerad post skript redigering
+
+Den här artikeln visar hur du skriver in skript för specialiserade användnings fall.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+Den här artikeln förutsätter att du redan har en utbildad maskin inlärnings modell som du avser att distribuera med Azure Machine Learning. Mer information om modell distribution finns i [den här självstudien](how-to-deploy-and-where.md).
+
+## <a name="automatically-generate-a-swagger-schema"></a>Generera ett Swagger-schema automatiskt
+
+För att automatiskt generera ett schema för webb tjänsten, ange ett exempel på indata och/eller utdata i konstruktorn för ett av de definierade typ objekten. Typen och exemplet används för att automatiskt skapa schemat. Azure Machine Learning skapar sedan en [openapi](https://swagger.io/docs/specification/about/) -specifikation (Swagger) för webb tjänsten under distributionen.
+
+Dessa typer stöds för närvarande:
+
+* `pandas`
+* `numpy`
+* `pyspark`
+* Standard python-objekt
+
+Om du vill använda schema generering inkluderar du paketet med öppen källkod `inference-schema` i beroende filen. Mer information om det här paketet finns i [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema) . Definiera exempel formaten indata och utdata i `input_sample` `output_sample` variablerna och som representerar formatet för begäran och svar för webb tjänsten. Använd de här exemplen i funktionen indata och utdata dekoratörer i `run()` funktionen. Följande scikit – lära använder schema generering.
+
+
+## <a name="power-bi-compatible-endpoint"></a>Power BI kompatibel slut punkt 
+
+Följande exempel visar hur du definierar indata som en `<key: value>` ord lista med hjälp av en DataFrame. Den här metoden stöds för att konsumera den distribuerade webb tjänsten från Power BI. ([Läs mer om hur du använder webb tjänsten från Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).)
+
+```python
+import json
+import pickle
+import numpy as np
+import pandas as pd
+import azureml.train.automl
+from sklearn.externals import joblib
+from azureml.core.model import Model
+
+from inference_schema.schema_decorators import input_schema, output_schema
+from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
+from inference_schema.parameter_types.pandas_parameter_type import PandasParameterType
+
+
+def init():
+    global model
+    # Replace filename if needed.
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'model_file.pkl')
+    # Deserialize the model file back into a sklearn model.
+    model = joblib.load(model_path)
+
+
+input_sample = pd.DataFrame(data=[{
+    # This is a decimal type sample. Use the data type that reflects this column in your data.
+    "input_name_1": 5.1,
+    # This is a string type sample. Use the data type that reflects this column in your data.
+    "input_name_2": "value2",
+    # This is an integer type sample. Use the data type that reflects this column in your data.
+    "input_name_3": 3
+}])
+
+# This is an integer type sample. Use the data type that reflects the expected result.
+output_sample = np.array([0])
+
+# To indicate that we support a variable length of data input,
+# set enforce_shape=False
+@input_schema('data', PandasParameterType(input_sample, enforce_shape=False))
+@output_schema(NumpyParameterType(output_sample))
+def run(data):
+    try:
+        result = model.predict(data)
+        # You can return any data type, as long as it is JSON serializable.
+        return result.tolist()
+    except Exception as e:
+        error = str(e)
+        return error
+```
+
+
+## <a name="binary-ie-image-data"></a><a id="binary-data"></a>Binär data (d.v.s. avbildning)
+
+Om din modell accepterar binära data, till exempel en bild, måste du ändra den `score.py` fil som används för distributionen för att acceptera obehandlade HTTP-begäranden. Om du vill acceptera rå data använder du `AMLRequest` klassen i ditt Entry-skript och lägger till `@rawhttp` decorator i `run()` funktionen.
+
+Här är ett exempel på en `score.py` som accepterar binära data:
+
+```python
+from azureml.contrib.services.aml_request import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+
+def init():
+    print("This is init()")
+
+
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        # For this example, just return the URL for GETs.
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        # For a real-world solution, you would load the data from reqBody
+        # and send it to the model. Then return the response.
+
+        # For demonstration purposes, this example just returns the posted data as the response.
+        return AMLResponse(reqBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> `AMLRequest`Klassen är i `azureml.contrib` namn området. Entiteter i denna namnrymd ändras ofta när vi arbetar för att förbättra tjänsten. Allt i det här namn området bör betraktas som en för hands version som inte fullt ut stöds av Microsoft.
+>
+> Om du behöver testa detta i din lokala utvecklings miljö kan du installera komponenterna med hjälp av följande kommando:
+>
+> ```shell
+> pip install azureml-contrib-services
+> ```
+
+Med `AMLRequest` klassen kan du bara komma åt rå data som har anslagits i score.py, men det finns ingen komponent på klient sidan. Från en klient skickar du data som vanligt. Följande python-kod läser till exempel en avbildnings fil och publicerar data:
+
+```python
+import requests
+# Load image data
+data = open('example.jpg', 'rb').read()
+# Post raw data to scoring URI
+res = requests.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/octet-stream'})
+```
+
+<a id="cors"></a>
+
+## <a name="cross-origin-resource-sharing-cors"></a>Resurs delning mellan ursprung (CORS)
+
+Resurs delning mellan ursprung är ett sätt att tillåta att resurser på en webb sida begärs från en annan domän. CORS fungerar via HTTP-huvuden som skickas med klientbegäran och som returneras med tjänstens svar. Mer information om CORS och giltiga huvuden finns i [resurs delning mellan ursprung](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) i wikipedia.
+
+Om du vill konfigurera modell distributionen så att den stöder CORS använder du `AMLResponse` klassen i ditt Entry-skript. Med den här klassen kan du ange huvuden för objektet Response.
+
+I följande exempel anges `Access-Control-Allow-Origin` rubriken för svaret från Entry-skriptet:
+
+```python
+from azureml.contrib.services.aml_request import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        # For this example, just return the URL for GETs.
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        # For a real-world solution, you would load the data from reqBody
+        # and send it to the model. Then return the response.
+
+        # For demonstration purposes, this example
+        # adds a header and returns the request body.
+        resp = AMLResponse(reqBody, 200)
+        resp.headers['Access-Control-Allow-Origin'] = "http://www.example.com"
+        return resp
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> `AMLResponse`Klassen är i `azureml.contrib` namn området. Entiteter i denna namnrymd ändras ofta när vi arbetar för att förbättra tjänsten. Allt i det här namn området bör betraktas som en för hands version som inte fullt ut stöds av Microsoft.
+>
+> Om du behöver testa detta i din lokala utvecklings miljö kan du installera komponenterna med hjälp av följande kommando:
+>
+> ```shell
+> pip install azureml-contrib-services
+> ```
+
+
+> [!WARNING]
+> Azure Machine Learning dirigerar bara POST-och GET-begäranden till behållarna som kör bedömnings tjänsten. Detta kan orsaka fel på grund av att webbläsare använder OPTIONs-förfrågningar till före flygning-CORS-begäranden.
+> 
+
+
+## <a name="load-registered-models"></a>Läsa in registrerade modeller
+
+Det finns två sätt att hitta modeller i ditt Entry-skript:
+* `AZUREML_MODEL_DIR`: En miljö variabel som innehåller sökvägen till modell platsen.
+* `Model.get_model_path`: Ett API som returnerar sökvägen till modell filen med namnet på den registrerade modellen.
+
+#### <a name="azureml_model_dir"></a>AZUREML_MODEL_DIR
+
+AZUREML_MODEL_DIR är en miljö variabel som skapas under tjänst distributionen. Du kan använda den här miljövariabeln för att hitta platsen för de distribuerade modellerna.
+
+I följande tabell beskrivs värdet för AZUREML_MODEL_DIR beroende på hur många modeller som distribueras:
+
+| Distribution | Miljö variabel värde |
+| ----- | ----- |
+| Enskild modell | Sökvägen till mappen som innehåller modellen. |
+| Flera modeller | Sökvägen till mappen som innehåller alla modeller. Modeller finns efter namn och version i den här mappen ( `$MODEL_NAME/$VERSION` ) |
+
+Under modell registrering och distribution placeras modeller i AZUREML_MODEL_DIR Sök väg och deras ursprungliga fil namn bevaras.
+
+Om du vill hämta sökvägen till en modell fil i ditt Entry-skript kombinerar du miljövariabeln med den fil Sök väg som du letar efter.
+
+**Exempel på en modell**
+```python
+# Example when the model is a file
+model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_regression_model.pkl')
+
+# Example when the model is a folder containing a file
+file_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'my_model_folder', 'sklearn_regression_model.pkl')
+```
+
+**Exempel på flera modeller**
+
+I det här scenariot registreras två modeller med arbets ytan:
+
+* `my_first_model`: Innehåller en fil ( `my_first_model.pkl` ) och det finns bara en version ( `1` ).
+* `my_second_model`: Innehåller en fil ( `my_second_model.pkl` ) och det finns två versioner, `1` och `2` .
+
+När tjänsten distribuerades anges båda modellerna i distributions åtgärden:
+
+```python
+first_model = Model(ws, name="my_first_model", version=1)
+second_model = Model(ws, name="my_second_model", version=2)
+service = Model.deploy(ws, "myservice", [first_model, second_model], inference_config, deployment_config)
+```
+
+I Docker-avbildningen som är värd för tjänsten `AZUREML_MODEL_DIR` innehåller miljövariabeln den katalog där modellerna finns.
+I den här katalogen finns varje modell i en katalog Sök väg för `MODEL_NAME/VERSION` . Där `MODEL_NAME` är namnet på den registrerade modellen och `VERSION` är versionen av modellen. De filer som utgör den registrerade modellen lagras i dessa kataloger.
+
+I det här exemplet är Sök vägarna `$AZUREML_MODEL_DIR/my_first_model/1/my_first_model.pkl` och `$AZUREML_MODEL_DIR/my_second_model/2/my_second_model.pkl` .
+
+
+```python
+# Example when the model is a file, and the deployment contains multiple models
+first_model_name = 'my_first_model'
+first_model_version = '1'
+first_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), first_model_name, first_model_version, 'my_first_model.pkl')
+second_model_name = 'my_second_model'
+second_model_version = '2'
+second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_name, second_model_version, 'my_second_model.pkl')
+```
+
+### <a name="get_model_path"></a>get_model_path
+
+När du registrerar en modell anger du ett modell namn som används för att hantera modellen i registret. Du använder det här namnet med metoden [Model. get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) för att hämta sökvägen till modell filen eller filerna i det lokala fil systemet. Om du registrerar en mapp eller en samling filer, returnerar detta API sökvägen till katalogen som innehåller filerna.
+
+När du registrerar en modell ger du den ett namn. Namnet motsvarar var modellen placeras, antingen lokalt eller under tjänst distributionen.
+
+## <a name="next-steps"></a>Nästa steg
+
+* [Felsöka en misslyckad distribution](how-to-troubleshoot-deployment.md)
+* [Distribuera till Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
+* [Skapa klient program för att använda webb tjänster](how-to-consume-web-service.md)
+* [Uppdatera webb tjänst](how-to-deploy-update-web-service.md)
+* [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
+* [Använd TLS för att skydda en webb tjänst via Azure Machine Learning](how-to-secure-web-service.md)
+* [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
+* [Samla in data för modeller i produktion](how-to-enable-data-collection.md)
+* [Skapa händelse aviseringar och utlösare för modell distributioner](how-to-use-event-grid.md)

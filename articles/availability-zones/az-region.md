@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 2e337628542475c081a59bffd25368de313011f8
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: b031b2a26f81c34f1699e530c8d0bb8839454c89
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206202"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543885"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Regioner som stöder Tillgänglighetszoner i Azure
 
@@ -32,7 +32,7 @@ Tjänster som är tillgängliga i varje region, tillsammans med kommande översi
 | Virtual Machine Scale Sets      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | Azure App Service miljöer ILB | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | Azure Kubernetes Service        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| **Lagring**   |            |              |           |           |                |              |          |             |            |                |                |
+| **Storage**   |            |              |           |           |                |              |          |             |            |                |                |
 | Managed Disks                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | Zon-redundant lagring          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | **Nätverk**                     |            |              |           |           |                |              |          |             |            |                |                |
@@ -63,7 +63,7 @@ Azure erbjuder också Tillgänglighetszoner support i följande regioner:
 - USA, södra centrala
 - Kanada, centrala
 
-Om du vill veta mer om Tillgänglighetszoner support i de här fem regionerna kontaktar du din Microsoft-säljare eller kund representant.
+Om du vill veta mer om Tillgänglighetszoner support i de här fem regionerna kontaktar du din Microsoft-säljare eller kund representant eller öppnar en teknisk support förfrågan.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: d61527a7a57c82c0e1485ef249306618def9a57c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1566de36d6176568b148fde965bb7d3051e6b500
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077939"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543477"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
@@ -24,7 +24,7 @@ Azure Private Endpoint är ett nätverksgränssnitt som ger dig en privat och s�
 
 |Egenskap  |Beskrivning |
 |---------|---------|
-|Namn    |    Ett unikt namn inom resurs gruppen.      |
+|Name    |    Ett unikt namn inom resurs gruppen.      |
 |Undernät    |  Under nätet för att distribuera och allokera privata IP-adresser från ett virtuellt nätverk. För under näts krav, se avsnittet begränsningar i den här artikeln.         |
 |Privat länk resurs    |   Den privata länk resursen för att ansluta med resurs-ID eller alias i listan över tillgängliga typer. Ett unikt nätverks-ID skapas för all trafik som skickas till den här resursen.       |
 |Mål under resurs   |      Den under resurs som ska anslutas. Varje privat länk resurs typ har olika alternativ för att välja baserat på preferens.    |
@@ -66,7 +66,7 @@ En privat länk resurs är mål målet för en specifik privat slut punkt. Följ
 |**Azure Database för MariaDB** | Microsoft. DBforMariaDB/servers    | mariadbServer |
 |**Azure IoT Hub** | Microsoft. Devices/IotHubs    | iotHub |
 |**Azure Key Vault** | Microsoft. nyckel valv/-valv    | valv |
-|**Azure Kubernetes-tjänst – Kubernetes-API** | Microsoft. container service/managedClusters    | managedCluster |
+|**Azure Kubernetes-tjänst – Kubernetes-API** | Microsoft. container service/managedClusters    | management |
 |**Azure Search** | Microsoft. search/searchService| searchService|  
 |**Azure Container Registry** | Microsoft. ContainerRegistry/register    | registry |
 |**Azure App Configuration** | Microsoft. Appconfiguration/configurationStores    | configurationStores |

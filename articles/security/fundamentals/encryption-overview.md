@@ -1,6 +1,6 @@
 ---
 title: Översikt över Azure-kryptering | Microsoft Docs
-description: Lär dig mer om olika krypterings alternativ i Azure
+description: Lär dig mer om krypterings alternativ i Azure. Se information om kryptering i vila, kryptering i flygning och nyckel hantering med Azure Key Vault.
 services: security
 author: msmbaldwin
 ms.assetid: ''
@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 14808016b627bc593d90ff88fc9bddf2449f6ee5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5189270a7b9de9ff5a222ad76ce46254ae5d2ee3
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083964"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542967"
 ---
 # <a name="azure-encryption-overview"></a>Översikt över Azure-kryptering
 
@@ -113,7 +113,7 @@ Azure erbjuder många mekanismer för att hålla data privata när de flyttas fr
 
 ### <a name="data-link-layer-encryption-in-azure"></a>Kryptering av data länk skikt i Azure
 
-När Azure-kundtrafiken flyttas mellan data Center – utanför fysiska gränser som inte styrs av Microsoft (eller på uppdrag av Microsoft) – en krypterings metod för data länk nivå som använder [IEEE 802.1 AE Mac Security Standards](https://1.ieee802.org/security/802-1ae/) (kallas även MACsec) tillämpas från punkt-till-plats över den underliggande nätverks maskin varan.  Paketen krypteras och dekrypteras på enheterna innan de skickas, vilket förhindrar fysiska "man-in-the-Middle"-eller snooping/wiretapping-attacker.  Eftersom den här tekniken är integrerad i själva nätverks maskin varan tillhandahåller den en kryptering på nätverks maskin varan utan en mätbar fördröjning för länk fördröjning.  Den här MACsec-krypteringen är aktive ras som standard för all Azure-trafik inom en region eller mellan regioner, och ingen åtgärd krävs för kundernas del att aktivera. 
+När Azure-kundtrafiken flyttas mellan data Center – utanför fysiska gränser som inte styrs av Microsoft (eller på uppdrag av Microsoft) – en krypterings metod för data länk nivå som använder [IEEE 802.1 AE Mac Security Standards](https://1.ieee802.org/security/802-1ae/) (kallas även MACsec) tillämpas från punkt-till-plats över den underliggande nätverks maskin varan. Paketen krypteras och dekrypteras på enheterna innan de skickas, vilket förhindrar fysiska "man-in-the-Middle"-eller snooping/wiretapping-attacker. Eftersom den här tekniken är integrerad i själva nätverks maskin varan tillhandahåller den en kryptering på nätverks maskin varan utan en mätbar fördröjning för länk fördröjning. Den här MACsec-krypteringen är aktive ras som standard för all Azure-trafik inom en region eller mellan regioner, och ingen åtgärd krävs för kundernas del att aktivera. 
 
 ### <a name="tls-encryption-in-azure"></a>TLS-kryptering i Azure
 

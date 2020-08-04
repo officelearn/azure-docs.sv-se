@@ -1,6 +1,6 @@
 ---
 title: Check lista för Azures drift säkerhet | Microsoft Docs
-description: Den här artikeln innehåller en uppsättning check lista för Azures drift säkerhet.
+description: Läs igenom den här check listan för att hjälpa ditt företag att tänka igenom Azures åtgärder för drift säkerhet.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c7c44018bb1a010298738d3e46b7b9e7b6c04292
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 656459c4a29a73732b8825e735719731a0979a0e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448308"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542933"
 ---
 # <a name="azure-operational-security-checklist"></a>Check lista för Azures drift säkerhet
 Att distribuera ett program på Azure är snabbt, enkelt och kostnads effektivt. Innan du distribuerar moln programmet i produktions miljö är det bra att ha en check lista som hjälper dig att utvärdera ditt program mot en lista över viktiga och rekommenderade drift säkerhets åtgärder som du kan tänka på.
@@ -37,7 +37,7 @@ Azure tillhandahåller en uppsättning infrastruktur tjänster som du kan använ
 
 Den här check listan är avsedd att hjälpa företag att tänka igenom olika operativa säkerhets aspekter när de distribuerar avancerade företags program i Azure. Det kan också användas för att bygga en säker molnbaserad migrering och åtgärds strategi för din organisation.
 
-|Check lista kategori| Beskrivning|
+|Check lista kategori| Description|
 | ------------ | -------- |
 | [<br>Säkerhets roller & åtkomst kontroller](../../security-center/security-center-planning-and-operations-guide.md)|<ul><li>Använd [rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/role-assignments-portal.md) för att tillhandahålla användarspecifika som används för att tilldela behörigheter till användare, grupper och program i ett visst omfång.</li></ul> |
 | [<br>Data insamling & lagring](../../storage/blobs/security-recommendations.md)|<ul><li>Använd hanterings Plans säkerhet för att skydda ditt lagrings konto med hjälp av [rollbaserad Access Control (RBAC)](../../role-based-access-control/role-assignments-portal.md).</li><li>Säkerhet för data planet för att skydda åtkomsten till dina data med hjälp av [signaturer för delad åtkomst (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) och lagrade åtkomst principer.</li><li>Använd kryptering på transport nivå – med HTTPS och kryptering som används av [SMB-protokoll (Server Message Block) 3,0](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) för [Azure-filresurser](../../storage/files/storage-dotnet-how-to-use-files.md).</li><li>Använd [kryptering på klient sidan](../../storage/common/storage-client-side-encryption.md) för att skydda data som du skickar till lagrings konton när du behöver ensam kontroll över krypterings nycklar. </li><li>Använd [kryptering för lagringstjänst (SSE)](../../storage/common/storage-service-encryption.md) för att automatiskt kryptera data i Azure Storage och [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) för att kryptera virtuella datorers DISKPARTITIONer för operativ system-och data diskar.</li><li>Använd Azure [Lagringsanalys](https://docs.microsoft.com/rest/api/storageservices/storage-analytics) för att övervaka typ av auktorisering; precis som med Blob Storage kan du se om användarna har använt en signatur för delad åtkomst eller lagrings konto nycklar.</li><li>Använd [resurs delning mellan ursprung (CORS)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) för att få åtkomst till lagrings resurser från olika domäner.</li></ul> |

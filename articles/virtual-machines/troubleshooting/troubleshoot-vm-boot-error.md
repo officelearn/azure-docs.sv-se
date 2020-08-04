@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
-ms.openlocfilehash: 5353bad3ff631fd7baa5d9892d38449ba622ea46
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5a2fd7fcfdae8559bfb39bffff7c73c7082a86aa
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284684"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543290"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>Virtuella Linux-datorer startar till grub räddning
 
@@ -35,7 +35,7 @@ Följ stegen nedan beroende på vilket fel du får:
 * Om du får felet **Okänt fil**system kan det här felet bero på ett skadat fil system på startpartitionen eller en felaktig kernel-konfiguration.
 
    * För fil Systems problem följer du stegen i artikeln Linux- [återställning: det går inte att använda SSH till Linux-VM på grund av fil system fel (fsck, noder i procent)](/archive/blogs/linuxonazure/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes).
-   * För kernel-problem följer du stegen i artikeln [Linux-återställning: korrigera icke-startproblem som rör kernel-problem](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/)eller Linux- [återställning: åtgärda icke-startproblem som rör kernel-problem med chroot](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
+   * För kernel-problem följer du stegen i artikeln [så här återställer du en virtuell Azure Linux-dator från kernel-relaterade start problem](https://support.microsoft.com/help/4091524/how-recover-azure-linux-vm-from-kernel-related-boot-related-issues)eller [Linux-återställning: åtgärda icke-startproblem som rör kernel-problem med chroot](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
    
 ### <a name="error---file-not-found"></a>Fel-filen hittades inte
 

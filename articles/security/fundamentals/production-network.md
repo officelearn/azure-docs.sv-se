@@ -1,6 +1,6 @@
 ---
 title: Azures produktions nätverk
-description: Den här artikeln innehåller en allmän beskrivning av Azures produktions nätverk.
+description: Lär dig mer om Azures produktions nätverk. Se säkerhets åtkomst metoder och skydds metoder för att upprätta en anslutning till nätverket.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 7c0748e4ff1531649274834cb1e602c228f102e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 724c2ee2d74ca9cab11280e92faac71c2cb2218e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68726697"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543817"
 ---
 # <a name="the-azure-production-network"></a>Azures produktions nätverk
 Användare av Azures produktions nätverk omfattar både externa kunder som har åtkomst till sina egna Azure-program och intern Azure support-personal som hanterar produktions nätverket. I den här artikeln beskrivs säkerhets åtkomst metoder och skydds metoder för att upprätta anslutningar till Azures produktions nätverk.

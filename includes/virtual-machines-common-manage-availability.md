@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4ad0cdedfa28e5b46f77d5e87f5bd48e25f11cc4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f1517fd577c5e6bd7341e5dde0204456524ba976
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292390"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87545314"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Förstå omstarter av virtuella datorer – underhåll och driftavbrott
 Det finns tre scenarier som kan leda till att den virtuella datorn i Azure påverkas: oplanerat maskin varu underhåll, oväntad stillestånds tid och planerat underhåll.
@@ -53,7 +53,9 @@ Lär dig mer om att distribuera en virtuell [Windows](../articles/virtual-machin
 Tillgänglighets uppsättningar är en annan data Center konfiguration som ger VM-redundans och tillgänglighet. Den här konfigurationen i ett Data Center garanterar att minst en virtuell dator är tillgänglig under en planerad eller oplanerad underhålls händelse och uppfyller 99,95% Azure SLA. Mer information finns i [Serviceavtal för Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
-> En virtuell dator med en enda instans i en tillgänglighets uppsättning bör använda Premium SSD eller Ultra disk för alla operativ system diskar och data diskar för att kvalificera sig för service avtalet för anslutning till virtuell dator med minst 99,9%.
+> En virtuell dator med en enda instans i en tillgänglighets uppsättning bör använda Premium SSD eller Ultra disk för alla operativ system diskar och data diskar för att kvalificera sig för service avtalet för anslutning till virtuell dator med minst 99,9%. 
+> 
+> En virtuell dator med en enda instans med en Standard SSD har ett service avtal på minst 99,5%, medan en enskild instans av en virtuell dator med en Standard HDD har ett service avtal som är minst 95%.  Se [SLA för Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/)
 
 Varje virtuell dator i tillgänglighetsuppsättningen tilldelas en **uppdateringsdomän** och en **feldomän** av den underliggande Azure-plattformen. För en viss tillgänglighetsuppsättning tilldelas som standard fem uppdateringsdomäner, som inte kan konfigureras av användare, (Resource Manager-distributioner kan utökas till 20 uppdateringsdomäner) för att ange grupper av virtuella datorer och underliggande fysisk maskinvara som kan startas om samtidigt. Om fler än fem virtuella datorer har konfigurerats i en enskild tillgänglighetsuppsättning placeras den sjätte virtuella datorn i samma uppdateringsdomän som den första virtuella datorn. Den sjunde placeras i samma uppdateringsdomän som den andra virtuella datorn och så vidare. Ordningen för de uppdateringsdomäner som startas om kanske inte fortsätter i följd under planerat underhåll, men endast en uppdateringsdomän i taget startas om. En omstartad uppdateringsdomän får 30 minuter på sig för återställning innan underhållet initieras i en annan uppdateringsdomän.
 

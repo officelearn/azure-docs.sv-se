@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: ea6aec9ffcaf01c0db5b297d40783ce4690a8f0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea5f2d5838c926fa8ee7b92278b0854264346a7b
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84045307"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543766"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importera eller exportera en Azure SQL Database utan att ge Azure-tjänster åtkomst till servern
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,9 +34,7 @@ Skapa en virtuell Azure-dator genom att välja knappen **distribuera till Azure*
 Med den här mallen kan du distribuera en enkel virtuell Windows-dator med några olika alternativ för Windows-versionen med den senaste versionen som korrigeras. Detta distribuerar en virtuell dator i A2-storlek i resurs gruppens plats och returnerar det fullständigt kvalificerade domän namnet för den virtuella datorn.
 <br><br>
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+[![Bild som visar en knapp med etiketten "distribuera till Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json)
 
 Mer information finns i [enkel distribution av en virtuell Windows-dator](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows).
 
@@ -54,7 +52,7 @@ Följande steg visar hur du ansluter till den virtuella datorn via en fjärr skr
 
    ![RDP-formulär](./media/database-import-export-azure-services-off/rdp.png)  
 
-3. Välj **Ladda ned RDP-fil**.
+3. Välj **Hämta RDP-fil**.
 
    > [!NOTE]
    > Du kan också använda SSH för att ansluta till din virtuella dator.

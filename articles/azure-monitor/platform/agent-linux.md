@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
-ms.openlocfilehash: accd7c3ad82853c1f2af0b632326b2798f85b36b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 965d5dd558d0da7a758db77330c9129ea0e8247c
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073654"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543868"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Anslut Linux-datorer till Azure Monitor
 
@@ -93,7 +93,7 @@ Log Analytics agenten för Linux finns i ett självextraherande och installerbar
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-    Om autentisering krävs måste du ange användar namn och lösen ord. Exempel: 
+    Om autentisering krävs måste du ange användar namn och lösen ord. Ett exempel: 
     
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
@@ -163,7 +163,8 @@ Följande stöds för närvarande:
 - FIPs
 
 Följande planeras men stöds ännu inte:
-- CIS-SELINUX
+- CIS
+- SELINUX
 
 Andra härdnings-och anpassnings metoder stöds inte eller planeras inte för OMS-agenten.  
 

@@ -9,16 +9,16 @@ ms.topic: include
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2b138dab2a97537a93b8d873f79b6ee9c00b4af4
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8dfc3714362b082168c32ba73e234e9b5fb43525
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126761"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87545160"
 ---
 ## <a name="grant-role-based-access-for-users-to-azure-maps"></a>Bevilja rollbaserad åtkomst för användare att Azure Maps
 
-Du beviljar *rollbaserad åtkomst kontroll* (RBAC) genom att tilldela antingen en Azure AD-grupp eller säkerhets objekt till en eller flera Azure Maps åtkomst kontroll roll definitioner. Om du vill visa de roll definitioner för RBAC som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)**. Välj **roller**och Sök sedan efter roller som börjar med *Azure Maps*.
+Du beviljar *rollbaserad åtkomst kontroll* (RBAC) genom att tilldela antingen en Azure AD-grupp eller säkerhets objekt till en eller flera Azure Maps åtkomst kontroll roll definitioner. Om du vill visa de roll definitioner för Azure som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)**. Välj **roller**och Sök sedan efter roller som börjar med *Azure Maps*.
 
 * För att effektivt hantera en stor mängd användares åtkomst till Azure Maps, se [Azure AD-grupper](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups).
 * För att användarna ska kunna autentisera till programmet måste användarna skapas i Azure AD. Se [Lägg till eller ta bort användare med Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory).

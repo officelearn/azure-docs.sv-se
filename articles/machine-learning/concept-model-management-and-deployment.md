@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 12d86f9415f7f5b813d2dce8eb3ad4bb63dec30c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1d14fa9730e3ddd47378a45ff7a1442bdee69ac
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82929765"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543392"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: modell hantering, distribution och övervakning med Azure Machine Learning
 
@@ -74,7 +74,7 @@ Mer information finns i avsnittet registrera modell i [Distribuera modeller](how
 ### <a name="profile-models"></a>Profil modeller
 
 Azure Machine Learning kan hjälpa dig att förstå processor-och minnes kraven för tjänsten som skapas när du distribuerar din modell. Profilering testar tjänsten som kör din modell och returnerar information som processor användning, minnes användning och svars fördröjning. Det ger också en processor-och minnes rekommendation baserat på resursanvändningen.
-Mer information finns i avsnittet profilering i [Distribuera modeller](how-to-deploy-and-where.md#profilemodel).
+Mer information finns i avsnittet profilering i [Distribuera modeller](how-to-deploy-profile-model.md).
 
 ### <a name="package-and-debug-models"></a>Paket-och fel söknings modeller
 
@@ -94,16 +94,16 @@ Mer information om ONNX med Azure Machine Learning finns i artikeln [skapa och p
 
 Tränade Machine Learning-modeller distribueras som webb tjänster i molnet eller lokalt. Du kan också distribuera modeller till Azure IoT Edge enheter. I distributioner används CPU-, GPU-eller Field-programmerbara Gate-matriser (FPGA) för inferencing. Du kan också använda modeller från Power BI.
 
-När du använder en modell som en webb tjänst eller IoT Edge enhet kan du ange följande objekt:
+När du använder en modell som en webbtjänst eller IoT Edge-enhet kan du ange följande objekt:
 
 * Den eller de modeller som används för att räkna upp data som skickas till tjänsten/enheten.
 * Ett startskript. Det här skriptet accepterar begär Anden, använder modeller för att räkna data och returnera ett svar.
 * En Azure Machine Learning miljö som beskriver pip-och Conda-beroenden som krävs av modell (er) och Entry-skript.
 * Ytterligare till gångar, till exempel text, data osv. som krävs av modell (er) och registrerings skript.
 
-Du anger också konfigurationen för mål distributions plattformen. Till exempel typ av VM-familj, tillgängligt minne och antal kärnor vid distribution till Azure Kubernetes-tjänsten.
+Du anger också konfigurationen för måldistributionsplattformen. Till exempel typ av VM-familj, tillgängligt minne och antal kärnor vid distribution till Azure Kubernetes-tjänsten.
 
-När avbildningen skapas, läggs även komponenter som krävs av Azure Machine Learning. Till exempel till gångar som behövs för att köra webb tjänsten och interagera med IoT Edge.
+När avbildningen skapas läggs även de komponenter som krävs av Azure Machine Learning till. Det gäller till exempel tillgångar som behövs för att köra webbtjänsten och interagera med IoT Edge.
 
 #### <a name="batch-scoring"></a>Batchbedömning
 Batch-Poäng stöds via ML-pipeliner. Mer information finns i [batch-förutsägelser för Big data](how-to-use-parallel-run-step.md).

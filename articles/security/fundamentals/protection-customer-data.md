@@ -1,6 +1,6 @@
 ---
 title: Skydd av kund information i Azure
-description: Den här artikeln handlar om hur Azure skyddar kund information.
+description: Lär dig hur Azure skyddar kund information via data uppdelning, dataredundans och data förstörelse.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2020
 ms.author: terrylan
-ms.openlocfilehash: 4f3b4b5e26c8feab44a01d3714c194eee0fc98e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 14589e4efe22d89468b069bf6ff7e3d9babcc714
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076292"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543800"
 ---
 # <a name="azure-customer-data-protection"></a>Data skydd för Azure-kunder   
 Till gång till kund information av Microsoft-åtgärder och support personal nekas som standard. När åtkomst till data som rör ett support ärende beviljas, beviljas det bara med en just-in-Time (JIT)-modell med principer som granskas och testats mot våra efterlevnads-och sekretess principer.  Kraven för åtkomst kontroll upprättas av följande Azure-säkerhets princip:

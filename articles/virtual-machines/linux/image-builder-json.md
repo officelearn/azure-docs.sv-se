@@ -3,17 +3,17 @@ title: Skapa en Azure Image Builder-mall (förhands granskning)
 description: Lär dig hur du skapar en mall som ska användas med Azure Image Builder.
 author: danielsollondon
 ms.author: danis
-ms.date: 07/09/2020
+ms.date: 08/03/2020
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: fe4ddeaadedc14e7e3d92a8b185920bf18bd142b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 132e547fe2512676e4d8082744489f4719dcc0bf
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283307"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543613"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>För hands version: skapa en Azure Image Builder-mall 
 
@@ -60,7 +60,7 @@ Detta är det grundläggande mallformat:
     "apiVersion": "2020-02-14",
 ```
 
-## <a name="location"></a>Position
+## <a name="location"></a>Location
 
 Platsen är den region där den anpassade avbildningen kommer att skapas. För för hands versionen av Image Builder stöds följande regioner:
 
@@ -142,12 +142,13 @@ Mer information om hur du distribuerar den här funktionen finns i [Konfigurera 
 
 ## <a name="properties-source"></a>Egenskaper: källa
 
-`source`Avsnittet innehåller information om käll avbildningen som ska användas av Image Builder.
+Image Builder stöder för närvarande endast HyperV generation 1-avbildningar och virtuella datorer `source` . avsnittet innehåller information om käll avbildningen som ska användas av Image Builder.
 
 API: t kräver en ' SourceType ' som definierar källan för avbildnings versionen, för närvarande finns det tre typer:
 - PlatformImage – anger att käll avbildningen är en Marketplace-avbildning.
 - ManagedImage – Använd det här när du startar från en vanlig hanterad avbildning.
 - SharedImageVersion – används när du använder en avbildnings version i ett delat avbildnings galleri som källa.
+
 
 > [!NOTE]
 > När du använder befintliga anpassade Windows-avbildningar kan du köra Sysprep-kommandot upp till 8 gånger på en enda Windows-avbildning. mer information finns i [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) -dokumentationen.
@@ -191,7 +192,10 @@ Du kan också ange plan information, till exempel:
 ```
 ### <a name="managedimage-source"></a>ManagedImage-källa
 
-Anger käll avbildningen som en befintlig hanterad avbildning av en generaliserad virtuell hård disk eller virtuell dator. Den käll hanterade avbildningen måste vara av ett operativ system som stöds och vara i samma region som din Azure Image Builder-mall. 
+Anger käll avbildningen som en befintlig hanterad avbildning av en generaliserad virtuell hård disk eller virtuell dator.
+
+> [!NOTE]
+> Den hanterade avbildningen måste vara av ett operativ system som stöds och avbildningen måste ha samma region som din Azure Image Builder-mall. 
 
 ```json
         "source": { 
@@ -204,7 +208,11 @@ Anger käll avbildningen som en befintlig hanterad avbildning av en generalisera
 
 
 ### <a name="sharedimageversion-source"></a>SharedImageVersion-källa
-Anger käll avbildningen av en befintlig avbildnings version i ett galleri för delade avbildningar. Avbildnings versionen måste vara av ett operativ system som stöds och avbildningen måste replikeras till samma region som din Azure Image Builder-mall. 
+Anger käll avbildningen av en befintlig avbildnings version i ett galleri för delade avbildningar.
+
+> [!NOTE]
+> Den hanterade avbildningen måste vara av ett operativ system som stöds och avbildningen måste vara samma region som din Azure Image Builder-mall, om inte, ska du replikera avbildnings versionen till mallen för Image Builder-mallen.
+
 
 ```json
         "source": { 

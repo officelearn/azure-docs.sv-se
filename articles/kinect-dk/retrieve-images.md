@@ -7,16 +7,16 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, Azure, Hämta, sensor, kamera, SDK, djup, RGB, bilder, färg, avbildning, upplösning, buffert
-ms.openlocfilehash: 84e678993f94c17bf58fb134234afaee4139aad5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fed5c7340d287d9103ba35f0fd3d80c0fff6e3ec
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85277461"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87538922"
 ---
 # <a name="retrieve-azure-kinect-image-data"></a>Hämta data från Azure Kinect-avbildning
 
-Den här sidan innehåller information om hur du hämtar bilder från Azure-Kinect. Artikeln visar hur du samlar in och använder bilder som koordineras mellan enhetens färg och djup kameror. enhet. För att få åtkomst till avbildningar måste du först öppna och konfigurera enheten. sedan kan du skapa avbildningar.
+Den här sidan innehåller information om hur du hämtar bilder från Azure-Kinect. Artikeln visar hur du samlar in och använder bilder som koordineras mellan enhetens färg och djup. För att få åtkomst till avbildningar måste du först öppna och konfigurera enheten. sedan kan du skapa avbildningar.
 Innan du konfigurerar och avbildar en avbildning måste du [hitta och öppna enheten](find-then-open-device.md).
 
 Du kan också se exempel på [SDK-direktuppspelning](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/tree/develop/examples/streaming) som visar hur du använder funktionerna i den här artikeln.

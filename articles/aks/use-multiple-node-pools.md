@@ -4,12 +4,12 @@ description: Lär dig hur du skapar och hanterar flera Node-pooler för ett klus
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 400e595d51f08428b01337e63f6c6e8ba5836794
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d007ec18a982d5327aa2ea0871bbe88f64786fce
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133103"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542033"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Skapa och hantera flera nodpooler för ett kluster i Azure Kubernetes Service (AKS)
 
@@ -489,6 +489,8 @@ Endast poddar som har den här tolereraren som används kan schemaläggas på no
 
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Ange en smak, etikett eller tagg för en Node-pool
 
+### <a name="setting-nodepool-taints"></a>Ställa in nodepool-smakar
+
 När du skapar en Node-pool kan du lägga till utsmaker, etiketter eller taggar i den Node-poolen. När du lägger till en utsmak, etikett eller tagg, får alla noder i den noden även denna smak, etikett eller tagg.
 
 Om du vill skapa en Node-pool med en-bismak använder du [AZ AKS nodepool Add][az-aks-nodepool-add]. Ange namnet *taintnp* och Använd `--node-taints` parametern för att ange *SKU = GPU: noschema* för bismaken.
@@ -532,6 +534,8 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 Informationen om bismaken visas i Kubernetes för hantering av schema regler för noder.
 
+### <a name="setting-nodepool-labels"></a>Ange nodepool-etiketter
+
 Du kan också lägga till etiketter i en Node-pool när du skapar en resurspool. Etiketter som ställts in i Node-poolen läggs till i varje nod i Node-poolen. Dessa [etiketter visas i Kubernetes][kubernetes-labels] för hantering av schema regler för noder.
 
 Om du vill skapa en Node-pool med en etikett använder du [AZ AKS nodepool Add][az-aks-nodepool-add]. Ange namnet *labelnp* och Använd `--labels` parametern för att ange *avd = IT* och *CostCenter = 9999* för etiketter.
@@ -574,7 +578,13 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
+### <a name="setting-nodepool-azure-tags"></a>Ange nodepool Azure-Taggar
+
 Du kan använda en Azure-tagg för resurspooler i ditt AKS-kluster. Taggar som tillämpas på en Node-pool tillämpas på varje nod i Node-poolen och bevaras genom uppgraderingar. Taggar används också för nya noder som läggs till i en Node-pool vid skalnings åtgärder. Att lägga till en tagg kan hjälpa till med uppgifter som princip spårning eller kostnads uppskattning.
+
+Azure-Taggar har nycklar som inte är Skift läges känsliga för åtgärder, t. ex. När en tagg hämtas genom att söka i nyckeln. I det här fallet kommer en tagg med den aktuella nyckeln att uppdateras eller hämtas oavsett Skift läge. Tagg värden är Skift läges känsliga.
+
+I AKS, om flera taggar har angetts med identiska nycklar men olika Skift läge, är taggen som används den första i alfabetisk ordning. Till exempel `{"Key1": "val1", "kEy1": "val2", "key1": "val3"}` resulterar i `Key1` och `val1` ställs in.
 
 Skapa en Node-pool med hjälp av [AZ AKS nodepool Add][az-aks-nodepool-add]. Ange namnet *tagnodepool* och Använd `--tag` parametern för att ange *avd = IT* och *CostCenter = 9999* för taggar.
 

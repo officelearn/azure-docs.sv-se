@@ -1,6 +1,6 @@
 ---
 title: Komma igång-Microsoft Threat Modeling Tool-Azure | Microsoft Docs
-description: Det här är en djupare översikt som markerar Threat Modeling Tool i praktiken.
+description: Lär dig hur du kommer igång med Threat Modeling Tool. Skapa ett diagram, identifiera hot, minimera hot och verifiera varje minskning.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
-ms.openlocfilehash: 1454826095bcced9b20935405c0befd5a1ed1ddd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b8467a5983ae9d8928d14987bcee9d2aef094aa
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68728201"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539908"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Komma igång med Threat Modeling Tool
 
@@ -142,6 +142,6 @@ Om du ska kunna använda hot modellen ett hus kan du börja med att tänka på d
 
 Metoden för hot modellering som vi har presenterat här är betydligt enklare än vad Microsoft har gjort tidigare. Vi har upptäckt att program utformnings metoden fungerar bra för många team. Vi hoppas att inkludera ditt.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Skicka frågor, kommentarer och problem till tmtextsupport@microsoft.com . **[Hämta](https://aka.ms/threatmodelingtool)** Threat Modeling Tool för att komma igång.

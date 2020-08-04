@@ -4,19 +4,19 @@ description: På den här sidan beskrivs några vanliga värden för DTU-resurse
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: references_regions
+ms.custom: references_regions, seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: fa8901f2a219b0693cee17bc4d0ab78da615c415
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fa15a5f95c2163309ecfd9cc0130d1860eb3b634
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325108"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542695"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>Resurs gränser för enskilda databaser med hjälp av inköps modellen DTU – Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 | Maximala DTU:er | 5 |
 | Inkluderat lagrings utrymme (GB) | 2 |
 | Högsta lagrings utrymme (GB) | 2 |
-| Maximal InMemory-OLTP-lagring (GB) |E.t. |
+| Maximal InMemory-OLTP-lagring (GB) |Ej tillämpligt |
 | Maximalt antal samtidiga arbetare (begär Anden) | 30 |
 | Maximalt antal samtidiga sessioner | 300 |
 |||
@@ -57,7 +57,7 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 | Maximala DTU:er | 10 | 20 | 50 | 100 |
 | Inkluderat lagrings utrymme (GB) <sup>1</sup> | 250 | 250 | 250 | 250 |
 | Högsta lagrings utrymme (GB) | 250 | 250 | 250 | 1024 |
-| Maximal InMemory-OLTP-lagring (GB) | E.t. | E.t. | E.t. | E.t. |
+| Maximal InMemory-OLTP-lagring (GB) | Saknas | Saknas | Saknas | Saknas |
 | Maximalt antal samtidiga arbetare (begär Anden)| 60 | 90 | 120 | 200 |
 | Maximalt antal samtidiga sessioner |600 | 900 | 1200 | 2400 |
 ||||||
@@ -77,7 +77,7 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 | Maximala DTU:er | 200 | 400 | 800 | 1600 | 3000 |
 | Inkluderat lagrings utrymme (GB) <sup>1</sup> | 250 | 250 | 250 | 250 | 250 |
 | Högsta lagrings utrymme (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
-| Maximal InMemory-OLTP-lagring (GB) | E.t. | E.t. | E.t. | E.t. |E.t. |
+| Maximal InMemory-OLTP-lagring (GB) | Saknas | Saknas | Saknas | Saknas |Saknas |
 | Maximalt antal samtidiga arbetare (begär Anden)| 400 | 800 | 1600 | 3200 |6000 |
 | Maximalt antal samtidiga sessioner |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
@@ -101,7 +101,7 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 <sup>2</sup> från 1024 GB upp till 4096 GB i steg om 256 GB.
 
 > [!IMPORTANT]
-> Mer än 1 TB lagrings utrymme på Premium-nivån är för närvarande tillgängligt i alla regioner utom: Kina, östra, Kina, norra, Tyskland, centrala, Tyskland nordöstra, västra centrala USA, US DoD regioner och USA, centrala. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i [Aktuella begränsningar för P11–P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
+> Mer än 1 TB lagrings utrymme på Premium-nivån är för närvarande tillgängligt i alla regioner utom: Kina, östra, Kina, norra, Tyskland, centrala och Tyskland nordöstra. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i [Aktuella begränsningar för P11–P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
 > [!NOTE]
 > För `tempdb` gränser, se [tempdb-gränser](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 

@@ -4,19 +4,19 @@ description: Lär dig mer om tjänst nivåer i den DTU-baserade inköps modellen
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: ''
+ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: b7354a921950daec5cc429fa07318213c8924264
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: fbf753436a259993f6869372ae3ba7272f2a181a
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382703"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541710"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Tjänstnivåer i en DTU-baserad inköpsmodell
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,11 +39,11 @@ Att välja en tjänst nivå beror främst på verksamhets kontinuitet, lagring o
 |**Mål arbets belastning**|Utveckling och produktion|Utveckling och produktion|Utveckling och produktion|
 |**SLA för drift tid**|99,99 %|99,99 %|99,99 %|
 |**Högsta kvarhållning av säkerhets kopior**|7 dagar|35 dagar|35 dagar|
-|**Processor**|Lågt|Låg, medel, hög|Medel, hög|
+|**Processor**|Låg|Låg, medel, hög|Medel, hög|
 |**IO-genomflöde (ungefärligt)** |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
 |**I/o-latens (ungefärligt)**|5 ms (läsning), 10 ms (Skriv)|5 ms (läsning), 10 ms (Skriv)|2 ms (Läs/skriv)|
-|**Columnstore-indexering** |E.t.|S3 och högre|Stöds|
-|**Minnesintern OLTP**|E.t.|E.t.|Stöds|
+|**Columnstore-indexering** |Ej tillämpligt|S3 och högre|Stöds|
+|**Minnesintern OLTP**|Saknas|Saknas|Stöds|
 
 > [!IMPORTANT]
 > Tjänst nivåerna Basic, Standard S0, S1 och S2 ger mindre än en vCore (CPU).  För CPU-intensiva arbets belastningar rekommenderas tjänst nivån S3 eller högre. 
@@ -60,7 +60,7 @@ Beräknings storlekar uttrycks i databas transaktions enheter (DTU: er) för ens
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
-| **Maximal lagrings storlek** | 2 GB | 1 TB | 4 TB  |
+| **Maximal lagrings storlek** | 2 GB | 1 TB | 4 TB  |
 | **Maximalt DTU: er** | 5 | 3000 | 4000 |
 
 > [!IMPORTANT]
@@ -77,7 +77,7 @@ Beräknings storlekar uttrycks i databas transaktions enheter (DTU: er) för ens
 | **Maximalt antal databaser per pool** | 500  | 500 | 100 |
 
 > [!IMPORTANT]
-> Mer än 1 TB lagrings utrymme på Premium-nivån är för närvarande tillgängligt i alla regioner utom: Kina, östra, Kina, norra, Tyskland, centrala, Tyskland nordöstra, västra centrala USA, US DoD regioner och USA, centrala. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i [Aktuella begränsningar för P11–P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
+> Mer än 1 TB lagrings utrymme på Premium-nivån är för närvarande tillgängligt i alla regioner utom: Kina, östra, Kina, norra, Tyskland, centrala och Tyskland nordöstra. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i [Aktuella begränsningar för P11–P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!IMPORTANT]
 > Under vissa omständigheter kan du behöva krympa en databas för att frigöra utrymme som inte används. Mer information finns i [Hantera fil utrymme i Azure SQL Database](file-space-manage.md).
 
@@ -172,7 +172,7 @@ Nyckel måtten i Benchmark är data flöde och svars tid.
 | --- | --- | --- |
 | Premium |Transaktioner per sekund |95 percentil vid 0,5 sekunder |
 | Standard |Transaktioner per minut |90: e percentilen vid 1,0 sekunder |
-| Basic |Transaktioner per timma |80th percentil vid 2,0 sekunder |
+| Grundläggande |Transaktioner per timma |80th percentil vid 2,0 sekunder |
 
 ## <a name="next-steps"></a>Nästa steg
 

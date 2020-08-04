@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 15a623068c46109b95ce9a9300348d29f95610a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d71f6e71a7cd6033e570742a23016df0c25dd27
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254318"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542254"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Distribuera och utforska en SaaS-app med flera innehavare som använder mönstret för databas per klient organisation med Azure SQL Database
 
@@ -38,7 +38,7 @@ I den här guiden lär du dig:
 
 Det finns en [serie relaterade självstudier](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) för att utforska olika SaaS design-och hanterings mönster. Självstudierna bygger vidare på den här inledande distributionen. När du använder självstudierna kan du undersöka de angivna skripten för att se hur de olika SaaS-mönstren implementeras. Skripten visar hur funktionerna i SQL Database fören klar utvecklingen av SaaS-program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att Azure PowerShell är installerat för att slutföra den här självstudien. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
@@ -57,7 +57,7 @@ Välj dina namn nu och skriv ned dem.
 
 1. Om du vill öppna distributions mal len Wingtip biljetter SaaS Database-per-innehavare i Azure Portal väljer du **distribuera till Azure**.
 
-   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   [![Bild som visar en knapp med etiketten "distribuera till Azure".](https://azuredeploy.net/deploybutton.png)](https://aka.ms/deploywingtipdpt)
 
 1. Ange värden i mallen för de obligatoriska parametrarna.
 
@@ -128,7 +128,7 @@ Wingtip-programmet använder [*Azure Traffic Manager*](../../traffic-manager/tr
 
     Delarna i föregående format förklaras i följande tabell.
 
-    | URL-del        | Beskrivning       |
+    | URL-del        | Description       |
     | :-------------- | :---------------- |
     | Events. Wingtip-DPT | Händelse delarna i Wingtip-appen.<br /><br /> *-DPT* särskiljer implementeringen av en *databas per klient* för Wingtip-biljetter från andra implementeringar. Exempel är implementeringar av *en enda* app-per-klient (*-sa*) eller flera *klient databaser* (*-MT*). |
     | . * &lt; användare &gt; * | *AF1* i exemplet. |

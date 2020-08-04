@@ -10,12 +10,12 @@ ms.author: larryfr
 author: larryfr
 ms.reviewer: larryfr
 ms.date: 06/11/2020
-ms.openlocfilehash: c8b25e1d3ef2d2b780d88fbf2ba6c6568b4a804d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59671a0520d665d594356a2e6aee46116a8de5d3
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744961"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541778"
 ---
 # <a name="deploy-a-model-for-use-with-cognitive-search"></a>Distribuera en modell för användning med Cognitive Search
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ När du distribuerar en modell för användning med Azure Kognitiv sökning mås
 * Entry-skriptet måste också acceptera JSON-data som indata och generera JSON som utdata.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -216,7 +216,7 @@ Mer information om miljöer finns i [skapa och hantera miljöer för utbildning 
 Distributions konfigurationen definierar Azure Kubernetes-tjänstens värd miljö som används för att köra webb tjänsten.
 
 > [!TIP]
-> Om du inte är säker på minnes-, processor-eller GPU-behoven för distributionen kan du använda profilering för att lära dig mer. Mer information finns i [hur och var du distribuerar en modell](how-to-deploy-and-where.md#prepare-to-deploy).
+> Om du inte är säker på minnes-, processor-eller GPU-behoven för distributionen kan du använda profilering för att lära dig mer. Mer information finns i [hur och var du distribuerar en modell](how-to-deploy-and-where.md).
 
 ```python
 from azureml.core.model import Model

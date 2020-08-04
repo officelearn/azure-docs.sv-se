@@ -1,6 +1,6 @@
 ---
-title: Aktivera InifinBand med SR-IOV – Azure Virtual Machines | Microsoft Docs
-description: Lär dig hur du aktiverar InfiniBand med SR-IOV.
+title: Aktivera InifinBand på virtuella HPC-datorer – Azure Virtual Machines | Microsoft Docs
+description: Lär dig hur du aktiverar InfiniBand på virtuella Azure HPC-datorer.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -10,54 +10,59 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 10/17/2019
+ms.date: 08/01/2020
 ms.author: amverma
-ms.openlocfilehash: de61403b62f80bea7872d5ab3561567ae2109590
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.reviewer: cynthn
+ms.openlocfilehash: 88f1c120ac4578e077e1c51f59bcaf53b1de2083
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500076"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87538905"
 ---
-# <a name="enable-infiniband-with-sr-iov"></a>Aktivera InfiniBand med SR-IOV
+# <a name="enable-infiniband"></a>Aktivera InfiniBand
 
-Azure NC, ND och H-serien med virtuella datorer backas upp av ett dedikerat InfiniBand-nätverk. Alla RDMA-aktiverade storlekar kan dra nytta av det nätverket med hjälp av Intel MPI. En del VM-serien har expanderat stöd för alla MPI-implementeringar och RDMA-verb via SR-IOV. Virtuella datorer med RDMA-kapacitet är [GPU-optimerade](../../sizes-gpu.md) och HPC-virtuella datorer med [höga prestanda](../../sizes-hpc.md) .
+[RDMA-kompatibla](../../sizes-hpc.md#rdma-capable-instances) [H-](../../sizes-hpc.md) och [N-seriens](../../sizes-gpu.md) virtuella datorer kommunicerar via ett InfiniBand-nätverk med låg latens och hög bandbredd. RDMA-funktionen över en sådan samman koppling är nödvändig för att öka skalbarheten och prestandan för HPC-och AI-arbetsbelastningar med distribuerad nod. De InfiniBand-baserade virtuella datorerna i H-serien och N-serien är anslutna i ett icke-blockerande fat-träd med en design med låg diameter för optimerad och konsekvent RDMA-prestanda.
 
-## <a name="choose-your-installation-path"></a>Välj installations Sök väg
+Det finns olika sätt att aktivera InfiniBand på de kompatibla VM-storlekarna.
 
-För att komma igång är det enklaste alternativet att använda en förkonfigurerad plattforms avbildning för InfiniBand, där det finns:
+## <a name="vm-images-with-infiniband-drivers"></a>VM-avbildningar med InfiniBand-drivrutiner
+Se [VM-avbildningar](configure.md#vm-images) för en lista över virtuella dator avbildningar som stöds på Marketplace, som är förinstallerade med InfiniBand-drivrutiner (för SR-IOV eller icke-SR-IOV-VM) eller som kan konfigureras med lämpliga driv rutiner.
+För SR-IOV-aktiverade [RDMA-kompatibla virtuella datorer](../../sizes-hpc.md#rdma-capable-instances)är [CentOS-HPC version 7,6 eller en senare](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557) version av VM-avbildningar på Marketplace det enklaste sättet att komma igång.
+De virtuella Ubuntu-avbildningarna kan konfigureras med rätt driv rutiner för både SR-IOV-och icke-SR-IOV-aktiverade virtuella datorer med hjälp av [instruktionerna här](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351).
 
-- **HPC IaaS VM** – för att komma igång med IaaS-VM: ar för HPC är den enklaste lösningen att använda den [CentOS-HPC 7,6 VM OS-avbildningen](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557), som redan är konfigurerad med InfiniBand. Eftersom den här avbildningen redan har kon figurer ATS med InfiniBand behöver du inte konfigurera den manuellt. För kompatibla Windows-versioner, se [Windows RDMA-kompatibla instanser](../../sizes-hpc.md#rdma-capable-instances).
+## <a name="infiniband-driver-vm-extensions"></a>InfiniBand-drivrutin för VM-tillägg
+I Linux kan [INFINIBANDDRIVERLINUX VM-tillägget](../../extensions/hpc-compute-infiniband-linux.md) användas för att installera Mellanox ofed-drivrutinerna och aktivera InfiniBand på de virtuella SR-IOV-datorerna H-och N-serien.
 
-- **GPU IaaS VM** – inga plattforms avbildningar för närvarande är förkonfigurerade för GPU-optimerade virtuella datorer, med undantag för [CentOS VM 7,6-avbildning av virtuella datorer](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557). Om du vill konfigurera en anpassad avbildning med InfiniBand läser du [Installera MELLANOX ofed manuellt](#manually-install-mellanox-ofed).
+I Windows installerar [INFINIBANDDRIVERWINDOWS VM-tillägget](../../extensions/hpc-compute-infiniband-windows.md) Windows Network Direct-drivrutiner (på datorer som inte är SR-IOV) eller Mellanox ofed-drivrutiner (på SR-IOV VM) för RDMA-anslutning. I vissa distributioner av A8-och A9-instanser läggs HpcVmDrivers-tillägget till automatiskt. Observera att HpcVmDrivers VM-tillägget är inaktuellt. den kommer inte att uppdateras.
 
-Om du använder en anpassad virtuell dator avbildning eller en [GPU-optimerad](../../sizes-gpu.md) virtuell dator bör du konfigurera den med InfiniBand genom att lägga till InfiniBandDriverLinux eller InfiniBandDriverWindows VM-tillägget i distributionen. Lär dig hur du använder dessa VM-tillägg med [Linux](../../sizes-hpc.md#rdma-capable-instances) och [Windows](../../sizes-hpc.md#rdma-capable-instances).
+Om du vill lägga till ett VM-tillägg i en virtuell dator kan du använda [Azure PowerShell](/powershell/azure/) -cmdletar. Mer information finns i [tillägg och funktioner för virtuella datorer](../../extensions/overview.md). Du kan också arbeta med tillägg för virtuella datorer som distribueras i den [klassiska distributions modellen](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
 
-## <a name="manually-install-mellanox-ofed"></a>Installera Mellanox OFED manuellt
+## <a name="manual-installation"></a>Manuell installation
+[Mellanox OpenFabrics-drivrutiner (ofed)](https://www.mellanox.com/products/InfiniBand-VPI-Software) kan installeras manuellt i [SR-IOV-aktiverade](../../sizes-hpc.md#rdma-capable-instances) virtuella datorer i [H-serien](../../sizes-hpc.md) och [N-serien](../../sizes-gpu.md) .
 
-Följ stegen nedan om du vill konfigurera InfiniBand manuellt med SR-IOV. Exemplet i de här stegen visar syntax för RHEL/CentOS, men stegen är allmänna och kan användas för alla kompatibla operativ system som Ubuntu (16,04, 18,04 19,04) och SLES (12 SP4 och 15). Inbox-drivrutinerna fungerar också, men driv rutinerna för Mellanox OpenFabrics innehåller fler funktioner.
-
-Mer information om de distributioner som stöds för Mellanox-drivrutinen finns i de senaste [Mellanox OpenFabrics-drivrutinerna](https://www.mellanox.com/page/products_dyn?product_family=26). Mer information om driv rutinen för Mellanox OpenFabrics finns i [användar handboken för Mellanox](https://docs.mellanox.com/category/mlnxofedib).
-
-Se följande exempel för hur du konfigurerar InfiniBand på Linux:
+### <a name="linux"></a>Linux
+[Ofed-drivrutinerna för Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed) kan installeras med exemplet nedan. Även om exemplet här är för RHEL/CentOS, men stegen är allmänna och kan användas för alla kompatibla Linux-operativsystem som Ubuntu (16,04, 18,04 19,04, 20,04) och SLES (12 SP4 och 15). Inbox-drivrutinerna fungerar också, men Mellanox OFED-drivrutinerna innehåller fler funktioner.
 
 ```bash
-# Modify the variable to desired Mellanox OFED version
-MOFED_VERSION=#4.7-1.0.0.1
-# Modify the variable to desired OS
-MOFED_OS=#rhel7.6
-pushd /tmp
-curl -fSsL https://www.mellanox.com/downloads/ofed/MLNX_OFED-${MOFED_VERSION}/MLNX_OFED_LINUX-${MOFED_VERSION}-${MOFED_OS}-x86_64.tgz | tar -zxpf -
-cd MLNX_OFED_LINUX-*
-sudo ./mlnxofedinstall
-popd
+MLNX_OFED_DOWNLOAD_URL=http://content.mellanox.com/ofed/MLNX_OFED-5.0-2.1.8.0/MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64.tgz
+# Optinally verify checksum
+tar zxvf MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64.tgz
+
+KERNEL=( $(rpm -q kernel | sed 's/kernel\-//g') )
+KERNEL=${KERNEL[-1]}
+# Uncomment the lines below if you are running this on a VM
+#RELEASE=( $(cat /etc/centos-release | awk '{print $4}') )
+#yum -y install http://olcentgbl.trafficmanager.net/centos/${RELEASE}/updates/x86_64/kernel-devel-${KERNEL}.rpm
+yum install -y kernel-devel-${KERNEL}
+./MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64/mlnxofedinstall --kernel $KERNEL --kernel-sources /usr/src/kernels/${KERNEL} --add-kernel-support --skip-repo
 ```
 
-För Windows hämtar och installerar du [Mellanox-ofed för Windows-drivrutiner](https://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34).
+### <a name="windows"></a>Windows
+För Windows hämtar och installerar du [Mellanox-ofed för Windows-drivrutiner](https://www.mellanox.com/products/adapter-software/ethernet/windows/winof-2).
 
-## <a name="enable-ip-over-infiniband"></a>Aktivera IP över InfiniBand
-
-Använd följande kommandon för att aktivera IP över InfiniBand.
+## <a name="enable-ip-over-infiniband-ib"></a>Aktivera IP över InfiniBand (IB)
+Om du planerar att köra MPI-jobb behöver du vanligt vis inte IPoIB. MPI-biblioteket använder verben för IB-kommunikation (om du inte uttryckligen använder MPI-bibliotekets TCP/IP-kanal). Men om du har en app som använder TCP/IP för kommunikation och du vill köra över IB kan du använda IPoIB över IB-gränssnittet. Använd följande kommandon (för RHEL/CentOS) för att aktivera IP över InfiniBand.
 
 ```bash
 sudo sed -i -e 's/# OS.EnableRDMA=y/OS.EnableRDMA=y/g' /etc/waagent.conf
@@ -66,4 +71,7 @@ sudo systemctl restart waagent
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [HPC](/azure/architecture/topics/high-performance-computing/) i Azure.
+- Lär dig mer om att installera olika [MPI-bibliotek som stöds](setup-mpi.md) och deras optimala konfiguration på de virtuella datorerna.
+- Läs översikten över [HB-serien](hb-series-overview.md) och [HC-serien](hc-series-overview.md) för att lära dig mer om att konfigurera arbets belastningar optimalt för prestanda och skalbarhet.
+- Läs om de senaste meddelandena och några HPC-exempel och resultat i [Azure Compute Tech community-Bloggar](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- En arkitektur för högre nivå för att köra HPC-arbetsbelastningar finns i [HPC (data behandling med höga prestanda) i Azure](/azure/architecture/topics/high-performance-computing/).

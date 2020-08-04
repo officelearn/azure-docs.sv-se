@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47a2f8b69c8ef75be4f9190933969ed20404b5da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5f6e44aa89c1e2815d70bb4ba2ae5f5680252ac
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253009"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541897"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Aktivera enterprise tillståndsväxling i Azure Active Directory
 
@@ -31,7 +31,7 @@ När du aktiverar Enterprise State Roaming beviljas din organisation automatiskt
 ## <a name="to-enable-enterprise-state-roaming"></a>Aktivera Enterprise State Roaming
 
 1. Logga in på [Azure AD administrations Center](https://aad.portal.azure.com/).
-1. Välj **Azure Active Directory** &gt; **enheter** &gt; **Enterprise State roaming**.
+1. Välj **Azure Active Directory**  >  **enheter**  >  **Enterprise State roaming**.
 1. Välj **användare kan synkronisera inställningar och AppData mellan enheter**. Mer information finns i [så här konfigurerar du enhets inställningar](/azure/active-directory/device-management-azure-portal).
   
    ![bild av enhets inställningen märkta användare kan synkronisera inställningar och AppData mellan enheter](./media/enterprise-state-roaming-enable/device-settings.png)
@@ -56,7 +56,7 @@ Värdet land/region anges som en del av processen för att skapa Azure AD-katalo
 Följ de här stegen om du vill visa en status rapport för synkronisering av enheter per användare.
 
 1. Logga in på [Azure AD administrations Center](https://aad.portal.azure.com/).
-1. Välj **Azure Active Directory** &gt; **användare** &gt; **alla användare**.
+1. Välj **Azure Active Directory**  >  **användare**  >  **alla användare**.
 1. Välj användaren och välj sedan **enheter**.
 1. Under **Visa**väljer du **enheter synkroniserar inställningar och AppData** för att Visa synkroniseringsstatus.
   

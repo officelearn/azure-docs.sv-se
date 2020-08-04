@@ -1,6 +1,6 @@
 ---
 title: Azure-säkerhetsfunktioner som hjälper dig med identitets hantering | Microsoft Docs
-description: " Den här artikeln innehåller en översikt över de centrala säkerhetsfunktionerna i Azure som hjälper dig med identitets hantering. Microsofts identitets-och åtkomst hanterings lösningar hjälper till att skydda åtkomsten till program och resurser i företagets data Center och till molnet, vilket möjliggör ytterligare verifierings nivåer, till exempel Multi-Factor Authentication och principer för villkorlig åtkomst. "
+description: Lär dig mer om de grundläggande säkerhetsfunktionerna i Azure som hjälper dig med identitets hantering. Se information om ämnen som enkel inloggning och omvänd proxy.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 6abfcaac06dd82be79c9136718878f801ca241cc
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 9de31ba30c4599393d9127c7852cb567cf0258ef
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384539"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542084"
 ---
 # <a name="azure-identity-management-security-overview"></a>Översikt över Azure Identity Management-säkerhet
 
@@ -98,7 +98,7 @@ RBAC är ett auktoriseringssystem som bygger på Azure Resource Manager som ger 
 
 Läs mer:
 
-* [Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC)?](/azure/role-based-access-control/overview)
+* [Vad är rollbaserad åtkomstkontroll i Azure (Azure RBAC)?](/azure/role-based-access-control/overview)
 * [Inbyggda roller i Azure](/azure/role-based-access-control/built-in-roles)
 
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Säkerhetsövervakning, varningar och Machine Learning-baserade rapporter

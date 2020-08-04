@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa83e295460cc847647e83c7e4e8a9d7ee91f6f4
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 9e3b0b8ab4a432254835e43bff4893aaee81b04e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165778"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541880"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planera distribution av Azure Active Directory enhet
 
@@ -109,7 +109,7 @@ iOS-och Android-enheter kanske bara är registrerade i Azure AD. I följande tab
 | Windows-enheter på äldre nivå (Windows 8,1 eller Windows 7)| | | ![markering](./media/plan-device-deployment/check.png) |
 |**Inloggnings alternativ**| | |  |
 | Lokala autentiseringsuppgifter för slutanvändare| ![markering](./media/plan-device-deployment/check.png)| |  |
-| Lösenord| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
+| lösenordsinställning| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
 | PIN-kod för enhet| ![markering](./media/plan-device-deployment/check.png)| |  |
 | Windows Hello| ![markering](./media/plan-device-deployment/check.png)| |  |
 | Windows Hello för företag| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
@@ -118,8 +118,8 @@ iOS-och Android-enheter kanske bara är registrerade i Azure AD. I följande tab
 |**De viktigaste funktionerna**| | |  |
 | SSO till moln resurser| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
 | Enkel inloggning till lokala resurser| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
-| Villkorsstyrd åtkomst <br> (Kräv att enheter markeras som kompatibla) <br> (Måste hanteras av MDM)| ![markering](./media/plan-device-deployment/check.png) | ![markering](./media/plan-device-deployment/check.png)|![markering](./media/plan-device-deployment/check.png) |
-Villkorsstyrd åtkomst <br>(Kräv hybrid Azure AD-anslutna enheter)| | | ![markering](./media/plan-device-deployment/check.png)
+| Villkorlig åtkomst <br> (Kräv att enheter markeras som kompatibla) <br> (Måste hanteras av MDM)| ![markering](./media/plan-device-deployment/check.png) | ![markering](./media/plan-device-deployment/check.png)|![markering](./media/plan-device-deployment/check.png) |
+Villkorlig åtkomst <br>(Kräv hybrid Azure AD-anslutna enheter)| | | ![markering](./media/plan-device-deployment/check.png)
 | Lösen ords återställning via självbetjäning från Windows inloggnings skärm| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
 | PIN-återställning för Windows Hello| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
 | Företags tillstånd för nätverks växling mellan enheter| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png) |
@@ -227,10 +227,6 @@ När du har registrerat eller anslutit dina enheter till Azure AD kan du använd
 * [Konfigurera enhets inställningar](device-management-azure-portal.md#configure-device-settings)
 * Du måste vara lokal administratör för att hantera Windows-enheter. [Azure AD uppdaterar detta medlemskap för Azure AD-anslutna enheter](assign-local-admin.md)och lägger automatiskt till dem med rollen enhets hanterare som administratörer till alla anslutna enheter.
 
-* [Hitta enheter](device-management-azure-portal.md#locate-devices)
-
-* [Utföra hanterings uppgifter för enhets identitet](device-management-azure-portal.md#device-identity-management-tasks)
-
 Se till att hålla miljön ren genom att [Hantera inaktuella enheter](manage-stale-devices.md)och fokusera på resurserna på hantering av aktuella enheter.
 
 * [Granska enhets relaterade gransknings loggar](device-management-azure-portal.md#audit-logs)
@@ -241,7 +237,7 @@ Administratörer kan skydda och hantera dessa registrerade och anslutna enheter 
 
 Granska stödda plattformar och plattformar som inte stöds för integrerade enheter:
 
-| Enhets hanterings verktyg| Azure AD-registrerad| Azure Active Directory-anslutning| Hybrid Azure Active Directory-anslutning|
+| Verktyg för enhetshantering| Azure AD-registrerad| Azure Active Directory-anslutning| Hybrid Azure Active Directory-anslutning|
 | - | - | - | - |
 | [Hantering av mobila enheter (MDM)](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Exempel: Microsoft Intune| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)|  |
 | [Samhantering med Microsoft Intune och Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/comanage/overview) <br>(Windows 10 och senare)| | ![markering](./media/plan-device-deployment/check.png)| ![markering](./media/plan-device-deployment/check.png)|  |

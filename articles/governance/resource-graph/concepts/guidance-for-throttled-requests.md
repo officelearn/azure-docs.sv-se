@@ -1,14 +1,14 @@
 ---
 title: Vägledning för begränsade begäranden
 description: Lär dig att gruppera, sprida, ta sid brytning och fråga parallellt för att undvika att förfrågningar begränsas av Azure Resource Graph.
-ms.date: 05/20/2020
+ms.date: 08/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: dbcd438f1eda4edd30deef41542beeae6d746dc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 343d0c02e300431b63b908199931c20a50b85dd2
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682057"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541846"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Vägledning för begränsade begär anden i Azure Resource Graph
 
@@ -29,6 +29,8 @@ I varje fråge svar lägger Azure Resource Graph till två begränsnings rubrike
 
 - `x-ms-user-quota-remaining`(int): den återstående resurs kvoten för användaren. Det här värdet mappar till antal frågor.
 - `x-ms-user-quota-resets-after`(hh: mm: SS): tids perioden tills en användares kvot användning återställs.
+
+När ett säkerhets objekt har åtkomst till fler än 5000 prenumerationer inom [frågans omfång](./query-language.md#query-scope)för klient organisation eller hanterings grupp, är svaret begränsat till de första 5000 prenumerationerna och `x-ms-tenant-subscription-limit-hit` huvudet returneras som `true` .
 
 För att illustrera hur rubrikerna fungerar, ska vi titta på ett fråge svar som har sidhuvud och värden för `x-ms-user-quota-remaining: 10` och `x-ms-user-quota-resets-after: 00:00:03` .
 
@@ -185,7 +187,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 }
 ```
 
-## <a name="pagination"></a>Sid brytning
+## <a name="pagination"></a>Sidnumrering
 
 Eftersom Azure Resource Graph returnerar högst 1000 poster i ett enda fråge svar, kan du behöva [fylla i frågorna](./work-with-data.md#paging-results) för att få den fullständiga data uppsättningen som du letar efter. Vissa Azure Resource Graph-klienter hanterar dock sid brytning annorlunda än andra.
 

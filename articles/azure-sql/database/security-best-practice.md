@@ -1,7 +1,7 @@
 ---
 title: Spelbok för adressering av vanliga säkerhets krav
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
-description: Den här artikeln innehåller vanliga säkerhets krav och bästa praxis i Azure SQL Database och Azure SQL-hanterad instans
+description: Den här artikeln innehåller vanliga säkerhets krav och metod tips i Azure SQL Database och Azure SQL-hanterad instans.
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=2
@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 6a3a52c90187920be13628a6d2fa44159e1109d7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6630b924decacc5ff59611c657e1d7e38b1813a7
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371795"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541727"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Spelbok för att lösa vanliga säkerhets krav med Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -291,7 +291,7 @@ Separering av uppgifter, även kallat ansvars fördelning, beskriver kravet på 
 - Identifiera en omfattande hierarki med användare (och automatiserade processer) som har åtkomst till systemet.
 
 - Skapa roller enligt de användar grupper som behövs och tilldela roller behörigheter.
-  - För aktiviteter på hanterings nivå i Azure Portal eller via PowerShell-Automation används RBAC-roller. Hitta antingen en inbyggd roll som matchar kravet eller skapa en anpassad Azure-roll med hjälp av de tillgängliga behörigheterna
+  - För aktiviteter på hanterings nivå i Azure Portal eller via PowerShell-Automation använder du Azure-roller. Hitta antingen en inbyggd roll som matchar kravet eller skapa en anpassad Azure-roll med hjälp av de tillgängliga behörigheterna
   - Skapa Server roller för Server-wide-aktiviteter (skapa nya inloggningar, databaser) i en hanterad instans.
   - Skapa databas roller för aktiviteter på databas nivå.
 
@@ -318,7 +318,7 @@ Separering av uppgifter, även kallat ansvars fördelning, beskriver kravet på 
 
 - Skapa och Använd användardefinierade roller när inbyggda roller beviljar för många behörigheter eller otillräcklig behörighet.
 
-- Roll tilldelningar kan också utföras tillfälligt, även kallat dynamisk avgränsning av uppgifter (DSD), antingen inom SQL Agent Job-stegen i T-SQL eller med Azure PIM för RBAC-roller.
+- Roll tilldelningar kan också utföras tillfälligt, även kallat dynamisk avgränsning av uppgifter (DSD), antingen inom SQL Agent Job-stegen i T-SQL eller med Azure PIM för Azure-roller.
 
 - Kontrol lera att databas administratörer inte har åtkomst till krypterings nycklar eller nyckel lager och att säkerhets administratörer med åtkomst till nycklarna inte har åtkomst till databasen i sin tur. Användningen av [EKM (Extensible Key Management)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-ekm) kan göra den här separationen lättare att uppnå. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) kan användas för att implementera EKM.
 

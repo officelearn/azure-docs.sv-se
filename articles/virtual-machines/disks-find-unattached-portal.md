@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 3a5e2c368fd956abb98b2b4c9ccd1060677f3e06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6632d65fa07788e35b24c2f957e713f824f6b091
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085766"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542746"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Hitta och ta bort frånkopplade Azure-hanterade och ohanterade diskar – Azure Portal
 
@@ -27,7 +27,7 @@ Om du har frånkopplade hanterade diskar och inte längre behöver data på dem,
 
     På bladet **diskar** visas en lista över alla dina diskar. Alla diskar som har " **-** " i kolumnen **ägare** är en icke-kopplad disk.
 
-    [![](media/disks-find-unattached-portal/managed-disk-unattached-owner.png "Screenshot of the managed disks blade, if a disk has - in the Owner column, it is an unattached disk")](media/disks-find-unattached-portal/managed-disk-owner-unattached.png#lightbox)
+    [![Skärm bild av bladet hanterade diskar, om en disk har-i kolumnen ägare, är det en frånkopplad disk.](media/disks-find-unattached-portal/managed-disk-unattached-owner.png)](media/disks-find-unattached-portal/managed-disk-owner-unattached.png#lightbox)
 
 1. Välj den icke-anslutna disk som du vill ta bort. Då öppnas bladet disk.
 1. På disk bladet kan du kontrol lera att disk statusen är frånkopplad och sedan **ta bort**.

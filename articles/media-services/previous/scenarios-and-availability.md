@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 0eec42c0703e7158b478b8297848dc2ee6735cb8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 81d1c86bc5130d616712d022efd4b111b8b939dd
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047565"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542386"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenarier och tillgängligheten för Media Services-funktioner i datacenter
 
@@ -49,7 +49,7 @@ Följande bild visar några av de vanligast använda objekten när du utvecklar 
 
 Klicka på bilden för att visa den i full storlek.  
 
-<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
+[![Diagram som visar några av de vanligaste objekten när du utvecklar mot Azure Media Services objekts data modell.](./media/media-services-overview/media-services-overview-object-model-small.png)](./media/media-services-overview/media-services-overview-object-model.png#lightbox)
 
 Du kan visa hela modellen [här](https://media.windows.net/API/$metadata?api-version=2.15).  
 
@@ -177,7 +177,7 @@ Media Services-kunder kan antingen välja en **Standard**-slutpunkt för direktu
 
 #### <a name="availability"></a>Tillgänglighet
 
-|Namn|Status|Datacenter
+|Name|Status|Datacenter
 |---|---|---|
 |Standard|Allmän tillgänglighet (GA)|Alla|
 |Premium|Allmän tillgänglighet (GA)|Alla|

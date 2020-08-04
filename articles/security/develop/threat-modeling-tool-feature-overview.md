@@ -1,18 +1,18 @@
 ---
 title: Översikt över Microsoft Threat Modeling Tool funktioner – Azure
-description: Lär dig mer om alla funktioner som är tillgängliga i Threat Modeling Tool
+description: Lär dig mer om alla funktioner som är tillgängliga i Threat Modeling Tool, till exempel analysvyn och rapporter.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
-ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e405ea35dcaa33ac7c8227385e4aaff86d9244cb
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75552125"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540010"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Översikt över Threat Modeling Tool funktioner
 
@@ -43,7 +43,7 @@ Upplevelsen liknar andra Microsoft-produkter. Nu ska vi granska meny objekt på 
 | --------------------------------------- | ------------ |
 | **Fil** | <ul><li>Öppna, Spara och Stäng filer</li><li>Logga in och logga ut från OneDrive-konton.</li><li>Dela länkar (Visa och redigera).</li><li>Visa fil information.</li><li>Använd en ny mall för befintliga modeller.</li></ul> |
 | **Redigera** | Ångra och gör om åtgärder, samt kopiera, klistra in och ta bort. |
-| **Vy** | <ul><li>Växla mellan vyerna **analys** och **design** .</li><li>Öppna stängda fönster (till exempel stenciler, element egenskaper och meddelanden).</li><li>Återställ layout till standardinställningar.</li></ul> |
+| **Visa** | <ul><li>Växla mellan vyerna **analys** och **design** .</li><li>Öppna stängda fönster (till exempel stenciler, element egenskaper och meddelanden).</li><li>Återställ layout till standardinställningar.</li></ul> |
 | **Venndiagram** | Lägg till och ta bort diagram och gå igenom flikar i diagram. |
 | **Rapporter** | Skapa HTML-rapporter för att dela med andra. |
 | **Hjälp** | Hitta guider som hjälper dig att använda verktyget. |
@@ -83,7 +83,7 @@ Utifrån den mall du väljer kan du hitta alla stenciler som är tillgängliga f
 | --------------------------------------- | ------------ |
 | **Process** | Program, plugin-program för webbläsare, trådar, virtuella datorer |
 | **Extern interaktör** | Autentiseringsproviders, webbläsare, användare, webb program |
-| **Datalager** | Cache, lagring, konfigurationsfiler, databaser, register |
+| **Data lager** | Cache, lagring, konfigurationsfiler, databaser, register |
 | **Data flöde** | Binärt, ALPC, HTTP, HTTPS/TLS/SSL, IOCTL, IPSec, Named pipe, RPC/DCOM, SMB, UDP |
 | **Förtroende linje/gräns gräns** | Företags nätverk, Internet, dator, Sandbox, användare/kernelläge |
 
@@ -92,7 +92,7 @@ Utifrån den mall du väljer kan du hitta alla stenciler som är tillgängliga f
 | Komponent                               | Information      |
 | --------------------------------------- | ------------ |
 | **Meddelanden** | Intern verktygs logik som varnar användare när ett fel uppstår, till exempel att inga data flödar mellan element. |
-| **Anteckningar** | Manuella anteckningar läggs till i filen av teknik team i hela design-och gransknings processen. |
+| **Kommentarer** | Manuella anteckningar läggs till i filen av teknik team i hela design-och gransknings processen. |
 
 ### <a name="element-properties"></a>Element egenskaper
 
@@ -160,7 +160,7 @@ Om du skapar en hot modell och glömmer att ansluta data flöden till element f�
 
 ![Meddelanden](./media/threat-modeling-tool-feature-overview/messages.png)
 
-### <a name="notes"></a>Obs!
+### <a name="notes"></a>Kommentarer
 
 Om du vill lägga till anteckningar i diagrammet växlar du från fliken **meddelanden** till fliken **anteckningar** .
 

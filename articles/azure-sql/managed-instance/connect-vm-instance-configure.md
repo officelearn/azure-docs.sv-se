@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: 76c4e2c5052e70c4c6cb8ff631151a5e6fc544e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3dc2990e810096310617e468a533a65626008ff
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706366"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542661"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>Snabb start: Konfigurera en virtuell Azure-dator för att ansluta till en Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,7 +27,7 @@ Den här snabb starten visar hur du konfigurerar en virtuell Azure-dator för at
 
 En snabb start som visar hur du ansluter från en lokal klient dator med en punkt-till-plats-anslutning i stället finns i [Konfigurera en punkt-till-plats](point-to-site-p2s-configure.md)-anslutning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här snabb starten används de resurser som skapats i [skapa en hanterad instans](instance-create-quickstart.md) som start punkt.
 
@@ -49,11 +49,11 @@ Följande steg skapar ett nytt undernät i det virtuella SQL-hanterade instans-V
 
 3. Fyll i formuläret med hjälp av informationen i den här tabellen:
 
-   | Inställningen| Föreslaget värde | Beskrivning |
+   | Inställning| Föreslaget värde | Beskrivning |
    | ---------------- | ----------------- | ----------- |
    | **Namn** | Valfritt giltigt namn|Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming).|
    | **Adressintervall (CIDR-block)** | Ett giltigt intervall | Standardvärdet är användbart för den här snabb starten.|
-   | **Nätverks säkerhets grupp** | Ingen | Standardvärdet är användbart för den här snabb starten.|
+   | **Nätverkssäkerhetsgrupp** | Ingen | Standardvärdet är användbart för den här snabb starten.|
    | **Routningstabell** | Ingen | Standardvärdet är användbart för den här snabb starten.|
    | **Tjänstslutpunkter** | 0 valda | Standardvärdet är användbart för den här snabb starten.|
    | **Delegering av undernät** | Ingen | Standardvärdet är användbart för den här snabb starten.|
@@ -74,20 +74,20 @@ Det enklaste sättet att skapa en virtuell klient dator med alla nödvändiga ve
 
 1. Kontrol lera att du är inloggad på Azure Portal på en annan flik i webbläsaren. Välj sedan följande knapp för att skapa en virtuell klient dator och installera SQL Server Management Studio:
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   [![Bild som visar en knapp med etiketten "distribuera till Azure".](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json)
 
 2. Fyll i formuläret med hjälp av informationen i följande tabell:
 
-   | Inställningen| Föreslaget värde | Beskrivning |
+   | Inställning| Föreslaget värde | Beskrivning |
    | ---------------- | ----------------- | ----------- |
    | **Prenumeration** | En giltig prenumeration | Måste vara en prenumeration där du har behörighet att skapa nya resurser. |
    | **Resursgrupp** |Den resurs grupp som du angav i snabb starten för att [skapa SQL-hanterad instans](instance-create-quickstart.md)|Den här resurs gruppen måste vara den som VNet finns i.|
-   | **Position** | Platsen för resurs gruppen | Det här värdet fylls i baserat på den valda resurs gruppen. |
+   | **Plats** | Platsen för resurs gruppen | Det här värdet fylls i baserat på den valda resurs gruppen. |
    | **Namn på virtuell dator**  | Valfritt giltigt namn | Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming).|
    |**Administratörens användar namn**|Alla giltiga användar namn|Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). Använd inte ”serveradmin” eftersom det är en reserverad servernivåroll.<br>Du använder det här användar namnet varje gången du [ansluter till den virtuella datorn](#connect-to-the-virtual-machine).|
    |**Lösenord**|Valfritt giltigt lösenord|Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Du använder det här lösen ordet när som helst när du [ansluter till den virtuella datorn](#connect-to-the-virtual-machine).|
    | **Storlek på virtuell dator** | Vilken giltig storlek som helst | Standardvärdet i den här mallen för **Standard_B2s** räcker för den här snabb starten. |
-   | **Position**|[resourceGroup (). location].| Ändra inte det här värdet. |
+   | **Plats**|[resourceGroup (). location].| Ändra inte det här värdet. |
    | **Virtual Network namn**|Det virtuella nätverk där du skapade den hanterade instansen|
    | **Under näts namn**|Namnet på det undernät som du skapade i föregående procedur| Välj inte det undernät där du skapade den hanterade instansen.|
    | **artefakt plats** | [Deployment (). Properties. templateLink. URI] | Ändra inte det här värdet. |
@@ -118,7 +118,7 @@ Följande steg visar hur du ansluter till din nya virtuella dator med hjälp av 
 
    ![RDP-formulär](./media/connect-vm-instance-configure/rdp.png)  
 
-3. Välj **Ladda ned RDP-fil**.
+3. Välj **Hämta RDP-fil**.
 
    > [!NOTE]
    > Du kan också använda SSH för att ansluta till din virtuella dator.

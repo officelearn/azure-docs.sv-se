@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01ec7f8210df9e41b2620e639eddbc98d4bcb73d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 4eaf0ab6cc412b7f5a02f898682e90fdde9de3a1
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448670"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542369"
 ---
 # <a name="linkedin-account-connections-data-sharing-and-consent"></a>LinkedIn-konto anslutningar data delning och medgivande
 
@@ -41,7 +41,7 @@ Du måste vara Azure Active Directory administratör för att kunna hantera inst
 1. Om du vill aktivera eller inaktivera integrationen följer du stegen i [medgivande till LinkedIn-integrering för din Azure AD-organisation](linkedin-integration.md).
 2. När du tillkännager LinkedIn-integreringen i din organisation kan du peka dina användare till vanliga frågor och svar om [LinkedIn-information i Microsoft-appar och-tjänster](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381). Artikeln innehåller information om var LinkedIn-information visas, [data delning och sekretess](https://support.microsoft.com/office/your-data-ae9c08a7-4d06-45b5-a065-320a97bc1400), [hur man ansluter konton](https://support.microsoft.com/office/connect-your-linkedin-and-work-or-school-accounts-c7c245f2-fa56-4c9b-ba20-3fceb23c5772) med mera.
 
-Du måste tillkännage LinkedIn-integrering till dina användare och ge dem all information som rör data delning och sekretess för LinkedIn-integrering. För att användarna ska kunna ansluta konton i listan med licenser 
+Du måste tillkännage LinkedIn-integration till dina användare, vilket ger all information om [data delning och sekretess med LinkedIn-integrering](https://support.microsoft.com/office/your-data-ae9c08a7-4d06-45b5-a065-320a97bc1400). 
 
 ## <a name="user-consent-for-data-access-in-microsoft-and-linkedin"></a>Användar medgivande för data åtkomst i Microsoft och LinkedIn
 

@@ -16,12 +16,12 @@ ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab51030ad39e1360cabc7d63390af7c1654d2891
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1754456873e464e4bd624f47c5ea98e4fb88827
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82082126"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542237"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synkronisering: Attribut synkroniserade till Azure Active Directory
 I det här avsnittet visas de attribut som synkroniseras med Azure AD Connect Sync.  
@@ -51,7 +51,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | usageLocation |X |mekanisk egenskap. Användarens land/region. Används för licens tilldelning. |
 | userPrincipalName |X |UPN är inloggnings-ID: t för användaren. Oftast samma som [mail]-värdet. |
 
-## <a name="exchange-online"></a>exchange online
+## <a name="exchange-online"></a>Exchange Online
 | Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definierar om ett konto är aktiverat. |
@@ -64,7 +64,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | company |X |X | | |
 | countryCode |X |X | | |
 | avdelning |X |X | | |
-| description | | |X | |
+| beskrivning | | |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -165,7 +165,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
+| thumbnailphoto |X |X | |synkroniserades bara en gång från Azure AD till Exchange Online efter vilken Exchange Online blir källan till behörighet för det här attributet och senare ändringar inte kan synkroniseras från den lokala platsen. Se ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) om du vill ha mer information.|
 | rubrik |X |X | | |
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land/region. Används för licens tilldelning. |
@@ -185,7 +185,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | company |X |X | | |
 | countryCode |X |X | | |
 | avdelning |X |X | | |
-| description |X |X |X | |
+| beskrivning |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -247,7 +247,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
+| thumbnailphoto |X |X | |synkroniserades bara en gång från Azure AD till Exchange Online efter vilken Exchange Online blir källan till behörighet för det här attributet och senare ändringar inte kan synkroniseras från den lokala platsen. Se ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) om du vill ha mer information.|
 | rubrik |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
@@ -265,7 +265,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | co |X |X | | |
 | company |X |X | | |
 | avdelning |X |X | | |
-| description |X |X |X | |
+| beskrivning |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
 | förnamn |X |X | | |
@@ -298,7 +298,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
+| thumbnailphoto |X |X | |synkroniserades bara en gång från Azure AD till Exchange Online efter vilken Exchange Online blir källan till behörighet för det här attributet och senare ändringar inte kan synkroniseras från den lokala platsen. Se ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) om du vill ha mer information.|
 | rubrik |X |X | | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land/region. Används för licens tilldelning. |
 | userPrincipalName |X | | |UPN är inloggnings-ID: t för användaren. Oftast samma som [mail]-värdet. |
@@ -325,7 +325,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | accountEnabled |X | | |Definierar om ett konto är aktiverat. |
 | c |X |X | | |
 | nomenklatur |X | |X | |
-| description |X |X |X | |
+| beskrivning |X |X |X | |
 | displayName |X |X |X | |
 | e-post |X |X |X | |
 | MailNickName |X |X |X | |
@@ -346,7 +346,7 @@ I det här fallet börjar du med listan med attribut i det här avsnittet och id
 | co |X |X | | |
 | company |X |X | | |
 | countryCode |X |X | | |
-| description |X |X |X | |
+| beskrivning |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | förnamn |X |X | | |
@@ -466,7 +466,7 @@ Enhets objekt skapas i Active Directory. Dessa objekt kan vara enheter som är a
 | msDS-IsManaged |X | |
 | msDS-RegisteredOwner |X | |
 
-## <a name="notes"></a>Anteckningar
+## <a name="notes"></a>Kommentarer
 * När du använder ett alternativt ID synkroniseras det lokala attributet userPrincipalName med Azure AD-attributet onPremisesUserPrincipalName. Det alternativa ID-attributet, till exempel mail, synkroniseras med Azure AD-attributet userPrincipalName.
 * I listorna ovan gäller objekt typ **användaren** även för objekt typen **InetOrgPerson**.
 

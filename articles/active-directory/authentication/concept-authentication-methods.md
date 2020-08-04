@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 4c224f40996625ead4592a3bf50e02f0877c76db
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 05283c02c2e5f95e22beb6fbeaad7a99e42ee6aa
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051313"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540843"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Vilka autentiserings- och verifieringsmetoder är tillgängliga i Azure Active Directory?
 
@@ -50,7 +50,7 @@ Den här artikeln beskriver dessa olika autentiserings-och verifierings metoder 
 
 ![Autentiseringsmetoder som används på inloggnings skärmen](media/concept-authentication-methods/overview-login.png)
 
-## <a name="password"></a>Lösenord
+## <a name="password"></a>lösenordsinställning
 
 Ett Azure AD-lösenord är ofta en av de primära autentiseringsmetoderna. Du kan inte inaktivera autentiseringsmetoden för lösen ord.
 
@@ -74,7 +74,7 @@ Authenticator-appen kan hjälpa till att förhindra obehörig åtkomst till kont
 ![Skärm bild av exempel på en webbläsares fråga om meddelandeautentisering för att slutföra inloggnings processen](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
 
 > [!NOTE]
-> Om din organisation har personal som arbetar i eller reser till Kina fungerar inte *meddelandet via mobilappen* på Android-enheter i det landet/den regionen. Alternativa autentiseringsmetoder bör göras tillgängliga för dessa användare.
+> Om din organisation har personal som arbetar i eller reser till Kina, fungerar inte *meddelandet via mobilappen* på Android-enheter i landet/regionen som Google Play-tjänster (inklusive push-meddelanden) är blockerade i regionen. IOS-avisering fungerar dock. För Android-enheter ska alternativa autentiseringsmetoder göras tillgängliga för dessa användare.
 
 ### <a name="verification-code-from-mobile-app"></a>Verifierings kod från mobilapp
 

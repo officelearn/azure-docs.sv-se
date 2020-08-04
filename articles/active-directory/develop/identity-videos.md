@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/05/2020
+ms.date: 08/03/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: 2452d1e0cc07767922b86810a914bba2e6f56dba
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 74ca7f80f483a722cc8dabde76d295210074bebe
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200968"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540299"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Videor från Microsofts identitetsplattform
 
@@ -66,24 +66,11 @@ ___
         <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo" target="_blank"> <img src="./media/identity-videos/id-for-devs-05.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
-        6 – <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank">vilka aspekter av användningen av protokoll gör MSAL-biblioteken enklare <span class="docon docon-navigate-external x-hidden-focus"></span> ?</a> (15:52)
-    :::column-end:::
-    :::column:::
-        <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank"> <img src="./media/identity-videos/id-for-devs-06.jpg" alt="Video thumbnail"> </a>
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        7 – <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank">vilka viktiga protokoll koncept bör du känna till om du använder MSAL? <span class="docon docon-navigate-external x-hidden-focus"></span> </a> (1:51)
-    :::column-end:::
-    :::column:::
-        <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
-    :::column-end:::
-    :::column:::
     :::column-end:::
     :::column:::
     :::column-end:::
 :::row-end:::
+
 
 <!-- IMAGES -->
 [id-plat-01-img]: ./media/identity-videos/id-for-devs-01.jpg
@@ -99,7 +86,7 @@ ___
 [id-plat-04-vid]: https://www.youtube.com/watch?v=IIQ7QW4bYqA&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=4
 [id-plat-05-vid]: https://www.youtube.com/watch?v=-BK2iBDrmNo&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=5
 
-## <a name="authentication-fundamentals"></a>Grundläggande autentisering
+## <a name="authentication-fundamentals"></a>Grundläggande om autentisering
 
 Om du är nybörjare på begrepp som identitets leverantörer, säkerhetstoken, anspråk och mål grupp kan denna video serie hjälpa dig att rensa begreppen och komponenterna i modern autentisering.
 ___
@@ -146,20 +133,7 @@ ___
         <a href="https://www.youtube.com/watch?v=2RE6IhXfmHY" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-06.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
-:::row:::
-    :::column:::
-        7 – <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank">Vad är förhållandet mellan en auktoriseringsbegäran och tokens? <span class="docon docon-navigate-external x-hidden-focus"></span> </a> (1:45)
-    :::column-end:::
-    :::column:::
-        <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
-    :::column-end:::
-    :::column:::
-        8 – <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank">Vad är skillnaden mellan ID-token, åtkomsttoken, uppdateringstoken och token för sessioner? <span class="docon docon-navigate-external x-hidden-focus"></span> </a> (2:10)
-    :::column-end:::
-    :::column:::
-        <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-08.jpg" alt="Video thumbnail"> </a>
-    :::column-end:::
-:::row-end:::
+
 
 <!-- IMAGES -->
 [auth-fund-01-img]: ./media/identity-videos/aad-auth-fund-01.jpg
@@ -284,6 +258,34 @@ ___
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank"> <img src="./media/identity-videos/aad-basics-13.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank">Om du använder MSAL, vilka viktiga protokoll koncept bör du känna till?<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=cZKgTqF4o88" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank">Vad är skillnaden mellan ID-tokens, åtkomsttoken, uppdateringstoken och tokens?<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-08.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank">Vad är förhållandet mellan en auktoriseringsbegäran och tokens?<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank">Vilka aspekter av användningen av protokoll gör MSAL-biblioteken enklare?<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=4pwuRYcZbz4" target="_blank"> <img src="./media/identity-videos/id-for-devs-06.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
     :::column-end:::

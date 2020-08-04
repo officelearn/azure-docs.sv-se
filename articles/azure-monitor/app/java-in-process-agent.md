@@ -3,12 +3,12 @@ title: Övervaka Java-program på valfri miljö – Azure Monitor Application In
 description: Övervakning av program prestanda för Java-program som körs i en miljö utan att behöva instrumentera appen. Distribuerad spårning och program karta.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 3ca6e7050b1c7649298d2417f9f7f66ef8898816
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f35d661761f1bea4dbd6b691fb0667c6dad3e72e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014345"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541863"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java-kodad program övervakning Azure Monitor Application Insights – offentlig för hands version
 
@@ -126,7 +126,22 @@ Vårt mål i 3.0 + är att du ska kunna skicka din anpassade telemetri med stand
 
 Vi stöder micrometer, opentelemetri-API och populära loggnings ramverk. Application Insights Java 3,0 fångar automatiskt in telemetri och korrelerar det tillsammans med all automatisk insamlad telemetri.
 
-Därför planerar vi inte att lansera en SDK med Application Insights 3,0 för tillfället.
+### <a name="supported-custom-telemetry"></a>Anpassad telemetri stöds
+
+Tabellen nedan representerar anpassade typer av anpassade telemetri som stöds för närvarande och som du kan använda för att komplettera Java 3,0-agenten. För att sammanfatta kan anpassade mått hanteras via micrometer, anpassade undantag och spårningar kan aktive ras via loggnings ramverk och alla typer av anpassad telemetri stöds via [Application Insights Java 2. x SDK](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#sending-custom-telemetry-using-application-insights-java-sdk-2x). 
+
+
+|                 | Micrometer | Log4j, logback, JUL | 2. x SDK |
+|-----------------|------------|---------------------|---------|
+| Anpassade händelser   |            |                     |  Yes    |
+| Anpassade mått  |  Ja       |                     |  Ja    |
+| Beroenden    |            |                     |  Yes    |
+| Undantag      |            |  Ja                |  Ja    |   
+| Sidvisningar      |            |                     |  Yes    |
+| Begäranden        |            |                     |  Yes    |
+| Spårningar          |            |  Ja                |  Ja    |
+
+Vi planerar inte att lansera en SDK med Application Insights 3,0 för tillfället.
 
 Application Insights Java 3,0 lyssnar redan efter telemetri som skickas till Application Insights Java SDK 2. x. Den här funktionen är en viktig del av uppgraderings artikeln för befintliga 2. x-användare och det fyller en viktig lucka i vårt stöd för anpassad telemetri tills API: t opentelemetri är GA.
 

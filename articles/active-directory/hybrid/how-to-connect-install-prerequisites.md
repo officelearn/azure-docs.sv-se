@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b33b3e406e21f5bc2a4128fdd7dc9930fa3e0c32
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 83a05636f8e673e08bfd390aa10069da0abd561d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447006"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542067"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
 I den här artikeln beskrivs kraven och maskin varu kraven för Azure Active Directory (Azure AD) Connect.
@@ -125,6 +125,7 @@ Vi rekommenderar att du skärper Azure AD Connect-servern för att minska säker
         </system.net>
     ```
 
+* Om proxykonfigurationen görs i en befintlig installation måste **Microsoft Azure AD Sync-tjänsten** startas om en gång för att Azure AD Connect läsa proxykonfigurationen och uppdatera behviour. 
 * När Azure AD Connect skickar en webbegäran till Azure AD som en del av Active Directory-synkroniseringen kan det ta upp till 5 minuter för Azure AD att svara. Det är vanligt att proxyservrarna har timeout-konfiguration för inaktivitet. Se till att konfigurationen är minst 6 minuter eller mer.
 
 Mer information finns i MSDN om [default proxy-elementet](https://msdn.microsoft.com/library/kd3cf2ex.aspx).

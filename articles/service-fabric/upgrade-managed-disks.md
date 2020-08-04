@@ -3,12 +3,12 @@ title: Uppgradera klusternoder för att använda Azure Managed disks
 description: Så här uppgraderar du ett befintligt Service Fabric-kluster för att använda Azure Managed disks med liten eller ingen stillestånds tid för klustret.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: cff0f99412f189f38f1b14d15c7285166a048c87
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 10863626945483e21aa264e2b05e94a6f08a22f6
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255905"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542879"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Uppgradera klusternoder för att använda Azure Managed disks
 
@@ -165,7 +165,7 @@ Här är ändringar i den ursprungliga kluster distributions mal len för att l�
 
 #### <a name="parameters"></a>Parametrar
 
-Lägg till parametrar för instans namn, antal och storlek på den nya skalnings uppsättningen. Observera att `vmNodeType1Name` är unikt för den nya skalnings uppsättningen, medan värdena count och size är identiska med den ursprungliga skalnings uppsättningen.
+Lägg till en parameter för instans namnet för den nya skalnings uppsättningen. Observera att `vmNodeType1Name` är unikt för den nya skalnings uppsättningen, medan värdena count och size är identiska med den ursprungliga skalnings uppsättningen.
 
 **Mallfil**
 
@@ -174,18 +174,7 @@ Lägg till parametrar för instans namn, antal och storlek på den nya skalnings
     "type": "string",
     "defaultValue": "NTvm2",
     "maxLength": 9
-},
-"nt1InstanceCount": {
-    "type": "int",
-    "defaultValue": 5,
-    "metadata": {
-        "description": "Instance count for node type"
-    }
-},
-"vmNodeType1Size": {
-    "type": "string",
-    "defaultValue": "Standard_D2_v2"
-},
+}
 ```
 
 **Parameter fil**
@@ -193,12 +182,6 @@ Lägg till parametrar för instans namn, antal och storlek på den nya skalnings
 ```json
 "vmNodeType1Name": {
     "value": "NTvm2"
-},
-"nt1InstanceCount": {
-    "value": 5
-},
-"vmNodeType1Size": {
-    "value": "Standard_D2_v2"
 }
 ```
 
@@ -216,13 +199,13 @@ I `variables` avsnittet distributionsmall lägger du till en post för den inkom
 
 I avsnittet *resurser* för distributions mal len lägger du till den nya skalnings uppsättningen för virtuella datorer. Tänk på följande:
 
-* Den nya skalnings uppsättningen refererar till samma nodtyp som den ursprungliga:
+* Den nya skalnings uppsättningen refererar till den nya nodtypen:
 
     ```json
-    "nodeTypeRef": "[parameters('vmNodeType0Name')]",
+    "nodeTypeRef": "[parameters('vmNodeType1Name')]",
     ```
 
-* Den nya skalnings uppsättningen refererar till Server delen och under nätet för belastnings Utjämnings servern (men använder en annan inkommande NAT-pool för belastnings utjämning):
+* Den nya skalnings uppsättningen refererar till samma server och undernät som den ursprungliga belastnings Utjämnings servern, men använder en annan inkommande NAT-pool för belastningsutjämnare:
 
    ```json
     "loadBalancerBackendAddressPools": [
@@ -253,6 +236,33 @@ I avsnittet *resurser* för distributions mal len lägger du till den nya skalni
         "storageAccountType": "[parameters('storageAccountType')]"
     }
     ```
+
+Lägg sedan till en post i `nodeTypes` listan över resursen *Microsoft. ServiceFabric/Clusters* . Använd samma värden som posten för den ursprungliga nodtypen, förutom för `name` , som ska referera till den nya nodtypen (*vmNodeType1Name*).
+
+```json
+"nodeTypes": [
+    {
+        "name": "[parameters('vmNodeType0Name')]",
+        ...
+    },
+    {
+        "name": "[parameters('vmNodeType1Name')]",
+        "applicationPorts": {
+            "endPort": "[parameters('nt0applicationEndPort')]",
+            "startPort": "[parameters('nt0applicationStartPort')]"
+        },
+        "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
+        "durabilityLevel": "Silver",
+        "ephemeralPorts": {
+            "endPort": "[parameters('nt0ephemeralEndPort')]",
+            "startPort": "[parameters('nt0ephemeralStartPort')]"
+        },
+        "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
+        "isPrimary": true,
+        "vmInstanceCount": "[parameters('nt0InstanceCount')]"
+    }
+],
+```
 
 När du har implementerat alla ändringar i mall-och frågeparametrar kan du fortsätta till nästa avsnitt för att hämta dina Key Vault referenser och distribuera uppdateringarna till klustret.
 

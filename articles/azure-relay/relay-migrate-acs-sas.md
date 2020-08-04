@@ -3,16 +3,16 @@ title: Azure Relay-migrera till signaturen för delad åtkomst
 description: Beskriver hur du migrerar Azure Relay-program från att använda Azure Active Directory Access Control Service till autentisering med delad åtkomst till signaturer.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 300a7eb5bb69db878b208be8c1e2b404717a6265
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b793173270b0ddf25f0e971dbb2fed97cb10a55
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314310"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532874"
 ---
 # <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Azure Relay-migrera från Azure Active Directory Access Control Service till signaturen för delad åtkomst
 
-Azure Relay-program tidigare hade möjlighet att använda två olika auktoriseringsregler: den token för [signatur för delad åtkomst (SAS)](../service-bus-messaging/service-bus-sas.md) som tillhandahålls direkt av relä tjänsten och en federerad modell där hantering av auktoriseringsregler hanteras i [Azure Active Directory](/azure/active-directory/) Access Control Service (ACS) och token som erhålls från ACS skickas till reläet för att auktorisera åtkomst till de önskade funktionerna.
+Azure Relay-program tidigare hade möjlighet att använda två olika auktoriseringsregler: den token för [signatur för delad åtkomst (SAS)](../service-bus-messaging/service-bus-sas.md) som tillhandahålls direkt av relä tjänsten och en federerad modell där hantering av auktoriseringsregler hanteras i [Azure Active Directory](../active-directory/index.yml) Access Control Service (ACS) och token som erhålls från ACS skickas till reläet för att auktorisera åtkomst till de önskade funktionerna.
 
 ACS-auktoriseringsregeln har länge ersatts av SAS- [auktorisering](../service-bus-messaging/service-bus-authentication-and-authorization.md) som önskad modell, och all dokumentation, vägledning och exempel använder bara SAS idag. Dessutom går det inte längre att skapa nya relä namn rymder som är kopplade till ACS.
 
@@ -56,5 +56,3 @@ Mer information om Azure Relay autentisering finns i följande avsnitt:
 
 * [Azure Relay autentisering och auktorisering](relay-authentication-and-authorization.md)
 * [Service Bus autentisering med signaturer för delad åtkomst](../service-bus-messaging/service-bus-sas.md)
-
-

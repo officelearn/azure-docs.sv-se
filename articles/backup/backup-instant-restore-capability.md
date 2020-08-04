@@ -4,12 +4,12 @@ description: Azure Instant Restore-funktion och vanliga frågor och svar om VM b
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 6225a7eb8198ffcca0d1e3e15f64e2b3c977dc16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ea4c3757da4e24ae0455cf35f119bf57ed644a6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248285"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531837"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhets kopiering och återställning av prestanda med Azure Backup omedelbar återställnings funktion
 
@@ -116,9 +116,3 @@ Om återställnings punkten har ögonblicks bilder och det är den senaste tillg
 
 Funktionen omedelbar återställning är aktive rad för alla och kan inte inaktive ras. Du kan minska ögonblicks bildens kvarhållning till minst en dag.
 
->[!NOTE]
-> **Azure Backup har nu stöd för säkerhets kopiering och återställning av selektiva diskar med den virtuella Azure-datorn säkerhets kopierings lösning.**
->
->Idag har Azure Backup stöd för säkerhets kopiering av alla diskar (operativ system och data) i en virtuell dator tillsammans med säkerhets kopierings lösningen för virtuella datorer. Med funktionen exkludera disk får du ett alternativ för att säkerhetskopiera ett eller flera av de många data diskarna i en virtuell dator. Detta ger en effektiv och kostnads effektiv lösning för dina säkerhets kopierings-och återställnings behov. Varje återställnings punkt innehåller data för de diskar som ingår i säkerhets kopieringen, vilket gör att du kan få en del av diskarna återställd från den aktuella återställnings punkten under återställnings åtgärden. Detta gäller för återställning av båda från ögonblicks bilden och valvet.
->
->**Registrera dig för för hands versionen genom att skriva till oss påAskAzureBackupTeam@microsoft.com**

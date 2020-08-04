@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 3195c27351ba6110c784ddd8a10ea9ddfb0d903a
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 42582c9474647c4c203bd0cafae0be664398ba41
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447357"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533911"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolering i det offentliga Azure-molnet
 
@@ -78,7 +78,7 @@ Azure RBAC har tre grundläggande roller som gäller för alla resurs typer:
 
 ![Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](./media/isolation-choices/azure-isolation-fig3.png)
 
-Resten av RBAC-rollerna i Azure möjliggör hantering av vissa Azure-resurser. Till exempel tillåter rollen Virtuell datordeltagare att en användare skapar och hanterar virtuella datorer. Den ger dem inte åtkomst till Azure-Virtual Network eller det undernät som den virtuella datorn ansluter till.
+Resten av Azure-rollerna i Azure möjliggör hantering av vissa Azure-resurser. Till exempel tillåter rollen Virtuell datordeltagare att en användare skapar och hanterar virtuella datorer. Den ger dem inte åtkomst till Azure-Virtual Network eller det undernät som den virtuella datorn ansluter till.
 
 [Inbyggda RBAC-roller](../../role-based-access-control/built-in-roles.md) visar de roller som är tillgängliga i Azure. Den anger de åtgärder och den omfattning som varje inbyggd roll ger användare. Om du vill definiera egna roller för ännu mer kontroll, se så här skapar du [anpassade roller i Azure RBAC](../../role-based-access-control/custom-roles.md).
 

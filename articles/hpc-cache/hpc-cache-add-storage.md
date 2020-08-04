@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: v-erkel
-ms.openlocfilehash: 6923bb31e53493dd01f41cb0b0449f2093bc7e91
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7ad910823c4dd2430aeae085dd8e510fcd42c80f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092481"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532602"
 ---
 # <a name="add-storage-targets"></a>Lägga till lagringsmål
 
@@ -118,7 +118,7 @@ Lagrings kontots ägare måste uttryckligen lägga till rollerna [lagrings konto
 
 Du kan göra detta i förväg eller genom att klicka på en länk på sidan där du lägger till ett Blob Storage-mål. Tänk på att det kan ta upp till fem minuter innan roll inställningarna sprids genom Azure-miljön, så du bör vänta några minuter efter att du har lagt till rollerna innan du skapar ett lagrings mål.
 
-Steg för att lägga till RBAC-roller:
+Steg för att lägga till Azure-roller:
 
 1. Öppna sidan **åtkomst kontroll (IAM)** för lagrings kontot. (Länken på sidan **Lägg till lagrings mål** öppnar automatiskt den här sidan för det valda kontot.)
 

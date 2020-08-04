@@ -3,12 +3,12 @@ title: Autentisera ett program för att få åtkomst till Azure Event Hubs-resur
 description: Den här artikeln innehåller information om hur du autentiserar ett program med Azure Active Directory för åtkomst till Azure Event Hubs-resurser
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 37f76d99ac7f676b260b8a0e23f8a6e31792e835
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2b4456f63ce6d50ab1187f65deb1ee3280487580
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413875"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531531"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autentisera ett program med Azure Active Directory för att få åtkomst till Event Hubs resurser
 Microsoft Azure ger integrerad åtkomst kontroll hantering för resurser och program baserat på Azure Active Directory (Azure AD). En viktig fördel med att använda Azure AD med Azure Event Hubs är att du inte behöver lagra dina autentiseringsuppgifter i koden längre. I stället kan du begära en OAuth 2,0-åtkomsttoken från Microsoft Identity Platform. Resurs namnet för att begära en token `https://eventhubs.azure.net/` (för Kafka-klienter är resursen att begära en token `https://<namespace>.servicebus.windows.net` ). Azure AD autentiserar säkerhets objekt (en användare, grupp eller tjänstens huvud namn) som kör programmet. Om autentiseringen lyckas returnerar Azure AD en åtkomsttoken till programmet och programmet kan sedan använda åtkomsttoken för att auktorisera begäran till Azure Event Hubs-resurser.
@@ -28,7 +28,7 @@ Azure tillhandahåller följande inbyggda Azure-roller för att auktorisera åtk
 > [!IMPORTANT]
 > Vår för hands version har stöd för att lägga till Event Hubs behörigheter för data åtkomst till ägaren eller deltagar rollen. Däremot går det inte längre att använda behörigheter för data åtkomst för rollen ägare och deltagare. Om du använder rollen ägare eller deltagare växlar du till att använda rollen Azure Event Hubs data Owner.
 
-## <a name="assign-rbac-roles-using-the-azure-portal"></a>Tilldela RBAC-roller med hjälp av Azure Portal  
+## <a name="assign-azure-roles-using-the-azure-portal"></a>Tilldela Azure-roller med hjälp av Azure Portal  
 Mer information om hur du hanterar åtkomst till Azure-resurser med RBAC och Azure Portal finns i [den här artikeln](..//role-based-access-control/role-assignments-portal.md). 
 
 När du har bestämt lämplig omfattning för en roll tilldelning navigerar du till den resursen i Azure Portal. Visa inställningarna för åtkomst kontroll (IAM) för resursen och följ de här anvisningarna för att hantera roll tilldelningar:

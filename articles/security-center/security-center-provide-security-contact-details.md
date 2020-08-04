@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 661d3845365778f7ef23cdd05b81b98c3bf84259
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a2410a5ccaa10867e94b3a2ec10228a006fbe20
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519294"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534642"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Konfigurera e-postaviseringar för säkerhets aviseringar 
 
 För att se till att rätt personer i din organisation meddelas om säkerhets aviseringar i din miljö, ange deras e-postadresser på sidan Inställningar för **e-postaviseringar** .
 
-När du konfigurerar dina aviseringar kan du konfigurera e-postmeddelanden som ska skickas till vissa individer eller till någon med en speciell RBAC-roll för en prenumeration. 
+När du konfigurerar dina aviseringar kan du konfigurera e-postmeddelanden som ska skickas till vissa individer eller till någon med en speciell Azure-roll för en prenumeration. 
 
 För att undvika aviserings utmattning begränsar Security Center volymen utgående e-post. Security Center skickar för varje prenumeration:
 
@@ -41,7 +41,7 @@ För att undvika aviserings utmattning begränsar Security Center volymen utgåe
 
 ## <a name="set-up-email-notifications-for-alerts"></a>Konfigurera e-postmeddelanden för aviseringar<a name="email"></a>
 
-Du kan skicka e-postaviseringar till individer eller till alla användare med vissa RBAC-roller.
+Du kan skicka e-postmeddelanden till enskilda användare eller till alla användare med vissa Azure-roller.
 
 1. Från Security Center **pris & inställningar för prissättning** , relevant prenumeration och välj **e-postaviseringar**.
 

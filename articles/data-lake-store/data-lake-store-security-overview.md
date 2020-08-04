@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: 7e987c56c3a125a03e3a90540313ace1f8adf47a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6a6b0b15b8d2dc08f1581cb2ea0ea4c7e8036ca
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82086580"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529984"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Säkerhet i Azure Data Lake Storage Gen1
 
@@ -20,7 +20,7 @@ Många företag drar nytta av stor data analys för affärs insikter för att hj
 
 * Autentisering
 * Auktorisering
-* Nätverksisolering
+* Isolering av nätverk
 * Dataskydd
 * Granskning
 
@@ -46,7 +46,7 @@ När Azure Active Directory autentiserat en användare så att användaren kan k
 
 Fyra grundläggande roller definieras för Data Lake Storage Gen1 som standard. Rollerna tillåter olika åtgärder på ett Data Lake Storage Gen1 konto via Azure Portal, PowerShell-cmdletar och REST-API: er. Rollen ägare och deltagare kan utföra olika administrations funktioner på kontot. Du kan tilldela rollen läsare rollen till användare som bara visar konto hanterings data.
 
-![RBAC-roller](./media/data-lake-store-security-overview/rbac-roles.png "RBAC-roller")
+![Azure-roller](./media/data-lake-store-security-overview/rbac-roles.png "Azure-roller")
 
 Observera att även om roller tilldelas för konto hantering, påverkar vissa roller åtkomsten till data. Du måste använda ACL: er för att kontrol lera åtkomsten till åtgärder som en användare kan utföra i fil systemet. I följande tabell visas en sammanfattning av hanterings rättigheter och data åtkomst rättigheter för standard rollerna.
 
@@ -68,7 +68,7 @@ Vi rekommenderar att du definierar ACL: er för flera användare med hjälp av [
 
 ![Lista åtkomst behörigheter](./media/data-lake-store-security-overview/adl.acl.2.png "Lista åtkomst behörigheter")
 
-## <a name="network-isolation"></a>Nätverksisolering
+## <a name="network-isolation"></a>Isolering av nätverk
 
 Använd Data Lake Storage Gen1 för att kontrol lera åtkomsten till ditt data lager på nätverks nivå. Du kan upprätta brand väggar och definiera ett IP-adressintervall för dina betrodda klienter. Med ett IP-adressintervall kan endast klienter som har en IP-adress inom det definierade intervallet ansluta till Data Lake Storage Gen1.
 

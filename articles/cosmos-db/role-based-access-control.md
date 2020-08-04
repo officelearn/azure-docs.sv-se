@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 858e185a0e4fa406fb4645475673acc13a0d37f3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6edf5de852ea836de8be02636dd8a971ccebb86d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086681"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530579"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Rollbaserad åtkomstkontroll i Azure Cosmos DB
 
-Azure Cosmos DB tillhandahåller inbyggd rollbaserad åtkomst kontroll (RBAC) för vanliga hanterings scenarier i Azure Cosmos DB. En person som har en profil i Azure Active Directory kan tilldela de här RBAC-rollerna till användare, grupper, tjänstens huvud namn eller hanterade identiteter för att bevilja eller neka åtkomst till resurser och åtgärder på Azure Cosmos DB resurser. Roll tilldelningar är begränsade till kontroll – endast plan åtkomst, vilket omfattar åtkomst till Azure Cosmos-konton, databaser, behållare och erbjudanden (data flöde).
+Azure Cosmos DB tillhandahåller inbyggd rollbaserad åtkomst kontroll (RBAC) för vanliga hanterings scenarier i Azure Cosmos DB. En person som har en profil i Azure Active Directory kan tilldela dessa Azure-roller till användare, grupper, tjänstens huvud namn eller hanterade identiteter för att bevilja eller neka åtkomst till resurser och åtgärder på Azure Cosmos DB resurser. Roll tilldelningar är begränsade till kontroll – endast plan åtkomst, vilket omfattar åtkomst till Azure Cosmos-konton, databaser, behållare och erbjudanden (data flöde).
 
 ## <a name="built-in-roles"></a>Inbyggda roller
 
@@ -39,13 +39,13 @@ Fönstret **åtkomst kontroll (IAM)** i Azure Portal används för att konfigure
 
 ## <a name="custom-roles"></a>Anpassade roller
 
-Förutom de inbyggda rollerna kan användare också skapa [anpassade roller](../role-based-access-control/custom-roles.md) i Azure och tillämpa dessa roller för tjänstens huvud namn i alla prenumerationer inom sin Active Directory-klient. Anpassade roller ger användare ett sätt att skapa RBAC-roll definitioner med en anpassad uppsättning av resurs leverantörs åtgärder. Om du vill veta vilka åtgärder som är tillgängliga för att skapa anpassade roller för Azure Cosmos DB, se [Azure Cosmos DB Resource Provider-åtgärder](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
+Förutom de inbyggda rollerna kan användare också skapa [anpassade roller](../role-based-access-control/custom-roles.md) i Azure och tillämpa dessa roller för tjänstens huvud namn i alla prenumerationer inom sin Active Directory-klient. Anpassade roller ger användarna möjlighet att skapa Azure-roll definitioner med en anpassad uppsättning av resurs leverantörs åtgärder. Om du vill veta vilka åtgärder som är tillgängliga för att skapa anpassade roller för Azure Cosmos DB, se [Azure Cosmos DB Resource Provider-åtgärder](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
 
 ## <a name="preventing-changes-from-the-azure-cosmos-db-sdks"></a><a id="prevent-sdk-changes"></a>Förhindra ändringar från Azure Cosmos DB SDK: er
 
 Azure Cosmos DB Resource Provider kan låsas för att förhindra ändringar av resurser från en klient som ansluter med hjälp av konto nycklarna (det vill säga program som ansluter via Azure Cosmos SDK). Detta omfattar även ändringar som gjorts från Azure Portal. Den här funktionen kan vara önskvärd för användare som vill ha högre kontroll och styrning för produktions miljöer. Om du förhindrar ändringar från SDK: n, aktive ras även funktioner som resurs lås och diagnostikloggar för kontroll Plans åtgärder. Klienter som ansluter från Azure Cosmos DB SDK kommer inte att kunna ändra någon egenskap för Azure Cosmos-konton, databaser, behållare och data flöde. De åtgärder som rör läsning och skrivning av data till Cosmos-behållare påverkas inte.
 
-När den här funktionen är aktive rad kan ändringar i alla resurser endast göras från en användare med rätt RBAC-roll och Azure Active Directory autentiseringsuppgifter, inklusive hanterade tjänst identiteter.
+När den här funktionen är aktive rad kan ändringar i alla resurser endast göras från en användare med rätt Azure-roll och Azure Active Directory autentiseringsuppgifter, inklusive hanterade tjänst identiteter.
 
 > [!WARNING]
 > Aktivering av den här funktionen kan påverka ditt program. Se till att du förstår påverkan innan du aktiverar den.

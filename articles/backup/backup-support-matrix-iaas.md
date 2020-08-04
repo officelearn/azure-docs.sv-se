@@ -4,12 +4,12 @@ description: Innehåller en översikt över support inställningar och begränsn
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: d00f6ee8c10144a7c9fd65101dd21ccb7deeb0a6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3be5bdffd999907234fff64f8f88459d9c9b18b6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289483"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531871"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 
@@ -32,13 +32,6 @@ Direkt säkerhets kopiering av virtuella Azure-datorer (endast Windows)  | Säke
 Säkerhetskopiera virtuell Azure-dator till säkerhets kopierings Server  | Säkerhetskopiera filer/mappar/volymer. system tillstånd/Bare Metal-filer; AppData till System Center DPM eller till Microsoft Azure Backup Server (MABS).<br/><br/> DPM/MABS säkerhetskopierar sedan till säkerhets kopierings valvet. | Installera DPM/MABS-skyddsagenten på den virtuella datorn. MARS-agenten installeras på DPM/MABS.| Återställ filer/mappar/volymer; system tillstånd/Bare Metal-filer; AppData.
 
 Läs mer om säkerhets kopiering [med en säkerhets kopierings Server](backup-architecture.md#architecture-back-up-to-dpmmabs) och om [support krav](backup-support-matrix-mabs-dpm.md).
-
->[!NOTE]
-> **Azure Backup har nu stöd för säkerhets kopiering och återställning av selektiva diskar med den virtuella Azure-datorn säkerhets kopierings lösning.**
->
->Idag har Azure Backup stöd för säkerhets kopiering av alla diskar (operativ system och data) i en virtuell dator tillsammans med säkerhets kopierings lösningen för virtuella datorer. Med funktionen exkludera disk får du ett alternativ för att säkerhetskopiera ett eller flera av de många data diskarna i en virtuell dator. Detta ger en effektiv och kostnads effektiv lösning för dina säkerhets kopierings-och återställnings behov. Varje återställnings punkt innehåller data för de diskar som ingår i säkerhets kopieringen, vilket gör att du kan få en del av diskarna återställd från den aktuella återställnings punkten under återställnings åtgärden. Detta gäller för återställning av båda från ögonblicks bilden och valvet.
->
->Registrera dig för för hands versionen genom att skriva till oss påAskAzureBackupTeam@microsoft.com
 
 ## <a name="supported-backup-actions"></a>Säkerhets kopierings åtgärder som stöds
 
@@ -92,7 +85,7 @@ För Azure VM Linux-säkerhetskopieringar stöder Azure Backup listan över Linu
 
 ## <a name="backup-frequency-and-retention"></a>Säkerhets kopierings frekvens och kvarhållning
 
-**Inställning** | **Begränsningar**
+**Inställning** | **Gränser**
 --- | ---
 Högsta antal återställnings punkter per skyddad instans (dator/arbets belastning) | 9999.
 Maximal förfallo tid för en återställnings punkt | Ingen gräns.
@@ -114,7 +107,7 @@ Högsta kvarhållningsperiod | Beror på säkerhetskopieringsfrekvensen.
 
 ## <a name="support-for-file-level-restore"></a>Stöd för återställning på filnivå
 
-**Återställa** | **Stöds**
+**Återställa** | **Tillåtna**
 --- | ---
 Återställa filer över operativ system | Du kan återställa filer på alla datorer som har samma (eller kompatibla) OS som den säkerhetskopierade virtuella datorn. Se den [kompatibla OS-tabellen](backup-azure-restore-files-from-vm.md#system-requirements).
 Återställa filer från krypterade virtuella datorer | Stöds inte.
@@ -127,7 +120,7 @@ Högsta kvarhållningsperiod | Beror på säkerhetskopieringsfrekvensen.
 
 I följande tabell sammanfattas stödet för säkerhets kopiering under aktiviteter för hantering av virtuella datorer, till exempel att lägga till eller ersätta VM-diskar.
 
-**Återställa** | **Stöds**
+**Återställa** | **Tillåtna**
 --- | ---
 Återställ över prenumeration/region/zon. | Stöds inte.
 Återställa till en befintlig virtuell dator | Använd alternativet Ersätt disk.
@@ -201,7 +194,7 @@ Nätverkstrafik till Azure:
 - Säkerhets kopierings trafik från servrar till Recovery Services-valvet krypteras med hjälp av Advanced Encryption Standard 256.
 - Säkerhetskopierade data skickas via en säker HTTPS-anslutning.
 - Säkerhetskopierade data lagras i Recovery Services-valvet i krypterad form.
-- Endast du har tillgång till den lösenfras som krävs för att låsa upp dessa data. Microsoft kan aldrig dekryptera säkerhetskopierade data.
+- Du har bara krypterings nyckeln för att låsa upp dessa data. Microsoft kan aldrig dekryptera säkerhetskopierade data.
 
   > [!WARNING]
   > När du har konfigurerat valvet har du bara åtkomst till krypterings nyckeln. Microsoft sparar aldrig någon kopia och har inte åtkomst till nyckeln. Om du tappar bort nyckeln kan Microsoft inte återställa dina säkerhetskopierade data.
@@ -230,8 +223,8 @@ Säkerhets kopiering stöder komprimering av säkerhets kopierings trafik, som s
 --- | --- | ---
 Lokala Windows-datorer utan DPM/MABS | Ej tillämpligt | ![Ja][green]
 Virtuella Azure-datorer | NA | NA
-Lokala/virtuella Azure-datorer med DPM | ![Ja][green] | ![Ja][green]
-Lokala/virtuella Azure-datorer med MABS | ![Ja][green] | ![Ja][green]
+Lokala/virtuella Azure-datorer med DPM | ![Yes][green] | ![Yes][green]
+Lokala/virtuella Azure-datorer med MABS | ![Yes][green] | ![Ja][green]
 
 ## <a name="next-steps"></a>Nästa steg
 

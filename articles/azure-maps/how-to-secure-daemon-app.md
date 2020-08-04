@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 066118622f19d7efac71ddd66ac1abe058008b55
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: cc39f8250ddc1b2fb1baaf073969f6aab5b1372c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126779"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531379"
 ---
 # <a name="secure-a-daemon-application"></a>Skydda ett daemon-program
 
@@ -109,7 +109,7 @@ När det körs på en icke-Azure-miljö hanterade identiteter är inte tillgäng
 
 ### <a name="grant-role-based-access-for-the-daemon-application-to-azure-maps"></a>Bevilja rollbaserad åtkomst till daemon-programmet för att Azure Maps
 
-Du beviljar *rollbaserad åtkomst kontroll* (RBAC) genom att tilldela antingen den skapade hanterade identiteten eller tjänstens huvud namn till en eller flera Azure Maps åtkomst kontroll roll definitioner. Om du vill visa de roll definitioner för RBAC som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)**. Välj **roller**och Sök sedan efter roller som börjar med *Azure Maps*. Dessa Azure Maps roller är de roller som du kan bevilja åtkomst till.
+Du beviljar *rollbaserad åtkomst kontroll* (RBAC) genom att tilldela antingen den skapade hanterade identiteten eller tjänstens huvud namn till en eller flera Azure Maps åtkomst kontroll roll definitioner. Om du vill visa de roll definitioner för Azure som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)**. Välj **roller**och Sök sedan efter roller som börjar med *Azure Maps*. Dessa Azure Maps roller är de roller som du kan bevilja åtkomst till.
 
 > [!div class="mx-imgBorder"]
 > ![Visa tillgängliga roller](./media/how-to-manage-authentication/how-to-view-avail-roles.png)

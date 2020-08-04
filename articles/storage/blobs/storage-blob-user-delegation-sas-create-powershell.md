@@ -10,12 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 99d8ab3b7edc2d32e580ec8de9132fef3ea3503a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 97eb3f4cbb4ac76823ebe43126db6b5c2a10010b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424349"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533979"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Skapa en användar Delegerings-SAS för en behållare eller BLOB med PowerShell
 
@@ -78,7 +78,7 @@ Mer information om hur du loggar in med PowerShell finns i [Logga in med Azure P
 
 Om du vill skapa en användar Delegerings-SAS från Azure PowerShell måste det Azure AD-konto som används för att logga in på PowerShell tilldelas en roll som innehåller åtgärden **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** . Med den här behörigheten kan Azure AD-kontot begära *användar Delegerings nyckeln*. Användar Delegerings nyckeln används för att signera användar Delegerings-SAS. Rollen som tillhandahåller åtgärden **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** måste tilldelas på lagrings kontots nivå, resurs gruppen eller prenumerationen. Mer information om RBAC-behörigheter för att skapa en användar Delegerings-SAS finns i avsnittet **tilldela behörigheter med RBAC** i [skapa en användar Delegerings-SAS](/rest/api/storageservices/create-user-delegation-sas).
 
-Om du inte har tillräcklig behörighet för att tilldela RBAC-roller till ett säkerhets objekt i Azure AD kan du behöva be kontots ägare eller administratör att tilldela de nödvändiga behörigheterna.
+Om du inte har tillräcklig behörighet för att tilldela Azure-roller till ett säkerhets objekt i Azure AD kan du behöva be kontots ägare eller administratör att tilldela de nödvändiga behörigheterna.
 
 I följande exempel tilldelas rollen **Storage BLOB data Contributor** , som innehåller åtgärden **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** . Rollen är begränsad på lagrings kontots nivå.
 

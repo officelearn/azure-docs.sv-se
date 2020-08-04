@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 4257b2fab5e0cca0cb016794673ed39ae4973895
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: af19b72846c78ef80ba170b6d6e0cec97fa2b96e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067414"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533367"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Vad är nytt i Azure SQL Database & SQL-hanterad instans?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -137,7 +137,7 @@ I vissa fall kan det hända att agenten slutar svara om du ändrar, inaktiverar 
 
 ### <a name="permissions-on-resource-group-not-applied-to-sql-managed-instance"></a>Behörigheter för resurs gruppen gäller inte för SQL-hanterad instans
 
-När RBAC-rollen SQL-hanterad instans Contributor tillämpas på en resurs grupp (RG), tillämpas den inte på SQL-hanterad instans och har ingen effekt.
+När Azure-rollen SQL-hanterad instans deltagare används i en resurs grupp (RG), tillämpas den inte på SQL-hanterad instans och har ingen effekt.
 
 **Lösning**: Konfigurera en SQL-hanterad instans deltagar roll för användare på prenumerations nivå.
 

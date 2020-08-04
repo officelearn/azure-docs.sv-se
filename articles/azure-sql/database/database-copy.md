@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 07/29/2020
-ms.openlocfilehash: 968fe5a0f4999c25486189384186c23d1fcd5509
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 4189ea5fd0b2b52b5bf1e0614e4b43b9411df31d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430256"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530393"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Kopiera en transaktions konsekvent kopia av en databas i Azure SQL Database
 
@@ -133,7 +133,7 @@ Du kan använda stegen i avsnittet [Kopiera en SQL Database till en annan server
 > [!IMPORTANT]
 > Om du behöver skapa en kopia med ett betydligt mindre tjänst mål än källan, kanske mål databasen inte har tillräckligt med resurser för att slutföra initierings processen och det kan leda till att kopieringen Miss lyckas. I det här scenariot använder du en geo-Restore-begäran för att skapa en kopia på en annan server och/eller en annan region. Mer information finns i [återställa en Azure SQL Database med hjälp av databas säkerhets kopior](recovery-using-backups.md#geo-restore) .
 
-## <a name="rbac-roles-to-manage-database-copy"></a>RBAC-roller för att hantera databas kopia
+## <a name="azure-roles-to-manage-database-copy"></a>Azure-roller för att hantera databas kopiering
 
 Om du vill skapa en databas kopia måste du ha följande roller
 
@@ -155,7 +155,7 @@ Om du vill hantera databas kopieringen med hjälp av Azure Portal måste du ocks
 
    Microsoft. Resources/Subscriptions/resurser/Läs Microsoft. Resources/Subscriptions/Resources/Write Microsoft. Resources/Deployments/Read Microsoft. Resources/Deployments/Write Microsoft. Resources/operationstatuses/Read
 
-Om du vill se åtgärder under distributioner i resurs gruppen på portalen, så behöver du flera olika resurs leverantörer, inklusive SQL-åtgärder, du behöver dessa ytterligare RBAC-roller:
+Om du vill se åtgärder under distributioner i resurs gruppen på portalen, måste du ha följande ytterligare Azure-roller för åtgärder i flera olika resurs leverantörer, inklusive SQL-åtgärder:
 
    Microsoft. Resources/Subscriptions/ResourceGroups/Deployments/Operations/Read Microsoft. Resources/Subscriptions/ResourceGroups/distributions/operationstatuses/Read
 

@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 3dea4c0f63b6c4e76c2289e6c3d930ea32cf2880
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 87dc1ccb887638226607a1e398c7532de8d2c94f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373223"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534540"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Hantera lagrings konto nycklar med Key Vault och Azure PowerShell
 
@@ -43,13 +43,13 @@ En Azure AD-klient tillhandahåller varje registrerat program med ett [huvud nam
 
 Key Vault är ett Microsoft-program som är förregistrerat i alla Azure AD-klienter. Key Vault registreras under samma program-ID i varje Azure-moln.
 
-| Klientorganisationer | Moln | Program-ID |
+| Klientorganisationer | Molnet | Program-ID |
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Azure, offentlig | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Annat  | Valfri | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Övrigt  | Valfri | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här guiden måste du först göra följande:
 
@@ -104,7 +104,7 @@ Innan Key Vault kan komma åt och hantera dina lagrings konto nycklar måste du 
 Tilldela den här rollen till Key Vault tjänstens huvud namn, begränsa omfattningen till ditt lagrings konto med hjälp Azure PowerShell av cmdleten [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment?view=azps-2.6.0) .
 
 ```azurepowershell-interactive
-# Assign RBAC role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role." 
+# Assign Azure role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role." 
 New-AzRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
 ```
 

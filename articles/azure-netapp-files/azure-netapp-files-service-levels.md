@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: b-juche
-ms.openlocfilehash: 0398cc6a5336141f51dde26ed7cf4cce8c2c0bb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 639f1e09fdb5603965209e5b5ee6c224ad238b76
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75832589"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533129"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Tjänstnivåer för Azure NetApp Files
 Service nivåer är ett attribut för en pool med kapacitets värden. Service nivåer definieras och särskiljs av det tillåtna maximala data flödet för en volym i kapacitetsutnyttjandet baserat på den kvot som har tilldelats till volymen.
@@ -56,7 +56,8 @@ I exempel 2 ovan tilldelas en volym från en kapacitets pool med Premium Storage
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Priserna för olika tjänstnivåer finns på [prissättningssidan för Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
-- Se [kostnads modell för Azure NetApp Files](azure-netapp-files-cost-model.md) för att beräkna kapacitets förbrukningen i en kapacitets pool 
+- [Sidan Azure NetApp Files prissättning](https://azure.microsoft.com/pricing/details/storage/netapp/)
+- [Kostnadsmodell för Azure NetApp Files](azure-netapp-files-cost-model.md) 
 - [Konfigurera en kapacitetspool](azure-netapp-files-set-up-capacity-pool.md)
-- Se [serviceavtal (SLA) för Azure NetApp Files](https://azure.microsoft.com/support/legal/sla/netapp/)
+- [Serviceavtal (SLA) för Azure NetApp Files](https://azure.microsoft.com/support/legal/sla/netapp/)
+- [Ändra tjänstnivå för en volym dynamiskt](dynamic-change-volume-service-level.md) 

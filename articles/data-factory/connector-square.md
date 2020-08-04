@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/01/2019
-ms.openlocfilehash: ac968271685c66c8fab8d7723d994a446f49e85f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/03/2020
+ms.openlocfilehash: 2bfe9115f38c79618924379837dda8014ee31ed5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81410318"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529372"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Kopiera data från kvadrat med Azure Data Factory (för hands version)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -34,7 +34,6 @@ Den här fyr kantens koppling stöds för följande aktiviteter:
 - [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Söknings aktivitet](control-flow-lookup-activity.md)
 
-
 Du kan kopiera data från kvadrat till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
 Azure Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning, och du behöver därför inte installera någon driv rutin manuellt med hjälp av den här anslutningen.
@@ -49,16 +48,26 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för länkad rektangulär tjänst:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **Square** | Ja |
-| värd | URL: en för den fyrkantiga instansen. (t. ex. mystore.mysquare.com)  | Ja |
-| ClientID | Det klient-ID som är associerat med ditt fyrkantiga program.  | Ja |
-| clientSecret | Den klient hemlighet som är associerad med ditt fyrkantiga program. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| redirectUri | Omdirigerings-URL: en som tilldelats i den fyrkantiga program instrument panelen. (t. ex. http: \/ /localhost: 2500)  | Ja |
-| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | Nej |
-| useHostVerification | Anger om värd namnet i Server certifikatet måste matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är True.  | Nej |
-| usePeerVerification | Anger om du vill verifiera serverns identitet vid anslutning via TLS. Standardvärdet är True.  | Nej |
+| typ | Egenskapen Type måste anges till: **Square** | Yes |
+| connectionProperties | En grupp egenskaper som definierar hur du ansluter till en fyrkant. | Yes |
+| ***Under `connectionProperties` :*** | | |
+| värd | URL: en för den fyrkantiga instansen. (t. ex. mystore.mysquare.com)  | Yes |
+| ClientID | Det klient-ID som är associerat med ditt fyrkantiga program.  | Yes |
+| clientSecret | Den klient hemlighet som är associerad med ditt fyrkantiga program. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| accessToken | Den åtkomsttoken som hämtades från fyrkant. Ger begränsad åtkomst till ett kvadratiskt konto genom att be en autentiserad användare om uttrycklig behörighet. OAuth-åtkomsttoken upphör att gälla 30 dagar efter utfärdat, men uppdateringstoken upphör inte att gälla. Åtkomsttoken kan uppdateras med en uppdateringstoken.<br>Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md).  | Yes |
+| refreshToken | Uppdateringstoken som hämtades från fyrkant. Används för att hämta nya åtkomsttoken när den aktuella är förfaller.<br>Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | No |
+| useHostVerification | Anger om värd namnet i Server certifikatet måste matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är True.  | No |
+| usePeerVerification | Anger om du vill verifiera serverns identitet vid anslutning via TLS. Standardvärdet är True.  | No |
+
+Square stöder två typer av åtkomsttoken: **personal** och **OAuth**.
+
+- Personliga åtkomsttoken används för att få obegränsad anslutnings-API-åtkomst till resurser i ditt eget fyrkant konto.
+- OAuth-åtkomsttoken används för att hämta autentiserad och begränsad kopplings-API-åtkomst till ett kvadratiskt konto. Använd dem när din app har åtkomst till resurser i andra fyrkantiga konton å uppdrag av konto innehavare. OAuth-åtkomsttoken kan också användas för att komma åt resurser i ditt eget fyrkant konto.
+
+I Data Factory behöver autentisering via personlig åtkomsttoken bara `accessToken` , medan autentisering via OAuth kräver `accessToken` och `refreshToken` . Lär dig hur du hämtar åtkomsttoken härifrån [.](https://developer.squareup.com/docs/build-basics/access-tokens)
 
 **Exempel:**
 
@@ -68,13 +77,25 @@ Följande egenskaper stöds för länkad rektangulär tjänst:
     "properties": {
         "type": "Square",
         "typeProperties": {
-            "host" : "mystore.mysquare.com",
-            "clientId" : "<clientId>",
-            "clientSecret": {
-                 "type": "SecureString",
-                 "value": "<clientSecret>"
-            },
-            "redirectUri" : "http://localhost:2500"
+            "connectionProperties": {
+                "host": "<e.g. mystore.mysquare.com>", 
+                "clientId": "<client ID>", 
+                "clientSecrect": {
+                    "type": "SecureString",
+                    "value": "<clientSecret>"
+                }, 
+                "accessToken": {
+                    "type": "SecureString",
+                    "value": "<access token>"
+                }, 
+                "refreshToken": {
+                    "type": "SecureString",
+                    "value": "<refresh token>"
+                }, 
+                "useEncryptedEndpoints": true, 
+                "useHostVerification": true, 
+                "usePeerVerification": true 
+            }
         }
     }
 }
@@ -86,9 +107,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från kvadrat anger du egenskapen type för data uppsättningen till **SquareObject**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **SquareObject** | Ja |
+| typ | Data uppsättningens typ-egenskap måste anges till: **SquareObject** | Yes |
 | tableName | Tabellens namn. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
@@ -116,9 +137,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från kvadrat anger du käll typen i kopierings aktiviteten till **SquareSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **SquareSource** | Ja |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **SquareSource** | Yes |
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM Business"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**

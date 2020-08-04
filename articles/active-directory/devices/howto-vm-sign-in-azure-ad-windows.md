@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3dcb3a74e9341981af7e6eddb4be7454aaf429b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2fcd1c3a9fd3e4be22e4057eb2cfc9a71d09d558
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419792"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529117"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på den virtuella Windows-datorn i Azure med Azure Active Directory autentisering (för hands version)
 
@@ -144,7 +144,7 @@ az vm extension set \
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Konfigurera roll tilldelningar för den virtuella datorn
 
-Nu när du har skapat den virtuella datorn måste du konfigurera en Azure RBAC-princip för att fastställa vem som kan logga in på den virtuella datorn. Två RBAC-roller används för att auktorisera VM-inloggning:
+Nu när du har skapat den virtuella datorn måste du konfigurera en Azure RBAC-princip för att fastställa vem som kan logga in på den virtuella datorn. Två Azure-roller används för att auktorisera VM-inloggning:
 
 - **Administratörs inloggning för virtuell dator**: användare med den här rollen som tilldelas kan logga in på en virtuell Azure-dator med administratörs behörighet.
 - **Användar inloggning för virtuell dator**: användare med den här rollen tilldelad kan logga in på en virtuell Azure-dator med vanliga användar behörigheter.
@@ -208,7 +208,7 @@ Du kan tillämpa principer för villkorlig åtkomst, till exempel Multi-Factor A
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Logga in med autentiseringsuppgifter för Azure AD till en virtuell Windows-dator
 
 > [!IMPORTANT]
-> Fjärr anslutning till virtuella datorer som är anslutna till Azure AD tillåts endast från Windows 10-datorer som antingen är registrerade i Azure AD (minsta version som krävs är 20H1) eller Azure AD-ansluten eller hybrid Azure AD som är ansluten till **samma** katalog som den virtuella datorn. För RDP med Azure AD-autentiseringsuppgifter måste användaren dessutom tillhöra en av de två RBAC-rollerna, en virtuell dator Administratörs inloggning eller användar inloggning för virtuella datorer. Om du använder en Azure AD-registrerad Windows 10-dator måste du ange autentiseringsuppgifter i AzureAD\UPN-format (t. ex. AzureAD\john@contoso.com ). För närvarande går det inte att använda Azure-skydds för att logga in med hjälp av Azure Active Directory-autentisering med AADLoginForWindows-tillägget. endast direkt RDP stöds.
+> Fjärr anslutning till virtuella datorer som är anslutna till Azure AD tillåts endast från Windows 10-datorer som antingen är registrerade i Azure AD (minsta version som krävs är 20H1) eller Azure AD-ansluten eller hybrid Azure AD som är ansluten till **samma** katalog som den virtuella datorn. För RDP med Azure AD-autentiseringsuppgifter måste användaren dessutom tillhöra en av de två Azure-rollerna, logga in för virtuella datorer eller användar inloggning för virtuella datorer. Om du använder en Azure AD-registrerad Windows 10-dator måste du ange autentiseringsuppgifter i AzureAD\UPN-format (t. ex. AzureAD\john@contoso.com ). För närvarande går det inte att använda Azure-skydds för att logga in med hjälp av Azure Active Directory-autentisering med AADLoginForWindows-tillägget. endast direkt RDP stöds.
 
 Logga in på din virtuella Windows Server 2019-dator med hjälp av Azure AD: 
 
@@ -315,13 +315,13 @@ Vid en offentlig för hands version är AADLoginForWindows-tillägget endast avs
 
 ### <a name="troubleshoot-sign-in-issues"></a>Felsöka inloggnings problem
 
-Några vanliga fel när du försöker använda RDP med Azure AD-autentiseringsuppgifter inkluderar inga RBAC-roller tilldelade, otillåten klient eller 2FA inloggnings metod krävs. Använd följande information för att åtgärda problemen.
+Några vanliga fel när du försöker använda RDP med Azure AD-autentiseringsuppgifter inkluderar inga Azure-roller tilldelade, otillåten klient eller 2FA inloggnings metod krävs. Använd följande information för att åtgärda problemen.
 
 Du kan visa enhets-och SSO-status genom att köra `dsregcmd /status` . Målet är för enhets tillstånd att visa som `AzureAdJoined : YES` och `SSO State` att visa `AzureAdPrt : YES` .
 
 Dessutom registreras RDP-inloggning med Azure AD-konton i logg boken under händelse loggarna för AAD\Operational.
 
-#### <a name="rbac-role-not-assigned"></a>RBAC-rollen har inte tilldelats
+#### <a name="azure-role-not-assigned"></a>Ingen Azure-roll har tilldelats
 
 Om du ser följande fel meddelande när du startar en fjärr skrivbords anslutning till den virtuella datorn: 
 

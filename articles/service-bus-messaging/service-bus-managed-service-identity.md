@@ -3,12 +3,12 @@ title: Hanterade identiteter för Azure-resurser med Service Bus
 description: Den här artikeln beskriver hur du använder hanterade identiteter för att få åtkomst till Azure Service Bus entiteter (köer, ämnen och prenumerationer).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 7fbf0ec36f54f9ba5f8593094dbb0231881cbaef
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: cdb4329f00138c51826ced1627ff316fc5fd4619
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423141"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534659"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autentisera en hanterad identitet med Azure Active Directory för att få åtkomst till Azure Service Bus resurser
 [Hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) är en funktion i Azure som gör att du kan skapa en säker identitet som är kopplad till den distribution som program koden körs under. Du kan sedan associera identiteten med åtkomst kontroll roller som ger anpassade behörigheter för åtkomst till specifika Azure-resurser som ditt program behöver.
@@ -23,15 +23,15 @@ När ett säkerhets objekt (en användare, grupp eller ett program) försöker f
 
 Autentiserings steget kräver att en programbegäran innehåller en OAuth 2,0-åtkomsttoken vid körning. Om ett program körs i en Azure-entitet, till exempel en virtuell Azure-dator, en skalnings uppsättning för virtuella datorer eller en Azure Function-app, kan den använda en hanterad identitet för att få åtkomst till resurserna. 
 
-Auktoriserings steget kräver att en eller flera RBAC-roller tilldelas säkerhets objekt. Azure Service Bus tillhandahåller RBAC-roller som omfattar uppsättningar med behörigheter för Service Bus resurser. Rollerna som tilldelas ett säkerhets objekt bestämmer vilka behörigheter som huvud kontot ska ha. Mer information om hur du tilldelar RBAC-roller till Azure Service Bus finns i [inbyggda roller i Azure för Azure Service Bus](#azure-built-in-roles-for-azure-service-bus). 
+Auktoriserings steget kräver att en eller flera Azure-roller tilldelas säkerhets objekt. Azure Service Bus tillhandahåller Azure-roller som omfattar uppsättningar med behörigheter för Service Bus resurser. Rollerna som tilldelas ett säkerhets objekt bestämmer vilka behörigheter som huvud kontot ska ha. Mer information om hur du tilldelar Azure-roller till Azure Service Bus finns i [inbyggda roller i Azure för Azure Service Bus](#azure-built-in-roles-for-azure-service-bus). 
 
 Interna program och webb program som gör förfrågningar till Service Bus kan också auktoriseras med Azure AD. Den här artikeln visar hur du begär en åtkomsttoken och använder den för att auktorisera begär Anden för Service Bus resurser. 
 
 
-## <a name="assigning-rbac-roles-for-access-rights"></a>Tilldela RBAC-roller för åtkomst rättigheter
+## <a name="assigning-azure-roles-for-access-rights"></a>Tilldela Azure-roller för åtkomst rättigheter
 Azure Active Directory (Azure AD) tillåter åtkomst rättigheter till skyddade resurser via [rollbaserad åtkomst kontroll (RBAC)](../role-based-access-control/overview.md). Azure Service Bus definierar en uppsättning inbyggda Azure-roller som omfattar vanliga uppsättningar med behörigheter som används för att komma åt Service Bus entiteter och du kan också definiera anpassade roller för åtkomst till data.
 
-När en RBAC-roll tilldelas till ett säkerhets objekt i Azure AD ger Azure åtkomst till dessa resurser för säkerhets objekt. Åtkomst kan begränsas till prenumerations nivån, resurs gruppen eller Service Bus namn området. Ett säkerhets objekt i Azure AD kan vara en användare, en grupp, ett huvud namn för program tjänsten eller en hanterad identitet för Azure-resurser.
+När en Azure-roll tilldelas till ett säkerhets objekt för Azure AD ger Azure åtkomst till dessa resurser för säkerhets objekt. Åtkomst kan begränsas till prenumerations nivån, resurs gruppen eller Service Bus namn området. Ett säkerhets objekt i Azure AD kan vara en användare, en grupp, ett huvud namn för program tjänsten eller en hanterad identitet för Azure-resurser.
 
 ## <a name="azure-built-in-roles-for-azure-service-bus"></a>Inbyggda Azure-roller för Azure Service Bus
 För Azure Service Bus är hanteringen av namn rymder och alla relaterade resurser via Azure Portal och Azure Resource Management-API: t redan skyddade med hjälp av RBAC-modellen ( *rollbaserad åtkomst kontroll* ). Azure tillhandahåller de följande inbyggda Azure-rollerna för att auktorisera åtkomst till en Service Bus namnrymd:
@@ -41,11 +41,11 @@ För Azure Service Bus är hanteringen av namn rymder och alla relaterade resurs
 - [Azure Service Bus data mottagare](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver): Använd den här rollen för att ge åtkomst till Service Bus namnrymd och dess entiteter. 
 
 ## <a name="resource-scope"></a>Resursomfång 
-Innan du tilldelar en RBAC-roll till ett säkerhets objekt bör du bestämma omfattningen av åtkomsten som säkerhets objekt ska ha. Bästa praxis är att bestämma att det alltid är bäst att bara bevilja det begränsande möjliga omfånget.
+Innan du tilldelar en Azure-roll till ett säkerhets objekt bör du bestämma omfattningen av åtkomsten som säkerhets objekt ska ha. Bästa praxis är att bestämma att det alltid är bäst att bara bevilja det begränsande möjliga omfånget.
 
 I följande lista beskrivs de nivåer där du kan begränsa åtkomsten till Service Bus resurser, från och med det smala omfång:
 
-- **Kö**, **ämne**eller **prenumeration**: roll tilldelningen gäller för den angivna Service Bus entiteten. För närvarande stöder Azure Portal inte tilldelning av användare/grupper/hanterade identiteter till Service Bus RBAC-roller på prenumerations nivå. Här är ett exempel på hur du använder Azure CLI-kommandot: [AZ-Role-tilldelning-Create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) för att tilldela en identitet till en Service Bus RBAC-roll: 
+- **Kö**, **ämne**eller **prenumeration**: roll tilldelningen gäller för den angivna Service Bus entiteten. För närvarande har Azure Portal inte stöd för att tilldela användare/grupper/hanterade identiteter till Service Bus Azure-roller på prenumerations nivån. Här är ett exempel på hur du använder Azure CLI-kommandot: [AZ-Role-Assignment-Create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) för att tilldela en identitet till en Service Bus Azure-roll: 
 
     ```azurecli
     az role assignment create \
@@ -68,13 +68,13 @@ Innan du kan använda hanterade identiteter för Azure-resurser för att auktori
 - [Azure Portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Azure Resource Manager-mall](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Azure Resource Manager mall](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Azure Resource Manager klient bibliotek](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Bevilja behörighet till en hanterad identitet i Azure AD
-Om du vill auktorisera en begäran till Service Bus tjänsten från en hanterad identitet i ditt program måste du först konfigurera rollbaserad åtkomst kontroll (RBAC) inställningar för den hanterade identiteten. Azure Service Bus definierar RBAC-roller som omfattar behörigheter för att skicka och läsa från Service Bus. När RBAC-rollen tilldelas till en hanterad identitet beviljas den hanterade identiteten åtkomst till Service Bus entiteter i lämplig omfattning.
+Om du vill auktorisera en begäran till Service Bus tjänsten från en hanterad identitet i ditt program måste du först konfigurera rollbaserad åtkomst kontroll (RBAC) inställningar för den hanterade identiteten. Azure Service Bus definierar Azure-roller som omfattar behörigheter för att skicka och läsa från Service Bus. När Azure-rollen tilldelas till en hanterad identitet beviljas den hanterade identiteten åtkomst till Service Bus entiteter i lämplig omfattning.
 
-Mer information om hur du tilldelar RBAC-roller finns i [autentisera och auktorisera med Azure Active Directory för åtkomst till Service Bus resurser](authenticate-application.md#azure-built-in-roles-for-azure-service-bus).
+Mer information om hur du tilldelar Azure-roller finns i [autentisera och auktorisera med Azure Active Directory för åtkomst till Service Bus resurser](authenticate-application.md#azure-built-in-roles-for-azure-service-bus).
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Använda Service Bus med hanterade identiteter för Azure-resurser
 Om du vill använda Service Bus med hanterade identiteter måste du tilldela identiteten rollen och lämplig omfattning. I proceduren i det här avsnittet används ett enkelt program som körs under en hanterad identitet och som har åtkomst till Service Bus resurser.
@@ -93,7 +93,7 @@ När du har aktiverat den här inställningen skapas en ny tjänst identitet i d
 
 Tilldela nu den här tjänst identiteten till en roll i det begärda omfånget i Service Bus-resurser.
 
-### <a name="to-assign-rbac-roles-using-the-azure-portal"></a>Tilldela RBAC-roller med hjälp av Azure Portal
+### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Så här tilldelar du Azure-roller med hjälp av Azure Portal
 Om du vill tilldela en roll till en Service Bus-namnrymd navigerar du till namn området i Azure Portal. Visa inställningarna för Access Control (IAM) för resursen och följ de här anvisningarna för att hantera roll tilldelningar:
 
 > [!NOTE]

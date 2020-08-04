@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 08/03/2020
 ms.author: jingwang
-ms.openlocfilehash: ba5105c6183c88ca7e5641cdacaa5d80ea529bc6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14b3857211eca39ebe09a3a0752ca1d8eee17bc0
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263898"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530001"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Kopiera data från Xero med hjälp av Azure Data Factory
 
@@ -36,7 +36,8 @@ Du kan kopiera data från Xero till alla mottagar data lager som stöds. En list
 Mer specifikt stöder denna Xero-anslutning:
 
 - Xero [privat program](https://developer.xero.com/documentation/getting-started/getting-started-guide) , men inte offentligt program.
-- Alla Xero-tabeller (API-slutpunkter) utom "rapporter". 
+- Alla Xero-tabeller (API-slutpunkter) utom "rapporter".
+- OAuth 1,0-och OAuth 2,0-autentisering.
 
 Azure Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning, och du behöver därför inte installera någon driv rutin manuellt med hjälp av den här anslutningen.
 
@@ -50,17 +51,22 @@ I följande avsnitt finns information om egenskaper som används för att defini
 
 Följande egenskaper stöds för den länkade tjänsten Xero:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **Xero** | Ja |
-| värd | Slut punkten för Xero-servern ( `api.xero.com` ).  | Ja |
-| consumerKey | Den konsument nyckel som är associerad med Xero-programmet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| privateKey | Den privata nyckeln från. pem-filen som skapades för ditt Xero privata program, se [skapa ett offentligt/privat nyckel par](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Obs! det går inte att **skapa PrivateKey. pem med numbits av 512** med `openssl genrsa -out privatekey.pem 512` ; 1024. Ta med all text från. pem-filen, inklusive UNIX-slutpunkter (\n), se exemplet nedan.<br/><br/>Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| typ | Egenskapen Type måste anges till: **Xero** | Yes |
+| connectionProperties | En grupp egenskaper som definierar hur du ansluter till Xero. | Yes |
+| ***Under `connectionProperties` :*** | | |
+| värd | Slut punkten för Xero-servern ( `api.xero.com` ).  | Yes |
+| authenticationType | Tillåtna värden är `OAuth_2.0` och `OAuth_1.0` . | Yes |
+| consumerKey | Den konsument nyckel som är associerad med Xero-programmet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| privateKey | Den privata nyckeln från. pem-filen som skapades för ditt Xero privata program, se [skapa ett offentligt/privat nyckel par](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Obs! det går inte att **skapa PrivateKey. pem med numbits 512** med `openssl genrsa -out privatekey.pem 512` 1024. Ta med all text från. pem-filen, inklusive UNIX-slutpunkter (\n), se exemplet nedan.<br/>Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| tenantId | Det klient-ID som är associerat med ditt Xero-program. Gäller för OAuth 2,0-autentisering.<br>Lär dig hur du hämtar klient-ID: t från [kontrol lera de innehavare som du har behörighet att komma åt](https://developer.xero.com/documentation/oauth2/auth-flow). | Ja för OAuth 2,0-autentisering |
+| refreshToken | Den OAuth 2,0-uppdateringstoken som är associerad med Xero-programmet som används för att uppdatera åtkomsttoken när åtkomsttoken upphör att gälla. Gäller för OAuth 2,0-autentisering. Lär dig hur du hämtar uppdateringstoken från [den här artikeln](https://developer.xero.com/documentation/oauth2/auth-flow).<br>Uppdateringstoken upphör aldrig att gälla. Om du vill hämta en uppdateringstoken måste du begära [offline_access-omfånget](https://developer.xero.com/documentation/oauth2/scopes).<br/>Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja för OAuth 2,0-autentisering |
 | useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | No |
 | useHostVerification | Anger om värd namnet krävs i serverns certifikat för att matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är True.  | No |
 | usePeerVerification | Anger om du vill verifiera serverns identitet vid anslutning via TLS. Standardvärdet är True.  | No |
 
-**Exempel:**
+**Exempel: OAuth 2,0-autentisering**
 
 ```json
 {
@@ -68,15 +74,54 @@ Följande egenskaper stöds för den länkade tjänsten Xero:
     "properties": {
         "type": "Xero",
         "typeProperties": {
-            "host" : "api.xero.com",
-            "consumerKey": {
-                 "type": "SecureString",
-                 "value": "<consumerKey>"
-            },
-            "privateKey": {
-                 "type": "SecureString",
-                 "value": "<privateKey>"
-            }
+            "connectionProperties": { 
+                "host": "api.xero.com",
+                "authenticationType":"OAuth_2.0", 
+                "consumerKey": {
+                    "type": "SecureString",
+                    "value": "<consumer key>"
+                },
+                "privateKey": {
+                    "type": "SecureString",
+                    "value": "<private key>"
+                },
+                "tenantId": "<tenant ID>", 
+                "refreshToken": {
+                    "type": "SecureString",
+                    "value": "<refresh token>"
+                }, 
+                "useEncryptedEndpoints": true, 
+                "useHostVerification": true, 
+                "usePeerVerification": true
+            }            
+        }
+    }
+}
+```
+
+**Exempel: OAuth 1,0-autentisering**
+
+```json
+{
+    "name": "XeroLinkedService",
+    "properties": {
+        "type": "Xero",
+        "typeProperties": {
+            "connectionProperties": {
+                "host": "api.xero.com", 
+                "authenticationType":"OAuth_1.0", 
+                "consumerKey": {
+                    "type": "SecureString",
+                    "value": "<consumer key>"
+                },
+                "privateKey": {
+                    "type": "SecureString",
+                    "value": "<private key>"
+                }, 
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
         }
     }
 }
@@ -96,9 +141,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Xero anger du egenskapen type för data uppsättningen till **XeroObject**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **XeroObject** | Ja |
+| typ | Data uppsättningens typ-egenskap måste anges till: **XeroObject** | Yes |
 | tableName | Tabellens namn. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
@@ -126,9 +171,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Xero anger du käll typen i kopierings aktiviteten till **XeroSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **XeroSource** | Ja |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **XeroSource** | Yes |
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM Contacts"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**

@@ -3,12 +3,12 @@ title: Översikt över Azure Blueprint
 description: Förstå hur tjänsten Azure-ritningar ger dig möjlighet att skapa, definiera och distribuera artefakter i din Azure-miljö.
 ms.date: 05/06/2020
 ms.topic: overview
-ms.openlocfilehash: 3a7cece81027bd8ac79250f2f2cd08da637b5f0b
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: a8cec34bb5bdd52b22063a4109153c7f455aaa65
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970934"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530414"
 ---
 # <a name="what-is-azure-blueprints"></a>Vad är Azure Blueprint?
 
@@ -33,21 +33,21 @@ Med Azure-ritningar bevaras relationen mellan skiss definitionen (vad _ska_ dist
 
 Du behöver inte välja mellan en ARM-mall och en skiss. Varje skiss kan bestå av noll eller fler _artefakter_för ARM-mallar. Det här stödet innebär att tidigare ansträngningar för att utveckla och underhålla ett bibliotek med ARM-mallar kan återanvändas i Azure-ritningar.
 
-## <a name="how-its-different-from-azure-policy"></a>Hur det skiljer sig från Azure Policy
+## <a name="how-its-different-from-azure-policy"></a>Skillnaden mot Azure Policy
 
-En skiss är ett paket eller en container för att skapa fokus-specifika uppsättningar standarder, mönster och krav för implementering av Azure-molntjänster, säkerhet och design som kan återanvändas för att säkerställa konsekvens och efterlevnad.
+En skiss är ett paket eller en container där du kan skapa fokusspecifika uppsättningar standarder, mönster och krav relaterade till implementeringen av Azure-molntjänster, säkerhet och design som kan återanvändas för att säkerställa konsekvens och efterlevnad.
 
-En [princip](../policy/overview.md) är en standard för att tillåta och explicit neka system som fokuserar på resursegenskaper under distributionen och för redan befintliga resurser. Det stöder molnstyrning genom att validera att resurser inom en prenumeration följer krav och standarder.
+En [princip](../policy/overview.md) är en standard för att tillåta och explicit neka system som fokuserar på resursegenskaper under distributionen och för redan befintliga resurser. Den stöder molnstyrning genom att bekräfta att resurser i en prenumeration uppfyller krav och standarder.
 
-När en princip inkluderas i en skiss kan du skapa rätt mönster eller design under tilldelning av skissen. Principinkluderingen ser till att endast godkända eller förväntade ändringar kan göras i miljön för att skydda fortlöpande efterlevnad med skissens intention.
+Om du tar med en princip i en skiss kan du skapa rätt mönster eller design när du utvärderar skissen. Principinkluderingen ser till att endast godkända eller förväntade ändringar kan göras i miljön för att skydda fortlöpande efterlevnad med skissens intention.
 
-En princip kan ingå som en av flera _artefakter_ i en definition av skisser. Med skisser kan du även använda parametrar med principer och initiativ.
+En princip kan inkluderas som en av många _artefakter_ i en skiss definition. Med skisser kan du även använda parametrar med principer och initiativ.
 
 ## <a name="blueprint-definition"></a>Definition av skisser
 
 En skiss består av _artefakter_. Azure-ritningar stöder för närvarande följande resurser som artefakter:
 
-|Resurs  | Hierarkialternativ| Beskrivning  |
+|Resurs  | Hierarkialternativ| Description  |
 |---------|---------|---------|
 |Resursgrupper | Prenumeration | Skapa en ny resursgrupp för användning av andra artefakter i skissen.  Dessa resurs grupper för plats hållare gör det möjligt att organisera resurser exakt som du vill att de ska vara strukturerade och ger en omfattnings gräns för inkluderade principer och roll tilldelnings artefakter och ARM-mallar. |
 |ARM-mall | Prenumeration, resursgrupp | Mallar, inklusive kapslade och länkade mallar, används för att skapa komplexa miljöer. Exempelmiljöer: en SharePoint-servergrupp, Azure Automation State Configuration eller en Log Analytics-arbetsyta. |
@@ -103,7 +103,7 @@ Om du vill tilldela eller ta bort tilldelningar av skisser måste ditt konto ha 
 
 Följande inbyggda roller är tillgängliga:
 
-|RBAC-roll | Beskrivning |
+|Azure-roll | Description |
 |-|-|
 |[Ägare](../../role-based-access-control/built-in-roles.md#owner) | Förutom andra behörigheter innehåller alla Azure Blueprint-relaterade behörigheter. |
 |[Deltagare](../../role-based-access-control/built-in-roles.md#contributor) | Förutom andra behörigheter kan skapa och ta bort skiss definitioner, men har inte behörighet för skiss tilldelning. |

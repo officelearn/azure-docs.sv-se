@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 28563dc1e8acf4e521d75a7f4f8986d92d2a8348
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 17d19d0b87812ec1f38b43c1b26dbd5c19b4efc8
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497944"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534217"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Ge åtkomst till blob-och Queue-data med hanterade identiteter för Azure-resurser
 
@@ -30,7 +30,7 @@ Innan du kan använda hanterade identiteter för Azure-resurser för att ge åtk
 - [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Azure Resource Manager-mall](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Azure Resource Manager mall](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Azure Resource Manager klient bibliotek](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 Mer information om hanterade identiteter finns i [hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
@@ -47,7 +47,7 @@ Mer information om klient biblioteket för Azure Identity för .NET finns i [kli
 
 ### <a name="assign-azure-roles-for-access-to-data"></a>Tilldela Azure-roller för åtkomst till data
 
-När ett Azure AD-säkerhetsobjekt försöker komma åt BLOB-eller Queue data, måste säkerhets objektets behörigheter ha behörighet till resursen. Om säkerhetsobjektet är en hanterad identitet i Azure eller ett Azure AD-användarkonto som kör kod i utvecklings miljön, måste säkerhets objekt tilldelas en RBAC-roll som ger åtkomst till BLOB-eller Queue-data i Azure Storage. Information om hur du tilldelar behörigheter via RBAC finns i avsnittet **tilldela RBAC-roller för åtkomst rättigheter** i [auktorisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
+När ett Azure AD-säkerhetsobjekt försöker komma åt BLOB-eller Queue data, måste säkerhets objektets behörigheter ha behörighet till resursen. Om säkerhetsobjektet är en hanterad identitet i Azure eller ett Azure AD-användarkonto som kör kod i utvecklings miljön, måste säkerhets objekt tilldelas en Azure-roll som ger åtkomst till BLOB-eller Queue-data i Azure Storage. Information om hur du tilldelar behörigheter via RBAC finns i avsnittet **tilldela Azure-roller för åtkomst rättigheter** i [auktorisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
 ### <a name="authenticate-the-user-in-the-development-environment"></a>Autentisera användaren i utvecklings miljön
 
@@ -61,7 +61,7 @@ Om utvecklings miljön inte stöder enkel inloggning eller inloggning via en web
 
 #### <a name="create-the-service-principal"></a>Skapa huvudnamn för tjänsten
 
-Om du vill skapa ett huvud namn för tjänsten med Azure CLI och tilldela en RBAC-roll, anropar du kommandot [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) . Ange en Azure Storage data åtkomst roll som ska tilldelas det nya huvud namnet för tjänsten. Ange dessutom omfånget för roll tilldelningen. Mer information om de inbyggda roller som finns för Azure Storage finns i [inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md).
+Om du vill skapa ett huvud namn för tjänsten med Azure CLI och tilldela en Azure-roll, anropar du kommandot [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) . Ange en Azure Storage data åtkomst roll som ska tilldelas det nya huvud namnet för tjänsten. Ange dessutom omfånget för roll tilldelningen. Mer information om de inbyggda roller som finns för Azure Storage finns i [inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md).
 
 Om du inte har tillräcklig behörighet för att tilldela en roll till tjänstens huvud namn kan du behöva be kontots ägare eller administratör att utföra roll tilldelningen.
 

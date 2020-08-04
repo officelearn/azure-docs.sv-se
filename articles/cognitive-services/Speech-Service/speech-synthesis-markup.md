@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a7407ec0f507746198c13a7bbdcdcd2c801c92b6
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ae98f74092c3955a54c0817082e8f29c1b251237
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407378"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533401"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Förbättra syntesen med SSML (Speech syntes Markup Language)
 
@@ -217,7 +217,8 @@ Använd den här tabellen för att avgöra vilka tal format som stöds för varj
 
 | Röst                   | Format                     | Description                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
-| `en-US-AriaNeural`      | `style="newscast"`        | Uttrycker en formell och professionell ton för nya berättarröstinspelningar |
+| `en-US-AriaNeural`      | `style="newscast-formal"` | En formell, trygg och auktoritativ ton för nyhets leverans|
+|                         | `style="newscast-casual"` | En mångsidig och vardaglig ton för allmän nyhets leverans       |
 |                         | `style="customerservice"` | Uttrycker en vänlig och användbar ton för kund support  |
 |                         | `style="chat"`            | Uttrycker en vardaglig och avslappnad ton                         |
 |                         | `style="cheerful"`        | Uttrycker en positiv och trevlig ton                         |

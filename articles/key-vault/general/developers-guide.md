@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4c28299758150f56e3f47156382d8a6245a0cf52
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: c1a5d302f63f57a142d014c8ef66d02405e119ea
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386222"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531174"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Utvecklarguide för Azure Key Vault
 
@@ -38,16 +38,37 @@ Mer information om hanterade identiteter för Azure-resurser finns i [Översikt 
 
 Innan du börjar arbeta med nycklar, hemligheter eller certifikat i ditt nyckel valv, skapar du och hanterar ditt nyckel valv genom CLI, PowerShell, Resource Manager-mallar eller REST, enligt beskrivningen i följande artiklar:
 
-- [Skapa och hantera nyckel valv med CLI](../secrets/quick-create-cli.md)
-- [Skapa och hantera nyckel valv med PowerShell](../secrets/quick-create-powershell.md)
-- [Skapa och hantera nyckel valv med Azure Portal](../secrets/quick-create-portal.md)
-- [Skapa och hantera nyckel valv med python](../secrets/quick-create-python.md)
-- [Skapa och hantera nyckel valv med Java](../secrets/quick-create-java.md)
-- [Skapa och hantera nyckel valv med Node.js](../secrets/quick-create-node.md)
-- [Skapa och hantera nyckel valv med .NET (v4 SDK)](../secrets/quick-create-net.md)
-- [Skapa ett nyckel valv och Lägg till en hemlighet via en Azure Resource Manager mall](../secrets/quick-create-template.md)
-- [Skapa och hantera nyckel valv med REST](/rest/api/keyvault/)
+- [Skapa och hantera nyckel valv med CLI](quick-create-cli.md)
+- [Skapa och hantera nyckel valv med PowerShell](quick-create-powershell.md)
+- [Skapa och hantera nyckel valv med Azure Portal](quick-create-portal.md)
+- [Skapa och hantera nyckel valv med REST](/rest/api/keyvault/vaults/createorupdate)
 
+### <a name="set-and-retrieve-secrets"></a>Ange och hämta hemligheter
+
+- [Ange och hämta en hemlighet med CLI](../secrets/quick-create-cli.md)
+- [Ange och hämta en hemlighet med PowerShell](../secrets/quick-create-powershell.md)
+- [Ange och hämta en hemlighet med Azure Portal](../secrets/quick-create-portal.md)
+- [Hemligheter med REST](/rest/api/keyvault/#secret-operations)
+- [Ange och hämta en hemlighet med python](../secrets/quick-create-python.md)
+- [Ange och hämta en hemlighet med Java](../secrets/quick-create-java.md)
+- [Ange och hämta en hemlighet med Node.js](../secrets/quick-create-node.md)
+- [Ange och hämta en hemlighet med .NET (v4 SDK)](../secrets/quick-create-net.md)
+- [Skapa ett nyckel valv och Lägg till en hemlighet via en Azure Resource Manager mall](../secrets/quick-create-template.md)
+
+### <a name="set-and-retrieve-keys"></a>Ange och hämta nycklar
+
+- [Ange och hämta en nyckel med CLI](../keys/quick-create-cli.md)
+- [Ange och hämta en nyckel med PowerShell](../keys/quick-create-powershell.md)
+- [Ange och hämta en nyckel med Azure Portal](../keys/quick-create-portal.md)
+- [Nycklar åtgärder med REST](/rest/api/keyvault/#key-operations)
+- [Ange och hämta en nyckel med python](../secrets/quick-create-python.md)
+
+### <a name="set-and-retrieve-certificates"></a>Ange och hämta certifikat
+- [Ange och hämta ett certifikat med CLI](../certificates/quick-create-cli.md)
+- [Ange och hämta ett certifikat med PowerShell](../certificates/quick-create-powershell.md)
+- [Ange och hämta ett certifikat med Azure Portal](../certificates/quick-create-portal.md)
+- [Nycklar åtgärder med REST](/rest/api/keyvault/#certificate-operations)
+- [Ange och hämta ett certifikat med python](../certificates/quick-create-python.md)
 
 ## <a name="coding-with-key-vault"></a>Koda med Key Vault
 
@@ -64,8 +85,6 @@ Alla Key Vault resurser är tillgängliga via REST-gränssnittet. valv, nycklar,
 #### <a name="net"></a>.NET
 
 [.NET API-referens för Key Vault](/dotnet/api/overview/azure/key-vault?view=azure-dotnet).
-
-Mer information om 2. x-versionen av .NET SDK finns i [viktig](dotnet2api-release-notes.md)information.
 
 #### <a name="java"></a>Java
 
@@ -94,7 +113,6 @@ I Node.js separeras API för Key Vault hantering och Key Vault objekt-API. I fö
 Fullständiga exempel som använder Key Vault med dina program finns i:
 
 - [Azure Key Vault kod exempel](https://azure.microsoft.com/resources/samples/?service=key-vault) – kod exempel för Azure Key Vault. 
-- [Använd Azure Key Vault från ett webb program](../secrets/quick-create-net.md) – självstudier som hjälper dig att lära dig hur du använder Azure Key Vault från ett webb program i Azure. 
 
 ## <a name="how-tos"></a>Instruktioner
 
@@ -124,7 +142,6 @@ De här artiklarna är till för andra scenarier och tjänster som använder ell
 
 - [Key Vault beteende vid mjuk borttagning](soft-delete-overview.md)) beskriver en funktion som gör det möjligt att återställa borttagna objekt, oavsett om borttagningen är oavsiktlig eller avsiktlig.
 - [Key Vault klient begränsningen](overview-throttling.md) orienterar dig till de grundläggande begreppen för begränsning och erbjuder en metod för din app.
-- [Översikt över Key Vault lagrings konto nycklar](../secrets/overview-storage-keys.md)) beskriver Key Vault-integrations Azure Storage konto nycklar.
 - [Key Vault säkerhets världar](overview-security-worlds.md) beskriver relationerna mellan regioner och säkerhets områden.
 
 ## <a name="social"></a>Socialt

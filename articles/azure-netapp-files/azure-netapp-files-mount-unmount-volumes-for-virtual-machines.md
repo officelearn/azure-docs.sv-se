@@ -7,12 +7,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.openlocfilehash: 4bfd90be2a469c5ab94172769729095069f53cd7
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 4ad3800748330d5c3a6a32c6c0824bc72a05d0ef
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045662"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533095"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montera eller demontera en volym för virtuella Windows- eller Linux-datorer 
 
@@ -43,9 +43,12 @@ Du kan montera eller demontera en volym för virtuella Windows-eller Linux-dator
     a. Montera volymen på en virtuell UNIX-eller Linux-dator först.  
     b. Kör ett `chmod 777` eller- `chmod 775` kommando mot volymen.  
     c. Montera volymen via NFS-klienten i Windows.
+    
+5. Om du vill montera en NFS Kerberos-volym läser du [Konfigurera nfsv 4.1 Kerberos-kryptering](configure-kerberos-encryption.md) för ytterligare information. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Konfigurera NFSv4.1-standarddomän för Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [Vanliga frågor och svar om NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)
 * [Översikt över Network File System](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview)
+* [Montera en NFS Kerberos-volym](configure-kerberos-encryption.md#kerberos_mount)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 5097a5dfa6dd9b8fd46e4bcbcee72319af51f86f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e19db61efbf93e3191d5780d07952f3d195c7a59
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499372"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533075"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Ändra tjänstnivå för en volym dynamiskt
 
@@ -38,7 +38,9 @@ Den här vänte perioden gäller inte om du flyttar volymen till en kapacitets g
 
 ## <a name="register-the-feature"></a>Registrera funktionen
 
-1. Funktionen för att flytta en volym till en annan kapacitets pool är för närvarande en för hands version. Om det här är första gången du använder den här funktionen ska du registrera funktionen innan du använder den: 
+Funktionen för att flytta en volym till en annan kapacitets pool är för närvarande en för hands version. Om du använder den här funktionen för första gången måste du registrera funktionen först.
+
+1. Registrera funktionen: 
 
     ```azurepowershell-interactive
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange

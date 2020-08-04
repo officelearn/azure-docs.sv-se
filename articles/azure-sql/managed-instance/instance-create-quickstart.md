@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: e4b4b6f21d158a758c2ff77db6660bbb44696d90
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b2d43e970012209acb6ed7fbbaafbb1719617280
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086695"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533877"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Snabb start: skapa en hanterad instans av SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -51,12 +51,12 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
 
    Använd tabellen nedan som referens för den information som krävs på den här fliken.
 
-   | Inställningen| Föreslaget värde | Description |
+   | Inställning| Föreslaget värde | Beskrivning |
    | ------ | --------------- | ----------- |
    | **Prenumeration** | Din prenumeration. | En prenumeration som ger dig behörighet att skapa nya resurser. |
    | **Resursgrupp** | En ny eller befintlig resursgrupp.|Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming).|
    | **Namn på hanterad instans** | Ett giltigt namn.|Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming).|
-   | **Nationella** |Den region där du vill skapa den hanterade instansen.|Information om regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/).|
+   | **Region** |Den region där du vill skapa den hanterade instansen.|Information om regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/).|
    | **Administratörsinloggning för hanterad instans** | Ett giltigt användar namn. | Giltiga namn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). Använd inte "ServerAdmin" eftersom det är en reserverad server nivå roll.|
    | **Lösenord** | Ett giltigt lösen ord.| Lösenordet måste vara minst 16 tecken långt och uppfylla [de definierade kraven på komplexitet](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 
@@ -74,10 +74,10 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
 
    Använd tabellen nedan som referens för den information som krävs på den här fliken.
 
-   | Inställningen| Föreslaget värde | Description |
+   | Inställning| Föreslaget värde | Beskrivning |
    | ------ | --------------- | ----------- |
    | **Virtuellt nätverk** | Välj antingen **Skapa nytt virtuellt nätverk** eller ett giltigt virtuellt nätverk och undernät.| Om ett nätverk eller undernät inte är tillgängligt, måste det [ändras för att uppfylla nätverks kraven](vnet-existing-add-subnet.md) innan du väljer det som mål för den nya hanterade instansen. Information om kraven för att konfigurera nätverks miljön för SQL-hanterad instans finns i [Konfigurera ett virtuellt nätverk för SQL-hanterad instans](connectivity-architecture-overview.md). |
-   | **Anslutnings typ** | Välj mellan en proxy och en Anslutnings typ för omdirigering.|Mer information om anslutnings typer finns i [Anslutnings typ för Azure SQL-hanterad instans](../database/connectivity-architecture.md#connection-policy).|
+   | **Anslutningstyp** | Välj mellan en proxy och en Anslutnings typ för omdirigering.|Mer information om anslutnings typer finns i [Anslutnings typ för Azure SQL-hanterad instans](../database/connectivity-architecture.md#connection-policy).|
    | **Offentlig slutpunkt**  | Välj **Aktivera**. | För att en hanterad instans ska kunna nås via den offentliga data slut punkten måste du aktivera det här alternativet. | 
    | **Tillåt åtkomst från** (om den **offentliga slut punkten** är aktive rad) | Välj ett av alternativen.   |Med Portal upplevelsen kan du konfigurera en säkerhets grupp med en offentlig slut punkt. </br> </br> Välj något av följande alternativ baserat på ditt scenario: </br> <ul> <li>**Azure-tjänster**: Vi rekommenderar det här alternativet när du ansluter från Power BI eller en annan tjänst för flera innehavare. </li> <li> **Internet**: används i test syfte när du snabbt vill skapa en hanterad instans. Vi rekommenderar det inte för produktions miljöer. </li> <li> **Ingen åtkomst**: det här alternativet skapar en säkerhets regel för **neka** . Ändra den här regeln för att göra en hanterad instans tillgänglig via en offentlig slut punkt. </li> </ul> </br> Mer information om säkerhet för offentliga slut punkter finns i [använda Azure SQL-hanterad instans på ett säkert sätt med en offentlig slut punkt](public-endpoint-overview.md).|
 
@@ -91,7 +91,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
 
    Använd tabellen nedan som referens för den information som krävs på den här fliken.
 
-   | Inställningen| Föreslaget värde | Description |
+   | Inställning| Föreslaget värde | Beskrivning |
    | ------ | --------------- | ----------- |
    | **Sortering** | Välj den sortering som du vill använda för din hanterade instans. Om du migrerar databaser från SQL Server kontrollerar du käll sorteringen genom `SELECT SERVERPROPERTY(N'Collation')` att använda och använda det värdet.| Information om sorteringar finns i [Ange eller ändra Server sorteringen](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
    | **Tidszon** | Välj den tidszon som den hanterade instansen ska observera.|Mer information finns i [tids zoner](timezones-overview.md).|
@@ -124,7 +124,9 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
 > 3. Välj den SQL-hanterade instansen distributions åtgärd pågår.
 
 > [!IMPORTANT]
-> För att kunna hämta statusen för skapandet av hanterade instanser måste du ha **Läs behörighet** över resurs gruppen. Om du inte har den här behörigheten eller återkalla den medan den hanterade instansen håller på att skapas, kan detta orsaka att SQL-hanterad instans inte visas i listan över distributioner av resurs grupper.
+> - Skapandet av SQL-hanterad instans är en tids krävande åtgärd som kan ta några timmar i taget, beroende på särskilda omständigheter. Se [varaktighet för hanterings åtgärder](management-operations-overview.md#management-operations-duration) för vanliga skapande tider.
+> - Det gick inte att skapa en SQL-hanterad instans i fall när det finns andra effekter, t. ex. tids krävande återställnings-eller skalnings åtgärder på andra hanterade instanser i samma undernät. Mer information finns i [hanterings åtgärder mellan påverkan](management-operations-overview.md#management-operations-cross-impact).
+> - För att kunna hämta statusen för skapandet av hanterade instanser måste du ha **Läs behörighet** över resurs gruppen. Om du inte har den här behörigheten eller återkalla den medan den hanterade instansen håller på att skapas, kan detta orsaka att SQL-hanterad instans inte visas i listan över distributioner av resurs grupper.
 >
 
 ## <a name="view-resources-created"></a>Visa resurser som skapats

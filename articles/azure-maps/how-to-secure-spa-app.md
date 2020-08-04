@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 5b7f26a03c117620be7c16abaf689763e370e5ba
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0aa688d6e56629ca376844ce2d0669197b1bb2b7
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285704"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531353"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Så här skyddar du ett enda sid program med icke-interaktiv inloggning
 
@@ -102,7 +102,7 @@ Skapa ett skyddat webb tjänst program som ansvarar för autentisering till Azur
 
 ## <a name="grant-role-based-access"></a>Bevilja rollbaserad åtkomst
 
-Du beviljar *rollbaserad åtkomst kontroll* (RBAC) genom att tilldela den systemtilldelade identiteten till en eller flera roll definitioner för Azure. Om du vill visa de roll definitioner för RBAC som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)**. Välj **roller**och Sök sedan efter roller som börjar med *Azure Maps*.
+Du beviljar *rollbaserad åtkomst kontroll* (RBAC) genom att tilldela den systemtilldelade identiteten till en eller flera roll definitioner för Azure. Om du vill visa de roll definitioner för Azure som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)**. Välj **roller**och Sök sedan efter roller som börjar med *Azure Maps*.
 
 1. Gå till ditt **Azure Maps-konto**. Välj roll tilldelningen **åtkomst kontroll (IAM)**  >  **Role assignment**.
 

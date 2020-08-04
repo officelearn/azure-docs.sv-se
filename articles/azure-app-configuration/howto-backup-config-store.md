@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 0b057172c822f893e602d60f77a285f0867cf368
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ef777f235c85c423ea126fb7249f8e6a11492d3a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367783"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528556"
 ---
 # <a name="backup-app-configuration-stores-automatically"></a>Säkerhetskopiera program konfigurations Arkiv automatiskt
 
@@ -32,7 +32,7 @@ Motivation bakom att säkerhetskopiera konfigurations lager för appar är att a
 
 I den här självstudien kommer du att skapa en sekundär butik i `centralus` region och alla andra resurser i `westus` regionen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/). Du kan också använda Azure Cloud Shell.
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) med arbets belastningen Azure Development.
@@ -191,7 +191,7 @@ az role assignment create \
     --scope $secondaryAppConfigId
 ```
 
-Använd följande kommando eller [Azure Portal](/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal) för att ge den hanterade identiteten för Azure Funktionsapp åtkomst till lagrings kön. 
+Använd följande kommando eller [Azure Portal](/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal) för att ge den hanterade identiteten för Azure Funktionsapp åtkomst till lagrings kön. 
 - Tilldela `Storage Queue Data Contributor` roll i lagrings kön.
 
 ```azurecli-interactive

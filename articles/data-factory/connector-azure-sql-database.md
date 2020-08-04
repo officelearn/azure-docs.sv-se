@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/15/2020
-ms.openlocfilehash: 0d11e320db5e037f855c01738de592a2d21d60e8
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.date: 08/03/2020
+ms.openlocfilehash: 3b5382b1de76532d83f526ba87a0a8239c20db0c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171494"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530783"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiera och transformera data i Azure SQL Database med Azure Data Factory
 
@@ -63,12 +63,12 @@ Dessa egenskaper stöds för en Azure SQL Database länkad tjänst:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen **Type** måste anges till **AzureSqlDatabase**. | Ja |
-| Begär | Ange information som krävs för att ansluta till Azure SQL Database-instansen för egenskapen **ConnectionString** . <br/>Du kan också ange ett lösen ord eller en tjänst huvud nyckel i Azure Key Vault. Om det är SQL-autentisering, hämtar du `password` konfigurationen från anslutnings strängen. Mer information finns i JSON-exemplet som följer tabellen och [lagrar autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| typ | Egenskapen **Type** måste anges till **AzureSqlDatabase**. | Yes |
+| Begär | Ange information som krävs för att ansluta till Azure SQL Database-instansen för egenskapen **ConnectionString** . <br/>Du kan också ange ett lösen ord eller en tjänst huvud nyckel i Azure Key Vault. Om det är SQL-autentisering, hämtar du `password` konfigurationen från anslutnings strängen. Mer information finns i JSON-exemplet som följer tabellen och [lagrar autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | servicePrincipalId | Ange programmets klient-ID. | Ja, när du använder Azure AD-autentisering med ett huvud namn för tjänsten |
 | servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Azure Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja, när du använder Azure AD-autentisering med ett huvud namn för tjänsten |
 | tenant | Ange klient information, t. ex. domän namnet eller klient-ID: t, som ditt program finns under. Hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja, när du använder Azure AD-autentisering med ett huvud namn för tjänsten |
-| connectVia | [Integrerings körningen](concepts-integration-runtime.md) används för att ansluta till data lagret. Du kan använda Azure integration runtime eller en lokal integration Runtime om ditt data lager finns i ett privat nätverk. Om inget värde anges används standard Azure integration Runtime. | Nej |
+| connectVia | [Integrerings körningen](concepts-integration-runtime.md) används för att ansluta till data lagret. Du kan använda Azure integration runtime eller en lokal integration Runtime om ditt data lager finns i ett privat nätverk. Om inget värde anges används standard Azure integration Runtime. | No |
 
 För olika typer av autentiseringar, se följande avsnitt om krav respektive JSON-exempel:
 
@@ -223,7 +223,7 @@ Följande egenskaper stöds för Azure SQL Database data uppsättning:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens **typ** -egenskap måste anges till **AzureSqlTable**. | Ja |
+| typ | Data uppsättningens **typ** -egenskap måste anges till **AzureSqlTable**. | Yes |
 | schema | Schemats namn. |Nej för källa, Ja för mottagare  |
 | tabell | Namnet på tabellen/vyn. |Nej för källa, Ja för mottagare  |
 | tableName | Namnet på tabellen/vyn med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd och för ny arbets `schema` belastning `table` . | Nej för källa, Ja för mottagare |
@@ -259,11 +259,11 @@ För att kopiera data från Azure SQL Database, stöds följande egenskaper i av
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **AzureSqlSource**. "SqlSource"-typen stöds fortfarande för bakåtkompatibilitet. | Ja |
-| sqlReaderQuery | Den här egenskapen använder den anpassade SQL-frågan för att läsa data. Ett exempel är `select * from MyTable`. | Nej |
-| sqlReaderStoredProcedureName | Namnet på den lagrade proceduren som läser data från käll tabellen. Den sista SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. | Nej |
-| storedProcedureParameters | Parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn-eller värdepar. Namn och Skift läge för parametrar måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. | Nej |
-| isolationLevel | Anger transaktions låsnings beteendet för SQL-källan. De tillåtna värdena är: **ReadCommitted**, **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. Om inget värde anges används databasens standard isolerings nivå. Mer information finns i [det här dokumentet](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) . | Nej |
+| typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **AzureSqlSource**. "SqlSource"-typen stöds fortfarande för bakåtkompatibilitet. | Yes |
+| sqlReaderQuery | Den här egenskapen använder den anpassade SQL-frågan för att läsa data. Ett exempel är `select * from MyTable`. | No |
+| sqlReaderStoredProcedureName | Namnet på den lagrade proceduren som läser data från käll tabellen. Den sista SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. | No |
+| storedProcedureParameters | Parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn-eller värdepar. Namn och Skift läge för parametrar måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. | No |
+| isolationLevel | Anger transaktions låsnings beteendet för SQL-källan. De tillåtna värdena är: **ReadCommitted**, **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. Om inget värde anges används databasens standard isolerings nivå. Mer information finns i [det här dokumentet](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) . | No |
 
 **Poäng till Anmärkning:**
 
@@ -366,15 +366,15 @@ För att kopiera data till Azure SQL Database, stöds följande egenskaper i avs
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen **Type** för kopierings aktivitetens Sink måste anges till **AzureSqlSink**. "SqlSink"-typen stöds fortfarande för bakåtkompatibilitet. | Ja |
-| preCopyScript | Ange en SQL-fråga för kopierings aktiviteten som ska köras innan data skrivs till Azure SQL Database. Den anropas bara en gång per kopierings körning. Använd den här egenskapen för att rensa de förinstallerade data. | Nej |
-| tableOption | Anger om [mottagar tabellen ska skapas automatiskt om den](copy-activity-overview.md#auto-create-sink-tables) inte finns, baserat på käll schemat. <br>Det går inte att skapa en automatisk tabell när Sink anger lagrad procedur eller mellanlagrad kopia har kon figurer ATS i kopierings aktiviteten. <br>Tillåtna värden är: `none` (standard), `autoCreate` . | Nej |
-| sqlWriterStoredProcedureName | Namnet på den lagrade proceduren som definierar hur källdata ska användas i en mål tabell. <br/>Den här lagrade proceduren *anropas per batch*. För åtgärder som bara körs en gång och som inte har något att göra med källdata, till exempel ta bort eller trunkera, använder du `preCopyScript` egenskapen.<br>Se exempel från [anropa en lagrad procedur från en SQL-mottagare](#invoke-a-stored-procedure-from-a-sql-sink). | Nej |
-| storedProcedureTableTypeParameterName |Parameter namnet för den tabell typ som anges i den lagrade proceduren.  |Nej |
-| sqlWriterTableType |Det tabell typs namn som ska användas i den lagrade proceduren. Kopierings aktiviteten gör data som flyttas tillgängliga i en temporär tabell med den här tabell typen. Den lagrade procedur koden kan sedan sammanfoga de data som kopieras med befintliga data. |Nej |
-| storedProcedureParameters |Parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn-och värdepar. Namn och Skift läge för parametrar måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. | Nej |
-| writeBatchSize | Antal rader som ska infogas i SQL-tabellen *per batch*.<br/> Det tillåtna värdet är **Integer** (antal rader). Som standard bestämmer Azure Data Factory dynamiskt rätt batchstorlek baserat på rad storleken. | Nej |
-| writeBatchTimeout | Vänte tiden för att infoga batch-operationen ska avslutas innan den nådde tids gränsen.<br/> Det tillåtna värdet är **TimeSpan**. Ett exempel är "00:30:00" (30 minuter). | Nej |
+| typ | Egenskapen **Type** för kopierings aktivitetens Sink måste anges till **AzureSqlSink**. "SqlSink"-typen stöds fortfarande för bakåtkompatibilitet. | Yes |
+| preCopyScript | Ange en SQL-fråga för kopierings aktiviteten som ska köras innan data skrivs till Azure SQL Database. Den anropas bara en gång per kopierings körning. Använd den här egenskapen för att rensa de förinstallerade data. | No |
+| tableOption | Anger om [mottagar tabellen ska skapas automatiskt om den](copy-activity-overview.md#auto-create-sink-tables) inte finns, baserat på käll schemat. <br>Det går inte att skapa en automatisk tabell när mottagaren anger den lagrade proceduren. <br>Tillåtna värden är: `none` (standard), `autoCreate` . | No |
+| sqlWriterStoredProcedureName | Namnet på den lagrade proceduren som definierar hur källdata ska användas i en mål tabell. <br/>Den här lagrade proceduren *anropas per batch*. För åtgärder som bara körs en gång och som inte har något att göra med källdata, till exempel ta bort eller trunkera, använder du `preCopyScript` egenskapen.<br>Se exempel från [anropa en lagrad procedur från en SQL-mottagare](#invoke-a-stored-procedure-from-a-sql-sink). | No |
+| storedProcedureTableTypeParameterName |Parameter namnet för den tabell typ som anges i den lagrade proceduren.  |No |
+| sqlWriterTableType |Det tabell typs namn som ska användas i den lagrade proceduren. Kopierings aktiviteten gör data som flyttas tillgängliga i en temporär tabell med den här tabell typen. Den lagrade procedur koden kan sedan sammanfoga de data som kopieras med befintliga data. |No |
+| storedProcedureParameters |Parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn-och värdepar. Namn och Skift läge för parametrar måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. | No |
+| writeBatchSize | Antal rader som ska infogas i SQL-tabellen *per batch*.<br/> Det tillåtna värdet är **Integer** (antal rader). Som standard bestämmer Azure Data Factory dynamiskt rätt batchstorlek baserat på rad storleken. | No |
+| writeBatchTimeout | Vänte tiden för att infoga batch-operationen ska avslutas innan den nådde tids gränsen.<br/> Det tillåtna värdet är **TimeSpan**. Ett exempel är "00:30:00" (30 minuter). | No |
 | disableMetricsCollection | Data Factory samlar in mått som Azure SQL Database DTU: er för att kopiera prestanda optimering och rekommendationer. Om du är orolig för det här beteendet anger `true` du för att inaktivera det. | Nej (standard är `false` ) |
 
 **Exempel 1: Lägg till data**

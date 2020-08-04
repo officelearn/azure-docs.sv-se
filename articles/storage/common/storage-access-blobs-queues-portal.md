@@ -10,12 +10,12 @@ ms.date: 04/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9d4097e847417f56c9881a3e18237e97dfee465e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: dcd1280dbe3a00a6a7cbdaaf59aa05326dfa8375
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501414"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534183"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Använd Azure Portal för att få åtkomst till BLOB-eller Queue-data
 
@@ -29,7 +29,7 @@ Beroende på hur du vill ge åtkomst till BLOB-eller Queue-data i Azure Portal m
 
 ### <a name="use-the-account-access-key"></a>Använda kontots åtkomst nyckel
 
-Om du vill komma åt blob-och Queue-data med åtkomst nyckeln för kontot måste du ha en RBAC-roll som är tilldelad till dig som innehåller RBAC-åtgärden **Microsoft. Storage/storageAccounts/listnycklar/Action**. Den här RBAC-rollen kan vara en inbyggd eller anpassad roll. Inbyggda roller som stöder **Microsoft. Storage/storageAccounts/listnycklar/Action** är:
+För att få åtkomst till blob-och Queue-data med konto åtkomst nyckeln måste du ha en Azure-roll som är tilldelad till dig som innehåller RBAC-åtgärden **Microsoft. Storage/storageAccounts/listnycklar/åtgärd**. Den här Azure-rollen kan vara en inbyggd eller anpassad roll. Inbyggda roller som stöder **Microsoft. Storage/storageAccounts/listnycklar/Action** är:
 
 - Rollen Azure Resource Manager [ägare](../../role-based-access-control/built-in-roles.md#owner)
 - Rollen Azure Resource Manager [Contributor](../../role-based-access-control/built-in-roles.md#contributor)
@@ -47,7 +47,7 @@ För att få åtkomst till BLOB-eller Queue-data från Azure Portal med ditt Azu
 - Du har tilldelats rollen som Azure Resource Managers [läsare](../../role-based-access-control/built-in-roles.md#reader) , minst begränsat till lagrings kontots nivå eller högre. Rollen **läsare** ger mest begränsade behörigheter, men en annan Azure Resource Manager roll som beviljar åtkomst till lagrings kontots hanterings resurser är också acceptabel.
 - Du har tilldelats antingen en inbyggd eller anpassad roll som ger åtkomst till BLOB-eller Queue-data.
 
-Roll **tilldelnings rollen eller** en annan Azure Resource Manager roll tilldelning krävs så att användaren kan visa och navigera i lagrings kontots hanterings resurser i Azure Portal. RBAC-rollerna som beviljar åtkomst till BLOB-eller Queue data ger inte åtkomst till lagrings kontots hanterings resurser. För att få åtkomst till BLOB-eller Queue-data i portalen behöver användaren behörighet att navigera i lagrings konto resurser. Mer information om det här kravet finns i [tilldela rollen läsare för åtkomst till portalen](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
+Roll **tilldelnings rollen eller** en annan Azure Resource Manager roll tilldelning krävs så att användaren kan visa och navigera i lagrings kontots hanterings resurser i Azure Portal. Azure-rollerna som beviljar åtkomst till BLOB-eller Queue data ger inte åtkomst till lagrings kontots hanterings resurser. För att få åtkomst till BLOB-eller Queue-data i portalen behöver användaren behörighet att navigera i lagrings konto resurser. Mer information om det här kravet finns i [tilldela rollen läsare för åtkomst till portalen](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
 
 De inbyggda rollerna som stöder åtkomst till BLOB-eller Queue-data är:
 
@@ -82,7 +82,7 @@ Om du autentiserar med åtkomst nyckeln för kontot visas **åtkomst nyckeln** s
 
 ![För närvarande åtkomst till behållar data med konto nyckeln](media/storage-access-blobs-queues-portal/auth-method-access-key.png)
 
-Om du vill växla till att använda Azure AD-konto klickar du på länken som är markerad i bilden. Om du har rätt behörigheter via de RBAC-roller som har tilldelats dig kan du fortsätta. Men om du saknar rätt behörighet visas ett fel meddelande som liknar följande:
+Om du vill växla till att använda Azure AD-konto klickar du på länken som är markerad i bilden. Om du har rätt behörigheter via de Azure-roller som har tilldelats dig kan du fortsätta. Men om du saknar rätt behörighet visas ett fel meddelande som liknar följande:
 
 ![Det gick inte att visa om Azure AD-kontot inte stöder åtkomst](media/storage-access-blobs-queues-portal/auth-error-azure-ad.png)
 

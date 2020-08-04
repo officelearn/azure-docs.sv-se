@@ -3,12 +3,12 @@ title: Bevilja användar behörighet till vissa labb principer | Microsoft Docs
 description: Lär dig hur du beviljar användar behörigheter till vissa labb principer i DevTest Labs baserat på varje användares behov
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: cfacba2a7cdba20bd5a05c9ca5898194c31c2e68
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 1a0f46ed64bf360ceb990f1e91cb65ace76b5a9a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855783"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534557"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Bevilja användar behörighet till vissa labb principer
 ## <a name="overview"></a>Översikt
@@ -17,7 +17,7 @@ Den här artikeln beskriver hur du använder PowerShell för att ge användare b
 ## <a name="policies-as-resources"></a>Principer som resurser
 Som det beskrivs i den [Azure-rollbaserade Access Control](../role-based-access-control/role-assignments-portal.md) artikeln, möjliggör RBAC detaljerad åtkomst hantering av resurser för Azure. Med RBAC kan du åtskilja uppgifter i ditt DevOps-team och endast bevilja åtkomst till användare som de behöver för att utföra sina jobb.
 
-I DevTest Labs är en princip en resurs typ som aktiverar RBAC-åtgärden **Microsoft. DevTestLab/Labs/policySets/policies/**. Varje labb princip är en resurs i princip resurs typ och kan tilldelas som ett omfång till en RBAC-roll.
+I DevTest Labs är en princip en resurs typ som aktiverar RBAC-åtgärden **Microsoft. DevTestLab/Labs/policySets/policies/**. Varje labb princip är en resurs i princip resurs typ och kan tilldelas som ett omfång till en Azure-roll.
 
 För att till exempel ge användare läs-/skriv behörighet till principen för **tillåten VM-storlek** skapar du en anpassad roll som fungerar med **Microsoft. DevTestLab/Labs/policySets/policys/** action och tilldelar sedan lämpliga användare till den här anpassade rollen i omfånget **Microsoft. DevTestLab/Labs/PolicySets/policies/AllowedVmSizesInLab**.
 

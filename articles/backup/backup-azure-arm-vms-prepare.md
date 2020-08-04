@@ -3,12 +3,12 @@ title: Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
 description: Beskriver hur du säkerhetskopierar virtuella Azure-datorer i ett Recovery Services valv med hjälp av Azure Backup
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: b9d57449e56fb50bfbfddb627a1d6bb379710da4
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 91fca2eef21a817c0f78b826e507901d94156dcd
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439717"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533605"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
 
@@ -51,7 +51,8 @@ Som standard använder valven [Geo-redundant lagring (GRS)](../storage/common/st
 1. I det nya valvet väljer du **Egenskaper** i avsnittet **Inställningar** .
 2. I **Egenskaper**, under **säkerhets kopierings konfiguration**, väljer du **Uppdatera**.
 3. Välj typ av lagrings replikering och välj **Spara**.
-s ![ Ange lagrings konfigurationen för det nya valvet](./media/backup-azure-arm-vms-prepare/full-blade.png)
+
+      ![Ange lagringskonfigurationen för det nya valvet](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
 > [!NOTE]
    > Du kan inte ändra typen av lagringsprovider när valvet har kon figurer ATS och innehåller säkerhets kopierings objekt. Om du vill göra det måste du återskapa valvet.
@@ -145,7 +146,7 @@ Det kan ta flera dagar innan **överförings data till valv** fasen slutförs be
 
 Jobbets status kan variera beroende på följande scenarier:
 
-**Ögonblicks bild** | **Överför data till valv** | **Jobb status**
+**Ögonblicksbild** | **Överför data till valv** | **Jobb status**
 --- | --- | ---
 Slutförd | Pågår | Pågår
 Slutförd | Överhoppad | Slutförd
@@ -166,13 +167,6 @@ Azure Backup säkerhetskopierar virtuella Azure-datorer genom att installera ett
 --- | ---
 **Windows** | 1. [Ladda ned och installera](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) agent-MSI-filen.<br/><br/> 2. Installera med administratörs behörighet på datorn.<br/><br/> 3. kontrol lera installationen. I *C:\WindowsAzure\Packages* på den virtuella datorn högerklickar du på **WaAppAgent.exe**  >  **Egenskaper**. **Produkt versionen** bör vara 2.6.1198.718 eller högre på fliken **information** .<br/><br/> Om du uppdaterar agenten ser du till att inga säkerhets kopierings åtgärder körs och [installerar om agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 **Linux** | Installera med hjälp av ett RPM-eller DEB-paket från distributionens paket lagrings plats. Detta är den bästa metoden för att installera och uppgradera Azure Linux-agenten. Alla godkända [distributions leverantörer](../virtual-machines/linux/endorsed-distros.md) integrerar Azure Linux Agent-paketet i sina avbildningar och databaser. Agenten är tillgänglig på [GitHub](https://github.com/Azure/WALinuxAgent), men vi rekommenderar inte att du installerar därifrån.<br/><br/> Om du uppdaterar agenten ska du kontrol lera att inga säkerhets kopierings åtgärder körs och uppdatera binärfilerna.
-
->[!NOTE]
-> **Azure Backup har nu stöd för säkerhets kopiering och återställning av selektiva diskar med den virtuella Azure-datorn säkerhets kopierings lösning.**
->
->Idag har Azure Backup stöd för säkerhets kopiering av alla diskar (operativ system och data) i en virtuell dator tillsammans med säkerhets kopierings lösningen för virtuella datorer. Med funktionen exkludera disk får du ett alternativ för att säkerhetskopiera ett eller flera av de många data diskarna i en virtuell dator. Detta ger en effektiv och kostnads effektiv lösning för dina säkerhets kopierings-och återställnings behov. Varje återställnings punkt innehåller data för de diskar som ingår i säkerhets kopieringen, vilket gör att du kan få en del av diskarna återställd från den aktuella återställnings punkten under återställnings åtgärden. Detta gäller för återställning av båda från ögonblicks bilden och valvet.
->
->Registrera dig för för hands versionen genom att skriva till oss påAskAzureBackupTeam@microsoft.com
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 3cd8b18358128c8566c0cde668c084a22dd261d0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 16a912b2530d567a11a81fc10e9e09eee572e7e6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320705"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528844"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Snabb start: Använd Azure cache för Redis med Java
 
 I den här snabb starten införlivar du Azure cache för Redis i en Java-app med hjälp av [Jedis](https://github.com/xetorthio/jedis) Redis-klienten för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Apache maven](https://maven.apache.org/download.cgi)
@@ -30,12 +30,24 @@ I den här snabb starten införlivar du Azure cache för Redis i en Java-app med
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-Lägg till miljövariabler för **HOST NAME** och **primär** åtkomstnyckel. Du använder dessa variabler från din kod i stället för att inkludera den känsliga informationen direkt i koden.
+## <a name="setting-up-the-working-environment"></a>Konfigurera arbets miljön 
+
+Beroende på vilket operativ system du använder lägger du till miljövariabler för **värd namnet** och den **primära åtkomst nyckeln**. Öppna en kommando tolk eller ett terminalfönster och Ställ in följande värden:
 
 ```CMD 
-set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
-set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
+set REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
 ```
+
+```bash
+export REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
+export REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
+```
+
+Ersätt plats hållarna med följande värden:
+
+- `<YOUR_HOST_NAME>`: DNS-värdnamnet hämtas från avsnittet *Egenskaper* i Azure-cachen för Redis-resursen i Azure-portalen.
+- `<YOUR_PRIMARY_ACCESS_KEY>`: Den primära åtkomst nyckeln som hämtats från avsnittet *åtkomst nycklar* i Azure cache för Redis-resurser i Azure Portal.
 
 ## <a name="create-a-new-java-app"></a>Skapa en ny Java-app
 

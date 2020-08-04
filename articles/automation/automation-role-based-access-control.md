@@ -6,12 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: c7051cca9029283b150eea0519aa7432d6a9c937
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 21742d2db6a7fde69568e5fd1e5eda98542faa47
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420489"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528676"
 ---
 # <a name="manage-role-permissions-and-security"></a>Hantera rollbehörigheter och säkerhet
 
@@ -19,7 +19,7 @@ Med rollbaserad åtkomstkontroll (RBAC) kan du hantera åtkomsten till Azure-res
 
 ## <a name="roles-in-automation-accounts"></a>Roller i Automation-konton
 
-I Azure Automation beviljas åtkomst genom att lämplig RBAC-roll tilldelas till användare, grupper och program i Automation-kontoomfånget. Följande är de inbyggda roller som stöds av ett Automation-konto:
+I Azure Automation beviljas åtkomst genom att tilldela lämplig Azure-roll till användare, grupper och program i Automation-kontots omfattning. Följande är de inbyggda roller som stöds av ett Automation-konto:
 
 | **Role** | **Beskrivning** |
 |:--- |:--- |
@@ -319,7 +319,7 @@ Du kan ta bort åtkomst behörigheten för en användare som inte hanterar Autom
 
 Du kan också konfigurera rollbaserad åtkomst till ett Automation-konto med hjälp av följande [Azure PowerShell-cmdlet: ar](../role-based-access-control/role-assignments-powershell.md):
 
-[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) visar alla RBAC-roller som är tillgängliga i Azure Active Directory. Du kan använda den här cmdleten med `Name` parametern för att visa en lista över alla åtgärder som en speciell roll kan utföra.
+[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) visar en lista över alla Azure-roller som är tillgängliga i Azure Active Directory. Du kan använda den här cmdleten med `Name` parametern för att visa en lista över alla åtgärder som en speciell roll kan utföra.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'

@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0a1083c1889fbd83a1b8bd119a71013b738d7f74
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: fa4a649115f8e89c27f435888b682b7de36e9894
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499542"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533928"
 ---
 # <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>Skapa en avbildnings version från en virtuell dator i Azure med hjälp av Azure CLI
 
@@ -100,7 +100,7 @@ az sig image-version create \
 > [!NOTE]
 > Du måste vänta tills avbildnings versionen är fullständigt slutförd och replikerad innan du kan använda samma hanterade avbildning för att skapa en annan avbildnings version.
 >
-> Du kan också lagra avbildningen i premiun-lagringen genom att lägga till `--storage-account-type  premium_lrs` eller [zonen redundant lagring](../storage/common/storage-redundancy.md) genom att lägga till `--storage-account-type  standard_zrs` när du skapar avbildnings versionen.
+> Du kan också lagra din avbildning i Premium Storage genom att lägga till `--storage-account-type  premium_lrs` eller [zonens redundant lagring](../storage/common/storage-redundancy.md) genom att lägga till `--storage-account-type  standard_zrs` när du skapar avbildnings versionen.
 >
 
 ## <a name="next-steps"></a>Nästa steg

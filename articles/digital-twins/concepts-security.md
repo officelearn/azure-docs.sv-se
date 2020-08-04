@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: bc6b3911ed6d04561d25ef166625f9e73023726d
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: d29bccdadeef44f1ae4cdae5875257f95395b96f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373291"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534047"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Skydda Azure Digitals dubbla med rollbaserad åtkomst kontroll
 
@@ -33,7 +33,7 @@ Med Azure AD är Access en två stegs process. När ett säkerhets objekt (en an
 
 Steget autentisering kräver att en program förfrågan innehåller en OAuth 2,0-åtkomsttoken vid körning. Om ett program körs i en Azure-entitet, till exempel en [Azure Functions](../azure-functions/functions-overview.md) app, kan den använda en **hanterad identitet** för att få åtkomst till resurserna. Läs mer om hanterade identiteter i nästa avsnitt.
 
-Auktoriserings steget kräver att en RBAC-roll tilldelas till säkerhets objekt. Rollerna som tilldelas ett säkerhets objekt bestämmer vilka behörigheter som huvud kontot ska ha. Azure Digitals dubbla ger RBAC-roller som omfattar uppsättningar med behörigheter för Azure Digitals dubbla resurser. Dessa roller beskrivs längre fram i den här artikeln.
+Auktoriserings steget kräver att en Azure-roll tilldelas till säkerhets objekt. Rollerna som tilldelas ett säkerhets objekt bestämmer vilka behörigheter som huvud kontot ska ha. Azure Digitals dubbla ger Azure-roller som omfattar uppsättningar med behörigheter för Azure Digitals dubbla resurser. Dessa roller beskrivs längre fram i den här artikeln.
 
 Mer information om roller och roll tilldelningar som stöds i Azure finns i [*förstå de olika rollerna*](../role-based-access-control/rbac-and-directory-admin-roles.md) i Azure RBAC-dokumentationen.
 
@@ -41,9 +41,9 @@ Mer information om roller och roll tilldelningar som stöds i Azure finns i [*f�
 
 [Hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) är en funktion i Azure som gör att du kan skapa en säker identitet som är kopplad till distributionen där program koden körs. Du kan sedan associera identiteten med åtkomst kontroll roller för att bevilja anpassade behörigheter för åtkomst till specifika Azure-resurser som ditt program behöver.
 
-Med hanterade identiteter hanterar Azure-plattformen den här körnings identiteten. Du behöver inte lagra och skydda åtkomst nycklar i din program kod eller konfiguration, antingen för själva identiteten eller för de resurser som du behöver komma åt. Ett digitalt Azure-klientprogram som körs inuti ett Azure App Service-program behöver inte hantera SAS-regler och nycklar eller andra åtkomsttoken. Klient programmet behöver bara slut punkts adressen för Azure Digitals-namnområdet. När appen ansluter binder Azure Digitals en hanterad entitets kontext till klienten. När den är kopplad till en hanterad identitet kan din Azure Digital-klient med dubbla Azure-klienter utföra alla behöriga åtgärder. Auktorisering beviljas sedan genom att associera en hanterad entitet med en Azure Digitals RBAC-roll (beskrivs nedan).
+Med hanterade identiteter hanterar Azure-plattformen den här körnings identiteten. Du behöver inte lagra och skydda åtkomst nycklar i din program kod eller konfiguration, antingen för själva identiteten eller för de resurser som du behöver komma åt. Ett digitalt Azure-klientprogram som körs inuti ett Azure App Service-program behöver inte hantera SAS-regler och nycklar eller andra åtkomsttoken. Klient programmet behöver bara slut punkts adressen för Azure Digitals-namnområdet. När appen ansluter binder Azure Digitals en hanterad entitets kontext till klienten. När den är kopplad till en hanterad identitet kan din Azure Digital-klient med dubbla Azure-klienter utföra alla behöriga åtgärder. Auktorisering beviljas sedan genom att associera en hanterad entitet med en Azure Digitals Azure-roll (beskrivs nedan).
 
-### <a name="authorization-rbac-roles-for-azure-digital-twins"></a>Auktorisering: RBAC-roller för Azure Digitals dubbla
+### <a name="authorization-azure-roles-for-azure-digital-twins"></a>Auktorisering: Azure-roller för Azure Digitals dubbla
 
 Azure tillhandahåller de här inbyggda Azure-rollerna för att auktorisera åtkomst till en Azure Digital-resurs med dubbla resurser:
 * *Azure Digitals flätat-ägare (för hands version)* – Använd den här rollen för att ge fullständig åtkomst till resurser med Azure Digitals.
@@ -62,7 +62,7 @@ Mer detaljerad information om hur du gör detta finns i självstudien om Azure D
 
 ## <a name="permission-scopes"></a>Behörighetsomfattning
 
-Innan du tilldelar en RBAC-roll till ett säkerhets objekt bör du bestämma omfattningen av åtkomsten som säkerhets objekt ska ha. Bästa praxis är att bestämma att det är bäst att endast bevilja det snävaste möjliga omfånget.
+Innan du tilldelar en Azure-roll till ett säkerhets objekt bör du bestämma omfattningen av åtkomsten som säkerhets objekt ska ha. Bästa praxis är att bestämma att det är bäst att endast bevilja det snävaste möjliga omfånget.
 
 I följande lista beskrivs de nivåer där du kan begränsa åtkomsten till Azure Digitals resurser.
 * Modeller: åtgärderna för den här resursen dikterar kontroll över [modeller](concepts-models.md) som laddats upp i Azure Digitals.

@@ -4,12 +4,12 @@ description: I den här artikeln hittar du svar på vanliga frågor om hur du s�
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 68f85b3d5da811f78ba398093db5a65ee5c49ab1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bf09c4e56c3881987e14d27d5f2166c68e311ab3
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538776"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533503"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera virtuella Azure-datorer
 
@@ -99,11 +99,7 @@ Om du ändrar Skift läget (till övre eller lägre) för din virtuella dator el
 
 ### <a name="can-i-back-up-or-restore-selective-disks-attached-to-a-vm"></a>Kan jag säkerhetskopiera eller återställa selektiva diskar som är anslutna till en virtuell dator?
 
-Azure Backup har nu stöd för säkerhets kopiering och återställning av selektiva diskar med den virtuella Azure-datorn säkerhets kopierings lösning.
-
-Idag har Azure Backup stöd för säkerhets kopiering av alla diskar (operativ system och data) i en virtuell dator tillsammans med säkerhets kopierings lösningen för virtuella datorer. Med funktionen exkludera disk får du ett alternativ för att säkerhetskopiera ett eller flera av de många data diskarna i en virtuell dator. Detta ger en effektiv och kostnads effektiv lösning för dina säkerhets kopierings-och återställnings behov. Varje återställnings punkt innehåller data för de diskar som ingår i säkerhets kopieringen, vilket gör att du kan få en del av diskarna återställd från den aktuella återställnings punkten under återställnings åtgärden. Detta gäller för återställning av båda från ögonblicks bilden och valvet.
-
-Registrera dig för för hands versionen genom att skriva till oss påAskAzureBackupTeam@microsoft.com
+Azure Backup har nu stöd för säkerhets kopiering och återställning av selektiva diskar med den virtuella Azure-datorn säkerhets kopierings lösning. Mer information finns i [selektiv säkerhets kopiering av diskar och återställning för virtuella Azure-datorer](selective-disk-backup-restore.md).
 
 ## <a name="restore"></a>Återställ
 

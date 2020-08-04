@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: 8d6dd38c3d1802c3b5bec82edbda4f9d344fa28b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3170b51b8e580a625b2dbb4d83229c59bafa900e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090526"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534812"
 ---
 # <a name="azure-key-vault-security"></a>Azure Key Vault-säkerhet
 
@@ -46,11 +46,11 @@ Modellen för en enda mekanism för autentisering till båda planerna har flera 
 
 ### <a name="managing-administrative-access-to-key-vault"></a>Hantera administrativ åtkomst till Key Vault
 
-När du skapar ett nyckel valv i en resurs grupp hanterar du åtkomst med hjälp av Azure AD. Du beviljar användare eller grupper möjligheten att hantera nyckel valv i en resurs grupp. Du kan bevilja åtkomst på en bestämd omfattnings nivå genom att tilldela lämpliga RBAC-roller. Om du vill bevilja åtkomst till en användare för att hantera nyckel valv tilldelar du en fördefinierad `key vault Contributor` roll till användaren vid en bestämd omfattning. Följande omfattnings nivåer kan tilldelas en RBAC-roll:
+När du skapar ett nyckel valv i en resurs grupp hanterar du åtkomst med hjälp av Azure AD. Du beviljar användare eller grupper möjligheten att hantera nyckel valv i en resurs grupp. Du kan bevilja åtkomst på en bestämd omfattnings nivå genom att tilldela lämpliga Azure-roller. Om du vill bevilja åtkomst till en användare för att hantera nyckel valv tilldelar du en fördefinierad `key vault Contributor` roll till användaren vid en bestämd omfattning. Följande omfattnings nivåer kan tilldelas en Azure-roll:
 
-- **Prenumeration**: en RBAC-roll som tilldelas på prenumerations nivå gäller för alla resurs grupper och resurser i prenumerationen.
-- **Resurs grupp**: en RBAC-roll som tilldelas på resurs grupps nivå gäller för alla resurser i den resurs gruppen.
-- **Resurs**: en RBAC-roll som är tilldelad en angiven resurs gäller för den resursen. I det här fallet är resursen ett särskilt nyckel valv.
+- **Prenumeration**: en Azure-roll som tilldelas på prenumerations nivån gäller för alla resurs grupper och resurser i prenumerationen.
+- **Resurs grupp**: en Azure-roll som tilldelas på resurs grupps nivå gäller för alla resurser i den resurs gruppen.
+- **Resurs**: en Azure-roll som är tilldelad en angiven resurs gäller resursen. I det här fallet är resursen ett särskilt nyckel valv.
 
 Det finns flera fördefinierade roller. Om en fördefinierad roll inte passar dina behov kan du definiera en egen roll. Mer information finns i [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md).
 
@@ -95,7 +95,7 @@ Loggnings information kan nås inom 10 minuter efter nyckel valvs åtgärden. De
 
 Rekommendationer för att hantera lagrings konton på ett säkert sätt finns i [Azure Storage säkerhets guide](../../storage/blobs/security-recommendations.md)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Tjänst slut punkter för virtuella nätverk för Azure Key Vault](overview-vnet-service-endpoints.md)
 - [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md)

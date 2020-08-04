@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: ab1cba455f93abe4d603f417f8d0a00dda0e315e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2992324a1080b75a98264958f56ea28e93b54651
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497655"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534591"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 
@@ -79,7 +79,7 @@ Tilldela den hanterade identiteten till rollen **Storage BLOB data-ägare** på 
 1. Lägg till en ny roll genom att klicka på knappen **+ Lägg till roll tilldelning** .
 1. I fönstret **Lägg till roll tilldelning** väljer du rollen **Storage BLOB data-ägare** . Välj sedan den prenumeration som har den hanterade identitets-och lagrings kontot. Sedan söker du efter den användarspecifika hanterade identitet som du skapade tidigare. Välj slutligen den hanterade identiteten så visas den under **valda medlemmar**.
 
-    ![Skärm bild som visar hur du tilldelar en RBAC-roll](./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png)
+    ![Skärm bild som visar hur du tilldelar en Azure-roll](./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png)
 
 1. Välj **Spara**. Den användardefinierade identitet som du har valt visas nu under den valda rollen.
 1. När den här inledande installationen är klar kan du skapa ett kluster via portalen. Klustret måste finnas i samma Azure-region som lagrings kontot. På fliken **lagring** på menyn skapa kluster väljer du följande alternativ:

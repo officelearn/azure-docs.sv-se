@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 08/03/2020
 ms.author: jingwang
-ms.openlocfilehash: a6092395929f4990010e2212f28a5962cfe1c7e7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 54597953aac6fabe419a9d1b62b16de7ca7bd1e0
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087856"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534353"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopierings aktivitet i Azure Data Factory
 
@@ -183,7 +183,7 @@ Se [schema-och data typs mappning](copy-activity-schema-and-type-mapping.md) fö
 
 ## <a name="add-additional-columns-during-copy"></a>Lägg till ytterligare kolumner under kopieringen
 
-Förutom att kopiera data från käll data lagret till Sink kan du också konfigurera för att lägga till ytterligare data kolumner som ska kopieras till mottagaren. Exempel:
+Förutom att kopiera data från käll data lagret till Sink kan du också konfigurera för att lägga till ytterligare data kolumner som ska kopieras till mottagaren. Ett exempel:
 
 - När du kopierar från filbaserad källa lagrar du den relativa fil Sök vägen som en ytterligare kolumn att spåra från vilken fil data kommer från.
 - Lägg till en kolumn med ADF-uttryck för att koppla ADF-systemvariabler som pipeline-namn/pipeline-ID eller lagra andra dynamiska värden från den överordnade aktivitetens utdata.
@@ -253,9 +253,6 @@ Den här funktionen stöds när du kopierar data från en källa till följande 
 - [SQL Server](connector-sql-server.md)
 
 ![Skapa mottagar tabeller](media/copy-activity-overview/create-sink-table.png)
-
-> [!NOTE]
-> Det finns inte stöd för att skapa en automatisk tabell när [mellanlagrad kopiering](copy-activity-performance-features.md#staged-copy) har Aktiver ATS.
 
 ## <a name="fault-tolerance"></a>Feltolerans
 

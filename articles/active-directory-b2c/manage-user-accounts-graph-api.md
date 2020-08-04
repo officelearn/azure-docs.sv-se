@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/16/2020
+ms.date: 08/03/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 54b4292c74f7737f1c392d601627eb3e0ff48812
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: d523aeff87b95aaea91df9ad5d3f44c73c871b71
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116199"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528607"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Hantera Azure AD B2C användar konton med Microsoft Graph
 
@@ -60,7 +60,7 @@ En användare med ett kund konto kan logga in med flera identiteter. Till exempe
 
 I Microsoft Graph API lagras både lokala och federerade identiteter i `identities` attributet User, som är av typen [objectIdentity][graph-objectIdentity]. `identities`Samlingen representerar en uppsättning identiteter som används för att logga in på ett användar konto. Den här samlingen gör att användaren kan logga in på användar kontot med någon av dess associerade identiteter.
 
-| Egenskap   | Typ |Beskrivning|
+| Egenskap   | Typ |Description|
 |:---------------|:--------|:----------|
 |signInType|sträng| Anger användarnas inloggnings typer i din katalog. För lokalt konto:,,,, `emailAddress` `emailAddress1` `emailAddress2` `emailAddress3` `userName` eller någon annan typ som du vill ha. Socialt konto måste anges till `federated` .|
 |utfärdare|sträng|Anger utfärdarens identitet. För lokala konton (där **signInType** inte är `federated` det) är den här egenskapen namnet på den lokala B2C-klientens standard domän, till exempel `contoso.onmicrosoft.com` . För sociala identiteter (där **signInType** är `federated` ) är värdet namnet på utfärdaren, till exempel`facebook.com`|
@@ -117,7 +117,7 @@ Om de konton som du vill migrera har en mindre lösen ords styrka än den [stark
 
 Varje kundriktad app har unika krav för att informationen ska samlas in. Din Azure AD B2C klient har en inbyggd uppsättning information som lagras i egenskaper, t. ex. namn, efter namn, stad och post nummer. Med Azure AD B2C kan du utöka uppsättningen med egenskaper som lagras i varje kund konto. Mer information om hur du definierar anpassade attribut finns i [anpassade attribut (användar flöden)](user-flow-custom-attributes.md) och [anpassade attribut (anpassade principer)](custom-policy-custom-attributes.md).
 
-Microsoft Graph API har stöd för att skapa och uppdatera en användare med attribut för tillägg. Attribut för tillägg i Graph API namnges med hjälp av konventionen `extension_ApplicationObjectID_attributename` . Exempel:
+Microsoft Graph API har stöd för att skapa och uppdatera en användare med attribut för tillägg. Attribut för tillägg i Graph API namnges med hjälp av konventionen `extension_ApplicationClientID_attributename` , där `ApplicationClientID` är **programmets (klient) ID** för `b2c-extensions-app` programmet (hittas i **Appregistreringar**  >  **alla program** i Azure Portal). Observera att **program-ID: t (klient)** som det visas i attributets namn för tillägg inte innehåller några bindestreck. Ett exempel:
 
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"

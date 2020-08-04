@@ -3,12 +3,12 @@ title: Säkerhetskopiera en virtuell Azure-dator från VM-inställningarna
 description: I den här artikeln lär du dig hur du säkerhetskopierar en valfri virtuell Azure-dator eller flera virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 722c24ce87edc692156a86338521aa3b2f9c7562
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a8d1c29c894663da76b5882ef7ba249356ba3e6d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286753"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531854"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Säkerhetskopiera en virtuell Azure-dator från VM-inställningarna
 
@@ -24,7 +24,7 @@ Den här artikeln beskriver hur du säkerhetskopierar virtuella Azure-datorer me
 
 ### <a name="azure-vm-agent-installation"></a>Installation av Azure VM-agent
 
-För att kunna säkerhetskopiera virtuella Azure-datorer installerar Azure Backup ett tillägg på den virtuella dator agenten som körs på datorn. Om den virtuella datorn skapades från en Azure Marketplace-avbildning körs agenten. I vissa fall, till exempel om du skapar en anpassad virtuell dator eller om du migrerar en dator från en lokal plats. Du kan behöva installera agenten manuellt.
+Om du vill säkerhetskopiera virtuella Azure-datorer installerar Azure Backup ett tillägg på den virtuella dator agenten som körs på datorn. Om den virtuella datorn skapades från en Azure Marketplace-avbildning körs agenten. I vissa fall, till exempel om du skapar en anpassad virtuell dator eller om du migrerar en dator från en lokal plats, kan du behöva installera agenten manuellt.
 
 - Om du behöver installera VM-agenten manuellt följer du anvisningarna för virtuella [Windows](../virtual-machines/extensions/agent-windows.md) -eller [Linux](../virtual-machines/extensions/agent-linux.md) -datorer.
 - När agenten har installerats installerar Azure Backup säkerhets kopierings tillägget till agenten när du aktiverar säkerhets kopiering. Den uppdaterar och uppdaterar tillägget utan åtgärder från användaren.
@@ -32,12 +32,12 @@ För att kunna säkerhetskopiera virtuella Azure-datorer installerar Azure Backu
 ## <a name="back-up-from-azure-vm-settings"></a>Säkerhetskopiera från inställningar för virtuella Azure-datorer
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Klicka på **alla tjänster** och skriv **virtuella datorer**i filtret och klicka sedan på **virtuella datorer**.
+2. Välj **alla tjänster** och skriv **virtuella datorer**i filtret och välj sedan **virtuella datorer**.
 3. I listan över virtuella datorer väljer du den virtuella dator som du vill säkerhetskopiera.
-4. På menyn VM klickar du på **säkerhets kopiering**.
+4. På menyn VM väljer du **säkerhets kopiering**.
 5. I **Recovery Services valv**gör du följande:
-   - Om du redan har ett valv klickar du på **Välj befintlig**och väljer ett valv.
-   - Om du inte har något valv klickar du på **Skapa nytt**. Ange ett namn för valvet. Den skapas i samma region och resurs grupp som den virtuella datorn. Du kan inte ändra de här inställningarna när du aktiverar säkerhets kopiering direkt från VM-inställningarna.
+   - Om du redan har ett valv väljer du **Välj befintlig**och väljer ett valv.
+   - Om du inte har något valv väljer du **Skapa nytt**. Ange ett namn för valvet. Den skapas i samma region och resurs grupp som den virtuella datorn. Du kan inte ändra de här inställningarna när du aktiverar säkerhets kopiering direkt från VM-inställningarna.
 
         ![Guiden Aktivera säkerhetskopiering](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
@@ -49,41 +49,34 @@ För att kunna säkerhetskopiera virtuella Azure-datorer installerar Azure Backu
 
        ![Välja säkerhetskopieringspolicy](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
-7. Klicka på **Aktivera säkerhets kopiering**. Detta associerar säkerhets kopierings principen med den virtuella datorn.
+7. Välj **Aktivera säkerhetskopiering**. Detta associerar säkerhets kopierings principen med den virtuella datorn.
 
     ![Knappen Aktivera säkerhetskopiering](./media/backup-azure-vms-first-look-arm/vm-management-menu-enable-backup-button.png)
 
 8. Du kan följa konfigurations förloppet i Portal meddelanden.
-9. När jobbet har slutförts går du till menyn VM och klickar på **säkerhetskopiera**. Sidan visar säkerhets kopierings status för den virtuella datorn, information om återställnings punkter, jobb som körs och aviseringar som utfärdats.
+9. När jobbet har slutförts går du till menyn VM och väljer **säkerhets kopiering**. Sidan visar säkerhets kopierings status för den virtuella datorn, information om återställnings punkter, jobb som körs och aviseringar som utfärdats.
 
    ![Status för säkerhetskopiering](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
 10. När du har aktiverat säkerhets kopiering körs en första säkerhets kopiering. Du kan starta den första säkerhets kopieringen direkt eller vänta tills den startar enligt schemat för säkerhets kopiering.
     - Tills den första säkerhets kopieringen är klar visas den **senaste säkerhets kopierings statusen** som **Varning (första säkerhets kopiering väntar)**.
-    - Klicka på namnet på säkerhets kopierings principen för att se när nästa schemalagda säkerhets kopiering kommer att köras.
+    - Om du vill se när nästa schemalagda säkerhets kopiering kommer att köras väljer du namnet på säkerhets kopierings principen.
 
 ## <a name="run-a-backup-immediately"></a>Kör en säkerhets kopiering direkt
 
-1. Om du vill köra en säkerhets kopiering direkt går du till menyn VM och klickar på **säkerhetskopiera**  >  **nu**.
+1. Om du vill köra en säkerhets kopiering direkt går du till menyn VM och väljer **säkerhets**kopiering  >  **nu**.
 
     ![Kör säkerhets kopiering](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-2. I **Backup** använder du nu kalender kontrollen för att välja tills återställnings punkten kommer att behållas > och **OK**.
+2. I **Säkerhetskopiera nu**använder du kalender kontrollen för att välja tills återställnings punkten kommer att behållas > och **OK**.
 
     ![Bevarande dag för säkerhets kopior](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
-3. Med Portal meddelanden kan du se att säkerhets kopierings jobbet har utlösts. Klicka på **Visa alla jobb**för att övervaka säkerhets kopierings förloppet.
+3. Med Portal meddelanden kan du se att säkerhets kopierings jobbet har utlösts. Välj **Visa alla jobb**för att övervaka säkerhets kopierings förloppet.
 
 ## <a name="back-up-from-the-recovery-services-vault"></a>Säkerhetskopiera från Recovery Services-valvet
 
 Följ anvisningarna i den här artikeln för att aktivera säkerhets kopiering för virtuella Azure-datorer genom att konfigurera ett Azure Backup Recovery Services-valv och aktivera säkerhets kopiering i valvet.
-
->[!NOTE]
-> **Azure Backup har nu stöd för säkerhets kopiering och återställning av selektiva diskar med den virtuella Azure-datorn säkerhets kopierings lösning.**
->
->Idag har Azure Backup stöd för säkerhets kopiering av alla diskar (operativ system och data) i en virtuell dator tillsammans med säkerhets kopierings lösningen för virtuella datorer. Med funktionen exkludera disk får du ett alternativ för att säkerhetskopiera ett eller flera av de många data diskarna i en virtuell dator. Detta ger en effektiv och kostnads effektiv lösning för dina säkerhets kopierings-och återställnings behov. Varje återställnings punkt innehåller data för de diskar som ingår i säkerhets kopieringen, vilket gör att du kan få en del av diskarna återställd från den aktuella återställnings punkten under återställnings åtgärden. Detta gäller för återställning av båda från ögonblicks bilden och valvet.
->
->**Registrera dig för för hands versionen genom att skriva till oss påAskAzureBackupTeam@microsoft.com**
 
 ## <a name="next-steps"></a>Nästa steg
 

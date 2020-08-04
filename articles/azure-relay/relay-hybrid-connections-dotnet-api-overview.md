@@ -3,12 +3,12 @@ title: 'Översikt över Azure Relay .NET standard-API: er | Microsoft Docs'
 description: I den här artikeln sammanfattas några av de viktigaste en översikt över Azure Relay Hybridanslutningar .NET standard-API.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 578d0fd2bbf8b9bb897a79e88399dee3711f5990
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d5aeed2ea76f47608ef03103b11fa236ec0362e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316836"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532908"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Översikt över Azure Relay Hybridanslutningar .NET standard API
 
@@ -82,7 +82,7 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 
 ### <a name="receiving-data"></a>Tar emot data
 
-[HybridConnectionStream][HCStream] -klassen möjliggör tvåvägs kommunikation. I de flesta fall får du ständigt från strömningen. Om du läser text från data strömmen kanske du också vill använda ett [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) -objekt, vilket gör det lättare att parsa data. Du kan till exempel läsa data som text, i stället för som `byte[]` .
+[HybridConnectionStream][HCStream] -klassen möjliggör tvåvägs kommunikation. I de flesta fall får du ständigt från strömningen. Om du läser text från data strömmen kanske du också vill använda ett [StreamReader](/dotnet/api/system.io.streamreader?view=netcore-3.1) -objekt, vilket gör det lättare att parsa data. Du kan till exempel läsa data som text, i stället för som `byte[]` .
 
 Följande kod läser enskilda text rader från data strömmen tills en uppsägning begärs:
 
@@ -109,14 +109,14 @@ while (!cancellationToken.IsCancellationRequested)
 
 ### <a name="sending-data"></a>Skickar data
 
-När en anslutning har upprättats kan du skicka ett meddelande till relä slut punkten. Eftersom anslutningsobjektet ärver data [strömmen](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx)skickar du dina data som en `byte[]` . I följande exempel visas hur du gör detta:
+När en anslutning har upprättats kan du skicka ett meddelande till relä slut punkten. Eftersom anslutningsobjektet ärver data [strömmen](/dotnet/api/system.io.stream?view=netcore-3.1)skickar du dina data som en `byte[]` . I följande exempel visas hur du gör detta:
 
 ```csharp
 var data = Encoding.UTF8.GetBytes("hello");
 await clientConnection.WriteAsync(data, 0, data.Length);
 ```
 
-Men om du vill skicka text direkt, utan att behöva koda strängen varje tid, kan du figursätta `hybridConnectionStream` objektet med ett [StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx) -objekt.
+Men om du vill skicka text direkt, utan att behöva koda strängen varje tid, kan du figursätta `hybridConnectionStream` objektet med ett [StreamWriter](/dotnet/api/system.io.streamwriter?view=netcore-3.1) -objekt.
 
 ```csharp
 // The StreamWriter object only needs to be created once

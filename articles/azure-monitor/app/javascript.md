@@ -4,12 +4,12 @@ description: Hämta sid visning och antal sessioner, webb klient data, enstaka s
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 063d648c68431dd84fd1aeb88b85bc68f2acbe62
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: e0545660cbca68d41bc24b7266496b7912d408bc
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475761"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531327"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 
@@ -39,7 +39,8 @@ Installera via NPM.
 npm i --save @microsoft/applicationinsights-web
 ```
 
-> *Obs!* **när du skriver ingår det här paketet**, så du behöver **inte** installera ett separat Skriv paket.
+> [!Note]
+> **Inmatning ingår i det här paketet**, så du behöver **inte** installera ett separat Skriv paket.
     
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -103,7 +104,7 @@ Varje konfigurations alternativ visas på en ny rad, om du inte vill åsidosätt
 
 De tillgängliga konfigurations alternativen är 
 
-| Namn | Typ | Beskrivning
+| Namn | Typ | Description
 |------|------|----------------
 | src | sträng **[obligatoriskt]** | Den fullständiga URL: en för varifrån SDK: n ska läsas in. Det här värdet används för attributet src för ett dynamiskt tillagd &lt; skript/ &gt; tagg. Du kan använda den offentliga CDN-platsen eller en privat värd som är värd för en.
 | name | sträng *[valfritt]* | Det globala namnet för den initierade SDK: n som standard appInsights. Det ```window.appInsights``` kommer att vara en referens till den initierade instansen. Obs! Om du anger ett namn värde eller om en föregående instans ska tilldelas (via det globala namnet appInsightsSDK), kommer detta namn värde också att definieras i det globala namn området som ```window.appInsightsSDK=<name value>``` , detta krävs av SDK-initierings koden för att säkerställa att den initierar och uppdaterar rätt kodfragments Skeleton och proxyservrar.
@@ -152,7 +153,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Konfiguration
 De flesta konfigurations fälten får ett namn som är förfalskade som standard. Alla fält är valfria förutom för `instrumentationKey` .
 
-| Name | Standard | Beskrivning |
+| Name | Standard | Description |
 |------|---------|-------------|
 | instrumentationKey | null | **Krävs**<br>Instrumentation-nyckel som du fick från Azure Portal. |
 | accountId | null | Ett valfritt konto-ID, om din app grupperar användare till konton. Inga blank steg, kommatecken, semikolon, likheter eller lodräta staplar |
@@ -239,7 +240,7 @@ Välj **webbläsare** och välj sedan **haverier** eller **prestanda**.
 
 ![Skärm bild av sidan prestanda i Application Insights visar bild visning av beroende mått för ett webb program.](./media/javascript/performance-dependencies.png)
 
-### <a name="analytics"></a>Analytics
+### <a name="analytics"></a>Analys
 
 Om du vill fråga din telemetri som samlas in av JavaScript SDK väljer du knappen **Visa i loggar (analys)** . Genom att lägga till en `where` -sats i visas `client_Type == "Browser"` endast data från Java Script SDK och all telemetri på Server sidan som samlas in av andra SDK: er.
  

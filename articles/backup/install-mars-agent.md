@@ -3,12 +3,12 @@ title: Installera Microsoft Azure Recovery Services (MARS)-agenten
 description: Lär dig hur du installerar Microsoft Azure Recovery Services-agenten (MARS) för att säkerhetskopiera Windows-datorer.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: b9842f6b07621301a0a8a32f5eb7fae5ece153bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 715153d445acbc372f8305ca39f5276bf8a39773
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079374"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533486"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Installera Azure Backup MARS-agenten
 
@@ -155,7 +155,7 @@ Om du redan har installerat agenten på alla datorer kontrollerar du att du kör
 
     ![Lägg till autentiseringsuppgifter för valvet med guiden Registrera Server](./media/backup-configure-vault/register1.png)
 
-1. På sidan **krypterings inställning** anger du en lösen fras som ska användas för att kryptera och dekryptera säkerhets kopior för datorn.
+1. På sidan **krypterings inställning** anger du en lösen fras som ska användas för att kryptera och dekryptera säkerhets kopior för datorn. Mer information om tillåtna lösen Frass tecken [finns här](backup-azure-file-folder-backup-faq.md#what-characters-are-allowed-for-the-passphrase) .
 
     * Spara lösen frasen på en säker plats. Du behöver den för att återställa en säkerhets kopia.
     * Om du tappar bort lösen frasen kan Microsoft inte hjälpa dig att återställa säkerhets kopierings data.

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/27/2020
 ms.author: b-juche
-ms.openlocfilehash: f9552b82dc79e1edafb13fead5a07df3ecf1be3b
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 7c792ee9c56a044942bb2249a57f2615c72badee
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512966"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533146"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Vanliga frågor och svar om Azure NetApp Files
 
@@ -97,11 +97,15 @@ Du kan konvertera MB/s till IOPS med hjälp av följande formel:
 
 ### <a name="how-do-i-change-the-service-level-of-a-volume"></a>Hur gör jag för att ändra service nivån för en volym?
 
-Det finns för närvarande inte stöd för att ändra tjänste nivån för en volym.
+Du kan ändra service nivån för en befintlig volym genom att flytta volymen till en annan kapacitets pool som använder den [tjänste nivå](azure-netapp-files-service-levels.md) som du vill använda för volymen. Se [dynamisk ändring av volymens service nivå](dynamic-change-volume-service-level.md). 
 
 ### <a name="how-do-i-monitor-azure-netapp-files-performance"></a>Hur gör jag för att övervaka Azure NetApp Files prestanda?
 
 Azure NetApp Files tillhandahåller volym prestanda mått. Du kan också använda Azure Monitor för att övervaka användnings statistik för Azure NetApp Files.  Se [mått för Azure NetApp Files](azure-netapp-files-metrics.md) för att få en lista över prestanda mått för Azure NetApp Files.
+
+### <a name="whats-the-performance-impact-of-kerberos-on-nfsv41"></a>Vilken prestanda påverkas av Kerberos på NFSv 4.1?
+
+Se [prestanda påverkan för Kerberos på nfsv 4.1](configure-kerberos-encryption.md#kerberos_performance) för information om säkerhets alternativ för nfsv 4.1, prestanda vektorer som testas och den förväntade prestanda påverkan. 
 
 ## <a name="nfs-faqs"></a>Vanliga frågor och svar om NFS
 
@@ -164,6 +168,15 @@ Yes, by default, Azure NetApp Files supports both AES-128 and AES-256 encryption
 
 Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
 --> 
+
+## <a name="dual-protocol-faqs"></a>Vanliga frågor och svar om dubbla protokoll
+
+### <a name="i-tried-to-use-the-root-and-local-users-to-access-a-dual-protocol-volume-with-the-ntfs-security-style-on-a-unix-system-why-did-i-encounter-a-permission-denied-error"></a>Jag försökte använda "rot" och lokala användare för att få åtkomst till en dubbel protokoll volym med säkerhets formatet NTFS på ett UNIX-system. Varför påträffades felet "behörighet nekad"?   
+
+En dual-Protocol-volym stöder både NFS-och SMB-protokollen.  När du försöker komma åt den monterade volymen på UNIX-systemet försöker systemet mappa den UNIX-användare som du använder till en Windows-användare. Om ingen mappning hittas inträffar felet "behörighet nekad".  Den här situationen gäller även när du använder rot användaren för åtkomst.    
+
+För att undvika problemet "behörighet nekad" kontrollerar du att Windows Active Directory innehåller `pcuser` innan du ansluter till monterings punkten. Om du lägger till `pcuser` efter att du har påträffat problemet "behörighet nekad" väntar du 24 timmar på att cacheposten rensas innan du försöker igen.
+
 
 ## <a name="capacity-management-faqs"></a>Vanliga frågor och svar om kapacitets hantering
 

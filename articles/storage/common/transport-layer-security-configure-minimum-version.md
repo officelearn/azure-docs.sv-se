@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 07/29/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: eaa00716e8f86552a077fb527993f619fc9756b5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e7bb996b3d42e2db2b4fa65d050ec1cb6a935bc6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275813"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533384"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Framtvinga en minsta version av Transport Layer Security (TLS) som krävs för begär anden till ett lagrings konto
 
@@ -116,12 +116,20 @@ $accountName = "<storage-account>"
 $location = "<location>"
 
 # Create a storage account with MinimumTlsVersion set to TLS 1.1.
-New-AzStorageAccount -ResourceGroupName $rgName -AccountName $accountName -Location $location -SkuName Standard_GRS -MinimumTlsVersion TLS1_1
+New-AzStorageAccount -ResourceGroupName $rgName \
+    -AccountName $accountName \
+    -Location $location \
+    -SkuName Standard_GRS \
+    -MinimumTlsVersion TLS1_1
+
 # Read the MinimumTlsVersion property.
 (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).MinimumTlsVersion
 
 # Update the MinimumTlsVersion version for the storage account to TLS 1.2.
-Set-AzStorageAccount -ResourceGroupName $rgName -AccountName $accountName -MinimumTlsVersion TLS1_2
+Set-AzStorageAccount -ResourceGroupName $rgName \
+    -AccountName $accountName \
+    -MinimumTlsVersion TLS1_2
+
 # Read the MinimumTlsVersion property.
 (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).MinimumTlsVersion
 ```
@@ -140,11 +148,10 @@ az storage account create \
     --location <location> \
     --min-tls-version TLS1_1
 
-az resource show \
+az storage account show \
     --name <storage-account> \
     --resource-group <resource-group> \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query properties.minimumTlsVersion \
+    --query minimumTlsVersion \
     --output tsv
 
 az storage account update \
@@ -152,11 +159,10 @@ az storage account update \
     --resource-group <resource-group> \
     --min-tls-version TLS1_2
 
-az resource show \
+az storage account show \
     --name <storage-account> \
     --resource-group <resource-group> \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query properties.minimumTlsVersion \
+    --query minimumTlsVersion \
     --output tsv
 ```
 
@@ -166,7 +172,7 @@ Om du vill konfigurera den lägsta TLS-versionen för ett lagrings konto med en 
 
 1. I Azure Portal väljer du **skapa en resurs**.
 1. I **Sök på Marketplace**skriver du **mall distribution**och trycker sedan på **RETUR**.
-1. Välj **malldistribution (distribuera med anpassade mallar)**, Välj **skapa**och välj sedan **skapa en egen mall i redigeraren**.
+1. Välj **malldistribution (distribuera med anpassade mallar) (för hands version)**, Välj **skapa**och välj sedan **skapa en egen mall i redigeraren**.
 1. I redigeraren för mallar klistrar du in följande JSON för att skapa ett nytt konto och anger den lägsta TLS-versionen till TLS 1,2. Kom ihåg att ersätta plats hållarna inom vinkelparenteser med dina egna värden.
 
     ```json
@@ -175,7 +181,7 @@ Om du vill konfigurera den lägsta TLS-versionen för ett lagrings konto med en 
         "contentVersion": "1.0.0.0",
         "parameters": {},
         "variables": {
-            "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+            "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'tls')]"
         },
         "resources": [
             {
@@ -187,6 +193,10 @@ Om du vill konfigurera den lägsta TLS-versionen för ett lagrings konto med en 
                 "minimumTlsVersion": "TLS1_2"
             },
             "dependsOn": [],
+            "sku": {
+              "name": "Standard_GRS"
+            },
+            "kind": "StorageV2",
             "tags": {}
             }
         ]
@@ -215,8 +225,6 @@ resources
 | extend minimumTlsVersion = parse_json(properties).minimumTlsVersion
 | project subscriptionId, resourceGroup, name, minimumTlsVersion
 ```
-
----
 
 ### <a name="test-the-minimum-tls-version-from-a-client"></a>Testa den lägsta TLS-versionen från en klient
 

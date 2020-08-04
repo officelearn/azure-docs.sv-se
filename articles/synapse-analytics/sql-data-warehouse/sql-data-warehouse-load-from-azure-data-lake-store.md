@@ -11,12 +11,12 @@ ms.date: 06/07/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fcebf66dba2fc13457ca359b81565fc5870032c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c634b4f7ac3aa1fe83e6ab3f863e998b8d25232c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213303"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533945"
 ---
 # <a name="load-data-from-azure-data-lake-storage-for-synapse-sql"></a>Läs in data från Azure Data Lake Storage för Synapse SQL
 
@@ -30,7 +30,7 @@ Den här guiden beskriver hur du använder Copy- [instruktionen](https://docs.mi
 > * Skapa mål tabellen för att läsa in data från Azure Data Lake Storage.
 > * Skapa COPY-instruktionen för att läsa in data till data lagret.
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -39,7 +39,7 @@ Innan du börjar med de här självstudierna ska du ladda ned och installera den
 För att kunna köra den här självstudien behöver du:
 
 * En SQL-pool. Se [skapa en SQL-pool och fråga efter data](create-data-warehouse-portal.md).
-* Ett Data Lake Storage konto. Se [Kom igång med Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). För det här lagrings kontot måste du konfigurera eller ange någon av följande autentiseringsuppgifter som ska läsas in: en lagrings konto nyckel, en signatur för delad åtkomst (SAS), en Azure Directory-programanvändare eller en AAD-användare som har lämplig RBAC-roll till lagrings kontot.
+* Ett Data Lake Storage konto. Se [Kom igång med Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). För det här lagrings kontot måste du konfigurera eller ange någon av följande autentiseringsuppgifter som ska läsas in: en lagrings konto nyckel, en signatur för delad åtkomst (SAS), en Azure Directory-programanvändare eller en AAD-användare som har rätt Azure-roll till lagrings kontot.
 
 ## <a name="create-the-target-table"></a>Skapa mål tabellen
 

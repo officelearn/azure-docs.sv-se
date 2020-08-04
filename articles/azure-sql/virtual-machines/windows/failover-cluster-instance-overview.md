@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 00c9482eab74003f6a667d52440d4cb6dd21fcfc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8a5374bf15798fd7e53f0d93e69f2f40a2d57b94
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287356"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533826"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instanser av kluster för växling vid fel med SQL Server på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -51,8 +51,8 @@ SQL Server på virtuella Azure-datorer erbjuder olika alternativ som en lösning
 |**Lägsta version av operativsystemet**| Alla |Windows Server 2012|Windows Server 2016|
 |**Lägsta SQL Server-version**|Alla|SQL Server 2012|SQL Server 2016|
 |**Tillgänglighet för VM som stöds** |Tillgänglighets uppsättningar med närhets placerings grupper |Tillgänglighets uppsättningar och tillgänglighets zoner|Tillgänglighetsuppsättningar |
-|**Stöder FileStream**|Ja|Nej|Ja |
-|**Azure Blob-cache**|Nej|Nej|Ja|
+|**Stöder FileStream**|Ja|No|Ja |
+|**Azure Blob-cache**|Inga|Inga|Ja|
 
 Resten av det här avsnittet visar fördelarna och begränsningarna för varje lagrings alternativ som är tillgängligt för SQL Server på virtuella Azure-datorer. 
 
@@ -98,7 +98,7 @@ Information om hur du kommer igång finns [SQL Server kluster instans med Azure 
 - Hög nätverks bandbredd krävs för att uppnå höga prestanda på grund av en pågående diskallokering. 
 - Kräver en större VM-storlek och dubbel betalning för lagring eftersom lagringen är kopplad till varje virtuell dator. 
 
-Information om hur du kommer igång finns [SQL Server kluster instans med Lagringsdirigering](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
+Information om hur du kommer igång finns [SQL Server kluster instans med Lagringsdirigering](failover-cluster-instance-storage-spaces-direct-manually-configure.md). 
 
 ### <a name="premium-file-share"></a>Premium-filresurs
 

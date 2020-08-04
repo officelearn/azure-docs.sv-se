@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 24a5e342c66d8154f4635acc957084d243fbd75e
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: ba66716abe80a1b12bc64b739f498a0a01d54fe3
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513085"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533180"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
-Azure NetApp Files stöder NFS-och SMBv3-volymer. En volyms kapacitetsförbrukning mäts mot dess pools etablerade kapacitet. Den här artikeln visar hur du skapar en SMBv3-volym. Om du vill skapa en NFS-volym, se [skapa en NFS-volym för Azure NetApp Files](azure-netapp-files-create-volumes.md). 
+Azure NetApp Files stöder skapande av volymer med NFS (NFSv3 och NFSv 4.1), SMBv3 eller Dual Protocol (NFSv3 och SMB). En volyms kapacitetsförbrukning mäts mot dess pools etablerade kapacitet. Den här artikeln visar hur du skapar en SMBv3-volym.
 
 ## <a name="before-you-begin"></a>Innan du börjar 
 Du måste redan ha konfigurerat en kapacitetspool.   
@@ -45,7 +45,7 @@ Ett undernät måste delegeras till Azure NetApp Files.
     |    AD-webbtjänster    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
     |    DNS                |    53        |    UDP           |
-    |    ICMPv4             |    E.t.       |    Eko svar    |
+    |    ICMPv4             |    Ej tillämpligt       |    Eko svar    |
     |    Kerberos           |    464       |    TCP           |
     |    Kerberos           |    464       |    UDP           |
     |    Kerberos           |    88        |    TCP           |
@@ -197,7 +197,7 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
 2. Klicka på **+ Lägg till volym** för att skapa en volym.  
     Fönstret Skapa en volym visas.
 
-3. I fönstret Skapa en volym klickar du på **skapa** och anger information för följande fält:   
+3. I fönstret Skapa en volym klickar du på **skapa** och anger information för följande fält under fliken grundläggande:   
     * **Volym namn**      
         Ange namnet på den volym du skapar.   
 
@@ -230,7 +230,7 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
 
     * Om du vill använda en befintlig ögonblicks bild princip på volymen klickar du på **Visa Avancerat avsnitt** för att expandera den och väljer en ögonblicks bilds princip på den nedrullningsbara menyn. 
 
-        Information om hur du skapar en ögonblicks bilds princip finns i [Hantera ögonblicks bilder](azure-netapp-files-manage-snapshots.md).
+        Information om hur du skapar en ögonblicks bilds princip finns i [Hantera ögonblicks bild principer](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
 
         ![Visa avancerad markering](../media/azure-netapp-files/volume-create-advanced-selection.png)
 

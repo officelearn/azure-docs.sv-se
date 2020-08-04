@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: e0d0804ce1f43d246dc4e87e222cbfbaf7db58aa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a850e5ea851ee539c663b00ecc7f2053eae8dc34
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102295"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534098"
 ---
 # <a name="create-an-assignment-and-allocate-credit"></a>Skapa en tilldelning och allokera kredit
 
@@ -31,7 +31,7 @@ Azure-Education Hub accepterar alla e-postadresser i _____ @___.___ . Den söker
 > [!IMPORTANT]
 > Arbets-och skol konton omfattas av egna principer, inklusive om en e-postadress från en annan domän än organisationen tillåts (till exempel att lägga till student2@outlook.com i @school.edu domänen). Se till att kontrol lera dessa principer innan du lägger till nya användare.
 
-När ett arbets-eller skol konto (till exempel student1@school.edu ) läggs till som rollbaserad åtkomst kontroll (RBAC) i lärare sponsor-portalen eller [Azure Portal](https://portal.azure.com), skickar Azure automatiskt e-post till mottagaren. Det här e-postmeddelandet kräver att användaren accepterar det nya kontot och rollen RBAC innan du får åtkomst till prenumerationen. Om du är kurs undervisnings assistent (TA) eller lärare måste du informera eleverna om detta så att deras prenumeration visas i Azure Portal som förväntat. E-postmeddelandet bör se ut ungefär så här:
+När ett arbets-eller skol konto (till exempel student1@school.edu ) läggs till som rollbaserad åtkomst kontroll (RBAC) i lärare sponsor-portalen eller [Azure Portal](https://portal.azure.com), skickar Azure automatiskt e-post till mottagaren. För det här e-postmeddelandet krävs att användaren accepterar det nya kontot och Azure-rollen innan de får åtkomst till prenumerationen. Om du är kurs undervisnings assistent (TA) eller lärare måste du informera eleverna om detta så att deras prenumeration visas i Azure Portal som förväntat. E-postmeddelandet bör se ut ungefär så här:
 
 :::image type="content" source="media/create-assignment-allocate-credit/azure-active-directory-get-started.png" alt-text="Azure Active Directory kom igång" border="false":::
 

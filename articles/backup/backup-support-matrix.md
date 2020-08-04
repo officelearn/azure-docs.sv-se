@@ -4,12 +4,12 @@ description: Innehåller en sammanfattning av stödinställningar och begränsni
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: f84be4082eb6bc845459b6d88cb3157b2330f23d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d75e7053bfff14fbcb6deeae48c48f09e3e9ac0d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091019"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531888"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Support mat ris för Azure Backup
 
@@ -29,7 +29,7 @@ Azure Backup använder Recovery Services valv för att dirigera och hantera säk
 
 I följande tabell beskrivs funktionerna i Recovery Services-valv:
 
-**Funktion** | **Detaljer**
+**Funktion** | **Information**
 --- | ---
 **Valv i prenumerationen** | Upp till 500 Recovery Services-valv i en enstaka prenumeration.
 **Datorer i ett valv** | Upp till 1 000 virtuella Azure-datorer i ett enda valv.<br/><br/> Upp till 50 MABS-servrar kan registreras i ett enda valv.
@@ -55,7 +55,7 @@ Här är what's som stöds om du vill säkerhetskopiera lokala datorer:
 
 ### <a name="azure-vm-limits"></a>Begränsningar för virtuella Azure-datorer
 
-**Gräns** | **Detaljer**
+**Gräns** | **Information**
 --- | ---
 **Datadiskar för virtuella Azure-datorer** | Se [support mat ris för säkerhets kopiering av virtuella Azure-datorer](./backup-support-matrix-iaas.md#vm-storage-support).
 **Datadiskstorlek för virtuella Azure-datorer** | Enskild disk storlek kan vara upp till 32 TB och högst 256 TB kombinerat för alla diskar i en virtuell dator.
@@ -77,11 +77,11 @@ Här är what's som stöds om du vill säkerhetskopiera Linux-datorer:
 
 **Typ av säkerhetskopiering** | **Linux (Azure-godkänt)**
 --- | ---
-**Direkt säkerhets kopiering av lokal dator som kör Linux** | Stöds ej. MARS-agenten kan bara installeras på Windows-datorer.
+**Direkt säkerhets kopiering av lokal dator som kör Linux** | Stöds inte. MARS-agenten kan bara installeras på Windows-datorer.
 **Använda agent tillägget för att säkerhetskopiera virtuell Azure-dator som kör Linux** | Programkonsekvent säkerhets kopiering med hjälp av [anpassade skript](backup-azure-linux-app-consistent.md).<br/><br/> Återställning på filnivå.<br/><br/> Återställ genom att skapa en virtuell dator från en återställningspunkt eller disk.
 **Använda DPM för att säkerhetskopiera lokala datorer som kör Linux** | Filkonsekvent säkerhets kopiering av virtuella Linux-gäst datorer i Hyper-V och VMWare.<br/><br/> VM-återställning av virtuella Hyper-V-och VMWare Linux-gäst datorer.
 **Använda MABS för att säkerhetskopiera lokala datorer som kör Linux** | Filkonsekvent säkerhets kopiering av virtuella Linux-gäst datorer i Hyper-V och VMWare.<br/><br/> VM-återställning av virtuella Hyper-V-och VMWare Linux-gäst datorer.
-**Använda MABS eller DPM för att säkerhetskopiera virtuella Linux Azure-datorer** | Stöds ej.
+**Använda MABS eller DPM för att säkerhetskopiera virtuella Linux Azure-datorer** | Stöds inte.
 
 ## <a name="daylight-saving-time-support"></a>Stöd för sommar tid
 
@@ -106,20 +106,17 @@ Azure Backup stöder kryptering för överförings-och rest-data.
 ### <a name="data-security"></a>Datasäkerhet
 
 - Säkerhetskopierade data lagras i Recovery Services valvet i krypterad form.
-- Endast du har tillgång till den lösenfras som krävs för att låsa upp dessa data. Microsoft kan aldrig dekryptera säkerhetskopierade data.
-
-    > [!WARNING]
-    > När du har konfigurerat valvet har bara du åtkomst till krypteringsnyckeln. Microsoft sparar aldrig någon kopia och har inte åtkomst till nyckeln. Om du tappar bort nyckeln kan Microsoft inte återställa dina säkerhetskopierade data.
+- När data säkerhets kopie ras från lokala servrar med MARS-agenten krypteras data med en lösen fras innan överföring till Azure Backup och dekrypteras först efter att den har laddats ned från Azure Backup.
 - När du säkerhetskopierar virtuella Azure-datorer måste du konfigurera kryptering *i* den virtuella datorn.
 - Azure Backup stöder Azure Disk Encryption, som använder BitLocker på virtuella Windows-datorer och **dm-crypt** på virtuella Linux-datorer.
 - På Server sidan använder Azure Backup [Azure Storage tjänst kryptering](../storage/common/storage-service-encryption.md)som skyddar data i vila.
 
 **Dator** | **Under överföring** | **I vila**
 --- | --- | ---
-**Lokala Windows-datorer utan DPM/MABS** | ![Ja][green] | ![Ja][green]
-**Virtuella Azure-datorer** | ![Ja][green] | ![Ja][green]
-**Lokala Windows-datorer eller virtuella Azure-datorer med DPM** | ![Ja][green] | ![Ja][green]
-**Lokala Windows-datorer eller virtuella Azure-datorer med MABS** | ![Ja][green] | ![Ja][green]
+**Lokala Windows-datorer utan DPM/MABS** | ![Ja][green] | ![Yes][green]
+**Virtuella Azure-datorer** | ![Ja][green] | ![Yes][green]
+**Lokala Windows-datorer eller virtuella Azure-datorer med DPM** | ![Ja][green] | ![Yes][green]
+**Lokala Windows-datorer eller virtuella Azure-datorer med MABS** | ![Ja][green] | ![Yes][green]
 
 ## <a name="compression-support"></a>Stöd för komprimering
 
@@ -130,9 +127,9 @@ Säkerhets kopiering stöder komprimering av säkerhets kopierings trafik, som s
 
 **Dator** | **Komprimera till MABS/DPM (TCP)** | **Komprimera till valv (HTTPS)**
 --- | --- | ---
-**Direkt säkerhets kopiering av lokala Windows-datorer** | Ej tillämpligt | ![Yes][green]
+**Direkt säkerhets kopiering av lokala Windows-datorer** | Ej tillämpligt | ![Ja][green]
 **Säkerhets kopiering av virtuella Azure-datorer med hjälp av VM-tillägg** | NA | NA
-**Säkerhetskopiera lokalt/Azure-datorer med hjälp av MABS/DPM** | ![Ja][green] | ![Ja][green]
+**Säkerhetskopiera lokalt/Azure-datorer med hjälp av MABS/DPM** | ![Ja][green] | ![Yes][green]
 
 ## <a name="retention-limits"></a>Gräns för kvarhållning
 

@@ -1,14 +1,14 @@
 ---
-title: RBAC-roller och-behörigheter
+title: Roller och behörigheter för Azure
 description: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) och identitets-och åtkomst hantering (IAM) för att ge detaljerade behörigheter till resurser i ett Azure Container Registry.
 ms.topic: article
 ms.date: 12/02/2019
-ms.openlocfilehash: 0bf6059698191c975b212bee7f45d21977478b49
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 90546b96f081893d312e66aae04e2125c1c210e5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497757"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533316"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry roller och behörigheter
 
@@ -85,7 +85,7 @@ För att definiera en anpassad roll, se [steg för att skapa en anpassad roll](.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om att tilldela RBAC-roller till en Azure-identitet med hjälp av [Azure Portal](../role-based-access-control/role-assignments-portal.md), [Azure CLI](../role-based-access-control/role-assignments-cli.md)eller andra Azure-verktyg.
+* Lär dig mer om hur du tilldelar Azure-roller till en Azure-identitet med hjälp av [Azure Portal](../role-based-access-control/role-assignments-portal.md), [Azure CLI](../role-based-access-control/role-assignments-cli.md)eller andra Azure-verktyg.
 
 * Lär dig mer om [autentiseringsalternativ](container-registry-authentication.md) för Azure Container Registry.
 

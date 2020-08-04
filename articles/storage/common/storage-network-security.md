@@ -9,12 +9,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: d45b792c655820b771ba956721e9169750c39fbd
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: a6f59fff351ecdae82ef7175d54e3b2ab1b7d30b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475421"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534115"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage brand väggar och virtuella nätverk
 
@@ -60,7 +60,7 @@ Som standard godkänner lagringskonton anslutningar från klienter i alla nätve
 
 Du kan hantera standard regler för nätverks åtkomst för lagrings konton via Azure Portal, PowerShell eller CLIv2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 1. Gå till det lagringskonto som du vill skydda.
 
@@ -144,7 +144,7 @@ Lagrings kontot och de virtuella nätverk som beviljats åtkomst kan finnas i ol
 
 Du kan hantera virtuella nätverks regler för lagrings konton via Azure Portal, PowerShell eller CLIv2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 1. Gå till det lagringskonto som du vill skydda.
 
@@ -268,7 +268,7 @@ Om du använder [ExpressRoute](/azure/expressroute/expressroute-introduction) lo
 
 Du kan hantera IP-nätverks regler för lagrings konton via Azure Portal, PowerShell eller CLIv2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 1. Gå till det lagringskonto som du vill skydda.
 
@@ -365,7 +365,7 @@ Nätverks regler hjälper till att skapa en säker miljö för anslutningar mell
 Vissa Microsoft-tjänster körs från nätverk som inte kan ingå i dina nätverks regler. Du kan ge en delmängd av dessa betrodda Microsoft-tjänster åtkomst till lagrings kontot, samtidigt som nätverks reglerna för andra appar upprätthålls. Dessa betrodda tjänster kommer sedan att använda stark autentisering för att ansluta till ditt lagrings konto på ett säkert sätt. Vi har aktiverat två lägen för betrodd åtkomst för Microsoft-tjänster.
 
 - Resurser för vissa tjänster, **när de registreras i din prenumeration**, kan komma åt ditt lagrings konto **i samma prenumeration** för Select-åtgärder, till exempel skriva loggar eller säkerhets kopiering.
-- Resurser i vissa tjänster kan beviljas uttrycklig åtkomst till ditt lagrings konto genom att **tilldela en RBAC-roll** till den systemtilldelade hanterade identiteten.
+- Resurser i vissa tjänster kan beviljas uttrycklig åtkomst till ditt lagrings konto genom att **tilldela en Azure-roll** till sin systemtilldelade hanterade identitet.
 
 
 När du aktiverar inställningen **Tillåt betrodda Microsoft-tjänster...** , beviljas resurser för följande tjänster som är registrerade i samma prenumeration som ditt lagrings konto åtkomst för en begränsad uppsättning åtgärder enligt beskrivningen:
@@ -384,7 +384,7 @@ När du aktiverar inställningen **Tillåt betrodda Microsoft-tjänster...** , b
 | Azure-nätverk         | Microsoft.Network          | Lagra och analysera nätverks trafik loggar, inklusive via Network Watcher-och Trafikanalys-tjänsterna. [Läs mer](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
 | Azure Site Recovery      | Microsoft. SiteRecovery     | Aktivera replikering för haveri beredskap för virtuella Azure IaaS-datorer när du använder brand Väggs-aktiverade cache-, käll-eller mål lagrings konton.  [Läs mer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
-Inställningen **Tillåt betrodda Microsoft-tjänster...** tillåter också att en viss instans av nedanstående tjänster får åtkomst till lagrings kontot, om du uttryckligen [tilldelar en RBAC-roll](storage-auth-aad.md#assign-rbac-roles-for-access-rights) till den [systemtilldelade hanterade identiteten](../../active-directory/managed-identities-azure-resources/overview.md) för den resurs instansen. I det här fallet motsvarar åtkomst omfånget för instansen den RBAC-roll som tilldelats den hanterade identiteten.
+Inställningen **Tillåt betrodda Microsoft-tjänster...** tillåter också att en viss instans av nedanstående tjänster får åtkomst till lagrings kontot, om du uttryckligen [tilldelar en Azure-roll](storage-auth-aad.md#assign-azure-roles-for-access-rights) till den [systemtilldelade hanterade identiteten](../../active-directory/managed-identities-azure-resources/overview.md) för den resurs instansen. I det här fallet motsvarar åtkomst omfånget för instansen den Azure-roll som tilldelats den hanterade identiteten.
 
 | Tjänst                        | Namn på resurs leverantör                 | Syfte            |
 | :----------------------------- | :------------------------------------- | :----------------- |
@@ -410,7 +410,7 @@ I vissa fall krävs åtkomst till läsa resurs loggar och mät värden utanför 
 
 Du kan hantera nätverks regel undantag via Azure Portal, PowerShell eller Azure CLI v2.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 1. Gå till det lagringskonto som du vill skydda.
 

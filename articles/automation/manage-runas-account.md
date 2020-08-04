@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 06/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: a3f48c9f15d12fbfc41ac8baf589f8579f259377
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c2d6e026f87211260a2cf45c0623806cc024b44e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421492"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530674"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Hantera ett Kör som-konto för Azure Automation
 
@@ -61,12 +61,12 @@ I det här avsnittet definieras behörigheter för både vanliga kör som-konton
 
 Om du vill skapa eller uppdatera ett Kör som-konto måste du ha vissa behörigheter och behörigheter. En program administratör i Azure Active Directory och en ägare i en prenumeration kan slutföra alla uppgifter. I en situation där du har separering av uppgifter visar följande tabell en lista över aktiviteter, motsvarande cmdlet och behörigheter som krävs:
 
-|Uppgift|Cmdlet  |Lägsta behörighet  |Där du anger behörigheter|
+|Aktivitet|Cmdlet  |Lägsta behörighet  |Där du anger behörigheter|
 |---|---------|---------|---|
 |Skapa Azure AD-program|[New-AzADApplication](/powershell/module/az.resources/new-azadapplication)     | Programutvecklare, roll<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Start > Azure AD > app-registreringar |
 |Lägg till en autentiseringsuppgift i programmet.|[New-AzADAppCredential](/powershell/module/az.resources/new-azadappcredential)     | Program administratör eller global administratör<sup>1</sup>         |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Start > Azure AD > app-registreringar|
 |Skapa och hämta en Azure AD-tjänstens huvud namn|[New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal)</br>[Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal)     | Program administratör eller global administratör<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Start > Azure AD > app-registreringar|
-|Tilldela eller hämta RBAC-rollen för det angivna huvudobjektet|[New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)</br>[Get-AzRoleAssignment](/powershell/module/Az.Resources/Get-AzRoleAssignment)      | Administratör för användar åtkomst eller ägare eller ha följande behörigheter:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Prenumeration](../role-based-access-control/role-assignments-portal.md)</br>Start > prenumerationer > \<subscription name\> -Access Control (IAM)|
+|Tilldela eller hämta Azure-rollen för det angivna huvudobjektet|[New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)</br>[Get-AzRoleAssignment](/powershell/module/Az.Resources/Get-AzRoleAssignment)      | Administratör för användar åtkomst eller ägare eller ha följande behörigheter:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Prenumeration](../role-based-access-control/role-assignments-portal.md)</br>Start > prenumerationer > \<subscription name\> -Access Control (IAM)|
 |Skapa eller ta bort ett Automation-certifikat|[New-AzAutomationCertificate](/powershell/module/Az.Automation/New-AzAutomationCertificate)</br>[Remove-AzAutomationCertificate](/powershell/module/az.automation/remove-azautomationcertificate)     | Deltagare i resurs gruppen         |Resurs grupp för Automation-konto|
 |Skapa eller ta bort en Automation-anslutning|[New-AzAutomationConnection](/powershell/module/az.automation/new-azautomationconnection)</br>[Remove-AzAutomationConnection](/powershell/module/az.automation/remove-azautomationconnection)|Deltagare i resurs gruppen |Resurs grupp för Automation-konto|
 

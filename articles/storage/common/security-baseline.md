@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 36f3c4192f43e323df2aaf9397364dfd1b4da731
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a9c3264a9a9d6ae27eee6da4338fa6fd401da461
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501380"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534064"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Azures säkerhets bas linje för Azure Storage
 
@@ -536,7 +536,7 @@ Använd dessutom tjänst slut punkts principer för virtuella nätverk för att 
 
 **Vägledning**: Azure Active Directory (Azure AD) tillåter åtkomst rättigheter till skyddade resurser via rollbaserad åtkomst kontroll (RBAC). Azure Storage definierar en uppsättning inbyggda Azure-roller som omfattar vanliga uppsättningar behörigheter som används för att få åtkomst till BLOB-eller Queue-data. 
 
-- [Tilldela RBAC-roller för Azure Storage konto](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal)
+- [Så här tilldelar du Azure-roller för Azure Storage konto](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
 
 - [Använd Azure Storage Resource Provider för att få åtkomst till hanterings resurser](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 

@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: f15f0c3f6b442419d3d2e3a253d15465e130eae2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7776345ee4e02baa2d2a6ae7bc08389aa94bd09b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090611"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534489"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub stöd för virtuella nätverk med privat länk och hanterad identitet
 
@@ -174,7 +174,7 @@ IoT Hub kan dirigera meddelanden till ett kundägda lagrings konto. För att rou
 
 1. I Azure Portal navigerar du till ditt lagrings kontos **åtkomst kontroll (IAM)** och klickar på **Lägg till** under avsnittet **Lägg till en roll tilldelning** .
 
-2. Välj **Storage BLOB data-deltagare** ([*inte* bidrags givare eller lagrings konto deltagare](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues)) som **roll**, **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja IoT Hub resurs namn i list rutan. Klicka på knappen **Spara**.
+2. Välj **Storage BLOB data-deltagare** ([*inte* bidrags givare eller lagrings konto deltagare](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) som **roll**, **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja IoT Hub resurs namn i list rutan. Klicka på knappen **Spara**.
 
 3. Gå till fliken **brand väggar och virtuella nätverk** i ditt lagrings konto och aktivera alternativet **Tillåt åtkomst från valda nätverk** . Under **undantags** listan markerar du kryss rutan **Tillåt att betrodda Microsoft-tjänster får åtkomst till det här lagrings kontot**. Klicka på knappen **Spara**.
 
@@ -228,7 +228,7 @@ Med IoT Hub fil överförings funktionen kan enheter Ladda upp filer till ett ku
 
 1. I Azure Portal navigerar du till ditt lagrings kontos **åtkomst kontroll (IAM)** och klickar på **Lägg till** under avsnittet **Lägg till en roll tilldelning** .
 
-2. Välj **Storage BLOB data-deltagare** ([*inte* bidrags givare eller lagrings konto deltagare](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues)) som **roll**, **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja IoT Hub resurs namn i list rutan. Klicka på knappen **Spara**.
+2. Välj **Storage BLOB data-deltagare** ([*inte* bidrags givare eller lagrings konto deltagare](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) som **roll**, **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja IoT Hub resurs namn i list rutan. Klicka på knappen **Spara**.
 
 3. Gå till fliken **brand väggar och virtuella nätverk** i ditt lagrings konto och aktivera alternativet **Tillåt åtkomst från valda nätverk** . Under **undantags** listan markerar du kryss rutan **Tillåt att betrodda Microsoft-tjänster får åtkomst till det här lagrings kontot**. Klicka på knappen **Spara**.
 
@@ -246,7 +246,7 @@ Den här funktionen kräver anslutning från IoT Hub till lagrings kontot. För 
 
 1. I Azure Portal navigerar du till ditt lagrings kontos **åtkomst kontroll (IAM)** och klickar på **Lägg till** under avsnittet **Lägg till en roll tilldelning** .
 
-2. Välj **Storage BLOB data-deltagare** ([*inte* bidrags givare eller lagrings konto deltagare](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues)) som **roll**, **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja IoT Hub resurs namn i list rutan. Klicka på knappen **Spara**.
+2. Välj **Storage BLOB data-deltagare** ([*inte* bidrags givare eller lagrings konto deltagare](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) som **roll**, **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja IoT Hub resurs namn i list rutan. Klicka på knappen **Spara**.
 
 3. Gå till fliken **brand väggar och virtuella nätverk** i ditt lagrings konto och aktivera alternativet **Tillåt åtkomst från valda nätverk** . Under **undantags** listan markerar du kryss rutan **Tillåt att betrodda Microsoft-tjänster får åtkomst till det här lagrings kontot**. Klicka på knappen **Spara**.
 

@@ -3,12 +3,12 @@ title: Svar på vanliga frågor
 description: 'Svar på vanliga frågor om: Azure Backup-funktioner inklusive Recovery Services-valvet, vad du kan säkerhetskopiera, hur det fungerar, kryptering och gränser. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 6d05c06b1d27cd9d1bc396bddad49fcc89ba3ec3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4273d93e36dd8d956246811dd3f1d71d96ddcb68
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091087"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532466"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Vanliga frågor och svar
 
@@ -79,7 +79,7 @@ Ja.
 
 Azure Backup stöder dessa operativsystem för säkerhetskopiering av filer och mappar samt appar som skyddas av Azure Backup Server och SCDPM.
 
-**Operativsystem** | **SKU** | **Detaljer**
+**Operativsystem** | **SKU** | **Information**
 --- | --- | ---
 Arbetsstation | |
 Windows 10 64-bitars | Enterprise, Pro, Home | Datorerna ska köra de senaste Service Packs och uppdateringarna.
@@ -117,7 +117,7 @@ Azure VM | Se [support mat ris för säkerhets kopiering av virtuella Azure-dato
 
 Följande tabell beskriver hur datakällans storlek bestäms.
 
-**Datakälla** | **Detaljer**
+**Datakälla** | **Information**
 --- | ---
 Volym |Den mängd data som säkerhetskopieras från en virtuell dator med en enskild volym som säkerhetskopieras.
 SQL Server-databas |Storlek på den enkla databas storleken som säkerhets kopie ras.
@@ -214,7 +214,7 @@ Microsoft dekrypterar aldrig dina säkerhetskopierade data.
 
 ### <a name="what-is-the-minimum-length-of-the-encryption-key-used-to-encrypt-backup-data"></a>Vilken är den minsta längden på krypterings nyckeln som används för att kryptera säkerhetskopierade data?
 
-Krypteringsnyckeln ska innehålla minst 16 tecken när du använder Azure-säkerhetskopieringsagenten. För virtuella Azure-datorer finns det ingen begränsning av längden på de nycklar som används av Azure KeyVault.
+Krypterings nyckeln som används av Microsoft Azure Recovery Services (MARS)-agenten härleds från en lösen fras som måste vara minst 16 tecken lång. För virtuella Azure-datorer finns det ingen gräns för längden på de nycklar som används av Azure-valv.
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-can-microsoft-recover-the-data"></a>Vad händer om jag tappar bort krypteringsnyckeln? Kan jag återställa data? Kan Microsoft återställa data?
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e2e13d00e48c83ff56cc21f23f513d17f545b4e4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b7005954b14a9263ec074c836180853a99812dd5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496057"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534778"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Kontrol lera åtkomsten till lagrings kontot för SQL på begäran (för hands version)
 
@@ -89,7 +89,7 @@ Du kan använda följande kombinationer av auktoriserings-och Azure Storage type
 
 
 > [!IMPORTANT]
-> Vid åtkomst till lagring som skyddas med brand väggen kan endast hanterad identitet användas. Du måste [tillåta betrodda Microsoft-tjänster... Ange](../../storage/common/storage-network-security.md#trusted-microsoft-services) och [tilldela uttryckligen en RBAC-roll](../../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights) till den [systemtilldelade hanterade identiteten](../../active-directory/managed-identities-azure-resources/overview.md) för den resurs instansen. I det här fallet motsvarar åtkomst omfånget för instansen den RBAC-roll som tilldelats den hanterade identiteten.
+> Vid åtkomst till lagring som skyddas med brand väggen kan endast hanterad identitet användas. Du måste [tillåta betrodda Microsoft-tjänster... Ange](../../storage/common/storage-network-security.md#trusted-microsoft-services) och [tilldela uttryckligen en Azure-roll](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) till den [systemtilldelade hanterade identiteten](../../active-directory/managed-identities-azure-resources/overview.md) för den resurs instansen. I det här fallet motsvarar åtkomst omfånget för instansen den Azure-roll som tilldelats den hanterade identiteten.
 >
 
 ## <a name="credentials"></a>Autentiseringsuppgifter

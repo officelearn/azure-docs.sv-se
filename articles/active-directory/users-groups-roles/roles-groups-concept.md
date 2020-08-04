@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f29ed1ad7ba0215e9b4193fd56dd3a32f3e9a2
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 68d40e9dbc2c4da6b298f7245318c95de983edcc
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476288"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530154"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Använd moln grupper för att hantera roll tilldelningar i Azure Active Directory (för hands version)
 
@@ -59,12 +59,13 @@ Följande scenarier stöds inte just nu:
 ## <a name="known-issues"></a>Kända problem
 
 - Du kan inte skapa eller ändra en dynamisk grupp när rollen tilldelas via en grupp.
-- Azure Information Protection känner inte igen roll medlemskap via gruppen än. Direkta roll tilldelningar fungerar fortfarande. Azure Information Protection portal (den klassiska portalen) känner inte igen roll medlemskap via gruppen än. Direkta roll tilldelningar fungerar fortfarande. Du kan [migrera till en enhetlig känslighets etikett plattform](https://docs.microsoft.com/azure/information-protection/configure-policy-migrate-labels) och sedan använda Office 365 Security & Compliance Center för att använda grupp tilldelningar för att hantera roller.
 - Funktionen **Aktivera mellanlagrad distribution för hanterad användar inloggning** stöder inte tilldelning via grupp.
 - *Endast Azure AD P2-licensierade kunder*: Tilldela inte en grupp som aktiv till en roll via både Azure AD och Privileged Identity Management. Detta leder till problem där användare inte kan se sina aktiva roll tilldelningar i PIM samt möjligheten att ta bort PIM-tilldelningen. Kvalificerade tilldelningar påverkas inte i det här scenariot. Om du försöker utföra den här tilldelningen kan du se oväntad funktion, till exempel:
   - Slut tiden för roll tilldelningen kan visas felaktigt.
   - I PIM-portalen kan **Mina roller** endast visa en roll tilldelning, oavsett hur många metoder som tilldelningen beviljas med (via en eller flera grupper och direkt).
-- *Endast Azure AD P2-licensierade kunder* Även om du har tagit bort gruppen visas fortfarande en berättigad medlem av rollen i PIM-ANVÄNDARGRÄNSSNITTET. Det finns inget problem. Det är bara ett cache-problem i Azure Portal.
+- *Endast Azure AD P2-licensierade kunder* Även om du har tagit bort gruppen visas fortfarande en berättigad medlem av rollen i PIM-ANVÄNDARGRÄNSSNITTET. Det finns inget problem. Det är bara ett cache-problem i Azure Portal.  
+- Exchange administrations Center känner inte igen roll medlemskap via gruppen än, men PowerShell-cmdleten fungerar.
+- Azure Information Protection portal (den klassiska portalen) känner inte igen roll medlemskap via gruppen än. Du kan [migrera till en enhetlig känslighets etikett plattform](https://docs.microsoft.com/azure/information-protection/configure-policy-migrate-labels) och sedan använda Office 365 Security & Compliance Center för att använda grupp tilldelningar för att hantera roller.
 
 Vi åtgärdar problemen.
 
@@ -74,5 +75,5 @@ Om du använder den här funktionen måste du ha en tillgänglig Azure AD Premiu
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en roll tilldelnings bara grupp](roles-groups-create-eligible.md)
+- [Skapa en rolltilldelningsbar grupp](roles-groups-create-eligible.md)
 - [Tilldela en roll till en roll tilldelnings grupp](roles-groups-assign-role.md)

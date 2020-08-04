@@ -4,12 +4,12 @@ description: Använd rollbaserad Access Control för att hantera åtkomst till s
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 4c5a0a43efe7bda5fdc4b60d13b97f61565809bd
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 408e25b865c6d244118e505121492ccf22d19b64
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445313"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533469"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Använd rollbaserad Access Control för att hantera Azure Backup återställnings punkter
 
@@ -28,9 +28,9 @@ Om du vill definiera egna roller för ännu mer kontroll, se så här [skapar du
 
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Mappa inbyggda säkerhets kopierings roller till säkerhets kopierings hanterings åtgärder
 
-I följande tabell inhämtas säkerhets kopierings hanterings åtgärder och motsvarande lägsta RBAC-roll som krävs för att utföra åtgärden.
+I följande tabell inhämtas åtgärder för säkerhets kopierings hantering och motsvarande minsta Azure-roll som krävs för att utföra åtgärden.
 
-| Hanterings åtgärd | Minimal RBAC-roll krävs | Omfattning krävs |
+| Hanterings åtgärd | Lägsta Azure-roll som krävs | Omfattning krävs |
 | --- | --- | --- |
 | Skapa Recovery Services-valv | Säkerhets kopierings deltagare | Resurs grupp som innehåller valvet |
 | Aktivera säkerhets kopiering av virtuella Azure-datorer | Ansvarig för säkerhets kopiering | Resurs grupp som innehåller valvet |

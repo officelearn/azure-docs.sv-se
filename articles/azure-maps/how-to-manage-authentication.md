@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 69dda537beda1d1bec4f019e1d5cadd16bdd5b39
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 870ecb8bda9f07c9270724002d381a4f58bc4d13
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126864"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531737"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Hantera autentisering i Azure Maps
 
@@ -45,18 +45,18 @@ I följande tabell beskrivs vanliga scenarier för autentisering och auktoriseri
 
 | Scenario                                                                                    | Autentisering | Auktorisering | Utvecklings arbete | Drift ansträngning |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
-| [Trusted daemon/icke-interaktiv klient program](./how-to-secure-daemon-app.md)        | Delad nyckel     | Ej tillämpligt           | Medium             | Högt               |
-| [Trusted daemon/icke-interaktiv klient program](./how-to-secure-daemon-app.md)        | Azure AD       | Högt          | Lågt                | Medium             |
+| [Trusted daemon/icke-interaktiv klient program](./how-to-secure-daemon-app.md)        | Delad nyckel     | Ej tillämpligt           | Medium             | Hög               |
+| [Trusted daemon/icke-interaktiv klient program](./how-to-secure-daemon-app.md)        | Azure AD       | Hög          | Lågt                | Medium             |
 | [Webb program med en enda sida med interaktiv enkel inloggning](./how-to-secure-spa-users.md) | Azure AD       | Högt          | Medel             | Medium             |
 | [Webb program med en enda sida med icke-interaktiv inloggning](./how-to-secure-spa-app.md)      | Azure AD       | Högt          | Medel             | Medium             |
-| [Webb program med interaktiv enkel inloggning](./how-to-secure-webapp-users.md)          | Azure AD       | Högt          | Högt               | Medel             |
+| [Webb program med interaktiv enkel inloggning](./how-to-secure-webapp-users.md)          | Azure AD       | Hög          | Högt               | Medel             |
 | [IoT-enhet/indatamängds begränsad enhet](./how-to-secure-device-code.md)                     | Azure AD       | Högt          | Medel             | Medium             |
 
 Länkarna i tabellen tar dig till detaljerad konfigurations information för varje scenario.
 
 ## <a name="view-role-definitions"></a>Visa roll definitioner
 
-Om du vill visa RBAC-roller som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)**. Välj **roller**och Sök sedan efter roller som börjar med *Azure Maps*. Dessa Azure Maps roller är de roller som du kan bevilja åtkomst till.
+Om du vill visa Azure-roller som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)**. Välj **roller**och Sök sedan efter roller som börjar med *Azure Maps*. Dessa Azure Maps roller är de roller som du kan bevilja åtkomst till.
 
 > [!div class="mx-imgBorder"]
 > ![Visa tillgängliga roller](./media/how-to-manage-authentication/how-to-view-avail-roles.png)

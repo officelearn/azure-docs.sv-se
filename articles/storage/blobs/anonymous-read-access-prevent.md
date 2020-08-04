@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/23/2020
+ms.date: 08/02/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: e30c4142232a2d695204f5c8f612eb44791c847c
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f46a7927c149009eaf5baddbad2758732d4da758
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133171"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534298"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Förhindra anonym offentlig Läs behörighet till behållare och blobbar
 
@@ -24,7 +24,7 @@ Som standard är offentlig åtkomst till dina BLOB-data alltid förbjuden. Stand
 
 Om du inte tillåter offentlig BLOB-åtkomst för lagrings kontot, Azure Storage avvisar alla anonyma begär anden till det kontot. När offentlig åtkomst inte tillåts för ett konto kan behållare i det kontot inte konfigureras senare för offentlig åtkomst. Alla behållare som redan har kon figurer ATS för offentlig åtkomst accepterar inte längre anonyma begär Anden. Mer information finns i [Konfigurera anonym offentlig Läs behörighet för behållare och blobbar](anonymous-read-access-configure.md).
 
-Den här artikeln beskriver hur du analyserar anonyma begär Anden mot ett lagrings konto och hur du förhindrar anonym åtkomst för hela lagrings kontot eller för en enskild behållare.
+Den här artikeln beskriver hur du använder ett ramverk för att dra (identifierings-och gransknings styrning) för att kontinuerligt hantera offentlig åtkomst för dina lagrings konton.
 
 ## <a name="detect-anonymous-requests-from-client-applications"></a>Identifiera anonyma begär Anden från klient program
 
@@ -157,6 +157,126 @@ $ctx = $storageAccount.Context
 
 New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 ```
+
+### <a name="check-the-public-access-setting-for-multiple-accounts"></a>Kontrol lera inställningen för offentlig åtkomst för flera konton
+
+Om du vill kontrol lera inställningen för offentlig åtkomst i en uppsättning lagrings konton med optimala prestanda kan du använda Azures resurs diagram Utforskaren i Azure Portal. Mer information om hur du använder resurs diagram Utforskaren finns i [snabb start: kör din första resurs diagram fråga med Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
+
+När du kör följande fråga i resursens diagram Utforskaren returneras en lista över lagrings konton och den offentliga åtkomst inställningen för varje konto visas:
+
+```kusto
+resources
+| where type =~ 'Microsoft.Storage/storageAccounts'
+| extend allowBlobPublicAccess = parse_json(properties).allowBlobPublicAccess
+| project subscriptionId, resourceGroup, name, allowBlobPublicAccess
+```
+
+## <a name="use-azure-policy-to-audit-for-compliance"></a>Använda Azure Policy för att granska kompatibilitet
+
+Om du har ett stort antal lagrings konton kanske du vill utföra en granskning för att se till att dessa konton är konfigurerade för att förhindra offentlig åtkomst. Om du vill granska en uppsättning lagrings konton för deras kompatibilitet använder du Azure Policy. Azure Policy är en tjänst som du kan använda för att skapa, tilldela och hantera principer som tillämpar regler på Azure-resurser. Azure Policy hjälper dig att hålla resurserna kompatibla med företagets standarder och service nivå avtal. Mer information finns i [Översikt över Azure policy](../../governance/policy/overview.md).
+
+### <a name="create-a-policy-with-an-audit-effect"></a>Skapa en princip med en gransknings funktion
+
+Azure Policy stöder effekter som avgör vad som händer när en princip regel utvärderas mot en resurs. Gransknings funktionen skapar en varning när en resurs inte är kompatibel, men den stoppar inte begäran. Mer information om effekter finns i [förstå Azure policys effekter](../../governance/policy/concepts/effects.md).
+
+Följ dessa steg om du vill skapa en princip med en gransknings funktion för den offentliga åtkomst inställningen för ett lagrings konto med Azure Portal:
+
+1. I Azure Portal navigerar du till tjänsten Azure Policy.
+1. Under avsnittet **redigering** väljer du **definitioner**.
+1. Välj **Lägg till princip definition** för att skapa en ny princip definition.
+1. I fältet **definitions plats** väljer du knappen **mer** för att ange var gransknings princip resursen finns.
+1. Ange ett namn för principen. Du kan också ange en beskrivning och kategori.
+1. Under **princip regel**lägger du till följande princip definition i **policyRule** -avsnittet.
+
+    ```json
+    {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "not": {
+              "field":"Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+              "equals": "false"
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "audit"
+      }
+    }
+    ```
+
+1. Spara principen.
+
+### <a name="assign-the-policy"></a>Tilldela principen
+
+Tilldela sedan principen till en resurs. Principens omfattning motsvarar resursen och eventuella resurser under den. Mer information om princip tilldelning finns i [Azure policy tilldelnings struktur](../../governance/policy/concepts/assignment-structure.md).
+
+Följ dessa steg om du vill tilldela principen till Azure Portal:
+
+1. I Azure Portal navigerar du till tjänsten Azure Policy.
+1. Under avsnittet **redigering** väljer du **tilldelningar**.
+1. Välj **tilldela princip** om du vill skapa en ny princip tilldelning.
+1. I fältet **omfattning** väljer du omfånget för princip tilldelningen.
+1. I fältet **princip definition** väljer du knappen **mer** och väljer sedan den princip som du definierade i föregående avsnitt i listan.
+1. Ange ett namn för princip tilldelningen. Beskrivningen är valfri.
+1. Aktivera **tvingande princip** uppsättning till *aktive rad*. Den här inställningen har ingen inverkan på gransknings principen.
+1. Välj **Granska + skapa** för att skapa tilldelningen.
+
+### <a name="view-compliance-report"></a>Visa Kompatibilitetsrapport
+
+När du har tilldelat principen kan du Visa rapporten efterlevnad. Kompatibilitetsrapport för en gransknings princip innehåller information om vilka lagrings konton som inte är kompatibla med principen. Mer information finns i [Hämta efterlevnadsprincip](../../governance/policy/how-to/get-compliance-data.md)för information.
+
+Det kan ta flera minuter för rapporten att bli tillgänglig när princip tilldelningen har skapats.
+
+Följ dessa steg om du vill visa Kompatibilitetsrapport i Azure Portal:
+
+1. I Azure Portal navigerar du till tjänsten Azure Policy.
+1. Välj **efterlevnad**.
+1. Filtrera resultaten för namnet på princip tilldelningen som du skapade i föregående steg. Rapporten visar hur många resurser som inte är kompatibla med principen.
+1. Du kan öka detalj nivån i rapporten för ytterligare information, inklusive en lista över lagrings konton som inte är kompatibla.
+
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Skärm bild som visar Kompatibilitetsrapport för gransknings principen för offentlig BLOB-åtkomst":::
+
+## <a name="use-azure-policy-to-enforce-authorized-access"></a>Använd Azure Policy för att genomdriva auktoriserad åtkomst
+
+Azure Policy stöder moln styrning genom att se till att Azure-resurserna följer krav och standarder. För att säkerställa att lagrings konton i din organisation tillåter endast auktoriserade begär Anden, kan du skapa en princip som förhindrar att ett nytt lagrings konto skapas med en offentlig åtkomst inställning som tillåter anonyma begär Anden. Den här principen förhindrar även konfigurations ändringar till ett befintligt konto om den offentliga åtkomst inställningen för det kontot inte är kompatibel med principen.
+
+Den tvingande principen använder funktionen neka för att förhindra en begäran som skapar eller ändrar ett lagrings konto för att tillåta offentlig åtkomst. Mer information om effekter finns i [förstå Azure policys effekter](../../governance/policy/concepts/effects.md).
+
+Om du vill skapa en princip med en neka-påverkan för en offentlig åtkomst inställning som tillåter anonyma begär Anden följer du samma steg som beskrivs i [använda Azure policy för att granska kompatibilitet](#use-azure-policy-to-audit-for-compliance), men ange följande JSON i avsnittet **policyRule** i princip definitionen:
+
+```json
+{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "not": {
+          "field":"Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+          "equals": "false"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
+
+När du har skapat principen med neka-inställningen och tilldelar den till ett omfång kan en användare inte skapa ett lagrings konto som tillåter offentlig åtkomst. Du kan inte heller göra några konfigurations ändringar i ett befintligt lagrings konto som för närvarande tillåter offentlig åtkomst. Om du försöker göra det uppstår ett fel. Den offentliga åtkomst inställningen för lagrings kontot måste anges till **false** för att det ska gå att skapa eller konfigurera konton.
+
+Följande bild visar det fel som uppstår om du försöker skapa ett lagrings konto som tillåter offentlig åtkomst (standard för ett nytt konto) när en princip med en neka-påverkan kräver att offentlig åtkomst inte tillåts.
+
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Skärm bild som visar felet som inträffar när du skapar ett lagrings konto som strider mot principen":::
 
 ## <a name="next-steps"></a>Nästa steg
 

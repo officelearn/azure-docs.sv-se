@@ -3,12 +3,12 @@ title: Ge åtkomst med Azure Active Directory
 description: Den här artikeln innehåller information om hur du auktoriserar åtkomst till Event Hubs resurser med Azure Active Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: c6d1be2825ea716c72d70cd38babbb2d95083198
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: af9278d801dfd858ce8bba5ec5786d521f72218c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413399"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534574"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Ge åtkomst till Event Hubs resurser med Azure Active Directory
 Azure Event Hubs stöder användning av Azure Active Directory (Azure AD) för att godkänna begär anden till Event Hubs resurser. Med Azure AD kan du använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till ett säkerhets objekt, som kan vara en användare eller ett huvud namn för en program tjänst. Mer information om roller och roll tilldelningar finns i [förstå de olika rollerna](../role-based-access-control/overview.md).
@@ -21,14 +21,14 @@ När ett säkerhets objekt (en användare eller ett program) försöker få åtk
 
 Autentiserings steget kräver att en programbegäran innehåller en OAuth 2,0-åtkomsttoken vid körning. Om ett program körs i en Azure-entitet, till exempel en virtuell Azure-dator, en skalnings uppsättning för virtuella datorer eller en Azure Function-app, kan den använda en hanterad identitet för att få åtkomst till resurserna. Information om hur du autentiserar begär Anden som görs av en hanterad identitet i Event Hubs-tjänsten finns i [autentisera åtkomst till azure Event Hubs-resurser med Azure Active Directory och hanterade identiteter för Azure-resurser](authenticate-managed-identity.md). 
 
-Auktoriserings steget kräver att en eller flera RBAC-roller tilldelas säkerhets objekt. Azure Event Hubs tillhandahåller RBAC-roller som omfattar uppsättningar med behörigheter för Event Hubs resurser. Rollerna som tilldelas ett säkerhets objekt bestämmer vilka behörigheter som huvud kontot ska ha. Mer information om RBAC-roller finns i [inbyggda Azure-roller i azure Event Hubs](#azure-built-in-roles-for-azure-event-hubs). 
+Auktoriserings steget kräver att en eller flera Azure-roller tilldelas säkerhets objekt. Azure Event Hubs tillhandahåller Azure-roller som omfattar uppsättningar med behörigheter för Event Hubs resurser. Rollerna som tilldelas ett säkerhets objekt bestämmer vilka behörigheter som huvud kontot ska ha. Mer information om Azure-roller finns i [inbyggda Azure-roller i azure Event Hubs](#azure-built-in-roles-for-azure-event-hubs). 
 
 Interna program och webb program som gör förfrågningar till Event Hubs kan också auktoriseras med Azure AD. Information om hur du begär en åtkomsttoken och använder den för att auktorisera begär Anden för Event Hubs resurser finns i [autentisera åtkomst till Azure Event Hubs med Azure AD från ett program](authenticate-application.md). 
 
-## <a name="assign-rbac-roles-for-access-rights"></a>Tilldela RBAC-roller för åtkomst rättigheter
+## <a name="assign-azure-roles-for-access-rights"></a>Tilldela Azure-roller för åtkomst rättigheter
 Azure Active Directory (Azure AD) tillåter åtkomst rättigheter till skyddade resurser via [rollbaserad åtkomst kontroll (RBAC)](../role-based-access-control/overview.md). Azure Event Hubs definierar en uppsättning inbyggda Azure-roller som omfattar vanliga uppsättnings behörigheter som används för att komma åt Event Hub-data och du kan även definiera anpassade roller för åtkomst till data.
 
-När en RBAC-roll tilldelas till ett säkerhets objekt i Azure AD ger Azure åtkomst till dessa resurser för säkerhets objekt. Åtkomst kan begränsas till prenumerations nivån, resurs gruppen, Event Hubs namn området eller någon annan resurs under den. Ett säkerhets objekt i Azure AD kan vara en användare eller ett huvud namn för program tjänsten eller en [hanterad identitet för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
+När en Azure-roll tilldelas till ett säkerhets objekt för Azure AD ger Azure åtkomst till dessa resurser för säkerhets objekt. Åtkomst kan begränsas till prenumerations nivån, resurs gruppen, Event Hubs namn området eller någon annan resurs under den. Ett säkerhets objekt i Azure AD kan vara en användare eller ett huvud namn för program tjänsten eller en [hanterad identitet för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="azure-built-in-roles-for-azure-event-hubs"></a>Inbyggda Azure-roller för Azure Event Hubs
 Azure tillhandahåller följande inbyggda Azure-roller för att auktorisera åtkomst till Event Hubs data med hjälp av Azure AD och OAuth:
@@ -38,11 +38,11 @@ Azure tillhandahåller följande inbyggda Azure-roller för att auktorisera åtk
 - [Azure Event Hubs-datamottagare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Använd den här rollen för att ge den förbrukar/får åtkomst till Event Hubs resurser.
 
 ## <a name="resource-scope"></a>Resursomfång 
-Innan du tilldelar en RBAC-roll till ett säkerhets objekt bör du bestämma omfattningen av åtkomsten som säkerhets objekt ska ha. Bästa praxis är att bestämma att det alltid är bäst att bara bevilja det begränsande möjliga omfånget.
+Innan du tilldelar en Azure-roll till ett säkerhets objekt bör du bestämma omfattningen av åtkomsten som säkerhets objekt ska ha. Bästa praxis är att bestämma att det alltid är bäst att bara bevilja det begränsande möjliga omfånget.
 
 I följande lista beskrivs de nivåer där du kan begränsa åtkomsten till Event Hubs resurser, från och med det smala omfång:
 
-- **Konsument grupp**: i det här området gäller roll tilldelningen enbart för den här entiteten. För närvarande har Azure Portal inte stöd för att tilldela en RBAC-roll till ett säkerhets objekt på den här nivån. 
+- **Konsument grupp**: i det här området gäller roll tilldelningen enbart för den här entiteten. För närvarande har Azure Portal inte stöd för att tilldela en Azure-roll till ett säkerhets objekt på den här nivån. 
 - **Event Hub**: roll tilldelningen gäller för entiteten Event Hub och gruppen konsument under den.
 - **Namnrymd**: roll tilldelningen sträcker sig över hela topologin av Event Hubs under namn området och till den konsument grupp som är kopplad till den.
 - **Resurs grupp**: roll tilldelningen gäller för alla Event Hubs resurser under resurs gruppen.
@@ -68,7 +68,7 @@ Mer information om hur inbyggda roller definieras finns i [förstå roll definit
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig hur du tilldelar en inbyggd-RBAC-roll till ett säkerhets objekt finns i [autentisera åtkomst till Event Hubs resurser med Azure Active Directory](authenticate-application.md).
+- Lär dig hur du tilldelar en inbyggd Azure-roll till ett säkerhets objekt finns i [autentisera åtkomst till Event Hubs resurser med Azure Active Directory](authenticate-application.md).
 - Lär dig [hur du skapar anpassade roller med RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole).
 - Lär dig [hur du använder Azure Active Directory med händelsehubbnamnområde](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK)
 

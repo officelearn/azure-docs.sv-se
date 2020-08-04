@@ -3,12 +3,12 @@ title: Skala kvoter och begränsningar i din labb Azure DevTest Labs | Microsoft
 description: I den här artikeln beskrivs hur du kan skala ditt labb i Azure DevTest Labs. Visa användnings kvoter och-gränser och begär en ökning.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: dacc699a6f4e7663d0f314acfc2212bd69d46d18
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2166eaab073e2abc24ca24494ae13eb876db1fcf
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287309"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533962"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Skalnings kvoter och begränsningar i DevTest Labs
 När du arbetar i DevTest Labs kanske du märker att det finns vissa standard gränser för vissa Azure-resurser, vilket kan påverka DevTest Labs-tjänsten. Dessa gränser kallas **kvoter**.
@@ -20,7 +20,7 @@ Du kan använda varje Azure-resurs tills du når kvoten. Varje prenumeration har
 
 Varje prenumeration har till exempel en standard kvot på 20 kärnor. Så om du skapar virtuella datorer i labbet med fyra kärnor var och en, kan du bara skapa fem virtuella datorer.
 
-[Azure-prenumerations-och tjänst begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md) listar några av de vanligaste kvoterna för Azure-resurser. De resurser som används oftast i ett labb, och där du kan stöta på kvoter, inkludera VM-kärnor, offentliga IP-adresser, nätverks gränssnitt, hanterade diskar, RBAC-roll tilldelning och ExpressRoute-kretsar.
+[Azure-prenumerations-och tjänst begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md) listar några av de vanligaste kvoterna för Azure-resurser. De resurser som används oftast i ett labb, och för vilka du kan stöta på kvoter, inkludera VM-kärnor, offentliga IP-adresser, nätverks gränssnitt, hanterade diskar, roll tilldelning i Azure och ExpressRoute-kretsar.
 
 ## <a name="view-your-usage-and-quotas"></a>Visa användning och kvoter
 De här stegen visar hur du visar de aktuella kvoterna i din prenumeration för vissa Azure-resurser och hur många procent av varje kvot du har använt.

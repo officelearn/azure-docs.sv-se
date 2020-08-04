@@ -3,12 +3,12 @@ title: Autentisera en hanterad identitet med Azure Active Directory
 description: Den här artikeln innehåller information om hur du autentiserar en hanterad identitet med Azure Active Directory för åtkomst till Azure Event Hubs-resurser
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 4e3460fa4fc3807cda23d6e3835a9f0b843eb36d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 707c93d1f104dcc2982999c4e7461947280918ef
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537283"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534421"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autentisera en hanterad identitet med Azure Active Directory för att få åtkomst till Event Hubs resurser
 Azure Event Hubs stöder Azure Active Directory (Azure AD)-autentisering med [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md). Hanterade identiteter för Azure-resurser kan ge åtkomst till Event Hubs resurser med hjälp av Azure AD-autentiseringsuppgifter från program som körs i Azure Virtual Machines (VM), Function-appar, Virtual Machine Scale Sets och andra tjänster. Genom att använda hanterade identiteter för Azure-resurser tillsammans med Azure AD-autentisering kan du undvika att lagra autentiseringsuppgifter med dina program som körs i molnet.
@@ -21,13 +21,13 @@ Innan du kan använda hanterade identiteter för Azure-resurser för att auktori
 - [Azure Portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Azure Resource Manager-mall](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Azure Resource Manager mall](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Azure Resource Manager klient bibliotek](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Bevilja behörighet till en hanterad identitet i Azure AD
-Om du vill auktorisera en begäran om att Event Hubs tjänst från en hanterad identitet i ditt program måste du först konfigurera inställningarna för rollbaserad åtkomst kontroll (RBAC) för den hanterade identiteten. Azure Event Hubs definierar RBAC-roller som omfattar behörigheter för att skicka och läsa från Event Hubs. När RBAC-rollen tilldelas till en hanterad identitet beviljas den hanterade identiteten åtkomst till Event Hubs data i lämplig omfattning.
+Om du vill auktorisera en begäran om att Event Hubs tjänst från en hanterad identitet i ditt program måste du först konfigurera inställningarna för rollbaserad åtkomst kontroll (RBAC) för den hanterade identiteten. Azure Event Hubs definierar Azure-roller som omfattar behörigheter för att skicka och läsa från Event Hubs. När Azure-rollen tilldelas till en hanterad identitet beviljas den hanterade identiteten åtkomst till Event Hubs data i lämplig omfattning.
 
-Mer information om hur du tilldelar RBAC-roller finns i [autentisera med Azure Active Directory för åtkomst till Event Hubs resurser](authorize-access-azure-active-directory.md).
+Mer information om hur du tilldelar Azure-roller finns i [autentisera med Azure Active Directory för åtkomst till Event Hubs resurser](authorize-access-azure-active-directory.md).
 
 ## <a name="use-event-hubs-with-managed-identities"></a>Använd Event Hubs med hanterade identiteter
 Om du vill använda Event Hubs med hanterade identiteter måste du tilldela identiteten rollen och lämplig omfattning. I proceduren i det här avsnittet används ett enkelt program som körs under en hanterad identitet och som har åtkomst till Event Hubs resurser.
@@ -46,7 +46,7 @@ När du har aktiverat den här inställningen skapas en ny tjänst identitet i d
 
 Tilldela nu den här tjänst identiteten till en roll i det begärda omfånget i Event Hubs-resurser.
 
-### <a name="to-assign-rbac-roles-using-the-azure-portal"></a>Tilldela RBAC-roller med hjälp av Azure Portal
+### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Så här tilldelar du Azure-roller med hjälp av Azure Portal
 Om du vill tilldela en roll till Event Hubs resurser navigerar du till resursen i Azure Portal. Visa inställningarna för Access Control (IAM) för resursen och följ de här anvisningarna för att hantera roll tilldelningar:
 
 > [!NOTE]

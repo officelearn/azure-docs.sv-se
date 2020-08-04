@@ -3,12 +3,12 @@ title: Microsoft Azure Recovery Services (MARS) Agent – vanliga frågor och sv
 description: Behandlar vanliga frågor om säkerhets kopiering av filer och mappar med Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: fb6290124aa9ee0335083c5a505c005a387c0cd7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a4560499c56e4dcdf41c2e5c7920b415ceab6c5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514075"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533588"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Vanliga frågor och svar – Microsoft Azure Recovery Services (MARS) Agent
 
@@ -23,6 +23,10 @@ Den senaste MARS-agenten som används för att säkerhetskopiera Windows Server-
 ### <a name="how-long-are-vault-credentials-valid"></a>Hur länge är valv referenser giltiga?
 
 Autentiseringsuppgifterna för valvet upphör att gälla efter 10 dagar. Om filen med autentiseringsuppgifter upphör att gälla laddar du ned filen igen från Azure Portal.
+
+### <a name="what-characters-are-allowed-for-the-passphrase"></a>Vilka tecken är tillåtna för lösen frasen?
+
+Lösen frasen ska använda tecken från ASCII-teckenuppsättningen, med ASCII-värden som är mindre än eller lika med 127.
 
 ### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>Från vilka enheter kan jag säkerhetskopiera filer och mappar?
 

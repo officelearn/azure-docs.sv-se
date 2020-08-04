@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du återställer filer och mapp
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2488bbded1b4d55f3c4cf21c63e9fcb90e9bfb4f
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: e12669609b21d23b775af27f95528c4b42e95e81
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475064"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533567"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -24,13 +24,13 @@ Azure Backup ger möjlighet att återställa [virtuella Azure-datorer (VM) och d
 
 Om du vill återställa filer eller mappar från återställnings punkten går du till den virtuella datorn och väljer önskad återställnings punkt.
 
-1. Logga in på [Azure Portal](https://portal.Azure.com) och klicka på **virtuella datorer**i det vänstra fönstret. I listan över virtuella datorer väljer du den virtuella datorn för att öppna den virtuella datorns instrument panel.
+1. Logga in på [Azure Portal](https://portal.Azure.com) och välj **virtuella datorer**i det vänstra fönstret. I listan över virtuella datorer väljer du den virtuella datorn för att öppna den virtuella datorns instrument panel.
 
-2. I den virtuella datorns meny klickar du på **säkerhets kopiering** för att öppna instrument panelen för säkerhets kopiering.
+2. I den virtuella datorns meny väljer du **säkerhets kopiering** för att öppna instrument panelen för säkerhets kopiering.
 
     ![Öppna Recovery Services valv säkerhets kopierings objekt](./media/backup-azure-restore-files-from-vm/open-vault-for-vm.png)
 
-3. På instrument panelen för säkerhets kopiering klickar du på **fil återställning**.
+3. På instrument panelen för säkerhets kopierings menyn väljer du **fil återställning**.
 
     ![Knappen fil återställning](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
@@ -40,7 +40,7 @@ Om du vill återställa filer eller mappar från återställnings punkten går d
 
 4. I list rutan **Välj återställnings punkt** väljer du den återställnings punkt som innehåller de filer som du vill använda. Som standard är den senaste återställnings punkten redan vald.
 
-5. För att ladda ned program varan som används för att kopiera filer från återställnings punkten klickar du på **Hämta körbar fil** (för virtuella Windows Azure-datorer) eller **Ladda ned skript** (för virtuella Linux Azure-datorer genereras ett Python-skript).
+5. Om du vill ladda ned program varan som används för att kopiera filer från återställnings punkten väljer du **Hämta körbar fil** (för virtuella Windows Azure-datorer) eller **Ladda ned skript** (för virtuella Linux Azure-datorer genereras ett Python-skript).
 
     ![Genererat lösen ord](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
@@ -50,7 +50,7 @@ Om du vill återställa filer eller mappar från återställnings punkten går d
 
     Om du vill köra den körbara filen eller skriptet som administratör rekommenderar vi att du sparar den nedladdade filen på din dator.
 
-6. Den körbara filen eller skriptet är lösenordsskyddat och kräver ett lösen ord. I **fil återställnings** menyn klickar du på knappen Kopiera för att läsa in lösen ordet i minnet.
+6. Den körbara filen eller skriptet är lösenordsskyddat och kräver ett lösen ord. I **fil återställnings** menyn väljer du knappen Kopiera för att läsa in lösen ordet i minnet.
 
     ![Genererat lösen ord](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
@@ -78,7 +78,7 @@ I Linux monteras volymerna för återställnings punkten på den mapp där skrip
 
 ## <a name="closing-the-connection"></a>Stänger anslutningen
 
-När du har identifierat filerna och kopierat dem till en lokal lagrings plats, ta bort (eller demontera) de ytterligare enheterna. Om du vill demontera enheterna går du till **fil återställnings** menyn i Azure Portal och klickar på **demontera diskar**.
+När du har identifierat filerna och kopierat dem till en lokal lagrings plats, ta bort (eller demontera) de ytterligare enheterna. Om du vill demontera enheterna går du till **fil återställnings** menyn i Azure Portal och väljer **demontera diskar**.
 
 ![Demontera diskar](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
 
@@ -146,7 +146,7 @@ Så här visar du volym grupp namnen:
 pvs -o +vguuid
 ```
 
-Det här kommandot visar en lista över alla fysiska volymer (inklusive de som finns innan skriptet körs), motsvarande volym grupp namn och volym gruppens unika användar-ID (UUID). Ett exempel på utdata från kommandot visas nedan.
+Det här kommandot visar en lista över alla fysiska volymer (inklusive de som finns innan skriptet körs), deras motsvarande volym grupp namn och volym gruppens unika användar-ID (UUID). Ett exempel på utdata från kommandot visas nedan.
 
 ```bash
 PV         VG        Fmt  Attr PSize   PFree    VG UUID
@@ -162,7 +162,7 @@ PV         VG        Fmt  Attr PSize   PFree    VG UUID
   /dev/sdd   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
 ```
 
-Den första kolumnen (PV) visar den fysiska volymen, de efterföljande kolumnerna visar relevanta volym grupp namn, format, attribut, storlek, ledigt utrymme och det unika ID: t för volym gruppen. Kommandoutdata visar alla fysiska volymer. Se utdata för skriptet och identifiera de volymer som är relaterade till säkerhets kopian. I exemplet ovan skulle utdata i skriptet ha visat/dev/SDF och/dev/SDD. Det datavg_db volym gruppen tillhör skriptet och Appvg_new volym gruppen tillhör datorn. Den sista idén är att se till att ett unikt volym grupps namn ska ha 1 unikt ID.
+Den första kolumnen (PV) visar den fysiska volymen, de efterföljande kolumnerna visar relevanta volym grupp namn, format, attribut, storlek, ledigt utrymme och det unika ID: t för volym gruppen. Kommandoutdata visar alla fysiska volymer. Se utdata för skriptet och identifiera de volymer som är relaterade till säkerhets kopian. I exemplet ovan skulle utdata i skriptet ha visat/dev/SDF och/dev/SDD. Det *datavg_db* volym gruppen tillhör skriptet och *Appvg_new* volym gruppen tillhör datorn. Den sista idén är att se till att ett unikt volym grupp namn ska ha ett unikt ID.
 
 ###### <a name="duplicate-volume-groups"></a>Duplicera volym grupper
 
@@ -184,9 +184,9 @@ PV         VG        Fmt  Attr PSize   PFree    VG UUID
   /dev/sdm2  rootvg    lvm2 a--  194.57g  127.57g efohjX-KUGB-ETaH-4JKB-MieG-EGOc-XcfLCt
 ```
 
-Skriptets utdata skulle ha visat/dev/SDG,/dev/SDH,/dev/sdm2 som bifogad. Det betyder att motsvarande VG-namn är Appvg_new och rootvg. Men samma namn finns också i datorns VG-lista. Vi kan kontrol lera att 1 VG namn har 2 UUID: er.
+Skriptets utdata skulle ha visat/dev/SDG,/dev/SDH,/dev/sdm2 som bifogad. Det betyder att motsvarande VG-namn är Appvg_new och rootvg. Men samma namn finns också i datorns VG-lista. Vi kan kontrol lera att ett VG-namn har två UUID: er.
 
-Nu måste vi byta namn på VG namn för skriptbaserade volymer, t. ex./dev/SDG,/dev/SDH,/dev/sdm2. Om du vill byta namn på volym gruppen använder du följande kommando
+Nu måste vi byta namn på VG namn för skriptbaserade volymer, till exempel:/dev/SDG,/dev/SDH,/dev/sdm2. Om du vill byta namn på volym gruppen använder du följande kommando
 
 ```bash
 vgimportclone -n rootvg_new /dev/sdm2
@@ -343,7 +343,7 @@ Eftersom fil återställnings processen kopplar alla diskar från säkerhets kop
     - Node. ansluts [0]. tidsintervallet. noop_out_timeout = 5 till Node. ansluten [0]. tidsintervallet. noop_out_timeout = 30
 - När du har gjort ändringen ovan kör du skriptet igen. Med de här ändringarna är det mycket troligt att fil återställningen kommer att lyckas.
 - Varje gång användaren laddar ned ett skript initierar Azure Backup processen för att förbereda återställnings punkten för hämtning. Med stora diskar tar det lång tid att utföra den här processen. Om det finns successiva burst-anrop, kommer mål förberedelsen att ingå i en nedladdnings spiral. Därför rekommenderar vi att du laddar ned ett skript från portalen/PowerShell/CLI, väntar i 20-30 minuter (en tumregel) och kör det. Vid den här tidpunkten förväntas målet vara klart för anslutning från skript.
-- Efter fil återställning kontrollerar du att du går tillbaka till portalen och klickar på **demontera diskar** för återställnings punkter där du inte kunde montera volymerna. I stort sett rensar det här steget eventuella befintliga processer/sessioner och ökar chansen att återställa.
+- Efter fil återställning kontrollerar du att du går tillbaka till portalen och väljer **demontera diskar** för återställnings punkter där du inte kunde montera volymerna. I stort sett rensar det här steget eventuella befintliga processer/sessioner och ökar chansen att återställa.
 
 ## <a name="troubleshooting"></a>Felsökning
 
@@ -357,7 +357,7 @@ Om du har problem när du återställer filer från de virtuella datorerna kan d
 | På den dator där exe körs: de nya volymerna demonteras inte när du klickar på knappen demontera | ISCSI-initieraren på datorn svarar inte/uppdaterar anslutningen till målet och upprätthåller cachen. |  När du har klickat på **demontera**väntar du några minuter. Om de nya volymerna inte är demonterade kan du bläddra igenom alla volymer. Om du bläddrar bland alla volymer så tvingas initieraren att uppdatera anslutningen och volymen demonteras med ett fel meddelande om att disken inte är tillgänglig.|
 | Exe-utdata: skriptet körs korrekt men "nya volymer anslutna" visas inte i skriptets utdata |    Detta är ett tillfälligt fel    | Volymerna har redan bifogats. Öppna Utforskaren för att bläddra. Om du använder samma dator för att köra skript varje gång, bör du överväga att starta om datorn och listan bör visas i efterföljande exe-körningar. |
 | Linux-information: det går inte att Visa önskade volymer | Operativ systemet på datorn där skriptet körs kanske inte känner igen det underliggande fil systemet för den skyddade virtuella datorn | Kontrol lera om återställnings punkten är krasch-konsekvent eller fil konsekvent. Om filen är konsekvent kör du skriptet på en annan dator vars operativ system identifierar den skyddade virtuella datorns fil system. |
-| Windows-information: det går inte att Visa önskade volymer | Diskarna kan ha anslutits men volymerna har inte kon figurer ATS | På skärmen disk hantering identifierar du ytterligare diskar som är relaterade till återställnings punkten. Om någon av dessa diskar är i offline-tillstånd kan du försöka att ta dem online genom att högerklicka på disken och klicka på **online**.|
+| Windows-information: det går inte att Visa önskade volymer | Diskarna kan ha anslutits men volymerna har inte kon figurer ATS | På skärmen disk hantering identifierar du ytterligare diskar som är relaterade till återställnings punkten. Om någon av dessa diskar är i offline-tillstånd kan du försöka att ta dem online genom att högerklicka på disken och välja **online**.|
 
 ## <a name="security"></a>Säkerhet
 
@@ -383,7 +383,7 @@ Det genererade skriptet är signerat med det officiella Microsoft-certifikatet f
 
 Endast en administratör kan köra skriptet och det ska köras i förhöjd läge. Skriptet kör bara en i förväg genererad uppsättning steg och accepterar inte inmatade från externa källor.
 
-För att köra skriptet krävs ett lösen ord som bara visas för den auktoriserade användaren vid tidpunkten för generering av skript i Azure Portal eller PowerShell/CLI. Detta görs för att säkerställa att den auktoriserade användare som laddar ned skriptet också är ansvarig för att köra skriptet.
+För att köra skriptet krävs ett lösen ord som bara visas för den auktoriserade användaren vid tidpunkten för generering av skript i Azure Portal eller PowerShell/CLI. Detta är att se till att den auktoriserade användare som laddar ned skriptet också är ansvarig för att köra skriptet.
 
 #### <a name="browse-files-and-folders"></a>Bläddra bland filer och mappar
 

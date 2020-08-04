@@ -10,12 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: d5e8f5e3939ade4e5344ef586a62b6a19082e34e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e499b27124ed5723fb19fecbe4091f17364aea5a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809029"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533996"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Skapa en användar Delegerings-SAS för en behållare eller BLOB med .NET
 
@@ -25,9 +25,9 @@ Den här artikeln visar hur du använder Azure Active Directory (Azure AD)-auten
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## <a name="assign-rbac-roles-for-access-to-data"></a>Tilldela RBAC-roller för åtkomst till data
+## <a name="assign-azure-roles-for-access-to-data"></a>Tilldela Azure-roller för åtkomst till data
 
-När ett Azure AD-säkerhetsobjekt försöker få åtkomst till BLOB-data måste säkerhets objektets behörigheter ha behörighet till resursen. Om säkerhetsobjektet är en hanterad identitet i Azure eller ett Azure AD-användarkonto som kör kod i utvecklings miljön, måste säkerhets objekt tilldelas en RBAC-roll som ger åtkomst till BLOB-data i Azure Storage. Information om hur du tilldelar behörigheter via RBAC finns i avsnittet **tilldela RBAC-roller för åtkomst rättigheter** i [auktorisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
+När ett Azure AD-säkerhetsobjekt försöker få åtkomst till BLOB-data måste säkerhets objektets behörigheter ha behörighet till resursen. Om säkerhetsobjektet är en hanterad identitet i Azure eller ett Azure AD-användarkonto som kör kod i utvecklings miljön, måste säkerhets objekt tilldelas en Azure-roll som ger åtkomst till BLOB-data i Azure Storage. Information om hur du tilldelar behörigheter via RBAC finns i avsnittet **tilldela Azure-roller för åtkomst rättigheter** i [auktorisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 

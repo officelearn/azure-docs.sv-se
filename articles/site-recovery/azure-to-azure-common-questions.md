@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 52c7a4bfeddf808e5a714c7ad4ab164d65868940
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7bc8427a51a9931ca82155232569767f12a8e266
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201205"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534030"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Vanliga frågor: katastrof återställning från Azure till Azure
 
@@ -70,6 +70,10 @@ Konfigurera haveri beredskap [mellan prenumerationer](https://azure.microsoft.co
 ### <a name="can-i-replicate-zone-pinned-azure-vms-to-another-region"></a>Kan jag replikera virtuella Azure-datorer i zonen till en annan region?
 
 Ja, du kan [Replikera zon-fästa virtuella datorer](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region) till en annan region.
+
+### <a name="can-i-replicate-vms-in-a-region-that-has-zones-from-non-zone-to-zonal-configuration"></a>Kan jag replikera virtuella datorer i en region som har zoner från icke-zon till zonindelade-konfiguration?
+
+Nej, detta stöds inte idag. Som en lösning kan du replikera den virtuella datorn med ASR till en zonindelade-konfiguration i en annan region och sedan inaktivera replikering. Återaktivera sedan replikeringen från den regionen till den ursprungliga regionen och välj en zonindelade-konfiguration för redundans.
 
 ### <a name="can-i-exclude-disks"></a>Kan jag utesluta diskar?
 

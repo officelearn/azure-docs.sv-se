@@ -92,7 +92,7 @@
     - name: VANLIGA FRÅGOR OCH SVAR
       href: relay-faq.md
     - name: Blogg
-      href: 'https://blogs.msdn.microsoft.com/servicebus/'
+      href: /archive/blogs/servicebus/
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/service-bus/'
     - name: Priskalkylator

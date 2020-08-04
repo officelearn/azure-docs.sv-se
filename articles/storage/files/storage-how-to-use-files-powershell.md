@@ -7,17 +7,17 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c0008ab89f4599e2ada51b5637a9665a249bc1c4
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 360af0406a816a02540881962ed8794d69ce3bbb
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340836"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531820"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Snabbstart: Skapa och hantera en Azure-filresurs med Azure PowerShell 
 Den här guiden går igenom grunderna med att arbeta med [Azure-filresurser](storage-files-introduction.md) med PowerShell. Azure-filresurser är precis som andra filresurser men lagras i molnet och täcks av Azure-plattformen. Azure-filresurser stöder SMB-protokollet som är branschstandard och möjliggör fildelning på olika datorer, program och instanser. 
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -88,7 +88,7 @@ I de flesta fall använder du Azure-filresursen via SMB-protokollet, eftersom du
 - Du utnyttjar serverlösa resurser såsom [Azure Functions](../../azure-functions/functions-overview.md). 
 - Du skapar en tjänst för värde tillägg som interagerar med många Azure-filresurser, till exempel säkerhets kopierings-eller antivirus genomsökningar.
 
-I följande exempel visas hur du använder Azure PowerShell-modulen till att ändra din Azure-filresurs med fil-REST-protokollet. `-Context`Parametern används för att hämta lagrings konto nyckeln för att utföra de angivna åtgärderna mot fil resursen. För att hämta lagrings konto nyckeln måste du ha RBAC-rollen för `Owner` på lagrings kontot.
+I följande exempel visas hur du använder Azure PowerShell-modulen till att ändra din Azure-filresurs med fil-REST-protokollet. `-Context`Parametern används för att hämta lagrings konto nyckeln för att utföra de angivna åtgärderna mot fil resursen. För att hämta lagrings konto nyckeln måste du ha Azure-rollen för `Owner` på lagrings kontot.
 
 #### <a name="create-directory"></a>Skapa katalog
 Om du vill skapa en ny katalog med namnet *myDirectory* i roten av din Azure-filresurs, använder du cmdleten [New-AzStorageDirectory](/powershell/module/az.storage/New-AzStorageDirectory).
@@ -100,7 +100,7 @@ New-AzStorageDirectory `
    -Path "myDirectory"
 ```
 
-#### <a name="upload-a-file"></a>Överför en fil
+#### <a name="upload-a-file"></a>Ladda upp en fil
 För att visa dig hur du överför en fil med hjälp av cmdleten [Set-AzStorageFileContent](/powershell/module/az.storage/Set-AzStorageFileContent), måste vi först skapa en fil på din tillfälliga PowerShell Cloud Shell-enhet att ladda upp. 
 
 Det här exemplet placerar aktuellt datum och tid i en ny fil på din tillfälliga enhet och överför sedan filen till filresursen.
@@ -129,7 +129,7 @@ Get-AzStorageFile `
     -Path "myDirectory\" 
 ```
 
-#### <a name="download-a-file"></a>Hämta en fil
+#### <a name="download-a-file"></a>Ladda ned en fil
 Du kan hämta en kopia av filen du laddade upp till den tillfälliga Cloud Shell-enheten genom att använda cmdleten [Get-AzStorageFileContent](/powershell/module/az.storage/Get-AzStorageFilecontent).
 
 ```azurepowershell-interactive

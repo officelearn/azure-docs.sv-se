@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center och Azure Container Registry
-description: Lär dig mer om Azure Security Centers integrering med Azure Container Registry
+description: Lär dig mer om att skanna behållar register med Azure Security Center
 services: security-center
 documentationcenter: na
 author: memildin
@@ -10,35 +10,34 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2020
+ms.date: 08/02/2020
 ms.author: memildin
-ms.openlocfilehash: 2f995f3f6defd73575d9e1bf19326a828f1e6038
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b66969b26a801e6bd9aacf999c1c1ef9179ef1bd
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089914"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534676"
 ---
-# <a name="azure-container-registry-integration-with-security-center"></a>Azure Container Registry integration med Security Center
+# <a name="azure-container-registry-image-scanning-by-security-center"></a>Azure Container Registry avbildnings genomsökning av Security Center
 
 Azure Container Registry (ACR) är en hanterad privat Docker-registerpost som lagrar och hanterar behållar avbildningar för Azure-distributioner i ett centralt register. Den är baserad på Docker-registret 2,0 med öppen källkod.
 
-Om du är på Azure Security Center standard nivån kan du lägga till behållar register paketet. Den här valfria funktionen ger djupare insyn i säkerhets riskerna för avbildningarna i dina ARM-baserade register. Aktivera eller inaktivera paketet på prenumerations nivå för att ta med alla register i en prenumeration. Den här funktionen debiteras per avbildning, som visas på [sidan med priser](security-center-pricing.md). Genom att aktivera paket för behållar register ser du till att Security Center är redo att skanna bilder som skickas till registret. 
-
+Om du är på Azure Security Center standard nivån kan du lägga till behållar register paketet. Den här valfria funktionen ger djupare insyn i säkerhets riskerna för avbildningarna i dina Azure Resource Managerbaserade register. Aktivera eller inaktivera paketet på prenumerations nivå för att ta med alla register i en prenumeration. Den här funktionen debiteras per avbildning, som visas på [sidan med priser](security-center-pricing.md). Genom att aktivera paket för behållar register ser du till att Security Center är redo att skanna bilder som skickas till registret. 
 
 ## <a name="availability"></a>Tillgänglighet
 
 - Versions tillstånd: **allmän tillgänglighet**
 - Nödvändiga roller: rollen **säkerhet läsare** och [Azure Container Registry läsare](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
-- Register som stöds:
+- Register och avbildningar som stöds:
     - ✔ Register för Linux-värdbaserade ACR som är tillgängliga från det offentliga Internet och ger åtkomst till gränssnittet.
     - ✘ Windows-värdbaserade ACR-register.
-    - ✘ "Privata"-register-Security Center kräver att dina register kan nås från det offentliga Internet. Om du har begränsad åtkomst till dina register med en brand vägg, en tjänst slut punkt eller genom att använda privat slut punkt (t. ex. en privat Azure-länk) kan Security Center inte ansluta till, eller skanna, registret.
+    - ✘ "Privata"-register-Security Center kräver att dina register kan nås från det offentliga Internet. Security Center kan för närvarande inte ansluta till, eller skanna, register med begränsad åtkomst med en brand vägg, en tjänst slut punkt eller privata slut punkter som Azure Private Link.
     - ✘ Super minimalist-bilder som [Docker](https://hub.docker.com/_/scratch/) -bilder, eller "Distroless"-avbildningar som bara innehåller ett program och dess körnings beroenden utan paket hanteraren, Shell eller OS.
 - Moln 
     - ✔ Kommersiella moln
     - ✘ US regering-moln
-    - ✘ Kina, myndigheter, andra gov-moln
+    - ✘ Kina, myndigheter, andra myndigheter i myndigheter
 
 
 ## <a name="when-are-images-scanned"></a>När skannas bilder?
@@ -51,7 +50,7 @@ När genomsökningen är klar (vanligt vis efter cirka 2 minuter, men kan vara u
 
 ## <a name="benefits-of-integration"></a>Fördelar med integrering
 
-Security Center identifierar ARM-baserade ACR-register i din prenumeration och ger sömlös:
+Security Center identifierar Azure Resource Manager baserade ACR-register i din prenumeration och erbjuder sömlöst:
 
 * **Azure – ursprunglig sårbarhets sökning** för alla publicerade Linux-avbildningar. Security Center skannar avbildningen med hjälp av en skanner från den branschledande sårbara sårbarheten hos leverantören, Qualys. Den här interna lösningen integreras sömlöst som standard.
 
@@ -62,20 +61,23 @@ Security Center identifierar ARM-baserade ACR-register i din prenumeration och g
 
 
 
-## <a name="acr-with-security-center-faq"></a>ACR med Security Center vanliga frågor och svar
+## <a name="faq-for-azure-container-registry-image-scanning"></a>Vanliga frågor och svar om Azure Container Registry avbildnings genomsökning
 
-### <a name="how-does-azure-security-center-scan-an-image"></a>Hur skannar Azure Security Center en avbildning?
+### <a name="how-does-security-center-scan-an-image"></a>Hur skannar Security Center en avbildning?
 Avbildningen hämtas från registret. Den körs sedan i en isolerad sandbox med Qualys-skannern som extraherar en lista över kända sårbarheter.
 
 Security Center filtrerar och klassificerar resultat från skannern. När en bild är felfri, Security Center Markera den som sådan. Security Center skapar endast säkerhets rekommendationer för avbildningar som har problem att lösa. Genom att meddela om det uppstår problem kan Security Center minska risken för oönskade informations aviseringar.
 
-### <a name="how-often-does-azure-security-center-scan-my-images"></a>Hur ofta Azure Security Center Skanna mina bilder?
+### <a name="how-often-does-security-center-scan-my-images"></a>Hur ofta Security Center Skanna mina bilder?
 Avbildnings genomsökningar utlöses vid varje push-överföring.
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>Kan jag få Sök resultatet via REST API?
 Ja. Resultaten är under [Underbedömningar REST API](/rest/api/securitycenter/subassessments/list/). Du kan också använda Azure Resource Graph (ARG), Kusto API för alla resurser: en fråga kan hämta en speciell sökning.
  
+### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Vilka register typer genomsöks? Vilka typer faktureras?
+I [avsnittet tillgänglighet](#availability) visas de typer av behållar register som stöds av behållar register paketet. 
 
+Om register som inte stöds är anslutna till din Azure-prenumeration genomsöks de inte och du debiteras inte för dem.
 
 
 ## <a name="next-steps"></a>Nästa steg

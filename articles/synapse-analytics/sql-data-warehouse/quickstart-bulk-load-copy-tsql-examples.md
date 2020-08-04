@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1e44b58335bf90dbc0e97b58de7f878bc94c91c7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 05dd1f1d429b59c4d621b63c6b78a1fc00e8d4dd
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371965"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528471"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Läs in data på ett säkert sätt med Synapse SQL
 
@@ -68,11 +68,11 @@ WITH (
 
 Hanterad identitets autentisering krävs när ditt lagrings konto är kopplat till ett VNet. 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 1. Installera Azure PowerShell med hjälp av den här [guiden](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-2. Om du har ett allmänt v1-eller Blob Storage-konto måste du först uppgradera till General-Purpose v2 med hjälp av den här [guiden](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-3. Du måste ha **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** under Azure Storage konto **brand väggar och inställningar för virtuella nätverk** . Mer information hittar du i den här [hand boken](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions) .
+2. Om du har ett konto av typen generell användning v1 eller bloblagring måste du först uppgradera till generell användning v2 med hjälp av den här [guiden](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+3. Du måste ha **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** under Azure Storage konto **brand väggar och inställningar för virtuella nätverk** . Mer information finns i den här [guiden](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions).
 #### <a name="steps"></a>Steg
 
 1. I PowerShell **registrerar du SQL Server** med Azure Active Directory (AAD):
@@ -88,13 +88,13 @@ Hanterad identitets autentisering krävs när ditt lagrings konto är kopplat ti
    > [!NOTE]
    > Om du har ett allmänt v1-eller Blob Storage-konto måste du **först uppgradera till v2** med hjälp av den här [guiden](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-3. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och väljer **Lägg till roll tilldelning**. Tilldela din SQL Server **data ägare, deltagare eller Reader** RBAC-roll.
+3. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och väljer **Lägg till roll tilldelning**. Tilldela din SQL Server rollen som **ägare av BLOB-dataägare, deltagare eller läsare** i Azure.
 
    > [!NOTE]
    > Endast medlemmar med ägar behörighet kan utföra det här steget. Information om olika inbyggda Azure-roller finns i den här [guiden](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
    
     > [!IMPORTANT]
-    > Ange **lagrings** **data** ägare, deltagare eller Reader RBAC-roll. De här rollerna skiljer sig från de inbyggda Azure-rollerna för ägare, deltagare och läsare. 
+    > Ange **lagrings** **data** ägare, deltagare eller Reader Azure-roll. De här rollerna skiljer sig från de inbyggda Azure-rollerna för ägare, deltagare och läsare. 
 
     ![Beviljar RBAC-behörighet att läsa in](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
@@ -112,10 +112,10 @@ Hanterad identitets autentisering krävs när ditt lagrings konto är kopplat ti
 ## <a name="d-azure-active-directory-authentication-aad"></a>D. Azure Active Directory autentisering (AAD)
 #### <a name="steps"></a>Steg
 
-1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och väljer **Lägg till roll tilldelning**. Tilldela din AAD-användare rollen som **ägare av BLOB-dataägare, deltagare eller läsare** . 
+1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och väljer **Lägg till roll tilldelning**. Tilldela din AAD-användare rollen som **ägare av BLOB-dataägare, deltagare eller läsare** i Azure. 
 
     > [!IMPORTANT]
-    > Ange **lagrings** **data** ägare, deltagare eller Reader RBAC-roll. De här rollerna skiljer sig från de inbyggda Azure-rollerna för ägare, deltagare och läsare.
+    > Ange **lagrings** **data** ägare, deltagare eller Reader Azure-roll. De här rollerna skiljer sig från de inbyggda Azure-rollerna för ägare, deltagare och läsare.
 
     ![Beviljar RBAC-behörighet att läsa in](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 

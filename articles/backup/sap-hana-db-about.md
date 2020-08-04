@@ -3,12 +3,12 @@ title: Om SAP HANA Database Backup i virtuella Azure-datorer
 description: I den här artikeln lär du dig hur du säkerhetskopierar SAP HANA databaser som körs på virtuella Azure-datorer.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 980278b3cdb9c97a5a483354a004a8278a745b3b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a6c4f627059a8d536e1d006103650dca5d2f5109
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503514"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533452"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Om SAP HANA Database Backup i virtuella Azure-datorer
 
@@ -60,7 +60,7 @@ Förutom att använda den SAP HANA säkerhets kopian i Azure som tillhandahålle
 
 [Backint Certified Azure SAP HANA backup-lösningen](#backup-architecture) kan användas för säkerhets kopiering och återställning av databasen.
 
-[Azure VM backup](backup-azure-vms-introduction.md) kan användas för att säkerhetskopiera operativ systemet och andra diskar som inte är databas. Säkerhets kopian av den virtuella datorn görs en gång varje dag och säkerhets kopie ras alla diskar (utom **Skrivningsaccelerator (WA)-diskar** och **UltraDisks**). Eftersom databasen säkerhets kopie ras med hjälp av Azure SAP HANA backup-lösningen kan du ta en filkonsekvent säkerhets kopia av enbart OS-och icke-databas-diskar med funktionen exkludera disk, som för närvarande är en för hands version.
+[Azure VM backup](backup-azure-vms-introduction.md) kan användas för att säkerhetskopiera operativ systemet och andra diskar som inte är databas. Säkerhets kopian av den virtuella datorn görs en gång varje dag och den säkerhetskopierar alla diskar (utom **Skrivningsaccelerator (WA) diskar** och **Ultra disks**). Eftersom databasen säkerhets kopie ras med hjälp av Azure SAP HANA backup-lösningen kan du ta en filkonsekvent säkerhets kopia av bara operativ systemen OS och icke-databas med hjälp av funktionen [för säkerhets kopiering och återställning av selektiva diskar för virtuella Azure-datorer](selective-disk-backup-restore.md) .
 
 >[!NOTE]
 > Genom att använda fördefinierade skript med den virtuella Azure-säkerhetskopieringen kan du använda programkonsekventa säkerhets kopior av databasens data volymer. Men om logg avsnittet finns på WA-diskar kanske en ögonblicks bild av diskarna inte garanterar konsekvens för logg områden. HANA har ett uttryckligt sätt att generera logg säkerhets kopior av den här anledningen. Aktivera samma i SAP HANA och de kan säkerhets kopie ras med Azure SAP HANA backup.

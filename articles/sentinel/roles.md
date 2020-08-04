@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 95a966799b4cb66b74d998df9c58958b9b89ecdb
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b907fead145847d54b8b1de196586b65101b22ed
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374226"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534013"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Behörigheter i Azure Sentinel
 
 Azure Sentinel använder [rollbaserad Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) för att tillhandahålla [inbyggda roller](../role-based-access-control/built-in-roles.md)   som kan tilldelas till användare, grupper och tjänster i Azure.
 
-Använd RBAC för att skapa och tilldela roller i din säkerhets åtgärds grupp för att ge lämplig åtkomst till Azure Sentinel. De olika rollerna ger dig detaljerad kontroll över vilka användare av Azure Sentinel som kan se och göra. RBAC-roller kan tilldelas i Azure Sentinel-arbetsytan direkt (se OBS! nedan), eller i en prenumeration eller resurs grupp som arbets ytan tillhör, vilken Azure Sentinel kommer att ärva.
+Använd RBAC för att skapa och tilldela roller i din säkerhets åtgärds grupp för att ge lämplig åtkomst till Azure Sentinel. De olika rollerna ger dig detaljerad kontroll över vilka användare av Azure Sentinel som kan se och göra. Azure-roller kan tilldelas i Azure Sentinel-arbetsytan direkt (se OBS! nedan) eller i en prenumeration eller resurs grupp som arbets ytan tillhör, som Azure Sentinel ärver.
 
 ## <a name="roles-for-working-in-azure-sentinel"></a>Roller för att arbeta i Azure Sentinel
 
@@ -64,7 +64,7 @@ En jämförelse sida vid sida finns i [tabellen nedan](#roles-and-allowed-action
 
 ### <a name="other-roles-you-might-see-assigned"></a>Andra roller som du kan se tilldelade
 
-Vid tilldelning av Azure Sentinel-/regionsspecifika RBAC-roller kan du komma över andra Azure-och Log Analytics RBAC-roller som kan ha tilldelats till användare för andra orsaker. Tänk på att dessa roller ger en bredare uppsättning behörigheter som innehåller åtkomst till din Azure Sentinel-arbetsyta och andra resurser:
+Vid tilldelning av Azure Sentinel-/regionsspecifika Azure-roller kan du komma över andra Azure-och Log Analytics Azure-roller som kan ha tilldelats till användare för andra orsaker. Tänk på att dessa roller ger en bredare uppsättning behörigheter som innehåller åtkomst till din Azure Sentinel-arbetsyta och andra resurser:
 
 - **Azure-roller:** [ägare](../role-based-access-control/built-in-roles.md#owner), [deltagare](../role-based-access-control/built-in-roles.md#contributor)och [läsare](../role-based-access-control/built-in-roles.md#reader). Azure-roller beviljar åtkomst över alla dina Azure-resurser, inklusive Log Analytics arbets ytor och Azure Sentinel-resurser.
 

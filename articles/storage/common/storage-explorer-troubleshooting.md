@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 61a281e5fa9e8d360b9b6e52cda9c54db49d93d0
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: b57a57f05853b9f8c291dc2ac352db7b1e679260
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406749"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534863"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
@@ -48,7 +48,7 @@ Du måste tilldelas minst en roll som beviljar åtkomst för att läsa data frå
 
 Azure Storage har två åtkomst nivåer: _hantering_ och _data_. Prenumerationer och lagrings konton nås via hanterings skiktet. Behållare, blobbar och andra data resurser nås via data lagret. Om du till exempel vill hämta en lista över dina lagrings konton från Azure skickar du en begäran till hanterings slut punkten. Om du vill ha en lista över BLOB-behållare i ett konto skickar du en begäran till lämplig tjänst slut punkt.
 
-RBAC-roller kan ge dig behörigheter för hantering eller åtkomst till data lager. Rollen läsare, till exempel beviljar skrivskyddad åtkomst till hanterings skikts resurser.
+Azure-roller kan ge dig behörigheter för hantering eller åtkomst till data lager. Rollen läsare, till exempel beviljar skrivskyddad åtkomst till hanterings skikts resurser.
 
 Utan att tala med rollen läsare får du inga data lager behörigheter och behöver inte komma åt data skiktet.
 

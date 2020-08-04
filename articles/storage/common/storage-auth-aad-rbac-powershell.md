@@ -1,5 +1,5 @@
 ---
-title: Använd PowerShell för att tilldela en RBAC-roll för data åtkomst
+title: Använd PowerShell för att tilldela en Azure-roll för data åtkomst
 titleSuffix: Azure Storage
 description: Lär dig hur du använder PowerShell för att tilldela behörigheter till ett Azure Active Directory säkerhets objekt med rollbaserad åtkomst kontroll (RBAC). Azure Storage stöder inbyggda och Azure-anpassade roller för autentisering via Azure AD.
 services: storage
@@ -10,24 +10,24 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c090343e6f63a71b639e5c2f0e9c9fbd0f3e0c2d
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 9c13662bd49de2a04e11eeb90910e4d8d0429921
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370486"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534147"
 ---
-# <a name="use-powershell-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Använd PowerShell för att tilldela en RBAC-roll för åtkomst till blob-och Queue-data
+# <a name="use-powershell-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Använd PowerShell för att tilldela en Azure-roll för åtkomst till blob-och Queue-data
 
 Azure Active Directory (Azure AD) tillåter åtkomst rättigheter till skyddade resurser via [rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/overview.md). Azure Storage definierar en uppsättning inbyggda Azure-roller som omfattar vanliga uppsättningar behörigheter som används för att komma åt behållare eller köer.
 
-När en RBAC-roll tilldelas till ett säkerhets objekt i Azure AD ger Azure åtkomst till dessa resurser för säkerhets objekt. Åtkomst kan begränsas till prenumerations nivån, resurs gruppen, lagrings kontot eller en enskild behållare eller kö. Ett säkerhets objekt i Azure AD kan vara en användare, en grupp, ett huvud namn för program tjänsten eller en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
+När en Azure-roll tilldelas till ett säkerhets objekt för Azure AD ger Azure åtkomst till dessa resurser för säkerhets objekt. Åtkomst kan begränsas till prenumerations nivån, resurs gruppen, lagrings kontot eller en enskild behållare eller kö. Ett säkerhets objekt i Azure AD kan vara en användare, en grupp, ett huvud namn för program tjänsten eller en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
 
 Den här artikeln beskriver hur du använder Azure PowerShell för att visa en lista över inbyggda Azure-roller och tilldela dem till användare. Mer information om hur du använder Azure PowerShell finns i [Översikt över Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="rbac-roles-for-blobs-and-queues"></a>RBAC-roller för blobbar och köer
+## <a name="azure-roles-for-blobs-and-queues"></a>Azure-roller för blobbar och köer
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
@@ -35,7 +35,7 @@ Den här artikeln beskriver hur du använder Azure PowerShell för att visa en l
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
-## <a name="list-available-rbac-roles"></a>Lista tillgängliga RBAC-roller
+## <a name="list-available-azure-roles"></a>Lista tillgängliga Azure-roller
 
 Om du vill visa en lista över tillgängliga Azure inbyggda roller med Azure PowerShell använder du kommandot [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) :
 
@@ -55,9 +55,9 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-security-principal"></a>Tilldela en RBAC-roll till ett säkerhets objekt
+## <a name="assign-an-azure-role-to-a-security-principal"></a>Tilldela en Azure-roll till ett säkerhets objekt
 
-Använd kommandot [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) om du vill tilldela en RBAC-roll till ett säkerhets objekt. Kommandots format kan variera beroende på tilldelningens omfattning. För att kunna köra kommandot måste du ha ägar-eller deltagar rollen tilldelad till motsvarande omfång. I följande exempel visas hur du tilldelar en roll till en användare i olika scope, men du kan använda samma kommando för att tilldela en roll till alla säkerhets objekt.
+Använd kommandot [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) om du vill tilldela en Azure-roll till ett säkerhets objekt. Kommandots format kan variera beroende på tilldelningens omfattning. För att kunna köra kommandot måste du ha ägar-eller deltagar rollen tilldelad till motsvarande omfång. I följande exempel visas hur du tilldelar en roll till en användare i olika scope, men du kan använda samma kommando för att tilldela en roll till alla säkerhets objekt.
 
 ### <a name="container-scope"></a>Container omfång
 

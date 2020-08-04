@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/23/2020
+ms.date: 08/02/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: daf4eb4492f723b049dc62a16351e04ffc252337
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3a45f185a20345dac00bd459789afc9d53bd48f7
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289249"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534319"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Konfigurera anonym offentlig Läs behörighet för behållare och blobbar
 
@@ -50,7 +50,9 @@ Att neka offentlig åtkomst för lagrings kontot förhindrar anonym åtkomst til
 > [!IMPORTANT]
 > Om den offentliga åtkomsten för ett lagrings konto nekas åsidosätts de offentliga åtkomst inställningarna för alla behållare i lagrings kontot. När offentlig åtkomst inte tillåts för lagrings kontot kommer alla framtida anonyma begär anden till det kontot att Miss förväntas. Innan du ändrar den här inställningen bör du förstå hur klient program som kan komma åt data i ditt lagrings konto är anonymt. Mer information finns i [förhindra anonym offentlig Läs behörighet till behållare och blobbar](anonymous-read-access-prevent.md).
 
-Om du vill tillåta eller neka offentlig åtkomst för ett lagrings konto använder du Azure Portal eller Azure CLI för att konfigurera kontots egenskap **blobPublicAccess** . Den här egenskapen är tillgänglig för alla lagrings konton som skapas med Azure Resource Manager distributions modell. Mer information finns i [Översikt över lagrings konto](../common/storage-account-overview.md).
+Om du vill tillåta eller neka offentlig åtkomst till ett lagrings konto konfigurerar du kontots **AllowBlobPublicAccess** -egenskap. Den här egenskapen är tillgänglig för alla lagrings konton som skapas med Azure Resource Manager distributions modell. Mer information finns i [Översikt över lagrings konto](../common/storage-account-overview.md).
+
+Egenskapen **AllowBlobPublicAccess** har inte angetts som standard och returnerar inte något värde förrän du uttryckligen anger det. Lagrings kontot tillåter offentlig åtkomst när egenskap svärdet är **Null** eller när det är **Sant**.
 
 # <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
@@ -62,64 +64,118 @@ Följ dessa steg om du vill tillåta eller neka offentlig åtkomst för ett lagr
 
     :::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Skärm bild som visar hur du tillåter eller nekar den offentliga BLOB-åtkomsten för kontot":::
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Om du vill tillåta eller neka offentlig åtkomst för ett lagrings konto med PowerShell installerar du [Azure PowerShell version 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) eller senare. Konfigurera sedan egenskapen **AllowBlobPublicAccess** för ett nytt eller befintligt lagrings konto.
+
+I följande exempel skapas ett lagrings konto och egenskapen **AllowBlobPublicAccess** anges explicit till **True**. Sedan uppdateras lagrings kontot för att ange egenskapen **AllowBlobPublicAccess** till **false**. I exemplet hämtas även egenskap svärdet i varje fall. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
+
+```powershell
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+$location = "<location>"
+
+# Create a storage account with AllowBlobPublicAccess set to true (or null).
+New-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
+    -Location $location `
+    -SkuName Standard_GRS
+    -AllowBlobPublicAccess $false
+
+# Read the AllowBlobPublicAccess property for the newly created storage account.
+(Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).AllowBlobPublicAccess
+
+# Set AllowBlobPublicAccess set to false
+Set-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
+    -AllowBlobPublicAccess $false
+
+# Read the AllowBlobPublicAccess property.
+(Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).AllowBlobPublicAccess
+```
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill tillåta eller neka offentlig åtkomst för ett lagrings konto med Azure CLI ska du först hämta resurs-ID för ditt lagrings konto genom att anropa kommandot [AZ Resource show](/cli/azure/resource#az-resource-show) . Anropa sedan kommandot [AZ Resource Update](/cli/azure/resource#az-resource-update) för att ange **allowBlobPublicAccess** -egenskapen för lagrings kontot. Ange egenskapen **allowBlobPublicAccess** till true för att tillåta offentlig åtkomst. Om du inte vill tillåta, ställer du in den på **falskt**.
+Om du vill tillåta eller neka offentlig åtkomst för ett lagrings konto med Azure CLI installerar du Azure CLI version 2.9.0 eller senare. Mer information finns i [Installera Azure CLI](/cli/azure/install-azure-cli). Konfigurera sedan egenskapen **allowBlobPublicAccess** för ett nytt eller befintligt lagrings konto.
 
-I följande exempel tillåts inte offentlig BLOB-åtkomst för lagrings kontot. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
+I följande exempel skapas ett lagrings konto och egenskapen **allowBlobPublicAccess** anges explicit till **True**. Sedan uppdateras lagrings kontot för att ange egenskapen **allowBlobPublicAccess** till **false**. I exemplet hämtas även egenskap svärdet i varje fall. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
 
 ```azurecli-interactive
-storage_account_id=$(az resource show \
-    --name anonpublicaccess \
-    --resource-group storagesamples-rg \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query id \
-    --output tsv)
+az storage account create \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --kind StorageV2 \
+    --location <location> \
+    --allow-blob-public-access true
 
-az resource update \
-    --ids $storage_account_id \
-    --set properties.allowBlobPublicAccess=false
-    ```
+az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --query allowBlobPublicAccess \
+    --output tsv
+
+az storage account update \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --allow-blob-public-access false
+
+az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --query allowBlobPublicAccess \
+    --output tsv
 ```
+
+# <a name="template"></a>[Mall](#tab/template)
+
+Om du vill tillåta eller neka offentlig åtkomst för ett lagrings konto med en mall skapar du en mall med egenskapen **AllowBlobPublicAccess** inställd på **True** eller **false**. Följande steg beskriver hur du skapar en mall i Azure Portal.
+
+1. I Azure Portal väljer du **skapa en resurs**.
+1. I **Sök på Marketplace**skriver du **mall distribution**och trycker sedan på **RETUR**.
+1. Välj **malldistribution (distribuera med anpassade mallar) (för hands version)**, Välj **skapa**och välj sedan **skapa en egen mall i redigeraren**.
+1. I redigeraren för mallar klistrar du in följande JSON för att skapa ett nytt konto och anger egenskapen **AllowBlobPublicAccess** till **True** eller **false**. Kom ihåg att ersätta plats hållarna inom vinkelparenteser med dina egna värden.
+
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {},
+        "variables": {
+            "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'template')]"
+        },
+        "resources": [
+            {
+            "name": "[variables('storageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "location": "<location>",
+            "properties": {
+                "allowBlobPublicAccess": false
+            },
+            "dependsOn": [],
+            "sku": {
+              "name": "Standard_GRS"
+            },
+            "kind": "StorageV2",
+            "tags": {}
+            }
+        ]
+    }
+    ```
+
+1. Spara mallen.
+1. Ange parametern resurs grupp och välj sedan knappen **Granska + skapa** för att distribuera mallen och skapa ett lagrings konto med egenskapen **allowBlobPublicAccess** konfigurerad.
 
 ---
 
 > [!NOTE]
 > Att neka offentlig åtkomst för ett lagrings konto påverkar inte några statiska webbplatser som finns på lagrings kontot. **$Web** containern alltid är offentligt tillgänglig.
+>
+> När du har uppdaterat inställningen för offentlig åtkomst för lagrings kontot kan det ta upp till 30 sekunder innan ändringen har spridits helt.
 
-## <a name="check-whether-public-access-is-allowed-for-a-storage-account"></a>Kontrol lera om offentlig åtkomst tillåts för ett lagrings konto
+Att tillåta eller neka offentlig åtkomst till BLOB kräver version 2019-04-01 eller senare av Azure Storage Resource Provider. Mer information finns i [Azure Storage Resource Provider REST API](/rest/api/storagerp/).
 
-Hämta värdet för egenskapen **allowBlobPublicAccess** för att kontrol lera om offentlig åtkomst är tillåten för ett lagrings konto. Om du vill kontrol lera den här egenskapen för ett stort antal lagrings konton samtidigt använder du Azure Resource Graph Explorer.
-
-> [!IMPORTANT]
-> Egenskapen **allowBlobPublicAccess** har inte angetts som standard och returnerar inte något värde förrän du uttryckligen anger det. Lagrings kontot tillåter offentlig åtkomst när egenskap svärdet är **Null** eller när det är **Sant**.
-
-### <a name="check-whether-public-access-is-allowed-for-a-single-storage-account"></a>Kontrol lera om offentlig åtkomst tillåts för ett enda lagrings konto
-
-Om du vill kontrol lera om offentlig åtkomst är tillåten för ett enda lagrings konto med hjälp av Azure CLI anropar du kommandot [AZ Resource show](/cli/azure/resource#az-resource-show) och frågar efter egenskapen **allowBlobPublicAccess** :
-
-```azurecli-interactive
-az resource show \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query properties.allowBlobPublicAccess \
-    --output tsv
-```
-
-### <a name="check-whether-public-access-is-allowed-for-a-set-of-storage-accounts"></a>Kontrol lera om offentlig åtkomst tillåts för en uppsättning lagrings konton
-
-Om du vill kontrol lera om offentlig åtkomst tillåts för en uppsättning lagrings konton med optimala prestanda kan du använda Azures resurs diagram Utforskaren i Azure Portal. Mer information om hur du använder resurs diagram Utforskaren finns i [snabb start: kör din första resurs diagram fråga med Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
-
-Om du kör följande fråga i resurs diagram Utforskaren returneras en lista över lagrings konton och värdet för egenskapen **allowBlobPublicAccess** för varje konto visas:
-
-```kusto
-resources
-| where type =~ 'Microsoft.Storage/storageAccounts'
-| extend allowBlobPublicAccess = parse_json(properties).allowBlobPublicAccess
-| project subscriptionId, resourceGroup, name, allowBlobPublicAccess
-| order by subscriptionId, resourceGroup, name asc
-```
+I exemplen i det här avsnittet förklaras hur du läser **AllowBlobPublicAccess** -egenskapen för lagrings kontot för att avgöra om offentlig åtkomst för närvarande är tillåten eller inte tillåts. Mer information om hur du verifierar att ett kontos offentliga åtkomst inställningar är konfigurerat för att förhindra anonym åtkomst finns i [Reparera anonym offentlig åtkomst](anonymous-read-access-prevent.md#remediate-anonymous-public-access).
 
 ## <a name="set-the-public-access-level-for-a-container"></a>Ange offentlig åtkomst nivå för en behållare
 
@@ -131,9 +187,7 @@ När offentlig åtkomst tillåts för ett lagrings konto kan du konfigurera en b
 - **Offentlig Läs behörighet för blobbar:** Blobbar i behållaren kan läsas av en anonym begäran, men behållar data är inte tillgängliga anonymt. Anonyma klienter kan inte räkna upp blobar i behållaren.
 - **Offentlig Läs behörighet för behållare och dess blobbar:** Container-och BLOB-data kan läsas av anonym begäran, förutom behörighets inställningar för behållare och container-metadata. Klienter kan räkna upp blobar i behållaren med anonym begäran, men kan inte räkna upp behållare i lagrings kontot.
 
-Du kan inte ändra offentlig åtkomst nivå för en enskild blob. Offentlig åtkomst nivå anges bara på container nivå.
-
-Om du vill ange en behållares offentliga åtkomst nivå använder du Azure Portal eller Azure CLI. Du kan ställa in behållarens offentliga åtkomst nivå när du skapar behållaren eller uppdatera den här inställningen på en befintlig behållare.
+Du kan inte ändra offentlig åtkomst nivå för en enskild blob. Offentlig åtkomst nivå anges bara på container nivå. Du kan ange behållarens offentliga åtkomst nivå när du skapar behållaren, eller så kan du uppdatera inställningen för en befintlig behållare.
 
 # <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
@@ -151,44 +205,81 @@ När offentlig åtkomst inte tillåts för lagrings kontot kan inte behållarens
 
 :::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Skärm bild som visar att inställnings behållarens offentliga åtkomst nivå är blockerad när offentlig åtkomst tillåts":::
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Om du vill uppdatera den offentliga åtkomst nivån för en eller flera behållare med PowerShell anropar du kommandot [set-AzStorageContainerAcl](/powershell/module/az.storage/set-azstoragecontaineracl) . Auktorisera den här åtgärden genom att skicka in din konto nyckel, en anslutnings sträng eller en signatur för delad åtkomst (SAS). Den [angivna ACL](/rest/api/storageservices/set-container-acl) -åtgärden för behållare som anger behållarens offentliga åtkomst nivå stöder inte auktorisering med Azure AD. Mer information finns i [behörigheter för att anropa blob-och Queue data-åtgärder](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+
+I följande exempel skapas en behållare med offentlig åtkomst inaktive rad och uppdaterar sedan behållarens offentliga åtkomst inställning för att tillåta anonym åtkomst till behållaren och dess blobbar. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
+
+```powershell
+# Set variables.
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+
+# Get context object.
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
+$ctx = $storageAccount.Context
+
+# Create a new container with public access setting set to Off.
+$containerName = "<container>"
+New-AzStorageContainer -Name $containerName -Permission Off -Context $ctx
+
+# Read the container's public access setting.
+Get-AzStorageContainerAcl -Container $containerName -Context $ctx
+
+# Update the container's public access setting to Container.
+Set-AzStorageContainerAcl -Container $containerName -Permission Container -Context $ctx
+
+# Read the container's public access setting.
+Get-AzStorageContainerAcl -Container $containerName -Context $ctx
+```
+
+När offentlig åtkomst inte tillåts för lagrings kontot kan inte behållarens offentliga åtkomst nivå anges. Om du försöker ange behållarens offentliga åtkomst nivå returnerar Azure Storage fel som anger att offentlig åtkomst inte tillåts på lagrings kontot.
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Om du vill uppdatera den offentliga åtkomst nivån för en eller flera behållare med Azure CLI anropar du kommandot [AZ Storage container set permission](/cli/azure/storage/container#az-storage-container-set-permission) . Auktorisera den här åtgärden genom att skicka in din konto nyckel, en anslutnings sträng eller en signatur för delad åtkomst (SAS). Den [angivna ACL](/rest/api/storageservices/set-container-acl) -åtgärden för behållare som anger behållarens offentliga åtkomst nivå stöder inte auktorisering med Azure AD. Mer information finns i [behörigheter för att anropa blob-och Queue data-åtgärder](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
 
-I följande exempel anges den offentliga åtkomst inställningen för en behållare för att aktivera anonym åtkomst till behållaren och dess blobbar. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
+I följande exempel skapas en behållare med offentlig åtkomst inaktive rad och uppdaterar sedan behållarens offentliga åtkomst inställning för att tillåta anonym åtkomst till behållaren och dess blobbar. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
 
 ```azurecli-interactive
+az storage container create \
+    --name <container-name> \
+    --account-name <account-name> \
+    --resource-group <resource-group>
+    --public-access off \
+    --account-key <account-key> \
+    --auth-mode key
+
+az storage container show-permission \
+    --name <container-name> \
+    --account-name <account-name> \
+    --account-key <account-key> \
+    --auth-mode key
+
 az storage container set-permission \
     --name <container-name> \
     --account-name <account-name> \
     --public-access container \
     --account-key <account-key> \
     --auth-mode key
-```
 
-När offentlig åtkomst inte tillåts för lagrings kontot kan inte behållarens offentliga åtkomst nivå anges. Om du försöker ange behållarens offentliga åtkomst nivå uppstår ett fel som anger att offentlig åtkomst inte tillåts på lagrings kontot.
-
----
-
-## <a name="check-the-container-public-access-setting"></a>Kontrol lera inställningen för offentlig åtkomst för behållare
-
-Om du vill kontrol lera inställningen för offentlig åtkomst för en eller flera behållare kan du använda Azure Portal, PowerShell, Azure CLI, en av Azure Storage-klient biblioteken eller Azure Storage resurs leverantören. I följande avsnitt finns några exempel.  
-
-### <a name="check-the-public-access-setting-for-a-single-container"></a>Kontrol lera inställningen för offentlig åtkomst för en enskild behållare
-
-Om du vill hämta offentlig åtkomst nivå för en eller flera behållare med Azure CLI anropar du kommandot [AZ Storage container show permission](/cli/azure/storage/container#az-storage-container-show-permission) . Auktorisera den här åtgärden genom att skicka in din konto nyckel, en anslutnings sträng eller en signatur för delad åtkomst (SAS). Åtgärden [Hämta behållar-ACL](/rest/api/storageservices/get-container-acl) som returnerar en behållares offentliga åtkomst nivå stöder inte auktorisering med Azure AD. Mer information finns i [behörigheter för att anropa blob-och Queue data-åtgärder](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
-
-I följande exempel läses den offentliga åtkomst inställningen för en behållare. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
-
-```azurecli-interactive
 az storage container show-permission \
     --name <container-name> \
     --account-name <account-name> \
-    --account-key <account-key>
+    --account-key <account-key> \
     --auth-mode key
 ```
 
-### <a name="check-the-public-access-setting-for-a-set-of-containers"></a>Kontrol lera inställningen för offentlig åtkomst för en uppsättning behållare
+När offentlig åtkomst inte tillåts för lagrings kontot kan inte behållarens offentliga åtkomst nivå anges. Om du försöker ange behållarens offentliga åtkomst nivå returnerar Azure Storage fel som anger att offentlig åtkomst inte tillåts på lagrings kontot.
+
+# <a name="template"></a>[Mall](#tab/template)
+
+Ej tillämpligt.
+
+---
+
+## <a name="check-the-public-access-setting-for-a-set-of-containers"></a>Kontrol lera inställningen för offentlig åtkomst för en uppsättning behållare
 
 Det går att kontrol lera vilka behållare i ett eller flera lagrings konton som har kon figurer ATS för offentlig åtkomst genom att lista behållarna och kontrol lera inställningen för offentlig åtkomst. Den här metoden är ett användbart alternativ när ett lagrings konto inte innehåller ett stort antal behållare, eller när du kontrollerar inställningen för ett litet antal lagrings konton. Prestanda kan dock bli lidande om du försöker räkna upp ett stort antal behållare.
 

@@ -5,14 +5,14 @@ description: Lär dig metod tipsen för kluster operatorn för att använda avan
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 5b003c9f0c3b47779bd7da92fb64c57830911fae
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b8077a772d6fdc4b911fabdfa893a15dcd7615db
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077855"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530069"
 ---
-# <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Metod tips för avancerade Scheduler-funktioner i Azure Kubernetes service (AKS)
+# <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Bästa praxis för avancerade schemaläggningsfunktioner i Azure Kubernetes Service (AKS)
 
 När du hanterar kluster i Azure Kubernetes service (AKS) behöver du ofta isolera team och arbets belastningar. Kubernetes Scheduler innehåller avancerade funktioner som låter dig styra vilka poddar som kan schemaläggas på vissa noder, eller hur program med flera Pod kan distribueras på ett lämpligt sätt i klustret. 
 
@@ -71,8 +71,6 @@ När den här Pod distribueras, till exempel `kubectl apply -f gpu-toleration.ya
 
 När du använder smakarna arbetar du med dina programutvecklare och ägare för att tillåta dem att definiera de nödvändiga tolererarna i sina distributioner.
 
-Mer information om bismaker och tolererande finns i [använda bismakar och tolererande][k8s-taints-tolerations].
-
 Mer information om hur du använder flera Node-pooler i AKS finns i [skapa och hantera flera noder för ett kluster i AKS][use-multiple-node-pools].
 
 ### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Beteende för bismaker och tolererar i AKS
@@ -80,6 +78,7 @@ Mer information om hur du använder flera Node-pooler i AKS finns i [skapa och h
 När du uppgraderar en Node-pool i AKS följer smakarna och tolererarna ett uppsättnings mönster som de tillämpas på nya noder:
 
 - **Standard kluster som använder skalnings uppsättningar för virtuella datorer**
+  - Du kan använda [en nodepool][taint-node-pool] från AKS-API: n, så att nyligen utskalade noder får den API som anges för nodens smak.
   - Vi antar att du har ett kluster med två noder, *Nod1* och *NOD2*. Du uppgraderar Node-poolen.
   - Två ytterligare noder skapas, *nod3* och *nod4*och smakarna skickas på respektive.
   - De ursprungliga *Nod1* och *NOD2* tas bort.
@@ -198,3 +197,4 @@ Den här artikeln fokuserar på avancerade funktioner i Kubernetes Scheduler. Me
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[taint-node-pool]: use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool

@@ -17,10 +17,10 @@ ms.locfileid: "84416437"
 ---
 [Referens dokumentation](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/LanguageUnderstanding/csharp-model-with-rest/Program.cs)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [.NET Core 3,1](https://dotnet.microsoft.com/download)
-* [Visual Studio-koden](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 
 ## <a name="example-utterances-json-file"></a>JSON-fil med exempelyttranden
 
@@ -56,7 +56,7 @@ ms.locfileid: "84416437"
     |--|--|
     |`YOUR-APP-ID`| Ditt LUIS app-ID. |
     |`YOUR-AUTHORING-KEY`|Din redigerings nyckel för 32-tecknen.|
-    |`YOUR-AUTHORING-ENDPOINT`| URL-slutpunkten för redigering. Exempelvis `https://replace-with-your-resource-name.api.cognitive.microsoft.com/`. Du anger resurs namnet när du skapade resursen.|
+    |`YOUR-AUTHORING-ENDPOINT`| URL-slutpunkten för redigering. Till exempel `https://replace-with-your-resource-name.api.cognitive.microsoft.com/`. Du anger resurs namnet när du skapade resursen.|
 
     Tilldelade nycklar och resurser visas i LUIS-portalen i avsnittet hantera på sidan **Azure-resurser** . App-ID: t är tillgängligt i samma hantera-avsnitt på sidan **program inställningar** .
 

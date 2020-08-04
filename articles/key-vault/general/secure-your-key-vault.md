@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 17482a5924d0bc8be531fe48aa34a2d32acff3e5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 26dba14baa95a91c12e9ccd277731b91207b4a4c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503114"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533265"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Säker åtkomst till ett nyckel valv
 
@@ -61,11 +61,11 @@ I följande tabell visas slut punkterna för hanterings-och data planen.
 
 I hanterings planet använder du rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att auktorisera de åtgärder som en anropare kan utföra. I RBAC-modellen har varje Azure-prenumeration en instans av Azure AD. Du beviljar åtkomst till användare, grupper och program från den här katalogen. Åtkomst beviljas för att hantera resurser i Azure-prenumerationen som använder Azure Resource Manager distributions modell. Om du vill bevilja åtkomst använder du [Azure Portal](https://portal.azure.com/), [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/)eller [Azure Resource Manager REST-API: er](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
-Du skapar ett nyckel valv i en resurs grupp och hanterar åtkomst med hjälp av Azure AD. Du beviljar användare eller grupper möjligheten att hantera nyckel valv i en resurs grupp. Du ger åtkomst till en bestämd omfattnings nivå genom att tilldela lämpliga RBAC-roller. Om du vill bevilja åtkomst till en användare för att hantera nyckel valv tilldelar du en fördefinierad `key vault Contributor` roll till användaren vid en bestämd omfattning. Följande omfattnings nivåer kan tilldelas en RBAC-roll:
+Du skapar ett nyckel valv i en resurs grupp och hanterar åtkomst med hjälp av Azure AD. Du beviljar användare eller grupper möjligheten att hantera nyckel valv i en resurs grupp. Du beviljar åtkomst på en bestämd omfattnings nivå genom att tilldela lämpliga Azure-roller. Om du vill bevilja åtkomst till en användare för att hantera nyckel valv tilldelar du en fördefinierad `key vault Contributor` roll till användaren vid en bestämd omfattning. Följande omfattnings nivåer kan tilldelas en Azure-roll:
 
-- **Prenumeration**: en RBAC-roll som tilldelas på prenumerations nivå gäller för alla resurs grupper och resurser i prenumerationen.
-- **Resurs grupp**: en RBAC-roll som tilldelas på resurs grupps nivå gäller för alla resurser i den resurs gruppen.
-- **Resurs**: en RBAC-roll som är tilldelad en angiven resurs gäller för den resursen. I det här fallet är resursen ett särskilt nyckel valv.
+- **Prenumeration**: en Azure-roll som tilldelas på prenumerations nivån gäller för alla resurs grupper och resurser i prenumerationen.
+- **Resurs grupp**: en Azure-roll som tilldelas på resurs grupps nivå gäller för alla resurser i den resurs gruppen.
+- **Resurs**: en Azure-roll som är tilldelad en angiven resurs gäller resursen. I det här fallet är resursen ett särskilt nyckel valv.
 
 Det finns flera fördefinierade roller. Om en fördefinierad roll inte passar dina behov kan du definiera en egen roll. Mer information finns i [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md).
 

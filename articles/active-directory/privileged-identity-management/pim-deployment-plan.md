@@ -14,12 +14,12 @@ ms.date: 04/28/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac3f9adbb3b83345fe14df39014c6119e97ba7f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6597c268a2a017280d00f73366562de61b4781e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886109"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529797"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuera Azure AD Privileged Identity Management (PIM)
 
@@ -59,7 +59,7 @@ Mer information finns i [licens krav för att använda Privileged Identity Manag
 
 ### <a name="key-terminology"></a>Nyckel terminologi
 
-| Term eller begrepp | Beskrivning |
+| Term eller begrepp | Description |
 | --- | --- |
 | berättigad | En rolltilldelning som kräver att en användare utför en eller flera åtgärder för att använda rollen. Om en användare har gjorts berättigad för en roll innebär det att användaren kan aktivera rollen när det finns behov av att utföra privilegierade åtgärder. Det finns ingen skillnad i den åtkomst som ges till någon med en permanent kontra berättigad rolltilldelning. Den enda skillnaden är att vissa användare inte behöver den åtkomsten hela tiden. |
 | aktivera | Processen med att utföra en eller flera åtgärder för att använda en roll som en användare är berättigad för. Det kan vara åtgärder som att utföra en kontroll av multifaktorautentisering (MFA), ange en affärsmotivering eller begära godkännande från utnämnda godkännare. |
@@ -100,7 +100,7 @@ I följande avsnitt får du hjälp att identifiera alla intressenter som ingår 
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Intressenter: Privileged Identity Management för Azure AD-roller
 
-| Name | Roll | Åtgärd |
+| Name | Roll | Action |
 | --- | --- | --- |
 | Namn och e-postadress | **Identitets arkitekt eller Global Azure-administratör**<br/>En representant från identitets hanterings teamet som är ansvarig för att definiera hur den här ändringen justeras med infrastrukturen för kärn identitets hantering i din organisation. | SÅ/R/I |
 | Namn och e-postadress | **Tjänst ägare/rads hanterare**<br/>En representant från IT-ägare till en tjänst eller en grupp av tjänster. De är viktiga för att fatta beslut och hjälpa till att distribuera Privileged Identity Management för sitt team. | SÅ/R/I |
@@ -110,12 +110,12 @@ I följande avsnitt får du hjälp att identifiera alla intressenter som ingår 
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-resource-roles"></a>Intressenter: Privileged Identity Management för Azures resurs roller
 
-| Name | Roll | Åtgärd |
+| Name | Roll | Action |
 | --- | --- | --- |
 | Namn och e-postadress | **Prenumeration/resurs ägare**<br/>En representant från IT-ägarna till varje prenumeration eller resurs som du vill distribuera Privileged Identity Management för | SÅ/R/I |
 | Namn och e-postadress | **Säkerhets ägare**<br/>En representant från säkerhets teamet som kan signera att planen uppfyller organisationens säkerhets krav. | SÅ/R |
 | Namn och e-postadress | **IT support Manager/supportavdelningen**<br/>En representant från IT-supporten som kan tillhandahålla insikter om den här förändringen från ett support perspektiv. | R/I |
-| Namn och e-post för pilot användare | **Användare av RBAC-roll**<br/>Gruppen med användare som Privileged Identity Management implementeras för. De måste känna till hur de aktiverar sina roller när Privileged Identity Management implementeras. | I |
+| Namn och e-post för pilot användare | **Azure Role-användare**<br/>Gruppen med användare som Privileged Identity Management implementeras för. De måste känna till hur de aktiverar sina roller när Privileged Identity Management implementeras. | I |
 
 ### <a name="enable-privileged-identity-management"></a>Aktivera Privileged Identity Management
 

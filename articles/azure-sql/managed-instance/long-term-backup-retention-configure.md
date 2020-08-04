@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 04/29/2020
-ms.openlocfilehash: b628ca7f676c3eab80e11da124f4d6aa7ebd52a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab4eaf5ad40b5ef8bee68ef0e56ab8f53db8a8a2
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708805"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533843"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Hantera Azure SQL Managed instance långsiktig kvarhållning av säkerhets kopior (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,7 +28,7 @@ I Azure SQL-hanterad instans kan du konfigurera en [långsiktig bevarande princi
 
 Följande avsnitt visar hur du använder PowerShell för att konfigurera långsiktig kvarhållning av säkerhets kopior, Visa säkerhets kopior i Azure SQL-lagring och återställa från en säkerhets kopia i Azure SQL Storage.
 
-## <a name="rbac-roles-to-manage-long-term-retention"></a>RBAC-roller för att hantera långsiktig kvarhållning
+## <a name="azure-roles-to-manage-long-term-retention"></a>Azure-roller för att hantera långsiktig kvarhållning
 
 För **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** och **restore-AzSqlInstanceDatabase**måste du ha en av följande roller:
 

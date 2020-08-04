@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
-ms.openlocfilehash: fe9d4e5a981f9d626bb6086659593e1c3ce06469
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 96fb914b5dafe5eb818f2b491bbe2d856763bd02
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291138"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534744"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>För hands version: Logga in på en virtuell Linux-dator i Azure med Azure Active Directory autentisering
 
@@ -113,7 +113,7 @@ az vm extension set \
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Konfigurera roll tilldelningar för den virtuella datorn
 
-Azures rollbaserade åtkomst kontroll (Azure RBAC) policy avgör vem som kan logga in på den virtuella datorn. Två RBAC-roller används för att auktorisera VM-inloggning:
+Azures rollbaserade åtkomst kontroll (Azure RBAC) policy avgör vem som kan logga in på den virtuella datorn. Två Azure-roller används för att auktorisera VM-inloggning:
 
 - **Administratörs inloggning för virtuell dator**: användare med den här rollen som tilldelas kan logga in på en virtuell Azure-dator med Windows-administratör eller Linux-rot användar privilegier.
 - **Användar inloggning för virtuell dator**: användare med den här rollen tilldelad kan logga in på en virtuell Azure-dator med vanliga användar behörigheter.
@@ -181,9 +181,9 @@ Med den här raden:
 
 ## <a name="troubleshoot-sign-in-issues"></a>Felsöka inloggnings problem
 
-Några vanliga fel när du försöker använda SSH med Azure AD-autentiseringsuppgifter inkluderar inga RBAC-roller tilldelade och du får upprepade frågor om att logga in. Använd följande avsnitt för att åtgärda problemen.
+Några vanliga fel när du försöker använda SSH med Azure AD-autentiseringsuppgifter inkluderar inga Azure-roller tilldelade och du får upprepade frågor om att logga in. Använd följande avsnitt för att åtgärda problemen.
 
-### <a name="access-denied-rbac-role-not-assigned"></a>Åtkomst nekad: RBAC-rollen har inte tilldelats
+### <a name="access-denied-azure-role-not-assigned"></a>Åtkomst nekad: Azure-rollen har inte tilldelats
 
 Om du ser följande fel i SSH-prompten kontrollerar du att du har konfigurerat RBAC-principer för den virtuella datorn som beviljar användaren antingen *Administratörs inloggning för den virtuella datorn* eller *användar inloggnings* rollen för den virtuella datorn:
 

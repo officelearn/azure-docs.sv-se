@@ -10,12 +10,12 @@ ms.date: 06/22/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: has-adal-ref
-ms.openlocfilehash: 949347d07fe120c6900f49499e78595b540718a7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 57d1cda2e74cfe4ae3948e55124123d05682591b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369007"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534234"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Hämta en token från Azure AD för att auktorisera begär Anden från ett klient program
 
@@ -27,7 +27,7 @@ En översikt över OAuth 2,0 Code Granting Flow finns i bevilja [åtkomst till A
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Tilldela en roll till ett säkerhets objekt i Azure AD
 
-Om du vill autentisera ett säkerhets objekt från ditt Azure Storage program måste du först konfigurera rollbaserad åtkomst kontroll (RBAC) för säkerhets objekt. Azure Storage definierar inbyggda Azure-roller som omfattar behörigheter för behållare och köer. När RBAC-rollen tilldelas till ett säkerhets objekt beviljas detta säkerhets objekt åtkomst till resursen. Mer information finns i [Hantera åtkomst behörigheter till Azure blob och Queue data med RBAC](storage-auth-aad-rbac.md).
+Om du vill autentisera ett säkerhets objekt från ditt Azure Storage program måste du först konfigurera rollbaserad åtkomst kontroll (RBAC) för säkerhets objekt. Azure Storage definierar inbyggda Azure-roller som omfattar behörigheter för behållare och köer. När Azure-rollen tilldelas till ett säkerhets objekt beviljas detta säkerhets objekt åtkomst till resursen. Mer information finns i [Hantera åtkomst behörigheter till Azure blob och Queue data med RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registrera ditt program med en Azure AD-klient
 
@@ -115,7 +115,7 @@ Om du vill köra kod exemplet skapar du ett lagrings konto i samma prenumeration
 Nu ska du uttryckligen tilldela rollen **Storage BLOB data Contributor** till det användar konto som du vill köra exempel koden för. Instruktioner för hur du tilldelar den här rollen i Azure Portal finns i [bevilja åtkomst till Azure blob och Queue data med RBAC i Azure Portal](storage-auth-aad-rbac-portal.md).
 
 > [!NOTE]
-> När du skapar ett Azure Storage-konto tilldelas du inte automatiskt behörigheter för åtkomst till data via Azure AD. Du måste uttryckligen tilldela dig en RBAC-roll för Azure Storage. Du kan tilldela den på nivån för din prenumeration, resurs grupp, lagrings konto eller behållare eller kö.
+> När du skapar ett Azure Storage-konto tilldelas du inte automatiskt behörigheter för åtkomst till data via Azure AD. Du måste uttryckligen tilldela dig själv en Azure-roll för Azure Storage. Du kan tilldela den på nivån för din prenumeration, resurs grupp, lagrings konto eller behållare eller kö.
 
 ### <a name="create-a-web-application-that-authorizes-access-to-blob-storage-with-azure-ad"></a>Skapa ett webb program som tillåter åtkomst till Blob Storage med Azure AD
 
@@ -281,7 +281,7 @@ CloudBlockBlob blob = new CloudBlockBlob(
 
 ### <a name="enable-implicit-grant-flow"></a>Aktivera implicit beviljande av flöde
 
-Om du vill köra exemplet kan du behöva konfigurera det implicita tilldelnings flödet för din app-registrering. Följ de här stegen:
+Om du vill köra exemplet kan du behöva konfigurera det implicita tilldelnings flödet för din app-registrering. Gör så här:
 
 1. Navigera till din app-registrering i Azure Portal.
 1. I avsnittet **Hantera** väljer du **autentiserings** inställningen.

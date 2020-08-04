@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 142fdf27fde100385140baacdeba9249b2e7989b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d97886232eecc369746e33df484cbfb9d40da72
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887900"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530273"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Allmän information och rikt linjer för företags säkerhet i Azure HDInsight
 
@@ -62,7 +62,7 @@ När du distribuerar ett säkert HDInsight-kluster finns det några metod tips s
 När hierarkiskt namn område inte är aktiverat:
 
 * Det finns inga ärvda behörigheter.
-* Endast fil Systems behörighet som fungerar är **lagrings data xxxx** RBAC-roll som ska tilldelas användaren direkt i Azure Portal.
+* Endast fil Systems behörighet som fungerar är **lagrings data xxxx** Azure Role som ska tilldelas användaren direkt i Azure Portal.
 
 ### <a name="default-hdfs-permissions"></a>Standard HDFS-behörigheter
 

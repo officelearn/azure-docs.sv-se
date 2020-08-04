@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/15/2020
-ms.openlocfilehash: 8d7171bafb292b0520b8873bad0ce8f55ab4040d
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.date: 08/03/2020
+ms.openlocfilehash: caa132475df6481db7228a1ef7e18026b12cf38f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171508"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534336"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera och transformera data i Azure Synapse Analytics (tidigare Azure SQL Data Warehouse) med hjälp av Azure Data Factory
 
@@ -63,12 +63,12 @@ Följande egenskaper stöds för en länkad Azure Synapse Analytics-tjänst:
 
 | Egenskap            | Beskrivning                                                  | Krävs                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| typ                | Egenskapen Type måste anges till **AzureSqlDW**.             | Ja                                                          |
-| Begär    | Ange den information som krävs för att ansluta till Azure Synapse Analytics-instansen för egenskapen **ConnectionString** . <br/>Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. Du kan också ange lösen ord/tjänstens huvud namn i Azure Key Vault, och om det är SQL-autentisering hämtar du `password` konfigurationen från anslutnings strängen. Se JSON-exemplet under tabellen och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja                                                          |
+| typ                | Egenskapen Type måste anges till **AzureSqlDW**.             | Yes                                                          |
+| Begär    | Ange den information som krävs för att ansluta till Azure Synapse Analytics-instansen för egenskapen **ConnectionString** . <br/>Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. Du kan också ange lösen ord/tjänstens huvud namn i Azure Key Vault, och om det är SQL-autentisering hämtar du `password` konfigurationen från anslutnings strängen. Se JSON-exemplet under tabellen och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Yes                                                          |
 | servicePrincipalId  | Ange programmets klient-ID.                         | Ja, när du använder Azure AD-autentisering med ett huvud namn för tjänsten. |
 | servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja, när du använder Azure AD-autentisering med ett huvud namn för tjänsten. |
 | tenant              | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja, när du använder Azure AD-autentisering med ett huvud namn för tjänsten. |
-| connectVia          | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure Integration Runtime eller en egen värd för integration Runtime (om ditt data lager finns i ett privat nätverk). Om inget värde anges används standard Azure Integration Runtime. | Nej                                                           |
+| connectVia          | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure Integration Runtime eller en egen värd för integration Runtime (om ditt data lager finns i ett privat nätverk). Om inget värde anges används standard Azure Integration Runtime. | No                                                           |
 
 För olika typer av autentiseringar, se följande avsnitt om krav respektive JSON-exempel:
 
@@ -223,7 +223,7 @@ Följande egenskaper stöds för data uppsättningen för Azure Synapse Analytic
 
 | Egenskap  | Beskrivning                                                  | Krävs                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| typ      | Data uppsättningens **typ** -egenskap måste anges till **AzureSqlDWTable**. | Ja                         |
+| typ      | Data uppsättningens **typ** -egenskap måste anges till **AzureSqlDWTable**. | Yes                         |
 | schema | Schemats namn. |Nej för källa, Ja för mottagare  |
 | tabell | Namnet på tabellen/vyn. |Nej för källa, Ja för mottagare  |
 | tableName | Namnet på tabellen/vyn med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd och för ny arbets `schema` belastning `table` . | Nej för källa, Ja för mottagare |
@@ -259,11 +259,11 @@ Om du vill kopiera data från Azure Synapse Analytics ställer du in egenskapen 
 
 | Egenskap                     | Beskrivning                                                  | Krävs |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| typ                         | **Typ** egenskapen för kopierings aktivitets källan måste anges till **SqlDWSource**. | Ja      |
-| sqlReaderQuery               | Använd den anpassade SQL-frågan för att läsa data. Exempel: `select * from MyTable`. | Nej       |
-| sqlReaderStoredProcedureName | Namnet på den lagrade proceduren som läser data från käll tabellen. Den sista SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. | Nej       |
-| storedProcedureParameters    | Parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn-eller värdepar. Namn och Skift läge för parametrar måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. | Nej       |
-| isolationLevel | Anger transaktions låsnings beteendet för SQL-källan. De tillåtna värdena är: **ReadCommitted**, **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. Om inget värde anges används databasens standard isolerings nivå. Mer information finns i [det här dokumentet](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) . | Nej |
+| typ                         | **Typ** egenskapen för kopierings aktivitets källan måste anges till **SqlDWSource**. | Yes      |
+| sqlReaderQuery               | Använd den anpassade SQL-frågan för att läsa data. Exempel: `select * from MyTable`. | No       |
+| sqlReaderStoredProcedureName | Namnet på den lagrade proceduren som läser data från käll tabellen. Den sista SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. | No       |
+| storedProcedureParameters    | Parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn-eller värdepar. Namn och Skift läge för parametrar måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. | No       |
+| isolationLevel | Anger transaktions låsnings beteendet för SQL-källan. De tillåtna värdena är: **ReadCommitted**, **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. Om inget värde anges används databasens standard isolerings nivå. Mer information finns i [det här dokumentet](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) . | No |
 
 **Exempel: använda SQL-fråga**
 
@@ -368,15 +368,15 @@ Om du vill kopiera data till Azure SQL Data Warehouse anger du mottagar typen i 
 
 | Egenskap          | Beskrivning                                                  | Krävs                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| typ              | Egenskapen **Type** för kopierings aktivitetens Sink måste anges till **SqlDWSink**. | Ja                                           |
+| typ              | Egenskapen **Type** för kopierings aktivitetens Sink måste anges till **SqlDWSink**. | Yes                                           |
 | allowPolyBase     | Anger om PolyBase ska användas för att läsa in data i SQL Data Warehouse. `allowCopyCommand`och `allowPolyBase` kan inte båda vara sant. <br/><br/>Se [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) avsnitt för begränsningar och information.<br/><br/>Tillåtna värden är **True** och **false** (standard). | Nej.<br/>Använd när du använder PolyBase.     |
 | polyBaseSettings  | En grupp egenskaper som kan anges när `allowPolybase` egenskapen har angetts till **True**. | Nej.<br/>Använd när du använder PolyBase. |
 | allowCopyCommand | Anger om [kopierings instruktionen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (för hands version) ska användas för att läsa in data i SQL Data Warehouse. `allowCopyCommand`och `allowPolyBase` kan inte båda vara sant. <br/><br/>Se [använda Copy-instruktionen för att läsa in data i Azure SQL Data Warehouse](#use-copy-statement) avsnittet för begränsningar och information.<br/><br/>Tillåtna värden är **True** och **false** (standard). | Nej.<br>Använd när du använder COPY. |
 | copyCommandSettings | En grupp egenskaper som kan anges när `allowCopyCommand` egenskapen har angetts till true. | Nej.<br/>Använd när du använder COPY. |
 | writeBatchSize    | Antal rader som ska infogas i SQL-tabellen **per batch**.<br/><br/>Det tillåtna värdet är **Integer** (antal rader). Som standard bestämmer Data Factory dynamiskt rätt batchstorlek baserat på rad storleken. | Nej.<br/>Använd när du använder Mass infogning.     |
 | writeBatchTimeout | Vänte tid för att slutföra batch-infogningen innan tids gränsen uppnåddes.<br/><br/>Det tillåtna värdet är **TimeSpan**. Exempel: "00:30:00" (30 minuter). | Nej.<br/>Använd när du använder Mass infogning.        |
-| preCopyScript     | Ange en SQL-fråga för kopierings aktivitet som ska köras innan data skrivs till Azure SQL Data Warehouse i varje körning. Använd den här egenskapen för att rensa de förinstallerade data. | Nej                                            |
-| tableOption | Anger om [mottagar tabellen ska skapas automatiskt om den](copy-activity-overview.md#auto-create-sink-tables) inte finns, baserat på käll schemat. Det går inte att skapa en automatisk tabell när mellanlagrad kopiering har kon figurer ATS i kopierings aktiviteten. Tillåtna värden är: `none` (standard), `autoCreate` . |Nej |
+| preCopyScript     | Ange en SQL-fråga för kopierings aktivitet som ska köras innan data skrivs till Azure SQL Data Warehouse i varje körning. Använd den här egenskapen för att rensa de förinstallerade data. | No                                            |
+| tableOption | Anger om [mottagar tabellen ska skapas automatiskt om den](copy-activity-overview.md#auto-create-sink-tables) inte finns, baserat på käll schemat. Tillåtna värden är: `none` (standard), `autoCreate` . |No |
 | disableMetricsCollection | Data Factory samlar in mått som SQL Data Warehouse DWU: er för att kopiera prestanda optimering och rekommendationer. Om du är orolig för det här beteendet anger `true` du för att inaktivera det. | Nej (standard är `false` ) |
 
 #### <a name="sql-data-warehouse-sink-example"></a>Exempel på SQL Data Warehouse mottagare
@@ -409,10 +409,10 @@ Följande PolyBase-inställningar stöds under `polyBaseSettings` kopierings akt
 
 | Egenskap          | Beskrivning                                                  | Krävs                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| rejectValue       | Anger antalet rader eller procent av rader som kan avvisas innan frågan Miss lyckas.<br/><br/>Läs mer om polybases avvisnings alternativ i avsnittet arguments i [skapa en extern tabell (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Tillåtna värden är 0 (standard), 1, 2 osv. | Nej                                            |
-| rejectType        | Anger om alternativet **rejectValue** är ett litteralt värde eller en procents ATS.<br/><br/>Tillåtna värden är **värde** (standard) och **procent**. | Nej                                            |
+| rejectValue       | Anger antalet rader eller procent av rader som kan avvisas innan frågan Miss lyckas.<br/><br/>Läs mer om polybases avvisnings alternativ i avsnittet arguments i [skapa en extern tabell (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Tillåtna värden är 0 (standard), 1, 2 osv. | No                                            |
+| rejectType        | Anger om alternativet **rejectValue** är ett litteralt värde eller en procents ATS.<br/><br/>Tillåtna värden är **värde** (standard) och **procent**. | No                                            |
 | rejectSampleValue | Anger det antal rader som ska hämtas innan PolyBase beräknar om procent andelen avvisade rader.<br/><br/>Tillåtna värden är 1, 2 osv. | Ja, om **rejectType** är **procent andelen**. |
-| useTypeDefault    | Anger hur du ska hantera saknade värden i avgränsade textfiler när PolyBase hämtar data från text filen.<br/><br/>Lär dig mer om den här egenskapen från avsnittet argument i [Skapa externt fil format (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Tillåtna värden är **True** och **false** (standard).<br><br> | Nej                                            |
+| useTypeDefault    | Anger hur du ska hantera saknade värden i avgränsade textfiler när PolyBase hämtar data från text filen.<br/><br/>Lär dig mer om den här egenskapen från avsnittet argument i [Skapa externt fil format (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Tillåtna värden är **True** och **false** (standard).<br><br> | No                                            |
 
 ### <a name="direct-copy-by-using-polybase"></a>Direkt kopia med hjälp av PolyBase
 
@@ -632,8 +632,8 @@ Följande KOPIERINGs instruktions inställningar stöds under `allowCopyCommand`
 
 | Egenskap          | Beskrivning                                                  | Krävs                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| defaultValues | Anger standardvärden för varje mål kolumn i SQL DW.  Standardvärdena i egenskapen skriver över standard begränsnings uppsättningen i data lagret och identitets kolumnen kan inte ha ett standardvärde. | Nej |
-| additionalOptions | Ytterligare alternativ som skickas till SQL DW COPY-instruktionen direkt i With-satsen i [copy-instruktionen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Citera värdet efter behov för att passa med KOPIERINGs instruktionens krav. | Nej |
+| defaultValues | Anger standardvärden för varje mål kolumn i SQL DW.  Standardvärdena i egenskapen skriver över standard begränsnings uppsättningen i data lagret och identitets kolumnen kan inte ha ett standardvärde. | No |
+| additionalOptions | Ytterligare alternativ som skickas till SQL DW COPY-instruktionen direkt i With-satsen i [copy-instruktionen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Citera värdet efter behov för att passa med KOPIERINGs instruktionens krav. | No |
 
 ```json
 "activities":[

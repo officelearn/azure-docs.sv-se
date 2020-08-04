@@ -3,12 +3,12 @@ title: Azure Relay undantag och hur du löser dem | Microsoft Docs
 description: Lista över Azure Relay undantag och föreslagna åtgärder som du kan vidta för att lösa dem.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0bc8a399173331525d62b25929f65ad189ed219b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a644dfe80255c64980400866a5e3d197f75375bd
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316870"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532976"
 ---
 # <a name="azure-relay-exceptions"></a>Azure Relay undantag
 
@@ -18,16 +18,16 @@ Den här artikeln innehåller några undantag som kan genereras av Azure Relay A
 
 Relä-API: erna genererar undantag som kan ingå i följande kategorier. I listan finns även förslag på åtgärder som du kan vidta för att lösa undantagen.
 
-*   **Användar kodnings fel**: [system. ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [system. InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [system. OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [system. Runtime. Serialization. SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). 
+*   **Användar kodnings fel**: [system. ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1), [system. InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1), [system. OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1), [system. Runtime. Serialization. SerializationException](/dotnet/api/system.runtime.serialization.serializationexception?view=netcore-3.1). 
 
     **Allmän åtgärd**: försök att åtgärda koden innan du fortsätter.
-*   **Installations-/konfigurations fel**: [system. UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). 
+*   **Installations-/konfigurations fel**: [system. UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1). 
 
     **Allmän åtgärd**: Granska konfigurationen. Om det behövs ändrar du konfigurationen.
 *   **Tillfälliga undantag**: [Microsoft. Service Bus. Messaging. MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft. Service Bus. Messaging. ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [Microsoft. Service Bus. Messaging. MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). 
 
     **Allmän åtgärd**: försök utföra åtgärden på nytt eller meddela användare.
-*   **Andra undantag**: [system. Transactions. TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [system. TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx). 
+*   **Andra undantag**: [system. Transactions. TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1), [system. TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1). 
 
     **Allmän åtgärd**: särskilt för undantags typen. Se tabellen i följande avsnitt. 
 
@@ -37,11 +37,11 @@ I följande tabell visas meddelande undantags typer och deras orsaker. Det noter
 
 | **Undantagstyp** | **Beskrivning** | **Föreslagen åtgärd** | **Observera vid automatisk eller omedelbar återförsök** |
 | --- | --- | --- | --- |
-| [Tidsgräns](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |Servern svarade inte på den begärda åtgärden inom den angivna tiden, vilken styrs av [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout). Servern kan ha slutfört den begärda åtgärden. Detta kan inträffa på grund av fördröjningar i nätverket eller andra infrastrukturer. |Kontrol lera systemets tillstånd för konsekvens och försök sedan igen om det behövs. Se [TimeoutException](#timeoutexception). |Försök kan i vissa fall hjälpa dig. Lägg till logik för omprövning till kod. |
-| [Ogiltig åtgärd](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |Den begärda användar åtgärden tillåts inte i servern eller tjänsten. Mer information finns i undantags meddelandet. |Kontrol lera koden och dokumentationen. Kontrol lera att den begärda åtgärden är giltig. |Det går inte att göra ett nytt försök. |
-| [Åtgärden avbröts](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) |Ett försök gjordes att anropa en åtgärd för ett objekt som redan har stängts, avbrutits eller tagits bort. I sällsynta fall tas den omgivande transaktionen redan bort. |Kontrol lera koden och se till att den inte anropar åtgärder på ett borttaget objekt. |Det går inte att göra ett nytt försök. |
-| [Obehörig åtkomst](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) |[TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) -objektet kunde inte hämta en token, token är ogiltig eller så innehåller inte token de anspråk som krävs för att utföra åtgärden. |Kontrol lera att token-providern har skapats med rätt värden. Kontrol lera konfigurationen av Access Controls tjänsten. |Försök kan i vissa fall hjälpa dig. Lägg till logik för omprövning till kod. |
-| [Argument undantag](https://msdn.microsoft.com/library/system.argumentexception.aspx),<br /> [Argumentet null](https://msdn.microsoft.com/library/system.argumentnullexception.aspx),<br />[Argumentet är utanför intervallet](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) |Ett eller flera av följande har inträffat:<br />Ett eller flera argument som angavs för metoden är ogiltiga.<br /> Den URI som angavs för [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) eller [create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) innehåller ett eller flera Sök vägs segment.<br />URI-schemat som angavs för [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) eller [create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) är ogiltigt. <br />Egenskap svärdet är större än 32 KB. |Kontrol lera anrops koden och se till att argumenten är korrekta. |Det går inte att göra ett nytt försök. |
+| [Standardvärde](/dotnet/api/system.timeoutexception?view=netcore-3.1) |Servern svarade inte på den begärda åtgärden inom den angivna tiden, vilken styrs av [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout). Servern kan ha slutfört den begärda åtgärden. Detta kan inträffa på grund av fördröjningar i nätverket eller andra infrastrukturer. |Kontrol lera systemets tillstånd för konsekvens och försök sedan igen om det behövs. Se [TimeoutException](#timeoutexception). |Försök kan i vissa fall hjälpa dig. Lägg till logik för omprövning till kod. |
+| [Ogiltig åtgärd](/dotnet/api/system.invalidoperationexception?view=netcore-3.1) |Den begärda användar åtgärden tillåts inte i servern eller tjänsten. Mer information finns i undantags meddelandet. |Kontrol lera koden och dokumentationen. Kontrol lera att den begärda åtgärden är giltig. |Det går inte att göra ett nytt försök. |
+| [Åtgärden avbröts](/dotnet/api/system.operationcanceledexception?view=netcore-3.1) |Ett försök gjordes att anropa en åtgärd för ett objekt som redan har stängts, avbrutits eller tagits bort. I sällsynta fall tas den omgivande transaktionen redan bort. |Kontrol lera koden och se till att den inte anropar åtgärder på ett borttaget objekt. |Det går inte att göra ett nytt försök. |
+| [Obehörig åtkomst](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1) |[TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) -objektet kunde inte hämta en token, token är ogiltig eller så innehåller inte token de anspråk som krävs för att utföra åtgärden. |Kontrol lera att token-providern har skapats med rätt värden. Kontrol lera konfigurationen av Access Controls tjänsten. |Försök kan i vissa fall hjälpa dig. Lägg till logik för omprövning till kod. |
+| [Argument undantag](/dotnet/api/system.argumentexception?view=netcore-3.1),<br /> [Argumentet null](/dotnet/api/system.argumentnullexception?view=netcore-3.1),<br />[Argumentet är utanför intervallet](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1) |Ett eller flera av följande har inträffat:<br />Ett eller flera argument som angavs för metoden är ogiltiga.<br /> Den URI som angavs för [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) eller [create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) innehåller ett eller flera Sök vägs segment.<br />URI-schemat som angavs för [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) eller [create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) är ogiltigt. <br />Egenskap svärdet är större än 32 KB. |Kontrol lera anrops koden och se till att argumenten är korrekta. |Det går inte att göra ett nytt försök. |
 | [Servern är upptagen](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) |Tjänsten kan för närvarande inte bearbeta begäran. |Klienten kan vänta en stund och sedan försöka igen. |Klienten kan försöka igen efter ett angivet intervall. Om ett återförsök resulterar i ett annat undantag, kontrol lera beteendet för återförsök i detta undantag. |
 | [Kvoten överskreds](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |Meddelande enheten har uppnått maximalt tillåten storlek. |Skapa utrymme i entiteten genom att ta emot meddelanden från entiteten eller dess under köer. Se [QuotaExceededException](#quotaexceededexception). |Försök igen kan hjälpa om meddelanden har tagits bort under tiden. |
 | [Meddelandets storlek har överskridits](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |En meddelande nytto Last överskrider gränsen på 256 KB. Observera att gränsen på 256 KB är den totala meddelande storleken. Den totala meddelande storleken kan omfatta system egenskaper och eventuella Microsoft .NET kostnader. |Minska storleken på meddelandets nytto last och försök sedan igen. |Det går inte att göra ett nytt försök. |
@@ -50,17 +50,17 @@ I följande tabell visas meddelande undantags typer och deras orsaker. Det noter
 
 [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) anger att en kvot för en specifik enhet har överskridits.
 
-För vidarebefordran omsluts detta undantag av [system. ServiceModel. QuotaExceededException](https://msdn.microsoft.com/library/system.servicemodel.quotaexceededexception.aspx), vilket indikerar att det maximala antalet lyssnare har överskridits för den här slut punkten. Detta anges i **MaximumListenersPerEndpoint** -värdet för undantags meddelandet.
+För vidarebefordran omsluts detta undantag av [system. ServiceModel. QuotaExceededException](/dotnet/api/system.servicemodel.quotaexceededexception?view=dotnet-plat-ext-3.1), vilket indikerar att det maximala antalet lyssnare har överskridits för den här slut punkten. Detta anges i **MaximumListenersPerEndpoint** -värdet för undantags meddelandet.
 
 ## <a name="timeoutexception"></a>TimeoutException
-En [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) anger att en åtgärd som initierats av användaren tar längre tid än tids gränsen för åtgärden. 
+En [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1) anger att en åtgärd som initierats av användaren tar längre tid än tids gränsen för åtgärden. 
 
-Kontrol lera värdet för egenskapen [ServicePointManager. DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) . Genom att nå den här gränsen kan även en [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx)uppstå.
+Kontrol lera värdet för egenskapen [ServicePointManager. DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit?view=netcore-3.1#System_Net_ServicePointManager_DefaultConnectionLimit) . Genom att nå den här gränsen kan även en [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1)uppstå.
 
 För relä kan du få timeout-undantag när du först öppnar en relä-avsändare. Det finns två vanliga orsaker till det här undantaget:
 
-*   Värdet för [opentime](https://msdn.microsoft.com/library/wcf.opentimeout.aspx) kan vara för litet (om det även är en del av en sekund).
-* En lokal relä lyssnare kanske inte svarar (eller kan stöta på problem med brand Väggs regler som förhindrar att lyssnare accepterar nya klient anslutningar) och värdet för [opentime](https://msdn.microsoft.com/library/wcf.opentimeout.aspx) -värdet är mindre än cirka 20 sekunder.
+*   Värdet för [opentime](/previous-versions/) kan vara för litet (om det även är en del av en sekund).
+* En lokal relä lyssnare kanske inte svarar (eller kan stöta på problem med brand Väggs regler som förhindrar att lyssnare accepterar nya klient anslutningar) och värdet för [opentime](/previous-versions/) -värdet är mindre än cirka 20 sekunder.
 
 Exempel:
 
@@ -84,4 +84,3 @@ Det finns två vanliga orsaker till det här felet:
 * [Skapa ett relä namn område](relay-create-namespace-portal.md)
 * [Kom igång med Azure Relay och .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Kom igång med Azure Relay och nod](relay-hybrid-connections-node-get-started.md)
-

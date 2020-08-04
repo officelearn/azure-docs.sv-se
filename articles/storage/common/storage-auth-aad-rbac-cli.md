@@ -1,5 +1,5 @@
 ---
-title: Använd Azure CLI för att tilldela en RBAC-roll för data åtkomst
+title: Använd Azure CLI för att tilldela en Azure-roll för data åtkomst
 titleSuffix: Azure Storage
 description: Lär dig hur du använder Azure CLI för att tilldela behörigheter till ett Azure Active Directory säkerhets objekt med rollbaserad åtkomst kontroll (RBAC). Azure Storage stöder inbyggda och Azure-anpassade roller för autentisering via Azure AD.
 services: storage
@@ -11,22 +11,22 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 76eb92d39dbfd059354cc63550c8d1301c07ca37
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 65dee169b620fbe0726a9e62ee520c92f91d48cf
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503725"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534200"
 ---
-# <a name="use-azure-cli-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Använd Azure CLI för att tilldela en RBAC-roll för åtkomst till blob-och Queue-data
+# <a name="use-azure-cli-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Använd Azure CLI för att tilldela en Azure-roll för åtkomst till blob-och Queue-data
 
 Azure Active Directory (Azure AD) tillåter åtkomst rättigheter till skyddade resurser via [rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/overview.md). Azure Storage definierar en uppsättning inbyggda Azure-roller som omfattar vanliga uppsättningar behörigheter som används för att få åtkomst till BLOB-eller Queue-data.
 
-När en RBAC-roll tilldelas till ett säkerhets objekt i Azure AD ger Azure åtkomst till dessa resurser för säkerhets objekt. Åtkomst kan begränsas till prenumerations nivån, resurs gruppen, lagrings kontot eller en enskild behållare eller kö. Ett säkerhets objekt i Azure AD kan vara en användare, en grupp, ett huvud namn för program tjänsten eller en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
+När en Azure-roll tilldelas till ett säkerhets objekt för Azure AD ger Azure åtkomst till dessa resurser för säkerhets objekt. Åtkomst kan begränsas till prenumerations nivån, resurs gruppen, lagrings kontot eller en enskild behållare eller kö. Ett säkerhets objekt i Azure AD kan vara en användare, en grupp, ett huvud namn för program tjänsten eller en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
 
 Den här artikeln beskriver hur du använder Azure CLI för att visa en lista över inbyggda Azure-roller och tilldela dem till användare. Mer information om hur du använder Azure CLI finns i [kommando rads gränssnittet för Azure (CLI)](/cli/azure).
 
-## <a name="rbac-roles-for-blobs-and-queues"></a>RBAC-roller för blobbar och köer
+## <a name="azure-roles-for-blobs-and-queues"></a>Azure-roller för blobbar och köer
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
@@ -34,7 +34,7 @@ Den här artikeln beskriver hur du använder Azure CLI för att visa en lista ö
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
-## <a name="list-available-rbac-roles"></a>Lista tillgängliga RBAC-roller
+## <a name="list-available-azure-roles"></a>Lista tillgängliga Azure-roller
 
 Om du vill visa en lista över tillgängliga Azure inbyggda roller med Azure CLI använder du kommandot [AZ Role definition List](/cli/azure/role/definition#az-role-definition-list) :
 
@@ -54,9 +54,9 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-security-principal"></a>Tilldela en RBAC-roll till ett säkerhets objekt
+## <a name="assign-an-azure-role-to-a-security-principal"></a>Tilldela en Azure-roll till ett säkerhets objekt
 
-Om du vill tilldela en RBAC-roll till ett säkerhets objekt, använder du kommandot [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create) . Kommandots format kan variera beroende på tilldelningens omfattning. I följande exempel visas hur du tilldelar en roll till en användare i olika scope, men du kan använda samma kommando för att tilldela en roll till alla säkerhets objekt.
+Om du vill tilldela en Azure-roll till ett säkerhets objekt använder du kommandot [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create) . Kommandots format kan variera beroende på tilldelningens omfattning. I följande exempel visas hur du tilldelar en roll till en användare i olika scope, men du kan använda samma kommando för att tilldela en roll till alla säkerhets objekt.
 
 ### <a name="container-scope"></a>Container omfång
 

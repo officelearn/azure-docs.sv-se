@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
-ms.openlocfilehash: 4de585a965cfefa6399b0c0929a8f732d0712617
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0945f89e3c18ab20ece0b493a49ec9f7f31e4e13
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76939428"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529202"
 ---
 # <a name="azure-private-dns-faq"></a>Vanliga frågor och svar om Azure Private DNS
 
@@ -38,7 +38,7 @@ Ja. Du kan länka en privat DNS-zon med tusentals virtuella nätverk. Mer inform
 
 ## <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-linked-to-a-private-zone"></a>Kan ett virtuellt nätverk som tillhör en annan prenumeration länkas till en privat zon?
 
-Ja. Du måste ha behörigheten Skriv åtgärd för de virtuella nätverken och den privata DNS-zonen. Skriv behörigheten kan beviljas till flera RBAC-roller. Till exempel har den klassiska nätverks deltagaren RBAC-rollen Skriv behörigheter till virtuella nätverk och Privat DNS zoner deltagar rollen har Skriv behörighet för privata DNS-zoner. Mer information om RBAC-roller finns i [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md).
+Ja. Du måste ha behörigheten Skriv åtgärd för de virtuella nätverken och den privata DNS-zonen. Skriv behörigheten kan beviljas till flera Azure-roller. Till exempel har den klassiska nätverks deltagaren Azure rollen Skriv behörigheter till virtuella nätverk och Privat DNS Zones Contributor-rollen har Skriv behörighet för de privata DNS-zonerna. Mer information om Azure-roller finns i [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md).
 
 ## <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-you-delete-the-virtual-machine"></a>Kommer de automatiskt registrerade DNS-posterna för virtuella datorer i en privat zon automatiskt att tas bort när du tar bort den virtuella datorn?
 

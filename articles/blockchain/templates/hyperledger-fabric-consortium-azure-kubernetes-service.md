@@ -4,12 +4,12 @@ description: Så här distribuerar och konfigurerar du nätverk för huvud konto
 ms.date: 07/27/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: fe06af9364ceb1d97588cac88335cb39c45f0e0f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4bc55090234a4ab33125ba43b8416de1eadb702f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286061"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533435"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Ledger-konsortiet i Azure Kubernetes service (AKS)
 
@@ -305,12 +305,12 @@ Från peer-organisationens klient skickar du kommandot för att ställa in Ancho
   - Ange `<anchorPeersList>` som "peer1" om du bara vill ange peer1 Node som Anchor-peer.
   - Ange `<anchorPeersList>` som "peer1" "peer3" om du vill ställa in både peer1-och peer3-noden som Anchor-peer.
 
-### <a name="chaincode-management-commands"></a>Chaincode hanterings kommandon
+## <a name="chaincode-management-commands"></a>Chaincode hanterings kommandon
 
 >[!NOTE]
 > Innan du börjar med en chaincode-åtgärd kontrollerar du att den första installationen av klient programmet är färdig.  
 
-**Ange de nedan chaincode-företagsspecifika miljövariablerna**
+### <a name="set-the-below-chaincode-specific-environment-variables"></a>Ange de nedan chaincode-företagsspecifika miljövariablerna
 
 ```bash
 # peer organization name where chaincode operation is to be performed
@@ -329,14 +329,6 @@ CC_PATH=<chaincodePath>
 # Channel on which chaincode is to be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  
 ```
-
-Nedanstående chaincode-åtgärder kan utföras:  
-
-- [Installera chaincode](#install-chaincode)  
-- [Instansiera chaincode](#instantiate-chaincode)  
-- [Anropa chaincode](#invoke-chaincode)
-- [Fråga chaincode](#query-chaincode)
-
 
 ### <a name="install-chaincode"></a>Installera chaincode  
 
@@ -358,13 +350,13 @@ Följ stegen:
 Från peer-klientprogrammet kör du kommandot nedan för att instansiera chaincode i kanalen.  
 
 ```bash
-./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -v $CC_VERSION -l $CC_LANG -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
+./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
 ```
+
 Skicka en lista över argument för instansiering av funktions namn och blank steg `<instantiateFunc>` `<instantiateFuncArgs>` . Till exempel, i chaincode_example02. go-chaincode, för att instansiera chaincode inställt `<instantiateFunc>` på `init` och `<instantiateFuncArgs>` till "a" "2000" "b" "1000".
 
 > [!NOTE]
 > Kör kommandot för en gång från en peer-organisation i kanalen. När transaktionen har skickats till ordern distribuerar beställaren transaktionen till alla peer-organisationer i kanalen. Därför instansieras chaincode på alla peer-noder på alla peer-organisationer i kanalen.  
-
 
 ### <a name="invoke-chaincode"></a>Anropa chaincode  
 

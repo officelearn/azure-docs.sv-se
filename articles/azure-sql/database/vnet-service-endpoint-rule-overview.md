@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: c1ac3c1e312704f8a0afa751d0efc6d0cef897f9
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 65ec92aeca44a514467a642de1dab06f06c220e9
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371778"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533860"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Använd tjänst slut punkter och regler för virtuella nätverk för servrar i Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -104,17 +104,17 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Effekt av att använda virtuella nätverks slut punkter med Azure Storage
 
-Azure Storage har implementerat samma funktion som gör det möjligt att begränsa anslutningen till ditt Azure Storage-konto. Om du väljer att använda den här funktionen med ett Azure Storage konto som används av Azure SQL Database kan du stöta på problem. Härnäst är en lista och en diskussion om Azure SQL Database och Azure SQL Data Warehouse funktioner som påverkas av detta.
+Azure Storage har implementerat samma funktion som gör att du kan begränsa anslutningen till ditt Azure Storage-konto. Om du väljer att använda den här funktionen för ett Azure Storage-konto som används av Azure SQL Database kan du stöta på problem. Härnäst är en lista och en diskussion om Azure SQL Database och Azure SQL Data Warehouse funktioner som påverkas av detta.
 
 ### <a name="azure-synapse-polybase"></a>Azure Synapse PolyBase
 
 PolyBase används ofta för att läsa in data i Azure Synapse Analytics från Azure Storage-konton. Om Azure Storage konto som du läser in data från begränsar åtkomsten till en uppsättning VNet-undernät, kommer anslutningen från PolyBase till kontot att avbrytas. Följ stegen nedan om du vill aktivera både PolyBase import-och export scenarier med Azure Synapse Analytics som ansluter till Azure Storage som skyddas av VNet:
 
-#### <a name="prerequisites"></a>Krav
+#### <a name="prerequisites"></a>Förutsättningar
 
 - Installera Azure PowerShell med hjälp av den här [guiden](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Om du har ett allmänt v1-eller Blob Storage-konto måste du först uppgradera till General-Purpose v2 med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-- Du måste ha **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** under Azure Storage konto **brand väggar och inställningar för virtuella nätverk** . Mer information hittar du i den här [hand boken](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) .
+- Om du har ett konto av typen generell användning v1 eller bloblagring måste du först uppgradera till generell användning v2 med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+- Du måste ha **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** under Azure Storage konto **brand väggar och inställningar för virtuella nätverk** . Mer information finns i den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. AzureRM-modulen kommer att fortsätta att ta emot fel korrigeringar fram till minst december 2020.  Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](/powershell/azure/new-azureps-module-az).
@@ -136,7 +136,7 @@ PolyBase används ofta för att läsa in data i Azure Synapse Analytics från Az
    > - Om du har ett allmänt v1-eller Blob Storage-konto måste du **först uppgradera till v2** med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Information om kända problem med Azure Data Lake Storage Gen2 finns i den här [hand boken](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
 
-1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och väljer **Lägg till roll tilldelning**. Tilldela RBAC-rollen **Storage BLOB data Contributor** till den server som är värd för din Azure Synapse-analys som du har registrerat med Azure Active Directory (AAD) som i steg #1.
+1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och väljer **Lägg till roll tilldelning**. Tilldela Azure-rollen **Storage BLOB data Contributor** till den server som är värd för din Azure Synapse-analys som du har registrerat med Azure Active Directory (AAD) som i steg #1.
 
    > [!NOTE]
    > Endast medlemmar med ägar behörighet för lagrings kontot kan utföra det här steget. Information om olika inbyggda Azure-roller finns i den här [guiden](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
@@ -227,7 +227,7 @@ Internt anropar PowerShell-cmdletar för SQL VNet-åtgärder REST-API: er. Du ka
 
 - [Virtual Network regler: åtgärder][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste redan ha ett undernät som är taggat med det specifika Virtual Network tjänst slut punkts *typ namn* som är relevant för Azure SQL Database.
 

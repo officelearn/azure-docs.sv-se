@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/01/2019
-ms.openlocfilehash: e2c9da9c1a37b087a31d1910094f51a39288c192
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/03/2020
+ms.openlocfilehash: e9c1651244eecb036ca18ad5dadfe23f48b2bce6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416713"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529270"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Kopiera data från QuickBooks online med Azure Data Factory (för hands version)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -36,9 +36,7 @@ Den här QuickBooks-kopplingen stöds för följande aktiviteter:
 
 Du kan kopiera data från QuickBooks online till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Azure Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning, och du behöver därför inte installera någon driv rutin manuellt med hjälp av den här anslutningen.
-
-För närvarande stöder den här anslutningen bara 1,0 a, vilket innebär att du måste ha ett Developer-konto med appar som skapats före den 17 juli 2017.
+Den här anslutningen stöder QuickBooks OAuth 2,0-autentisering.
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -50,16 +48,17 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för QuickBooks-länkade tjänster:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **QuickBooks** | Ja |
-| slutpunkt | Slut punkten för QuickBooks Online-servern. (det vill säga quickbooks.api.intuit.com)  | Ja |
-| companyId | Företags-ID för QuickBooks-företaget som ska auktoriseras. Information om hur du hittar företags-ID finns i [Hur gör jag för att hitta mitt företags-ID?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Ja |
-| consumerKey | Konsument nyckeln för OAuth 1,0-autentisering. | Ja |
-| consumerSecret | Konsument hemligheten för OAuth 1,0-autentisering. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| accessToken | Åtkomsttoken för OAuth 1,0-autentisering. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| accessTokenSecret | Hemligheten för åtkomsttoken för OAuth 1,0-autentisering. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | Nej |
+| typ | Egenskapen Type måste anges till: **QuickBooks** | Yes |
+| connectionProperties | En grupp egenskaper som definierar hur du ansluter till QuickBooks. | Yes |
+| ***Under `connectionProperties` :*** | | |
+| slutpunkt | Slut punkten för QuickBooks Online-servern. (det vill säga quickbooks.api.intuit.com)  | Yes |
+| companyId | Företags-ID för QuickBooks-företaget som ska auktoriseras. Information om hur du hittar företags-ID finns i [Hur gör jag för att hitta mitt företags-ID](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Yes |
+| consumerKey | Konsument nyckeln för OAuth 2,0-autentisering. | Yes |
+| consumerSecret | Konsument hemligheten för OAuth 2,0-autentisering. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| refreshToken | OAuth 2,0-uppdateringstoken som är associerad med QuickBooks-programmet. Läs mer [här](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app). Observera att uppdateringstoken upphör att gälla efter 180 dagar. Kunden måste regelbundet uppdatera uppdateringstoken. <br/>Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md).| Yes |
+| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | No |
 
 **Exempel:**
 
@@ -69,22 +68,20 @@ Följande egenskaper stöds för QuickBooks-länkade tjänster:
     "properties": {
         "type": "QuickBooks",
         "typeProperties": {
-            "endpoint" : "quickbooks.api.intuit.com",
-            "companyId" : "<companyId>",
-            "consumerKey": "<consumerKey>",
-            "consumerSecret": {
-                "type": "SecureString",
-                "value": "<consumerSecret>"
-            },
-            "accessToken": {
-                 "type": "SecureString",
-                 "value": "<accessToken>"
-            },
-            "accessTokenSecret": {
-                 "type": "SecureString",
-                 "value": "<accessTokenSecret>"
-            },
-            "useEncryptedEndpoints" : true
+            "connectionProperties": {
+                "endpoint": "quickbooks.api.intuit.com",
+                "companyId": "<company id>",
+                "consumerKey": "<consumer key>", 
+                "consumerSecret": {
+                     "type": "SecureString",
+                     "value": "<clientSecret>"
+                },
+                "refreshToken": {
+                     "type": "SecureString",
+                     "value": "<refresh token>"
+                },
+                "useEncryptedEndpoints": true
+            }
         }
     }
 }
@@ -96,9 +93,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från QuickBooks online anger du egenskapen type för data uppsättningen till **QuickBooksObject**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **QuickBooksObject** | Ja |
+| typ | Data uppsättningens typ-egenskap måste anges till: **QuickBooksObject** | Yes |
 | tableName | Tabellens namn. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
@@ -126,9 +123,9 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från QuickBooks online anger du käll typen i kopierings aktiviteten till **QuickBooksSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **QuickBooksSource** | Ja |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **QuickBooksSource** | Yes |
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**

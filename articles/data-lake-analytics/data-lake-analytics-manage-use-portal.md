@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 7761da75c16e2f89ae145bad3b04cc179f415751
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: cbce903bc7463cd917d48e341614afbe18536262
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127544"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531220"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Hantera Azure Data Lake Analytics med hjälp av Azure-portalen
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -95,7 +95,7 @@ Du kan använda **guiden Lägg till användare** för att enkelt etablera nya da
 
 Precis som andra Azure-tjänster kan du använda rollbaserad Access Control (RBAC) för att styra hur användare interagerar med tjänsten.
 
-Standard-RBAC-rollerna har följande funktioner:
+De vanliga Azure-rollerna har följande funktioner:
 * **Ägare**: kan skicka jobb, övervaka jobb, avbryta jobb från valfri användare och konfigurera kontot.
 * **Deltagare**: kan skicka jobb, övervaka jobb, avbryta jobb från valfri användare och konfigurera kontot.
 * **Läsare**: kan övervaka jobb.

@@ -3,12 +3,12 @@ title: Diagnostikloggar för Hybridanslutningar
 description: Den här artikeln innehåller en översikt över alla aktiviteter och diagnostikloggar som är tillgängliga för Azure Relay.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: f79e4aa21fcb9e592f431e252981dc0e7c02817f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 980f2f7a737d3f2460c17a84c472cbf56f5eb90f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314896"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533010"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Aktivera diagnostikloggar för Azure Relay Hybridanslutningar
 När du börjar använda Azure Relay Hybridanslutningar kanske du vill övervaka hur och när dina lyssnare och avsändare öppnas och stängs och hur dina Hybridanslutningar skapas och meddelanden skickas. Den här artikeln innehåller en översikt över aktivitets-och diagnos loggar som tillhandahålls av tjänsten Azure Relay. 
@@ -46,7 +46,7 @@ Så här aktiverar du diagnostikloggar:
         ![Exempel på diagnostikinställningar](./media/diagnostic-logs/sample-diagnostic-settings.png)
 1. Spara inställningarna genom att välja **Spara** i verktygsfältet.
 
-De nya inställningarna börjar gälla om 10 minuter. Loggarna visas i det konfigurerade lagrings målet i fönstret **diagnostikloggar** . Mer information om hur du konfigurerar diagnostikinställningar finns i [översikten över Azure Diagnostics-loggar](../azure-monitor/platform/diagnostic-logs-overview.md).
+De nya inställningarna börjar gälla om 10 minuter. Loggarna visas i det konfigurerade lagrings målet i fönstret **diagnostikloggar** . Mer information om hur du konfigurerar diagnostikinställningar finns i [översikten över Azure Diagnostics-loggar](../azure-monitor/platform/platform-logs-overview.md).
 
 
 ## <a name="schema-for-hybrid-connections-events"></a>Schema för Hybrid anslutnings händelser
@@ -80,7 +80,7 @@ Här är ett exempel på en hybrid anslutnings händelse i JSON-format.
 
 ## <a name="events-and-operations-captured-in-diagnostic-logs"></a>Händelser och åtgärder som har registrerats i diagnostikloggar
 
-| Åtgärd | Beskrivning | 
+| Åtgärd | Description | 
 | --------- | ----------- | 
 | AuthorizationFailed | Auktoriseringen misslyckades.|
 | InvalidSasToken | Ogiltig SAS-token. | 

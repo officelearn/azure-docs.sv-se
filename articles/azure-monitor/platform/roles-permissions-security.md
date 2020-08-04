@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 8e56c4da0eec3338de7863a2ee158e804cf406c0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7d92cbc25411f5cc2d528ccf6ecec4539494d380
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325567"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533282"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Roller, behörigheter och säkerhet i Azure Monitor
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Många team behöver strikt reglera åtkomsten till övervaknings data och inställningar. Om du till exempel har grupp medlemmar som arbetar exklusivt för övervakning (support tekniker, DevOps-tekniker) eller om du använder en hanterad tjänst leverantör kanske du vill ge dem åtkomst till endast övervaknings data och begränsa deras möjlighet att skapa, ändra eller ta bort resurser. Den här artikeln visar hur du snabbt kan använda en inbyggd övervakning av RBAC-rollen för en användare i Azure eller skapa en egen anpassad roll för en användare som behöver begränsad övervaknings behörighet. Den diskuterar sedan säkerhets överväganden för dina Azure Monitor-relaterade resurser och hur du kan begränsa åtkomsten till de data de innehåller.
+Många team behöver strikt reglera åtkomsten till övervaknings data och inställningar. Om du till exempel har grupp medlemmar som arbetar exklusivt för övervakning (support tekniker, DevOps-tekniker) eller om du använder en hanterad tjänst leverantör kanske du vill ge dem åtkomst till endast övervaknings data och begränsa deras möjlighet att skapa, ändra eller ta bort resurser. Den här artikeln visar hur du snabbt kan använda en inbyggd övervakning av Azure-rollen till en användare i Azure eller skapa en egen anpassad roll för en användare som behöver begränsad övervaknings behörighet. Den diskuterar sedan säkerhets överväganden för dina Azure Monitor-relaterade resurser och hur du kan begränsa åtkomsten till de data de innehåller.
 
 ## <a name="built-in-monitoring-roles"></a>Inbyggda övervakningsroller
 Azure Monitor inbyggda roller är utformade för att hjälpa till att begränsa åtkomsten till resurser i en prenumeration samtidigt som den ansvariga för övervakning av infrastruktur för att hämta och konfigurera de data de behöver. Azure Monitor ger två färdiga roller: en övervaknings läsare och en övervaknings deltagare.
@@ -70,7 +70,7 @@ Personer som har tilldelats rollen övervaknings deltagare kan visa alla överva
 ## <a name="monitoring-permissions-and-azure-custom-roles"></a>Övervaknings behörigheter och Azure-anpassade roller
 Om de inbyggda rollerna ovan inte uppfyller de exakta behoven för ditt team, kan du [skapa en anpassad Azure-roll](../../role-based-access-control/custom-roles.md) med mer detaljerade behörigheter. Nedan visas de vanliga Azure Monitor RBAC-åtgärder med beskrivningar.
 
-| Åtgärd | Beskrivning |
+| Åtgärd | Description |
 | --- | --- |
 | Microsoft. Insights/ActionGroups/[läsa, skriva, ta bort] |Läs-/skriv-/ta bort åtgärds grupper. |
 | Microsoft. Insights/ActivityLogAlerts/[läsa, skriva, ta bort] |Läs/skriv/ta bort aktivitets logg aviseringar. |

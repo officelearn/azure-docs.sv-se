@@ -3,12 +3,12 @@ title: Felsök problem med autentisering och auktorisering – Azure Event Hubs
 description: Den här artikeln innehåller information om hur du felsöker problem med autentisering och auktorisering med Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6fca0c29c20e2bfe0c3ec64e3068b61bd5147bdb
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bed415c6180953b5a5728032a50d51618c084343
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502111"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533894"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Felsök problem med autentisering och auktorisering – Azure Event Hubs
 Artikeln [Felsöka anslutnings problem](troubleshooting-guide.md) innehåller tips för fel sökning av anslutnings problem med Azure Event Hubs. Den här artikeln innehåller tips och rekommendationer för att felsöka problem med autentisering och auktorisering med Azure Event Hubs. 
@@ -16,13 +16,13 @@ Artikeln [Felsöka anslutnings problem](troubleshooting-guide.md) innehåller ti
 ## <a name="if-you-are-using-azure-active-directory"></a>Om du använder Azure Active Directory
 Om du använder Azure Active Directory (Azure AD) för att autentisera och auktorisera med Azure Event Hubs bekräftar du att identiteten som har åtkomst till händelsehubben är medlem av rätt Azure- **roll** i rätt **resurs omfång** (konsument grupp, händelsehubben, namnrymd, resurs grupp eller prenumeration).
 
-### <a name="rbac-roles"></a>RBAC-roller
+### <a name="azure-roles"></a>Azure-roller
 - [Azure Event Hubs data ägare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) för fullständig åtkomst till Event Hubs resurser.
 - [Azure Event Hubs data avsändare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) för sändnings åtkomst.
 - [Azure Event Hubs data mottagare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) för mottagnings åtkomst.
 
 ### <a name="resource-scopes"></a>Resurs omfång
-- **Konsument grupp**: i det här området gäller roll tilldelningen enbart för den här entiteten. För närvarande har Azure Portal inte stöd för att tilldela en RBAC-roll till ett säkerhets objekt på den här nivån. 
+- **Konsument grupp**: i det här området gäller roll tilldelningen enbart för den här entiteten. För närvarande har Azure Portal inte stöd för att tilldela en Azure-roll till ett säkerhets objekt på den här nivån. 
 - **Event Hub**: roll tilldelningen gäller för entiteten Event Hub och gruppen konsument under den.
 - **Namnrymd**: roll tilldelningen sträcker sig över hela topologin av Event Hubs under namn området och till den konsument grupp som är kopplad till den.
 - **Resurs grupp**: roll tilldelningen gäller för alla Event Hubs resurser under resurs gruppen.

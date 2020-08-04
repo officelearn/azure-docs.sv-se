@@ -10,17 +10,17 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
-ms.openlocfilehash: 8a6f21d6b02d555456bb70a16b353e5cdbd52fd4
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 680f8394ad1d10a564033ae5a2b9f59063589f73
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84708526"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532534"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Självstudie: Konfigurera Transaktionsreplikering mellan Azure SQL-hanterad instans och SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -36,7 +36,7 @@ Läs mer i [Översikt över översikt över Azure SQL-hanterade instanser](sql-m
 
 Information om hur du konfigurerar replikering mellan en hanterad instans utgivare och en hanterad instans prenumerant finns i [Konfigurera transaktionell replikering mellan två hanterade instanser](replication-between-two-instances-configure-tutorial.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här självstudien behöver du följande:
 
@@ -78,7 +78,7 @@ Mer information om hur du skapar en hanterad instans finns i [skapa en hanterad 
 
 Skapa en virtuell SQL Server virtuell dator med hjälp av [Azure Portal](https://portal.azure.com). Den SQL Server virtuella datorn måste ha följande egenskaper:
 
-- Namn:`sql-vm-sub`
+- Namn: `sql-vm-sub`
 - Bild: SQL Server 2016 eller mer
 - Resurs grupp: samma som den hanterade instansen
 - Virtuellt nätverk:`sql-vm-sub-vnet`
@@ -142,7 +142,7 @@ En privat DNS-zon tillåter DNS-routning mellan de hanterade instanserna och SQL
 
 ### <a name="create-a-private-dns-zone"></a>Skapa en privat DNS-zon
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **skapa en resurs** för att skapa en ny Azure-resurs.
 1. Sök `private dns zone` på Azure Marketplace.
 1. Välj den **privat DNS zon** resurs som publicerats av Microsoft och välj sedan **skapa** för att skapa DNS-zonen.
@@ -247,6 +247,10 @@ När anslutningen har upprättats och du har en exempel databas kan du konfigure
 1. Öppna ett **nytt frågefönster** och kör följande Transact-SQL-kod för att konfigurera distributionen på den hanterade distributörs instansen:
 
    ```sql
+   EXEC sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.windows.net', @password = '<distributor_admin_password>'
+   
+   EXEC sp_adddistributiondb @database = N'distribution'
+   
    EXEC sp_adddistpublisher @publisher = 'sql-mi-publisher.b6bf57.database.windows.net', -- primary publisher
         @distribution_db = N'distribution',
         @security_mode = 0,

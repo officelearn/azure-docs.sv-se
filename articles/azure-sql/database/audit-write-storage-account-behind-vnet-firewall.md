@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 4f6a64cf30ecc684e05675d366ff5c9fc6642126
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6ba0a599bcb0b058ce4902882df9459b177fb6b5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372169"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530423"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Skriv granskning till ett lagrings konto bakom VNet och brand vägg
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -33,7 +33,7 @@ Om du vill veta mer om VNet-begreppen, bästa praxis och många fler, se [Vad ä
 
 Mer information om hur du skapar ett virtuellt nätverk finns i [snabb start: skapa ett virtuellt nätverk med hjälp av Azure Portal](../../virtual-network/quick-create-portal.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande förutsättningar måste vara uppfyllda för att granskning ska kunna skrivas till ett lagrings konto bakom ett VNet eller en brand vägg:
 
@@ -42,7 +42,7 @@ Följande förutsättningar måste vara uppfyllda för att granskning ska kunna 
 > * Ett allmänt-syfte v2-lagrings konto. Om du har ett allmänt v1-eller Blob Storage-konto [uppgraderar du till ett allmänt lagrings konto](../../storage/common/storage-account-upgrade.md). Mer information finns i [typer av lagrings konton](../../storage/common/storage-account-overview.md#types-of-storage-accounts).
 > * Lagrings kontot måste finnas i samma prenumeration och på samma plats som den [logiska SQL-servern](logical-servers.md).
 > * Det Azure Storage kontot kräver `Allow trusted Microsoft services to access this storage account` . Ange detta på lagrings kontots **brand väggar och virtuella nätverk**.
-> * Du måste ha `Microsoft.Authorization/roleAssignments/write` behörighet för det valda lagrings kontot. Mer information finns i [inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md).
+> * Du måste ha `Microsoft.Authorization/roleAssignments/write` behörighet för det valda lagrings kontot. Mer information finns i [Inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="configure-in-azure-portal"></a>Konfigurera i Azure Portal
 
@@ -117,7 +117,7 @@ Konfigurera SQL audit för att skriva händelser till ett lagrings konto bakom e
    }
    ```
 
-2. Öppna [Azure-portalen](https://portal.azure.com). Navigera till ditt lagringskonto. Leta upp **Access Control (IAM)** och klicka på **Lägg till roll tilldelning**. Tilldela RBAC-rollen **Storage BLOB data Contributor** till den server som är värd för den databas som du registrerade med Azure Active Directory (Azure AD) som i föregående steg.
+2. Öppna [Azure-portalen](https://portal.azure.com). Navigera till ditt lagringskonto. Leta upp **Access Control (IAM)** och klicka på **Lägg till roll tilldelning**. Tilldela Azure-rollen **Storage BLOB data Contributor** till den server som är värd för den databas som du registrerade med Azure Active Directory (Azure AD) som i föregående steg.
 
    > [!NOTE]
    > Endast medlemmar med ägar behörighet kan utföra det här steget. För olika inbyggda Azure-roller, se [inbyggda Azure-roller](../../role-based-access-control/built-in-roles.md).

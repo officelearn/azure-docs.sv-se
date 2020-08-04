@@ -37,6 +37,8 @@
       href: tutorial-multiple-components-node.md
     - name: Ansluta en enhet med flera komponenter (Python)
       href: tutorial-multiple-components-python.md
+    - name: Använda MQTT för att ansluta till en enhet
+      href: tutorial-use-mqtt.md
 - name: Begrepp
   items:
     - name: Arkitektur

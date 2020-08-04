@@ -55,22 +55,30 @@
       href: azure-netapp-files-set-up-capacity-pool.md
     - name: Delegera ett undernät till Azure NetApp Files
       href: azure-netapp-files-delegate-subnet.md
-    - name: Skapa en SMB-volym för Azure NetApp Files
+    - name: Skapa och hantera en NFS-volym
+      items:
+        - name: Skapa en NFS-volym
+          href: azure-netapp-files-create-volumes.md
+        - name: Konfigurera NFSv4.1-standarddomän
+          href: azure-netapp-files-configure-nfsv41-domain.md
+        - name: Konfigurera NFSv4.1 Kerberos-kryptering
+          href: configure-kerberos-encryption.md
+        - name: Konfigurera en NFS-klient för Azure NetApp Files
+          href: configure-nfs-clients.md
+        - name: Konfigurera exportprincipen för en NFS-volym
+          href: azure-netapp-files-configure-export-policy.md
+    - name: Skapa en SMB-volym
       href: azure-netapp-files-create-volumes-smb.md
-    - name: Skapa en NFS-volym för Azure NetApp Files
-      href: azure-netapp-files-create-volumes.md
-    - name: Konfigurera NFSv4.1-standarddomän för Azure NetApp Files
-      href: azure-netapp-files-configure-nfsv41-domain.md
-    - name: Konfigurera exportprincipen för en NFS-volym
-      href: azure-netapp-files-configure-export-policy.md
-    - name: Hantera volymer
-      href: azure-netapp-files-manage-volumes.md
+    - name: Skapa en volym med dubbla protokoll
+      href: create-volumes-dual-protocol.md
     - name: Montera eller demontera en volym för virtuella Windows- eller Linux-datorer
       href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
     - name: Hantera ögonblicksbilder
       href: azure-netapp-files-manage-snapshots.md
     - name: Ändra storlek på en kapacitetspool eller en volym
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+    - name: Ändra tjänstnivå för en volym dynamiskt
+      href: dynamic-change-volume-service-level.md
     - name: Utveckla
       items:
         - name: REST-API

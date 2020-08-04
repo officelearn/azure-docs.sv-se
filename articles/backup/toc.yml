@@ -123,6 +123,8 @@
               href: backup-azure-vms-encryption.md
             - name: Konfigurera appkonsekventa säkerhetskopior av virtuella Azure-datorer som körs på Linux
               href: backup-azure-linux-app-consistent.md
+            - name: Selektiv säkerhetskopiering av disk
+              href: selective-disk-backup-restore.md
         - name: Återställ
           items:
             - name: Återställning av virtuell Azure-dator

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 56ebb32e2d1c2a9bab9592da63e1ada7130bb7ff
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 2d062ea4f38742129d44be0e2b7ff51fe3ad8dd1
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131641"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562437"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Förstå dubbla modeller i Azure Digitals flätas
 
@@ -26,7 +26,7 @@ Modeller skrivs med hjälp av ett JSON-LD-baserat **digitalt definitions språk 
 
 Modeller för digitala Azure-dubbla grupper definieras med hjälp av DTDL (Digital enforming Definition Language). DTDL baseras på JSON-LD och är programmerings språk oberoende. DTDL är inte exklusiv för Azure Digitals, men används också för att representera enhets data i andra IoT-tjänster som [iot plug and Play](../iot-pnp/overview-iot-plug-and-play.md). 
 
-Azure Digitals flätar använder DTDL *version 2*. Mer information om den här versionen av DTDL finns i Specifikations dokumentationen för GitHub: [*digital, Definition Language (DTDL)-version 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+Azure Digitals flätar använder **DTDL _version 2_**. Mer information om den här versionen av DTDL finns i Specifikations dokumentationen för GitHub: [*digital, Definition Language (DTDL)-version 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Användning av DTDL _version 1_ med Azure Digitals dubbla är nu föråldrad.
 
 > [!TIP] 
 > Alla tjänster som använder DTDL implementerar exakt samma funktioner i DTDL. IoT Plug and Play använder till exempel inte de DTDL-funktioner som är för grafer, medan Azures digitala dubbla för närvarande inte implementerar DTDL-kommandon. Mer information om de DTDL-funktioner som är speciella för Azure Digitals dubbla finns i avsnittet längre fram i den här artikeln om [Azure Digitals DTDL-implementerings information](#azure-digital-twins-dtdl-implementation-specifics).

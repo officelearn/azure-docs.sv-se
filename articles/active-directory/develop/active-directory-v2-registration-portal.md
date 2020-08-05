@@ -13,12 +13,12 @@ ms.date: 08/13/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 910aaf84d3563d4410826d3c0bdfde3d2dfc75e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53a44ed270dc47725dddfd57d6a212e859d46bad
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885641"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552721"
 ---
 # <a name="app-registration-reference"></a>Referens för registrering av appar
 
@@ -38,11 +38,11 @@ Den här listan innehåller alla dina program som är registrerade för användn
 
 ## <a name="application-secrets"></a>Program hemligheter
 
-Program hemligheter är autentiseringsuppgifter som gör att ditt program kan utföra tillförlitlig [klientautentisering](https://tools.ietf.org/html/rfc6749#section-2.3) med Azure AD. I OAuth & OpenID Connect kallas en program hemlighet vanligt vis som en `client_secret` . I v 2.0-protokollet måste alla program som tar emot en säkerhetstoken på en plats med webb adresser (med hjälp av ett `https` schema) använda en program hemlighet för att identifiera sig själv för Azure AD vid inlösen av denna säkerhetstoken. Dessutom kommer alla interna klienter som tar emot token på en enhet att förbjudas att använda en program hemlighet för att utföra klientautentisering. Detta förhindrar lagring av hemligheter i osäkra miljöer.
+Program hemligheter är autentiseringsuppgifter som gör att ditt program kan utföra tillförlitlig [klientautentisering](https://tools.ietf.org/html/rfc6749#section-2.3) med Microsoft Identity Platform. I OAuth & OpenID Connect kallas en program hemlighet vanligt vis som en `client_secret` . I v 2.0-protokollet måste alla program som tar emot en säkerhetstoken på en webb adresserad plats (med ett `https` schema) använda en program hemlighet för att identifiera sig för Microsoft Identity Platform vid inlösen av denna säkerhetstoken. Dessutom kommer alla interna klienter som tar emot token på en enhet att förbjudas att använda en program hemlighet för att utföra klientautentisering. Detta förhindrar lagring av hemligheter i osäkra miljöer.
 
 Varje app kan innehålla två giltiga program hemligheter vid en specifik tidpunkt. Genom att underhålla två hemligheter kan du utföra regelbunden nyckel förnyelse i hela programmets hela miljö. När du har migrerat hela programmet till en ny hemlighet kan du ta bort den gamla hemligheten och etablera en ny.
 
-Just nu är det bara två typer av program hemligheter som tillåts i appens registrerings Portal. Om du väljer **Skapa nytt lösen ord** skapas och lagras en delad hemlighet i respektive data lager, som du kan använda i ditt program. Om du väljer **generera nytt nyckel par** skapas ett nytt offentligt/privat nyckel par som kan hämtas och användas för klientautentisering till Azure AD. Om du väljer **överför offentlig nyckel** kan du använda ett eget offentligt/privat nyckel par.
+Just nu är det bara två typer av program hemligheter som tillåts i appens registrerings Portal. Om du väljer **Skapa nytt lösen ord** skapas och lagras en delad hemlighet i respektive data lager, som du kan använda i ditt program. Om du väljer **generera nytt nyckel par** skapas ett nytt offentligt/privat nyckel par som kan hämtas och användas för klientautentisering till Microsoft Identity Platform. Om du väljer **överför offentlig nyckel** kan du använda ett eget offentligt/privat nyckel par.
 Du måste ladda upp ett certifikat som innehåller en offentlig nyckel.
 
 ## <a name="profile"></a>Profil

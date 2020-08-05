@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 8e832f57053cb950f705875f2895a9197cc7c83e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 61ec96a35fac6a033fe6c8b65cff156ba63e5e58
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960307"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563355"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Konfigurera en anpassad domän i förhandsversionen av Azure Static Web Apps
 
 Som standard tillhandahåller Azure static Web Apps ett automatiskt genererat domän namn. Den här artikeln visar hur du mappar ett anpassat domän namn till ett statiskt Azure-Web Apps program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett köpt domän namn
 - Åtkomst till DNS-konfigurationens egenskaper för din domän
@@ -37,7 +37,7 @@ Det finns några olika typer av DNS-konfigurationer som är tillgängliga för e
 
 ## <a name="map-a-cname-record"></a>Mappa en CNAME-post
 
-En CNAME-post mappar en domän till en annan. Du kan använda en CNAME-post för att mappa `www.example.com` till den automatiskt genererade domän som tillhandahålls av Azures statiska Web Apps.
+En CNAME-post mappar en domän till en annan. Du kan använda en CNAME-post för att mappa `www.example.com` , `blog.example.com` eller någon annan under domän till den automatiskt genererade domän som tillhandahålls av Azures statiska Web Apps.
 
 1. Öppna [Azure Portal](https://portal.azure.com) och logga in med ditt Azure-konto.
 
@@ -63,7 +63,7 @@ En CNAME-post mappar en domän till en annan. Du kan använda en CNAME-post för
 
 4. Skapa en ny **CNAME** -post med följande värden...
 
-    | Inställningen             | Värde                     |
+    | Inställning             | Värde                     |
     | ------------------- | ------------------------- |
     | Typ                | CNAME                     |
     | Värd                | www                       |
@@ -108,12 +108,12 @@ Ibland vill du att all trafik som skickas till en under domän ska dirigeras til
 
 4. Skapa en ny **CNAME** -post med följande värden och Ersätt `www.example.com` med det anpassade domän namnet.
 
-    | Inställningen | Värde                  |
+    | Inställning | Värde                  |
     | ------- | ---------------------- |
     | Typ    | CNAME                  |
     | Värd    | \*                     |
     | Värde   | www.example.com        |
-    | TTL     | Lämna standard värde |
+    | TTL-värde     | Lämna standard värde |
 
 5. Spara ändringarna med DNS-providern.
 

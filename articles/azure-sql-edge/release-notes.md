@@ -9,17 +9,28 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 06/05/2020
-ms.openlocfilehash: d5d60db2cc0c35b908454be3f00716db6d2da945
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: 74e9772ada010d79e81ef36cae89ba586db73077
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361650"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553418"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Viktig information om Azure SQL Edge 
 
 I den här artikeln beskrivs vad som är nytt och vad som har ändrats med varje ny version av Azure SQL Edge.
+
+## <a name="ctp-22"></a>CTP 2,2
+### <a name="sql-engine-build-number---15020001546"></a>SQL-motor versions nummer – 15.0.2000.1546
+### <a name="fixes"></a>Korrigeringar
+1. Stöd för icke-rot behållare 
+2. Stöd för insamling av användnings data och diagnostikdata 
+3. Strömnings uppdateringar för T-SQL
+   - Stöd för Unicode-tecken för strömmande objekt namn
+   - Förbättringar av processen rensa
+   - Förbättringar av loggning och diagnostik
+4. Prestanda förbättring för data inmatning
 
 ## <a name="ctp-21"></a>CTP 2,1 
 ### <a name="sql-engine-build-number---15020001545"></a>SQL-motor versions nummer – 15.0.2000.1545

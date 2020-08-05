@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 3ced7e758669041d11d50ae7bfaf1065cf5439b3
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c4211f21d78ac0e06743c97f1081804fd641f9d2
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84562022"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563584"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>Självstudie: publicera en Jekyll-webbplats till Azures statiska Web Apps för hands version
 
@@ -120,7 +120,7 @@ Följande steg visar hur du skapar en ny statisk plats-app och distribuerar den 
 
     :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Slutförd GitHub-information":::
 
-### <a name="build"></a>Utveckla
+### <a name="build"></a>Build
 
 Sedan lägger du till de konfigurations inställningar som bygg processen använder för att skapa din app. Följande inställningar konfigurerar arbets flödes filen för GitHub-åtgärd.
 
@@ -146,7 +146,7 @@ Sedan lägger du till de konfigurations inställningar som bygg processen använ
 
 1. Öppna appen Jekyll i en text redigerare och öppna filen _. GitHub/arbets flöden/Azure-Pages-<WORKFLOW_NAME>. yml_ .
 
-1. Ersätt raden `- uses: actions/checkout@v1` med följande konfigurations block.
+1. Lägg till rader efter blocket `- uses: actions/checkout@v2` till följande konfigurations block.
 
     ```yml
     - uses: actions/checkout@v2
@@ -154,12 +154,12 @@ Sedan lägger du till de konfigurations inställningar som bygg processen använ
         submodules: true
     - name: Set up Ruby
       uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
-        with:
+      with:
         ruby-version: 2.6
     - name: Install dependencies
-        run: bundle install
+      run: bundle install
     - name: Jekyll build
-        run: jekyll build
+      run: jekyll build
     ```
 
 1. Genomför det uppdaterade arbets flödet och push-överför till GitHub.

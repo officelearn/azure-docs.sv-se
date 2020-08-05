@@ -9,20 +9,21 @@ ms.reviewer: dseven
 ms.author: mihansen
 author: hansenms
 ms.date: 02/07/2019
-ms.openlocfilehash: f6c3b1f4c24ad2bce68c1cff7b22f0059d3534a2
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 6e0851a55673792adc905d27fdd3f5c13d572032
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446064"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563967"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Få åtkomst till Azure API för FHIR med Postman
 
 Ett klient program har åtkomst till ett FHIR-API via en [REST API](https://www.hl7.org/fhir/http.html). Du kanske också vill interagera direkt med FHIR-servern när du skapar program, till exempel för fel sökning. I den här självstudien får vi gå igenom de steg som krävs för att använda [Postman](https://www.getpostman.com/) för att få åtkomst till en FHIR-Server. Postman är ett verktyg som ofta används för fel sökning när du skapar program som har åtkomst till API: er.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En FHIR-slutpunkt i Azure. Du kan ställa in detta med hjälp av det hanterade Azure-API: t för FHIR eller FHIR-servern med öppen källkod för Azure. Konfigurera det hanterade Azure-API: t för FHIR med hjälp av [Azure Portal](fhir-paas-portal-quickstart.md), [POWERSHELL](fhir-paas-powershell-quickstart.md)eller [Azure CLI](fhir-paas-cli-quickstart.md).
+- Ett [klient program](register-confidential-azure-ad-client-app.md) som du ska använda för att få åtkomst till FHIR-tjänsten
 - Postman installerat. Du kan hämta den från[https://www.getpostman.com](https://www.getpostman.com)
 
 ## <a name="fhir-server-and-authentication-details"></a>Information om FHIR-Server och-autentisering
@@ -71,7 +72,7 @@ Du behöver lite information:
 | Klient-ID             | `XXXXXXXX-XXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                            | Program-ID             |
 | Client Secret (Klienthemlighet)         | `XXXXXXXX`                                                                                                        | Hemlig klient nyckel          |
 | Omfång | `<Leave Blank>` |
-| Status                 | `1234`                                                                                                            |                            |
+| Stat                 | `1234`                                                                                                            |                            |
 | Klientautentisering | Skicka klientautentiseringsuppgifter i brödtext                                                                                 |                 
 
 Besök-token för begäran och du kommer att guidas genom Azure Active Directory-autentiseringsschemat och en token returneras till Postman. Om du stöter på problem öppnar du Postman-konsolen (från meny alternativet "View->Visa Postman-konsolen").

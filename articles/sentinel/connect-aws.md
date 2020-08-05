@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: f8d296e62be9571bdedd5acf40d5547bae8c864e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e80f7d26fb7ab598651d08b4c1b6478b2ae75e3b
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564579"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563066"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Ansluta Azure Sentinel till AWS CloudTrail
 
-Använd AWS-anslutningen för att strömma alla dina AWS CloudTrail-händelser till Azure Sentinel. Den här anslutnings processen delegerar åtkomst för Azure Sentinel till dina AWS-resurs loggar och skapar en förtroende relation mellan AWS CloudTrail och Azure Sentinel. Detta görs på AWS genom att skapa en roll som ger behörighet till Azure Sentinel för att få åtkomst till dina AWS-loggar.
+Använd AWS-anslutningsprogrammet för att strömma dina AWS CloudTrail Management-händelser till Azure Sentinel. Den här anslutnings processen delegerar åtkomst för Azure Sentinel till dina AWS-resurs loggar och skapar en förtroende relation mellan AWS CloudTrail och Azure Sentinel. Detta görs på AWS genom att skapa en roll som ger behörighet till Azure Sentinel för att få åtkomst till dina AWS-loggar.
 
 > [!NOTE]
 > AWS-CloudTrail har [inbyggda begränsningar](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) i dess LOOKUPEVENTS-API. Den tillåter inte fler än två transaktioner per sekund (TPS) per konto och varje fråga kan returnera högst 50 poster. Om en enskild klient däremot genererar fler än 100 poster per sekund i en region, kommer efter släpningar och fördröjningar i data inmatningen att uppstå.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha Skriv behörighet på Azure Sentinel-arbetsytan.
 
 > [!NOTE]
-> Azure Sentinel samlar in CloudTrail-händelser från alla regioner. Vi rekommenderar att du inte strömmar händelser från en region till en annan.
+> Azure Sentinel samlar in CloudTrail hanterings händelser från alla regioner. Vi rekommenderar att du inte strömmar händelser från en region till en annan.
 
 ## <a name="connect-aws"></a>Ansluta AWS 
 

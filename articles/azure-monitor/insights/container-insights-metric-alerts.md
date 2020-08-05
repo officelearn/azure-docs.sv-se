@@ -2,13 +2,13 @@
 title: Mått varningar från Azure Monitor för behållare | Microsoft Docs
 description: Den här artikeln granskar rekommenderade mått varningar som är tillgängliga från Azure Monitor för behållare i offentlig för hands version.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: c8b75b0d9b22658253c4637bd6507144575934de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/04/2020
+ms.openlocfilehash: 1826896ad2d5c64d389219018f51238826c840d0
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099768"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563372"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Rekommenderade mått varningar (förhands granskning) från Azure Monitor för behållare
 
@@ -33,7 +33,7 @@ Innan du börjar ska du kontrol lera följande:
 
     Värdet som visas ska vara en senare version än **ciprod05262020**. Om klustret har en äldre version följer du [uppgraderings agenten på AKS kluster](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) steg för att hämta den senaste versionen.
     
-    Mer information om agent versionen finns i [agentens versions historik](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Du kan kontrol lera att måtten samlas in genom att använda Azure Monitor Metrics Explorer och kontrol lera från **mått namn området** som **insikter** visas. Om så är fallet kan du gå vidare och börja konfigurera aviseringarna.
+    Mer information om agent versionen finns i [agentens versions historik](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Du kan kontrol lera att måtten samlas in genom att använda Azure Monitor Metrics Explorer och kontrol lera från **mått namn området** som **insikter** visas. Om så är fallet kan du gå vidare och börja konfigurera aviseringarna. Om du inte ser några mått som samlas in, saknar kluster tjänstens huvud namn eller MSI de nödvändiga behörigheterna. Kontrol lera att SPN eller MSI är medlem i rollen **övervaknings mått utgivar** roll genom att följa stegen som beskrivs i avsnittet [Uppgradera per kluster med Azure CLI](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) för att bekräfta och ange roll tilldelning.
 
 ## <a name="alert-rules-overview"></a>Översikt över aviserings regler
 
@@ -157,7 +157,7 @@ De grundläggande stegen är följande:
 8. På sidan **Anpassad distribution** anger du följande och när du har slutfört Välj **köp** för att distribuera mallen och skapa varnings regeln.
 
     * Resursgrupp
-    * Plats
+    * Location
     * Aviseringsnamn
     * Resurs-ID för kluster
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 31df880d9d6d586491d115d9b70de9f85bc980b2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8e3657128ddcff7f9436398ac4bcc6e220b86168
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502927"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552490"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Funktionalisering i Automatisk maskin inlärning
 
@@ -45,7 +45,7 @@ För experiment som du konfigurerar med python SDK, kan du aktivera eller inakti
 
 I följande tabell visas de accepterade inställningarna för `featurization` i [klassen AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig):
 
-|Funktionalisering-konfiguration | Description|
+|Funktionalisering-konfiguration | Beskrivning|
 ------------- | ------------- |
 |`"featurization": 'auto'`| Anger att steg som en del av processen för att bearbeta [data guardrails och funktionalisering](#featurization) ska göras automatiskt. Den här inställningen är standardinställningen.|
 |`"featurization": 'off'`| Anger att funktionalisering-steg inte ska göras automatiskt.|
@@ -60,7 +60,7 @@ I följande tabell sammanfattas de tekniker som automatiskt tillämpas på dina 
 > [!NOTE]
 > Om du planerar att exportera AutoML-modeller till en ONNX- [modell](concept-onnx.md)stöds bara de funktionalisering-alternativ som anges med en asterisk ("*") i ONNX-formatet. Lär dig mer om [att konvertera modeller till ONNX](concept-automated-ml.md#use-with-onnx).
 
-|Funktionalisering- &nbsp; steg| Description |
+|Funktionalisering- &nbsp; steg| Beskrivning |
 | ------------- | ------------- |
 |**Släpp hög kardinalitet eller inga varians funktioner*** |Släpp dessa funktioner från utbildning och validerings uppsättningar. Gäller för funktioner med alla värden som saknas, med samma värde för alla rader eller med hög kardinalitet (till exempel hash-värden, ID: n eller GUID).|
 |**Imputerade värden som saknas*** |För numeriska funktioner måste du räkna ut med medelvärdet av värdena i kolumnen.<br/><br/>För kategoriska-funktioner ska du räkna med det vanligaste värdet.|
@@ -161,7 +161,7 @@ text_transformations_used
 > [!NOTE]
 > Vår implementering av BERT begränsar den totala text längden för ett utbildnings exempel till 128-token. Det innebär att alla text kolumner som är sammanfogade bör helst vara högst 128 tokens. Vi rekommenderar att varje kolumn rensas så att villkoret är uppfyllt, om det finns flera kolumner. Om det till exempel finns två text kolumner i data, ska båda text kolumnerna rensas till 64 tokens (förutsatt att du vill att båda kolumnerna ska vara jämnt representerade i den sista sammanfogade text kolumnen) innan du matar in data till AutoML. För sammansatta kolumner med längd >128-token, kommer BERT tokenizer-lagret att trunkera inmatarna till 128-token.
 
-3. I steget för funktions rensning jämför AutoML BERT mot bas linjen (säck med ord funktioner + förtränade ord inbäddningar) på ett exempel av data och avgör om BERT skulle ge precisions förbättringar. Om det fastställer att BERT fungerar bättre än bas linjen använder AutoML BERT för text funktionalisering som den optimala funktionalisering strategin och fortsätter med featurizing hela data. I så fall visas "PretrainedTextDNNTransformer" i den slutliga modellen.
+3. I steget för funktions rensning jämför AutoML BERT mot bas linjen (ord uppsättnings funktioner) i ett exempel på data och avgör om BERT skulle ge precisions förbättringar. Om det fastställer att BERT fungerar bättre än bas linjen använder AutoML BERT för text funktionalisering som den optimala funktionalisering strategin och fortsätter med featurizing hela data. I så fall visas "PretrainedTextDNNTransformer" i den slutliga modellen.
 
 BERT körs vanligt vis längre än de flesta andra featurizers. Det kan sped upp genom att tillhandahålla mer beräkning i klustret. AutoML kommer att distribuera BERT-utbildning över flera noder om de är tillgängliga (upp till högst 8 noder). Detta kan göras genom att ange [max_concurrent_iterations](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) till högre än 1. För bättre prestanda rekommenderar vi att du använder SKU: er med RDMA-funktioner (till exempel "STANDARD_NC24r" eller "STANDARD_NC24rs_V3")
 

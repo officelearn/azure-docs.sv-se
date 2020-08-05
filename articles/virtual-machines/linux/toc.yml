@@ -372,7 +372,7 @@
     - name: Övervakning
       href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Säkerhetskopiering och återställning
-      href: backup-recovery.md
+      href: ../backup-recovery.md
     - name: Ramverk för molnimplementering
       href: /azure/cloud-adoption-framework/get-started/
     - name: Arkitekturcenter

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 1b537e57edd777d78ce40d0ac4c5c6a7acca7659
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c8e0b476c50378bde00e01a39985fbcc188f04ed
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068208"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562386"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autentisering och auktorisering i Azure App Service och Azure Functions
 
@@ -22,15 +22,20 @@ Säker autentisering och auktorisering kräver djupgående förståelse av säke
 > [!IMPORTANT]
 > Du behöver inte använda den här funktionen för autentisering och auktorisering. Du kan använda de sammanslagna säkerhetsfunktionerna i ditt webb ramverk alternativt, eller så kan du skriva egna verktyg. Tänk dock på att [Chrome 80 gör större ändringar i dess implementering av SameSite för cookies](https://www.chromestatus.com/feature/5088147346030592) (lanserings datum runt den 2020 mars) och anpassad fjärrautentisering eller andra scenarier som förlitar sig på att en cookie-post på flera platser kan brytas när klientens webbläsare uppdateras. Lösningen är komplicerad eftersom den behöver stöd för olika SameSite-beteenden för olika webbläsare. 
 >
-> ASP.NET Core 2,1 och senare versioner som är värd för App Service har redan korrigerats för den här avbrytande ändringen och hanterar Chrome 80 och äldre webbläsare på lämpligt sätt. Dessutom distribueras samma korrigering för ASP.NET Framework-4.7.2 på App Service instanserna i januari 2020. Mer information, inklusive hur du vet om din app har tagit emot korrigeringen, finns [Azure App Service SameSite cookie Update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
+> ASP.NET Core 2,1 och senare versioner som är värd för App Service har redan korrigerats för den här avbrytande ändringen och hanterar Chrome 80 och äldre webbläsare på lämpligt sätt. Dessutom har samma korrigerings fil för ASP.NET Framework-4.7.2 distribuerats på App Service instanserna i januari 2020. Mer information finns i [Azure App Service cookie-uppdatering för SameSite](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
 
 > [!NOTE]
 > Autentiserings-/auktoriserings funktionen kallas även för "enkel autentisering".
 
+> [!NOTE]
+> Om du aktiverar den här funktionen så kommer **alla** icke-säkra HTTP-förfrågningar till programmet att omdirigeras automatiskt till https, oavsett App Service konfigurations inställningen för att [tvinga https](configure-ssl-bindings.md#enforce-https). Om det behövs kan du inaktivera detta via `requireHttps` inställningen i [konfigurations filen för autentiseringsinställningarna](app-service-authentication-how-to.md#configuration-file-reference), men du måste sedan vara noga med att se till att inga säkerhetstoken någonsin överförs över osäkra http-anslutningar.
+
 Information som är specifik för interna mobilappar finns i [användarautentisering och auktorisering för mobila appar med Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
 
 ## <a name="how-it-works"></a>Så här fungerar det
+
+### <a name="on-windows"></a>På Windows
 
 Modulen för autentisering och auktorisering körs i samma sandbox som din program kod. När den är aktive rad passerar varje inkommande HTTP-begäran genom den innan den hanteras av din program kod.
 
@@ -44,6 +49,10 @@ Den här modulen hanterar flera saker för din app:
 - Infogar identitets information i begärandehuvuden
 
 Modulen körs separat från din program kod och konfigureras med hjälp av app-inställningar. Inga SDK: er, specifika språk eller ändringar av din program kod krävs. 
+
+### <a name="on-containers"></a>På behållare
+
+Modulen för autentisering och auktorisering körs i en separat behållare som är isolerad från program koden. Med hjälp av det som är känt som [ambassadör-mönstret](https://docs.microsoft.com/azure/architecture/patterns/ambassador)samverkar den inkommande trafiken för att utföra liknande funktioner som i Windows. Eftersom den inte körs i processen är det möjligt att ingen direkt integrering med specifika språk ramverk är möjlig. men relevant information som appen behöver skickas genom att använda begärandehuvuden enligt beskrivningen nedan.
 
 ### <a name="userapplication-claims"></a>Användar-/program anspråk
 

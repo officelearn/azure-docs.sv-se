@@ -6,20 +6,52 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3719956df0dce62ee69d8e306ff2cad27197616d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4443c92fad2510b6bc4bc1214840aca5553556a5
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85569018"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553469"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Scenario: anpassad isolering för virtuella nätverk
 
-När du arbetar med virtuell WAN-routning för virtuella WAN finns det några tillgängliga scenarier. I ett anpassat isolerings scenario för virtuella nätverk är målet att förhindra att en speciell uppsättning virtuella nätverk kan komma åt en annan speciell uppsättning virtuella nätverk. Virtuella nätverk krävs dock för att komma åt alla grenar (VPN/ER/användare VPN).
+När du arbetar med virtuell WAN-routning för virtuella WAN finns det några tillgängliga scenarier. I ett anpassat isolerings scenario för virtuella nätverk är målet att förhindra att en speciell uppsättning virtuella nätverk kan komma åt en annan speciell uppsättning virtuella nätverk. Virtuella nätverk krävs dock för att komma åt alla grenar (VPN/ER/användare VPN). Mer information om routning av virtuell hubb finns i [om virtuell hubb](about-virtual-hub-routing.md).
 
-I det här scenariot är VPN-, ExpressRoute-och användares VPN-anslutningar (gemensamt kallade grenar) kopplade till samma routningstabell (standard väg tabell). Alla VPN-, ExpressRoute-och användares VPN-anslutningar sprider vägar till samma uppsättning routningstabeller. Mer information om routning av virtuell hubb finns i [om virtuell hubb](about-virtual-hub-routing.md).
+## <a name="scenario-design"></a><a name="design"></a>Scenario design
+
+För att ta reda på hur många väg tabeller som behövs kan du bygga en anslutnings mat ris. I det här scenariot ser det ut ungefär så här, där varje cell visar om en källa (rad) kan kommunicera med ett mål (kolumn):
+
+| Från | Till:| *Blå virtuella nätverk* | *Röd virtuella nätverk* | *Grenar*|
+|---|---|---|---|---|
+| **Blå virtuella nätverk** |   &#8594;|      X        |               |       X      |
+| **Röd virtuella nätverk**  |   &#8594;|              |       X       |       X      |
+| **Grenar**   |   &#8594;|     X        |       X       |       X      |
+
+I var och en av cellerna i föregående tabell beskrivs om en virtuell WAN-anslutning ("från"-sidan i flödet, rad rubrikerna i tabellen) är ett måltema ("till"-sidan i flödet, kolumn rubrikerna i kursiv stil i tabellen) för ett särskilt trafikflöde.
+
+Antalet olika rad mönster är antalet väg tabeller som vi behöver i det här scenariot. I det här fallet kommer tre väg tabeller att anropa **RT_BLUE** och **RT_RED** för de virtuella nätverken och som **standard** för grenarna. Kom ihåg att grenar alltid måste kopplas till standard routningstabellen.
+
+Grenarna måste lära sig prefixen från både rött och blått virtuella nätverk, så alla virtuella nätverk måste spridas till standard (till och med antingen **RT_BLUE** eller **RT_RED**). Blå och röd virtuella nätverk måste lära sig om grenarnas prefix, så grenar kommer att spridas till båda väg tabellerna **RT_BLUE** och **RT_RED** . Därför är detta den slutliga designen:
+
+* Blå virtuella nätverk:
+  * Associerad routningstabell: **RT_BLUE**
+  * Sprider till routningstabeller: **RT_BLUE** och **standard**
+* Röda virtuella nätverk:
+  * Associerad routningstabell: **RT_RED**
+  * Sprider till routningstabeller: **RT_RED** och **standard**
+* Delar
+  * Associerad routningstabell: **standard**
+  * Sprider till routningstabeller: **RT_BLUE**, **RT_RED** och **standard**
+
+> [!NOTE]
+> Eftersom alla grenar måste kopplas till standard väg tabellen, och för att spridas till samma uppsättning routningstabeller, kommer alla grenar att ha samma anslutnings profil. Med andra ord kan inte det röda/blå-konceptet för virtuella nätverk tillämpas på grenar.
+
+> [!NOTE]
+> Om ditt virtuella WAN-nätverk distribueras över flera regioner måste du skapa **RT_BLUE** och **RT_RED** routningstabeller i varje hubb, och vägar från varje VNET-anslutning måste spridas till routningstabeller i varje virtuellt nav som använder spridnings etiketter.
+
+Mer information om routning av virtuell hubb finns i [om virtuell hubb](about-virtual-hub-routing.md).
 
 ## <a name="scenario-workflow"></a><a name="architecture"></a>Scenario arbets flöde
 
@@ -31,8 +63,8 @@ I **bild 1**finns det blå och röda VNet-anslutningar.
 Överväg följande steg när du konfigurerar routning.
 
 1. Skapa två anpassade väg tabeller i Azure Portal **RT_BLUE** och **RT_RED**.
-2. För routningstabellen **RT_BLUE**under:
-   * **Association**: Markera alla blå virtuella nätverk
+2. För väg tabell **RT_BLUE**för följande inställningar:
+   * **Association**: Markera alla blå virtuella nätverk.
    * **Spridning**: för grenar väljer du alternativet för grenar, vilket innebär att förgreningar (VPN/er/P2s)-anslutningar sprider vägar till den här routningstabellen.
 3. Upprepa samma steg för **RT_RED** routningstabell för Red virtuella nätverk och grenar (VPN/er/P2s).
 

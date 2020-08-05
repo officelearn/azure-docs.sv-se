@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: 2a1fc4de572fbb8634f8f58452ce5f9b632023a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1595354803b0625137dd1ac45d17962063ce4e0
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628801"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562454"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Översikt över Azure App Service lokal cache
 
@@ -48,7 +48,7 @@ Den Azure App Service Local cache-funktionen tillhandahåller en webbrolls visni
 ## <a name="enable-local-cache-in-app-service"></a>Aktivera lokal cache i App Service
 Du konfigurerar lokal cache genom att använda en kombination av reserverade appinställningar. Du kan konfigurera dessa inställningar för appar med hjälp av följande metoder:
 
-* [Azure Portal](#Configure-Local-Cache-Portal)
+* [Azure-portalen](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Konfigurera lokal cache med hjälp av Azure Portal
@@ -94,7 +94,7 @@ Vi rekommenderar att du använder lokal cache tillsammans med funktionen för [m
 * När du är klar utfärdar du en [växlings åtgärd](../app-service/deploy-staging-slots.md#Swap) mellan dina mellanlagrings-och produktions platser.  
 * Tröga inställningar är namn och fästis till en plats. Så när mellanlagringsplatsen har växlats till produktion, ärver den de lokala cache-apparna. Den nyligen utbytta produktions platsen kommer att köras mot den lokala cachen efter några minuter och kommer att värmas upp som en del av plats uppvärmnings efter växling. När plats växlingen är klar körs din produktions plats mot det lokala cacheminnet.
 
-## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
 
 ### <a name="how-can-i-tell-if-local-cache-applies-to-my-app"></a>Hur kan jag se om det lokala cacheminnet gäller för min app?
 Om din app behöver ett högpresterande, tillförlitligt innehålls lager, använder inte innehålls lagringen för att skriva kritiska data vid körning och är mindre än 2 GB i Total storlek, och svaret är "Ja"! Om du vill få Total storlek på dina/installation-och/siteextensions-mappar kan du använda webbplats tillägget "Azure Web Apps disk Usage".
@@ -102,8 +102,11 @@ Om din app behöver ett högpresterande, tillförlitligt innehålls lager, anvä
 ### <a name="how-can-i-tell-if-my-site-has-switched-to-using-local-cache"></a>Hur vet jag om min webbplats har växlat till att använda det lokala cacheminnet?
 Om du använder funktionen Local cache med mellanlagrings miljöer slutförs inte växlings åtgärden förrän den lokala cachen har värmts upp. Om du vill kontrol lera om platsen körs mot lokal cache kan du kontrol lera variabeln för arbets process miljön `WEBSITE_LOCALCACHE_READY` . Använd instruktionerna på sidan [arbets process miljö variabel](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) för att komma åt variabeln för arbets process miljön på flera instanser.  
 
-### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>Jag publicerade bara nya ändringar, men appen verkar inte ha dem. Varför?
+### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>Jag publicerade bara nya ändringar, men appen verkar inte ha dem. Varför det?
 Om din app använder lokal cache måste du starta om platsen för att få de senaste ändringarna. Vill du inte publicera ändringar på en produktions plats? Se plats alternativen i avsnittet tidigare metod tips.
+
+> [!NOTE]
+> Distributions alternativet [Kör från paket](deploy-run-package.md) är inte kompatibelt med Local cache.
 
 ### <a name="where-are-my-logs"></a>Var finns mina loggar?
 Med lokal cache ser dina loggar och datamapparna lite annorlunda ut. Strukturen i undermapparna förblir dock densamma, förutom att undermapparna är Nestled under en undermapp med formatet "unik VM-identifierare" + tidsstämpel.

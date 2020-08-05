@@ -5,12 +5,12 @@ description: Lär dig hur du skapar och använder en statisk offentlig IP-adress
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: f7ea25c3348b96ec6d8818e8e1db4660b308dabc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 81b99478358ec3d670e8d783fba27603483614ea
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517781"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563253"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Använd en statisk offentlig IP-adress för utgående trafik med en *Basic* SKU-belastningsutjämnare i Azure Kubernetes service (AKS)
 
@@ -20,7 +20,7 @@ Den här artikeln visar hur du skapar och använder en statisk offentlig IP-adre
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I den här artikeln förutsätter vi att du använder Azure Basic-Load Balancer.  Vi rekommenderar att du använder [Azure-standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)och du kan använda mer avancerade funktioner för att [kontrol lera utgående trafik i AKS](https://docs.microsoft.com/azure/aks/limit-egress-traffic).
+I den här artikeln förutsätter vi att du använder Azure Basic-Load Balancer.  Vi rekommenderar att du använder [Azure-standard Load Balancer](../load-balancer/load-balancer-overview.md)och du kan använda mer avancerade funktioner för att [kontrol lera utgående trafik i AKS](./limit-egress-traffic.md).
 
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster kan du läsa snabb starten för AKS [med hjälp av Azure CLI][aks-quickstart-cli] eller [Azure Portal][aks-quickstart-portal].
 

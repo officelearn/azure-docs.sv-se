@@ -1,7 +1,7 @@
 ---
-title: Anpassa anspråk i Azure AD-appens SAML-token
+title: Anpassa anspråk för SAML-token för appen
 titleSuffix: Microsoft identity platform
-description: Lär dig hur du anpassar anspråk som utfärdats i SAML-token för företags program i Azure AD.
+description: Lär dig hur du anpassar anspråk som utfärdats av Microsoft Identity Platform i SAML-token för företags program.
 services: active-directory
 author: kenwith
 manager: CelesteDG
@@ -13,20 +13,20 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5cce985e3f63ade94fb626d18bded440caeff1fa
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f35e5971374f54940396f602a23ffa0ae3abd015
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87274476"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552840"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Gör så här: anpassa anspråk som utfärdats i SAML-token för företags program
 
-Idag har Azure Active Directory (Azure AD) stöd för enkel inloggning (SSO) med de flesta företags program, inklusive båda program som är förintegrerade i Azure AD App-galleriet samt anpassade program. När en användare autentiserar till ett program via Azure AD med hjälp av SAML 2,0-protokollet skickar Azure AD en token till programmet (via ett HTTP-inlägg). Därefter verifierar och använder appen token för att logga användaren i stället för att begära ett användar namn och lösen ord. Dessa SAML-tokens innehåller delar av information om den användare som kallas för *anspråk*.
+Idag stöder Microsoft Identity Platform enkel inloggning (SSO) med de flesta företags program, inklusive både program som är förintegrerade i Azure AD App-galleriet och anpassade program. När en användare autentiserar till ett program via Microsoft Identity Platform med SAML 2,0-protokollet, skickar Microsoft Identity Platform en token till programmet (via ett HTTP-inlägg). Därefter verifierar och använder appen token för att logga användaren i stället för att begära ett användar namn och lösen ord. Dessa SAML-tokens innehåller delar av information om den användare som kallas för *anspråk*.
 
 Ett *anspråk* är information som en identitets leverantör anger för en användare inom den token som de utfärdar för den användaren. I [SAML-token](https://en.wikipedia.org/wiki/SAML_2.0)finns dessa data vanligt vis i instruktionen SAML Attribute. Användarens unika ID visas vanligt vis i SAML-ämnet även kallat namn identifierare.
 
-Som standard utfärdar Azure AD en SAML-token till ditt program som innehåller ett `NameIdentifier` anspråk med ett värde för användarens användar namn (även kallat User Principal Name) i Azure AD, vilket kan identifiera användaren unikt. SAML-token innehåller också ytterligare anspråk som innehåller användarens e-postadress, förnamn och efter namn.
+Som standard utfärdar Microsoft Identity Platform en SAML-token till ditt program som innehåller ett `NameIdentifier` anspråk med ett värde för användarens användar namn (även kallat User Principal Name) i Azure AD, vilket kan identifiera användaren unikt. SAML-token innehåller också ytterligare anspråk som innehåller användarens e-postadress, förnamn och efter namn.
 
 Om du vill visa eller redigera de anspråk som utfärdats i SAML-token till programmet öppnar du programmet i Azure Portal. Öppna sedan avsnittet **användarattribut &-anspråk** .
 
@@ -48,19 +48,19 @@ Så här redigerar du NameID (namn-ID-värde):
 
 ### <a name="nameid-format"></a>NameID-format
 
-Om SAML-begäran innehåller elementet NameIDPolicy med ett särskilt format, kommer Azure AD att respektera formatet i begäran.
+Om SAML-begäran innehåller elementet NameIDPolicy med ett särskilt format, kommer Microsoft Identity Platform att svara på formatet i begäran.
 
-Om SAML-begäran inte innehåller ett element för NameIDPolicy utfärdar Azure AD NameID med det format som du anger. Om inget format har angetts använder Azure AD standard käll formatet som är associerat med den valda anspråks källan.
+Om SAML-begäran inte innehåller ett element för NameIDPolicy, kommer Microsoft Identity Platform att utfärda NameID med det format som du anger. Om inget format har angetts använder Microsoft Identity Platform det standard käll format som är associerat med den valda anspråks källan.
 
 I list rutan **Välj namn identifierare format** kan du välja något av följande alternativ.
 
 | NameID-format | Beskrivning |
 |---------------|-------------|
-| **Standard** | Standardvärdet för käll formatet används i Azure AD. |
-| **Permanent** | Azure AD kommer att använda beständigt som NameID-format. |
-| **EmailAddress** | Azure AD kommer att använda EmailAddress som NameID-format. |
-| **Ospecificerat** | Azure AD kommer att använda ospecificerat som NameID-format. |
-| **Kvalificerat namn för Windows-domän** | Azure AD kommer att använda WindowsDomainQualifiedName som NameID-format. |
+| **Standard** | Microsoft Identity Platform använder standard käll formatet. |
+| **Permanent** | Microsoft Identity Platform kommer att använda beständigt som NameID-format. |
+| **EmailAddress** | Microsoft Identity Platform kommer att använda EmailAddress som NameID-format. |
+| **Ospecificerat** | Microsoft Identity Platform kommer att använda ospecificerat som NameID-format. |
+| **Kvalificerat namn för Windows-domän** | Microsoft Identity Platform kommer att använda WindowsDomainQualifiedName som NameID-format. |
 
 En tillfällig NameID stöds också, men är inte tillgänglig i list rutan och kan inte konfigureras på Azures sida. Mer information om attributet NameIDPolicy finns i [SAML-protokoll för enkel inloggning](single-sign-on-saml-protocol.md).
 
@@ -169,9 +169,9 @@ Så här lägger du till ett anspråks villkor:
 
 Den ordning som du lägger till villkoren i är viktiga. Azure AD utvärderar villkoren från uppifrån och ned för att bestämma vilket värde som ska ställas in i anspråket. 
 
-Till exempel är Britta Simon en gäst användare i Contoso-klienten. Hon tillhör en annan organisation som också använder Azure AD. Under den här konfigurationen av programmet Fabrikam när Britta försöker logga in på Fabrikam, kommer Azure AD att utvärdera villkoren enligt följande.
+Till exempel är Britta Simon en gäst användare i Contoso-klienten. Hon tillhör en annan organisation som också använder Azure AD. Under den här konfigurationen av programmet Fabrikam när Britta försöker logga in på Fabrikam, kommer Microsoft Identity Platform att utvärdera villkoren enligt följande.
 
-Först verifierar Azure AD om Britta användar typ är `All guests` . Eftersom detta är sant tilldelar Azure AD källan för anspråket till `user.extensionattribute1` . För det andra verifierar Azure AD om Britta användar typ är `AAD guests` , eftersom detta också är sant tilldelar Azure AD källan för anspråket till `user.mail` . Slutligen genereras anspråket med värdet `user.mail` för Britta.
+Först verifierar Microsoft Identity Platform om Britta användar typ är `All guests` . Eftersom detta är sant tilldelar Microsoft Identity Platform källan för anspråket till `user.extensionattribute1` . För det andra verifierar Microsoft Identity Platform om Britta användar typ är `AAD guests` , eftersom detta även är sant tilldelar Microsoft Identity Platform källan för anspråket till `user.mail` . Slutligen genereras anspråket med värdet `user.mail` för Britta.
 
 ![Villkorlig konfiguration av anspråk](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 

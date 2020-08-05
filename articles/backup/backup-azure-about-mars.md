@@ -1,19 +1,20 @@
 ---
 title: Om MARS-agenten
 description: Lär dig hur MARS-agenten stöder säkerhets kopierings scenarier
-ms.reviewer: srinathv
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 417fc385750ccab5c2f11f8160d9bbc85a013cde
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/04/2020
+ms.openlocfilehash: 8e4ace0c17dbe75e989981db56583ed9477b3716
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497955"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562607"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Om Microsoft Azure Recovery Services (MARS)-agenten
 
 I den här artikeln beskrivs hur Azure Backup tjänsten använder MARS-agenten (Microsoft Azure Recovery Services) för att säkerhetskopiera och återställa filer, mappar och volym eller system tillstånd från en lokal dator till Azure.
+
+## <a name="backup-scenarios"></a>Säkerhets kopierings scenarier
 
 MARS-agenten stöder följande säkerhets kopierings scenarier:
 
@@ -23,13 +24,21 @@ MARS-agenten stöder följande säkerhets kopierings scenarier:
 - **Volym nivå**: skydda en hel Windows-volym på din dator.
 - **System nivå**: skydda ett helt Windows-system tillstånd.
 
+### <a name="additional-scenarios"></a>Fler scenarier
+
+- **Säkerhetskopiera vissa filer och mappar i Azure Virtual Machines**: den primära metoden för att säkerhetskopiera virtuella datorer i Azure är att använda ett Azure Backup-tillägg på den virtuella datorn. Tillägget säkerhetskopierar hela den virtuella datorn. Om du vill säkerhetskopiera vissa filer och mappar i en virtuell dator kan du installera MARS-agenten på de virtuella Azure-datorerna. Mer information finns i [arkitektur: inbyggd virtuell Azure-säkerhetskopiering](./backup-architecture.md#architecture-built-in-azure-vm-backup).
+
+- **Offline-seeding**: inledande fullständiga säkerhets kopieringar av data till Azure överför vanligt vis stora mängder data och kräver mer nätverks bandbredd. Vid efterföljande säkerhets kopieringar överförs endast delta eller stegvis mängd data. Azure Backup komprimerar de första säkerhets kopiorna. Genom processen för *dirigering av dirigering*kan Azure Backup använda diskar för att ladda upp komprimerade första säkerhets kopierings data offline till Azure. Mer information finns i [Azure Backup offline-säkerhetskopiering med Azure Data Box](offline-backup-azure-data-box.md).
+
+## <a name="restore-scenarios"></a>Återställnings scenarier
+
 MARS-agenten stöder följande återställnings scenarier:
 
 ![Scenarier för MARS-återställning](./media/backup-try-azure-backup-in-10-mins/restore-scenarios.png)
 
 - **Samma server**: den server där säkerhets kopian skapades.
   - **Filer och mappar**: Välj de enskilda filer och mappar som du vill återställa.
-  - **Volym nivå**: Välj den volym och återställnings punkt som du vill återställa och Återställ den sedan till samma plats eller en annan plats på samma dator.  Skapa en kopia av befintliga filer, Skriv över befintliga filer eller hoppa över att återskapa befintliga filer.
+  - **Volym nivå**: Välj den volym och återställnings punkt som du vill återställa. Återställ den sedan till samma plats eller till en annan plats på samma dator.  Skapa en kopia av befintliga filer, Skriv över befintliga filer eller hoppa över att återskapa befintliga filer.
   - **System nivå**: Välj system tillstånd och återställnings punkt för att återställa till samma dator på en angiven plats.
 
 - **Alternativ server**: en annan server än den server där säkerhets kopian gjordes.
@@ -54,12 +63,6 @@ MARS-agenten stöder följande återställnings scenarier:
 - **Stegvisa säkerhets kopieringar** (efterföljande säkerhets kopieringar) körs enligt det schema du anger. Under stegvisa säkerhets kopieringar identifieras ändrade filer och en ny virtuell hård disk skapas. Den virtuella hård disken komprimeras och krypteras och skickas sedan till valvet. När den stegvisa säkerhets kopieringen har slutförts slås den nya virtuella hård disken samman med den virtuella hård disk som skapades efter den inledande replikeringen. Denna sammanlagda virtuella hård disk tillhandahåller det senaste tillstånd som ska användas för att jämföra säkerhets kopior.
 
 - MARS-agenten kan köra säkerhets kopierings jobbet i **optimerat läge** med hjälp av ändrings journalen för USN (Update Sequence Number) eller i **läget ej optimerad** genom att söka efter ändringar i kataloger eller filer genom att genomsöka hela volymen. Icke-optimerat läge är långsammare eftersom agenten måste genomsöka varje fil på volymen och jämföra den mot metadata för att fastställa de ändrade filerna.  Den **första säkerhets kopieringen** körs alltid i icke-optimerat läge. Om den tidigare säkerhets kopieringen misslyckades kommer nästa schemalagda säkerhets kopierings jobb att köras i icke-optimerat läge. Mer information om dessa lägen och hur du verifierar dem finns i [den här artikeln](backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-job-running-in-unoptimized-mode).
-
-### <a name="additional-scenarios"></a>Fler scenarier
-
-- **Säkerhetskopiera vissa filer och mappar i Azure Virtual Machines**: den primära metoden för att säkerhetskopiera virtuella datorer i Azure är att använda ett Azure Backup-tillägg på den virtuella datorn. Tillägget säkerhetskopierar hela den virtuella datorn. Om du vill säkerhetskopiera vissa filer och mappar i en virtuell dator kan du installera MARS-agenten på de virtuella Azure-datorerna. Mer information finns i [arkitektur: inbyggd virtuell Azure-säkerhetskopiering](./backup-architecture.md#architecture-built-in-azure-vm-backup).
-
-- **Offline-seeding**: inledande fullständiga säkerhets kopieringar av data till Azure överför vanligt vis stora mängder data och kräver mer nätverks bandbredd. Vid efterföljande säkerhets kopieringar överförs endast delta eller stegvis mängd data. Azure Backup komprimerar de första säkerhets kopiorna. Genom processen för *dirigering av dirigering*kan Azure Backup använda diskar för att ladda upp komprimerade första säkerhets kopierings data offline till Azure. Mer information finns i [Azure Backup offline-säkerhetskopiering med Azure Data Box](offline-backup-azure-data-box.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

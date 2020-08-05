@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/10/2020
-ms.openlocfilehash: 4bd6c3dc1f3cd1ef553efc6ac3cd3c4e558afc97
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/04/2020
+ms.openlocfilehash: 5bd78f2db8ea1f2a26d26269822ec78978a3cfde
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087670"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553316"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Självstudie: Migrera SQL Server till en Azure SQL-hanterad instans online med DMS
 
@@ -262,6 +262,9 @@ När den fullständiga säkerhets kopieringen av databasen har återställts på
 4. Välj **Bekräfta** och sedan **Använd**.
 
     ![Förbereda för att slutföra startpunkt](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
+
+    > [!IMPORTANT]
+    > Efter start punkt kan tillgänglighet för SQL-hanterad instans med Affärskritisk tjänst nivå bara ta betydligt längre tid än Generell användning som tre sekundära repliker måste dirigeras för gruppen med hög tillgänglighet för AlwaysOn. Den här åtgärdens storlek beror på data storleken. mer information finns i [varaktighet för hanterings åtgärder](../azure-sql/managed-instance/management-operations-overview.md#management-operations-duration).
 
 5. När status för databas migreringen är **slutförd**ansluter du dina program till den nya mål instansen av SQL-hanterad instans.
 

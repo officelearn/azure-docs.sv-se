@@ -6,19 +6,26 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 07/15/2020
-ms.openlocfilehash: 8c6486a3a64dcbe3dd37770844296da73724f3a3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/01/2020
+ms.custom: references_regions
+ms.openlocfilehash: 60efc645b1b5824306c1d4aa3e763eb9d2bc745d
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076346"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553942"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
 Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.
 
 ## <a name="feature-announcements-in-2020"></a>Funktions meddelanden i 2020
+
+### <a name="august-2020"></a>2020 augusti
+
+|Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
+|---------|------------------|-------------|---------------|
+| [dubbel kryptering](search-security-overview.md#encryption) | Säkerhet | Aktivera Double Encryption på lagrings nivån genom att konfigurera CMK-kryptering (Customer Managed Key) för nya Sök tjänster. Skapa en ny tjänst, [Konfigurera och Använd Kundhanterade nycklar](search-security-manage-encryption-keys.md) för index eller synonyma kartor och dra nytta av dubbel kryptering över det innehållet. | Allmänt tillgänglig på alla Sök tjänster som skapats efter den 1 augusti 2020 i dessa regioner: västra USA 2, östra USA, södra centrala USA, US Gov, Virginia, US Gov, Arizona. Använd portalen, hanterings REST API: er eller SDK: er för att skapa tjänsten. |
 
 ### <a name="july-2020"></a>Juli 2020
 

@@ -5,12 +5,12 @@ description: Lär dig metod tips för kluster operatörer för lagring, data kry
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 843b775f7761af7cd40140c9bf34768d63eb5a50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26af9e0ab2bd3a52c159e947f1f40300f9e84dd4
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80877906"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562846"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Metod tips för lagring och säkerhets kopiering i Azure Kubernetes service (AKS)
 
@@ -35,8 +35,8 @@ I följande tabell beskrivs tillgängliga lagrings typer och deras funktioner:
 | Användningsfall | Volym-plugin | Läs/skriv en gång | Skrivskyddat antal | Läs/skriv många | Stöd för Windows Server-behållare |
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | Delad konfiguration       | Azure Files   | Ja | Ja | Ja | Ja |
-| Strukturerade AppData        | Azure-diskar   | Ja | Nej  | Nej  | Ja |
-| Ostrukturerade data, fil system åtgärder | [BlobFuse][blobfuse] | Ja | Ja | Ja | No |
+| Strukturerade AppData        | Azure-diskar   | Ja | Inga  | Inga  | Ja |
+| Ostrukturerade data, fil system åtgärder | [BlobFuse][blobfuse] | Ja | Ja | Ja | Inga |
 
 De två primära typerna av lagring som tillhandahålls för volymer i AKS backas upp av Azure-diskar eller Azure Files. För att förbättra säkerheten, använder båda typerna av lagring Azure Storage Service Encryption (SSE) som standard som krypterar data i vila. Diskar kan för närvarande inte krypteras med hjälp av Azure Disk Encryption på AKS Node-nivå.
 
@@ -104,7 +104,7 @@ Den här artikeln fokuserar på metod tips för lagring i AKS. Mer information o
 
 <!-- LINKS - Internal -->
 [aks-concepts-storage]: concepts-storage.md
-[vm-sizes]: ../virtual-machines/linux/sizes.md
+[vm-sizes]: ../virtual-machines/sizes.md
 [dynamic-disks]: azure-disks-dynamic-pv.md
 [dynamic-files]: azure-files-dynamic-pv.md
 [reclaim-policy]: concepts-storage.md#storage-classes

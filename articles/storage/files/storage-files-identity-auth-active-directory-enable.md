@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: rogarana
-ms.openlocfilehash: 1ea1bfdf2c3b2dcfd49f87a5a75597a464b07913
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d7aab7f5db6256d2f2525ff4a58c10ff5aa517f7
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999589"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553180"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Översikt – lokal Active Directory Domain Services autentisering över SMB för Azure-filresurser
 
@@ -46,6 +46,8 @@ Innan du aktiverar AD DS-autentisering för Azure-filresurser måste du kontrol 
     Du kan aktivera funktionen på en ny eller befintlig lokal AD DS-miljö. Identiteter som används för åtkomst måste synkroniseras med Azure AD. Azure AD-klienten och fil resursen som du använder måste vara associerad med samma prenumeration.
 
 - Domän – Anslut en lokal dator eller en virtuell Azure-dator till en lokal AD DS. Information om hur du ansluter till en domän finns i [ansluta en dator till en domän](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
+
+    Om datorn inte är domänansluten till en AD DS kan du fortfarande använda autentiseringsuppgifter för AD för autentisering om din dator har en detaljerad uppsättning av AD-domänkontrollanten.
 
 - Välj eller skapa ett Azure Storage-konto.  För bästa prestanda rekommenderar vi att du distribuerar lagrings kontot i samma region som den klient som du planerar att komma åt resursen från. Montera sedan [Azure-filresursen](storage-how-to-use-files-windows.md) med din lagrings konto nyckel. Genom att montera med lagrings konto nyckeln verifieras anslutningen.
 

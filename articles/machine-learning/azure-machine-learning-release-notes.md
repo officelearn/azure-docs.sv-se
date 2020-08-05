@@ -9,18 +9,45 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 8546b74401a291a29493164f8b5bebc7d67a9b6f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: b1f45cad5def0e7d9a576a05299b065705ff3e30
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531123"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553452"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
 I den här artikeln får du lära dig mer om Azure Machine Learning-versioner.  Information om fullständiga SDK-referenser finns på Azure Machine Learning huvud sidan [**för SDK för python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) -referens.
 
 Se [listan över kända problem](resource-known-issues.md) för att lära dig om kända buggar och lösningar.
+
+## <a name="2020-08-03"></a>2020-08-03
+
+### <a name="azure-machine-learning-sdk-for-python-v1110"></a>Azure Machine Learning SDK för python v-1.11.0
+
++ **Fel korrigeringar och förbättringar**
+  + **Azure-CLI-ml**
+    + Korrigera modell ramverk och modell ramverk överförs inte i körnings objekt i en registrerings Sök väg för cli-modellen
+    + Åtgärda kommandot CLI amlcompute Identity show för att visa klient-ID och ägar-ID 
+  + **azureml-train-automl-client**
+    + Lade till get_best_child () i AutoMLRun för att hämta den bästa underordnade körningen för en AutoML-körning utan att hämta den associerade modellen.
+    + ModelProxy-objektet har lagts till, vilket gör att förutsägelse eller prognos kan köras i en fjärran sluten tränings miljö utan att modellen laddas ned lokalt.
+    + Ohanterade undantag i AutoML pekar nu på en känd HTTP-sida med kända problem, där mer information om felen kan hittas.
+  + **azureml-core**
+    + Modell namn får innehålla 255 tecken.
+    + Miljö. get_image_details () returnerad objekt typ har ändrats. `DockerImageDetails`klass ersatt `dict` , bild information är tillgänglig från de nya klass egenskaperna. Ändringarna är bakåtkompatibla.
+    + Åtgärda fel för miljön. from_pip_requirements () för att bevara beroende struktur
+    + Ett fel uppstod där log_list skulle uppstå om en int-och Double-åtgärd inkluderades i samma lista.
+    + Tänk på att om det finns beräknings mål som är kopplade till arbets ytan när du aktiverar privat länk på en befintlig arbets yta, kommer dessa mål inte att fungera om de inte ligger bakom samma virtuella nätverk som den privata slut punkten för arbets ytan.
+    + Görs `as_named_input` valfri när du använder data uppsättningar i experiment och `as_mount` lagt `as_download` till och till `FileDataset` . Indatamängden skapas automatiskt om `as_mount` eller `as_download` anropas.
+  + **azureml-automl-core**
+    + Ohanterade undantag i AutoML pekar nu på en känd HTTP-sida med kända problem, där mer information om felen kan hittas.
+    + Lade till get_best_child () i AutoMLRun för att hämta den bästa underordnade körningen för en AutoML-körning utan att hämta den associerade modellen.
+    + ModelProxy-objektet har lagts till, vilket gör att förutsägelse eller prognos kan köras i en fjärran sluten tränings miljö utan att modellen laddas ned lokalt.
+  + **azureml-pipeline-steps**
+    + Tillagda `enable_default_model_output` och `enable_default_metrics_output` flaggor till `AutoMLStep` . Dessa flaggor kan användas för att aktivera/inaktivera standardutdata.
+
 
 ## <a name="2020-07-20"></a>2020-07-20
 
@@ -95,7 +122,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
   + **azureml-mlflow**
     + Lägg till stöd för distribution av lokala file://-modeller med AzureML-MLflow
     + Föråldrad _with_auth param i ws. get_mlflow_tracking_uri ()
-  + **azureml-opendatasets**
+  + **azureml – OpenData uppsättningar**
     + Nyligen publicerade Covid-19 spårnings data uppsättningar är nu tillgängliga med SDK: n
   + **azureml-pipeline-core**
     + Varning om utloggning när "azureml-defaults" inte ingår som en del av pip-beroendet
@@ -228,7 +255,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
     + Lägg till true_ys valfri parameter till förklarings överföring för att aktivera ytterligare funktioner i Studio UI
     + Förbättra prestanda för download_model_explanations () och list_model_explanations ()
     + Små justeringar av antecknings böcker, för att hjälpa till med fel sökning
-  + **azureml – OpenData uppsättningar**
+  + **azureml-opendatasets**
     + azureml-opendatasets behöver azureml-nu version 1.4.0 eller högre. Varning har lagts till om lägre version identifieras
   + **azureml-pipeline-core**
     + Den här ändringen gör att användaren kan ange en valfri runconfig till moduleVersion vid anrop till modulen. Publish_python_script.
@@ -322,7 +349,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
   + **azureml-interpret**
     + Dokumentations uppdateringar av azureml-tolknings paketet.
     + Fasta tolknings paket och antecknings böcker är kompatibla med den senaste sklearn-uppdateringen
-  + **azureml – OpenData uppsättningar**
+  + **azureml-opendatasets**
     + returnera ingen när inga data returneras.
     + Förbättra prestanda för to_pandas_dataframe.
   + **azureml-pipeline-core**
@@ -459,7 +486,7 @@ Nu kan du skapa, redigera och dela Machine Learning-anteckningsböcker och filer
 
 Få åtkomst till följande webbaserade redigerings verktyg från Studio:
     
-| Webbaserat verktyg  |     Description  | Utgåva | 
+| Webbaserat verktyg  |     Beskrivning  | Utgåva | 
 |---|---|---|
 | Azure ML Studio-anteckningsböcker   |     Första redigering i klass för notebook-filer och stöd för alla åtgärder som är tillgängliga i Azure ML python SDK. | Basic & Enterprise  |   
 
@@ -534,7 +561,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
   + **azureml-train-automl-runtime**
     + Ytterligare telemetri kring åtgärder efter utbildning har lagts till.
     + stöd för sparse-AutoML E2E har lagts till
-  + **azureml – OpenData uppsättningar**
+  + **azureml-opendatasets**
     + Ytterligare telemetri för tjänst övervakaren har lagts till.
     + Aktivera front dörren för BLOB för att öka stabiliteten 
 
@@ -971,7 +998,7 @@ Från Studio kan du träna, testa, distribuera och hantera Azure Machine Learnin
 
 Få åtkomst till följande webbaserade redigerings verktyg från Studio:
 
-| Webbaserat verktyg | Description | Utgåva |
+| Webbaserat verktyg | Beskrivning | Utgåva |
 |-|-|-|
 | Notebook VM (för hands version) | Helt hanterad molnbaserad arbets Station | Basic & Enterprise |
 | [Automatisk maskin inlärning](tutorial-first-experiment-automated-ml.md) (för hands version) | Ingen kod upplevelse för automatisering av maskin inlärnings modell utveckling | Stora företag |
@@ -1723,7 +1750,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
     + Strängar accepteras nu som beräknings mål för automatisk justering av den automatiska inställningen.
     + Föråldrade inställningen för oanvända RunConfiguration i auto_prepare_environment.
     + Föråldrade parametrar `conda_dependencies_file_path` och deras `pip_requirements_file_path` prioriterade respektive `conda_dependencies_file` `pip_requirements_file` .
-  + **azureml – OpenData uppsättningar**
+  + **azureml-opendatasets**
     + Förbättra NoaaIsdWeather-prestanda i en icke-SPARK-version avsevärt.
 
 ## <a name="2019-04-26"></a>2019-04-26

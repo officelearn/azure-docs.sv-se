@@ -1,20 +1,20 @@
 ---
 title: Skapa och hantera krypterings omfång (förhands granskning)
-description: ''
+description: Lär dig hur du skapar en krypterings omfattning för att isolera BLOB-data på container-eller BLOB-nivå.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 07/13/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f589f0108cf21e77be5103afcaa0242c6f191ab3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d4dd3f3ced8aac6852fe8516a4a5cadca2ebdc49
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532474"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564154"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Skapa och hantera krypterings omfång (förhands granskning)
 
@@ -24,7 +24,7 @@ Den här artikeln visar hur du skapar en krypterings omfattning. Det visar ocks�
 
 ## <a name="create-an-encryption-scope"></a>Skapa ett krypterings omfång
 
-Om du vill skapa en krypterings omfattning måste du först skapa ett Azure Key Vault och lägga till den nyckel som du vill använda för omfånget. Nyckel valvet måste ha både egenskaperna för **mjuk borttagning** och **rensning** aktive rad och måste finnas i samma region som lagrings kontot. Mer information finns i [använda Kundhanterade nycklar med Azure Key Vault för att hantera Azure Storage kryptering](../common/encryption-customer-managed-keys.md).
+Du kan skapa krypterings områden med en Microsoft-hanterad nyckel eller med en kundhanterad nyckel som lagras i Azure Key Vault. Om du vill skapa en krypterings omfattning med en kundhanterad nyckel måste du först skapa ett Azure Key Vault och lägga till den nyckel som du vill använda för omfånget. Nyckel valvet måste ha både egenskaperna för **mjuk borttagning** och **rensning** aktive rad och måste finnas i samma region som lagrings kontot. Mer information finns i [använda Kundhanterade nycklar med Azure Key Vault för att hantera Azure Storage kryptering](../common/encryption-customer-managed-keys.md).
 
 En krypterings omfattning aktive ras automatiskt när du skapar den. När du har skapat krypterings omfånget kan du ange det när du skapar en blob. Du kan också ange ett standard krypterings omfång när du skapar en behållare, som automatiskt tillämpas på alla blobar i behållaren.
 

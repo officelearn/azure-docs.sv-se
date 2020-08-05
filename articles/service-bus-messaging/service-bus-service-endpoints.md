@@ -4,12 +4,12 @@ description: Den här artikeln innehåller information om hur du lägger till en
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4518f7faedb44631c76c6d8b42ff9cca0dc3e08c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f902c77c3c7e614247abd4f8af50b8ed37b7e574
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422954"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552993"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Tillåt åtkomst till Azure Service Bus namnrymd från vissa virtuella nätverk
 
@@ -32,6 +32,7 @@ Resultatet är en privat och isolerad relation mellan arbets belastningarna som 
 > De Microsoft-tjänster som behövs nedan måste finnas i ett virtuellt nätverk
 > - Azure App Service
 > - Azure Functions
+> - Azure Monitor (diagnostisk inställning)
 
 > [!IMPORTANT]
 > Virtuella nätverk stöds endast på [Premium-nivå](service-bus-premium-messaging.md) Service Bus namn områden.

@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 5b95ae3c7fcf52a732304bb835f91c52b015801e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: aa9a930195908671cc0e772fd9643dcbce9dbb1c
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128938"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562420"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Vanliga frågor och svar om Active Directory (Azure AD) Application Proxy
 
@@ -44,6 +44,10 @@ Nej, det här scenariot stöds inte. Standardinställningarna är:
 
 - Microsoft AAD Application Proxy Connector-WAPCSvc-Network Service
 - Microsoft AAD Application Proxy Connector Updater-WAPCUpdaterSvc-NT Instans\system
+
+### <a name="can-a-guest-user-with-the-global-administrator-or-the-application-administrator-role-register-the-connector-for-the-guest-tenant"></a>Kan en gäst användare med rollen global administratör eller program administratör registrera anslutningen till klienten (gäst)?
+
+Nej, det är för närvarande inte möjligt. Registrerings försöket görs alltid på användarens hem klient.
 
 ### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>Mitt backend-program finns på flera webb servrar och kräver varaktighet (User session persistence). Hur kan jag få en beständig session? 
 

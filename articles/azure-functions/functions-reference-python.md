@@ -4,12 +4,12 @@ description: Förstå hur du utvecklar funktioner med python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 3d3e313d464a8da8b62d5c22b5983c6458f42b5d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 6be225c1384892dfdb94da3375707351887c8344
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170385"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564018"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
@@ -434,8 +434,8 @@ Du kan också använda Azure-pipelines för att bygga dina beroenden och publice
 
 ### <a name="remote-build"></a>Fjärrversion
 
-När du använder fjärran sluten build matchas beroenden som återställs på servern och ursprungliga beroenden till produktions miljön. Detta resulterar i ett mindre distributions paket att ladda upp. Använd fjärran sluten skapande när du utvecklar python-appar i Windows. Om ditt projekt har anpassade beroenden kan du [använda fjärrbuild med extra index-URL](#remote-build-with-extra-index-url). 
- 
+När du använder fjärran sluten build matchas beroenden som återställs på servern och ursprungliga beroenden till produktions miljön. Detta resulterar i ett mindre distributions paket att ladda upp. Använd fjärran sluten skapande när du utvecklar python-appar i Windows. Om ditt projekt har anpassade beroenden kan du [använda fjärrbuild med extra index-URL](#remote-build-with-extra-index-url).
+
 Beroenden hämtas via fjärr anslutning baserat på innehållet i requirements.txts filen. [Fjärran slutet](functions-deployment-technologies.md#remote-build) är den rekommenderade build-metoden. Som standard begär Azure Functions Core Tools en fjärr anslutning när du använder följande [FUNC Azure functionapp Publish](functions-run-local.md#publish) -kommando för att publicera ditt python-projekt till Azure.
 
 ```bash
@@ -456,7 +456,7 @@ func azure functionapp publish <APP_NAME> --build local
 
 Kom ihåg att ersätta `<APP_NAME>` med namnet på din Function-app i Azure.
 
-Med `--build local` alternativet läses projekt beroenden från requirements.txt-filen och de beroende paketen hämtas och installeras lokalt. Projektfiler och beroenden distribueras från den lokala datorn till Azure. Detta innebär att ett större distributions paket överförs till Azure. Om det av någon anledning inte går att hämta beroenden i requirements.txt-filen av kärn verktyg måste du använda alternativet anpassade beroenden för att publicera. 
+Med `--build local` alternativet läses projekt beroenden från requirements.txt-filen och de beroende paketen hämtas och installeras lokalt. Projektfiler och beroenden distribueras från den lokala datorn till Azure. Detta innebär att ett större distributions paket överförs till Azure. Om det av någon anledning inte går att hämta beroenden i requirements.txt-filen av kärn verktyg måste du använda alternativet anpassade beroenden för att publicera.
 
 Vi rekommenderar inte att du använder lokala versioner när du utvecklar lokalt i Windows.
 
@@ -466,7 +466,7 @@ När projektet har beroenden som inte finns i [python-paketets index](https://py
 
 #### <a name="remote-build-with-extra-index-url"></a>Fjärrbuild med extra index-URL
 
-När dina paket är tillgängliga från ett tillgängligt anpassat paket index använder du en fjärran sluten version. Innan du publicerar bör du se till att [skapa en app-inställning](functions-how-to-use-azure-function-app-settings.md#settings) med namnet `PIP_EXTRA_INDEX_URL` . Värdet för den här inställningen är URL: en för det anpassade paket indexet. Med den här inställningen anger du att fjärrversionen ska köras `pip install` med `--extra-index-url` alternativet. Mer information finns i [installations dokumentationen för python pip](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format). 
+När dina paket är tillgängliga från ett tillgängligt anpassat paket index använder du en fjärran sluten version. Innan du publicerar bör du se till att [skapa en app-inställning](functions-how-to-use-azure-function-app-settings.md#settings) med namnet `PIP_EXTRA_INDEX_URL` . Värdet för den här inställningen är URL: en för det anpassade paket indexet. Med den här inställningen anger du att fjärrversionen ska köras `pip install` med `--extra-index-url` alternativet. Mer information finns i [installations dokumentationen för python pip](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format).
 
 Du kan också använda grundläggande autentiseringsuppgifter för autentisering med dina extra paket index-URL: er. Mer information finns i [grundläggande autentiseringsuppgifter för autentisering](https://pip.pypa.io/en/stable/user_guide/#basic-authentication-credentials) i python-dokumentationen.
 
@@ -658,11 +658,14 @@ Om du vill visa fullständig information om listan över dessa bibliotek kan du 
 
 Funktionen python Worker kräver en speciell uppsättning bibliotek. Du kan också använda dessa bibliotek i dina funktioner, men de är inte en del av python-standarden. Om dina funktioner är beroende av något av dessa bibliotek är de kanske inte tillgängliga för din kod när de körs utanför Azure Functions. Du hittar en detaljerad lista över beroenden i avsnittet **installations \_ krav** i [Setup.py](https://github.com/Azure/azure-functions-python-worker/blob/dev/setup.py#L282) -filen.
 
+> [!NOTE]
+> Om Function-appens requirements.txt innehåller en `azure-functions-worker` post tar du bort den. Functions Worker hanteras automatiskt av Azure Functions plattform och vi uppdaterar den regelbundet med nya funktioner och fel korrigeringar. Att manuellt installera en gammal version av Worker i requirements.txt kan orsaka oväntade problem.
+
 ### <a name="azure-functions-python-library"></a>Azure Functions python-bibliotek
 
 Varje python Worker-uppdatering innehåller en ny version av [Azure Functions python-bibliotek (Azure. Functions)](https://github.com/Azure/azure-functions-python-library). Den här metoden gör det enklare att kontinuerligt uppdatera dina python Function-appar eftersom varje uppdatering är bakåtkompatibel. En lista över versioner av det här biblioteket finns i [Azure-Functions PyPi](https://pypi.org/project/azure-functions/#history).
 
-Körnings bibliotekets version korrigeras av Azure och kan inte åsidosättas av requirements.txt. `azure-functions`Posten i requirements.txt är endast för att kunna luddfri och kund medvetenhet. 
+Körnings bibliotekets version korrigeras av Azure och kan inte åsidosättas av requirements.txt. `azure-functions`Posten i requirements.txt är endast för att kunna luddfri och kund medvetenhet.
 
 Använd följande kod för att spåra den faktiska versionen av python Functions-biblioteket i din körnings miljö:
 
@@ -689,7 +692,8 @@ CORS stöds fullt ut för python-Function-appar.
 
 Följande är en lista över fel söknings guider för vanliga problem:
 
-* [ModuleNotFoundError och ImportError](recover-module-not-found.md)
+* [ModuleNotFoundError och ImportError](recover-python-functions.md#troubleshoot-modulenotfounderror)
+* [Det går inte att importera ' cygrpc '](recover-python-functions.md#troubleshoot-cannot-import-cygrpc)
 
 Alla kända problem och funktions begär Anden spåras med hjälp av listan med [GitHub-problem](https://github.com/Azure/azure-functions-python-worker/issues) . Om du stöter på ett problem och inte kan hitta problemet i GitHub, öppnar du ett nytt ärende och innehåller en detaljerad beskrivning av problemet.
 

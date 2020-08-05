@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 867c32203d8f780b307ede2ba2916ad4e82e1136
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 5b83c60182c311d9b04a205da4ab0c3477dc9b9e
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373256"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563712"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Använda Azure Digital Twins-API:er och -SDK:er
 
@@ -43,7 +43,7 @@ Data Plans-API: erna används för att hantera elementen i Azure Digitals-instan
 * **Fråga** – kategorin fråga gör det möjligt [för utvecklare att hitta uppsättningar digitala delar i det dubbla diagrammet](how-to-query-graph.md) mellan relationer.
 * **EventRoutes** – EventRoutes-kategorin innehåller API: er för att [dirigera data](concepts-route-events.md)genom systemet och till underordnade tjänster.
 
-Den mest aktuella data planet API-versionen för den offentliga för hands versionen är _**2020-05-31 – för hands**_ version.
+Den mest aktuella data planet API-versionen för den offentliga för hands versionen är _**2020-05-31 – för hands**_ version. API _-versionen 2020-03-01-Preview_ för data Plans åtgärder har nu blivit föråldrad.
 
 Använda data Plans-API: er:
 * Du kan anropa API: erna direkt, efter...

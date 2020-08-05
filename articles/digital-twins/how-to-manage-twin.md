@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 48b8175ed5f753ffe7b62d3e97f4fe20f60da5ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0f4d9811dc288222c0a2190805a8b052cb1ae47b
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87061595"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563933"
 ---
 # <a name="manage-digital-twins"></a>Hantera digitala tvillingar
 
@@ -37,10 +37,10 @@ Om du vill skapa en digital Digital måste du ange:
 
 Om du vill kan du ange startvärden för alla egenskaper för den digitala, dubbla. 
 
-> [!TIP]
-> Endast egenskaper som har angetts minst en gång returneras när du hämtar en GetDigitalTwin.  
-
 Värdena modell och initial egenskap anges via `initData` parametern, som är en JSON-sträng som innehåller relevanta data.
+
+> [!TIP]
+> När du har skapat eller uppdaterat en dubbel, kan det finnas en fördröjning på upp till 10 sekunder innan ändringarna visas i [frågor](how-to-query-graph.md). `GetDigitalTwin`API (beskrivs [längre fram i den här artikeln](#get-data-for-a-digital-twin)) förväntar sig inte den här fördröjningen, så Använd API-anropet i stället för att fråga om du vill se dina nyskapade dubblare om du behöver ett direkt svar. 
 
 ### <a name="initialize-properties"></a>Initiera egenskaper
 
@@ -90,6 +90,9 @@ object result = await client.GetDigitalTwin(id);
 ```
 
 Anropet returnerar dubbla data som en JSON-sträng. 
+
+> [!TIP]
+> Endast egenskaper som har angetts minst en gång returneras när du hämtar ett dubbla med `GetDigitalTwin` .
 
 Om du vill hämta flera multiplar med ett enda API-anrop, se fråge-API-exemplen i [*How-to: fråga det dubbla diagrammet*](how-to-query-graph.md).
 
@@ -148,7 +151,7 @@ Resultatet av att ringa `object result = await client.DigitalTwins.GetByIdAsync(
 De definierade egenskaperna för den digitala kanten returneras som toppnivå egenskaper på den digitala dubbla. Metadata-eller system information som inte ingår i DTDL-definitionen returneras med ett `$` prefix. Metadata-egenskaper inkluderar:
 * ID: t för den digitala dubbla i den här Azure Digital-instansen, som `$dtId` .
 * `$etag`, ett standard-HTTP-fält som tilldelas av webb servern
-* Andra egenskaper i ett `$metadata` avsnitt. Exempel på dessa är:
+* Andra egenskaper i ett `$metadata` avsnitt. Dessa omfattar:
     - DTMI för den digitala dubbla.
     - Synkroniseringsstatus för varje skrivbar egenskap. Detta är mest användbart för enheter, där det är möjligt att tjänsten och enheten har avvikande status (till exempel när en enhet är offline). Den här egenskapen gäller för närvarande endast för fysiska enheter som är anslutna till IoT Hub. Med data i avsnittet metadata är det möjligt att förstå fullständig status för en egenskap samt de senast ändrade tidsstämplar. Mer information om synkroniseringsstatus finns i [den här IoT Hub själv studie kursen](../iot-hub/tutorial-device-twins.md) om synkronisering av enhets status.
     - Tjänstspecifika metadata, t. ex. från IoT Hub eller Azure digitala dubbla. 
@@ -174,7 +177,12 @@ Du kan läsa mer om serialiserings hjälp klasser i [*How-to: använda Azure Dig
 
 Om du vill uppdatera egenskaperna till en digital, skriver du den information som du vill ersätta i [JSON patch](http://jsonpatch.com/) -format. På så sätt kan du ersätta flera egenskaper samtidigt. Sedan skickar du JSON-korrigerings dokumentet till en `Update` metod:
 
-`await client.UpdateDigitalTwin(id, patch);`.
+```csharp
+await client.UpdateDigitalTwin(id, patch);
+```
+
+> [!TIP]
+> När du har skapat eller uppdaterat en dubbel, kan det finnas en fördröjning på upp till 10 sekunder innan ändringarna visas i [frågor](how-to-query-graph.md). `GetDigitalTwin`API: et (beskrivs [tidigare i den här artikeln](#get-data-for-a-digital-twin)) förväntar sig inte den här fördröjningen, så Använd API-anropet istället för att fråga om du vill se dina nyligen uppdaterade dubbla om du behöver ett direkt svar. 
 
 Här är ett exempel på en JSON-patch-kod. Det här dokumentet ersätter *Mass* *-och RADIUS-* egenskapsvärdena för det digitala dubbla objektet som tillämpas på.
 

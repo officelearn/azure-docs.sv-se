@@ -11,17 +11,17 @@ author: blackmist
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 88a122a9af4a5edac45a3189df5ffb78fb2ce271
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: e12c22d56399ce1690bee678623c58288cf0163b
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423821"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552211"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Övervaka och samla in data från ML webb tjänst slut punkter
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du samlar in data från och övervakar modeller som har distribuerats till webb tjänst slut punkter i Azure Kubernetes service (AKS) eller Azure Container Instances (ACI) genom att aktivera Azure Application insikter via 
+I den här artikeln får du lära dig hur du samlar in data från och övervakar modeller som har distribuerats till webb tjänst slut punkter i Azure Kubernetes service (AKS) eller Azure Container Instances (ACI) genom att skicka frågor till loggar och aktivera Azure Application insikter via 
 * [Azure Machine Learning python SDK](#python)
 * [Azure Machine Learning Studio](#studio) påhttps://ml.azure.com
 
@@ -42,6 +42,18 @@ Förutom att samla in en slut punkts utdata och svar kan du övervaka:
 
 * En utbildad maskin inlärnings modell som ska distribueras till Azure Kubernetes service (AKS) eller Azure Container Instance (ACI). Om du inte har något kan du läsa själv studie kursen [träna bild klassificerings modell](tutorial-train-models-with-aml.md)
 
+## <a name="query-logs-for-deployed-models"></a>Fråga efter loggar för distribuerade modeller
+
+Om du vill hämta loggar från en tidigare distribuerad webb tjänst läser du in tjänsten och använder `get_logs()` funktionen. Loggarna kan innehålla detaljerad information om eventuella fel som uppstod under distributionen.
+
+```python
+from azureml.core.webservice import Webservice
+
+# load existing web service
+service = Webservice(name="service-name", workspace=ws)
+logs = service.get_logs()
+```
+
 ## <a name="web-service-metadata-and-response-data"></a>Metadata och svars data för webb tjänst
 
 > [!IMPORTANT]
@@ -50,6 +62,7 @@ Förutom att samla in en slut punkts utdata och svar kan du övervaka:
 Om du vill logga information om en begäran till webb tjänsten lägger du till `print` instruktioner till din score.py-fil. Varje `print` instruktion resulterar i en post i spårnings tabellen i Application Insights under meddelandet `STDOUT` . Innehållet i `print` instruktionen kommer att finnas under `customDimensions` och sedan `Contents` i spårnings tabellen. Om du skriver ut en JSON-sträng skapar den en hierarkisk data struktur i spårningens utdata under `Contents` .
 
 Du kan fråga Azure Application insikter direkt för att komma åt dessa data eller konfigurera en [kontinuerlig export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) till ett lagrings konto för längre kvarhållning eller ytterligare bearbetning. Modell data kan sedan användas i Azure Machine Learning för att konfigurera etiketter, omskolning, bedömning, data analys eller annan användning. 
+
 
 <a name="python"></a>
 
@@ -164,7 +177,7 @@ Så här visar du det:
 1. Gå till din Azure Machine Learning arbets yta i [Studio](https://ml.azure.com/).
 1. Välj **slut punkter**.
 1. Välj den distribuerade tjänsten.
-1. Rulla ned för att hitta **Application Insights URL** och klicka på länken.
+1. Rulla ned för att hitta **Application Insights URL** och välj länken.
 
     [![Hitta Application Insights-URL](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 

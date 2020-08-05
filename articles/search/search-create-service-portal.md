@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: 18204777a8e61b577b257b67cdd12bed1a5534fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b9507e500282afbdfba5cedd5420974aa8b3ade8
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529632"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554030"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Snabbstart: Skapa en Azure Cognitive Search-tjänst i portalen
 
@@ -29,9 +29,9 @@ Föredrar du PowerShell? Använd [tjänstmallen](https://azure.microsoft.com/res
 
 Följande tjänst egenskaper har åtgärd ATS för livs längden för tjänsten – om du ändrar någon av dem krävs en ny tjänst. Eftersom de är fasta bör du tänka på användnings konsekvenserna när du fyller i varje egenskap:
 
-* tjänst namnet blir en del av URL-slutpunkten ([gransknings tips](#name-the-service) för användbara tjänst namn).
-* tjänst nivån [påverkar faktureringen](search-sku-tier.md) och ställer in en övre gräns för kapacitet.
-* tjänste region kan avgöra om vissa scenarier är tillgängliga. Om du är intresse rad av kunskaps utvinning och AI-berikning behöver du Cognitive Services och eventuellt Azure Machine Learning i samma region som Azure-Kognitiv sökning.
+* Tjänst namnet blir en del av URL-slutpunkten ([gransknings tips](#name-the-service) för användbara tjänst namn).
+* Tjänst nivån [påverkar faktureringen](search-sku-tier.md) och ställer in en övre gräns för kapacitet. Vissa funktioner är inte tillgängliga på den kostnads fria nivån.
+* Tjänste region kan avgöra om vissa scenarier är tillgängliga. Om du behöver [hög säkerhetsfunktioner](search-security-overview.md) eller [AI-berikning](cognitive-search-concept-intro.md)måste du placera Azure kognitiv sökning i samma region som andra tjänster, eller i regioner som tillhandahåller funktionen i fråga. 
 
 ## <a name="subscribe-free-or-paid"></a>Prenumerera (kostnadsfritt eller betalt)
 
@@ -51,7 +51,7 @@ Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/
 
 ## <a name="choose-a-subscription"></a>Välj en prenumeration
 
-Om du har mer än en prenumeration väljer du en för Sök tjänsten.
+Om du har mer än en prenumeration väljer du en för Sök tjänsten. Om du implementerar [Double Encryption](search-security-overview.md#double-encryption) eller andra funktioner som är beroende av hanterade tjänst identiteter väljer du samma prenumeration som den som används för Azure Key Vault eller andra tjänster för vilka hanterade identiteter används.
 
 ## <a name="set-a-resource-group"></a>Ange en resurs grupp
 
@@ -89,6 +89,8 @@ Azure Kognitiv sökning är tillgängligt i de flesta regioner. Du hittar en lis
 
 > [!Note]
 > Centrala Indien och Förenade Arabemiraten Nord är för närvarande inte tillgängliga för nya tjänster. För tjänster som redan finns i dessa regioner kan du skala upp utan begränsningar och tjänsten stöds fullt ut i den regionen. Begränsningarna är temporära och begränsade till endast nya tjänster. Vi tar bort den här anteckningen när begränsningarna inte längre gäller.
+>
+> Double Encryption är bara tillgängligt i vissa regioner. Mer information finns i [Double Encryption](search-security-overview.md#double-encryption).
 
 ### <a name="requirements"></a>Krav
 

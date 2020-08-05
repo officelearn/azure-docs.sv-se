@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: sudbalas
-ms.openlocfilehash: 91068bacee0bde9e11cc23816bd8e2a101854fb2
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: c75da4c27eae76df51836143c4fb383a1473159a
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388217"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564137"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>Mjuk borttagning aktive ras på alla nyckel valv
 
@@ -48,7 +48,7 @@ Säkerhets objekt som behöver åtkomst för att permanent ta bort hemligheter m
 
 Om du har en Azure Policy på nyckel valven som bestämmer att mjuk borttagning är inaktive rad måste den här principen inaktive ras.  Du kan behöva eskalera det här problemet till en administratör som styr vilka Azure-principer som tillämpas på din miljö. Om den här principen inte är inaktive rad kan du förlora möjligheten att skapa nya nyckel valv i omfånget för den tillämpade principen.
 
-Om din organisation omfattas av juridiska krav för efterlevnad och inte kan tillåta att borttagna nyckel valv och hemligheter behålls i ett återställnings Bart tillstånd, måste du under en längre tid ändra kvarhållningsperioden för mjuk borttagning, vilket kan konfigureras mellan 7 – 90 dagar för att uppfylla organisationens standarder.
+Om din organisation omfattas av krav för juridisk efterlevnad och inte tillåter att borttagna nyckel valv och hemligheter behålls i ett återställnings Bart tillstånd, måste du under en längre tid ändra kvarhållningsperioden för mjuk borttagning, vilket kan konfigureras mellan 7 – 90 dagar för att uppfylla organisationens standarder.
 
 ## <a name="procedures"></a>Procedurer
 
@@ -66,14 +66,14 @@ Om din organisation omfattas av juridiska krav för efterlevnad och inte kan til
 10. Klicka på "efterlevnad" på bladet Azure Policy.
 11. Välj den princip som du använde.
 
-Nu bör du kunna filtrera och se vilka av dina nyckel valv som har mjuk borttagning aktiverat (kompatibla resurser) och vilka nyckel valv som inte har mjuk borttagning aktive rad (icke-kompatibel omkällaad).
+Nu bör du kunna filtrera och se vilka av dina nyckel valv som har mjuk borttagning aktiverat (kompatibla resurser) och vilka nyckel valv som inte har mjuk borttagning aktiverat (icke-kompatibla resurser).
 
 ### <a name="turn-on-soft-delete-for-an-existing-key-vault"></a>Aktivera mjuk borttagning för ett befintligt nyckel valv
 
 1. Logga in på Azure Portal.
 2. Sök efter din Key Vault.
 3. Välj "egenskaper" under Inställningar.
-4. Under mjuk borttagning väljer du alternativ knappen som motsvarar "Aktivera återställning. i det här valvet och dess objekt ".
+4. Under mjuk borttagning väljer du alternativ knappen som motsvarar "Aktivera återställning av det här valvet och dess objekt".
 5. Ange kvarhållningsperiod för mjuk borttagning.
 6. Välj "Spara".
 

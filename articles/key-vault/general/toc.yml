@@ -6,6 +6,8 @@
       href: overview.md
     - name: 'Om nycklar, hemligheter och certifikat'
       href: about-keys-secrets-certificates.md
+    - name: Nyheter
+      href: whats-new.md
 - name: Snabbstarter
   expanded: true
   items:

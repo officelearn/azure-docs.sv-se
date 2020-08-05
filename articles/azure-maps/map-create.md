@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: b7bebfb227de3f9f1c51024845054d2d7a02f923
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 77eaa3e1f4390182ad210ae3aa2ce6a1427d8b0f
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285653"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551905"
 ---
 # <a name="create-a-map"></a>Skapa en karta
 
@@ -128,6 +128,47 @@ I följande kod skapar det första kod blocket en karta och anger kart formaten 
 <iframe height='500' scrolling='no' title='Animera Map-vy' src='//codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Map- <a href='https://codepen.io/azuremaps/pen/WayvbO/'>vyn</a> för pen-animering efter Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+## <a name="request-transforms"></a>Begär transformeringar
+
+Ibland är det praktiskt att kunna ändra HTTP-begäranden som görs av kart kontrollen. Exempel:
+
+- Lägg till ytterligare rubriker i panel begär Anden. Detta görs ofta för lösenordsskyddade tjänster.
+- Ändra URL: er för att köra begär Anden via en proxy-tjänst.
+
+[Tjänst alternativen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.serviceoptions) för kartan har en `transformRequest` som kan användas för att ändra alla begär Anden som görs av kartan innan de görs. `transformRequest`Alternativet är en funktion som tar i två parametrar, en sträng-URL och en resurs typs sträng som anger vad begäran används för. Den här funktionen måste returnera ett [RequestParameters](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.requestparameters) -resultat.
+
+```JavaScript
+transformRequest: (url: string, resourceType: string) => RequestParameters
+```
+
+I följande exempel visas hur du använder detta för att ändra alla begär anden till storleken `https://example.com` genom att lägga till ett användar namn och ett lösen ord som rubriker i begäran.
+
+```JavaScript
+var map = new atlas.Map('myMap', {
+    transformRequest: function (url, resourceType) {
+        //Check to see if the request is to the specified endpoint.
+        if (url.indexOf('https://examples.com') > -1) {
+            //Add custom headers to the request.
+            return {
+                url: url,
+                header: {
+                    username: 'myUsername',
+                    password: 'myPassword'
+                }
+            };
+        }
+
+        //Return the URL unchanged by default.
+        return { url: url };
+    },
+
+    authOptions: {
+        authType: 'subscriptionKey',
+        subscriptionKey: '<Your Azure Maps Key>'
+    }
+});
+```
+
 ## <a name="try-out-the-code"></a>Testa koden
 
 Titta på kod exemplen. Du kan redigera JavaScript-koden inuti **fliken JS** och se ändringarna i Map-vyn på **fliken resultat**. Du kan också klicka på **Redigera på CodePen**, i det övre högra hörnet och ändra koden i CodePen.
@@ -139,7 +180,7 @@ Titta på kod exemplen. Du kan redigera JavaScript-koden inuti **fliken JS** och
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
 > [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions)

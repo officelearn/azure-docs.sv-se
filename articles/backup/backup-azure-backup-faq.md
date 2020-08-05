@@ -3,12 +3,12 @@ title: Svar på vanliga frågor
 description: 'Svar på vanliga frågor om: Azure Backup-funktioner inklusive Recovery Services-valvet, vad du kan säkerhetskopiera, hur det fungerar, kryptering och gränser. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 4273d93e36dd8d956246811dd3f1d71d96ddcb68
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 95d515e65e31304dd4839f851736be6926a5a29f
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532466"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553095"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Vanliga frågor och svar
 
@@ -196,6 +196,10 @@ När en ny princip tillämpas följs schemat och kvarhållningstiden för den ny
 
 - Om kvarhållning är utökad markeras befintliga återställnings punkter för att behålla dem enligt den nya principen.
 - Om kvarhållningen minskar markeras de för rensning under nästa rensningsjobb och tas sedan bort.
+
+### <a name="how-long-is-data-retained-when-stopping-backups-but-selecting-the-option-to-retain-backup-data"></a>Hur länge sparas data när säkerhets kopieringen stoppas, men om du väljer alternativet att behålla säkerhetskopierade data?
+
+När säkerhets kopieringen stoppas och data bevaras, kommer befintliga princip regler för data rensning att upphöra att gälla utan att de kommer att ha initierats av administratören för borttagning.
 
 ## <a name="encryption"></a>Kryptering
 

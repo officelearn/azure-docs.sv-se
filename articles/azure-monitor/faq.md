@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: ff7472b764b0e65d69d9b694603e145440e89c0d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 211b7aedc901031e366c60a6c7a2cee396bbe124
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318121"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563848"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor
 
@@ -137,7 +137,7 @@ Azure Diagnostic Extension är för Azure Virtual Machines och samlar in data f�
 Trafik till Azure Monitor använder Microsoft peering ExpressRoute-kretsen. Se [ExpressRoute-dokumentationen](../expressroute/expressroute-faqs.md#supported-services) för en beskrivning av de olika typerna av ExpressRoute-trafik. 
 
 ### <a name="how-can-i-confirm-that-the-log-analytics-agent-is-able-to-communicate-with-azure-monitor"></a>Hur kan jag bekräfta att Log Analytics-agenten kan kommunicera med Azure Monitor?
-Från kontroll panelen på agent datorn väljer du **säkerhets & inställningar**, **Microsoft Monitoring Agent** . På fliken **Azure Log Analytics (OMS)** bekräftar en grön kryss markerings ikon att agenten kan kommunicera med Azure Monitor. En gul varnings ikon innebär att agenten har problem. En vanlig orsak är att **Microsoft Monitoring Agent** -tjänsten har stoppats. Använd Service Control Manager för att starta om tjänsten.
+Från kontroll panelen på agent datorn väljer du **säkerhets & inställningar**, * * Microsoft Monitoring Agent. På fliken **Azure Log Analytics (OMS)** bekräftar en grön kryss markerings ikon att agenten kan kommunicera med Azure Monitor. En gul varnings ikon innebär att agenten har problem. En vanlig orsak är att **Microsoft Monitoring Agent** -tjänsten har stoppats. Använd Service Control Manager för att starta om tjänsten.
 
 ### <a name="how-do-i-stop-the-log-analytics-agent-from-communicating-with-azure-monitor"></a>Hur gör jag för att stoppar du Log Analyticss agenten från att kommunicera med Azure Monitor?
 För agenter som är anslutna till Log Analytics direkt öppnar du kontroll panelen och väljer **säkerhets & inställningar**, **Microsoft Monitoring Agent**. Ta bort alla arbets ytor som visas under fliken **Azure Log Analytics (OMS)** . I System Center Operations Manager tar du bort datorn från listan Log Analytics hanterade datorer. Operations Manager uppdaterar agentens konfiguration så att den inte längre rapporterar till Log Analytics. 
@@ -207,7 +207,7 @@ View Designer är bara tillgängligt för användare som har tilldelats deltagar
 * [Konfigurera en ASP.NET-Server](app/monitor-performance-live-website-now.md)
 * [Konfigurera en Java-Server](app/java-agent.md)
 
-*Hur många Application Insights bör jag distribuera?:*
+*Hur många Application Insights-resurser ska jag distribuera:*
 
 * [Hur du utformar din Application Insights-distribution: en till många Application Insights resurser?](app/separate-resources.md)
 
@@ -509,6 +509,15 @@ De flesta Application Insights data har en fördröjning på under 5 minuter. Vi
 [start]: app/app-insights-overview.md
 [windows]: app/app-insights-windows-get-started.md
 
+### <a name="http-502-and-503-responses-are-not-always-captured-by-application-insights"></a>HTTP 502-och 503-svar fångas inte alltid av Application Insights
+
+felen "502 Felaktig gateway" och "503-tjänst ej tillgänglig" är inte alltid hämtade av Application Insights. Om endast Java Script på klient sidan används för övervakning förväntas detta, eftersom fel svaret returneras före sidan som innehåller HTML-huvudet och det övervaknings-JavaScript-kodfragment som återges. 
+
+Om 502-eller 503-svaret skickades från en server med övervakning på Server sidan, skulle felen samlas in av Application Insights SDK. 
+
+Det finns dock fortfarande fall där övervakning på Server sidan har Aktiver ATS på ett programs webb server som ett 502-eller 503-fel inte kommer att fångas av Application Insights. Många moderna webb servrar tillåter inte att en klient kommunicerar direkt, utan använder i stället lösningar som omvända proxyservrar för att överföra information fram och tillbaka mellan klienten och frontend-webbservrar. 
+
+I det här scenariot kan ett 502-eller 503-svar returneras till en klient på grund av ett problem med det omvända proxy-lagret och det skulle inte samlas in direkt av Application Insights. För att hjälpa att identifiera problem i det här lagret kan du behöva vidarebefordra loggar från den omvända proxyn till Log Analytics och skapa en anpassad regel för att söka efter 502/503 svar. Mer information om vanliga orsaker till 502 och 503-fel finns i [artikeln Azure App Service fel sökning för "502 Felaktig gateway" och "503 service är inte tillgänglig"](../app-service/troubleshoot-http-502-http-503.md).     
 
 ## <a name="azure-monitor-for-containers"></a>Azure Monitor för containrar
 

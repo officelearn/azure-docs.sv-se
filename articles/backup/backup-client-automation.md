@@ -3,12 +3,12 @@ title: Använd PowerShell för att säkerhetskopiera Windows Server till Azure
 description: I den här artikeln lär du dig hur du använder PowerShell för att konfigurera Azure Backup på Windows Server eller en Windows-klient och hur du hanterar säkerhets kopiering och återställning.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 116bdd6b5f48a9d5abc0f9f0d9ce61f857196fd2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0deccc49b82d4a8b81889c35174c3efa81b6d74d
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513735"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564035"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för Windows Server/Windows-klient med hjälp av PowerShell
 
@@ -148,7 +148,7 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault -
 ```
 
 På Windows Server-eller Windows-klientdatorn kör du cmdleten [Start-OBRegistration](/powershell/module/msonlinebackup/start-obregistration) för att registrera datorn med valvet.
-Detta, och andra cmdletar som används för säkerhets kopiering, kommer från MSONLINE-modulen, vilken mars-AgentInstaller har lagts till som en del av installations processen.
+Detta, och andra cmdletar som används för säkerhets kopiering, kommer från MSONLINE-modulen, vilken MARS-AgentInstaller har lagts till som en del av installations processen.
 
 Agentens installations program uppdaterar inte $Env:P SModulePath-variabeln. Det innebär att automatisk inläsning av modulen Miss lyckas. Du kan lösa detta genom att göra följande:
 

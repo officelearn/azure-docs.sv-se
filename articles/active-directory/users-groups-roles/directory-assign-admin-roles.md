@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a88e30e85402f60489839b0a34b5a793fd7192df
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0ae598fb9e4018369230de5fadcf173a3df9fb4c
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502485"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551701"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -87,7 +87,7 @@ Användare med den här rollen kan ange eller återställa autentiseringsuppgift
 Rollen [Privileged Authentication Administrator](#privileged-authentication-administrator) har behörighet kan framtvinga omregistrering och Multi-Factor Authentication för alla användare.
 
 > [!IMPORTANT]
-> Användare med den här rollen kan ändra autentiseringsuppgifter för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra autentiseringsuppgifterna för en användare kan innebära att du förutsätter att användarens identitet och behörigheter. Ett exempel:
+> Användare med den här rollen kan ändra autentiseringsuppgifter för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra autentiseringsuppgifterna för en användare kan innebära att du förutsätter att användarens identitet och behörigheter. Exempel:
 >
 >- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. De här apparna kan ha privilegierade behörigheter i Azure AD och inte beviljas till autentiserings administratörer. Genom den här sökvägen kan en administratörs administratör kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare anta identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
 >- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
@@ -195,8 +195,7 @@ Användare med den här rollen kan läsa grundläggande katalog information. Den
 Använd inte. Den här rollen tilldelas automatiskt till den Azure AD Connect tjänsten och är inte avsedd eller stöds inte för någon annan användning.
 
 ### <a name="directory-writers"></a>[Katalog skrivare](#directory-writers-permissions)
-
-Det här är en äldre roll som ska tilldelas till program som inte stöder [medgivande ramverket](../develop/quickstart-register-app.md). De ska inte tilldelas till några användare.
+Användare med den här rollen kan läsa och uppdatera grundläggande information om användare, grupper och tjänstens huvud namn. Tilldela endast den här rollen till program som inte stöder [medgivande ramverket](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). De ska inte tilldelas till några användare.
 
 ### <a name="dynamics-365-administrator--crm-administrator"></a>[Dynamics 365-administratör/CRM-administratör](#crm-service-administrator-permissions)
 
@@ -274,7 +273,7 @@ Användare med den här rollen kan ändra lösen ord, ogiltig uppdatera tokens, 
 * Rapport läsare
 
 > [!IMPORTANT]
-> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Ett exempel:
+> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Exempel:
 >
 >- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. De här apparna kan ha privilegierade behörigheter i Azure AD och beviljas ingen annan support administratör. Med hjälp av den här sökvägen kan IT-administratören kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare utgå från identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
 >- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
@@ -510,7 +509,7 @@ Användare med den här rollen kan skapa användare och hantera alla aspekter av
 | Endast på användare som inte är administratörer eller någon av följande begränsade administratörs roller:<ul><li>Katalog läsare<li>Grupp administratör<li>Gäst deltagare<li>Support administratör<li>Meddelande Center läsare<li>Lösen ords administratör<li>Rapport läsare<li>Användar administratör|<p>Ta bort och Återställ</p><p>Inaktivera och aktivera</p><p>Invalidera uppdateringstoken</p><p>Hantera alla användar egenskaper inklusive användarens huvud namn</p><p>Återställa lösenord</p><p>Uppdatera (FIDO) enhets nycklar</p>|
 
 > [!IMPORTANT]
-> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Ett exempel:
+> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Exempel:
 >
 >- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. Dessa appar kan ha privilegierade behörigheter i Azure AD och inte beviljas till användar administratörer. Genom den här sökvägen kan en användar administratör kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare anta identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
 >- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
@@ -1001,22 +1000,36 @@ Kan läsa & skriva grundläggande katalog information. För att bevilja åtkomst
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| Microsoft. Directory/grupper/skapa | Skapa grupper i Azure Active Directory. |
-| Microsoft. Directory/grupper/createAsOwner | Skapa grupper i Azure Active Directory. Skaparen läggs till som den första ägaren och det antal skapade objektet mot skapare objekt kvoten 250 har skapats. |
 | Microsoft. Directory/Groups/appRoleAssignments/Update | Uppdatera Groups. appRoleAssignments-egenskapen i Azure Active Directory. |
-| Microsoft. Directory/grupper/Basic/Update | Uppdatera grundläggande egenskaper för grupper i Azure Active Directory. |
+| Microsoft. Directory/grupper/assignLicense | Hantera licenser för grupper i Azure Active Directory. |
+| Microsoft. Directory/grupper/Basic/Update | Uppdatera grundläggande egenskaper för grupper i Azure Active Directory.  |
+| Microsoft. Directory/grupper/klassificering/uppdatera | Uppdatera klassificerings egenskap för gruppen i Azure Active Directory. |
+| Microsoft. Directory/grupper/skapa | Skapa grupper i Azure Active Directory. |
+| Microsoft. Directory/Groups/groupType/Update | Uppdatera groupType-egenskapen för en grupp i Azure Active Directory. |
 | Microsoft. Directory/grupper/medlemmar/uppdatera | Uppdatera Groups. members-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/grupper/ägare/uppdatera | Uppdatera Groups. Owners-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/reprocessLicenseAssignment | Ombearbeta licens tilldelningar för en grupp i Azure Active Directory. |
+| Microsoft. Directory/Groups/securityEnabled/Update | Uppdatera secutiryEnabled-egenskapen för en grupp i Azure Active Directory. |
 | Microsoft. Directory/grupper/inställningar/uppdatera | Uppdatera Groups. Settings-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/grupper/synlighet/uppdatera | Uppdatera Synlighets egenskapen för gruppen |
 | Microsoft. Directory/groupSettings/Basic/Update | Uppdatera grundläggande egenskaper för groupSettings i Azure Active Directory. |
-| Microsoft. Directory/groupSettings/Create | Skapa groupSettings i Azure Active Directory. |
+| Microsoft. Directory/groupSettings/Create | Skapa groupSettings i Azure Active Directory.. |
 | Microsoft. Directory/groupSettings/Delete | Ta bort groupSettings i Azure Active Directory. |
+| Microsoft. Directory/oAuth2PermissionGrants/Basic/Update | Uppdatera grundläggande egenskaper för oAuth2PermissionGrants i Azure Active Directory. |
+| Microsoft. Directory/oAuth2PermissionGrants/Create | Skapa oAuth2PermissionGrants i Azure Active Directory. |
+| Microsoft. Directory/Service princip ALS/synchronizationCredentials/Manage | Hantera program etablerings hemligheter och autentiseringsuppgifter. |
+| Microsoft. Directory/Service princip ALS/synchronizationJobs/Manage | Starta, starta om och pausa programetablering av synkroniseringsjobb. |
+| Microsoft. Directory/Service princip ALS/synchronizationSchema/Manage | Skapa och hantera synkroniseringen-jobb och-schema för program etablering. |
 | Microsoft. Directory/Users/appRoleAssignments/Update | Uppdatera users. appRoleAssignments-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/Users/assignLicense | Hantera licenser för användare i Azure Active Directory. |
 | Microsoft. Directory/Users/Basic/Update | Uppdatera grundläggande egenskaper för användare i Azure Active Directory. |
-| Microsoft. Directory/Users/invalidateAllRefreshTokens | Ogiltig verifiering av alla användares uppdateringstoken i Azure Active Directory. |
+| Microsoft. Directory/användare/inaktivera | Inaktivera ett användar konto i Azure Active Directory. |
+| Microsoft. Directory/Users/Enable | Aktivera ett användar konto i Azure Active Directory |
+| Microsoft. Directory/Users/invalidateAllRefreshTokens | Ogiltig verifiering av alla användares uppdateringstoken i Azure Active Directory, vilket kräver att användare autentiseras på nytt vid nästa inloggning |
 | Microsoft. Directory/Users/Manager/Update | Uppdatera users. Manager-egenskapen i Azure Active Directory. |
-| Microsoft. Directory/Users/userPrincipalName/Update | Uppdatera users. userPrincipalName-egenskapen i Azure Active Directory. |
+| Microsoft. Directory/Users/reprocessLicenseAssignment | Ombearbeta licens tilldelningar för en användare i Azure Active Directory. |
+| Microsoft. Directory/Users/userPrincipalName/Update | Uppdatera egenskapen users. userPrincipalName i Azure Active Directory. |
+
 
 ### <a name="exchange-service-administrator-permissions"></a>Administratörs behörighet för Exchange-tjänst
 
@@ -1899,7 +1912,7 @@ Enhets hanterare | Inaktuell | 2b499bcd-da44-4968-8aec-78e1674fa64d
 Enhets användare | Inaktuell | d405c6df-0af8-4e3b-95e4-4d06e542189e
 Katalog läsare | Katalog läsare | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 Konton för katalog synkronisering | Visas inte eftersom det inte ska användas | d29b2b05-8046-44ba-8758-1e26182fcf32
-Katalog skrivare | Visas inte eftersom det inte ska användas | 9360feb5-F418-4baa-8175-e2a00bac4301
+Katalog skrivare | Katalog skrivare | 9360feb5-F418-4baa-8175-e2a00bac4301
 Exchange service-administratör | Exchange-administratör | 29232cdf-9323-42fd-ade2-1d097af3e4de
 Användar flödes administratör för externt ID | Användar flödes administratör för externt ID | 6e591065-9bad-43ed-90f3-e9424366d2f0
 Administratör för externt ID-attribut för användar flöde | Administratör för externt ID-attribut för användar flöde | 0f971eea-41eb-4569-a71e-57bb8a3eff1e

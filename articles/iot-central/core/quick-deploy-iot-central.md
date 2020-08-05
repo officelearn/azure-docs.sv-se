@@ -3,18 +3,18 @@ title: Skapa ett Azure IoT Central-program | Microsoft Docs
 description: Skapa ett nytt Azure IoT Central-program. Skapa programmet med antingen den kostnads fria pris planen eller en av standard pris avtalen.
 author: viv-liu
 ms.author: viviali
-ms.date: 02/12/2020
+ms.date: 07/30/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: b670776804c9758774bf216052254148f063e7da
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4b939505f807385f235def2606d0f29564f5d08f
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81758146"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552585"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Skapa ett Azure IoT Central-program
 
@@ -43,8 +43,11 @@ Så här skapar du ett nytt Azure IoT Central-program från den **anpassade prog
     ![Information om Azure IoT Central fakturering](media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png)
 
     > [!NOTE]
-    > Om du väljer **anpassad app** på föregående sida visas en listruta för **Programmall** . Härifrån kan du växla mellan anpassade och äldre mallar. Du kan också se andra mallar som har gjorts tillgängliga för din organisation.
+    > Om du väljer **anpassad app** på föregående sida visas en listruta för **Programmall** . List rutan kan visa andra mallar som har gjorts tillgängliga för dig av din organisation. 
 
+    >[!IMPORTANT]
+    >Den **anpassade** programmallen (v2) har dragits tillbaka eftersom alla funktioner som tidigare var tillgängliga i den äldre program mal len är nu tillgängliga i den senaste **anpassade program** mal len (v3). 
+    
 1. Välj att skapa det här programmet med hjälp av pris avtalet för den kostnads fria utvärderings versionen eller en av standard pris avtalen:
 
     - Program som du skapar med hjälp av den *kostnads fria* planen är kostnads fria i sju dagar och har stöd för upp till fem enheter. Du kan konvertera dem till att använda en standard pris plan när som helst innan de upphör att gälla.

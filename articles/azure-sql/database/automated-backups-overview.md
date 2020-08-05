@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-ms.date: 07/20/2020
-ms.openlocfilehash: ed3f23b13920a9c3220a030059fdc8471f350d28
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 08/04/2020
+ms.openlocfilehash: c24a78413b09de04a10266f883e11617bb7a2f27
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428228"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554047"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Automatiserade säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 
@@ -50,7 +50,7 @@ Information om hur du utför en återställning finns i [återställa databasen 
 
 Du kan prova att säkerhetskopiera konfigurationen och återställnings åtgärderna med hjälp av följande exempel:
 
-| | Azure Portal | Azure PowerShell |
+| | Azure-portalen | Azure PowerShell |
 |---|---|---|
 | **Ändra kvarhållning av säkerhets kopior** | [Enkel databas](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Hanterad instans](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Enkel databas](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | **Ändra långsiktig kvarhållning av säkerhets kopior** | [Enkel databas](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Hanterad instans-saknas  | [Enkel databas](long-term-backup-retention-configure.md)<br/>Hanterad instans-saknas  |
@@ -120,7 +120,7 @@ För ytterligare information om LTR, se [långsiktig kvarhållning av säkerhets
 
 ## <a name="storage-costs"></a>Lagringskostnader
 
-Priset för lagring varierar beroende på om du använder DTU-modellen eller vCore-modellen.
+Priset för lagring av säkerhets kopior varierar beroende på om du använder DTU-modellen eller vCore-modellen och även i din region. Lagring av säkerhets kopior debiteras per GB/månad för prissättningen se [Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) prissättnings sida och pris sida för [Azure SQL-hanterad instans](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) .
 
 ### <a name="dtu-model"></a>DTU-modell
 

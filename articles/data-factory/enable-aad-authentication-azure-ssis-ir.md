@@ -11,12 +11,12 @@ ms.author: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/09/2020
-ms.openlocfilehash: fd9433c2482c4ddd907f7e30c0028dc2a15faed2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ffbb81fa56b87281199309d61ab3e2e59c1a5acd
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187684"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564001"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Aktivera Azure Active Directory-autentisering för Azure-SSIS Integration Runtime
 
@@ -128,7 +128,7 @@ I nästa steg behöver du [Microsoft SQL Server Management Studio](https://docs
 
    Kommandot ska slutföras, vilket ger den inneslutna användaren möjlighet att skapa en databas (SSISDB).
 
-10. Om din SSISDB har skapats med SQL-autentisering och du vill växla till att använda Azure AD-autentisering för din Azure-SSIS IR för att få åtkomst till den högerklickar du på **SSISDB** Database och väljer **ny fråga**.
+10. Om din SSISDB har skapats med SQL-autentisering och du vill växla till att använda Azure AD-autentisering för din Azure-SSIS IR för att få åtkomst till den, kontrollerar du först att stegen för att bevilja behörighet till **huvud** databasen har slutförts. Högerklicka sedan på **SSISDB** -databasen och välj **ny fråga**.
 
 11. I frågefönstret anger du följande T-SQL-kommando och väljer **Kör** i verktygsfältet.
 
@@ -176,7 +176,7 @@ I nästa steg behöver du [Microsoft SQL Server Management Studio](https://docs
     
     Kommandot bör slutföras, vilket ger den hanterade identiteten för din ADF möjlighet att skapa en databas (SSISDB).
 
-6.  Om din SSISDB har skapats med SQL-autentisering och du vill växla till att använda Azure AD-autentisering för din Azure-SSIS IR för att få åtkomst till den högerklickar du på **SSISDB** Database och väljer **ny fråga**.
+6.  Om din SSISDB har skapats med SQL-autentisering och du vill växla till att använda Azure AD-autentisering för din Azure-SSIS IR för att få åtkomst till den, kontrollerar du först att stegen för att bevilja behörighet till **huvud** databasen har slutförts. Högerklicka sedan på **SSISDB** -databasen och välj **ny fråga**.
 
 7.  I frågefönstret anger du följande T-SQL-kommando och väljer **Kör** i verktygsfältet.
 

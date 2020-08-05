@@ -9,18 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 57589552af3b93d98733d4872b43a719703d501a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4f51afbcf50939d762b1b5d32d6204ccfbb9a62d
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285738"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551684"
 ---
 # <a name="create-a-data-source"></a>Skapa en datakälla
 
 Azure Maps Web SDK lagrar data i data källor. Att använda data källor optimerar data åtgärder för frågor och åter givning. Det finns för närvarande två typer av data Källor:
 
-**Data källa för interjson**
+- **Mål-JSON-källa**: hanterar rå data i det lokala JSON-formatet lokalt. Lämpat för små till medel stora data mängder (flera hundra tusentals former).
+- **Vektor panels källa**: läser in data som är formaterade som vektor paneler för den aktuella Map-vyn, baserat på kartans placerings system. Perfekt för stora till enorma data uppsättningar (miljon tals eller miljarder former).
+
+## <a name="geojson-data-source"></a>Data källa för interjson
 
 En interjson-baserad data källa för inläsning och lagring av data lokalt med hjälp av `DataSource` klassen. Du kan skapa eller skapa indata från interjson manuellt med hjälp av klasser i [Atlas. data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) område. `DataSource`Klassen innehåller funktioner för att importera lokala eller fjärranslutna JSON-filer. Fjärranslutna interjson-filer måste finnas på en CORs-aktiverad slut punkt. `DataSource`Klassen innehåller funktioner för kluster punkt data. Du kan enkelt lägga till, ta bort och uppdatera data med- `DataSource` klassen. Följande kod visar hur du kan skapa data i en interjson-data i Azure Maps.
 
@@ -37,7 +40,7 @@ var rawGeoJson = {
      }
 };
 
-//Create GeoJSON using helper classes (less error prone).
+//Create GeoJSON using helper classes (less error prone and less typing).
 var geoJsonClass = new atlas.data.Feature(new atlas.data.Point([-100, 45]), {
     "custom-property": "value"
 }); 
@@ -69,7 +72,7 @@ dataSource.setShapes(geoJsonData);
 > [!TIP]
 > Du kan säga att du vill skriva över alla data i en `DataSource` . Om du gör anrop till `clear` `add` Functions-funktionerna kan kartan återges på nytt två gånger, vilket kan leda till en stund. Använd i stället `setShapes` funktionen, som tar bort och ersätter alla data i data källan och utlöser bara en åter givning av kartan.
 
-**Vektor panels källa**
+## <a name="vector-tile-source"></a>Vektor panels källa
 
 En vektor panels källa beskriver hur du får åtkomst till ett vektor panels lager. Använd klassen [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) för att instansiera en vektor panels källa. Vektor panels lager liknar panel lager, men de är inte samma. Ett panel lager är en raster bild. Vektor panels lager är en komprimerad fil i **PBF** -format. Den här komprimerade filen innehåller vektor kart data och ett eller flera lager. Filen kan återges och formateras på klienten, baserat på formatet för varje lager. Data i en vektor panel innehåller geografiska funktioner i form av punkter, linjer och polygoner. Det finns flera fördelar med att använda vektor panels lager i stället för raster panels lager:
 
@@ -88,7 +91,7 @@ Azure Maps följer [specifikationen Mapbox Vector panel](https://github.com/mapb
 > [!TIP]
 > När du använder vektor-eller raster bild rutor från tjänsten Azure Maps Render med webb-SDK kan du ersätta `atlas.microsoft.com` med plats hållaren `{azMapsDomain}` . Plats hållaren ersätts med samma domän som används av kartan och lägger automatiskt till samma autentiseringsinformation. Detta fören klar autentiseringen med Render-tjänsten avsevärt när du använder Azure Active Directory autentisering.
 
-Om du vill visa data från en vektor panels källa på kartan ansluter du källan till en av data åter givnings skikten. Alla lager som använder en Vector-källa måste ange ett `sourceLayer` värde i alternativen. FThe följande kod läser in tjänsten Azure Maps Traffic Flow Vector panel som en vektor panels källa. därefter visas den på en karta med ett linje lager. Den här vektor panels källan har en enda uppsättning data i käll skiktet som kallas "trafikflöde". Rad data i den här data uppsättningen har en egenskap `traffic_level` som kallas som används i den här koden för att välja färg och skala storleken på linjerna.
+Om du vill visa data från en vektor panels källa på kartan ansluter du källan till en av data åter givnings skikten. Alla lager som använder en Vector-källa måste ange ett `sourceLayer` värde i alternativen. Följande kod läser in tjänsten Azure Maps Traffic Flow Vector panel som en vektor panels källa. därefter visas den på en karta med ett linje lager. Den här vektor panels källan har en enda uppsättning data i käll skiktet som kallas "trafikflöde". Rad data i den här data uppsättningen har en egenskap `traffic_level` som kallas som används i den här koden för att välja färg och skala storleken på linjerna.
 
 ```javascript
 //Create a vector tile source and add it to the map.

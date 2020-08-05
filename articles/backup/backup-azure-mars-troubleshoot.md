@@ -1,15 +1,14 @@
 ---
 title: Felsöka Azure Backup Agent
 description: I den här artikeln får du lära dig hur du felsöker installationen och registreringen av den Azure Backup agenten.
-ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: b810b5abfb15a39d19a0571b6ac36a6c86bf0b4f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1afe437239ec7015bf3bbc195cf0b90e75698142
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054645"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564120"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Felsöka Microsoft Azure Recovery Services (MARS)-agenten
 
@@ -42,7 +41,7 @@ Vi rekommenderar att du kontrollerar följande innan du börjar felsöka Microso
 
 | Orsak | Rekommenderade åtgärder |
 | ---     | ---    |
-| **Autentiseringsuppgifterna för valvet är ogiltiga** <br/> <br/> Valvets autentiseringsuppgifter kan vara skadade eller kan ha upphört att gälla. (Till exempel kan de ha hämtats mer än 48 timmar före registrerings tiden.)| Hämta nya autentiseringsuppgifter från Recovery Services Vault på Azure Portal. (Se steg 6 i avsnittet [Ladda ned mars-agenten](./install-mars-agent.md#download-the-mars-agent) .) Utför sedan dessa steg efter behov: <ul><li> Om du redan har installerat och registrerat MARS öppnar du MMC-konsolen för Microsoft Azure Backup Agent och väljer sedan **Registrera Server** i **Åtgärds** fönstret för att slutföra registreringen med de nya autentiseringsuppgifterna. <br/> <li> Om den nya installationen Miss lyckas kan du försöka med att installera om med de nya autentiseringsuppgifterna.</ul> **Obs!** om filer med flera valv har hämtats är det bara den senaste filen som är giltig för de kommande 48 timmarna. Vi rekommenderar att du hämtar en ny fil med autentiseringsuppgifter för valvet.
+| **Autentiseringsuppgifterna för valvet är ogiltiga** <br/> <br/> Valvets autentiseringsuppgifter kan vara skadade eller kan ha upphört att gälla. (Till exempel kan de ha hämtats mer än 48 timmar före registrerings tiden.)| [Hämta nya autentiseringsuppgifter](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) från Recovery Services valvet på Azure Portal. Utför sedan dessa steg efter behov: <ul><li> Om du redan har installerat och registrerat MARS öppnar du MMC-konsolen för Microsoft Azure Backup agenten. Välj sedan **Registrera Server** i **Åtgärds** fönstret för att slutföra registreringen med de nya autentiseringsuppgifterna. <br/> <li> Om den nya installationen Miss lyckas kan du försöka med att installera om med de nya autentiseringsuppgifterna.</ul> **Obs!** om filer med flera valv har hämtats är det bara den senaste filen som är giltig för de kommande 48 timmarna. Vi rekommenderar att du hämtar en ny fil med autentiseringsuppgifter för valvet.
 | **Proxyservern eller brand väggen blockerar registreringen** <br/>eller <br/>**Ingen Internet anslutning** <br/><br/> Om din dator eller proxyserver har begränsad Internet anslutning och du inte ser till att du har åtkomst till de nödvändiga URL: erna, Miss söker registreringen.| Gör så här:<br/> <ul><li> Arbeta med IT-teamet för att säkerställa att systemet är ansluten till Internet.<li> Om du inte har en proxyserver, se till att alternativet proxy inte är markerat när du registrerar agenten. [Kontrol lera proxyinställningarna](#verifying-proxy-settings-for-windows).<li> Om du har en brand vägg/proxyserver arbetar du med nätverks teamet för att se till att dessa URL: er och IP-adresser har åtkomst:<br/> <br> **Webbadresser**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP-adresser**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Försök att registrera igen när du har slutfört föregående fel söknings steg.<br></br> Om din anslutning är via Azure ExpressRoute kontrollerar du att inställningarna är konfigurerade enligt beskrivningen i [Azure ExpressRoute-supporten](backup-support-matrix-mars-agent.md#azure-expressroute-support).
 | **Antivirus programmet blockerar registreringen** | Om du har installerat antivirus program på servern lägger du till nödvändiga undantags regler i Antivirus genomsökningen för dessa filer och mappar: <br/><ul> <li> CBengine.exe <li> CSC.exe<li> Mappen scratch. Standard platsen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> Bin-mappen i C:\Program\Microsoft Azure Recovery Services Agent\Bin.
 
@@ -235,7 +234,7 @@ För att MARS agent-åtgärder ska lyckas måste cache-mappen uppfylla nedanstå
 
 ### <a name="increase-shadow-copy-storage"></a>Öka lagring av skugg kopior
 
-Säkerhets kopierings åtgärder kan inte utföras om det inte finns tillräckligt med lagrings utrymme för skugg kopior som krävs för att skydda data källan. Lös problemet genom att öka lagrings utrymmet för skugg kopian på den skyddade volymen med vssadmin enligt nedan:
+Säkerhets kopierings åtgärder kan inte utföras om det inte finns tillräckligt med lagrings utrymme för skugg kopior som krävs för att skydda data källan. Lös problemet genom att öka lagrings utrymmet för skugg kopian på den skyddade volymen med **VSSAdmin** enligt nedan:
 
 - Kontrol lera det aktuella skugg lagrings utrymmet från den upphöjda kommando tolken:<br/>
   `vssadmin List ShadowStorage /For=[Volume letter]:`
@@ -246,8 +245,8 @@ Säkerhets kopierings åtgärder kan inte utföras om det inte finns tillräckli
 
 Om du har installerat antivirus program på servern lägger du till nödvändiga undantags regler i Antivirus genomsökningen för dessa filer och mappar:  
 
-- Mappen scratch. Standard platsen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch
-- Bin-mappen i C:\Program\Microsoft Azure Recovery Services Agent\Bin
+- Mappen scratch. Dess standard plats är`C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+- Bin-mappen på`C:\Program Files\Microsoft Azure Recovery Services Agent\Bin`
 - CBengine.exe
 - CSC.exe
 
@@ -258,25 +257,25 @@ I det här avsnittet beskrivs vanliga fel som uppstår när du använder MARS-ag
 ### <a name="salchecksumstoreinitializationfailed"></a>SalChecksumStoreInitializationFailed
 
 Felmeddelande | Rekommenderad åtgärd
--- | --
-Microsoft Azure Recovery Services-agenten kunde inte komma åt kontrollsumman för säkerhetskopian på den tillfälliga platsen | Lös problemet genom att utföra följande och starta om servern <br/> - [Kontrol lera om det finns ett antivirus program eller andra processer som låser den virtuella platsens filer](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Kontrol lera om arbets platsen är giltig och tillgänglig för mars-agenten.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+--|--
+Microsoft Azure Recovery Services-agenten kunde inte komma åt kontrollsumman för säkerhetskopian på den tillfälliga platsen | Lös problemet genom att utföra följande och starta om servern <br/> - [Kontrol lera om det finns ett antivirus program eller andra processer som låser den virtuella platsens filer](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Kontrol lera om arbets platsen är giltig och tillgänglig för MARS-agenten.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="salvhdinitializationerror"></a>SalVhdInitializationError
 
 Felmeddelande | Rekommenderad åtgärd
--- | --
-Microsoft Azure Recovery Services-agenten kunde inte komma åt den tillfälliga platsen för att initiera VHD | Lös problemet genom att utföra följande och starta om servern <br/> - [Kontrol lera om det finns ett antivirus program eller andra processer som låser den virtuella platsens filer](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Kontrol lera om arbets platsen är giltig och tillgänglig för mars-agenten.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+--|--
+Microsoft Azure Recovery Services-agenten kunde inte komma åt den tillfälliga platsen för att initiera VHD | Lös problemet genom att utföra följande och starta om servern <br/> - [Kontrol lera om antivirus program eller andra processer låser den virtuella platsens filer](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Kontrol lera om arbets platsen är giltig och tillgänglig för MARS-agenten.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="sallowdiskspace"></a>SalLowDiskSpace
 
 Felmeddelande | Rekommenderad åtgärd
--- | --
+--|--
 Det gick inte att säkerhetskopiera eftersom det inte finns tillräckligt med lagrings utrymme i volymen där mappen Scratch finns | Lös problemet genom att kontrol lera stegen nedan och försök igen:<br/>- [Se till att MARS-agenten är senaste](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Verifiera och lös lagrings problem som påverkar säkerhets kopieringens arbets yta](#prerequisites)
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
 Felmeddelande | Rekommenderad åtgärd
--- | --
+--|--
 Det går inte att hitta ändringar i en fil. Detta kan bero på olika orsaker. Försök att utföra åtgärden igen. | Lös problemet genom att kontrol lera stegen nedan och försök igen:<br/> - [Se till att MARS-agenten är senaste](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verifiera och lös lagrings problem som påverkar säkerhets kopieringens arbets yta](#prerequisites)
 
 ## <a name="next-steps"></a>Nästa steg

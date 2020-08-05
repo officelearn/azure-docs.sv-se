@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-javascript
-ms.openlocfilehash: 165f3dab2413afc09a67175bb10471c2bd53ea32
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 149ed7aa281e50673c86c0bd7339f304aa63914a
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129176"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552687"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Snabb start: lägga till inloggning med OpenID Anslut till en Node.js webbapp
 
@@ -52,7 +52,7 @@ Om du vill köra det här exemplet behöver du:
 
 1. I listan över sidor för appen väljer du **Autentisering**.
     - I avsnittet **omdirigerings-URI: er** väljer du **webb** i kombinations rutan och anger följande omdirigerings-URI:`http://localhost:3000/auth/openid/return`
-    - I avsnittet **Avancerade inställningar** ställer du in **Utloggnings-URL** på `http://localhost:3000`.
+    - I avsnittet **Avancerade inställningar** ställer du in **Utloggnings-URL** på `https://localhost:3000`.
     - I avsnittet **Avancerade inställningar > implicita bidrag** kontrollerar du **ID-token** som det här exemplet kräver att det [implicita tilldelnings flödet](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) är aktiverat för att logga in användaren.
 
 1. Välj **Spara**.

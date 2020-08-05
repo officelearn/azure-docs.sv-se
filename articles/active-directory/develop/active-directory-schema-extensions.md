@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 71dcad908884351950c89b590523ffa91d6d47f9
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: cd21ef8d697570afb2109bb56d552284c03fd9a2
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424786"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552789"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>Använda attribut för katalog schema tillägg i anspråk
 
@@ -41,7 +41,7 @@ Attribut för katalog schema utökning kan registreras och fyllas i på något a
 Attribut för katalog schema tillägg som skapas och synkroniseras med AD Connect är alltid kopplade till det program-ID som används av AD Connect. De kan användas som källa för anspråk både genom att konfigurera dem som anspråk i konfigurationen för **företags program** i användar gränssnittet för SAML-program som registrerats med galleriet eller program konfigurations miljö som inte är galleri i **företags program**, och via en princip för anspråks mappning för program som registrerats via program registrerings upplevelsen.  När ett katalog tillägg som har skapats via AD Connect finns i katalogen visas det i konfigurations gränssnittet för SAML SSO-anspråk.
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-for-an-application-using-graph-or-powershell"></a>Genererade anspråk med data från tillägg för katalog schema som skapats för ett program med Graph eller PowerShell
-Om ett tillägg för katalog schema är registrerat för ett program med hjälp av Microsoft Graph eller PowerShell (via ett programs inledande installations-eller etablerings steg för instans) kan samma program konfigureras i Azure Active Directory för att ta emot data i attributet från ett användar objekt i ett anspråk när användaren loggar in.  Programmet kan konfigureras för att ta emot data i katalog schema tillägg som är registrerade på samma program med [valfria anspråk](active-directory-optional-claims.md#configuring-directory-extension-optional-claims).  Dessa kan anges i applikations manifestet.  Detta gör att ett program med flera klienter kan registrera tillägg för katalog schema tillägg för eget bruk. När programmet är etablerad i en klient blir de associerade tilläggen för katalog scheman tillgängliga för användare i den klient organisationen och förbrukas.  När den har kon figurer ATS i innehavaren och det medgivande som beviljats kan den användas för att lagra och hämta data via Graph och för att mappa till anspråk i token Azure AD avger program.
+Om ett tillägg för katalog schema är registrerat för ett program med hjälp av Microsoft Graph eller PowerShell (via ett programs inledande installations-eller etablerings steg för instans) kan samma program konfigureras i Azure Active Directory för att ta emot data i attributet från ett användar objekt i ett anspråk när användaren loggar in.  Programmet kan konfigureras för att ta emot data i katalog schema tillägg som är registrerade på samma program med [valfria anspråk](active-directory-optional-claims.md#configuring-directory-extension-optional-claims).  Dessa kan anges i applikations manifestet.  Detta gör att ett program med flera klienter kan registrera tillägg för katalog schema tillägg för eget bruk. När programmet är etablerad i en klient blir de associerade tilläggen för katalog scheman tillgängliga för användare i den klient organisationen och förbrukas.  När den har kon figurer ATS i klient organisationen och det godkännande som beviljats, kan den användas för att lagra och hämta data via graf och för att mappa till anspråk i tokens som Microsoft Identity Platform avger för program.
 
 Attribut för katalog schema utökning kan registreras och fyllas i för alla program.
 

@@ -9,16 +9,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 04/02/2020
+ms.date: 08/03/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: 855a050afa14144f8963f24398c6b7b3939ef562
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1455259bc42aea9d506a9a2a19d725cac3d643f8
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656473"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562777"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Ändra pris nivå för ett namn område för Azure Notification Hub
 
@@ -26,11 +26,11 @@ Notification Hubs erbjuds på tre nivåer: **kostnads fri**, **Basic**och **stan
 
 ## <a name="overview"></a>Översikt
 
-I Azure Notification Hubs är en hubb den minsta resursen/entiteten. Den mappar vanligt vis till ett program och kan innehålla ett certifikat för varje Plattformsspecifikt meddelandesystem (PNS) som vi stöder för appen. Programmet kan vara en hybrid, eller ett inbyggt program och ett plattforms oberoende program.
+I Azure Notification Hubs är en *Notification Hub* den minsta resursen/entiteten. Den mappar vanligt vis till ett program och kan innehålla ett certifikat för varje Plattformsspecifikt meddelandesystem (PNS) som vi stöder för appen. Programmet kan vara en hybrid, eller ett inbyggt program och ett plattforms oberoende program.
 
-Ett **namn område** är en samling Notification Hub. Varje namnrymd består vanligt vis av hubbar som är relaterade till och används för ett specifikt syfte. Du kan till exempel ha tre olika namn områden för utveckling, testning och produktions syfte.
+Ett *namn område* är en samling Notification Hub. Varje namnrymd består vanligt vis av hubbar som är relaterade till och används för ett specifikt syfte. Du kan till exempel ha tre olika namn områden för utveckling, testning och produktions syfte.
 
-Du kan associera ett namn område med pris nivåerna **kostnads fri**, **Basic**eller **standard** . Du kan använda nivån för ett namn område som passar dina krav. I följande avsnitt visas hur du ändrar pris nivån för ett Notification Hubs namn område.
+Du kan associera ett namn område med pris nivåerna **kostnads fri**, **Basic**eller **standard** . För alla namn områden kan du använda den nivå som passar dina krav. I följande avsnitt visas hur du ändrar pris nivån för ett Notification Hubs namn område.
 
 ## <a name="use-azure-portal"></a>Använda Azure-portalen
 
@@ -42,7 +42,7 @@ Följande procedur visar hur du ändrar pris nivån för ett namn område på na
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **alla tjänster** på den vänstra menyn.
-3. Välj **namn rymder för Notification Hub** i avsnittet **Sakernas Internet** . Om du väljer asterisken ( `*` ) bredvid texten läggs den till i det vänstra navigerings fältet under **Favoriter**. Det hjälper dig att komma åt sidan namn områden snabbare. När du har lagt till den i favoriter väljer du **namn områden för Notification Hub**.
+3. Välj **namn rymder för Notification Hub** i avsnittet **Sakernas Internet** . Om du väljer asterisken ( `*` ) bredvid texten läggs den till i det vänstra navigerings fältet under **Favoriter**. Detta hjälper dig att komma åt sidan namn områden snabbare nästa gång. När du har lagt till den i **Favoriter**väljer du **namn områden för Notification Hub**.
 
     ![Alla tjänster-> Notification Hub-namnrymder](./media/change-pricing-tier/all-services-nhub.png)
 
@@ -51,7 +51,7 @@ Följande procedur visar hur du ändrar pris nivån för ett namn område på na
 
     ![Aktuell pris nivå på namn områdes Sidan](./media/change-pricing-tier/pricing-tier-before.png)
 
-6. På namn områdes sidan för **Notification Hub** i namn området väljer du **pris nivå** under avsnittet **Hantera** .
+6. På sidan **namn område för meddelande hubb** för ditt namn område väljer du **pris nivå** i avsnittet **Hantera** .
 
     ![Välj pris nivå på namn områdes Sidan](./media/change-pricing-tier/namespace-select-pricing-menu.png)
 
@@ -62,7 +62,7 @@ Följande procedur visar hur du ändrar pris nivån för ett namn område på na
 
 ### <a name="change-tier-on-the-hub-page"></a>Ändra nivå på NAV Sidan
 
-Följande procedur visar hur du ändrar pris nivån för ett namn område på hubb sidan. Även om du utför de här stegen från sidan hubb, ändrar du faktiskt pris nivå för namn området och alla hubbar i namn området.
+Följ dessa steg om du vill ändra pris nivån för ett namn område på sidan hubb. Även om du utför de här stegen från sidan hubb, ändrar du faktiskt pris nivå för namn området och alla hubbar i namn området:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **alla tjänster** på den vänstra menyn.

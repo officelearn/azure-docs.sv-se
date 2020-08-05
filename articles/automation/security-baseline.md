@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 948ada46085d83c8cf453cdde23cb407ea2dd2d8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e78f4133e7f722870f6c84de2ab7e784cd151d79
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447702"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562692"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Azures säkerhets bas linje för Automation
 
@@ -34,7 +34,7 @@ För att få ytterligare isolering för dina runbooks kan du använda hybrid Run
 
 Alternativt, om du har ett speciellt krav, kan Azure-brandväggen också användas för att uppfylla den.
 
-* [Virtuella nätverk och virtuella datorer i Azure](../virtual-machines/windows/network-overview.md)
+* [Virtuella nätverk och virtuella datorer i Azure](../virtual-machines/network-overview.md)
 
 * [Så här skapar du en Virtual Network](../virtual-network/quick-create-portal.md)
 
@@ -848,7 +848,7 @@ Anpassningsbar program kontroll är en intelligent, automatiserad lösning från
 
 **Vägledning**: program med hög risk som distribueras i din Azure-miljö kan isoleras med hjälp av separata nätverks-och resurs behållare med hjälp av konstruktioner som virtuella nätverk, undernät, prenumerationer, hanterings grupper, de kan skyddas med antingen en Azure-brandvägg, en brand vägg för webbaserade program (WAF) eller nätverks säkerhets grupp (NSG).
 
-* [Virtuella nätverk och virtuella datorer i Azure](../virtual-machines/windows/network-overview.md)
+* [Virtuella nätverk och virtuella datorer i Azure](../virtual-machines/network-overview.md)
 
 * [Översikt över Azure Firewall](../firewall/overview.md)
 

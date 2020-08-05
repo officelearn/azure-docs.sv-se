@@ -2,23 +2,27 @@
 title: Filer och kataloger i Azure Batch
 description: Lär dig mer om filer och kataloger och hur de används i ett Azure Batch arbets flöde från en utvecklings synpunkt.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: e7babb7e2cfdbbe78f61be766c549c1e80cacf98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/03/2020
+ms.openlocfilehash: eafea6c234c3b261521f8a791b7a03e25388f02a
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83791122"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552652"
 ---
 # <a name="files-and-directories-in-azure-batch"></a>Filer och kataloger i Azure Batch
 
-I Azure Batch har varje aktivitet en arbets katalog där den skapar noll eller flera filer och kataloger. Den här arbetskatalogen kan användas för att lagra programmet som körs av aktiviteten, de data som bearbetas och resultatet från bearbetningen. Alla filer och kataloger för en aktivitet ägs av aktivitetsanvändaren.
+I Azure Batch har varje aktivitet en arbets katalog där den kan skapa filer och kataloger. Den här arbetskatalogen kan användas för att lagra programmet som körs av aktiviteten, de data som bearbetas och resultatet från bearbetningen. Alla filer och kataloger för en aktivitet ägs av aktivitetsanvändaren.
 
-Batch-tjänsten exponerar en del av filsystemet på en nod som *rotkatalogen*. Aktiviteter kan komma åt rotkatalogen genom att referera till `AZ_BATCH_NODE_ROOT_DIR`-miljövariabeln. Mer information om hur du använder miljövariabler finns i [Miljöinställningar för aktiviteter](jobs-and-tasks.md#environment-settings-for-tasks).
+Batch-tjänsten exponerar en del av filsystemet på en nod som *rotkatalogen*. Den här rot katalogen finns på den tillfälliga lagrings enheten för den virtuella datorn, inte direkt på operativ system enheten.
+
+Aktiviteter kan komma åt rotkatalogen genom att referera till `AZ_BATCH_NODE_ROOT_DIR`-miljövariabeln. Mer information om hur du använder miljövariabler finns i [Miljöinställningar för aktiviteter](jobs-and-tasks.md#environment-settings-for-tasks).
+
+## <a name="root-directory-structure"></a>Rot katalog struktur
 
 Rotkatalogen innehåller följande katalogstruktur:
 
-! [Struktur för Compute Node-katalog] [media\files-and-directories\node-folder-structure.png]
+![Skärm bild av strukturen för Compute Node-katalogen.](media\files-and-directories\node-folder-structure.png)
 
 - **program**: innehåller information om programpaket som har installerats på Compute-noden. Aktiviteter kan komma åt den här katalogen genom att referera till `AZ_BATCH_APP_PACKAGE`-miljövariabeln.
 
@@ -33,7 +37,7 @@ Rotkatalogen innehåller följande katalogstruktur:
 - **WorkItems**: den här katalogen innehåller kataloger för jobb och deras aktiviteter på Compute-noden.
 
     I **WorkItems** -katalogen skapas en **aktivitets** katalog för varje aktivitet som körs på noden. Den här katalogen kan nås genom att referera till `AZ_BATCH_TASK_DIR` miljövariabeln.
-    
+
     I varje **aktivitets** katalog skapar batch-tjänsten en arbets katalog ( `wd` ) vars unika sökväg anges av `AZ_BATCH_TASK_WORKING_DIR` miljö variabeln. Den här katalogen ger läs-/skrivbehörighet till aktiviteten. Aktiviteten kan skapa, läsa, uppdatera och ta bort filer under den här katalogen. Den här katalogen lagras baserat på *RetentionTime*-begränsningen som angetts för aktiviteten.
 
     `stdout.txt`Filerna och `stderr.txt` skrivs till mappen **tasks** under körningen av uppgiften.

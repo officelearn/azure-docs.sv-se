@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 08/03/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 127d76bedafd4c857686e93f21d3cccdc36b98dd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ba1fc856ee9093b628bd86b9847f8fc70b7189c2
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87274671"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552908"
 ---
 # <a name="conditional-access-users-and-groups"></a>Villkorlig åtkomst: användare och grupper
 
@@ -30,7 +30,7 @@ Den här listan över användare inkluderar vanligt vis alla användare som en o
 
 Följande alternativ är tillgängliga för att ta med när du skapar en princip för villkorlig åtkomst.
 
-- Ingen
+- Inget
    - Inga användare har valts
 - Alla användare
    - Alla användare som finns i katalogen, inklusive B2B-gäster.
@@ -44,6 +44,9 @@ Följande alternativ är tillgängliga för att ta med när du skapar en princip
 
 > [!WARNING]
 > Om användare eller grupper är medlem i över 2048 grupper kan deras åtkomst blockeras. Den här gränsen gäller både direkt och kapslad grupp medlemskap.
+
+> [!WARNING]
+> Principer för villkorlig åtkomst stöder inte användare som har tilldelats en katalog roll som är [begränsad till en administrativ enhet](../users-groups-roles/roles-admin-units-assign-roles.md) eller katalog roller som omfattas direkt till ett-objekt, t. ex. genom [anpassade roller](../users-groups-roles/roles-create-custom.md).
 
 ## <a name="exclude-users"></a>Exkludera användare
 

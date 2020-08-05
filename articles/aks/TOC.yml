@@ -301,7 +301,7 @@
     - name: Utveckla och köra program
       items:
         - name: Använda lokal process med Kubernetes med Visual Studio Code (förhandsversion)
-          href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+          href: 'https://code.visualstudio.com/docs/containers/local-process-kubernetes'
         - name: Installera befintliga program med Helm
           href: kubernetes-helm.md
         - name: Använda OpenFaaS

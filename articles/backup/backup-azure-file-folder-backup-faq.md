@@ -3,12 +3,12 @@ title: Microsoft Azure Recovery Services (MARS) Agent – vanliga frågor och sv
 description: Behandlar vanliga frågor om säkerhets kopiering av filer och mappar med Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 5a4560499c56e4dcdf41c2e5c7920b415ceab6c5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c4494b09a5cf838aae3dde01c1268042929ef213
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533588"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563115"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Vanliga frågor och svar – Microsoft Azure Recovery Services (MARS) Agent
 
@@ -19,6 +19,12 @@ I den här artikeln besvaras vanliga frågor om säkerhets kopiering av data med
 ### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>Var kan jag hämta den senaste versionen av MARS-agenten?
 
 Den senaste MARS-agenten som används för att säkerhetskopiera Windows Server-datorer, System Center DPM och Microsoft Azure Backup Server är tillgänglig för [hämtning](https://aka.ms/azurebackup_agent).
+
+### <a name="where-can-i-download-the-vault-credentials-file"></a>Var kan jag hämta filen med autentiseringsuppgifter för valvet?
+
+I Azure Portal navigerar du till **Egenskaper** för valvet. Under **autentiseringsuppgifter för säkerhets kopiering**markerar du kryss rutan för **att redan använda den senaste Recovery Services agenten**. Välj **Hämta**.
+
+![Hämta autentiseringsuppgifter](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
 
 ### <a name="how-long-are-vault-credentials-valid"></a>Hur länge är valv referenser giltiga?
 
@@ -169,12 +175,12 @@ Azure Backup agenten kräver en lösen fras (som du angav under registreringen) 
 
 | Ursprunglig dator <br> *(käll dator där säkerhets kopior vidtogs)* | Fraser | Tillgängliga alternativ |
 | --- | --- | --- |
-| Tillgänglig |Brute |Om den ursprungliga datorn (där säkerhets kopiering vidtogs) är tillgänglig och fortfarande har registrerats med samma Recovery Services-valv, kan du återskapa lösen frasen genom att följa dessa [steg](./backup-azure-manage-mars.md#re-generate-passphrase).  |
+| Tillgängligt |Brute |Om den ursprungliga datorn (där säkerhets kopiering vidtogs) är tillgänglig och fortfarande har registrerats med samma Recovery Services-valv, kan du återskapa lösen frasen genom att följa dessa [steg](./backup-azure-manage-mars.md#re-generate-passphrase).  |
 | Brute |Brute |Det går inte att återställa data eller data är inte tillgängliga |
 
 Tänk på följande:
 
-* Om du avinstallerar och sedan omregistrerar agenten på samma ursprungliga dator med Thee
+* Om du avinstallerar och sedan omregistrerar agenten på samma ursprungliga dator med
   * *Samma lösen fras*kan du återställa säkerhetskopierade data.
   * En *annan lösen fras*kan du inte återställa dina säkerhetskopierade data.
 * Om du installerar agenten på en *annan dator* med
@@ -188,7 +194,7 @@ Om du har samma lösen fras (som du angav under registreringen) på den ursprung
 
 | Ursprunglig dator | Fraser | Tillgängliga alternativ |
 | --- | --- | --- |
-| Brute |Tillgänglig |Du kan installera och registrera MARS-agenten på en annan dator med samma lösen fras som du angav under registreringen av den ursprungliga datorn. Välj **återställnings alternativ**  >  **en annan plats** för att utföra återställningen. Mer information finns i den här [artikeln](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+| Brute |Tillgängligt |Du kan installera och registrera MARS-agenten på en annan dator med samma lösen fras som du angav under registreringen av den ursprungliga datorn. Välj **återställnings alternativ**  >  **en annan plats** för att utföra återställningen. Mer information finns i den här [artikeln](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Brute |Brute |Det går inte att återställa data eller data är inte tillgängliga |
 
 ### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>Mina säkerhets kopierings jobb har misslyckats eller inte körs under en längre tid. Jag har gått förbi kvarhållningsperioden. Kan jag fortfarande återställa?

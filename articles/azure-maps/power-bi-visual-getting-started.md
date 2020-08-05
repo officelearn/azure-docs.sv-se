@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: e840517934e77c96f1c19c3243ad2884d7ccce66
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9f7f44e053cfb26cbf7d897b8a1df1ad2861fd07
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86262125"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552007"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Komma igång med Azure Maps Power BI visuella objektet
 
@@ -35,6 +35,9 @@ Azure Maps-visualiseringen ansluter till moln tjänsten som finns i Azure för a
 
 -   Information om området som kartan fokuserar på skickas till Azure för att hämta bilder som behövs för att återge kart ytan (kallas även kart paneler). 
 -   Data på plats-, latitud-och longitud-Bucket kan skickas till Azure för att hämta mappnings koordinater (en process som kallas för kodning). 
+-   Telemetridata kan samlas in på hälso tillståndet för det visuella objektet (t. ex. krasch rapporter), om alternativet telemetri i Power BI är aktiverat.
+
+Förutom de scenarier som beskrivs ovan skickas inga andra data som finns på kartan till Azure Maps-servrarna. All data åter givning sker lokalt i klienten.
 
 Du eller administratören kan behöva uppdatera brand väggen för att tillåta åtkomst till den Azure Maps-plattform som använder följande URL.
 
@@ -101,7 +104,7 @@ Följande databuckets är tillgängliga i rutan **fält** i Azure Maps visualise
 
 Avsnittet **kart inställningar** i fönstret format ger alternativ för att anpassa hur kartan visas och reagerar på uppdateringar.
 
-| Inställningen             | Beskrivning  |
+| Inställning             | Beskrivning  |
 |---------------------|--------------|
 | Automatisk zoomning           | Zoomar automatiskt in kartan till de data som läses in via rutan **fält** i visualiseringen. När data ändras kommer kartan att uppdatera sin position enligt detta. När skjutreglaget är i **stängnings** läge visas ytterligare inställningar för kart visning för standard kartan. |
 | Världs omslutning          | Gör att användaren kan panorera kartan vågrätt oändligt. |
@@ -113,7 +116,7 @@ Avsnittet **kart inställningar** i fönstret format ger alternativ för att anp
 
 Om skjutreglaget för **automatisk zoomning** är i **stängnings** läge visas följande inställningar och låter användaren ange standard information för kart visning.
 
-| Inställningen          | Beskrivning   |
+| Inställning          | Beskrivning   |
 |------------------|---------------|
 | Zoom             | Kartans standard zoomnings nivå. Kan vara ett tal mellan 0 och 22. |
 | Center Latitude  | Standard latitud i mitten av kartan. |
@@ -130,7 +133,7 @@ Det Azure Maps visuella objektet är tillgängligt i följande tjänster och pro
 | Power BI Desktop                         | Ja          |
 | Power BI-tjänsten (app.powerbi.com)       | Ja          |
 | Power BI Mobile-appar             | Ja          |
-| Power BI Publicera på webben                  | Nej           |
+| Power BI Publicera på webben                  | Inga           |
 | Power BI Embedded                        | Nej           |
 | Power BI-tjänstinbäddning (PowerBI.com) | Ja          |
 

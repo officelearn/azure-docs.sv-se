@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: c38bb6100665cc9456b66608660bdca520b934c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: 0cb2eed0895c10f649facaa184a5f9f9ea158aa5
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636248"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551990"
 ---
 # <a name="configure-azure-sql-edge-preview"></a>Konfigurera Azure SQL Edge (för hands version)
 
@@ -79,7 +79,7 @@ Följande MSSQL. conf-alternativ gäller inte för SQL Edge:
 |**Database mail-profil** | Ange e-postprofilen för standard databasen för SQL Server på Linux. |
 |**Hög tillgänglighet** | Aktivera tillgänglighets grupper. |
 |**Microsoft koordinator för distribuerad transaktion** | Konfigurera och Felsök MSDTC i Linux. Ytterligare distribuerade transaktions-relaterade konfigurations alternativ stöds inte för SQL Edge. Mer information om dessa ytterligare konfigurations alternativ finns i [Configure MSDTC](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#msdtc). |
-|**MLServices-licensavtalet** | Godkänn R-och python-licensavtalet för Azure Machine Learning-paket. Gäller endast SQL Server 2019.|
+|**Service avtal för ML** | Godkänn R-och python-licensavtalet för Azure Machine Learning-paket. Gäller endast SQL Server 2019.|
 |**outboundnetworkaccess** |Aktivera utgående nätverks åtkomst för [Machine Learning Services](/sql/linux/sql-server-linux-setup-machine-learning/) R-, python-och Java-tillägg.|
 
 Följande exempel på MSSQL. conf-filen fungerar för SQL Edge. Mer information om formatet för en MSSQL. conf-fil finns i [MSSQL. conf-format](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
@@ -113,6 +113,51 @@ traceflag0 = 3604
 traceflag1 = 3605
 traceflag2 = 1204
 ```
+
+## <a name="run-azure-sql-edge-as-non-root-user"></a>Kör Azure SQL Edge som icke-rot användare
+
+Från och med Azure SQL Edge CTP 2.2 kan SQL Edge-behållare köras med en icke-rot användare/grupp. När den distribueras via Azure Marketplace, om inte en annan användare/grupp anges, startar SQL Edge-behållare som MSSQL-användare (inte rot). Om du vill ange en annan icke-rot användare under distributionen lägger du till `*"User": "<name|uid>[:<group|gid>]"*` nyckel/värde-paret under behållare skapa alternativ. I exemplet nedan är SQL Edge konfigurerat att starta som användare `*IoTAdmin*` .
+
+```json
+{
+    ..
+    ..
+    ..
+    "User": "IoTAdmin",
+    "Env": [
+        "MSSQL_AGENT_ENABLED=TRUE",
+        "ClientTransportType=AMQP_TCP_Only",
+        "MSSQL_PID=Premium"
+    ]
+}
+```
+
+Om du vill tillåta att icke-rot användaren har åtkomst till DB-filer som finns på monterade volymer, kontrollerar du att den användare/grupp som du kör behållaren under har Läs & Skriv behörigheter för lagring med beständig fil. I exemplet nedan ställer vi in den icke-rot användaren med user_id 10001 som ägare till filerna. 
+
+```bash
+chown -R 10001:0 <database file dir>
+```
+
+### <a name="upgrading-from-earlier-ctp-releases"></a>Uppgradera från tidigare CTP-versioner
+
+Tidigare CTP-versioner av Azure SQL Edge har kon figurer ATS för att köras som rot användare. Följande alternativ är tillgängliga när du uppgraderar från tidigare CTP: s
+
+- Fortsätt att använda rot användaren – om du vill fortsätta använda rot användaren lägger du till `*"User": "0:0"*` nyckel/värde-paret under behållare skapa alternativ.
+- Använd standard-MSSQL-användaren för att använda standard-MSSQL-användaren, Följ stegen nedan
+  - Lägg till en användare med namnet MSSQL på Docker-värden. I exemplet nedan lägger vi till en användar-MSSQL med ID 10001. Den här användaren läggs också till i rot gruppen.
+    ```bash
+    sudo useradd -M -s /bin/bash -u 10001 -g 0 mssql
+    ```
+  - Ändra behörigheten för den katalog/monterings volym där databas filen finns 
+    ```bash
+    sudo chgrp -R 0 /var/lib/docker/volumes/kafka_sqldata/
+    sudo chmod -R g=u /var/lib/docker/volumes/kafka_sqldata/
+    ```
+- Använd ett annat icke-rot användar konto – om du vill använda ett annat konto än rot användare
+  - Uppdatera behållaren skapa alternativ för att ange Lägg till `*"User": "user_name | user_id*` nyckel/värde-par under behållare skapa alternativ. Ersätt user_name eller user_id med en faktisk user_name eller user_id från Docker-värden. 
+  - Ändra behörigheter för katalogen/monterings volymen.
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

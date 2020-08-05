@@ -6,12 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: c9696167d9addc3029a53f25e289d17bd3add263
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 533d114e08464ff95c654a6f071ea28a04caf510
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073625"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564103"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Förstå hur migreringsverktyget fungerar
 
@@ -104,7 +104,7 @@ Aviseringar på Mongo misslyckade begär Anden mått måste delas upp i flera av
 
 ### <a name="classic-compute-metrics"></a>Klassiska beräknings mått
 
-Det går inte att migrera några varningar om klassiska beräknings mått med hjälp av Migreringsverktyget eftersom de klassiska beräknings resurserna inte stöds ännu med nya aviseringar. Stöd för nya aviseringar för dessa resurs typer kommer att läggas till i framtiden. När den är tillgänglig måste kunderna återskapa nya motsvarande varnings regler baserat på deras klassiska varnings regler före 2020 juni.
+Det går inte att migrera några varningar om klassiska beräknings mått med hjälp av Migreringsverktyget eftersom de klassiska beräknings resurserna inte stöds ännu med nya aviseringar. Stöd för nya aviseringar för dessa resurs typer finns för närvarande i offentlig för hands version och kunder kan återskapa nya motsvarande varnings regler baserat på deras klassiska aviserings regler.
 
 ### <a name="classic-alert-rules-on-deprecated-metrics"></a>Klassiska varnings regler för inaktuella mått
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 8e3f33e8f453ffd6eedaeb75a041af7ec11b4e39
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 3b70590002e9c49f2f8711bb7fe90de79e1d2a73
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87457812"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554064"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Språk-och röst stöd för tal tjänsten
 
@@ -161,7 +161,7 @@ Mer information om regional tillgänglighet finns i [regioner](regions.md#standa
 |         |                                 | Kvinna | `zh-CN-XiaoyouNeural`    | Röst för barn, optimerad för artikel-berättarröst |
 |         |                                 | Man   | `zh-CN-YunyangNeural`    | Optimerad för nyhets läsning, flera röst format är tillgängliga |
 |         |                                 | Man   | `zh-CN-YunyeNeural`      | Optimerad för artikel-berättarröst |
-| `zh-HK` | Kinesiska (kantonesiska, tranditional)   | Kvinna | `zh-HK-HiuGaaiNeural`| Allmänt |
+| `zh-HK` | Kinesiska (kantonesiska, traditionell)   | Kvinna | `zh-HK-HiuGaaiNeural`| Allmänt |
 | `zh-TW` | Kinesiska (Taiwan-mandariner)   | Kvinna | `zh-TW-HsiaoYuNeural`    | Allmänt |
 
 > [!IMPORTANT]

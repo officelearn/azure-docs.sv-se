@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: cf2662bef194bc2b7afdb07f55809ba63f40fd6e
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 67b71399332fb29a277381a8c2806dbe7fb31d85
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352890"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552177"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-application-running-on-windows-to-iot-hub-c"></a>Självstudie: ansluta en IoT Plug and Play flera komponent enhets program som körs på Windows till IoT Hub (C#)
 
@@ -60,7 +60,7 @@ I den här självstudien förbereder du en utvecklings miljö som du kan använd
 Öppna en kommando tolk i valfri katalog. Kör följande kommando för att klona [Azure IoT C# SDK: er och bibliotek](https://github.com/Azure/azure-iot-sdk-csharp) GitHub-lagringsplatsen på den här platsen:
 
 ```cmd
-git clone https://github.com/Azure/azure-iot-sdk-c.git
+git clone https://github.com/Azure/azure-iot-sdk-csharp.git
 ```
 
 ## <a name="build-the-code"></a>Skapa koden

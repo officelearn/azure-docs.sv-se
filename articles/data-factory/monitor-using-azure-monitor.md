@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: ac083f842bf10adcbb23e3e1c1157383e11f3af9
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6f0e688f3d483536e0d82186dd8e498cdadf97da
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432430"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563559"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Övervaka och varna Data Factory med Azure Monitor
 
@@ -146,11 +146,11 @@ Här följer några av de mått som har spridits av Azure Data Factory version 2
 | TriggerCancelledRuns                  | Avbrutna utlösare kör mått            | Antal    | Totalt                | Det totala antalet Utlös ande körningar som avbrutits inom en minut period. |
 | TriggerFailedRuns                    | Misslyckad utlösare kör mått              | Antal    | Totalt                | Det totala antalet Utlös ande körningar som misslyckats inom en minut period. |
 | TriggerSucceededRuns                 | Lyckade utlösare kör mått           | Antal    | Totalt                | Det totala antalet Utlös ande körningar som lyckades inom en minut period. |
-| SSISIntegrationRuntimeStartCancelled  | Avbrutna SSIS IR-startmått           | Antal    | Totalt                | Det totala antalet SSIS IR-starter som avbröts inom en minut period. |
-| SSISIntegrationRuntimeStartFailed    | Det gick inte att SSIS IR-startmått             | Antal    | Totalt                | Det totala antalet SSIS IR-starter som misslyckades inom en minut period. |
-| SSISIntegrationRuntimeStartSucceeded | Lyckade SSIS IR-startmått          | Antal    | Totalt                | Det totala antalet SSIS IR-starter som lyckades inom ett minut fönster. |
-| SSISIntegrationRuntimeStopStuck      | Låsta SSIS IR-stopp-mått               | Antal    | Totalt                | Det totala antalet SSIS IR-stopp som har fastnat i ett minut fönster. |
-| SSISIntegrationRuntimeStopSucceeded  | Lyckade SSIS IR-stopp-mått           | Antal    | Totalt                | Det totala antalet SSIS IR-stopp som har lyckats inom ett minut fönster. |
+| SSISIntegrationRuntimeStartCancelled  | Start måtten för integrerings körningen av SSIS har avbrutits           | Antal    | Totalt                | Det totala antalet SSIS för integration runtime som avbrutits inom en minut period. |
+| SSISIntegrationRuntimeStartFailed    | Det gick inte att starta mått för integration runtime-SSIS             | Antal    | Totalt                | Det totala antalet SSIS-integrerings körningar som inleds inom en minut period. |
+| SSISIntegrationRuntimeStartSucceeded | Slutförda start mått för integration runtime-SSIS          | Antal    | Totalt                | Det totala antalet SSIS-integrerings körningar som har startats inom en minut period. |
+| SSISIntegrationRuntimeStopStuck      | Stopp mått för SSIS-integration runtime               | Antal    | Totalt                | Det totala antalet SSIS för integration runtime som har fastnat i ett minut fönster. |
+| SSISIntegrationRuntimeStopSucceeded  | Slutförde SSIS för integration runtime           | Antal    | Totalt                | Det totala antalet SSIS för integration runtime som lyckades inom en minut period. |
 | SSISPackageExecutionCancelled         | Mät värden för körning av SSIS-paket  | Antal    | Totalt                | Det totala antalet körningar av SSIS-paket som avbrutits inom en minut period. |
 | SSISPackageExecutionFailed           | Det gick inte att köra Mät värden för SSIS-paket    | Antal    | Totalt                | Totalt antal körningar av SSIS-paket som misslyckades inom en minuts period. |
 | SSISPackageExecutionSucceeded        | SSIS-paketets körnings mått har slutförts | Antal    | Totalt                | Det totala antalet körningar av SSIS-paketet som lyckades inom en minut period. |
@@ -269,7 +269,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | --- | --- | --- |
 | **storageAccountId** |Sträng | Resurs-ID för det lagrings konto som du vill skicka diagnostikloggar till. |
 | **serviceBusRuleId** |Sträng | Service Bus-regelns ID för det namn område för Service Bus som du vill ha Event Hubs skapat för för strömning av diagnostikloggar. Regel-ID: t har formatet `{service bus resource ID}/authorizationrules/{key name}` .|
@@ -455,7 +455,7 @@ Mer information finns i [diagnostikinställningar](https://docs.microsoft.com/re
 |**operationName**| Sträng | Namnet på aktiviteten med dess status. Om aktiviteten är start pulsslaget är egenskap svärdet `MyActivity -` . Om aktiviteten är slut pulsslaget är egenskap svärdet `MyActivity - Succeeded` . | `MyActivity - Succeeded` |
 |**pipelineName**| Sträng | Namnet på pipelinen. | `MyPipeline` |
 |**activityName**| Sträng | Aktivitetens namn. | `MyActivity` |
-|**har**| Sträng | Start tiden för aktiviteten körs i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`|
+|**start**| Sträng | Start tiden för aktiviteten körs i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`|
 |**ändamål**| Sträng | Slut tiden för aktiviteten körs i TimeSpan UTC-format. Om Diagnostic-loggen visar att en aktivitet har startat men ännu inte har avslut ATS, är egenskap svärdet `1601-01-01T00:00:00Z` . | `2017-06-26T20:55:29.5007959Z` |
 
 #### <a name="pipeline-run-log-attributes"></a>Pipeline-kör logg-attribut
@@ -499,7 +499,7 @@ Mer information finns i [diagnostikinställningar](https://docs.microsoft.com/re
 |**nivå**| Sträng | Nivån för diagnostikloggar. Ange egenskapens värde till `Informational` . | `Informational` |
 |**operationName**| Sträng | Namnet på pipelinen tillsammans med dess status. När pipeline-körningen är färdig är egenskap svärdet `Pipeline - Succeeded` . | `MyPipeline - Succeeded`. |
 |**pipelineName**| Sträng | Namnet på pipelinen. | `MyPipeline` |
-|**har**| Sträng | Start tiden för aktiviteten körs i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`. |
+|**start**| Sträng | Start tiden för aktiviteten körs i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`. |
 |**ändamål**| Sträng | Slut tiden för aktiviteten körs i TimeSpan UTC-format. Om Diagnostic-loggen visar att en aktivitet har startat men ännu inte har avslut ATS, är egenskap svärdet `1601-01-01T00:00:00Z` .  | `2017-06-26T20:55:29.5007959Z` |
 |**statusfältet**| Sträng | Slut status för pipeline-körningen. Möjliga egenskaps värden är `Succeeded` och `Failed` . | `Succeeded`|
 
@@ -544,7 +544,7 @@ Mer information finns i [diagnostikinställningar](https://docs.microsoft.com/re
 |**triggerName**| Sträng | Namnet på utlösaren. | `MyTrigger` |
 |**triggerType**| Sträng | Typ av utlösare. Möjliga egenskaps värden är `Manual Trigger` och `Schedule Trigger` . | `ScheduleTrigger` |
 |**triggerEvent**| Sträng | Händelse av utlösaren. | `ScheduleTime - 2017-07-06T01:50:25Z` |
-|**har**| Sträng | Start tiden för utlösaren utlöses i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`|
+|**start**| Sträng | Start tiden för utlösaren utlöses i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`|
 |**statusfältet**| Sträng | Slutgiltig status visar om utlösaren har utlösts. Möjliga egenskaps värden är `Succeeded` och `Failed` . | `Succeeded`|
 
 #### <a name="ssis-integration-runtime-log-attributes"></a>SSIS för integration runtime

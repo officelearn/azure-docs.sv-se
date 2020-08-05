@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 00080322b4fa474e5095d40afb041134e1a85fe7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 93fb65fc7c7551635c49e33d0f626d72c2755a11
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519745"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553979"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Välj en pris nivå för Azure Kognitiv sökning
 
@@ -61,9 +61,18 @@ Du hittar mer information om olika nivåer på [sidan prissättning](https://azu
 En lösning som bygger på Azure Kognitiv sökning kan ådra sig kostnaderna på följande sätt:
 
 + Kostnaden för själva tjänsten, som körs dygnet runt, med minsta konfiguration (en partition och replik)
+
 + Lägga till kapacitet (repliker eller partitioner)
-+ Bandbredds avgifter (utgående data överföring) 
-+ Tilläggs tjänster som AI-anrikning (bifoga Cognitive Services i färdighetsuppsättningar som definierar AI-bearbetning eller använder Azure Storage för kunskaps lager) eller distribuerar en Sök tjänst i ett privat virtuellt nätverk
+
++ Bandbredds avgifter (utgående data överföring)
+
++ Tilläggs tjänster som krävs för vissa funktioner eller funktioner:
+
+  + AI-anrikning (kräver [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/))
+  + kunskaps lager (kräver [Azure Storage](https://azure.microsoft.com/pricing/details/storage/))
+  + stegvis anrikning (kräver [Azure Storage](https://azure.microsoft.com/pricing/details/storage/), gäller AI-anrikning)
+  + Kundhanterade nycklar och Double Encryption (kräver [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
+  + privata slut punkter för en modell utan Internet åtkomst (kräver [Azures privata länk](https://azure.microsoft.com/pricing/details/private-link/))
 
 ### <a name="service-costs"></a>Tjänste kostnader
 

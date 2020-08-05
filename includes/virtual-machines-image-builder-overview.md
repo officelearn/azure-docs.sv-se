@@ -4,13 +4,13 @@ ms.author: cynthn
 ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
-manager: gwallace
-ms.openlocfilehash: 8ad191ca0d31abf317bab521dfbbc7c2567c3450
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+manager: daberry
+ms.openlocfilehash: 6024dd595166afe24a75720d8c7593afd451b610
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87545233"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554904"
 ---
 Med standardiserade avbildningar av virtuella datorer kan organisationer migrera till molnet och säkerställa konsekvens i distributionerna. Bilder innehåller vanligt vis fördefinierade säkerhets-och konfigurations inställningar och nödvändig program vara. Att konfigurera din egen avbildnings pipeline kräver tid, infrastruktur och konfiguration, men med Azure VM Image Builder får du bara en enkel konfiguration som beskriver avbildningen, skickar den till tjänsten och avbildningen skapas och distribueras.
  
@@ -56,6 +56,7 @@ AIB kommer att ha stöd för Azure Marketplace Base OS-avbildningar:
 - Windows 2019
 
 Stöd för RHEL ISO stöds inte längre.
+
 ## <a name="how-it-works"></a>Så här fungerar det
 
 
@@ -98,8 +99,8 @@ Image Builder skapar en virtuell dator med en D1v2 VM-storlek, och lagrings utry
  
 Azure Image Builder distribuerar avbildningen till dina valda regioner, vilket kan innebära att det tar betalt för nätverket.
 
-## <a name="hyper-v-generation"></a>Hyper V-generering
-Image Builder för närvarande stöder Hyper V generation 1-avbildningar och virtuella datorer.
+## <a name="hyper-v-generation"></a>Hyper-V-generering
+Image Builder för närvarande stöder Hyper-V generation 1-avbildningar och virtuella datorer.
  
 ## <a name="next-steps"></a>Nästa steg 
  

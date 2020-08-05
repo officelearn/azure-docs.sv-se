@@ -7,19 +7,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/30/2020
-ms.openlocfilehash: b5e408eeac024f63eb8e7ce47039dc4c0a6aa5b5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/01/2020
+ms.custom: references_regions
+ms.openlocfilehash: 9e4181956d81ddbe0a385987689a8cb0248ac535
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501499"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553962"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Säkerhet i Azure Kognitiv sökning – översikt
 
-I den här artikeln beskrivs viktiga säkerhetsfunktioner i Azure Kognitiv sökning som kan skydda innehåll och åtgärder. 
+I den här artikeln beskrivs viktiga säkerhetsfunktioner i Azure Kognitiv sökning som kan skydda innehåll och åtgärder.
 
-+ Vid lagrings nivån är kryptering vid vila ett på plattforms nivån, men Kognitiv sökning även erbjuder Kundhanterade nycklar via Azure Key Vault för ytterligare ett krypterings lager.
++ Vid lagrings nivån är krypteringen i vila inbyggd för allt tjänst hanterat innehåll som sparas till disk, inklusive index, synonym mappningar och definitioner av indexerare, data källor och färdighetsuppsättningar. Azure Kognitiv sökning stöder även tillägg av Kundhanterade nycklar (CMK) för kompletterande kryptering av indexerat innehåll. För tjänster som skapats efter 1 2020 augusti utökas CMK-kryptering till data på temporära diskar för fullständig dubbel kryptering av indexerat innehåll.
 
 + Inkommande säkerhet skyddar Sök tjänstens slut punkt på ökade säkerhets nivåer: från API-nycklar på begäran till inkommande regler i brand väggen till privata slut punkter som helt skyddar din tjänst från det offentliga Internet.
 
@@ -29,29 +30,41 @@ Titta på den här videon med snabb takt för en översikt över säkerhets arki
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
 
+<a name="encryption"></a>
+
 ## <a name="encrypted-transmissions-and-storage"></a>Krypterad överföring och lagring
 
-Kryptering är genomgripande i Azure Kognitiv sökning, från och med anslutningar och överföring, som utökas till innehåll som lagras på disk. För Sök tjänster på det offentliga Internet lyssnar Azure Kognitiv sökning på HTTPS-port 443. Alla klient-till-tjänst-anslutningar använder TLS 1,2-kryptering. Tidigare versioner (1,0 eller 1,1) stöds inte.
+I Azure Kognitiv sökning börjar krypteringen med anslutningar och överföring och utökar till innehåll som lagras på disk. För Sök tjänster på det offentliga Internet lyssnar Azure Kognitiv sökning på HTTPS-port 443. Alla klient-till-tjänst-anslutningar använder TLS 1,2-kryptering. Tidigare versioner (1,0 eller 1,1) stöds inte.
 
-### <a name="data-encryption-at-rest"></a>Vilande datakryptering
+I följande tabell beskrivs [data krypterings modeller](../security/fundamentals/encryption-atrest.md#data-encryption-models)för data som hanteras internt av Sök tjänsten. Vissa funktioner, till exempel kunskaps lager, stegvis anrikning och indexerad indexering, läses från eller skrivs till data strukturer i andra Azure-tjänster. Dessa tjänster har sina egna nivåer av krypterings stöd separat från Azure Kognitiv sökning.
 
-Azure Kognitiv sökning lagrar index definitioner och innehåll, definitioner av data källor, Indexer definitioner, färdigheter-definitioner och synonym Maps.
+| Modell | Nyckel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Signaturkrav&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Begränsningar | Gäller för |
+|------------------|-------|-------------|--------------|------------|
+| kryptering på Server Sidan | Microsoft-hanterade nycklar | Ingen (inbyggt) | Ingen, tillgänglig på alla nivåer i alla regioner för innehåll som skapats efter 24 2018 januari. | Innehåll (index och synonym mappningar) och definitioner (indexerare, data källor, färdighetsuppsättningar) |
+| kryptering på Server Sidan | Kundhanterade nycklar | Azure Key Vault | Tillgängligt på fakturerbara nivåer i alla regioner för innehåll som skapats efter 2019 januari. | Innehåll (index och synonym mappningar) på data diskar |
+| dubbel kryptering på Server Sidan | Kundhanterade nycklar | Azure Key Vault | Tillgängligt på fakturerbara nivåer i valda regioner på Sök tjänster efter augusti 1 2020. | Innehåll (index och synonym mappningar) på data diskar och temporära diskar |
 
-Data krypteras på disk via lagrings lagret med hjälp av nycklar som hanteras av Microsoft. Du kan inte aktivera eller inaktivera kryptering eller Visa krypterings inställningar i portalen eller program mässigt. Kryptering är helt inaktive ras, utan mätbar påverkan på indexerings tiden för slut för ande eller index storlek. Det sker automatiskt vid all indexering, inklusive för stegvisa uppdateringar av ett index som inte är fullständigt krypterat (skapat före januari 2018).
+### <a name="service-managed-keys"></a>Tjänst nycklar som hanteras
 
-Internt är kryptering baserat på [Azure Storage tjänst kryptering](../storage/common/storage-service-encryption.md)med 256-bitars AES- [kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).
+Tjänst-hanterad kryptering är en Microsoft-intern åtgärd baserad på [Azure Storage tjänst kryptering](../storage/common/storage-service-encryption.md)med hjälp av 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). Det sker automatiskt vid all indexering, inklusive för stegvisa uppdateringar av index som inte är fullständigt krypterade (skapade före januari 2018).
 
-> [!NOTE]
-> Kryptering i vila presenterades den 24 januari 2018 och gäller för alla tjänst nivåer, inklusive den kostnads fria nivån, i alla regioner. För fullständig kryptering måste index som skapats före det datumet släppas och återskapas för att krypteringen ska ske. Annars krypteras endast nya data som lagts till efter 24 januari.
+### <a name="customer-managed-keys-cmk"></a>Kundhanterade nycklar (CMK)
 
-### <a name="customer-managed-key-cmk-encryption"></a>CMK-kryptering (Customer Managed Key)
+Kundhanterade nycklar kräver ytterligare en fakturerings tjänst Azure Key Vault, som kan finnas i en annan region, men under samma prenumeration som Azure Kognitiv sökning. Genom att aktivera CMK-kryptering ökar du index storlek och försämrar frågans prestanda. Utifrån observationer som datum kan du vänta på att se en ökning på 30%-60% i fråge tiderna, även om den faktiska prestandan varierar beroende på index definitionen och typer av frågor. På grund av den här prestandan rekommenderar vi att du bara aktiverar den här funktionen på index som verkligen kräver det. Mer information finns i [Konfigurera kund hanterade krypterings nycklar i Azure kognitiv sökning](search-security-manage-encryption-keys.md).
 
-Kunder som vill ha ytterligare lagrings skydd kan kryptera data och objekt innan de lagras och krypteras på disk. Den här metoden baseras på en användardefinierad nyckel som hanteras och lagras via Azure Key Vault, oberoende av Microsoft. Kryptering av innehåll innan det krypteras på disk kallas "Double Encryption". För närvarande kan du selektivt dubblera kryptering av index och synonymer. Mer information finns i [kund hanterade krypterings nycklar i Azure kognitiv sökning](search-security-manage-encryption-keys.md).
+<a name="double-encryption"></a>
 
-> [!NOTE]
-> CMK-kryptering är allmänt tillgängligt för Sök tjänster som skapats efter 2019 januari. Det stöds inte på kostnads fria (delade) tjänster. 
->
->Om du aktiverar den här funktionen ökar du antalet index och försämrar frågans prestanda. Utifrån observationer som datum kan du vänta på att se en ökning på 30%-60% i fråge tiderna, även om den faktiska prestandan varierar beroende på index definitionen och typer av frågor. På grund av den här prestandan rekommenderar vi att du bara aktiverar den här funktionen på index som verkligen kräver det.
+### <a name="double-encryption"></a>Dubbel kryptering 
+
+I Azure Kognitiv sökning är dubbel kryptering en utökning av CMK. Det kan vara en enviknings kryptering (en gång av CMK, och återigen med tjänstens hanterade nycklar) och omfattande i omfattning, långsiktig lagring som skrivs till en data disk och kortsiktig lagring som skrivs till temporära diskar. Skillnaden mellan CMK före augusti 1 2020 och efter, och vad som gör att CMK en dubbel krypterings funktion i Azure Kognitiv sökning, är ytterligare kryptering av data i vila på temporära diskar.
+
+Double Encryption är för närvarande tillgängligt för nya tjänster som skapats i dessa regioner efter 1 augusti:
+
++ USA, västra 2
++ East US
++ USA, södra centrala
++ US Gov, Virginia
++ US Gov, Arizona
 
 <a name="service-access-and-authentication"></a>
 
@@ -107,7 +120,7 @@ Hur en användare kommer åt ett index och andra objekt bestäms av typen av API
 
 Om du behöver detaljerad kontroll över varje användare över Sök resultat kan du bygga säkerhets filter på dina frågor och returnera dokument som är associerade med en viss säkerhets identitet. I stället för fördefinierade roller och roll tilldelningar implementeras identitetsbaserade åtkomst kontroller som ett *filter* som trimmar Sök Resultat för dokument och innehåll baserat på identiteter. I följande tabell beskrivs två metoder för att trimma Sök Resultat av obehörigt innehåll.
 
-| Metod | Description |
+| Metod | Beskrivning |
 |----------|-------------|
 |[Säkerhets trimning baserat på identitets filter](search-security-trimming-for-azure-search.md)  | Dokumenterar det grundläggande arbets flödet för att implementera åtkomst kontroll för användar identitet. Det omfattar att lägga till säkerhets identifierare i ett index och sedan förklarar filtreringen för fältet för att trimma resultat från otillåtet innehåll. |
 |[Säkerhets trimning baserat på Azure Active Directory identiteter](search-security-trimming-for-azure-search-with-aad.md)  | Den här artikeln är utökad i föregående artikel, som innehåller steg för att hämta identiteter från Azure Active Directory (AAD), en av de [kostnads fria tjänsterna](https://azure.microsoft.com/free/) i Azure Cloud Platform. |

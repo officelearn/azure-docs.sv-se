@@ -335,6 +335,8 @@
           items:
             - name: Kundhanterade nycklar
               href: search-security-manage-encryption-keys.md
+            - name: Hämta viktig information
+              href: search-security-get-encryption-keys.md
         - name: Ingående säkerhet
           items:
             - name: API-åtkomstnycklar
@@ -518,5 +520,5 @@
       href: search-faq-frequently-asked-questions.md
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/search/'
-    - name: Video
+    - name: Videoklipp
       href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

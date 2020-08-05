@@ -15,28 +15,6 @@
 - name: Självstudier
   expanded: true
   items:
-    - name: Studio
-      expanded: true
-      items:
-        - name: Designern (dra och släpp)
-          items:
-            - name: 1. Träna en regressionsmodell
-              displayName: studio
-              href: tutorial-designer-automobile-price-train-score.md
-            - name: 2. Distribuera modellen
-              displayName: studio
-              href: tutorial-designer-automobile-price-deploy.md
-        - name: Automatisk ML (användargränssnitt)
-          items:
-            - name: Skapa automatiska ML-experiment
-              displayName: 'automl, automated, auto ml, portal, ui'
-              href: tutorial-first-experiment-automated-ml.md
-            - name: Prognostiserad efterfrågan (data om cykeldelning)
-              displayName: 'automl, automated, auto ml, portal, ui'
-              href: tutorial-automated-ml-forecast.md
-        - name: Bilddata om etiketter
-          displayName: 'tag, tagging, images'
-          href: tutorial-labeling.md
     - name: Python SDK
       expanded: true
       items:
@@ -64,11 +42,33 @@
         - name: Förbereda koden för produktion
           displayName: 'mlops, mlopspython, production'
           href: tutorial-convert-ml-experiment-to-production.md
+    - name: Studio
+      expanded: true
+      items:
+        - name: Automatisk ML (användargränssnitt)
+          items:
+            - name: Skapa automatiska ML-experiment
+              displayName: 'automl, automated, auto ml, portal, ui'
+              href: tutorial-first-experiment-automated-ml.md
+            - name: Prognostiserad efterfrågan (data om cykeldelning)
+              displayName: 'automl, automated, auto ml, portal, ui'
+              href: tutorial-automated-ml-forecast.md
+        - name: Designern (dra och släpp)
+          items:
+            - name: 1. Träna en regressionsmodell
+              displayName: studio
+              href: tutorial-designer-automobile-price-train-score.md
+            - name: 2. Distribuera modellen
+              displayName: studio
+              href: tutorial-designer-automobile-price-deploy.md
+        - name: Bilddata om etiketter
+          displayName: 'tag, tagging, images'
+          href: tutorial-labeling.md
     - name: R SDK
       items:
         - name: Skapa ett första ML-experiment (R)
           href: tutorial-1st-r-experiment.md
-    - name: Maskininlärning CLI
+    - name: CLI
       items:
         - name: Träna och distribuera med CLI
           href: tutorial-train-deploy-model-cli.md
@@ -226,9 +226,6 @@
         - name: Använda privata Python-paket
           displayName: 'pip, Conda, anaconda'
           href: how-to-use-private-python-packages.md
-        - name: Aktivera loggning
-          displayName: 'troubleshoot, log, files, tracing'
-          href: how-to-enable-logging.md
         - name: Ställa in kataloger med indata och utdata
           displayName: 'large data, write, experiment files, size limit'
           href: how-to-save-write-experiment-files.md
@@ -309,8 +306,12 @@
             - name: 'Starta, övervaka eller avbryta körningar'
               displayName: 'cancel, fail, status, child run'
               href: how-to-manage-runs.md
-            - name: Loggmått för träningskörningar
+            - name: Aktivera loggar
+              displayName: 'troubleshoot, log, files, tracing'
               href: how-to-track-experiments.md
+            - name: Visa loggar
+              displayName: 'troubleshoot, log, files, tracing'
+              href: how-to-monitor-view-training-logs.md
             - name: Spåra experiment med MLflow
               displayName: 'log, monitor, metrics, Databricks'
               href: how-to-use-mlflow.md
@@ -363,7 +364,7 @@
         - name: Var och hur du distribuerar
           displayName: 'publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker'
           href: how-to-deploy-and-where.md
-        - name: Distributionsscenarier
+        - name: Distributionsmål
           items:
             - name: Använda befintliga modeller
               displayName: publish existing model
@@ -394,19 +395,37 @@
               href: how-to-deploy-fpga-web-service.md
         - name: Felsöka
           href: how-to-troubleshoot-deployment.md
-        - name: Skapa klienter
+        - name: Använda webbtjänst
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
-        - name: Övervaka modeller
+        - name: Uppdatera webbtjänst
+          displayName: update hot reload model mounting
+          href: how-to-deploy-update-web-service.md
+        - name: Avancerad startskriptredigering
+          displayName: swagger inference schema binary cors
+          href: how-to-deploy-advanced-entry-script.md
+        - name: Övervaka webbtjänster
           items:
             - name: Samla in och utvärdera modelldata
               displayName: track production
               href: how-to-enable-data-collection.md
             - name: Övervaka med Application Insights
               href: how-to-enable-app-insights.md
+        - name: Distribuera modeller kontinuerligt
+          displayName: ci cd azure devops models
+          href: how-to-deploy-continuously-deploy.md
         - name: Distribuera krypterad tjänst för slutsatsdragning
           displayName: 'homomorhic,encryption,deployment'
           href: how-to-homomorphic-encryption-seal.md
+        - name: Profilmodeller
+          displayName: profile resource requirement
+          href: how-to-deploy-profile-model.md
+        - name: (Förhandsversion) Distribution utan kod
+          displayName: no code
+          href: how-to-deploy-no-code-deployment.md
+        - name: Paketmodeller
+          displayName: docker file download
+          href: how-to-deploy-package-models.md
     - name: Skapa och använda ML-pipelines
       displayName: pipelines
       items:
@@ -423,6 +442,9 @@
           href: how-to-debug-pipelines.md
         - name: Felsöka pipelines i Application Insights.
           href: how-to-debug-pipelines-application-insights.md
+        - name: Loggmått i Designer
+          displayName: 'designer, logging'
+          href: how-to-track-designer-experiments.md
         - name: Omvandla data i Designer
           displayName: pipeline
           href: how-to-designer-transform-data.md

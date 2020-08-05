@@ -345,8 +345,8 @@
       items:
         - name: Felsöka Storage
           href: functions-recover-storage-account.md
-        - name: Felsök Python-beroenden
-          href: recover-module-not-found.md
+        - name: Felsöka Python-funktioner
+          href: recover-python-functions.md
 - name: Referens
   items:
     - name: API-referenser

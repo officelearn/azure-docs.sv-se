@@ -51,6 +51,12 @@
   items:
     - name: Konfigurera Network Watcher
       href: network-watcher-create.md
+    - name: Skapa anslutningsövervakaren (förhandsversion)
+      items:
+        - name: Använda Azure Portal
+          href: connection-monitor-preview-create-using-portal.md
+        - name: Använda ARMClient
+          href: connection-monitor-preview-create-using-arm-client.md
     - name: Diagnostisera problem med VM-nätverk
       items:
         - name: Installera VM-tillägg
@@ -67,7 +73,7 @@
               href: diagnose-vm-network-routing-problem-cli.md
         - name: Diagnosticera problem med utgående anslutningar
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: network-watcher-connectivity-portal.md
             - name: Azure PowerShell
               href: network-watcher-connectivity-powershell.md

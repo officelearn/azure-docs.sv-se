@@ -726,6 +726,8 @@
           href: pricing-concepts.md
     - name: Felsökningsguider
       items:
+        - name: Data Factory UX
+          href: data-factory-ux-troubleshoot-guide.md
         - name: Aktiviteter
           href: data-factory-troubleshoot-guide.md
         - name: Anslutningar

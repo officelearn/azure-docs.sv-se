@@ -8,6 +8,8 @@
       href: features.md
     - name: Viktig information
       href: release-notes.md
+    - name: Användning och diagnostik av datasamling
+      href: usage-and-diagnostics-data-configuration.md
 - name: Snabbstarter
   expanded: true
   items:

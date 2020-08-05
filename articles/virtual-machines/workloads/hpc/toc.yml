@@ -2,16 +2,16 @@
   items:
     - name: Översikt
       items:
-        - name: HPC för virtuella datorer i H-serien
+        - name: HPC för virtuella datorer i H-serien och N-serien
           href: overview.md
     - name: Konfiguration
       items:
-        - name: Optimering för Linux
+        - name: Konfigurera och optimera virtuella datorer
           href: configure.md
         - name: Aktivera InfiniBand
           href: enable-infiniband.md
-    - name: Konfigurera MPI
-      href: setup-mpi.md
+        - name: Konfigurera MPI
+          href: setup-mpi.md
     - name: Skala program
       href: compiling-scaling-applications.md
     - name: Virtuella datorer
@@ -28,5 +28,5 @@
               href: hc-series-overview.md
             - name: Prestanda
               href: hc-series-performance.md
-        - name: Kända problem med virtuella datorer i HB-serien och HC-serien
+        - name: Kända problem med virtuella datorer i H-serien och N-serien
           href: hb-hc-known-issues.md

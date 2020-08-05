@@ -91,7 +91,7 @@
       items:
         - name: Översikt över privilegierad åtkomst
           href: groups-features.md
-        - name: Utforska grupper
+        - name: Ta med grupper under hantering
           href: groups-discover-groups.md
         - name: Tilldela medlem eller ägare
           href: groups-assign-member-owner.md

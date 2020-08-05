@@ -4,7 +4,7 @@ summary: Säkerheten är integrerad i alla aspekter av Azure. Azure erbjuder dig
 brand: azure
 metadata:
   title: Dokumentation om Azure-säkerhet
-  description: Säkerheten är integrerad i alla aspekter av Azure. Azure erbjuder dig unika säkerhetsfördelar som kommer från global säkerhetsintelligens, avancerade kundinriktade kontroller och en säker, förstärkt infrastruktur. Denna kraftfulla kombination hjälper dig att skydda dina program och data, stöder ditt arbete för efterlevnad och tillhandahåller kostnadseffektiv säkerhet för organisationer i alla storlekar.
+  description: Läs mer om säkerhet i Azure. Visa information om grundläggande säkerhetsåtgärder, regelverk och mönster samt Azure Security Center.
   services: security
   ms.service: security
   ms.subservice: na
@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 08/29/2019
-  ms.openlocfilehash: b3c5fb0dd15c1211132e627b507aa20a043f09ba
-  ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+  ms.openlocfilehash: de2b3baae0ab999c0e3eb8ed76194632e7b066e6
+  ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 04/10/2020
-  ms.locfileid: "81115368"
+  ms.lasthandoff: 08/03/2020
+  ms.locfileid: "87540860"
 highlightedContent:
   items:
   - title: Introduktion till Azure-säkerhet

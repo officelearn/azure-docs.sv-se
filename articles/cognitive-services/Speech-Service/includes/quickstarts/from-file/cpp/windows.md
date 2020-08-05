@@ -11,7 +11,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400553"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
@@ -31,20 +31,20 @@ Innan du börjar ska du se till att:
 
 1. Ersätt strängen `YourSubscriptionKey` i samma fil med din prenumerationsnyckel.
 
-1. Ersätt strängen `YourServiceRegion` med **regions-ID** : t från den [region](https://aka.ms/speech/sdkregion) som är associerad med din `westus` prenumeration (till exempel för den kostnads fria utvärderings prenumerationen).
+1. Ersätt strängen `YourServiceRegion` med **regions-ID** : t från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration (till exempel `westus` för den kostnads fria utvärderings prenumerationen).
 
 1. Ersätt strängen `whatstheweatherlike.wav` med ditt eget fil namn.
 
-1. Välj **Arkiv** > **Spara alla**på Meny raden.
+1. Välj **Arkiv**  >  **Spara alla**på Meny raden.
 
 > [!NOTE]
 > Tal-SDK: n kommer att känna igen med en-US för språket, se [Ange käll språk för tal till text](../../../../how-to-specify-source-language.md) om du vill ha information om hur du väljer käll språk.
 
 ## <a name="build-and-run-the-application"></a>Skapa och kör appen
 
-1. Välj **bygge** > **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
+1. Välj **bygge**  >  **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
 
-1. Starta programmet **HelloWorld** genom att välja **Felsök** > **Starta fel sökning** (eller tryck på **F5**).
+1. Starta programmet HelloWorld genom att välja **Felsök**  >  **Starta fel sökning** (eller tryck på **helloworld** **F5**).
 
 1. Ljud filen skickas till tal tjänsten och den första uttryck i filen skrivs till text, som visas i samma fönster.
 

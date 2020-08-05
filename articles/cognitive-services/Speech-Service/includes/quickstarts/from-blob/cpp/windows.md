@@ -11,7 +11,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400989"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
@@ -25,7 +25,7 @@ Innan du börjar ska du se till att:
 Det första steget är att se till att projektet är öppet i Visual Studio.
 
 1. Starta Visual Studio 2019.
-2. Läs in projektet och öppna `helloworld.cpp`.
+2. Läs in projektet och öppna `helloworld.cpp` .
 
 ## <a name="add-a-references"></a>Lägg till en referens
 
@@ -53,7 +53,7 @@ Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt.
 Som REST API utföra begär anden i JSON-format och även returnera resultat i JSON kan vi interagera med dem med enbart strängar, men det rekommenderas inte.
 För att göra det lättare att hantera förfrågningar och svar kan vi deklarera några klasser som ska användas för serialisering/deserialisering av JSON och vissa metoder för att hjälpa nlohmann/JSON.
 
-Gå vidare och placera deras deklarationer `recognizeSpeech` innan.
+Gå vidare och placera deras deklarationer innan `recognizeSpeech` .
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=33-185)]
 
 ## <a name="create-and-configure-an-http-client"></a>Skapa och konfigurera en http-klient

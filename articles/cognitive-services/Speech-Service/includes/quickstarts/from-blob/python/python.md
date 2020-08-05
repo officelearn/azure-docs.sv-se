@@ -11,7 +11,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400908"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
@@ -28,15 +28,15 @@ Följ de här stegen för installationen:
 
 1. Gå till https://editor.swagger.io.
 1. Klicka på **Arkiv**och sedan på **Importera URL**.
-1. Ange Swagger-URL: en, inklusive regionen för din röst tjänst `https://<your-region>.cris.ai/docs/v2.0/swagger`prenumeration:.
+1. Ange Swagger-URL: en, inklusive regionen för din röst tjänst prenumeration: `https://<your-region>.cris.ai/docs/v2.0/swagger` .
 1. Klicka på **generera klient** och välj **python**.
 1. Spara klient biblioteket.
-1. Extrahera de hämtade python-client-Generated. zip-filerna någonstans i fil systemet.
-1. Installera den extraherade python-client-modulen i python-miljön med `pip install path/to/package/python-client`hjälp av pip:.
-1. Det installerade paketet har namnet `swagger_client`. Du kan kontrol lera att installationen fungerade med kommandot `python -c "import swagger_client"`.
+1. Extrahera den nedladdade python-client-generated.zip någonstans i fil systemet.
+1. Installera den extraherade python-client-modulen i python-miljön med hjälp av pip: `pip install path/to/package/python-client` .
+1. Det installerade paketet har namnet `swagger_client` . Du kan kontrol lera att installationen fungerade med kommandot `python -c "import swagger_client"` .
 
 > [!NOTE]
-> På grund av ett [känt fel i Swagger autogenerning](https://github.com/swagger-api/swagger-codegen/issues/7541)kan du stöta på fel vid `swagger_client` import av paketet.
+> På grund av ett [känt fel i Swagger autogenerning](https://github.com/swagger-api/swagger-codegen/issues/7541)kan du stöta på fel vid import av `swagger_client` paketet.
 > Dessa kan åtgärdas genom att raden tas bort med innehållet
 > ```py
 > from swagger_client.models.model import Model  # noqa: F401,E501
@@ -65,10 +65,10 @@ Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt.
 
 ## <a name="create-and-configure-an-http-client"></a>Skapa och konfigurera en http-klient
 Det första vi behöver är en http-klient som har rätt bas-URL och autentisering.
-Infoga den här koden `transcribe` i[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=37-45)]
+Infoga den här koden i `transcribe`[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=37-45)]
 
 ## <a name="generate-a-transcription-request"></a>Generera en avskrifts förfrågan
-Nu ska vi skapa en avskrifts förfrågan. Lägg till den här `transcribe` koden i[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=52-54)]
+Nu ska vi skapa en avskrifts förfrågan. Lägg till den här koden i `transcribe`[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=52-54)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Skicka begäran och kontrol lera dess status
 Nu ska vi publicera begäran till tal tjänsten och kontrol lera den ursprungliga svars koden. Den här svars koden anger bara om tjänsten har tagit emot begäran. Tjänsten returnerar en URL i svarshuvuden som är den plats där den kommer att lagra avskrifts status.

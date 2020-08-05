@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d5004dc48fe3052d6632573da67f4069eb6fac1c
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 74ffb54b13783b4945376e1717777fa1da39ab44
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85208186"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543324"
 ---
 # <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Lathund-blad för Azure Synapse Analytics (tidigare SQL DW)
 
@@ -41,9 +41,9 @@ Börja med att läsa in data i [Azure Data Lake Storage](../../data-factory/conn
 
 | Design | Rekommendation |
 |:--- |:--- |
-| Distribution | Resursallokering |
+| Distribution | Resursallokering (round robin) |
 | Indexering | Heap |
-| Partitionering | Inga |
+| Partitionering | Inget |
 | Resursklass | largerc eller xlargerc |
 
 Läs mer om [datamigrering](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), [datainläsning](design-elt-data-loading.md) och [ELT-processen (Extract, Load, and Transform)](design-elt-data-loading.md).
@@ -65,7 +65,7 @@ Använd följande strategier, beroende på tabellens egenskaper:
 * Distribuera inte i varchar-format.
 * Dimensionstabeller med en vanlig hash-nyckel för en faktatabell med många kopplingsåtgärder kan hash-distribueras.
 * Använd *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* för att analysera eventuella snedställningar i dina data.
-* Använd *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* för att analysera dataförflyttning bakom frågor, övervaka sändningstiden och blanda åtgärder. Det är praktiskt när du granskar din distributionsstrategi.
+* Använd *[sys. dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* för att analysera data förflyttningar bakom frågor, övervaka tiden sändningen och blanda åtgärder ta. Det är praktiskt när du granskar din distributionsstrategi.
 
 Läs mer om [replikerade tabeller](design-guidance-for-replicated-tables.md) och [distribuerade tabeller](sql-data-warehouse-tables-distribute.md).
 
@@ -131,9 +131,7 @@ En viktig funktion i Azure Synapse är möjligheten att [hantera beräknings res
 
 Autoskala nu för den tid du önskar med Azure Functions:
 
-<a href="https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwTimerScaler%2Fazuredeploy.json" target="_blank">
-<img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+[![Bild som visar en knapp med etiketten "distribuera till Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwTimerScaler%2Fazuredeploy.json)
 
 ## <a name="optimize-your-architecture-for-performance"></a>Optimera din arkitektur för prestanda
 
@@ -143,6 +141,4 @@ Lär dig mer om [typiska arkitekturer som utnyttjar Azure-Synapse](https://blogs
 
 Distribuera i ett Klicka på dina ekrar i SQL-databaser från SQL-poolen:
 
-<a href="https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwSpokeDbTemplate%2Fazuredeploy.json" target="_blank">
-<img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+[![Bild som visar en knapp med etiketten "distribuera till Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwSpokeDbTemplate%2Fazuredeploy.json)

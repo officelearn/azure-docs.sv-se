@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/10/2020
 ms.author: lbosq
-ms.openlocfilehash: 0d8c153bb95ee4eda109d8d7d6ce8ae40dae19e1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e1ce632a04269704b498a69e1a0dd4fe72e00c87
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260738"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543783"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Snabbstart: Skapa, köra frågor mot och gå igenom en Azure Cosmos DB-grafdatabas med hjälp av Gremlin-konsolen
 
@@ -33,7 +33,7 @@ Den här snabb starten visar hur du skapar ett Azure Cosmos DB [GREMLIN API](gra
 
 Gremlin-konsolen är Groovy-/Java-baserad och körs på Linux, Mac och Windows. Du kan ladda ned den på [Apache TinkerPop-webbplatsen](https://tinkerpop.apache.org/downloads.html).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha en Azure-prenumeration för att skapa ett Azure Cosmos DB-konto för den här snabbstarten.
 
@@ -81,7 +81,7 @@ Du måste också installera [Gremlin-konsolen](https://tinkerpop.apache.org/down
    connectionPool: {
      enableSsl: true
    }
-   serializer: { className: org.apache.tinkerpop.gremlin.driver.   ser.GraphSONMessageSerializerV2d0, config: {    serializeResultToString: true }}
+   serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV2d0, config: { serializeResultToString: true }}
    ```
 
    se till att omsluta värdet för värdparametern inom hakparenteser []. 
@@ -98,7 +98,7 @@ Du måste också installera [Gremlin-konsolen](https://tinkerpop.apache.org/down
    > [!NOTE]
    > Om du inte kör kommandot `:remote console` men vill omdirigera alla konsolkommandon till fjärrservern bör du lägga till prefixet `:>` till kommandot och till exempel köra kommandot som `:> g.V().count()`. Det här prefixet är en del av kommandot och är viktigt när du använder Gremlin-konsolen med Azure Cosmos DB. Om du utesluter det här prefixet instrueras konsolen att köra kommandot lokalt, ofta mot en InMemory-graf. Med det här prefixet beordrar `:>` konsolen att köra fjärrkommandon, i det här fallet mot Azure Cosmos DB (antingen localhost-emulatorn eller en Azure-instans).
 
-Bra! Konfigurationen är slutförd, så vi kan börja köra några konsolkommandon.
+Toppen! Konfigurationen är slutförd, så vi kan börja köra några konsolkommandon.
 
 Prova med ett enkelt count()-kommando. Skriv följande i konsolen:
 

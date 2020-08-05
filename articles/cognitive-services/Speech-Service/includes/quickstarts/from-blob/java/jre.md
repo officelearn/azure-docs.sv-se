@@ -11,7 +11,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400997"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
@@ -26,12 +26,12 @@ Innan du börjar ska du se till att:
 Det första steget är att se till att projektet är öppet i Sol förmörkelse.
 
 1. Starta Eclipse
-2. Läs in projektet och öppna `Main.java`.
+2. Läs in projektet och öppna `Main.java` .
 
 ## <a name="add-a-reference-to-gson"></a>Lägg till en referens till Gson
 Vi använder en extern JSON-serialisering/deserialiserare i den här snabb starten. För Java har vi valt [Gson](https://github.com/google/gson).
 
-Öppna Pom. xml och Lägg till följande referens.
+Öppna pom.xml och Lägg till följande referens.
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
 
@@ -48,15 +48,15 @@ Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt.
 Som REST API utföra begär anden i JSON-format och även returnera resultat i JSON kan vi interagera med dem med enbart strängar, men det rekommenderas inte.
 För att göra det lättare att hantera förfrågningar och svar kan vi deklarera några klasser som ska användas för serialisering/deserialisering av JSON.
 
-Gå vidare och placera deras deklarationer `Main`innan.
+Gå vidare och placera deras deklarationer innan `Main` .
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=15-93)]
 
 ## <a name="create-and-configure-an-http-client"></a>Skapa och konfigurera en http-klient
 Det första vi behöver är en http-klient som har rätt bas-URL och autentisering.
-Infoga den här koden `Main` i[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=106-113)]
+Infoga den här koden i `Main`[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=106-113)]
 
 ## <a name="generate-a-transcription-request"></a>Generera en avskrifts förfrågan
-Nu ska vi skapa en avskrifts förfrågan. Lägg till den här `Main` koden i[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=115-116)]
+Nu ska vi skapa en avskrifts förfrågan. Lägg till den här koden i `Main`[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=115-116)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Skicka begäran och kontrol lera dess status
 Nu ska vi publicera begäran till tal tjänsten och kontrol lera den ursprungliga svars koden. Den här svars koden anger bara om tjänsten har tagit emot begäran. Tjänsten returnerar en URL i svarshuvuden som är den plats där den kommer att lagra avskrifts status.

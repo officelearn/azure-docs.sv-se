@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a594a754f33ae60d151215deb5a5ed57f87126c3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 96a947a20a17c4dc08851824a392143ce162f186
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050652"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543577"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Självstudie: mappa ett befintligt anpassat DNS-namn till Azure App Service
 
@@ -95,7 +95,12 @@ När du ser följande meddelande har skalningsåtgärden slutförts.
 
 ## <a name="get-domain-verification-id"></a>Hämta ID för domän verifiering
 
-Om du vill lägga till en anpassad domän i din app måste du verifiera din ägande av domänen genom att lägga till ett verifierings-ID som en TXT-post med din domän leverantör. Klicka på **anpassade domäner** under **Inställningar**i det vänstra navigerings fönstret på din app-sida. Kopiera värdet för anpassad domän verifierings-ID härifrån. Du behöver det här verifierings-ID: t för nästa steg.
+Om du vill lägga till en anpassad domän i din app måste du verifiera din ägande av domänen genom att lägga till ett verifierings-ID som en TXT-post med din domän leverantör. Klicka på **anpassade domäner**i det vänstra navigerings fältet på din app-sida. Kopiera **ID för anpassad domän verifiering** på sidan **anpassade domäner** för nästa steg.
+
+![Hämta ID för anpassad domän verifiering](./media/app-service-web-tutorial-custom-domain/get-custom-domain-verification-id.png)
+
+> [!WARNING]
+> Om du lägger till domän verifierings-ID: n i din anpassade domän kan du förhindra Dangling DNS-poster och för att undvika under domäner. Mer information om det här vanliga hot med hög allvarlighets grad finns i avsnittet övertag ande av [under domäner](../security/fundamentals/subdomain-takeover.md).
 
 ## <a name="map-your-domain"></a>Mappa din domän
 

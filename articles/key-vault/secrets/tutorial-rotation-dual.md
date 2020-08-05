@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: ba9ff0ead1131b091aa1a5ece2ecf94d2319a968
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 0d2ee8fbcb71d8703702f2c72e0bf629563667b9
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800705"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542203"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatisera rotationen av en hemlighet för resurser med två uppsättningar autentiseringsuppgifter för autentisering
 
@@ -41,9 +41,8 @@ I ovanstående lösning lagrar Azure Key Vault lagrings konto enskilda åtkomst 
 * Två Azure Storage konton
 
 Nedan kan du använda distributions länken, om du inte har befintliga nyckel valv och lagrings konton:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+
+[![Bild som visar en knapp med etiketten "distribuera till Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
 
 1. Under **resurs grupp**väljer du **Skapa ny**. Namnge gruppen **akvrotation** och klicka på **OK**.
 1. Välj **Granska + skapa**.
@@ -79,10 +78,9 @@ Funktionen appens rotations funktioner kräver dessa komponenter och konfigurati
 - Nyckel rotations funktioner för lagrings konto med händelse utlösare och http-utlösare (rotation på begäran)
 - EventGrid händelse prenumeration för **SecretNearExpiry** -händelse
 
-1. Välj distributions länk för Azure-mallar:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+1. Välj distributions länk för Azure-mallar: 
+
+   [![Bild som visar en knapp med etiketten "distribuera till Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
 
 1. I listan **resurs grupp** väljer du **akvrotation**.
 1. I **lagrings kontots namn**skriver du namnet på lagrings kontot med åtkomst nycklar som ska roteras
@@ -154,10 +152,9 @@ Att lägga till ytterligare lagrings konto nycklar för rotering till befintlig 
 - Tilldela tjänst rollen lagrings konto nyckel ansvarig för att få åtkomst till lagrings kontots åtkomst nycklar
 - EventGrid händelse prenumeration för **SecretNearExpiry** -händelse
 
-1. Välj distributions länk för Azure-mallar:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FAdd-Event-Subscription%2Fazuredeploy.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+1. Välj distributions länk för Azure-mallar: 
+
+   [![Bild som visar en knapp med etiketten "distribuera till Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FAdd-Event-Subscription%2Fazuredeploy.json)
 
 1. I listan **resurs grupp** väljer du **akvrotation**.
 1. I **lagrings kontots namn**skriver du namnet på lagrings kontot med åtkomst nycklar som ska roteras
@@ -203,10 +200,10 @@ az storage account keys list -n akvrotationstorage
 
 ## <a name="available-key-vault-dual-credential-rotation-functions"></a>Tillgängliga Key Vaults rotations funktioner för dubbla autentiseringsuppgifter
 
-- [Lagringskonto](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)
+- [Lagrings konto](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)
 - [Redis Cache](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
 
-## <a name="learn-more"></a>Läs mer
+## <a name="learn-more"></a>Mer information
 - Översikt: [övervaka Key Vault med Azure Event Grid (förhands granskning)](../general/event-grid-overview.md)
 - Gör så här: [skapa din första funktion i Azure Portal](../../azure-functions/functions-create-first-azure-function.md)
 - Gör så här: [ta emot e-post när hemliga nyckel valv ändringar](../general/event-grid-logicapps.md)

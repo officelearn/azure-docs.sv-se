@@ -20,7 +20,7 @@ Om du har klickat på den här fliken ser du förmodligen ingen snabb start på 
 | C# | Från [MIC][1-mic], [från fil][1-file] | [.NET Framework][dotnet], [.net Core][netcore], [UWP][uwp], [Unity][unity], [Xamarin][xamarin] |
 | C++ | Från [MIC][2-mic], [från fil][2-file] | [Windows][cpp-windows], [Linux][cpp-linux], [MacOS][cpp-mac] |
 | Java | Från [MIC][3-mic], [från fil][3-file] | [Android][java-android], [JRE][java-jre] |
-| JavaScript | [Webbläsare från Mic][js-browser], [Node. js från fil][js-node] | [Windows, Linux, macOS][js-code] |
+| JavaScript | [Webbläsare från Mic][js-browser], [Node.js från fil][js-node] | [Windows, Linux, macOS][js-code] |
 | Objective-C | [iOS från Mic][obj-iOS-qck], [MacOS från Mic][obj-macOS-qck] | [iOS][obj-iOS], [MacOS][obj-macOS] |
 | Python | Från [MIC][4-mic], [från fil][4-file] | [Windows, Linux, macOS][python] |
 | Swift | [iOS från Mic][swift-iOS-qck], [MacOS från Mic][swift-macOS-qck] | [iOS][swift-iOS], [MacOS][swift-macOS] |

@@ -11,7 +11,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400948"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
@@ -25,15 +25,15 @@ Innan du börjar ska du se till att:
 Det första steget är att se till att projektet är öppet i Visual Studio.
 
 1. Starta Visual Studio 2019.
-2. Läs in projektet och öppna `Program.cs`.
+2. Läs in projektet och öppna `Program.cs` .
 
-## <a name="add-a-reference-to-newtonsoftjson"></a>Lägg till en referens till Newtonsoft. JSON
+## <a name="add-a-reference-to-newtonsoftjson"></a>Lägg till en referens till Newtonsoft.Jspå
 
 1. I Solution Explorer högerklickar du på projektet **HelloWorld** och väljer sedan **Hantera NuGet-paket** för att Visa NuGet Package Manager.
 1. Leta upp List rutan **paket källa** i det övre högra hörnet och se till att **`nuget.org`** är markerad.
 1. I det övre vänstra hörnet väljer du **Bläddra**.
-1. Skriv *Newtonsoft. JSON* i rutan Sök och välj **RETUR**.
-1. Från Sök resultaten väljer du paketet [**Newtonsoft. JSON**](https://www.nuget.org/packages/Newtonsoft.Json) och väljer sedan **Installera** för att installera den senaste stabila versionen.
+1. I rutan Sök skriver du *newtonsoft.jspå* och väljer **RETUR**.
+1. Från Sök resultaten väljer du [**Newtonsoft.Jspå**](https://www.nuget.org/packages/Newtonsoft.Json) paketet och väljer sedan **Installera** för att installera den senaste stabila versionen.
 1. Acceptera alla avtal och licenser för att starta installationen.
    När paketet har installerats visas en bekräftelse i fönstret **Package Manager-konsol** .
 
@@ -84,7 +84,7 @@ class Program
 Som REST API utföra begär anden i JSON-format och även returnera resultat i JSON kan vi interagera med dem med enbart strängar, men det rekommenderas inte.
 För att göra det lättare att hantera förfrågningar och svar kan vi deklarera några klasser som ska användas för serialisering/deserialisering av JSON.
 
-Gå vidare och placera deras deklarationer `TranscribeAsync`efter.
+Gå vidare och placera deras deklarationer efter `TranscribeAsync` .
 
 ```csharp
 public class ModelIdentity
@@ -187,7 +187,7 @@ public class TranscriptionDefinition
 
 ## <a name="create-and-configure-an-http-client"></a>Skapa och konfigurera en http-klient
 Det första vi behöver är en http-klient som har rätt bas-URL och autentisering.
-Infoga den här koden `TranscribeAsync`i.
+Infoga den här koden i `TranscribeAsync` .
 
 ```csharp
 var client = new HttpClient
@@ -202,7 +202,7 @@ var client = new HttpClient
 ```
 
 ## <a name="generate-a-transcription-request"></a>Generera en avskrifts förfrågan
-Nu ska vi skapa en avskrifts förfrågan. Lägg till den här `TranscribeAsync`koden i.
+Nu ska vi skapa en avskrifts förfrågan. Lägg till den här koden i `TranscribeAsync` .
 
 ```csharp
 var transcriptionDefinition =
@@ -551,8 +551,8 @@ namespace BatchClient
 
 Nu är du redo att bygga din app och testa vår tal igenkänning med röst tjänsten.
 
-1. **Kompilera koden** – från meny raden i Visual Studio väljer du **bygge** > **build-lösning**.
-2. **Starta din app** – från meny raden väljer du **Felsök** > **Starta fel sökning** eller tryck på **F5**.
+1. **Kompilera koden** – från meny raden i Visual Studio väljer du **bygge**  >  **build-lösning**.
+2. **Starta din app** – från meny raden väljer du **Felsök**  >  **Starta fel sökning** eller tryck på **F5**.
 3. **Starta igenkänning** – du uppmanas att tala en fras på engelska. Ditt tal skickas till tal tjänsten, skrivs som text och återges i-konsolen.
 
 ## <a name="next-steps"></a>Nästa steg

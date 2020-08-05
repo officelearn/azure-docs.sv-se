@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 67fe36cf86c886f9d67d98cc8d34a090db4a71cb
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b61ba7f160d012cc3d9ad9f477e969a626fdc38e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373030"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541427"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatisera rotationen av en hemlighet för resurser som använder en uppsättning autentiseringsuppgifter för autentisering
 
@@ -41,7 +41,8 @@ Den här självstudien visar hur du automatiserar den periodiska rotationen av h
 
 Nedan kan du använda distributions länken, om du inte har befintliga Key Vault och SQL Server:
 
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure"/></a>
+[![Bild som visar en knapp med etiketten "distribuera till Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
+
 1. Under **resurs grupp**väljer du **Skapa ny**. Namnge gruppen **akvrotation**.
 1. Under **SQL admin-inloggning**skriver du SQL Administrator inloggnings namn. 
 1. Välj **Granska + skapa**.
@@ -76,8 +77,10 @@ Function-appen kräver följande komponenter:
 - En åtkomst princip för Funktionsapp identitet för att få åtkomst till hemligheter i Key Vault
 - En EventGrid händelse prenumeration för **SecretNearExpiry** -händelse
 
-1. Välj distributions länk för Azure-mallar:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure"/></a>
+1. Välj distributions länk för Azure-mallar: 
+
+   [![Bild som visar en knapp med etiketten "distribuera till Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json)
+
 1. I listan **resurs grupp** väljer du **akvrotation**.
 1. I **SQL Server-namnet**anger du SQL Server-namnet med lösen ordet för att rotera
 1. I **Key Vault namn**skriver du namnet på nyckel valvet
@@ -217,8 +220,10 @@ Webb programmet kräver följande komponenter:
 - En webbapp med Systemhanterad identitet
 - En åtkomst princip för att få åtkomst till hemligheter i Key Vault via hanterad identitet för webbappar
 
-1. Välj distributions länk för Azure-mallar:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp-WebApp%2Fmaster%2Farm-templates%2FWeb-App%2Fazuredeploy.json" target="_blank"> <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure"/></a>
+1. Välj distributions länk för Azure-mallar: 
+
+   [![Bild som visar en knapp med etiketten "distribuera till Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp-WebApp%2Fmaster%2Farm-templates%2FWeb-App%2Fazuredeploy.json)
+
 1. Välj resurs gruppen **akvrotation** .
 1. I **SQL Server-namnet**anger du SQL Server-namnet med lösen ordet för att rotera
 1. I **Key Vault namn**skriver du namnet på nyckel valvet
@@ -236,7 +241,7 @@ https://akvrotation-app.azurewebsites.net/
 
 När programmet öppnas i webbläsaren visas det **genererade hemliga värdet** och värdet *Sant*för **databas anslutet** .
 
-## <a name="learn-more"></a>Läs mer
+## <a name="learn-more"></a>Mer information
 
 - Självstudie: [rotation för resurser med två uppsättningar autentiseringsuppgifter](tutorial-rotation-dual.md)
 - Översikt: [övervaka Key Vault med Azure Event Grid (förhands granskning)](../general/event-grid-overview.md)

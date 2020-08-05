@@ -21,5 +21,5 @@ I den här snabb starten ska du använda [tal-SDK](~/articles/cognitive-services
 > * Skapa ett `SpeechConfig` objekt från din prenumerations nyckel och region.
 > * Skapa ett `AudioConfig` objekt som anger. WAV-filnamn.
 > * Skapa ett `SpeechRecognizer` objekt med hjälp `SpeechConfig` av `AudioConfig` objekten och.
-> * Starta igenkännings processen för en enda uttryck med hjälp av `SpeechRecognizer` objektet.
+> * `SpeechRecognizer`Starta igenkännings processen för en enda uttryck med hjälp av objektet.
 > * Granska den `SpeechRecognitionResult` returnerade.

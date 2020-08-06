@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 4c6f4bbae180184c13041863a85e2a7025f06a6e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 826f47115d15b9c46476af711eddc5499afab419
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250472"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830265"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Så här implementerar du haveriberedskap med hjälp av säkerhetskopiering och återställning i Azure API Management
 
@@ -169,19 +169,24 @@ Ange värdet för `Content-Type` begär ande rubriken till `application/json` .
 
 Backup är en tids krävande åtgärd som kan ta mer än en minut att slutföra. Om begäran lyckades och säkerhets kopierings processen började visas, får du en `202 Accepted` svars status kod med ett `Location` sidhuvud. Gör GET-begäranden till URL: en i `Location` rubriken för att ta reda på status för åtgärden. När säkerhets kopieringen pågår fortsätter du att ta emot status koden 202. Svars koden `200 OK` visar att säkerhets kopieringen har slutförts.
 
-Observera följande begränsningar när du gör en säkerhets kopierings-eller återställnings förfrågan:
+#### <a name="constraints-when-making-backup-or-restore-request"></a>Begränsningar när du gör en säkerhets kopierings-eller återställnings förfrågan
 
 -   Den **behållare** som anges i begär ande texten **måste finnas**.
 -   När säkerhets kopiering pågår, **Undvik hanterings ändringar i tjänsten** , till exempel SKU-uppgradering eller nedgradering, ändring i domän namn med mera.
 -   Återställning av en **säkerhets kopia garanteras endast i 30 dagar** sedan den skapades.
--   **Användnings data** som används för att skapa analys rapporter **ingår inte** i säkerhets kopian. Använd [Azure API Management REST API][azure api management rest api] för att regelbundet hämta analys rapporter för förvaring.
--   Dessutom är följande objekt inte en del av säkerhets kopierings data: anpassade domän-TLS/SSL-certifikat och eventuella mellanliggande eller rot certifikat som laddats upp av kund, utvecklar Portal innehåll och inställningar för virtuella nätverks integrering.
--   Den frekvens med vilken du utför säkerhets kopiering av tjänster påverkar återställnings punkt målet. För att minimera det rekommenderar vi att du implementerar regelbundna säkerhets kopieringar och utför säkerhets kopieringar på begäran när du har gjort ändringar i API Managements tjänsten.
 -   **Ändringar** som görs i tjänst konfigurationen (till exempel API: er, principer och utvecklarens Portal utseende) medan säkerhets kopieringen pågår **kan uteslutas från säkerhets kopian och kommer att gå förlorade**.
--   **Tillåt** åtkomst från kontroll planet till Azure Storage konto om [brand väggen][azure-storage-ip-firewall] är aktive rad. Kunden bör öppna uppsättningen [Azure API Management Control plan-IP-adresser][control-plane-ip-address] på deras lagrings konto för att säkerhetskopiera eller återställa från. 
+-   **Tillåt** åtkomst från kontroll planet till Azure Storage konto om [brand väggen][azure-storage-ip-firewall] är aktive rad. Kunden bör öppna uppsättningen [Azure API Management Control plan-IP-adresser][control-plane-ip-address] på deras lagrings konto för att säkerhetskopiera eller återställa från. Detta beror på att begär Anden Azure Storage inte SNATed till en offentlig IP-adress från beräknings > (kontroll plan för Azure API Management). Lagrings förfrågan mellan regioner kommer att vara SNATed.
 
-> [!NOTE]
-> Om du försöker Säkerhetskopiera/återställa från/till en API Management tjänst med ett lagrings konto som har [brand vägg][azure-storage-ip-firewall] aktiverat, i samma Azure-region, kommer detta inte att fungera. Detta beror på att begär Anden Azure Storage inte SNATed till en offentlig IP-adress från beräknings > (kontroll plan för Azure API Management). Lagrings förfrågan mellan regioner kommer att vara SNATed.
+#### <a name="what-is-not-backed-up"></a>Vad säkerhets kopie ras inte
+-   **Användnings data** som används för att skapa analys rapporter **ingår inte** i säkerhets kopian. Använd [Azure API Management REST API][azure api management rest api] för att regelbundet hämta analys rapporter för förvaring.
+-   [TLS/SSL-certifikat för anpassad domän](configure-custom-domain.md)
+-   [Anpassat CA-certifikat](api-management-howto-ca-certificates.md) som innehåller mellanliggande eller rot certifikat som har överförts av kunden
+-   Inställningar för integrering av [virtuella nätverk](api-management-using-with-vnet.md) .
+-   [Hanterad identitets](api-management-howto-use-managed-service-identity.md) konfiguration.
+-   [Azure Monitor diagnostik](api-management-howto-use-azure-monitor.md) Inställningarna.
+-   [Protokoll och krypterings](api-management-howto-manage-protocols-ciphers.md) inställningar.
+
+Den frekvens med vilken du utför säkerhets kopiering av tjänster påverkar återställnings punkt målet. För att minimera det rekommenderar vi att du implementerar regelbundna säkerhets kopieringar och utför säkerhets kopieringar på begäran när du har gjort ändringar i API Managements tjänsten.
 
 ### <a name="restore-an-api-management-service"></a><a name="step2"> </a>Återställa en API Management-tjänst
 

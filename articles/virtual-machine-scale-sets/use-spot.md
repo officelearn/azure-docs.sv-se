@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer, devx-track-azurecli
-ms.openlocfilehash: 2898364811616c16a0c33ea26dcaacace9c2c4ed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: de8cfa66d6d52fe16cc40c5df0f41a39fff134fd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491807"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832645"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Virtuella Azure-datorer för skalnings uppsättningar för virtuella datorer 
 
@@ -40,6 +40,11 @@ Om du vill att dina instanser i din dekor Skale uppsättning ska tas bort när d
 
 Användare kan välja att ta emot meddelanden i den virtuella datorn via [Azure schemalagda händelser](../virtual-machines/linux/scheduled-events.md). Detta meddelar dig om dina virtuella datorer avlägsnas och du har 30 sekunder på dig att slutföra jobben och utföra avstängnings uppgifter innan avlägsnandet. 
 
+## <a name="placement-groups"></a>Placerings grupper
+Placerings gruppen är en konstruktion som liknar en Azures tillgänglighets uppsättning, med egna fel domäner och uppgraderings domäner. Som standard består en skalningsuppsättning av en enda placeringsgrupp med maximalt 100 virtuella datorer. Om den skalnings uppsättnings egenskap som kallas `singlePlacementGroup` är *false*kan skalnings uppsättningen bestå av flera placerings grupper och ha ett intervall på 0 till 1 000 virtuella datorer. 
+
+> [!IMPORTANT]
+> Om du inte använder InfiniBand med HPC rekommenderar vi starkt att du ställer in egenskapen skalnings uppsättning `singlePlacementGroup` på *falskt* för att aktivera flera placerings grupper för bättre skalning i regionen eller zonen. 
 
 ## <a name="deploying-spot-vms-in-scale-sets"></a>Distribuera virtuella datorer i skalnings uppsättningar
 
@@ -64,6 +69,7 @@ az vmss create \
     --name myScaleSet \
     --image UbuntuLTS \
     --upgrade-policy-mode automatic \
+    --single-placement-group false \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Spot \
@@ -89,14 +95,26 @@ $vmssConfig = New-AzVmssConfig `
 
 Den process som används för att skapa en skalnings uppsättning som använder virtuella datorer är samma som beskrivs i komma igång-artikeln för [Linux](quick-create-template-linux.md) eller [Windows](quick-create-template-windows.md). 
 
-För distributioner av dekor mallar använder `"apiVersion": "2019-03-01"` eller senare. Lägg till `priority` - `evictionPolicy` och- `billingProfile` egenskaperna i `"virtualMachineProfile":` avsnittet i mallen: 
+För distributioner av dekor mallar använder `"apiVersion": "2019-03-01"` eller senare. 
+
+Lägg till `priority` - `evictionPolicy` och- `billingProfile` egenskaperna i `"virtualMachineProfile":` avsnittet och `"singlePlacementGroup": false,` egenskapen till `"Microsoft.Compute/virtualMachineScaleSets"` avsnittet i mallen:
 
 ```json
-                "priority": "Spot",
+
+{
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  },
+  "properties": {
+    "singlePlacementGroup": false,
+    }
+
+        "virtualMachineProfile": {
+              "priority": "Spot",
                 "evictionPolicy": "Deallocate",
                 "billingProfile": {
                     "maxPrice": -1
                 }
+            },
 ```
 
 Ändra parametern till om du vill ta bort instansen när den har avlägsnats `evictionPolicy` `Delete` .

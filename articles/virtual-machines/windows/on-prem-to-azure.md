@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dc283d1845926b79fb541d8ccb011fe853f50484
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f363b8fc2fec659ee1b101c13d1ba6ac629f29d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81870281"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835500"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrera från Amazon Web Services (AWS) och andra plattformar som ska Managed Disks i Azure
 
@@ -49,13 +49,13 @@ Det här avsnittet hjälper dig att fatta det bästa beslutet om VM och disk typ
 
 Om du planerar att migrera från ohanterade diskar till hanterade diskar bör du vara medveten om att användare med rollen [virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) inte kommer att kunna ändra storleken på den virtuella datorn (eftersom de kan förkonverteras). Detta beror på att virtuella datorer med hanterade diskar kräver att användaren har behörigheten Microsoft. Compute/disks/Write på OS-diskarna.
 
-### <a name="location"></a>Location
+### <a name="location"></a>Plats
 
 Välj en plats där Azure Managed Disks är tillgängliga. Om du migrerar till Premium-Managed Disks bör du också se till att Premium Storage är tillgängligt i den region där du planerar att migrera till. Se [Azure-tjänster efter region](https://azure.microsoft.com/regions/#services) för uppdaterad information om tillgängliga platser.
 
 ### <a name="vm-sizes"></a>VM-storlekar
 
-Om du migrerar till Premium-Managed Disks måste du uppdatera storleken på den virtuella datorn till Premium Storage tillgänglig storlek i den region där den virtuella datorn finns. Granska de VM-storlekar som Premium Storage stöder. Specifikationerna för Azure VM-storlek anges i [storlekar för virtuella datorer](sizes.md).
+Om du migrerar till Premium-Managed Disks måste du uppdatera storleken på den virtuella datorn till Premium Storage tillgänglig storlek i den region där den virtuella datorn finns. Granska de VM-storlekar som Premium Storage stöder. Specifikationerna för Azure VM-storlek anges i [storlekar för virtuella datorer](../sizes.md).
 Granska prestanda egenskaperna för virtuella datorer som fungerar med Premium Storage och välj den lämpligaste VM-storlek som passar din arbets belastning bäst. Kontrol lera att det finns tillräckligt med bandbredd på den virtuella datorn för att köra disk trafiken.
 
 ### <a name="disk-sizes"></a>Disk storlekar
@@ -66,7 +66,7 @@ Det finns sju typer av Premium-hanterade diskar som kan användas med den virtue
 
 | Typ av Premium diskar  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Diskstorlek           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1 024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| Diskstorlek           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1 024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
 | IOPS per disk       | 120   | 240   | 500   | 1100  |2 300              | 5000              | 7 500              | 7 500              | 
 | Dataflöde per disk | 25 MB per sekund  | 50 MB per sekund  | 100 MB per sekund | 125 MB per sekund |150 MB per sekund | 200 MB per sekund | 250 MB per sekund | 250 MB per sekund |
 
@@ -76,7 +76,7 @@ Det finns sju typer av standard-hanterade diskar som kan användas med den virtu
 
 | Disk av standardtyp  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
 |---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
-| Diskstorlek           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1 024 GB (1 TB)   | 2048 GB (2 TB)    | 4095 GB (4 TB)   | 
+| Diskstorlek           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1 024 GB (1 TB)   | 2048 GB (2 TB)    | 4095 GB (4 TB)   | 
 | IOPS per disk       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
 | Dataflöde per disk | 60 MB per sekund | 60 MB per sekund | 60 MB per sekund | 60 MB per sekund |60 MB per sekund | 60 MB per sekund | 60 MB per sekund | 60 MB per sekund | 
 
@@ -91,6 +91,6 @@ Som standard är diskcachelagring *-principen skrivskyddad* för alla Premium-da
 Läs [om prissättningen för Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/). Priset för Premium-Managed Disks är detsamma som de Premium-ohanterade diskarna. Priser för standard Managed Disks skiljer sig dock från vanliga ohanterade diskar.
 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Innan du laddar upp en virtuell hård disk till Azure bör du följa [förbereda en Windows-VHD eller VHDX för uppladdning till Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

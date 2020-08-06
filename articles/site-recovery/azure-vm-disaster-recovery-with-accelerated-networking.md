@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 27691d8fab3e7c8ccd60351dc0be83898ff984ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: baa15b656f061d812b29ded99d55da13294f9800
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73622435"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835858"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Accelererat nätverk med haveri beredskap för virtuella Azure-datorer
 
@@ -24,7 +24,7 @@ Accelererat nätverk möjliggör SR-IOV (Single root I/O Virtualization) till en
 
 Azure Site Recovery gör att du kan använda fördelarna med accelererat nätverk för virtuella Azure-datorer som har redundansväxlats till en annan Azure-region. Den här artikeln beskriver hur du kan aktivera accelererat nätverk för virtuella Azure-datorer som replikeras med Azure Site Recovery.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att du förstår:
 -   [Arkitektur för replikering](azure-to-azure-architecture.md) av virtuella Azure-datorer
@@ -45,7 +45,7 @@ Accelererat nätverk stöds i de flesta generella syftes-och beräknings optimer
 
 På instanser som stöder hyperthreading stöds accelererat nätverk på VM-instanser med 4 eller fler virtuella processorer. Serien som stöds är: D/DSv3, E/ESv3, Fsv2 och MS/MMS
 
-Mer information om VM-instanser finns i [storlekar för virtuella Windows-datorer](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Mer information om VM-instanser finns i [storlekar för virtuella Windows-datorer](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="accelerated-networking-with-linux-vms"></a>Accelererat nätverk med virtuella Linux-datorer
 
@@ -66,7 +66,7 @@ Accelererat nätverk stöds i de flesta generella syftes-och beräknings optimer
 
 På instanser som stöder hyperthreading stöds accelererat nätverk på VM-instanser med 4 eller fler virtuella processorer. Serien som stöds är: D/DSv3, E/ESv3, Fsv2 och MS/MMS.
 
-Mer information om VM-instanser finns i [storlekar för virtuella Linux-datorer](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Mer information om VM-instanser finns i [storlekar för virtuella Linux-datorer](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="enabling-accelerated-networking-for-replicated-vms"></a>Aktivera accelererat nätverk för replikerade virtuella datorer
 

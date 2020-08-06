@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a79db217c5444e59e35d4dfad9fbb98bbccbd251
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1945dc3b9fa03354ef447f813d95b6040a4b7b91
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079816"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833342"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>SAP-arbetsbelastning på en virtuell Azure-dator – scenarier som stöds
 Genom att utforma SAP NetWeaver, Business en `Hybris` eller S/4HANA Systems arkitektur i Azure öppnas många olika möjligheter för olika arkitekturer och verktyg som du kan använda för att komma till en skalbar, effektiv och hög tillgänglig distribution. Även om det är beroende av det operativ system eller DBMS som används, finns det några begränsningar. Dessutom stöds inte alla scenarier som stöds lokalt på samma sätt i Azure. Det här dokumentet leder till konfigurationer med stöd för icke-hög tillgänglighet och konfigurationer med hög tillgänglighet och arkitekturer med enbart virtuella Azure-datorer. För scenarier som stöds med [Hana-stora instanser](./hana-overview-architecture.md)kan du läsa artikeln [om vilka scenarier som stöds för Hana-stora instanser](./hana-supported-scenario.md). 
@@ -246,7 +246,7 @@ Det finns stöd för att använda en mindre virtuell dator som mål instans i Di
 - Det kan vara problem med att ändra storlek på alla VM-familjer när de olika virtuella datorerna samlas in i en Azure-tillgänglighets uppsättning eller när storleks ändringen sker mellan M-seriens familj och Mv2-serien av virtuella datorer
 - PROCESSOR-och minnes förbrukning för databas instansen kan ta emot data strömmen med minimal fördröjning och tillräckligt med processor-och minnes resurser för att tillämpa dessa ändringar med minimal fördröjning på data  
 
-Mer information om begränsningar för olika VM-storlekar finns [här](../../linux/sizes.md) 
+Mer information om begränsningar för olika VM-storlekar finns [här](../../sizes.md) 
 
 En annan metod som stöds för att distribuera ett DR-mål är att ha en andra DBMS-instans installerad på en virtuell dator som kör en icke-produktions-DBMS-instans av en icke-produktions-SAP-instans. Detta kan vara lite mer utmanande eftersom du behöver ta reda på vad minne, processor resurser, nätverks bandbredd och lagrings bandbredd som krävs för de specifika mål instanser som ska fungera som huvud instans i DR-scenariot. Särskilt i HANA rekommenderar vi starkt att du konfigurerar instansen som fungerar som ett DR-mål på en delad värd så att data inte försätts i inläsnings mål instansen för DR.
 
@@ -303,7 +303,7 @@ Scenarion som vi inte har testat och har därför ingen erfarenhet av listan som
 - Azure Site Recovery att replikera virtuella datorer i DBMS-skiktet. Därför rekommenderar vi att du använder databasens interna asynkrona replikering för eventuell haveri beredskaps konfiguration
  
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Läs nästa steg i [Azure Virtual Machines planera och implementera för SAP NetWeaver](./planning-guide.md)
 
 

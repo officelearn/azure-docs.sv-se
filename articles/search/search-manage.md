@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 721848b996bc4887370b77404e3d571975815624
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a623436cdeaac89d140b3834808fb975bd733f4e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421900"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835960"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Tjänst administration för Azure Kognitiv sökning i Azure Portal
 
@@ -56,7 +56,7 @@ När det gäller åtkomst till slut punkten har alla som har åtkomst till tjän
 * Skrivskyddad åtkomst till tjänsten är frågeinställningar, som vanligt vis beviljas till ett klient program genom att ge den URL: en och en fråge-API-nyckel.
 * Läs-och skriv åtkomst ger möjlighet att lägga till, ta bort eller ändra Server objekt, inklusive API-nycklar, index, indexerare, data källor och scheman. Läs-och Skriv behörighet beviljas genom att ge URL: en en administratörs-API-nyckel.
 
-Rättigheter till tjänst etablerings apparaten beviljas genom roll tilldelningar. [Rollbaserad åtkomst (RBAC)](../role-based-access-control/overview.md) är ett auktoriserings system som bygger på [Azure Resource Manager](../azure-resource-manager/management/overview.md) för etablering av Azure-resurser. 
+Rättigheter till tjänst etablerings apparaten beviljas genom roll tilldelningar. [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md) är ett auktoriserings system som bygger på [Azure Resource Manager](../azure-resource-manager/management/overview.md) för etablering av Azure-resurser. 
 
 I Azure-Kognitiv sökning avgör Azure- [rollerna](search-security-rbac.md) vem som kan utföra uppgifter, oavsett om de använder [portalen](search-manage.md), [PowerShell](search-manage-powershell.md)eller [hantering REST-API: er](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
 

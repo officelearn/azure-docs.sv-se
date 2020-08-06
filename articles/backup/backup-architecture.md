@@ -3,12 +3,12 @@ title: Översikt över arkitekturen
 description: Innehåller en översikt över arkitekturen, komponenterna och processerna som används av Azure Backups tjänsten.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 45e5634188b675198e0fc4c07a8a43964217f91a
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fc57f275d7693c9cf93adf04dc5dcc7524ba0567
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532500"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835739"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup arkitektur och komponenter
 
@@ -42,7 +42,7 @@ Recovery Services-valv har följande funktioner:
 - Valven gör det enkelt att organisera dina säkerhets kopierings data samtidigt som hanterings kostnaderna minimeras.
 - I varje Azure-prenumeration kan du skapa upp till 500-valv.
 - Du kan övervaka säkerhetskopierade objekt i ett valv, inklusive virtuella datorer i Azure och lokala datorer.
-- Du kan hantera valv åtkomst med [rollbaserad åtkomst kontroll (RBAC)](../role-based-access-control/role-assignments-portal.md)med Azure.
+- Du kan hantera valv åtkomst med [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).
 - Du anger hur data i valvet replikeras för redundans:
   - **Lokalt Redundant lagring (LRS)**: för att skydda mot problem i ett Data Center kan du använda LRS. LRS replikerar data till en lagrings skalnings enhet. [Läs mer](../storage/common/storage-redundancy.md).
   - **Geo-redundant lagring (GRS)**: för att skydda mot hela verksamhets avbrott kan du använda GRS. GRS replikerar dina data till en sekundär region. [Läs mer](../storage/common/storage-redundancy.md).
@@ -95,8 +95,8 @@ I följande tabell sammanfattas de funktioner som stöds för de olika typerna a
 **Funktion** | **Direkt säkerhets kopiering av filer och mappar (med MARS-agenten)** | **VIRTUELL Azure-säkerhetskopiering** | **Datorer eller appar med DPM/MABS**
 --- | --- | --- | ---
 Säkerhetskopiera till valvet | ![Ja][green] | ![Ja][green] | ![Ja][green]
-Säkerhetskopiera till DPM/MABS disk, sedan till Azure | | | ![Yes][green]
-Komprimera data som skickats för säkerhets kopiering | ![Yes][green] | Ingen komprimering används vid överföring av data. Lagringen är inplattat något men återställningen är snabbare.  | ![Yes][green]
+Säkerhetskopiera till DPM/MABS disk, sedan till Azure | | | ![Ja][green]
+Komprimera data som skickats för säkerhets kopiering | ![Ja][green] | Ingen komprimering används vid överföring av data. Lagringen är inplattat något men återställningen är snabbare.  | ![Ja][green]
 Kör stegvis säkerhets kopiering |![Ja][green] |![Ja][green] |![Ja][green]
 Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> Endast för DPM/MABS-servrar distribuerade lokalt.
 

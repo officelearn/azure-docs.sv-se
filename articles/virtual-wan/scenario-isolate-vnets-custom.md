@@ -8,18 +8,18 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4443c92fad2510b6bc4bc1214840aca5553556a5
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 84c7b72e3ac7a5726dea38b21b14b5bd83b42340
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553469"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831030"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Scenario: anpassad isolering för virtuella nätverk
 
 När du arbetar med virtuell WAN-routning för virtuella WAN finns det några tillgängliga scenarier. I ett anpassat isolerings scenario för virtuella nätverk är målet att förhindra att en speciell uppsättning virtuella nätverk kan komma åt en annan speciell uppsättning virtuella nätverk. Virtuella nätverk krävs dock för att komma åt alla grenar (VPN/ER/användare VPN). Mer information om routning av virtuell hubb finns i [om virtuell hubb](about-virtual-hub-routing.md).
 
-## <a name="scenario-design"></a><a name="design"></a>Scenario design
+## <a name="design"></a><a name="design"></a>Utforma
 
 För att ta reda på hur många väg tabeller som behövs kan du bygga en anslutnings mat ris. I det här scenariot ser det ut ungefär så här, där varje cell visar om en källa (rad) kan kommunicera med ett mål (kolumn):
 
@@ -53,7 +53,7 @@ Grenarna måste lära sig prefixen från både rött och blått virtuella nätve
 
 Mer information om routning av virtuell hubb finns i [om virtuell hubb](about-virtual-hub-routing.md).
 
-## <a name="scenario-workflow"></a><a name="architecture"></a>Scenario arbets flöde
+## <a name="workflow"></a><a name="architecture"></a>Arbetsflöde
 
 I **bild 1**finns det blå och röda VNet-anslutningar.
 

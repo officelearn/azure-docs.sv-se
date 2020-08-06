@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: ac9c8b0fe974c0a4dfebf1bcc303a379e2bd07ed
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b032f48e18651af7f360471cc2834a5c45acc56
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87268041"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831421"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2-pureScale på Azure
 
@@ -67,7 +67,7 @@ Den här arkitekturen kör program, lagring och data nivåer på virtuella Azure
 
 -   Ett DB2 pureScale-kluster. Vilken typ av beräknings resurser du behöver i Azure beror på din installation. I allmänhet kan du använda två metoder:
 
-    -   Använd ett nätverk med flera noder och högpresterande data behandling (HPC) där små till medel stora instanser får åtkomst till delad lagring. För den här HPC-typen av konfiguration ger Azure Memory-optimerade virtuella datorer i E-serien eller lagrings optimerade [virtuella datorer](../windows/sizes.md) i L-serien nödvändig beräknings kraft.
+    -   Använd ett nätverk med flera noder och högpresterande data behandling (HPC) där små till medel stora instanser får åtkomst till delad lagring. För den här HPC-typen av konfiguration ger Azure Memory-optimerade virtuella datorer i E-serien eller lagrings optimerade [virtuella datorer](../sizes.md) i L-serien nödvändig beräknings kraft.
 
     -   Använd färre stora instanser av virtuella datorer för data motorer. För stora instanser är de största minnesoptimerade virtuella datorer i [M-serien](https://azure.microsoft.com/pricing/details/virtual-machines/series/) idealiska för tunga minnes arbets belastningar. Du kan behöva en dedikerad instans, beroende på storleken på den logiska partitionen (LPAR) som används för att köra DB2.
 

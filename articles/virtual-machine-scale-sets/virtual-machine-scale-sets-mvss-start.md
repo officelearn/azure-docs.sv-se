@@ -9,12 +9,12 @@ ms.subservice: template
 ms.date: 04/26/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 6f47e07dcffd977121b4142924a77bdb93de3fc3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 55c826b4baf38732684aaa0465aeaab6a45564db
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503055"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831506"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Lär dig mer om mallar för skalnings uppsättningar för virtuella datorer
 [Azure Resource Manager-mallar](../azure-resource-manager/templates/overview.md#template-deployment-process) är ett bra sätt att distribuera grupper av relaterade resurser. Den här själv studie serien visar hur du skapar en grundläggande mall för skalnings uppsättningar och hur du ändrar den här mallen så att den passar olika scenarier. Alla exempel kommer från den här [GitHub-lagringsplatsen](https://github.com/gatneil/mvss).
@@ -115,7 +115,7 @@ I det här fallet finns det bara ett-element i listan, det virtuella nätverket 
 ## <a name="specify-scale-set-properties"></a>Ange egenskaper för skalnings uppsättning
 Skalnings uppsättningar har många egenskaper för att anpassa de virtuella datorerna i skalnings uppsättningen. En fullständig lista över dessa egenskaper finns i [mallen referens](/azure/templates/microsoft.compute/virtualmachinescalesets). I den här självstudien anges bara några vanliga egenskaper.
 ### <a name="supply-vm-size-and-capacity"></a>Ange storlek och kapacitet för virtuell dator
-Skalnings uppsättningen måste veta vad storleken på den virtuella datorn som ska skapas ("SKU-namn") och hur många sådana virtuella datorer som ska skapas ("SKU-kapacitet"). Information om vilka VM-storlekar som är tillgängliga finns i [dokumentationen för VM-storlekar](../virtual-machines/windows/sizes.md).
+Skalnings uppsättningen måste veta vad storleken på den virtuella datorn som ska skapas ("SKU-namn") och hur många sådana virtuella datorer som ska skapas ("SKU-kapacitet"). Information om vilka VM-storlekar som är tillgängliga finns i [dokumentationen för VM-storlekar](../virtual-machines/sizes.md).
 
 ```json
        "sku": {

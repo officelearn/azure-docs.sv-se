@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/09/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e50d6b6fe88cbad42d238ee2779abfe10e752f0e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 656161849ce8d48fb15cfac4024ec5b77adb5fee
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327284"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829517"
 ---
 # <a name="azure-activity-log-event-schema"></a>Händelse schema för Azure aktivitets logg
 [Azure aktivitets loggen](platform-logs-overview.md) ger inblick i alla händelser på prenumerations nivå som har inträffat i Azure. I den här artikeln beskrivs aktivitets logg kategorier och schemat för var och en. 
@@ -796,7 +796,7 @@ Den här kategorin innehåller poster med åtgärder som utförs av alla åtgär
 När du strömmar Azure-aktivitets loggen till ett lagrings konto eller en händelsehubben, följer data [schemat för resurs loggen](./resource-logs-schema.md). Tabellen nedan innehåller en mappning av egenskaper från ovanstående scheman till resursens loggar schema.
 
 > [!IMPORTANT]
-> Formatet på de aktivitets logg data som skrivs till ett lagrings konto har ändrats till JSON-linjer på nov. 1st, 2018. Se [förbereda för format ändring till Azure Monitor resurs loggar arkiverade på ett lagrings konto](/azure/azure-monitor/platform/resource-logs-blob-format) för information om det här formatet.
+> Formatet på de aktivitets logg data som skrivs till ett lagrings konto har ändrats till JSON-linjer på nov. 1st, 2018. Se [förbereda för format ändring till Azure Monitor resurs loggar arkiverade på ett lagrings konto](./resource-logs-blob-format.md) för information om det här formatet.
 
 
 | Schema egenskap för resurs loggar | Aktivitets logg REST API schema egenskap | Obs! |
@@ -885,4 +885,3 @@ Följande är ett exempel på en händelse som använder det här schemat..
 ## <a name="next-steps"></a>Nästa steg
 * [Läs mer om aktivitets loggen](platform-logs-overview.md)
 * [Skapa en diagnostisk inställning för att skicka aktivitets loggen till Log Analytics arbets yta, Azure Storage eller Event Hub](diagnostic-settings.md)
-

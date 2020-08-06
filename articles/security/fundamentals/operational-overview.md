@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 50fb9c597a74a7aa08dfc3d8b7acd9b94760a9df
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: f09d2604a1dbf06caebb604ba2d63a09560fd33b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542899"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835926"
 ---
 # <a name="azure-operational-security-overview"></a>Översikt över Azures drift säkerhet
 
@@ -87,7 +87,7 @@ Med Azure Active Directory har alla program som du publicerar för dina partner 
 - Verifiering av disk kryptering.
 - Nätverksbaserade attacker.
 
-Security Center använder [RBAC (Role-Based Access Control)](/azure/role-based-access-control/role-assignments-portal). RBAC innehåller [inbyggda roller](../../role-based-access-control/built-in-roles.md) som kan tilldelas till användare, grupper och tjänster i Azure.
+Security Center använder [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal). RBAC innehåller [inbyggda roller](../../role-based-access-control/built-in-roles.md) som kan tilldelas till användare, grupper och tjänster i Azure.
 
 Security Center bedömer konfigurationen av dina resurser för att identifiera säkerhets problem och sårbarheter. I Security Center visas endast information som rör en resurs när du har tilldelats rollen som ägare, deltagare eller läsare för den prenumeration eller resurs grupp som en resurs tillhör.
 

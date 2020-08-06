@@ -12,12 +12,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: b9d66dc4f0e2e637ac8512022336f257f5d585a9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 183273e6f93bbfda8ed4e5fe913192994a0b6ce2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035748"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833393"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>SAP HANA Azure Backup på filnivå
 
@@ -25,7 +25,7 @@ ms.locfileid: "87035748"
 
 Den här artikeln är en relaterad artikel till [säkerhets kopierings guiden för SAP HANA på Azure Virtual Machines](./sap-hana-backup-guide.md), som innehåller en översikt och information om att komma igång och mer information om Azure Backup ögonblicks bilder av tjänster och lagring. 
 
-Olika VM-typer i Azure tillåter ett annat antal virtuella hård diskar anslutna. De exakta detaljerna dokumenteras i [storlekar för virtuella Linux-datorer i Azure](../../linux/sizes.md). För de tester som hänvisas till i den här dokumentationen använde vi en GS5 Azure VM, som tillåter 64 anslutna data diskar. För större SAP HANA system kan ett stort antal diskar redan utföras för data-och loggfiler, eventuellt i kombination med program striping för optimalt disk-i/o-dataflöde. Mer information om de föreslagna disk konfigurationerna för SAP HANA distributioner på virtuella Azure-datorer finns i artikeln [SAP HANA konfigurationer för virtuella Azure-datorer](./hana-vm-operations-storage.md). Rekommendationerna är inklusive rekommendationer för disk utrymme för lokala säkerhets kopior.
+Olika VM-typer i Azure tillåter ett annat antal virtuella hård diskar anslutna. De exakta detaljerna dokumenteras i [storlekar för virtuella Linux-datorer i Azure](../../sizes.md). För de tester som hänvisas till i den här dokumentationen använde vi en GS5 Azure VM, som tillåter 64 anslutna data diskar. För större SAP HANA system kan ett stort antal diskar redan utföras för data-och loggfiler, eventuellt i kombination med program striping för optimalt disk-i/o-dataflöde. Mer information om de föreslagna disk konfigurationerna för SAP HANA distributioner på virtuella Azure-datorer finns i artikeln [SAP HANA konfigurationer för virtuella Azure-datorer](./hana-vm-operations-storage.md). Rekommendationerna är inklusive rekommendationer för disk utrymme för lokala säkerhets kopior.
 
 Standard sättet att hantera säkerhets kopiering/återställning på filnivå är med en filbaserad säkerhets kopia via SAP HANA Studio eller via SAP HANA SQL-uttryck. Mer information finns i artikeln [SAP HANA SQL och system views Reference](https://help.sap.com/hana/SAP_HANA_SQL_and_System_Views_Reference_en.pdf).
 

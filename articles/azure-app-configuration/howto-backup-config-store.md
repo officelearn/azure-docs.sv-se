@@ -1,6 +1,6 @@
 ---
 title: Säkerhetskopiera nyckel värden automatiskt från Azure App konfigurations lager
-description: Lär dig hur du konfigurerar en automatisk säkerhets kopiering av nyckel värden mellan konfigurations lager för appar
+description: Lär dig hur du konfigurerar en automatisk säkerhets kopiering av nyckel värden mellan konfigurations lager för appar.
 services: azure-app-configuration
 author: avanigupta
 ms.assetid: ''
@@ -9,35 +9,39 @@ ms.devlang: csharp
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: ef777f235c85c423ea126fb7249f8e6a11492d3a
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: b06d38d69f331df2f48637c6cdee527090955a47
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87528556"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830145"
 ---
-# <a name="backup-app-configuration-stores-automatically"></a>Säkerhetskopiera program konfigurations Arkiv automatiskt
+# <a name="back-up-app-configuration-stores-automatically"></a>Säkerhetskopiera konfigurations Arkiv för appar automatiskt
 
-I den här artikeln får du lära dig hur du konfigurerar en automatisk säkerhets kopiering av nyckel värden från ett primärt program konfigurations lager till en sekundär lagrings plats. Den använder integrering av Azure Event Grid med app-konfiguration. När konfigurationen är aktive rad kommer app-konfigurationen att publicera händelser till Event Grid för alla ändringar som görs i nyckel värden i ett konfigurations lager. Event Grid stöder en mängd olika Azure-tjänster där användare kan prenumerera på de händelser som genereras när nyckel värden skapas, uppdateras eller tas bort.
+I den här artikeln får du lära dig hur du konfigurerar en automatisk säkerhets kopiering av nyckel värden från en primär Azure App konfigurations lagring till en sekundär lagrings plats. Den automatiska säkerhets kopieringen använder integrering av Azure Event Grid med app-konfiguration. 
+
+När du har konfigurerat den automatiska säkerhets kopieringen kommer app-konfigurationen att publicera händelser till Azure Event Grid för alla ändringar som görs i nyckel värden i ett konfigurations lager. Event Grid stöder en mängd olika Azure-tjänster där användare kan prenumerera på de händelser som genereras när nyckel värden skapas, uppdateras eller tas bort.
 
 ## <a name="overview"></a>Översikt
 
-I den här självstudien kommer du att använda en Azure Storage kö för att ta emot händelser från Event Grid och använda en timer-utlösare av Azure Functions för att bearbeta händelser i lagrings kön i batchar. När den utlöses baserat på händelser hämtar funktionen de senaste värdena för de nycklar som har ändrats från konfigurations arkivet för den primära appen och uppdaterar den sekundära lagrings platsen. Med den här inställningen kan du kombinera flera ändringar under en kort period i en säkerhets kopierings åtgärd och undvika alltför stora begär Anden som görs till dina konfigurations lager för appar.
+I den här artikeln använder du Azure Queue Storage för att ta emot händelser från Event Grid och använda en timer-utlösare för Azure Functions för att bearbeta händelser i kön i batchar. 
 
-![App Configuration Store säkerhets kopierings arkitektur](./media/config-store-backup-architecture.png)
+När en funktion utlöses, baserat på händelser, hämtar den de senaste värdena för de nycklar som har ändrats från konfigurations arkivet för den primära appen och uppdaterar den sekundära lagringen på motsvarande sätt. Med den här inställningen kan du kombinera flera ändringar som sker under en kort period i en säkerhets kopierings åtgärd, vilket gör att det inte finns orimliga begär Anden som görs till dina konfigurations lager
+
+![Diagram som visar arkitekturen för säkerhets kopian av appens konfigurations arkiv.](./media/config-store-backup-architecture.png)
 
 ## <a name="resource-provisioning"></a>Resursetablering
 
-Motivation bakom att säkerhetskopiera konfigurations lager för appar är att använda flera konfigurations lager i olika Azure-regioner för att öka geo-återhämtningen för ditt program. För att uppnå detta bör dina primära och sekundära lager finnas i olika Azure-regioner. Alla andra resurser som skapas i den här självstudien kan tillhandahållas i valfri region. Detta beror på att om den primära regionen är nere, kommer det inte att finnas något nytt att säkerhetskopiera förrän den primära regionen är tillgänglig igen.
+Motivation bakom att säkerhetskopiera konfigurations lager för appar är att använda flera konfigurations lager i olika Azure-regioner för att öka geo-återhämtningen för ditt program. För att uppnå detta bör dina primära och sekundära lager finnas i olika Azure-regioner. Alla andra resurser som skapas i den här självstudien kan tillhandahållas i valfri region. Detta beror på att om den primära regionen är nere, kommer det inte att finnas några nya att säkerhetskopiera förrän den primära regionen är tillgänglig igen.
 
-I den här självstudien kommer du att skapa en sekundär butik i `centralus` region och alla andra resurser i `westus` regionen.
+I den här självstudien skapar du en sekundär butik i `centralus` regionen och alla andra resurser i `westus` regionen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/). Du kan också använda Azure Cloud Shell.
+- En Azure-prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/). 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) med arbets belastningen Azure Development.
-- Ladda ned och installera [.net Core SDK](https://dotnet.microsoft.com/download).
-- Senaste versionen av Azure CLI (2.3.1 eller senare). Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du använder Azure CLI måste du först logga in med `az login` . Du kan också använda Azure Cloud Shell.
+- [.Net Core SDK](https://dotnet.microsoft.com/download).
+- Senaste versionen av Azure CLI (2.3.1 eller senare). Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du använder Azure CLI måste du först logga in med `az login` . Du kan välja att använda Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -57,7 +61,7 @@ az group create --name $resourceGroupName --location westus
 ## <a name="create-app-configuration-stores"></a>Skapa konfigurations lager för appar
 
 Skapa dina primära och sekundära konfigurations lager för appar i olika regioner.
-Ersätt  `<primary_appconfig_name>` och `<secondary_appconfig_name>` med unika namn för dina konfigurations lager. Butiks namnet måste vara unikt eftersom det används som ett DNS-namn.
+Ersätt  `<primary_appconfig_name>` och `<secondary_appconfig_name>` med unika namn för dina konfigurations lager. Varje Arkiv namn måste vara unikt eftersom det används som ett DNS-namn.
 
 ```azurecli-interactive
 primaryAppConfigName="<primary_appconfig_name>"
@@ -75,9 +79,9 @@ az appconfig create \
   --sku standard
 ```
 
-## <a name="create-azure-storage-queue"></a>Skapa Azure Storage kö
+## <a name="create-a-queue"></a>Skapa en kö
 
-Skapa ett lagrings konto och en lagrings kö för att ta emot de händelser som publiceras av Event Grid.
+Skapa ett lagrings konto och en kö för att ta emot de händelser som publiceras av Event Grid.
 
 ```azurecli-interactive
 storageName="<unique_storage_name>"
@@ -95,7 +99,7 @@ Du prenumererar på dessa två händelser från den primära appens konfiguratio
 - `Microsoft.AppConfiguration.KeyValueModified`
 - `Microsoft.AppConfiguration.KeyValueDeleted`
 
-Följande kommando skapar en Event Grid-prenumeration för de två händelser som skickas till lagrings kön, där slut punkts typen har angetts till `storagequeue` och slut punkten anges till kön-ID. Ersätt `<event_subscription_name>` med namnet på ditt val för händelse prenumerationen.
+Följande kommando skapar en Event Grid-prenumeration för de två händelser som skickas till din kö. Slut punkts typen anges till `storagequeue` och slut punkten anges till kön-ID. Ersätt `<event_subscription_name>` med namnet på ditt val för händelse prenumerationen.
 
 ```azurecli-interactive
 storageId=$(az storage account show --name $storageName --resource-group  $resourceGroupName --query id --output tsv)
@@ -110,46 +114,46 @@ az eventgrid event-subscription create \
   --included-event-types Microsoft.AppConfiguration.KeyValueModified Microsoft.AppConfiguration.KeyValueDeleted 
 ```
 
-## <a name="create-azure-functions-for-handling-events-from-storage-queue"></a>Skapa Azure Functions för hantering av händelser från lagrings kön
+## <a name="create-functions-for-handling-events-from-queue-storage"></a>Skapa funktioner för att hantera händelser från Queue Storage
 
-### <a name="setup-with-ready-to-use-azure-functions"></a>Konfigurera med Azure Functions som är redo att användas
+### <a name="set-up-with-ready-to-use-functions"></a>Konfigurera med färdiga funktioner
 
-I den här självstudien kommer du att arbeta med C#-Azure Functions med följande egenskaper:
+I den här artikeln arbetar du med C#-funktioner som har följande egenskaper:
 - Körnings stack .NET Core 3,1
 - Azure Functions körnings version 3. x
 - Funktionen utlöses av en timer var tionde minut
 
-För att göra det enklare för dig att börja säkerhetskopiera dina data har vi testat och publicerat [Azure Functions](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) som du kan använda utan att göra några ändringar i koden. Ladda ned projektfilerna och [publicera den till din egen Azure-Funktionsapp från Visual Studio.](/azure/azure-functions/functions-develop-vs#publish-to-azure)
+För att göra det enklare för dig att börja säkerhetskopiera dina data har vi [testat och publicerat en funktion](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) som du kan använda utan att göra några ändringar i koden. Ladda ned projektfilerna och [publicera dem till din egen Azure Function-app från Visual Studio](/azure/azure-functions/functions-develop-vs#publish-to-azure).
 
 > [!IMPORTANT]
-> Gör inga ändringar i miljövariablerna i den kod som du har laddat ned. Du kommer att skapa de inställningar för appar som krävs i nästa avsnitt.
+> Gör inga ändringar i miljövariablerna i den kod som du har laddat ned. Du ska skapa de appinställningar som krävs i nästa avsnitt.
 >
 
-### <a name="build-your-own-azure-functions"></a>Bygg din egen Azure Functions
+### <a name="build-your-own-function"></a>Bygg din egen funktion
 
-Om den exempel kod som anges ovan inte uppfyller dina krav kan du också skapa en egen Azure Functions. Funktionen måste kunna utföra följande aktiviteter för att kunna slutföra säkerhets kopieringen:
-- Läs innehållet i lagrings kön med jämna mellanrum för att se om den innehåller några meddelanden från Event Grid. Se SDK för [lagrings kön](/azure/storage/queues/storage-quickstart-queues-dotnet) för implementerings information.
-- Om din lagrings kö innehåller [händelse meddelanden från Event Grid](/azure/azure-app-configuration/concept-app-configuration-event?branch=pr-en-us-112982#event-schema)extraherar du alla unika <-nycklar, etiketter> från händelse meddelanden. Kombinationen av nyckel och etikett är den unika identifieraren för nyckel värdes ändringar i primärt lager.
-- Läs alla inställningar från den primära lagrings platsen. Uppdatera endast de inställningar i sekundär lager som har en motsvarande händelse i lagrings kön. Ta bort alla inställningar från den sekundära lagrings platsen som fanns i lagringspoolen men inte i den primära lagringen. Du kan använda [app Configuration SDK](https://github.com/Azure/AppConfiguration#sdks) för att få åtkomst till dina konfigurations lager program mässigt.
-- Ta bort meddelanden från lagrings kön om det inte fanns några undantag under bearbetningen.
-- Se till att implementera fel hantering enligt dina behov. Du kan referera till kod exemplet ovan för att se några vanliga undantag som du kanske vill hantera.
+Om den exempel kod som angavs tidigare inte uppfyller dina krav kan du också skapa en egen funktion. Funktionen måste kunna utföra följande aktiviteter för att kunna slutföra säkerhets kopieringen:
+- Läs innehållet i din kö med jämna mellanrum för att se om det innehåller några meddelanden från Event Grid. Se SDK för [lagrings kön](/azure/storage/queues/storage-quickstart-queues-dotnet) för implementerings information.
+- Om kön innehåller [händelse meddelanden från Event Grid](/azure/azure-app-configuration/concept-app-configuration-event?branch=pr-en-us-112982#event-schema)extrahera all unik `<key, label>` information från händelse meddelanden. Kombinationen av nyckel och etikett är den unika identifieraren för nyckel värdes ändringar i det primära lagret.
+- Läs alla inställningar från det primära lagret. Uppdatera endast de inställningar i den sekundära lagringen som har en motsvarande händelse i kön. Ta bort alla inställningar från den sekundära lagrings platsen som fanns i kön men inte i den primära lagringen. Du kan använda [app Configuration SDK](https://github.com/Azure/AppConfiguration#sdks) för att få åtkomst till dina konfigurations lager program mässigt.
+- Ta bort meddelanden från kön om det inte fanns några undantag under bearbetningen.
+- Implementera fel hantering enligt dina behov. Se föregående kod exempel för att se några vanliga undantag som du kanske vill hantera.
 
-Mer information om hur du skapar Azure Functions finns i: [skapa en funktion i Azure som utlöses av en timer](/azure/azure-functions/functions-create-scheduled-function) och [utveckla Azure Functions med Visual Studio](/azure/azure-functions/functions-develop-vs).
+Mer information om hur du skapar en funktion finns i: [skapa en funktion i Azure som utlöses av en timer](/azure/azure-functions/functions-create-scheduled-function) och [utveckla Azure Functions med Visual Studio](/azure/azure-functions/functions-develop-vs).
 
 
 > [!IMPORTANT]
-> Använd din bästa bedömning för att välja det tidsinställda schemat utifrån hur ofta du gör ändringar i din primära config-lagringsplats. Kom ihåg att köra funktionen för ofta kan leda till begränsnings begär Anden för butiken.
+> Använd din bästa bedömning för att välja det tidsinställda schemat utifrån hur ofta du gör ändringar i din primära konfigurations lagring. Att köra funktionen för ofta kan leda till begränsnings begär Anden för butiken.
 >
 
 
-## <a name="create-azure-function-app-settings"></a>Skapa inställningar för Azure-Funktionsapp
+## <a name="create-function-app-settings"></a>Skapa funktions program inställningar
 
-Om du använder den Azure Functions vi har tillhandahållit, behöver du följande appinställningar i Azure-Funktionsapp:
-- `PrimaryStoreEndpoint`: Slut punkt för konfigurations arkivet för den primära appen. Till exempel `https://{primary_appconfig_name}.azconfig.io`
-- `SecondaryStoreEndpoint`: Slut punkt för konfigurations arkivet för den sekundära appen. Till exempel `https://{secondary_appconfig_name}.azconfig.io`
-- `StorageQueueUri`: URI för lagrings kön. Till exempel `https://{unique_storage_name}.queue.core.windows.net/{queue_name}`
+Om du använder en funktion som vi har tillhandahållit behöver du följande appinställningar i din Function-app:
+- `PrimaryStoreEndpoint`: Slut punkt för konfigurations arkivet för den primära appen. Ett exempel är `https://{primary_appconfig_name}.azconfig.io`.
+- `SecondaryStoreEndpoint`: Slut punkt för konfigurations arkivet för den sekundära appen. Ett exempel är `https://{secondary_appconfig_name}.azconfig.io`.
+- `StorageQueueUri`: Kö-URI. Ett exempel är `https://{unique_storage_name}.queue.core.windows.net/{queue_name}`.
 
-Följande kommando skapar de nödvändiga inställningarna för appen i Azure-Funktionsapp. Ersätt `<function_app_name>` med namnet på din Azure-Funktionsapp.
+Följande kommando skapar de appinställningar som krävs i Function-appen. Ersätt `<function_app_name>` med namnet på din Function-app.
 
 ```azurecli-interactive
 functionAppName="<function_app_name>"
@@ -160,20 +164,20 @@ az functionapp config appsettings set --name $functionAppName --resource-group $
 ```
 
 
-## <a name="grant-access-to-the-managed-identity-of-azure-function-app"></a>Bevilja åtkomst till den hanterade identiteten för Azure Funktionsapp
+## <a name="grant-access-to-the-managed-identity-of-the-function-app"></a>Bevilja åtkomst till Function-appens hanterade identitet
 
-Använd följande kommando eller [Azure Portal](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity) för att lägga till en systemtilldelad hanterad identitet för Azure-Funktionsapp.
+Använd följande kommando eller [Azure Portal](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity) för att lägga till en systemtilldelad hanterad identitet för din Function-app.
 
 ```azurecli-interactive
 az functionapp identity assign --name $functionAppName --resource-group $resourceGroupName
 ```
 
 > [!NOTE]
-> För att utföra den nödvändiga resurs skapande-och roll hanteringen måste ditt konto ha `'Owner'` behörighet i rätt omfång (din prenumeration eller resurs grupp). Om du behöver hjälp med roll tilldelning kan du läsa mer om [hur du lägger till eller tar bort roll tilldelningar i Azure med hjälp av Azure Portal](/azure/role-based-access-control/role-assignments-portal).
+> För att utföra den nödvändiga resurs skapande-och roll hanteringen måste ditt konto ha `Owner` behörighet i rätt omfång (din prenumeration eller resurs grupp). Om du behöver hjälp med roll tilldelning kan du läsa om [hur du lägger till eller tar bort roll tilldelningar i Azure med hjälp av Azure Portal](/azure/role-based-access-control/role-assignments-portal).
 
-Använd följande kommandon eller [Azure Portal](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) för att ge den hanterade identiteten för din Azure Funktionsapp åtkomst till dina konfigurations lager för appar.
-- Tilldela `App Configuration Data Reader` roll i konfigurations arkivet för den primära appen.
-- Tilldela `App Configuration Data Owner` roll i konfigurations arkivet för den sekundära appen.
+Använd följande kommandon eller [Azure Portal](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) för att bevilja den hanterade identiteten för din Function app-åtkomst till dina app Configuration-butiker. Använd följande roller:
+- Tilldela `App Configuration Data Reader` rollen i konfigurations arkivet för den primära appen.
+- Tilldela `App Configuration Data Owner` rollen i konfigurations arkivet för den sekundära appen.
 
 ```azurecli-interactive
 functionPrincipalId=$(az functionapp identity show --name $functionAppName --resource-group  $resourceGroupName --query principalId --output tsv)
@@ -191,8 +195,7 @@ az role assignment create \
     --scope $secondaryAppConfigId
 ```
 
-Använd följande kommando eller [Azure Portal](/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal) för att ge den hanterade identiteten för Azure Funktionsapp åtkomst till lagrings kön. 
-- Tilldela `Storage Queue Data Contributor` roll i lagrings kön.
+Använd följande kommando eller [Azure Portal](/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal) för att ge den hanterade identiteten för din Function-app åtkomst till din kö. Tilldela `Storage Queue Data Contributor` rollen i kön.
 
 ```azurecli-interactive
 az role assignment create \
@@ -203,16 +206,16 @@ az role assignment create \
 
 ## <a name="trigger-an-app-configuration-event"></a>Utlös en konfigurations händelse för appen
 
-För att testa att allt fungerar kan du skapa/uppdatera/ta bort ett nyckel värde från den primära lagringen. Du bör automatiskt se den här ändringen i det sekundära arkivet några sekunder efter att Azure Functions har utlösts av timern.
+För att testa att allt fungerar kan du skapa, uppdatera eller ta bort ett nyckel värde från den primära butiken. Du bör automatiskt se den här ändringen i det sekundära arkivet några sekunder efter att timern utlöser Azure Functions.
 
 ```azurecli-interactive
 az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 ```
 
-Du har utlöst händelsen och en liten stund Event Grid att skicka händelse meddelandet till din Azure Storage-kö. ***Efter nästa schemalagda körning av Azure Functions***kan du Visa konfigurations inställningarna i den sekundära lagrings platsen för att se om det innehåller det uppdaterade nyckelvärdet från den primära lagringen.
+Du har utlöst händelsen. Under en liten stund skickar Event Grid händelse aviseringen till kön. *Efter nästa schemalagda körning av funktionen*kan du Visa konfigurations inställningarna i den sekundära lagrings platsen för att se om det innehåller det uppdaterade nyckel värdet från det primära lagret.
 
 > [!NOTE]
-> Du kan [utlösa Azure Functions manuellt](/azure/azure-functions/functions-manually-run-non-http) under testningen och fel sökningen utan att vänta på den schemalagda timer-utlösaren.
+> Du kan [utlösa din funktion manuellt](/azure/azure-functions/functions-manually-run-non-http) under testningen och fel sökningen utan att vänta på schemalagd timer-utlösare.
 
 När du har kontrollerat att säkerhets kopierings funktionen har körts kan du se att nyckeln nu finns i ditt sekundära arkiv.
 
@@ -237,15 +240,15 @@ az appconfig kv show --name $secondaryAppConfigName --key Foo
 
 Om du inte ser den nya inställningen i det sekundära arkivet:
 
-- Se till att säkerhets kopierings funktionen utlöstes ***efter*** att du har skapat inställningen i ditt primära arkiv.
-- Det är möjligt att Event Grid inte kunde skicka händelse aviseringen till lagrings kön i tid. Kontrol lera att lagrings kön fortfarande innehåller händelse meddelandet från det primära arkivet, och om den gör det utlöses säkerhets kopierings funktionen igen.
+- Se till att säkerhets kopierings funktionen utlöstes *efter* att du har skapat inställningen i ditt primära arkiv.
+- Det är möjligt att Event Grid inte kunde skicka händelse meddelandet till kön i tid. Kontrol lera om din kö fortfarande innehåller händelse meddelandet från ditt primära arkiv. Om det gör det utlöses säkerhets kopierings funktionen igen.
 - Kontrol lera [Azure Functions loggar](/azure/azure-functions/functions-create-scheduled-function#test-the-function) för fel eller varningar.
-- Använd [Azure Portal](/azure/azure-functions/functions-how-to-use-azure-function-app-settings#get-started-in-the-azure-portal) för att säkerställa att Azure-Funktionsapp innehåller korrekta värden för de program inställningar som din Azure Functions försöker läsa.
-- Du kan också konfigurera övervakning och aviseringar för dina Azure Functions med hjälp av [Azure Application insikter.](/azure/azure-functions/functions-monitoring?tabs=cmd) 
+- Använd [Azure Portal](/azure/azure-functions/functions-how-to-use-azure-function-app-settings#get-started-in-the-azure-portal) för att säkerställa att Azure Function-appen innehåller korrekta värden för de program inställningar som Azure Functions försöker läsa.
+- Du kan också konfigurera övervakning och aviseringar för Azure Functions med hjälp av [Azure Application insikter](/azure/azure-functions/functions-monitoring?tabs=cmd). 
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du planerar att fortsätta arbeta med den här program konfigurationen och händelse prenumerationen ska du inte rensa resurserna som du skapade i den här artikeln. Om du inte planerar att fortsätta kan du använda kommandona nedan för att ta bort alla resurser som har skapats i den här artikeln.
+Om du planerar att fortsätta arbeta med den här program konfigurationen och händelse prenumerationen ska du inte rensa resurserna som du skapade i den här artikeln. Om du inte planerar att fortsätta använder du följande kommando för att ta bort resurserna som skapats i den här artikeln.
 
 ```azurecli-interactive
 az group delete --name $resourceGroupName

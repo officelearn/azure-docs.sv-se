@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 585dfcd437357c638a3544a4cb74ad386f8cb218
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b99e744fb949f707467286c3d79de0f4e76a49c6
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085205"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835518"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>SAP HANA (stora instanser) nätverks arkitektur
 
@@ -148,7 +148,7 @@ Den transitiva routningen fungerar som standard inte i följande scenarier:
 Det finns tre sätt att aktivera transitiv routning i dessa scenarier:
 
 - En omvänd proxy för att dirigera data till och från. Till exempel F5 BIG-IP, NGINX med Traffic Manager distribuerat i det virtuella Azure-nätverket som ansluter till HANA-stora instanser och till lokal som en virtuell brand vägg/Traffic routing-lösning.
-- Använda [program varan iptables-regler](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) i en virtuell Linux-dator för att aktivera routning mellan lokala platser och Hana stora instans enheter, eller mellan Hana-stora instans enheter i olika regioner. Den virtuella datorn som kör program varan iptables måste distribueras i det virtuella Azure-nätverket som ansluter till HANA-stora instanser och till lokalt. Den virtuella datorn måste ha en storlek enligt detta, så att nätverks data flödet på den virtuella datorn räcker för den förväntade nätverks trafiken. Mer information om bandbredd för virtuella datorer finns i artikel [storlekarna för virtuella Linux-datorer i Azure](../../linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Använda [program varan iptables-regler](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) i en virtuell Linux-dator för att aktivera routning mellan lokala platser och Hana stora instans enheter, eller mellan Hana-stora instans enheter i olika regioner. Den virtuella datorn som kör program varan iptables måste distribueras i det virtuella Azure-nätverket som ansluter till HANA-stora instanser och till lokalt. Den virtuella datorn måste ha en storlek enligt detta, så att nätverks data flödet på den virtuella datorn räcker för den förväntade nätverks trafiken. Mer information om bandbredd för virtuella datorer finns i artikel [storlekarna för virtuella Linux-datorer i Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - [Azure-brandväggen](https://azure.microsoft.com/services/azure-firewall/) skulle vara en annan lösning för att aktivera direkt trafik mellan lokala och Hana stora instans enheter. 
 
 All trafik från dessa lösningar kommer att dirigeras via ett virtuellt Azure-nätverk och eftersom trafiken också kan begränsas av de mjuka enheter som används eller av Azures nätverks säkerhets grupper, så att vissa IP-adresser eller IP-adressintervall från lokala platser kan blockeras eller uttryckligen tillåtas åtkomst till HANA-stora instanser. 

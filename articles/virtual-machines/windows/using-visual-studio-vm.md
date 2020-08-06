@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: cathys
 keywords: VisualStudio
-ms.openlocfilehash: f1da7dabfb562ea32697745460d92ed27089878c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5ec8e0f6448e725998628e41b917942966d3ef2a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525542"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836164"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio-avbildningar i Azure
 Att använda Visual Studio i en förkonfigurerad virtuell dator i Azure är ett snabbt och enkelt sätt att gå från ingenting till en utvecklings miljö som är igång. System avbildningar med olika Visual Studio-konfigurationer är tillgängliga på [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure).
@@ -31,7 +31,7 @@ Avbildningar för de senaste huvud versionerna, Visual Studio 2019, Visual Studi
 | Version                                                                                                                                                | Utgåvor              | Produktversion   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
 | [Visual Studio 2019: senaste (version 16,5)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, community | Version 16.5.4    |
-| Visual Studio 2019: RTW                         | Enterprise | Version 16.0.13    |
+| Visual Studio 2019: RTW                         | Stora företag | Version 16.0.13    |
 | Visual Studio 2017: senaste (version 15,9)           | Enterprise, community | Version 15.9.22   |
 | Visual Studio 2017: RTW                             | Enterprise, community | Version 15.0.28  |
 | Visual Studio 2015: senaste (uppdatering 3)               | Enterprise, community | Version 14.0.25431.01 |
@@ -77,7 +77,7 @@ Azure erbjuder ett stort utbud av virtuella dator storlekar. Eftersom Visual Stu
    * Standard_D2S_v2
    * Standard_D3_v2
     
-Mer information om de senaste dator storlekarna finns i [storlekar för virtuella Windows-datorer i Azure](./sizes.md).
+Mer information om de senaste dator storlekarna finns i [storlekar för virtuella Windows-datorer i Azure](../sizes.md).
 
 Med Azure kan du balansera om ditt ursprungliga val genom att ändra storlek på den virtuella datorn. Du kan antingen etablera en ny virtuell dator med en lämplig storlek eller ändra storlek på den befintliga virtuella datorn till annan underliggande maskin vara. Mer information finns i [ändra storlek på en virtuell Windows-dator](./resize-vm.md).
 

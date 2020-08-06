@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: d6fb5c384d5e9489c4213277a43d5be0ed14afb6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 01c7d5610daa703e910fb485b5e9d945a6cdc940
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289707"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831302"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Tidigare generationer av virtuella dator storlekar
 
@@ -80,7 +80,7 @@ Varje GPU i NVv2-instanser levereras med en GRID-licens. Den här licensen ger d
 
 ## <a name="older-generations-of-virtual-machine-sizes"></a>Äldre generationer av virtuella dator storlekar
 
-Det här avsnittet innehåller information om äldre generationer av virtuella dator storlekar. Dessa storlekar stöds fortfarande men får ingen ytterligare kapacitet. Det finns nyare eller alternativa storlekar som är allmänt tillgängliga. Se [storlekar för virtuella Linux-datorer i Azure](linux/sizes.md) för att välja de VM-storlekar som passar bäst för dina behov.  
+Det här avsnittet innehåller information om äldre generationer av virtuella dator storlekar. Dessa storlekar stöds fortfarande men får ingen ytterligare kapacitet. Det finns nyare eller alternativa storlekar som är allmänt tillgängliga. Se [storlekar för virtuella Linux-datorer i Azure](./sizes.md) för att välja de VM-storlekar som passar bäst för dina behov.  
 
 Mer information om hur du ändrar storlek på en virtuell Linux-dator finns i [ändra storlek på en virtuell Linux-dator](linux/change-vm-size.md).  
 

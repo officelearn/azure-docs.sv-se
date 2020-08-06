@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/18/2019
 ms.author: ayshak
-ms.openlocfilehash: 7732f83dfd44cbf686e2d076c665c980962b19d5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 58b3f9c3655a2e15842f7fa28ad3e6921395beba
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292368"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831455"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Isolering av virtuella datorer i Azure
 
@@ -59,12 +59,12 @@ Eftersom isolerade VM-storlekar är maskin varans bindnings storlekar ger Azure 
 S **: vi**kommer att tillhandahålla påminnelser 12 månader före den officiella utfasningen av den isolerade storleken.
 
 ### <a name="q-im-an-azure-service-fabric-customer-relying-on-the-silver-or-gold-durability-tiers-does-this-change-impact-me"></a>F: Jag är en Azure Service Fabric-kund som förlitar sig på silver-eller Gold-nivåerna. Påverkar den här ändringen mig?
-**A**: Nej. De garantier som tillhandahålls av Service Fabrics [hållbarhets nivåer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) kommer att fortsätta att fungera även efter den här ändringen. Om du behöver en fysisk maskin varu isolering av andra orsaker kan du fortfarande behöva vidta en av de åtgärder som beskrivs ovan. 
+**A**: Nej. De garantier som tillhandahålls av Service Fabrics [hållbarhets nivåer](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) kommer att fortsätta att fungera även efter den här ändringen. Om du behöver en fysisk maskin varu isolering av andra orsaker kan du fortfarande behöva vidta en av de åtgärder som beskrivs ovan. 
  
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>F: vilka är mil stolparna för D15_v2 eller DS15_v2 isoleringen? 
 **A**: 
  
-| Datum | Åtgärd |
+| Date | Action |
 |---|---| 
 | Den 18 november 2019 | Tillgänglighet för D/DS15i_v2 (PAYG, 1 – år, RI) | 
 | 14 maj, 2020 | Senaste dagen för att köpa D/DS15i_v2 1 års RI | 

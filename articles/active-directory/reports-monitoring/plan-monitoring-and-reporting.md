@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ad84b8910e8d4f8af9845c33c22d128e317dedc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 870027637d9c45d0d5150db12046e454146ff169
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74232109"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829642"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planera en Azure Active Directory rapportering och övervakning av distribution
 
@@ -97,7 +97,7 @@ Rapportering och övervakning används för att uppfylla dina affärs behov, få
 
 * Krävs för att lösningen ska uppfylla affärs behoven
 * Bra att uppfylla affärs behoven
-* Ej tillämpligt
+* Inte tillämpligt
 
 |Område |Beskrivning |
 |-|-|
@@ -149,7 +149,7 @@ Följande roller kan läsa Azure AD-rapporter:
 
 * Säkerhetsläsare
 
-* Rapport läsare
+* Rapportläsare
 
 Lär dig mer om [administrativa roller i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
 
@@ -193,6 +193,4 @@ Beroende på de beslut som du har gjort tidigare med hjälp av design anvisninga
 
 Överväg att implementera [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) 
 
-Överväg att implementera [rollbaserad åtkomst kontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
-
- 
+Överväg att implementera [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b2f7e45c7f6092566314e6e4867bc0345683e4eb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4800234b55507b7c8d8a16d16ce4d2fef3365baa
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318393"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829602"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Felsöka måttdiagram
 
@@ -42,7 +42,7 @@ Ibland kanske diagrammen inte visar några data när du har valt rätt resurser 
 
 ### <a name="you-dont-have-sufficient-access-rights-to-your-resource"></a>Du har inte tillräckliga åtkomsträttigheter för resursen
 
-I Azure styrs åtkomsten till mått med [rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/overview.md). Du måste vara medlem i någon av grupperna [Övervakningsläsare](../../role-based-access-control/built-in-roles.md#monitoring-reader), [Övervakningsdeltagare](../../role-based-access-control/built-in-roles.md#monitoring-contributor), eller [Deltagare](../../role-based-access-control/built-in-roles.md#contributor) för att kunna utforska mått för resurser.
+I Azure kontrol leras åtkomsten till mått av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md). Du måste vara medlem i någon av grupperna [Övervakningsläsare](../../role-based-access-control/built-in-roles.md#monitoring-reader), [Övervakningsdeltagare](../../role-based-access-control/built-in-roles.md#monitoring-contributor), eller [Deltagare](../../role-based-access-control/built-in-roles.md#contributor) för att kunna utforska mått för resurser.
 
 **Lösning:** Kontrol lera att du har behörighet för den resurs som du utforskar måtten från.
 
@@ -118,4 +118,3 @@ Som standard lagras mått för gästoperativsystem i ett Azure Storage-konto, so
 * [Lär dig mer om avancerade funktioner i Metric Explorer](metrics-charts.md)
 * [Visa en lista över tillgängliga mått för Azure-tjänster](metrics-supported.md)
 * [Visa exempel på konfigurerade diagram](metric-chart-samples.md)
-

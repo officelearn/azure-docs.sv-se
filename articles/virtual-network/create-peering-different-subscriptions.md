@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: kumud
-ms.openlocfilehash: 55993162c4ea3cd5bf60a9ee9acc869cc088a9d0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 79062ae45f04b290f6e4120906b98590ce95dbe1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085137"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833274"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>Skapa ett virtuellt nätverk peering – Resource Manager, olika prenumerationer och Azure Active Directory klienter
 
@@ -148,7 +148,7 @@ I stället för att installera CLI och dess beroenden kan du använda Azure Clou
           --name myVnetAToMyVnetB \
           --resource-group myResourceGroupA \
           --vnet-name myVnetA \
-          --remote-vnet-id /subscriptions/<SubscriptionB-Id>/resourceGroups/myResourceGroupB/providers/Microsoft.Network/VirtualNetworks/myVnetB \
+          --remote-vnet /subscriptions/<SubscriptionB-Id>/resourceGroups/myResourceGroupB/providers/Microsoft.Network/VirtualNetworks/myVnetB \
           --allow-vnet-access
     ```
 
@@ -287,7 +287,7 @@ I den här självstudien används olika konton för varje prenumeration. Om du a
 ## <a name="delete-resources"></a><a name="delete"></a>Ta bort resurser
 När du är klar med den här självstudien kanske du vill ta bort de resurser som du skapade i självstudien, så du får inte använda avgifter för användning. Om du tar bort en resurs grupp tas även alla resurser i resurs gruppen bort.
 
-### <a name="azure-portal"></a><a name="delete-portal"></a>Azure-portalen
+### <a name="azure-portal"></a><a name="delete-portal"></a>Azure Portal
 
 1. Logga in på Azure Portal som användare a.
 2. Skriv **myResourceGroupA**i rutan Portal Sök. I Sök resultaten väljer du **myResourceGroupA**.

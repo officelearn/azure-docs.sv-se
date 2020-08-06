@@ -3,12 +3,12 @@ title: Avsnitt om Azure Event Grid-partner
 description: Skicka händelser från tredjeparts Event Grid SaaS-och PaaS-partner direkt till Azure-tjänster med Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 97829f262a00e2353624b2a3fa9df210518ad3a0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e56055c55a3b30c5d13736b9838257f3c0bbec10
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116003"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831914"
 ---
 # <a name="partner-topics-in-azure-event-grid-preview"></a>Partner ämnen i Azure Event Grid (för hands version)
 Med hjälp av partner ämnen kan du ansluta tredjeparts händelse källor direkt till Azure Event Grid. Den här integrationen gör att du kan prenumerera på händelser från partner på samma sätt som du prenumererar på händelser från Azure-tjänster. 
@@ -22,7 +22,7 @@ Den första partner som är tillgänglig via Event Grid partner ämnen är Auth0
 Partner ämnen debiteras enligt samma åtgärds takt som system ämnen.
 
 ## <a name="limits"></a>Gränser
-Partner ämnena finns i offentlig för hands version. Under den offentliga för hands versionen omfattas partner ämnen av [samma gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#event-grid-limits) som system ämnen och anpassade ämnen.
+Partner ämnena finns i offentlig för hands version. Under den offentliga för hands versionen omfattas partner ämnen av [samma gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits) som system ämnen och anpassade ämnen.
 
 ## <a name="how-do-i-become-an-event-grid-partner"></a>Hur gör jag för att bli en Event Grid-partner?
 Den infrastruktur som skapats för att stödja den här lanseringen gör det enkelt och snabbt för nya partners att integrera sina händelse funktioner med Event Grid. Mer information finns i dokumentationen om [partner onboarding](partner-onboarding-overview.md).

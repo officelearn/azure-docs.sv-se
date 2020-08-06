@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: f3265e70159cd4c27f698d00d85dce7d4cb49b95
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0e8ea218aa9c557fb109aee0dba318cfd5f605c7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286163"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836249"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Azure Disk Encryption med Azure AD för virtuella Windows-datorer (tidigare version)
 
@@ -74,7 +74,7 @@ I det här scenariot kan du aktivera kryptering med hjälp av en mall, PowerShel
 
 
 ### <a name="enable-encryption-on-existing-or-running-vms-with-azure-powershell"></a><a name="bkmk_RunningWinVMPSH"></a>Aktivera kryptering på befintliga eller aktiva virtuella datorer med Azure PowerShell 
-Använd cmdleten [set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) för att aktivera kryptering på en virtuell IaaS-dator som körs i Azure. Information om hur du aktiverar kryptering med Azure Disk Encryption med hjälp av PowerShell-cmdlets finns i blogg inläggen [utforska Azure Disk Encryption med Azure PowerShell del 1](https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/explore-azure-disk-encryption-with-azure-powershell.aspx) och [utforska Azure Disk Encryption med Azure PowerShell-del 2](https://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx).
+Använd cmdleten [set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) för att aktivera kryptering på en virtuell IaaS-dator som körs i Azure. Information om hur du aktiverar kryptering med Azure Disk Encryption med hjälp av PowerShell-cmdlets finns i blogg inläggen [utforska Azure Disk Encryption med Azure PowerShell del 1](/archive/blogs/azuresecurity/explore-azure-disk-encryption-with-azure-powershell) och [utforska Azure Disk Encryption med Azure PowerShell-del 2](/archive/blogs/azuresecurity/explore-azure-disk-encryption-with-azure-powershell-part-2).
 
 -  **Kryptera en virtuell dator som körs med en klient hemlighet:** Skriptet nedan initierar variablerna och kör cmdleten Set-AzVMDiskEncryptionExtension. Resurs gruppen, den virtuella datorn, nyckel valvet, AAD-appen och klient hemligheten bör redan ha skapats som krav. Ersätt MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, My-AAD-Client-ID och My-AAD-client-Secret med dina värden.
      ```azurepowershell

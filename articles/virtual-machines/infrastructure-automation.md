@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: 5567274fd9ee2cfaf41f9ff4c6e71bb2faab7b1d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 36ac0058f8f2cf3ca106b30c86207e46d0712193
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292385"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830554"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Använd infrastruktur automatiserings verktyg med virtuella datorer i Azure
 
@@ -34,9 +34,9 @@ För att skapa och hantera virtuella datorer i Azure (VM) på ett konsekvent sä
 
 Lär dig att:
 
-- [Installera och konfigurera Ansible i Linux för användning med Azure](../ansible/ansible-install-configure.md).
-- [Skapa en virtuell Linux-dator](../ansible/ansible-create-vm.md).
-- [Hantera en virtuell Linux-dator](../ansible/ansible-manage-linux-vm.md).
+- [Installera och konfigurera Ansible i Linux för användning med Azure](/azure/developer/ansible/install-on-linux-vm).
+- [Skapa en virtuell Linux-dator](/azure/developer/ansible/vm-configure).
+- [Hantera en virtuell Linux-dator](/azure/developer/ansible/vm-manage).
 
 
 ## <a name="chef"></a>Chef
@@ -45,7 +45,7 @@ Lär dig att:
 Lär dig att:
 
 - [Distribuera chef automatiserat från Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview).
-- [Installera chef på Windows och skapa virtuella Azure-datorer](../chef/chef-automation.md).
+- [Installera chef på Windows och skapa virtuella Azure-datorer](/azure/developer/chef/windows-vm-configure).
 
 
 ## <a name="puppet"></a>Puppet
@@ -81,7 +81,7 @@ Lär dig att:
 
 
 ## <a name="azure-custom-script-extension"></a>Anpassade Azure-skripttillägg
-Det anpassade skript tillägget i Azure för [Linux](./linux/extensions-customscript.md) eller [Windows](./windows/extensions-customscript.md) laddar ned och kör skript på virtuella Azure-datorer. Du kan använda tillägget när du skapar en virtuell dator eller när som helst efter att den virtuella datorn används.
+Det anpassade skript tillägget i Azure för [Linux](./extensions/custom-script-linux.md) eller [Windows](./extensions/custom-script-windows.md) laddar ned och kör skript på virtuella Azure-datorer. Du kan använda tillägget när du skapar en virtuell dator eller när som helst efter att den virtuella datorn används.
 
 Skript kan laddas ned från Azure Storage eller någon offentlig plats, till exempel en GitHub-lagringsplats. Med tillägget för anpassat skript kan du skriva skript på alla språk som körs på den virtuella käll datorn. Dessa skript kan användas för att installera program eller konfigurera den virtuella datorn efter behov. För att skydda autentiseringsuppgifter kan känslig information, till exempel lösen ord, lagras i en skyddad konfiguration. Autentiseringsuppgifterna dekrypteras bara i den virtuella datorn.
 
@@ -116,7 +116,7 @@ Azure Automation tillhandahåller också en tjänst för önskad tillstånds kon
 
 Lär dig att:
 
-- [Skapa en PowerShell-Runbook](../automation/automation-first-runbook-textual-powershell.md).
+- [Skapa en PowerShell-Runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md).
 - [Använd hybrid Runbook Worker för att hantera lokala resurser](../automation/automation-hybrid-runbook-worker.md).
 - [Använd Azure Automation DSC](../automation/automation-dsc-getting-started.md).
 
@@ -126,7 +126,7 @@ Lär dig att:
 
 Läs mer om:
 
-- [Azure DevOps-tjänster](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
+- [Azure DevOps-tjänster](/azure/devops/user-guide/index?view=vsts).
 
 
 ## <a name="jenkins"></a>Jenkins
@@ -134,7 +134,7 @@ Läs mer om:
 
 Lär dig att:
 
-- [Skapa en utvecklings infrastruktur på en virtuell Linux-dator i Azure med Jenkins, GitHub och Docker](../jenkins/tutorial-jenkins-github-docker-cicd.md).
+- [Skapa en utvecklings infrastruktur på en virtuell Linux-dator i Azure med Jenkins, GitHub och Docker](/azure/developer/jenkins/pipeline-with-github-and-docker).
 
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
@@ -149,4 +149,3 @@ Lär dig att:
 
 ## <a name="next-steps"></a>Nästa steg
 Det finns många olika alternativ för att använda automatiserings verktyg för infrastruktur i Azure. Du har frihet att använda den lösning som bäst passar dina behov och din miljö. Om du vill komma igång och testa några av de verktyg som är inbyggda i Azure läser du så här automatiserar du anpassningen av en [Linux](./linux/tutorial-automate-vm-deployment.md) -eller [Windows](./windows/tutorial-automate-vm-deployment.md) -VM.
-

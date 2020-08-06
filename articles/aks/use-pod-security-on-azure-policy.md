@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/06/2020
 author: jluk
-ms.openlocfilehash: 8be0b05c260037bbe8afc92726d81668e1391d4a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5677cb3d240381e06c76ed73354981f782bdb0dd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050472"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830231"
 ---
 # <a name="secure-pods-with-azure-policy-preview"></a>Skydda poddar med Azure Policy (för hands version)
 
@@ -47,7 +47,7 @@ Det här dokumentet förutsätter att du har följande som distribueras i den ge
 
 I ett AKS-kluster används en åtkomst kontroll för att avlyssna begär anden till API-servern när en resurs ska skapas och uppdateras. Kontrollanten kan sedan *Verifiera* resurs förfrågan mot en uppsättning regler på om den ska skapas eller inte.
 
-Tidigare har funktionen [Pod säkerhets princip (för hands version)](use-pod-security-policies.md) Aktiver ATS via Kubernetes-projektet för att begränsa vilka poddar som kan distribueras. Den här funktionen är inte längre i aktiv utveckling från Kubernetes-projektet.
+Tidigare har funktionen [Pod säkerhets princip (för hands version)](use-pod-security-policies.md) Aktiver ATS via Kubernetes-projektet för att begränsa vilka poddar som kan distribueras.
 
 Genom att använda Azure Policy-tillägget kan ett AKS-kluster använda inbyggda Azure-principer som skyddar poddar och andra Kubernetes-resurser som liknar Pod säkerhets princip tidigare. Azure Policy-tillägget för AKS installerar en hanterad instans av [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), en verifierar en styrenhet för åtkomst kontroll. Azure Policy för Kubernetes bygger på öppna policy-agenten med öppen källkod som förlitar sig på [Rego policy-språket](../governance/policy/concepts/policy-for-kubernetes.md#policy-language).
 
@@ -87,8 +87,8 @@ Båda de inbyggda initiativen skapas från definitioner som används i [Pod säk
 |Begränsa användningen av värd fil systemet|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75)| Ja | Ja
 |Begränsa Linux-funktioner till [standard uppsättningen](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) | Ja | Ja
 |Begränsa användningen av definierade volym typer|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| - | Ja – tillåtna volym typer är `configMap` ,,, `emptyDir` `projected` `downwardAPI` ,`persistentVolumeClaim`|
-|Eskalering av privilegier till rot|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | - | Yes |
-|Begränsa behållarens användar-och grupp-ID|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Yes|
+|Eskalering av privilegier till rot|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | - | Ja |
+|Begränsa behållarens användar-och grupp-ID|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Ja|
 |Begränsa tilldelningen av en FSGroup som äger Pod-volymer|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Ja – tillåtna regler är `runAsUser: mustRunAsNonRoot` , `supplementalGroup: mustRunAs 1:65536` , `fsGroup: mustRunAs 1:65535` , `runAsGroup: mustRunAs 1:65535` .  |
 |Kräver seccomp-profil|[Offentligt moln](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F975ce327-682c-4f2e-aa46-b9598289b86c) | - | Ja, allowedProfiles är * `docker/default` eller`runtime/default` |
 

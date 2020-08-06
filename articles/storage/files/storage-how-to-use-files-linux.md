@@ -1,18 +1,18 @@
 ---
 title: Använda Azure Files med Linux | Microsoft Docs
-description: Lär dig hur du monterar en Azure-filresurs via SMB på Linux.
+description: Lär dig hur du monterar en Azure-filresurs via SMB på Linux. Se listan över krav. Granska SMB-säkerhetsöverväganden på Linux-klienter.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0270cebec21ca10327a86ea5efebef9a52455930
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bc0390ba9bf8d0f80d1533fe6e40b42df0cb5359
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089353"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835722"
 ---
 # <a name="use-azure-files-with-linux"></a>Använda Azure Files med Linux
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Linux-distributioner med [SMB-kernel-klienten](https://wiki.samba.org/index.php/LinuxCIFS). Den här artikeln visar två sätt att montera en Azure-fil resurs: på begäran med `mount` kommandot och i start genom att skapa en post i `/etc/fstab` .
@@ -248,22 +248,22 @@ Från och med linux kernel 4,18, anropar SMB-kernel-modulen, som kallas `cifs` f
 
 | Distribution | Kan inaktivera SMB 1 |
 |--------------|-------------------|
-| Ubuntu 14.04-16.04 | No |
-| Ubuntu 18.04 | Yes |
-| Ubuntu 19.04 + | Yes |
-| Debian 8-9 | No |
-| Debian 10 + | Yes |
-| Fedora 29 + | Yes |
-| CentOS 7 | No | 
-| CentOS 8 + | Yes |
-| Red Hat Enterprise Linux 6. x-7. x | No |
-| Red Hat Enterprise Linux 8 + | Yes |
-| openSUSE skottår 15,0 | No |
-| openSUSE skottår 15.1 + | Yes |
-| openSUSE Tumbleweed | Yes |
-| SUSE Linux Enterprise 11. x-12. x | No |
-| SUSE Linux Enterprise 15 | No |
-| SUSE Linux Enterprise 15,1 | No |
+| Ubuntu 14.04-16.04 | Nej |
+| Ubuntu 18.04 | Ja |
+| Ubuntu 19.04 + | Ja |
+| Debian 8-9 | Nej |
+| Debian 10 + | Ja |
+| Fedora 29 + | Ja |
+| CentOS 7 | Nej | 
+| CentOS 8 + | Ja |
+| Red Hat Enterprise Linux 6. x-7. x | Nej |
+| Red Hat Enterprise Linux 8 + | Ja |
+| openSUSE skottår 15,0 | Nej |
+| openSUSE skottår 15.1 + | Ja |
+| openSUSE Tumbleweed | Ja |
+| SUSE Linux Enterprise 11. x-12. x | Nej |
+| SUSE Linux Enterprise 15 | Nej |
+| SUSE Linux Enterprise 15,1 | Nej |
 
 Du kan kontrol lera om din Linux-distribution stöder `disable_legacy_dialects` modulen modul via följande kommando.
 

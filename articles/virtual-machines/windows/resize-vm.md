@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: 31979854ad3f6bd6d1cf4e73fc3c993520ac423d
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 4860422fefb5a95fe41912b4898f02867f7b3aeb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432687"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832254"
 ---
 # <a name="resize-a-windows-vm"></a>Ändra storlek på en virtuell Windows-dator
 
-Den här artikeln visar hur du flyttar en virtuell dator till en annan [VM-storlek](sizes.md).
+Den här artikeln visar hur du flyttar en virtuell dator till en annan [VM-storlek](../sizes.md).
 
 När du har skapat en virtuell dator (VM) kan du skala upp eller ned den virtuella datorn genom att ändra storleken på den virtuella datorn. I vissa fall måste du frigöra den virtuella datorn först. Detta kan inträffa om den nya storleken inte är tillgänglig i det maskin varu kluster som för närvarande är värd för den virtuella datorn.
 

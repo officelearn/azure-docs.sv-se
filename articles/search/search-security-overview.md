@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9e4181956d81ddbe0a385987689a8cb0248ac535
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: fb265f8a8ab34972dac8529d267e41edaf0acb4c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553962"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829296"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Säkerhet i Azure Kognitiv sökning – översikt
 
@@ -127,7 +127,7 @@ Om du behöver detaljerad kontroll över varje användare över Sök resultat ka
 
 ## <a name="administrative-rights"></a>Administrativa rättigheter
 
-[Rollbaserad åtkomst (RBAC)](../role-based-access-control/overview.md) är ett auktoriserings system som bygger på [Azure Resource Manager](../azure-resource-manager/management/overview.md) för etablering av Azure-resurser. I Azure Kognitiv sökning används Resource Manager för att skapa eller ta bort tjänsten, hantera API-nycklar och skala tjänsten. Därför avgör Azure Role-tilldelningar vilka som kan utföra dessa uppgifter, oavsett om de använder [portalen](search-manage.md), [POWERSHELL](search-manage-powershell.md)eller [hantering REST-API: er](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md) är ett auktoriserings system som bygger på [Azure Resource Manager](../azure-resource-manager/management/overview.md) för etablering av Azure-resurser. I Azure Kognitiv sökning används Resource Manager för att skapa eller ta bort tjänsten, hantera API-nycklar och skala tjänsten. Därför avgör Azure Role-tilldelningar vilka som kan utföra dessa uppgifter, oavsett om de använder [portalen](search-manage.md), [POWERSHELL](search-manage-powershell.md)eller [hantering REST-API: er](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
 Administratörs rättigheter över innehåll som är värd för tjänsten, till exempel möjligheten att skapa eller ta bort ett index, härleds genom API-nycklar enligt beskrivningen i [föregående avsnitt](#index-access).
 

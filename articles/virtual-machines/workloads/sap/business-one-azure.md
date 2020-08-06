@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f119acc06883dc077218c56accd31c805092db85
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 293a0fcd1211739be07e58f414bd6861bf47eb76
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088299"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831115"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One på Azure Virtual Machines
 Det här dokumentet innehåller rikt linjer för att distribuera SAP Business One på Azure Virtual Machines. Dokumentationen ersätter inte installations dokumentationen för Business One för SAP. Dokumentationen bör avse grundläggande planerings-och distributions rikt linjer för Azure-infrastrukturen för att köra företag ett program på.
@@ -149,7 +149,7 @@ För SAP HANA säkerhets kopierings-och återställnings strategier bör du läs
 ### <a name="business-one-client-server"></a>Företag en klient server
 Det är inte viktigt att tänka på vid lagring av de här komponenterna. du vill dock ha en tillförlitlig plattform. Därför bör du använda Azure Premium Storage för den här virtuella datorn, även för den virtuella hård disken. Ändra storlek på den virtuella datorn med de data som finns i [hand boken för SAP Business en maskin varu krav](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). För Azure måste du fokusera och beräkna med de krav som anges i kapitel 2,4 i dokumentet. När du beräknar kraven måste du jämföra dem med följande dokument för att hitta den perfekta virtuella datorn för dig:
 
-- [Storlekar för virtuella Windows-datorer i Azure](../../windows/sizes.md)
+- [Storlekar för virtuella Windows-datorer i Azure](../../sizes.md)
 - [SAP-anteckning #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 
 Jämför antalet processorer och minne som krävs för det som dokumenteras av Microsoft. Tänk också på nätverks genom strömning när du väljer de virtuella datorerna.

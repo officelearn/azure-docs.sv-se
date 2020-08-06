@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3301667c0ee6ad739b6fb734c2cea3aef4889bd9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 15838e1e9acf328a0deaa981d1227c22c08dbbdf
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051838"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832271"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning
 
@@ -359,9 +359,9 @@ Vi rekommenderar starkt att du använder [Azure Managed disks](../../windows/man
 
 Nätverks enheter eller fjär resurser som Azure File Services stöds inte för Oracle Database-filer. Mer information finns i:
 
-- [Introduktion till Microsoft Azure File Service](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+- [Introduktion till Microsoft Azure File Service](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
-- [Spara anslutningar till Microsoft Azure-filer](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+- [Spara anslutningar till Microsoft Azure-filer](/archive/blogs/windowsazurestorage/persisting-connections-to-microsoft-azure-files)
 
 
 Om du använder diskar som är baserade på Azure Page Blob Storage eller Managed Disks, gäller instruktionerna i [överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) även för distributioner med Oracle Database.
@@ -374,10 +374,10 @@ Den lägsta konfigurationen är följande:
 
 | Komponent | Disk | Caching | Lagringspool |
 | --- | ---| --- | --- |
-| \oracle \<SID> \origlogaA & mirrlogB | Premium | Ingen | Krävs inte |
-| \oracle \<SID> \origlogaB & mirrlogA | Premium | Ingen | Krävs inte |
+| \oracle \<SID> \origlogaA & mirrlogB | Premium | Inga | Krävs inte |
+| \oracle \<SID> \origlogaB & mirrlogA | Premium | Inga | Krävs inte |
 | \oracle \<SID> \sapdata1... m | Premium | Skrivskyddad | Kan användas |
-| \oracle \<SID> \oraarch | Standard | Ingen | Krävs inte |
+| \oracle \<SID> \oraarch | Standard | Inga | Krävs inte |
 | Oracle Home, saptrace,... | OS-disk | | Krävs inte |
 
 
@@ -387,13 +387,13 @@ Prestanda konfigurationen är följande:
 
 | Komponent | Disk | Caching | Lagringspool |
 | --- | ---| --- | --- |
-| \oracle \<SID> \origlogaA | Premium | Ingen | Kan användas  |
-| \oracle \<SID> \origlogaB | Premium | Ingen | Kan användas |
-| \oracle \<SID> \mirrlogAB | Premium | Ingen | Kan användas |
-| \oracle \<SID> \mirrlogBA | Premium | Ingen | Kan användas |
+| \oracle \<SID> \origlogaA | Premium | Inga | Kan användas  |
+| \oracle \<SID> \origlogaB | Premium | Inga | Kan användas |
+| \oracle \<SID> \mirrlogAB | Premium | Inga | Kan användas |
+| \oracle \<SID> \mirrlogBA | Premium | Inga | Kan användas |
 | \oracle \<SID> \sapdata1... m | Premium | Skrivskyddad | Rekommenderas  |
-| \oracle\SID\sapdata (n + 1) * | Premium | Ingen | Kan användas |
-| \oracle \<SID> \oraarch * | Premium | Ingen | Krävs inte |
+| \oracle\SID\sapdata (n + 1) * | Premium | Inga | Kan användas |
+| \oracle \<SID> \oraarch * | Premium | Inga | Krävs inte |
 | Oracle Home, saptrace,... | OS-disk | Krävs inte |
 
 * (n + 1): värdbaserade SYSTEM-, TEMP-och UNDO-datatabeller. I/O-mönstret för system-och Undo-datatabeller skiljer sig från andra register utrymmen som är värdar för program data. Ingen cachelagring är det bästa alternativet för systemets prestanda och återställa tabell utrymmen.
@@ -450,9 +450,9 @@ Vi rekommenderar starkt att du använder [Azure Managed disks](../../windows/man
 
 Nätverks enheter eller fjär resurser som Azure File Services stöds inte för Oracle Database-filer. Mer information finns i följande: 
 
-- [Introduktion till Microsoft Azure File Service](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+- [Introduktion till Microsoft Azure File Service](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
-- [Spara anslutningar till Microsoft Azure-filer](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+- [Spara anslutningar till Microsoft Azure-filer](/archive/blogs/windowsazurestorage/persisting-connections-to-microsoft-azure-files)
 
 Om du använder diskar som är baserade på Azure Page Blob Storage eller Managed Disks, gäller de instruktioner som gjorts i [överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) även för distributioner med Oracle Database.
 
@@ -464,10 +464,10 @@ Lägsta konfiguration:
 
 | Komponent | Disk | Caching | Tar bort |
 | --- | ---| --- | --- |
-| /Oracle/ \<SID> /origlogaA & mirrlogB | Premium | Ingen | Krävs inte |
-| /Oracle/ \<SID> /origlogaB & mirrlogA | Premium | Ingen | Krävs inte |
+| /Oracle/ \<SID> /origlogaA & mirrlogB | Premium | Inga | Krävs inte |
+| /Oracle/ \<SID> /origlogaB & mirrlogA | Premium | Inga | Krävs inte |
 | /Oracle/ \<SID> /sapdata1... m | Premium | Skrivskyddad | Kan användas |
-| /Oracle/ \<SID> /oraarch | Standard | Ingen | Krävs inte |
+| /Oracle/ \<SID> /oraarch | Standard | Inga | Krävs inte |
 | Oracle Home, saptrace,... | OS-disk | | Krävs inte |
 
 * Ta bort: LVM rand eller MDADM med RAID0
@@ -478,13 +478,13 @@ Prestanda konfiguration:
 
 | Komponent | Disk | Caching | Tar bort |
 | --- | ---| --- | --- |
-| /Oracle/ \<SID> /origlogaA | Premium | Ingen | Kan användas  |
-| /Oracle/ \<SID> /origlogaB | Premium | Ingen | Kan användas |
-| /Oracle/ \<SID> /mirrlogAB | Premium | Ingen | Kan användas |
-| /Oracle/ \<SID> /mirrlogBA | Premium | Ingen | Kan användas |
+| /Oracle/ \<SID> /origlogaA | Premium | Inga | Kan användas  |
+| /Oracle/ \<SID> /origlogaB | Premium | Inga | Kan användas |
+| /Oracle/ \<SID> /mirrlogAB | Premium | Inga | Kan användas |
+| /Oracle/ \<SID> /mirrlogBA | Premium | Inga | Kan användas |
 | /Oracle/ \<SID> /sapdata1... m | Premium | Skrivskyddad | Rekommenderas  |
-| /Oracle/ \<SID> /sapdata (n + 1) * | Premium | Ingen | Kan användas |
-| /Oracle/ \<SID> /oraarch * | Premium | Ingen | Krävs inte |
+| /Oracle/ \<SID> /sapdata (n + 1) * | Premium | Inga | Kan användas |
+| /Oracle/ \<SID> /oraarch * | Premium | Inga | Krävs inte |
 | Oracle Home, saptrace,... | OS-disk | Krävs inte |
 
 * Ta bort: LVM rand eller MDADM med RAID0

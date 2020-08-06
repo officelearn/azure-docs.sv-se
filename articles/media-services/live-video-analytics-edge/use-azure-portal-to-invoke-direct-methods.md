@@ -13,28 +13,28 @@ ms.topic: how-to
 ms.custom: ''
 ms.date: 07/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: 763dd82c8263a5e180468f9fbd7f86526295a80d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9d784e1697dfbcbfec509c1a51c9b832b533c97b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279295"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830758"
 ---
 # <a name="how-to-use-azure-portal-to-invoke-direct-methods"></a>Använda Azure Portal för att anropa direkta metoder
 
-IoT Hub ger dig möjlighet att anropa [direkta metoder](/azure/iot-hub/iot-hub-devguide-direct-methods#method-invocation-for-iot-edge-modules) på gräns enheter från molnet. LVA-modulen (live video analys i IoT Edge) visar flera [direkta metoder](/azure/media-services/live-video-analytics-edge/direct-methods) som kan användas för att definiera, distribuera och instansiera olika arbets flöden för att analysera direktsänd video.
+IoT Hub ger dig möjlighet att anropa [direkta metoder](../../iot-hub/iot-hub-devguide-direct-methods.md#method-invocation-for-iot-edge-modules) på gräns enheter från molnet. LVA-modulen (live video analys i IoT Edge) visar flera [direkta metoder](./direct-methods.md) som kan användas för att definiera, distribuera och instansiera olika arbets flöden för att analysera direktsänd video.
 
 I den här artikeln får du lära dig hur du anropar direkta metod anrop i real tids video analys för en IoT Edge modul via Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Du har live video analys på IoT Edge modul som körs på din Edge-enhet med antingen de metoder som beskrivs i [snabb start: Real video analys på IoT Edge](/azure/media-services/live-video-analytics-edge/get-started-detect-motion-emit-events-quickstart) eller med hjälp av [portalen.](/azure/media-services/live-video-analytics-edge/deploy-iot-edge-device)
+* Du har live video analys på IoT Edge modul som körs på din Edge-enhet med antingen de metoder som beskrivs i [snabb start: Real video analys på IoT Edge](./get-started-detect-motion-emit-events-quickstart.md) eller med hjälp av [portalen.](./deploy-iot-edge-device.md)
 
-* Du förstår [live video analys](/azure/media-services/live-video-analytics-edge/overview) och [Media Graph-konceptet](/azure/media-services/live-video-analytics-edge/media-graph-concept).
+* Du förstår [live video analys](./overview.md) och [Media Graph-konceptet](./media-graph-concept.md).
 
 ## <a name="invoking-direct-methods-via-azure-portal"></a>Anropa direkt metoder via Azure Portal
 
-Var och en av de [direkta metoder](/azure/media-services/live-video-analytics-edge/direct-methods) som exponeras av lva-modulen kan anropas via Azure Portal. Stegen nedan ger information om en direkt metod. Du kan anropa andra direkta metoder med liknande steg. Varje direkt metod kräver dock en speciell JSON-text.
+Var och en av de [direkta metoder](./direct-methods.md) som exponeras av lva-modulen kan anropas via Azure Portal. Stegen nedan ger information om en direkt metod. Du kan anropa andra direkta metoder med liknande steg. Varje direkt metod kräver dock en speciell JSON-text.
 
 Använd `GraphTopologyList` metod anropet för att hämta en lista över alla Graph-topologier som för närvarande har distribuerats i live video analys i IoT Edge modul. Använd följande steg för att anropa den här direkta metoden:
 
@@ -72,9 +72,9 @@ Använd `GraphTopologyList` metod anropet för att hämta en lista över alla Gr
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du hittar fler direkta metoder på sidan [direkta metoder](/azure/media-services/live-video-analytics-edge/direct-methods) .
+Du hittar fler direkta metoder på sidan [direkta metoder](./direct-methods.md) .
 
 > [!NOTE]
 > En graf-instans instansierar en speciell topologi, så se till att du har rätt frågetopologi uppsättning innan du skapar en diagram instans.
 
-[Snabb start: identifiera händelser för motion-generering](/azure/media-services/live-video-analytics-edge/get-started-detect-motion-emit-events-quickstart) är en god referens för att förstå den exakta sekvensen av direkta metod anrop att göras.
+[Snabb start: identifiera händelser för motion-generering](./get-started-detect-motion-emit-events-quickstart.md) är en god referens för att förstå den exakta sekvensen av direkta metod anrop att göras.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 852a8c8eb7e6a87739c58967eefd6c18e996b225
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b354fda4d23d13b8defed4381335ab147bbece5d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367409"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835909"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Rekommenderade säkerhets metoder för Azure Identity Management och åtkomst kontroll
 
@@ -195,7 +195,7 @@ Organisationer som inte lägger till extra lager med identitets skydd, till exem
 
 ## <a name="use-role-based-access-control"></a>Använd rollbaserad åtkomstkontroll
 
-Åtkomst hantering för moln resurser är avgörande för alla organisationer som använder molnet. [Rollbaserad åtkomst kontroll (RBAC)](/azure/role-based-access-control/overview)hjälper dig att hantera vem som har åtkomst till Azure-resurser, vad de kan göra med dessa resurser och vilka områden de har åtkomst till.
+Åtkomst hantering för moln resurser är avgörande för alla organisationer som använder molnet. [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](/azure/role-based-access-control/overview)hjälper dig att hantera vem som har åtkomst till Azure-resurser, vad de kan göra med dessa resurser och vilka områden de har åtkomst till.
 
 Att utse grupper eller enskilda roller som är ansvariga för specifika funktioner i Azure bidrar till att undvika förvirring som kan leda till mänsklig och automation-fel som skapar säkerhets risker. Att begränsa åtkomsten baserat på [behovet av att känna till](https://en.wikipedia.org/wiki/Need_to_know) och [minsta behörighets](https://en.wikipedia.org/wiki/Principle_of_least_privilege) säkerhets principer är att det är absolut nödvändigt för organisationer som vill tillämpa säkerhets principer för data åtkomst.
 

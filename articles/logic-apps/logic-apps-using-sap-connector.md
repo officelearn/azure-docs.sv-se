@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/21/2020
 tags: connectors
-ms.openlocfilehash: a8985f951b8ff37beb7a1f63e8200321fc706ce6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a0f6af706a81db537b9ed66dc49996282c4dbbaa
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086616"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833903"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ansluta till SAP-system från Azure Logic Apps
 
@@ -128,7 +128,7 @@ Dessa krav gäller när dina Logi Kap par körs på en Premium-nivå (inte i [in
 
 * Som standard placerar SAP-installationsprogrammet Assembly-filerna i standardmappen för installation. Du måste kopiera dessa Assembly-filer till en annan plats, baserat på ditt scenario enligt följande:
 
-  För logi Kap par som körs i en ISE följer du stegen som beskrivs i [integrerings tjänst miljöns krav](#sap-ise). För logi Kap par som körs i Azure med flera innehavare och använder den lokala datagatewayen kopierar du Assembly-filerna från standardmappen för installation till datagateway-installationsmappen. Om du stöter på problem med datagatewayen kan du läsa följande problem:
+  * För logi Kap par som körs i en ISE följer du stegen som beskrivs i [integrerings tjänst miljöns krav](#sap-ise). För logi Kap par som körs i Azure med flera innehavare och använder den lokala datagatewayen kopierar du Assembly-filerna från standardmappen för installation till datagateway-installationsmappen. Om du stöter på problem med datagatewayen kan du läsa följande problem:
 
   * Du måste installera 64-bitars versionen för SAP-klient biblioteket eftersom data gatewayen bara körs på 64-bitars system. Annars får du fel meddelandet "felaktig avbildning" eftersom värd tjänsten för data Gateway inte stöder 32-bitars sammansättningar.
 
@@ -431,7 +431,7 @@ När du ställer in mat ris filtret tar utlösaren bara emot meddelanden från d
 
 Alla SAP-åtgärds filtrering sker på SAP-kortets nivå för din lokala datagateway. Mer information finns i [Skicka test-idocs till Logic Apps från SAP](#send-idocs-from-sap).
 
-Om du inte kan skicka IDoc-paket från SAP till din Logic Apps utlösare, se meddelandet transaktionell RFC (tRFC)-anrop för avvisning i dialog rutan SAP tRFC (T-Code SM58). I SAP-gränssnittet kan du få följande fel meddelanden, som klipps ut på grund av de underordnade sträng gränserna i text fältet **status** .
+Om du inte kan skicka IDoc-paket från SAP till din Logic Apps utlösare, se meddelandet transaktionell RFC (tRFC)-anrop för avvisning i dialog rutan SAP tRFC (T-Code SM58). I SAP-gränssnittet kan du få följande fel meddelanden, som klipps ut på grund av del Strängs gränserna i **text fältet status** .
 
 * `The RequestContext on the IReplyChannel was closed without a reply being`: Oväntade fel inträffar när en catch-all-hanterare för kanalen avslutar kanalen på grund av ett fel och återkonstruerar kanalen för att bearbeta andra meddelanden.
 
@@ -532,7 +532,7 @@ Om du vill skicka IDocs från SAP till din Logic app behöver du följande minst
 
 1. Spara ändringarna.
 
-1. Om du vill testa anslutningen väljer du **anslutnings test** .
+1. Om du vill testa anslutningen väljer du **anslutnings test**.
 
 #### <a name="create-receiver-port"></a>Skapa mottagar port
 
@@ -727,7 +727,10 @@ Följande exempel är ett RFC-anrop med en tabell parameter som har ett anonymt 
 
 ```
 
-Följande exempel innehåller prefix för namn områden. Du kan deklarera alla prefix samtidigt, eller så kan du deklarera valfria mängder av prefix som attribut för en nod. Namn områdes Ali Aset `ns0` för RFC används som rot och parametrar för Basic-typen. Observera att komplexa typer deklareras under en annan namnrymd för RFC-typer med alias `ns3` i stället för det vanliga RFC-namnområdet med aliaset `ns0` .
+Följande exempel innehåller prefix för namn områden. Du kan deklarera alla prefix samtidigt, eller så kan du deklarera valfritt antal prefix som attribut för en nod. Namn områdes Ali Aset `ns0` för RFC används som rot och parametrar för Basic-typen.
+
+> [!NOTE]
+> komplexa typer deklareras under en annan namnrymd för RFC-typer med alias `ns3` i stället för det vanliga RFC-namnområdet med aliaset `ns0` .
 
 ```xml
 
@@ -883,7 +886,7 @@ Följande exempel är en exempel data post med enkla segment. I det här exemple
 
 ```
 
-Följande exempel är en data post med grupperade segment. Detta omfattar en överordnad grupp nod, `E2EDKT1002GRP` och flera underordnade noder, inklusive `E2EDKT1002` och `E2EDKT2001` . 
+Följande exempel är en data post med grupperade segment. Posten innehåller en överordnad nod, `E2EDKT1002GRP` och flera underordnade noder, inklusive `E2EDKT1002` och `E2EDKT2001` . 
 
 ```xml
 
@@ -900,7 +903,7 @@ Följande exempel är en data post med grupperade segment. Detta omfattar en öv
 
 ```
 
-Den rekommenderade metoden är att skapa en IDoc-identifierare för användning med tRFC. Du kan ställa in transaktions-ID: `tid` t med hjälp av [åtgärden skicka iDOC](https://docs.microsoft.com/connectors/sap/#send-idoc) i SAP Connector-API: et.
+Den rekommenderade metoden är att skapa en IDoc-identifierare för användning med tRFC. Du kan ställa in transaktions-ID: `tid` t med hjälp av [åtgärden skicka iDOC](/connectors/sap/#send-idoc) i SAP Connector-API: et.
 
 Följande exempel är en alternativ metod för att ange transaktions-ID: t eller `tid` . I det här exemplet stängs den sista noden för data post segmentet och IDoc-datanoden. Sedan används GUID, `guid` som tRFC-ID för att identifiera dubbletter. 
 

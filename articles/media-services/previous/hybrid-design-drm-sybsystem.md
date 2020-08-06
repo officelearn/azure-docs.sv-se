@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: ad4c60d6a3facd49f08749b2b3f4b01242d3844c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ce2fbe8c706870250973974c7a73a3964dedd04a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091801"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831897"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Hybrid design av DRM-undersystem 
 
@@ -99,11 +99,11 @@ Baserat på förklaringarna i föregående avsnitt, använder följande fem hybr
 |---|---|---|---|---|---|
 |AMS|AMS|AMS|Ja|Ja|Exempel 1|
 |AMS|AMS|Tredje part|Ja|Ja|Exempel 2|
-|AMS|Tredje part|AMS|Yes|No|Exempel 3|
-|AMS|Tredje part|Utanpå|Inga|Inga|Exempel 4|
-|Tredje part|Tredje part|AMS|Yes|No|    
+|AMS|Tredje part|AMS|Ja|Nej|Exempel 3|
+|AMS|Tredje part|Utanpå|Nej|Nej|Exempel 4|
+|Tredje part|Tredje part|AMS|Ja|Nej|    
 
-I exemplen fungerar PlayReady-skyddet både för streck och smidig strömning. Video-URL: erna nedan är smidiga strömmande URL: er. För att hämta motsvarande streck-URL: er lägger du bara till "(format = mpd-Time-CSF)". Du kan använda [Azure Media test Player](https://aka.ms/amtest) för att testa i en webbläsare. Det gör att du kan konfigurera vilket strömnings protokoll som ska användas, under vilka Tech. IE11 och Microsoft Edge på Windows 10 stöder PlayReady genom EME. Mer information finns i [information om test verktyget](/azure/media-services/previous/offline-playready-streaming-windows-10).
+I exemplen fungerar PlayReady-skyddet både för streck och smidig strömning. Video-URL: erna nedan är smidiga strömmande URL: er. För att hämta motsvarande streck-URL: er lägger du bara till "(format = mpd-Time-CSF)". Du kan använda [Azure Media test Player](https://aka.ms/amtest) för att testa i en webbläsare. Det gör att du kan konfigurera vilket strömnings protokoll som ska användas, under vilka Tech. IE11 och Microsoft Edge på Windows 10 stöder PlayReady genom EME. Mer information finns i [information om test verktyget](./offline-playready-streaming-windows-10.md).
 
 ### <a name="sample-1"></a>Exempel 1
 

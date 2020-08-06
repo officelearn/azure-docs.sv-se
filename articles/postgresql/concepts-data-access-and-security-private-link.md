@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 90e0f74f3a17a2c98abfcd886d59344b18619f8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 773815cd64af2a398001bac91e14cca0b204ca8e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509005"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832082"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Privat länk för Azure Database for PostgreSQL-enskild server
 
@@ -20,7 +20,7 @@ Med privat länk kan du skapa privata slut punkter för Azure Database for Postg
 Om du vill ha en lista över PaaS Services som stöder funktionen för privat länk läser du [dokumentationen](https://docs.microsoft.com/azure/private-link/index)om den privata länken. En privat slut punkt är en privat IP-adress inom ett särskilt [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) och undernät.
 
 > [!NOTE]
-> Den här funktionen är tillgänglig i alla Azure-regioner där Azure Database for PostgreSQL enskild server stöder Generell användning och minnesoptimerade pris nivåer.
+> Funktionen privat länk är bara tillgänglig för Azure Database for PostgreSQL servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att databas servern är på någon av dessa pris nivåer.
 
 ## <a name="data-exfiltration-prevention"></a>Data exfiltrering skydd
 
@@ -57,7 +57,7 @@ Med privat länk kan du aktivera åtkomst mellan platser till den privata slut p
 
 Privata slut punkter krävs för att aktivera privat länk. Detta kan göras med hjälp av följande instruktions guider.
 
-* [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal)
+* [Azure-portalen](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal)
 * [CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-cli)
 
 ### <a name="approval-process"></a>Godkännande process

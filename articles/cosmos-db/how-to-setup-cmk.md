@@ -4,14 +4,14 @@ description: Lär dig hur du konfigurerar Kundhanterade nycklar för ditt Azure 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 08/05/2020
 ms.author: thweiss
-ms.openlocfilehash: 989fbb123e39f85aeeb8eba9961f9aeab1e76c84
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9fa899e0f0de3b263baad7e44ed24d32d735b001
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092631"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836519"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Konfigurera kundhanterade nycklar för ditt Azure Cosmos-konto med Azure Key Vault
 
@@ -64,6 +64,8 @@ Om du använder en befintlig Azure Key Vault-instans kan du kontrol lera att des
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Välj Azure Cosmos DB huvud konto":::
 
 1. Välj **Lägg** till för att lägga till den nya åtkomst principen.
+
+1. Välj **Spara** på Key Vault-instansen för att spara alla ändringar.
 
 ## <a name="generate-a-key-in-azure-key-vault"></a>Generera en nyckel i Azure Key Vault
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: eca36a2c13fcdc232d4d06ca6e59598fe9a611f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a0dc9f673abcac549fffc7291b8ac376c297da6b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082145"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836130"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Offentlig slut punkts anslutning för Virtual Machines med Azure Standard Load Balancer i SAP-scenarier med hög tillgänglighet
 
@@ -100,7 +100,7 @@ Konfigurationen skulle se ut så här:
 2. Skapa **MyBackendPoolOfPublicILB** för backend-poolen och Lägg till de virtuella datorerna.  
    1. Välj det virtuella nätverket  
    1. Välj de virtuella datorerna och deras IP-adresser och Lägg till dem i backend-poolen  
-3. [Skapa utgående regler](../../../load-balancer/configure-load-balancer-outbound-cli.md#create-outbound-rule). Det går för närvarande inte att skapa utgående regler från Azure Portal. Du kan skapa utgående regler med [Azure CLI](../../../cloud-shell/overview.md?view=azure-cli-latest).  
+3. [Skapa utgående regler](../../../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard%3ftabs%3doption-1-create-load-balancer-standard#create-outbound-rule-configuration). Det går för närvarande inte att skapa utgående regler från Azure Portal. Du kan skapa utgående regler med [Azure CLI](../../../cloud-shell/overview.md?view=azure-cli-latest).  
 
    ```azurecli
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup

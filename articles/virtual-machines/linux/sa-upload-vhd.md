@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/10/2017
 ms.author: cynthn
 ms.custom: storage accounts
-ms.openlocfilehash: 288a697339fc6f8b001b445840e3fa98ab92f9a4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d667ff3949fcf58affc72b5d75a40abd8ca0dcb6
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292254"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830316"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Ladda upp och skapa en virtuell Linux-dator från en anpassad disk med Azure CLI
 
@@ -72,7 +72,7 @@ az vm create --resource-group myResourceGroup --location westus \
     --use-unmanaged-disk
 ```
 
-Mål lagrings kontot måste vara samma som när du laddade upp den virtuella disken till. Du måste också ange eller besvara svar på alla ytterligare parametrar som krävs av kommandot **AZ VM Create** , till exempel virtuellt nätverk, offentlig IP-adress, användar namn och SSH-nycklar. Du kan läsa mer om de [tillgängliga klassiska CLI Resource Manager-parametrarna](../azure-cli-arm-commands.md#virtual-machines).
+Mål lagrings kontot måste vara samma som när du laddade upp den virtuella disken till. Du måste också ange eller besvara svar på alla ytterligare parametrar som krävs av kommandot **AZ VM Create** , till exempel virtuellt nätverk, offentlig IP-adress, användar namn och SSH-nycklar. Du kan läsa mer om de [tillgängliga klassiska CLI Resource Manager-parametrarna](/previous-versions/azure/virtual-machines/azure-cli-arm-commands#virtual-machines).
 
 ## <a name="requirements"></a>Krav
 För att utföra följande steg behöver du:

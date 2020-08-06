@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 07/27/2020
 tags: connectors
-ms.openlocfilehash: aa5be3d58ee1a0a40d0b817e1f5999ccd4bc423d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e0e152b3c0e10c34bc6213ddf867b79c58d1d767
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319243"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832985"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Hantera e-post, kontakter och kalendrar i Office 365 Outlook med hjälp av Azure Logic Apps
 
@@ -48,7 +48,7 @@ En [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts) är en h
 1. Om du uppmanas att logga in anger du dina Office 365-autentiseringsuppgifter så att din Logic-app kan ansluta till ditt konto. Annars, om anslutningen redan finns, anger du informationen för utlösarens egenskaper.
 
    > [!NOTE]
-   > Din anslutning upphör inte förrän den har återkallats, även om du ändrar dina inloggnings uppgifter. Mer information finns i [konfigurations bara livs längder för token i Azure Active Directory](../active-directory/active-directory-configurable-token-lifetimes.md).
+   > Din anslutning upphör inte förrän den har återkallats, även om du ändrar dina inloggnings uppgifter. Mer information finns i [konfigurations bara livs längder för token i Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
 
    I det här exemplet väljs den kalender som utlösaren kontrollerar, till exempel:
 
@@ -81,7 +81,7 @@ En [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) är en å
 1. Om du uppmanas att logga in anger du dina Office 365-autentiseringsuppgifter så att din Logic-app kan ansluta till ditt konto. Annars, om anslutningen redan finns, anger du informationen för åtgärdens egenskaper.
 
    > [!NOTE]
-   > Din anslutning upphör inte förrän den har återkallats, även om du ändrar dina inloggnings uppgifter. Mer information finns i [konfigurations bara livs längder för token i Azure Active Directory](../active-directory/active-directory-configurable-token-lifetimes.md).
+   > Din anslutning upphör inte förrän den har återkallats, även om du ändrar dina inloggnings uppgifter. Mer information finns i [konfigurations bara livs längder för token i Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
 
    Det här exemplet väljer mappen kontakter där åtgärden skapar den nya kontakten, till exempel:
 

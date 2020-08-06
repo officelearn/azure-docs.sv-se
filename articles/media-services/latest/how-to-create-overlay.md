@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.openlocfilehash: 0d1a6d5626e081ff50f65b3a4396e223b33f920d
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 85b1b6c56221deaa03057a7ccb658b4bf67124eb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433636"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830588"
 ---
 # <a name="how-to-create-an-overlay-with-media-encoder-standard"></a>Så här skapar du ett överlägg med Media Encoder Standard
 
@@ -19,7 +19,7 @@ Med Media Encoder Standard kan du täcka över en bild till en befintlig video. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Samla in den konto information som du behöver för att konfigurera *appsettings.jspå* filen i exemplet. Om du inte är säker på hur du gör det, se [snabb start: registrera ett program med Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Följande värden förväntas i *appsettings.jsi* filen.
+* Samla in den konto information som du behöver för att konfigurera *appsettings.jspå* filen i exemplet. Om du inte är säker på hur du gör det, se [snabb start: registrera ett program med Microsoft Identity Platform](../../active-directory/develop/quickstart-register-app.md). Följande värden förväntas i *appsettings.jsi* filen.
 
     ```json
     {
@@ -40,7 +40,7 @@ Om du inte redan är bekant med transformationer, rekommenderar vi att du utför
 
 * Läs [kodning av video och ljud med Media Services](encoding-concept.md)
 * Läs [hur du kodar med en anpassad transformering – .net](customize-encoder-presets-how-to.md). Följ anvisningarna i artikeln för att konfigurera .NET som krävs för att arbeta med transformeringar och gå sedan tillbaka hit för att testa ett för inställnings exempel för överlägg.
-* Se [transformerings-referens dokumentet](https://docs.microsoft.com/rest/api/media/transforms).
+* Se [transformerings-referens dokumentet](/rest/api/media/transforms).
 
 När du är bekant med transformationer kan du hämta exempel på överlägg.
 

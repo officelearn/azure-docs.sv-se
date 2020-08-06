@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: alzam
-ms.openlocfilehash: 2028cae4908214db28de2545f02f5f2997eeb8af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 21c2cba1d67ba415849b20dedf9ba157ca191d05
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077473"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832526"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Konfigurera Azure Active Directory autentisering för användar-VPN
 
@@ -23,14 +23,14 @@ Den här typen av anslutning kräver att en klient konfigureras på klientdatorn
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Skapa WAN (Wide Area Network)
-> * Skapa en hubb
-> * Skapa en P2S-konfiguration
-> * Ladda ned en VPN-klient profil
-> * Tillämpa P2S-konfigurationen på en hubb
-> * Ansluta ett virtuellt nätverk till en hubb
-> * Ladda ned och tillämpa VPN-klientkonfigurationen
-> * Visa virtuellt WAN
+> * Skapa ett virtuellt WAN
+> * Skapa en virtuell hubb
+> * Skapa en VPN-konfiguration för användare
+> * Hämta en VPN-profil för virtuella WAN-användare
+> * Använd VPN-konfiguration för användare till en virtuell hubb
+> * Ansluta ett VNet till en virtuell hubb
+> * Hämta och Använd konfigurationen för VPN-klienten för användare
+> * Visa ditt virtuella WAN
 
 ![Virtual WAN-diagram](./media/virtual-wan-about/virtualwanp2s.png)
 
@@ -81,9 +81,9 @@ Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurat
 3. Klicka på **Granska + skapa**.
 4. Klicka på **skapa**på sidan **valideringen har slutförts** .
 
-## <a name="create-a-new-p2s-configuration"></a><a name="site"></a>Skapa en ny P2S-konfiguration
+## <a name="create-a-new-user-vpn-configuration"></a><a name="site"></a>Skapa en ny VPN-konfiguration för användare
 
-En P2S-konfiguration definierar parametrarna för att ansluta fjärrklienter.
+En VPN-konfiguration för användare definierar parametrar för att ansluta fjärrklienter.
 
 1. Välj **VPN-konfigurationer för användare**under ditt virtuella WAN-nätverk.
 
@@ -93,7 +93,16 @@ En P2S-konfiguration definierar parametrarna för att ansluta fjärrklienter.
 
    ![ny konfiguration](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
 
-3. Ange informationen och klicka på **skapa**
+3. Ange informationen och klicka på **skapa**.
+
+   * **Konfigurations namn** – ange det namn som du vill anropa din användar-VPN-konfiguration.
+   * **Tunnel typ** – Välj OpenVPN.
+   * **Autentiseringsmetod** – Välj Azure Active Directory.
+   * **Audience** – typ i program-ID för [Azure VPN-Enterprise-](openvpn-azure-ad-tenant.md) programmet som registrerats i din Azure AD-klient. 
+   * **Utfärdare** - `https://sts.windows.net/<your Directory ID>/`
+   * **AAD-klient** - `https://login.microsoftonline.com/<your Directory ID>`
+  
+
 
    ![ny konfiguration](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
 
@@ -111,7 +120,7 @@ En P2S-konfiguration definierar parametrarna för att ansluta fjärrklienter.
 6. Klicka på **Bekräfta**.
 7. Åtgärden kan ta upp till 30 minuter att slutföra.
 
-## <a name="download-vpn-profile"></a><a name="device"></a>Ladda ned VPN-profil
+## <a name="download-user-vpn-profile"></a><a name="device"></a>Ladda ned användare VPN-profil
 
 Använd VPN-profilen för att konfigurera dina klienter.
 
@@ -188,13 +197,12 @@ Använd den här [länken](https://www.microsoft.com/p/azure-vpn-client-preview/
 2. Varje punkt på kartan på sidan Översikt motsvarar en hubb.
 3. I avsnittet om hubbar och anslutningar kan du visa hubbstatus, plats, region, VPN-anslutningsstatus och byte in och ut.
 
-
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Rensa resurser
 
-Du kan använda [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) för att ta bort resursgruppen och alla resurser den innehåller när du inte längre behöver dem. Ersätt myResourceGroup med namnet på resursgruppen och kör följande PowerShell-kommando:
+När du inte längre behöver dessa resurser kan du använda [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resurs gruppen och alla resurser den innehåller. Ersätt myResourceGroup med namnet på resursgruppen och kör följande PowerShell-kommando:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Nästa steg

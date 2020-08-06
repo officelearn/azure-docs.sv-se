@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: 4e35772e81329e112aac361b6a533c559154f03f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 52508a6820ce0cbbbe3a0341a99894f8b92b1645
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284701"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831234"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Förstå vanliga felmeddelanden när du hanterar virtuella datorer i Azure
 
@@ -176,7 +176,7 @@ Det här avsnittet innehåller vanliga fel meddelanden som du kan stöta på nä
 |  OSProvisioningClientError  |  Det angivna användar namnet för den virtuella datorn är ogiltigt för den här Linux-distributionen. Fel information: {0} .  |
 |  OSProvisioningInternalError  |  OS-etableringen misslyckades för den virtuella datorn {0} på grund av ett internt fel.  |
 |  OSProvisioningTimedOut  |  OS-etableringen för den virtuella datorn {0} kunde inte slutföras inom den angivna tiden. Den virtuella datorn kanske fortfarande har slutfört etableringen. Kontrol lera etablerings statusen senare.  |
-|  OSProvisioningTimedOut  |  OS-etableringen för den virtuella datorn {0} kunde inte slutföras inom den angivna tiden. Den virtuella datorn kanske fortfarande har slutfört etableringen. Kontrol lera etablerings statusen senare. Kontrol lera också att avbildningen har förberetts (generaliseras).   <ul><li>Instruktioner för [Windows]( ../windows/upload-image.md).</li><li> Instruktioner för [Linux](../linux/capture-image.md)</li></ul>  |
+|  OSProvisioningTimedOut  |  OS-etableringen för den virtuella datorn {0} kunde inte slutföras inom den angivna tiden. Den virtuella datorn kanske fortfarande har slutfört etableringen. Kontrol lera etablerings statusen senare. Kontrol lera också att avbildningen har förberetts (generaliseras).   <ul><li>Instruktioner för [Windows]( ../windows/upload-generalized-managed.md).</li><li> Instruktioner för [Linux](../linux/capture-image.md)</li></ul>  |
 |  OSProvisioningTimedOut  |  OS-etableringen för den virtuella datorn {0} kunde inte slutföras inom den angivna tiden. Den virtuella datorns gästa Gent upptäcktes dock. Detta föreslår att gäst operativ systemet inte har förberetts för att användas som en VM-avbildning (med CreateOption = FromImage). Lös problemet genom att antingen använda den virtuella hård disken som är med CreateOption = Anslut eller förbereda den korrekt för användning som en avbildning:   <ul><li>Instruktioner för Windows:https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instruktioner för Linux:https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OverConstrainedAllocationRequest  |  Den nödvändiga VM-storleken är för närvarande inte tillgänglig på den valda platsen.  |
 |  ResourceUpdateBlockedOnPlatformUpdate  |  Det går inte att uppdatera resursen just nu på grund av en pågående plattforms uppdatering. Försök igen senare.  |

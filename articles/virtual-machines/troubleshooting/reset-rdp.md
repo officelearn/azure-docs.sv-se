@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 03c1d8e6d6b5b1d55fee964b509c1bc08537cf6b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 80bcac36271d86334e11cb3cd161cd96777e6fe5
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088588"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832458"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Återställa Fjärrskrivbordstjänster eller dess administratörs lösen ord på en virtuell Windows-dator
 Om du inte kan ansluta till en virtuell Windows-dator (VM) kan du återställa det lokala administratörs lösen ordet eller återställa Fjärrskrivbordstjänster-konfigurationen (stöds inte på Windows-domänkontrollanter). Om du vill återställa lösenordet använder du Azure-portalen eller tillägget för VM-åtkomst i Azure PowerShell. När du har loggat in till den virtuella datorn kan du återställa lösenordet för den lokala administratören.  
-Om du använder PowerShell ser du till att du har den [senaste PowerShell-modulen installerad och konfigurerad](/powershell/azure/) och är inloggad i din Azure-prenumeration. Du kan också [utföra de här stegen för virtuella datorer som skapas med den klassiska distributionsmodellen](/azure/virtual-machines/windows/classic/reset-rdp).
+Om du använder PowerShell ser du till att du har den [senaste PowerShell-modulen installerad och konfigurerad](/powershell/azure/) och är inloggad i din Azure-prenumeration. Du kan också [utföra de här stegen för virtuella datorer som skapas med den klassiska distributionsmodellen](/previous-versions/azure/virtual-machines/windows/classic/reset-rdp).
 
 Du kan återställa Fjärrskrivbordstjänster och autentiseringsuppgifter på följande sätt:
 

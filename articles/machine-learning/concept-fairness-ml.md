@@ -1,5 +1,5 @@
 ---
-title: Utvärdera och åtgärda skälighet problem i Machine Learning-modeller (för hands version)
+title: Minimera skälighet i Machine Learning-modeller (för hands version)
 titleSuffix: Azure Machine Learning
 description: Lär dig mer om skälighet i Machine Learning-modeller och hur Fairlearn python-paketet kan hjälpa dig att bygga bättre modeller.
 services: machine-learning
@@ -8,22 +8,22 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 07/09/2020
-ms.openlocfilehash: 2cc3228c20fba322ec804a3bcc9ee322c7d37907
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 08/05/2020
+ms.openlocfilehash: 0d3e49fbb11af92d016910e91b0144f6de998238
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207303"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829381"
 ---
-# <a name="build-fairer-machine-learning-models-preview"></a>Bygg maskin inlärnings modeller för maskin vara (för hands version)
+# <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Minimera skälighet i Machine Learning-modeller (för hands version)
 
-Lär dig mer om skälighet i maskin inlärning och hur python-paketet [Fairlearn](https://fairlearn.github.io/) med öppen källkod kan hjälpa dig att skapa modeller som är mer rättvist. Om du inte gör en satsning på att förstå skälighet problem och utvärdera skälighet när du skapar maskin inlärnings modeller kan du skapa modeller som ger oskäliga resultat. 
+Lär dig mer om skälighet i maskin inlärning och hur python-paketet [Fairlearn](https://fairlearn.github.io/) med öppen källkod kan hjälpa dig att undvika skälighet problem i Machine Learning-modeller. Om du inte gör en satsning på att förstå skälighet problem och utvärdera skälighet när du skapar maskin inlärnings modeller kan du skapa modeller som ger oskäliga resultat.
 
 Följande översikt över [användar handboken](https://fairlearn.github.io/user_guide/index.html) för Fairlearn-paketet med öppen källkod beskriver hur du använder det för att utvärdera skälighet för de AI-system som du skapar.  Fairlearn-paketet med öppen källkod kan också erbjuda alternativ som hjälper dig att minimera eller hjälpa till att minska eventuella skälighet problem.  Se [hur-till-och-](how-to-machine-learning-fairness-aml.md) [exempel antecknings böckerna](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) möjliggör SKÄLIGHET-utvärdering av AI-system under utbildning på Azure Machine Learning.
 
 
-## <a name="what-is-fairness-in-machine-learning-systems"></a>Vad är skälighet i Machine Learning-system?
+## <a name="what-is-fairness-in-machine-learning-models"></a>Vad är skälighet i Machine Learning-modeller?
 
 >[!NOTE]
 > Skälighet är en socioekonomisk teknisk utmaning. Många aspekter av skälighet, till exempel rättvisa och förfallna processer, samlas inte in i kvantitativa skälighet-mått. Dessutom kan många kvantitativa skälighet-mått inte vara uppfyllda samtidigt. Målet med Fairlearn-paketet med öppen källkod är att göra det möjligt för människor att utvärdera olika effekter och strategier för minskning. Slutligen är det upp till de mänskliga användarna som skapar artificiell intelligens och maskin inlärnings modeller för att göra kompromisser som är lämpliga för deras situation.
@@ -38,7 +38,6 @@ Två vanliga typer av AI-orsakade skador är:
 
 För att minska illojalt beteende i AI-system måste du utvärdera och minimera dessa skador.
 
-
 ## <a name="fairness-assessment-and-mitigation-with-fairlearn"></a>Skälighet-utvärdering och-minskning med Fairlearn
 
 Fairlearn är ett python-paket med öppen källkod som gör det möjligt för Machine Learning Systems-utvecklare att utvärdera sina system skälighet och minimera de observerade skälighet-problemen.
@@ -50,7 +49,8 @@ Paketet med öppen källkod för Fairlearn har två komponenter:
 
 Tillsammans gör dessa komponenter det möjligt för data experter och affärs ledare att navigera i alla kompromisser mellan skälighet och prestanda och för att välja den strategi för minskning som bäst passar deras behov.
 
-## <a name="fairness-assessment"></a>Skälighet-utvärdering
+## <a name="assess-fairness-in-machine-learning-models"></a>Utvärdera skälighet i Machine Learning-modeller
+
 I Fairlearn-paketet med öppen källkod är skälighet konceptuellt, trots en metod som kallas **Group skälighet**, som frågar: vilka grupper av individer riskerar att drabbas av skador? Relevanta grupper, även kallade del populationer, definieras genom **känsliga funktioner** eller känsliga attribut. Känsliga funktioner skickas till en uppskattare i Fairlearn-paketet med öppen källkod som en Vector eller en matris med namnet `sensitive_features` . Termen rekommenderar att system designern bör vara känslig för dessa funktioner när du bedömer grupp skälighet. 
 
 Något att vara mindful av är om dessa funktioner innehåller sekretess effekter på grund av privata data. Men ordet "känslig" innebär inte att dessa funktioner inte ska användas för att göra förutsägelser.
@@ -72,7 +72,7 @@ Under utvärderings fasen är skälighet kvantifierat genom olikheter i mått. *
 
 - Skillnader i urvals frekvens: det här måttet innehåller skillnaden i markerings frekvens mellan olika under grupper. Ett exempel på detta är olikheter i godkännande frekvensen för lånet. Markerings frekvensen innebär en bråkdel av Datapoints i varje klass som klassificeras som 1 (i binär klassificering) eller distribution av förutsägelse värden (i regression).
 
-## <a name="unfairness-mitigation"></a>Minskning av rättvishet
+## <a name="mitigate-unfairness-in-machine-learning-models"></a>Minimera eventuell rättvishet i Machine Learning-modeller
 
 ### <a name="parity-constraints"></a>Paritets begränsningar
 

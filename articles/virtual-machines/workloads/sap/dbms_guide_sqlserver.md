@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1771b0b55301fe4beaf2049859ebf3b9642fdd5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6e217540b1dd3744da855c71e0add289dd1c9e18
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077348"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831064"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server Azure Virtual Machines DBMS-distribution för SAP NetWeaver
 
@@ -336,7 +336,7 @@ I enlighet med den allmänna beskrivningen ska SQL Server körbara filer finnas 
 
 
 * Med alla SAP-certifierade VM-typer (se SAP anmärkning [1928533]), förutom A-seriens virtuella datorer, tempdb-data och loggfiler kan placeras på den icke-sparade D:\ kombinationsenhet. 
-* Du rekommenderas dock att använda flera tempdb-datafiler. Var medveten om D:\ enhets volymer är olika beroende på den virtuella dator typen. För exakta storlekar på D:\ enhet för de olika virtuella datorerna kontrollerar du artikel [storlekarna för virtuella Windows-datorer i Azure](../../windows/sizes.md).
+* Du rekommenderas dock att använda flera tempdb-datafiler. Var medveten om D:\ enhets volymer är olika beroende på den virtuella dator typen. För exakta storlekar på D:\ enhet för de olika virtuella datorerna kontrollerar du artikel [storlekarna för virtuella Windows-datorer i Azure](../../sizes.md).
 
 Dessa konfigurationer gör det möjligt för tempdb att förbruka mer utrymme än system enheten kan tillhandahålla. Icke-permanent D:\ enheten erbjuder också bättre I/O-latens och data flöde (med undantag för virtuella datorer i A-serien). För att fastställa rätt tempdb-storlek kan du kontrol lera tempdb-storlekarna på befintliga system. 
 
@@ -379,7 +379,7 @@ SQL Server 2014 och senare versioner öppnar du möjligheten att lagra databasfi
 
 * Det lagrings konto som används måste finnas i samma Azure-region som det som används för att distribuera den virtuella dator SQL Server körs i.
 * Överväganden tidigare om distribution av virtuella hård diskar över olika Azure Storage-konton gäller även för den här distributions metoden. Innebär att I/O-åtgärderna räknas mot gränserna för det Azure Storage kontot.
-* I stället för att räkna med den virtuella datorns lagrings-I/O-kvot kommer trafiken mot lagrings blobbar som representerar SQL Server data och loggfiler att redovisas i den virtuella datorns nätverks bandbredd för den angivna VM-typen. För nätverks-och lagrings bandbredd för en viss VM-typ, se artikel [storlekarna för virtuella Windows-datorer i Azure](../../windows/sizes.md).
+* I stället för att räkna med den virtuella datorns lagrings-I/O-kvot kommer trafiken mot lagrings blobbar som representerar SQL Server data och loggfiler att redovisas i den virtuella datorns nätverks bandbredd för den angivna VM-typen. För nätverks-och lagrings bandbredd för en viss VM-typ, se artikel [storlekarna för virtuella Windows-datorer i Azure](../../sizes.md).
 * Som ett resultat av att du skickar fil-I/O via nätverks kvoten får du en utökning av lagrings kvoten för det mesta och med att bara använda den totala bandbredden för den virtuella datorn delvis.
 * Prestanda målen IOPS och I/O som Azure Premium Storage har för de olika disk storlekarna gäller inte längre. Även om blobbar som du har skapat finns på Azure Premium Storage. Målen är dokumenterade i artikeln högpresterande [Premium Storage och hanterade diskar för virtuella datorer](../../windows/disks-types.md#premium-ssd). Som ett resultat av att placera SQL Server datafiler och loggfiler direkt på blobbar som lagras på Azure Premium Storage, kan prestanda egenskaperna vara olika jämfört med virtuella hård diskar på Azure-Premium Storage.
 * Värdbaserade cachelagring som är tillgängligt för Azure Premium Storage-diskar är inte tillgängligt när du placerar SQL Server-datafiler direkt på Azure-blobar.

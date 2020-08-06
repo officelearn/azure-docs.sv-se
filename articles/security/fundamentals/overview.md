@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 7f78b5d0baff149fc687d2b4bb71d70186315def
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: d00b897f41ab00f0e3c23292eeb5f431bf5c070c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543834"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835943"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -60,7 +60,7 @@ Beroende på moln tjänst modellen finns det varierande ansvar för vem som ansv
 
 De inbyggda funktionerna är ordnade i sex funktionella områden: åtgärder, program, lagring, nätverk, beräkning och identitet. Ytterligare information om de funktioner och funktioner som är tillgängliga i Azure-plattformen i de här sex områdena finns i sammanfattnings information.
 
-## <a name="operations"></a>Operations
+## <a name="operations"></a>Åtgärder
 Det här avsnittet innehåller ytterligare information om viktiga funktioner i säkerhets åtgärder och sammanfattnings information om dessa funktioner.
 
 ### <a name="security-and-audit-dashboard"></a>Säkerhet och granskning instrument panel
@@ -336,7 +336,7 @@ Microsoft använder flera säkerhets metoder och tekniker för sina produkter oc
 
 -   [Tokenbaserad autentisering](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/) möjliggör autentisering via Azure Active Directory.
 
--   Med [rollbaserad åtkomst kontroll (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) kan du bevilja åtkomst baserat på användarens tilldelade roll, vilket gör det enkelt att ge användare bara den mängd åtkomst som de behöver för att utföra sina jobb uppgifter. Du kan anpassa RBAC enligt organisationens affärs modell och risk tolerans.
+-   Med [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) kan du bevilja åtkomst baserat på användarens tilldelade roll, vilket gör det enkelt att ge användare bara den mängd åtkomst de behöver för att utföra sina jobb uppgifter. Du kan anpassa RBAC enligt organisationens affärs modell och risk tolerans.
 
 -   Med [integrerad identitets hantering (hybrid identitet)](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/) kan du behålla kontrollen över användarnas åtkomst till interna Data Center och moln plattformar, vilket skapar en enda användar identitet för autentisering och auktorisering till alla resurser.
 

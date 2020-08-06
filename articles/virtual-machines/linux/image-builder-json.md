@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 132e547fe2512676e4d8082744489f4719dcc0bf
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 2f1db4e6c45602fb7fde84079e8ef78179a4ec6b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543613"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830350"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>För hands version: skapa en Azure Image Builder-mall 
 
@@ -60,7 +60,7 @@ Detta är det grundläggande mallformat:
     "apiVersion": "2020-02-14",
 ```
 
-## <a name="location"></a>Location
+## <a name="location"></a>Plats
 
 Platsen är den region där den anpassade avbildningen kommer att skapas. För för hands versionen av Image Builder stöds följande regioner:
 
@@ -116,7 +116,7 @@ Det här valfria avsnittet kan användas för att säkerställa att beroenden ha
     "dependsOn": [],
 ```
 
-Mer information finns i [definiera resurs beroenden](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson).
+Mer information finns i [definiera resurs beroenden](../../azure-resource-manager/templates/define-resource-dependency.md#dependson).
 
 ## <a name="identity"></a>Identitet
 
@@ -137,8 +137,8 @@ Avbildnings-Builder-stöd för en användardefinierad identitet:
 * Har endast stöd för en enda identitet
 * Stöder inte anpassade domän namn
 
-Mer information finns i [Vad är hanterade identiteter för Azure-resurser?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
-Mer information om hur du distribuerar den här funktionen finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med Azure CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
+Mer information finns i [Vad är hanterade identiteter för Azure-resurser?](../../active-directory/managed-identities-azure-resources/overview.md).
+Mer information om hur du distribuerar den här funktionen finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity).
 
 ## <a name="properties-source"></a>Egenskaper: källa
 
@@ -151,10 +151,10 @@ API: t kräver en ' SourceType ' som definierar källan för avbildnings version
 
 
 > [!NOTE]
-> När du använder befintliga anpassade Windows-avbildningar kan du köra Sysprep-kommandot upp till 8 gånger på en enda Windows-avbildning. mer information finns i [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) -dokumentationen.
+> När du använder befintliga anpassade Windows-avbildningar kan du köra Sysprep-kommandot upp till 8 gånger på en enda Windows-avbildning. mer information finns i [Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) -dokumentationen.
 
 ### <a name="platformimage-source"></a>PlatformImage-källa 
-Azure Image Builder stöder Windows Server och klient, och Linux Azure Marketplace-avbildningar finns [här](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#os-support) för den fullständiga listan. 
+Azure Image Builder stöder Windows Server och klient, och Linux Azure Marketplace-avbildningar finns [här](../windows/image-builder-overview.md#os-support) för den fullständiga listan. 
 
 ```json
         "source": {
@@ -373,7 +373,7 @@ Anpassa egenskaper:
 - **validExitCodes** – valfria, giltiga koder som kan returneras från skriptet/inline-kommandot. Detta undviker att det rapporteras ett skript/inline-kommando.
 - **runElevated** – valfritt, booleskt, stöd för att köra kommandon och skript med förhöjd behörighet.
 - **sha256Checksum** -värdet för filens SHA256-kontrollsumma, du genererar det här lokalt och sedan kontrol leras kontroll summor och Image Builder.
-    * Skapa sha256Checksum med hjälp av PowerShell på Windows [Get-hash](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)
+    * Skapa sha256Checksum med hjälp av PowerShell på Windows [Get-hash](/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)
 
 
 ### <a name="file-customizer"></a>Fil anpassning
@@ -567,7 +567,7 @@ Ett delat avbildnings Galleri består av:
 - Bild definitioner – en konceptuell gruppering för bilder. 
 - Avbildnings versioner – det här är en avbildnings typ som används för att distribuera en virtuell dator eller skalnings uppsättning. Avbildnings versioner kan replikeras till andra regioner där de virtuella datorerna måste distribueras.
  
-Innan du kan distribuera till avbildnings galleriet måste du skapa ett galleri och en bild definition, se [delade avbildningar](shared-images.md). 
+Innan du kan distribuera till avbildnings galleriet måste du skapa ett galleri och en bild definition, se [delade avbildningar](../shared-images-cli.md). 
 
 ```json
 {

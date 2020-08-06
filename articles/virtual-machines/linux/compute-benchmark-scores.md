@@ -5,12 +5,12 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.reviewer: davberg
-ms.openlocfilehash: 61deac4c94902dc392a23f05674e2b1fb3f3cf87
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: efbd90eee8d072c1979565209c8c04a4ee5c55f9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373427"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830537"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Beräkna benchmark-resultat för virtuella Linux-datorer
 Följande CoreMark benchmark-resultat visar beräknings prestanda för Azures höga prestanda i VM-serien som kör Ubuntu. Beräknings benchmark-resultat är också tillgängliga för [virtuella Windows-datorer](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -469,6 +469,5 @@ Följande CoreMark benchmark-resultat visar beräknings prestanda för Azures h�
 Linux-numren beräknades genom att köra [CoreMark](https://www.eembc.org/coremark/faq.php) på Ubuntu. CoreMark har kon figurer ATS med antalet trådar som har ställts in på antalet virtuella processorer och samtidighet har angetts till PThreads. Antalet iterationer justerades baserat på förväntade prestanda för att tillhandahålla en körning på minst 20 sekunder (vanligt vis mycket längre). De sista poängen representerar antalet iterationer som har slutförts dividerat med antalet sekunder som det tog att köra testet. Varje test kördes minst sju gånger på varje virtuell dator. Testa körnings datum som visas ovan. Tester körs på flera virtuella datorer i offentliga Azure-regioner som den virtuella datorn stödde i vid körning av datum. Basic A och B (Burstable) serien visas inte eftersom prestanda är variabel. N-serien visas inte eftersom de är GPU-centrerade och Coremark mäter inte GPU-prestanda.
 
 ## <a name="next-steps"></a>Nästa steg
-* För lagrings kapacitet, disk information och ytterligare överväganden vid val av VM-storlekar, se [storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* För lagrings kapacitet, disk information och ytterligare överväganden vid val av VM-storlekar, se [storlekar för virtuella datorer](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Om du vill köra CoreMark-skript på virtuella Linux-datorer laddar du ned [CoreMark-skript paketet](https://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
-

@@ -3,12 +3,12 @@ title: Frågor om identifiering, utvärdering och beroende analys i Azure Migrat
 description: Få svar på vanliga frågor om identifiering, utvärdering och beroende analys i Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: e2aa0f5c2dae33cd995b30d84e7406da9b501e8f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 8db9103494c0006127c45c0ae5f9672d3bd2bbb1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385729"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829891"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Identifiering, utvärdering och beroende analys – vanliga frågor
 
@@ -169,7 +169,7 @@ Nej, det går inte att exportera den beroende visualiserings rapporten i agent-b
 
 För agent-baserad beroende visualisering:
 
-- Använd ett [skript för att installera beroende agenten](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples).
+- Använd ett [skript för att installera beroende agenten](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent).
 - För MMA [använder du kommando raden eller Automation](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration)eller använder ett [skript](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 - Förutom skript kan du använda distributions verktyg som Microsoft Endpoint Configuration Manager och [Intigua](https://www.intigua.com/intigua-for-azure-migration) för att distribuera agenterna.
 

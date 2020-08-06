@@ -1,36 +1,39 @@
 ---
-title: Förhands granskning av ansvarig Machine Learning (ML)
+title: Vad är ansvarig för maskin inlärning (för hands version)
 titleSuffix: Azure Machine Learning
-description: Lär dig vad som är ansvarig ML och hur du använder det i Azure Machine Learning
+description: Lär dig vad ansvarig maskin inlärning är och hur du använder det i Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 07/09/2020
-ms.openlocfilehash: 4f14d4a9207b3bd0ba242973443b8e756527fd70
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 08/05/2020
+ms.openlocfilehash: 689b90fc1f45faad72640f47e5eebe936d2dc8b7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201941"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829398"
 ---
-# <a name="responsible-machine-learning-ml-preview"></a>Förhands granskning av ansvarig Machine Learning (ML)
+# <a name="what-is-responsible-machine-learning-preview"></a>Vad är ansvaret för maskin inlärning? (förhandsversion)
 
-I den här artikeln får du lära dig vad ansvarig ML är och hur du kan lägga det i praxis med Azure Machine Learning.
+I den här artikeln lär du dig vad ansvarig Machine Learning (ML) är och hur du kan lägga det i praxis med Azure Machine Learning.
 
-I utvecklingen och användningen av AI-system måste förtroendet ligga på kärnan. Förtroende i plattform, process och modeller. På Microsoft omfattar den ansvariga ML följande värden och principer:
+## <a name="responsible-machine-learning-principles"></a>Ansvariga Machine Learning-principer
+
+I utvecklingen och användningen av AI-system måste förtroendet ligga på kärnan. Förtroende i plattform, process och modeller. På Microsoft omfattar ansvarig maskin inlärning följande värden och principer:
 
 - Förstå Machine Learning-modeller
   - Tolka och förklara modell beteende
   - Utvärdera och minimera modellens marknadsmässighet
 - Skydda personer och deras data
-  - Förhindra data exponering med differentiell sekretess  
+  - Förhindra data exponering med differentiell sekretess
+  - Arbeta med krypterade data med homomorphic-kryptering
 - Styr processen från slut punkt till slut punkt för Machine Learning
   - Dokumentera livs cykeln för Machine Learning med datablad
 
-:::image type="content" source="media/concept-responsible-ml/responsible-ml-pillars.png" alt-text="Ansvariga ML-pelare":::
+:::image type="content" source="media/concept-responsible-ml/responsible-ml-pillars.png" alt-text="Ansvariga ML-pelare – tolkning, differentiell sekretess, homomorphic kryptering, gransknings historik-Azure Machine Learning":::
 
 Eftersom artificiell intelligens och autonoma system integrerar mer i samhället i samhället är det viktigt att proaktivt göra en satsning på att förutse och minimera oönskade konsekvenser av dessa tekniker.
 
@@ -40,7 +43,7 @@ Svårt att förklara eller täckande system kan vara problematiska eftersom det 
 
 Om du vill skapa tolknings bara AI-system använder du [InterpretML](https://github.com/interpretml/interpret), ett paket med öppen källkod som skapats av Microsoft. [InterpretML kan användas i Azure Machine Learning](how-to-machine-learning-interpretability.md) för att [tolka och förklara dina Machine Learning-modeller](how-to-machine-learning-interpretability-aml.md), inklusive [automatiserade maskin inlärnings modeller](how-to-machine-learning-interpretability-automl.md).
 
-## <a name="assess-and-mitigate-model-unfairness"></a>Utvärdera och minimera modellens marknadsmässighet
+## <a name="mitigate-fairness-in-machine-learning-models"></a>Minimera skälighet i Machine Learning-modeller
 
 Eftersom AI-system blir mer inblandade i den dagliga besluts fattandet av samhället är det mycket viktigt att dessa system fungerar bra med att tillhandahålla verkliga resultat för alla.
 
@@ -64,6 +67,16 @@ Att implementera Differentiellt privat system är svårt. [WhiteNoise](https://g
 > [!NOTE]
 > Observera att vi byter namn på Toolkit och kommer att introducera det nya namnet under de kommande veckorna. 
 
+## <a name="work-on-encrypted-data-with-homomorphic-encryption"></a>Arbeta med krypterade data med homomorphic-kryptering
+
+I traditionella moln lagrings-och beräknings lösningar måste molnet ha okrypterad åtkomst till kunddata för att kunna beräkna den. Den här åtkomsten visar data till moln operatörer. Data sekretess är beroende av åtkomst kontroll principer som implementerats av molnet och är betrott av kunden.
+
+Homomorphic-kryptering gör det möjligt att utföra beräkningar på krypterade data utan att behöva åtkomst till en hemlig nyckel (dekryptering). Resultatet av beräkningarna krypteras och kan bara visas av ägaren av den hemliga nyckeln. Med homomorphic-kryptering kommer moln operatörer aldrig att ha okrypterad åtkomst till de data som de lagrar och använder. Beräkningar utförs direkt på krypterade data. Data sekretess är beroende av den senaste krypteringen och data ägaren styr alla informations utgåvor. Mer information om homomorphic-kryptering på Microsoft finns i [Microsoft Research](https://www.microsoft.com/research/project/homomorphic-encryption/).
+
+Kom igång med homomorphic-kryptering i Azure Machine Learning genom att använda python-bindningar med [krypterad härledning](https://pypi.org/project/encrypted-inference/) för [Microsoft Seal](https://github.com/microsoft/SEAL). Microsoft SEAL är ett homomorphic krypterings bibliotek med öppen källkod som gör att tillägg och multiplicitet kan utföras på krypterade heltal eller reella tal. Mer information om Microsoft SEAL finns på sidan [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) eller [Microsoft Research Project](https://www.microsoft.com/research/project/microsoft-seal/).
+
+Se följande exempel för att lära dig [hur du distribuerar en krypterad inferencing-webb tjänst i Azure Machine Learning](how-to-homomorphic-encryption-seal.md).
+
 ## <a name="document-the-machine-learning-lifecycle-with-datasheets"></a>Dokumentera livs cykeln för Machine Learning med datablad
 
 Det är viktigt att dokumentera rätt information i Machine Learning-processen för att fatta ansvariga beslut i varje steg. Data blad är ett sätt att dokumentera maskin inlärnings resurser som används och skapas som en del av Machine Learning-livscykeln.
@@ -83,5 +96,5 @@ I följande exempel kan du lära dig hur du använder Azure Machine Learning SDK
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- Använd homomorphic-kryptering för att [distribuera en krypterad inferencing-webbtjänst](how-to-homomorphic-encryption-seal.md).
+- Mer information finns i [ansvariga Innovations verktyg](https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/) för att lära dig mer om bästa praxis.
 - Lär dig [mer om de här rikt](https://www.partnershiponai.org/about-ml/) linjerna för Machine Learning-system.

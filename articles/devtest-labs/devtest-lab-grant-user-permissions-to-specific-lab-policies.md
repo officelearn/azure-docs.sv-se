@@ -3,19 +3,19 @@ title: Bevilja användar behörighet till vissa labb principer | Microsoft Docs
 description: Lär dig hur du beviljar användar behörigheter till vissa labb principer i DevTest Labs baserat på varje användares behov
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1a0f46ed64bf360ceb990f1e91cb65ace76b5a9a
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 8e910a5d4499d104e4b09076ec7862ae96272ef4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534557"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835688"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Bevilja användar behörighet till vissa labb principer
 ## <a name="overview"></a>Översikt
 Den här artikeln beskriver hur du använder PowerShell för att ge användare behörighet till en viss labb princip. På så sätt kan behörigheter tillämpas baserat på varje användares behov. Du kanske till exempel vill ge en viss användare möjlighet att ändra inställningarna för den virtuella dator principen, men inte kostnads principerna.
 
 ## <a name="policies-as-resources"></a>Principer som resurser
-Som det beskrivs i den [Azure-rollbaserade Access Control](../role-based-access-control/role-assignments-portal.md) artikeln, möjliggör RBAC detaljerad åtkomst hantering av resurser för Azure. Med RBAC kan du åtskilja uppgifter i ditt DevOps-team och endast bevilja åtkomst till användare som de behöver för att utföra sina jobb.
+Som beskrivs i artikeln [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) möjliggör RBAC detaljerad åtkomst hantering av resurser för Azure. Med RBAC kan du åtskilja uppgifter i ditt DevOps-team och endast bevilja åtkomst till användare som de behöver för att utföra sina jobb.
 
 I DevTest Labs är en princip en resurs typ som aktiverar RBAC-åtgärden **Microsoft. DevTestLab/Labs/policySets/policies/**. Varje labb princip är en resurs i princip resurs typ och kan tilldelas som ett omfång till en Azure-roll.
 
@@ -88,4 +88,3 @@ När du har beviljat användar behörigheter till vissa labb principer kan du an
 * [Skapa en labb-mall](devtest-lab-create-template.md)
 * [Skapa anpassade artefakter för dina virtuella datorer](devtest-lab-artifact-author.md)
 * [Lägga till en virtuell dator i ett labb](devtest-lab-add-vm.md)
-

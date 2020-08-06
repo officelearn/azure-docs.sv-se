@@ -3,12 +3,12 @@ title: Så här riktar du Azure Functions runtime-versioner
 description: Azure Functions stöder flera versioner av körnings miljön. Lär dig hur du anger körnings versionen av en Function-app som finns i Azure.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 3d4e40af1ba1e28bc9e9a433872e1315ffbe7747
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 74ee0d382dcd468aed118a7de330eef95b329402
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079663"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830877"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Så här riktar du Azure Functions runtime-versioner
 
@@ -16,12 +16,12 @@ En Function-App körs på en viss version av Azure Functions Runtime. Det finns 
 
 ## <a name="automatic-and-manual-version-updates"></a>Automatiska och manuella versions uppdateringar
 
-Med Azure Functions kan du rikta en specifik version av körningen genom att använda `FUNCTIONS_EXTENSION_VERSION` program inställningen i en Function-app. Function-appen sparas på den angivna huvud versionen tills du uttryckligen väljer att flytta till en ny version.
+Med Azure Functions kan du rikta en specifik version av körningen genom att använda `FUNCTIONS_EXTENSION_VERSION` program inställningen i en Function-app. Function-appen sparas på den angivna huvud versionen tills du uttryckligen väljer att flytta till en ny version. Om du bara anger huvud versionen uppdateras Function-appen automatiskt till nya lägre versioner av körnings miljön när de blir tillgängliga. Nya del versioner bör inte införa ändringar. 
 
-Om du bara anger huvud versionen uppdateras Function-appen automatiskt till nya lägre versioner av körnings miljön när de blir tillgängliga. Nya del versioner bör inte införa ändringar. Om du anger en lägre version (till exempel "2.0.12345") fästs Function-appen till den aktuella versionen tills du ändrar den explicit.
+Om du anger en lägre version (till exempel "2.0.12345") fästs Function-appen till den aktuella versionen tills du ändrar den explicit. Äldre del versioner tas regelbundet bort från produktions miljön. När detta inträffar körs din Function-app på den senaste versionen i stället för versionen som anges i `FUNCTIONS_EXTENSION_VERSION` . Därför bör du snabbt lösa eventuella problem med din Function-app som kräver en särskild del version, så att du kan använda den som mål i stället för den överordnade versionen. Mindre versions borttagningar visas i [app service meddelanden](https://github.com/Azure/app-service-announcements/issues).
 
 > [!NOTE]
-> Om du fäster till en annan version av Azure Functions och sedan försöker publicera till Azure med hjälp av Visual Studio öppnas ett dialog fönster där du uppmanas att uppdatera till den senaste versionen eller avbryta publiceringen. Undvik detta genom att lägga till `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` egenskapen i `.csproj` filen.
+> Om du fäster till en särskild huvud version av Azure Functions och sedan försöker publicera till Azure med hjälp av Visual Studio öppnas ett dialog fönster där du uppmanas att uppdatera till den senaste versionen eller avbryta publiceringen. Undvik detta genom att lägga till `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` egenskapen i `.csproj` filen.
 
 När en ny version är offentligt tillgänglig ger en prompt i portalen dig chansen att flytta upp till den versionen. När du har flyttat till en ny version kan du alltid använda `FUNCTIONS_EXTENSION_VERSION` program inställningen för att gå tillbaka till en tidigare version.
 

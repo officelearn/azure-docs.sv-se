@@ -4,15 +4,15 @@ description: Så här övervakar du Azure File Sync.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/28/2019
+ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0232a0c6526d6dcdfec86dedec437c71e7e21080
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81224e0c055ad4a94bd57ebb3aa7c8a3b30c2dd7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515194"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832628"
 ---
 # <a name="monitor-azure-file-sync"></a>Övervaka Azure File Sync
 
@@ -20,7 +20,11 @@ Använd Azure File Sync för att centralisera organisationens fil resurser i Azu
 
 Den här artikeln beskriver hur du övervakar Azure File Sync-distributionen med hjälp av Azure Monitor, tjänsten Storage Sync och Windows Server.
 
-Följande övervaknings alternativ är tillgängliga för närvarande.
+Följande scenarier beskrivs i den här guiden: 
+- Visa Azure File Sync mått i Azure Monitor.
+- Skapa aviseringar i Azure Monitor för att proaktivt meddela dig om kritiska villkor.
+- Övervaka hälso tillståndet för din Azure File Sync-distribution med hjälp av Azure Portal.
+- Så här använder du händelse loggarna och prestanda räknarna på dina Windows-servrar för att övervaka hälso tillståndet för din Azure File Sync-distribution. 
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
@@ -48,7 +52,19 @@ Följande mått för Azure File Sync är tillgängliga i Azure Monitor:
 
 ### <a name="alerts"></a>Aviseringar
 
-Om du vill konfigurera aviseringar i Azure Monitor väljer du tjänsten Storage Sync och väljer sedan det [Azure File Sync mått](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#metrics) som ska användas för aviseringen.  
+Aviseringar proaktivt meddela dig när viktiga villkor finns i dina övervaknings data. Mer information om hur du konfigurerar aviseringar i Azure Monitor finns i [Översikt över aviseringar i Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+**Skapa aviseringar för Azure File Sync**
+
+- Gå till **tjänsten för synkronisering av lagring** i **Azure Portal**. 
+- Klicka på **aviseringar** i avsnittet övervakning och klicka sedan på **+ ny varnings regel**.
+- Klicka på **Välj villkor** och ange följande information för aviseringen: 
+    - **Mått**
+    - **Dimensions namn**
+    - **Aviserings logik**
+- Klicka på **Välj åtgärds grupp** och Lägg till en åtgärds grupp (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
+- Fyll i **aviserings informationen** som **aviserings regelns namn**, **Beskrivning** och **allvarlighets grad**.
+- Klicka på **skapa aviserings regel** för att skapa aviseringen.  
 
 I följande tabell visas några exempel scenarier som du kan använda för att övervaka och rätt mått för aviseringen:
 
@@ -59,9 +75,7 @@ I följande tabell visas några exempel scenarier som du kan använda för att �
 | Den registrerade servern kan inte kommunicera med tjänsten för synkronisering av lagring | Status för server online |
 | Återställnings storleken för moln skiktet har överskridit 500GiB per dag  | Återställnings storlek för moln nivå |
 
-Mer information om hur du konfigurerar aviseringar i Azure Monitor finns i [Översikt över aviseringar i Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
-
-## <a name="storage-sync-service"></a>Tjänst för synkronisering av lagring
+## <a name="storage-sync-service"></a>Storage Sync Service (Tjänst för synkronisering av lagring)
 
 Om du vill visa registrerad Server hälsa, Server slut punkts hälsa och mått går du till tjänsten Storage Sync i Azure Portal. Du kan visa registrerad Server hälsa på bladet **registrerade servrar** och Server slut punktens hälsa på bladet **Synkronisera grupper** .
 
@@ -149,5 +163,5 @@ Följande prestanda räknare för Azure File Sync är tillgängliga i prestanda 
 - [Planera för distribution av Azure File Sync](storage-sync-files-planning.md)
 - [Överväg inställningar för brand vägg och proxy](storage-sync-files-firewall-and-proxy.md)
 - [Distribuera Azure File Sync](storage-sync-files-deployment-guide.md)
-- [Felsök Azure File Sync](storage-sync-files-troubleshoot.md)
+- [Felsöka Azure File Sync](storage-sync-files-troubleshoot.md)
 - [Vanliga frågor och svar om Azure Files](storage-files-faq.md)

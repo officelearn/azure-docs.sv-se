@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: how-to
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: b649a1b3c3dc0d8dd5f7056f36714f831509b82d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 908c258dab5625cda7f2fa020257b08e68102a1d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87266868"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835569"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Distribuera en virtuell Azure-dator med C# och en Resource Manager-mall
 
@@ -326,4 +326,4 @@ Det bör ta ungefär fem minuter för konsol programmet att köras helt från b�
 ## <a name="next-steps"></a>Nästa steg
 
 * Om det uppstod problem med distributionen är ett nästa steg att titta på [Felsök vanliga problem med Azure-distribution med Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md).
-* Lär dig hur du distribuerar en virtuell dator och dess stöd resurser genom att granska [distribuera en virtuell Azure-dator med C#](csharp.md).
+* Lär dig hur du distribuerar en virtuell dator och dess stöd resurser genom att granska [distribuera en virtuell Azure-dator med C#](../../azure-resource-manager/templates/deploy-rest.md).

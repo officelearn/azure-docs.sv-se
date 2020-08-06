@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: event-grid
 author: tfitzmac
 ms.service: event-grid
@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 08/17/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: ace22a6896a121f5cd8af838c7b0e427bd0287dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b48e5e28b15d17796138d493a7d9c628791df2e6
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67187025"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830144"
 ---
-## <a name="enable-event-grid-resource-provider"></a>Aktivera Event Grid-resursprovider
+## <a name="enable-the-event-grid-resource-provider"></a>Aktivera Event Grid Resource Provider
 
-Om du inte har använt Event Grid förut i din Azure-prenumeration kan du behöva registrera Event Grid-resursprovidern. Registrera providern genom att köra följande kommando:
+Om du inte tidigare har använt Event Grid i din Azure-prenumeration kan du behöva registrera Event Grid Resource Provider. Registrera providern genom att köra följande kommando:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.EventGrid
 ```
 
-Det kan ta en stund att slutföra registreringen. Du kan kontrollera status genom att köra:
+Det kan ta en stund innan registreringen har slutförts. Du kan kontrollera status genom att köra:
 
 ```azurecli-interactive
 az provider show --namespace Microsoft.EventGrid --query "registrationState"

@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 5ee58f6a2058158308cab8ec49b1d79587998d39
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1c2330f1ba71e2a72a1a44df7af6444181f5f9ea
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247038"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836402"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Vanliga frågor och svar om Azure Container Registry
 
@@ -254,7 +254,9 @@ Bild karantänen är för närvarande en förhands gransknings funktion i ACR. D
 
 ### <a name="how-do-i-enable-anonymous-pull-access"></a>Hur gör jag för att aktivera anonym pull-åtkomst?
 
-Att konfigurera ett Azure Container Registry för anonym (offentlig) pull-åtkomst är för närvarande en för hands versions funktion. Om du vill aktivera offentlig åtkomst öppnar du ett support ärende på https://aka.ms/acr/support/create-ticket . Mer information finns i [Azure feedback-forumet](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+Att konfigurera ett Azure Container Registry för anonym (offentlig) pull-åtkomst är för närvarande en för hands versions funktion. Om du har en [omfattnings karta (användare) eller tokens](https://aka.ms/acr/repo-permissions) i registret kan du ta bort dem innan du höjer ett support ärende (system definitions kartor kan ignoreras). Om du vill aktivera offentlig åtkomst öppnar du ett support ärende på https://aka.ms/acr/support/create-ticket . Mer information finns i [Azure feedback-forumet](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+
+
 
 
 ## <a name="diagnostics-and-health-checks"></a>Diagnostik-och hälso kontroller
@@ -449,7 +451,7 @@ För fullständiga namngivnings regler för databaser, se [distributions specifi
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Hur gör jag för att samla in http-spårningar i Windows?
 
-#### <a name="prerequisites"></a>Krav
+#### <a name="prerequisites"></a>Förutsättningar
 
 - Aktivera dekryptering av https i Fiddler:<https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - Aktivera Docker att använda en proxy via Docker-gränssnittet:<https://docs.docker.com/docker-for-windows/#proxies>

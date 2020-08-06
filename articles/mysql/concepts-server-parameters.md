@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: ce8e8b083b108d24c11d828ae1cbd4e47e090fc0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: de1345fca418118e88929870cd2f4007dd36b3a4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963214"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835994"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Server parametrar i Azure Database for MySQL
 
@@ -61,10 +61,10 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 #### <a name="servers-supporting-up-to-4-tb-storage"></a>Servrar som har stöd för upp till 4 TB lagring
 
-|**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
+|**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|872415232|134217728|872415232|
-|Basic|2|2684354560|134217728|2684354560|
+|Grundläggande|1|872415232|134217728|872415232|
+|Grundläggande|2|2684354560|134217728|2684354560|
 |Generell användning|2|3758096384|134217728|3758096384|
 |Generell användning|4|8053063680|134217728|8053063680|
 |Generell användning|8|16106127360|134217728|16106127360|
@@ -79,10 +79,10 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 #### <a name="servers-support-up-to-16-tb-storage"></a>Servrar stöder upp till 16 TB lagring
 
-|**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
+|**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|872415232|134217728|872415232|
-|Basic|2|2684354560|134217728|2684354560|
+|Grundläggande|1|872415232|134217728|872415232|
+|Grundläggande|2|2684354560|134217728|2684354560|
 |Generell användning|2|7516192768|134217728|7516192768|
 |Generell användning|4|16106127360|134217728|16106127360|
 |Generell användning|8|32212254720|134217728|32212254720|
@@ -108,10 +108,10 @@ Azure Database for MySQL stöder högst **1 TB**i en enskild datafil. Om databas
 
 Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) .
 
-|**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
+|**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
-|Basic|2|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
+|Grundläggande|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
 |Generell användning|2|262144|128|268435455|
 |Generell användning|4|262144|128|536870912|
 |Generell användning|8|262144|128|1073741824|
@@ -126,10 +126,10 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 ### <a name="max_connections"></a>max_connections
 
-|**Pris nivå**|**vCore (s)**|**Standardvärde**|**Minsta värde**|**Max värde**|
+|**Prisnivå**|**vCore (s)**|**Standardvärde**|**Minvärde**|**Maxvärde**|
 |---|---|---|---|---|
-|Basic|1|50|10|50|
-|Basic|2|100|10|100|
+|Grundläggande|1|50|10|50|
+|Grundläggande|2|100|10|100|
 |Generell användning|2|300|10|600|
 |Generell användning|4|625|10|1250|
 |Generell användning|8|1250|10|2500|
@@ -157,10 +157,10 @@ Att skapa nya klient anslutningar till MySQL tar tid och när de har upprättats
 
 Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size) .
 
-|**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
+|**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
-|Basic|2|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
+|Grundläggande|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
 |Generell användning|2|16777216|16384|268435455|
 |Generell användning|4|16777216|16384|536870912|
 |Generell användning|8|16777216|16384|1073741824|
@@ -182,10 +182,10 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 > [!NOTE]
 > Frågesyntaxen är föråldrad från MySQL-5.7.20 och har tagits bort i MySQL 8,0
 
-|**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|* * Max värde * *|
+|**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|* * Max värde * *|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
-|Basic|2|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
+|Grundläggande|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
 |Generell användning|2|0|0|16777216|
 |Generell användning|4|0|0|33554432|
 |Generell användning|8|0|0|67108864|
@@ -198,14 +198,29 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 |Minnesoptimerad|16|0|0|134217728|
 |Minnesoptimerad|32|0|0|134217728|
 
+### <a name="lower_case_table_names"></a>lower_case_table_names
+
+Lower_case_table_name har angetts till 1 som standard och du kan uppdatera den här parametern i MySQL 5,6 och MySQL 5,7
+
+Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names) .
+
+> [!NOTE]
+> I MySQL 8,0 är lower_case_table_name inställd på 1 som standard och du kan inte ändra den.
+
+### <a name="innodb_strict_mode"></a>innodb_strict_mode
+
+Om du får ett fel som liknar "rad storleken är för stor (> 8126)" kanske du vill inaktivera parametern **innodb_strict_mode**. Det går inte att ändra server parametern **innodb_strict_mode** globalt på server nivå eftersom data storleken på raden är större än 8k, men data trunkeras utan ett fel som leder till potentiell data förlust. Vi rekommenderar att du ändrar schemat så att det passar sid storleks gränsen. 
+
+Den här parametern kan ställas in på en sessionsnyckel med `init_connect` . Om du vill ange **innodb_strict_mode** på sessionsstatus, se [inställnings parameter som inte visas](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
+
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 
 Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) .
 
-|**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
+|**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
-|Basic|2|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
+|Grundläggande|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
 |Generell användning|2|524288|32768|4194304|
 |Generell användning|4|524288|32768|8388608|
 |Generell användning|8|524288|32768|16777216|
@@ -222,10 +237,10 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size) .
 
-|**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
+|**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
-|Basic|2|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
+|Grundläggande|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
 |Generell användning|2|16777216|1024|67108864|
 |Generell användning|4|16777216|1024|134217728|
 |Generell användning|8|16777216|1024|268435456|

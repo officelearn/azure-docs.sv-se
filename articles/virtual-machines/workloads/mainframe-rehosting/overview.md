@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: d1ab9834d4bf25c7c18171ecb271f18b213d15b0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d754f27a1510d9db0837eabb96b3a7cf75f76fc1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507887"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835535"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Omvärdering av stordator på Azure Virtual Machines
 
@@ -90,7 +90,7 @@ Med Azure IaaS, till exempel en virtuell dator, ger vissa systemfunktioner stöd
 
 ### <a name="scalability"></a>Skalbarhet
 
-Stordatorer skalar vanligt vis upp, medan moln miljöerna skalas ut. Azure erbjuder ett utbud av [Linux](../../linux/sizes.md) -och [Windows](../../windows/sizes.md) -storlekar för att uppfylla dina behov. Molnet kan också skalas upp eller ned för att matcha exakta specifikationer för användare. Beräkning [av strömförsörjning](/azure/architecture/best-practices/auto-scaling) , lagring och tjänster på begäran under en användnings-baserad fakturerings modell.
+Stordatorer skalar vanligt vis upp, medan moln miljöerna skalas ut. Azure erbjuder ett utbud av [Linux](../../sizes.md) -och [Windows](../../sizes.md) -storlekar för att uppfylla dina behov. Molnet kan också skalas upp eller ned för att matcha exakta specifikationer för användare. Beräkning [av strömförsörjning](/azure/architecture/best-practices/auto-scaling) , lagring och tjänster på begäran under en användnings-baserad fakturerings modell.
 
 ### <a name="storage"></a>Storage
 

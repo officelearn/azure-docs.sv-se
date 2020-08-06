@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8553a809173d955a21e6730de35c70de5b69e81b
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: e3316b4a2255652972a0b9deef813f894f993589
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87136351"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836079"
 ---
 # <a name="azure-monitor-insights-for-virtual-wan-preview"></a>Azure Monitor insikter för virtuellt WAN (för hands version)
 
@@ -21,7 +21,7 @@ ms.locfileid: "87136351"
 Mått för virtuella WAN-resurs nivåer samlas in och presenteras via en förpackad virtuell WAN-mått arbets bok som visar måtten på ett virtuellt WAN-, Hubbs-, gateway-och anslutnings nivå. Den här artikeln vägleder dig genom stegen för att använda Azure Monitor insikter för virtuellt WAN för att visa din virtuella WAN-topologi och alla mått på en enda plats.
 
 > [!NOTE]
-> Insikts menyn håller på att lanseras för för hands versionen.
+> Meny alternativet insikter i Virtual WAN-portalen håller på att lanseras. Även om insikter-menyn för virtuellt WAN-nätverk distribueras, kan virtuella WAN-topologier och mått arbets böcker nås direkt med Azure Montor för nätverk. Mer information finns i [Azure Monitor Insights](../azure-monitor/insights/network-insights-overview.md) . 
 >
 
 ## <a name="before-you-begin"></a>Innan du börjar

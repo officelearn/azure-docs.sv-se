@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 98cad9a359a9a2807b1f1f3f2daba45759471718
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ea691ff42f9e5f214aa9987fae53732be844e034
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495666"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836351"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>SAP-arbetsbelastningar på Azure: planering och distribution check lista
 
@@ -63,7 +63,7 @@ Under den här fasen planerar du migreringen av din SAP-arbetsbelastning till Az
         - Utifrån RTO och återställnings punkt definierar du vad arkitekturen för hög tillgänglighet och haveri beredskap måste se ut.
         - För hög tillgänglighet i en zon, kontrol lera vad det önskade DBMS: t har att erbjuda i Azure. De flesta DBMS-paket erbjuder synkrona metoder för synkron snabb växling, som vi rekommenderar för produktions system. Kontrol lera också den SAP-relaterade dokumentationen för olika databaser och börja med [att tänka på för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](./dbms_guide_general.md) och relaterade dokument.
            Använd Windows Server-redundanskluster med en delad disk konfiguration för DBMS-skiktet som, till exempel, som [beskrivs för SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017), inte stöds. Använd i stället lösningar som:
-           - [Ständig aktivering av SQL Server](/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
+           - [Ständig aktivering av SQL Server](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
            - [Oracle Data Guard](../oracle/configure-oracle-dataguard.md)
            - [HANA-systemreplikering](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
         - För haveri beredskap i Azure-regioner granskar du de lösningar som erbjuds av olika DBMS-leverantörer. De flesta av dem stöder asynkron replikering eller logg överföring.
@@ -103,8 +103,8 @@ Vi rekommenderar att du ställer in och validerar en fullständig HADR-lösning 
         - Granska resurserna i SAP support Notes i SAP HANA maskin varu katalogen och i SAP PAM igen. Se till att det inte finns några ändringar i virtuella datorer som stöds för Azure, vilka OS-versioner som stöds för dessa VM-typer och vilka SAP-och DBMS-versioner som
         - Verifiera storleken på programmet och den infrastruktur som du distribuerar på Azure. Om du flyttar befintliga program kan du ofta härleda de nödvändiga SAPS från infrastrukturen du använder och [webb sidan för SAP-benchmark](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) och jämföra den med SAPS-numren som anges i [sap support NOTE #1928533](https://launchpad.support.sap.com/#/notes/1928533). Se även [den här artikeln om SAPS-klassificering](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAPS-ratings-on-Azure-VMs-8211-where-to-look-and-where-you-can/ba-p/368208) i åtanke.
         - Utvärdera och testa storleken på dina virtuella Azure-datorer med avseende på maximalt lagrings data flöde och nätverks data flöde för de VM-typer som du valde under planerings fasen. Du kan hitta data här:
-           -  [Storlekar för virtuella Windows-datorer i Azure](../../windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Det är viktigt att tänka på det *maximala disk data flöde* som inte har cachelagrats för storleks ändring.
-           -  [Storlekar för virtuella Linux-datorer i Azure](../../linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Det är viktigt att tänka på det *maximala disk data flöde* som inte har cachelagrats för storleks ändring.
+           -  [Storlekar för virtuella Windows-datorer i Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Det är viktigt att tänka på det *maximala disk data flöde* som inte har cachelagrats för storleks ändring.
+           -  [Storlekar för virtuella Linux-datorer i Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Det är viktigt att tänka på det *maximala disk data flöde* som inte har cachelagrats för storleks ändring.
    2. Lagring.
         - Använd minst [Azure standard SSD Storage](../../windows/disks-types.md#standard-ssd) för virtuella datorer som representerar SAP-programlager och för distribution av DBMS-objekt som inte är prestanda känsliga.
         - I allmänhet rekommenderar vi inte användningen av [Azure standard HDD-diskar](../../windows/disks-types.md#standard-hdd).
@@ -207,8 +207,8 @@ Under den här fasen distribuerar du vanligt vis utvecklings system, enhets test
 11. Se till att dina virtuella datorer distribueras till rätt [placerings grupp för Azure närhet](../../linux/co-location.md)enligt beskrivningen i [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program](sap-proximity-placement-scenarios.md).
 11. Utför alla andra kontroller som anges för koncept bevis fasen innan du tillämpar arbets belastningen.
 12. När arbets belastningen används registrerar du resurs förbrukningen för systemen i Azure. Jämför den här förbrukningen med poster från din gamla plattform. Justera storleken på den virtuella datorn för framtida distributioner om du ser att du har stora skillnader. Tänk på att när du downsize, lagring och nätverks bandbredder för virtuella datorer kommer också att minskas.
-    - [Storlekar för virtuella Windows-datorer i Azure](../../windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-    - [Sizes for Linux virtual machines in Azure](../../linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
+    - [Storlekar för virtuella Windows-datorer i Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+    - [Sizes for Linux virtual machines in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 13. Experimentera med system kopierings funktioner och-processer. Målet är att göra det enkelt för dig att kopiera ett utvecklings system eller ett test system, så projekt teamen kan snabbt få nya system. Överväg att använda [SAP-Lama](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) för dessa uppgifter.
 14. Optimera och finslipa din grupps Azure-rollbaserade åtkomst, behörigheter och processer för att se till att du har separering av uppgifter. Se till att alla team kan utföra sina uppgifter i Azure-infrastrukturen.
 15. Öva, testa och dokumentera metoder för hög tillgänglighet och haveri beredskap för att göra det möjligt för personalen att utföra dessa uppgifter. Identifiera brister och anpassa nya Azure-funktioner som du integrerar i dina distributioner.

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: juliako
-ms.openlocfilehash: ab775e8d93111f7494d2bf321216e2725c438fc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c47488915997f054487d8343c7c3c032135dcdb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83828516"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833087"
 ---
 # <a name="azure-media-services-v3-community"></a>Azure Media Services v3-community  
 
@@ -28,7 +28,7 @@ På den här Azure Media Services community-sidan beskrivs olika sätt att stäl
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="discussion"></a>Uppför
+## <a name="discussion"></a>Diskussion
 
 ### <a name="twitter"></a>Twitter
 
@@ -40,7 +40,7 @@ Följande forum kan användas för att ställa frågor om aktuella produkter och
 
 MSDN är för närvarande Media Services Teams primära community-forum.
 
-[![MSDN](./media/media-services-community/msdn.png)](https://docs.microsoft.com/answers/topics/azure-media-services.html) 
+[![MSDN](./media/media-services-community/msdn.png)](/answers/topics/azure-media-services.html) 
 
 Teamet övervakar också frågor som taggats på Stack Overflow med "Azure-Media-Services".
 

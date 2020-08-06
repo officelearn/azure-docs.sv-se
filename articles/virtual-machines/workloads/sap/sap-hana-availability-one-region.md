@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27b6e2e3cedcc8eca84644562639e0436e48245d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 58ea65e53f4a1262b448a3abd08807113d016fcb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035867"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833325"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>SAP HANA tillgänglighet inom en Azure-region
 I den här artikeln beskrivs flera tillgänglighets scenarier i en Azure-region. Azure har många regioner, sprids över hela världen. En lista över Azure-regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/). För att distribuera SAP HANA på virtuella datorer inom en Azure-region, erbjuder Microsoft distribution av en enskild virtuell dator med en HANA-instans. För ökad tillgänglighet kan du distribuera två virtuella datorer med två HANA-instanser i en [Azures tillgänglighets uppsättning](../../windows/tutorial-availability-sets.md) som använder Hana-systemreplikering för tillgänglighet. 
@@ -82,7 +82,7 @@ Arkitekturen ser ut så här:
 
 Den här konfigurationen passar inte bra för att uppnå utmärkta återställnings punkt mål (återställnings punkt mål) och återställnings tids mål (RTO). RTO gånger skulle särskilt bli lidande på grund av behovet av att fullständigt återställa den fullständiga databasen med hjälp av de kopierade säkerhets kopiorna. Den här installationen är dock användbar för återställning från oavsiktligt data borttagning på huvud instanserna. Med den här installationen kan du när som helst återställa till en viss tidpunkt, extrahera data och importera borttagna data till huvud instansen. Därför kan det vara bra att använda en säkerhets kopierings metod i kombination med andra funktioner med hög tillgänglighet. 
 
-När säkerhets kopieringar kopieras kan du kanske använda en mindre virtuell dator än den primära virtuella datorn som SAP HANA-instansen körs på. Tänk på att du kan ansluta ett mindre antal virtuella hård diskar till mindre virtuella datorer. Information om gränserna för enskilda VM-typer finns i [storlekar för virtuella Linux-datorer i Azure](../../linux/sizes.md).
+När säkerhets kopieringar kopieras kan du kanske använda en mindre virtuell dator än den primära virtuella datorn som SAP HANA-instansen körs på. Tänk på att du kan ansluta ett mindre antal virtuella hård diskar till mindre virtuella datorer. Information om gränserna för enskilda VM-typer finns i [storlekar för virtuella Linux-datorer i Azure](../../sizes.md).
 
 ### <a name="sap-hana-system-replication-without-automatic-failover"></a>SAP HANA system replikering utan automatisk redundans
 

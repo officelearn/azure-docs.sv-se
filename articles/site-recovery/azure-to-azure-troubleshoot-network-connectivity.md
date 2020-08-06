@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 8396ffa958e41e12e9258766483310baef0cabbe
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9600f1cae61b59af5d026eb74f504658395a11ae
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421441"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835892"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Felsök problem med Azure-till-Azure VM-nätverksanslutningar
 
@@ -51,7 +51,7 @@ Försök att komma åt DNS-servern från den virtuella datorn. Om DNS-servern in
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problem 2: Site Recovery konfiguration misslyckades (151196)
 
 > [!NOTE]
-> Om de virtuella datorerna finns **bakom en intern belastningsutjämnare som standard har** den inte åtkomst till Office 365-IP-adresser som `login.microsoftonline.com` . Ändra den till en **grundläggande** typ av intern belastningsutjämnare eller skapa utgående åtkomst som anges i artikeln [Konfigurera belastnings utjämning och utgående regler i standard load BALANCER med Azure CLI](../load-balancer/configure-load-balancer-outbound-cli.md).
+> Om de virtuella datorerna finns **bakom en intern belastningsutjämnare som standard har** den inte åtkomst till Office 365-IP-adresser som `login.microsoftonline.com` . Ändra den till en **grundläggande** typ av intern belastningsutjämnare eller skapa utgående åtkomst som anges i artikeln [Konfigurera belastnings utjämning och utgående regler i standard load BALANCER med Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration).
 
 #### <a name="possible-cause"></a>Möjlig orsak
 
@@ -82,7 +82,7 @@ Det här exemplet visar hur du konfigurerar NSG-regler för en virtuell dator at
 
 1. Skapa HTTPS-port 443 utgående regler för de Site Recovery IP-adresser som motsvarar mål platsen:
 
-   | Position | Site Recovery IP-adress | Site Recovery övervakning av IP-adress |
+   | Plats | Site Recovery IP-adress | Site Recovery övervakning av IP-adress |
    | --- | --- | --- |
    | Central US | 40.69.144.231 | 52.165.34.144 |
 
@@ -102,7 +102,7 @@ I det här exemplet krävs dessa NSG-regler för att replikeringen ska kunna akt
 
 1. Skapa HTTPS-port 443 utgående regler för de Site Recovery IP-adresser som motsvarar käll platsen:
 
-   | Position | Site Recovery IP-adress | Site Recovery övervakning av IP-adress |
+   | Plats | Site Recovery IP-adress | Site Recovery övervakning av IP-adress |
    | --- | --- | --- |
    | East US | 13.82.88.226 | 104.45.147.24 |
 

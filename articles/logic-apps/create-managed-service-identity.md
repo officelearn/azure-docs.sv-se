@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: de6311e786065bebe7399ccb3625798866e864df
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f9c5de4fb4e38d3f9ccb79c89be988fe0bbebc3c
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533350"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760302"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autentisera åtkomst till Azure-resurser med hjälp av hanterade identiteter i Azure Logic Apps
 
@@ -162,10 +162,10 @@ Om du vill konfigurera en användardefinierad hanterad identitet för din Logic 
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | **Resursnamn** | Yes | <*användarens tilldelad identitet-namn*> | Namnet för att ge din användar tilldelnings identitet. I det här exemplet används "Fabrikam-User-Assigned-Identity". |
-   | **Prenumeration** | Yes | <*Azure-prenumeration-namn*> | Namnet på den Azure-prenumeration som ska användas |
-   | **Resursgrupp** | Yes | <*Azure-resurs-grupp-namn*> | Namnet på resurs gruppen som ska användas. Skapa en ny grupp eller Välj en befintlig grupp. I det här exemplet skapas en ny grupp med namnet "Fabrikam-Managed-Identities-RG". |
-   | **Plats** | Yes | <*Azure-region*> | Den Azure-region där information om din resurs ska lagras. I det här exemplet används "västra USA". |
+   | **Resursnamn** | Ja | <*användarens tilldelad identitet-namn*> | Namnet för att ge din användar tilldelnings identitet. I det här exemplet används "Fabrikam-User-Assigned-Identity". |
+   | **Prenumeration** | Ja | <*Azure-prenumeration-namn*> | Namnet på den Azure-prenumeration som ska användas |
+   | **Resursgrupp** | Ja | <*Azure-resurs-grupp-namn*> | Namnet på resurs gruppen som ska användas. Skapa en ny grupp eller Välj en befintlig grupp. I det här exemplet skapas en ny grupp med namnet "Fabrikam-Managed-Identities-RG". |
+   | **Plats** | Ja | <*Azure-region*> | Den Azure-region där information om din resurs ska lagras. I det här exemplet används "västra USA". |
    |||||
 
    Nu kan du lägga till den användardefinierade identiteten i din Logic app. Du kan inte lägga till fler än en användardefinierad identitet i din Logic app.
@@ -197,7 +197,7 @@ Om du vill automatisera skapandet och distributionen av Azure-resurser, till exe
 
 * Ett `identity` objekt med `type` egenskapen inställd på`UserAssigned`
 
-* Ett underordnat `userAssignedIdentities` objekt som anger identitetens resurs-ID, vilket är ett annat underordnat objekt som har `principalId` `clientId` egenskaperna och
+* Ett underordnat `userAssignedIdentities` objekt som anger den användardefinierade resursen och namnet
 
 Det här exemplet visar en resurs definition för en logisk app för en HTTP-begäran och innehåller ett icke-parametriserade `identity` objekt. Svaret på Request-begäran och efterföljande GET-åtgärd har också följande `identity` objekt:
 
@@ -215,10 +215,7 @@ Det här exemplet visar en resurs definition för en logisk app för en HTTP-beg
          "identity": {
             "type": "UserAssigned",
             "userAssignedIdentities": {
-               "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned-identity-name>": {
-                  "principalId": "<principal-ID>",
-                  "clientId": "<client-ID>"
-               }
+               "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned-identity-name>": {}
             }
          },
          "properties": {
@@ -231,12 +228,6 @@ Det här exemplet visar en resurs definition för en logisk app för en HTTP-beg
    "outputs": {}
 }
 ```
-
-| Egenskap (JSON) | Värde | Beskrivning |
-|-----------------|-------|-------------|
-| `principalId` | <*huvud-ID*> | GUID (globalt unik identifierare) för den användare-tilldelade hanterade identiteten i Azure AD-klienten |
-| `clientId` | <*klient-ID*> | En globalt unik identifierare (GUID) för din Logic Apps nya identitet som används för anrop under körning |
-||||
 
 Om din mall även omfattar resurs definitionen för den hanterade identiteten kan du Parameterisera `identity` objektet. Det här exemplet visar hur det underordnade `userAssignedIdentities` objektet refererar till en `userAssignedIdentity` variabel som du definierar i mallens `variables` avsnitt. Den här variabeln refererar till resurs-ID: t för din användar tilldelade identitet.
 
@@ -281,22 +272,11 @@ Om din mall även omfattar resurs definitionen för den hanterade identiteten ka
          "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
          "name": "[parameters('Template_UserAssignedIdentityName')]",
          "location": "[resourceGroup().location]",
-         "properties": {
-            "tenantId": "<tenant-ID>",
-            "principalId": "<principal-ID>",
-            "clientId": "<client-ID>"
-         }
+         "properties": {}
       }
   ]
 }
 ```
-
-| Egenskap (JSON) | Värde | Beskrivning |
-|-----------------|-------|-------------|
-| `tenantId` | <*Azure-AD-Tenant-ID*> | GUID (globalt unik identifierare) som representerar Azure AD-klienten där den användare som tilldelats identiteten nu är medlem. I Azure AD-klienten har tjänstens huvud namn samma namn som användarens tilldelade identitets namn. |
-| `principalId` | <*huvud-ID*> | GUID (globalt unik identifierare) för den användare-tilldelade hanterade identiteten i Azure AD-klienten |
-| `clientId` | <*klient-ID*> | En globalt unik identifierare (GUID) för din Logic Apps nya identitet som används för anrop under körning |
-||||
 
 <a name="access-other-resources"></a>
 
@@ -380,11 +360,11 @@ De här stegen visar hur du använder den hanterade identiteten med en utlösare
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Metod** | Yes | HTTP-metoden som används av den åtgärd som du vill köra |
-   | **URI** | Yes | Slut punkts-URL för åtkomst till Azure-resursen eller-entiteten. URI-syntaxen innehåller vanligt vis [resurs-ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) för Azure-resursen eller-tjänsten. |
-   | **Sidhuvuden** | No | Eventuella rubrik värden som du behöver eller vill inkludera i den utgående begäran, till exempel innehålls typen |
-   | **Frågor** | No | Alla frågeparametrar som du behöver eller vill inkludera i begäran, till exempel parametern för en åtgärd eller API-versionen för den åtgärd som du vill köra |
-   | **Autentisering** | Yes | Autentiseringstypen som används för att autentisera åtkomsten till mål resursen eller entiteten |
+   | **Metod** | Ja | HTTP-metoden som används av den åtgärd som du vill köra |
+   | **URI** | Ja | Slut punkts-URL för åtkomst till Azure-resursen eller-entiteten. URI-syntaxen innehåller vanligt vis [resurs-ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) för Azure-resursen eller-tjänsten. |
+   | **Sidhuvuden** | Inga | Eventuella rubrik värden som du behöver eller vill inkludera i den utgående begäran, till exempel innehålls typen |
+   | **Frågor** | Inga | Alla frågeparametrar som du behöver eller vill inkludera i begäran, till exempel parametern för en åtgärd eller API-versionen för den åtgärd som du vill köra |
+   | **Autentisering** | Ja | Autentiseringstypen som används för att autentisera åtkomsten till mål resursen eller entiteten |
    ||||
 
    Som ett särskilt exempel förutsätter vi att du vill köra [ögonblicks bilds-bloben](/rest/api/storageservices/snapshot-blob) på en BLOB i det Azure Storage konto där du tidigare har konfigurerat åtkomst till din identitet. Men [Azure Blob Storage-anslutningen](/connectors/azureblob/) har för närvarande inte den här åtgärden. I stället kan du köra den här åtgärden med hjälp av [http-åtgärden](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) eller någon annan [REST API åtgärd för BLOB service](/rest/api/storageservices/operations-on-blobs).
@@ -394,10 +374,10 @@ De här stegen visar hur du använder den hanterade identiteten med en utlösare
 
    För att köra [ögonblicks bildens BLOB](/rest/api/storageservices/snapshot-blob)-åtgärd anger http-åtgärden följande egenskaper:
 
-   | Egenskap | Krävs | Exempelvärde | Description |
+   | Egenskap | Krävs | Exempelvärde | Beskrivning |
    |----------|----------|---------------|-------------|
-   | **Metod** | Yes | `PUT`| HTTP-metoden som ögonblicks bildens BLOB-åtgärd använder |
-   | **URI** | Yes | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | Resurs-ID för en Azure Blob Storage-fil i den globala Azure-miljön (offentlig) som använder den här syntaxen |
+   | **Metod** | Ja | `PUT`| HTTP-metoden som ögonblicks bildens BLOB-åtgärd använder |
+   | **URI** | Ja | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | Resurs-ID för en Azure Blob Storage-fil i den globala Azure-miljön (offentlig) som använder den här syntaxen |
    | **Sidhuvuden** | Ja, för Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | De- `x-ms-blob-type` och- `x-ms-version` huvud värden som krävs för Azure Storage åtgärder. <p><p>**Viktigt**: i utgående http-utlösare och åtgärds begär anden för Azure Storage, kräver huvudet `x-ms-version` egenskapen och API-versionen för den åtgärd som du vill köra. <p>Mer information finns i de här ämnena: <p><p>- [Begärandehuvuden – ögonblicks bilds-BLOB](/rest/api/storageservices/snapshot-blob#request) <br>- [Versions hantering för Azure Storage tjänster](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
    | **Frågor** | Ja, för den här åtgärden | `comp` = `snapshot` | Frågeparametern och värdet för ögonblicks bildens BLOB-åtgärd. |
    |||||
@@ -508,7 +488,7 @@ Den hanterade identiteten är nu inaktive rad på din Logic app.
 
 ### <a name="disable-managed-identity-in-azure-resource-manager-template"></a>Inaktivera hanterad identitet i Azure Resource Manager mall
 
-Om du har skapat logik appens hanterade identitet med hjälp av en Azure Resource Manager mall ställer du in `identity` objektets `type` underordnade egenskap till `None` . För den systemhanterade identiteten tar den här åtgärden även bort ägar-ID från Azure AD.
+Om du har skapat logik appens hanterade identitet med hjälp av en Azure Resource Manager mall ställer du in `identity` objektets `type` underordnade egenskap till `None` .
 
 ```json
 "identity": {

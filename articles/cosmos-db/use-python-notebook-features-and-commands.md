@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: c35c34d5ffe3f3349430f17e71ad8192f4d8256e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4236b099915e737f9d489d89e5bf18b84736d75
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263372"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761203"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Använd inbyggda antecknings boks kommandon och funktioner i Azure Cosmos DB python-anteckningsböcker (förhands granskning)
 
@@ -42,7 +42,7 @@ Du kan använda ``%%sql`` kommandot Magic för att köra en [SQL-fråga](sql-que
 - Ersätt ``{database_id}`` och ``{container_id}`` med namnet på databasen och behållaren i ditt Cosmos-konto. Om ``--database`` ``--container`` argumenten och inte har angetts körs frågan på [standard databasen och-behållaren](#set-default-database-for-queries).
 - Du kan köra alla SQL-frågor som är giltiga i Azure Cosmos DB. Frågetexten måste finnas på en ny rad.
 
-Ett exempel: 
+Exempel: 
 ```python
 %%sql --database RetailDemo --container WebsiteData
 SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c
@@ -51,7 +51,7 @@ Kör ```%%sql?``` i en cell om du vill se hjälp dokumentationen för SQL Magic-
 
 ## <a name="run-a-sql-query-and-output-to-a-pandas-dataframe"></a>Köra en SQL-fråga och utdata till en Pandas-DataFrame
 
-Du kan generera resultatet av en ``%%sql`` fråga till en [Pandas-DataFrame](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dataframe). Använd syntaxen: 
+Du kan generera resultatet av en ``%%sql`` fråga till en [Pandas-DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame). Använd syntaxen: 
 
 ```python
 %%sql --database {database_id} --container {container_id} --output {outputDataFrameVar}
@@ -61,7 +61,7 @@ Du kan generera resultatet av en ``%%sql`` fråga till en [Pandas-DataFrame](htt
 - Ersätt ``{outputDataFrameVar}`` med namnet på den DataFrame-variabel som ska innehålla resultaten.
 - Du kan köra alla SQL-frågor som är giltiga i Azure Cosmos DB. Frågetexten måste finnas på en ny rad. 
 
-Ett exempel:
+Exempel:
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
@@ -108,7 +108,7 @@ Du kan använda ``%%upload`` kommandot Magic för att överföra data från en J
 - Ersätt ``{database_id}`` och ``{container_id}`` med namnet på databasen och behållaren i ditt Azure Cosmos-konto. Om ``--database`` ``--container`` argumenten och inte har angetts körs frågan på [standard databasen och-behållaren](#set-default-database-for-queries).
 - Ersätt ``{url_location_of_file}`` med platsen för din JSON-fil. Filen måste vara en matris med giltiga JSON-objekt och den bör vara tillgänglig via det offentliga Internet.
 
-Ett exempel:
+Exempel:
 
 ```python
 %%upload --database databaseName --container containerName --url 
@@ -147,7 +147,7 @@ Version 4 av [Azure Cosmos DB python SDK för SQL API](https://github.com/Azure/
 
 Använd den inbyggda ``cosmos_client`` instansen för att köra en SDK-åtgärd. 
 
-Ett exempel:
+Exempel:
 
 ```python
 ## Import modules as needed

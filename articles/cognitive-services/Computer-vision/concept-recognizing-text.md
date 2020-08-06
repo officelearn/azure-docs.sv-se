@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 83e76cd96e09b0e136d2bfbe2e5863b289724bdd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2b3f9b0a4bec76f1f5f9b1f42ec33fdf5e2678bf
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284259"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760166"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optisk teckenläsning (OCR)
 
@@ -123,7 +123,7 @@ Just nu stöder Läs åtgärden extrahering av handskriven text exklusivt på en
 
 ### <a name="printed-text-in-supported-languages"></a>Utskriven text i språk som stöds
 
-API: et Read 3,0 stöder extrahering av utskriven text på engelska, spanska, tyska, franska, italienska, portugisiska och nederländska språk. [Läs 3,1 – för hands version. 1 API offentlig för hands version](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) lägger till stöd för förenklad kinesiska. Om ditt scenario kräver stöd för fler språk, se Översikt över OCR API i det här dokumentet. Se listan över alla språk som [stöds av OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
+API: et Read 3,0 stöder extrahering av utskriven text på engelska, spanska, tyska, franska, italienska, portugisiska och nederländska språk. [Läs 3,1 API offentlig för hands version](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) lägger till stöd för förenklad kinesiska. Om ditt scenario kräver stöd för fler språk, se Översikt över OCR API i det här dokumentet. Se listan över alla språk som [stöds av OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
 
 ![En bild som roteras och dess text läses och avgränsas](./Images/supported-languages-example.png)
 
@@ -149,5 +149,5 @@ Läs är även tillgänglig som en Docker-behållare (för hands version) så at
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om att [läsa 3,0 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005).
-- Läs mer om [Read 3,1 – Preview. 1 REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) med stöd för förenklad kinesiska.
+- Läs mer om den [offentliga för hands versionen av läs 3,1 REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) med stöd för förenklad kinesiska.
 - Följ snabb starten för att [Extrahera text](./QuickStarts/CSharp-hand-text.md) för att implementera OCR med C#, Java, java script eller python tillsammans med REST API.

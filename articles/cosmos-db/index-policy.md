@@ -4,14 +4,14 @@ description: Lär dig hur du konfigurerar och ändrar standard indexerings princ
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 08/04/2020
 ms.author: tisande
-ms.openlocfilehash: a335da61fac914368b4044a97582ef0060f5de4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3981e828e7ffe401be3b72f68185c272ab11645
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636333"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760829"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexeringsprinciper i Azure Cosmos DB
 
@@ -20,7 +20,7 @@ I Azure Cosmos DB har varje behållare en indexerings princip som avgör hur beh
 I vissa fall kan det vara bra att åsidosätta det här automatiska beteendet så att det passar dina behov bättre. Du kan anpassa en behållares indexerings princip genom att ställa in dess *indexerings läge*och ta med eller undanta *egenskaps Sök vägar*.
 
 > [!NOTE]
-> Metoden för att uppdatera indexerings principer som beskrivs i den här artikeln gäller endast Azure Cosmos DB s SQL-API (Core).
+> Metoden för att uppdatera indexerings principer som beskrivs i den här artikeln gäller endast Azure Cosmos DB s SQL-API (Core). Läs mer om indexering i [Azure Cosmos DBS API för MongoDB](mongodb-indexing.md)
 
 ## <a name="indexing-mode"></a>Indexerings läge
 
@@ -36,7 +36,7 @@ Indexerings principen är som standard inställd på `automatic` . Den uppnås g
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Inklusive och exklusive egenskaps Sök vägar
 
-En anpassad indexerings princip kan ange egenskaps Sök vägar som uttryckligen tas med eller undantas från indexering. Genom att optimera antalet sökvägar som indexeras kan du minska mängden lagrings utrymme som används av din behållare och förbättra svars tiden för Skriv åtgärder. Dessa sökvägar definieras enligt [metoden som beskrivs i avsnittet indexerings översikt](index-overview.md#from-trees-to-property-paths) med följande tillägg:
+En anpassad indexerings princip kan ange egenskaps Sök vägar som uttryckligen tas med eller undantas från indexering. Genom att optimera antalet sökvägar som indexeras kan du avsevärt minska svars tiden och RU-avgiften för Skriv åtgärder. Dessa sökvägar definieras enligt [metoden som beskrivs i avsnittet indexerings översikt](index-overview.md#from-trees-to-property-paths) med följande tillägg:
 
 - en sökväg som leder till ett skalärt värde (sträng eller siffra) slutar med`/?`
 - element från en matris behandlas tillsammans genom `/[]` notationen (i stället för `/0` `/1` osv.)
@@ -89,7 +89,7 @@ När du inkluderar och exkluderar sökvägar kan du stöta på följande attribu
 
 Om detta inte anges kommer dessa egenskaper att ha följande standardvärden:
 
-| **Egenskapsnamn**     | **Standardvärde** |
+| **Egenskaps namn**     | **Standardvärde** |
 | ----------------------- | -------------------------------- |
 | `kind`   | `range` |
 | `precision`   | `-1`  |
@@ -129,7 +129,7 @@ När du definierar en spatial sökväg i indexerings principen bör du definiera
 
 * Lin Est ring
 
-Azure Cosmos DB kommer som standard inte att skapa några rums index. Om du vill använda inbyggda, inbyggda SQL-funktioner, bör du skapa ett rums index för de egenskaper som krävs. Se [det här avsnittet](geospatial.md) för indexerings princip exempel för att lägga till rums index.
+Azure Cosmos DB kommer som standard inte att skapa några rums index. Om du vill använda inbyggda, inbyggda SQL-funktioner, bör du skapa ett rums index för de egenskaper som krävs. Se [det här avsnittet](sql-query-geospatial-index.md) för indexerings princip exempel för att lägga till rums index.
 
 ## <a name="composite-indexes"></a>Sammansatta index
 
@@ -259,16 +259,23 @@ Följande överväganden används när du skapar sammansatta index för att opti
 
 ## <a name="modifying-the-indexing-policy"></a>Ändra indexerings principen
 
-En behållares indexerings princip kan uppdateras när [som helst genom att använda Azure Portal eller någon av de SDK](how-to-manage-indexing-policy.md): er som stöds. En uppdatering av indexerings principen utlöser en omvandling från det gamla indexet till den nya, som utförs online och på plats (så att ingen ytterligare lagrings utrymme förbrukas under driften). Den gamla principens index omvandlas effektivt till den nya principen utan att det påverkar Skriv tillgängligheten eller det data flöde som har allokerats på behållaren. Omvandling av index är en asynkron åtgärd och den tid det tar att slutföra beror på det etablerade data flödet, antalet objekt och deras storlek.
+En behållares indexerings princip kan uppdateras när [som helst genom att använda Azure Portal eller någon av de SDK](how-to-manage-indexing-policy.md): er som stöds. En uppdatering av indexerings principen utlöser en omvandling från det gamla indexet till den nya, som utförs online och på plats (så att ingen ytterligare lagrings utrymme förbrukas under driften). Den gamla principens index omvandlas effektivt till den nya principen utan att det påverkar Skriv tillgänglighet, Läs tillgänglighet eller det data flöde som har allokerats på behållaren. Omvandling av index är en asynkron åtgärd och den tid det tar att slutföra beror på det etablerade data flödet, antalet objekt och deras storlek.
 
 > [!NOTE]
-> När du lägger till ett intervall eller rums index kanske frågor inte returnerar alla matchande resultat, och det kommer att göra det utan att returnera några fel. Det innebär att frågeresultaten kanske inte är konsekventa förrän index omvandlingen har slutförts. Det är möjligt att spåra förloppet för index omvandlingen [med hjälp av en av SDK: erna](how-to-manage-indexing-policy.md).
+> Det är möjligt att spåra förloppet för index omvandlingen [med hjälp av en av SDK: erna](how-to-manage-indexing-policy.md).
 
-Om den nya indexerings principens läge är inställt på konsekvent, kan ingen annan indexerings princip ändras när index transformationen pågår. En index omvandling som körs kan avbrytas genom att ställa in indexerings principens läge på ingen (som omedelbart släpper indexet).
+Det påverkar inte Skriv tillgängligheten under index transformationer. Index omvandlingen använder din etablerade ru: er men har lägre prioritet än dina CRUD-åtgärder eller frågor.
+
+Det finns ingen inverkan på Läs tillgänglighet när du lägger till ett nytt index. Frågor använder bara nya index när index omvandlingen har slutförts. Vid omvandlingen av index fortsätter Frågeredigeraren att använda befintliga index, så du ser liknande Läs prestanda under indexerings omvandlingen till det du hade observerat innan du påbörjar indexerings ändringen. När du lägger till nya index är det inte heller någon risk för ofullständiga eller inkonsekventa frågeresultat.
+
+När du tar bort index och omedelbart kör frågor som filtrerar på de borttagna indexen, finns det ingen garanti för konsekventa eller fullständiga frågeresultat. Om du tar bort flera index och gör det i en enda princip ändring för index, garanterar Frågeredigeraren konsekventa och fullständiga resultat i index omvandlingen. Men om du tar bort index genom flera indexerings princip ändringar garanterar inte frågesyntaxen konsekventa eller fullständiga resultat förrän alla index omvandlingar har slutförts. De flesta utvecklare släpper inte indexen och försöker sedan omedelbart köra frågor som använder dessa index, så i praktiken är den här situationen osannolik.
+
+> [!NOTE]
+> Om möjligt bör du alltid försöka gruppera flera indexerings ändringar i en enda princip ändring för indexering
 
 ## <a name="indexing-policies-and-ttl"></a>Indexerings principer och TTL
 
-[TTL-funktionen (Time-to-Live)](time-to-live.md) kräver att indexeringen är aktiv på den behållare som den är påslagen. Det innebär att:
+Användning av [TTL-funktionen (Time-to-Live)](time-to-live.md) kräver indexering. Det innebär att:
 
 - Det går inte att aktivera TTL på en behållare där indexerings läget är inställt på ingen,
 - Det går inte att ställa in indexerings läget på none i en behållare där TTL har Aktiver ATS.

@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/24/2020
+ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: 62cabf06c5c0255437324acae43950cd13b96537
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a8503f701a36d7197f85f2c86e37272ccf1cab48
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065126"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760727"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux med Azure NetApp Files för SAP-program
 
@@ -589,9 +589,11 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    #Restart_Program_01 = local $(_EN) pf=$(_PF)
    Start_Program_01 = local $(_EN) pf=$(_PF)
    
-   # Add the keep alive parameter
+   # Add the keep alive parameter, if using ENSA1
    enque/encni/set_so_keepalive = true
    ```
+
+   Se till att `keepalive` OS-parametrarna är inställda enligt beskrivningen i SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736)för både ENSA1 och ENSA2.  
 
    * ERS-profil
 
@@ -610,8 +612,6 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
 1. **[A]** konfigurera Keep Alive
 
    Kommunikationen mellan SAP NetWeaver program Server och ASCS/SCS dirigeras via en belastningsutjämnare för program vara. Belastningsutjämnaren kopplar från inaktiva anslutningar efter en konfigurerbar tids gräns. För att förhindra detta måste du ange en parameter i SAP NetWeaver-ASCS/SCS-profilen och ändra inställningarna för Linux-systemet. Läs [SAP Note 1410736][1410736] för mer information.
-
-   ASCS/SCS-profil parametern placera/encni/set_so_keepalive har redan lagts till i det sista steget.
 
    ```
    # Change the Linux system configuration

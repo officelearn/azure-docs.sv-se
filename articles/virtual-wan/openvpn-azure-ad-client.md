@@ -5,14 +5,14 @@ services: vpn-gateway
 author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 08/04/2020
 ms.author: alzam
-ms.openlocfilehash: cf978f9551e5b2db885ca28d14f66586c029d913
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 97620192fb645dd453d1479d1e755e87cf9afd5c
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082230"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761186"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Konfigurera en VPN-klient för P2S OpenVPN-protokollanslutningar: Azure AD-autentisering
 
@@ -154,7 +154,7 @@ Dessa steg hjälper dig att konfigurera anslutningen till att ansluta automatisk
 
     ![diagnostisera](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Hur gör jag för att lägga till DNS-suffix till VPN-klienten?
 
@@ -250,6 +250,15 @@ Du kan ändra den nedladdade profil-XML- ** \<excluderoutes> \<route> \<destinat
 </clientconfig>
 </azvpnprofile>
 ```
+### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>Kan jag importera profilen från kommando tolken?
+
+Du kan importera profilen från en kommando rads kommando tolk genom att placera den hämtade **azurevpnconfig.xml** filen i mappen **%USERPROFILE%\appdata\local\packages\microsoft. AzureVpn_8wekyb3d8bbwe \localstate** och köra följande kommando:
+
+```
+azurevpn -i azurevpnconfig.xml 
+```
+för att framtvinga import använder du **-f-** växeln också
+
 
 ## <a name="next-steps"></a>Nästa steg
 

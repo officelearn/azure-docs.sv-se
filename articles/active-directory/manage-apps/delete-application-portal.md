@@ -10,13 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec0b3ef559abe1c65872d8ecf87f63e6ff3ed4b0
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 422c174116bb6973993f5c6093a83f8bdb42a62a
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223915"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808243"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: ta bort ett program från din Azure Active Directory (Azure AD)-klient
 
@@ -44,9 +43,15 @@ Ta bort ett program från Azure AD-klienten:
 1. I avsnittet **Hantera** i det vänstra fönstret väljer du **Egenskaper**.
 1. Välj **ta bort**och välj sedan **Ja** för att bekräfta att du vill ta bort appen från din Azure AD-klient.
 
+> [!TIP]
+> Du kan automatisera hantering av appar med hjälp av Graph API, se [Automatisera program hantering med Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När du är klar med den här snabb starts serien bör du ta bort appen för att rensa test klienten. Borttagning av appen täcktes i den här snabb starten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Metod tips för program hantering](application-management-fundamentals.md)
-- [Vanliga scenarier för program hantering](common-scenarios.md)
-- [Synlighet och kontroll av program hantering](cloud-app-security.md)
+Du har slutfört snabb starts serien! I nästa steg ska du läsa om metod tips i app Management.
+> [!div class="nextstepaction"]
+> [Metod tips för program hantering](application-management-fundamentals.md)

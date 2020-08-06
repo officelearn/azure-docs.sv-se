@@ -3,23 +3,23 @@ title: Malldistribution vad-om (för hands version)
 description: Ta reda på vilka ändringar som sker i resurserna innan du distribuerar en Azure Resource Manager-mall.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 08/05/2020
 ms.author: tomfitz
-ms.openlocfilehash: 1e2c83167e7ccc1e3e98b23711fba567ef11ac23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27efe1e03b8a0d373d566106a53a41007731973e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888737"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810079"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>ARM-mall för att distribuera konsekvens åtgärder (för hands version)
 
-Innan du distribuerar en Azure Resource Manager-mall (ARM) kan du förhandsgranska de ändringar som kommer att ske. Azure Resource Manager tillhandahåller åtgärden vad händer om du kan se hur resurser kommer att ändras om du distribuerar mallen. Konsekvens åtgärden gör inga ändringar i befintliga resurser. I stället förväntas ändringarna om den angivna mallen distribueras.
+Innan du distribuerar en Azure Resource Manager-mall (ARM-mall) kan du förhandsgranska de ändringar som kommer att ske. Azure Resource Manager tillhandahåller åtgärden vad händer om du kan se hur resurser kommer att ändras om du distribuerar mallen. Konsekvens åtgärden gör inga ändringar i befintliga resurser. I stället förväntas ändringarna om den angivna mallen distribueras.
 
 > [!NOTE]
 > Konsekvens åtgärden är för närvarande en för hands version. Som en för hands version kan resultatet ibland visa att en resurs kommer att ändras när ingen ändring sker. Vi arbetar för att minska problemen, men vi behöver din hjälp. Rapportera de här problemen vid [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 
-Du kan använda åtgärden vad händer om med Azure PowerShell, Azure CLI eller REST API åtgärder. Vad-om stöds för distributioner av resurs grupper och prenumerations nivåer.
+Du kan använda åtgärden vad händer om med Azure PowerShell, Azure CLI eller REST API åtgärder. Vad-om stöds för resurs grupp, prenumeration, hanterings grupp och distributioner på klient nivå.
 
 ## <a name="install-azure-powershell-module"></a>Installera Azure PowerShell modul
 
@@ -125,20 +125,23 @@ Föregående kommandon returnerar en text sammanfattning som du kan kontrol lera
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Om du vill förhandsgranska ändringar innan du distribuerar en mall använder du [AZ distributions grupp vad-IF](/cli/azure/deployment/group#az-deployment-group-what-if) -eller [AZ-distributionen sub-IF](/cli/azure/deployment/sub#az-deployment-sub-what-if).
+Om du vill förhandsgranska ändringar innan du distribuerar en mall använder du:
 
-* `az deployment group what-if`för resurs grupps distributioner
-* `az deployment sub what-if`för distributioner på prenumerations nivå
+* [AZ distributions grupp vad](/cli/azure/deployment/group#az-deployment-group-what-if) gäller distribution av resurs grupper
+* [AZ distribution under vad – om](/cli/azure/deployment/sub#az-deployment-sub-what-if) distributioner på prenumerations nivå
+* [AZ-distribution mg vad](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-what-if) gäller för distributioner av hanterings grupper
+* [AZ distribution klient vad](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-what-if) gäller för klient distributioner
 
-Du kan använda `--confirm-with-what-if` växeln (eller dess kort form `-c` ) för att förhandsgranska ändringarna och uppmanas att fortsätta med distributionen. Lägg till den här växeln i [AZ Deployment Group Create](/cli/azure/deployment/group#az-deployment-group-create) eller [AZ Deployment sub Create](/cli/azure/deployment/sub#az-deployment-sub-create).
+Du kan använda `--confirm-with-what-if` växeln (eller dess kort form `-c` ) för att förhandsgranska ändringarna och uppmanas att fortsätta med distributionen. Lägg till den här växeln i:
 
-* `az deployment group create --confirm-with-what-if`eller `-c` för resurs grupps distributioner
-* `az deployment sub create --confirm-with-what-if`eller `-c` för distributioner på prenumerations nivå
+* [Skapa distributions grupp för AZ](/cli/azure/deployment/group#az-deployment-group-create)
+* [AZ-distribution under skapa](/cli/azure/deployment/sub#az-deployment-sub-create).
+* [AZ distribution mg skapa](/cli/azure/deployment/mg#az-deployment-mg-create)
+* [AZ Deployment-klient skapa](/cli/azure/deployment/tenant#az-deployment-tenant-create)
 
-Föregående kommandon returnerar en text sammanfattning som du kan kontrol lera manuellt. Om du vill hämta ett JSON-objekt som du kan använda program mässigt för att kontrol lera ändringar använder du:
+Du kan till exempel använda `az deployment group create --confirm-with-what-if` eller `-c` för distribution av resurs grupper.
 
-* `az deployment group what-if --no-pretty-print`för resurs grupps distributioner
-* `az deployment sub what-if --no-pretty-print`för distributioner på prenumerations nivå
+Föregående kommandon returnerar en text sammanfattning som du kan kontrol lera manuellt. Använd växeln för att hämta ett JSON-objekt som du kan kontrol lera för att program mera ändringar `--no-pretty-print` . Använd till exempel `az deployment group what-if --no-pretty-print` för distributioner av resurs grupper.
 
 Om du vill returnera resultaten utan färger öppnar du [Azure CLI-konfigurationsfilen](/cli/azure/azure-cli-configuration) . Ange **no_color** till **Ja**.
 
@@ -147,7 +150,9 @@ Om du vill returnera resultaten utan färger öppnar du [Azure CLI-konfiguration
 För REST API använder du:
 
 * [Distributioner – what if](/rest/api/resources/deployments/whatif) för resurs grupps distributioner
-* [Distributioner – what if vid prenumerations omfång](/rest/api/resources/deployments/whatifatsubscriptionscope) för distributioner på prenumerations nivå
+* [Distributioner – what if vid prenumerations omfånget](/rest/api/resources/deployments/whatifatsubscriptionscope) för prenumerations distributioner
+* [Distributioner – what if vid hanterings gruppens omfattning](/rest/api/resources/deployments/whatifatmanagementgroupscope) för distributioner av hanterings grupper
+* [Distributioner – what if vid klient omfånget](/rest/api/resources/deployments/whatifattenantscope) för klient distributioner.
 
 ## <a name="change-types"></a>Ändra typer
 
@@ -312,7 +317,7 @@ Resource changes: 1 to modify.
 
 Observera överst i utdata som färger definieras för att ange typ av ändringar.
 
-Längst ned i utdata visas taggens ägare borttagen. Adressprefixet har ändrats från 10.0.0.0/16 till 10.0.0.0/15. Under nätet med namnet subnet001 togs bort. Kom ihåg att dessa ändringar faktiskt inte distribuerades. Du ser en förhands granskning av de ändringar som sker om du distribuerar mallen.
+Längst ned i utdata visas taggens ägare borttagen. Adressprefixet har ändrats från 10.0.0.0/16 till 10.0.0.0/15. Under nätet med namnet subnet001 togs bort. Kom ihåg att ändringarna inte har distribuerats. Du ser en förhands granskning av de ändringar som sker om du distribuerar mallen.
 
 Några av egenskaperna som visas som borttagna ändras inte. Egenskaper kan rapporteras felaktigt som borttagna när de inte finns i mallen, utan anges automatiskt under distributionen som standardvärden. Resultatet betraktas som "brus" i svaret. Den slutgiltiga distribuerade resursen kommer att ha värdena som angetts för egenskaperna. När konsekvens åtgärden mognar kommer dessa egenskaper att filtreras bort från resultatet.
 

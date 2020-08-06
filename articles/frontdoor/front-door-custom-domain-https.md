@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 56a2246b4f1da51d9b18a34279eff04264530ef5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 770353f893762f0f35d744fe1e7a5e4de4a671ce
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82160093"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808804"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Självstudiekurs: Konfigurera HTTPS på en anpassad Front Door-domän
 
 Den här självstudien visar hur du aktiverar HTTPS-protokollet för en anpassad domän som är associerad med din Front Door i avsnittet om klientdelsvärdar. Med HTTPS-protokollet på din anpassade domän (till exempel https:\//www.contoso.com) ser du till att dina känsliga data levereras på ett säkert sätt via TLS-/SSL-kryptering när de skickas över Internet. När webbläsaren är ansluten till en webbplats via HTTPS valideras webbplatsens säkerhetscertifikat och verifierar att det är utfärdat av en giltig certifikatutfärdare. Den här processen ger trygghet och skyddar dina webbprogram mot attacker.
 
-Azures frontend-dörr har stöd för HTTPS på ett standard-värdnamn för klientens dörr som standard. Om du till exempel skapar en frontend-dörr (till exempel `https://contoso.azurefd.net`) aktive ras https automatiskt för begär Anden som `https://contoso.azurefd.net`görs till. Men när du publicerar den anpassade domänen ”www.contoso.com” behöver du dessutom aktivera HTTPS för den här klientdelsvärden.   
+Azures frontend-dörr har stöd för HTTPS på ett standard-värdnamn för klientens dörr som standard. Om du till exempel skapar en frontend-dörr (till exempel `https://contoso.azurefd.net` ) aktive ras https automatiskt för begär Anden som görs till `https://contoso.azurefd.net` . Men när du publicerar den anpassade domänen ”www.contoso.com” behöver du dessutom aktivera HTTPS för den här klientdelsvärden.   
 
 Några viktiga attribut i den anpassade HTTPS-funktionen är:
 
@@ -44,7 +44,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan slutföra stegen i den här kursen måste du först skapa en Front Door och med minst en anpassad domän publicerad. Mer information finns i [Självstudiekurs: Lägga till en anpassad domän i din Front Door](front-door-custom-domain.md).
 
@@ -68,6 +68,9 @@ Följ dessa steg om du vill aktivera HTTPS på en anpassad domän:
 4. Klicka på Spara.
 
 5. Fortsätt och [verifiera domänen](#validate-the-domain).
+
+> [!NOTE]
+> För AFD-hanterade certifikat tillämpas DigiCert 64 tecken gräns. Verifieringen Miss fungerar om den gränsen överskrids.
 
 
 ### <a name="option-2-use-your-own-certificate"></a>Alternativ 2: Använda ditt eget certifikat
@@ -147,7 +150,7 @@ Domänverifiering krävs inte om du använder ett eget certifikat.
 
 CNAME-posten ska ha följande format, där *Namn* är namnet på ditt anpassade domännamn och *Värde* är din Front Doors .azurefd.net-standardvärdnamn:
 
-| Name            | Typ  | Värde                 |
+| Namn            | Typ  | Värde                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
@@ -176,7 +179,7 @@ webmaster@&lt;dittdomännamn.com&gt;
 hostmaster@&lt;dittdomännamn.com&gt;  
 postmaster@&lt;dittdomännamn.com&gt;  
 
-Inom ett par minuter får du ett e-postmeddelande som ser ut ungefär som i följande exempel och som ber dig godkänna begäran. Om du använder ett skräp post filter, Lägg admin@digicert.com till i listan över tillåtna. Kontakta Microsoft-supporten om du inte får ett e-postmeddelande inom 24 timmar.
+Inom ett par minuter får du ett e-postmeddelande som ser ut ungefär som i följande exempel och som ber dig godkänna begäran. Om du använder ett skräp post filter, Lägg till admin@digicert.com i listan över tillåtna. Kontakta Microsoft-supporten om du inte får ett e-postmeddelande inom 24 timmar.
 
 När du klickar på godkännandelänken dirigeras du till ett formulär för godkännande online. Följ instruktionerna i formuläret. Du har två verifieringsalternativ:
 

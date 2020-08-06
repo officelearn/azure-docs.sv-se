@@ -10,18 +10,18 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: eb4a150a1680dd4101249458894ded652cde15a0
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: a1a99e9f02a25f5e1d57ea485930a4f26149b53f
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87338052"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808413"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: konfigurera egenskaper för ett program i din Azure Active Directory (Azure AD)-klient
 
 I den tidigare snabb starten lade du till ett program till din Azure Active Directory-klient (Azure AD). När du lägger till ett program kan du låta din Azure AD-klient veta det är identitets leverantören för appen. Nu ska du konfigurera några av egenskaperna för appen.
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera egenskaperna för ett program i din Azure AD-klient behöver du:
 
@@ -95,9 +95,17 @@ Så här använder du en anpassad logotyp:
    > [!NOTE]
    > Miniatyr bilden som visas i det här **egenskaps** fönstret uppdateras inte omedelbart. Du kan stänga och öppna fönstret **Egenskaper** för att se den uppdaterade ikonen.
 
+
+> [!TIP]
+> Du kan automatisera hantering av appar med hjälp av Graph API, se [Automatisera program hantering med Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du inte kommer att fortsätta med snabb starts serien bör du ta bort appen för att rensa test klienten. Borttagning av appen beskrivs i den senaste snabb starten i den här serien. se [ta bort en app](delete-application-portal.md).
+
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har konfigurerat egenskaperna för ett program kan du fortsätta med att konfigurera enkel inloggning.
-
-- [Konfigurera enkel inloggning](add-application-portal-setup-sso.md)
-- [Ta bort en app](delete-application-portal.md)
+Fortsätt till nästa artikel och lär dig hur du konfigurerar enkel inloggning för en app.
+> [!div class="nextstepaction"]
+> [Konfigurera enkel inloggning](add-application-portal-setup-sso.md)

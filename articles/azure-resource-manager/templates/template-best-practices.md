@@ -3,12 +3,12 @@ title: Metodtips för mallar
 description: Beskriver rekommenderade metoder för att redigera Azure Resource Manager mallar. Innehåller förslag på hur du undviker vanliga problem när du använder mallar.
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 272c7e7f824eb193ed48d79c5256167f1dbbbce5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1121c66e0bcd7de39afd5bea85866fd9ad007ce4
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248925"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809263"
 ---
 # <a name="arm-template-best-practices"></a>Metod tips för ARM-mall
 
@@ -226,7 +226,7 @@ Följande information kan vara till hjälp när du arbetar med [resurser](templa
    
      Mer information om hur du ansluter till virtuella datorer finns i:
    
-   * [Köra virtuella datorer för en arkitektur på N-nivå i Azure](../../guidance/guidance-compute-n-tier-vm.md)
+   * [Köra virtuella datorer för en arkitektur på N-nivå i Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
    * [Konfigurera WinRM-åtkomst för virtuella datorer i Azure Resource Manager](../../virtual-machines/windows/winrm.md)
    * [Tillåt extern åtkomst till den virtuella datorn med hjälp av Azure Portal](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Tillåt extern åtkomst till den virtuella datorn med hjälp av PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)

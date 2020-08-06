@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 0a9eaeb9b77c7b4dd7e0b2347c66de3a325a66ee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ff0df654650bb1c32d5c3e9833ebde2a81e3d65c
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505184"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799964"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika destinationer
 [Plattforms loggar](platform-logs-overview.md) i Azure, inklusive Azure aktivitets logg och resurs loggar, ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av. [Plattforms mått](data-platform-metrics.md) samlas in som standard och lagras vanligt vis i Azure Monitor Metrics-databasen. Den här artikeln innehåller information om hur du skapar och konfigurerar diagnostikinställningar för att skicka plattforms mått och plattforms loggar till olika mål.
@@ -58,7 +58,7 @@ Du måste skapa alla destinationer för den diagnostiska inställningen med de b
 [Skapa en ny arbets yta](../learn/quick-create-workspace.md) om du inte redan har en. Arbets ytan behöver inte finnas i samma prenumeration som resursen som skickar loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
 
 ### <a name="event-hub"></a>Händelsehubb
-[Skapa en händelsehubben](../../event-hubs/event-hubs-create.md) om du inte redan har en. Event Hubs namn området behöver inte finnas i samma prenumeration som den prenumeration som avger loggar, så länge den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna och båda prenumerationerna finns i samma AAD-klient.
+[Skapa en händelsehubben](../../event-hubs/event-hubs-create.md) om du inte redan har en. Event Hubs namn området behöver inte finnas i samma prenumeration som den prenumeration som avger loggar, förutsatt att den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna och båda prenumerationerna finns i samma klient organisation.
 
 Principen för delad åtkomst för namn området definierar de behörigheter som den strömmande mekanismen har. Strömning till Event Hubs kräver behörigheterna hantera, skicka och lyssna. Du kan skapa eller ändra principer för delad åtkomst i Azure Portal under fliken Konfigurera för ditt Event Hubs-namnområde. Om du vill uppdatera den diagnostiska inställningen för att inkludera strömning måste du ha ListKey-behörighet för den Event Hubs auktoriseringsregeln. 
 
@@ -182,7 +182,7 @@ Se [exempel på Resource Manager-mallar för diagnostikinställningar i Azure Mo
 Se [diagnostikinställningar](/rest/api/monitor/diagnosticsettings) för att skapa eller uppdatera diagnostikinställningar med hjälp av [Azure Monitor REST API](/rest/api/monitor/).
 
 ## <a name="create-using-azure-policy"></a>Skapa med Azure Policy
-Eftersom en diagnostisk inställning måste skapas för varje Azure-resurs kan Azure Policy användas för att automatiskt skapa en diagnostisk inställning när varje resurs skapas. Mer information finns i [distribuera Azure Monitor i skala med hjälp av Azure policy](deploy-scale.md) .
+Eftersom en diagnostisk inställning måste skapas för varje Azure-resurs kan Azure Policy användas för att automatiskt skapa en diagnostisk inställning när varje resurs skapas. Mer information finns i [distribuera Azure Monitor i skala med hjälp av Azure policy](../deploy-scale.md) .
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 1687224e796043af1f7c3d1ee6f0417465fb4959
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c464e26419648d396b39718f357bcef7e4fa5552
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317696"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800306"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Skapa ett erbjudande för Power BI app
 
@@ -53,7 +53,7 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På den här sidan visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Till exempel:
+Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Exempel:
 
 - Om erbjudandet är ett utkast för att [ta bort utkastet](update-existing-offer.md#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan)
@@ -207,11 +207,14 @@ Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bil
 
 #### <a name="store-logos"></a>Butiks logo typer
 
-Ange PNG-filer för ditt erbjudandes logo typ i två bild punkter:
-- **Liten** (48 x 48)
-- **Stor** (216 x 216)
+Ange en PNG-fil för logo typen med **stor** storlek (mellan 216 x 216 och 350 x 350 bild punkter). Partner Center använder detta för att skapa en **liten** (48 x 48 pixlar) storleks logo typ. Du kan också ersätta detta med en annan bild.
 
-Båda logo typerna krävs och används på olika platser i Marketplace-listan.
+Båda logo typ storlekarna krävs för användning på olika platser i listan:
+
+- **Liten** (48 x 48)
+- **Stor** (mellan 216 x 216 och 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Skärmbilder
 

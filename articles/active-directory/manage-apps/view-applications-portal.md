@@ -12,19 +12,18 @@ ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 249cdbef6214eb8c66da841d9eae817bcf794996
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: dce579596563855022f14bb2c07353b84d1e6127
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055400"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808379"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Snabb start: Visa listan över program som använder din Azure Active Directory (Azure AD)-klient för identitets hantering
 
 Kom igång med att använda Azure AD som identitets-och åtkomst hanterings system (IAM) för de program som organisationen använder. I den här snabb starten kommer du att se programmen, även kallade appar, som redan har kon figurer ATS för att använda Azure AD-klienten som identitets leverantör.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill visa program som har registrerats i din Azure AD-klient behöver du:
 
@@ -68,11 +67,17 @@ Så här söker du efter ett visst program:
 3. Prova att skriva de första bokstäverna i ett programnamn. I det här exemplet visas alla program som börjar med **Sales**.
     ![Exempel visar alla appar som börjar med Sales](media/view-applications-portal/search-by-prefix.png)
 
+
+> [!TIP]
+> Du kan automatisera hantering av appar med hjälp av Graph API, se [Automatisera program hantering med Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Du har inte skapat några nya resurser i den här snabb starten, så det finns ingenting att rensa.
+
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig hur du visar programmen i din Azure AD-klient. Du har lärt dig hur du filtrerar listan över program efter program typ, status och synlighet. Du har också lärt dig hur du söker efter ett specifikt program.
-
-- [Lägga till en app](add-application-portal.md)
-- [Konfigurera en app](add-application-portal-configure.md)
-- [Konfigurera enkel inloggning](add-application-portal-setup-sso.md)
-- [Ta bort en app](delete-application-portal.md)
+Fortsätt till nästa artikel och lär dig hur du använder Azure AD som identitets leverantör för en app.
+> [!div class="nextstepaction"]
+> [Lägga till en app](add-application-portal.md)

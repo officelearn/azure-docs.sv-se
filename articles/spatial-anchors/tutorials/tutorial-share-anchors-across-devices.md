@@ -5,15 +5,15 @@ author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
-ms.date: 02/24/2019
+ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3b377f87bdba40c90cb3af6caef2c089d7b7de49
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 12a15a2d0cd45207b4adefc7315e48c6d642c0f7
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77615470"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810195"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Självstudie: dela Azure spatiala ankare mellan sessioner och enheter
 
@@ -34,7 +34,7 @@ Du lär dig följande:
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
-Det är värt att nämna att även om du använder Unity och en ASP.NET Core-webbapp i den här självstudien, är det bara för att visa ett exempel på hur du delar Azure Spatial Anchors-ID mellan andra enheter. Du kan använda andra språk och backend-tekniker för att uppnå samma mål. Den ASP.NET Core-webbapp som används i den här självstudien har dessutom ett beroende för .NET Core 2.2 SDK. Den fungerar bra på vanliga Azure Web Apps (för Windows), men fungerar för närvarande inte på Azure Web Apps för Linux.
+Det är värt att nämna att även om du använder Unity och en ASP.NET Core-webbapp i den här självstudien, är det bara för att visa ett exempel på hur du delar Azure Spatial Anchors-ID mellan andra enheter. Du kan använda andra språk och backend-tekniker för att uppnå samma mål.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -50,7 +50,7 @@ Det är värt att nämna att även om du använder Unity och en ASP.NET Core-web
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 
-## <a name="visual-studio-code"></a>[Visual Studio-koden](#tab/VSC)
+## <a name="visual-studio-code"></a>[Visual Studio Code](#tab/VSC)
 
 Du måste skapa en resurs grupp och en App Service plan innan du distribuerar tjänsten i VS Code.
 
@@ -74,7 +74,7 @@ Bredvid **Värdplan** väljer du **Ny**.
 
 Använd de här inställningarna i dialog rutan **Konfigurera värd plan** :
 
-| Inställningen | Föreslaget värde | Beskrivning |
+| Inställning | Föreslaget värde | Beskrivning |
 |-|-|-|
 |App Service-plan| MySharingServicePlan | Namnet på App Service-planen. |
 | Plats | USA, västra | Datacenter som är värd för webbappen. |
@@ -82,19 +82,13 @@ Använd de här inställningarna i dialog rutan **Konfigurera värd plan** :
 
 Välj **OK**.
 
-Öppna Visual Studio Code och öppna projektet i `Sharing\SharingServiceSample` mappen. Följ <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">den här självstudien</a> för att distribuera delnings tjänsten via Visual Studio Code. Du kan följa stegen i avsnittet "öppna med Visual Studio Code". Skapa inte ett annat MVC-projekt enligt beskrivningen i steget ovan eftersom du redan har projektet som måste distribueras och publiceras – SharingServiceSample.
+Öppna Visual Studio Code och öppna projektet i `Sharing\SharingServiceSample` mappen. Följ <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">den här självstudien</a> för att distribuera delnings tjänsten via Visual Studio Code. Du kan följa stegen i avsnittet "öppna med Visual Studio Code". Skapa inte ett annat ASP.NET-projekt enligt beskrivningen i steget ovan eftersom du redan har projektet som måste distribueras och publiceras – SharingServiceSample.
 
 ---
 
 ## <a name="deploy-the-sample-app"></a>Distribuera exempel appen
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
-
-## <a name="troubleshooting"></a>Felsökning
-
-### <a name="unity-20193"></a>Unity 2019,3
-
-På grund av avbrytande ändringar stöds inte Unity 2019,3 för närvarande. Använd Unity 2019,1 eller 2019,2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 34624358a26fbd52db5832cf3531a6f1d3b91e5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3bb4d70b4c4f3f9edc525ffe5973bca633ddd1be
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87061752"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800423"
 ---
 # <a name="understand-event-data"></a>Förstå händelse data
 
@@ -300,7 +300,7 @@ Motsvarande meddelande (om synkront utförd av tjänsten, t. ex. Azure Digitals,
 ## <a name="next-steps"></a>Nästa steg
 
 Se så här skapar du slut punkter och vägar för att leverera händelser:
-* [*Anvisningar: hantera slut punkter och vägar*](how-to-manage-routes.md)
+* [*Anvisningar: hantera slut punkter och vägar*](how-to-manage-routes-apis-cli.md)
 
 Du kan också läsa mer om Azure Digitals dubbla API: er och SDK-alternativ:
 * [*Anvisningar: använda Azures digitala dubbla API: er och SDK: er*](how-to-use-apis-sdks.md)

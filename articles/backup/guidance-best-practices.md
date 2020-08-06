@@ -3,12 +3,12 @@ title: Vägledning och metodtips
 description: Upptäck de bästa metoderna och vägledningen för att säkerhetskopiera molnet och den lokala arbets belastningen till molnet
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: d0ce7877ebd33385deb98977c9439bf8a05b5325
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 2571fcc31a0ea6a548ec764d7a15d6d976ae4822
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447286"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808635"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Säkerhetskopiera molnet och lokala arbets belastningar till molnet
 
@@ -62,7 +62,7 @@ Azure Backup använder Recovery Services valv för att dirigera och hantera säk
 
 ### <a name="align-to-subscription-design-strategy"></a>Anpassa till prenumerationens design strategi
 
-Eftersom valvet är begränsat till en prenumeration kan du anpassa din valv design så att den passar prenumerationens design strategi, till exempel *strategi för program kategori* där prenumerationer åtskiljs baserat på specifika program eller tjänster eller på linjerna i Application archetypes. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/subscriptions/).
+Eftersom valvet är begränsat till en prenumeration kan du anpassa din valv design så att den passar prenumerationens design strategi, till exempel *strategi för program kategori* där prenumerationer åtskiljs baserat på specifika program eller tjänster eller på linjerna i Application archetypes. Mer information finns i den här [artikeln](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
 ### <a name="single-or-multiple-vault"></a>Ett eller flera valv
 
@@ -72,7 +72,7 @@ Du kan använda ett enda valv eller flera valv för att organisera och hantera s
 
 * Om dina arbets belastningar sprids över prenumerationer kan du skapa flera valv, en eller flera per prenumeration.
   * För att förenkla övervakningen av operativa aktiviteter i alla valv, prenumerationer och klienter kan du använda Backup Explorer och-rapporter. [Lär dig mer här](monitor-azure-backup-with-backup-explorer.md) för att få en sammanställd vy.
-  * Om du behöver konsekvent princip över valv kan du använda Azure policy för att sprida säkerhets kopierings principen över flera valv. Du kan skriva en anpassad [Azure policy definition](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure) som använder ["deployifnotexists"](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deployifnotexists) -resultatet för att sprida en säkerhets kopierings princip över flera valv. Du [kan tilldela](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) den här Azure policys definitionen till ett visst omfång (prenumerations-eller rg), så att den distribuerar en "säkerhets kopierings princip"-resurs till alla Recovery Services-valv inom omfånget för den Azure policy tilldelningen. Inställningarna för säkerhets kopierings principen (t. ex. säkerhets kopierings frekvens, kvarhållning och så vidare) ska anges av användaren som parametrar i Azure Policy tilldelningen.
+  * Om du behöver konsekvent princip över valv kan du använda Azure policy för att sprida säkerhets kopierings principen över flera valv. Du kan skriva en anpassad [Azure policy definition](../governance/policy/concepts/definition-structure.md) som använder ["deployifnotexists"](../governance/policy/concepts/effects.md#deployifnotexists) -resultatet för att sprida en säkerhets kopierings princip över flera valv. Du [kan tilldela](../governance/policy/assign-policy-portal.md) den här Azure policys definitionen till ett visst omfång (prenumerations-eller rg), så att den distribuerar en "säkerhets kopierings princip"-resurs till alla Recovery Services-valv inom omfånget för den Azure policy tilldelningen. Inställningarna för säkerhets kopierings principen (t. ex. säkerhets kopierings frekvens, kvarhållning och så vidare) ska anges av användaren som parametrar i Azure Policy tilldelningen.
 
 * När organisationens utrymme växer kan du vilja flytta arbets belastningar mellan prenumerationer av följande orsaker: justera efter säkerhets kopierings princip, konsolidera valv, kompromissa med lägre redundans för att spara pengar (flytta från GRS till LRS).  Azure Backup stöder flytt av ett Recovery Services valv i Azure-prenumerationer eller till en annan resurs grupp inom samma prenumeration. [Läs mer här](backup-azure-move-recovery-services-vault.md).
 
@@ -175,21 +175,21 @@ Azure Backup måste flytta data från din arbets belastning till Recovery Servic
 
 * Virtuell *Azure-säkerhetskopiering* – all nödvändig kommunikation och data överföring mellan lagrings platsen och Azure Backup tjänsten sker i Azure-nätverket utan att du behöver komma åt ditt virtuella nätverk. Säkerhets kopiering av virtuella Azure-datorer i skyddade nätverk kräver inte att du tillåter åtkomst till några IP-adresser eller FQDN.
 
-* *SAP HANA databaser på den virtuella Azure-datorn SQL Server databaser på Azure VM* – kräver anslutning till Azure Backup tjänst, Azure Storage och Azure Active Directory. Detta kan uppnås med hjälp av privata slut punkter eller genom att tillåta åtkomst till de offentliga IP-adresser eller FQDN: er som krävs. Att inte tillåta korrekt anslutning till de nödvändiga Azure-tjänsterna kan leda till fel i åtgärder som databas identifiering, konfigurering av säkerhets kopiering, säkerhets kopiering och återställning av data. En fullständig nätverks vägledning när du använder NSG-taggar, Azure-brandväggen och HTTP-proxy finns i dessa [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) -och [SAP HANA](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database#establish-network-connectivity) -artiklar.
+* *SAP HANA databaser på den virtuella Azure-datorn SQL Server databaser på Azure VM* – kräver anslutning till Azure Backup tjänst, Azure Storage och Azure Active Directory. Detta kan uppnås med hjälp av privata slut punkter eller genom att tillåta åtkomst till de offentliga IP-adresser eller FQDN: er som krävs. Att inte tillåta korrekt anslutning till de nödvändiga Azure-tjänsterna kan leda till fel i åtgärder som databas identifiering, konfigurering av säkerhets kopiering, säkerhets kopiering och återställning av data. En fullständig nätverks vägledning när du använder NSG-taggar, Azure-brandväggen och HTTP-proxy finns i dessa [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) -och [SAP HANA](./backup-azure-sap-hana-database.md#establish-network-connectivity) -artiklar.
 
 * *Hybrid* -mars-agenten (Microsoft Azure Recovery Services) kräver nätverks åtkomst för alla kritiska åtgärder – installera, konfigurera, säkerhetskopiera och Återställ. MARS-agenten kan ansluta till Azure Backup tjänsten via [Azure ExpressRoute](install-mars-agent.md#use-azure-expressroute) med hjälp av offentlig peering (tillgänglig för gamla kretsar) och Microsoft-peering, med hjälp av [privata slut punkter](install-mars-agent.md#private-endpoints) eller via [proxy/brand vägg med lämpliga åtkomst kontroller](install-mars-agent.md#verify-internet-access).
 
 ### <a name="private-endpoints-for-azure-backup"></a>Privata slut punkter för Azure Backup
 
-Den [privata Azure-slutpunkten](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Med Azure Backup kan du säkerhetskopiera och återställa data på ett säkert sätt från dina Recovery Services-valv med privata slut punkter.
+Den [privata Azure-slutpunkten](../private-link/private-endpoint-overview.md) är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Med Azure Backup kan du säkerhetskopiera och återställa data på ett säkert sätt från dina Recovery Services-valv med privata slut punkter.
 
 * När du aktiverar privata slut punkter för valvet används de endast för säkerhets kopiering och återställning av SQL-och SAP HANA-arbetsbelastningar i en Azure VM-och MARS agent-säkerhetskopiering.  Du kan också använda valvet för säkerhets kopiering av andra arbets belastningar även (de kräver inte privata slut punkter). Förutom säkerhets kopian av SQL och SAP HANA arbets belastningar och säkerhets kopiering med MARS-agenten används även privata slut punkter för att utföra fil återställning när det gäller Azure VM-säkerhetskopiering. [Läs mer här](private-endpoints.md#recommended-and-supported-scenarios).
 
-* Azure Active Directory stöder för närvarande inte privata slut punkter. Därför måste IP-adresser och FQDN: er som krävs för Azure Active Directory beviljas utgående åtkomst från det skyddade nätverket när säkerhets kopiering av databaser i virtuella Azure-datorer och säkerhets kopiering utförs med MARS-agenten. Du kan också använda NSG-Taggar och Azure Firewall-taggar för att tillåta åtkomst till Azure AD, efter vad som är tillämpligt. Läs mer om [kraven här](https://docs.microsoft.com/azure/backup/private-endpoints#before-you-start).
+* Azure Active Directory stöder för närvarande inte privata slut punkter. Därför måste IP-adresser och FQDN: er som krävs för Azure Active Directory beviljas utgående åtkomst från det skyddade nätverket när säkerhets kopiering av databaser i virtuella Azure-datorer och säkerhets kopiering utförs med MARS-agenten. Du kan också använda NSG-Taggar och Azure Firewall-taggar för att tillåta åtkomst till Azure AD, efter vad som är tillämpligt. Läs mer om [kraven här](./private-endpoints.md#before-you-start).
 
 ## <a name="governance-considerations"></a>Saker att tänka på i samband med styrning
 
-Styrning i Azure implementeras främst med [Azure policy](https://docs.microsoft.com/azure/governance/policy/overview) och [Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview). Med [Azure policy](https://docs.microsoft.com/azure/governance/policy/overview) kan du skapa, tilldela och hantera princip definitioner för att tillämpa regler för dina resurser. Den här funktionen håller resurserna i överensstämmelse med företagets standarder. Med [Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview) kan du spåra moln användning och utgifter för dina Azure-resurser och andra moln leverantörer. Följande verktyg, till exempel Azure- [priskalkylatorn](https://azure.microsoft.com/pricing/calculator/) och [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) , spelar också en viktig roll i kostnads hanterings processen.
+Styrning i Azure implementeras främst med [Azure policy](../governance/policy/overview.md) och [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md). Med [Azure policy](../governance/policy/overview.md) kan du skapa, tilldela och hantera princip definitioner för att tillämpa regler för dina resurser. Den här funktionen håller resurserna i överensstämmelse med företagets standarder. Med [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) kan du spåra moln användning och utgifter för dina Azure-resurser och andra moln leverantörer. Följande verktyg, till exempel Azure- [priskalkylatorn](https://azure.microsoft.com/pricing/calculator/) och [Azure Advisor](../advisor/advisor-overview.md) , spelar också en viktig roll i kostnads hanterings processen.
 
 ### <a name="azure-backup-support-two-key-scenarios-via-built-in-azure-policy"></a>Azure Backup stöder två nyckel scenarier via inbyggda Azure Policy
 
@@ -237,9 +237,9 @@ Som säkerhets kopierings användare eller administratör bör du kunna övervak
   * Identifiera viktiga trender på olika nivåer av granularitet.
 
 * Dessutom ger
-  * Du kan skicka data (till exempel jobb, principer och så vidare) till arbets ytan **Log Analytics** . Detta aktiverar funktionerna i Azure Monitor loggar för att möjliggöra korrelation av data med andra övervaknings data som samlas in av Azure Monitor, konsolidera logg poster från flera Azure-prenumerationer och-klienter till en enda plats för analys, använda logg frågor för att utföra komplexa analyser och få djupgående insikter om logg poster. [Läs mer här](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#send-to-log-analytics-workspace).
-  * Du kan skicka data till Händelsehubben för att skicka poster utanför Azure, till exempel en SIEM (säkerhets information och händelse hantering) eller en annan Log Analytics-lösning. [Läs mer här](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#send-to-azure-event-hubs).
-  * Du kan skicka data till ett Azure Storage-konto om du vill behålla dina loggdata längre än 90 dagar för granskning, statisk analys eller säkerhets kopiering. Om du bara behöver behålla dina händelser i 90 dagar eller mindre, behöver du inte skapa arkiv till ett lagrings konto, eftersom aktivitets logg händelser lagras i Azure-plattformen i 90 dagar. [Läs mer](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#send-to--azure-storage).
+  * Du kan skicka data (till exempel jobb, principer och så vidare) till arbets ytan **Log Analytics** . Detta aktiverar funktionerna i Azure Monitor loggar för att möjliggöra korrelation av data med andra övervaknings data som samlas in av Azure Monitor, konsolidera logg poster från flera Azure-prenumerationer och-klienter till en enda plats för analys, använda logg frågor för att utföra komplexa analyser och få djupgående insikter om logg poster. [Läs mer här](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace).
+  * Du kan skicka data till Händelsehubben för att skicka poster utanför Azure, till exempel en SIEM (säkerhets information och händelse hantering) eller en annan Log Analytics-lösning. [Läs mer här](../azure-monitor/platform/activity-log.md#send-to-azure-event-hubs).
+  * Du kan skicka data till ett Azure Storage-konto om du vill behålla dina loggdata längre än 90 dagar för granskning, statisk analys eller säkerhets kopiering. Om du bara behöver behålla dina händelser i 90 dagar eller mindre, behöver du inte skapa arkiv till ett lagrings konto, eftersom aktivitets logg händelser lagras i Azure-plattformen i 90 dagar. [Läs mer](../azure-monitor/platform/activity-log.md#send-to--azure-storage).
 
 ### <a name="alerting"></a>Aviseringar
 

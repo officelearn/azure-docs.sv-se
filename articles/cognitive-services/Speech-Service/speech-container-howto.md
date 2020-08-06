@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: e120eb20d247ce2def7f7c322ead3066c1d4386e
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 4f14a5cf21a372c66378521fd293b7569b181653
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84974661"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808668"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installera och kör tal tjänst behållare (förhands granskning)
 
@@ -33,13 +33,13 @@ Tal behållare gör det möjligt för kunderna att bygga en tal program arkitekt
 | Text till tal | Konverterar text till tal med naturligt ljud med text indata eller SSML (Speech syntes Markup Language). | 1.5.0 |
 | Anpassad text till tal | Med hjälp av en anpassad modell från den [anpassade röst portalen](https://aka.ms/custom-voice-portal)konverteras text till tal med naturligt ljud med text-eller tal syntess språk (SSML). | 1.5.0 |
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krav gäller innan du använder tal behållare:
 
-| Obligatorisk | Syfte |
+| Krävs | Syfte |
 |--|--|
 | Docker-motorn | Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta att behållarna ansluter till och skicka fakturerings data till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br> |
 | Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper om grundläggande `docker` kommandon. |
@@ -354,7 +354,7 @@ ApiKey={API_KEY}
 Det här kommandot:
 
 * Kör en *text till tal* -behållare från behållar avbildningen.
-* Allokerar 2 processor kärnor och en gigabyte (GB) minne.
+* Allokerar 1 processor kärna och 2 GB minne.
 * Exponerar TCP-port 5000 och allokerar en pseudo-TTY för behållaren.
 * Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
 
@@ -394,7 +394,7 @@ ApiKey={API_KEY}
 Det här kommandot:
 
 * Kör en *anpassad text till tal* -behållare från behållar avbildningen.
-* Allokerar 2 processor kärnor och en gigabyte (GB) minne.
+* Allokerar 1 processor kärna och 2 GB minne.
 * Läser in den *anpassade text till tal-* modellen från monteringen av volym indataport, till exempel *C:\CustomVoice*.
 * Exponerar TCP-port 5000 och allokerar en pseudo-TTY för behållaren.
 * Laddar ned modellen `ModelId` (om den inte finns på volym monteringen).
@@ -406,7 +406,7 @@ Det här kommandot:
 > [!IMPORTANT]
 > `Eula`Alternativen, `Billing` och `ApiKey` måste anges för att köra behållaren, annars startar inte behållaren.  Mer information finns i [fakturering](#billing).
 
-## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarens förutsägelse slut punkt
+## <a name="query-the-containers-prediction-endpoint"></a>Köra frågor mot containerns förutsägelseslutpunkt
 
 > [!NOTE]
 > Använd ett unikt port nummer om du kör flera behållare.

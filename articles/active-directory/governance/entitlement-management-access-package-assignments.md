@@ -3,7 +3,7 @@ title: Visa, lägga till och ta bort tilldelningar för ett Access-paket i Azure
 description: Lär dig att visa, lägga till och ta bort tilldelningar för ett Access-paket i Azure Active Directory rättighets hantering.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -16,18 +16,18 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55f17703060d19baebe55ef648cb182cb2c6d00a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78bed4f5c600bfa0218f924dc4444119e9729e28
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078830"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798757"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Visa, lägga till och ta bort tilldelningar för ett Access-paket i hantering av Azure AD-rättigheter
 
 I hantering av Azure AD-rättigheter kan du se vem som har tilldelats åtkomst till paket, deras principer och status. Om ett Access-paket har en lämplig princip kan du också direkt tilldela användare till ett Access-paket. Den här artikeln beskriver hur du visar, lägger till och tar bort tilldelningar för åtkomst paket.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda hantering av Azure AD-rättigheter och tilldela användare åtkomst till paket måste du ha någon av följande licenser:
 

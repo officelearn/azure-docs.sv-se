@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: f1871871fa3a191c636a965977dba485d2c77f1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1cf29438d3785a3406aa8ce3b75929a5d5261121
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037516"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800378"
 ---
 # <a name="azure-spring-cloud-faq"></a>Vanliga frågor och svar om Azure våren Cloud
 
@@ -161,6 +161,21 @@ När du migrerar befintliga våren Cloud-mikrotjänster till Azure våren-molnet
 * Vi rekommenderar att du använder officiella, stabila, vridnings fjäder-bibliotek. Icke-officiella, beta-eller förgrenings versioner av pivotal våren-bibliotek har inget stöd för service avtal (SLA).
 
 Efter migreringen övervakar du dina CPU/RAM-mått och nätverks trafik för att säkerställa att program instanserna skalas på rätt sätt.
+
+## <a name="trouble-shooting"></a>Felsöka
+
+### <a name="what-are-the-impacts-of-service-registry-rarely-unavailable"></a>Vilka konsekvenser för tjänst registret är sällan otillgängliga?
+
+I vissa scenarier som sällan inträffade kan du se vissa fel som 
+```
+RetryableEurekaHttpClient: Request execution failure with status code 401; retrying on another server if available
+```
+från dina program loggar. Det här problemet introducerades av våren-ramverket med mycket låg taxa på grund av instabilt nätverk eller andra nätverks problem. 
+
+Det bör inte uppstå någon påverkan på användar upplevelsen, Eureka-klienten har både pulsslags-och återförsöks princip för att ta hand om detta. Du kan betrakta det som ett tillfälligt fel och hoppa över det på ett säkert sätt.
+
+Vi kommer att förbättra den här delen och undvika det här felet från användarnas program i kort framtid.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

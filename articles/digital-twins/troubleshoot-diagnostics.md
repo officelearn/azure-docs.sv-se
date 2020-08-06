@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 1a349883c8144aaff4aed70ba46ad0eaab04fe69
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 402eda92d5cc8e5c2566345d31c9ae625b82695c
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388475"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809414"
 ---
-# <a name="troubleshooting-azure-digital-twins-with-diagnostics-logging"></a>Felsöka Azure Digitals dubbla med diagnostikloggning
+# <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Felsöka Azure Digitals sammanflätade: diagnostikloggning
 
-Azure Digitals flätar samlar in [Mät värden](how-to-view-metrics.md) för din tjänst instans som ger information om statusen för dina resurser. Du kan använda dessa mått för att utvärdera den övergripande hälso statusen för Azure Digital-tjänster och de resurser som är anslutna till den. Den här användaren får hjälp att se vad som händer med Azures digitala dubbla, och hjälper till med rotor Saks analys av problem utan att behöva kontakta Azure-supporten.
+Azure Digitals flätar samlar in [Mät värden](troubleshoot-metrics.md) för din tjänst instans som ger information om statusen för dina resurser. Du kan använda dessa mått för att utvärdera den övergripande hälso statusen för Azure Digital-tjänster och de resurser som är anslutna till den. Den här användaren får hjälp att se vad som händer med Azures digitala dubbla, och hjälper till med rotor Saks analys av problem utan att behöva kontakta Azure-supporten.
 
 Den här artikeln visar hur du aktiverar **diagnostikloggning** för dina mått data från din Azure Digital-instansen. Du kan använda dessa loggar för att hjälpa dig att felsöka service problem.
 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du aktiverar **diagnostikloggning** för dina mått 
 
 2. Välj **diagnostikinställningar** på menyn och **Lägg sedan till en diagnostisk inställning**.
 
-    :::image type="content" source="media/how-to-view-metrics/diagnostic-settings.png" alt-text="Skärm bild som visar sidan diagnostikinställningar och knappen som ska läggas till":::
+    :::image type="content" source="media/troubleshoot-metrics/diagnostic-settings.png" alt-text="Skärm bild som visar sidan diagnostikinställningar och knappen som ska läggas till":::
 
 3. Fyll i följande värden på sidan som följer:
      * **Namn på diagnos inställning**: ge diagnostikinställningar ett namn.
@@ -52,4 +52,4 @@ Nya inställningar börjar gälla om 10 minuter. Därefter visas loggar i det ko
 ## <a name="next-steps"></a>Nästa steg
 
 * Mer information om hur du konfigurerar diagnostik finns i [*samla in och använda loggdata från dina Azure-resurser*](../azure-monitor/platform/platform-logs-overview.md).
-* Information om Azure Digitals dubbla mått finns i [*instruktion: Visa mått med Azure Monitor*](how-to-view-metrics.md).
+* Information om Azure Digitals dubbla mått finns i [*fel sökning: Visa mått med Azure Monitor*](troubleshoot-metrics.md).

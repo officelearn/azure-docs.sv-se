@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 5ead227d886805c0ed48ebb52c4c0e30ef13b851
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 779fc1cfc617e18eee4d84dcfd007f10ddb31f96
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320042"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808719"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Skapa ett IoT Edge-modulerbjudande
 
@@ -48,12 +48,12 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På sidan **erbjudande översikt** visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den här sidan innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Till exempel:
+Den här sidan innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Exempel:
 
-- Om erbjudandet är ett utkast för att [ta bort utkastet](update-existing-offer.md#delete-a-draft-offer)
+- Om erbjudandet är ett utkast – [ta bort utkast erbjudande](update-existing-offer.md#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Om erbjudandet är i för hands versions läge [, Live](publishing-status.md#publisher-approval))
-- Om du inte har slutfört Publisher-utloggning – [Avbryt publicering.](update-existing-offer.md#cancel-publishing))
+- Om erbjudandet är i för hands version- [Go-Live](publishing-status.md#publisher-approval)
+- Om du inte har slutfört Publisher-utloggning – [Avbryt publicering.](update-existing-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Erbjudande konfiguration
 
@@ -199,14 +199,15 @@ Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bil
 
 #### <a name="store-logos"></a>Butiks logo typer
 
-Ange PNG-filer för ditt erbjudandes logo typ i var och en av följande fyra pixel storlekar:
+Ange en PNG-fil för logo typen med **stor** storlek (mellan 216 x 216 och 350 x 350 bild punkter). Partner Center använder detta för att skapa en **liten** (48 x 48 pixlar) och en storleks logo typ ( **mellan** 90 x 90 pixlar). Du kan också ersätta dem med olika avbildningar.
 
-- **Liten (48 x 48)**
-- **Medel (90 x 90)**
-- **Stor (216 x 216)**
-- **Bred (255 x 115)**
+Alla tre logo typ storlekarna krävs för användning på olika platser i listan:
 
-Alla fyra logo typer krävs och används på olika platser i Marketplace-listan.
+- **Liten** (48 x 48)
+- **Medel** (90 x 90)
+- **Stor** (mellan 216 x 216 och 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Skärm dum par (valfritt)
 

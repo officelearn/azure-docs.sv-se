@@ -4,12 +4,12 @@ description: 'Jämför Microsofts moln tjänster som är optimerade för integra
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 1e6d1462a4f94db424081ea1567e5926806d3e81
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2e0d8f356ec8da900b4a38399ba94434c3b1b93d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083012"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809977"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Välja rätt integrerings- och automationstjänster i Azure
 
@@ -54,10 +54,10 @@ Du kan kombinera tjänsterna när du skapar en orkestrering och anropa funktione
 |  | Bestående funktioner | Logic Apps |
 | --- | --- | --- |
 | **Utveckling** | Kod först (imperativt) | Design först (deklarativt) |
-| **Anslutningsmöjligheter** | [Om ett dussin inbyggda bindnings typer](functions-triggers-bindings.md#supported-bindings)skriver du kod för anpassade bindningar | [Stor mängd anslutningar](../connectors/apis-list.md), [Enterprise-integrationspaket för B2B-scenarier](../logic-apps/logic-apps-enterprise-integration-overview.md), [Bygg anpassade anslutningar](../logic-apps/custom-connector-overview.md) |
+| **Anslutning** | [Om ett dussin inbyggda bindnings typer](functions-triggers-bindings.md#supported-bindings)skriver du kod för anpassade bindningar | [Stor mängd anslutningar](../connectors/apis-list.md), [Enterprise-integrationspaket för B2B-scenarier](../logic-apps/logic-apps-enterprise-integration-overview.md), [Bygg anpassade anslutningar](../logic-apps/custom-connector-overview.md) |
 | **Åtgärder** | Varje åtgärd är en Azure-funktion. Skriv kod för åtgärdsfunktioner |[Stor samling färdiga åtgärder](../logic-apps/logic-apps-workflow-actions-triggers.md)|
 | **Övervakning** | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md) [Azure Monitor loggar](../logic-apps/monitor-logic-apps.md)|
-| **Hantering** | [REST API](durable/durable-functions-http-api.md), [Visual Studio](/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](/rest/api/logic/), [PowerShell](/powershell/module/az.logicapp), [Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md) |
+| **Hantering** | [REST API](durable/durable-functions-http-api.md), [Visual Studio](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2019) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](/rest/api/logic/), [PowerShell](/powershell/module/az.logicapp), [Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md) |
 | **Körningskontext** | Kan köras [lokalt](functions-runtime-overview.md) eller i molnet | Körs bara i molnet|
 
 <a name="function"></a>

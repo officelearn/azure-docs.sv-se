@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: e12d5d7e9cfc6cfa80de1032e3d4d5659c44c0a7
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6b07b6c3e54f4aebcda6c2e84047ecd1a27b3d5b
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075917"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809501"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Återställa med hjälp av automatiska databas säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Som standard lagras Azure SQL Database och Azure SQL Managed instance-säkerhetskopieringar i Geo-replikerad Blob Storage (RA-GRS lagrings typ). Följande alternativ är tillgängliga för databas återställning med hjälp av [automatiska databas säkerhets kopieringar](automated-backups-overview.md). Du kan:
+Följande alternativ är tillgängliga för databas återställning med hjälp av [automatiska databas säkerhets kopieringar](automated-backups-overview.md). Du kan:
 
 - Skapa en ny databas på samma server, återställd till en angiven tidpunkt inom kvarhållningsperioden.
 - Skapa en databas på samma server, återställd till borttagnings tiden för en borttagen databas.
@@ -33,6 +33,11 @@ Om du har konfigurerat [långsiktig kvarhållning av säkerhets kopia](long-term
 
 > [!IMPORTANT]
 > Du kan inte skriva över en befintlig databas under återställningen.
+
+Som standard lagras Azure SQL Database och Azure SQL Managed instance-säkerhetskopieringar i Geo-replikerad Blob Storage (RA-GRS lagrings typ). SQL-hanterad instans har dessutom stöd för lokalt redundant (LRS) och zon-redundant (ZRS) säkerhets kopierings lagring också. Redundans garanterar att dina data skyddas från planerade och oplanerade händelser, inklusive tillfälliga maskin varu haverier, nätverks-eller strömavbrott och massiv natur katastrofer. Zone-redundant lagring (ZRS) är endast tillgängligt i [vissa regioner](../../storage/common/storage-redundancy.md#zone-redundant-storage).
+
+> [!IMPORTANT]
+> Konfiguration av redundans för säkerhets kopieringar är endast tillgängligt för hanterade instanser och tillåts under skapande processen. När resursen har allokerats kan du inte ändra redundans alternativet för lagring av säkerhets kopior.
 
 När du använder standard-eller premium-tjänst nivån kan databas återställningen medföra en extra lagrings kostnad. Den extra kostnaden uppkommer när den återställda databasens maximala storlek är större än den mängd lagrings utrymme som ingår i mål databasens tjänste nivå och prestanda nivå. Pris information för extra lagrings utrymme finns på [sidan SQL Database priser](https://azure.microsoft.com/pricing/details/sql-database/). Om den faktiska mängden använt utrymme är mindre än den mängd lagring som ingår, kan du undvika den här extra kostnaden genom att ställa in den maximala databas storleken på den inkluderade mängden.
 
@@ -51,7 +56,7 @@ För en stor eller mycket aktiv databas kan återställningen ta flera timmar. O
 
 För en enskild prenumeration finns det begränsningar för antalet samtidiga återställnings begär Anden. Dessa begränsningar gäller för valfri kombination av återställningar av tidpunkter, geo-Restore och återställningar från säkerhets kopia med långsiktig kvarhållning.
 
-|| **Max antal samtidiga begär Anden som bearbetas** | **Max antal samtidiga förfrågningar som skickas** |
+| **Distributions alternativ** | **Max antal samtidiga begär Anden som bearbetas** | **Max antal samtidiga förfrågningar som skickas** |
 | :--- | --: | --: |
 |**Enkel databas (per prenumeration)**|10|60|
 |**Elastisk pool (per pool)**|4|200|
@@ -136,6 +141,9 @@ Ett exempel på PowerShell-skript som visar hur du återställer en borttagen in
 > För att program mässigt återställa en borttagen databas, se [program mässigt utföra återställning med automatiska säkerhets kopieringar](recovery-using-backups.md).
 
 ## <a name="geo-restore"></a>Geo-återställning
+
+> [!IMPORTANT]
+> Geo-återställning är bara tillgängligt för hanterade instanser som kon figurer ATS med Geo-redundant (RA-GRS) lagrings typ för säkerhets kopiering. Hanterade instanser som kon figurer ATS med lokalt redundant eller zon-redundanta säkerhets kopierings lagrings typer stöder inte geo-återställning.
 
 Du kan återställa en databas på en SQL Database Server eller en instans databas på en hanterad instans i valfri Azure-region från de senaste geo-replikerade säkerhets kopiorna. Geo-återställning använder en geo-replikerad säkerhets kopiering som källa. Du kan begära geo-återställning även om databasen eller data centret inte går att komma åt på grund av ett avbrott.
 

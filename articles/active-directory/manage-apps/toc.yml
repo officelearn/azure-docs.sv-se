@@ -108,8 +108,6 @@
           href: configure-password-single-sign-on-non-gallery-applications.md
         - name: Konfigurera länkad inloggning
           href: configure-linked-sign-on.md
-        - name: 'Automatisera SAML-baserad enkel inloggning med MS Graph API:er'
-          href: application-saml-sso-configure-api.md
     - name: Tilldela användare och hantera åtkomst till appar
       items:
         - name: Konfigurera användarmedgivande

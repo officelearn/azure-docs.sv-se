@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 46096e1f3f4266e9c070bd1d67f328241163126b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2a6f51f1c6901eaa18c1de9c1fc788ed583b7394
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004553"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809450"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Felsök problem med anslutning till anslutna dator agenter
 
@@ -90,7 +90,7 @@ I följande tabell visas några kända fel och förslag på hur du felsöker och
 
 Om du inte ser problemet här eller om du inte kan lösa problemet kan du prova någon av följande kanaler för ytterligare support:
 
-* Få svar från Azure-experter via [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-arc.html).
+* Få svar från Azure-experter via [Microsoft Q&A](/answers/topics/azure-arc.html).
 
 * Anslut till [@AzureSupport](https://twitter.com/azuresupport) , det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Azure-support ansluter Azure-communityn till svar, support och experter.
 

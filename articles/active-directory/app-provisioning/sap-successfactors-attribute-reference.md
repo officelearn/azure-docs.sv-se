@@ -2,36 +2,37 @@
 title: Referens för SAP SuccessFactors-attribut
 description: Lär dig vilka attribut från SuccessFactors som stöds av SuccessFactors-HR driven-etablering
 services: active-directory
-author: kenwith
+author: cmmdesai
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 12/06/2019
-ms.author: kenwith
+ms.date: 08/05/2020
+ms.author: chmutali
 ms.reviewer: celested
-ms.openlocfilehash: 25541b76dda55db1ec26f4d8e3ec63573a47e7b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef2da377c7720cfb7b431d1ce0fed56656a2b8c7
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781556"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808515"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Referens för SAP SuccessFactors-attribut
 
 I den här artikeln hittar du information om:
 
-- [SuccessFactors entiteter och attribut som stöds](#supported-successfactors-entities-and-attributes)
+- [SuccessFactors entiteter och attribut](#supported-successfactors-entities-and-attributes)
 - [Mappning av standardattribut](#default-attribute-mapping)
 
 ## <a name="supported-successfactors-entities-and-attributes"></a>SuccessFactors entiteter och attribut som stöds
 
-I tabellen nedan samlas listan över SuccessFactors-attribut som stöds av följande två etablerings appar:
+I tabellen nedan samlas listan över SuccessFactors-attribut som ingår som standard i följande två etablerings appar:
 
 - [SuccessFactors för att Active Directory användar etablering](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
 - [SuccessFactors till användar etablering i Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
 
+I [integrerings referensen för SAP SuccessFactors](./sap-successfactors-integration-reference.md#retrieving-additional-attributes) finns mer information om hur du utökar schemat för ytterligare attribut. 
 
 | \# | SuccessFactors-entitet                  | SuccessFactors-attribut     | Åtgärds typ |
 |----|----------------------------------------|------------------------------|----------------|

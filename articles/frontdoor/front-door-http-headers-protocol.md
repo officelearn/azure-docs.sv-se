@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: bb1de5d51afd01cf0aa519f12aa3665bee804efd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1060cbf1b2204c3feba413b8c8ce0cba58941c6
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471684"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799131"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Protokoll stöd för HTTP-huvuden i Azures front dörr
 Den här artikeln beskriver det protokoll som stöds av front dörren med delar av anrops vägen (se bilden). I följande avsnitt finns mer information om HTTP-huvuden som stöds av front dörren.
@@ -44,6 +44,7 @@ Front dörren innehåller rubriker från en inkommande begäran om den inte tas 
 | X-vidarebefordrad-värd | X-vidarebefordrad-värd: contoso.azurefd.net </br> Fältet X-forwarded-Host-HTTP-huvud är en gemensam metod som används för att identifiera den ursprungliga värddatorn som begärs av klienten i rubriken HTTP-begäran för värd. Detta beror på att värd namnet från Front dörren kan skilja sig för Server dels servern som hanterar begäran. |
 | X-vidarebefordrad – proto | X-vidarebefordrad-proto: http </br> Fältet X-forwarded-proto HTTP-huvud används ofta för att identifiera ursprungs protokollet för en HTTP-begäran, eftersom front dörren, baserat på konfiguration, kan kommunicera med Server delen med hjälp av HTTPS. Detta gäller även om begäran till den omvända proxyn är HTTP. |
 | X-FD-HealthProbe | Fältet X-FD-HealthProbe HTTP-huvud används för att identifiera hälso avsökningen från Front dörren. Om den här rubriken har angetts till 1 är begäran hälso avsökning. Du kan använda när du vill begränsa åtkomsten från en viss front dörr med X-vidarebefordrade-värd huvud fält. |
+|X-Azure-FDID | X-Azure-FDID-huvud: 437c82cd-360A-4a54-94c3-5ff707647783 </br> Det här fältet innehåller frontdoorID som kan användas för att identifiera vilken front-dörr inkommande begäran kommer från. Det här fältet fylls i av front dörrs tjänsten. | 
 
 ## <a name="front-door-to-client"></a>Klientens front dörr
 

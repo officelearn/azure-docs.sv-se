@@ -12,16 +12,18 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: 992ad40d343fcc85b6c7c8fe0ed8b083a5b08238
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b2324c480ef81ef241f4d639c22c2ed4dd1545b
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344517"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808855"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Långsiktig kvarhållning – Azure SQL Database och Azure SQL-hanterad instans
 
-Många program har regler, efterlevnad eller andra affärs behov som kräver att du bevarar databas säkerhets kopior över 7-35 dagar från Azure SQL Database och [Automatisk säkerhets kopiering](automated-backups-overview.md)av Azure SQL-hanterade instanser. Med hjälp av funktionen för långsiktig kvarhållning (brv) kan du lagra angivna SQL Database-och SQL-hanterade instanser med fullständiga säkerhets kopieringar i Azure Blob Storage med Read-Access Geo-redundant lagring i upp till 10 år. Du kan sedan återställa en säkerhets kopia som en ny databas. Mer information om Azure Storage redundans finns [Azure Storage redundans](../../storage/common/storage-redundancy.md). 
+Många program har regler, efterlevnad eller andra affärs behov som kräver att du bevarar databas säkerhets kopior över 7-35 dagar från Azure SQL Database och [Automatisk säkerhets kopiering](automated-backups-overview.md)av Azure SQL-hanterade instanser. Med hjälp av funktionen för långsiktig kvarhållning (brv) kan du lagra angivna SQL Database-och SQL-hanterade instanser med fullständiga säkerhets kopieringar i Azure Blob Storage med Read-Access Geo-redundant lagring i upp till 10 år. Du kan sedan återställa en säkerhets kopia som en ny databas.
+
+SQL-hanterad instans ger dessutom möjlighet att [Konfigurera redundans för säkerhets kopiering](automated-backups-overview.md#backup-storage-redundancy) , vilket ger flexibilitet att välja mellan lokalt REDUNDANT (LRS), zon REDUNDANT (ZRS) eller geo-REDUNDANT (RA-GRS) [lagrings-blobar](../../storage/common/storage-redundancy.md). Det här alternativet är för närvarande endast tillgängligt under processen för att skapa hanterade instanser och kan inte ändras när resursen har tillhandahållits.
 
 Lång tids kvarhållning kan aktive ras för Azure SQL Database och är i begränsad offentlig för hands version för Azure SQL-hanterad instans. Den här artikeln innehåller en konceptuell översikt över långsiktig kvarhållning. Information om hur du konfigurerar långsiktig kvarhållning finns i [konfigurera Azure SQL Database LTR](long-term-backup-retention-configure.md) och [Konfigurera Azure SQL Managed instance LTR](../managed-instance/long-term-backup-retention-configure.md). 
 

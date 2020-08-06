@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2019
+ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 09501a80d6ddcbbc9fa6cc08e36f47beb13d1663
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97bda09870949846e333cc2845286512fd5d6386
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77063230"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809909"
 ---
-# <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning-preview"></a>Självstudie: konfigurera SAP-SuccessFactors till användar etablering i Azure AD (för hands version)
-Syftet med den här självstudien är att visa de steg som du behöver utföra för att etablera arbetarnas data från SuccessFactors personal Central till Azure Active Directory, med valfri Skriv åtgärd för e-postadressen till SuccessFactors. Den här integrationen är i offentlig för hands version och stöder hämtning av fler än [70 + användarattribut](../app-provisioning/sap-successfactors-attribute-reference.md) från SuccessFactors personal Central. 
+# <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning"></a>Självstudie: konfigurera SAP-SuccessFactors till användar etablering i Azure AD
+Syftet med den här självstudien är att visa de steg som du behöver utföra för att etablera arbetarnas data från SuccessFactors personal Central till Azure Active Directory, med valfri Skriv åtgärd för e-postadressen till SuccessFactors. 
 
 >[!NOTE]
 >Använd den här självstudien om de användare som du vill etablera från SuccessFactors är endast molnbaserade användare som inte behöver ett lokalt AD-konto. Om användarna bara behöver ett lokalt AD-konto eller både AD-och Azure AD-konto kan du läsa själv studie kursen om hur [du konfigurerar SAP-SuccessFactors för att Active Directory](sap-successfactors-inbound-provisioning-tutorial.md#overview) användar etablering. 
@@ -79,7 +79,7 @@ Konfigurering av moln HR-driven användar etablering från SuccessFactors till A
 * Attribute-transformering 
 * Omfångsfilter
 
-Mer information om de här ämnena finns i [Cloud HR Deployment plan](../app-provisioning/plan-cloud-hr-provision.md) . 
+Mer information om de här ämnena finns i [Cloud HR Deployment plan](../app-provisioning/plan-cloud-hr-provision.md) . Se [SAP SuccessFactors integration Reference](../app-provisioning/sap-successfactors-integration-reference.md) för att lära dig mer om de entiteter som stöds, bearbetnings information och hur du anpassar integreringen för olika HR-scenarier. 
 
 ## <a name="configuring-successfactors-for-the-integration"></a>Konfigurera SuccessFactors för integrering
 

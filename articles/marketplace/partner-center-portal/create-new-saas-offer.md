@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 61592ee8ad5991c9540f5b418cafe2441ab4d3ea
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2b12eb88f0297c44fabb62e40d315517f3d3b954
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317745"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800379"
 ---
 # <a name="create-a-saas-offer"></a>Skapa ett SaaS-erbjudande
 
@@ -105,11 +105,11 @@ Marknadsför ditt företag med Microsoft genom att skapa en Marketplace-lista. O
 
 #### <a name="get-it-now-free"></a>Hämta nu (kostnads fritt)
 
-Lista ditt erbjudande till kunder kostnads fritt genom att tillhandahålla en giltig adress (från och med *http* eller *https*), där de kan få en utvärderings version genom att [använda Azure Active Directory (Azure AD)](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials). Exempelvis `https://contoso.com/saas-app`.
+Lista ditt erbjudande till kunder kostnads fritt genom att tillhandahålla en giltig adress (från och med *http* eller *https*), där de kan få en utvärderings version genom att [använda Azure Active Directory (Azure AD)](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials). Till exempel `https://contoso.com/saas-app`.
 
 #### <a name="free-trial-listing"></a>Kostnads fri utvärderings version (lista)
 
-Lista ditt erbjudande till kunder med en länk till en kostnads fri utvärderings version genom att tillhandahålla en giltig adress (från och med *http* eller *https*), där de kan få en utvärdering genom att [använda Azure Active Directory (Azure AD)](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials). Exempelvis `https://contoso.com/trial/saas-app`. Erbjudande om kostnads fria utvärderings versioner skapas, hanteras och konfigureras av din tjänst och har inga prenumerationer som hanteras av Microsoft.
+Lista ditt erbjudande till kunder med en länk till en kostnads fri utvärderings version genom att tillhandahålla en giltig adress (från och med *http* eller *https*), där de kan få en utvärdering genom att [använda Azure Active Directory (Azure AD)](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials). Till exempel `https://contoso.com/trial/saas-app`. Erbjudande om kostnads fria utvärderings versioner skapas, hanteras och konfigureras av din tjänst och har inga prenumerationer som hanteras av Microsoft.
 
 > [!NOTE]
 > De token som programmet tar emot via din utvärderings länk kan bara användas för att hämta användar information via Azure AD för att automatisera skapandet av konton i din app. Microsoft-konton (MSA) stöds inte för autentisering med denna token.
@@ -282,12 +282,16 @@ Det här fältet är obligatoriskt.
 #### <a name="files-and-images"></a>Filer och avbildningar
 
 - **Dokument** (krävs) – Lägg till relaterade marknadsförings dokument för ditt erbjudande, i PDF-format, för minst ett och upp till tre dokument per erbjudande.
-- **Avbildningar** (valfritt) – det finns flera platser där ditt erbjudandes Logo bilder kan visas på alla Marketplace, vilket kräver följande pixel storlekar i PNG-format:
+- **Avbildningar** (krävs) – det finns flera platser där ditt erbjudandes Logo bilder kan visas på alla platser. Ange en PNG-fil för logo typen med **stor** storlek (mellan 216 x 216 och 350 x 350 bild punkter). Partner Center använder detta för att skapa en **liten** (48 x 48 pixlar) och en storleks logo typ ( **mellan** 90 x 90 pixlar). Du kan också ersätta dem med olika avbildningar. Att lägga till en **bred** logo typ är valfritt.
 
-  - **Liten** (48 x 48, krävs)
-  - **Medel** (90 x 90, krävs)
-  - **Stor** (216 x 216, krävs)
-  - **Bred** (255 x 115)
+    Tre logo typer måste användas på olika platser i listan. en är valfri:
+
+    - **Liten** (48 x 48)
+    - **Medel** (90 x 90)
+    - **Stor** (mellan 216 x 216 och 350 x 350)
+    - **Bred** (255 x 115), *valfritt*
+
+    [!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 - **Skärm bilder** (krävs) – Lägg till högst fem skärm bilder som demonstrerar ditt erbjudande, med en storlek på 1280 x 720 pixlar. Alla avbildningar måste vara i. PNG-format.
 - **Videor** (valfritt) – Lägg till länkar till videor som demonstrerar ditt erbjudande. Du kan använda länkar till YouTube och/eller Vimeo-videor som visas tillsammans med ditt erbjudande till kunder. Du måste också ange en miniatyr bild av videon, med en storlek på 1280 x 720 pixlar i PNG-format. Du kan visa högst fyra videor per erbjudande.

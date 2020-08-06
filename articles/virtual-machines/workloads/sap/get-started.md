@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/16/2020
+ms.date: 08/04/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7319adfc88eedb007677a78693ab0b2e514e646f
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: a882e3a21d5e1e99f6f9154fd2162071752b4499
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171651"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800356"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -104,6 +104,8 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 
 ## <a name="change-log"></a>Ändrings logg
 
+- 08/04/2020: ändra i [ställa in pacemaker på SLES i Azure](./high-availability-guide-suse-pacemaker.md) och konfigurera [pacemaker på RHEL i Azure](./high-availability-guide-rhel-pacemaker.md) för att betona vikten av tillförlitlig namn matchning för pacemaker-kluster
+- 08/04/2020: ändra i [SAP NW ha på WFCS med fil resurs](./sap-high-availability-installation-wsfc-file-share.md), [SAP NW-ha på WFCS med delad disk](./sap-high-availability-installation-wsfc-shared-disk.md), [ha för SAP NW på virtuella Azure-datorer](./high-availability-guide.md), [ha för SAP NW på Azure VM](./high-availability-guide-suse.md): ar på SLES, ha [för SAP NW på virtuella Azure-datorer på SLES med ANF](./high-availability-guide-suse-netapp-files.md), [ha för SAP NW på virtuella Azure-datorer på SLES multi-sid-guide](./high-availability-guide-suse-multi-sid.md), [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på RHEL](./high-availability-guide-rhel.md), [ha för SAP NW på virtuella Azure-datorer på RHEL med ANF](./high-availability-guide-rhel-netapp-files.md) och ha för SAP NW på virtuella Azure-datorer i RHEL med och [ha för SAP NW på multi](./high-availability-guide-rhel-multi-sid.md)`enque/encni/set_so_keepalive`
 - 07/23/2020: lade till [Spara på SAP HANA – stora instanser med en Azure reservation](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) -artikel som förklarar vad du behöver veta innan du köper en SAP HANA – stora instanser reservation och hur du gör köpet
 - 07/16/2020: beskriver hur du använder Azure PowerShell för att installera nytt VM-tillägg för SAP i [distributions guiden](deployment-guide.md)
 - 7/04/2020: version av [Azure Monitor för SAP-lösningar (för hands version)](./azure-monitor-overview.md)
@@ -130,7 +132,7 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 - 03/31/2020: ändra [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SLES](./sap-hana-high-availability.md) och [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på RHEL](./sap-hana-high-availability-rhel.md) för att lägga till instruktioner för hur du anger stripe-storlek när du skapar stripe-volymer
 - 03/27/2020: ändring i [hög tillgänglighet för SAP NW på virtuella Azure-datorer på SLES med ANF för SAP-program](./high-availability-guide-suse-netapp-files.md) för att justera fil systemets monterings alternativ till NetApp TR-4746 (ta bort alternativet för Sync-montering)
 - 03/26/2020: ändra [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SLES multi-sid-guide](./high-availability-guide-suse-multi-sid.md) för att lägga till referens till NetApp TR-4746
-- 03/26/2020: ändring i [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SLES för SAP-program](./high-availability-guide-suse.md), [hög tillgänglighet för SAP-NetWeaver på virtuella Azure-datorer på SLES med Azure NetApp Files för SAP-program](./high-availability-guide-suse-netapp-files.md), [hög tillgänglighet för NFS på virtuella Azure-datorer på SLES](./high-availability-guide-suse-nfs.md), [hög tillgänglighet för SAP NETWEAVER på virtuella Azure-datorer på SLES multi-sid-guide](./high-availability-guide-suse-multi-sid.md), [hög tillgänglighet för SAP NETWEAVER på virtuella Azure-datorer på RHEL för SAP-program](./high-availability-guide-rhel.md) och [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer i RHEL med Azure NetApp Files för](./high-availability-guide-rhel-netapp-files.md) SAP-program för att uppdatera diagram och för tydliga instruktioner för att Azure Load Balancer-adresspoolen skapas
+- 03/26/2020: ändring i [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SLES för SAP-program](./high-availability-guide-suse.md), [hög tillgänglighet för SAP-NetWeaver på virtuella Azure-datorer på SLES med Azure NetApp Files för SAP-program](./high-availability-guide-suse-netapp-files.md), [hög tillgänglighet för NFS på virtuella Azure-datorer på SLES](./high-availability-guide-suse-nfs.md), [hög tillgänglighet för SAP NETWEAVER på virtuella Azure-datorer på RHEL multi-sid-guide](./high-availability-guide-suse-multi-sid.md), [hög tillgänglighet för SAP NETWEAVER på virtuella Azure-datorer på RHEL för SAP-program](./high-availability-guide-rhel.md) och [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer i RHEL med Azure NetApp Files för](./high-availability-guide-rhel-netapp-files.md) SAP-program för att uppdatera diagram och för tydliga instruktioner för att Azure Load Balancer-adresspoolen skapas
 - 03/19/2020: större revidering av [snabb start för dokument: manuell installation av en instans SAP HANA på azure Virtual Machines](./hana-get-started.md) för att [Installera SAP HANA på Azure Virtual Machines](./hana-get-started.md)
 - 03/17/2020: ändra konfigurations inställningar [för pacemaker på SUSE Linux Enterprise Server i Azure](./high-availability-guide-suse-pacemaker.md) för att ta bort SBD-konfigurationsfilen som inte längre behövs
 - 03/16/2020: klargörande av kolumn certifierings scenario i SAP HANA IaaS Certified Platform i [vilken SAP-program vara stöds för Azure-distributioner](./sap-supported-product-on-azure.md)

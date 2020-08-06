@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: ca3c7d6bc6621c4b82a44431ae313384c1653f79
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0ae304763718f649d7895394d67c2aec307f14af
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324241"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799999"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Snabbstart: Skapa en Java-app i Azure App Service i Windows
 
@@ -49,13 +49,19 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Konfigurera Maven-plugin-programmet
 
-Distributions processen till Azure App Service kan automatiskt pickupa dina Azure-autentiseringsuppgifter från Azure CLI. Om du inte har installerat Azure CLI kommer maven-plugin-programmet att logga in dig med OAuth-eller enhets inloggning. Kontrol lera informationen om [autentisering med maven-plugin](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) -program om du behöver.
+Distributions processen till Azure App Service kan hämta dina Azure-autentiseringsuppgifter från Azure CLI automatiskt. Maven-plugin-programmet kommer att logga in dig med OAuth-eller enhets inloggning om Azure CLI inte är lokalt installerat. Kontrol lera informationen om [autentisering med maven-plugin](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) -program om du behöver.
 
-Du kan köra följande maven-kommando i kommando tolken för att konfigurera distributionen, välja **2** för **Windows** -operativsystemet i det första steget, sedan acceptera standardkonfigurationerna genom att trycka på **RETUR** tills du får frågan **Bekräfta (j/N)** och sedan trycka på **"Y"** och konfigurationen är färdig. 
-
+Du kan köra kommandot maven nedan för att konfigurera distributionen
 ```bash
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
+
+Du uppmanas att välja 
+* **OS (standard: `linux` )**
+* **Java-version (standard: `1.8` )**
+* **Webb behållare (standard: `tomcat 8.5` )** 
+
+Var noga med att ange **`2`** för att välja **Windows** -operativsystem i det första steget. Övriga konfigurationer kan lämnas kvar som standard genom att trycka på **RETUR**. Klicka slutligen **`Y`** på **Bekräfta (j/N)** för att slutföra konfigurationen.
 
 En exempel process ser ut så här:
 
@@ -135,7 +141,7 @@ Confirm (Y/N)? :
 > [!NOTE]
 > I den här artikeln arbetar vi endast med Java-appar som paketerats i WAR-filer. Plugin-programmet stöder också JAR-webbprogram. Läs informationen om att [distribuera en Java SE JAR-fil till App Service på Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) om du vill testa det.
 
-Öppna för `pom.xml` att se den uppdaterade konfigurationen.
+Öppna `pom.xml` om du vill se den uppdaterade konfigurationen.
 
 ```bash
 code pom.xml
@@ -153,8 +159,11 @@ Du kan ändra konfigurationerna för App Service direkt i din Pom-fil om det beh
 `<runtime>` | true | Konfiguration av körnings miljön kan du se informationen [här](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0 +
 `<deployment>` | true | Distributions konfigurationen kan du se informationen [här](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0 +
 
+Var försiktig med värdena i `<appName>` och `<resourceGroup>` ( `helloworld-1590394316693` och `helloworld-1590394316693-rg` därmed i demonstrationen). de kommer att användas senare.
+
 > [!div class="nextstepaction"]
 > [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=app-service-web-get-started-java&step=config)
+
 
 ## <a name="deploy-the-app"></a>Distribuera appen
 
@@ -169,13 +178,14 @@ Sedan kan du distribuera din Java-app till Azure med hjälp av följande kommand
 mvn package azure-webapp:deploy
 ```
 
-När distributionen är klar bläddrar du till den distribuerade tillämpningen med hjälp av följande webbadress i webbläsaren, till exempel `http://<webapp>.azurewebsites.net/`.
+När distributionen är klar är ditt program klart på `http://<appName>.azurewebsites.net/` ( `http://helloworld-1590394316693.azurewebsites.net` i demonstrationen). Öppna webb adressen med din lokala webbläsare, du bör se
 
 ![Exempel app som körs i Azure App Service](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
 
 **Grattis!** Du har distribuerat din första java-app till App Service i Windows.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

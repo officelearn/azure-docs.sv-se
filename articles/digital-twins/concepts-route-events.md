@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b7d62777f73a92768b1ede3fb9b7e0cb97951823
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 394752792d143a3712d0bb9c50189936f23062f1
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537529"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800474"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Dirigera händelser inom och utanför Azures digitala dubbla
 
@@ -77,7 +77,7 @@ await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<e
 
 * `endpoint-name`Identifierar en slut punkt, till exempel en händelsehubben, Event Grid eller Service Bus. De här slut punkterna måste skapas i din prenumeration och anslutas till Azure Digital-dubbla med kontroll Plans-API: er innan det här registrerings anropet görs.
 
-Händelse vägen som skickas till `EventRoutes.Add` tar också en [ **filter** parameter](./how-to-manage-routes.md#filter-events)som kan användas för att begränsa vilka typer av händelser som följer den här vägen.
+Händelse vägen som skickas till `EventRoutes.Add` tar också en [ **filter** parameter](./how-to-manage-routes-apis-cli.md#filter-events)som kan användas för att begränsa vilka typer av händelser som följer den här vägen.
 
 Vägar kan också skapas med hjälp av [Azure Digitals flätade CLI](how-to-use-cli.md).
 
@@ -90,7 +90,7 @@ Olika typer av händelser i IoT Hub och Azure Digitals skapar olika typer av med
 ## <a name="next-steps"></a>Nästa steg
 
 Se så här konfigurerar och hanterar du en händelse väg:
-* [*Anvisningar: hantera slut punkter och vägar*](how-to-manage-routes.md)
+* [*Anvisningar: hantera slut punkter och vägar*](how-to-manage-routes-apis-cli.md)
 
 Du kan också se hur du använder Azure Functions för att dirigera händelser i Azure Digitals:
 * [*Anvisningar: Konfigurera en Azure-funktion för bearbetning av data*](how-to-create-azure-function.md)

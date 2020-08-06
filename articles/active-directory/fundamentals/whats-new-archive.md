@@ -2,7 +2,7 @@
 title: Vill du arkivera vad som är nytt i Azure Active Directory? | Microsoft Docs
 description: Avsnittet Nyheter i avsnittet Översikt i den här innehålls uppsättningen innehåller 6 månaders aktivitet. Efter 6 månader tas objekten bort från huvud artikeln och infogas i den här Arkiv artikeln.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d981bad30bf57fde64d1f6e903039dda5007e526
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e8b09293f80b5aee2dd76abba3f165a50a5eeee5
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87483917"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799148"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Vill du arkivera vad som är nytt i Azure Active Directory?
 
@@ -1776,7 +1776,7 @@ Följande fält ändras i gransknings schemat:
 |Fältnamn|Vad som ändrats|Gamla värden|Nya värden|
 |----------|------------|----------|----------|
 |Kategori|Detta är **tjänstens namn** fält. Nu är fältet **gransknings kategorier** . **Tjänst namnet** har bytt namn till fältet **loggedByService** .|<ul><li>Kontoetablering</li><li>Kärnkatalog</li><li>Lösen ords återställning via självbetjäning</li></ul>|<ul><li>Användarhantering</li><li>Grupphantering</li><li>Hantering av appar</li></ul>|
-|targetResources|Innehåller **TargetResourceType** på den översta nivån.|&nbsp;|<ul><li>Princip</li><li>App</li><li>Användare</li><li>Grupp</li></ul>|
+|targetResources|Innehåller **TargetResourceType** på den översta nivån.|&nbsp;|<ul><li>Policy</li><li>App</li><li>Användare</li><li>Grupp</li></ul>|
 |loggedByService|Innehåller namnet på tjänsten som skapade gransknings loggen.|Null|<ul><li>Kontoetablering</li><li>Kärnkatalog</li><li>Återställning av lösenord för självbetjäning</li></ul>|
 |Resultat|Visar resultatet av gransknings loggarna. Tidigare räknades detta upp, men nu visar vi det faktiska värdet.|<ul><li>0</li><li>1</li></ul>|<ul><li>Klart</li><li>Fel</li></ul>|
 
@@ -3307,7 +3307,7 @@ Mer information finns i:
 
 Nu kan du gå till åtkomst panelen och Visa användnings villkoren som du har accepterat tidigare.
 
-Gör så här:
+Följ de här stegen:
 
 1. Gå till portalen för mina [appar](https://myapps.microsoft.com)och logga in.
 

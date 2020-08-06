@@ -3,7 +3,7 @@ title: Skapa ett nytt Access-paket i hantering av rättigheter – Azure AD
 description: Lär dig hur du skapar ett nytt Access-paket med resurser som du vill dela i Azure Active Directory rättighets hantering.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d54c4e5980383c721629143910eafbd5ae6a527
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64f5c88de72bcd241f0cd42d338acbe707de6f34
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078955"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798791"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Skapa ett nytt Access-paket i hantering av Azure AD-berättigande
 
@@ -67,7 +67,7 @@ Här följer de övergripande stegen för att skapa ett nytt Access-paket.
    
     ![Hantering av rättigheter i Azure Portal](./media/entitlement-management-shared/access-packages-list.png)
 
-## <a name="basics"></a>Grunderna
+## <a name="basics"></a>Grunder
 
 På fliken **grundläggande** ger du åtkomst paketet ett namn och anger vilken katalog som du vill skapa åtkomst paketet i.
 

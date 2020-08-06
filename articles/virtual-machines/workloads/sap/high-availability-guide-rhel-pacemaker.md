@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/24/2020
+ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: eed53725507325351dcf51fbe368331c2a4fd2f8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a1e097692eade956446b46782bca5ecf3a17de75
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065143"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800270"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Konfigurera pacemaker på Red Hat Enterprise Linux i Azure
 
@@ -125,7 +125,11 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
 1. **[A]** namn matchning för värdnamn
 
    Du kan antingen använda en DNS-server eller ändra/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
-   Ersätt IP-adress och värdnamn i följande kommandon. Fördelen med att använda/etc/hosts är att klustret blir oberoende av DNS, vilket kan vara en enskild fel punkt.
+   Ersätt IP-adress och värdnamn i följande kommandon.  
+
+   >[!IMPORTANT]
+   > Om du använder värdnamn i kluster konfigurationen är det viktigt att du har tillförlitlig värd namns matchning. Kluster kommunikationen Miss kommer om namnen inte är tillgängliga och kan leda till fördröjningar i redundanskluster.
+   > Fördelen med att använda/etc/hosts är att klustret blir oberoende av DNS, vilket kan vara en enskild fel punkt.  
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>

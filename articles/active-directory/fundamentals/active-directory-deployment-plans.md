@@ -2,7 +2,7 @@
 title: Distributions planer – Azure Active Directory | Microsoft Docs
 description: Fullständig vägledning om hur du distribuerar många Azure Active Directory-funktioner.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -12,14 +12,14 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c439bbded7fe55f1edd5eb1597f98b339e340956
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d839fc71992802e9ee2b6a66d0bc407c5caaecf
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386342"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799067"
 ---
-# <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory-distributionsplaner
+# <a name="azure-active-directory-deployment-plans"></a>Distributionsplaner för Azure Active Directory
 Letar du efter slut punkt till slut punkt om hur du distribuerar Azure Active Directory (Azure AD)-funktioner? Distributions planer för Azure AD vägleder dig genom affärs värde, planerings överväganden och operativa procedurer som krävs för att distribuera vanliga funktioner i Azure AD.
 
 Från någon av plan sidorna använder du webbläsarens utskrifts-till-PDF-funktion för att skapa en uppdaterad offline-version av dokumentationen.
@@ -36,7 +36,7 @@ Roller kan innehålla följande
 |Identitets arkitekt eller Global Azure-administratör|Identitets hanterings team som är ansvarig för att definiera hur den här ändringen justeras med infrastrukturen för kärn identitets hantering i din organisation.|
 |Programmets företags ägare |Den övergripande företags ägaren av de berörda programmen, som kan innehålla hanterings åtkomst.Kan även ge indata om användar upplevelsen och användbarheten för den här ändringen från slutanvändarens perspektiv.
 |Säkerhets ägare|En representant från säkerhets teamet som kan godkänna att planen uppfyller organisationens säkerhets krav.|
-|Compliance Manager (Efterlevnadshanteraren)|Den person i organisationen som ansvarar för att säkerställa efterlevnaden av företags-, bransch-eller myndighets krav.|
+|Efterlevnadshanteraren|Den person i organisationen som ansvarar för att säkerställa efterlevnaden av företags-, bransch-eller myndighets krav.|
 
 **Inblandning nivåer kan vara:**
 
@@ -81,7 +81,7 @@ Att utöka distributionen till större grupper av användare bör utföras genom
 | -| -|
 | [ADFS till hash-synkronisering av lösenord](../hybrid/plan-migrate-adfs-password-hash-sync.md)| Med hash-synkronisering av lösen ord synkroniseras hashar av användar lösen ord från lokala Active Directory till Azure AD, vilket gör att Azure AD kan autentisera användare utan interaktion med den lokala Active Directory |
 | [ADFS till Pass Through Authentication](../hybrid/plan-migrate-adfs-pass-through-authentication.md) (Passeringsautentisering)| Med Azure AD-direktautentisering kan användarna logga in i både lokala och molnbaserade program med samma lösen ord. Den här funktionen ger användarna en bättre upplevelse – ett mindre lösen ord att komma ihåg – och minskar kostnaderna för IT-supportavdelningen eftersom det är mindre troligt att de glömmer att logga in. När användare loggar in med Azure AD verifierar den här funktionen användarnas lösenord direkt mot din lokala Active Directory. |
-| [Azure AD-programproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-deployment-plan) |I dag vill anställda vara produktiva var som helst, när som helst och från valfri enhet. De behöver åtkomst till SaaS-appar i molnet och i företags program lokalt. Azure AD Application Proxy ger denna robust åtkomst utan kostsamma och komplexa virtuella privata nätverk (VPN) eller demilitariserad zoner (DMZs). |
+| [Azure-AD-programproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-deployment-plan) |I dag vill anställda vara produktiva var som helst, när som helst och från valfri enhet. De behöver åtkomst till SaaS-appar i molnet och i företags program lokalt. Azure AD Application Proxy ger denna robust åtkomst utan kostsamma och komplexa virtuella privata nätverk (VPN) eller demilitariserad zoner (DMZs). |
 | [Sömlös enkel inloggning](../hybrid/how-to-connect-sso-quick-start.md)| Sömlös enkel inloggning med Azure Active Directory (sömlös SSO med Azure AD) loggar automatiskt in användare när de är på sina företagsenheter som är anslutna till företagsnätverket. Med den här funktionen behöver användarna inte ange sina lösen ord för att logga in på Azure AD och behöver vanligt vis inte ange sina användar namn. Den här funktionen ger auktoriserade användare enkel åtkomst till dina molnbaserade program utan att behöva ytterligare lokala komponenter. |
 
 ## <a name="deploy-user-provisioning"></a>Distribuera användar etablering

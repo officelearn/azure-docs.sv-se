@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 6a7b24de860b543778d7e6ceabc95d10bf7c44c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077069"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800508"
 ---
 # <a name="azure-resource-logs"></a>Azure resurs loggar
 Azures resurs loggar är [plattforms loggar](platform-logs-overview.md) som ger inblick i åtgärder som utförts i en Azure-resurs. Innehållet i resurs loggar varierar beroende på Azure-tjänsten och resurs typen. Resurs loggar samlas inte in som standard. Du måste skapa en diagnostisk inställning för varje Azure-resurs för att skicka resurs loggarna till en Log Analytics arbets yta som ska användas med [Azure Monitor loggar](data-platform-logs.md), Azure Event Hubs som ska vidarebefordras utanför Azure, eller för att Azure Storage arkivering.
 
-Se [skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika destinationer](diagnostic-settings.md) för information om hur du skapar en diagnostisk inställning och [distribuerar Azure Monitor i skala med Azure policy](deploy-scale.md) för information om hur du använder Azure policy för att automatiskt skapa en diagnostisk inställning för varje Azure-resurs som du skapar.
+Se [skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika destinationer](diagnostic-settings.md) för information om hur du skapar en diagnostisk inställning och [distribuerar Azure Monitor i skala med Azure policy](../deploy-scale.md) för information om hur du använder Azure policy för att automatiskt skapa en diagnostisk inställning för varje Azure-resurs som du skapar.
 
 ## <a name="send-to-log-analytics-workspace"></a>Skicka till Log Analytics-arbetsytan
  Skicka resurs loggar till en Log Analytics-arbetsyta för att aktivera funktionerna i [Azure Monitor loggar](data-platform-logs.md) som innehåller följande:

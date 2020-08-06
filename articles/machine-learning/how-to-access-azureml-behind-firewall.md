@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 27b625dfa31b366d95922e1dd0bad7fda6e86ed4
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 23ec12daa2e5c236da482615228b7c44037282fb
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540078"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808124"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Använd arbets ytan bakom en brand vägg för Azure Machine Learning
 
@@ -34,7 +34,7 @@ I brand väggen skapar du en nätverks regel som tillåter trafik till och från
 > [!TIP]
 > När du lägger till nätverks regeln ställer du in __protokollet__ på valfri, och portarna till `*` .
 >
-> Mer information om hur du konfigurerar Azure-brandväggen finns i [distribuera och konfigurera Azure-brandväggen](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule).
+> Mer information om hur du konfigurerar Azure-brandväggen finns i [distribuera och konfigurera Azure-brandväggen](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
 ## <a name="microsoft-hosts"></a>Microsoft-värdar
 
@@ -57,7 +57,7 @@ Värdarna i det här avsnittet ägs av Microsoft och tillhandahåller tjänster 
 | **azurecr.io** | Azure Container Registry |
 | **mcr.microsoft.com** | Microsoft Container Registry för Base Docker-avbildningar |
 | **your-acr-server-name.azurecr.io** | Krävs endast om din Azure Container Registry ligger bakom det virtuella nätverket. I den här konfigurationen skapas en privat länk från Microsoft-miljön till ACR-instansen i din prenumeration. Använd namnet på ACR-servern för din Azure Machine Learning-arbetsyta. |
-
+| **\*. notebooks.azure.net** | Krävs av antecknings böckerna i Azure Machine Learning Studio. |
 ## <a name="python-hosts"></a>Python-värdar
 
 Värdarna i det här avsnittet används för att installera python-paket. De krävs vid utveckling, utbildning och distribution. 

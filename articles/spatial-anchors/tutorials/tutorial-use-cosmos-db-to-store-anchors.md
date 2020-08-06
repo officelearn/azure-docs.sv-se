@@ -5,15 +5,15 @@ author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
-ms.date: 02/24/2019
+ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 71b3027d86400d6921895f86e257ddff2961f91f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8ff431c27dd53e82f9003b658c82ceb3efb5d320
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77615156"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810028"
 ---
 # <a name="tutorial-sharing-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Självstudie: dela Azure spatiala ankare mellan sessioner och enheter med en Azure Cosmos DB server del
 
@@ -21,7 +21,7 @@ Den här självstudien är en fortsättning av [delning av Azures avstånds anka
 
 ![GIF som illustrerar objekt beständighet](./media/persistence.gif)
 
-Det är värt att Observera att även om du kommer att använda Unity och Azure Cosmos DB i den här självstudien, är det bara att ge dig ett exempel på hur du kan dela spatiala ankare med identifierare på olika enheter. Du kan använda andra språk och serverdelstekniker för att uppnå samma resultat. Dessutom kräver ASP.NET Core-webbappen som används i den här självstudien .NET Core 2,2 SDK. Det fungerar bra på Web Apps för Windows, men körs för närvarande inte på Web Apps för Linux.
+Det är värt att Observera att även om du kommer att använda Unity och Azure Cosmos DB i den här självstudien, är det bara att ge dig ett exempel på hur du kan dela spatiala ankare med identifierare på olika enheter. Du kan använda andra språk och serverdelstekniker för att uppnå samma resultat.
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
@@ -33,23 +33,15 @@ Kopiera `Connection String` eftersom du behöver den.
 
 ## <a name="make-minor-changes-to-the-sharingservice-files"></a>Gör mindre ändringar i SharingService-filerna
 
-Öppna **Solution Explorer** `SharingService\Startup.cs`i Solution Explorer.
+Öppna i **Solution Explorer** `SharingService\Startup.cs` .
 
-Leta `#define INMEMORY_DEMO` upp överst i filen och kommentera raden. Spara filen.
+Leta upp `#define INMEMORY_DEMO` överst i filen och kommentera raden. Spara filen.
 
-Öppna **Solution Explorer** `SharingService\appsettings.json`i Solution Explorer.
+Öppna i **Solution Explorer** `SharingService\appsettings.json` .
 
 Leta upp `StorageConnectionString` egenskapen och Ställ in värdet på samma sätt som det `Connection String` värde som du kopierade i [steget Skapa ett databas konto](#create-a-database-account). Spara filen.
 
 Du kan publicera delnings tjänsten igen och köra exempel appen.
-
-## <a name="troubleshooting"></a>Felsökning
-
-### <a name="unity-20193"></a>Unity 2019,3
-
-På grund av avbrytande ändringar stöds inte Unity 2019,3 för närvarande. Använd Unity 2019,1 eller 2019,2.
-
-[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,18 +5,18 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/23/2019
+ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom:
 - mvc
 - amqp
-ms.openlocfilehash: 105dbed66b67f16b305cea74b9761abbef64d5fd
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: ba438971f3499b0d4f34affee8b4e4d0051ff828
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439778"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809943"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudie: utveckla en C# IoT Edge-modul för Windows-enheter
 
@@ -41,7 +41,7 @@ Den här självstudien visar hur du utvecklar en modul i **C#** med hjälp av **
 
 Använd följande tabell för att förstå alternativen för att utveckla och distribuera C#-moduler till Windows-enheter:
 
-| C# | Visuell Studio-kod | Visual Studio 2017/2019 |
+| C# | Visual Studio-koden | Visual Studio 2017/2019 |
 | -- | ------------------ | ------------------ |
 | **Windows AMD64-utveckling** | ![Utveckla C#-moduler för WinAMD64 i VS Code](./media/tutorial-c-module/green-check.png) | ![Utveckla C#-moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Windows AMD64-felsökning** |   | ![Felsöka C#-moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
@@ -95,7 +95,7 @@ Distributions manifestet delar autentiseringsuppgifterna för behållar registre
 
 1. Öppna **deployment.template.jspå** filen i Visual Studio-Solution Explorer.
 
-2. Hitta egenskapen **registryCredentials** i önskade egenskaper för $edgeAgent. Den bör ha en ifylld registrerings adress från den information som du angav när du skapade projektet, och fälten username och Password måste innehålla variabel namn. Ett exempel:
+2. Hitta egenskapen **registryCredentials** i önskade egenskaper för $edgeAgent. Den bör ha en ifylld registrerings adress från den information som du angav när du skapade projektet, och fälten username och Password måste innehålla variabel namn. Exempel:
 
    ```json
    "registryCredentials": {

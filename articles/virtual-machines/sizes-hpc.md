@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 122a3e243f314395ea7b1d32b88a5e20b0965eef
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: d0344247ba4dfffee275782bc2db83142d34cff3
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512014"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800253"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Datorer med hög prestanda beräknings storlek
 
@@ -52,8 +52,7 @@ Med det här gränssnittet kan de RDMA-kompatibla instanserna kommunicera över 
 
    Om du vill lägga till ett VM-tillägg i en virtuell dator kan du använda [Azure PowerShell](/powershell/azure/) -cmdletar. Mer information finns i [tillägg och funktioner för virtuella datorer](./extensions/overview.md). Du kan också arbeta med tillägg för virtuella datorer som distribueras i den [klassiska distributions modellen](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
 
-- **MPI** – SR-IOV-aktiverade VM-storlekar på Azure (HBV2, HB, HC, NCv3, NDv2) gör att du kan använda nästan vilken smak av MPI som ska användas med Mellanox ofed.
-På virtuella datorer som inte är SR-IOV-aktiverade använder MPI-implementeringar som stöds av Microsoft Network Direct (ND)-gränssnittet för att kommunicera mellan virtuella datorer. Därför stöds endast Microsoft MPI (MS-MPI) 2012 R2 eller senare och Intel MPI 5. x-versioner. Senare versioner (2017, 2018) av Intel MPI runtime-biblioteket kan vara kompatibla med Azure RDMA-drivrutinerna.
+- **MPI** – SR-IOV-aktiverade VM-storlekar på Azure (HBV2, HB, HC, NCv3, NDv2) gör att du kan använda nästan vilken smak av MPI som ska användas med Mellanox ofed. På virtuella datorer som inte är SR-IOV-aktiverade använder MPI-implementeringar som stöds av Microsoft Network Direct (ND)-gränssnittet för att kommunicera mellan virtuella datorer. Därför stöds endast Microsoft MPI (MS-MPI) 2012 R2 eller senare och Intel MPI 5. x-versioner. Senare versioner (2017, 2018) av Intel MPI runtime-biblioteket kan vara kompatibla med Azure RDMA-drivrutinerna. Se [installations MPI för HPC](./workloads/hpc/setup-mpi.md) för mer information om hur du konfigurerar MPI på virtuella HPC-datorer i Azure.
 
 - **RDMA-nätverkets adress utrymme** – RDMA-nätverket i Azure reserverar adress utrymmet 172.16.0.0/16. Om du vill köra MPI-program på instanser som har distribuerats i ett virtuellt Azure-nätverk kontrollerar du att det virtuella nätverkets adress utrymme inte överlappar RDMA-nätverket.
 

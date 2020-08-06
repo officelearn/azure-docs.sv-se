@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 625a1a256ec5f1668c97e74c37e567a4ceb3612f
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 12fb644430d4bfd6444c6bbf09d37b4662ca6fd1
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871158"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810130"
 ---
 # <a name="quickstart-create-a-xamarin-ios-app-with-azure-spatial-anchors"></a>Snabb start: skapa en Xamarin iOS-app med Azure spatial ankare
 
@@ -28,7 +28,7 @@ Du lär dig följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 - En Mac som kör macOS med hög Sierra (10,13) eller högre än:
@@ -55,9 +55,7 @@ Leta upp fältet `SpatialAnchorsAccountKey` och ersätt `Set me` med kontonyckel
 
 Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentifieraren.
 
-Inställningar`Xamarin/SampleXamarin.iOS/ViewControllers/DemoViewControllerBase.cs`
-
-Leta upp `StartSession()` och Lägg till följande rad och ersätt i din konto domän från tidigare: `this.cloudSession.Configuration.AccountDomain = "MyAccountDomain";` .
+Leta upp `SpatialAnchorsAccountDomain` fältet och Ersätt `Set me` med konto domänen.
 
 ## <a name="deploy-the-app-to-your-ios-device"></a>Distribuera appen till din iOS-enhet
 

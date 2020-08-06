@@ -3,12 +3,12 @@ title: Vanliga frågor om haveri beredskap för Hyper-V med Azure Site Recovery
 description: I den här artikeln sammanfattas vanliga frågor om hur du konfigurerar haveri beredskap för lokala virtuella Hyper-V-datorer till Azure med hjälp av Azure Site Recovery-platsen.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: b3d806908ce2274d07e6b508c8cc269b553e684f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: c168ba9ff14e57f238069e8ca5b0c34a8fb58015
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132658"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799896"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Vanliga frågor – Haveriberedskap för Hyper-V till Azure
 
@@ -156,6 +156,10 @@ När du replikerar till Azure når replikeringstrafiken de offentliga slut punkt
 ### <a name="what-are-the-replicated-vm-requirements"></a>Vilka är de replikerade VM-kraven?
 
 För replikering måste en virtuell Hyper-V-dator köra ett operativ system som stöds. Dessutom måste den virtuella datorn uppfylla kraven för virtuella Azure-datorer. [Läs mer](hyper-v-azure-support-matrix.md#replicated-vms) i support mat ris.
+
+### <a name="why-is-an-additional-standard-storage-account-required-if-i-replicate-my-virtual-machine-disks-to-premium-storage"></a>Varför krävs ytterligare ett standard lagrings konto om jag replikerar mina virtuella dator diskar till Premium Storage?
+
+När du replikerar dina lokala virtuella datorer/fysiska servrar till Premium Storage, replikeras alla data på den skyddade datorns diskar till Premium Storage-kontot. Det krävs ytterligare ett standard lagrings konto för att lagra loggar för replikering. När den första fasen av replikeringen av disk data har slutförts spåras alla ändringar i de lokala disk data kontinuerligt och lagras som replikeringskonflikter i det här ytterligare standard lagrings kontot.
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Hur ofta kan jag replikera till Azure?
 

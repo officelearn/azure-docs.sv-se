@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f8f19e6b98143bb48430decdd51f5626e72d422
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 461a424f23161e1567c6b32a38db0225efc56b1e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387293"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808396"
 ---
 # <a name="quickstart-set-up-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: Konfigurera enkel inloggning (SSO) för ett program i din Azure Active Directory (Azure AD)-klient
 
@@ -61,6 +61,16 @@ Så här konfigurerar du enkel inloggning för ett program:
     :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Skärm bild som visar alternativet för enkel inloggning i Enterprise-prenumerationen på prissättnings sidan för GitHub.":::
 
 
-## <a name="next-step"></a>Nästa steg
+> [!TIP]
+> Du kan automatisera hantering av appar med hjälp av Graph API, se [Automatisera program hantering med Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
-- [Ta bort en app](delete-application-portal.md)
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När du är klar med den här snabb starts serien bör du ta bort appen för att rensa test klienten. Borttagning av appen beskrivs i den senaste snabb starten i den här serien. se [ta bort en app](delete-application-portal.md).
+
+## <a name="next-steps"></a>Nästa steg
+
+Gå vidare till nästa artikel om du vill lära dig hur du tar bort en app.
+> [!div class="nextstepaction"]
+> [Ta bort en app](delete-application-portal.md)

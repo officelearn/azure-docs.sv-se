@@ -10,13 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79d80a5b94a753b43715c1ccd8fc2059ff84cfca
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 0818ab782710e6a102d2034790ff8d997cd54f8e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87338035"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808447"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: lägga till ett program till din Azure Active Directory-klient (Azure AD)
 
@@ -28,7 +27,7 @@ När ett program har lagts till Azure AD-klienten kan du:
 - Hantera användar åtkomst till appen med en princip för villkorlig åtkomst.
 - Konfigurera enkel inloggning så att användarna kan logga in i appen med sina autentiseringsuppgifter för Azure AD.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill lägga till ett program i Azure AD-klienten behöver du:
 
@@ -58,8 +57,15 @@ Så här lägger du till ett program i Azure AD-klienten:
 
 Du har lagt till ett program. Nästa snabb start visar hur du ändrar logo typen och redigerar andra egenskaper för programmet.
 
+> [!TIP]
+> Du kan automatisera hantering av appar med hjälp av Graph API, se [Automatisera program hantering med Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du inte kommer att fortsätta med snabb starts serien bör du ta bort appen för att rensa test klienten. Borttagning av appen beskrivs i den senaste snabb starten i den här serien. se [ta bort en app](delete-application-portal.md).
+
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera en app](add-application-portal-configure.md)
-- [Konfigurera enkel inloggning](add-application-portal-setup-sso.md)
-- [Ta bort en app](delete-application-portal.md)
+Gå vidare till nästa artikel om du vill lära dig hur du konfigurerar en app.
+> [!div class="nextstepaction"]
+> [Konfigurera en app](add-application-portal-configure.md)

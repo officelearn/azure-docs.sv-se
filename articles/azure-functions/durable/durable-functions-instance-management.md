@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: f508974891266735c5c193baa116771f11dc40a7
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 2b99d032b953caecfca2b34d5eadafe94f45f307
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388109"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809382"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Hantera instanser i Durable Functions i Azure
 
@@ -281,7 +281,7 @@ func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
 
 I stället för att skicka frågor till en instans i din organisation i taget, kan det vara mer effektivt att fråga alla dem samtidigt.
 
-Du kan använda metoden [ListInstancesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync?view=azure-dotnet#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.net), [getStatusAll](https://docs.microsoft.com/javascript/api/durable-functions/durableorchestrationclient?view=azure-node-latest#getstatusall--) (Java Script) eller `get_status_all` (python) för att fråga efter status för alla Dirigerings instanser. I .NET kan du skicka ett `CancellationToken` objekt om du vill avbryta det. Metoden returnerar en lista med objekt som representerar de Dirigerings instanser som matchar frågeparametrar.
+Du kan använda metoden [ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync?view=azure-dotnet#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.net), [getStatusAll](/javascript/api/durable-functions/durableorchestrationclient?view=azure-node-latest#getstatusall--) (Java Script) eller `get_status_all` (python) för att fråga efter status för alla Dirigerings instanser. I .NET kan du skicka ett `CancellationToken` objekt om du vill avbryta det. Metoden returnerar en lista med objekt som representerar de Dirigerings instanser som matchar frågeparametrar.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -360,7 +360,7 @@ func durable get-instances
 
 Vad händer om du verkligen behöver ha all information som en standard instans fråga kan ge? Vad händer till exempel om du bara söker efter skapande tid för Orchestration eller om Dirigerings körnings status? Du kan begränsa frågan genom att använda filter.
 
-Använd metoden [ListInstancesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync?view=azure-dotnet#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.net) eller [getStatusBy](https://docs.microsoft.com/javascript/api/durable-functions/durableorchestrationclient?view=azure-node-latest#getstatusby-date---undefined--date---undefined--orchestrationruntimestatus---) (Java Script) för att hämta en lista över Dirigerings instanser som matchar en uppsättning fördefinierade filter.
+Använd metoden [ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync?view=azure-dotnet#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.net) eller [getStatusBy](/javascript/api/durable-functions/durableorchestrationclient?view=azure-node-latest#getstatusby-date---undefined--date---undefined--orchestrationruntimestatus---) (Java Script) för att hämta en lista över Dirigerings instanser som matchar en uppsättning fördefinierade filter.
 
 # <a name="c"></a>[C#](#tab/csharp)
 

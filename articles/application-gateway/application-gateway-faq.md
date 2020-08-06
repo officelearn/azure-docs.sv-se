@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 8db47cd94f508803964398f19353e79f3d93d92a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d76506141b2563b3ae8d5779e774ad564022494d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506578"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810011"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -353,7 +353,7 @@ Application Gateway detaljerad information finns under
 Om du använder ett certifikat som utfärdats av en av de återkallade ICAs kan programmets tillgänglighet avbrytas och beroende på ditt program kan du få en rad fel meddelanden, inklusive men inte begränsat till: 
 
 1.  Ogiltigt certifikat/återkallat certifikat
-2.  Tids gränsen för anslutningen uppnåddes
+2.  Anslutningens tidsgräns uppnåddes
 3.  HTTP 502
 
 För att undvika avbrott i ditt program på grund av det här problemet, eller för att utfärda en certifikat utfärdare som har återkallats, måste du vidta följande åtgärder: 
@@ -466,30 +466,6 @@ Ja. Om konfigurationen matchar följande scenario visas inte tillåten trafik i 
 - Du har distribuerat Application Gateway v2
 - Du har en NSG på Application Gateway-undernätet
 - Du har aktiverat NSG Flow-loggar på den NSG
-
-### <a name="how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address"></a>Hur gör jag för att använda Application Gateway v2 med endast en privat klient dels-IP-adress?
-
-Application Gateway v2 stöder för närvarande inte enbart privat IP-läge. Det stöder följande kombinationer
-* Privat IP och offentlig IP
-* Endast offentlig IP
-
-Men om du vill använda Application Gateway v2 med endast privat IP kan du följa stegen nedan:
-1. Skapa en Application Gateway med både offentlig och privat klient dels-IP-adress
-2. Skapa inga lyssnare för den offentliga IP-adressen för klient delen. Application Gateway lyssnar inte på någon trafik på den offentliga IP-adressen om inga lyssnare har skapats för den.
-3. Skapa och koppla en [nätverks säkerhets grupp](https://docs.microsoft.com/azure/virtual-network/security-overview) för Application Gateway under nätet med följande konfiguration i prioritetsordning:
-    
-    a. Tillåt trafik från källa som **GatewayManager** service tag och destination som **valfri** port och målport som **65200-65535**. Det här port intervallet krävs för kommunikation mellan Azure-infrastrukturen. Dessa portar är skyddade (låsta) av certifikatautentisering. Externa entiteter, inklusive Gateway-användarens administratörer, kan inte påbörja ändringar av dessa slut punkter utan lämpliga certifikat på plats
-    
-    b. Tillåt trafik från källa som **AzureLoadBalancer** service tag och målport som **alla**
-    
-    c. Neka all inkommande trafik från källan som **Internet** service tag och målport som **de**ska. Ge den här regeln *lägst prioritet* i reglerna för inkommande trafik
-    
-    d. Behåll standard reglerna som att tillåta VirtualNetwork inkommande så att åtkomsten till den privata IP-adressen inte är blockerad
-    
-    e. Det går inte att blockera utgående Internet anslutning. Annars är det problem med loggning, mått och så vidare.
-
-Exempel på NSG-konfiguration för privat IP-åtkomst: ![ Application Gateway v2 NSG-konfiguration endast för privat IP-åtkomst](./media/application-gateway-faq/appgw-privip-nsg.png)
-
 
 ## <a name="next-steps"></a>Nästa steg
 

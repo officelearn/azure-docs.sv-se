@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9c7c1000ed5229886d4a964161042eca6517c230
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: d0bca2ad14216873836c751dc002ea915baa3a66
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367445"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800491"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integrera Azure Digitals dubbla med andra tjänster
 
@@ -33,7 +33,7 @@ Azure Digitals dubbla, kan skicka data till anslutna **slut punkter**. Slut punk
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Slut punkter är kopplade till Azure Digitals dubbla med hanterings-API: er eller Azure Portal. Lär dig mer om hur du ansluter en slut punkt till Azure Digitals dubbla i [*anvisningar: hantera slut punkter och vägar*](how-to-manage-routes.md).
+Slut punkter är kopplade till Azure Digitals dubbla med hanterings-API: er eller Azure Portal. Lär dig mer om hur du ansluter en slut punkt till Azure Digitals dubbla i [*anvisningar: hantera slut punkter och vägar*](how-to-manage-routes-apis-cli.md).
 
 Det finns många andra tjänster där du kanske vill dirigera dina data i slut ändan, till exempel [Azure Storage](../storage/common/storage-introduction.md) eller [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md). Om du vill skicka dina data till tjänster som de här kan du koppla mål tjänsten till en slut punkt.
 

@@ -6,16 +6,16 @@ author: shizn
 manager: philmea
 ms.reviewer: kgremban
 ms.author: xshi
-ms.date: 10/14/2019
+ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 27487893e01e99ccb1164e8c9326ee269c1f1dcd
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 46e5a2119f05f3b4062044533352a6976a4ae4d8
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439596"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808789"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Självstudie: utveckla och distribuera en python IoT Edge-modul för Linux-enheter
 
@@ -40,7 +40,7 @@ Den här självstudien visar hur du utvecklar en modul i **python** med **Visual
 
 Använd följande tabell för att förstå alternativen för att utveckla och distribuera python-moduler till Linux:
 
-| Python | Visuell Studio-kod | Visual Studio 2017/2019 |
+| Python | Visual Studio-koden | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Använda VS Code för python-moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Använda VS Code för python-moduler på Linux ARM32](./media/tutorial-c-module/green-check.png) |  |

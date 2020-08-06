@@ -16,7 +16,7 @@
     - name: Skapa funktion
       expanded: true
       items:
-        - name: Visual Studio Code
+        - name: Visual Studio-koden
           href: ./functions-create-first-function-vs-code.md
         - name: Visual Studio
           href: functions-create-your-first-function-visual-studio.md
@@ -27,7 +27,7 @@
           href: functions-create-first-function-resource-manager.md
     - name: Ansluta till lagring
       items:
-        - name: Visual Studio Code
+        - name: Visual Studio-koden
           href: functions-add-output-binding-storage-queue-vs-code.md
         - name: Visual Studio
           href: functions-add-output-binding-storage-queue-vs.md
@@ -263,7 +263,7 @@
         - name: Lokala funktioner
           href: functions-runtime-install.md
         - name: Distribuera med hjälp av Jenkins-pluginprogrammet
-          href: /azure/jenkins/jenkins-azure-functions-deploy
+          href: /azure/developer/jenkins/deploy-to-azure-functions
           maintainContext: true
     - name: Konfigurera
       items:

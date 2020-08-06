@@ -2,7 +2,7 @@
 title: Vad är Azure Active Directory? - Azure Active Directory | Microsoft Docs
 description: Översikt och konceptuell information om Azure Active Directory, inklusive terminologi, vilka licenser som är tillgängliga och en lista med tillhör ande funktioner med länkar för mer information.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddfb0343e925354a57a54e02f3eb98b7a1d01bcb
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bd63e82788856624c3babe078de52e698f190ce0
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495122"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796633"
 ---
 # <a name="what-is-azure-active-directory"></a>Vad är Azure Active Directory?
 

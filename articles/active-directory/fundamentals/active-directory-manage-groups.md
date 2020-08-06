@@ -2,7 +2,7 @@
 title: Hantera app & Resource Access med grupper – Azure AD
 description: Lär dig mer om hur du hanterar åtkomst till din organisations molnbaserade appar, lokala appar och resurser med hjälp av Azure Active Directory grupper.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89c4fa536994ecc8cecb50c907d43df2110be7df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25dace3ad7d467d6add236782c5e39f85d6462a6
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80982607"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797315"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Hantera app- och resursåtkomst med Azure Active Directory-grupper
 Azure Active Directory (Azure AD) låter dig använda grupper för att hantera åtkomst till dina molnbaserade appar, lokala appar och dina resurser. Dina resurser kan vara en del av Azure AD-organisationen, till exempel behörigheter för att hantera objekt via roller i Azure AD eller utanför organisationen, till exempel för SaaS-appar (program vara som en tjänst), Azure-tjänster, SharePoint-webbplatser och lokala resurser.

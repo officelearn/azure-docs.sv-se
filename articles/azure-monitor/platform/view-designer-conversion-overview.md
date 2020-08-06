@@ -5,26 +5,17 @@ author: austonli
 ms.author: aul
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 02/07/2020
-ms.openlocfilehash: 977dcc71fd25b19e09cfa9126bf01d380f581aca
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/04/2020
+ms.openlocfilehash: 19fd1d064a3f106d7b770481d1e456c51cf1e166
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289113"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759435"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Azure Monitor Visa designer till arbets böcker över gångs guide
-[View Designer](view-designer.md) är en funktion i Azure Monitor som gör att du kan skapa anpassade vyer som hjälper dig att visualisera data i arbets ytan Log Analytics, med diagram, listor och tids linjer. De fasas ut och ersätts med arbets böcker som tillhandahåller ytterligare funktioner. Den här artikeln innehåller en översikt över processen för att konvertera dina befintliga vyer till arbets böcker.
+[View Designer](view-designer.md) är en funktion i Azure Monitor som gör att du kan skapa anpassade vyer som hjälper dig att visualisera data i arbets ytan Log Analytics, med diagram, listor och tids linjer. De har överförts till arbets böcker för att tillhandahålla en flexibel arbets yta för data analys och skapandet av omfattande visuella rapporter i Azure Portal. Den här artikeln hjälper dig att göra över gången från Visa designer till arbets böcker. 
 
-## <a name="retirement-schedule"></a>Schema för pensionering
-
-| Ändra | Vad det innebär | Förväntat datum |
-|:---|:---|:---|
-| Inaktivera skapandet av nya vyer som skapats via Visa designer. | Du kommer inte längre att kunna skapa och spara nya anpassade vyer i Azure Portal.| November 2020 |
-| Inaktivera redigerings funktionen för befintliga vyer med View Designer. | Du kommer inte längre att kunna ändra och spara ändringar i dina befintliga anpassade vyer. | November 2020 |
-| Inaktivera distribution av vyer till Log Analytics arbets ytor | Du kommer inte längre att kunna distribuera anpassade vyer med ARM to Log Analytics-arbetsytor. | Mars 2021 |
-| Visa designer är inte längre tillgängligt i Azure Portal | Portal upplevelsen kommer inte längre att ha stöd för View Designer. | 2021 juni |
-| Anpassade vyer tas bort från arbets ytans Sammanfattning | Du kommer inte längre att kunna komma åt dina anpassade visnings data. | December 2021 |
 
 ## <a name="workbooks-overview"></a>Översikt över arbets böcker
 [Arbets böcker](../insights/vminsights-workbooks.md) kombinerar text, [logg frågor](../log-query/query-language.md), mått och parametrar till omfattande interaktiva rapporter. Grupp medlemmar med samma åtkomst till Azure-resurser kan också redigera arbets böcker.

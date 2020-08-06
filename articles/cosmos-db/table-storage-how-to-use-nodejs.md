@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 9404232533ae86e14f9b87c65fdd086f84e8aebb
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 6a9a3df1d200aae9e5ea401652752656ed9ff423
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87414011"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760982"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Använda Azure Table Storage eller Azure Cosmos DB Table-API:et från Node.js
 
@@ -81,7 +81,7 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 
 ### <a name="add-an-azure-cosmos-db-connection"></a>Lägga till en Azure Cosmos DB-anslutning
 
-Om du vill lägga till en Azure Cosmos DB anslutning skapar du ett- `TableService` objekt och anger ditt konto namn, primär nyckel och slut punkt. Du kan kopiera dessa värden från **Inställningar**  >  **anslutnings sträng** i Azure Portal för ditt Cosmos DB-konto. Ett exempel:
+Om du vill lägga till en Azure Cosmos DB anslutning skapar du ett- `TableService` objekt och anger ditt konto namn, primär nyckel och slut punkt. Du kan kopiera dessa värden från **Inställningar**  >  **anslutnings sträng** i Azure Portal för ditt Cosmos DB-konto. Exempel:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -123,7 +123,7 @@ function (returnObject, finalCallback, next)
 
 I det här återanropet, och efter bearbetning av `returnObject` (svaret från begäran till servern), måste återanropet antingen anropa `next` om det finns för att fortsätta att bearbeta andra filter eller bara anropa `finalCallback` för att avsluta tjänst anropet.
 
-Två filter som implementerar logik för omprövning ingår i Azure SDK för Node.js `ExponentialRetryPolicyFilter** and ` LinearRetryPolicyFilter `. The following creates a ` TableService ` object that uses the ` ExponentialRetryPolicyFilter ':
+Två filter som implementerar logik för omprövning ingår i Azure SDK för Node.js `ExponentialRetryPolicyFilter` och `LinearRetryPolicyFilter` . Följande skapar ett- `TableService` objekt som använder `ExponentialRetryPolicyFilter` :
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -211,7 +211,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > När du uppdaterar en entitet utförs ingen kontroll som standard för att se om de data som uppdateras har ändrats tidigare av en annan process. Om du vill använda samtidiga uppdateringar:
 >
 > 1. Hämta ETag för objektet som uppdateras. Värdet returneras som en del av `response` för entitetsrelaterade åtgärder och kan hämtas via `response['.metadata'].etag`.
-> 2. När du utför en uppdateringsåtgärd för en entitet lägger du till ETag-informationen som du hämtade till den nya entiteten. Ett exempel:
+> 2. När du utför en uppdateringsåtgärd för en entitet lägger du till ETag-informationen som du hämtade till den nya entiteten. Exempel:
 >
 >       entity2['.metadata'].etag = currentEtag;
 > 3. Kör uppdateringsåtgärden. Om entiteten har ändrats sedan du hämtade ETag-värdet, till exempel en annan instans av programmet, returneras `error` och anger att uppdateringsvillkoret som angavs i begäran inte uppfylldes.

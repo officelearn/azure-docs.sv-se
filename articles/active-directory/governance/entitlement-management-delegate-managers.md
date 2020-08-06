@@ -3,7 +3,7 @@ title: Delegera åtkomst styrning för åtkomst till paket hanterare i Azure AD-
 description: Lär dig hur du delegerar åtkomst styrning från IT-administratörer till att komma åt paket hanterare och projekt hanterare så att de kan hantera åtkomst själva.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7acea7503e5cdde9ff55c27f16351b21453fe521
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e81389ec953829115062a31a019caf040850cbea
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078342"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798652"
 ---
 # <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management"></a>Delegera åtkomst styrning för att få åtkomst till paket hanterare i Azure AD-hantering av rättigheter
 

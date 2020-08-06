@@ -4,38 +4,38 @@ description: Lär dig hur du konfigurerar en Azure Notification Hub med Google F
 services: notification-hubs
 author: sethmanheim
 manager: femila
-editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 08/04/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 1adbce654bc5c057270df9a874911731a0135034
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0da103c11e2412108535ca322917632f5d95559d
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80127477"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760846"
 ---
 # <a name="configure-google-firebase-settings-for-a-notification-hub-in-the-azure-portal"></a>Konfigurera Google Firebase-inställningar för en Notification Hub i Azure Portal
 
 Den här artikeln visar hur du konfigurerar inställningar för Google Firebase Cloud Messaging (FCM) för en Azure Notification Hub med hjälp av Azure Portal.  
 
 ## <a name="prerequisites"></a>Förutsättningar
-Om du inte redan har skapat en Notification Hub skapar du ett nu. Mer information finns i [skapa en Azure Notification Hub i Azure Portal](create-notification-hub-portal.md). 
+
+Om du inte redan har skapat en Notification Hub skapar du ett nu. Mer information finns i [skapa en Azure Notification Hub i Azure Portal](create-notification-hub-portal.md).
 
 ## <a name="configure-google-firebase-cloud-messaging-fcm"></a>Konfigurera Google Firebase Cloud Messaging (FCM)
 
-Följande procedur visar hur du konfigurerar inställningar för Google Firebase Cloud Messaging (FCM) för en Notification Hub: 
+Följande procedur beskriver stegen för att konfigurera inställningar för Google Firebase Cloud Messaging (FCM) för en Notification Hub:
 
-1. I Azure Portal på sidan **Notification Hub** väljer du **Google (GCM/FCM)** på den vänstra menyn. 
-2. Klistra in **API-nyckeln** för det FCM-projekt som du sparade tidigare. 
-3. Välj **Spara**. 
+1. I Azure Portal på sidan **Notification Hub** väljer du **Google (GCM/FCM)** på den vänstra menyn.
+2. Klistra in **API-nyckeln** för det FCM-projekt som du sparade tidigare.
+3. Välj **Spara**.
 
    ![Skärm bild som visar hur du konfigurerar Notification Hubs för Google FCM](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
 
 ## <a name="next-steps"></a>Nästa steg
-En själv studie kurs med stegvisa instruktioner för att skicka meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Firebase Cloud Messaging finns i [push-meddelanden till Android-enheter med Notification Hubs och Google FCM](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
+En själv studie kurs med stegvisa instruktioner för att skicka meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Firebase Cloud Messaging finns i [skicka push-meddelanden till Android-enheter med Notification Hubs och Google FCM](notification-hubs-android-push-notification-google-fcm-get-started.md).

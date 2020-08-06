@@ -1,24 +1,24 @@
 ---
 title: Stöd för Network File System 3,0 i Azure Blob Storage (för hands version) | Microsoft Docs
-description: Blob Storage stöder nu NFS-protokollet (Network File System) 3,0. Det här stödet gör att Linux-klienter kan montera en behållare i Blob Storage från en virtuell Azure-dator (VM) eller en lokal dator.
+description: Blob Storage stöder nu NFS-protokollet (Network File System) 3,0. Det här stödet gör att Windows-och Linux-klienter kan montera en behållare i Blob Storage från en virtuell Azure-dator (VM) eller en dator som körs lokalt.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: ab8d262e4eac08ce21b7ad01402c3608d52a1aab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 32eafc41451c42a9c929e94d30450b923e7eae83
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372900"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760931"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>NFS (Network File System) 3,0 protokoll stöd i Azure Blob Storage (för hands version)
 
-Blob Storage stöder nu NFS-protokollet (Network File System) 3,0. Det här stödet gör att Linux-klienter kan montera en behållare i Blob Storage från en virtuell Azure-dator (VM) eller en lokal dator. 
+Blob Storage stöder nu NFS-protokollet (Network File System) 3,0. Det här stödet gör att Windows-eller Linux-klienter kan montera en behållare i Blob Storage från en virtuell Azure-dator (VM) eller en lokal dator. 
 
 > [!NOTE]
 > NFS 3,0 protokoll stöd i Azure Blob Storage finns i offentlig för hands version och är tillgängligt i följande regioner: USA, östra, USA, centrala och Kanada, centrala.
@@ -41,7 +41,7 @@ För att montera en lagrings konto behållare måste du göra detta.
 
 7. Montera behållaren.
 
-Steg-för-steg-anvisningar finns i [montera Blob Storage på Linux med hjälp av Network File System (NFS) 3,0-protokollet (för hands version)](network-file-system-protocol-support-how-to.md).
+Steg-för-steg-anvisningar finns i [montera Blob Storage med hjälp av Network File System (NFS) 3,0-protokollet (för hands version)](network-file-system-protocol-support-how-to.md).
 
 > [!IMPORTANT]
 > Det är viktigt att slutföra dessa uppgifter i rätt ordning. Du kan inte montera behållare som du skapar innan du aktiverar NFS 3,0-protokollet på ditt konto. När du har aktiverat NFS 3,0-protokollet på ditt konto kan du också inaktivera det.
@@ -105,7 +105,7 @@ Följande NFS 3,0-funktioner stöds ännu inte med Azure Data Lake Storage Gen2.
 
 - Exportera en behållare som skrivskyddad
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 Under för hands versionen debiteras de data som lagras i ditt lagrings konto med samma kapacitets taxa som Blob Storage-avgifter per GB per månad. 
 
@@ -113,7 +113,7 @@ En transaktion debiteras inte under för hands versionen. Prissättningen för t
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att komma igång, se [montera Blob Storage på Linux med hjälp av Network File System (NFS) 3,0-protokollet (för hands version)](network-file-system-protocol-support-how-to.md).
+För att komma igång, se [montera Blob Storage med hjälp av Network File System (NFS) 3,0-protokollet (för hands version)](network-file-system-protocol-support-how-to.md).
 
 
 

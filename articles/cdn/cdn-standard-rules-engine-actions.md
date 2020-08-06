@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 11/01/2019
+ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: 29138b4fc6716ae5361cc4d7f97ceba41b90c2da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 051737a9f5e0d4092cda26a3f7ce3df1d7f535ef
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259960"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760132"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Åtgärder i standard regel motorn för Azure CDN
 
@@ -33,8 +33,8 @@ Använd den här åtgärden om du vill skriva över TTL-värdet (Time to Live) f
 Cache-beteende |  Beskrivning              
 ---------------|----------------
 Kringgå cacheminne | När det här alternativet är markerat och regeln matchar cachelagras inte innehållet.
-Åsidosätt | När det här alternativet är markerat och regeln matchar, skrivs det TTL-värde som returneras från ditt ursprung över med det värde som anges i åtgärden.
-Ange om det saknas | När det här alternativet är markerat och regeln matchar, om inget TTL-värde returnerades från ditt ursprung, anger regeln TTL till det värde som angavs i åtgärden.
+Åsidosätt | När det här alternativet är markerat och regeln matchar, skrivs det TTL-värde som returneras från ditt ursprung över med det värde som anges i åtgärden. Detta beteende gäller endast om svaret är cacheable. För Cache-Control-svarshuvuden med värden "no-cache", "privat", "No-Store", är åtgärden inte tillämplig.
+Ange om det saknas | När det här alternativet är markerat och regeln matchar, om inget TTL-värde returnerades från ditt ursprung, anger regeln TTL till det värde som angavs i åtgärden. Detta beteende gäller endast om svaret är cacheable. För Cache-Control-svarshuvuden med värden "no-cache", "privat", "No-Store", är åtgärden inte tillämplig.
 
 #### <a name="additional-fields"></a>Ytterligare fält
 
@@ -61,7 +61,7 @@ Använd den här åtgärden för att ändra rubriker som finns i begär Anden so
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Åtgärd | Namn på HTTP-huvud | Värde
+Action | Namn på HTTP-huvud | Värde
 -------|------------------|------
 Lägg till | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i begäran med det angivna värdet. Om rubriken redan finns läggs värdet till i det befintliga värdet. | Sträng
 Skriv över | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i begäran med det angivna värdet. Om rubriken redan finns skriver det angivna värdet över det befintliga värdet. | Sträng
@@ -73,7 +73,7 @@ Använd den här åtgärden för att ändra huvuden som finns i svar som returne
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Åtgärd | Namn på HTTP-huvud | Värde
+Action | Namn på HTTP-huvud | Värde
 -------|------------------|------
 Lägg till | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i svaret med hjälp av det angivna **värdet**. Om rubriken redan finns läggs **värdet** till i det befintliga värdet. | Sträng
 Skriv över | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i svaret med hjälp av det angivna **värdet**. Om rubriken redan finns skriver **värdet** över det befintliga värdet. | Sträng

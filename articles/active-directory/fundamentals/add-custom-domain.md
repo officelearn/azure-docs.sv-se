@@ -2,7 +2,7 @@
 title: Lägg till din anpassade domän – Azure Active Directory | Microsoft Docs
 description: Anvisningar om hur du lägger till en anpassad domän med hjälp av Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cfa00cceac6c30219d4577cc4ba29c84cb1a75a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8035744cd7ff7bb3d8347a7d26796531a666bbd
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603969"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796819"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Lägg till ditt anpassade domän namn med hjälp av Azure Active Directory portalen
 
@@ -54,7 +54,7 @@ När du har skapat din katalog kan du lägga till ditt anpassade domän namn.
 
     ![Sidan anpassade domän namn med Lägg till anpassad domän visas](media/add-custom-domain/add-custom-domain.png)
 
-1. I **eget domän namn**anger du organisationens nya namn, i det här exemplet *contoso.com*. Välj **Add domain** (Lägg till domän).
+1. I **eget domän namn**anger du organisationens nya namn, i det här exemplet *contoso.com*. Välj **Lägg till domän**.
 
     ![Sidan anpassade domän namn med sidan Lägg till anpassad domän](media/add-custom-domain/add-custom-domain-blade.png)
 
@@ -65,7 +65,7 @@ När du har skapat din katalog kan du lägga till ditt anpassade domän namn.
 
     ![Contoso-sidan med DNS-postinformation](media/add-custom-domain/contoso-blade-with-dns-info.png)
 
-## <a name="add-your-dns-information-to-the-domain-registrar"></a>Lägg till din DNS-information till domän registratorn
+## <a name="add-your-dns-information-to-the-domain-registrar"></a>Lägg till DNS-informationen hos domänregistratorn
 
 När du har lagt till ditt anpassade domän namn i Azure AD måste du gå tillbaka till domän registratorn och lägga till Azure AD DNS-information från den kopierade TXT-filen. Om du skapar den här TXT-posten för din domän verifieras ägarskapet för ditt domän namn.
 

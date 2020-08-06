@@ -6,12 +6,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: b3579d12981e2b0add916a280bac7b4f9392d8ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a25a40346d588f56028bf08294b070823b729e25
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80803151"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760149"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Snabb start: Lägg till funktions flaggor i en ASP.NET Core app
 
@@ -19,7 +19,7 @@ I den här snabb starten skapar du en end-to-end-implementering av funktions han
 
 Biblioteken för .NET Core Feature Management utökar ramverket med omfattande stöd för funktions flaggor. Dessa bibliotek skapas ovanpå konfigurations systemet för .NET Core. De integreras sömlöst med app-konfigurationen via sin .NET Core-Konfigurationsprovider.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [.Net Core SDK](https://dotnet.microsoft.com/download).
@@ -28,7 +28,7 @@ Biblioteken för .NET Core Feature Management utökar ramverket med omfattande s
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **funktions hanteraren** > **+ Lägg** till för att lägga till en `Beta`funktions flagga som kallas.
+6. Välj **funktions hanteraren**  >  **+ Lägg** till för att lägga till en funktions flagga som kallas `Beta` .
 
     > [!div class="mx-imgBorder"]
     > ![Aktivera funktions flagga med namnet beta](media/add-beta-feature-flag.png)
@@ -49,11 +49,11 @@ Använd [.net Core kommando rads gränssnitt (CLI)](https://docs.microsoft.com/d
 
 ## <a name="add-secret-manager"></a>Lägga till Secret Manager
 
-Om du vill använda Secret Manager lägger `UserSecretsId` du till ett-element i *. CSPROJ* -filen.
+Om du vill använda Secret Manager lägger du till ett- `UserSecretsId` element i *. CSPROJ* -filen.
 
 1. Öppna *. CSPROJ* -filen.
 
-1.  Lägg till `UserSecretsId` ett-element som det visas här. Du kan använda samma GUID, eller så kan du ersätta det här värdet med ditt eget.
+1.  Lägg till ett- `UserSecretsId` element som det visas här. Du kan använda samma GUID, eller så kan du ersätta det här värdet med ditt eget.
 
     > [!IMPORTANT]
     > `CreateHostBuilder`ersätter `CreateWebHostBuilder` i .net Core 3,0.  Välj rätt syntax baserat på din miljö.
@@ -99,7 +99,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
 
 ## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
 
-1. Lägg till referens till `Microsoft.Azure.AppConfiguration.AspNetCore` `Microsoft.FeatureManagement.AspNetCore` NuGet-paketen genom att köra följande kommandon:
+1. Lägg till referens till `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet- `Microsoft.FeatureManagement.AspNetCore` paketen genom att köra följande kommandon:
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
@@ -126,7 +126,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
 
     Du kan komma åt den här hemligheten med appens Konfigurations-API. Ett kolon (:) fungerar i konfigurations namnet med appens Konfigurations-API på alla plattformar som stöds. Se [konfiguration efter miljö](https://docs.microsoft.com/aspnet/core/fundamentals/configuration).
 
-1. I *program.cs*uppdaterar du `CreateWebHostBuilder` metoden för att använda app-konfiguration genom att `config.AddAzureAppConfiguration()` anropa metoden.
+1. I *program.cs*uppdaterar du `CreateWebHostBuilder` metoden för att använda app-konfiguration genom att anropa `config.AddAzureAppConfiguration()` metoden.
 
     > [!IMPORTANT]
     > `CreateHostBuilder`ersätter `CreateWebHostBuilder` i .net Core 3,0.  Välj rätt syntax baserat på din miljö.
@@ -171,7 +171,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
     using Microsoft.FeatureManagement;
     ```
 
-1. Uppdatera `ConfigureServices` metoden för att lägga till stöd för funktions flaggor genom `services.AddFeatureManagement()` att anropa metoden. Du kan också ta med alla filter som ska användas med funktions flaggor genom att anropa `services.AddFeatureFilter<FilterType>()`:
+1. Uppdatera `ConfigureServices` metoden för att lägga till stöd för funktions flaggor genom att anropa `services.AddFeatureManagement()` metoden. Du kan också ta med alla filter som ska användas med funktions flaggor genom att anropa `services.AddFeatureFilter<FilterType>()` :
 
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
     ```csharp
@@ -186,7 +186,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
-        services.AddFeatureManagement();
+        services.AddSingleton(Configuration).AddFeatureManagement();
     }
 
     ---
@@ -288,7 +288,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Öppna *_Layout. cshtml* i den *Views*\\*delade* katalogen för `<nav>` vyer och ersätt streckkoden under `<body>`  >  `<header>` med följande kod:
+1. Öppna *_Layout. cshtml* i den *Views* \\ *delade* katalogen för vyer och Ersätt `<nav>` streckkoden under `<body>`  >  `<header>` med följande kod:
 
     ```html
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -343,7 +343,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
     dotnet run
     ```
 
-1. Öppna ett webbläsarfönster och gå till `https://localhost:5000`, vilket är standard-URL: en för webbappen som finns lokalt.
+1. Öppna ett webbläsarfönster och gå till `https://localhost:5000` , vilket är standard-URL: en för webbappen som finns lokalt.
     Om du arbetar i Azure Cloud Shell väljer du knappen för *förhands granskning* följt av *Konfigurera*.  När du uppmanas väljer du port 5000.
 
     ![Leta upp knappen Förhandsgranska för webben](./media/quickstarts/cloud-shell-web-preview.png)
@@ -355,7 +355,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
 
 1. Välj **funktions hanteraren**och ändra statusen för **beta** nyckeln till **på**.
 
-1. Återgå till kommando tolken och Avbryt processen som `dotnet` körs genom att `Ctrl-C`trycka på.  Starta om programmet med `dotnet run`.
+1. Återgå till kommando tolken och Avbryt `dotnet` processen som körs genom att trycka på `Ctrl-C` .  Starta om programmet med `dotnet run` .
 
 1. Uppdatera webbläsarsidan för att visa de nya konfigurationsinställningarna.
 

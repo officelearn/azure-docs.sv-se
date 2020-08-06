@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
-ms.openlocfilehash: a0946da7ff516aa241a0c6d845723c43618ce70e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1b8c432673712b637d51a64ce87b4eb2131be7d
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809483"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760421"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Vanliga frågor och svar om Azures front dörr
 
@@ -30,7 +30,7 @@ I den här artikeln besvaras vanliga frågor om funktioner och funktioner i Azur
 
 ### <a name="what-is-azure-front-door"></a>Vad är Azure Front Door?
 
-Azures front dörr är en Application Delivery Network (och) som en tjänst som erbjuder olika belastnings Utjämnings funktioner i Layer 7 för dina program. Den tillhandahåller en dynamisk webbplats acceleration (DSA) tillsammans med global belastnings utjämning med nästan real tids redundans. Tjänsten är en hög tillgänglig och skalbar tjänst som hanteras helt av Azure.
+Azures front dörr är en Application Delivery Network (och) som en tjänst som erbjuder olika belastnings Utjämnings funktioner i Layer 7 för dina program. Den erbjuder acceleration av dynamisk webbplats tillsammans med global belastningsutjämning med redundansväxling nästan i realtid. Tjänsten har hög tillgänglighet och skalbarhet, och hanteras helt av Azure.
 
 ### <a name="what-features-does-azure-front-door-support"></a>Vilka funktioner stöder Azures frontend-dörr?
 
@@ -159,9 +159,12 @@ För alternativet klient som hanteras av den främre dörren, roteras certifikat
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door"></a>Vilka är de aktuella chiffersviter som stöds av Azures frontend-dörr?
 
-Följande chiffersviter stöds för TLS 1.2
+Följande chiffersviter stöds för TLS 1.2: 
 
-TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 
 När du använder anpassade domäner med TLS 1.0/1.1 aktiverat kan följande chiffersviter användas:
 

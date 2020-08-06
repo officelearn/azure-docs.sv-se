@@ -1,24 +1,24 @@
 ---
-title: Montera Azure Blob Storage i Linux med NFS 3,0-protokollet (för hands version) | Microsoft Docs
-description: Lär dig hur du monterar en behållare i Blob Storage från en Linux-baserad virtuell Azure-dator (VM) eller ett Linux-system som körs lokalt med hjälp av NFS 3,0-protokollet.
+title: Montera Azure Blob Storage med hjälp av NFS 3,0-protokollet (för hands version) | Microsoft Docs
+description: Lär dig hur du monterar en behållare i Blob Storage från en virtuell Azure-dator (VM) eller en klient som körs lokalt med hjälp av NFS 3,0-protokollet.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: d3907967572b22e7a70316080b08a4368a9805ce
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 2517a0ac8edf30ac041708a57b166af6eb36440a
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372917"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760810"
 ---
-# <a name="mount-blob-storage-on-linux-using-the-network-file-system-nfs-30-protocol-preview"></a>Montera Blob Storage i Linux med hjälp av Network File System (NFS) 3,0-protokollet (för hands version)
+# <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montera Blob Storage med hjälp av Network File System (NFS) 3,0-protokollet (för hands version)
 
-Du kan montera en behållare i Blob Storage från en Linux-baserad virtuell dator i Azure eller ett Linux-system som körs lokalt med hjälp av NFS 3,0-protokollet. Den här artikeln innehåller steg-för-steg-anvisningar. Om du vill veta mer om NFS 3,0 protokoll stöd i Blob Storage, se [Network File System (NFS) stöd för 3,0-protokoll i Azure Blob Storage (för hands version)](network-file-system-protocol-support.md).
+Du kan montera en behållare i Blob Storage från en Windows-eller Linux-baserad virtuell Azure-dator (VM) eller ett Windows-eller Linux-system som körs lokalt med hjälp av NFS 3,0-protokollet. Den här artikeln innehåller steg-för-steg-anvisningar. Om du vill veta mer om NFS 3,0 protokoll stöd i Blob Storage, se [Network File System (NFS) stöd för 3,0-protokoll i Azure Blob Storage (för hands version)](network-file-system-protocol-support.md).
 
 > [!NOTE]
 > NFS 3,0 protokoll stöd i Azure Blob Storage finns i offentlig för hands version och är tillgängligt i följande regioner: USA, östra, USA, centrala och Kanada, centrala.
@@ -90,9 +90,9 @@ I för hands versionen av den här funktionen stöds NFS 3,0-protokollet endast 
 
 När du konfigurerar kontot väljer du dessa värden:
 
-|Inställningen | Värde|
+|Inställning | Värde|
 |----|---|
-|Position|En av följande regioner: USA, östra, USA, centrala och Kanada, centrala |
+|Plats|En av följande regioner: USA, östra, USA, centrala och Kanada, centrala |
 |Prestanda|Premium|
 |Typ av konto|BlockBlobStorage|
 |Replikering|Lokalt redundant lagring (LRS)|
@@ -109,13 +109,17 @@ Skapa en behållare i ditt lagrings konto genom att använda något av dessa ver
 
 |Verktyg|SDK:er|
 |---|---|
-|[Azure Lagringsutforskaren](data-lake-storage-explorer.md#create-a-container)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
+|[Azure Storage Explorer](data-lake-storage-explorer.md#create-a-container)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
 |[Azure-portalen](https://portal.azure.com)|[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
 
 ## <a name="step-7-mount-the-container"></a>Steg 7: montera behållaren
+
+Skapa en katalog på ditt Windows-eller Linux-system och montera sedan en behållare i lagrings kontot.
+
+### <a name="linux"></a>[Linux](#tab/linux)
 
 1. Skapa en katalog på ett Linux-system.
 
@@ -133,12 +137,31 @@ Skapa en behållare i ditt lagrings konto genom att använda något av dessa ver
 
    - Ersätt `<container-name>` plats hållaren med namnet på din behållare.
 
+
+### <a name="windows"></a>[Windows](#tab/windows)
+
+1. Öppna dialog rutan **Windows-funktioner** och aktivera sedan funktionen **klient för NFS** . 
+
+   ![Funktionen klient för Network File System](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
+
+2. Montera en behållare med hjälp av [monterings](https://docs.microsoft.com/windows-server/administration/windows-commands/mount) kommandot.
+
+   ```
+   mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
+   ```
+
+   - Ersätt `<storage-account-name>` plats hållaren som visas i det här kommandot med namnet på ditt lagrings konto.  
+
+   - Ersätt `<container-name>` plats hållaren med namnet på din behållare.
+
+---
+
 ## <a name="resolve-common-issues"></a>Lös vanliga problem
 
 |Problem/fel | Lösning|
 |---|---|
-|`Access denied by server while mounting`|Kontrol lera att klienten körs inom ett undernät som stöds. Se de [nätverks platser som stöds](network-file-system-protocol-support.md#supported-network-connections).|
-|`No such file or directory`| Se till att den behållare som du monterade har skapats efter att du verifierat att funktionen har registrerats. Se [steg 2: kontrol lera att funktionen har registrerats](#step-2-verify-that-the-feature-is-registered). Se också till att ange monterings kommandot och dess parametrar direkt i terminalen. Om du kopierar och klistrar in någon del av det här kommandot i terminalen från ett annat program kan dolda tecken i inklistrad information orsaka att det här felet visas.|
+|`Access denied by server while mounting`|Se till att klienten körs i ett undernät som stöds. Se de [nätverks platser som stöds](network-file-system-protocol-support.md#supported-network-connections).|
+|`No such file or directory`| Se till att containern du monterar skapades efter att du verifierade att funktionen hade registrerats. Se [steg 2: kontrol lera att funktionen har registrerats](#step-2-verify-that-the-feature-is-registered). Se också till att ange monterings kommandot och dess parametrar direkt i terminalen. Om du kopierar och klistrar in någon del av kommandot i terminalen från ett annat program kan det finnas dolda tecken i den inklistrade informationen som orsakar felet.|
 
 ## <a name="see-also"></a>Se även
 

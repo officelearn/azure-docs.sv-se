@@ -2,7 +2,7 @@
 title: Snabb start – åtkomst & skapa ny klient organisation – Azure AD
 description: Instruktioner om hur du hittar Azure Active Directory och hur du skapar en ny klient för din organisation.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -12,19 +12,19 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f29d103ce1be426fb0b5c462cc1d831fefe87b6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f658b5670c42ab03770a3082f8eca740f6869dc3
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80049993"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797652"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Snabb start: skapa en ny klient i Azure Active Directory
 Du kan utföra alla administrativa aktiviteter med hjälp av Azure Active Directory (Azure AD)-portalen, inklusive att skapa en ny klient för din organisation. 
 
 I den här snabbstarten får du lära dig hur du kommer till Azure-portalen och Azure Active Directory och du får lära dig hur du skapar en grundläggande klient för din organisation.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="create-a-new-tenant-for-your-organization"></a>Så här skapar du en ny klient för din organisation
 När du har loggat in på Azure-portalen kan du skapa en ny klient för din organisation. Den nya klientorganisationen representerar din organisation och hjälper dig att hantera en specifik instans av Microsoft-molntjänster för dina interna och externa användare.
@@ -33,7 +33,7 @@ När du har loggat in på Azure-portalen kan du skapa en ny klient för din orga
 
 1. Logga in på din organisations [Azure Portal](https://portal.azure.com/).
 
-1. Från Azure Portal-menyn väljer du **skapa en resurs**.  
+1. I menyn i Azure-portalen väljer du **Skapa en resurs**.  
 
     ![Azure Active Directory skapa resoure-sida](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 

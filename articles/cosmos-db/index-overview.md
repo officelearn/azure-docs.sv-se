@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: 44a51972e459f64f44a791ef1cf40825dddedf91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7417515d6f3c293368868e380ac53f0c524b872d
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85798161"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760880"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexering i Azure Cosmos DB – Översikt
 
@@ -174,7 +174,6 @@ Så länge ett filter predikat använder en av index typerna, kommer frågesynta
 
 * Du kan påskynda frågor och undvika fullständig genomsökning av behållare när du använder funktioner som inte använder indexet (t. ex. innehåller) genom att lägga till ytterligare filter-predikat som använder indexet. Ordningen på filter satserna är inte viktig. Frågemotor är ett sätt att ta reda på vilka predikat som är selektivt selektivt och köra frågan på motsvarande sätt.
 
-
 ## <a name="querying-with-indexes"></a>Fråga med index
 
 De sökvägar som extraherades vid indexering av data gör det enkelt att söka efter indexet när en fråga bearbetas. Genom att matcha `WHERE` -satsen i en fråga med listan över indexerade sökvägar är det möjligt att identifiera de objekt som matchar frågespråket mycket snabbt.
@@ -190,5 +189,5 @@ De sökvägar som extraherades vid indexering av data gör det enkelt att söka 
 
 Läs mer om indexering i följande artiklar:
 
-- [Indexerings princip](index-policy.md)
+- [Indexeringsprincip](index-policy.md)
 - [Hantera indexerings principen](how-to-manage-indexing-policy.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 388fb7e36a823d7f6e9ee1d58220d3a1008d8cec
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b7bcdaf9e3935c01a0906ecfaa1570e4bc7caba9
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498061"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798128"
 ---
 # <a name="offer-listing-best-practices"></a>Metodtips för erbjudandelistor
 
@@ -119,9 +119,9 @@ Nyckelord kan hjälpa kunder att hitta ditt erbjudande när de söker. Identifie
 ## <a name="storefront-marketing-details"></a>Marknadsförings information om butik
 | Butik-inställning | Bästa praxis |
 |:--- |:--- |  
-| Erbjudande logo typ (PNG-format, 48 &nbsp; &times; &nbsp; 48): Sök sida | Utforma och optimera din logo typ för ett digitalt medium:<br>Ladda upp logo typen i PNG-format till Sök sidan för ditt erbjudande. |
-| Erbjudande logo typ (PNG-format, 216 &nbsp; &times; &nbsp; 216): Sidan information om app | Utforma och optimera din logo typ för ett digitalt medium:<br>Ladda upp logo typen i PNG-format till sidan med information om appar i ditt erbjudande. |
-| "Läs mer"-dokument | Ta med stöd för försäljnings-och marknadsförings till gångar under "Läs mer", några exempel: <ul> <li> Fakta blad, </li> <li> broschyrer, </li> <li> Check listor eller </li> <li> PowerPoint-presentationer.</li> </ul>Spara alla filer i PDF-format. Ditt mål är att utbilda kunder, inte sälja till dem. <br><br>Lägg till en länk till din app landnings sida till alla dina dokument och Lägg till URL-parametrar som hjälper dig att spåra besökare och försök. |
+| Erbjudande logo typ (PNG-format, mellan 216 × 216 och 350 x 350 bild punkter): Sidan information om app | Utforma och optimera din logo typ för ett digitalt medium:<br>Ladda upp logo typen i PNG-format till sidan med information om appar i ditt erbjudande. Partner Center ändrar storlek till de storlekar som krävs för logo typen. |
+| Erbjudande logo typ (PNG-format, 48 × 48 bild punkter): Sök sida | Partner Center kommer att generera logo typen från den stora logo typen som du överförde. Du kan också ersätta detta med en annan bild. |
+| "Läs mer"-dokument | Ta med stöd för försäljnings-och marknadsförings till gångar under "Läs mer", några exempel:<ul><li>Fakta blad</li><li> broschyrer</li><li>Check listor eller</li><li> PowerPoint-presentationer</li></ul><br>Spara alla filer i PDF-format. Ditt mål är att utbilda kunder, inte sälja till dem.<br><br>Lägg till en länk till din app landnings sida till alla dina dokument och Lägg till URL-parametrar som hjälper dig att spåra besökare och försök. |
 | Videor: AppSource, konsult tjänster och SaaS erbjuder bara | De starkaste videorna förmedlar värdet för ditt erbjudande i form av information:<ul> <li> Gör din kund, inte ditt företag, riktig text. </li> <li> Din video bör åtgärda de huvudsakliga utmaningarna och målen för mål kunden. </li> <li> Rekommenderad längd: 60-90 sekunder.</li> <li> Inkludera nyckelord för nyckelord som använder namnet på videor. </li> <li> Överväg att lägga till ytterligare videor, till exempel en instruktion, komma igång eller kund åsikter. </li> </ul> |
 | Skärm bilder (1280 &nbsp; &times; &nbsp; 720) | Lägg till upp till fem skärm bilder:<br>Inkludera ord för nyckels ökning i fil namnen. |
 

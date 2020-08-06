@@ -2,7 +2,7 @@
 title: Skapa en basgrupp och lägga till medlemmar – Azure Active Directory | Microsoft Docs
 description: Anvisningar för hur du skapar en basgrupp med Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4539fe1d8f5fbfab8e73de3a9ac35baa154b142
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51b257eb833f6c270f2f1b79b2cccd247c8a2d42
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604360"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797669"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Skapa en basgrupp och lägga till medlemmar med hjälp av Azure Active Directory
 Du kan skapa en basgrupp med hjälp av Azure Active Directory (Azure AD)-portalen. I den här artikeln läggs en basgrupp till i en enskild resurs av resursägaren (administratören) och innehåller specifika medlemmar (anställda) som behöver åtkomst till den här resursen. Mer komplicerade scenarier, inklusive dynamiskt medlemskap och regelskapande, finns i [dokumentationen för Azure Active Directory-användarhantering](../users-groups-roles/index.yml).
@@ -27,8 +27,8 @@ Du kan skapa en basgrupp med hjälp av Azure Active Directory (Azure AD)-portale
 Det finns flera grupper och medlemskaps typer. Följande information förklarar varje grupp och medlemskaps typ och varför de används, för att hjälpa dig att avgöra vilka alternativ som ska användas när du skapar en grupp.
 
 ### <a name="group-types"></a>Grupp typer:
-- **Säkerhet**. Används för att hantera medlems- och datoråtkomst till delade resurser för en grupp användare. Du kan till exempel skapa en säkerhetsgrupp för en specifik säkerhetsprincip. Genom att göra det på det sättet så kan du ge en uppsättning behörigheter till alla medlemmar på samma gång utan att behöva lägga till behörigheter till varje medlem individuellt. En säkerhets grupp kan ha användare, enheter, grupper och tjänstens huvud namn som medlemmar och användare och tjänstens huvud namn som ägare. Mer information om hur du hanterar åtkomst till resurser finns i [Hantera åtkomst till resurser med Azure Active Directory-grupper](active-directory-manage-groups.md).
-- **Office 365**. Ger samarbetsmöjligheter genom att ge medlemmar tillgång till en delad postlåda, kalender, filer, SharePoint-webbplats och mer. Med det här alternativet kan du också ge personer utanför organisationen åtkomst till gruppen. En Office 365-grupp kan bara ha användare som medlemmar. Både användare och tjänstens huvud namn kan vara ägare till en Office 365-grupp. Mer information om Office 365-grupper finns i [Läs mer om Office 365-grupper](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
+- **Säkerhet**. Används för att hantera medlems- och datoråtkomst till delade resurser för en grupp användare. Du kan till exempel skapa en säkerhetsgrupp för en specifik säkerhetsprincip. På det här sättet kan du ge en uppsättning behörigheter till alla medlemmar på samma gång utan att behöva lägga till behörigheterna för varje medlem individuellt. En säkerhets grupp kan ha användare, enheter, grupper och tjänstens huvud namn som medlemmar och användare och tjänstens huvud namn som ägare. Mer information om hur du hanterar åtkomst till resurser finns i [Hantera åtkomst till resurser med Azure Active Directory-grupper](active-directory-manage-groups.md).
+- **Office 365**. Ger samarbetsmöjligheter genom att ge medlemmar tillgång till en delad postlåda, kalender, filer, SharePoint-webbplats och mer. Med det här alternativet kan du även ge personer utanför organisationen tillgång till gruppen. En Office 365-grupp kan bara ha användare som medlemmar. Både användare och tjänstens huvud namn kan vara ägare till en Office 365-grupp. Mer information om Office 365-grupper finns i [Läs mer om Office 365-grupper](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
 ### <a name="membership-types"></a>Medlemskaps typer:
 - **ATS.** Låter dig lägga till specifika användare som medlemmar i den här gruppen med unika behörigheter. I den här artikeln använder vi det här alternativet.
@@ -59,7 +59,7 @@ Du kan skapa en basgrupp och lägga till dina medlemmar på samma gång. Använd
 
 1. Lägg till en **grupps e-postadress** för gruppen eller Behåll e-postadressen som fylls i automatiskt.
 
-1. **Gruppbeskrivning.** Lägg till en valfri beskrivning till din grupp.
+1. **Grupp beskrivning.** Lägg till en valfri beskrivning till din grupp.
 
 1. Välj en fördefinierad **medlemskaps typ (krävs).** Mer information om medlemskaps typer finns i [grupp-och medlemskaps typer](#membership-types).
 

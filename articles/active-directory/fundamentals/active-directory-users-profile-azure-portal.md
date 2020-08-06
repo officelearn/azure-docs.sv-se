@@ -2,7 +2,7 @@
 title: Lägga till eller uppdatera användar profil information – Azure AD
 description: Anvisningar om hur du lägger till information i en användares profil i Azure Active Directory, inklusive bild-och jobb information.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 04/11/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 277f4c7016849fbdbac4b5070c2a4db681cc66a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63b716aa22954af51a9eb53a0d04a8299d348c71
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604020"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797245"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Lägga till eller uppdatera en användares profilinformation med hjälp av Azure Active Directory
 Lägg till användar profil information, inklusive en profil bild, datorspecifik information och vissa inställningar med hjälp av Azure Active Directory (Azure AD). Mer information om hur du lägger till nya användare finns i [så här lägger du till eller tar bort användare i Azure Active Directory](add-users-azure-active-directory.md).

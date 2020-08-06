@@ -7,20 +7,27 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 9ba0ad1414a09aec7ec2fb6b8c209b23f3f37050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6bbb2abe24eba96fd2c55b7aaf15ccd8ae33530
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82202221"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760963"
 ---
 # <a name="what-is-azure-private-link-service"></a>Vad är Azure Private Link service?
 
 Tjänsten Azure Private Link är referensen till din egen tjänst som drivs av en privat Azure-länk. Din tjänst som körs bakom [Azure standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) kan aktive ras för åtkomst till privat länk så att konsumenter till tjänsten kan komma åt den privat från sina egna virtuella nätverk. Dina kunder kan skapa en privat slut punkt i sitt VNet och mappa den till den här tjänsten. I den här artikeln beskrivs begrepp som är relaterade till tjänst leverantörs sidan. 
 
+:::image type="content" source="./media/private-link-service-overview/consumer-provider-endpoint.png" alt-text="Arbets flöde för privata länk tjänster" border="true":::
+
+*Bild: Azure Private Link service.*
+
 ## <a name="workflow"></a>Arbetsflöde
 
 ![Arbets flöde för privata länk tjänster](media/private-link-service-overview/private-link-service-workflow.png)
+
+
+*Bild: Azure Private Link service-arbetsflöde.*
 
 ### <a name="create-your-private-link-service"></a>Skapa en privat länk-tjänst
 

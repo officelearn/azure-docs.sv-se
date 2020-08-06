@@ -2,7 +2,7 @@
 title: Återställ eller ta bort nyligen borttagen användare – Azure AD
 description: Visa återställas-användare, återställa en borttagen användare eller ta bort en användare permanent med Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ad71d75eb80f15c09e0a4dff4edc4a0eaae9e1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1822e41c8cfb3646ab43fde1b9a86569ce2c399
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603935"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796768"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Återställa eller ta bort en nyligen borttagen användare med hjälp av Azure Active Directory
 När du har tagit bort en användare förblir kontot i ett pausat tillstånd i 30 dagar. Under den 30-dagars perioden kan användar kontot återställas, tillsammans med alla dess egenskaper. Efter det 30-dagars perioden skickas automatiskt användaren och tas bort permanent.
@@ -28,7 +28,7 @@ Du kan visa dina återställas-användare, återställa en borttagen användare 
 >[!Important]
 >Varken du eller Microsofts kund support kan återställa en permanent borttagen användare.
 
-## <a name="required-permissions"></a>Nödvändiga behörigheter
+## <a name="required-permissions"></a>Behörigheter som krävs
 Du måste ha någon av följande roller för att kunna återställa och ta bort användare permanent.
 
 - Global administratör

@@ -2,7 +2,7 @@
 title: Snabb start – Visa grupper & medlemmar – Azure AD
 description: Anvisningar om hur du söker efter och visar organisationens grupper och deras tilldelade medlemmar.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d52c90db5414c39c4e916bbab19c43739d9ea904
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ddedd753eb98a8656006c9dddc412e44330e1a21
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75423020"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797499"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -29,7 +29,7 @@ I den här snabbstarten visar du alla organisationens befintliga grupper och vis
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar måste du:
 
 - Skapa en klientorganisation i Azure Active Directory. Mer information finns i [Öppna Azure Active Directory-portalen och skapa en ny klientorganisation](active-directory-access-create-new-tenant.md).
@@ -61,14 +61,14 @@ Skapa en ny användare med namnet _Alain Charon_. En användare måste finnas in
 
     - **Namn:** skriv _Alain Charon_.
 
-    - **Användar namn:** Skriv *alain\@contoso.com*.
+    - **Användar namn:** Skriv *alain \@ contoso.com*.
 
 3. Kopiera det automatiskt genererade lösenordet som anges i rutan **Lösenord** och välj sedan **Skapa**.
 
 ## <a name="add-a-group-member"></a>Lägga till en gruppmedlem
 Nu när du har en grupp och en användare kan du lägga till _Alain Charon_ som medlem i gruppen _MDM policy – West_. Mer information om hur du lägger till gruppmedlemmar finns i [Lägga till eller ta bort gruppmedlemmar](active-directory-groups-members-azure-portal.md).
 
-1. Välj **Azure Active Directory** > **grupper**.
+1. Välj **Azure Active Directory**  >  **grupper**.
 
 2. På sidan **Grupper – Alla grupper** söker du efter och väljer gruppen **MDM policy – West**.
 
@@ -81,7 +81,7 @@ Nu när du har en grupp och en användare kan du lägga till _Alain Charon_ som 
 ## <a name="view-all-groups"></a>Visa alla grupper
 Du kan se alla grupper för din organisation på sidan **Grupper – Alla grupper** i Azure-portalen.
 
-- Välj Azure **Active Directory** > **grupper**.
+- Välj Azure **Active Directory**  >  **grupper**.
 
     Sidan **Grupper – Alla grupper** visas, med alla dina aktiva grupper.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 07/28/2020
-ms.openlocfilehash: 9db6fbe002492c0db6e9e0e5e0a23ca1946759a5
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0adffbb9058141ea89daefc292b937841659c879
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386443"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798077"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace
 
@@ -180,7 +180,7 @@ På sidan **erbjudande lista** definierar du erbjudande information, till exempe
 
 ### <a name="marketplace-details"></a>Information om Marketplace
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>Namn
 
 Namnet som du anger här visas för kunder som titel på din erbjudande lista. Det här fältet fylls i automatiskt med det namn som du angav i rutan för **erbjudet alias** när du skapade erbjudandet. Du kan ändra det här namnet senare. Namnet:
 
@@ -196,7 +196,7 @@ Ange en kort beskrivning av ditt erbjudande, som visas i Sök resultaten för Az
 
 Ange en längre Beskrivning av ditt erbjudande, som visas i Sök resultaten för Azure Marketplace. Det kan innehålla upp till 256 tecken.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -226,7 +226,7 @@ Ange support webbplatsen där kunderna kan kontakta support teamet.
 
 Ange kontakt information för Microsoft-partner som ska användas när kunderna öppnar ett support ärende. Den här informationen visas inte på Azure Marketplace.
 
-- Name
+- Namn
 - E-post
 - Telefon
 
@@ -234,7 +234,7 @@ Ange kontakt information för Microsoft-partner som ska användas när kunderna 
 
 Ange kontakt information för Microsoft som ska användas när det finns problem med erbjudandet, inklusive problem med certifieringen. Den här informationen visas inte på Azure Marketplace.
 
-- Name
+- Namn
 - E-post
 - Telefon
 
@@ -245,22 +245,23 @@ Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bil
 >[!NOTE]
 >Om du har problem med att ladda upp filer kontrollerar du att det lokala nätverket inte blockerar https://upload.xboxlive.com tjänsten som används av Partner Center.
 
-#### <a name="azure-marketplace-logos"></a>Logo typer för Azure Marketplace
+#### <a name="store-logos"></a>Butiks logo typer
 
-Ange PNG-filer för ditt erbjudandes logo typ med följande fyra bild dimensioner:
+Ange en PNG-fil för logo typen med **stor** storlek (mellan 216 x 216 och 350 x 350 bild punkter). Partner Center använder detta för att skapa en **liten** (48 x 48 pixlar) och en storleks logo typ ( **mellan** 90 x 90 pixlar). Du kan också ersätta dem med olika avbildningar.
 
-- **Liten** (48 &times; 48 bild punkter)
-- **Medel** (90 &times; 90 bild punkter)
-- **Stor** (216 &times; 216 bild punkter)
-- **Bred** (255 &times; 115 bild punkter)
+Alla tre logo typ storlekarna krävs för användning på olika platser i listan:
 
-Alla fyra logo typer krävs och de visas i olika Azure Marketplace-listor.
+- **Liten** (48 x 48)
+- **Medel** (90 x 90)
+- **Stor** (mellan 216 x 216 och 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Skärmbilder
 
 Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Varje skärm bild måste vara 1280 &times; 720 bild punkter i storlek och i PNG-format. Varje skärm bild måste innehålla en beskrivning.
 
-#### <a name="videos"></a>Video
+#### <a name="videos"></a>Videoklipp
 
 Lägg till upp till fem videor som demonstrerar ditt erbjudande. Videor bör finnas på en extern video tjänst. Ange varje video namn, webb adress och en miniatyr bild av videon med 1280 &times; 720 bild punkter.
 
@@ -380,7 +381,7 @@ Om du redan har angett priser för din plan i valutan US dollar (USD) och lägge
 
 När du tar bort en marknad kommer kunder från den marknaden som använder aktiva distributioner inte att kunna skapa nya distributioner eller skala upp sina befintliga distributioner. Befintliga distributioner påverkas inte.
 
-#### <a name="pricing"></a>Priser
+#### <a name="pricing"></a>Prissättning
 
 För **licens modellen**väljer du Använd **månatlig månatlig fakturerings plan** för att konfigurera prissättningen för den här planen eller Välj **Bring Your Own License** så att kunderna kan använda den här planen med sin befintliga licens.
 
@@ -534,7 +535,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 4. Villkor
 5. Sekretess policy adress (länk)
 6. Erbjudandets namn
-7. Description
+7. Beskrivning
 8. Användbara länkar
 9. Skärm bilder/videor
 
@@ -565,7 +566,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 
 #### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
-1. Name
+1. Namn
 2. Beskrivning
 3. Användbara länkar
 4. Skärm bilder/videor

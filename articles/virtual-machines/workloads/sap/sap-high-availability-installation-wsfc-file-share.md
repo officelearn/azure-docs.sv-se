@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 08/04/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a393c1ac09283f1570908cea72750ed5ae28f81e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a6d3d4c791cebdee02d7d2c739be3b32b8086ec
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617336"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760897"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installera SAP NetWeaver med hög tillgänglighet på ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser på Azure
 
@@ -199,7 +199,7 @@ ms.locfileid: "77617336"
 
 Den här artikeln beskriver hur du installerar och konfigurerar ett SAP-system med hög tillgänglighet på Azure, med Windows Server failover Cluster (WSFC) och Skalbar filserver som ett alternativ för att klustra SAP ASCS/SCS-instanser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Läs följande artiklar innan du påbörjar installationen:
 
@@ -323,6 +323,7 @@ Uppdatera parametrarna i instansen för SAP ASCS/SCS- \<SID> _ASCS \<Nr> /SCS_ \
 | Placera/encni/set_so_keepalive  | **värdet** |
 | tjänst/ha_check_node | **1** |
 
+Parametern `enque/encni/set_so_keepalive` behövs bara om du använder ENSA1.  
 Starta om SAP ASCS/SCS-instansen. Ange `KeepAlive` parametrar på båda SAP ASCS/SCS-klusternoderna Följ anvisningarna för att [Ange register poster på klusternoderna för SAP ASCS/SCS-instansen][high-availability-guide]. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Installera en DBMS-instans och SAP-program servrar

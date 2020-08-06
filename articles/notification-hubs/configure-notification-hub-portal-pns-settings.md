@@ -12,20 +12,20 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7832f2db73655d76cc29dc17dd823fc5e0e7fcb3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c8e2372e22c9db3aa5ea8b0bd953f18a2c01fbe2
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504270"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761033"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>Snabb start: Konfigurera push-meddelanden i en Notification Hub
 
 Azure Notification Hubs tillhandahåller en push-motor som är lätt att använda och som skalar ut. Använd Notification Hubs för att skicka meddelanden till valfri plattform (iOS, Android, Windows, Baidu) och från valfri Server del (moln eller lokalt). Mer information finns i [Vad är Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
 
-I den här snabb starten använder du PNS-inställningarna (Platform notification system) i Notification Hubs för att konfigurera push-meddelanden på flera plattformar. Snabb starten visar vilka steg du ska vidta i Azure Portal.  [Google Firebase Cloud Messaging](?tabs=azure-cli#google-firebase-cloud-messaging-fcm) innehåller instruktioner för hur du använder Azure CLI.
+I den här snabb starten använder du PNS-inställningarna (Platform notification system) i Notification Hubs för att konfigurera push-meddelanden på flera plattformar. Snabb starten visar vilka steg du ska vidta i Azure Portal. [Google Firebase Cloud Messaging](?tabs=azure-cli#google-firebase-cloud-messaging-fcm) innehåller instruktioner för hur du använder Azure CLI.
 
-Om du inte redan har skapat en Notification Hub skapar du ett nu. Mer information finns i [skapa en Azure Notification Hub i Azure Portal](create-notification-hub-portal.md) eller [skapa en Azure Notification Hub med Azure CLI](create-notification-hub-azure-cli.md)
+Om du inte redan har skapat en Notification Hub skapar du ett nu. Mer information finns i [skapa en Azure Notification Hub i Azure Portal](create-notification-hub-portal.md) eller [skapa en Azure Notification Hub med Azure CLI](create-notification-hub-azure-cli.md).
 
 ## <a name="apple-push-notification-service"></a>Apple Push Notification Service
 
@@ -108,8 +108,6 @@ Innan du börjar måste du ha följande:
    ```
 
 Hämta Azure CLI-referenser för andra plattformar med kommandot [AZ Notification – Hub Credential](/cli/azure/ext/notification-hub/notification-hub/credential) .
-
----
 
 Mer information om hur du skickar meddelanden till ett Android-program finns i [skicka push-meddelanden till Android-enheter med Firebase](notification-hubs-android-push-notification-google-fcm-get-started.md).
 

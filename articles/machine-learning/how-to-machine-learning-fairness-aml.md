@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 5e6f241fcf30d4090a1af9a26441a5a10b939972
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 107b1103b5662decd8da0937ac84e0e8bab3f8eb
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307071"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760778"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Använd Azure Machine Learning med Fairlearn-paketet med öppen källkod för att utvärdera skälighet för ML-modeller (för hands version)
 
@@ -142,7 +142,7 @@ I följande exempel visas hur du använder skälighet-paketet för att överför
         return registered_model.id
 
     # Call the register_model function 
-    lr_reg_id = register_model("fairness_linear_regression", unmitigated_predictor)
+    lr_reg_id = register_model("fairness_linear_regression", lr_predictor)
     ```
 
 3. Precompute skälighet-mått.
@@ -152,7 +152,7 @@ I följande exempel visas hur du använder skälighet-paketet för att överför
     ```python
     #  Create a dictionary of model(s) you want to assess for fairness 
     sf = { 'Race': A_test.Race, 'Sex': A_test.Sex}
-    ys_pred = unmitigated_predictor.predict(X_test)
+    ys_pred = { lr_reg_id:lr_predictor.predict(X_test) }
     from fairlearn.metrics._group_metric_set import _create_group_metric_set
 
     dash_dict = _create_group_metric_set(y_true=Y_test,
@@ -207,7 +207,7 @@ I följande exempel visas hur du använder skälighet-paketet för att överför
 
     Om du vill veta mer om instrument panelen för visualiseringar och vad den innehåller kan du checka ut Fairlearn [Användar handbok](https://fairlearn.github.io/user_guide/assessment.html#fairlearn-dashboard).
 
-s # # Ladda upp skälighet Insights för flera modeller
+## <a name="upload-fairness-insights-for-multiple-models"></a>Ladda upp skälighet Insights för flera modeller
 
 Om du är intresse rad av att jämföra flera modeller och se hur deras skälighet-utvärdering skiljer sig åt, kan du skicka mer än en modell till instrument panelen för visualiseringar och navigera i deras skälighet-kompromisser.
 

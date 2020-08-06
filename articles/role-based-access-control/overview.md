@@ -1,5 +1,5 @@
 ---
-title: Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC)?
+title: Vad är rollbaserad åtkomstkontroll i Azure (Azure RBAC)?
 description: Få en översikt över rollbaserad åtkomst kontroll i Azure (Azure RBAC). Använd rolltilldelningar för att styra åtkomsten till resurser i Azure.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.workload: identity
 ms.date: 07/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 45601e820bc03b263fbf664a43ce34266dc4a488
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.custom: azuread-video-2020
+ms.openlocfilehash: cb77bfb6173e94ea3cdaadf4456947de75676565
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171577"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761135"
 ---
-# <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC)?
+# <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Vad är rollbaserad åtkomstkontroll i Azure (Azure RBAC)?
 
 Åtkomsthantering för molnresurser är en viktig funktion för alla organisationer som använder molnet. Rollbaserad åtkomst kontroll i Azure (Azure RBAC) hjälper dig att hantera vem som har åtkomst till Azure-resurser, vad de kan göra med dessa resurser och vilka områden de har åtkomst till.
 
@@ -84,7 +85,7 @@ I Azure kan du ange ett omfång på flera nivåer: [hanterings grupp](../governa
 
 ![Omfång för en rolltilldelning](./media/overview/rbac-scope.png)
 
-När du beviljar åtkomst i ett överordnat omfång ärvs dessa behörigheter av underordnade omfång. Till exempel:
+När du beviljar åtkomst i ett överordnat omfång ärvs dessa behörigheter av underordnade omfång. Exempel:
 
 - Om du tilldelar rollen [Ägare](built-in-roles.md#owner) till en användare i hanteringsgruppsomfånget kan den användaren hantera allt i alla prenumerationer i hanteringsgruppen.
 - Om du tilldelar rollen [Läsare](built-in-roles.md#reader) till en grupp i prenumerationsomfånget kan medlemmarna i den gruppen visa alla resursgrupper och resurser i prenumerationen.
@@ -136,7 +137,6 @@ Följande är de övergripande steg som Azure RBAC använder för att avgöra om
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Snabb start: Visa en användares åtkomst till Azure-resurser](check-access.md)
 - [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](role-assignments-portal.md)
 - [Förstå de olika rollerna](rbac-and-directory-admin-roles.md)
 - [Ramverk för moln införande: resurs åtkomst hantering i Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

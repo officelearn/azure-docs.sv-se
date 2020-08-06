@@ -1,14 +1,14 @@
 ---
 title: Översikt över insamlings exempel för myndigheter i Australien
 description: Översikt över det insamlade utkastet av myndigheter som är skyddat av myndigheter. Det här skiss exemplet hjälper kunderna att bedöma vissa ISM-skyddade kontroller.
-ms.date: 03/10/2020
+ms.date: 08/03/2020
 ms.topic: sample
-ms.openlocfilehash: d82598498fa7eb24ec2ea3f591d08ce8f9503b54
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.openlocfilehash: 750cc5551f0bbf05e0da6ad41d46729231243f72
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517107"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760438"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Kontroll mappning för det insamlade utkastet av myndigheter som är skyddat av myndigheter
 
@@ -106,10 +106,10 @@ Den här skissen hjälper dig att begränsa platsen för distributionen av alla 
 
 - Granska obegränsad nätverks åtkomst till lagrings konton
 - Service Fabric kluster bör endast använda Azure Active Directory för klientautentisering
-- \[För hands version \] : Visa gransknings resultat från virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
-- \[För hands version \] : Distribuera förutsättningar för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
-- \[För hands version \] : Visa gransknings resultat från virtuella Linux-datorer som har konton utan lösen ord
-- \[För hands version \] : Distribuera förutsättningar för att granska virtuella Linux-datorer som har konton utan lösen ord
+- Visa gransknings resultat från virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
+- Distribuera förutsättningar för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
+- Visa gransknings resultat från virtuella Linux-datorer som har konton utan lösen ord
+- Distribuera förutsättningar för att granska virtuella Linux-datorer som har konton utan lösen ord
 
 ### <a name="0974-multi-factor-authentication-is-used-to-authenticate-standard-users"></a>0974 Multi-Factor Authentication används för att autentisera standard användare
 
@@ -122,8 +122,8 @@ Den här skissen hjälper dig att begränsa platsen för distributionen av alla 
 
 ### <a name="0421-passphrases-used-for-single-factor-authentication-are-a-minimum-of-14-characters-with-complexity-ideally-as-4-random-words"></a>0421 lösen fraser som används för autentisering med en viss faktor är minst 14 tecken långa, helst med 4 slumpmässiga ord
 
-- \[För hands version \] : Visa gransknings resultat från konfigurationer för virtuella Windows-datorer i säkerhets inställningar – konto principer
-- \[För hands version \] : Distribuera förutsättningar för att granska Windows-konfigurationer för virtuella datorer i säkerhets inställningar-konto principer
+- Visa gransknings resultat från konfigurationer för virtuella Windows-datorer i säkerhets inställningar – konto principer
+- Distribuera krav för att granska Windows-konfigurationer för virtuella datorer i säkerhets inställningar – konto principer
 
 ## <a name="guidelines-for-system-management---system-administration"></a>Rikt linjer för system hantering – system administration
 
@@ -147,7 +147,7 @@ Den här skissen hjälper dig att begränsa platsen för distributionen av alla 
 - Säkerhets risker i SQL-databaser bör åtgärdas
 - Sårbarhets bedömning bör vara aktiverat på dina SQL-servrar
 - Sårbarhets bedömning ska vara aktiverat på SQL-hanterade instanser
-- \[För hands version \] : sårbarhets bedömning ska vara aktiverat på Virtual Machines
+- Sårbarhets bedömning bör vara aktiverat på datorer
 - Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas
 - Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning
 - Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas
@@ -159,7 +159,7 @@ Den här skissen hjälper dig att begränsa platsen för distributionen av alla 
 - Säkerhets risker i SQL-databaser bör åtgärdas
 - Sårbarhets bedömning bör vara aktiverat på dina SQL-servrar
 - Sårbarhets bedömning ska vara aktiverat på SQL-hanterade instanser
-- \[För hands version \] : sårbarhets bedömning ska vara aktiverat på Virtual Machines
+- Sårbarhets bedömning ska vara aktiverat på Virtual Machines
 - Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas
 - Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning
 - Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas
@@ -171,7 +171,7 @@ Den här skissen hjälper dig att begränsa platsen för distributionen av alla 
 - Säkerhets risker i SQL-databaser bör åtgärdas
 - Sårbarhets bedömning bör vara aktiverat på dina SQL-servrar
 - Sårbarhets bedömning ska vara aktiverat på SQL-hanterade instanser
-- \[För hands version \] : sårbarhets bedömning ska vara aktiverat på Virtual Machines
+- Sårbarhets bedömning ska vara aktiverat på Virtual Machines
 - Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas
 - Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning
 - Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas
@@ -183,7 +183,7 @@ Den här skissen hjälper dig att begränsa platsen för distributionen av alla 
 - Säkerhets risker i SQL-databaser bör åtgärdas
 - Sårbarhets bedömning bör vara aktiverat på dina SQL-servrar
 - Sårbarhets bedömning ska vara aktiverat på SQL-hanterade instanser
-- \[För hands version \] : sårbarhets bedömning ska vara aktiverat på Virtual Machines
+- Sårbarhets bedömning ska vara aktiverat på Virtual Machines
 - Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas
 - Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning
 - Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas
@@ -195,7 +195,7 @@ Den här skissen hjälper dig att begränsa platsen för distributionen av alla 
 - Säkerhets risker i SQL-databaser bör åtgärdas
 - Sårbarhets bedömning bör vara aktiverat på dina SQL-servrar
 - Sårbarhets bedömning ska vara aktiverat på SQL-hanterade instanser
-- \[För hands version \] : sårbarhets bedömning ska vara aktiverat på Virtual Machines
+- Sårbarhets bedömning ska vara aktiverat på Virtual Machines
 - Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas
 - Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning
 - Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas
@@ -207,7 +207,7 @@ Den här skissen hjälper dig att begränsa platsen för distributionen av alla 
 - Säkerhets risker i SQL-databaser bör åtgärdas
 - Sårbarhets bedömning bör vara aktiverat på dina SQL-servrar
 - Sårbarhets bedömning ska vara aktiverat på SQL-hanterade instanser
-- \[För hands version \] : sårbarhets bedömning ska vara aktiverat på Virtual Machines
+- Sårbarhets bedömning ska vara aktiverat på Virtual Machines
 - Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas
 - Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning
 - Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas
@@ -229,8 +229,8 @@ Den här skissen hjälper dig att begränsa platsen för distributionen av alla 
 ### <a name="0582-the-following-events-are-logged-for-operating-systems-access-to-important-data-and-processes-application-crashes-and-any-error-messages-attempts-to-use-special-privileges-changes-to-accounts-changes-to-security-policy-changes-to-system-configurations-domain-name-system-dns-and-hypertext-transfer-protocol-http-requests-failed-attempts-to-access-data-and-system-resources-service-failures-and-restarts-system-startup-and-shutdown-transfer-of-data-to-external-media-user-or-group-management-use-of-special-privileges"></a>0582 följande händelser loggas för operativ system: åtkomst till viktiga data och processer, programkrascher och eventuella fel meddelanden, försök att använda särskilda behörigheter, ändringar av konton, ändringar av säkerhets princip, ändringar i systemkonfigurationer, Domain Name System (DNS) och Hypertext Transfer Protocol HTTP-förfrågningar, misslyckade försök att komma åt data och system resurser, tjänst fel och omstarter, system start och avstängning , överföring av data till externa medier, användar-eller grupp hantering, användning av särskilda privilegier
 
 - \[För hands version \] : granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
-- \[För hands version \] : granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
-- \[För hands version \] : granska Log Analytics arbets yta för VM-rapportera fel
+- Granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
+- Granska Log Analytics arbets yta för VM-rapportera fel
 - Granska diagnostikinställning
 
 ### <a name="1537-the-following-events-are-logged-for-databases-access-to-particularly-important-information-addition-of-new-users-especially-privileged-users-any-query-containing-comments-any-query-containing-multiple-embedded-queries-any-query-or-database-alerts-or-failures-attempts-to-elevate-privileges-attempted-access-that-is-successful-or-unsuccessful-changes-to-the-database-structure-changes-to-user-roles-or-database-permissions-database-administrator-actions-database-logons-and-logoffs-modifications-to-data-use-of-executable-commands"></a>1537 följande händelser loggas för databaser: åtkomst till särskilt viktig information, tillägg av nya användare, särskilt privilegierade användare, alla frågor som innehåller kommentarer, alla frågor som innehåller flera inbäddade frågor, eventuella frågor eller databas aviseringar eller haverier, försök att höja behörigheter, försök till åtkomst som har lyckats eller misslyckats, ändringar i databas strukturen, ändringar av användar roller eller databas behörigheter, databas administratörs åtgärder , databas inloggningar och utloggning, ändringar av data, användning av körbara kommandon
@@ -246,7 +246,7 @@ Den här skissen hjälper dig att begränsa platsen för distributionen av alla 
 - Säkerhets risker i SQL-databaser bör åtgärdas
 - Sårbarhets bedömning bör vara aktiverat på dina SQL-servrar
 - Sårbarhets bedömning ska vara aktiverat på SQL-hanterade instanser
-- \[För hands version \] : sårbarhets bedömning ska vara aktiverat på Virtual Machines
+- Sårbarhets bedömning ska vara aktiverat på Virtual Machines
 - Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas
 - Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning
 - Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas

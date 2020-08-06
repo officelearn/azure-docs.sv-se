@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5d9d7c59244474c76e63271c0be92f835c2ed087
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 3250e4c35f6b898f4431d0f2fe15f84d915c1c8e
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543358"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760404"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Skicka frågor till Azure Digitals dubbla grafer
 
@@ -172,7 +172,7 @@ Det kan finnas en fördröjning på upp till 10 sekunder innan ändringarna i in
 Det finns ytterligare begränsningar för att använda `JOIN` under för hands versionen.
 * Det finns inte stöd för under frågor i `FROM` instruktionen.
 * `OUTER JOIN`semantik stöds inte, vilket innebär att om relationen har en rangordning på noll, elimineras hela raden rad från resultat uppsättningen utdata.
-* I den offentliga för hands versionen är diagrammets djup begränsat: endast ett `JOIN` tillåts per fråga.
+* I för hands versionen begränsas diagrammets djup till fem `JOIN` nivåer per fråga.
 * Källan för `JOIN` åtgärder är begränsad: frågan måste deklarera de dubbla platser där frågan börjar.
 
 ## <a name="query-best-practices"></a>Bästa metoderna för frågor

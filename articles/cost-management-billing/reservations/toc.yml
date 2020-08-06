@@ -71,7 +71,7 @@
           href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: Begrepp
   items:
-    - name: Så här skapas reservationsrekommendationer
+    - name: Reservationsrekommendationer
       href: reserved-instance-purchase-recommendations.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Så här tillämpas rabatter
       items:
@@ -120,9 +120,9 @@
     - name: REST-API för reservationer
       href: reservation-apis.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Reservationer – Azure PowerShell
-      href: /powershell/module/azurerm.reservations
+      href: /powershell/module/az.reservations
     - name: Reservationer – CLI
-      href: /cli/azure/reservations/reservation
+      href: /cli/azure/reservations
     - name: Cost Management – REST-API för information om förbrukningsanvändning
       href: /rest/api/consumption/usagedetails
     - name: Cost Management – REST-API för information om förbrukningsreservationer

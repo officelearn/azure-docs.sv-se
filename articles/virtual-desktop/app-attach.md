@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6f8e20f97ae19a33674631e4dee18901d54462b3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 328f7bb8c03cb78f4b5375eb4f6e3d9891b83942
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291511"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760676"
 ---
 # <a name="set-up-msix-app-attach"></a>Konfigurera MSIX-appbifogning
 
@@ -202,12 +202,12 @@ Om din app använder ett certifikat som inte är offentligt betrott eller själv
 
 1. Högerklicka på paketet och välj **Egenskaper**.
 2. I fönstret som visas väljer du fliken **digitala signaturer** . Det får bara finnas ett objekt i listan på fliken, som du ser i följande bild. Markera objektet för att markera objektet och välj sedan **information**.
-3. När fönstret information om digital signatur visas väljer du fliken **Allmänt** och väljer sedan **Installera certifikat**.
+3. När fönstret information om digital signatur visas väljer du fliken **Allmänt** och sedan **Visa certifikat**och väljer sedan **Installera certifikat**.
 4. När installations programmet öppnas väljer du **lokal dator** som lagrings plats och väljer sedan **Nästa**.
 5. Om du tillfrågas om du vill tillåta att appen gör ändringar på enheten väljer du **Ja**.
 6. Välj **Placera alla certifikat i följande Arkiv**och välj **Bläddra**.
 7. När fönstret Välj certifikat Arkiv visas väljer du **Betrodda personer**och väljer sedan **OK**.
-8. Välj **Slutför**.
+8. Välj **Nästa** och **Slutför**.
 
 ## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>Förbereda PowerShell-skript för MSIX app Attach
 
@@ -235,7 +235,7 @@ Innan du uppdaterar PowerShell-skripten ser du till att du har volymens GUID fö
 
 4.  Öppna den överordnade mappen. Om den är korrekt expanderad visas en mapp med samma namn som paketet. Uppdatera variabeln **$PackageName** så att den matchar namnet på den här mappen.
 
-    Exempelvis `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
+    Till exempel `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
 
 5.  Öppna en kommando tolk och ange **mountvol**. Det här kommandot visar en lista över volymer och deras GUID. Kopiera GUID för volymen där enhets beteckningen matchar den enhet som du monterade din virtuella hård disk till i steg 2.
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 88f1c120ac4578e077e1c51f59bcaf53b1de2083
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 0cbfed307cea1bd98bf864046a8c08edb849226a
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87538905"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797993"
 ---
 # <a name="enable-infiniband"></a>Aktivera InfiniBand
 
@@ -42,11 +42,12 @@ Om du vill lägga till ett VM-tillägg i en virtuell dator kan du använda [Azur
 [Mellanox OpenFabrics-drivrutiner (ofed)](https://www.mellanox.com/products/InfiniBand-VPI-Software) kan installeras manuellt i [SR-IOV-aktiverade](../../sizes-hpc.md#rdma-capable-instances) virtuella datorer i [H-serien](../../sizes-hpc.md) och [N-serien](../../sizes-gpu.md) .
 
 ### <a name="linux"></a>Linux
-[Ofed-drivrutinerna för Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed) kan installeras med exemplet nedan. Även om exemplet här är för RHEL/CentOS, men stegen är allmänna och kan användas för alla kompatibla Linux-operativsystem som Ubuntu (16,04, 18,04 19,04, 20,04) och SLES (12 SP4 och 15). Inbox-drivrutinerna fungerar också, men Mellanox OFED-drivrutinerna innehåller fler funktioner.
+[Ofed-drivrutinerna för Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed) kan installeras med exemplet nedan. Även om exemplet här är för RHEL/CentOS, men stegen är allmänna och kan användas för alla kompatibla Linux-operativsystem som Ubuntu (16,04, 18,04 19,04, 20,04) och SLES (12 SP4 och 15). Fler exempel på andra distributioner finns på [azhpc-images-lagrings platsen](https://github.com/Azure/azhpc-images/blob/master/ubuntu/ubuntu-18.x/ubuntu-18.04-hpc/install_mellanoxofed.sh). Inbox-drivrutinerna fungerar också också, men Mellanox OFED-drivrutinerna innehåller fler funktioner.
 
 ```bash
 MLNX_OFED_DOWNLOAD_URL=http://content.mellanox.com/ofed/MLNX_OFED-5.0-2.1.8.0/MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64.tgz
-# Optinally verify checksum
+# Optionally verify checksum
+wget --retry-connrefused --tries=3 --waitretry=5 $MLNX_OFED_DOWNLOAD_URL
 tar zxvf MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64.tgz
 
 KERNEL=( $(rpm -q kernel | sed 's/kernel\-//g') )

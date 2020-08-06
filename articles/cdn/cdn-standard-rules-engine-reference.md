@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 06/22/2020
+ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: 6260a4b78197329e020bebaa3bc08db5ad792086
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f729176d3f79c2a1f6fabb5631d49747219db48f
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559304"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760098"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referens för standardregelmotor för Azure CDN
 
@@ -59,15 +59,7 @@ Ett procent tecken används för att indikera URL-kodning (till exempel `%20` ).
 
 ### <a name="wildcard-values"></a>Jokertecken
 
-Text som tolkas som ett jokertecken tilldelar ytterligare en mening till specialtecken. I följande tabell beskrivs hur specifika specialtecken tolkas i standard regel motorn:
-
-Tecken | Beskrivning
-----------|------------
-\ | Ett omvänt snedstreck används för att undanta de tecken som anges i den här tabellen. Ett omvänt snedstreck måste anges direkt före det specialtecken som ska undantas. Följande syntax kan till exempel undanta en asterisk:`\*`
-% | Ett procent tecken används för att indikera URL-kodning (till exempel `%20` ).
-\* | En asterisk är ett jokertecken som representerar ett eller flera tecken.
-fält | Ett blank stegs tecken anger att ett matchnings villkor kan uppfyllas av något av de angivna värdena eller mönstren.
-enkla citat tecken | Ett enkelt citat tecken har ingen särskild betydelse. En uppsättning enkla citat tecken indikerar dock att ett värde ska behandlas som ett litteralt värde. Enkla citat tecken kan användas på följande sätt:<ul><li>Om du vill att ett matchnings villkor ska uppfyllas när det angivna värdet matchar någon del av jämförelse värdet.  `'ma'`Skulle exempelvis matcha någon av följande strängar: <ul><li>/Business/**ma**rathon/asset.htm</li><li>**ma**p.gif</li><li>/business/template. **ma**p</li></ul><li>Om du vill tillåta att ett specialtecken anges som ett litteralt tecken. Du kan till exempel ange ett tecken för tecken avstånd genom att omsluta ett blank stegs tecken i en uppsättning enkla citat tecken ( `' '` eller `'<sample value>'` ).</li><li>Om du vill tillåta att ett tomt värde anges. Ange ett tomt värde genom att ange en uppsättning enkla citat tecken (**' '**).</li></ul>**Viktigt**:<br /><ul><li>Om det angivna värdet inte innehåller ett jokertecken betraktas värdet automatiskt som ett litteralt värde. Du behöver inte ange en uppsättning enkla citat tecken för ett tecken värde.</li><li>Om ett omvänt snedstreck inte används för att undvika ett annat tecken i tabellen, ignoreras omvänt snedstreck när det anges i en uppsättning enkla citat tecken.</li><li>Ett annat sätt att ange ett specialtecken som ett litteralt tecken är att kringgå det genom att använda ett omvänt snedstreck ( `\` ).</li></ul>
+För närvarande stöder vi jokertecknet i **villkoret UrlPath match** i standard regel motorn. \*Tecknet är en asterisk som representerar ett eller flera tecken. 
 
 ## <a name="next-steps"></a>Nästa steg
 

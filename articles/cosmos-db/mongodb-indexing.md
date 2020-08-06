@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 08/04/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 473bc8677c5369833928eb4648f32bb146e83e65
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: b8db9e2d8b58047ebe29865bb95d7f218732c88e
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420659"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761169"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Hantera indexering i Azure Cosmos DBs API för MongoDB
 
@@ -319,7 +319,12 @@ Informationen om indexets förlopp visar procent andelen förloppet för den akt
 
 Oavsett vilket värde som angetts för egenskapen för **bakgrunds** index görs alltid index uppdateringar i bakgrunden. Eftersom index uppdateringar använder ru: er-enheter () med lägre prioritet än andra databas åtgärder, resulterar index ändringar inte i någon nedtid för skrivningar, uppdateringar eller borttagningar.
 
-När du lägger till ett nytt index använder frågorna direkt indexet. Det innebär att frågor kanske inte returnerar alla matchande resultat och gör det utan att returnera några fel. När omvandling av indexet är slutförd kommer frågeresultatet att bli konsekvent. Du kan [spåra index förloppet](#track-index-progress).
+Det finns ingen inverkan på Läs tillgänglighet när du lägger till ett nytt index. Frågor använder bara nya index när index omvandlingen har slutförts. Vid omvandlingen av index fortsätter Frågeredigeraren att använda befintliga index, så du ser liknande Läs prestanda under indexerings omvandlingen till det du hade observerat innan du påbörjar indexerings ändringen. När du lägger till nya index är det inte heller någon risk för ofullständiga eller inkonsekventa frågeresultat.
+
+När du tar bort index och omedelbart kör frågor, så kan resultaten vara inkonsekventa och ofullständiga tills index omvandlingen har slutförts. Om du tar bort index garanterar inte frågesyntaxen konsekvent eller fullständig resultat när frågor filtrerar på dessa nyligen borttagna index. De flesta utvecklare släpper inte indexen och försöker sedan omedelbart fråga dem så, i praktiken är den här situationen osannolik.
+
+> [!NOTE]
+> Du kan [spåra index förloppet](#track-index-progress).
 
 ## <a name="migrate-collections-with-indexes"></a>Migrera samlingar med index
 

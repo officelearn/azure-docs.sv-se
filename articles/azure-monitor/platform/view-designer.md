@@ -5,27 +5,19 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/10/2019
-ms.openlocfilehash: c0af92bdec6248a38040f972734764fa1bc10226
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/04/2020
+ms.openlocfilehash: f3ae081c8657a3ee6a27b0f9208c3eb4e4e745cc
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289091"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759741"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Skapa anpassade vyer med hjälp av View Designer i Azure Monitor
 Med hjälp av View Designer i Azure Monitor kan du skapa en mängd olika anpassade vyer i Azure Portal som kan hjälpa dig att visualisera data i din Log Analytics-arbetsyta. Den här artikeln innehåller en översikt över Visa designer och procedurer för att skapa och redigera anpassade vyer.
 
 > [!IMPORTANT]
-> Vyer i Azure Monitor fasas ut och ersätts med [arbets böcker](workbooks-overview.md) som tillhandahåller ytterligare funktioner. Mer information om hur du konverterar befintliga vyer till arbets böcker finns i [Azure Monitor Visa designer till arbets böcker över gångs guide](view-designer-conversion-overview.md) . Se följande tabell för de steg som kommer att vidtas under de kommande månaderna.
-> 
-> | Ändra | Vad det innebär | Förväntat datum |
-> |:---|:---|:---|
-> | Inaktivera skapandet av nya vyer som skapats via Visa designer. | Du kommer inte längre att kunna skapa och spara nya anpassade vyer i Azure Portal.| November 2020 |
-> | Inaktivera redigerings funktionen för befintliga vyer med View Designer. | Du kommer inte längre att kunna ändra och spara ändringar i dina befintliga anpassade vyer. | November 2020 |
-> | Inaktivera distribution av vyer till Log Analytics arbets ytor | Du kommer inte längre att kunna distribuera anpassade vyer med ARM to Log Analytics-arbetsytor. | Mars 2021 |
-> | Visa designer är inte längre tillgängligt i Azure Portal | Portal upplevelsen kommer inte längre att ha stöd för View Designer. | 2021 juni |
-> | Anpassade vyer tas bort från arbets ytans Sammanfattning | Du kommer inte längre att kunna komma åt dina anpassade visnings data. | December 2021 |
+> Vyer i Azure Monitor har övergått till [arbets böcker](workbooks-overview.md) som tillhandahåller ytterligare funktioner. Mer information om hur du konverterar befintliga vyer till arbets böcker finns i [Azure Monitor Visa designer till arbets böcker över gångs guide](view-designer-conversion-overview.md) .
  
 
 

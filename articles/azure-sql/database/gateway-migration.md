@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 22bfab5b9f00a392054fa1aef6a93195180fd968
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 30e57736d0b0e40eb01573d6acca2c618dcf6ee3
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373495"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759707"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database trafikmigrering till nyare gateways
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,17 +29,20 @@ Kunderna får ett meddelande via e-post och i Azure Portal väl i förväg om ev
 # <a name="in-progress"></a>[Pågår](#tab/in-progress-ip)
 ### <a name="september-2020"></a>September 2020
 
-Nya SQL-gatewayer läggs till i följande regioner:
+Nya SQL-gatewayer läggs till i följande regioner. Dessa SQL-gatewayer ska börja acceptera kund trafik den 10 september 2020:
+
+- Västra centrala USA: 13.78.248.43 
+- Södra Afrika: 102.133.120.2  
+
+Nya SQL-gatewayer läggs till i följande regioner. Dessa SQL-gatewayer ska börja acceptera kund trafik den 1 september 2020:
 
 - Nord Europa: 13.74.104.113 
 - Västra 2; USA: 40.78.248.10 
 - Västeuropa: 52.236.184.163 
 - Södra centrala USA: 20.45.121.1, 20.49.88.1 
 
-Befintliga SQL-gatewayer börjar att acceptera trafik i följande regioner:
+Befintliga SQL-gatewayer börjar att acceptera trafik i följande regioner. Dessa SQL-gatewayer ska börja acceptera kund trafik den 1 september 2020. :
 - Japan, öst: 40.79.184.8, 40.79.192.5
-
-Dessa SQL-gatewayer ska börja acceptera kund trafik den 1 september 2020. 
 
 ### <a name="august-2020"></a>2020 augusti
 
@@ -82,7 +85,7 @@ Du kan påverkas om du:
 - Använd [zonens redundanta konfiguration](high-availability-sla.md#zone-redundant-configuration) för din databas
 
 Du påverkas inte om du har:
-
+ 
 - Omdirigering som anslutnings princip
 - Anslutningar till SQL Database inifrån Azure och med service märken
 - Anslutningar som görs med stödda versioner av JDBC-drivrutinen för SQL Server kommer inte att se någon påverkan. Information om vilka JDBC-versioner som stöds finns i [Hämta Microsoft JDBC-drivrutin för SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).

@@ -3,12 +3,12 @@ title: Azures säkerhets bas linje för Azure DevTest Labs
 description: Azures säkerhets bas linje för Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: b392af17a24b0a5aabdd245af236caa743762244
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 158ead7531b0b3da2e495e36e40e761961bea498
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448969"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761016"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Azures säkerhets bas linje för Azure DevTest Labs
 
@@ -32,7 +32,7 @@ I följande artikel finns information om hur du konfigurerar tidssynkronisering 
 **Ansvar:** Utforskaren
 
 ### <a name="22-configure-central-security-log-management"></a>2,2: Konfigurera central hantering av säkerhets loggar
-**Vägledning:** Aktivera diagnostikinställningar för Azure aktivitets logg och skicka loggarna till en Log Analytics-arbetsyta, Azure Event Hub eller Azure Storage-konto för arkivering. Aktivitets loggar ger insikt i de åtgärder som utförts på dina Azure DevTest Labs-instanser på hanterings Plans nivån. Med hjälp av Azures aktivitets logg data kan du fastställa "vad, vem och när" för alla Skriv åtgärder (skicka, skicka och ta bort) på hanterings Plans nivån för DevTest Labs-instanserna.
+**Vägledning:** Aktivera diagnostikinställningar för Azure aktivitets logg och skicka loggarna till en Log Analytics-arbetsyta, Azure Event Hub eller Azure Storage-konto för arkivering. Aktivitets loggar ger insikt i de åtgärder som utfördes på Azure DevTest Labs instanser på hanterings Plans nivå. Med hjälp av Azures aktivitets logg data kan du fastställa "vad, vem och när" för alla Skriv åtgärder (skicka, skicka och ta bort) på hanterings Plans nivå för dina DevTest Labs-instanser.
 
 Mer information finns i [skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika mål](../azure-monitor/platform/diagnostic-settings.md).
 
@@ -41,7 +41,7 @@ Mer information finns i [skapa diagnostikinställningar för att skicka plattfor
 **Ansvar:** Kund
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2,3: Aktivera gransknings loggning för Azure-resurser
-**Vägledning:** Aktivera diagnostikinställningar för Azure aktivitets logg och skicka loggarna till en Log Analytics-arbetsyta, Azure Event Hub eller Azure Storage-konto för arkivering. Aktivitets loggar ger insikt i de åtgärder som utförts på dina Azure DevTest Labs-instanser på hanterings Plans nivån. Med hjälp av Azures aktivitets logg data kan du fastställa "vad, vem och när" för alla Skriv åtgärder (skicka, skicka och ta bort) på hanterings Plans nivån för DevTest Labs-instanserna.
+**Vägledning:** Aktivera diagnostikinställningar för Azure aktivitets logg och skicka loggarna till en Log Analytics-arbetsyta, Azure Event Hub eller Azure Storage-konto för arkivering. Aktivitets loggar ger insikt i de åtgärder som utfördes på Azure DevTest Labs instanser på hanterings Plans nivå. Med hjälp av Azures aktivitets logg data kan du fastställa "vad, vem och när" för alla Skriv åtgärder (skicka, skicka och ta bort) på hanterings Plans nivå för dina DevTest Labs-instanser.
 
 Mer information finns i [skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika mål](../azure-monitor/platform/diagnostic-settings.md).
 
@@ -258,6 +258,110 @@ Du kan effektivisera processen genom att skapa diagnostikinställningar för Azu
 
 **Ansvar:** Kund
 
+## <a name="data-protection"></a>Dataskydd
+*Mer information finns i [säkerhets kontroll: data skydd](../security/benchmarks/security-control-data-protection.md).*
+
+### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: underhåll en inventering av känslig information
+**Vägledning:** Använd taggar för att spåra Azure-resurser som lagrar eller bearbetar känslig information.
+
+- [Skapa och använda Taggar](../azure-resource-manager/resource-group-using-tags.md)
+
+**Azure Security Center övervakning:** Ej tillämpligt
+
+**Ansvar:** Kund
+
+### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: isolera system som lagrar eller bearbetar känslig information
+**Vägledning:** Implementera separata prenumerationer eller hanterings grupper för utveckling, testning och produktion. Azure DevTest Labs instanser ska avgränsas av det virtuella nätverket/under nätet och taggas korrekt. 
+
+- [Så här skapar du ytterligare Azure-prenumerationer](../billing/billing-create-subscription.md)
+- [Så här skapar du hanterings grupper](../governance/management-groups/create.md)
+- [Så här konfigurerar du ett virtuellt nätverk för DevTest Labs](devtest-lab-configure-vnet.md)
+- [Skapa och använda Taggar](../azure-resource-manager/resource-group-using-tags.md)
+- [Skapa och använda taggar för DevTest Labs](devtest-lab-add-tag.md)
+
+**Azure Security Center övervakning:** Inte tillgänglig för närvarande
+
+**Ansvar:** Kund
+
+### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4,3: övervaka och blockera obehörig överföring av känslig information
+**Vägledning:** Ännu inte tillgängligt; funktionerna för data identifiering, klassificering och förlust av förlust är ännu inte tillgängliga för Azure DevTest Labs.
+
+Microsoft hanterar den underliggande infrastrukturen för Azure DevTest Labs och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information.
+
+- [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
+
+**Azure Security Center övervakning:** Inte tillgänglig för närvarande
+
+**Ansvar:** Resursen
+
+### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: kryptera all känslig information under överföring
+**Vägledning:** Azure DevTest Labs kräver TLS-krypterad kommunikation som standard. TLS-versioner 1,2 stöds för närvarande. Om klient biblioteket eller verktyget inte stöder TLS kan du göra det genom att aktivera okrypterade anslutningar via API: erna för Azure Portal eller hantering. I sådana fall där krypterade anslutningar inte är möjligt rekommenderar vi att du placerar labb-och klient program i ett virtuellt nätverk.
+
+[Förstå kryptering i överförings scenariot för DevTest Labs](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-devtest-labs-enforcing-tls-1-2-starting-may-01-2020/ba-p/1236279)
+
+**Azure Security Center övervakning:** Ja
+
+**Ansvar:** Resursen
+
+### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4,5: Använd ett aktivt identifierings verktyg för att identifiera känsliga data
+**Vägledning:** Funktionerna för data identifiering, klassificering och förlust av förlust är ännu inte tillgängliga för Azure DevTest Labs. Tagga instanser som innehåller känslig information som sådan och implementera en lösning från tredje part om det behövs för efterlevnad.
+
+För den underliggande plattformen, som hanteras av Microsoft, behandlar Microsoft allt kund innehåll som känsligt och ger fantastiska längder för att skydda mot förlust och exponering av kund information. För att säkerställa att kunddata i Azure förblir skyddade har Microsoft implementerat och underhåller en svit med robusta data skydds kontroller och-funktioner.
+
+- [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
+
+**Azure Security Center övervakning:** Inte tillgänglig för närvarande
+
+**Ansvar:** Kund
+
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
+**Vägledning:** Använd Azure Active Directory (Azure AD) rollbaserad åtkomst kontroll (RBAC) för att kontrol lera åtkomsten till labb i Azure DevTest Labs.
+
+- [Konfigurera RBAC i Azure](../role-based-access-control/role-assignments-portal.md)
+- [Förstå roller i DevTest Labs](devtest-lab-add-devtest-user.md)
+
+**Azure Security Center övervakning:** Ej tillämpligt
+
+**Ansvar:** Kund
+
+### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4,7: Använd värdbaserade data förlust skydd för att genomdriva åtkomst kontroll
+**Vägledning:** Om det är nödvändigt för att använda beräknings resurser som skapats som en del av DevTest Labs implementerar du ett tredjepartsverktyg, till exempel en automatiserad värdbaserade lösning för data förlust skydd, för att genomdriva åtkomst kontroller till data även när data kopieras av ett system.
+
+För den underliggande plattformen, som hanteras av Microsoft, behandlar Microsoft allt kund innehåll som känsligt och ger fantastiska längder för att skydda mot förlust och exponering av kund information. För att säkerställa att kunddata i Azure förblir skyddade har Microsoft implementerat och underhåller en svit med robusta data skydds kontroller och-funktioner.
+
+- [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
+
+**Azure Security Center övervakning:** Ej tillämpligt
+
+**Ansvar:** Ej tillämpligt
+
+### <a name="48-encrypt-sensitive-information-at-rest"></a>4,8: kryptera känslig information i vila
+**Vägledning:** Azure DevTest Labs lagrar följande kund information:
+
+- [Artefakt resultat](add-artifact-vm.md) som inkluderar distributions-och tilläggs loggar som genereras från att tillämpa artefakter
+- [Formel dokument](devtest-lab-manage-formulas.md) som används för att skapa virtuella datorer från formler
+- Operativ system och data diskar för virtuella labb datorer 
+
+Artefakt resultat och formel dokument skickas till ett Azure Storage-konto som skapas som en del av varje labb distribution. Data i Azure Storage krypteras och dekrypteras transparent med 256-bitars AES-kryptering, en av de starkaste block chiffer som är tillgängliga och är FIPS 140-2-kompatibel. Azure Storage kryptering kan inte inaktive ras. Du kan förlita dig på Microsoft-hanterade nycklar för kryptering av ditt lagrings konto, eller så kan du hantera kryptering med dina egna nycklar. Mer information finns i [kryptering för labb lagrings konto](encrypt-storage.md).
+
+Som standard krypteras alla labb operativ system och data diskar med en plattforms hanterad nyckel. Alla hanterade diskar, ögonblicks bilder, avbildningar och data som skrivs till befintliga hanterade diskar krypteras automatiskt i vila med plattforms hanterade nycklar. Som labb ägare kan du konfigurera labb operativ system diskar som ska krypteras med en kundhanterad nyckel. Kryptering med en kundhanterad nyckel för labb data diskar kan för närvarande inte konfigureras via själva labbet. En prenumerations administratör kan dock konfigurera den här inställningen för labb diskar i en prenumeration för tillfället. Mer information finns i [kryptera labb DevTest Labs OS-diskar med Kundhanterade nycklar](encrypt-disks-customer-managed-keys.md).
+
+**Azure Security Center övervakning:** Ej tillämpligt
+
+**Ansvar:** Resursen
+
+### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4,9: logg och varning vid ändringar av kritiska Azure-resurser
+**Vägledning:** Använd Azure Monitor med Azure aktivitets logg för att skapa aviseringar för när ändringar sker i DevTest Labs-instanser och andra viktiga eller relaterade resurser.
+
+- [Så här skapar du aviseringar för Azure aktivitets logg händelser](../azure-monitor/platform/alerts-activity-log.md)
+- [Skapa aviseringar för DevTest Labs aktivitets logg händelser](create-alerts.md)
+
+**Azure Security Center övervakning:** Ej tillämpligt
+
+**Ansvar:** Kund
+
+
+
 ## <a name="vulnerability-management"></a>Sårbarhetshantering
 *Mer information finns i [säkerhets kontroll: sårbarhets hantering](../security/benchmarks/security-control-vulnerability-management.md).*
 
@@ -372,7 +476,7 @@ Använd också Azure Resource Graph för att fråga/identifiera resurser i prenu
 **Ansvar:** Kund
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6,6: övervaka för program som inte godkänts i beräknings resurser
-**Vägledning:** Azure Automation ger fullständig kontroll under distribution, åtgärder och inaktive ring av arbets belastningar och resurser. Som prenumerations administratör kan du utnyttja inventering av virtuella Azure-datorer för att automatisera insamling av information om all program vara i DevTest Labs-datorer i din prenumeration. Egenskaperna för program varu namn, version, utgivare och uppdaterings tid är tillgängliga från Azure Portal. För att få åtkomst till installations datum och annan information, krävs kunden för att aktivera diagnostik på gästnivå och ta med Windows-händelseloggen till en Log Analytics-arbetsyta.
+**Vägledning:** Azure Automation ger fullständig kontroll under distribution, åtgärder och inaktive ring av arbets belastningar och resurser. Som prenumerations administratör kan du använda inventering av virtuella Azure-datorer för att automatisera insamling av information om all program vara i DevTest Labs-datorer i din prenumeration. Egenskaperna för program varu namn, version, utgivare och uppdaterings tid är tillgängliga från Azure Portal. För att få åtkomst till installations datum och annan information, krävs kunden för att aktivera diagnostik på gästnivå och ta med Windows-händelseloggen till en Log Analytics-arbetsyta.
 
 Förutom att använda Ändringsspårning för övervakning av program vara kan anpassningsbara program kontroller i Azure Security Center använda Machine Learning för att analysera de program som körs på dina datorer och skapa en lista över tillåtna från denna intelligens. Den här funktionen fören klar processen att konfigurera och underhålla principer för att tillåta listor, vilket gör att du kan undvika att oönskad program vara används i din miljö. Du kan konfigurera gransknings läge eller framtvinga läge. Gransknings läget granskar endast aktiviteten på de skyddade virtuella datorerna. Tvingande läge tvingar fram reglerna och kontrollerar att program som inte tillåts att köra är blockerade. 
 
@@ -421,7 +525,7 @@ Se följande artiklar:
 
 
 ### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6,10: underhåll en inventering av godkända program varu titlar
-**Vägledning:** Anpassningsbar program kontroll är en intelligent, automatiserad lösning från slut punkt till slut punkt från Azure Security Center, som hjälper dig att styra vilka program som kan köras på dina Azure-och icke-Azure-datorer (Windows och Linux), som finns i DevTest Labs. Obs! Du måste vara prenumerations administratör för att kunna konfigurera den här inställningen för underliggande beräknings resurser som finns i DevTest Labs. Implementera en lösning från tredje part om den här inställningen inte uppfyller organisationens krav.
+**Vägledning:** Anpassningsbar program kontroll är en intelligent, automatiserad lösning från slut punkt till slut punkt från Azure Security Center, som hjälper dig att styra vilka program som kan köras på dina Azure-och icke-Azure-datorer (Windows och Linux), som finns i DevTest Labs. Observera att du måste vara prenumerations administratör för att konfigurera den här inställningen för de underliggande beräknings resurserna i DevTest Labs. Implementera en lösning från tredje part om den här inställningen inte uppfyller organisationens krav.
 
 - [Använda Azure Security Center adaptiva program kontroller](../security-center/security-center-adaptive-application.md)
 
@@ -464,6 +568,156 @@ Se följande artiklar:
 
 **Ansvar:** Kund
 
+## <a name="secure-configuration"></a>Säker konfiguration
+**Mer information finns i säkerhets kontroll: säker konfiguration.**
+
+### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: upprätta säkra konfigurationer för alla Azure-resurser
+**Vägledning:** Använd Azure Policy alias för att skapa anpassade principer för att granska eller framtvinga konfigurationen av dina Azure-resurser som skapats som en del av DevTest Labs. Du kan också använda inbyggda Azure Policy definitioner.
+
+Azure Resource Manager har också möjlighet att exportera mallen i JavaScript Object Notation (JSON), vilken bör granskas för att säkerställa att konfigurationerna uppfyller/överskrider säkerhets kraven för din organisation.
+
+Du kan också använda rekommendationer från Azure Security Center som en säker konfigurations bas linje för dina Azure-resurser.
+
+- [Visa tillgängliga Azure Policy alias](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Självstudie: skapa och hantera principer för att genomdriva efterlevnad](../governance/policy/tutorials/create-and-manage.md)
+- [Exportera en och flera resurser till en mall i Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
+- [Säkerhets rekommendationer – en referens guide](../security-center/recommendations-reference.md)
+
+**Azure Security Center övervakning:** Ej tillämpligt
+
+**Ansvar:** Kund
+
+### <a name="72-establish-secure-operating-system-configurations"></a>7,2: upprätta säkra konfigurationer för operativ system
+**Vägledning:** Använd Azure Security Center rekommendationer för att underhålla säkerhetskonfigurationer på alla underliggande beräknings resurser som skapats som en del av DevTest Labs. Dessutom kan du använda anpassade operativ Systems avbildningar eller Azure Automation tillstånds konfiguration eller DevTest labb artefakter för att upprätta säkerhets konfigurationen för det operativ system som krävs av din organisation.
+
+- [Så här övervakar du Azure Security Center rekommendationer](../security-center/security-center-recommendations.md)
+- [Säkerhets rekommendationer – en referens guide](../security-center/recommendations-reference.md)
+- [Översikt över Azure Automation tillstånds konfiguration](../automation/automation-dsc-overview.md)
+- [Ladda upp en virtuell hård disk och Använd den för att skapa nya virtuella Windows-datorer i Azure](../virtual-machines/windows/upload-generalized-managed.md)
+- [Skapa en virtuell Linux-dator från en anpassad disk med Azure CLI](../virtual-machines/linux/upload-vhd.md)
+- [Skapa och distribuera anpassade avbildningar till flera DevTest Labs](image-factory-save-distribute-custom-images.md)
+
+**Azure Security Center övervakning:** Ej tillämpligt
+
+**Ansvar:** Ej tillämpligt
+
+### <a name="73-maintain-secure-azure-resource-configurations"></a>7,3: underhåll säker Azure-resurs-konfigurationer
+**Vägledning:** Använd Azure Policy **neka** och **distribuera om de inte finns** regler för att genomdriva säkra inställningar för Azure-resurser som har skapats som en del av DevTest Labs. Du kan också använda Azure Resource Manager mallar för att underhålla säkerhets konfigurationen för dina Azure-resurser som krävs av din organisation.
+
+- [Förstå Azure Policys effekter](../governance/policy/concepts/effects.md)
+- [Skapa och hantera principer för att använda kompatibilitet](../governance/policy/tutorials/create-and-manage.md)
+- [Översikt över Azure Resource Manager mallar](../azure-resource-manager/templates/overview.md)
+
+**Azure Security Center övervakning:** Ej tillämpligt
+
+**Ansvar:** Kund
+
+### <a name="74-maintain-secure-operating-system-configurations"></a>7,4: underhåll säkra konfigurationer för operativ system
+**Vägledning:** Följ rekommendationerna från Azure Security Center om att utföra sårbarhets bedömningar för dina underliggande Azure Compute-resurser som skapas som en del av ett labb. Du kan också använda Azure Resource Manager mallar, anpassade operativ Systems avbildningar eller Azure Automation tillstånds konfiguration för att underhålla säkerhets konfigurationen för det operativ system som krävs av din organisation. Du kan också använda avbildnings fabriks lösningen, som är en lösning för konfigurations-som-kod som skapar och distribuerar bilder automatiskt regelbundet med alla önskade konfigurationer.
+
+Dessutom hanteras och underhålls avbildningar av virtuella Azure Marketplace-datorer som publicerats av Microsoft.
+
+- [Så här implementerar du rekommendationer för Azure Security Center sårbarhets bedömning](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [Översikt över Azure Automation tillstånds konfiguration](../automation/automation-dsc-overview.md)
+- [Exempelskript för att överföra en virtuell hårddisk till Azure och skapa en ny virtuell dator](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Så här skapar du en avbildnings fabrik i DevTest Labs](image-factory-create.md)
+
+**Azure Security Center övervakning:** Ja
+
+**Ansvar:** Resursen
+
+### <a name="75-securely-store-configuration-of-azure-resources"></a>7,5: Spara konfigurationen av Azure-resurser på ett säkert sätt
+**Vägledning:** Använd Azure-DevOps för att lagra och hantera din kod på ett säkert sätt, till exempel anpassade Azure-principer, Azure Resource Manager mallar och önskade tillstånds konfigurations skript. För att få åtkomst till de resurser som du hanterar i Azure DevOps, kan du bevilja eller neka behörigheter till särskilda användare, inbyggda säkerhets grupper eller grupper som definierats i Azure Active Directory (Azure AD) om det är integrerat med Azure DevOps.
+
+- [Azure databaser git-självstudie](/devops/repos/git/gitworkflow?view=azure-devops)
+- [Om behörigheter och grupper](/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page)
+- [Integrering mellan Azure DevTest Labs-och Azure DevOps-arbetsflöde](devtest-lab-dev-ops.md)
+
+**Azure Security Center övervakning:** Ej tillämpligt
+
+**Ansvar:** Kund
+
+### <a name="76-securely-store-custom-operating-system-images"></a>7,6: lagra anpassade operativ Systems avbildningar på ett säkert sätt
+**Vägledning:** Om du använder anpassade avbildningar använder du rollbaserad åtkomst kontroll (RBAC) för att se till att endast behöriga användare får åtkomst till avbildningarna. Med hjälp av ett delat avbildnings Galleri kan du dela dina avbildningar till vissa labb som behöver det. För behållar avbildningar lagrar du dem i Azure Container Registry och använder RBAC för att se till att endast behöriga användare får åtkomst till avbildningarna.
+
+- [Förstå RBAC i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Konfigurera RBAC i Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [Konfigurera ett delat avbildnings Galleri för en DevTest Labs](configure-shared-image-gallery.md)
+- [Förstå RBAC för Container Registry](../container-registry/container-registry-roles.md)
+
+**Azure Security Center övervakning:** Ej tillämpligt
+
+**Ansvar:** Kund
+
+### <a name="77-deploy-system-configuration-management-tools"></a>7,7: Distribuera hanterings verktyg för system konfiguration
+**Vägledning:** Definiera och implementera standardinställda säkerhetskonfigurationer för Azure-resurser med hjälp av Azure Policy. Använd Azure Policy alias för att skapa anpassade principer för att granska eller tillämpa nätverks konfigurationen för dina Azure-resurser som skapats under DevTest Labs. Du kan också använda inbyggda princip definitioner som är relaterade till dina speciella resurser. Dessutom kan du använda Azure Automation för att distribuera konfigurations ändringar.
+
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Använda alias](../governance/policy/concepts/definition-structure.md#aliases)
+
+**Azure Security Center övervakning:** Ej tillämpligt
+
+**Ansvar:** Kund
+
+### <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7,8: distribuera system konfigurations hanterings verktyg för operativ system
+**Vägledning:** Azure Automation tillstånds konfiguration är en konfigurations hanterings tjänst för DSC-noder (Desired State Configuration) i alla moln eller lokala data Center. Du kan enkelt publicera datorer, tilldela dem deklarativ konfigurationer och Visa rapporter som visar varje dators kompatibilitet med önskat tillstånd som du har angett. Du kan också skriva en anpassad artefakt som kan installeras på alla labb datorer för att se till att de följer organisations principer. 
+
+- [Onboarding-datorer för hantering genom Azure Automation tillstånds konfiguration](../automation/automation-dsc-onboarding.md)
+- [Skapa anpassade artefakter för virtuella DevTest Labs-datorer](devtest-lab-artifact-author.md)
+
+**Azure Security Center övervakning:** Ej tillämpligt
+
+**Ansvar:** Kund
+
+### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7,9: implementera automatisk konfigurations övervakning för Azure-tjänster
+**Vägledning:** Använd Azure Security Center för att utföra bas linje genomsökningar för dina Azure-resurser som skapats under DevTest Labs. Du kan också använda Azure Policy för att varna och granska Azure-resursfiler.
+
+- [Så här åtgärdar du rekommendationer i Azure Security Center](../security-center/security-center-remediate-recommendations.md)
+ 
+**Azure Security Center övervakning:** Ej tillämpligt
+
+**Ansvar:** Kund
+
+### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7,10: implementera automatisk konfigurations övervakning för operativ system
+**Vägledning:** Använd Azure Security Center för att utföra bas linje genomsökningar för OS-och Docker-inställningar för behållare.
+
+- [Förstå rekommendationer för Azure Security Center-container](../security-center/security-center-container-recommendations.md)
+
+**Azure Security Center övervakning:** Ej tillämpligt
+
+**Ansvar:** Kund
+
+### <a name="711-manage-azure-secrets-securely"></a>7,11: Hantera Azure-hemligheter på ett säkert sätt
+**Vägledning:** Använd Hanterad tjänstidentitet tillsammans med Azure Key Vault för att förenkla och skydda hemlig hantering för dina moln program.
+
+- [Konfigurera hanterad identitet för att distribuera Azure Resource Manager miljöer i DevTest Labs](use-managed-identities-environments.md)
+- [Konfigurera hanterad identitet för att distribuera virtuella datorer i DevTest Labs](enable-managed-identities-lab-vms.md)
+- [Så här skapar du ett nyckel valv](../key-vault/quick-create-portal.md)
+- [Så här ger Key Vault autentisering med en hanterad identitet](../key-vault/managed-identity.md)
+
+**Azure Security Center övervakning:** Ja
+
+**Ansvar:** Kund
+
+### <a name="712-manage-identities-securely-and-automatically"></a>7,12: hantera identiteter säkert och automatiskt
+**Vägledning:** Använd hanterade identiteter för att tillhandahålla Azure-tjänster med en automatiskt hanterad identitet i Azure AD. Med hanterade identiteter kan du autentisera till vilken tjänst som helst som stöder Azure AD-autentisering, inklusive Key Vault utan autentiseringsuppgifter i din kod.
+
+- [Konfigurera hanterad identitet för att distribuera Azure Resource Manager miljöer i DevTest Labs](use-managed-identities-environments.md)
+- [Konfigurera hanterad identitet för att distribuera virtuella datorer i DevTest Labs](enable-managed-identities-lab-vms.md)
+ 
+**Azure Security Center övervakning:** Ja
+
+**Ansvar:** Kund
+
+### <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminera oavsiktlig exponering för autentiseringsuppgifter
+**Vägledning:** Implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault.
+
+- Så här konfigurerar du en inloggnings skanner
+
+**Azure Security Center övervakning:** Ej tillämpligt
+
+**Ansvar:** Kund
+
 
 ## <a name="malware-defense"></a>Skydd mot skadlig kod
 *Mer information finns i säkerhets kontroll: försvar mot skadlig kod.*
@@ -480,7 +734,7 @@ Se följande artiklar:
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8,2: för skanning av filer som ska laddas upp till Azure-resurser som inte är Compute
 **Vägledning:** Microsoft Antimalware är aktiverat på den underliggande värden som stöder Azure-tjänster (till exempel Azure App Service som finns i ett labb), men det körs inte på ditt innehåll.
-Genomsök alla filer som laddas upp till Azure-resurser som inte är Compute, till exempel App Service, Data Lake Storage, Blob Storage osv.
+Skanna alla filer som laddas upp till Azure-resurser som inte är Compute, till exempel App Service, Data Lake Storage, Blob Storage och så vidare.
 
 Använd Azure Security Center s hot identifiering för data tjänster för att identifiera skadlig kod som laddats upp till lagrings konton.
 
@@ -561,7 +815,7 @@ Om du använder Azure Disk Encryption kan du återställa den virtuella Azure-da
 
 - [Vägledning om hur du skapar en egen svars process för säkerhets incidenter](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 - [Microsoft Security Response Centers Beskrivning av en incident](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
-- [Utnyttja NISTs hanterings guide för dator säkerhet för att hjälpa dig att skapa en egen incident svars plan](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+- [Använd NIST hanterings guide för dator säkerhet för att hjälpa till med att skapa din egen incident svars plan](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
 **Azure Security Center övervakning:** Ej tillämpligt
 

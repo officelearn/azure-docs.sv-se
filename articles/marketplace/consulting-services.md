@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 5cea220b44618787e34ce2297921d715476b7f14
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 31bb6dd188786fda532bf85d071e119e69e5bccc
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280961"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797873"
 ---
 # <a name="consulting-service-offers"></a>Konsult tjänst erbjudanden
 
@@ -86,12 +86,12 @@ System-Integrator-partner kan skicka konsult tjänst erbjudanden för följande 
 Börja med att [Registrera](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) företags informationen på Marketplace. En fullständig check lista över registrerings kraven finns i [bli utgivare i Marketplace](become-publisher.md). 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Förbereda dina publicerings artefakter
-Innan du registrerar dig kan du börja samla in och förbereda innehållet som gör att du kan lista tydliggör värdet för din tjänst och din lösning till mål kunden. 
+Innan du registrerar dig kan du börja samla in och förbereda innehållet som gör att du kan lista tydliggör värdet för din tjänst och din lösning till mål kunden.
 
 |Installation för nya utgivare  |
 |---------|
 |MPN-ID     |
-|Företags logo typer (48 x 48, 216 x 216 bild punkter)     |
+|Företags logo typer: 48 x 48 bild punkter (valfritt), 216 x 216 pixlar – 350 x 350 bild punkter (krävs)  |
 |Lead-mål     |
 ||
 

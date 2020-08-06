@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
-ms.openlocfilehash: 60bcdac0d7e19c424b007980294898638814d586
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d7eea031e50a0f54a57d8a9c857d52ca137f3283
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044879"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760557"
 ---
 # <a name="what-is-a-keyword"></a>Vad är ett nyckelord?
 
@@ -35,6 +35,23 @@ Med anpassade nyckelords anpassnings-, prestanda-och integrerings funktioner kan
 
 * Se [grunderna för anpassade nyckelord](custom-keyword-basics.md) för grundläggande användning och design mönster.
 * Så här [aktiverar du din produkt med tal-SDK: n med C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+
+## <a name="choose-an-effective-keyword"></a>Välj ett effektivt nyckelord
+
+Att skapa ett effektivt nyckelord är viktigt för att se till att enheten kommer att reagera konsekvent och korrekt. Att anpassa ditt nyckelord är ett effektivt sätt att särskilja din enhet och förbättra ditt varumärke. Överväg följande rikt linjer när du väljer ett nyckelord:
+
+> [!div class="checklist"]
+> * Ditt nyckelord bör vara ett engelskt ord eller en fras.
+> * Det bör inte ta mer än två sekunder att säga.
+> * Ord av 4 till 7 stavelser fungerar bäst. Till exempel "Hej, dator" är ett utmärkt nyckelord. Bara "Hej" är ett dåligt.
+> * Nyckelord bör följa vanliga intals regler för engelska uttal.
+> * Ett unikt eller till och med ett upprättat ord som följer vanliga regler för engelska uttal kan minska antalet falska positiva identifieringar. Till exempel kan "computerama" vara ett utmärkt nyckelord.
+> * Välj inget vanligt ord. Till exempel är "äta" och "go" ord som människor säger ofta i vanlig konversation. De kan vara falska utlösare för enheten.
+> * Undvik att använda nyckelord som kan ha alternativa uttal. Användarna måste känna till "Right"-uttal för att få enheten att svara. "509" kan till exempel uttalas "5 0 9", "5 0 9" eller "509". "R.E.I." kan uttalas "r-e-i" eller "Ray". "Live" kan uttalas "/līv/" eller "/liv/".
+> * Använd inte specialtecken, symboler eller siffror. Till exempel "go #" och "20 + katter" kan vara problematiska nyckelord. Men "gå skarpa" eller "tjugo plus katter" kan fungera. Du kan fortfarande använda symbolerna i din anpassning och använda marknadsföring och dokumentation för att förstärka rätt uttal.
+
+> [!NOTE]
+> Om du väljer ett tilldelat ord som nyckelord måste du vara säker på att du äger detta varumärke eller att du har behörighet från varumärkes ägaren för att använda ordet. Microsoft ansvarar inte för några juridiska problem som kan uppstå från ditt val av nyckelord.
 
 ## <a name="see-samples-on-github"></a>Se exempel på GitHub
 

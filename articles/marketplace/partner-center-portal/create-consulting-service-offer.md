@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 11f4091489a8ef8c980ece0589945c8e1c7dc8b8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8dd0abb5c127d51a0feaf0c71188b7fc48e2fd69
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317781"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798230"
 ---
 # <a name="create-a-consulting-service-offer"></a>Skapa ett konsulttjänsterbjudande
 
@@ -98,7 +98,7 @@ På den här sidan kan du ange den primära produkt som din konsult tjänst erbj
 
 3. Om du har valt **Azure** som primär produkt väljer du upp till tre **lösnings områden**. Detta gör det enklare för kunderna på Azure Marketplace att hitta ditt erbjudande. Hoppa över det här steget om du inte har valt Azure.
 
-    - Analytics
+    - Analys
     - App-modernisering
     - Arkiv
     - AI + Machine Learning
@@ -109,7 +109,7 @@ På den här sidan kan du ange den primära produkt som din konsult tjänst erbj
     - DevOps
     - Haveriberedskap
     - Identitet
-    - Internet of Things
+    - Sakernas Internet
     - Migrering
     - Nätverk
     - Säkerhet
@@ -207,12 +207,14 @@ Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bil
 
 #### <a name="store-logos"></a>Butiks logo typer
 
-Ange PNG-filer för ditt erbjudandes logo typ i var och en av följande pixel storlekar:
+Ange en PNG-fil för logo typen med **stor** storlek (mellan 216 x 216 och 350 x 350 bild punkter). Partner Center använder detta för att skapa en **liten** (48 x 48 pixlar) storleks logo typ. Du kan också ersätta detta med en annan bild.
 
-- **Liten (48 x 48)**
-- **Stor (216 x 216)**
+Båda logo typ storlekarna krävs för användning på olika platser i listan:
 
-Alla logo typer krävs och används på olika platser i Marketplace-listan.
+- **Liten** (48 x 48)
+- **Stor** (mellan 216 x 216 och 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Skärm dum par (valfritt)
 

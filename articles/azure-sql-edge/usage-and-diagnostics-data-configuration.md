@@ -8,12 +8,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 08/04/2020
-ms.openlocfilehash: 1f6624c454364ca19c8ce112cb1cbbef134f162d
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 8547c07214e94176babe4909504b9292d45c06f9
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/04/2020
-ms.locfileid: "87568044"
+ms.locfileid: "87759622"
 ---
 # <a name="azure-sql-edge-usage-and-diagnostics-data-configuration"></a>Azure SQL Edge-användning och diagnostik-data konfiguration
 
@@ -87,7 +87,7 @@ Den lokala gransknings komponenten i Azure SQL Edge-användning och insamling av
 
 Aktivera lokal gransknings användning och diagnostikdata på Azure SQL Edge
 
-1. Skapa en mål katalog för den nya lokala Gransknings logg lagringen. Den här mål katalogen måste skapas på samma monterings volym som är mappad till/var/opt/MSSQL/-sökvägen på SQL Edge.
+1. Skapa en mål katalog för den nya lokala Gransknings logg lagringen. Mål katalogen kan antingen finnas på värden eller i behållaren. I exemplet nedan skapas mål katalogen på samma monterings volym som är mappad till/var/opt/MSSQL/-sökvägen på SQL Edge.
 
    ```bash
    sudo mkdir <host mount path>/audit
@@ -95,14 +95,14 @@ Aktivera lokal gransknings användning och diagnostikdata på Azure SQL Edge
 
 2. Konfigurera granskning av användnings-och diagnostikdata med hjälp av antingen miljövariabler eller MSSQL. conf-fil.
 
-   - Använda miljövariabler – Lägg till följande miljö variabel i SQL Edge-distributionen.
+   - Använda miljövariabler – Lägg till följande miljö variabel i SQL Edge-distributionen och ange mål katalogen för gransknings filerna.
    
-     `*MSSQL_TELEMETRY_DIR = /var/opt/mssql/audit*`
+     `*MSSQL_TELEMETRY_DIR = <host mount path>/audit*`
    
-   - Med hjälp av MSSQL. conf-filen – Lägg till följande rader i filen MSSQL. conf.
+   - Använda MSSQL. conf-filen – Lägg till följande rader i filen MSSQL. conf och ange mål katalogen för gransknings filerna.
        ```ini
        [telemetry]
-       userrequestedlocalauditdirectory  = /var/opt/mssql/audit
+       userrequestedlocalauditdirectory  = <host mount path>/audit
        ```  
 
 ## <a name="next-steps"></a>Nästa steg

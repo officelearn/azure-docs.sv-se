@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/17/2020
+ms.date: 07/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13a11c74087731ddd3de4d6277e605ce06a8eea6
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: df9c55971d05efcdbf1300a8023285bd0c8f3e4f
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126392"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797018"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-raketa"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Raketa
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur du integrerar Raketa med Azure Ac
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -43,20 +43,29 @@ För att komma igång behöver du följande objekt:
 
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Raketa stöder **SP** -INITIERAd SSO
-
-* När du har konfigurerat Raketa kan du framtvinga sessionshantering, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Raketa stöder **SP** -initierad SSO.
+* När du har konfigurerat Raketa kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-raketa-from-the-gallery"></a>Lägga till Raketa från galleriet
 
 Om du vill konfigurera integreringen av Raketa i Azure AD måste du lägga till Raketa från galleriet i listan över hanterade SaaS-appar.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
-1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
-1. Navigera till **företags program** och välj sedan **alla program**.
-1. Välj **nytt program**om du vill lägga till ett nytt program.
-1. I avsnittet **Lägg till från galleriet** , skriver du **Raketa** i sökrutan.
-1. Välj **Raketa** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+1. I det vänstra navigerings fönstret väljer du tjänsten för **Azure Active Directory** [1].
+
+    ![rkt_1](./media/raketa-tutorial/azure-active-directory.png)
+
+1. Navigera till **företags program** [2] och välj sedan **alla program** [3].
+
+1. Om du vill lägga till ett nytt program väljer du **nytt program** [4]. 
+
+    ![rkt_2](./media/raketa-tutorial/new-app.png)
+
+1. I avsnittet **Lägg till från galleriet** [5] skriver du **Raketa** i sökrutan [6].
+
+1. Välj **Raketa** från resultat panelen [7] och klicka sedan på knappen **Lägg till** [8]. 
+
+    ![rkt_3](./media/raketa-tutorial/add-btn.png)
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-raketa"></a>Konfigurera och testa enkel inloggning med Azure AD för Raketa
@@ -76,57 +85,88 @@ Om du vill konfigurera och testa Azure AD SSO med Raketa, slutför du följande 
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **Raketa** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
-1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **Raketa** , letar upp avsnittet **Hantera** och väljer **enkel inloggning** [9].
 
-   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+    ![rkt_4](./media/raketa-tutorial/manage-sso.png)
+
+1. På sidan **Välj metod för enkel inloggning** [9] väljer du **SAML** [10].
+
+    ![rkt_5](./media/raketa-tutorial/saml.png)
+
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** [11] för att redigera inställningarna.
 
 1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    a. I rutan **Inloggnings-URL** anger du följande URL: `https://raketa.travel/`
+    1. Skriv webb adressen i text rutorna **identifierare (enhets-ID)** [12] och **inloggnings-URL** [14]: `https://raketa.travel/` .
 
-    b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://raketa.travel/sso/acs?clientId=<CLIENT_ID>`
+    1. I text rutan **svars-URL** [13] skriver du en URL med följande mönster: `https://raketa.travel/sso/acs?clientId=<CLIENT_ID>` .  
+
+    ![rkt_6](./media/raketa-tutorial/enter-urls.png)
 
     > [!NOTE]
     > Värdet för svars-URL:en är inte verkligt. Uppdatera värdet för med den faktiska svars-URL:en. Kontakta [Raketa client support team](mailto:help@raketa.travel) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
-
-    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **certifikat (base64)** och väljer **Hämta** [15] för att hämta certifikatet och spara det på datorn.
 
 1. I avsnittet **Konfigurera Raketa** kopierar du lämpliga URL: er baserat på ditt krav.
 
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+    1. Inloggnings-URL [16] – URL: en för webb sidan för auktorisering, som används för att omdirigera användarna till Authentication-systemet.
+
+    1. Azure AD-identifierare [17] – Azure AD-identifierare.
+
+    1. Utloggnings-URL [18] – webb sidans URL, som används för att dirigera om användarna efter utloggning.
+
+    ![rkt_7](./media/raketa-tutorial/copy-urls.png)
+
+
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory** [1], väljer **användare** [19] och väljer sedan **alla användare** [20].
+
+1. Välj **ny användare** [21] överst på skärmen.
+
+    ![rkt_8](./media/raketa-tutorial/new-user.png)
+
 1. I **användar** egenskaperna följer du de här stegen:
-   1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
-   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
-   1. Klicka på **Skapa**.
+
+   1. I fältet **användar namn** [22] anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+
+   1. I fältet **namn** [23] anger du `B.Simon` .
+
+   1. Markera kryss rutan **Visa lösen ord** [25] och skriv sedan ned värdet som visas i rutan **lösen ord** [24].
+
+   1. Klicka på **skapa** [26]. 
+
+    ![rkt_9](./media/raketa-tutorial/create-user.png)
+
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Raketa.
 
-1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
-1. I listan program väljer du **Raketa**.
-1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
+1. I Azure Portal väljer du **företags program** [2] och väljer sedan **alla program** [3].
 
-   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+1. I listan program väljer du **Raketa** [27].  
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+    ![rkt_10](./media/raketa-tutorial/add-raketa.png)
 
-    ![Länken Lägg till användare](common/add-assign-user.png)
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper** [28]. 
 
-1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+    ![rkt_11](./media/raketa-tutorial/users-groups.png)
+
+1. Välj **Lägg till användare** [29] och välj sedan **användare och grupper** [30] i dialog rutan **Lägg till tilldelning** .
+
+    ![rkt_12](./media/raketa-tutorial/add-user-raketa.png)
+
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** [31] i listan användare och klickar sedan på knappen **Välj** [32] längst ned på skärmen.
+
 1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
+
+1. I dialog rutan **Lägg till tilldelning** klickar du på knappen **tilldela** [33]. 
+
+    ![rkt_13](./media/raketa-tutorial/assign-user.png)
 
 ## <a name="configure-raketa-sso"></a>Konfigurera Raketa SSO
 
@@ -134,7 +174,7 @@ Om du vill konfigurera enkel inloggning på **Raketa** sida måste du skicka det
 
 ### <a name="create-raketa-test-user"></a>Skapa Raketa test användare
 
-I det här avsnittet skapar du en användare som heter B. Simon i Raketa. Arbeta med [Raketa support team](mailto:help@raketa.travel) för att lägga till användare i Raketa-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter B. Simon i Raketa. Arbeta med [Raketa support team](mailto:help@raketa.travel) för att lägga till användare i Raketa-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO
 
@@ -155,4 +195,3 @@ När du klickar på panelen Raketa på åtkomst panelen, bör du loggas in autom
 - [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Så här skyddar du Raketa med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

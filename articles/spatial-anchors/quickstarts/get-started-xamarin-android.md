@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8c27a50f823dcda74d735e6314c9004ec36769d4
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 8a7bb300bb634b342b1141d175b0046c7d2d7e2b
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870888"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810317"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Snabb start: skapa en Xamarin Android-app med Azures spatiala ankare
 
@@ -28,7 +28,7 @@ Du lär dig följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 - En Windows-eller macOS-dator:
@@ -63,9 +63,7 @@ Leta upp fältet `SpatialAnchorsAccountKey` och ersätt `Set me` med kontonyckel
 
 Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentifieraren.
 
-Öppna `Xamarin/SampleXamarin.Android/AzureSpatialAnchorsManager.cs`.
-
-Leta upp `AzureSpatialAnchorsManager(Session arCoreSession)` och Lägg till följande rad och ersätt i din konto domän från tidigare: `this.spatialAnchorsSession.Configuration.AccountDomain = "MyAccountDomain";` .
+Leta upp `SpatialAnchorsAccountDomain` fältet och Ersätt `Set me` med konto domänen.
 
 ## <a name="deploy-the-app-to-your-android-device"></a>Distribuera appen till din Android-enhet
 

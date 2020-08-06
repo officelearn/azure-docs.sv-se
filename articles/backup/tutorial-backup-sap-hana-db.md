@@ -3,12 +3,12 @@ title: Självstudie – säkerhetskopiera SAP HANA databaser i virtuella Azure-d
 description: I den här självstudien lär du dig att säkerhetskopiera SAP HANA databaser som körs på virtuella Azure-datorer till ett Azure Backup Recovery Services-valv.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: f89d21a252870befae7807d2dda96828aaaa1326
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: e892bf2b943d35728b15a9354308e149af2e478e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439658"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810215"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Självstudie: säkerhetskopiera SAP HANA databaser på en virtuell Azure-dator
 
@@ -73,7 +73,7 @@ Om du använder nätverks säkerhets grupper (NSG) använder du tjänst tag gen 
 
 1. Klicka på **Lägg till** för att spara den nyligen skapade utgående säkerhets regeln.
 
-Du kan också skapa NSG utgående säkerhets regler för Azure Storage och Azure AD. Mer information om service märken finns i [den här artikeln](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
+Du kan också skapa NSG utgående säkerhets regler för Azure Storage och Azure AD. Mer information om service märken finns i [den här artikeln](../virtual-network/service-tags-overview.md).
 
 ### <a name="azure-firewall-tags"></a>Azure Firewall-Taggar
 

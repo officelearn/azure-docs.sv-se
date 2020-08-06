@@ -4,12 +4,12 @@ description: Innehåller en översikt över support inställningar och begränsn
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 3be5bdffd999907234fff64f8f88459d9c9b18b6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 9d7e3b4f565fac42d0a91d155846e672c7437f2d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531871"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810470"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 
@@ -107,7 +107,7 @@ Högsta kvarhållningsperiod | Beror på säkerhetskopieringsfrekvensen.
 
 ## <a name="support-for-file-level-restore"></a>Stöd för återställning på filnivå
 
-**Återställa** | **Tillåtna**
+**Återställa** | **Stöds**
 --- | ---
 Återställa filer över operativ system | Du kan återställa filer på alla datorer som har samma (eller kompatibla) OS som den säkerhetskopierade virtuella datorn. Se den [kompatibla OS-tabellen](backup-azure-restore-files-from-vm.md#system-requirements).
 Återställa filer från krypterade virtuella datorer | Stöds inte.
@@ -120,7 +120,7 @@ Högsta kvarhållningsperiod | Beror på säkerhetskopieringsfrekvensen.
 
 I följande tabell sammanfattas stödet för säkerhets kopiering under aktiviteter för hantering av virtuella datorer, till exempel att lägga till eller ersätta VM-diskar.
 
-**Återställa** | **Tillåtna**
+**Återställa** | **Stöds**
 --- | ---
 Återställ över prenumeration/region/zon. | Stöds inte.
 Återställa till en befintlig virtuell dator | Använd alternativet Ersätt disk.
@@ -137,7 +137,7 @@ I följande tabell sammanfattas stödet för säkerhets kopiering under aktivite
 
 **Beräkning** | **Support**
 --- | ---
-Storlek på virtuell dator |Valfri storlek på virtuella Azure-datorer med minst 2 processor kärnor och 1 GB RAM.<br/><br/> [Läs mer.](../virtual-machines/windows/sizes.md)
+Storlek på virtuell dator |Valfri storlek på virtuella Azure-datorer med minst 2 processor kärnor och 1 GB RAM.<br/><br/> [Läs mer.](../virtual-machines/sizes.md)
 Säkerhetskopiera virtuella datorer i [tillgänglighets uppsättningar](../virtual-machines/availability.md#availability-sets) | Stöds.<br/><br/> Du kan inte återställa en virtuell dator i en tillgänglig uppsättning genom att använda alternativet för att snabbt skapa en virtuell dator. När du i stället återställer den virtuella datorn återställer du disken och använder den för att distribuera en virtuell dator, eller återställer en disk och använder den för att ersätta en befintlig disk.
 Säkerhetskopiera virtuella datorer som har distribuerats med [Hybrid Use Benefit (hubb)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) | Stöds.
 Säkerhetskopiera virtuella datorer som distribueras i en [skalnings uppsättning](../virtual-machine-scale-sets/overview.md) |Stöds. [Orchestration-läget](../virtual-machine-scale-sets/orchestration-modes.md) ska vara inställt på 2 för fel domän. Tillgänglighets uppsättningen stöds inte.
@@ -223,8 +223,8 @@ Säkerhets kopiering stöder komprimering av säkerhets kopierings trafik, som s
 --- | --- | ---
 Lokala Windows-datorer utan DPM/MABS | Ej tillämpligt | ![Ja][green]
 Virtuella Azure-datorer | NA | NA
-Lokala/virtuella Azure-datorer med DPM | ![Yes][green] | ![Yes][green]
-Lokala/virtuella Azure-datorer med MABS | ![Yes][green] | ![Ja][green]
+Lokala/virtuella Azure-datorer med DPM | ![Ja][green] | ![Ja][green]
+Lokala/virtuella Azure-datorer med MABS | ![Ja][green] | ![Ja][green]
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 999c443a63ceb2ebb59fc0de72ecb09d1ccc3905
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d0a6b6561b5d0995d7794993608a4991b1da2718
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062622"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810147"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Azures säkerhets bas linje för säkerhets kopiering
 
@@ -672,7 +672,7 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenume
 
 - [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Så här nekar du en speciell resurs typ med Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Så här nekar du en speciell resurs typ med Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 02/24/2019
+ms.date: 07/31/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 37a82c4001dd42a4cfbbb9dabec29f28359afd75
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1fbd7138c393809b279d780004ff476cea4735fe
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240592"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810334"
 ---
 # <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Snabb start: skapa en enhets-iOS-app med avstånds ankare för Azure
 
@@ -30,12 +30,12 @@ Du lär dig följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
-- En macOS-dator med enhet <a href="https://unity3d.com/get-unity/download" target="_blank">2019,1 eller 2019,2</a>, den senaste versionen av <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a>och <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installerad.
-- Git installerat via HomeBrew. Ange följande kommando i en enskild rad i terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Kör `brew install git` sedan och `brew install git-lfs`.
+- En macOS-dator med <a href="https://unity3d.com/get-unity/download" target="_blank">unity 2019,4 (LTS)</a>, den senaste versionen av <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a>och <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installerad.
+- Git installerat via HomeBrew. Ange följande kommando i en enskild rad i terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` . Kör sedan `brew install git` och `brew install git-lfs` .
 - En utvecklaraktiverad <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit-kompatibel</a> iOS-enhet.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
@@ -48,13 +48,7 @@ Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
 [!INCLUDE [iOS Unity Build Settings](../../../includes/spatial-anchors-unity-ios-build-settings.md)]
 
-## <a name="configure-account-identifier-and-key"></a>Konfigurera konto-ID och -nyckel
-
-I fönstret **Projekt** går du till `Assets/AzureSpatialAnchors.Examples/Scenes` och öppnar scenfilen `AzureSpatialAnchorsBasicDemo.unity`.
-
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
-
-Spara scenen genom att välja **Arkiv** -> **Spara**.
 
 ## <a name="export-the-xcode-project"></a>Exportera Xcode-projektet
 
@@ -74,7 +68,7 @@ Om du inte ser kameran som bakgrund när du kör appen (om du till exempel ser e
 
 ### <a name="cocoapods-issues-on-macos-catalina-1015"></a>CocoaPods problem på macOS Catalina (10,15)
 
-Om du nyligen har uppdaterat till macOS Catalina (10,15) och hade CocoaPods installerat i förväg, kan CocoaPods vara i ett trasigt tillstånd och inte konfigurera dina poddar- `.xcworkspace` och projektfiler korrekt. För att lösa det här problemet måste du installera om CocoaPods genom att köra följande kommandon:
+Om du nyligen har uppdaterat till macOS Catalina (10,15) och hade CocoaPods installerat i förväg, kan CocoaPods vara i ett trasigt tillstånd och inte konfigurera dina poddar-och `.xcworkspace` projektfiler korrekt. För att lösa det här problemet måste du installera om CocoaPods genom att köra följande kommandon:
 
 ```shell
 brew update
@@ -82,13 +76,12 @@ brew install cocoapods --build-from-source
 brew link --overwrite cocoapods
 ```
 
-### <a name="unity-20193"></a>Unity 2019,3
-
-På grund av avbrytande ändringar stöds inte Unity 2019,3 för närvarande. Använd Unity 2019,1 eller 2019,2.
-
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
 > [Självstudie: dela spatiala ankare mellan enheter](../tutorials/tutorial-share-anchors-across-devices.md)
+
+> [!div class="nextstepaction"]
+> [Gör så här: Konfigurera Azure spatiala ankare i ett Unity-projekt](../how-tos/setup-unity-project.md)

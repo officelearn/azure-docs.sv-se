@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar funktioner med Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: 121a3263a28da5e17b1ab918529aa9f285089687
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ffdb6ee9747c76e7f4a6ff3e2f7b65ae96f53fb4
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372424"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810096"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java Developer Guide
 
@@ -19,7 +19,7 @@ Som Java-utvecklare, om du är nybörjare på Azure Functions, bör du först l�
 
 | Komma igång | Begrepp| 
 | -- | -- |  
-| <ul><li>[Java-funktion med Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java)</li><li>[Java/maven-funktion med Terminal/kommando-prompt](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java)</li><li>[Java-funktion med Gradle](functions-create-first-java-gradle.md)</li><li>[Java-funktion med Sol förmörkelse](functions-create-maven-eclipse.md)</li><li>[Java-funktion med IntelliJ idé](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Utvecklarguide](functions-reference.md)</li><li>[Värdalternativ](functions-scale.md)</li><li>[Prestanda &nbsp; överväganden](functions-best-practices.md)</li></ul> |
+| <ul><li>[Java-funktion med Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java)</li><li>[Java/maven-funktion med Terminal/kommando-prompt](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)</li><li>[Java-funktion med Gradle](functions-create-first-java-gradle.md)</li><li>[Java-funktion med Sol förmörkelse](functions-create-maven-eclipse.md)</li><li>[Java-funktion med IntelliJ idé](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Utvecklarguide](functions-reference.md)</li><li>[Värdalternativ](functions-scale.md)</li><li>[Prestanda &nbsp; överväganden](functions-best-practices.md)</li></ul> |
 
 ## <a name="java-function-basics"></a>Grundläggande om Java-funktioner
 

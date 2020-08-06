@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 02/24/2019
+ms.date: 07/31/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9e946d7f4616799768711ee8c18584a2a8fcff2a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3d5a5d7ec07587b20a8a6285deafa6215db990a5
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81482013"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810385"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Snabb start: skapa en enhets-HoloLens-app som använder Azure spatiala ankare
 
@@ -29,14 +29,14 @@ Du lär dig följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
-- Du behöver en Windows-dator med <a href="https://unity3d.com/get-unity/download" target="_blank">unity 2019,1 eller 2019,2</a> och <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> eller senare installerat. Din Visual Studio-installation måste omfatta arbets belastningen **universell Windows-plattform utveckling** och **Windows 10 SDK-komponenten (10.0.18362.0 eller senare)** . Du måste också installera <a href="https://git-scm.com/download/win" target="_blank">git för Windows</a> och <a href="https://git-lfs.github.com/">git LF</a>.
+- Du behöver en Windows-dator med <a href="https://unity3d.com/get-unity/download" target="_blank">unity 2019,4 (LTS)</a> och <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> eller senare installerat. Din Visual Studio-installation måste omfatta arbets belastningen **universell Windows-plattform utveckling** och **Windows 10 SDK-komponenten (10.0.18362.0 eller senare)** . Du måste också installera <a href="https://git-scm.com/download/win" target="_blank">git för Windows</a> och <a href="https://git-lfs.github.com/">git LF</a>.
 - Du behöver en HoloLens-enhet där [utvecklarläge](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) är aktiverat. [Windows 10 oktober 2018-uppdateringen](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (även kallat RS5) måste vara installerad på enheten. Om du vill uppdatera till den senaste versionen av HoloLens öppnar du appen **Inställningar** , går till **Uppdatera & säkerhet**och väljer sedan **Sök efter uppdateringar**.
-- I din app måste du aktivera **SpatialPerception** -funktionen. Den här inställningen finns i inställningar för**publicerings inställningar** > för inställnings**hantering**i **versions** > **spelaren** > .
-- I din app måste du aktivera **virtuell verklighet som stöds** med **Windows Mixed Reality SDK**. Den här inställningen finns **i inställningar för inställningar för** > **Player Settings** > **XR**inställningar.
+- I din app måste du aktivera **SpatialPerception** -funktionen. Den här inställningen finns **Build Settings**i inställningar för  >  **Player Settings**  >  **publicerings inställningar**för inställnings  >  **hantering**i versions spelaren.
+- I din app måste du aktivera **virtuell verklighet som stöds** med **Windows Mixed Reality SDK**. Den här inställningen finns **i inställningar för inställningar för**  >  **Player Settings**  >  **XR**inställningar.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -56,13 +56,7 @@ Välj **Switch Platform** (Växla plattform) för att ändra plattformen till **
 
 Stäng fönstret **Build Settings** (Bygginställningar).
 
-## <a name="configure-the-account-identifier-and-key"></a>Konfigurera konto identifieraren och nyckeln
-
-I fönstret **projekt** går du till `Assets/AzureSpatialAnchors.Examples/Scenes` och öppnar `AzureSpatialAnchorsBasicDemo.unity` scen filen.
-
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
-
-Spara scenen genom att välja **Arkiv** > **Spara**.
 
 ## <a name="export-the-hololens-visual-studio-project"></a>Exportera HoloLens Visual Studio-projektet
 
@@ -84,17 +78,11 @@ Om du använder HoloLens 2 använder du **arm64** som **lösnings plattform**i s
 
 Sätt på HoloLens-enheten, logga in och Anslut enheten till datorn med hjälp av en USB-kabel.
 
-Välj **Felsök** > **Starta fel sökning** för att distribuera din app och starta fel sökning.
+Välj **Felsök**  >  **Starta fel sökning** för att distribuera din app och starta fel sökning.
 
 Följ instruktionerna i appen för att placera och återkalla en fästpunkt.
 
 Stoppa appen genom att välja **stoppa fel sökning** eller Shift + F5 i Visual Studio.
-
-## <a name="troubleshooting"></a>Felsökning
-
-### <a name="unity-20193"></a>Unity 2019,3
-
-På grund av avbrytande ändringar stöds inte Unity 2019,3 för närvarande. Använd Unity 2019,1 eller 2019,2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
@@ -102,3 +90,6 @@ På grund av avbrytande ändringar stöds inte Unity 2019,3 för närvarande. An
 
 > [!div class="nextstepaction"]
 > [Självstudie: dela spatiala ankare mellan enheter](../tutorials/tutorial-share-anchors-across-devices.md)
+
+> [!div class="nextstepaction"]
+> [Gör så här: Konfigurera Azure spatiala ankare i ett Unity-projekt](../how-tos/setup-unity-project.md)

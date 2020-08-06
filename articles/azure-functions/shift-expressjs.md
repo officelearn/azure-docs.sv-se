@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: cshoe
-ms.openlocfilehash: 3e38fae84f63f4867befbc3695242dc62dc8dbe8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 266df5371ff5f47526fa9d6567c62e31d51ebb05
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502655"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810232"
 ---
 # <a name="shifting-from-expressjs-to-azure-functions"></a>Växlar från Express.js till Azure Functions
 
@@ -27,7 +27,7 @@ När du migrerar kod till en server lös arkitektur, påverkar omfabriker Expres
 - **Konfiguration och konventioner**: en Functions-app använder _function.jspå_ filen för att definiera HTTP-verb, definiera säkerhets principer och kan konfigurera funktionens [indata och utdata](./functions-triggers-bindings.md). Som standard definierar mappnamnet som innehåller funktions namnen namnet på slut punkten, men du kan ändra namnet via `route` egenskapen i [function.js](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) filen.
 
 > [!TIP]
-> Läs mer i de interaktiva självstudierna [Node.js-och Express-API: er till Server lös API: er med Azure Functions](https://docs.microsoft.com/learn/modules/shift-nodejs-express-apis-serverless/).
+> Läs mer i de interaktiva självstudierna [Node.js-och Express-API: er till Server lös API: er med Azure Functions](/learn/modules/shift-nodejs-express-apis-serverless/).
 
 ## <a name="example"></a>Exempel
 
@@ -138,4 +138,4 @@ Följande _function.jsi_ filen innehåller konfigurations information för funkt
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer med den interaktiva självstudien [Node.js och Express-API: er till Server lös API: er med Azure Functions](https://docs.microsoft.com/learn/modules/shift-nodejs-express-apis-serverless/)
+- Lär dig mer med den interaktiva självstudien [Node.js och Express-API: er till Server lös API: er med Azure Functions](/learn/modules/shift-nodejs-express-apis-serverless/)

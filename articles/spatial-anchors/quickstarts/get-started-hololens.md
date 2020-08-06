@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 582bb3e0f98535ccdc7be059de904e152db6ac77
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: e6d728647bb654ee2645bb1e3eb5968dcab337a8
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870987"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810363"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Snabb start: skapa en HoloLens-app med Azures spatiala ankare, i C++/WinRT och DirectX
 
@@ -28,7 +28,7 @@ Du lär dig följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 - En Windows-dator med <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> installerad med arbets belastningen **universell Windows-plattform utveckling** och **Windows 10 SDK-komponenten (10.0.18362.0 eller senare)** . Du måste också installera <a href="https://git-scm.com/download/win" target="_blank">git för Windows</a> och <a href="https://git-lfs.github.com/">git LF</a>.
@@ -54,7 +54,7 @@ Leta upp fältet `SpatialAnchorsAccountKey` och ersätt `Set me` med kontonyckel
 
 Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentifieraren.
 
-Leta upp `case DemoStep::ConfigSession:` och Lägg till följande rad och ersätt i din konto domän från tidigare: `configuration.AccountDomain("MyAccountDomain");` .
+Leta upp `SpatialAnchorsAccountDomain` fältet och Ersätt `Set me` med konto domänen.
 
 ## <a name="deploy-the-app-to-your-hololens"></a>Distribuera appen till din HoloLens
 

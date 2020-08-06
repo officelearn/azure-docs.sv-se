@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3f794d1c70baee07b9ff3ed5d8299cf8ad3bf983
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6b7f924c7f115e8eddda93ea0c096ab94411da72
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652501"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810402"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Snabb start: skapa en Android-app med Azures spatiala ankare
 
@@ -28,7 +28,7 @@ Du lär dig följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
@@ -86,7 +86,7 @@ Leta upp fältet `SpatialAnchorsAccountKey` och ersätt `Set me` med kontonyckel
 
 Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentifieraren.
 
-Leta upp `public AzureSpatialAnchorsManager(Session arCoreSession)` och Lägg till följande rad och ersätt i din konto domän från tidigare: `spatialAnchorsSession.getConfiguration().setAccountDomain("MyAccountDomain");` .
+Leta upp `SpatialAnchorsAccountDomain` fältet och Ersätt `Set me` med konto domänen.
 
 # <a name="ndk"></a>[NDK](#tab/openproject-ndk)
 
@@ -96,7 +96,7 @@ Leta upp fältet `SpatialAnchorsAccountKey` och ersätt `Set me` med kontonyckel
 
 Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentifieraren.
 
-Leta upp `AzureSpatialAnchorsApplication::StartCloudSession()` och Lägg till följande rad och ersätt i din konto domän från tidigare: `m_cloudSession->Configuration()->AccountDomain("MyAccountDomain");` .
+Leta upp `SpatialAnchorsAccountDomain` fältet och Ersätt `Set me` med konto domänen.
 
 ---
 

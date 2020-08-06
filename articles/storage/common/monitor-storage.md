@@ -1,6 +1,6 @@
 ---
 title: Övervaka Azure Storage | Microsoft Docs
-description: Lär dig hur du övervakar prestanda och tillgänglighet för Azure Storage.
+description: Lär dig hur du övervakar prestanda och tillgänglighet för Azure Storage. Övervaka Azure Storage data, lär dig mer om konfiguration och analys av mått-och loggdata.
 author: normesta
 services: storage
 ms.service: storage
@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: 2f6320bf4606dc9357ac676b3bc5d7421b24a36c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: e1be9a7e543f8513f3b30182dfbc421dc38bdbce
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86182720"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836674"
 ---
 # <a name="monitor-azure-storage"></a>Övervaka Azure Storage
 
@@ -86,9 +86,9 @@ Du måste också ange de kategorier av åtgärder som du vill samla in loggar f�
 
 | Kategori | Beskrivning |
 |:---|:---|
-| StorageRead | Läs åtgärder på blobbar. |
-| StorageWrite | Skriv åtgärder på blobbar. |
-| StorageDelete | Ta bort åtgärder på blobbar. |
+| StorageRead | Läs åtgärder för objekt. |
+| StorageWrite | Skriv åtgärder för objekt. |
+| StorageDelete | Ta bort åtgärder för objekt. |
 
 ## <a name="analyze-metric-data"></a>Analysera mått data
 

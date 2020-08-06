@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 06/15/2020
-ms.openlocfilehash: 8bf1a19c8756e8c51b79ec63f10822efa7816d32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9bc5e91d45b75c47cee31c45b937f7d3f0118b8
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986947"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836691"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Transparent data kryptering för SQL Database, SQL-hanterad instans och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "84986947"
 
 TDE utför I/O-kryptering i real tid och dekryptering av data på sidnivå. Varje sida dekrypteras när de läses in i minnet och krypteras sedan innan de skrivs tillbaka till disken. TDE krypterar lagringen av en hel databas med hjälp av en symmetrisk nyckel som kallas databas krypterings nyckel (DEK). Vid databas start dekrypteras den krypterade DEK och används sedan för dekryptering och Omkryptering av databasfilerna i processen för SQL Server databas motor. DEK skyddas av TDE-skyddet. TDE-skydd är antingen ett tjänstehanterat certifikat (hanterad transparent data kryptering) eller en asymmetrisk nyckel som lagras i [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) (kundhanterad transparent data kryptering).
 
-För Azure SQL Database och Azure-Synapse anges TDE-skyddet på [Server](logical-servers.md) nivå och ärvs av alla databaser som är kopplade till den servern. För Azure SQL-hanterad instans (BYOK-funktionen i för hands versionen) ställs TDE-skyddet in på instans nivån och det ärvs av alla krypterade databaser på den instansen. Termen *Server* avser både server och instans i det här dokumentet, om inget annat anges.
+För Azure SQL Database och Azure-Synapse anges TDE-skyddet på [Server](logical-servers.md) nivå och ärvs av alla databaser som är kopplade till den servern. För Azure SQL-hanterad instans anges TDE-skydd på instans nivå och den ärvs av alla krypterade databaser på den instansen. Termen *Server* avser både server och instans i det här dokumentet, om inget annat anges.
 
 > [!IMPORTANT]
 > Alla nyligen skapade databaser i SQL Database krypteras som standard med hjälp av tjänst hanterad transparent data kryptering. Befintliga SQL-databaser som skapats före maj 2017 och SQL-databaser som skapats via återställning, geo-replikering och databas kopiering är inte krypterade som standard. Befintliga SQL-hanterade instans databaser som skapats före februari 2019 krypteras inte som standard. SQL-hanterade instans databaser som skapats via återställning ärver krypterings status från källan.

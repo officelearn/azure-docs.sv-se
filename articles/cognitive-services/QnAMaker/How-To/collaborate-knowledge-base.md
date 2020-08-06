@@ -3,18 +3,18 @@ title: Samar beta på kunskaps bas – QnA Maker
 description: QnA Maker gör det möjligt för flera personer att samar beta i en kunskaps bas. Den här funktionen ingår i rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 20eb58f346322cb78bff85af3d6a0d366090763d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 86c8d919618b37223e51a23635a1322a4e0d780c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446936"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837439"
 ---
 # <a name="collaboration-with-authors-and-editors"></a>Samarbete med författare och redigerare
 
 Samarbetet tillhandahålls på QnA Maker resurs nivå så att du kan begränsa åtkomsten till medarbetare baserat på samarbets rollens roll. Läs mer om [begrepp](../Concepts/role-based-access-control.md)för att QNA Maker Collaborative-autentisering.
 
-## <a name="add-role-based-access-rbac-to-your-qna-maker-resource"></a>Lägg till rollbaserad åtkomst (RBAC) till din QnA Maker-resurs
+## <a name="add-azure-role-based-access-control-azure-rbac-to-your-qna-maker-resource"></a>Lägg till Azure-rollbaserad åtkomst kontroll (Azure RBAC) till din QnA Maker-resurs
 
 QnA Maker låter flera personer samar beta i alla kunskaps banker i samma QnA Maker-resurs. Den här funktionen tillhandahålls med Azure [-rollbaserade Access Control](../../../active-directory/role-based-access-control-configure.md).
 
@@ -42,7 +42,7 @@ Följande steg använder rollen medarbetare men någon av [rollerna](../referenc
 
 1. Välj en roll i följande lista:
 
-    |Roll|
+    |Role|
     |--|
     |Ägare|
     |Deltagare|

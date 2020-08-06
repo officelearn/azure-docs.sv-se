@@ -8,12 +8,12 @@ ms.devlang: azurepowershel
 ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0f85283ad90f219dfbf404c437a843e1191b19fa
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5571d5a937fc48030c38ebe78c86ef27d6727a67
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498743"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837320"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Säkerhetskopiera och återställa en Azure Database for MySQL-server med hjälp av PowerShell
 
@@ -78,7 +78,7 @@ Parameter uppsättningen **PointInTimeRestore** för `Restore-AzMySqlServer` cmd
 | Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Resurs gruppen där käll servern finns.  |
-| Name | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
+| Namn | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | Välj en tidpunkt för återställning. Datumet och tiden måste finnas inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd ISO8601 datum-och tids format. Du kan till exempel använda din egen lokala tidszon som **2020-03-13T05:59:00-08:00**. Du kan också använda formatet UTC-Zulu, till exempel **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Använd punkt-i-Time-läge för att återställa. |
 
@@ -120,8 +120,8 @@ Parameter **uppsättningen för den här** `Restore-AzMySqlServer` cmdleten mås
 | Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | Namnet på den resurs grupp som den nya servern tillhör.|
-|Name | mydemoserver – omåterställd | Namnet på den nya servern. |
-|Location | USA, östra | Platsen för den nya servern. |
+|Namn | mydemoserver – omåterställd | Namnet på den nya servern. |
+|Plats | USA, östra | Platsen för den nya servern. |
 |UseGeoRestore | `<SwitchParameter>` | Använd geo-läge för att återställa. |
 
 När du skapar en ny server med geo Restore ärver den samma lagrings storlek och pris nivå som käll servern om inte parametern **SKU** anges.
@@ -133,4 +133,4 @@ Den nya servern som skapades under en återställning saknar de VNet-tjänstens 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Anpassa Azure Database for MySQL server parametrar med PowerShell](howto-configure-server-parameters-using-powershell.md)
+> [Så här genererar du en Azure Database for MySQL anslutnings sträng med PowerShell](howto-connection-string-powershell.md)

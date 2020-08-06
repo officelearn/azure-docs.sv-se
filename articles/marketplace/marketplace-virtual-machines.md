@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/15/2020
-ms.openlocfilehash: dac67c6dae801d11866f7c4978a050a0cb2fa1dd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9f408174b9a8dff925a9c834ea75bf725ec6f913
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065653"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837353"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>Publicerings guide för virtuella dator erbjudanden
 
@@ -29,7 +29,7 @@ För att användarna ska kunna testa ditt erbjudande kan du få åtkomst till be
 
 Du kan distribuera en eller flera virtuella datorer via IaaS (Infrastructure as a Service) eller SaaS-appar (program vara som en tjänst). En fördel med publicerings alternativet *test enhet* är den automatiserade konfigurationen av en virtuell dator eller hela lösningen som leds av en guidad guidad rundtur i en partner. En testenhet gör det möjligt för kunderna att utvärdera virtuella datorer utan extra kostnad. En kund behöver inte vara en befintlig Azure-kund för att kunna kommunicera med utvärderings versionen. 
 
-Kom igång genom att kontakta oss via e-post på [amp-testdrive](mailto:amp-testdrive@microsoft.com). 
+Mer information om test enheter finns i [Vad är en test enhet?](what-is-test-drive.md)
 
 |Krav  |Information |
 |---------|---------|

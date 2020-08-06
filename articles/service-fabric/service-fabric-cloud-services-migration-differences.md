@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 47c3d1b4d603e2dde2de8d4a95fb953744d71409
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c98aeaff3ba39a28fad68454d76f6f4d33f44e5d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259013"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836742"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Lär dig mer om skillnaderna mellan Cloud Services och Service Fabric innan du migrerar program.
 Microsoft Azure Service Fabric är nästa generations moln program plattform för mycket skalbara, mycket pålitliga distribuerade program. Den introducerar många nya funktioner för paketering, distribution, uppgradering och hantering av distribuerade moln program. 
@@ -81,7 +81,7 @@ Samma kommunikations modell kan användas i Service Fabric. Detta kan vara anvä
 ![Service Fabric direkt kommunikation][8]
 
 ## <a name="parity"></a>Paritet
-[Cloud Services liknar Service Fabric i grad av kontroll och lätt att använda, men det är nu en äldre tjänst och Service Fabric rekommenderas för ny utveckling](/azure/app-service/overview-compare). följande är en API-jämförelse:
+[Cloud Services liknar Service Fabric i grad av kontroll och lätt att använda, men det är nu en äldre tjänst och Service Fabric rekommenderas för ny utveckling](/azure/architecture/guide/technology-choices/compute-decision-tree). följande är en API-jämförelse:
 
 
 | **Cloud Service-API** | **Service Fabric-API** | **Kommentarer** |
@@ -98,7 +98,7 @@ Samma kommunikations modell kan användas i Service Fabric. Detta kan vara anvä
 | Roll. GetInstances | FabricClient. QueryManager. GetNodeList eller ResolveService | * |
 | RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime. GetActivationContext eller Naming (ResolveService) | * |
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Den enklaste sökvägen från Cloud Services till Service Fabric är att bara ersätta Cloud Services-distributionen med ett Service Fabric program, så att programmets övergripande arkitektur är ungefär samma. Följande artikel innehåller en guide som hjälper dig att konvertera en webb-eller arbets roll till en Service Fabric tillstånds lös tjänst.
 
 * [Enkel migrering: konvertera en webb-eller arbets roll till en Service Fabric tillstånds lös tjänst](service-fabric-cloud-services-migration-worker-role-stateless-service.md)

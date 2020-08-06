@@ -4,12 +4,12 @@ description: Innehåller svar på några vanliga frågor om Azure VMware-lösnin
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: f160e617163f11c02e4d661cbf1c14f63a6772f8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6bf8e924b0776ace282e94f62ae2b0a67439efd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003431"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836589"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Vanliga frågor om för hands versionen av Azure VMware-lösningen (AVS)
 
@@ -25,7 +25,7 @@ Eftersom företag eftersträvar IT-modernisering strategier för att förbättra
 
 **Var finns AVS tillgängligt idag?**
 
-Under förhands granskningen finns den tillgänglig i östra USA i Nordamerika och i Amsterdam i västra Europa.
+Tjänsten läggs kontinuerligt till i nya regioner, så se den [senaste tjänst tillgänglighets informationen](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) för mer information. 
 
 **Kan arbets belastningar som körs i en Azure VMware-lösning (AVS)-instans förbruka eller integrera med Azure-tjänster?**
 
@@ -65,7 +65,7 @@ Det finns ingen ändring av den befintliga Azure VMware-lösningen från CloudSi
 
 **Kan jag migrera från Azure VMware-lösningen från CloudSimple till den här nya lösningen?**
 
-Ja, Azure VMware-lösningen stöder migrering med välbekanta VMware-verktyg som HCX. För kunder som är intresserade av att migrera till den nya lösningen kan du använda ditt Microsoft-konto-team för att utforska alternativ och tillgänglig support.
+Ja, Azure VMware-lösningen stöder migrering med välbekanta VMware-verktyg som HCX. För kunder som vill migrera till den nya lösningen arbetar du med ditt Microsoft-konto-team för att utforska alternativ och tillgänglig support.
 
 
 
@@ -89,7 +89,7 @@ Varje ESXi-värd har två virtuellt San-diskgroups med kapacitets nivån 15,2 TB
 
 **Hur mycket nätverks bandbredd finns på varje ESXi-värd?**
 
-ESXi-värdar har stöd för anslutnings bandbredd upp till 25 Gbit/s.
+Varje ESXi-värd är AVS-konfigurerad med 4 25 Gbit/s nätverkskort, med två nätverkskort som har allokerats för ESXi system trafik och två nätverkskort som har allokerats för arbets belastnings trafik. 
 
 **Är data lagrade på virtuellt San-datalager krypterade i vila?**
 
@@ -143,7 +143,7 @@ Uppgraderingarna av det privata molnet för program varu paketet görs för att 
 
 Program varan för det privata molnet uppgraderas enligt ett schema som spårar program varu paketets version från VMware. Det privata molnet kräver ingen stillestånds tid för uppgraderingar.
 
-## <a name="connectivity"></a>Anslutning
+## <a name="connectivity"></a>Anslutningsmöjlighet
 
 **Vilken nätverks-IP-adress planering krävs för att inkludera privata moln med lokala miljöer?**
 
@@ -197,11 +197,11 @@ Fakturering för AVS-förhands granskning är månatligen enligt principen betal
 
 **Hur struktureras priserna under för hands versionen av AVS?**
 
-Allmänna frågor om prissättning finns på [prissättnings](https://azure.microsoft.com/pricing/details/azure-vmware) sidan för Azure VMware-lösningen. Priset för för hands versionen är tillgängligt på begäran. kontakta ditt konto team eller följ länken på prissättnings sidan för att kontakta försäljningen.
+Allmänna frågor om prissättning finns på [prissättnings](https://azure.microsoft.com/pricing/details/azure-vmware) sidan för Azure VMware-lösningen. Priset för för hands versionen är tillgängligt på begäran, kontakta ditt konto team eller följ länken på prissättnings sidan för att kontakta Sales.
 
 **Vem stöder AVS?**
 
-Stöd för AVS levereras av Microsoft. Observera att du enligt våra rikt linjer för förhands granskning ger support under 9 – 5 PM PST-arbetstimmar måndag till fredag. Du kan utlösa ett support ärende från [den här länken](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Stöd för AVS levereras av Microsoft. Obs! enligt våra rikt linjer för förhands granskning kommer vi att ge support under 9 – 5 PM PST-arbetstimme måndag-fredag. Du kan utlösa ett support ärende från [den här länken](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 **Vilka konton behöver jag för att skapa ett privat AVS-moln?**
 

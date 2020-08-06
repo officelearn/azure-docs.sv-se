@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 08/05/2020
 ms.author: juliako
-ms.openlocfilehash: d7667f7c5194762b227c3cddd5bea5ed9d50a96e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1b11dc0ee17fd0686776a7262c4bc99bd98bcc3e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042631"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837317"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Viktig information om Azure Media Services Video Indexer
 
@@ -29,6 +29,28 @@ För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikel
 * Kända problem
 * Felkorrigeringar
 * Föråldrade funktioner
+
+## <a name="july-2020"></a>Juli 2020
+
+### <a name="ga-for-multi-language-identification"></a>GA för identifiering på flera språk
+
+Identifiering av flera språk flyttas från förhands granskning till GA och redo för effektiv användning.
+
+Ingen prissättnings påverkan är relaterad till över gången "för hands version till GA".
+
+### <a name="video-indexer-website-improvements"></a>Video Indexer webbplats förbättringar
+
+#### <a name="adjustments-in-the-video-gallery"></a>Justeringar i video galleriet
+
+Nytt Sök fält för djup insikts sökning med ytterligare filtrerings funktioner har lagts till. Sök resultaten har också förbättrats.
+
+Ny listvy med möjlighet att sortera och hantera video arkiv med flera filer.
+
+#### <a name="new-panel-for-easy-selection-and-configuration"></a>Ny panel för enkel val och konfiguration
+
+Sido panelen för enkel val och användar konfiguration har lagts till, vilket möjliggör enkel och snabb skapande och delning av konton samt konfiguration.
+
+Sido panelen används också för användar inställningar och hjälp.
 
 ## <a name="june-2020"></a>Juni 2020
 

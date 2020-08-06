@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 4fabaed28ca186f3ca091107e51ed3900168ba41
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f312170fd357e64e2fbd7d455987993cdad76123
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387735"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837116"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Tillfälliga OS-diskar för virtuella Azure-datorer
 
@@ -51,7 +51,7 @@ Du kan distribuera VM-och instans avbildningar upp till storleken på VM-cachen.
 Tillfälliga diskar kräver också att den virtuella dator storleken har stöd för Premium Storage. Storlekarna brukar vara (men inte alltid) har ett `s` i namnet, t. ex. DSv2 och EsV3. Mer information finns i [storlekar för virtuella Azure-datorer](sizes.md) för information om vilka storlekar som stöder Premium Storage.
 
 ## <a name="preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks"></a>Förhands granskning-diskar med tillfälliga operativ system kan nu lagras på temporära diskar
-De tillfälliga OS-diskarna kan nu lagras på temporär/resurs disk för VM förutom VM-cachen. Nu kan du nu använda tillfälliga OS-diskar med en virtuell dator som inte har någon cache eller har inte tillräckligt med cache, men som har en temporär/resurs disk för att lagra den tillfälliga OS-disken, till exempel Dav3, Dav4, Eav4 och Eav3. Om en virtuell dator har tillräckligt med cache och temporärt utrymme kommer du nu också att kunna ange var du vill lagra den tillfälliga OS-disken med hjälp av en ny egenskap som kallas [DiffDiskPlacement](https://docs.microsoft.com/rest/api/compute/virtualmachines/list#diffdiskplacement). Den här funktionen finns för närvarande som en förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Kom igång genom att [begära åtkomst](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
+De tillfälliga OS-diskarna kan nu lagras på temporär/resurs disk för VM förutom VM-cachen. Nu kan du nu använda tillfälliga OS-diskar med en virtuell dator som inte har någon cache eller har inte tillräckligt med cache, men som har en temporär/resurs disk för att lagra den tillfälliga OS-disken, till exempel Dav3, Dav4, Eav4 och Eav3. Om en virtuell dator har tillräckligt med cache och temporärt utrymme kommer du nu också att kunna ange var du vill lagra den tillfälliga OS-disken med hjälp av en ny egenskap som kallas [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement). Den här funktionen finns för närvarande som en förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Kom igång genom att [begära åtkomst](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -85,7 +85,7 @@ az vm create \
 
 För skalnings uppsättningar använder du samma `--ephemeral-os-disk true` parameter för [AZ-VMSS-Create](/cli/azure/vmss#az-vmss-create) och anger `--os-disk-caching` parametern till `ReadOnly` .
 
-## <a name="portal"></a>Portal   
+## <a name="portal"></a>Portalen   
 
 I Azure Portal kan du välja att använda tillfälliga diskar när du distribuerar en virtuell dator genom att öppna avsnittet **Avancerat** på fliken **diskar** . Välj **Ja**om du vill **använda en tillfällig OS-disk** .
 

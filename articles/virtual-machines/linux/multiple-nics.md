@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: 8c6b6dcf748b0c6ef6162e9f20726123673abb33
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 86910ece57d8fb72ade0c67a9e6787023c4283f3
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283273"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836929"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Så här skapar du en virtuell Linux-dator i Azure med flera nätverks gränssnitts kort
 
@@ -79,7 +79,7 @@ az network nic create \
 ```
 
 ## <a name="create-a-vm-and-attach-the-nics"></a>Skapa en virtuell dator och koppla nätverkskorten
-När du skapar den virtuella datorn anger du de nätverkskort som du skapade med `--nics` . Du måste också vara försiktig när du väljer storleken på den virtuella datorn. Det finns gränser för det totala antalet nätverkskort som du kan lägga till i en virtuell dator. Läs mer om [storlekar för virtuella Linux-datorer](sizes.md).
+När du skapar den virtuella datorn anger du de nätverkskort som du skapade med `--nics` . Du måste också vara försiktig när du väljer storleken på den virtuella datorn. Det finns gränser för det totala antalet nätverkskort som du kan lägga till i en virtuell dator. Läs mer om [storlekar för virtuella Linux-datorer](../sizes.md).
 
 Skapa en virtuell dator med [az vm create](/cli/azure/vm). I följande exempel skapas en virtuell dator med namnet *myVM*:
 
@@ -97,7 +97,7 @@ az vm create \
 Lägg till routningstabeller i gäst operativ systemet genom att slutföra stegen i [Konfigurera gäst operativ systemet för flera nätverkskort](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-a-vm"></a>Lägga till ett nätverkskort till en virtuell dator
-Föregående steg skapade en virtuell dator med flera nätverkskort. Du kan också lägga till nätverkskort till en befintlig virtuell dator med Azure CLI. Olika [VM-storlekar](sizes.md) har stöd för olika antal nätverkskort, så storleken på den virtuella datorn. Om det behövs kan du [ändra storlek på en virtuell dator](change-vm-size.md).
+Föregående steg skapade en virtuell dator med flera nätverkskort. Du kan också lägga till nätverkskort till en befintlig virtuell dator med Azure CLI. Olika [VM-storlekar](../sizes.md) har stöd för olika antal nätverkskort, så storleken på den virtuella datorn. Om det behövs kan du [ändra storlek på en virtuell dator](change-vm-size.md).
 
 Skapa ett annat nätverkskort med [AZ Network NIC Create](/cli/azure/network/nic). I följande exempel skapas ett nätverkskort med namnet *myNic3* som är anslutet till backend-undernätet och nätverks säkerhets gruppen som skapades i föregående steg:
 
@@ -242,6 +242,6 @@ ping bing.com -c 4 -I eth1
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Granska [storleken på virtuella Linux-datorer](sizes.md) när du försöker skapa en virtuell dator med flera nätverkskort. Observera högsta antalet nätverkskort som varje virtuell dator stöder.
+Granska [storleken på virtuella Linux-datorer](../sizes.md) när du försöker skapa en virtuell dator med flera nätverkskort. Observera högsta antalet nätverkskort som varje virtuell dator stöder.
 
 Använd just-in-Time-åtkomst för virtuella datorer för att skydda dina virtuella datorer ytterligare. Den här funktionen öppnar regler för nätverks säkerhets grupper för SSH-trafik vid behov, och under en angiven tids period. Mer information finns i [Manage virtual machine access using just in time](../../security-center/security-center-just-in-time.md) (Hantera åtkomsten till virtuella datorer med Just-In-Time).

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: d1ec61bf18248ea56c8ee5e430a671af7f39d732
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9310fd5c9a66fbd39e32c4756c5037567963912d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81458682"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87841877"
 ---
 Det är viktigt att du håller den virtuella datorn säker för de program som du kör. Att skydda dina virtuella datorer kan omfatta en eller flera Azure-tjänster och-funktioner som omfattar säker åtkomst till dina virtuella datorer och säker lagring av dina data. Den här artikeln innehåller information som gör att du kan skydda dina virtuella datorer och program.
 
@@ -63,7 +63,7 @@ Funktionen Hanterade identiteter för Azure-resurser i Azure Active Directory (A
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
-Med hjälp av [rollbaserad åtkomst kontroll (RBAC)](../articles/role-based-access-control/overview.md)kan du åtskilja uppgifter i teamet och bara ge åtkomst till användare på den virtuella datorn som de behöver för att utföra sina jobb. I stället för att ge alla obegränsade behörigheter på den virtuella datorn kan du bara tillåta vissa åtgärder. Du kan konfigurera åtkomst kontroll för den virtuella datorn i [Azure Portal](../articles/role-based-access-control/role-assignments-portal.md), med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/role)eller[Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
+Med hjälp av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../articles/role-based-access-control/overview.md)kan du åtskilja uppgifter i teamet och bara ge åtkomst till användare på den virtuella datorn som de behöver för att utföra sina jobb. I stället för att ge alla obegränsade behörigheter på den virtuella datorn kan du bara tillåta vissa åtgärder. Du kan konfigurera åtkomst kontroll för den virtuella datorn i [Azure Portal](../articles/role-based-access-control/role-assignments-portal.md), med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/role)eller[Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="next-steps"></a>Nästa steg

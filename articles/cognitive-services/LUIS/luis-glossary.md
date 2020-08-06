@@ -3,12 +3,12 @@ title: Ord lista – LUIS
 description: Ord listan förklarar termer som du kan stöta på när du arbetar med LUIS-API-tjänsten.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 93e3df755596f7f77d2cd11edfa616c44d1f6c16
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 44749648559994d986e4d84b06f38369850de6ca
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056386"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836419"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Ord lista för språk förståelse för vanliga ord listor och koncept
 Ord listan Language Understanding (LUIS) förklarar termer som du kan stöta på när du arbetar med LUIS-tjänsten.
@@ -72,7 +72,7 @@ I batch-testning är precision (även kallat positivt förutsägande värde) den
 
 Ett exempel på ett djur batch-test är antalet får som förutsägs dividerat med det totala antalet djur (får och inte får lika).
 
-### <a name="recall"></a>Återkalla
+### <a name="recall"></a>Recall
 
 I batch-testning kan du återkalla (även kallat känslighet) för att LUIS ska kunna generaliseras.
 
@@ -94,11 +94,11 @@ En klassificerare är en modell för förbrukad dator som förutsäger vilken ka
 
 ## <a name="collaborator"></a>Medarbetare
 
-En medarbetare är konceptuellt samma sak som en [deltagare](#contributor). En medarbetare beviljas åtkomst när en ägare lägger till medarbetares e-postadress till en app som inte styrs av rollbaserad åtkomst (RBAC). Om du fortfarande använder medarbetare, bör du migrera ditt LUIS-konto och använda LUIS Authoring-resurser för att hantera deltagare med RBAC.
+En medarbetare är konceptuellt samma sak som en [deltagare](#contributor). En medarbetare beviljas åtkomst när en ägare lägger till medarbetares e-postadress till en app som inte styrs av rollbaserad åtkomst kontroll i Azure (Azure RBAC). Om du fortfarande använder medarbetare, bör du migrera ditt LUIS-konto och använda LUIS Authoring-resurser för att hantera deltagare med RBAC.
 
 ## <a name="contributor"></a>Deltagare
 
-En deltagare är inte [ägare](#owner) till appen, men har samma behörighet för att lägga till, redigera och ta bort avsikter, entiteter, yttranden. En deltagare ger rollbaserad åtkomst (RBAC) till en LUIS-app.
+En deltagare är inte [ägare](#owner) till appen, men har samma behörighet för att lägga till, redigera och ta bort avsikter, entiteter, yttranden. En deltagare ger Azure-rollbaserad åtkomst kontroll (Azure RBAC) till en LUIS-app.
 
 Se även:
 * [Så här lägger du](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource) till bidrags givare
@@ -305,7 +305,7 @@ En [token](luis-language-support.md#tokenization) är den minsta text enheten so
 
 För **engelska**är en token ett kontinuerligt intervall (inga blank steg eller skiljetecken) av bokstäver och siffror. Ett blank steg är inte en token.
 
-|Text|Antal token|Förklaring|
+|Fras|Antal token|Förklaring|
 |--|--|--|
 |`Dog`|1|Ett enstaka ord utan skiljetecken eller blank steg.|
 |`RMT33W`|1|Ett post lokaliserings nummer. Det kan bestå av siffror och bokstäver, men det finns inga skiljetecken.|

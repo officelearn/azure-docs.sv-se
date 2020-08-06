@@ -1,5 +1,5 @@
 ---
-title: Konfigurera en instans och autentisering (portal)
+title: Konfigurera en instans och autentisering (portalen)
 titleSuffix: Azure Digital Twins
 description: Se så här konfigurerar du en instans av tjänsten Azure Digitals dubbla tjänster med hjälp av Azure Portal
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 73b7171b89b26926992e95f77e376e7bb7731eff
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c7027f474c9ff5cbd90ed1800d74e3b4ebd60b3e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408410"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836946"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Konfigurera en digital Azure-instans och autentisering (portal)
 
@@ -62,7 +62,7 @@ Fyll i värdena som visas nedan på sidan *skapa resurs* :
 
 När du är färdig väljer du _Granska + skapa_. Då kommer du till en sammanfattnings sida där du kan granska instans informationen som du har angett och trycka på _skapa_. 
 
-### <a name="verify-success"></a>Verifieringen lyckades
+### <a name="verify-success-and-collect-important-values"></a>Verifiera lyckade och samla in viktiga värden
 
 När du har överfört *skapa*kan du visa statusen för din instanss distribution i dina Azure-meddelanden i portalens ikon fält. Meddelandet anger när distributionen har slutförts och du kommer att kunna välja knappen _gå till resurs_ för att visa din skapade instans.
 

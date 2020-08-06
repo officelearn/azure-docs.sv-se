@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: d9b4766b42704da8c81704822f263a6ddf46ce5a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2f7ba4c1e4fdfad33a74fcb159fbb9efca3b5271
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052847"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836453"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Så här genererar du miniatyrer med Media Encoder Standard med .NET 
 
@@ -282,7 +282,7 @@ Observera att {resolution}-makro används i fil namnet; den anger att kodaren sk
 Även om alla ovanstående exempel har diskuterat hur du kan skicka en kodnings uppgift som bara genererar bilder, kan du också kombinera video-/ljud kodning med en miniatyr bild. Följande JSON-och XML-förinställning instruerar **Media Encoder Standard** att generera en miniatyr under kodning.
 
 ### <a name="json-preset"></a><a id="json"></a>JSON-förinställning
-Information om schema finns i [den här](/azure/media-services/previous/media-services-mes-schema) artikeln.
+Information om schema finns i [den här](./media-services-mes-schema.md) artikeln.
 
 ```json
     {
@@ -347,7 +347,7 @@ Information om schema finns i [den här](/azure/media-services/previous/media-se
 ```
 
 ### <a name="xml-preset"></a><a id="xml"></a>XML-förinställd
-Information om schema finns i [den här](/azure/media-services/previous/media-services-mes-schema) artikeln.
+Information om schema finns i [den här](./media-services-mes-schema.md) artikeln.
 
 ```csharp
     <?xml version="1.0" encoding="utf-16"?>

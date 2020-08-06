@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: 975dcc357e244469f33385f84f2e15a89997597b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6c07ab4b18c017bd29723d2640129b8e67374e3c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078205"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837388"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migrera appar och lösningar från BizTalk Services till Azure Logic Apps
 
@@ -35,7 +35,7 @@ I den här tabellen mappas BizTalk Services-funktioner till Logic Apps.
 | BizTalk Services   | Logic Apps            | Syfte                      |
 | ------------------ | --------------------- | ---------------------------- |
 | Anslutningsprogram          | Anslutningsprogram             | Skicka och ta emot data   |
-| Brygga             | Logikapp             | Pipeline-processor           |
+| Bridge             | Logikapp             | Pipeline-processor           |
 | Validera fas     | XML-validerings åtgärd | Verifiera ett XML-dokument mot ett schema | 
 | Utöka steg       | Datatoken           | Befordra egenskaper till meddelanden eller för routnings beslut |
 | Transformerings steg    | Transformerings åtgärd      | Konvertera XML-meddelanden från ett format till ett annat |
@@ -103,7 +103,7 @@ I BizTalk Services bearbetning lägger det utökar-steget till egenskaper till d
 
 ### <a name="run-custom-code"></a>Kör anpassad kod
 
-Med BizTalk Services kan du [köra anpassad kod](/previous-versions/azure/dn232389(v=azure.100)) som överförs i dina egna sammansättningar. Den här funktionen implementeras av [IMessageInspector](/azure/logic-apps/logic-apps-move-from-mabs) -gränssnittet. Varje steg i Bridge innehåller två egenskaper (vid retur-kontrollen och på avslutnings kontroll) som tillhandahåller .NET-typen som implementerar det här gränssnittet. Med anpassad kod kan du utföra mer komplex bearbetning av data och du kan återanvända befintlig kod i sammansättningar som utför vanliga affärs logik. 
+Med BizTalk Services kan du [köra anpassad kod](/previous-versions/azure/dn232389(v=azure.100)) som överförs i dina egna sammansättningar. Den här funktionen implementeras av [IMessageInspector]() -gränssnittet. Varje steg i Bridge innehåller två egenskaper (vid retur-kontrollen och på avslutnings kontroll) som tillhandahåller .NET-typen som implementerar det här gränssnittet. Med anpassad kod kan du utföra mer komplex bearbetning av data och du kan återanvända befintlig kod i sammansättningar som utför vanliga affärs logik. 
 
 Logic Apps erbjuder två huvudsakliga sätt att köra anpassad kod: Azure Functions och API Apps. Azure Functions kan skapas och anropas från Logic Apps. Se [lägga till och köra anpassad kod för](../logic-apps/logic-apps-azure-functions.md)Logi Kap par via Azure Functions. Använd API Apps, en del av Azure App Service, för att skapa egna utlösare och åtgärder. Lär dig mer om hur [du skapar en anpassad API som ska användas med Logic Apps](../logic-apps/logic-apps-create-api-app.md). 
 

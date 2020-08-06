@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 07fde5a8e7e3d542ed3fa3bc54b761d5434ac710
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: eee32dc7edd4256dd2bd120609504042d7ab78ea
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284871"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836894"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Installera MySQL på en virtuell dator som kör OpenSUSE Linux i Azure
 
@@ -32,7 +32,7 @@ Skapa först en resurs grupp. I det här exemplet heter resurs gruppen *mySQSUSE
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-Skapa den virtuella datorn. I det här exemplet heter den virtuella datorn *myVM* och storleken på den virtuella datorn är *Standard_D2s_v3*, men du bör välja den [VM-storlek](sizes.md) som du tror är mest lämplig för din arbets belastning.
+Skapa den virtuella datorn. I det här exemplet heter den virtuella datorn *myVM* och storleken på den virtuella datorn är *Standard_D2s_v3*, men du bör välja den [VM-storlek](../sizes.md) som du tror är mest lämplig för din arbets belastning.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -157,7 +157,3 @@ quit
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om MySQL finns i [MySQL-dokumentationen](https://dev.mysql.com/doc).
-
-
-
-

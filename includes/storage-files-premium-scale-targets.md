@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 06/07/2019
 ms.author: rogarana
-ms.openlocfilehash: b28427b3ede0cfaeb9e08d3c73b15ea7f2961f1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2bd10ab4c98fe2e77332c3cc2566ab2f0c7ad42
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71180076"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87842044"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>Ytterligare begränsningar för Premium fil resurs nivå
 
@@ -25,9 +25,9 @@ ms.locfileid: "71180076"
 
 |Område  |Premium-fil  |Standard fil |
 |---------|---------|---------|
-|Storlek                  |1 TiB         |1 TiB|
-|Max IOPS per fil     |5 000         |1,000|
-|Samtidiga referenser    |2 000         |2 000|
+|Storlek                  |4 TiB         |1 TiB|
+|Max IOPS per fil     |5 000         |1 000|
+|Samtidiga referenser    |2 000         |2 000|
 |Utgående  |300 MiB/SEK|      Se standard fil data flödes värden|
 |Ingress  |200 MiB/SEK| Se standard fil data flödes värden|
 |Dataflöde| Se ingångs-/utgående värden för Premium filen| Upp till 60 MiB/s|

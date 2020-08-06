@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c28fe96fe88a3b0744aaad72d49e8e2f52912fb6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 611edb06762b96ded7671b70ec0f5d4f07f51848
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082638"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829092"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Tillägg och funktioner för virtuella datorer för Windows
 
@@ -36,7 +36,7 @@ Flera olika Azure VM-tillägg är tillgängliga, var och en med ett särskilt an
 
 - Använd PowerShell Desired State Configurations på en virtuell dator med DSC-tillägget för Windows. Mer information finns i [tillägget Azure Desired State Configuration](dsc-overview.md).
 - Konfigurera övervakning av en virtuell dator med det virtuella Log Analytics agent-tillägget. Mer information finns i [ansluta virtuella Azure-datorer till Azure Monitor loggar](../../azure-monitor/learn/quick-collect-azurevm.md).
-- Konfigurera en virtuell Azure-dator med hjälp av chef. Mer information finns i [Automatisera distribution av virtuella Azure-datorer med chef](../../chef/chef-automation.md).
+- Konfigurera en virtuell Azure-dator med hjälp av chef. Mer information finns i [Automatisera distribution av virtuella Azure-datorer med chef](/azure/developer/chef/windows-vm-configure).
 - Konfigurera övervakning av din Azure-infrastruktur med Datadog-tillägget. Mer information finns i Datadog- [bloggen](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 
@@ -140,7 +140,7 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
 `Set-AzVMExtension`Kommandot kan användas för att starta alla VM-tillägg. Mer information finns i [set-AzVMExtension-referensen](/powershell/module/az.compute/set-azvmextension).
 
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 VM-tillägg kan tillämpas på en befintlig virtuell dator via Azure Portal. Välj den virtuella datorn i portalen, Välj **tillägg**och välj sedan **Lägg till**. Välj det tillägg du vill använda i listan över tillgängliga tillägg och följ anvisningarna i guiden.
 

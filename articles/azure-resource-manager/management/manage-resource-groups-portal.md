@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: a6788651928b631d9298867a140f29b273f14734
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: feee3a0d6de97ac6aaa1f9a92f20860f3f461ae3
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057559"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827239"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Hantera Azure Resource Manager resurs grupper med hjälp av Azure Portal
 
@@ -27,7 +27,7 @@ Andra artiklar om att hantera resurs grupper:
 
 En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Resursgruppen kan innehålla alla resurser för lösningen, eller endast de resurser som du vill hantera som en grupp. Du bestämmer hur du vill allokera resurser till resursgrupper baserat på vad som är lämpligast för din organisation. Lägg vanligt vis till resurser som delar samma livs cykel i samma resurs grupp så att du enkelt kan distribuera, uppdatera och ta bort dem som en grupp.
 
-Resursgruppen lagrar metadata om resurserna. När du anger en plats för resursgruppen anger du därför var metadatan ska lagras. På grund av regelefterlevnadsskäl kan du behöva säkerställa att din data lagras inom en viss region.
+Resursgruppen lagrar metadata om resurserna. När du anger en plats för resursgruppen anger du därför var metadatan ska lagras. På grund av regelefterlevnadsskäl kan du behöva säkerställa att dina data lagras inom en viss region.
 
 
 ## <a name="create-resource-groups"></a>Skapa resurs grupper
@@ -62,7 +62,7 @@ Resursgruppen lagrar metadata om resurserna. När du anger en plats för resursg
 ## <a name="open-resource-groups"></a>Öppna resurs grupper
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **Resursgrupper**.
+2. Välj **resurs grupper**.
 3. Välj den resurs grupp som du vill öppna.
 
 ## <a name="delete-resource-groups"></a>Ta bort resursgrupper
@@ -105,7 +105,7 @@ Information om hur du exporterar mallar finns i [en och flera-resurs-export till
 
 ## <a name="manage-access-to-resource-groups"></a>Hantera åtkomst till resurs grupper
 
-[Rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/overview.md) är hur du hanterar åtkomst till resurser i Azure. Mer information finns i [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
+[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md) är hur du hanterar åtkomst till resurser i Azure. Mer information finns i [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

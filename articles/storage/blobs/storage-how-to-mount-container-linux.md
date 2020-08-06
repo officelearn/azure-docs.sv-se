@@ -1,6 +1,6 @@
 ---
 title: Så här monterar du Azure Blob Storage som ett fil system i Linux | Microsoft Docs
-description: Montera en Azure Blob Storage-behållare med säkring på Linux
+description: Lär dig hur du monterar en Azure Blob Storage-behållare med blobfuse, en virtuell fil system driv rutin på Linux.
 author: rishabpoh
 ms.service: storage
 ms.subservice: blobs
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 2/1/2019
 ms.author: ripohane
 ms.reviewer: dineshm
-ms.openlocfilehash: 3505cdaa009520f581e2ccf9f8bc60cbfb65586c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dc7c16b83816d2b408cef7ade06767bfe2a4582
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465481"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826556"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Montera Blob Storage som ett fil system med blobfuse
 

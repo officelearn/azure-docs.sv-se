@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 77684ffef6be988dbb6b7057ba8c56f5227007b6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e422b019dd17c8c56ba99b5826e9f6215459c382
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326077"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825369"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Använda lösningen Tjänstkarta i Azure
 
@@ -35,7 +35,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 ## <a name="enable-service-map"></a>Aktivera Tjänstkarta
 
 1. Aktivera Tjänstkarta-lösningen från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) eller genom att använda processen som beskrivs i [Lägg till övervaknings lösningar från Lösningsgalleriet](solutions.md).
-1. [Installera beroende agenten på Windows](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) eller [Installera beroende agenten i Linux](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) på varje dator där du vill hämta data. Beroendeagenten kan övervaka anslutningar till omedelbara grannar, så du behöver kanske inte ha en agent på varje dator.
+1. [Installera beroende agenten på Windows](./vminsights-enable-hybrid.md#install-the-dependency-agent-on-windows) eller [Installera beroende agenten i Linux](./vminsights-enable-hybrid.md#install-the-dependency-agent-on-linux) på varje dator där du vill hämta data. Beroendeagenten kan övervaka anslutningar till omedelbara grannar, så du behöver kanske inte ha en agent på varje dator.
 
 Du kommer åt Tjänstkarta i Azure Portal från arbets ytan Log Analytics och väljer alternativ **lösningar** i den vänstra rutan.<br><br> ![Alternativet Välj lösningar på arbets ytan ](./media/service-map/select-solution-from-workspace.png) .<br> I listan med lösningar väljer du **ServiceMap (workspaceName)** och på översikts sidan för tjänstkarta lösning klickar du på panelen sammanfattning av tjänstkarta.<br><br> ![Panelen Tjänstkarta Sammanfattning ](./media/service-map/service-map-summary-tile.png) .
 
@@ -603,4 +603,3 @@ Kontrol lera `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file`
 ## <a name="suggestions"></a>Förslag
 
 Har du kommentarer till oss om Tjänstkarta eller den här dokumentationen?  Besök vår [användares röst sida](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)där du kan föreslå funktioner eller rösta på befintliga förslag.
-

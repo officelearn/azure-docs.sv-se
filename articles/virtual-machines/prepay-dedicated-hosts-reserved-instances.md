@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: c3c4c4ea25a8f8057a5830ad2207bb674d9cc011
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 919ff7474dd64cfe3005975beb4cab6f77c177ce
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501559"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825267"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Spara kostnader med Azures dedikerade värd reservationer
 
@@ -24,7 +24,7 @@ När du genomför en reserverad instans av Azure-dedikerade värdar kan du spara
 
 Innan du köper en reservation bör du bestämma vilken dedikerad värd du behöver. En SKU definieras för en dedikerad värd som representerar VM-serien och-typen. 
 
-Börja med att gå över de storlekar som stöds för [virtuella Windows-datorer](./windows/sizes.md) eller [Linux](./linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) för att identifiera VM-serien.
+Börja med att gå över de storlekar som stöds för [virtuella Windows-datorer](./sizes.md) eller [Linux](./sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) för att identifiera VM-serien.
 
 Kontrol lera sedan om det stöds på Azure-dedikerade värdar. [Pris sidan för Azure-dedikerade värdar](https://aka.ms/ADHPricing) har den fullständiga listan över dedikerade värdar SKU: er, deras processor information och olika pris alternativ (inklusive reserverade instanser).
 
@@ -70,12 +70,12 @@ Om du har ett EA-avtal kan du använda **alternativet Lägg till fler**   för
 
 | **Fält**           | **Beskrivning**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Prenumeration        | Prenumerationen som används för att betala för reservationen. Betalnings metoden för prenumerationen debiteras kostnaderna för reservationen. Prenumerations typen måste vara ett Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller Microsoft-kundavtal eller en enskild prenumeration med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P). Avgifterna dras av från betalnings åtagande beloppet, om det är tillgängligt eller debiteras som överanvändning. För en prenumeration med priser enligt principen betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen. |
+| Prenumeration        | Prenumerationen som används för att betala för reservationen. Reservationen debiteras via prenumerationens betalningsmetod. Prenumerations typen måste vara ett Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller Microsoft-kundavtal eller en enskild prenumeration med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P). Avgifterna dras från saldot för det ekonomiska åtagandet om det finns ett sådant eller debiteras som överförbrukning. För en prenumeration med priser enligt principen betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen. |
 | Omfång               | Reservationens omfång kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Region              | Den Azure-region som omfattas av reservationen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Dedikerad värd storlek | Storleken på de dedikerade värd instanserna.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Term                | Ett år eller tre år.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Antal            | Antalet instanser som köps i reservationen. Antalet är antalet aktiva dedikerade värd instanser som kan hämta fakturerings rabatten.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Period                | Ett år eller tre år.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Kvantitet            | Antalet instanser som köps i reservationen. Antalet är antalet aktiva dedikerade värd instanser som kan hämta fakturerings rabatten.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 - **Definitions område**   för enskild resurs grupp – Tillämpar reservations rabatten på de matchande resurserna enbart i den valda resurs gruppen.
 
@@ -107,7 +107,7 @@ Du kan inte göra följande typer av ändringar efter köpet, direkt:
 
 - SKU
 
-- Antal
+- Kvantitet
 
 - Varaktighet
 
@@ -125,7 +125,7 @@ Om du har frågor eller behöver hjälp kan du  [skapa en supportbegäran](http
 
 Information om hur du hanterar en reservation finns i [hantera Azure reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
-Du kan läsa mer om Azure-reservationer i följande artiklar:
+Mer information om Azure-reservationer finns i följande artiklar:
 
 - [Vad är Azure-reservationer?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 

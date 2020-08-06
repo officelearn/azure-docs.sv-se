@@ -1,7 +1,7 @@
 ---
 title: Dataredundans
 titleSuffix: Azure Storage
-description: Data i ditt Microsoft Azure Storage-konto replikeras för hållbarhet och hög tillgänglighet. Bland konfigurationerna för redundans ingår lokalt redundant lagring (LRS), zon-redundant lagring (ZRS), Geo-redundant lagring (GRS), Geo-redundant lagring med Läs behörighet (RA-GRS), geo-Zone-redundant lagring (GZRS) och Read-Access geo-Zone-redundant lagring (RA-GZRS).
+description: Förstå dataredundans i Azure Storage. Data i ditt Microsoft Azure Storage-konto replikeras för hållbarhet och hög tillgänglighet.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.date: 07/21/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e4ec4925da40cf6051b88d77fbbc35d93ececf87
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8fa775ab4d183d75fef41529a95555fe3bcdc91c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036734"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827851"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage redundans
 
@@ -164,9 +164,9 @@ Följande tabell visar om dina data är beständiga och tillgängliga i ett spec
 | Avbrott-scenario | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
 | En nod i ett Data Center blir otillgänglig | Ja | Ja | Ja | Ja |
-| Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt | No | Yes | Ja<sup>1</sup> | Yes |
-| Ett områdes omfattande avbrott uppstår i den primära regionen | Inga | Inga | Ja<sup>1</sup> | Ja<sup>1</sup> |
-| Läs behörighet till den sekundära regionen är tillgängligt om den primära regionen blir otillgänglig | Inga | Inga | Ja (med RA-GRS) | Ja (med RA-GZRS) |
+| Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt | Nej | Ja | Ja<sup>1</sup> | Ja |
+| Ett områdes omfattande avbrott uppstår i den primära regionen | Nej | Nej | Ja<sup>1</sup> | Ja<sup>1</sup> |
+| Läs behörighet till den sekundära regionen är tillgängligt om den primära regionen blir otillgänglig | Nej | Nej | Ja (med RA-GRS) | Ja (med RA-GZRS) |
 
 <sup>1</sup> växling vid fel krävs för att återställa Skriv tillgängligheten om den primära regionen blir otillgänglig. Mer information finns i [haveri beredskap och redundans för lagrings konton](storage-disaster-recovery-guidance.md).
 

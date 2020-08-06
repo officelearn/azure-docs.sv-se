@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: c0041a835c02263f23c5cdc6f839756edfb070c1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 03e6f51d2ab7138675f7d79c04faa2e4dffec60c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526885"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825692"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Felsöka en virtuell Linux-dator när det inte finns någon åtkomst till Azures serie konsol och disklayouten använder LVM (Logical Volume Manager)
 
@@ -272,6 +272,6 @@ Om den virtuella datorn kör disk växlingen stängs den av, startar om den virt
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om
 
- [Azures serie konsol]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+ [Azures serie konsol]( ./serial-console-linux.md)
 
 [Läge för enkel användare](./serial-console-grub-single-user-mode.md)

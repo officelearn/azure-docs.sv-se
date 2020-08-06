@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: c5be90cfd107dfa66eb31597818d93ef092b5258
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8bafde086febce78ca2715ab77c8a071467b986b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502868"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825471"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Använd portalen för att koppla en datadisk till en virtuell Linux-dator 
 Den här artikeln visar hur du ansluter både nya och befintliga diskar till en virtuell Linux-dator via Azure Portal. Du kan också [ansluta en datadisk till en virtuell Windows-dator i Azure Portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 Innan du kopplar diskar till din virtuella dator kan du läsa följande tips:
 
-* Storleken på den virtuella datorn styr hur många data diskar du kan koppla. Mer information finns i [storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Storleken på den virtuella datorn styr hur många data diskar du kan koppla. Mer information finns i [storlekar för virtuella datorer](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Diskar som är anslutna till virtuella datorer är faktiskt VHD-filer som lagras i Azure. Mer information finns i [Introduktion till Managed disks](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * När du har anslutit disken måste du [ansluta till den virtuella Linux-datorn för att montera den nya disken](#connect-to-the-linux-vm-to-mount-the-new-disk).
 

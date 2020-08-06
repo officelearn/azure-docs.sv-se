@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 211b7aedc901031e366c60a6c7a2cee396bbe124
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: bd575eb5f646b749b431516670c64c764f4d4c9c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563848"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828514"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor
 
@@ -670,7 +670,7 @@ Om dina virtuella datorer redan är anslutna till en Log Analytics arbets yta ka
 ### <a name="can-i-onboard-to-a-new-workspace"></a>Kan jag publicera till en ny arbets yta? 
 Om dina virtuella datorer inte är anslutna till en befintlig Log Analytics arbets yta måste du skapa en ny arbets yta för att lagra dina data. Att skapa en ny standard arbets yta görs automatiskt om du konfigurerar en enskild virtuell Azure-dator för Azure Monitor for VMs via Azure Portal.
 
-Om du väljer att använda den skriptbaserade metoden beskrivs de här stegen i artikeln [aktivera Azure Monitor for VMS med hjälp av Azure PowerShell eller Resource Manager-mall](insights/vminsights-enable-at-scale-powershell.md) . 
+Om du väljer att använda den skriptbaserade metoden beskrivs de här stegen i artikeln [aktivera Azure Monitor for VMS med hjälp av Azure PowerShell eller Resource Manager-mall](./insights/vminsights-enable-powershell.md) . 
 
 ### <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>Vad gör jag om min virtuella dator redan rapporterar till en befintlig arbets yta?
 Om du redan samlar in data från dina virtuella datorer kanske du redan har konfigurerat den för att rapportera data till en befintlig Log Analytics-arbetsyta.  Så länge arbets ytan finns i en av våra regioner som stöds, kan du aktivera Azure Monitor for VMs till den befintliga arbets ytan.  Om den arbets yta som du redan använder inte finns i någon av våra regioner som stöds, kan du inte publicera till Azure Monitor for VMs för tillfället.  Vi arbetar aktivt med att stödja ytterligare regioner.
@@ -691,7 +691,7 @@ Om du har initierat onboarding och ser meddelanden som anger att den virtuella d
 ### <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>Jag ser inte några eller några data i prestanda diagrammen för min virtuella dator
 Våra prestanda diagram har uppdaterats för att använda data som lagras i *InsightsMetrics* -tabellen.  Om du vill se data i dessa diagram måste du uppgradera för att använda den nya lösningen för VM-insikter.  Mer information finns i [vanliga frågor och svar om ga](insights/vminsights-ga-release-faq.md) .
 
-Om du inte ser prestanda data i disk tabellen eller i vissa prestanda diagram, kanske prestanda räknarna inte konfigureras på arbets ytan. Kör följande [PowerShell-skript](insights/vminsights-enable-at-scale-powershell.md#enable-with-powershell)för att lösa problemet.
+Om du inte ser prestanda data i disk tabellen eller i vissa prestanda diagram, kanske prestanda räknarna inte konfigureras på arbets ytan. Kör följande [PowerShell-skript](./insights/vminsights-enable-powershell.md)för att lösa problemet.
 
 
 ### <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>Hur skiljer sig Azure Monitor for VMs Map-funktionen från Tjänstkarta?

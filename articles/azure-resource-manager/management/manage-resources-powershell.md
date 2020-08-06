@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 9cb5a9aa782017075a58737f8cb94569c2cc6288
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 10f8c2a17c161d7e5622636b08b524932defe451
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373308"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826882"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>Hantera Azure-resurser med hjälp av Azure PowerShell
 
@@ -133,7 +133,7 @@ Taggning hjälper till att organisera resurs gruppen och resurserna logiskt. Mer
 
 ## <a name="manage-access-to-resources"></a>Hantera åtkomst till resurser
 
-[Rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/overview.md) är hur du hanterar åtkomst till resurser i Azure. Mer information finns i [Hantera åtkomst med RBAC och Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md) är hur du hanterar åtkomst till resurser i Azure. Mer information finns i [Hantera åtkomst med RBAC och Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

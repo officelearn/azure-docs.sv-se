@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/12/2020
-ms.openlocfilehash: a2ece33974e5bb4d8cb6257d3ca68a258f9b8c81
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 406991de2441836565c911ef8a8e1402f6398eb0
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326009"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824791"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Övervaknings lösningar i Azure Monitor
 
@@ -192,7 +192,6 @@ az monitor log-analytics solution delete --name
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Hämta en [lista över övervaknings lösningar från Microsoft](/azure/azure-monitor/monitor-reference).
+* Hämta en [lista över övervaknings lösningar från Microsoft](../monitor-reference.md).
 * Lär dig hur du [skapar frågor](../log-query/log-query-overview.md) för att analysera data som samlas in av övervaknings lösningar.
 * Se alla [Azure CLI-kommandon för Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
-

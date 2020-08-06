@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9eaca2ac394e58f45c7a7a0e7920fcb86f2278b4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2b6abcaf7f774b576a4850cd523bca27adfec488
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87484597"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827120"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Hantera Azure Resource Manager resurs grupper med hjälp av Azure CLI
 
@@ -145,7 +145,7 @@ Mer information finns i avsnittet [Exportera en och flera resurser till mallen i
 
 ## <a name="manage-access-to-resource-groups"></a>Hantera åtkomst till resurs grupper
 
-[Rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/overview.md) är hur du hanterar åtkomst till resurser i Azure. Mer information finns i [Hantera åtkomst med RBAC och Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md) är hur du hanterar åtkomst till resurser i Azure. Mer information finns i [Hantera åtkomst med RBAC och Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: cdefca11131a16630e600385bf350465fccc228f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 37c5a0fb1addf9f84c8a237b4d185d140553535e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206666"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825981"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Skapa och hantera en privat länk för Azure Database for MySQL med hjälp av portalen
 
@@ -20,7 +20,7 @@ En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azu
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 > [!NOTE]
-> Den här funktionen är tillgänglig i alla Azure-regioner där Azure Database for MySQL stöder Generell användning och minnesoptimerade pris nivåer.
+> Funktionen privat länk är bara tillgänglig för Azure Database for MySQL servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att databas servern är på någon av dessa pris nivåer.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 Logga in på [Azure-portalen](https://portal.azure.com).
@@ -66,7 +66,7 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
     | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett användar namn som du väljer. |
-    | Lösenord | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | lösenordsinställning | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Bekräfta lösenord | Ange lösenordet igen. |
     | **REGLER FÖR INKOMMANDE PORTAR** |  |
     | Offentliga inkommande portar | Lämna kvar standardinställningen **Ingen**. |
@@ -111,7 +111,7 @@ I det här avsnittet ska du skapa en Azure Database for MySQL-server i Azure.
     | **Serverinformation** |  |
     |Servernamn  | Ange *Server*. Om det här namnet tas skapar du ett unikt namn.|
     | Administratörens användar namn| Ange ett administratörs namn som du väljer. |
-    | Lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
+    | lösenordsinställning | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
     | Plats | Välj en Azure-region där du vill att MySQL-servern ska finnas. |
     |Version  | Välj den databas version av MySQL-servern som krävs.|
     | Compute + Storage| Välj den pris nivå som krävs för servern baserat på arbets belastningen. |
@@ -233,7 +233,7 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
     | Servertyp| Välj **MySQL**.|
     | Servernamn| Välj *myserver.privatelink.mysql.Database.Azure.com* |
     | Användarnamn | Ange användar namn som username@servername anges när MySQL-servern skapas. |
-    |Lösenord |Ange ett lösen ord som anges när MySQL-servern skapas. |
+    |lösenordsinställning |Ange ett lösen ord som anges när MySQL-servern skapas. |
     |SSL|Välj **obligatoriskt**.|
     ||
 

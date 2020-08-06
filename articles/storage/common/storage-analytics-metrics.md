@@ -1,6 +1,6 @@
 ---
 title: Azure-lagringsanalys mått (klassisk)
-description: Lär dig hur du använder Lagringsanalys mått i Azure Storage.
+description: Lär dig hur du använder Lagringsanalys mått i Azure Storage. Lär dig mer om transaktions-och kapacitets mått, hur mått lagras, aktivera mått med mera.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: b4bb17fce7be7aeff2a6978177106201e4c80aee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7d7db5a756e5d75cb4f9719f54d95f9cee1e8d2f
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087279"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828055"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure-lagringsanalys mått (klassisk)
 
@@ -146,7 +146,7 @@ I avsnittet **övervakning (klassisk)** i ditt lagrings kontos meny fönster i A
 
 Om du vill hämta måtten för långsiktig lagring eller analysera dem lokalt måste du använda ett verktyg eller skriva kod för att läsa tabellerna. Du måste ladda ned minut måtten för analys. Tabellerna visas inte om du visar alla tabeller i ditt lagrings konto, men du kan komma åt dem direkt efter namn. Många verktyg för lagrings surfning är medvetna om dessa tabeller och gör att du kan visa dem direkt. En lista över tillgängliga verktyg finns i [Azure Storage klient verktyg](/azure/storage/storage-explorers).
 
-|Mått|Tabell namn|Kommentarer| 
+|Mått|Tabell namn|Obs!| 
 |-|-|-|  
 |Tim mått|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|I tidigare versioner än den 15 augusti 2013 var de här tabellerna kända som:<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> Mått för fil tjänsten är tillgängliga från och med version 5 april 2015.|  
 |Minut mått|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Kan endast aktive ras med hjälp av PowerShell eller program mässigt.<br /><br /> Mått för fil tjänsten är tillgängliga från och med version 5 april 2015.|  

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: v-erkel
-ms.openlocfilehash: 7ad910823c4dd2430aeae085dd8e510fcd42c80f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 585ea3b5ddd16acb9af83c1c1e0e4aa6ca9e631a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532602"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826712"
 ---
 # <a name="add-storage-targets"></a>Lägga till lagringsmål
 
@@ -112,7 +112,7 @@ När du är färdig klickar du på **OK** för att lägga till lagrings målet.
 
 ### <a name="add-the-access-control-roles-to-your-account"></a>Lägg till roller för åtkomst kontroll i ditt konto
 
-Azure HPC cache använder [rollbaserad åtkomst kontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) för att ge Cache-tjänsten åtkomst till ditt lagrings konto för Azure Blob Storage-mål.
+Azure HPC cache använder [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) för att ge Cache-tjänsten åtkomst till ditt lagrings konto för Azure Blob Storage-mål.
 
 Lagrings kontots ägare måste uttryckligen lägga till rollerna [lagrings konto deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) och [Storage BLOB data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) för användaren "HPC-Provider för HPC-cache".
 
@@ -147,7 +147,7 @@ Steg för att lägga till Azure-roller:
 
 Innan du lägger till ett Blob Storage-mål kontrollerar du att cachen har rätt roller för att komma åt lagrings kontot och att brand Väggs inställningarna tillåter skapande av lagrings mål.
 
-Azure HPC cache använder [rollbaserad åtkomst kontroll (RBAC)](../role-based-access-control/index.yml) för att ge Cache-tjänsten åtkomst till ditt lagrings konto för Azure Blob Storage-mål.
+Azure HPC cache använder [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](../role-based-access-control/index.yml) för att ge Cache-tjänsten åtkomst till ditt lagrings konto för Azure Blob Storage-mål.
 
 Lagrings kontots ägare måste uttryckligen lägga till rollerna [lagrings konto deltagare](../role-based-access-control/built-in-roles.md#storage-account-contributor) och [Storage BLOB data-deltagare](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) för användaren "HPC-Provider för HPC-cache".
 
@@ -220,9 +220,9 @@ I den här tabellen sammanfattas skillnaderna mellan användnings modeller:
 
 | Användnings modell                   | Cacheläge | Verifiering på Server Sidan | Maximal Skriv åtgärds fördröjning |
 |-------------------------------|--------------|-----------------------|--------------------------|
-| Läs tung, sällan skrivna skrivningar | Läsa         | Aldrig                 | Ingen                     |
+| Läs tung, sällan skrivna skrivningar | Läsa         | Aldrig                 | Inga                     |
 | Större än 15% skrivningar       | Läsa/skriva   | Aldrig                 | 1 timme                   |
-| Klienterna kringgår cachen      | Läsa         | 30 sekunder            | Ingen                     |
+| Klienterna kringgår cachen      | Läsa         | 30 sekunder            | Inga                     |
 
 ### <a name="create-an-nfs-storage-target"></a>Skapa ett NFS-lagrings mål
 

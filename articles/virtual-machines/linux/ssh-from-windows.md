@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.date: 07/09/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: dcb5277773be1fc45a3d2b0901cf9fda177b7054
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 7e99c9191e93562211f6294cf671f431a5db455d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512660"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825573"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Använda SSH-nycklar med Windows på Azure
 
@@ -45,7 +45,7 @@ De senaste versionerna av Windows 10 innehåller [openssh-klient kommandon](http
 
 Du kan också använda bash i [Azure Cloud Shell](../../cloud-shell/overview.md) för att ansluta till din virtuella dator. Du kan använda Cloud Shell i en [webbläsare](https://shell.azure.com/bash), från [Azure Portal](https://portal.azure.com)eller som en Terminal i Visual Studio Code med hjälp av [tillägget Azure-konto](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
-Du kan också installera [Windows-undersystemet för Linux](https://docs.microsoft.com/windows/wsl/about) för att ansluta till din virtuella dator via SSH och använda andra inbyggda Linux-verktyg i ett bash-gränssnitt.
+Du kan också installera [Windows-undersystemet för Linux](/windows/wsl/about) för att ansluta till din virtuella dator via SSH och använda andra inbyggda Linux-verktyg i ett bash-gränssnitt.
 
 ## <a name="create-an-ssh-key-pair"></a>Skapa ett SSH-nyckelpar
 

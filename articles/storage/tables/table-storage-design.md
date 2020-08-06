@@ -1,6 +1,6 @@
 ---
 title: Utforma skalbara och presterande tabeller i Azure Table Storage. | Microsoft Docs
-description: Utforma skalbara och presterande tabeller i Azure Table Storage.
+description: Lär dig att utforma skalbara och presterande tabeller i Azure Table Storage. Granska tabellattribut, enhets grupp transaktioner och kapacitets-och kostnads överväganden.
 services: storage
 author: SnehaGunda
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 1dba3a6f3ebd7b6675e6d0d90d98a45625ad04ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59af13bcae14839a5b583ad7e063668b5305b30a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83656903"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824417"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Utforma skalbara och högpresterande tabeller
 
@@ -37,7 +37,7 @@ I följande exempel visas en enkel tabell design där du kan lagra personal-och 
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Tidsstämpel</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>

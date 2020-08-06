@@ -7,19 +7,19 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 105cb38ccb65c96e2a1177e09839fc9d295c2b80
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8948ed51a9cda3d308046f3b85b6ce338462e82c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489953"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826202"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Skapa och hantera en privat länk för Azure Database for MySQL med CLI
 
 En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. Virtual Machines (VM), att kommunicera privat med privata länk resurser. I den här artikeln får du lära dig hur du använder Azure CLI för att skapa en virtuell dator i en Azure-Virtual Network och en Azure Database for MySQL-server med en privat Azure-slutpunkt.
 
 > [!NOTE]
-> Den här funktionen är tillgänglig i alla Azure-regioner där Azure Database for MySQL stöder Generell användning och minnesoptimerade pris nivåer.
+> Funktionen privat länk är bara tillgänglig för Azure Database for MySQL servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att databas servern är på någon av dessa pris nivåer.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -169,7 +169,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 4. I **ny anslutning**anger eller väljer du den här informationen:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Anslutningsnamn| Välj önskat anslutnings namn.|
     | Värdnamn | Välj *mydemoserver.privatelink.mysql.Database.Azure.com* |

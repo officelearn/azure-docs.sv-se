@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 7f71e52fd1fd40015ff93e189495daef0e2c333e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a2cdcab08bba76cb385666956b7663324f32c669
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328361"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824587"
 ---
 # <a name="enable-azure-monitor-for-vms-using-powershell"></a>Aktivera Azure Monitor for VMs med PowerShell
 I den här artikeln beskrivs hur du aktiverar Azure Monitor for VMs på virtuella Azure-datorer med hjälp av PowerShell. Den här proceduren kan användas för följande:
@@ -19,7 +19,7 @@ I den här artikeln beskrivs hur du aktiverar Azure Monitor for VMs på virtuell
 - Virtuell Azure-dator
 - Skalnings uppsättning för virtuella Azure-datorer
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa och konfigurera en Log Analytics-arbetsyta](vminsights-configure-workspace.md).
 - Se [operativ system som stöds](vminsights-enable-overview.md#supported-operating-systems) för att säkerställa att operativ systemet för den virtuella datorn eller skalnings uppsättningen för virtuella datorer som du aktiverar stöds. 
@@ -35,7 +35,7 @@ Om du vill aktivera Azure Monitor for VMs för flera virtuella datorer eller ska
 
 För varje virtuell dator eller skalnings uppsättning för virtuella datorer kontrollerar skriptet om VM-tillägget för den Log Analytics agenten och beroende agenten redan har installerats. Om båda tilläggen är installerade försöker skriptet installera det igen. Om båda tilläggen inte är installerade installeras de av skriptet.
 
-Kontrol lera att du använder Azure PowerShell module AZ version 1.0.0 eller senare med `Enable-AzureRM` kompatibilitets-alias aktiverade. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Kontrol lera att du använder Azure PowerShell module AZ version 1.0.0 eller senare med `Enable-AzureRM` kompatibilitets-alias aktiverade. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 Om du vill hämta en lista över skriptets argument information och exempel på användning, kör `Get-Help` .
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 58f77eaba7cd0c29899a81352f5550becb0e4128
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 95d97605f00a3a80c097eb16695c9d296e17c33d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508601"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825250"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>Skapa en virtuell Windows-dator i en tillgänglighetszon med PowerShell
 
@@ -32,7 +32,7 @@ Connect-AzAccount
 ```
 
 ## <a name="check-vm-sku-availability"></a>Kontrollera tillgänglighet för SKU för virtuell dator
-Tillgängligheten för VM-storlek eller SKU: er kan variera beroende på region och zon. När du planerar för användningen av tillgänglighetszoner kan du visa tillgängliga VM SKU:er via Azure-region och zon. Den möjligheten säkerställer att du väljer en lämplig VM-storlek och hämtar önskad elasticitet i flera zoner. Mer information om olika VM-typer och -storlekar finns i [Översikt över VM-storlekar](sizes.md).
+Tillgängligheten för VM-storlek eller SKU: er kan variera beroende på region och zon. När du planerar för användningen av tillgänglighetszoner kan du visa tillgängliga VM SKU:er via Azure-region och zon. Den möjligheten säkerställer att du väljer en lämplig VM-storlek och hämtar önskad elasticitet i flera zoner. Mer information om olika VM-typer och -storlekar finns i [Översikt över VM-storlekar](../sizes.md).
 
 Du kan se tillgängliga VM SKU:er med kommandot [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku). Följande exempel visar tillgängliga VM SKU:er i regionen *usaöstra2*:
 
@@ -170,4 +170,4 @@ Tags               : {}
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du skapar en virtuell dator i en tillgänglighetszon. Lär dig mer om [tillgänglighet](availability.md) för virtuella Azure-datorer.
+I den här artikeln har du lärt dig hur du skapar en virtuell dator i en tillgänglighetszon. Lär dig mer om [tillgänglighet](../availability.md) för virtuella Azure-datorer.

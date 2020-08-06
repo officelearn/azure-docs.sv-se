@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 51ebecf784b7a3ec38f84703a74e96d277afa70c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf16ee0af1c5816822f6a201ad1d5a70127082db
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658207"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825386"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Konvertera Azure Managed disks Storage från standard till Premium eller Premium till standard
 
@@ -30,7 +30,7 @@ Den här artikeln visar hur du konverterar Managed disks från standard till Pre
 
 ## <a name="switch-all-managed-disks-of-a-vm-between-premium-and-standard"></a>Växla alla hanterade diskar för en virtuell dator mellan Premium och standard
 
-I det här exemplet visas hur du konverterar alla diskar från standard till Premium Storage eller från Premium till standard lagring. Om du vill använda Premium Managed disks måste den virtuella datorn använda en [VM-storlek](sizes.md) som har stöd för Premium Storage. Det här exemplet växlar också till en storlek som har stöd för Premium Storage.
+I det här exemplet visas hur du konverterar alla diskar från standard till Premium Storage eller från Premium till standard lagring. Om du vill använda Premium Managed disks måste den virtuella datorn använda en [VM-storlek](../sizes.md) som har stöd för Premium Storage. Det här exemplet växlar också till en storlek som har stöd för Premium Storage.
 
  ```azurecli
 
@@ -67,7 +67,7 @@ az vm start --name $vmName --resource-group $rgName
 ```
 ## <a name="switch-individual-managed-disks-between-standard-and-premium"></a>Växla mellan de enskilda hanterade diskarna mellan standard och Premium
 
-För din arbets belastning för utveckling/testning kanske du vill ha en blandning av standard-och Premium-diskar för att minska kostnaderna. Du kan välja att bara uppgradera de diskar som behöver bättre prestanda. Det här exemplet visar hur du konverterar en enskild virtuell dator disk från standard till Premium Storage eller från Premium till standard lagring. Om du vill använda Premium Managed disks måste den virtuella datorn använda en [VM-storlek](sizes.md) som har stöd för Premium Storage. Det här exemplet växlar också till en storlek som har stöd för Premium Storage.
+För din arbets belastning för utveckling/testning kanske du vill ha en blandning av standard-och Premium-diskar för att minska kostnaderna. Du kan välja att bara uppgradera de diskar som behöver bättre prestanda. Det här exemplet visar hur du konverterar en enskild virtuell dator disk från standard till Premium Storage eller från Premium till standard lagring. Om du vill använda Premium Managed disks måste den virtuella datorn använda en [VM-storlek](../sizes.md) som har stöd för Premium Storage. Det här exemplet växlar också till en storlek som har stöd för Premium Storage.
 
  ```azurecli
 
@@ -129,7 +129,7 @@ az vm start --ids $vmId
 
 ## <a name="switch-managed-disks-between-standard-and-premium-in-azure-portal"></a>Växla Managed disks mellan standard och Premium i Azure Portal
 
-Följ de här stegen:
+Gör så här:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj den virtuella datorn i listan över **virtuella datorer**.

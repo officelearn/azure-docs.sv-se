@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: a66cb190309fb9e966392f57a251eff746bfa315
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d61e052b10b7255cac37531f889324075d596f3c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321113"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828463"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Felsöka logg aviseringar i Azure Monitor  
 
@@ -190,7 +190,7 @@ Varje logg aviserings regel som skapas i Azure Monitor som en del av konfigurati
 
 ## <a name="alert-rule-quota-was-reached"></a>Varnings regel kvoten nåddes
 
-Antalet Sök aviserings regler för loggs ökning per prenumeration och resurs omfattas av de kvot gränser som beskrivs [här](https://docs.microsoft.com/azure/azure-monitor/service-limits).
+Antalet Sök aviserings regler för loggs ökning per prenumeration och resurs omfattas av de kvot gränser som beskrivs [här](../service-limits.md).
 
 ### <a name="recommended-steps"></a>Rekommenderade åtgärder
     
@@ -201,7 +201,7 @@ Om du har nått kvot gränsen kan följande steg hjälpa dig att lösa problemet
 
     - Prenumerations-ID:n som kvotgränsen behöver ökas för
     - Orsak till kvot ökning
-    - Resurs typ för kvot ökningen: **Log Analytics** **Application Insights** ektidentifiering.
+    - Resurs typ för kvot ökningen: **Log Analytics**, **Application Insights**osv.
     - Begärd kvotgräns
 
 
@@ -226,4 +226,3 @@ Om du har nått kvot gränsen kan följande steg hjälpa dig att lösa problemet
 - Lär dig mer om [logg aviseringar i Azure](./alerts-unified-log.md).
 - Läs mer om [Application Insights](../log-query/log-query-overview.md).
 - Läs mer om [logg frågor](../log-query/log-query-overview.md).
-

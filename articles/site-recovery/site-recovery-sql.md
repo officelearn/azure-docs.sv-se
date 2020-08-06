@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5fa591530e92682c582b5929240e74a5430fb559
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1b02b089fea7e883bdc6c58c7a2845af12b50a37
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534999"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824536"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Konfigurera katastrof återställning för SQL Server
 
@@ -48,7 +48,7 @@ SQL Server på en virtuell Azure IaaS-dator eller lokalt.| Replikering med Azure
 > * Se till att data ändrings takten på datorn ligger inom [Site Recovery gränser](vmware-physical-azure-support-matrix.md#churn-limits). Ändrings takten mäts i skrivna byte per sekund. För datorer som kör Windows kan du Visa den här ändrings hastigheten genom att välja fliken **prestanda** i aktivitets hanteraren. Observera skriv hastigheten för varje disk.
 > * Site Recovery stöder replikering av instanser av redundanskluster på Lagringsdirigering. Mer information finns i [så här aktiverar du Lagringsdirigering replikering](azure-to-azure-how-to-enable-replication-s2d-vms.md).
 > 
-> När du migrerar din SQL-arbetsbelastning till Azure rekommenderar vi att du tillämpar [rikt linjerna för SQL Server på azure Virtual Machines](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices).
+> När du migrerar din SQL-arbetsbelastning till Azure rekommenderar vi att du tillämpar [rikt linjerna för SQL Server på azure Virtual Machines](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md).
 
 ## <a name="disaster-recovery-of-an-application"></a>Katastrof återställning av ett program
 

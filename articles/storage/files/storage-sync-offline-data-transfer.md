@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 438fe490bb241cbc42e53d8502e9065454ebcc4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dda05331163d071a9a47c6f6af8c758a11ec7dd8
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514386"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827902"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migrera bulkdata till Azure File Sync med Azure DataBox
 Du kan migrera Mass data till Azure File Sync på två sätt:
@@ -88,6 +88,13 @@ Inaktivera data överförings läget offline endast när statusen är **slutför
 
 > [!IMPORTANT]
 > När du har inaktiverat data överförings läget offline kan du inte aktivera det igen, även om den tillfälliga delningen från Mass migreringen fortfarande är tillgänglig.
+
+## <a name="azure-file-sync-and-pre-seeded-files-in-the-cloud"></a>Azure File Sync och förinstallerade filer i molnet
+
+Om du har dirigerade filer i en Azure-filresurs på annat sätt än data, t. ex. via AzCopy, RoboCopy från en säkerhets kopiering i molnet eller någon annan metod, bör du fortfarande följa [processen Offline dataöverföring](#process-for-offline-data-transfer) som beskrivs i den här artikeln. Du behöver bara ignorera datarutan som metoden dina filer flyttas till molnet. Det är dock ytterst viktigt att se till att du fortfarande följer processen med att dirigera filerna till en *mellanlagrings resurs* , inte den sista Azure File Sync anslutna resursen.
+
+> [!WARNING]
+> **Följ processen för att dirigera filer till en mellanlagringsplats och inte den sista**Azure File Sync anslutna resursen. Om du inte gör det kan fil konflikter uppstå (både fil versioner kommer att lagras) och filer som tas bort på Live-servern kan komma tillbaka, om de fortfarande finns i din äldre, dirigerade uppsättning filer. Dessutom sammanfogas mappar med varandra, vilket gör det mycket svårt att separera namn området efter sådana misstag.
 
 ## <a name="next-steps"></a>Nästa steg
 - [Planera för distribution av Azure File Sync](storage-sync-files-planning.md)

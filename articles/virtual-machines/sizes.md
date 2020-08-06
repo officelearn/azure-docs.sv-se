@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: 99419a73386f39492d78ee93aeb61f432ac9c690
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 65b4bf5e8a681bea36ab381771a2843ac1d1fbe4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421067"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827630"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Storlekar för virtuella datorer i Azure
 
@@ -31,7 +31,7 @@ I den här artikeln beskrivs tillgängliga storlekar och alternativ för de virt
 - Information om priser för de olika storlekarna finns på sidan med pris information för [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) eller [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows).
 - För tillgänglighet för VM-storlekar i Azure-regioner, se [produkter tillgängliga per region](https://azure.microsoft.com/regions/services/).
 - Om du vill se allmänna gränser för virtuella Azure-datorer kan du läsa om [begränsningar, kvoter och begränsningar för Azure-prenumerationer och tjänster](../azure-resource-manager/management/azure-subscription-service-limits.md).
-- Mer information om hur Azure namnger sina virtuella datorer finns i [namngivnings konventioner för virtuella datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
+- Mer information om hur Azure namnger sina virtuella datorer finns i [namngivnings konventioner för virtuella datorer i Azure](./vm-naming-conventions.md).
 
 ## <a name="rest-api"></a>REST-API
 

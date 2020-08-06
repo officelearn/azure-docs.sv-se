@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cc7c256ca6866e5b981f8740c9953534d830316
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e72e3cb3ccc6273a9b698475c5e5aa0bb87b8b7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359168"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828803"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health åtgärder
 I det här avsnittet beskrivs de olika åtgärder som du kan utföra med hjälp av Azure Active Directory (Azure AD) Connect Health.
@@ -104,12 +104,12 @@ Tänk på följande när du tar bort en tjänst instans:
 
 [//]: # (Avsnittet börjar med RBAC)
 ## <a name="manage-access-with-role-based-access-control"></a>Hantera åtkomst med rollbaserad åtkomstkontroll
-[Rollbaserad Access Control (RBAC)](../../role-based-access-control/role-assignments-portal.md) för Azure AD Connect Health ger åtkomst till användare och grupper som inte är globala administratörer. RBAC tilldelar roller till avsedda användare och grupper och tillhandahåller en mekanism för att begränsa globala administratörer i din katalog.
+[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) för Azure AD Connect Health ger åtkomst till användare och grupper som inte är globala administratörer. RBAC tilldelar roller till avsedda användare och grupper och tillhandahåller en mekanism för att begränsa globala administratörer i din katalog.
 
 ### <a name="roles"></a>Roller
 Azure AD Connect Health stöder följande inbyggda roller:
 
-| Roll | Behörigheter |
+| Role | Behörigheter |
 | --- | --- |
 | Ägare |Ägare kan *Hantera åtkomst* (till exempel tilldela en roll till en användare eller grupp), *Visa all information* (till exempel Visa aviseringar) från portalen och *ändra inställningar* (till exempel e-postaviseringar) i Azure AD Connect Health. <br>Som standard tilldelas globala Azure AD-administratörer den här rollen och kan inte ändras. |
 | Deltagare |Deltagare kan *Visa all information* (till exempel Visa aviseringar) från portalen och *ändra inställningar* (till exempel e-postmeddelanden) i Azure AD Connect Health. |

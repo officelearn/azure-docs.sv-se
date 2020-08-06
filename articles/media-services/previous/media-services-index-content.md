@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 2989343a5cc9612ea0f4d3b177093fdef93f5d73
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b9f0e824352126204c7a6f1cfe08d3e7c6c29a9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000678"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826066"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexera mediefiler med Azure Media Indexer
 
@@ -45,7 +45,7 @@ Du kan ange mer information för dina indexerings aktiviteter med hjälp av en a
 
 Du kan också bearbeta flera mediefiler samtidigt med hjälp av en manifest fil.
 
-Mer information finns i [uppgifts för inställning för Azure Media Indexer](/azure/media-services/previous/media-services-analytics-overview).
+Mer information finns i [uppgifts för inställning för Azure Media Indexer](./media-services-analytics-overview.md).
 
 ## <a name="index-an-asset"></a>Indexera en till gång
 Följande metod laddar upp en mediefil som en till gång och skapar ett jobb för att indexera till gången.
@@ -158,7 +158,7 @@ Om inte alla indatafiler indexeras utan fel, Miss lyckas indexerings jobbet med 
 ## <a name="index-multiple-files"></a>Indexera flera filer
 Följande metod överför flera mediafiler som en till gång och skapar ett jobb för att indexera alla dessa filer i en batch.
 
-En manifest fil med tillägget ". lst" skapas och överförs till till gången. Manifest filen innehåller en lista över alla till gångs filer. Mer information finns i [uppgifts för inställning för Azure Media Indexer](/azure/media-services/previous/media-services-analytics-overview).
+En manifest fil med tillägget ". lst" skapas och överförs till till gången. Manifest filen innehåller en lista över alla till gångs filer. Mer information finns i [uppgifts för inställning för Azure Media Indexer](./media-services-analytics-overview.md).
 
 ```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)

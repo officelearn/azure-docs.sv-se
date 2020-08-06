@@ -3,12 +3,12 @@ title: Utvärderingar av virtuella Azure-datorer i Azure Migrate Server-utvärde
 description: Lär dig mer om utvärderingar i Azure Migrate Server bedömning
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 52cdd6bb9cb062b5c36e10c67524fa4d266ca6e0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7664c8296f0d47f37f9542dee82d3c718be40126
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108009"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825998"
 ---
 # <a name="azure-vm-assessments-in-azure-migrate-server-assessment"></a>Utvärderingar av virtuella Azure-datorer i Azure Migrate: Server utvärdering
 
@@ -25,14 +25,14 @@ En utvärdering med verktyget för Server utvärdering mäter beredskap och upps
 
 Det finns två typer av utvärderingar som du kan skapa med hjälp av Azure Migrate: Server utvärdering.
 
-**Bedömnings typ** | **Detaljer**
+**Bedömnings typ** | **Information**
 --- | --- 
 **Azure VM** | Utvärderingar för att migrera dina lokala servrar till Azure Virtual Machines. <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md), [virtuella Hyper-V-datorer](how-to-set-up-appliance-hyper-v.md)och [fysiska servrar](how-to-set-up-appliance-physical.md) för migrering till Azure med hjälp av den här utvärderings typen.
 **Azure VMware Solution (AVS)** | Utvärderingar för att migrera dina lokala servrar till [Azure VMware-lösningen (AVS)](../azure-vmware/introduction.md). <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till Azure VMware-lösningen (AVS) med den här utvärderings typen. [Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
 
 Utvärderingar som du skapar med Server utvärdering är en tidpunkts ögonblicks bild av data. En utvärdering av virtuella Azure-datorer i Server utvärderingen innehåller två storleks villkors alternativ:
 
-**Bedömnings typ** | **Detaljer** | **Data**
+**Bedömnings typ** | **Information** | **Data**
 --- | --- | ---
 **Prestanda-baserade** | Utvärderingar som gör rekommendationer baserat på insamlade prestanda data | Den virtuella datorns storleks rekommendation baseras på processor-och RAM användnings data.<br/><br/> Rekommendationen för disk typen baseras på de indata/utdata-åtgärder per sekund (IOPS) och data flödet för de lokala diskarna. Disk typer är Azure Standard HDD, Azure Standard SSD och Azure Premium-diskar.
 **Som lokal** | Utvärderingar som inte använder prestanda data för att göra rekommendationer | Den virtuella datorns storleks rekommendation baseras på den lokala virtuella dator storleken.<br/><br> Den rekommenderade disk typen baseras på den valda lagrings typen för utvärderingen.
@@ -112,7 +112,7 @@ Beräkningarna sker i föregående ordning. En dator server flyttas till ett sen
 
 Här är what's som ingår i en Azure VM-utvärdering i Server utvärderingen:
 
-**Egenskap** | **Detaljer**
+**Egenskap** | **Information**
 --- | ---
 **Målplats** | Den plats som du vill migrera till. Server utvärderingen stöder för närvarande följande Azure-regioner:<br/><br/> Östra Australien, sydöstra Australien, södra Brasilien, centrala Kanada, Östra Kanada, centrala Indien, centrala USA, Kina, östra, Kina, norra, Asien, östra, östra USA, östra USA 2, centrala Tyskland, Tyskland nordöstra, Östra Japan, västra Japan, centrala Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, Storbritannien, västra US gov, Arizona , Västra centrala USA, Västeuropa, västra Indien, västra USA och västra USA 2.
 **Mål lagrings disk (i storlek)** | Den typ av disk som ska användas för lagring i Azure. <br/><br/> Ange mål lagrings disken som Premium-hanterad, Standard SSD-hanterad eller Standard HDD-hanterad.
@@ -152,7 +152,7 @@ Egenskap | Information | Status för Azure-beredskap
 --- | --- | ---
 **Start typ** | Azure har stöd för virtuella datorer med en start typ av BIOS, inte UEFI. | Villkorligt redo om start typen är UEFI
 **Kärnor** | Varje dator får inte ha fler än 128 kärnor, vilket är det högsta antalet som en virtuell Azure-dator stöder.<br/><br/> Om prestanda historiken är tillgänglig, Azure Migrate beakta de använda kärnorna för jämförelse. Om utvärderings inställningarna anger en bekvämlighets faktor multipliceras antalet använda kärnor av den praktiska faktorn.<br/><br/> Om det inte finns någon prestanda historik använder Azure Migrate tilldelade kärnor utan att använda den praktiska faktorn. | Redo om antalet kärnor ligger inom gränsen
-**Mycket** | Varje dator får inte ha mer än 3 892 GB RAM-minne, vilket är den maximala storleken som en Azure M-serie Standard_M128m &nbsp; <sup>2</sup> VM stöder. [Läs mer](../virtual-machines/windows/sizes.md).<br/><br/> Om prestanda historiken är tillgänglig kan Azure Migrate anses använda RAM-minne för jämförelse. Om en bekvämlighets faktor anges multipliceras det utnyttjade RAM-minnet av den praktiska faktorn.<br/><br/> Om det inte finns någon historik används det allokerade RAM-minnet utan en bekvämlighets faktor.<br/><br/> | Klar om mängden RAM-minne ligger inom gränsen
+**Mycket** | Varje dator får inte ha mer än 3 892 GB RAM-minne, vilket är den maximala storleken som en Azure M-serie Standard_M128m &nbsp; <sup>2</sup> VM stöder. [Läs mer](../virtual-machines/sizes.md).<br/><br/> Om prestanda historiken är tillgänglig kan Azure Migrate anses använda RAM-minne för jämförelse. Om en bekvämlighets faktor anges multipliceras det utnyttjade RAM-minnet av den praktiska faktorn.<br/><br/> Om det inte finns någon historik används det allokerade RAM-minnet utan en bekvämlighets faktor.<br/><br/> | Klar om mängden RAM-minne ligger inom gränsen
 **Lagrings disk** | Den allokerade storleken på en disk får inte överstiga 32 TB. Även om Azure har stöd för 64 TB-diskar med Azure Ultra SSD-diskar, Azure Migrate: Server utvärderingen söker efter 32 TB som disk storleks gräns eftersom den inte har stöd för Ultra SSD än. <br/><br/> Antalet diskar som är anslutna till datorn, inklusive OS-disken, måste vara 65 eller färre. | Redo om diskens storlek och antalet ligger inom gränserna
 **Nätverk** | En dator får inte ha fler än 32 nätverks gränssnitt (NIC) anslutna till sig. | Redo om antalet nätverkskort ligger inom gränsen
 
@@ -166,7 +166,7 @@ För en Azure VM-utvärdering, tillsammans med att granska VM-egenskaper, tittar
 
 Server utvärderingen använder följande logik för att identifiera Azure-beredskap baserat på operativ systemet:
 
-**Operativsystem** | **Detaljer** | **Status för Azure-beredskap**
+**Operativsystem** | **Information** | **Status för Azure-beredskap**
 --- | --- | ---
 Windows Server 2016 och alla SPs | Azure ger fullständig support. | Redo för Azure.
 Windows Server 2012 R2 och alla SPs | Azure ger fullständig support. | Redo för Azure.
@@ -282,7 +282,7 @@ När utvärderings rekommendationerna har slutförts beräknar en Azure VM-utvä
     - Software Assurance
     - Reserverade instanser
     - VM-drifttid
-    - Location
+    - Plats
     - Valuta inställningar
 
     Server utvärderingen sammanställer kostnaden på alla datorer för att beräkna den totala månads beräknings kostnaden.

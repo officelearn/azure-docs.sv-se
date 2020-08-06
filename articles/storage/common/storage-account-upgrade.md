@@ -1,7 +1,7 @@
 ---
 title: Uppgradera till ett V2-lagringskonto för generell användning
 titleSuffix: Azure Storage
-description: Uppgradera till General-Purpose v2-lagrings konton.
+description: Uppgradera till General-Purpose v2-lagrings konton med hjälp av Azure Portal, PowerShell eller Azure CLI. Ange en åtkomst nivå för BLOB-data.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8ba2478bbfb2a26951d682ab12cb5b98df73be97
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 029753ecb0afd0cdd02a2f4594a0708cbda06efc
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497978"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828225"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uppgradera till ett V2-lagringskonto för generell användning
 

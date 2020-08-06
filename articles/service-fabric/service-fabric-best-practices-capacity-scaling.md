@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d41a71ff5f97449968d82812119cfdfd4bc2ef44
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 09c56646ffa9bcadcec821bcd83411077d6a55ae
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261166"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824604"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Kapacitets planering och skalning för Azure Service Fabric
 
@@ -19,7 +19,7 @@ Innan du skapar ett Azure Service Fabric-kluster eller skalar beräknings resurs
 Förutom att överväger nodtyp och kluster egenskaper bör du förvänta dig skalnings åtgärder att ta längre tid än en timme att slutföra för en produktions miljö. Detta gäller även om antalet virtuella datorer som du lägger till.
 
 ## <a name="autoscaling"></a>Automatisk skalning
-Du bör utföra skalnings åtgärder via Azure Resource Manager mallar, eftersom det är bästa praxis att behandla [resursfiler som kod]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code). 
+Du bör utföra skalnings åtgärder via Azure Resource Manager mallar, eftersom det är bästa praxis att behandla [resursfiler som kod](./service-fabric-best-practices-infrastructure-as-code.md). 
 
 Om du använder automatisk skalning via skalnings uppsättningar för virtuella datorer blir din version av Resource Manager-mallen felaktigt definierad för antalet instanser för skalnings uppsättningar för virtuella datorer. Felaktig definition ökar risken för att framtida distributioner kommer att orsaka oönskade skalnings åtgärder. I allmänhet bör du använda autoskalning om:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 512688345c03ea9d5da0e4933cd6a794eaaf597b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d979d2d0167a4398d31271bb896c812bbe86be73
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84660753"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827868"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrera till Azure-filresurser
 
@@ -81,7 +81,7 @@ Ett scenario utan en länk har ännu ingen publicerad migreringsguiden. Markera 
 | Källa | Mål: </br>Hybrid distribution | Mål: </br>Distribution i molnet |
 |:---|:--|:--|
 | | Verktygs kombination:| Verktygs kombination: |
-| Windows Server 2012 R2 och senare | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync och Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>Tjänsten Azure File Sync och lagringsmigrering</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync och Data Box-enhet</li><li>Tjänsten Azure File Sync och lagringsmigrering</li><li>RoboCopy</li></ul> |
+| Windows Server 2012 R2 och senare | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync och Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>[Azure File Sync och förinstallerade filer i molnet](storage-sync-offline-data-transfer.md#azure-file-sync-and-pre-seeded-files-in-the-cloud)</li><li>Tjänsten Azure File Sync och lagringsmigrering</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync och Data Box-enhet</li><li>Tjänsten Azure File Sync och lagringsmigrering</li><li>RoboCopy</li></ul> |
 | Windows Server 2012 och tidigare | <ul><li>Azure File Sync och Data Box-enhet</li><li>Tjänsten Azure File Sync och lagringsmigrering</li></ul> | <ul><li>Tjänsten Azure File Sync och lagringsmigrering</li><li>RoboCopy</li></ul> |
 | Nätverksansluten lagring (NAS) | <ul><li>[Azure File Sync och RoboCopy](storage-files-migration-nas-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
 | Linux eller samba | <ul><li>[Azure File Sync och RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |

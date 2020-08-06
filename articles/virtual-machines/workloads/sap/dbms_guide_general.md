@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 44a41f43aa31c15b71d7b35ebd29bf935c7df966
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 34b7f4bc55fc8e33b7d66f53e6f2fc241801f965
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525474"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827426"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -174,7 +174,7 @@ Ett Azure Storage-konto är en administrativ konstruktion och även ett objekt a
 
 Kom ihåg att det finns en gräns för IOPS per lagrings konto för standard lagring. Se raden som innehåller den **totala begär ande frekvensen** i artikeln [Azure Storage skalbarhets-och prestanda mål](../../../storage/common/scalability-targets-standard-account.md). Det finns också en ursprunglig gräns för antalet lagrings konton per Azure-prenumeration. Balansera virtuella hård diskar för större SAP-landskap över olika lagrings konton för att undvika att överskrida gränserna för dessa lagrings konton. Detta är omständligt när du pratar om några hundra virtuella datorer med mer än tusen virtuella hård diskar.
 
-Eftersom användning av standard lagring för DBMS-distributioner tillsammans med en SAP-arbetsbelastning inte rekommenderas, är referenser och rekommendationer till standard lagring begränsad till den här korta [artikeln](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)
+Eftersom användning av standard lagring för DBMS-distributioner tillsammans med en SAP-arbetsbelastning inte rekommenderas, är referenser och rekommendationer till standard lagring begränsad till den här korta [artikeln](/archive/blogs/mast/configuring-azure-virtual-machines-for-optimal-storage-performance)
 
 För att undvika det administrativa arbetet med att planera och distribuera virtuella hård diskar på olika Azure Storage-konton introducerade Microsoft [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/) i 2017. Hanterade diskar är tillgängliga för standard lagring och Premium Storage. De största fördelarna med hanterade diskar jämfört med icke-hanterade diskar är:
 
@@ -327,7 +327,7 @@ Belastningsutjämnaren erbjuder ett alternativ för DirectServerReturn. Om det h
 
 Vi rekommenderar att du konfigurerar DirectServerReturn i kombination med belastningsutjämnare som är placerade mellan SAP-program skiktet och DBMS-skiktet. Den här konfigurationen minskar nätverks fördröjningen mellan de två lagren.
 
-Ett exempel på hur du konfigurerar den här konfigurationen med SQL Server Always on finns i [Konfigurera en ILB-lyssnare för Always on-tillgänglighetsgrupper i Azure](/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener).
+Ett exempel på hur du konfigurerar den här konfigurationen med SQL Server Always on finns i [Konfigurera en ILB-lyssnare för Always on-tillgänglighetsgrupper i Azure](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener).
 
 Om du använder publicerade GitHub JSON-mallar som referens för dina distributioner av SAP-infrastruktur i Azure, kan du studera den här [mallen för ett SAP 3-nivåsystem](https://github.com/Azure/azure-quickstart-templates/tree/4099ad9bee183ed39b88c62cd33f517ae4e25669/sap-3-tier-marketplace-image-converged-md). I den här mallen kan du också se rätt inställningar för belastningsutjämnaren.
 

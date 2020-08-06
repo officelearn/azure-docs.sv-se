@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6be91be4d1189fb99ffa39ec96d555d4534cdb2b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: da4f9fd9fd4305029f42dbe63326c8782d22d907
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005743"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825454"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Koppla en datadisk till en virtuell Windows-dator med PowerShell
 
@@ -20,7 +20,7 @@ Den här artikeln visar hur du ansluter både nya och befintliga diskar till en 
 
 Börja med att gå igenom följande tips:
 
-* Storleken på den virtuella datorn styr hur många data diskar du kan koppla. Mer information finns i [storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Storleken på den virtuella datorn styr hur många data diskar du kan koppla. Mer information finns i [storlekar för virtuella datorer](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Om du vill använda Premium-SSD behöver du en [Premium Storage-aktiverad VM-typ](../sizes-memory.md), t. ex. den virtuella datorn DS-serien eller GS-serien.
 
 Den här artikeln använder PowerShell i [Azure Cloud Shell](../../cloud-shell/overview.md), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.

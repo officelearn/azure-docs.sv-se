@@ -1,6 +1,6 @@
 ---
 title: Frekventa, låg frekventa och Arkiv åtkomst nivåer för blobbar – Azure Storage
-description: Åtkomst nivåer för frekvent åtkomst, låg frekvent åtkomst och arkivering för Azure Storage-konton.
+description: Läs om åtkomst nivåer för frekvent åtkomst, låg frekvent åtkomst och arkivering för Azure Blob Storage. Granska lagrings konton som stöder skiktning. Jämför blockera alternativ för blogg lagring.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 03/23/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: dc9e4e0a896677fd22baf33e7776e8158bd0bee6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 17df78f846d8422c0200ce5fc75b4722d21d35df
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011353"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828280"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: nivåer för frekvent åtkomst, lågfrekvent åtkomst och arkivlagring
 
@@ -42,7 +42,7 @@ Objekt lagrings data skiktning mellan frekvent, låg frekvent och arkivering st�
 
 Blob Storage-och GPv2-konton exponerar attributet **åtkomst nivå** på konto nivå. Med det här attributet kan du ange standard åtkomst nivå för alla blobar som inte har angetts explicit på objekt nivå. För objekt med nivån angiven på objekt nivå gäller inte konto nivån. Arkiv nivån kan endast tillämpas på objekt nivå. Du kan när som helst växla mellan dessa åtkomst nivåer.
 
-## <a name="hot-access-tier"></a>Frekvent åtkomstnivå
+## <a name="hot-access-tier"></a>Frekvent lagringsnivå
 
 Frekvent åtkomst nivå har högre lagrings kostnader än låg frekvent lagring och Arkiv lag ring, men de lägsta åtkomst kostnaderna. Exempel på användnings scenarier för frekvent åtkomst nivå är:
 
@@ -57,7 +57,7 @@ Låg frekvent åtkomst nivå har lägre kostnader för lagring och högre åtkom
 - Äldre medieinnehåll som inte visas så ofta längre, men som förväntas vara tillgängligt direkt vid behov.
 - Stora datamängder som behöver en kostnadseffektiv lagring under tiden mer data samlas in för framtida bearbetning. (*Till exempel* långsiktig lagring av vetenskapliga data eller telemetridata (rådata) från en tillverkningsanläggning.)
 
-## <a name="archive-access-tier"></a>Arkivåtkomstnivå
+## <a name="archive-access-tier"></a>Arkivlagring
 
 Arkiv åtkomst nivån har lägst lagrings kostnad. Men den har högre kostnader för data hämtning jämfört med frekventa och låg frekventa nivåer. Data måste finnas kvar på Arkiv nivå i minst 180 dagar eller omfattas av en avgift för tidig borttagning. Det kan ta flera timmar att hämta data på Arkiv nivån beroende på ÅTERUPPVÄCKNING prioritet. För små objekt kan en rehydratisera med hög prioritet hämta objektet från arkivet på under en timme. Mer information finns i avsnittet om [dehydratisera BLOB-data från Arkiv](storage-blob-rehydration.md) lag rings nivån.
 
@@ -118,10 +118,10 @@ I följande tabell visas en jämförelse av Premium Performance Block Blob Stora
 |                                           | **Förstklassig prestanda**   | **Frekvent nivå** | **Låg frekvent nivå**       | **Arkiv lag ring**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **Tillgänglighet**                          | 99,9 %                     | 99,9 %        | 99 %                 | Offline           |
-| **Tillgänglighet** <br> **(RA-GRS-läsningar)**  | Ej tillämpligt                       | 99,99 %       | 99,9 %               | Offline           |
+| **Tillgänglighet** <br> **(RA-GRS-läsningar)**  | E.t.                       | 99,99 %       | 99,9 %               | Offline           |
 | **Avgifter för användning**                         | Högre kostnader för lagring, lägre åtkomst och kostnad för transaktioner | Högre kostnader för lagring, lägre åtkomst och transaktionskostnader | Lägre kostnader för lagring, högre åtkomst och transaktionskostnader | Lägsta kostnader för lagring, högsta åtkomst och transaktionskostnader |
-| **Minsta objektstorlek**                   | Ej tillämpligt                       | Ej tillämpligt          | Ej tillämpligt                 | Ej tillämpligt               |
-| **Minsta lagringstid**              | Ej tillämpligt                       | Ej tillämpligt          | 30 dagar<sup>1</sup> | 180 dagar
+| **Minsta objektstorlek**                   | Saknas                       | Saknas          | Saknas                 | Saknas               |
+| **Minsta lagringstid**              | Saknas                       | Saknas          | 30 dagar<sup>1</sup> | 180 dagar
 | **Svarstid** <br> **(Tid till första byte)** | Ensiffriga millisekunder | millisekunder | millisekunder        | timmar<sup>2</sup> |
 
 <sup>1</sup> objekt på den lägsta nivån i GPv2-konton har en minsta Retentions tid på 30 dagar. Blob Storage-konton har inte minsta Retentions tid för den låg frekventa nivån.
@@ -220,7 +220,7 @@ Alla lagrings konton använder en pris modell för Block-Blob-lagring baserat p�
 > [!NOTE]
 > Mer information om priser för block blobbar finns [Azure Storage prissättnings](https://azure.microsoft.com/pricing/details/storage/blobs/) sida. Mer information om kostnaderna för utgående dataöverföring finns på sidan [Prisinformation om Dataöverföringar](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **Bör jag använda Blob Storage- eller GPv2-konton om jag vill lagra data i olika nivåer?**
 

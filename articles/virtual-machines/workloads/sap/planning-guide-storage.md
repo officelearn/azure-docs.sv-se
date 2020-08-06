@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 65fbd84a6fa4b03db9f5dfce81eeba23aceebbc9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ae3851da1dbcc5f7ac37821a64cada20164c7661
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042309"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825012"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Azure Storage-typer för SAP-arbetsbelastning
 Azure har flera olika lagrings typer som skiljer sig mycket i funktioner, data flöde, svars tid och priser. Några av lagrings typerna är inte eller av begränsad användning för SAP-scenarier. Flera typer av Azure-lagring är väl lämpade eller optimerade för vissa SAP-arbetsbelastnings scenarier. I synnerhet för SAP HANA fick vissa Azure Storage-typer certifierade för användning med SAP HANA. I det här dokumentet ska vi gå igenom de olika typerna av lagring och beskriva deras kapacitet och användbarhet med SAP-arbetsbelastningar och SAP-komponenter.
@@ -90,13 +90,13 @@ De egenskaper du kan förväntar dig från listan med olika lagrings typer som:
 
 | Användnings scenario | Standard HDD | Standard SSD | Premium Storage | Ultradisk | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| Service avtal för data flöde/IOPS | nej | nej | ja | yes | yes |
+| Service avtal för data flöde/IOPS | nej | nej | ja | ja | ja |
 | Svars tids läsningar | hög | medel till hög | börjar | under-millisekund | under-millisekund |
 | Svars tider skrivningar | hög | medel till hög  | låg (under millisekunder<sup>1</sup>) | under-millisekund | under-millisekund |
-| HANA stöds | nej | nej | Ja<sup>1</sup> | yes | yes |
-| Möjliga disk ögonblicks bilder | yes | yes | ja | Nej | ja |
+| HANA stöds | nej | nej | Ja<sup>1</sup> | ja | ja |
+| Möjliga disk ögonblicks bilder | ja | ja | ja | nej | ja |
 | Allokering av diskar i olika lagrings kluster när du använder tillgänglighets uppsättningar | via Managed disks | via Managed disks | via Managed disks | disk typen stöds inte för virtuella datorer som distribuerats via tillgänglighets uppsättningar | nr<sup>3</sup> |
-| Justerat med Tillgänglighetszoner | yes | yes | yes | yes | kräver engagemang för Microsoft |
+| Justerat med Tillgänglighetszoner | ja | ja | ja | ja | kräver engagemang för Microsoft |
 | Zonindelade-redundans | inte för hanterade diskar | inte för hanterade diskar | inte för hanterade diskar | nej | nej |
 | GEO-redundans | inte för hanterade diskar | inte för hanterade diskar | nej | nej | nej |
 
@@ -134,7 +134,7 @@ Azure har ett enda service avtal för virtuell dator med 99,9% som är knutet ti
 
 Funktions mat ris för SAP-arbetsbelastningen ser ut så här:
 
-| Funktion| Kommentar| Anteckningar/länkar | 
+| Kapacitet| Kommentar| Anteckningar/länkar | 
 | --- | --- | --- | 
 | OS-bas-VHD | korrekt | alla system |
 | Datadisk | korrekt | alla system – [särskilt för SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
@@ -146,7 +146,7 @@ Funktions mat ris för SAP-arbetsbelastningen ser ut så här:
 | Svarstid | låg till medel | - |
 | IOPS-SLA | JA | - |
 | IOPS linjär till kapacitet | halvt linjärt i hakparenteser  | [Priser för hanterad disk](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| Maximalt antal IOPS per disk | 20 000 [beroende av disk storlek](https://azure.microsoft.com/pricing/details/managed-disks/) | Överväg även [VM-gränser](../../linux/sizes.md) |
+| Maximalt antal IOPS per disk | 20 000 [beroende av disk storlek](https://azure.microsoft.com/pricing/details/managed-disks/) | Överväg även [VM-gränser](../../sizes.md) |
 | SLA för data flöde | JA | - |
 | Data flöde linjärt till kapacitet | halvt linjärt i hakparenteser | [Priser för hanterad disk](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | HANA-certifierad | JA | [särskilt för SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
@@ -192,7 +192,7 @@ Kostnaden för en enskild disk bestäms av de tre dimensionerna som du kan defin
 
 Funktions mat ris för SAP-arbetsbelastningen ser ut så här:
 
-| Funktion| Kommentar| Anteckningar/länkar | 
+| Kapacitet| Kommentar| Anteckningar/länkar | 
 | --- | --- | --- | 
 | OS-bas-VHD | fungerar inte | - |
 | Datadisk | korrekt | alla system  |
@@ -247,7 +247,7 @@ Precis som med Azure Premium Storage kan en fast eller linjär data flödes stor
 
 Funktions mat ris för SAP-arbetsbelastningen ser ut så här:
 
-| Funktion| Kommentar| Anteckningar/länkar | 
+| Kapacitet| Kommentar| Anteckningar/länkar | 
 | --- | --- | --- | 
 | OS-bas-VHD | fungerar inte | - |
 | Datadisk | korrekt | Endast SAP HANA  |
@@ -280,7 +280,7 @@ Ytterligare inbyggda funktioner för ANF-lagring:
 ## <a name="azure-standard-ssd-storage"></a>Azure standard SSD-lagring
 Jämfört med Azure standard Storage-lagring ger Azure standard SSD-lagring bättre tillgänglighet, konsekvens, tillförlitlighet och latens. Den är optimerad för arbets belastningar som behöver konsekvent prestanda på lägre IOPS-nivåer. Det här lagrings utrymmet är det minsta lagrings utrymme som används för SAP-system med låg IOPS och data flödes krav. Funktions mat ris för SAP-arbetsbelastningen ser ut så här:
 
-| Funktion| Kommentar| Anteckningar/länkar | 
+| Kapacitet| Kommentar| Anteckningar/länkar | 
 | --- | --- | --- | 
 | OS-bas-VHD | begränsad lämplig | icke-produktionssystem |
 | Datadisk | begränsad lämplig | vissa icke-produktionssystem med låga IOPS-och latens krav |
@@ -307,7 +307,7 @@ Jämfört med Azure standard Storage-lagring ger Azure standard SSD-lagring bät
 ## <a name="azure-standard-hdd-storage"></a>Azure standard HDD-lagring
 Azure Standard HDD Storage var den enda lagrings typen när Azure-infrastrukturen fick certifiering för SAP NetWeaver-arbetsbelastning under året 2014. I år 2014 var Azure Virtual Machines liten och låg i lagrings data flödet. Den här lagrings typen kunde därför bara hålla sig uppdaterad med kraven. Lagringen är idealisk för försvars känsliga arbets belastningar som du inte upplever i SAP-utrymmet. Med det ökande genomflödet av virtuella Azure-datorer och den ökade arbets belastning som de virtuella datorerna producerar, betraktas inte den här lagrings typen för användning med SAP-scenarier längre. Funktions mat ris för SAP-arbetsbelastningen ser ut så här:
 
-| Funktion| Kommentar| Anteckningar/länkar | 
+| Kapacitet| Kommentar| Anteckningar/länkar | 
 | --- | --- | --- | 
 | OS-bas-VHD | inte lämplig | - |
 | Datadisk | inte lämplig | - |
@@ -335,11 +335,11 @@ I motsats till lokala scenarier, spelar den enskilda VM-typen som du väljer, en
 
 | Lagringstyp| Linux | Windows | Kommentarer |
 | --- | --- | --- | --- |
-| Standard HDD | [Storlekar för virtuella Linux-datorer i Azure](../../linux/sizes.md) | [Storlekar för virtuella Windows-datorer i Azure](../../windows/sizes.md) | Det är sannolikt svårt att röra lagrings gränserna för medel stora eller stora virtuella datorer |
-| Standard SSD | [Storlekar för virtuella Linux-datorer i Azure](../../linux/sizes.md) | [Storlekar för virtuella Windows-datorer i Azure](../../windows/sizes.md) | Det är sannolikt svårt att röra lagrings gränserna för medel stora eller stora virtuella datorer |
-| Premium Storage | [Storlekar för virtuella Linux-datorer i Azure](../../linux/sizes.md) | [Storlekar för virtuella Windows-datorer i Azure](../../windows/sizes.md) | Lätt att trycka på virtuella datorer med IOPS eller lagrings data flöde med lagrings konfiguration |
-| Ultra disk Storage | [Storlekar för virtuella Linux-datorer i Azure](../../linux/sizes.md) | [Storlekar för virtuella Windows-datorer i Azure](../../windows/sizes.md) | Lätt att trycka på virtuella datorer med IOPS eller lagrings data flöde med lagrings konfiguration |
-| Azure NetApp Files | [Storlekar för virtuella Linux-datorer i Azure](../../linux/sizes.md) | [Storlekar för virtuella Windows-datorer i Azure](../../windows/sizes.md) | Lagrings trafik använder bandbredd för nätverks data flöde och inte lagrings bandbredd! |
+| Standard HDD | [Storlekar för virtuella Linux-datorer i Azure](../../sizes.md) | [Storlekar för virtuella Windows-datorer i Azure](../../sizes.md) | Det är sannolikt svårt att röra lagrings gränserna för medel stora eller stora virtuella datorer |
+| Standard SSD | [Storlekar för virtuella Linux-datorer i Azure](../../sizes.md) | [Storlekar för virtuella Windows-datorer i Azure](../../sizes.md) | Det är sannolikt svårt att röra lagrings gränserna för medel stora eller stora virtuella datorer |
+| Premium Storage | [Storlekar för virtuella Linux-datorer i Azure](../../sizes.md) | [Storlekar för virtuella Windows-datorer i Azure](../../sizes.md) | Lätt att trycka på virtuella datorer med IOPS eller lagrings data flöde med lagrings konfiguration |
+| Ultra disk Storage | [Storlekar för virtuella Linux-datorer i Azure](../../sizes.md) | [Storlekar för virtuella Windows-datorer i Azure](../../sizes.md) | Lätt att trycka på virtuella datorer med IOPS eller lagrings data flöde med lagrings konfiguration |
+| Azure NetApp Files | [Storlekar för virtuella Linux-datorer i Azure](../../sizes.md) | [Storlekar för virtuella Windows-datorer i Azure](../../sizes.md) | Lagrings trafik använder bandbredd för nätverks data flöde och inte lagrings bandbredd! |
 
 Som begränsningar kan du tänka på följande:
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: tracking-python
-ms.openlocfilehash: 5bddb1d141b461eec794de0849b6234c6a5c6102
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 02a1db47a194f4604534f0b96eb836a33009be85
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284463"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827477"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Skapa och hantera virtuella Windows-datorer i Azure med hjälp av python
 
@@ -464,7 +464,7 @@ Du kan stoppa en virtuell dator och behålla alla inställningar, men fortsätta
 
 ### <a name="resize-the-vm"></a>Ändra storlek på den virtuella datorn
 
-Många aspekter av distributionen bör övervägas när du bestämmer dig för en storlek på den virtuella datorn. Mer information finns i [VM-storlekar](sizes.md).
+Många aspekter av distributionen bör övervägas när du bestämmer dig för en storlek på den virtuella datorn. Mer information finns i [VM-storlekar](../sizes.md).
 
 1. Om du vill ändra storleken på den virtuella datorn lägger du till den här funktionen efter variablerna i. py-filen:
 

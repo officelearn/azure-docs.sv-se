@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
-ms.openlocfilehash: 9085549486333968b98b4d34679c8616282d960f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb06f98d1a6e9b76c321e3d202043d656a2d94eb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100398"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829058"
 ---
 # <a name="infiniband-driver-extension-for-linux"></a>InfiniBand-drivrutins tillägg för Linux
 
 Det här tillägget installerar InfiniBand OFED-drivrutiner på InfiniBand-och SR-IOV-aktiverade (r-storlekar) [H-seriens](../sizes-hpc.md) och [N-seriens](../sizes-gpu.md) virtuella datorer som kör Linux. Beroende på VM-serien installerar tillägget lämpliga driv rutiner för Connect-X-NÄTVERKSKORTet.
 
-Anvisningar om manuell installation av OFED-drivrutinerna finns [här](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband#manually-install-mellanox-ofed).
+Anvisningar om manuell installation av OFED-drivrutinerna finns [här](../workloads/hpc/enable-infiniband.md#manual-installation).
 
 Det finns också ett tillägg för att installera InfiniBand-drivrutiner för [virtuella Windows-datorer](hpc-compute-infiniband-windows.md).
 
@@ -149,7 +149,7 @@ I följande exempel installeras det senaste version 1,1 InfiniBandDriverLinux-ti
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsök
+### <a name="troubleshoot"></a>Felsöka
 
 Information om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och genom att använda Azure PowerShell och Azure CLI. Kör följande kommando för att se distributions status för tillägg för en specifik virtuell dator.
 

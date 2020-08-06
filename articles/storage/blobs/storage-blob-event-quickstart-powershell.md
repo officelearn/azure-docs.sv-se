@@ -1,6 +1,6 @@
 ---
 title: Skicka Azure Blob Storage-händelser till webb slut punkt – PowerShell | Microsoft Docs
-description: Använd Azure Event Grid för att prenumerera på Blob Storage-händelser.
+description: Använd Azure Event Grid för att prenumerera på Blob Storage-händelser, utlösa en händelse och visa resultatet. Använd Azure PowerShell för att dirigera lagrings händelser till en webb slut punkt.
 author: normesta
 ms.author: normesta
 ms.reviewer: dastanfo
@@ -8,12 +8,12 @@ ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: f0dae5ae79234ea29e6b17627fc07abcb3b5dfcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 809ab593d4d3f58fa3c91b896e5df3a0db7865f9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68847169"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824519"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Snabb start: dirigera lagrings händelser till webb slut punkt med PowerShell
 

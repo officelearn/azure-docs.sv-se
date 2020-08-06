@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/17/2017
 ms.custom: devx-track-java
 ms.author: cynthn
-ms.openlocfilehash: d4ad1c46aa023f30a2d33ef11e576aa29607b273
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6c4ee08c1679abd54b98d2804ab120c9330f6968
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325431"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827494"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Skapa och hantera virtuella Windows-datorer i Azure med Java
 
@@ -413,7 +413,7 @@ input.nextLine();
 
 ### <a name="resize-the-vm"></a>Ändra storlek på den virtuella datorn
 
-Många aspekter av distributionen bör övervägas när du bestämmer dig för en storlek på den virtuella datorn. Mer information finns i [VM-storlekar](sizes.md).  
+Många aspekter av distributionen bör övervägas när du bestämmer dig för en storlek på den virtuella datorn. Mer information finns i [VM-storlekar](../sizes.md).  
 
 Om du vill ändra storleken på den virtuella datorn lägger du till den här koden i try-blocket i huvud metoden:
 

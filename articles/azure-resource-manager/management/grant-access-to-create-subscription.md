@@ -6,16 +6,16 @@ manager: jureid
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: jureid
-ms.openlocfilehash: 6a03d5e67e859a29cb18e29223fe74134aef75fb
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 7feb49266a10b7423121dc5362b0bd6bda4d0e08
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057627"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824502"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Bevilja åtkomst för att skapa Azure Enterprise-prenumerationer (för hands version)
 
-Som Azure-kund på [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)kan du ge en annan användare eller tjänst huvud behörighet för att skapa prenumerationer som debiteras ditt konto. I den här artikeln får du lära dig hur du använder [rollbaserad Access Control (RBAC)](../../role-based-access-control/role-assignments-portal.md) för att dela möjligheten att skapa prenumerationer och hur du granskar skapande av prenumerationer. Du måste ha ägar rollen för det konto som du vill dela.
+Som Azure-kund på [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)kan du ge en annan användare eller tjänst huvud behörighet för att skapa prenumerationer som debiteras ditt konto. I den här artikeln får du lära dig hur du använder [Azures rollbaserad åtkomst kontroll (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) för att dela möjligheten att skapa prenumerationer och hur du granskar skapande av prenumerationer. Du måste ha ägar rollen för det konto som du vill dela.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

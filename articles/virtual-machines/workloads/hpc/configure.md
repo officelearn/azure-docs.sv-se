@@ -13,19 +13,19 @@ ms.topic: article
 ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: c49286f370691c39c3d14d589f2657d6e0bb3c04
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: dfa1c790dc0f2e229b3bfa19616e5760c3d3d02e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542339"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825148"
 ---
 # <a name="configure-and-optimize-vms"></a>Konfigurera och optimera virtuella datorer
 
 Den här artikeln delar kända tekniker för att konfigurera och optimera InfiniBand-aktiverade virtuella datorer i [H-serien](../../sizes-hpc.md) och [N-serien](../../sizes-gpu.md) för HPC.
 
 ## <a name="vm-images"></a>VM-avbildningar
-På InfiniBand-aktiverade virtuella datorer krävs lämpliga driv rutiner för att aktivera RDMA. På Linux förkonfigureras de virtuella CentOS-HPC-avbildningarna på Marketplace för förkonfigurerade med lämpliga driv rutiner. De virtuella Ubuntu-avbildningarna kan konfigureras med rätt driv rutiner med hjälp av [instruktionerna här](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Vi rekommenderar också att du skapar [anpassade VM-avbildningar](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) med lämpliga driv rutiner och konfiguration och återanvänder dem på ett återkommande sätt.
+På InfiniBand-aktiverade virtuella datorer krävs lämpliga driv rutiner för att aktivera RDMA. På Linux förkonfigureras de virtuella CentOS-HPC-avbildningarna på Marketplace för förkonfigurerade med lämpliga driv rutiner. De virtuella Ubuntu-avbildningarna kan konfigureras med rätt driv rutiner med hjälp av [instruktionerna här](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Vi rekommenderar också att du skapar [anpassade VM-avbildningar](../../linux/tutorial-custom-images.md) med lämpliga driv rutiner och konfiguration och återanvänder dem på ett återkommande sätt.
 
 ### <a name="centos-hpc-vm-images"></a>CentOS-HPC VM-avbildningar
 För icke-SR-IOV-aktiverade [RDMA-kompatibla virtuella datorer](../../sizes-hpc.md#rdma-capable-instances), CENTOS-HPC version 6,5 eller en senare version, är upp till 7,5 på Marketplace lämplig. För [virtuella datorer i H16-serien](../../h-series.md)rekommenderas till exempel version 7,1 till 7,5. De här VM-avbildningarna levereras i förväg med nätverks Direct-drivrutinerna för RDMA och Intel MPI version 5,1.
@@ -53,7 +53,7 @@ Följande är några valfria optimerings inställningar för förbättrad presta
 
 ### <a name="update-lis"></a>Uppdatera LIS
 
-Om det behövs för funktionalitet eller prestanda kan [Linux Integration Services (LIS)-driv rutiner](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) installeras eller uppdateras på ett OS-distributioner som stöds, särskilt distribueras med hjälp av en anpassad avbildning eller en äldre OS-version, till exempel CENTOS/RHEL 6. x eller tidigare version av 7. x.
+Om det behövs för funktionalitet eller prestanda kan [Linux Integration Services (LIS)-driv rutiner](../../linux/endorsed-distros.md) installeras eller uppdateras på ett OS-distributioner som stöds, särskilt distribueras med hjälp av en anpassad avbildning eller en äldre OS-version, till exempel CENTOS/RHEL 6. x eller tidigare version av 7. x.
 
 ```bash
 wget https://aka.ms/lis

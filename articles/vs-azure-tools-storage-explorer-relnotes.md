@@ -1,6 +1,6 @@
 ---
 title: Viktig information om Microsoft Azure Storage Explorer
-description: Viktig information för Microsoft Azure Storage Explorer
+description: Läs viktig information om den senaste versionen av Microsoft Azure Storage Explorer. Viktig information för tidigare versioner visas också.
 services: storage
 documentationcenter: na
 author: cawaMS
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 986da8980a569583ef454833957ace85dd1bfbb6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91bc7adaf7829766c471056c50c1c3abd70dda63
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80351064"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828786"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Viktig information om Microsoft Azure Storage Explorer
 
@@ -753,7 +753,7 @@ Slutligen kommer stöd för att använda AzCopy med fil resurser att komma i fra
 * Avbrytande lån kan nu bara utföras på en BLOB i taget. Dessutom måste du ange namnet på den BLOB vars lån du bryter upp. Den här ändringen gjordes för att minska sannolikheten för att oavsiktligt bryta ett lån, särskilt för virtuella datorer. #394
 * Om du stöter på inloggnings problem kan du nu försöka att återställa autentiseringen. Gå till menyn Hjälp och klicka på Återställ för att få åtkomst till den här funktionen. #419
 
-### <a name="fix"></a>Snabbkorrigering
+### <a name="fix"></a>Åtgärda
 
 * När starka användare har återkallats har noden standard-emulator återaktiverats. Du kan fortfarande lägga till ytterligare emulator-anslutningar via dialog rutan Anslut, men om din emulator har kon figurer ATS för att använda standard portarna kan du också använda noden "emulator * standard portar" under "lokala & anslutna/lagrings konton". #669
 * Storage Explorer kan inte längre ange BLOB-attributvärden som har inledande eller avslutande blank steg. #760

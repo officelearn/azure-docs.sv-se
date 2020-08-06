@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 96783955eac6ade90a155236891307720616ed20
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e3c5f6d7e04620cf36f6cd952467d47afd775b19
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323952"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824774"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Aktivera Azure Monitor for VMs översikt
 
@@ -30,7 +30,7 @@ Så här konfigurerar du Azure Monitor for VMs:
 * Aktivera flera virtuella Azure-datorer, virtuella Azure Arc-datorer, Azure-VMSS eller Azure Arc-datorer i en viss prenumeration eller resurs grupp med hjälp av PowerShell.
 * Aktivera Azure Monitor for VMs för att övervaka virtuella datorer eller fysiska datorer som finns i företagets nätverk eller i annan moln miljö.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att du förstår informationen i följande avsnitt. 
 
@@ -80,7 +80,7 @@ Om du inte har en Log Analytics arbets yta kan du skapa en med hjälp av en av r
 
 I följande tabell visas de Windows-och Linux-operativsystem som Azure Monitor for VMs stöder. Senare i det här avsnittet finns en fullständig lista med information om de viktigaste och lägre Linux OS-versionerna och de kernel-versioner som stöds.
 
-|OS-version |Prestanda |Kartor |
+|OS-version |Prestanda |Maps |
 |-----------|------------|-----|
 |Windows Server 2019 | X | X |
 |Windows Server 2016 1803 | X | X |
@@ -174,10 +174,10 @@ Följande är flera metoder för att distribuera dessa agenter.
 
 | Metod | Beskrivning |
 |:---|:---|
-| [Azure-portalen](vminsights-enable-single-vm.md) | Installera båda agenterna på en enskild virtuell dator, skalnings uppsättning för virtuella datorer eller hybrid virtuella datorer som är anslutna till Azure-bågen. |
-| [Mallar för Resurshanteraren](vminsights-enable-powershell.md) | Installera båda agenterna med någon av de metoder som stöds för att distribuera en Resource Manager-mall, inklusive CLI och PowerShell. |
-| [Azure Policy](vminsights-enable-at-scale-policy.md) | Tilldela Azure Policy initiativ för att automatiskt installera agenterna när en virtuell dator eller skalnings uppsättning för virtuell dator skapas. |
-| [Manuell installation](vminsights-enable-hybrid-cloud.md) | Installera agenterna i gäst operativ systemet på datorer som ligger utanför Azure, inklusive i ditt data Center eller i andra moln miljöer. |
+| [Azure-portalen](./vminsights-enable-portal.md) | Installera båda agenterna på en enskild virtuell dator, skalnings uppsättning för virtuella datorer eller hybrid virtuella datorer som är anslutna till Azure-bågen. |
+| [Resource Manager-mallar](vminsights-enable-powershell.md) | Installera båda agenterna med någon av de metoder som stöds för att distribuera en Resource Manager-mall, inklusive CLI och PowerShell. |
+| [Azure Policy](./vminsights-enable-policy.md) | Tilldela Azure Policy initiativ för att automatiskt installera agenterna när en virtuell dator eller skalnings uppsättning för virtuell dator skapas. |
+| [Manuell installation](./vminsights-enable-hybrid.md) | Installera agenterna i gäst operativ systemet på datorer som ligger utanför Azure, inklusive i ditt data Center eller i andra moln miljöer. |
 
 
 
@@ -200,4 +200,3 @@ Mer information om insamling och användning av data finns i [sekretess policy f
 ## <a name="next-steps"></a>Nästa steg
 
 Information om hur du använder funktionen för prestanda övervakning finns i [visa Azure Monitor for VMS prestanda](vminsights-performance.md). Information om hur du visar identifierade program beroenden finns i [visa Azure Monitor for VMS karta](vminsights-maps.md).
-

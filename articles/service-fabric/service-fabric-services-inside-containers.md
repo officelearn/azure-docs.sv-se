@@ -4,12 +4,12 @@ description: Lär dig hur du Använd Service Fabric Reliable Services och Reliab
 ms.topic: conceptual
 ms.date: 5/23/2018
 ms.author: anmola
-ms.openlocfilehash: 9fe5980c13f655f8f30cc42771971a5015460420
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 186afb87b4668ad575208beeeb19643e6a11cedd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75466186"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824553"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Containeranpassa Service Fabric Reliable Services och Reliable Actors i Windows
 
@@ -93,7 +93,7 @@ Det här dokumentet innehåller rikt linjer för hur du får din tjänst att kö
    </Policies>
    ```
 
-9. Information om hur du konfigurerar isolerings läget för behållare finns i [Konfigurera isolerings läge]( https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). Windows stöder två isoleringslägen för containrar: process och Hyper-V. Följande kodfragment visar hur isolerings läget anges i program manifest filen.
+9. Information om hur du konfigurerar isolerings läget för behållare finns i [Konfigurera isolerings läge]( ./service-fabric-get-started-containers.md#configure-isolation-mode). Windows stöder två isoleringslägen för containrar: process och Hyper-V. Följande kodfragment visar hur isolerings läget anges i program manifest filen.
 
    ```xml
    <Policies>

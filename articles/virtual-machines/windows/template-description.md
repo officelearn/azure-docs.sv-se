@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: cd96fe550a508e54c467ca52cd36322581029654
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e420fe81941352d1002ed2c25c04fc686115c7c2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283239"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827460"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Virtuella datorer i en Azure Resource Manager-mall
 
@@ -274,7 +274,7 @@ Nätverks gränssnittet måste finnas om du vill ange den här egenskapen. Därf
 
 Flera profil element används när du definierar en resurs för virtuella datorer. Vissa är obligatoriska och vissa är valfria. Till exempel krävs hardwareProfile-, osProfile-, storageProfile-och networkProfile-element, men diagnosticsProfile är valfritt. Dessa profiler definierar inställningar som:
    
-- [ändra](sizes.md)
+- [ändra](../sizes.md)
 - [namn](/azure/architecture/best-practices/resource-naming) och autentiseringsuppgifter
 - disk-och [operativ system inställningar](cli-ps-findimage.md)
 - [nätverks gränssnitt](/previous-versions/azure/virtual-network/virtual-network-deploy-multinic-classic-ps) 
@@ -353,7 +353,7 @@ Om du vill skapa en virtuell dator från en hanterad avbildning ändrar du image
 
 ### <a name="attach-data-disks"></a>Anslut data diskar
 
-Du kan också lägga till data diskar i de virtuella datorerna. [Antalet diskar](sizes.md) beror på storleken på den operativ system disk som du använder. När de virtuella datorerna har angetts till Standard_DS1_v2 är det maximala antalet data diskar som kan läggas till i dem två. I exemplet läggs en hanterad data disk till i varje virtuell dator:
+Du kan också lägga till data diskar i de virtuella datorerna. [Antalet diskar](../sizes.md) beror på storleken på den operativ system disk som du använder. När de virtuella datorerna har angetts till Standard_DS1_v2 är det maximala antalet data diskar som kan läggas till i dem två. I exemplet läggs en hanterad data disk till i varje virtuell dator:
 
 ```json
 "dataDisks": [
@@ -449,7 +449,7 @@ Om du är nyfiken på statusen för resurser i distributionen kan du Visa resurs
     
 Det går inte att använda samma mall för att skapa resurser eller uppdatera befintliga resurser. När du använder kommandon för att distribuera mallar har du möjlighet att säga vilket [läge](../../azure-resource-manager/templates/deploy-powershell.md) du vill använda. Läget kan anges till antingen **fullständig** eller **stegvis**. Standardvärdet är att göra stegvisa uppdateringar. Var försiktig när du använder det **fullständiga** läget eftersom du kan ta bort resurser av misstag. När du anger att läget ska **slutföras**, tar Resource Manager bort alla resurser i resurs gruppen som inte finns i mallen.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Skapa en egen mall med hjälp av [redigera Azure Resource Manager mallar](../../azure-resource-manager/templates/template-syntax.md).
 - Distribuera mallen som du skapade med [skapa en virtuell Windows-dator med en Resource Manager-mall](ps-template.md).

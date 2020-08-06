@@ -5,12 +5,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: ef3c2161e5a032983a2cbc9e4ccdf60af6920a7d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 186d4c510b58e06fcb0b823ca0d5770a2684196e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323119"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824995"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Arbets yta-baserade Application Insights resurser (förhands granskning)
 
@@ -19,7 +19,7 @@ Arbets ytans resurser stöder fullständig integrering mellan Application Insigh
 Detta möjliggör även för vanliga rollbaserade Access Control (RBAC) i dina resurser och eliminerar behovet av frågor över flera appar/arbets ytor.
 
 > [!NOTE]
-> Data inmatning och kvarhållning för arbets ytans baserade Application Insights resurser faktureras via arbets ytan Log Analytics där data finns. [Läs mer]( https://docs.microsoft.com/azure/azure-monitor/app/pricing#workspace-based-application-insights) om fakturering för arbets ytans baserade Application Insights-resurser.
+> Data inmatning och kvarhållning för arbets ytans baserade Application Insights resurser faktureras via arbets ytan Log Analytics där data finns. [Läs mer]( ./pricing.md#workspace-based-application-insights) om fakturering för arbets ytans baserade Application Insights-resurser.
 
 Om du vill testa den nya upplevelsen loggar du in på [Azure Portal](https://portal.azure.com)och skapar en Application Insights resurs:
 
@@ -204,4 +204,3 @@ I fönstret Application Insights resurs väljer du **Egenskaper**  >  **ändra a
 [diagnostic]: ./diagnostic-search.md
 [metrics]: ../platform/metrics-charts.md
 [start]: ./app-insights-overview.md
-

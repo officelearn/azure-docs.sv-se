@@ -1,6 +1,6 @@
 ---
 title: Funktions-baserad jämförelse av Azure API Management-nivåerna | Microsoft Docs
-description: I den här artikeln jämförs API Management nivåer baserat på de funktioner som de erbjuder.
+description: Jämför API Management nivåer baserat på de funktioner som de erbjuder. Se en tabell som sammanfattar viktiga funktioner som är tillgängliga på varje pris nivå.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: ef16339d9a584eb12c611a25d636a9287265953a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 262d12e1b0ff74570b44b7794f8b55619a9afa97
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284344"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905150"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Funktions-baserad jämförelse av Azure API Management-nivåer
 
@@ -26,7 +26,7 @@ Varje API Management [pris nivå](https://aka.ms/apimpricing) erbjuder en distin
 > [!IMPORTANT]
 > Observera att Developer-nivån är för användnings fall och utvärderings versioner som inte är i produktion. Den erbjuder inte service avtal.
 
-| Funktion                                                                                      | Förbrukning | Utvecklare | Basic | Standard | Premium |
+| Funktion                                                                                      | Förbrukning | Developer | Basic | Standard | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
 | Azure AD-integrering<sup>1</sup>                                                             | Nej          | Ja       | Nej    | Ja      | Ja     |
 | Stöd för Virtual Network (VNet)                                                               | Nej          | Ja       | Nej    | Nej       | Ja     |

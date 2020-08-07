@@ -14,13 +14,13 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: tagore
-ms.custom: tracking-python
-ms.openlocfilehash: 311d882814c45b3b001fde2a4f3f9027e879f29c
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.custom: devx-track-python
+ms.openlocfilehash: 35d0f77d5f4dde9e156d22e64881ba674189d327
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919891"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851519"
 ---
 # <a name="use-service-management-from-python"></a>Använda Service Management från python
 Den här guiden visar hur du program mässigt utför vanliga Service Management-uppgifter från python. **Klassen** -klassen i [Azure SDK för python](https://github.com/Azure/azure-sdk-for-python) stöder programmatisk åtkomst till många av de tjänst hanterings funktioner som finns tillgängliga i [Azure Portal][management-portal]. Du kan använda den här funktionen för att skapa, uppdatera och ta bort moln tjänster, distributioner, data hanterings tjänster och virtuella datorer. Den här funktionen kan vara användbar när du skapar program som behöver programmerings åtkomst till tjänst hantering.
@@ -117,14 +117,14 @@ for location in result:
 När du skapar en moln tjänst eller lagrings tjänst måste du ange en giltig plats. Metoden för **list \_ platser** returnerar alltid en uppdaterad lista över tillgängliga platser. När detta skrivs är de tillgängliga platserna:
 
 * Europa, västra
-* Europa, norra
+* Norra Europa
 * Sydostasien
 * Asien, östra
-* USA, centrala
+* Central US
 * USA, norra centrala
 * USA, södra centrala
 * USA, västra
-* USA, östra
+* East US
 * Japan, östra
 * Japan, västra
 * Brasilien, södra

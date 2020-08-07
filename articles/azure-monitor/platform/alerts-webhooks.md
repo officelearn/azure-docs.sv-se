@@ -6,14 +6,18 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
-ms.openlocfilehash: 5561dfee3ede72f9cd28adbd47caf2db4e634360
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 47ed723ecfc544673ac8aa6374c27ae5a7cf166b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073583"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852114"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Anropa en webhook med en klassisk mått avisering i Azure Monitor
+
+> [!WARNING]
+> Den här artikeln beskriver hur du använder äldre klassiska mått varningar. Azure Monitor har nu stöd för [nyare aviseringar i nästan real tid och nya aviserings upplevelser](./alerts-overview.md). Klassiska aviseringar [dras tillbaka](./monitoring-classic-retirement.md), men fortfarande i begränsad användning för resurser som ännu inte stöder de nya aviseringarna.
+>
 
 Du kan använda Webhooks för att dirigera ett meddelande om Azure-aviseringar till andra system för efter bearbetning eller anpassade åtgärder. Du kan använda en webhook för en avisering för att dirigera den till tjänster som skickar SMS-meddelanden, logga buggar för att meddela ett team via chatt-eller meddelande tjänster eller för olika andra åtgärder. 
 
@@ -68,16 +72,16 @@ POST-åtgärden innehåller följande JSON-nyttolast och schema för alla Metric
 ```
 
 
-| Fält | Obligatorisk | Fast värde uppsättning | Kommentarer |
+| Fält | Obligatorisk | Fast värde uppsättning | Obs! |
 |:--- |:--- |:--- |:--- |
-| status |Y |Aktive rad, löst |Status för aviseringen baserat på de villkor du anger. |
-| Edit |Y | |Aviserings kontexten. |
-| timestamp |Y | |Tiden då aviseringen utlöstes. |
-| id |Y | |Varje varnings regel har ett unikt ID. |
-| name |Y | |Aviseringens namn. |
-| description |Y | |En beskrivning av aviseringen. |
-| conditionType |Y |Mått, händelse |Två typer av aviseringar stöds: Metric och event. Mått varningar baseras på ett mått villkor. Händelse aviseringar baseras på en händelse i aktivitets loggen. Använd det här värdet för att kontrol lera om aviseringen baseras på ett mått eller en händelse. |
-| moduletype |Y | |De speciella fälten som ska kontrol leras baserat på **conditionType** -värdet. |
+| status |J |Aktive rad, löst |Status för aviseringen baserat på de villkor du anger. |
+| Edit |J | |Aviserings kontexten. |
+| timestamp |J | |Tiden då aviseringen utlöstes. |
+| id |J | |Varje varnings regel har ett unikt ID. |
+| name |J | |Aviseringens namn. |
+| beskrivning |J | |En beskrivning av aviseringen. |
+| conditionType |J |Mått, händelse |Två typer av aviseringar stöds: Metric och event. Mått varningar baseras på ett mått villkor. Händelse aviseringar baseras på en händelse i aktivitets loggen. Använd det här värdet för att kontrol lera om aviseringen baseras på ett mått eller en händelse. |
+| moduletype |J | |De speciella fälten som ska kontrol leras baserat på **conditionType** -värdet. |
 | metricName |För mått varningar | |Namnet på måttet som definierar vad regeln övervakar. |
 | metricUnit |För mått varningar |Byte, BytesPerSecond, antal, CountPerSecond, procent, sekunder |Enheten som tillåts i måttet. Se [tillåtna värden](/previous-versions/azure/reference/dn802430(v=azure.100)). |
 | metricValue |För mått varningar | |Det faktiska värdet för det mått som orsakade aviseringen. |
@@ -85,13 +89,13 @@ POST-åtgärden innehåller följande JSON-nyttolast och schema för alla Metric
 | windowSize |För mått varningar | |Den tids period som används för att övervaka aviserings aktiviteten baserat på tröskelvärdet. Värdet måste vara mellan 5 minuter och 1 dag. Värdet måste vara i formatet ISO 8601-varaktighet. |
 | timeAggregation |För mått varningar |Genomsnitt, senaste, högsta, minimum, none, total |Hur data som samlas in ska kombineras över tid. Standardvärdet är Average. Se [tillåtna värden](/previous-versions/azure/reference/dn802410(v=azure.100)). |
 | operator |För mått varningar | |Den operator som används för att jämföra aktuella mått data med angivet tröskelvärde. |
-| subscriptionId |Y | |ID för Azure-prenumerationen. |
-| resourceGroupName |Y | |Namnet på resurs gruppen för den berörda resursen. |
-| resourceName |Y | |Resurs namnet för den berörda resursen. |
-| resourceType |Y | |Resurs typen för den berörda resursen. |
-| resourceId |Y | |Resurs-ID för den berörda resursen. |
-| resourceRegion |Y | |Den berörda resursens region eller plats. |
-| portalLink |Y | |En direkt länk till sammanfattnings sidan för Portal resursen. |
+| subscriptionId |J | |ID för Azure-prenumerationen. |
+| resourceGroupName |J | |Namnet på resurs gruppen för den berörda resursen. |
+| resourceName |J | |Resurs namnet för den berörda resursen. |
+| resourceType |J | |Resurs typen för den berörda resursen. |
+| resourceId |J | |Resurs-ID för den berörda resursen. |
+| resourceRegion |J | |Den berörda resursens region eller plats. |
+| portalLink |J | |En direkt länk till sammanfattnings sidan för Portal resursen. |
 | properties |N |Valfritt |En uppsättning nyckel/värde-par som innehåller information om händelsen. Till exempel `Dictionary<String, String>`. Egenskaps fältet är valfritt. Användare kan ange nyckel/värde-par som kan skickas via nytto lasten i ett anpassat användar gränssnitt eller logiskt app-baserat arbets flöde. Ett annat sätt att skicka anpassade egenskaper tillbaka till webhooken är via webhook-URI: n (som frågeparametrar). |
 
 > [!NOTE]

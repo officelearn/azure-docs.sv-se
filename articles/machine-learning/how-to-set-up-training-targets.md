@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: be4211d793c593dac50d5764d7a15e7daa21c3f4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 093f86f0373791326cf4658bdab7179fbca1307d
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320161"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849666"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Konfigurera och Använd Compute-mål för modell träning 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -77,7 +77,7 @@ Använd avsnitten nedan för att konfigurera dessa beräknings mål:
 
 * [Lokal dator](#local)
 * [Azure Machine Learning beräknings kluster](#amlcompute)
-* [Azure Machine Learning beräknings instans](#instance)
+* [Azure Machine Learning-beräkningsinstans](#instance)
 * [Virtuella fjärrdatorer](#vm)
 * [Azure HDInsight](#hdinsight)
 
@@ -151,7 +151,7 @@ Använd något av följande sätt för att ange en virtuell dator med låg prior
 
 
 
-### <a name="azure-machine-learning-compute-instance"></a><a id="instance"></a>Azure Machine Learning beräknings instans
+### <a name="azure-machine-learning-compute-instance"></a><a id="instance"></a>Azure Machine Learning-beräkningsinstans
 
 [Azure Machine Learning beräknings instans](concept-compute-instance.md) är en hanterad beräknings infrastruktur som gör att du enkelt kan skapa en enda virtuell dator. Beräkningen skapas i din region i arbets ytan, men till skillnad från ett beräknings kluster kan en instans inte delas med andra användare i din arbets yta. Även instansen skalas inte automatiskt ned.  Du måste stoppa resursen för att förhindra pågående kostnader.
 

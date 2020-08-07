@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: fc35e6a723afab3f230aa91e4b6895aead35e141
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 1fa9a8aa24cf6a8c8c2223836ae80b8b47807c81
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037077"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903195"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Felsöka Azure Stream Analytics utdata
 
@@ -24,7 +24,7 @@ I den här artikeln beskrivs vanliga problem med Azure Stream Analytics utgåend
 1. Kontrol lera anslutningen till utdata med knappen **Testa anslutning** för varje utdata.
 1. Titta på [övervaknings mått](stream-analytics-monitoring.md) på fliken **övervaka** . Eftersom värdena aggregeras fördröjs måtten med några minuter.
 
-   * Om värdet för **indata-händelser** är större än noll kan jobbet läsa indata. Om värdet för **inloggning** inte är större än noll är det ett problem med jobbets indatatyper. Mer information finns i [Felsöka indata-anslutningar](stream-analytics-troubleshoot-input.md) .
+   * Om värdet för **indata-händelser** är större än noll kan jobbet läsa indata. Om värdet för **inloggning** inte är större än noll är det ett problem med jobbets indatatyper. Mer information finns i [Felsöka indata-anslutningar](stream-analytics-troubleshoot-input.md) . Om jobbet har indata från referensen använder du dela efter logiskt namn när du tittar på måttet för **indata-händelser** . Om det inte finns några indata-händelser från dina referens data, betyder det förmodligen att denna indatakälla inte har kon figurer ATS korrekt för att hämta rätt referens data uppsättning.
    * Om värdet för **data konverterings fel** är större än noll och stiger, se [Azure Stream Analytics data fel](data-errors.md) för detaljerad information om data konverterings fel.
    * Om värdet för **körnings fel** är större än noll, tar jobbet emot data, men genererar fel när frågan bearbetas. Om du vill hitta felen går du till [gransknings loggarna](../azure-resource-manager/management/view-activity-logs.md)och filtrerar sedan på statusen **misslyckades** .
    * Om värdet för **indata-händelser** är större än noll och värdet för **utgående händelser** är lika med noll, är en av följande påståenden sant:

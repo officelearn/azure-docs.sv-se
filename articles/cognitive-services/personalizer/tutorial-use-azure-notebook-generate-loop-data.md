@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 04/27/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 62e9140a1bab44d913e164304af13204f375f461
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-python
+ms.openlocfilehash: 3aa45050286888dd8ae1d26d96c8ed02da197326
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131981"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876741"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Självstudie: använda en Personanpassare i Azure Notebook
 
@@ -63,7 +63,7 @@ Systemet tar emot begäran och jämför sedan förutsägelsen med användarens k
 > Detta är en simulering så att algoritmen för belöningen är enkel. I ett verkligt scenario bör algoritmen använda affärs logik, möjligt vis med vikt för olika aspekter av kundens upplevelse, för att fastställa belönings poängen.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett [Azure Notebook](https://notebooks.azure.com/) -konto.
 * En [Azures personanpassa resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
@@ -81,7 +81,7 @@ Fil beskrivningar:
 
 I Azure Portal konfigurerar du din [personanpassa resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) med **frekvensen Uppdatera modell** till 15 sekunder och en **belönings vänte tid** på 15 sekunder. Dessa värden finns på **[konfigurations](how-to-settings.md#configure-service-settings-in-the-azure-portal)** sidan.
 
-|Inställningen|Värde|
+|Inställning|Värde|
 |--|--|
 |uppdaterings modell frekvens|15 sekunder|
 |vänte tid för belöning|15 sekunder|

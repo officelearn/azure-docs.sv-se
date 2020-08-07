@@ -10,13 +10,13 @@ author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: 7f2ca2a84123d3bb7dd92a797d517a2490544efa
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 8682342d23c37d527528de0b525dbdd49a52676e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307020"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853406"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Använd tolknings paketet till att förklara ML-modeller & förutsägelser i python (för hands version)
 
@@ -244,7 +244,7 @@ I följande exempel visas hur du kan använda- `ExplanationClient` klassen för 
     pip install azureml-interpret
     pip install azureml-contrib-interpret
     ```
-1. Skapa ett utbildnings skript i en lokal Jupyter-anteckningsbok. Exempelvis `train_explain.py`.
+1. Skapa ett utbildnings skript i en lokal Jupyter-anteckningsbok. Till exempel `train_explain.py`.
 
     ```python
     from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient

@@ -2,14 +2,14 @@
 title: Övervaka Azure App Services-prestanda | Microsoft Docs
 description: Övervakning av program prestanda för Azure App Services. Diagrammets inläsnings-och svars tid, beroende information och ange aviseringar för prestanda.
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: f96d994f9f88a0debf110de2ca4f6da60e8ea3bc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6c0d99e89e17c2aad3c7dcfe0056b597aa88d2a2
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373172"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876401"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service-prestanda
 
@@ -396,6 +396,12 @@ Om du använder APPINSIGHTS_JAVASCRIPT_ENABLED = sant i fall där innehåll är 
 Detta beror på att APPINSIGHTS_JAVASCRIPT_ENABLED program inställningen är true och att innehålls kodningen finns på samma tidpunkt. Det här scenariot stöds inte ännu. Lösningen är att ta bort APPINSIGHTS_JAVASCRIPT_ENABLED från program inställningarna. Det innebär att om det fortfarande krävs ett JavaScript-instrument för klient-och webb läsar sidan krävs manuella SDK-referenser för dina webb sidor. Följ [instruktionerna](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) för manuell Instrumentation med Java Script SDK.
 
 Den senaste informationen om Application Insights agent/tillägg finns i [viktig](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md)information.
+
+### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>Standard webbplatsen som distribueras med Web Apps stöder inte automatisk övervakning på klient Sidan
+
+När du skapar en webbapp med- `ASP.NET` eller- `.NET Core` körningarna i Azure App-tjänster distribuerar den en statisk HTML-sida som en start webbplats. Den statiska webb sidan läser också in en .NET-hanterad webbdel i IIS. Detta möjliggör testning av kod lös övervakning på Server sidan, men stöder inte automatisk övervakning på klient sidan.
+
+Om du vill testa en kod lös Server och övervakning på klient sidan för ASP.NET eller ASP.NET Core i en Azure App Services-webbapp rekommenderar vi att du följer de officiella guiderna för att [skapa en ASP.net Core webbapp](../../app-service/app-service-web-get-started-dotnet.md) och [skapar en ASP.NET Framework-webbapp](../../app-service/app-service-web-get-started-dotnet-framework.md) och använder sedan instruktionerna i den aktuella artikeln för att aktivera övervakning.
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP och WordPress stöds inte
 

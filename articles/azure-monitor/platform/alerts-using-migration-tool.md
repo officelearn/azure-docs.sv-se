@@ -6,19 +6,16 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: ab5c16995a2d2bad6e44f0f9d1187ca3d66be1b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e811e487856ea38f96b669ccb12cabda655a8cd
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114251"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852131"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Använd verktyget för frivillig migrering för att migrera dina klassiska aviserings regler
 
-Som [tidigare](monitoring-classic-retirement.md)meddelats kommer de klassiska aviseringarna i Azure monitor att tas ur drift i september 2019 (ursprungligen juli 2019). Ett Migreringsverktyg är tillgängligt i Azure Portal till kunder som använder klassiska aviserings regler och som vill utlösa migrering själva. Den här artikeln förklarar hur du använder Migreringsverktyget för att frivilligt migrera dina klassiska varnings regler innan den automatiska migreringen börjar i september 2019.
-
-> [!NOTE]
-> På grund av fördröjning i uppsamlingen av migreringen har den senaste indragnings tiden för migrering av klassisk avisering [utökats till 31 augusti 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) från det ursprungligen presenterade datumet den 30 juni 2019.
+Som [tidigare](monitoring-classic-retirement.md)har meddelats kommer de klassiska aviseringarna i Azure monitor att dras tillbaka, men fortfarande i begränsad användning för resurser som ännu inte stöder de nya aviseringarna. Ett Migreringsverktyg var tillgängligt i Azure Portal till kunder som använde klassiska aviserings regler och som vill utlösa migrering själva. Den här artikeln förklarar hur du använder det Migreringsverktyg, som även kommer att användas för återstående aviseringar som väntar på ytterligare meddelande.
 
 ## <a name="benefits-of-new-alerts"></a>Fördelar med nya aviseringar
 
@@ -37,7 +34,7 @@ Migreringsprocessen konverterar de klassiska varnings reglerna till nya, motsvar
 
 - Både meddelandets nytto Last format och API: er för att skapa och hantera nya varnings regler skiljer sig från de klassiska varnings reglerna eftersom de har stöd för fler funktioner. [Lär dig hur du förbereder migreringen](alerts-prepare-migration.md).
 
-- Vissa klassiska varnings regler kan inte migreras med verktyget. [Lär dig vilka regler som inte kan migreras och vad du kan göra med dem](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated).
+- Vissa klassiska varnings regler kan inte migreras med verktyget. [Lär dig vilka regler som inte kan migreras och vad du kan göra med dem](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts).
 
     > [!NOTE]
     > Migreringsprocessen påverkar inte utvärderingen av dina klassiska aviserings regler. De fortsätter att köra och skicka aviseringar tills de har migrerats och de nya varnings reglerna börjar gälla.

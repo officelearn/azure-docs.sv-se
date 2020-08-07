@@ -10,13 +10,13 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.custom: tracking-python
-ms.openlocfilehash: c535683323428dadedeaefd5f76f4387569f9427
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.custom: devx-track-python
+ms.openlocfilehash: 53f9badbb15c788606390921cb8ef62495c19839
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84604141"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852760"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Snabb start: skicka en Sök förfrågan till Entitetssökning i Bing REST API med python
 
@@ -24,7 +24,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 Även om det här programmet är skrivet i python är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Python](https://www.python.org/downloads/) 2. x eller 3. x
 

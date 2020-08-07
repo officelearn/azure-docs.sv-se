@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 05/28/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 62a1e9813b53c9e51a60422d30754d2fecbf25d0
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.custom: seodec18, devx-track-python
+ms.openlocfilehash: a7c2fff5b11f4c7d878d9c8c57d1e658e322a6d0
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84985752"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847898"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>Snabb start: extrahera utskrift och handskriven text med hjälp av Visuellt innehåll REST API och python
 
@@ -31,7 +31,7 @@ Du kan köra den här snabbstarten steg för steg med hjälp av en Jupyter-antec
 
 [![Knappen starta binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * [Python](https://www.python.org/downloads/)
@@ -46,9 +46,9 @@ Så här skapar du och kör exemplet:
 
 1. Kopiera följande kod till en textredigerare.
 1. Du kan också ersätta värdet för `image_url` med URL: en för en annan bild som du vill extrahera text från.
-1. Spara koden som en fil med tillägget `.py`. Exempelvis `get-text.py`.
+1. Spara koden som en fil med tillägget `.py`. Till exempel `get-text.py`.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python get-text.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python get-text.py`.
 
 ```python
 import json

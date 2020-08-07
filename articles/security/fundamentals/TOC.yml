@@ -58,6 +58,8 @@
       href: network-best-practices.md
     - name: DDoS Protection
       href: ddos-best-practices.md
+    - name: DDoS Protection-säkerhetsbaslinje
+      href: ddos-protection-security-baseline.md
     - name: Överflödig DNS och övertagande av underdomäner
       href: subdomain-takeover.md
     - name: Skydda hybridnätverksarkitektur

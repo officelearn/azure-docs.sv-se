@@ -1,6 +1,6 @@
 ---
-title: Migrera virtuella AWS-datorer till Azure med Azure Site Recovery-tjänsten | Microsoft Docs
-description: Den här artikeln beskriver hur du migrerar virtuella Windows-datorer som körs i Amazon Web Services (AWS) till Azure med hjälp av Azure Site Recovery.
+title: Migrera virtuella AWS-datorer till Azure med Azure Migrate
+description: Den här artikeln beskriver alternativ för att migrera AWS-instanser till Azure och rekommenderar Azure Migrate.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/27/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: dd91e99b45405cca10b9ddc2982674e72ad6bf86
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 83d8106b9f206da9095c37b6179bdda8001b439c
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281301"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852777"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -22,7 +22,7 @@ I den här artikeln beskrivs alternativ för migrering av Amazon Web Services-in
 
 ## <a name="migrate-with-azure-migrate"></a>Migrera med Azure Migrate
 
-Vi rekommenderar att du migrerar AWS-instanser till Azure med hjälp av tjänsten [Azure Migrate](../migrate/migrate-services-overview.md) . Azure Migrate tillhandahåller en central hubb för utvärdering och migrering av lokala datorer till Azure med hjälp av Azure Migrate, andra Azure-tjänster och verktyg från tredje part.
+Vi rekommenderar att du migrerar AWS EC2-instanser till Azure med hjälp av tjänsten [Azure Migrate](../migrate/migrate-services-overview.md) . Azure Migrate är syftet – byggd för Server-migrering. Azure Migrate tillhandahåller en central hubb för identifiering, utvärdering och migrering av lokala datorer till Azure.
 
 [Lär dig hur](../migrate/tutorial-migrate-aws-virtual-machines.md) du MIGRERAr AWS-instanser med Azure Migrate. 
 

@@ -5,17 +5,17 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: mihansen
+ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: bf47ec0ca88d409c91b8acad25506c1cc8958e86
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4b39c32da04efa3782cb2166c8e1137029b21258
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422801"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852964"
 ---
 # <a name="deploy-javascript-app-to-read-data-from-fhir-service"></a>Distribuera JavaScript-appen för att läsa data från FHIR-tjänsten
 I den här självstudien kommer du att distribuera en liten JavaScript-app som läser data från en FHIR-tjänst. Stegen i den här självstudien är:
@@ -43,7 +43,7 @@ Det första steget i självstudien är att hämta Azure API för FHIR-installati
     1. Under **metoder**väljer du **Markera alla**
     1. Ställ in **Maximal ålder** på **600**
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Nu när du har ett Azure-API för FHIR distribuerat, är du redo att registrera ett offentligt klient program.
 
 >[!div class="nextstepaction"]

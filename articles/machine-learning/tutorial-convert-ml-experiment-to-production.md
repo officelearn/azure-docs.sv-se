@@ -8,13 +8,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/30/2020
-ms.custom: tracking-python
-ms.openlocfilehash: eabd4ceced77e90646169d80d08338c81af96e2f
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: devx-track-python
+ms.openlocfilehash: 3a6ce5860704e6fd16b79fc253650dd45ec743e7
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025649"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852624"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Självstudie: konvertera ML experiment till produktion python-kod
 
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Skapa Python-skript för relaterade aktiviteter
 > * Skapa enhetstester
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Generera [MLOpsPython-mallen](https://github.com/microsoft/MLOpsPython/generate) och Använd `experimentation/Diabetes Ridge Regression Training.ipynb` `experimentation/Diabetes Ridge Regression Scoring.ipynb` antecknings böckerna och. Dessa antecknings böcker används som exempel på konvertering från experiment till produktion. Du kan hitta de här antecknings böckerna på [https://github.com/microsoft/MLOpsPython/tree/master/experimentation](https://github.com/microsoft/MLOpsPython/tree/master/experimentation) .
 - Installera `nbconvert`. Följ bara installations anvisningarna under avsnittet __Installera nbconvert__ på [installations](https://nbconvert.readthedocs.io/en/latest/install.html) sidan.

@@ -6,13 +6,13 @@ ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: a832fe4e212ce39ca423263ed2554c2682455002
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-python
+ms.openlocfilehash: 49bbc2199c7dc3040a24071b8eb5a91929d88e08
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165675"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849250"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timer-utlösare för Azure Functions 
 
@@ -312,7 +312,7 @@ Om en Function-app skalar ut till flera instanser, körs bara en instans av en t
 
 Om du delar lagrings konton över Function-appar som inte har distribuerats till App Service kan du uttryckligen behöva tilldela värd-ID till varje app.
 
-| Funktions version | Inställningen                                              |
+| Funktions version | Inställning                                              |
 | ----------------- | ---------------------------------------------------- |
 | 2. x (och högre)  | `AzureFunctionsWebHost__hostid`miljö variabel |
 | 1.x               | `id`i *host.jspå*                                  |

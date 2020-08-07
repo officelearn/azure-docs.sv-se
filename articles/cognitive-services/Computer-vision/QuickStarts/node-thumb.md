@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-javascript
-ms.openlocfilehash: 69e687baef0d3dc1d7c660b18cdae305a6cd7177
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 84713cfec4d57167b912c472911c60eeda213550
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406766"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87834940"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-nodejs"></a>Snabb start: skapa en miniatyr med Visuellt innehåll REST API och Node.js
 
@@ -48,9 +48,9 @@ Så här skapar du och kör exemplet:
 
 1. Kopiera följande kod till en textredigerare.
 1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild som du vill analysera.
-1. Spara koden som en fil med tillägget `.js`. Exempelvis `get-thumbnail.js`.
+1. Spara koden som en fil med tillägget `.js`. Till exempel `get-thumbnail.js`.
 1. Öppna ett kommandotolksfönster.
-1. Kör filen i kommandotolken med kommandot `node`. Exempelvis `node get-thumbnail.js`.
+1. Kör filen i kommandotolken med kommandot `node`. Till exempel `node get-thumbnail.js`.
 
 ```javascript
 'use strict';

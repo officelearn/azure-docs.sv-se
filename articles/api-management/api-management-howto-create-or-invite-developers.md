@@ -1,6 +1,6 @@
 ---
 title: Hantera användar konton i Azure API Management | Microsoft Docs
-description: Lär dig hur du skapar eller bjuder in användare i Azure API Management
+description: Lär dig hur du skapar eller bjuder in användare i Azure API Management. Visa ytterligare resurser som du kan använda när du har skapat ett Developer-konto.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: d8f7d7f7707add22d700421b229f6dbe725db465
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9ec482af2878ba302a4658314723b96fb9a42999
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250467"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904895"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Hantera användarkonton i Azure API Management
 
@@ -25,7 +25,7 @@ I API Management är utvecklare användare av de API: er som du exponerar med AP
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför uppgifter i den här artikeln: [skapa en Azure API Management-instans](get-started-create-service-instance.md).
 

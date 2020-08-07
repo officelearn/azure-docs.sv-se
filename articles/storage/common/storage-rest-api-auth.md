@@ -1,6 +1,6 @@
 ---
 title: Anropa REST API åtgärder med autentisering med delad nyckel
-titleSuffix: Azure Storage
+titleSuffix: Discover how to call Azure Storage REST API operations with Shared Key authorization. Get detailed information about each step of the sample operation.
 description: Använd Azure Storage REST API för att göra en begäran till Blob Storage med hjälp av autentisering med delad nyckel.
 services: storage
 author: tamram
@@ -10,24 +10,24 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: ozge
 ms.subservice: common
-ms.openlocfilehash: 237ad3215ef0330fed8662d987b1b72eca4aec81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d43df68f48273b03fa9bde9633b487d69c0834ed
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509191"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905388"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Anropa REST API åtgärder med autentisering med delad nyckel
 
 Den här artikeln visar hur du anropar Azure Storage REST-API: er, inklusive hur du skapar ett Authorization-huvud. Den är skriven från den tidpunkt då en utvecklare vet ingenting om REST och ingen idé att göra ett REST-samtal. När du har lärt dig hur du kallar en REST-åtgärd kan du utnyttja den här kunskapen för att använda andra Azure Storage REST-åtgärder.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Exempel programmet visar en lista över BLOB-behållare för ett lagrings konto. Om du vill testa koden i den här artikeln behöver du följande objekt:
 
 - Installera [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) med arbets belastningen **Azure Development** .
 
-- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 - Ett allmänt lagrings konto. Om du inte har ett lagrings konto än kan du läsa [skapa ett lagrings konto](storage-account-create.md).
 

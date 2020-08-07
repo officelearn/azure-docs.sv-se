@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0bc8da02a523479c3c543eff28a376136e29098f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ccacef6f9557bdcf683973c2ad5141b6066347b
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82176217"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904334"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Hantera lagring i Azures oberoende moln med PowerShell
 
@@ -60,7 +60,7 @@ Get-AzLocation | select Location, DisplayName
 
 I följande tabell visas de platser som returneras för det tyska molnet.
 
-|Location | Visningsnamn |
+|Plats | Visningsnamn |
 |----|----|
 | `germanycentral` | Tyskland, centrala|
 | `germanynortheast` | Tyskland, nordöstra |
@@ -84,7 +84,7 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 
 Det här kommandot returnerar följande resultat.
 
-| Name| StorageEndpointSuffix|
+| Namn| StorageEndpointSuffix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -112,6 +112,7 @@ Resultatet liknar följande värden:
 | SqlDatabaseDnsSuffix | `.database.cloudapi.de` |
 | **StorageEndpointSuffix** | `core.cloudapi.de` |
 | ... | ... |
+
 Om du bara vill hämta lagrings slut punktens suffix-egenskap hämtar du det aktuella molnet och frågar efter bara den ena egenskapen.
 
 ```powershell

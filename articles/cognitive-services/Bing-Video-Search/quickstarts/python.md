@@ -10,13 +10,13 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: tracking-python
-ms.openlocfilehash: 33a4e31be04e5a205322bb3040d3694525c4515c
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.custom: devx-track-python
+ms.openlocfilehash: e6f132db9b4c0f0310496b2e22579e18359e1573
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605994"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847235"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>Snabb start: söka efter videor med hjälp av Videosökning i Bing REST API och python
 
@@ -29,7 +29,7 @@ Du kan köra det här exemplet som en Jupyter Notebook på en [Disbindor](https:
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Python[ 2.x eller 3.x](https://python.org)
 

@@ -3,18 +3,18 @@ title: Installera Hybrid Cloud Extension (HCX)
 description: Konfigurera VMware Hybrid Cloud Extension (HCX)-lösningen för Azure VMware-lösningen (AVS) privat moln
 ms.topic: how-to
 ms.date: 07/15/2020
-ms.openlocfilehash: ea968cb21812f7273af342763d307c2faba1eea6
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 84388c3ec53d9067df2580aabb21ca5885d154b8
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475455"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905001"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Installera HCX för Azure VMware-lösning
 
 I den här artikeln går vi igenom procedurerna för att ställa in VMWare Hybrid Cloud Extension (HCX)-lösningen för ditt moln i Azure VMWare-lösningen (AVS). HCX möjliggör migrering av VMware-arbetsbelastningar till molnet och andra anslutna platser via olika inbyggda HCX-typer som stöds.
 
-HCX Advanced, standard-installationen stöder upp till tre vCenter. Om fler än tre krävs kan kunder välja att aktivera HCX Enterprise-tillägget via support. HCX Enterprise-installation medför ytterligare kostnader för kunder efter allmän tillgänglighet (GA), men innehåller [ytterligare funktioner](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+HCX Advanced, standard-installationen stöder upp till tre plats anslutningar (lokalt eller molnet till molnet). Om fler än tre plats anslutningar krävs kan kunder välja att aktivera HCX Enterprise-tillägget via support, som för närvarande är en för hands version. HCX Enterprise ger ytterligare avgifter för kunder efter allmän tillgänglighet (GA) men innehåller [ytterligare funktioner](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 
 Noggrant granska [innan du börjar](#before-you-begin), [program versions krav](#software-version-requirements)och [förutsättningar](#prerequisites) först. 
@@ -22,7 +22,7 @@ Noggrant granska [innan du börjar](#before-you-begin), [program versions krav](
 Sedan kommer vi att gå igenom alla nödvändiga procedurer för att:
 
 > [!div class="checklist"]
-> * Distribuera de lokala HCX-EMBRYOna
+> * Distribuera lokala HCX-ägg (Connector)
 > * Aktivera och konfigurera HCX
 > * Konfigurera nätverks överordnad länk och service nät
 > * Slutför installationen genom att kontrol lera status för enheten
@@ -36,11 +36,14 @@ När du har slutfört installationen kan du följa de rekommenderade nästa steg
 * Granska VMware-dokument [migrera Virtual Machines med VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g).
 * Du kan också gå igenom de [överväganden för distribution av VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html).
 * Du kan också granska relaterade VMware-material på HCX, t. ex. VMware vSphere [blogg Serien](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) på HCX. 
-* Beställ en AVS-HCX Enterprise-aktivering via support kanaler för AVS.
+* Begär en AVS-HCX Enterprise-aktivering via support kanaler i AVS.
 
-Att ändra storlek på arbets belastningar mot beräknings-och lagrings resurser är ett viktigt planerings steg när du förbereder att använda HCX-lösningen i AVS-moln. Adressera storleks steget som en del av den ursprungliga planeringen av molnet i den ursprungliga miljön.   
+Att ändra storlek på arbets belastningar mot beräknings-och lagrings resurser är ett viktigt planerings steg när du förbereder att använda HCX-lösningen i AVS-molnet. Adressera storleks steget som en del av den ursprungliga planeringen av molnet i den ursprungliga miljön. 
+
+Du kan också ändra arbets belastningar genom att slutföra en AVS-utvärdering i Azure Migrate portal ( https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) .
 
 ## <a name="software-version-requirements"></a>Program versions krav
+
 Infrastruktur komponenter måste köra den lägsta version som krävs. 
                                                          
 | Komponent typ    | Käll miljö krav    | Mål miljö krav   |
@@ -50,7 +53,7 @@ Infrastruktur komponenter måste köra den lägsta version som krävs.
 | NSX    | För HCX nätverks tillägg för logiska växlar vid källan: NSXv 6.2 + eller NSX-T 2.4 +   | NSXv 6.2 + eller NSX-T 2.4 +<br/><br/>För HCX närhet: NSXv 6.4 + (närhets dirigering stöds inte med NSX-T) |
 | vCloud-regissör   | Krävs inte – ingen interoperabilitet med vCloud Director på käll platsen | När du integrerar mål miljön med vCloud Director är minimivärdet 9.1.0.2.  |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * ExpressRoute-Global Reach bör konfigureras mellan lokala och AVS SDDC ExpressRoute-kretsar.
 

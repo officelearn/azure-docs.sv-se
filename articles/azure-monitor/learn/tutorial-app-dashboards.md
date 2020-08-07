@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: 706ae5a6c93468da9a65293c1bb4eefb136b938d
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 49984349ce8d9d1bc43778c0042dd21485eded15
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553282"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829687"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Skapa anpassade KPI-instrumentpaneler med Azure Application Insights
 
@@ -34,7 +34,7 @@ För att slutföra den här kursen behöver du:
 - Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](../app/asp-net.md).
 
 > [!NOTE]
-> De behörigheter som krävs för att arbeta med instrument paneler beskrivs i artikeln om [att förstå åtkomst kontroll för instrument paneler](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboard-share-access#understanding-access-control-for-dashboards).
+> De behörigheter som krävs för att arbeta med instrument paneler beskrivs i artikeln om [att förstå åtkomst kontroll för instrument paneler](../../azure-portal/azure-portal-dashboard-share-access.md#understanding-access-control-for-dashboards).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
@@ -131,4 +131,3 @@ Nu när du har lärt dig att skapa anpassade instrumentpaneler kan du ta en titt
 
 > [!div class="nextstepaction"]
 > [Djupgående diagnostik](../app/devops.md)
-

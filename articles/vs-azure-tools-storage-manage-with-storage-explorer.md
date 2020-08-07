@@ -1,6 +1,6 @@
 ---
 title: Kom igång med Storage Explorer | Microsoft Docs
-description: Hantera Azure Storage-resurser med Storage Explorer
+description: Börja hantera Azure Storage-resurser med Storage Explorer. Hämta och installera Azure Storage Explorer, Anslut till ett lagrings konto eller en tjänst med mera.
 services: storage
 author: cawaMS
 ms.service: storage
@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: f588ed6d35f3f8882d546b78ff833d62f33ac0a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff5480e6b78beda7fe50dc772eae925ccdb80664
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84975273"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905354"
 ---
 # <a name="get-started-with-storage-explorer"></a>Kom igång med Storage Explorer
 
@@ -23,7 +23,7 @@ Microsoft Azure Storage Explorer är en fristående app som gör det enkelt att 
 
 ![Microsoft Azure Storage Explorer][0]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
@@ -133,7 +133,7 @@ Det finns flera sätt att koppla till en resurs i Storage Explorer:
 
 När anslutningen har lagts till går resurs trädet till den nod som representerar anslutningen. Resursen visas under **lokala & anslutna**  >  **lagrings konton**  >  **(bifogade behållare)**  >  **BLOB-behållare**. Om Storage Explorer inte kan lägga till anslutningen, eller om du inte kan komma åt dina data när du har lagt till anslutningen, kan du läsa mer i [fel söknings guiden för Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
 
-#### <a name="use-a-connection-string"></a>Använd en anslutnings sträng
+#### <a name="use-a-connection-string"></a>Använd en anslutningssträng
 
 1. Välj **kopplings** symbolen för att öppna **Anslut till Azure Storage**.
 
@@ -147,7 +147,7 @@ När anslutningen har lagts till går resurs trädet till den nod som represente
 
 När anslutningen har lagts till går resurs trädet till den nod som representerar anslutningen. Resursen visas under **lokala & anslutna**  >  **lagrings konton**. Om Storage Explorer inte kan lägga till anslutningen, eller om du inte kan komma åt dina data när du har lagt till anslutningen, kan du läsa mer i [fel söknings guiden för Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
 
-#### <a name="use-a-shared-access-signature-uri"></a>Använda en signatur-URI för delad åtkomst
+#### <a name="use-a-shared-access-signature-uri"></a>Använd en URI för delad åtkomstsignatur
 
 1. Välj **kopplings** symbolen för att öppna **Anslut till Azure Storage**.
 
@@ -161,7 +161,7 @@ När anslutningen har lagts till går resurs trädet till den nod som represente
 
 När anslutningen har lagts till går resurs trädet till den nod som representerar anslutningen. Resursen visas under **lokala & anslutna**  >  **lagrings konton**  >  **(anslutna behållare)**  >  *noden tjänst för den typ av behållare som du har bifogat*. Om Storage Explorer inte kan lägga till din anslutning, se [fel söknings guiden för Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting). Se fel söknings guiden om du inte kan komma åt dina data när du har lagt till anslutningen.
 
-#### <a name="use-a-name-and-key"></a>Använd ett namn och en nyckel
+#### <a name="use-a-name-and-key"></a>Använd namn och nyckel
 
 1. Välj **kopplings** symbolen för att öppna **Anslut till Azure Storage**.
 
@@ -179,7 +179,7 @@ När anslutningen har lagts till går resurs trädet till den nod som represente
 
 När anslutningen har lagts till går resurs trädet till den nod som representerar anslutningen. Resursen visas under **lokala & anslutna**  >  **lagrings konton**. Om Storage Explorer inte kan lägga till anslutningen, eller om du inte kan komma åt dina data när du har lagt till anslutningen, kan du läsa mer i [fel söknings guiden för Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
 
-#### <a name="attach-to-a-local-emulator"></a>Anslut till en lokal emulator
+#### <a name="attach-to-a-local-emulator"></a>Anslut till lokal emulator
 
 Storage Explorer stöder för närvarande två officiella lagrings emulatorer:
 

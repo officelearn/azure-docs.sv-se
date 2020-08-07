@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c967e32836586c39131069407fc4808a5f91ae9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9db22c6876294c9ffba33eab3d27900bf294e886
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609139"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873848"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av REST API-anrop
 
@@ -84,7 +84,7 @@ För att skapa en virtuell Azure-dator med den systemtilldelade hanterade identi
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
    |*Innehålls typ*     | Krävs. Ange till `application/json`.        |
-   |*Auktoriseringsregeln*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
+   |*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
    
    **Brödtext i begäran**
 
@@ -162,7 +162,7 @@ Om du vill aktivera systemtilldelad hanterad identitet på en virtuell dator som
    > För att se till att du inte tar bort befintliga hanterade identiteter som har tilldelats den virtuella datorn, måste du ange de användar tilldelade hanterade identiteterna med hjälp av det här spiral kommandot: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` . Om du har tilldelade tilldelade hanterade identiteter som har tilldelats den virtuella datorn som identifieras i `identity` värdet i svaret går du vidare till steg 3 som visar hur du behåller användarspecifika hanterade identiteter samtidigt som du aktiverar systemtilldelad hanterad identitet på den virtuella datorn.
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
    ```
 
    ```HTTP
@@ -173,7 +173,7 @@ Om du vill aktivera systemtilldelad hanterad identitet på en virtuell dator som
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
    |*Innehålls typ*     | Krävs. Ange till `application/json`.        |
-   |*Auktoriseringsregeln*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
+   |*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
    
    **Brödtext i begäran**
     
@@ -194,7 +194,7 @@ Om du vill aktivera systemtilldelad hanterad identitet på en virtuell dator som
    **API-VERSION 2018-06-01**
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
    ```
 
    ```HTTP
@@ -205,7 +205,7 @@ Om du vill aktivera systemtilldelad hanterad identitet på en virtuell dator som
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
    |*Innehålls typ*     | Krävs. Ange till `application/json`.        |
-   |*Auktoriseringsregeln*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
+   |*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
 
    **Brödtext i begäran**
 
@@ -228,7 +228,7 @@ Om du vill aktivera systemtilldelad hanterad identitet på en virtuell dator som
    **API-VERSION 2017-12-01**
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
    ```
 
    ```HTTP
@@ -240,7 +240,7 @@ Om du vill aktivera systemtilldelad hanterad identitet på en virtuell dator som
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
    |*Innehålls typ*     | Krävs. Ange till `application/json`.        |
-   |*Auktoriseringsregeln*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
+   |*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
 
    **Brödtext i begäran**
 
@@ -272,7 +272,7 @@ Om du vill inaktivera systemtilldelad hanterad identitet på en virtuell dator m
    > För att se till att du inte tar bort befintliga hanterade identiteter som har tilldelats den virtuella datorn, måste du ange de användar tilldelade hanterade identiteterna med hjälp av det här spiral kommandot: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` . Om du har tilldelade tilldelade hanterade identiteter som har tilldelats den virtuella datorn som identifieras i `identity` värdet i svaret går du vidare till steg 3 som visar hur du behåller användarspecifika hanterade identiteter samtidigt som du inaktiverar systemtilldelad hanterad identitet på den virtuella datorn.
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
    ```
 
    ```HTTP
@@ -283,7 +283,7 @@ Om du vill inaktivera systemtilldelad hanterad identitet på en virtuell dator m
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
    |*Innehålls typ*     | Krävs. Ange till `application/json`.        |
-   |*Auktoriseringsregeln*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
+   |*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
 
    **Brödtext i begäran**
 
@@ -342,7 +342,7 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
    |*Innehålls typ*     | Krävs. Ange till `application/json`.        |
-   |*Auktoriseringsregeln*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
+   |*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
 
    **Brödtext i begäran**
 
@@ -423,7 +423,7 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
    |*Innehålls typ*     | Krävs. Ange till `application/json`.        |
-   |*Auktoriseringsregeln*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
+   |*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
 
    **Brödtext i begäran**
 
@@ -513,7 +513,7 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
 
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
-   |*Auktoriseringsregeln*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.
+   |*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.
 
     Om du har tilldelade användare eller systemtilldelade hanterade identiteter som har tilldelats den virtuella datorn enligt `identity` värdet i svaret går du vidare till steg 5 som visar hur du behåller den systemtilldelade hanterade identiteten och lägger till en användardefinierad hanterad identitet på den virtuella datorn.
 
@@ -524,7 +524,7 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
    **API-VERSION 2018-06-01**
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
    ```
 
    ```HTTP
@@ -535,7 +535,7 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
    |*Innehålls typ*     | Krävs. Ange till `application/json`.        |
-   |*Auktoriseringsregeln*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        |
+   |*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        |
  
    **Brödtext i begäran**
 
@@ -555,7 +555,7 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
    **API-VERSION 2017-12-01**
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
    ```
 
    ```HTTP
@@ -567,7 +567,7 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
    |*Innehålls typ*     | Krävs. Ange till `application/json`.        |
-   |*Auktoriseringsregeln*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
+   |*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
 
    **Brödtext i begäran**
 
@@ -591,7 +591,7 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
    Om du till exempel har en systemtilldelad hanterad identitet och den användarspecifika hanterade identitet som `ID1` är kopplad till den virtuella datorn och vill lägga till den tilldelade hanterade identiteten `ID2` i den:
 
    ```bash
-   curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
    ```
 
    ```HTTP
@@ -603,7 +603,7 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
    |*Innehålls typ*     | Krävs. Ange till `application/json`.        |
-   |*Auktoriseringsregeln*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
+   |*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
 
    **Brödtext i begäran**
 
@@ -630,7 +630,7 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
    Om du till exempel har en systemtilldelad hanterad identitet och den användarspecifika hanterade identitet som `ID1` är kopplad till den virtuella datorn och vill lägga till den tilldelade hanterade identiteten `ID2` i den: 
 
    ```bash
-   curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
    ```
 
    ```HTTP
@@ -642,7 +642,7 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
    |*Innehålls typ*     | Krävs. Ange till `application/json`.        |
-   |*Auktoriseringsregeln*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
+   |*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
 
    **Brödtext i begäran**
 
@@ -683,7 +683,7 @@ För att ta bort en tilldelad identitet till en virtuell dator måste ditt konto
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
    |*Innehålls typ*     | Krävs. Ange till `application/json`.        |
-   |*Auktoriseringsregeln*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.
+   |*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.
  
    Om du har hanterade identiteter som har tilldelats den virtuella datorn visas de i svaret i `identity` värdet.
 
@@ -694,7 +694,7 @@ För att ta bort en tilldelad identitet till en virtuell dator måste ditt konto
    Lägg till i `null` den användare-tilldelade hanterade identitet som du vill ta bort:
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":null}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":null}}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
    ```
 
    ```HTTP
@@ -706,7 +706,7 @@ För att ta bort en tilldelad identitet till en virtuell dator måste ditt konto
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
    |*Innehålls typ*     | Krävs. Ange till `application/json`.        |
-   |*Auktoriseringsregeln*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
+   |*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
 
    **Brödtext i begäran**
 
@@ -726,7 +726,7 @@ För att ta bort en tilldelad identitet till en virtuell dator måste ditt konto
    Behåll endast de användare som tilldelats de hanterade identiteter som du vill behålla i `identityIds` matrisen:
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
    ```
 
    ```HTTP
@@ -738,7 +738,7 @@ För att ta bort en tilldelad identitet till en virtuell dator måste ditt konto
    |Begärandehuvud  |Beskrivning  |
    |---------|---------|
    |*Innehålls typ*     | Krävs. Ange till `application/json`.        |
-   |*Auktoriseringsregeln*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
+   |*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.        | 
 
    **Brödtext i begäran**
 
@@ -756,7 +756,7 @@ För att ta bort en tilldelad identitet till en virtuell dator måste ditt konto
 Om den virtuella datorn har både systemtilldelade och användarspecifika hanterade identiteter kan du ta bort alla användare tilldelade hanterade identiteter genom att växla till Använd endast systemtilldelad hanterad identitet med följande kommando:
 
 ```bash
-curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H "Authorization:Bearer <ACCESS TOKEN>"
 ```
 
 ```HTTP
@@ -768,7 +768,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 |Begärandehuvud  |Beskrivning  |
 |---------|---------|
 |*Innehålls typ*     | Krävs. Ange till `application/json`.        |
-|*Auktoriseringsregeln*     | Krävs. Ange en giltig `Bearer` åtkomsttoken. | 
+|*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken. | 
 
 **Brödtext i begäran**
 
@@ -795,7 +795,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 |Begärandehuvud  |Beskrivning  |
 |---------|---------|
 |*Innehålls typ*     | Krävs. Ange till `application/json`.        |
-|*Auktoriseringsregeln*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.| 
+|*Auktorisering*     | Krävs. Ange en giltig `Bearer` åtkomsttoken.| 
 
 **Brödtext i begäran**
 

@@ -5,19 +5,26 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 06/12/2020
+ms.date: 08/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: f22f81d69d746764af43d9167874aabedbd56f51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 475b2aa99296995c3adb51eca2d6bdb53616670e
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84765444"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903603"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Skapa ExpressRoute Direct med hjälp av Azure Portal
 
 Den här artikeln visar hur du skapar ExpressRoute Direct med hjälp av Azure Portal.
 Med ExpressRoute Direct kan du ansluta direkt till Microsofts globala nätverk vid peering-platser som är strategiskt fördelade över hela världen. Mer information finns i [Om ExpressRoute Direct](expressroute-erdirect-about.md).
+
+## <a name="before-you-begin"></a><a name="before"></a>Innan du börjar
+
+Kontrol lera att **Microsoft. Network** Resource-providern är registrerad i din prenumeration. När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören.
+
+1. Få åtkomst till dina prenumerations inställningar enligt beskrivningen i [Azure Resource providers och-typer](../azure-resource-manager/management/resource-providers-and-types.md).
+1. I prenumerationen för **Resource providers**kontrollerar du att **Microsoft. Network** -providern visar en **registrerad** status. Om Microsoft. Network Resource-providern inte finns i listan över registrerade providers, lägger du till den.
 
 ## <a name="1-create-expressroute-direct"></a><a name="create-erdir"></a>1. skapa ExpressRoute Direct
 

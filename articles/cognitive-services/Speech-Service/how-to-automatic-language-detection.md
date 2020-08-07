@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 3a648b11e795a7d5c8680ac8c3df95e7d0c6bb7d
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c1d2613661421ae95c34edef3caafe4c6fb3d4a9
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406783"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905082"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>Automatisk språk identifiering för tal till text
 
@@ -26,7 +26,7 @@ Automatisk språk identifiering används för att avgöra den mest sannolika mat
 I den här artikeln får du lära dig hur du använder `AutoDetectSourceLanguageConfig` för att skapa ett `SpeechRecognizer` objekt och hämta det identifierade språket.
 
 > [!IMPORTANT]
-> Den här funktionen är endast tillgänglig för tal-SDK med C#, C++, Java, python och mål-C.
+> Den här funktionen är endast tillgänglig för tal-SDK med C#, C++, Java, python, Java Script och mål-C.
 
 ## <a name="automatic-language-detection-with-the-speech-sdk"></a>Automatisk språk identifiering med talet SDK
 
@@ -240,4 +240,24 @@ var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromSourceLangua
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Dokumentation om tal SDK-referens](speech-sdk.md)
+::: zone pivot="programming-language-csharp"
+* Se [exempel koden](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L741) på GitHub för automatisk språk identifiering
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+* Se [exempel koden](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L507) på GitHub för automatisk språk identifiering
+::: zone-end
+
+::: zone pivot="programming-language-java"
+* Se [exempel koden](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#L521) på GitHub för automatisk språk identifiering
+::: zone-end
+
+::: zone pivot="programming-language-python"
+* Se [exempel koden](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_synthesis_sample.py#L434) på GitHub för automatisk språk identifiering
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+* Se [exempel koden](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L494) på GitHub för automatisk språk identifiering
+::: zone-end
+
+* [Dokumentation om tal SDK-referens](speech-sdk.md)

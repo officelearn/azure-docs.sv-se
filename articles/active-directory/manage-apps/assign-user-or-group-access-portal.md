@@ -12,12 +12,12 @@ ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eeab9cbb68567b6af3b1381b8ec5e67e82461ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04b0b0120a514591fb4fa23656906203acf443b4
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763745"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799510"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Tilldela en användare eller grupp till en företagsapp i Azure Active Directory
 
@@ -26,6 +26,9 @@ Den här artikeln visar hur du tilldelar användare eller grupper till företags
 För bättre kontroll kan vissa typer av företags program konfigureras för att [kräva användar tilldelning](#configure-an-application-to-require-user-assignment). 
 
 Om du vill [tilldela en användare eller grupp till en företags app](#assign-users-or-groups-to-an-app-via-the-azure-portal)måste du logga in som global administratör, program administratör, moln program administratör eller tilldelad ägare till företags appen.
+
+> [!IMPORTANT]
+> När du tilldelar en grupp till ett program får endast användare i gruppen åtkomst. Tilldelningen överlappar inte kapslade grupper.
 
 > [!NOTE]
 > Gruppbaserad tilldelning kräver Azure Active Directory Premium P1 eller P2 Edition. Gruppbaserad tilldelning stöds endast för säkerhets grupper. Kapslade grupp medlemskap och Office 365-grupper stöds inte för närvarande. Mer licensierings krav för de funktioner som beskrivs i den här artikeln finns på [sidan Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory). 

@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: 60efc645b1b5824306c1d4aa3e763eb9d2bc745d
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: c5990faab1e06961a2c3d577a4677d2e1d504699
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553942"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904072"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -31,7 +31,7 @@ Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan f
 
 |Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
 |---------|------------------|-------------|---------------|
-| [Azure.Search.Docklient bibliotek för uments](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | Azure SDK för .NET | .NET-klient bibliotek som släpps av Azure SDK-teamet och har utformats för konsekvens med andra .NET-klient bibliotek. <br/><br/>Version 11 riktar sig mot search REST API-version = 2020-06-30, men har ännu inte stöd för kunskaps lager, geo-filter eller [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet). | Allmänt tillgänglig. </br> Installera [Azure.Search.Documents-paketet](https://www.nuget.org/packages/Azure.Search.Documents/) från NuGet. |
+| [Azure.Search.Docklient bibliotek för uments](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | Azure SDK för .NET | .NET-klient bibliotek som släpps av Azure SDK-teamet och har utformats för konsekvens med andra .NET-klient bibliotek. <br/><br/>Version 11 är riktad mot search REST API-version = 2020-06-30, men har ännu inte stöd för kunskaps lager, geospatiala typer eller [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet). <br/><br/>Mer information finns i [snabb start: skapa ett index](search-get-started-dotnet.md) och [Uppgradera till Azure.Search.Documents (V11)](search-dotnet-sdk-migration-version-11.md). | Allmänt tillgänglig. </br> Installera [Azure.Search.Documents-paketet](https://www.nuget.org/packages/Azure.Search.Documents/) från NuGet. |
 | [azure.search.docklient bibliotek för uments](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python)  | Azure SDK för Python| Python-klientcertifikat som publicerats av Azure SDK-teamet och som utformats för konsekvens med andra python-klient bibliotek. <br/><br/>Version 11 riktar sig mot search REST API-version = 2020-06-30. | Allmänt tillgänglig. </br> Installera [paketet Azure-Search-Documents](https://pypi.org/project/azure-search-documents/) från pypi. |
 | [@azure/search-documentsklient bibliotek](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest)  | Azure SDK för Java Script | JavaScript-klientcertifikat som publicerats av Azure SDK-teamet och som har utformats för konsekvens med andra Java Script-klient bibliotek. <br/><br/>Version 11 riktar sig mot search REST API-version = 2020-06-30. | Allmänt tillgänglig. </br> Installera [ @azure/search-documents paketet](https://www.npmjs.com/package/@azure/search-documents) från NPM. |
 

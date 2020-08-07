@@ -13,12 +13,12 @@ ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: abc4836b5e8729eec45a0eb2cd8b5fa7be6b1ce4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e86b89fbf325eb0af5e4127e7fe113b87b1b70c2
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82890562"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874273"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Cachelagring av token i MSAL.NET
 När en [token har hämtats](msal-acquire-cache-tokens.md)cachelagras den av Microsoft Authentication Library (MSAL).  Program koden bör försöka hämta en token från cachen innan du hämtar en token med en annan metod.  I den här artikeln beskrivs standard och anpassad serialisering för token cache i MSAL.NET.
@@ -271,12 +271,15 @@ namespace CommonCacheMsalV3
 
 ### <a name="token-cache-for-a-web-app-confidential-client-application"></a>Token-cache för en webbapp (konfidentiellt klient program)
 
-I webbappar eller webb-API: er kan cache utnyttja sessionen, en Redis-cache eller en databas.
+I webbappar eller webb-API: er kan cachen utnyttja sessionen, en Redis-cache eller en databas. Du bör behålla ett token-cache per konto i webbappar eller webb-API: er. 
 
-I Web Apps eller webb-API: er, Behåll ett token-cache per konto.  För Web Apps bör token-cachen anges av konto-ID: t.  För webb-API: er ska kontot anges genom hashen för den token som används för att anropa API: et. MSAL.NET tillhandahåller anpassad cachelagring av token i .NET Framework och .NET Core-underplattformar. Händelser utlöses när cachen används, kan appar välja om de vill serialisera eller deserialisera cachen. På konfidentiella klient program som hanterar användare (webbappar som loggar in användare och anropar webb-API: er och webb-API: er som anropar underordnade webb-API: er), kan det finnas många användare och användarna bearbetas parallellt. Av säkerhets-och prestanda skäl är vår rekommendation att serialisera en cache per användare. Serialiserings händelser beräknar en cache-nyckel baserat på den bearbetade användarens identitet och serialisering/deserialisering av en token-cache för den användaren.
+För Web Apps bör token-cachen anges av konto-ID: t.
+
+För webb-API: er ska kontot anges genom hashen för den token som används för att anropa API: et.
+
+MSAL.NET tillhandahåller anpassad cachelagring av token i .NET Framework och .NET Core-underplattformar. Händelser utlöses när cachen används, kan appar välja om de vill serialisera eller deserialisera cachen. På konfidentiella klient program som hanterar användare (webbappar som loggar in användare och anropar webb-API: er och webb-API: er som anropar underordnade webb-API: er), kan det finnas många användare och användarna bearbetas parallellt. Av säkerhets-och prestanda skäl är vår rekommendation att serialisera en cache per användare. Serialiserings händelser beräknar en cache-nyckel baserat på den bearbetade användarens identitet och serialisering/deserialisering av en token-cache för den användaren.
 
 [Microsoft. Identity. Web-](https://github.com/AzureAD/microsoft-identity-web) biblioteket innehåller ett för hands versions NuGet-paket [Microsoft. identitet. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) som innehåller serialisering av cachelagring av token:
-
 
 | Tilläggs metod | Namn område för Microsoft. Identity. Web | Beskrivning  |
 | ---------------- | --------- | ------------ |
@@ -284,7 +287,7 @@ I Web Apps eller webb-API: er, Behåll ett token-cache per konto.  För Web Apps
 | `AddSessionTokenCaches` | `TokenCacheProviders.Session` | Token-cachen är kopplad till användarsessionen. Det här alternativet är inte idealiskt om ID-token innehåller många anspråk eftersom cookien skulle bli för stor.
 | `AddDistributedTokenCaches` | `TokenCacheProviders.Distributed` | Token-cachen är ett kort mot ASP.NET Core `IDistributedCache` implementeringen, vilket gör att du kan välja mellan en distribuerad minnesbuffert, en Redis cache, en distribuerad NCache eller en SQL Server cache. Mer information om `IDistributedCache` implementeringarna finns i https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache .
 
-Enkelt fall med minnes intern cache:
+Här är ett exempel på hur du använder cacheminnet i minnet i [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) -metoden i [Start](/aspnet/core/fundamentals/startup) klassen i ett ASP.net Core program:
 
 ```C#
 // or use a distributed Token Cache by adding
@@ -292,7 +295,6 @@ Enkelt fall med minnes intern cache:
     services.AddWebAppCallsProtectedWebApi(Configuration, new string[] { scopesToRequest })
             .AddInMemoryTokenCaches();
 ```
-
 
 Exempel på möjliga distribuerade cacheminnen:
 

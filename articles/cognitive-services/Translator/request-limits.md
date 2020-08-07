@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: d9fda476a184731cd00317facbeceaf7bdf55edf
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 9ce2ea7da562372e5c1c25d4c0fe9ab410b02a1d
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85561462"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903415"
 ---
 # <a name="request-limits-for-translator"></a>Begär ande begränsningar för översättare
 
@@ -23,18 +23,18 @@ Den här artikeln innehåller begränsningar för begränsning av Translator. Tj
 
 ## <a name="character-and-array-limits-per-request"></a>Begränsningar för tecknen och matrisen per begäran
 
-Varje översättnings förfrågan är begränsad till 5 000 tecken, på alla mål språk som du översätter till. Om du till exempel skickar en översättnings förfrågan på 1 500 tecken som ska översättas till tre olika språk resulterar det i en begär ande storlek på 1, 500x3 = 4 500 tecken, som uppfyller gränsen för begäran. Du debiteras per steg, inte av antalet begär Anden. Vi rekommenderar att du skickar kortare begär Anden.
+Varje översättnings förfrågan är begränsad till 10 000 tecken, på alla mål språk som du översätter till. Om du till exempel skickar en översättnings förfrågan på 3 000 tecken som ska översättas till tre olika språk resulterar det i en begär ande storlek på 3000x3 = 9 000 tecken som uppfyller gränsen för begäran. Du debiteras per steg, inte av antalet begär Anden. Vi rekommenderar att du skickar kortare begär Anden.
 
 I följande tabell visas mat ris element och Character-begränsningar för varje operation av Translator.
 
 | Åtgärd | Maximal storlek för mat ris element |    Maximalt antal mat ris element |    Maximal begär ande storlek (tecken) |
 |:----|:----|:----|:----|
-| Översätt | 5 000    | 100    | 5 000 |
-| Transkribera | 5 000    | 10    | 5 000 |
-| Upptäcka | 10 000 |    100 |    50 000 |
-| BreakSentence | 10 000    | 100 |    50 000 |
-| Slå upp i ordlista| 100 |    10    | 1,000 |
-| Ordlisteexempel | 100 för text och 100 för översättning (totalt 200)| 10|    2 000 |
+| Översätt | 10 000    | 100   | 10 000 |
+| Transkribera | 5 000 | 10    | 5 000 |
+| Upptäcka | 10 000 | 100 |   50 000 |
+| BreakSentence | 50 000    | 100 | 50 000 |
+| Slå upp i ordlista| 100 |  10  | 1 000 |
+| Ordlisteexempel | 100 för text och 100 för översättning (totalt 200)| 10|   2 000 |
 
 ## <a name="character-limits-per-hour"></a>Character-gränser per timme
 

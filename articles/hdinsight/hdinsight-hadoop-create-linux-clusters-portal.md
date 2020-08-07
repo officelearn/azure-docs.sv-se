@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/27/2020
-ms.openlocfilehash: 95756e9951b384c779f61651555482b3c8cb7321
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/06/2020
+ms.openlocfilehash: 1ba2f5e4b88ae6ae0ed15dbfbbc4fa5c55c45a77
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083380"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874035"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Skapa Linux-baserade kluster i HDInsight med hjälp av Azure Portal
 
@@ -25,7 +25,7 @@ Azure Portal är ett webbaserat hanterings verktyg för tjänster och resurser s
 
 Azure Portal visar de flesta av kluster egenskaperna. Med hjälp av Azure Resource Manager mallar kan du dölja många detaljer. Mer information finns i [skapa Apache Hadoop kluster i HDInsight med hjälp av Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-clusters"></a>Skapa kluster
 
@@ -39,7 +39,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 
 1. Välj **Analytics**  >  **Azure HDInsight** för att gå till sidan **skapa HDInsight-kluster** .
 
-## <a name="basics"></a>Grunderna
+## <a name="basics"></a>Grunder
 
 ![Grunderna för HDInsight skapa kluster](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png "Skapa ett nytt kluster i Azure Portal")
 
@@ -85,6 +85,9 @@ Valfritt: Välj **Lägg till Azure Storage** för ytterligare kluster lagring. D
 ### <a name="metastore-settings"></a>Metaarkiv-inställningar
 
 Valfritt: Ange en befintlig SQL Database för att spara Apache Hive, Apache Oozie och eller Apache Ambari-metadata utanför klustret. Azure SQL Database som används för metaarkiv måste tillåta anslutning till andra Azure-tjänster, inklusive Azure HDInsight. När du skapar en metaarkiv ska du inte namnge en databas med bindestreck eller bindestreck. Dessa tecken kan orsaka att klustrets skapande process kraschar.
+
+> [!IMPORTANT]
+> För kluster former som stöder metastores tillhandahåller standardvärdet metaarkiv en Azure SQL Database med en **grundläggande nivå på nivå 5 för nivå 5 (inte uppgraderings bara)**! Lämpligt för grundläggande testnings ändamål. För stora eller produktions arbets belastningar rekommenderar vi att du migrerar till en extern metaarkiv.
 
 Välj **Nästa: Security + network >>** för att gå vidare till nästa flik.
 

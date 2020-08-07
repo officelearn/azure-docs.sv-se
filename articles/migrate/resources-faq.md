@@ -3,12 +3,12 @@ title: Azure Migrate vanliga frågor och svar
 description: Få svar på vanliga frågor om tjänsten Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 307a1d417b54ad9546c6e409ad8b105ea443da0e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 95fd2ea9ecf5e4bcdf3fb2291e4cf7bf5b111c5f
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090016"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847473"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: vanliga frågor
 
@@ -29,7 +29,13 @@ Använd Azure Migrate för att identifiera, utvärdera och migrera lokal infrast
 
 [Azure Migrate](migrate-services-overview.md) tillhandahåller en centraliserad hubb för utvärdering och migrering till Azure. 
 
-[Azure Site Recovery](../site-recovery/site-recovery-overview.md) är en katastrof återställnings lösning. 
+- Användning av Azure Migrate ger möjlighet till samverkan och framtida utöknings barhet med Azure Migrate verktyg, andra Azure-tjänster och verktyg från tredje part.
+- Verktyget Azure Migrate: Migreringsverktyg för Server är syftet-byggt för Server migrering till Azure. Den är optimerad för migrering. Du behöver inte lära dig mer om begrepp och scenarier som inte är direkt relevanta för migrering. 
+- Det finns inga avgifter för verktygs användning för migrering i 180 dagar, från tidpunkten då replikeringen startades för en virtuell dator. Det ger dig tid att slutföra migreringen. Du betalar bara för de lagrings-och nätverks resurser som används i replikeringen och för de beräknings avgifter som förbrukas under testmigreringar.
+- Azure Migrate stöder alla migrerings scenarier som stöds av Site Recovery. För virtuella VMware-datorer tillhandahåller Azure Migrate dessutom ett alternativ för att migrera utan agent.
+- Vi prioriterar nya funktioner för migrering för Azure Migrate: Migreringsverktyg för Server. Dessa funktioner är inte riktade för Site Recovery.
+
+[Azure Site Recovery](../site-recovery/site-recovery-overview.md) bör endast användas för haveri beredskap.
 
 Verktyget Azure Migrate: Migreringsverktyg använder vissa backend-Site Recovery-funktioner för att lyfta och flytta migreringen av vissa lokala datorer.
 

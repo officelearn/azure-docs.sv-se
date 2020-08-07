@@ -3,12 +3,12 @@ title: Microsoft Azure Recovery Services (MARS) Agent – vanliga frågor och sv
 description: Behandlar vanliga frågor om säkerhets kopiering av filer och mappar med Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: c4494b09a5cf838aae3dde01c1268042929ef213
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: e50e424f1a9f044aa1ed8e95c1bce002d134bffe
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563115"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874630"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Vanliga frågor och svar – Microsoft Azure Recovery Services (MARS) Agent
 
@@ -32,7 +32,7 @@ Autentiseringsuppgifterna för valvet upphör att gälla efter 10 dagar. Om file
 
 ### <a name="what-characters-are-allowed-for-the-passphrase"></a>Vilka tecken är tillåtna för lösen frasen?
 
-Lösen frasen ska använda tecken från ASCII-teckenuppsättningen, med ASCII-värden som är mindre än eller lika med 127.
+Lösen frasen ska använda tecken från ASCII-teckenuppsättningen, med [ASCII-värden som är mindre än eller lika med 127](https://docs.microsoft.com/office/vba/language/reference/user-interface-help/character-set-0127).
 
 ### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>Från vilka enheter kan jag säkerhetskopiera filer och mappar?
 
@@ -175,7 +175,7 @@ Azure Backup agenten kräver en lösen fras (som du angav under registreringen) 
 
 | Ursprunglig dator <br> *(käll dator där säkerhets kopior vidtogs)* | Fraser | Tillgängliga alternativ |
 | --- | --- | --- |
-| Tillgängligt |Brute |Om den ursprungliga datorn (där säkerhets kopiering vidtogs) är tillgänglig och fortfarande har registrerats med samma Recovery Services-valv, kan du återskapa lösen frasen genom att följa dessa [steg](./backup-azure-manage-mars.md#re-generate-passphrase).  |
+| Tillgänglig |Brute |Om den ursprungliga datorn (där säkerhets kopiering vidtogs) är tillgänglig och fortfarande har registrerats med samma Recovery Services-valv, kan du återskapa lösen frasen genom att följa dessa [steg](./backup-azure-manage-mars.md#re-generate-passphrase).  |
 | Brute |Brute |Det går inte att återställa data eller data är inte tillgängliga |
 
 Tänk på följande:
@@ -194,7 +194,7 @@ Om du har samma lösen fras (som du angav under registreringen) på den ursprung
 
 | Ursprunglig dator | Fraser | Tillgängliga alternativ |
 | --- | --- | --- |
-| Brute |Tillgängligt |Du kan installera och registrera MARS-agenten på en annan dator med samma lösen fras som du angav under registreringen av den ursprungliga datorn. Välj **återställnings alternativ**  >  **en annan plats** för att utföra återställningen. Mer information finns i den här [artikeln](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+| Brute |Tillgänglig |Du kan installera och registrera MARS-agenten på en annan dator med samma lösen fras som du angav under registreringen av den ursprungliga datorn. Välj **återställnings alternativ**  >  **en annan plats** för att utföra återställningen. Mer information finns i den här [artikeln](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Brute |Brute |Det går inte att återställa data eller data är inte tillgängliga |
 
 ### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>Mina säkerhets kopierings jobb har misslyckats eller inte körs under en längre tid. Jag har gått förbi kvarhållningsperioden. Kan jag fortfarande återställa?

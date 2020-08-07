@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: tracking-python
-ms.openlocfilehash: d13d349978df30b3e2aa7a8646223c37ba272241
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.custom: devx-track-python
+ms.openlocfilehash: 4fa0603868f1cc8bb2c879dbac7811ebbe6bf0dd
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84985636"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87875123"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av ansikts-REST API och Python
 
@@ -24,10 +24,10 @@ I den här snabb starten använder du Azures ansikts REST API med python för at
 
 ![En man och en kvinna, med rektanglar ritade runt ansiktena och med information om ålder och kön på bilden](../images/labelled-faces-python.png)
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" skapar du en ansikts resurs "  target="_blank"> skapa en ansikts resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
@@ -49,9 +49,9 @@ Alternativt kan du köra den här snabb starten från kommando raden med följan
     1. Ersätt värdet för `subscription_key` med din prenumerationsnyckel.
     1. Redigera värdet för om `face_api_url` du vill inkludera slut punkts-URL: en för din ansikts-API-resurs.
     1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill analysera.
-1. Spara koden som en fil med tillägget `.py`. Exempelvis `detect-face.py`.
+1. Spara koden som en fil med tillägget `.py`. Till exempel `detect-face.py`.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python detect-face.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python detect-face.py`.
 
 ```python
 import requests

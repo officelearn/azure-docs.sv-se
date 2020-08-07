@@ -1,18 +1,18 @@
 ---
 title: Övervaka Azure File Sync | Microsoft Docs
-description: Så här övervakar du Azure File Sync.
+description: Läs om hur du övervakar Azure File Sync-distributionen med hjälp av Azure Monitor, tjänsten Storage Sync och Windows Server.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 81224e0c055ad4a94bd57ebb3aa7c8a3b30c2dd7
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9a4e4a30c5a84baf5a78d0a90f7302e2b31a5946
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832628"
+ms.locfileid: "87903535"
 ---
 # <a name="monitor-azure-file-sync"></a>Övervaka Azure File Sync
 
@@ -23,7 +23,7 @@ Den här artikeln beskriver hur du övervakar Azure File Sync-distributionen med
 Följande scenarier beskrivs i den här guiden: 
 - Visa Azure File Sync mått i Azure Monitor.
 - Skapa aviseringar i Azure Monitor för att proaktivt meddela dig om kritiska villkor.
-- Övervaka hälso tillståndet för din Azure File Sync-distribution med hjälp av Azure Portal.
+- Visa hälso tillståndet för din Azure File Sync-distribution med hjälp av Azure Portal.
 - Så här använder du händelse loggarna och prestanda räknarna på dina Windows-servrar för att övervaka hälso tillståndet för din Azure File Sync-distribution. 
 
 ## <a name="azure-monitor"></a>Azure Monitor
@@ -34,7 +34,9 @@ Använd [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)
 
 Mått för Azure File Sync är aktiverade som standard och skickas till Azure Monitor var 15: e minut.
 
-Om du vill visa Azure File Sync mått i Azure Monitor väljer du resurs typen **Storage Sync Services** .
+**Visa Azure File Sync mått i Azure Monitor**
+- Gå till **tjänsten Storage Sync** i **Azure Portal** och klicka på **mått**.
+- Klicka på list rutan **mått** och välj det mått som du vill visa.
 
 Följande mått för Azure File Sync är tillgängliga i Azure Monitor:
 
@@ -82,7 +84,7 @@ Om du vill visa registrerad Server hälsa, Server slut punkts hälsa och mått g
 ### <a name="registered-server-health"></a>Registrerad Server hälsa
 
 - Om det **registrerade Server** läget är **online**, kommunicerar servern med tjänsten.
-- Om det **registrerade Server** läget **visas som offline**kontrollerar du att processen för övervakning av lagrings plats (AzureStorageSyncMonitor.exe) på servern körs. Om servern finns bakom en brand vägg eller proxy kan du läsa [den här artikeln](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) för att konfigurera brand väggen och proxyn.
+- Om det **registrerade Server** läget **visas offline**körs inte övervaknings processen för synkronisering av lagring (AzureStorageSyncMonitor.exe) eller så går det inte att få åtkomst till tjänsten Azure File Sync. Se [fel söknings dokumentationen](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) för vägledning.
 
 ### <a name="server-endpoint-health"></a>Server slut punkts hälsa
 
@@ -121,11 +123,13 @@ Sync-hälsa:
   > [!Note]  
   > Synkronisering av sessioner fungerar ibland inte generellt eller har en PerItemErrorCount som inte är noll. De kommer dock fortfarande att fortsätta och vissa filer synkroniseras. Du kan se detta i de använda fälten, till exempel AppliedFileCount, AppliedDirCount, AppliedTombstoneCount och AppliedSizeBytes. Dessa fält visar hur mycket av sessionen som har lyckats. Om flera Sync-sessioner visas på en rad och de har ett ökande antal tillämpade, kan du ange att synkroniseringen ska göras innan du öppnar ett support ärende.
 
+- Händelse-ID 9121 loggas för varje objekt per objekt när Sync-sessionen har slutförts. Använd den här händelsen för att avgöra hur många filer som inte kan synkroniseras med det här felet (**PersistentCount** och **TransientCount**). Beständiga fel per objekt bör undersökas, se [Hur gör jag för att se om det finns specifika filer eller mappar som inte synkroniseras?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
+
 - Händelse-ID 9302 loggas var 5 till 10 minuter om det finns en aktiv Sync-session. Använd den här händelsen för att ta reda på om den pågående synkroniseringen görs (**AppliedItemCount > 0**). Om synkronisering inte sker, bör Sync-sessionen sluta att fungera och händelse-ID 9102 kommer att loggas med felet. Mer information finns i dokumentationen för [Sync-förloppet](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 Registrerad Server hälsa:
 
-- Händelse-ID 9301 loggas var 30: e sekund när en server frågar tjänsten efter jobb. Om GetNextJob slutförs med **status = 0**, kan servern kommunicera med tjänsten. Om GetNextJob har slutförts med ett fel kan du läsa mer i [fel söknings dokumentationen](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) .
+- Händelse-ID 9301 loggas var 30: e sekund när en server frågar tjänsten efter jobb. Om GetNextJob slutförs med **status = 0**, kan servern kommunicera med tjänsten. Om GetNextJob har slutförts med ett fel kan du läsa mer i [fel söknings dokumentationen](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) .
 
 Hälso tillstånd för moln nivåer:
 

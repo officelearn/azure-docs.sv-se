@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cf89864eb6e52baf925f82aa590619d7cfeabb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7d2bb927569a125015f1b0befa27fd3e1f17c00
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552119"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874783"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurera autentiseringsessionshantering med villkorsstyrd åtkomst
 
@@ -45,7 +45,7 @@ Inställningen för inloggnings frekvens fungerar med appar som har implementera
 - OneNote online
 - Office.com
 - O365 administrations Portal
-- exchange online
+- Exchange Online
 - SharePoint och OneDrive
 - Team webb klient
 - Dynamics CRM Online
@@ -106,8 +106,6 @@ Villkorlig åtkomst är en Azure AD Premium funktion och kräver en Premium-lice
 ![Princip för villkorlig åtkomst har kon figurer ATS för inloggnings frekvens](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
 På Azure AD-registrerade Windows-enheter loggar du in på enheten som en uppfråga. Om du till exempel har konfigurerat inloggnings frekvensen till 24 timmar för Office-appar, så uppfyller användare på Azure AD-registrerade Windows-enheter inloggnings frekvens principen genom att logga in på enheten och kommer inte att tillfrågas igen när Office-appar öppnas.
-
-Om du har konfigurerat olika inloggnings frekvenser för olika webbappar som körs i samma webbläsarsession, kommer den striktaste principen att tillämpas på båda apparna eftersom alla appar som körs i samma webbläsarsession delar en token för en session.
 
 ### <a name="policy-2-persistent-browser-session"></a>Princip 2: beständig webbläsarsession
 

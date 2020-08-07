@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: cc270ebb12b27c6461b00a4f7042bc3c829d02ef
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 5e061e4d6f9e67cc7d92548f54add94097ede7d1
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87812332"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905217"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Felsöka Azure Digitals dubbla: mått
 
@@ -32,9 +32,14 @@ Mått är aktiverat som standard. Du kan visa Azure Digitals dubbla mått från 
 
     Den här sidan visar måtten för din Azure Digital-instansen. Du kan också skapa anpassade vyer av dina mått genom att välja de som du vill se i listan.
     
-3. Du kan välja att skicka dina mått data till en Event Hubs-slutpunkt eller ett Azure Storage konto genom att klicka på **diagnostikinställningar** på menyn och sedan **lägga till en diagnostisk inställning**.
+3. Du kan välja att skicka Mät data till en Event Hubs-slutpunkt eller ett Azure Storage konto genom att välja **diagnostikinställningar** på menyn och sedan **lägga till diagnostikinställningar**.
 
-    :::image type="content" source="media/troubleshoot-metrics/diagnostic-settings.png" alt-text="Skärm bild som visar sidan diagnostikinställningar och knappen som ska läggas till":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Skärm bild som visar sidan diagnostikinställningar och knappen som ska läggas till":::
+
+    Mer information om den här processen finns i [*fel sökning: Konfigurera diagnostik*](troubleshoot-diagnostics.md).
+
+4. Du kan välja att konfigurera aviseringar för dina mått data genom att välja **aviseringar** på menyn och sedan **+ ny varnings regel**.
+    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Skärm bild som visar sidan aviseringar och knapp att lägga till":::
 
     Mer information om den här processen finns i [*fel sökning: Konfigurera diagnostik*](troubleshoot-diagnostics.md).
 

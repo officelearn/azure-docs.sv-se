@@ -1,6 +1,6 @@
 ---
 title: Skriptexempel för Azure PowerShell – Skapa en AIPM-tjänst | Microsoft Docs
-description: Skriptexempel för Azure PowerShell – Skapa en AIPM-tjänst
+description: Lär dig hur du skapar en API Management-tjänst (APIM). Se ett exempel skript och Visa fler tillgängliga resurser.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: d0d375f3f60c4a6e544489fc333492586f8d921b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6cfa643d8949f80e8dcf99c2c8e64cf20588b928
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008981"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851063"
 ---
 # <a name="create-an-api-management-service"></a>Skapa en API Management-tjänst
 

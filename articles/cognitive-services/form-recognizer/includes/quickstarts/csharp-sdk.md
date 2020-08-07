@@ -9,16 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 2b46e115b6360b161a1b2ad9b176f3afbfaf27d0
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 8ff353c5386f7ad5f30144ca50740c751b81ffc5
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86277738"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87910705"
 ---
 [Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src)  |  [Paket (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer)  |  [Exempel](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/).
 * En Azure Storage-blob som innehåller en uppsättning tränings data. Se [skapa en tränings data uppsättning för en anpassad modell](../../build-training-data-set.md) för tips och alternativ för att sätta samman din tränings data uppsättning. I den här snabb starten kan du använda filerna under mappen **träna** i [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451).
@@ -168,7 +168,7 @@ Du kan använda formulär igenkänning för att identifiera tabeller, rader och 
 Om du vill identifiera innehållet i en fil vid en specifik URI använder du metoden **StartRecognizeContentFromUri** .
 
 ```csharp
-private static async Task<Guid> GetContent(
+private static async Task GetContent(
     FormRecognizerClient recognizerClient, string invoiceUri)
 {
     Response<FormPageCollection> formPages = await recognizerClient
@@ -214,7 +214,7 @@ Det här avsnittet visar hur du identifierar och extraherar vanliga fält från 
 Om du vill känna igen kvitton från en URI använder du metoden **StartRecognizeReceiptsFromUri** . Det returnerade värdet är en samling **RecognizedReceipt** -objekt: en för varje sida i det dokument som skickas. Följande kod bearbetar ett kvitto vid den aktuella URI: n och skriver ut de viktigaste fälten och värdena till-konsolen.
 
 ```csharp
-private static async Task<Guid> AnalyzeReceipt(
+private static async Task AnalyzeReceipt(
     FormRecognizerClient recognizerClient, string receiptUri)
 {
     RecognizedReceiptCollection receipts = await recognizerClient.StartRecognizeReceiptsFromUri(new Uri(receiptUri))
@@ -406,10 +406,10 @@ Du använder metoden **StartRecognizeCustomFormsFromUri** . Det returnerade vär
 ```csharp
 // Analyze PDF form data
 private static async Task AnalyzePdfForm(
-    FormRecognizerClient formClient, Guid modelId, string pdfFormFile)
+    FormRecognizerClient recognizerClient, Guid modelId, string formUrl)
 {    
     Response<IReadOnlyList<RecognizedForm>> forms = await recognizerClient
-        .StartRecognizeCustomFormsFromUri(modelId, new Uri(formUri))
+        .StartRecognizeCustomFormsFromUri(modelId.ToString(), new Uri(formUrl))
         .WaitForCompletionAsync();
 ```
 
@@ -516,7 +516,7 @@ Du kan också ta bort en modell från ditt konto genom att referera till dess ID
 }
 ```
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Kör programmet från program katalogen med `dotnet run` kommandot.
 

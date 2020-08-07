@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
-ms.custom: mvc, tracking-python
-ms.openlocfilehash: 3acb8b2ac75753a36097cb94a9294860c3f14354
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.custom: mvc, devx-track-python
+ms.openlocfilehash: dd34806cbfeeccadbaac247a9ea4d019cc22fc57
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608986"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876418"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Snabb start: registrera TPM-enhet för att IoT Hub Device Provisioning Service med hjälp av python Provisioning service SDK
 
@@ -22,7 +22,7 @@ ms.locfileid: "84608986"
 
 I den här snabb starten skapar du program mässigt en enskild registrering för en TPM-enhet i Azure-IoT Hub Device Provisioning Service med hjälp av tjänsten python Provisioning service SDK med hjälp av ett exempel på python-program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Konfiguration av [IoT Hub Device Provisioning service med Azure Portal](./quick-setup-auto-provision.md)slutförs.
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).

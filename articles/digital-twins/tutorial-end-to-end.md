@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: aae1797f7f1a252a4f094ee9f1b079fb60ba72f3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 0407046dcafb0dcc1872d5083669e09b378a75cd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131760"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827392"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Bygg ut en lösning från slut punkt till slut punkt
 
@@ -95,6 +95,20 @@ Nästa steg är att konfigurera en [Azure Functions-app](../azure-functions/func
 
 I det här avsnittet ska du publicera den fördefinierade Function-appen och se till att Function-appen kan komma åt Azures digitala dubbla, genom att tilldela den en Azure Active Directory (Azure AD)-identitet. Genom att slutföra de här stegen får resten av självstudien att använda funktionerna i Function-appen. 
 
+I Visual Studio-fönstret där _**AdtE2ESample**_ -projektet är öppet finns Function-appen i _**SampleFunctionsApp**_ -projektfilen. Du kan visa det i fönstret *Solution Explorer* .
+
+### <a name="update-dependencies"></a>Uppdatera beroenden
+
+Innan du publicerar appen är det en bra idé att se till att dina beroenden är uppdaterade och se till att du har den senaste versionen av alla paket som ingår.
+
+I fönstret *Solution Explorer* expanderar du *SampleFunctionsApp >-beroenden*. Högerklicka på *paket* och välj *Hantera NuGet-paket...*.
+
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: hantera NuGet-paket för SampleFunctionsApp-projektet" border="false":::
+
+Då öppnas paket hanteraren för NuGet. Välj fliken *uppdateringar* och om det finns paket som ska uppdateras markerar du kryss rutan för att *välja alla paket*. Tryck sedan på *Uppdatera*.
+
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Visual Studio: välja att uppdatera alla paket i NuGet Package Manager":::
+
 ### <a name="publish-the-app"></a>Publicera appen
 
 I Visual Studio-fönstret där _**AdtE2ESample**_ -projektet är öppet går du till fönstret *Solution Explorer* , högerklickar på projekt filen _**SampleFunctionsApp**_ och trycker på **publicera**.
@@ -134,19 +148,21 @@ I fönstret *publicera* som öppnas i huvud fönstret i Visual Studio kontroller
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Publicera Azure Function i Visual Studio: publicera":::
 
 > [!NOTE]
-> Du kan se ett popup-meddelande som detta: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="publicera Azure Function i Visual Studio: publicera autentiseringsuppgifter" border="false":::
-> I så fall väljer **du försök att hämta autentiseringsuppgifter från Azure** och **Spara**.
+> Om du ser ett popup-meddelande som detta: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="publicera Azure Function i Visual Studio: publicera autentiseringsuppgifter" border="false":::
+> Välj **försök att hämta autentiseringsuppgifter från Azure** och **Spara**.
 >
-> Om du ser en varning om att *din version av Functions runtime inte matchar versionen som körs i Azure*, följer du anvisningarna för att uppgradera till den senaste Azure Functions runtime-versionen. Det här problemet kan uppstå om du använder en äldre version av Visual Studio än den som rekommenderas i avsnittet *krav* i början av den här självstudien.
+> Om du ser en varning om att *Uppgradera Functions-versionen på Azure* eller att *din version av Functions runtime inte matchar den version som körs i Azure*:
+>
+> Följ anvisningarna för att uppgradera till den senaste versionen av Azure Functions Runtime. Det här problemet kan uppstå om du använder en äldre version av Visual Studio än den som rekommenderas i avsnittet *krav* i början av den här självstudien.
 
 ### <a name="assign-permissions-to-the-function-app"></a>Tilldela behörigheter till Function-appen
 
-Om du vill göra det möjligt för Function-appen att komma åt Azure Digitals, är nästa steg att konfigurera en app-inställning, tilldela appen en Systemhanterad Azure AD-identitet och ge den här identiteten *ägar* behörighet i Azure Digitals-instansen.
+Om du vill göra det möjligt för Function-appen att komma åt Azure Digitals, är nästa steg att konfigurera en app-inställning, tilldela appen en Systemhanterad Azure AD-identitet och ge den identiteten rollen *Azure Digitals-ägare (för hands version)* i Azure Digitals-instansen. Den här rollen krävs för alla användare eller funktioner som vill utföra många data Plans aktiviteter på instansen. Du kan läsa mer om säkerhets-och roll tilldelningar i [*begrepp: säkerhet för Azure Digitals dubbla lösningar*](concepts-security.md).
 
-I Azure Cloud Shell använder du följande kommando för att ange en program inställning som din Function-app ska använda för att referera till Digitals-instansen.
+I Azure Cloud Shell använder du följande kommando för att ange en program inställning som din Function-app ska använda för att referera till din Azure Digital-instansen.
 
 ```azurecli-interactive
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-digital-twin-instance-URL>"
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
 Använd följande kommando för att skapa den systemhanterade identiteten. Anteckna fältet *principalId* i utdata.
@@ -155,7 +171,7 @@ Använd följande kommando för att skapa den systemhanterade identiteten. Antec
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Använd värdet *principalId* i följande kommando för att tilldela Function-appens identitet till *ägar* rollen för din Azure Digital-instansen:
+Använd *principalId* -värdet från utdata i följande kommando för att tilldela Function-appens identitet till *Azure Digitals-rollen ägare (för hands version)* för din Azure Digital-instansen:
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
@@ -339,7 +355,7 @@ Du kan också kontrol lera att slut punkten har skapats genom att köra följand
 az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> 
 ```
 
-Leta efter `provisioningState` fältet i utdata och kontrol lera att värdet är "lyckades".
+Leta efter `provisioningState` fältet i utdata och kontrol lera att värdet är "lyckades". Det kan också stå "etablering", vilket innebär att slut punkten fortfarande skapas. I det här fallet väntar du några sekunder och kör kommandot igen för att kontrol lera att det har slutförts.
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Resultat av slut punkts frågan, som visar slut punkten med en provisioningState slutförd":::
 
@@ -354,6 +370,9 @@ az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name
 ```
 
 Utdata från det här kommandot är viss information om den väg som du har skapat.
+
+>[!NOTE]
+>Slut punkter (från föregående steg) måste ha slutfört etableringen innan du kan konfigurera en händelse väg som använder dem. Om det inte går att skapa en väg eftersom slut punkterna inte är klara, väntar du några minuter och försöker sedan igen.
 
 #### <a name="connect-the-function-to-event-grid"></a>Anslut funktionen till Event Grid
 

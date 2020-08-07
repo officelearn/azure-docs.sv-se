@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4868db7df6209c620c5ae1bd9b1207072214ad35
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1d2675a55133d405041be6e309e0cc4d1596084e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074214"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835499"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Virtuella Windows-datorer i Azure
 
@@ -47,7 +47,7 @@ I den här tabellen finns några exempel på hur du kan hämta en lista över ti
 
 | Metod | Beskrivning |
 | --- | --- |
-| Azure-portalen |Välj en plats i listan när du skapar en virtuell dator. |
+| Azure Portal |Välj en plats i listan när du skapar en virtuell dator. |
 | Azure PowerShell |Använd kommandot [Get-AzLocation](/powershell/module/az.resources/get-azlocation). |
 | REST-API |Använd åtgärden [List locations](/rest/api/resources/subscriptions) (Listplatser). |
 | Azure CLI |Använd åtgärden [az account list-locations](/cli/azure/account?view=azure-cli-latest). |
@@ -57,7 +57,7 @@ Azure har tillkännagivit ett branschledande serviceavtal på 99,9 % för virtue
 
 
 ## <a name="vm-size"></a>Storlek på virtuell dator
-[Storleken](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) på den virtuella datorn som du använder bestäms av den arbetsbelastning som du vill köra. Storleken som du väljer avgör sedan faktorer som processorkraft, minne och lagringskapacitet. Azure erbjuder en rad olika storlekar för att passa en mängd olika användningar.
+[Storleken](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) på den virtuella datorn som du använder bestäms av den arbetsbelastning som du vill köra. Storleken som du väljer avgör sedan faktorer som processorkraft, minne och lagringskapacitet. Azure erbjuder en rad olika storlekar för att passa en mängd olika användningar.
 
 Azure debiterar ett [Tim pris](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) baserat på den virtuella datorns storlek och operativ system. För delar av timmar tar Azure bara betalt för användningen per minut. Lagringsutrymme prissätts och debiteras separat.
 
@@ -73,7 +73,7 @@ I den här tabellen hittar du några olika sätt för att hitta informationen om
 
 | Metod | Beskrivning |
 | --- | --- |
-| Azure-portalen |Värdena anges automatiskt åt dig när du väljer en avbildning som du vill använda. |
+| Azure Portal |Värdena anges automatiskt åt dig när du väljer en avbildning som du vill använda. |
 | Azure PowerShell |[Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
 | REST API:er |[Lista över avbildningsutgivare](/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Lista över avbildningserbjudanden](/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Lista över avbildnings-SKU:er](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 | Azure CLI |[AZ VM Image List-Publishers](/cli/azure/vm/image?view=azure-cli-latest) --location *location*<BR>[AZ VM Image List-erbjudanden](/cli/azure/vm/image?view=azure-cli-latest) --location *location* --Publisher *publisherName*<BR>[AZ VM Image List-SKU](/cli/azure/vm?view=azure-cli-latest) --location *location* --Publisher *publisherName* --erbjudande *offerName*|
@@ -94,12 +94,12 @@ Resurserna i den här tabellen används av den virtuella datorn och måste finna
 
 | Resurs | Krävs | Beskrivning |
 | --- | --- | --- |
-| [Resursgrupp](../../azure-resource-manager/management/overview.md) |Yes |Den virtuella datorn måste ingå i en resursgrupp. |
-| [Lagringskonto](../../storage/common/storage-account-create.md) |Yes |Den virtuella datorn behöver lagringskontot för att kunna lagra sina virtuella hårddiskar. |
-| [Virtuellt nätverk](../../virtual-network/virtual-networks-overview.md) |Yes |Den virtuella datorn måste ingå i ett virtuellt nätverk. |
-| [Offentlig IP-adress](../../virtual-network/public-ip-addresses.md) |No |Den virtuella datorn kan tilldelas en offentlig IP-adress för att möjliggöra fjärråtkomst till den. |
-| [Nätverksgränssnitt](../../virtual-network/virtual-network-network-interface.md) |Yes |Den virtuella datorn behöver nätverksgränssnittet för att kunna kommunicera i nätverket. |
-| [Datadiskar](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No |Den virtuella datorn kan innehålla datadiskar för att expandera lagringskapaciteten. |
+| [Resursgrupp](../../azure-resource-manager/management/overview.md) |Ja |Den virtuella datorn måste ingå i en resursgrupp. |
+| [Lagringskonto](../../storage/common/storage-account-create.md) |Ja |Den virtuella datorn behöver lagringskontot för att kunna lagra sina virtuella hårddiskar. |
+| [Virtuellt nätverk](../../virtual-network/virtual-networks-overview.md) |Ja |Den virtuella datorn måste ingå i ett virtuellt nätverk. |
+| [Offentlig IP-adress](../../virtual-network/public-ip-addresses.md) |Nej |Den virtuella datorn kan tilldelas en offentlig IP-adress för att möjliggöra fjärråtkomst till den. |
+| [Nätverksgränssnitt](../../virtual-network/virtual-network-network-interface.md) |Ja |Den virtuella datorn behöver nätverksgränssnittet för att kunna kommunicera i nätverket. |
+| [Datadiskar](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Nej |Den virtuella datorn kan innehålla datadiskar för att expandera lagringskapaciteten. |
 
 ## <a name="next-steps"></a>Nästa steg
 

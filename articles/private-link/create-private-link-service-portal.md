@@ -8,18 +8,18 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: f21b440ee0e2c53d9824300e85b683629c1575da
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 125b70b389809c576d17d1c8de35290c1c402c4a
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78252553"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852896"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Snabb start: skapa en privat länk-tjänst med hjälp av Azure Portal
 
 En Azure Private Link-tjänst refererar till din egen tjänst som hanteras av en privat länk. Du kan ge privat länk åtkomst till den tjänst eller resurs som fungerar bakom Azure Standard Load Balancer. Konsumenter av tjänsten kan komma åt den privat från sina egna virtuella nätverk. I den här snabb starten får du lära dig hur du skapar en privat länk-tjänst med hjälp av Azure Portal.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -37,12 +37,12 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 
 | Parameter                   | Värde                |
 |-----------------------------|----------------------|
-| **\<resurs grupp-namn>**  | myResourceGroupLB |
-| **\<virtuell-nätverks namn>** | myVNet          |
-| **\<region namn>**          | USA, östra 2      |
-| **\<IPv4-adress utrymme>**   | 10.3.0.0 \ 16          |
-| **\<under näts namn>**          | myBackendSubnet        |
-| **\<undernät-adress – intervall>** | 10.3.0.0 \ 24          |
+| **\<resource-group-name>**  | myResourceGroupLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | USA, östra 2      |
+| **\<IPv4-address-space>**   | 10.3.0.0/16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.3.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -50,7 +50,7 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 
 Använd portalen för att skapa en standard intern belastningsutjämnare. Namnet och IP-adressen som du anger konfigureras automatiskt som belastningsutjämnarens klient del.
 
-1. På den övre vänstra sidan av portalen väljer du **skapa en resurs** > **nätverk** > **Load Balancer**.
+1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **nätverk**  >  **Load Balancer**.
 
 1. Ange eller Välj följande information på fliken **grundläggande** på sidan **skapa belastnings utjämning** :
 
@@ -135,9 +135,9 @@ Så här skapar du en belastnings Utjämnings regel:
 
 I det här avsnittet skapar du en privat länk-tjänst bakom en standard belastningsutjämnare.
 
-1. I den övre vänstra delen av sidan i Azure Portal väljer du **skapa en resurs** > **nätverk** > **Private Link Center (för hands version)**. Du kan också använda portalens sökruta för att söka efter en privat länk.
+1. I den övre vänstra delen av sidan i Azure Portal väljer du **skapa en resurs**  >  **nätverk**  >  **Private Link Center (för hands version)**. Du kan också använda portalens sökruta för att söka efter en privat länk.
 
-1. I **privat länk Center – översikt** > **exponerar din egen tjänst så att andra kan ansluta**, Välj **Start**.
+1. I **privat länk Center – översikt**  >  **exponerar din egen tjänst så att andra kan ansluta**, Välj **Start**.
 
 1. Under **skapa en privat länk tjänst – grunderna**anger eller väljer du den här informationen:
 
@@ -145,7 +145,7 @@ I det här avsnittet skapar du en privat länk-tjänst bakom en standard belastn
     |-------------------|------------------------------------------------------------------------------|
     | Projekt information:  |                                                                              |
     | **Prenumeration**      | Välj din prenumeration.                                                     |
-    | **Resurs grupp**    | Välj **myResourceGroupLB**.                                                    |
+    | **Resursgrupp**    | Välj **myResourceGroupLB**.                                                    |
     | Instans information: |                                                                              |
     | **Namn**              | Ange **myPrivateLinkService**. |
     | **Region**            | Välj **USA, östra 2**.                                                        |
@@ -156,7 +156,7 @@ I det här avsnittet skapar du en privat länk-tjänst bakom en standard belastn
 
     | Inställning                           | Värde                                                                           |
     |-----------------------------------|---------------------------------------------------------------------------------|
-    | **Lastbalanserare**                     | Välj **myLoadBalancer**.                                                           |
+    | **Load Balancer**                     | Välj **myLoadBalancer**.                                                           |
     | **IP-adress för Load Balancer-klient** | Välj IP-adressen för klient delen av **myLoadBalancer**.                                |
     | **Käll-NAT virtuellt nätverk**        | Välj **myVNet**.                                                                   |
     | **Käll-NAT-undernät**                 | Välj **myBackendSubnet**.                                                          |
@@ -167,7 +167,7 @@ I det här avsnittet skapar du en privat länk-tjänst bakom en standard belastn
 
 1. Under **skapa en privat länk tjänst-åtkomst säkerhet**, väljer du **synlighet**och väljer sedan **rollbaserad åtkomst kontroll**.
   
-1. Välj antingen **Nästa: Taggar** > **Granska + skapa** eller Välj fliken **Granska + skapa** högst upp på sidan.
+1. Välj antingen **Nästa: Taggar**  >  **Granska + skapa** eller Välj fliken **Granska + skapa** högst upp på sidan.
 
 1. Granska informationen och välj **skapa**.
 

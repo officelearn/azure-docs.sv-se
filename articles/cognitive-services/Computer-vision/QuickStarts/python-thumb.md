@@ -10,19 +10,19 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 05/20/2020
 ms.author: pafarley
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 968f9f1d658e79fb5213355358b91e98c353b07f
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.custom: seodec18, devx-track-python
+ms.openlocfilehash: 768bfad42c06fa100b97633c6a345ce14c8b0874
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84985687"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847796"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-python"></a>Snabb start: skapa en miniatyr med hjälp av Visuellt innehåll REST API och python
 
 I den här snabb starten ska du skapa en miniatyr bild från en avbildning med hjälp av Visuellt innehåll REST API. Med metoden [Hämta miniatyrbild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f20c) kan du ange önskad höjd och bredd. Därefter använder Visuellt innehåll smart beskärning för att identifiera det område som är intressant och generera koordinater för beskärning baserat på det området.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
@@ -82,9 +82,9 @@ thumbnail.show()
 Gör därefter något av följande:
 
 1. Valfritt Ersätt värdet för `image_url` med URL: en för din egen bild.
-1. Spara koden som en fil med tillägget `.py`. Exempelvis `get-thumbnail.py`.
+1. Spara koden som en fil med tillägget `.py`. Till exempel `get-thumbnail.py`.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python get-thumbnail.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python get-thumbnail.py`.
 
 ## <a name="examine-the-response"></a>Granska svaret
 

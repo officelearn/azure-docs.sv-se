@@ -10,13 +10,13 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
-ms.custom: how-to, seodec18, tracking-python
-ms.openlocfilehash: f30f2b45944281ed74da2026eb14e8938260b259
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: how-to, seodec18, devx-track-python
+ms.openlocfilehash: 90de785d56e50885a13d43faa77f087d1235ea18
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496108"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852539"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ansluta till Azure Storage-tjänster
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Information om var data lagret får plats i Azure Machine Learning det totala ar
 ## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver:
-- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Ett Azure Storage-konto med en [lagrings typ som stöds](#matrix).
 
@@ -259,10 +259,10 @@ Du kan också ändra standard data lagret med följande kod. Den här funktionen
 
 Azure Machine Learning tillhandahåller flera olika sätt att använda dina modeller för att beräkna poäng. Några av dessa metoder ger inte åtkomst till data lager. Använd följande tabell för att förstå vilka metoder du kan använda för att komma åt data lager under poängsättningen:
 
-| Metod | Åtkomst till data lager | Description |
+| Metod | Åtkomst till data lager | Beskrivning |
 | ----- | :-----: | ----- |
 | [Batchförutsägelse](how-to-use-parallel-run-step.md) | ✔ | Göra förutsägelser kring stora mängder data asynkront. |
-| [Webb tjänst](how-to-deploy-and-where.md) | &nbsp; | Distribuera modeller som en webb tjänst. |
+| [Webbtjänst](how-to-deploy-and-where.md) | &nbsp; | Distribuera modeller som en webb tjänst. |
 | [Azure IoT Edge modul](how-to-deploy-and-where.md) | &nbsp; | Distribuera modeller till IoT Edge enheter. |
 
 I situationer där SDK inte ger åtkomst till data lager kan du kanske skapa anpassad kod med hjälp av relevanta Azure SDK för att få åtkomst till data. Till exempel är [Azure Storage SDK för python](https://github.com/Azure/azure-storage-python) ett klient bibliotek som du kan använda för att komma åt data som lagras i blobbar eller filer.

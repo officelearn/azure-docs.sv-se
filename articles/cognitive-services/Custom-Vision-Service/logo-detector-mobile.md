@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 2bd17e10e6123c48087116e947dc21f4cf788ef3
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 5dd5cd1ac0463c6c07496e4ea49edd08178a5a54
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987868"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87834396"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Självstudie: identifiera Azure-tjänstens logo typer i kamera bilder
 
@@ -28,9 +28,9 @@ De här självstudierna visar hur du:
 > - Anslut appen till Azure-tjänsten Visuellt innehåll och Custom Vision.
 > - Skapa ett konto för Azure-tjänstens huvudnamn för att distribuera Azure-tjänster från appen.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar. 
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/)
 - Xamarin-arbetsbelastningen för Visual Studio (se [Installera Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
@@ -67,7 +67,7 @@ I den vänstra rutan ställer du in reglaget **Taggar** på **Tagged** (Taggad) 
 
 ![Custom Vision webbplats på fliken träna bilder. I den här skärm bilden beskrivs knappen träna](media/azure-logo-tutorial/train-model.png)
 
-## <a name="get-the-prediction-url"></a>Hämta URL:en för förutsägelse
+## <a name="get-the-prediction-url"></a>Hämta förutsägelse-URL
 
 När din modell har tränats är du redo att integrera den med din app. Du måste hämta slut punkts-URL: en (adressen till din modell som appen kommer att fråga) och förutsägelse nyckeln (för att ge appen åtkomst till förutsägelse begär Anden). På fliken **Prestanda** väljer du knappen **Prediction URL** (Förutsägelse-URL) längst upp på sidan.
 

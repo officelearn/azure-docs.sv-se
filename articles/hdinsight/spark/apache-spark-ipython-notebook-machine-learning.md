@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive,mvc, tracking-python
+ms.custom: hdinsightactive,mvc, devx-track-python
 ms.date: 04/07/2020
-ms.openlocfilehash: 0dfdb324013a246010c12d36a50c80b4fbef503e
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 0029761f8a1c48ab595dfa5bc2a87fca12d90e3d
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607099"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873933"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Självstudie: utveckla ett Apache Spark Machine Learning-program i Azure HDInsight
 
@@ -21,11 +21,11 @@ I den här självstudien lär du dig att använda [Jupyter Notebook](https://jup
 
 [MLlib](https://spark.apache.org/docs/latest/ml-guide.html) är Spark: s anpassningsbara maskin inlärnings bibliotek som består av vanliga inlärnings-algoritmer och-verktyg. (Klassificering, regression, klustring, gemensam filtrering och dimensionalitet. Även underliggande optimerings primitiver.)
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Utveckla ett Apache Spark-maskininlärningsprogram
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache Spark-kluster i HDInsight. Se [skapa ett Apache Spark-kluster](./apache-spark-jupyter-spark-sql-use-portal.md).
 
@@ -33,7 +33,7 @@ I de här självstudierna får du lära dig att
 
 ## <a name="understand-the-data-set"></a>Förstå datauppsättningen
 
-Programmet använder exempel data för **HVAC. csv** som är tillgängliga i alla kluster som standard. Filen finns på `\HdiSamples\HdiSamples\SensorSampleData\hvac` . Data visar måltemperaturen och den faktiska temperaturen för några byggnader som har installerade HVAC-system. Kolumnen **System** representerar system-ID:t, och kolumnen **SystemAge** representerar antalet år som HVAC-systemet har funnits i byggnaden. Du kan förutsäga om en byggnad ska vara Hotter eller kallare baserat på mål temperatur, angivet system-ID och systemets ålder.
+Programmet använder exempel **HVAC.csv** data som är tillgängliga i alla kluster som standard. Filen finns på `\HdiSamples\HdiSamples\SensorSampleData\hvac` . Data visar måltemperaturen och den faktiska temperaturen för några byggnader som har installerade HVAC-system. Kolumnen **System** representerar system-ID:t, och kolumnen **SystemAge** representerar antalet år som HVAC-systemet har funnits i byggnaden. Du kan förutsäga om en byggnad ska vara Hotter eller kallare baserat på mål temperatur, angivet system-ID och systemets ålder.
 
 ![Ögonblicks bild av data som används för Spark Machine Learning-exempel](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Ögonblicks bild av data som används för Spark Machine Learning-exempel")
 

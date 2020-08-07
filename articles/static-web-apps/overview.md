@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 476b81fc9aceae3f05ed54e7b2b11be381121bd8
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 47140bccc8c2a1b69f083502d031a9db6d21294e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488927"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835790"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Vad är Azures statiska Web Apps för hands version?
 
@@ -22,11 +22,11 @@ Azures statiska Web Apps är en tjänst som automatiskt skapar och distribuerar 
 
 Arbets flödet för den statiska Azure-Web Apps är anpassat till en utvecklares dagliga arbets flöde. Appar skapas och distribueras baserat på GitHub-interaktioner.
 
-När du skapar en statisk Azure Web Apps-resurs ställer Azure in ett arbets flöde för GitHub åtgärder i appens käll kods lager som övervakar en valfri gren. Varje gång du push-skickar eller accepterar pull-begäranden till den bevakade grenen skapar och distribuerar GitHub-åtgärden automatiskt appen och dess API till Azure.
+När du skapar en Azure Static Web Apps-resurs skapar Azure ett GitHub Actions-arbetsflöde på lagringsplatsen för appens källkod som övervakar den gren som du har valt. Varje gång du push-skickar eller accepterar pull-begäranden till den bevakade grenen skapar och distribuerar GitHub-åtgärden automatiskt appen och dess API till Azure.
 
-Statiska webbappar skapas ofta med hjälp av bibliotek och ramverk som vinkel, reagera, svelte eller Vue. Dessa appar innehåller HTML-, CSS-, Java Script-och bild till gångar som utgör programmet. Med en traditionell webb server betjänas dessa till gångar från en enda server tillsammans med eventuella nödvändiga API-slutpunkter.
+Statiska webbappar skapas vanligtvis med hjälp av bibliotek och ramverk som Angular, React, Svelte eller Vue. Dessa appar består av HTML, CSS, JavaScript och bildtillgångar. Med en traditionell webb server betjänas dessa till gångar från en enda server tillsammans med eventuella nödvändiga API-slutpunkter.
 
-Med statiska Web Apps separeras statiska till gångar från en traditionell webb server och betjänas i stället från platser geografiskt fördelade över hela världen. Den här distributionen gör det mycket snabbare att betjäna filer eftersom filerna är fysiskt närmare slutanvändarna. Dessutom är API-slutpunkterna värdbaserade med en [arkitektur utan server](../azure-functions/functions-overview.md), vilket gör att du inte behöver ha en fullständig backend-server samtidigt.
+Med statiska Web Apps separeras statiska till gångar från en traditionell webb server och betjänas i stället från platser geografiskt fördelade över hela världen. Den här distributionen gör att det går mycket snabbare att hantera filer eftersom filerna är fysiskt närmare slutanvändarna. Dessutom är API-slutpunkterna värdbaserade med en [arkitektur utan server](../azure-functions/functions-overview.md), vilket gör att du inte behöver ha en fullständig backend-server samtidigt.
 
 ## <a name="key-features"></a>Huvudfunktioner
 
@@ -44,9 +44,9 @@ Med statiska Web Apps separeras statiska till gångar från en traditionell webb
 
 ## <a name="what-you-can-do-with-static-web-apps"></a>Vad du kan göra med statiska Web Apps
 
-- **Bygg moderna JavaScript-program** med ramverk och bibliotek som [vinkel](https://angular.io/), [reagera](https://reactjs.org/), [svelte](https://svelte.dev/), [Vue](https://vuejs.org/) med en [Azure Functions](https://azure.microsoft.com/services/functions/) backend.
+- **Bygg moderna JavaScript-program** med ramverk och bibliotek som [vinkel](getting-started.md#tabpanel_CeZOj-G++Q_angular), [reagera](getting-started.md#tabpanel_CeZOj-G++Q_react), [svelte](https://docs.microsoft.com/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md#tabpanel_CeZOj-G++Q_vue) med en [Azure Functions](apis.md) backend.
 - **Publicera statiska platser** med ramverk som [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md), [VuePress](publish-vuepress.md).
-- **Distribuera webb program** med ramverk som [Nästa. js](deploy-nextjs.md) och [Nuxt. js](deploy-nuxtjs.md).
+- **Distribuera webb program** med ramverk som [Next.js](deploy-nextjs.md) och [Nuxt.js](deploy-nuxtjs.md).
 
 \*Spetsig domän registreringar stöds inte under för hands versionen.
 

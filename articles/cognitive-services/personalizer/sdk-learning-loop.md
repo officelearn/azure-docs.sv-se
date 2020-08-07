@@ -3,14 +3,14 @@ title: 'Snabb start: skapa och använda inlärnings slinga med SDK – personanp
 description: Den här snabb starten visar hur du skapar och hanterar din kunskaps bas med hjälp av klient-SDK.
 ms.topic: quickstart
 ms.date: 07/30/2020
-ms.custom: tracking-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 05657d350616502c3d32b500a32b394a748ab2f6
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 480e860952c2659d053f8a5659e312feacff2d2b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461137"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874494"
 ---
 # <a name="quickstart-personalizer-client-library"></a>Snabb start: klient bibliotek för Personanpassare
 

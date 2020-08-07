@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 606e07e5309cc56ec6d74e3357fd8189a0ecd41a
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: e55968f94df820f4d1e2708c0b52283aed3cc903
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987357"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835195"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-with-go"></a>Snabb start: skapa en miniatyr med Visuellt innehåll REST API med go
 
 I den här snabb starten ska du skapa en miniatyr bild från en avbildning med hjälp av Visuellt innehåll REST API. Du anger höjd och bredd, vilket kan skilja sig från indata-bildens höjd/bredd-förhållande. Visuellt innehåll använder smart beskärning för att identifiera det område som är intressant och generera koordinater för beskärning baserat på det området.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * [Kör](https://golang.org/dl/)
@@ -38,10 +38,10 @@ Så här skapar du och kör exemplet:
 
 1. Kopiera följande kod till en textredigerare.
 1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild från vilken du vill generera en miniatyrbild.
-1. Spara koden som en fil med tillägget `.go`. Exempelvis `get-thumbnail.go`.
+1. Spara koden som en fil med tillägget `.go`. Till exempel `get-thumbnail.go`.
 1. Öppna ett kommandotolksfönster.
-1. Kompilera paketet från filen genom att köra kommandot `go build` i kommandotolken. Exempelvis `go build get-thumbnail.go`.
-1. Kör det kompilerade paketet i kommandotolken. Exempelvis `get-thumbnail`.
+1. Kompilera paketet från filen genom att köra kommandot `go build` i kommandotolken. Till exempel `go build get-thumbnail.go`.
+1. Kör det kompilerade paketet i kommandotolken. Till exempel `get-thumbnail`.
 
 ```go
 package main

@@ -5,14 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 08/06/2020
 ms.author: amverma
-ms.openlocfilehash: f9717105c9241777d72a8943e87f33ab31c8038c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.reviewer: jushiman
+ms.openlocfilehash: b7655f4cb13e80d6262c3d4871c1ab69f4a6a051
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288479"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905475"
 ---
 # <a name="hbv2-series"></a>HBv2-serien
 
@@ -42,4 +43,7 @@ Minnes bebetjänings uppdateringar: stöds inte
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.
+- Lär dig mer om [att konfigurera virtuella datorer](./workloads/hpc/configure.md), [Aktivera INFINIBAND](./workloads/hpc/enable-infiniband.md), konfigurera [MPI](./workloads/hpc/setup-mpi.md) och optimera HPC-program för Azure i [HPC-arbetsbelastningar](./workloads/hpc/overview.md).
+- Läs om de senaste meddelandena och några HPC-exempel och resultat i [Azure Compute Tech community-Bloggar](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- En arkitektur för högre nivå för att köra HPC-arbetsbelastningar finns i [HPC (data behandling med höga prestanda) i Azure](/azure/architecture/topics/high-performance-computing/).
+- Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.

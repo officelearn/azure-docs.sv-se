@@ -7,13 +7,13 @@ ms.date: 02/13/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.custom: tracking-python
-ms.openlocfilehash: 439e645369cd063e3084b5d975b3d1672e20a73e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.custom: devx-track-python
+ms.openlocfilehash: 0d1bfd146729a4a0ef94099a0ad79972517b4f42
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554018"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848194"
 ---
 # <a name="azure-storage-samples-using-v12-python-client-libraries"></a>Azure Storage exempel som använder V12 python-klient bibliotek
 
@@ -593,5 +593,5 @@ Information om exempel för andra språk:
 
 * .NET: [Azure Storage exempel med .net](storage-samples-dotnet.md)
 * Java: [Azure Storage exempel med Java](storage-samples-java.md)
-* Java Script/Node. js: [Azure Storage exempel med hjälp av Java Script](storage-samples-javascript.md)
+* Java Script/Node.js: [Azure Storage exempel med hjälp av Java Script](storage-samples-javascript.md)
 * Alla andra språk: [Azure Storage exempel](storage-samples.md)

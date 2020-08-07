@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9f7f3e0dfd7da98cade0183825463c6b17f49dc1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 69d346d554ee6f30e4ef578bacf358aaba722b5b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077446"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825182"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Självstudier – Hantera Azure-diskar med Azure PowerShell
 
@@ -40,7 +40,7 @@ När en virtuell Azure-dator skapas kopplas två diskar automatiskt till den vir
 
 **Operativsystemdisken** – Operativsystemdiskar kan vara upp till 4 TB och innehåller de virtuella datorernas operativsystem. Om du skapar en ny virtuell dator (VM) från en [Azure Marketplace](https://azure.microsoft.com/marketplace/) -avbildning, är det vanligt vis 127 GB (men vissa avbildningar har mindre disk storlekar för operativ system). OS-disken tilldelas enhetsbokstaven *C:* som standard. OS-diskens cachelagringkonfiguration har optimerats för OS-prestanda. OS-disken **bör inte** innehålla program eller data. För program och data använder du en datadisk (beskrivs senare i den här artikeln).
 
-**Temporär disk** – Temporära diskar använder en SSD-enhet som finns på samma Azure-värd som den virtuella datorn. Temporära diskar har höga prestanda och kan användas för åtgärder som till exempel tillfällig databearbetning. Men om den virtuella datorn flyttas till en ny värd tas alla data som är lagrade på den temporära disken bort. Storleken på den temporära disken bestäms av storleken på den [virtuella datorn](sizes.md). Temporära diskar tilldelas enhetsbeteckningen *D:* som standard.
+**Temporär disk** – Temporära diskar använder en SSD-enhet som finns på samma Azure-värd som den virtuella datorn. Temporära diskar har höga prestanda och kan användas för åtgärder som till exempel tillfällig databearbetning. Men om den virtuella datorn flyttas till en ny värd tas alla data som är lagrade på den temporära disken bort. Storleken på den temporära disken bestäms av storleken på den [virtuella datorn](../sizes.md). Temporära diskar tilldelas enhetsbeteckningen *D:* som standard.
 
 ## <a name="azure-data-disks"></a>Azure-datadiskar
 
@@ -57,7 +57,7 @@ Azure tillhandahåller två disktyper.
 ### <a name="premium-disk-performance"></a>Premiumdiskprestanda
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
-I tabellen ovan visas högsta IOPS per disk, men högre prestanda kan uppnås genom strimling över flera datadiskar. Du kan till exempel koppla 64 datadiskar till en virtuell Standard GS5-dator. Om var och en av dessa diskar har storleken P30 kan du ha högst 80 000 IOPS. Mer information om högsta IOPS per VM finns i [VM-typer och storlekar](./sizes.md).
+I tabellen ovan visas högsta IOPS per disk, men högre prestanda kan uppnås genom strimling över flera datadiskar. Du kan till exempel koppla 64 datadiskar till en virtuell Standard GS5-dator. Om var och en av dessa diskar har storleken P30 kan du ha högst 80 000 IOPS. Mer information om högsta IOPS per VM finns i [VM-typer och storlekar](../sizes.md).
 
 ## <a name="create-and-attach-disks"></a>Skapa och koppla diskar
 

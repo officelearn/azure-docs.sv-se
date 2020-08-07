@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: 011f94cf24c6148ee01275541b090ba28d697018
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6f8181568e5996bfb3c99ae25fb801fa62f3af1
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052494"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904266"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -58,6 +58,13 @@ Artikeln visar hur du överför och indexerar dina videor med följande alternat
 
 I artikeln om [inmatade behållare/fil format](../latest/media-encoder-standard-formats.md#input-containerfile-formats) finns en lista över fil format som du kan använda med video Indexer.
 
+## <a name="video-files-storage"></a>Video fil lagring
+
+- Med ett betalt Video Indexer konto skapar du ett Video Indexer-konto som är kopplat till din Azure-prenumeration och ett Azure Media Services-konto. Mer information finns i [skapa ett video Indexer-konto som är anslutet till Azure](connect-to-azure.md).
+- Videofiler lagras i Azure Storage med Azure Media Services. Det finns ingen tids begränsning.
+- Du kan alltid ta bort video-och ljudfiler samt alla metadata och insikter som extraheras från dem genom att Video Indexer. När du har tagit bort en fil från Video Indexer tas filen och dess metadata och insikter permanent bort från Video Indexer. Men om du har implementerat en egen lösning för säkerhets kopiering i Azure Storage finns filen kvar i din Azure-lagring.
+- Persistency för en video är identisk, oavsett om uppladdningen har utförts Video Indexer webbplats eller via överförings-API: et.
+   
 ## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a name="website"></a>Ladda upp och indexera en video med hjälp av Video Indexer webbplats
 
 > [!NOTE]
@@ -110,7 +117,7 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
         
     - Exempel: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&FaceID = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&personName = Inigo_Montoya 
 
-##### <a name="notes"></a>Kommentarer
+##### <a name="notes"></a>Obs!
 
 - Video Indexer returnerar alla befintliga parametrar som anges i den ursprungliga webbadressen.
 - Den tillhandahållna webbadressen måste vara kodad.
@@ -141,6 +148,9 @@ Videor indexeras av Video Indexer enligt deras prioritet. Använd parametern **p
 När videon har laddats upp kan Video Indexer koda videon. Sedan fortsätter den med indexering och analys av videon. När Video Indexer är klar med analysen får du ett meddelande med video-ID:t.  
 
 När du använder API:t [Ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) eller [Indexera om video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) är en av de valfria parametrarna `streamingPreset`. Om du ställer in `streamingPreset` på `Default`, `SingleBitrate` eller `AdaptiveBitrate` utlöses kodningsprocessen. När indexerings- och kodningsjobben är klara publiceras videon så att du även kan strömma videon. Slutpunkten för direktuppspelning som du vill strömma videon från måste ha tillståndet **Körs**.
+
+För SingleBitrate kommer standard-Encoder-kostnaden att gälla per utdata. Om video höjden är större än eller lika med 720 kodas Video Indexer som 1280x720. Annars, som 640x468.
+Standardvärdet är [kodning av innehålls medveten information](../latest/content-aware-encoding.md).
 
 För att kunna köra indexerings- och kodningsjobben kräver [Azure Media Services-kontot som är anslutet till ditt Video Indexer-konto](connect-to-azure.md) reserverade enheter. Mer information finns i [Skala mediebearbetning](../previous/media-services-scale-media-processing-overview.md). Eftersom det är beräkningsintensiva jobb rekommenderas enhetstypen S3 starkt. Antalet RU:er definierar det maximala antalet jobb som kan köras parallellt. Baslinjerekommendationen är 10 S3-RU:er. 
 

@@ -3,14 +3,14 @@ title: 'Snabb start: Använd SDK för att skapa och hantera kunskaps bas – QnA
 description: Den här snabb starten visar hur du skapar och hanterar din kunskaps bas med hjälp av klient-SDK.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.custom: tracking-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: c193be6b415e6c158dfc75d6c2f36f6cf9a45e2c
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: e6a8a6d0688f362f934d1439c1ca0f6072acf6d6
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404095"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872930"
 ---
 # <a name="quickstart-qna-maker-client-library"></a>Snabb start: QnA Maker klient bibliotek
 

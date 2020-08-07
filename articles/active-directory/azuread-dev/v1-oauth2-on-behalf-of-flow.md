@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 08/5/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6f52ddbfbdfa30108670b985fba5c5263ce517b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6fc4de3ef934e2d1b9dcff46c78f45e7d0f3b6d8
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85551673"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845467"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Tjänst-till-tjänst-anrop som använder delegerad användar identitet i flödets räkning
 
@@ -59,10 +59,10 @@ Registrera både mellan nivå tjänsten och klient programmet i Azure AD.
 1. Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
 1. Ange omdirigerings-URI: n till bas-URL: en.
 1. Välj **Registrera** för att skapa programmet.
-1. Generera en klient hemlighet innan du avslutar Azure Portal.
 1. I Azure Portal väljer du ditt program och väljer **certifikat & hemligheter**.
 1. Välj **ny klient hemlighet** och Lägg till en hemlighet med en varaktighet på antingen ett år eller två år.
 1. När du sparar den här sidan visas det hemliga värdet i Azure Portal. Kopiera och spara det hemliga värdet på en säker plats.
+1. Skapa ett omfång i programmet på sidan **exponera en API** för din app och klicka på Lägg till ett omfång.  Portalen kan kräva att du skapar en program-ID-URI också. 
 
 > [!IMPORTANT]
 > Du behöver hemligheten för att konfigurera program inställningarna i din implementering. Det här hemliga värdet visas inte igen och kan inte hämtas på annat sätt. Registrera den så snart den visas i Azure Portal.
@@ -79,7 +79,7 @@ Registrera både mellan nivå tjänsten och klient programmet i Azure AD.
 1. Välj **Registrera** för att skapa programmet.
 1. Konfigurera behörigheter för ditt program. I **API-behörigheter**väljer du **Lägg till en behörighet** och sedan **Mina API: er**.
 1. Skriv namnet på mellan nivå tjänsten i textfältet.
-1. Välj **Välj behörigheter** och välj sedan **åtkomst \<service name> **.
+1. Välj **Välj behörigheter** och välj sedan den omfattning som du skapade i det sista steget för att registrera den mittersta nivån.
 
 ### <a name="configure-known-client-applications"></a>Konfigurera kända klient program
 
@@ -139,7 +139,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 En Tokenbegäran för tjänst-till-tjänst-begäran med ett certifikat innehåller följande parametrar:
 
-| Parameter | Typ | Description |
+| Parameter | Typ | Beskrivning |
 | --- | --- | --- |
 | grant_type |krävs | Typ av Tokenbegäran. En OBO-begäran använder en JWT-åtkomsttoken så att värdet måste vara **urn: IETF: params: OAuth: Granting-Type: JWT-Bearer**. |
 | Assertion |krävs | Värdet för den token som används i begäran. |
@@ -249,7 +249,7 @@ Vissa OAuth-baserade webb tjänster behöver åtkomst till andra webb tjänst-AP
 
 En tjänst-till-tjänst-begäran för en SAML-kontroll innehåller följande parametrar:
 
-| Parameter | Typ | Description |
+| Parameter | Typ | Beskrivning |
 | --- | --- | --- |
 | grant_type |krävs | Typ av Tokenbegäran. För en begäran som använder en JWT måste värdet vara **urn: IETF: params: OAuth: Grant-Type: JWT-Bearer**. |
 | Assertion |krävs | Värdet för den åtkomsttoken som används i begäran.|

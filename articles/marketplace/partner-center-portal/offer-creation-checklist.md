@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 11c1c307d00b9347081a313308ad2467086ec208
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e17edacf45583283d53c5484417f6a2dd7c6e012
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327403"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799930"
 ---
 # <a name="saas-offer-creation-checklist-in-partner-center"></a>Check lista för att skapa SaaS i Partner Center
 
@@ -79,9 +79,9 @@ På sidan egenskaper definierar du de kategorier och branscher som används för
 På registrerings sidan är det där du anger den text och de bilder som kunderna ser när du visar ditt erbjudandes lista på Marketplace. 
 
 | **Fältnamn**    | **Kommentarer**   |
-| :---------------- | :-----------| 
+| :---------------- | :-----------|
 | Namn  | Obligatoriskt, max 50 tecken. |
-| Sammanfattning  | Obligatoriskt, max 100 tecken. | 
+| Sammanfattning  | Obligatoriskt, max 100 tecken. |
 | Beskrivning  | Obligatoriskt, max 3000 tecken. |
 | Komma igång-instruktioner  | Obligatoriskt, max 3000 tecken. |
 | Komma igång-instruktioner  | Obligatoriskt, max 3000 tecken. |
@@ -91,7 +91,7 @@ På registrerings sidan är det där du anger den text och de bilder som kundern
 | Rubrik för användbara länkar + URL  | Valfritt. |
 | Rubrik för stöd dokument + fil  | Krävs, min 1 och max 3. Måste vara PDF-filformat. |
 | Skärmbilder  | Obligatorisk, minimal 1 skärm bild och max 5; fyra eller fler rekommenderas. Måste vara 1280 X 720 i PNG-format. |
-| Butiks logo typer (liten, medel, stor, bred)  | Liten (48 X 48) och stor (216 X 216) krävs. andra storlekar valfria men rekommenderas: medium (90 x 90), bred (255 x 115). Måste vara i. PNG-format. |
+| Butiks logo typer (liten, medel, stor)  | Stor logo typ (216 x 216) krävs. Partner Center använder detta för att skapa en liten (48 x 48 pixlar) och en storleks logo typ (mellan 90 x 90 pixlar). Du kan också ersätta dem med olika avbildningar. Logo typer måste vara i PNG-format. |
 | Video namn + URL + miniatyr  | Valfria, rekommenderade, max 4 videor. Miniatyren måste vara 1280 x 720 i PNG-format. Video måste ligga i YouTube eller Vimeo. |
 | Kontakter (CSP-program, teknik, support)  | Teknisk kontakt krävs (namn, e-postadress och telefonnummer). CSP-programmet kontaktar valfritt men rekommenderas. |
 | Support-URL  | Krävs. |
@@ -100,11 +100,11 @@ På registrerings sidan är det där du anger den text och de bilder som kundern
 
 På sidan förhands granskning kan du ange vilken mål grupp som ska ha åtkomst till din för hands version av erbjudandet, för att kontrol lera att erbjudandet uppfyller alla krav innan det går live. 
 
-| **Fältnamn**    | **Kommentarer**   | 
-| :---------------- | :-----------| 
+| **Fältnamn**    | **Kommentarer**   |
+| :---------------- | :-----------|
 | AAD/MSA e-post + Beskrivning | Krävs, min 1 och max 10 om de anges manuellt, eller upp till 20 vid överföring av en CSV-fil. |
 
-## <a name="technical-configuration-page"></a>Sidan teknisk konfiguration 
+## <a name="technical-configuration-page"></a>Sidan teknisk konfiguration
 
 På sidan teknisk konfiguration anger du de tekniska uppgifter som används av Microsoft för att ansluta till ditt erbjudande. Den här sidan visas inte om du valde att inte sälja via Microsoft.
 

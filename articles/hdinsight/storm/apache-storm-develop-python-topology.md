@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017, tracking-python
+ms.custom: hdinsightactive,hdiseo17may2017, devx-track-python
 ms.date: 12/16/2019
-ms.openlocfilehash: 0e8f13a8420873bdc753ed1b7d8c8928705e1f43
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1f062a8f358ac311b53e657fb5714583458bd9b5
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086882"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872590"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Utveckla Apache Storm topologier med python i HDInsight
 
@@ -22,7 +22,7 @@ Lär dig hur du skapar en [Apache Storm](https://storm.apache.org/) -topologi so
 > [!IMPORTANT]  
 > Informationen i det här dokumentet har testats med storm på HDInsight 3,6.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache Storm kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **Storm** för **kluster typ**.
 

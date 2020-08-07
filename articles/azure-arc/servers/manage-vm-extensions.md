@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: e04b2c63f782a4fcbb64273c08511ecb0bbc2bc3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb1de0c2a5b995231c2972fca7279195cbaea9e7
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84977780"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809637"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-for-servers-preview"></a>Hantering av virtuella dator tillägg med Azure-båge för servrar (för hands version)
 
@@ -40,7 +40,7 @@ Funktioner för virtuella dator tillägg är bara tillgängliga i listan över [
 
 I den här för hands versionen har vi stöd för följande VM-tillägg på Windows-och Linux-datorer.
 
-|Anknytning |Operativsystem |Publisher |Ytterligare information |
+|Filnamnstillägg |Operativsystem |Publisher |Ytterligare information |
 |----------|---|----------|-----------------------|
 |CustomScriptExtension |Windows |Microsoft.Compute |[Anpassat skript tillägg för Windows](../../virtual-machines/extensions/custom-script-windows.md)|
 |DSC |Windows |Microsoft. PowerShell|[Windows PowerShell DSC-tillägg](../../virtual-machines/extensions/dsc-windows.md)|
@@ -55,7 +55,7 @@ VM-tillägg kan köras med Azure Resource Manager mallar, från Azure Portal ell
 
 Mer information om paketet för Azure Connected Machine agent och information om tilläggs Agent komponenten finns i [agent översikt](agent-overview.md#agent-component-details).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här funktionen är beroende av följande Azure-resurs leverantörer i din prenumeration:
 
@@ -727,6 +727,6 @@ Följande fel söknings steg gäller för alla VM-tillägg.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du hanterar din dator med hjälp av [Azure policy](../../governance/policy/overview.md), till exempel för [gäst konfiguration](../../governance/policy/concepts/guest-configuration.md)av virtuella datorer, verifiera att datorn rapporterar till den förväntade Log Analytics arbets ytan, aktivera övervakning med [Azure monitor med virtuella datorer](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md)och mycket mer.
+- Lär dig hur du hanterar din dator med hjälp av [Azure policy](../../governance/policy/overview.md), till exempel för [gäst konfiguration](../../governance/policy/concepts/guest-configuration.md)av virtuella datorer, verifiera att datorn rapporterar till den förväntade Log Analytics arbets ytan, aktivera övervakning med [Azure monitor med virtuella datorer](../../azure-monitor/insights/vminsights-enable-policy.md)och mycket mer.
 
 - Läs mer om den [Log Analytics agenten](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics agent för Windows och Linux krävs om du vill övervaka operativ system och arbets belastningar som körs på datorn proaktivt, hantera den med hjälp av Automation-runbooks eller lösningar som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-intro.md).

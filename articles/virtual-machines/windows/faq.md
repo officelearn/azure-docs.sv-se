@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: a21fbcd04c5916e686f13e375bc1854935d1c4fe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d5dda567d0cfa89863731a3e8e651aede4ab5957
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500352"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825199"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Vanliga frågor om Virtuella Windows-datorer
 Den här artikeln behandlar några vanliga frågor om virtuella Windows-datorer som skapats i Azure med hjälp av distributions modellen Resource Manager. Linux-versionen av det här avsnittet finns i [vanliga frågor och svar om virtuella Linux-datorer](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -23,7 +23,7 @@ Alla prenumeranter kan köra serverprogramvara på en virtuell Azure-dator. Info
 Vissa versioner av Windows 7, Windows 8,1 och Windows 10 är tillgängliga för MSDN Azure-förmåns prenumeranter och MSDN dev och testa prenumerationer enligt principen betala per användning, för utveckling och test. Mer information, bland annat instruktioner och begränsningar, finns i [Windows-klientavbildningar för MSDN-prenumeranter](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/). 
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Hur mycket lagringsutrymme kan jag använda med en virtuell dator?
-Varje data disk kan vara upp till 32 767 GiB. Antalet datadiskar som du kan använda beror på storleken på den virtuella datorn. Mer information finns i [Storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Varje data disk kan vara upp till 32 767 GiB. Antalet datadiskar som du kan använda beror på storleken på den virtuella datorn. Mer information finns i [Storlekar för virtuella datorer](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Azure Managed Disks är de rekommenderade disk lagrings erbjudanden som används med Azure Virtual Machines för beständig data lagring. Du kan använda flera Managed Disks för varje virtuell dator. Managed Disks erbjuder två typer av varaktiga lagrings alternativ: Premium och standard Managed Disks. Information om priser finns i [Managed disks priser](https://azure.microsoft.com/pricing/details/managed-disks).
 

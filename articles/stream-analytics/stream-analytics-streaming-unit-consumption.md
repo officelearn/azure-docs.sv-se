@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/27/2020
-ms.openlocfilehash: 397e455c8b6a1097e2a32473036e1acd2bbdf2eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/06/2020
+ms.openlocfilehash: 5d16e7f81a439d622a418dbc8cdff2d66c2a814f
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704190"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903569"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Förstå och justera direktuppspelningsenheter
 
@@ -27,7 +27,7 @@ Måttet SU%, som sträcker sig från 0% till 100%, beskriver minnes förbrukning
 
 2. Leta upp det Stream Analytics jobb som du vill skala i listan över resurser och öppna det sedan. 
 
-3. På sidan jobb, under **Konfigurera** rubrik, väljer du **skala**. 
+3. På sidan jobb, under **Konfigurera** rubrik, väljer du **skala**.Standard antalet SUs är 3 när du skapar ett jobb.
 
     ![Azure Portal Stream Analytics jobb konfiguration][img.stream.analytics.preview.portal.settings.scale]
     

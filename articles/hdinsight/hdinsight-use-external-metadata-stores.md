@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/30/2020
-ms.openlocfilehash: 2d6ebcd720a5cea8d41bf3c05f753f2e9d4775d1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/06/2020
+ms.openlocfilehash: 78c0526ac750977115a88e96bb5f7d5cb4e9803f
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085913"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873100"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Använda extern metadatalagring i Azure HDInsight
 
@@ -38,10 +38,10 @@ Som standard skapar HDInsight en metaarkiv med varje kluster typ. I stället kan
 
 * Du kan inte dela standard-metaarkiv med andra kluster.
 
-* Standard-metaarkiv använder Basic-Azure SQL Database, som har fem DTU-gränser (Database Transaction Unit).
-Den här standard metaarkiv används vanligt vis för relativt enkla arbets belastningar. Arbets belastningar som inte kräver flera kluster och som inte behöver metadata bevaras utanför klustrets livs cykel.
+* Standard-metaarkiv rekommenderas endast för enkla arbets belastningar. Arbets belastningar som inte kräver flera kluster och som inte behöver metadata bevaras utanför klustrets livs cykel.
 
-* För produktions arbets belastningar rekommenderar vi att du migrerar till en extern metaarkiv. Mer information finns i avsnittet nedan.
+> [!IMPORTANT]
+> Standard-metaarkiv tillhandahåller en Azure SQL Database med en **grundläggande nivå 5-DTU-gräns (inte uppgraderings bara)**! Lämpligt för grundläggande testnings ändamål. För stora eller produktions arbets belastningar rekommenderar vi att du migrerar till en extern metaarkiv.
 
 ## <a name="custom-metastore"></a>Anpassad metaarkiv
 
@@ -81,9 +81,8 @@ Du kan när som helst peka klustret till en tidigare skapad Azure SQL Database. 
 
 ## <a name="hive-metastore-guidelines"></a>Hive-metaarkiv rikt linjer
 
-* Använd en anpassad metaarkiv när det är möjligt, för att hjälpa till att separera beräknings resurser (ditt kluster som körs) och metadata (lagrade i metaarkiv).
-
-* Börja med en S2-nivå, som tillhandahåller 50 DTU och 250 GB lagrings utrymme. Om du ser en Flask hals kan du skala databasen uppåt.
+> [!NOTE]
+> Använd en anpassad metaarkiv när det är möjligt, för att hjälpa till att separera beräknings resurser (ditt kluster som körs) och metadata (lagrade i metaarkiv). Börja med nivån S2, som tillhandahåller 50 DTU och 250 GB lagrings utrymme. Om du ser en Flask hals kan du skala databasen uppåt.
 
 * Om du har flera HDInsight-kluster för åtkomst till separata data använder du en separat databas för metaarkiv på varje kluster. Om du delar en metaarkiv över flera HDInsight-kluster innebär det att klustren använder samma metadata och underliggande användar data filer.
 

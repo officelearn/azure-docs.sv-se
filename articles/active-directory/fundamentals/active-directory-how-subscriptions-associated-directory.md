@@ -2,7 +2,7 @@
 title: Lägg till en befintlig Azure-prenumeration till din klient organisation – Azure AD
 description: Anvisningar om hur du lägger till en befintlig Azure-prenumeration i Azure Active Directory-klienten.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86223c35118c9c54be49fa830a264a0059ef3937
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 95c3ad5fa66e1327c1fe646303f268ae4e84bd89
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494442"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825029"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associera eller lägga till en Azure-prenumeration till Azure Active Directory-klienten
 
@@ -31,7 +31,7 @@ Om din prenumeration går ut förlorar du åtkomsten till alla andra resurser so
 Alla användare har en enda *arbets* katalog för autentisering. Dina användare kan också vara gäster i andra kataloger. Du kan se både hem-och gäst kataloger för varje användare i Azure AD.
 
 > [!Important]
-> När du kopplar en prenumeration till en annan katalog förlorar användare som har roller som tilldelats med [rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/role-assignments-portal.md) sin åtkomst. Klassiska prenumerationsadministratörer, inklusive tjänstadministratörer och medadministratörer, förlorar också åtkomsten.
+> När du kopplar en prenumeration till en annan katalog förlorar användare som har roller som tilldelats med hjälp av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) sin åtkomst. Klassiska prenumerationsadministratörer, inklusive tjänstadministratörer och medadministratörer, förlorar också åtkomsten.
 >
 > Principtilldelningar tas också bort från en prenumeration när prenumerationen associeras med en annan katalog.
 >

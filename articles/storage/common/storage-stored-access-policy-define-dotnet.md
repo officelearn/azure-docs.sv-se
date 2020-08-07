@@ -1,7 +1,7 @@
 ---
 title: Skapa en lagrad åtkomst princip med .NET
 titleSuffix: Azure Storage
-description: Lär dig hur du skapar en lagrad åtkomst princip med hjälp av .NET-klient biblioteket.
+description: Använd Azure Storage och .NET för att skapa en lagrad åtkomst princip. Utöva ytterligare kontroll nivåer över signaturer för delad åtkomst på tjänst nivå på servern.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.date: 06/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f4a0d69f3687f0dcc174a2d8a1275a2bf55d9ecf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a08929c4affbd6eeb4d66a82d787ec5eba122e5b
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504397"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903773"
 ---
 # <a name="create-a-stored-access-policy-with-net"></a>Skapa en lagrad åtkomst princip med .NET
 
@@ -23,7 +23,7 @@ En lagrad åtkomst princip ger ytterligare kontroll nivå över signaturer för 
   
 Följande Azure Storage resurser har stöd för lagrade åtkomst principer:  
   
-- Blob-containrar  
+- Blobcontainrar  
 - Filresurser  
 - Köer  
 - Tabeller  

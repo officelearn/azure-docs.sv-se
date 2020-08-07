@@ -7,13 +7,13 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: tracking-python
-ms.openlocfilehash: 3df76d2ba4f091c1c9f7ac737c2830225b85649c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-python
+ms.openlocfilehash: dce42f1b8bfe58e4d147ba1c982cb770590dfa92
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287158"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845127"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Snabb start: hantera blobbar med python V12 SDK
 
@@ -26,7 +26,7 @@ Ytterligare resurser:
 * [Paket (python-paket index)](https://pypi.org/project/azure-storage-blob/)
 * [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Ett Azure Storage-konto. [Skapa ett lagrings konto](../common/storage-account-create.md).

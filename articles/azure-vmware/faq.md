@@ -4,12 +4,12 @@ description: Innehåller svar på några vanliga frågor om Azure VMware-lösnin
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: b6bf8e924b0776ace282e94f62ae2b0a67439efd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: bd27d4669788b10fc12c47e4514020f6b01300bc
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836589"
+ms.locfileid: "87872335"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Vanliga frågor om för hands versionen av Azure VMware-lösningen (AVS)
 
@@ -45,7 +45,7 @@ Vissa integreringar och användnings fall kan utvärderas från fall till fall.
 
 **Kan jag migrera virtuella vSphere-datorer från lokala miljöer till AVS-privata moln?**
 
-Ja. Migrering av virtuella datorer och vMotion kan användas för att flytta virtuella datorer till ett privat moln om standard Cross vCenter [vMotion-krav] [ https://kb.vmware.com/s/article/210695 ] är uppfyllda.
+Ja. Migrering av virtuella datorer och vMotion kan användas för att flytta virtuella datorer till ett privat moln om standard kraven för Cross vCenter [vMotion](https://kb.vmware.com/s/article/210695) är uppfyllda.
 
 **Krävs en speciell version av vSphere i lokala miljöer?**
 

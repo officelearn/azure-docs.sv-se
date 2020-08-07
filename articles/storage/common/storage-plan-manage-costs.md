@@ -9,18 +9,18 @@ ms.date: 08/03/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 90aa2b9504008783649662019179a5998d534746
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 75b464c140bfda6c3f3559d3bfdbe1e6bc2e7f24
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543103"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760744"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planera och hantera kostnader för Azure Blob Storage
 
 Den här artikeln hjälper dig att planera och hantera kostnader för Azure Blob Storage. Beräkna först kostnaderna med hjälp av pris Kalkylatorn för Azure. När du har skapat ditt lagrings konto optimerar du kontot så att du bara betalar för det du behöver. Använd funktioner för kostnads hantering för att ställa in budgetar och övervaka kostnader. Du kan också granska prognostiserade kostnader och övervaka utgifts trender för att identifiera områden där du kanske vill handla.
 
-Tänk på att kostnader för Azure Storage bara är en del av månads kostnaderna på din Azure-faktura. Även om den här artikeln förklarar hur du uppskattar och hanterar kostnader för Azure Storage debiteras du för alla Azure-tjänster och-resurser som används för din Azure-prenumeration, inklusive tjänster från tredje part. När du är bekant med att hantera kostnader för Azure Storage kan du använda liknande metoder för att hantera kostnader för alla Azure-tjänster som används i din prenumeration.
+Tänk på att kostnader för Blob Storage bara är en del av månads kostnaderna på din Azure-faktura. Även om den här artikeln förklarar hur du uppskattar och hanterar kostnader för Blob Storage debiteras du för alla Azure-tjänster och-resurser som används för din Azure-prenumeration, inklusive tjänster från tredje part. När du är bekant med att hantera kostnader för Blob Storage kan du använda liknande metoder för att hantera kostnader för alla Azure-tjänster som används i din prenumeration.
 
 ## <a name="estimate-costs"></a>Uppskatta kostnader
 

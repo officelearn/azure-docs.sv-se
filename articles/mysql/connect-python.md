@@ -7,16 +7,16 @@ ms.service: mysql
 ms.custom:
 - mvc
 - seo-python-october2019
-- tracking-python
+- devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 5e9729ef2a95a840d0e994c44ecfcf0b61444234
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 8d417fdc604fa132e3ada5380b9e0a1f7326af04
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561064"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843240"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-with-azure-database-for-mysql"></a>Snabb start: Använd python för att ansluta och fråga efter data med Azure Database for MySQL
 
@@ -79,13 +79,13 @@ För varje kod exempel i den här artikeln:
 1. Du kör koden genom att öppna en kommando tolk eller ett `bash` gränssnitt och ändra katalogen till projektmappen, till exempel `cd pythonmysql` . Skriv `python` kommandot följt av fil namnet, till exempel `python createtable.py` , och tryck på RETUR. 
    
    > [!NOTE]
-   > Om *python. exe* inte hittas i Windows kan du behöva lägga till python-sökvägen i miljövariabeln PATH, eller ange den fullständiga sökvägen till *python. exe*, till exempel `C:\python27\python.exe createtable.py` .
+   > Om *python.exe* inte hittas i Windows kan du behöva lägga till python-sökvägen i miljövariabeln PATH, eller ange den fullständiga sökvägen till *python.exe*, till exempel `C:\python27\python.exe createtable.py` .
 
 ## <a name="create-a-table-and-insert-data"></a>Skapa en tabell och infoga data
 
 Använd följande kod för att ansluta till servern och databasen, skapa en tabell och läsa in data med hjälp av en **insert** SQL-instruktion. 
 
-Koden importerar MySQL. Connector-biblioteket och använder funktionen [Connect ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) för att ansluta till Azure Database for MySQL med hjälp av [argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) i konfigurations samlingen. Koden använder en markör i anslutningen och metoden [cursor. Execute ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) kör SQL-frågan mot MySQL-databasen. 
+Koden importerar MySQL. Connector-biblioteket och använder funktionen [Connect ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) för att ansluta till Azure Database for MySQL med hjälp av [argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) i konfigurations samlingen. Koden använder en markör i anslutningen och metoden [cursor.exesöta ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) kör SQL-frågan mot MySQL-databasen. 
 
 ```python
 import mysql.connector
@@ -140,7 +140,7 @@ else:
 
 Använd följande kod för att ansluta och läsa data med en **SELECT**-SQL-instruktion. 
 
-Koden importerar MySQL. Connector-biblioteket och använder funktionen [Connect ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) för att ansluta till Azure Database for MySQL med hjälp av [argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) i konfigurations samlingen. Koden använder en markör i anslutningen och metoden [cursor. Execute ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) kör SQL-frågan mot MySQL-databasen. 
+Koden importerar MySQL. Connector-biblioteket och använder funktionen [Connect ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) för att ansluta till Azure Database for MySQL med hjälp av [argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) i konfigurations samlingen. Koden använder en markör i anslutningen och metoden [cursor.exesöta ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) kör SQL-frågan mot MySQL-databasen. 
 
 Koden läser data rader med hjälp av metoden [fetchall ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchall.html) , behåller resultat uppsättningen i en samlings rad och använder en `for` iterator för att loopa över raderna.
 
@@ -190,7 +190,7 @@ else:
 
 Använd följande kod för att ansluta och uppdatera data med en **UPDATE**-SQL-instruktion. 
 
-Koden importerar MySQL. Connector-biblioteket och använder funktionen [Connect ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) för att ansluta till Azure Database for MySQL med hjälp av [argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) i konfigurations samlingen. Koden använder en markör i anslutningen och metoden [cursor. Execute ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) kör SQL-frågan mot MySQL-databasen. 
+Koden importerar MySQL. Connector-biblioteket och använder funktionen [Connect ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) för att ansluta till Azure Database for MySQL med hjälp av [argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) i konfigurations samlingen. Koden använder en markör i anslutningen och metoden [cursor.exesöta ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) kör SQL-frågan mot MySQL-databasen. 
 
 ```python
 import mysql.connector
@@ -233,7 +233,7 @@ else:
 
 Använd följande kod för att ansluta och ta bort data med en **DELETE**-SQL-instruktion. 
 
-Koden importerar MySQL. Connector-biblioteket och använder funktionen [Connect ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) för att ansluta till Azure Database for MySQL med hjälp av [argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) i konfigurations samlingen. Koden använder en markör i anslutningen och metoden [cursor. Execute ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) kör SQL-frågan mot MySQL-databasen. 
+Koden importerar MySQL. Connector-biblioteket och använder funktionen [Connect ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) för att ansluta till Azure Database for MySQL med hjälp av [argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) i konfigurations samlingen. Koden använder en markör i anslutningen och metoden [cursor.exesöta ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) kör SQL-frågan mot MySQL-databasen. 
 
 ```python
 import mysql.connector

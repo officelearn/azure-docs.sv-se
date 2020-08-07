@@ -60,7 +60,7 @@
           href: how-tos/create-locate-anchors-cpp-winrt.md
     - name: Använda grov omlokalisering för att identifiera närliggande fästpunkter
       items:
-        - name: 'I C#/Unity'
+        - name: I C#/Unity
           href: how-tos/set-up-coarse-reloc-unity.md
         - name: I Objective-C
           href: how-tos/set-up-coarse-reloc-objc.md
@@ -72,6 +72,12 @@
           href: how-tos/set-up-coarse-reloc-cpp-ndk.md
         - name: I C++/WinRT
           href: how-tos/set-up-coarse-reloc-cpp-winrt.md
+    - name: Projektkonfiguration
+      items:
+        - name: C++/WinRT
+          href: how-tos/setup-cpp-winrt-project.md
+        - name: Unity
+          href: how-tos/setup-unity-project.md
 - name: Exempel
   items:
     - name: Azure Spatial Anchors-exempel (GitHub)

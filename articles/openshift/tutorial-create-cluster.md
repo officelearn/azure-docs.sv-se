@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: be04b690add70468335ac694e3be54fa55a94249
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 9a393e29c4b5b2faa48cbcd273c7bc7a46169ba3
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475659"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904198"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Självstudie: skapa ett Azure Red Hat OpenShift 4-kluster
 
@@ -49,9 +49,9 @@ Med en Red Hat pull-hemlighet kan ditt kluster få åtkomst till Red Hat contain
 
    Du måste logga in på ditt Red Hat-konto eller skapa ett nytt Red Hat-konto med ditt företags-e-post och godkänna de allmänna villkoren.
 
-2. **Klicka på Hämta pull-hemlighet.**
+2. Gå till [**sidan för OpenShift-produkten**](https://developers.redhat.com/products/codeready-containers) om det är första gången du skapar ett kluster. Efter registreringen kan du gå till [**sidan för Red Hat OpenShift-kluster hanteraren**](https://cloud.redhat.com/openshift/)där du kan klicka på **Hämta pull-hemlighet** och ladda ned en pull-hemlighet som ska användas med ditt Aro-kluster.
 
-Behåll den sparade `pull-secret.txt` filen någonstans säkert – den kommer att användas i varje kluster som skapas.
+Behåll den sparade `pull-secret.txt` filen någonstans säker. Filen används i varje kluster som skapas om du behöver skapa ett kluster som innehåller exempel eller operatörer för Red Hat eller certifierade partner.
 
 När du kör `az aro create` kommandot kan du referera till din pull-hemlighet med hjälp av `--pull-secret @pull-secret.txt` parametern. Kör `az aro create` från den katalog där du sparade `pull-secret.txt` filen. Annars ersätter du `@pull-secret.txt` med `@<path-to-my-pull-secret-file>` .
 

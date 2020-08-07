@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
-ms.custom: mvc, tracking-python
-ms.openlocfilehash: 92e224448d26c24c073bd81b7f9e001fa8a09898
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: mvc, devx-track-python
+ms.openlocfilehash: 3386dcf60049ede9297bd36e701442ce50603add
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044693"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872528"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Snabb start: skapa och etablera en simulerad X. 509-enhet med python-enhets-SDK för IoT Hub Device Provisioning Service
 
@@ -22,7 +22,7 @@ ms.locfileid: "86044693"
 
 I den här snabb starten skapar du en simulerad X. 509-enhet på en Windows-dator. Du använder enhets exempel python-kod för att ansluta den här simulerade enheten med IoT-hubben med hjälp av en enskild registrering med enhets etablerings tjänsten (DPS).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Granskning av [koncept för automatisk etablering](concepts-auto-provisioning.md).
 - Slut för ande av [konfigurations IoT Hub Device Provisioning service med Azure Portal](./quick-setup-auto-provision.md).

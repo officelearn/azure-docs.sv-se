@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
-ms.openlocfilehash: 6efe6392c32221f979a9ac319b4385b4b94b1235
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 0418785fe558503b716ff1e798446fb64db998b1
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171312"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799846"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Använda Azure Active Directory för autentisering med MySQL
 
@@ -22,7 +22,7 @@ I den här artikeln får du stegvisa anvisningar om hur du konfigurerar Azure Ac
 
 ## <a name="setting-the-azure-ad-admin-user"></a>Ange Azure AD admin-användare
 
-Endast en Azure AD admin-användare kan skapa/Aktivera användare för Azure AD-baserad autentisering. Följ stegen nedan om du vill skapa och Azure AD admin-användare.
+Endast en Azure AD admin-användare kan skapa/Aktivera användare för Azure AD-baserad autentisering. Följ stegen nedan om du vill skapa en Azure AD admin-användare.
 
 1. I Azure Portal väljer du den instans av Azure Database for MySQL som du vill aktivera för Azure AD.
 2. Under Inställningar väljer du Active Directory administratör:
@@ -57,7 +57,7 @@ Vi har även testat de flesta vanliga program driv rutiner, men du kan se inform
 
 Detta är de steg som en användare/ett program behöver för att autentisera med Azure AD som beskrivs nedan:
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Du kan följa med i Azure Cloud Shell, en virtuell Azure-dator eller på den lokala datorn. Kontrol lera att du har [installerat Azure CLI](/cli/azure/install-azure-cli).
 

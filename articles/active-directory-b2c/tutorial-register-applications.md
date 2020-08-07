@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: registrera ett program'
 titleSuffix: Azure AD B2C
-description: Lär dig hur du registrerar ett webb program i Azure Active Directory B2C med hjälp av Azure Portal.
+description: Följ den här självstudien för att lära dig hur du registrerar ett webb program i Azure Active Directory B2C att använda Azure Portal.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,12 +12,12 @@ ms.date: 04/10/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0f3ecb918aa1f830edeafbe57b365441e1e534f4
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 0fd062bd0e58ecc714e4f450c93384e47e743b65
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169345"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922021"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Självstudie: registrera ett webb program i Azure Active Directory B2C
 
@@ -31,9 +31,9 @@ I den här artikeln kan du se hur du:
 
 Om du använder en inbyggd app i stället (t. ex. iOS, Android, mobil & Desktop), lär du dig [hur du registrerar ett internt klient program](add-native-application.md).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte redan har skapat din egen [Azure AD B2C-klient](tutorial-create-tenant.md)skapar du en nu. Du kan använda en befintlig Azure AD B2C klient.
 

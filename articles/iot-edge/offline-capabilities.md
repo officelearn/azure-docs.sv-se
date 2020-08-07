@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ef6ed74149f106b801049da429dfe7b79b984a70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e929463c33603c650bec2e9a49a13dde6965e39f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83725252"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926662"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Förstå utökade offline-funktioner för IoT Edge enheter, moduler och underordnade enheter
 
@@ -20,7 +20,7 @@ Azure IoT Edge stöder utökade offline-åtgärder på IoT Edge enheter och akti
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
-När en IoT Edge enhet försätts i offlineläge, använder IoT Edge Hub tre roller. Först lagrar den alla meddelanden som skulle hamna i ström och spara dem tills enheten återansluter. För det andra fungerar det åt IoT Hub att autentisera moduler och underordnade enheter så att de kan fortsätta att fungera. Tredje, den möjliggör kommunikation mellan underordnade enheter som normalt skulle gå via IoT Hub.
+När en IoT Edge enhet försätts i offlineläge, använder IoT Edge Hub tre roller. Först lagrar den alla meddelanden som skulle hamna i ström och spara dem tills enheten återansluter. Den autentiserar moduler och underordnade enheter åt IoT Hub så att de kan fortsätta att fungera. Slutligen möjliggör den även kommunikation mellan underordnade enheter som normalt skulle gå via IoT Hub.
 
 I följande exempel visas hur ett IoT Edge scenario fungerar i offline-läge:
 
@@ -95,7 +95,7 @@ Du kan ändra [frågan](../iot-hub/iot-hub-devguide-query-language.md) om du vil
 
 #### <a name="option-3-use-iot-hub-service-sdk"></a>Alternativ 3: Använd IoT Hub service SDK
 
-Slutligen kan du hantera överordnade underordnade relationer genom att använda antingen C#, Java eller Node.js IoT Hub service SDK. Här är ett [exempel på hur du tilldelar en underordnad enhet](https://aka.ms/set-child-iot-device-c-sharp) med C# SDK.
+Slutligen kan du hantera överordnade underordnade relationer genom att använda antingen C#, Java eller Node.js IoT Hub service SDK. Här är ett [exempel på hur du tilldelar en underordnad enhet](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs) med C# SDK.
 
 ### <a name="set-up-the-parent-device-as-a-gateway"></a>Konfigurera den överordnade enheten som en gateway
 

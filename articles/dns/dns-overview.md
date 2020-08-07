@@ -6,16 +6,16 @@ ms.service: dns
 ms.topic: overview
 ms.date: 3/21/2019
 ms.author: rohink
-ms.openlocfilehash: 1543c0daae7d637730a5f8f9da2305423ba7f84e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d59f166897674e9dcff8086b8f5c906605155ee3
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76932408"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924282"
 ---
 # <a name="what-is-azure-dns"></a>Vad är Azure DNS?
 
-Azure DNS är en värdtjänst för DNS-domäner som ger namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Genom att använda Azure som värd för dina domäner kan du hantera dina DNS-poster med hjälp av samma autentiseringsuppgifter, API:er, verktyg och fakturering som för dina andra Azure-tjänster.
+Azure DNS är en värdtjänst för DNS-domäner som tillhandahåller namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Genom att använda Azure som värd för dina domäner kan du hantera dina DNS-poster med hjälp av samma autentiseringsuppgifter, API:er, verktyg och fakturering som för dina andra Azure-tjänster.
 
 Du kan inte använda Azure DNS för att köpa ett domännamn. För en årlig avgift så kan du köpa ett domännamn med hjälp av [App Service-domäner](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain#buy-the-domain) eller en domännamnsregistrator från tredje part. Dina domäner kan sedan hanteras i Azure DNS för posthantering. Mer information finns i [delegera en domän till Azure DNS](dns-domain-delegation.md).
 
@@ -29,7 +29,7 @@ DNS-domäner i Azure DNS finns på Azures globala nätverk med DNS-namnservrar. 
 
  Azure DNS bygger på Azure Resource Manager, erbjuder bland annat följande funktioner:
 
-* [Rollbaserad åtkomstkontroll](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) för att kontrollera vem som har åtkomst till specifika åtgärder för din organisation.
+* [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) för att kontrol lera vem som har åtkomst till vissa åtgärder för din organisation.
 
 * [Aktivitetsloggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) för att övervaka hur en användare i organisationen ändrar en resurs eller hitta ett fel vid felsökning.
 
@@ -41,13 +41,13 @@ Mer information finns i [Så skyddar du DNS-zoner och -poster](dns-protect-zones
 
 Azure DNS stöder för närvarande inte DNSSEC. I de flesta fall kan du minska behovet av DNSSEC genom att konsekvent använda HTTPS/TLS i dina program. Om DNSSEC är ett kritiskt krav för dina DNS-zoner kan du vara värd för dessa zoner med DNS-leverantörer från tredje part.
 
-## <a name="ease-of-use"></a>Användbarhet
+## <a name="ease-of-use"></a>Enkel att använda
 
  Azure DNS kan hantera DNS-poster för dina Azure-tjänster och tillhandahåller DNS för dina externa resurser. Azure DNS är integrerat i Azure-portalen och använder samma autentiseringsuppgifter, supportkontrakt och fakturering som dina andra Azure-tjänster. 
 
 Debiteringen i DNS baseras på antalet DNS-zoner som tillhandahålls i Azure och antalet DNS-frågor som mottagits. Mer information om prissättning finns på sidan om [prisinformation för Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
 
-Dina domäner och poster kan hanteras med hjälp av Azure-portalen, Azure PowerShell-cmdlets och plattformsoberoende Azure CLI. Program som kräver automatisk DNS-hantering kan integreras med tjänsten med hjälp av REST API och SDK:er.
+Dina domäner och poster kan hanteras med hjälp av Azure-portalen, Azure PowerShell-cmdlets och plattformsoberoende Azure CLI. Program som behöver automatisk DNS-hantering kan integreras med tjänsten via REST-API:et och SDK:er.
 
 ## <a name="customizable-virtual-networks-with-private-domains"></a>Anpassningsbara virtuella nätverk med privata domäner
 
@@ -70,4 +70,3 @@ Mer information finns i [översikten över Azure DNS-aliasposter](dns-alias.md).
 * Lär dig hur du skapar en zon i Azure DNS i [Skapa en DNS-zon](./dns-getstarted-create-dnszone-portal.md).
 
 * Vanliga frågor om Azure DNS finns i [vanliga frågor och svar för Azure DNS](dns-faq.md).
-

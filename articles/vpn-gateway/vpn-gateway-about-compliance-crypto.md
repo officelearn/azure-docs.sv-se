@@ -1,18 +1,18 @@
 ---
 title: 'Azure-VPN Gateway: kryptografiska krav'
-description: Den här artikeln beskriver kryptografiska krav och Azure VPN-gatewayer
+description: Lär dig hur du konfigurerar Azure VPN-gatewayer för att uppfylla krypterings kraven för lokala S2S VPN-tunnlar och VNet-till-VNet-anslutningar i Azure.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: 93e13592d9c434b159ad4f4c10ef30328941c64e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b591baa3fd942eb46cc7351a15c8849c44fe0d12
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75902828"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926969"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Om kryptografiska krav och Azure VPN-gatewayer
 

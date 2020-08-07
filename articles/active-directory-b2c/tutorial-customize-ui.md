@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: anpassa användar gränssnittet'
 titleSuffix: Azure AD B2C
-description: Lär dig hur du anpassar användar gränssnittet (UI) för dina program i Azure Active Directory B2C med hjälp av Azure Portal.
+description: I den här självstudien får du lära dig hur du anpassar användar gränssnittet (UI) för dina program i Azure Active Directory B2C med hjälp av Azure Portal.
 services: B2C
 author: msmimart
 manager: celestedg
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29a03f1d1b1007845c1df516192da22d74705af0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a9ca6d91be95bfb1a47f85b20f3775a57518ffcf
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87481741"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922140"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Självstudie: anpassa gränssnittet för användar upplevelser i Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ I den här artikeln kan du se hur du:
 > * Uppdatera användar flödet för att använda filerna
 > * Testa det anpassade användar gränssnittet
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

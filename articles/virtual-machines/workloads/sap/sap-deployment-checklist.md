@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ea691ff42f9e5f214aa9987fae53732be844e034
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9f517eb5bd113d8d54714b75bea4c8436882d0f9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836351"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924435"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>SAP-arbetsbelastningar på Azure: planering och distribution check lista
 
@@ -74,7 +74,7 @@ Under den här fasen planerar du migreringen av din SAP-arbetsbelastning till Az
 4.  Design av grund tjänster. Den här designen bör innehålla följande objekt:
     - Active Directory-och DNS-design.
     - Nätverkstopologi i Azure och tilldelning av olika SAP-system.
-    - [Rollbaserad åtkomst](../../../role-based-access-control/overview.md) struktur för team som hanterar infrastruktur-och SAP-program i Azure.
+    - [Azure-rollbaserad åtkomst kontrolls struktur (Azure RBAC)](../../../role-based-access-control/overview.md) för team som hanterar infrastruktur-och SAP-program i Azure.
     - Resurs gruppens topologi.
     - [Tagga strategin](../../../azure-resource-manager/management/tag-resources.md#tags-and-billing).
     - Namn konventioner för virtuella datorer och andra infrastruktur komponenter och/eller logiska namn.

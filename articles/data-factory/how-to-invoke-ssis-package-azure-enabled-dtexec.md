@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
-ms.openlocfilehash: dce7fb87ee49aefdedf5653243fa5729eee34519
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94b581f677e370911a60db08276ff7dd0eb45486
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414328"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927087"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Köra SQL Server Integration Services-paket med Azure-aktiverat Dtexec-verktyget
 
@@ -87,7 +87,7 @@ När du anropar AzureDTExec finns liknande alternativ som när du anropar Dtexec
 - **/F [Il]**: läser in ett paket som lagras i fil system, fil resurs eller Azure Files. Som värde för det här alternativet kan du ange UNC-sökvägen för paket filen i fil system, fil resurs eller Azure Files med tillägget. dtsx. Om UNC-sökvägen som anges innehåller ett blank steg, så omge hela sökvägen med citat tecken.
 - **/Conf [igFile]**: anger en konfigurations fil för extrahering av värden från. Med det här alternativet kan du ange en körnings konfiguration för ditt paket som skiljer sig från det som anges i design läge. Du kan lagra olika inställningar i en XML-konfigurationsfil och sedan läsa in dem innan du kör paketet. Mer information finns i [SSIS Package Configurations](https://docs.microsoft.com/sql/integration-services/packages/package-configurations?view=sql-server-2017). Om du vill ange värdet för det här alternativet använder du UNC-sökvägen för konfigurations filen i fil system, fil resurs eller Azure Files med dess dtsConfig-tillägg. Om UNC-sökvägen som anges innehåller ett blank steg, så omge hela sökvägen med citat tecken.
 - **/Conn [et]**: anger anslutnings strängar för befintliga anslutnings hanterare i paketet. Med det här alternativet kan du ange körnings anslutnings strängar för befintliga anslutnings hanterare i ditt paket som skiljer sig från de som anges i design läge. Ange värdet för det här alternativet enligt följande: `connection_manager_name_or_id;connection_string [[;connection_manager_name_or_id;connection_string]...]` .
-- **/Set**: åsidosätter konfigurationen av en parameter, variabel, egenskap, container, log Provider, uppräknare för uppräknare eller anslutning i ditt paket. Det här alternativet kan anges flera gånger. Ange värdet för det här alternativet enligt följande: `property_path;value` . `\package.variables[counter].Value;1`Åsidosätter till exempel värdet för `counter` variabeln som 1. Du kan använda guiden **paket konfiguration** för att hitta, kopiera och klistra in värdet `property_path` för objekt i ditt paket vars värde du vill åsidosätta. Mer information finns i [guiden paket konfiguration](https://docs.microsoft.com/sql/integration-services/package-configuration-wizard-ui-reference?view=sql-server-2014).
+- **/Set**: åsidosätter konfigurationen av en parameter, variabel, egenskap, container, log Provider, uppräknare för uppräknare eller anslutning i ditt paket. Det här alternativet kan anges flera gånger. Ange värdet för det här alternativet enligt följande: `property_path;value` . `\package.variables[counter].Value;1`Åsidosätter till exempel värdet för `counter` variabeln som 1. Du kan använda guiden **paket konfiguration** för att hitta, kopiera och klistra in värdet `property_path` för objekt i ditt paket vars värde du vill åsidosätta. Mer information finns i [guiden paket konfiguration](https://docs.microsoft.com/sql/integration-services/packages/legacy-package-deployment-ssis).
 - **/De [crypt]**: Anger krypterings lösen ordet för ditt paket som har kon figurer ATS med **EncryptAllWithPassword** / skydds nivån EncryptAllWithPassword**EncryptSensitiveWithPassword** .
 
 > [!NOTE]

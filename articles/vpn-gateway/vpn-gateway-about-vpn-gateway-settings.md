@@ -1,18 +1,18 @@
 ---
 title: 'Azure-VPN Gateway: konfigurations inställningar'
-description: Lär dig mer om VPN Gateway inställningar för virtuella Azure-nätverksgateway.
+description: Lär dig mer om konfigurationen av en VPN gateway-anslutning i Azure, som förlitar sig på flera resurser, som var och en innehåller konfigurerbara inställningar.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: d7a2040748d170b4e536df59947ea811f149d931
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fef54e4fff442f1c9eae523d7d278f193b84171
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708152"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926934"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Om konfigurations inställningar för VPN Gateway
 
@@ -114,7 +114,7 @@ När du skapar en virtuell nätverksgateway för en VPN gateway-konfiguration m�
 
 Den VPN-typ du väljer måste uppfylla alla anslutnings krav för den lösning som du vill skapa. Om du till exempel vill skapa en S2S VPN gateway-anslutning och en P2S VPN-gateway för samma virtuella nätverk, använder du VPN-typen *routningsbaserad* eftersom P2s kräver en routningsbaserad VPN-typ. Du måste också kontrol lera att VPN-enheten har stöd för en Routningsbaserad VPN-anslutning. 
 
-När en virtuell nätverksgateway har skapats kan du inte ändra VPN-typen. Du måste ta bort den virtuella Nätverksgatewayen och skapa en ny. Det finns två typer av VPN:
+När en virtuell nätverksgateway har skapats kan du inte ändra VPN-typen. Du måste ta bort den virtuella Nätverksgatewayen och skapa en ny. Det finns två VPN-typer:
 
 [!INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
@@ -130,7 +130,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 [!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
-## <a name="gateway-subnet"></a><a name="gwsub"></a>Gateway-undernät 
+## <a name="gateway-subnet"></a><a name="gwsub"></a>Gatewayundernät
 
 Innan du skapar en VPN-gateway måste du skapa ett Gateway-undernät. Gateway-undernätet innehåller de IP-adresser som de virtuella nätverks-gatewayens virtuella datorer och tjänster använder. När du skapar en virtuell nätverksgateway distribueras virtuella gateway-datorer till gateway-undernätet och konfigureras med nödvändiga inställningar för VPN gateway. Distribuera aldrig något annat (till exempel ytterligare virtuella datorer) till gateway-undernätet. Gateway-undernätet måste ha namnet GatewaySubnet för att fungera korrekt. Att namnge Gateway-undernätet "GatewaySubnet" låter Azure veta att det här är under nätet för att distribuera virtuella nätverksgateway VM och tjänster till.
 

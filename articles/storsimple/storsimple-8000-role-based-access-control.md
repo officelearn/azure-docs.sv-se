@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 04993d36689c917db05a1b5f2132b107c7c9b412
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 38500edeca2241bfa9ab093e037af18159994b02
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535118"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920423"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Rollbaserad Access Control för StorSimple
 
@@ -163,7 +163,7 @@ AssignableScopes : {/subscriptions/<subscription_ID>/}
 
 ## <a name="add-users-to-the-custom-role"></a>Lägg till användare i den anpassade rollen
 
-Du beviljar åtkomst inifrån resursen, resursgruppen eller prenumerationen som rolltilldelningen omfattar. När du ger åtkomst måste du tänka på att åtkomsten som beviljats på den överordnade noden ärvs av den underordnade noden. Mer information finns i [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md).
+Du beviljar åtkomst inifrån resursen, resursgruppen eller prenumerationen som rolltilldelningen omfattar. När du ger åtkomst måste du tänka på att åtkomsten som beviljats på den överordnade noden ärvs av den underordnade noden. Mer information finns i [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md).
 
 1. Gå till **åtkomst kontroll (IAM)**. Klicka på **+ Lägg till** på bladet åtkomst kontroll.
 

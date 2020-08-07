@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
-ms.openlocfilehash: fbf996a66bf76520002a22169903c7961080e38b
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b06ae396ae15c8572cf8160ce576651f47001add
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131539"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920508"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Så här skyddar du DNS-zoner och -poster
 
@@ -20,7 +20,7 @@ ms.locfileid: "87131539"
 
 DNS-zoner och-poster är kritiska resurser. Att ta bort en DNS-zon eller en enskild DNS-post kan resultera i avbrott i tjänsten. Det är viktigt att DNS-zoner och-poster skyddas mot obehöriga eller oavsiktliga ändringar.
 
-I den här artikeln förklaras hur Azure DNS hjälper dig att skydda dina privata DNS-zoner och poster mot sådana ändringar.  Vi tillämpar två kraftfulla funktioner för säkerhet som tillhandahålls av Azure Resource Manager: [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md) och [resurs lås](../azure-resource-manager/management/lock-resources.md).
+I den här artikeln förklaras hur Azure DNS hjälper dig att skydda dina privata DNS-zoner och poster mot sådana ändringar.  Vi tillämpar två kraftfulla säkerhetsfunktioner som tillhandahålls av Azure Resource Manager: [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md) och [resurs lås](../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 

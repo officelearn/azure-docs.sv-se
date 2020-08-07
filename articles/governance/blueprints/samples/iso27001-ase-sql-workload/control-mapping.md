@@ -3,12 +3,12 @@ title: Exempel kontroller för ISO 27001 ASE/SQL-arbetsbelastning
 description: Styra mappningen av exempel på arbets belastningen ISO 27001 App Service-miljön/SQL Database till Azure Policy och RBAC.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 10bac1c8f018f28f62bb9d7cc179e4cc256732c6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4b15b5407f749eb53e264eb14c5e50b7afc21ee5
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006865"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920746"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Kontroll mappning av exemplet ISO 27001 ASE/SQL arbets belastnings skiss
 
@@ -34,7 +34,7 @@ Azures [tjänst för SQL sårbarhets bedömning](../../../../azure-sql/database/
 
 ## <a name="a912-access-to-networks-and-network-services"></a>En. 9.1.2-åtkomst till nätverk och nätverks tjänster
 
-Azure implementerar [rollbaserad åtkomst kontroll](../../../../role-based-access-control/overview.md) (RBAC) för att hantera vem som har åtkomst till Azure-resurser. Den här skissen hjälper dig att styra åtkomsten till Azure-resurser genom att tilldela sju [Azure policy](../../../policy/overview.md) definitioner. Dessa principer granskar användningen av resurs typer och konfigurationer som kan tillåta mer åtkomst till resurser.
+Azure implementerar [Azure rollbaserad åtkomst kontroll (Azure RBAC)](../../../../role-based-access-control/overview.md) för att hantera vem som har åtkomst till Azure-resurser. Den här skissen hjälper dig att styra åtkomsten till Azure-resurser genom att tilldela sju [Azure policy](../../../policy/overview.md) definitioner. Dessa principer granskar användningen av resurs typer och konfigurationer som kan tillåta mer åtkomst till resurser.
 Att förstå resurser som strider mot dessa principer kan hjälpa dig att vidta lämpliga åtgärder för att säkerställa åtkomst till Azure-resurser som är begränsade till behöriga användare.
 
 - Distribuera förutsättningar för att granska virtuella Linux-datorer som har konton utan lösen ord
@@ -69,7 +69,7 @@ Den här skissen tilldelar tre [Azure policy](../../../policy/overview.md) defin
 
 ## <a name="a925-review-of-user-access-rights"></a>En. 9.2.5-granskning av användar behörighet
 
-Azure implementerar [rollbaserad åtkomst kontroll](../../../../role-based-access-control/overview.md) (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen tilldelar fyra [Azure policy](../../../policy/overview.md) definitioner till gransknings konton som ska prioriteras för granskning, inklusive avskrivna konton och externa konton med utökade behörigheter.
+Azure implementerar [Azure rollbaserad åtkomst kontroll (Azure RBAC)](../../../../role-based-access-control/overview.md) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen tilldelar fyra [Azure policy](../../../policy/overview.md) definitioner till gransknings konton som ska prioriteras för granskning, inklusive avskrivna konton och externa konton med utökade behörigheter.
 
 - Föråldrade konton bör tas bort från din prenumeration
 - Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration
@@ -78,7 +78,7 @@ Azure implementerar [rollbaserad åtkomst kontroll](../../../../role-based-acces
 
 ## <a name="a926-removal-or-adjustment-of-access-rights"></a>A. 9.2.6 borttagning eller justering av åtkomst rättigheter
 
-Azure implementerar [rollbaserad åtkomst kontroll](../../../../role-based-access-control/overview.md) (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) och RBAC kan du uppdatera användar roller för att återspegla organisations ändringar. Vid behov kan konton blockeras från att logga in (eller tas bort), vilket omedelbart tar bort åtkomst behörighet till Azure-resurser. Den här skissen tilldelar två [Azure policy](../../../policy/overview.md) definitioner för att granska avskrivet konto som bör tas bort.
+Azure implementerar [Azure rollbaserad åtkomst kontroll (Azure RBAC)](../../../../role-based-access-control/overview.md) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) och RBAC kan du uppdatera användar roller för att återspegla organisations ändringar. Vid behov kan konton blockeras från att logga in (eller tas bort), vilket omedelbart tar bort åtkomst behörighet till Azure-resurser. Den här skissen tilldelar två [Azure policy](../../../policy/overview.md) definitioner för att granska avskrivet konto som bör tas bort.
 
 - Föråldrade konton bör tas bort från din prenumeration
 - Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration

@@ -1,6 +1,6 @@
 ---
 title: Om zoner – redundanta virtuella nätverksgateway i Azure-tillgänglighetszoner
-description: Lär dig mer om VPN Gateway-och ExpressRoute-gatewayer i Tillgänglighetszoner.
+description: Lär dig mer om VPN-och ExpressRoute-gatewayer i Azure-tillgänglighetszoner, att lägga till återhämtning, skalbarhet och högre tillgänglighet för VNet-gatewayer.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -9,18 +9,18 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: f1bbaab99b6422de4053839e2099869d2d08db95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a0a3d59477511ebf019e2c2019786788a92ad70
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75864306"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922701"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Om zoner – redundanta virtuella nätverksgateway i Azure-tillgänglighetszoner
 
 Du kan distribuera VPN-och ExpressRoute-gatewayer i [Azure-tillgänglighetszoner](../availability-zones/az-overview.md). Det ger flexibilitet, skalbarhet och högre tillgänglighet för virtuella nätverksgatewayer. Distribution av gatewayer i Azure-tillgänglighetszoner skiljer gatewayerna åt fysiskt och logiskt i en region, samtidigt som din lokala nätverksanslutning till Azure skyddas mot fel på zonnivå.
 
-### <a name="zone-redundant-gateways"></a><a name="zrgw"></a>Zonredundanta gatewayer
+### <a name="zone-redundant-gateways"></a><a name="zrgw"></a>Zonredundant gateway
 
 Om du vill distribuera dina virtuella nätverksgateway automatiskt mellan tillgänglighets zoner kan du använda zoner som är redundanta virtuella nätverk. Med Zone-redundanta gatewayer kan du dra nytta av zon återhämtning för att få åtkomst till dina verksamhets kritiska, skalbara tjänster på Azure.
 
@@ -48,7 +48,7 @@ Information om Gateway-SKU: er finns i [VPN gateway SKU: er](vpn-gateway-about-v
 
 Zone-redundanta gatewayer och zonindelade-gatewayer båda förlitar sig på Azures offentliga IP Resource *standard* SKU. Konfigurationen av den offentliga Azure-IP-resursen avgör om den gateway som du distribuerar är en zon-redundant eller zonindelade. Om du skapar en offentlig IP-resurs med en *grundläggande* SKU, kommer gatewayen inte att ha någon zon redundans och gateway-resurserna kommer att vara regionala.
 
-### <a name="zone-redundant-gateways"></a><a name="pipzrg"></a>Zonredundanta gatewayer
+### <a name="zone-redundant-gateways"></a><a name="pipzrg"></a>Zonredundant gateway
 
 När du skapar en offentlig IP-adress med hjälp av **standard** -offentliga IP SKU utan att ange en zon, varierar beteendet beroende på om gatewayen är en VPN-gateway eller en ExpressRoute-Gateway. 
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/05/2020
-ms.openlocfilehash: 644184f5bb51d049d890655ada5be5ebd4c11bf7
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 03d40dcaeaefe01fecbc201cf28dc20c8634af9d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87910411"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926679"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Uppgradera till Azure Kognitiv sökning .NET SDK version 11
 
@@ -48,7 +48,7 @@ I förekommande fall mappar följande tabell klient biblioteken mellan de två v
 | Klient som används för indexerare, data källor, färdighetsuppsättningar | [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (**ny**)](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
 
 > [!Important]
-> Version 11 byter namn till version 10 `SearchIndexClient` till `SearchClient` och återanvänder sedan namnet på en klient som arbetar med index-, analys-och synonym objekt. När du uppdaterar klient referenser följer du stegen i [stegen för att uppgradera](#UpgradeSteps) för att undvika förvirring under Sök och ersätt.
+> `SearchIndexClient`finns i båda versionerna, men har stöd för olika saker. `SearchIndexClient`Skapa index och andra objekt i version 10. I version 11 `SearchIndexClient` fungerar med befintliga index. För att undvika förvirring vid uppdatering av kod ska du vara mindful i den ordning som klient referenserna uppdateras. Genom [att följa stegen i steg för uppgraderingen](#UpgradeSteps) bör du undvika eventuella sträng ersättnings problem.
 
 <a name="naming-differences"></a>
 
@@ -125,7 +125,7 @@ Version 11 har fullt stöd för följande objekt och åtgärder:
 
 Följande version 10-funktioner är ännu inte tillgängliga i version 11. Om du använder dessa funktioner ska du hålla på migrering tills de stöds.
 
-+ [geospatiala typer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.serialization.geojsonextensions)
++ geospatiala typer
 + [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) (även om du kan använda [den här lösningen](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/tests/Samples/FieldBuilder/FieldBuilder.cs)).
 + [Knowledge Store](knowledge-store-concept-intro.md)
 

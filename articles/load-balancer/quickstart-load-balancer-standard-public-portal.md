@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 32838ba93f4f7b844cde7a1397e123d918d9d177
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 44c43505bb779c3e00af19bed3a3fd3844c16bfe
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844175"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923840"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabb start: skapa en offentlig belastningsutjämnare för att belastningsutjämna virtuella datorer med hjälp av Azure Portal
 
@@ -230,6 +230,8 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
     | Användarnamn | Ange ett användar namn |
     | lösenordsinställning | Ange ett lösen ord |
     | Bekräfta lösenord | Ange lösen ordet igen |
+    | **Regler för inkommande portar** |  |
+    | Offentliga inkommande portar | Välj **ingen** |
 
 3. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**.
   

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 0f277661ab61e7292fbb81d96c26c7d48c6d03ef
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 19c08029e78e68273298e76635136ff35ae724e0
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087058"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924129"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ) om Azure Virtual Network
 
@@ -109,7 +109,7 @@ Ja. Undernät kan läggas till i virtuella nätverk när som helst så länge so
 ### <a name="can-i-modify-the-size-of-my-subnet-after-i-create-it"></a>Kan jag ändra storleken på mitt undernät när jag har skapat det?
 Ja. Du kan lägga till, ta bort, expandera eller krympa ett undernät om inga virtuella datorer eller tjänster är distribuerade i det.
 
-### <a name="can-i-modify-subnets-after-i-created-them"></a>Kan jag ändra undernät när jag har skapat dem?
+### <a name="can-i-modify-vnet-after-i-created-them"></a>Kan jag ändra VNet när jag har skapat dem?
 Ja. Du kan lägga till, ta bort och ändra CIDR-block som används av ett VNet.
 
 ### <a name="if-i-am-running-my-services-in-a-vnet-can-i-connect-to-the-internet"></a>Kan jag ansluta till Internet om jag kör mina tjänster i ett virtuellt nätverk?
@@ -195,7 +195,7 @@ Ja. Du kan distribuera Web Apps inuti ett VNet med hjälp av en ASE (App Service
 
 * [App Service nätverksfunktioner](../app-service/networking-features.md)
 * [Skapa Web Apps i en App Service-miljön](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Integrera en app med Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [Integrera din app med en Azure-Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Begränsningar för App Service åtkomst](../app-service/app-service-ip-restrictions.md)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>Kan jag distribuera Cloud Services med Web-och Worker-roller (PaaS) i ett VNet?

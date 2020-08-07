@@ -10,15 +10,19 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
-ms.openlocfilehash: 680f8394ad1d10a564033ae5a2b9f59063589f73
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: d89bc33b0ddd0793a3c55dbd64bef9678bd723e7
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532534"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920151"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Självstudie: Konfigurera Transaktionsreplikering mellan Azure SQL-hanterad instans och SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
+
+Med Transaktionsreplikering kan du replikera data från en databas till en annan som finns på antingen SQL Server eller [Azure SQL-hanterad instans](sql-managed-instance-paas-overview.md). SQL-hanterad instans kan vara utgivare, distributör eller prenumerant i replikeringstopologin. Se [konfigurationer för transaktionell replikering](replication-transactional-overview.md#common-configurations) för tillgängliga konfigurationer. 
+
+Transaktionell replikering är för närvarande en offentlig för hands version för SQL-hanterad instans. 
 
 I den här guiden får du lära dig att:
 
@@ -30,11 +34,11 @@ I den här guiden får du lära dig att:
 
 ![Replikering mellan en hanterad instans utgivare, en hanterad instans distributör och SQL Server prenumerant](./media/replication-two-instances-and-sql-server-configure-tutorial/sqlmi-to-sql-replication.png)
 
-Den här självstudien är avsedd för en erfaren mål grupp och förutsätter att användaren är van vid distribution och anslutning till både hanterade instanser och SQL Server virtuella datorer i Azure. Därför är vissa steg i den här självstudien glansiga.
+Den här självstudien är avsedd för en erfaren mål grupp och förutsätter att användaren är van vid distribution och anslutning till både hanterade instanser och SQL Server virtuella datorer i Azure. 
 
-Läs mer i [Översikt över översikt över Azure SQL-hanterade instanser](sql-managed-instance-paas-overview.md) och artiklar om [SQL-transaktionella replikering](replication-transactional-overview.md) .
 
-Information om hur du konfigurerar replikering mellan en hanterad instans utgivare och en hanterad instans prenumerant finns i [Konfigurera transaktionell replikering mellan två hanterade instanser](replication-between-two-instances-configure-tutorial.md).
+> [!NOTE]
+> I den här artikeln beskrivs användningen av [transaktionell replikering](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) i Azure SQL-hanterad instans. Den är inte relaterad till [redundansväxlingen](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), en funktion för Azure SQL-hanterad instans som gör att du kan skapa kompletta läsbara repliker av enskilda instanser. Det finns ytterligare överväganden när du konfigurerar [transaktionell replikering med grupper för växling vid fel](replication-transactional-overview.md#with-failover-groups).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -142,7 +146,7 @@ En privat DNS-zon tillåter DNS-routning mellan de hanterade instanserna och SQL
 
 ### <a name="create-a-private-dns-zone"></a>Skapa en privat DNS-zon
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **skapa en resurs** för att skapa en ny Azure-resurs.
 1. Sök `private dns zone` på Azure Marketplace.
 1. Välj den **privat DNS zon** resurs som publicerats av Microsoft och välj sedan **skapa** för att skapa DNS-zonen.

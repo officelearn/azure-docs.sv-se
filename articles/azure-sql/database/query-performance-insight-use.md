@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 01287f344d77dedade30892d76f5fdbd54481df1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 76be966d8202bb56a6762a261be5adeaf2d58d6b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042891"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926407"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Query Performance Insight för Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ Query Performance Insight ger intelligent frågekörning för databaser i en och
 
 ![Query Performance Insight](./media/query-performance-insight-use/opening-title.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För Query Performance Insight krävs att [frågearkivet](https://msdn.microsoft.com/library/dn817826.aspx) är aktivt på databasen. Den aktive ras automatiskt för alla databaser i Azure SQL Database som standard. Om Frågearkivet inte körs uppmanas du i Azure Portal att aktivera det.
 
@@ -39,7 +39,7 @@ För Query Performance Insight krävs att [frågearkivet](https://msdn.microsoft
 
 ## <a name="permissions"></a>Behörigheter
 
-Du behöver följande [rollbaserade åtkomst kontroll](../../role-based-access-control/overview.md) behörigheter för att använda Query Performance Insight:
+Du behöver följande [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](../../role-based-access-control/overview.md) för att kunna använda Query Performance Insight:
 
 * Behörigheter för **läsare**, **ägare**, **deltagare**, **SQL DB-deltagare**eller **SQL Server deltagare** krävs för att visa de främsta resurs krävande frågorna och diagrammen.
 * Behörigheter för **ägare**, **deltagare**, **SQL DB-deltagare**eller **SQL Server deltagare** krävs för att Visa frågetext.

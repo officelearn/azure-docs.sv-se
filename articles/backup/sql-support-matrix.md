@@ -4,12 +4,12 @@ description: Innehåller en översikt över support inställningar och begränsn
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4d197f8b3c1ed74ef45c1f7942ead52ccef0c14a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 41511abaa071bd0f64ee699c52486b71ec036a68
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513191"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926458"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Support mat ris för SQL Server säkerhets kopiering på virtuella Azure-datorer
 
@@ -17,7 +17,7 @@ Du kan använda Azure Backup för att säkerhetskopiera SQL Server databaser i v
 
 ## <a name="scenario-support"></a>Scenariostöd
 
-**Support** | **Detaljer**
+**Support** | **Information**
 --- | ---
 **Distributioner som stöds** | Virtuella SQL Marketplace Azure-datorer och virtuella icke-Marketplace-datorer (manuellt installerat SQL Server) stöds.
 **Regioner som stöds** | Sydöstra Australien (ASE), östra Australien (AE), Australien, centrala (AC), Australien, centrala 2 (AC) <br> Brasilien, södra (BRS)<br> Kanada, centrala (CNC), Kanada, östra (CE)<br> Asien, sydöstra (SEA), Asien, östra (EA) <br> Östra USA (EUS), östra USA 2 (EUS2), västra centrala USA (WCUS), västra USA (WUS); Västra USA 2 (WUS 2) norra centrala USA (NCUS) centrala USA (CUS) södra centrala USA (SCUS) <br> Indien, centrala (INC), Indien, södra (moduler), västra Indien <br> Japan, östra (JPE), Japan, väst (JPW) <br> Korea, centrala (KRC), Korea, södra (KRS) <br> Nord Europa (NE), Västeuropa <br> Storbritannien, södra (UKS), Storbritannien, västra (UKW) <br> US Gov, Arizona, US Gov, Virginia, US Gov, Texas, US DoD, centrala, US DoD, östra <br> Tyskland, norra Tyskland, västra centrala <br> Schweiz, norra Schweiz, västra <br> Frankrike, centrala <br> Kina, östra, Kina, östra 2, Kina, norra, Kina, norra 2
@@ -25,21 +25,26 @@ Du kan använda Azure Backup för att säkerhetskopiera SQL Server databaser i v
 **SQL Server-versioner som stöds** | SQL Server 2019, SQL Server 2017 som beskrivs på [sidan Sök produktens livs cykel](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 och SPS enligt beskrivningen på [sidan Sök produkt livs cykel](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack)SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express.
 **.NET-versioner som stöds** | .NET Framework 4.5.2 eller senare installerat på den virtuella datorn
 
-## <a name="feature-consideration-and-limitations"></a>Funktions överväganden och begränsningar
+## <a name="feature-considerations-and-limitations"></a>Funktions överväganden och begränsningar
 
-* SQL Server säkerhets kopiering kan konfigureras i Azure Portal eller **PowerShell**. Vi stöder inte CLI.
+|Inställning  |Övre gräns |
+|---------|---------|
+|Antal databaser som kan skyddas på en server (och i ett valv)    |   2000      |
+|Databas storlek som stöds (utöver detta kan prestanda problem uppstå)   |   2 TB      |
+|Antal filer som stöds i en databas    |   1000      |
+
+>[!NOTE]
+> [Hämta den detaljerade resurs planeraren](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) för att beräkna det ungefärliga antalet skyddade databaser som rekommenderas per server baserat på de virtuella dator resurserna, bandbredden och säkerhets kopierings principen.
+
+* SQL Server säkerhets kopiering kan konfigureras i Azure Portal eller **PowerShell**. CLI stöds inte.
 * Lösningen stöds på båda typerna av [distributioner](../azure-resource-manager/management/deployment-models.md) – Azure Resource Manager virtuella datorer och klassiska virtuella datorer.
-* Virtuell dator som kör SQL Server kräver Internet anslutning för att få åtkomst till offentliga Azure-IP-adresser.
-* SQL Server **-redundanskluster (FCI)** stöds inte.
+* Alla säkerhets kopierings typer (fullständig/differentiell/log) och återställnings modeller (enkel/fullständig/Mass utloggning) stöds.
+* Fullständiga och kopiera endast fullständiga säkerhets kopierings typer stöds för **skrivskyddade** databaser.
+* Inbyggd SQL-komprimering stöds om användaren uttryckligen aktive ras av användaren i säkerhets kopierings principen. Azure Backup åsidosätter standardvärden på instans nivå med KOMPRIMERINGs-/NO_COMPRESSION-satsen, beroende på värdet för den här kontrollen som anges av användaren.
+* TDE-aktiverad databas säkerhets kopiering stöds. Om du vill återställa en TDE-krypterad databas till en annan SQL Server måste du först [återställa certifikatet till mål servern](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). Komprimering av säkerhets kopiering för TDE-aktiverade databaser för SQL Server 2016 och nyare versioner är tillgänglig, men vid lägre överförings storlek enligt beskrivningen [här](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
 * Säkerhets kopierings-och återställnings åtgärder för speglings databaser och ögonblicks bilder av databasen stöds inte.
-* Om du använder fler än en säkerhets kopierings lösning för att säkerhetskopiera din fristående SQL Server instans eller SQL Always on-tillgänglighetsgruppen kan det leda till säkerhets kopierings problem. avstå från att göra det.
-* Att säkerhetskopiera två noder i en tillgänglighets grupp individuellt med samma eller olika lösningar, kan också leda till att säkerhets kopieringen Miss lyckas.
-* Azure Backup stöder endast fullständig och endast kopiering av fullständiga säkerhets kopierings typer för **skrivskyddade** databaser
-* Databaser med ett stort antal filer kan inte skyddas. Det maximala antalet filer som stöds är **~ 1000**.  
-* Du kan säkerhetskopiera till **~ 2000** SQL Server databaser i ett valv. Du kan skapa flera valv om du har ett större antal databaser.
-* Du kan konfigurera säkerhets kopiering för upp till **50** databaser i en go; den här begränsningen hjälper till att optimera säkerhets kopierings belastning.
-* Vi har stöd för databaser upp till **2 TB** i storlek. för större storlekar kan prestanda problem uppstå.
-* Om du vill ha en uppfattning om hur många databaser som kan skyddas per server bör du tänka på faktorer som bandbredd, VM-storlek, säkerhets kopierings frekvens, databas storlek och så vidare. [Ladda ned](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) resurs planeraren för att beräkna det ungefärliga antalet databaser som du kan ha per server baserat på de virtuella dator resurserna och säkerhets kopierings principen.
+* SQL Server **-redundanskluster (FCI)** stöds inte.
+* Om du använder fler än en säkerhets kopierings lösning för att säkerhetskopiera din fristående SQL Server instans eller SQL Always on-tillgänglighetsgruppen kan det leda till säkerhets kopierings problem. Avstå från att göra det. Att säkerhetskopiera två noder i en tillgänglighets grupp individuellt med samma eller olika lösningar, kan också leda till att säkerhets kopieringen Miss lyckas.
 * När tillgänglighets grupper har kon figurer ATS tas säkerhets kopiorna från de olika noderna utifrån några faktorer. Säkerhets kopierings beteendet för en tillgänglighets grupp sammanfattas nedan.
 
 ### <a name="back-up-behavior-with-always-on-availability-groups"></a>Så fungerar säkerhetskopiering med AlwaysOn-tillgänglighetsgrupper
@@ -55,7 +60,7 @@ Beroende på vilka säkerhets kopierings-och säkerhets kopierings typer (fullst
 
 #### <a name="backup-preference-primary"></a>Säkerhets kopierings inställning: primär
 
-**Typ av säkerhets kopiering** | **Nod**
+**Typ av säkerhets kopiering** | **Node**
 --- | ---
 Fullständig | Primär
 Differentiell | Primär
@@ -64,7 +69,7 @@ Fullständig kopia |  Primär
 
 #### <a name="backup-preference-secondary-only"></a>Inställningar för säkerhets kopiering: endast sekundär
 
-**Typ av säkerhets kopiering** | **Nod**
+**Typ av säkerhets kopiering** | **Node**
 --- | ---
 Fullständig | Primär
 Differentiell | Primär
@@ -73,7 +78,7 @@ Fullständig kopia |  Sekundär
 
 #### <a name="backup-preference-secondary"></a>Säkerhets kopierings inställning: sekundär
 
-**Typ av säkerhets kopiering** | **Nod**
+**Typ av säkerhets kopiering** | **Node**
 --- | ---
 Fullständig | Primär
 Differentiell | Primär
@@ -82,7 +87,7 @@ Fullständig kopia |  Sekundär
 
 #### <a name="no-backup-preference"></a>Ingen säkerhets kopierings inställning
 
-**Typ av säkerhets kopiering** | **Nod**
+**Typ av säkerhets kopiering** | **Node**
 --- | ---
 Fullständig | Primär
 Differentiell | Primär

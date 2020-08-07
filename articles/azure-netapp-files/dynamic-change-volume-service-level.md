@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/06/2020
 ms.author: b-juche
-ms.openlocfilehash: e19db61efbf93e3191d5780d07952f3d195c7a59
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e974fb51ac36083e6ed8934afaa7a3e36ab8c08e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533075"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923874"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Ändra tjänstnivå för en volym dynamiskt
 
@@ -33,8 +33,7 @@ Den kapacitets grupp som du vill flytta volymen till måste redan finnas. Kapaci
 
 * När volymen har flyttats till en annan kapacitets pool kommer du inte längre att ha åtkomst till de tidigare volym aktivitets loggarna och volym måtten. Volymen börjar med nya aktivitets loggar och mät värden under den nya kapacitets gruppen.
 
-* Om du flyttar en volym till en kapacitets uppsättning med en högre service nivå (till exempel genom att flytta från *standard* till *Premium* eller *Ultra* Service Level) måste du vänta minst sju dagar innan du kan flytta volymen till en kapacitets pool med en lägre service nivå igen (till exempel genom att flytta från *Ultra* till *Premium* eller *standard*).  
-Den här vänte perioden gäller inte om du flyttar volymen till en kapacitets grupp som har samma service nivå eller lägre service nivå.
+* Om du flyttar en *volym till en* kapacitets uppsättning med en högre service nivå (till exempel genom att flytta från *standard* till *Premium* eller *Ultra* Service Level) måste du vänta minst sju dagar innan du kan flytta volymen till en kapacitets pool med en lägre service nivå (till exempel genom att flytta från *Ultra* till *Premium* eller *standard*).  
 
 ## <a name="register-the-feature"></a>Registrera funktionen
 

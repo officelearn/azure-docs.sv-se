@@ -92,6 +92,8 @@
           href: troubleshoot-metrics.md
         - name: Aktivera diagnostikloggar
           href: troubleshoot-diagnostics.md
+        - name: Aktivera aviseringar
+          href: troubleshoot-alerts.md
         - name: Kända problem
           href: troubleshoot-known-issues.md
         - name: Problemlösning

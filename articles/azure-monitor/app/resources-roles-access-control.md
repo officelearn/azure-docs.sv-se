@@ -3,16 +3,16 @@ title: Resurser, roller och åtkomst kontroll i Azure Application Insights | Mic
 description: Ägare, deltagare och läsare av organisationens insikter.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 38c7d7bcbcf193149fd8ab5e632674b6f8530a44
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3d69ad7eeb7c8dd32c2e3cb286f9596bed7fe042
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325703"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926509"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Resurser, roller och åtkomst kontroll i Application Insights
 
-Du kan styra vem som har Läs-och uppdaterings åtkomst till dina data i Azure [Application Insights][start]med hjälp av [rollbaserad åtkomst kontroll i Microsoft Azure](../../role-based-access-control/role-assignments-portal.md).
+Du kan styra vem som har Läs-och uppdaterings åtkomst till dina data i Azure [Application Insights][start]med hjälp av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
 > Tilldela åtkomst till användare i **resurs gruppen eller prenumerationen** som program resursen tillhör, inte i själva resursen. Tilldela rollen **Application Insights komponent deltagare** . Detta säkerställer en enhetlig kontroll av åtkomst till webbtester och aviseringar tillsammans med program resursen. [Läs mer](#access).
@@ -67,7 +67,7 @@ Om du vill visa information om alla inbyggda roller som baseras på Azure rollba
 
 Där så är tillämpligt länkar vi till den tillhör ande officiella referens dokumentationen.
 
-| Roll | I resurs gruppen |
+| Role | I resurs gruppen |
 | --- | --- |
 | [Ägare](../../role-based-access-control/built-in-roles.md#owner) |Kan ändra vad som helst, inklusive användar åtkomst. |
 | [Deltagare](../../role-based-access-control/built-in-roles.md#contributor) |Kan redigera vad som helst, inklusive alla resurser. |
@@ -101,7 +101,7 @@ Om användaren som du vill använda inte finns i katalogen kan du bjuda in alla 
 
 ## <a name="related-content"></a>Relaterat innehåll
 
-* [Rollbaserad åtkomst kontroll i Azure](../../role-based-access-control/role-assignments-portal.md)
+* [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="powershell-query-to-determine-role-membership"></a>PowerShell-fråga för att fastställa roll medlemskap
 
@@ -135,4 +135,3 @@ $resourceGroup = "RGNAME"
 [group]: ../../azure-resource-manager/management/overview.md
 [portal]: https://portal.azure.com/
 [start]: ./app-insights-overview.md
-

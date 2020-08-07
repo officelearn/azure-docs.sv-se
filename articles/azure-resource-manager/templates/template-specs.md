@@ -2,15 +2,15 @@
 title: Översikt över mall-specifikationer
 description: Beskriver hur du skapar specifikationer för mallar och delar dem med andra användare i din organisation.
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/06/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 829aaa41bc60b3dcbf78ef6083457fff3b794914
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f5151550b9f23ba63380688f53325f8976f14a51
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497808"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921886"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specifikationer för Azure Resource Manager mall (för hands version)
 
@@ -18,7 +18,7 @@ En mall specifikation är en ny resurs typ för att lagra en Azure Resource Mana
 
 **Microsoft. Resources/templateSpecs** är den nya resurs typen för specifikationer för mallar. Det består av en huvudmall och ett valfritt antal länkade mallar. Azure sparar säkert mall-specifikationer i resurs grupper. Mall-specifikationer stöder [versions hantering](#versioning).
 
-Om du vill distribuera en mall använder du standard Azure-verktyg som PowerShell, Azure CLI, Azure Portal, REST och andra SDK: er och klienter som stöds. Du använder samma kommandon och skickar i samma parametrar för mallen.
+Om du vill distribuera en mall använder du standard Azure-verktyg som PowerShell, Azure CLI, Azure Portal, REST och andra SDK: er och klienter som stöds. Du använder samma kommandon som för mallen.
 
 > [!NOTE]
 > Mallens specifikationer är för närvarande en för hands version. Du måste [Registrera dig för listan vänte tid för](https://aka.ms/templateSpecOnboarding)att kunna använda den.
@@ -37,21 +37,32 @@ I följande exempel visas en enkel mall för att skapa ett lagrings konto i Azur
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-    {
-      "name": "[concat('storage', uniqueString(resourceGroup().id))]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-06-01",
-      "location": "[resourceGroup().location]",
-      "kind": "StorageV2",
-      "sku": {
-        "name": "Premium_LRS",
-        "tier": "Premium"
-      }
-    }
-  ]
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountType": {
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "allowedValues": [
+                "Standard_LRS",
+                "Standard_GRS",
+                "Standard_ZRS",
+                "Premium_LRS"
+            ]
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "name": "[concat('store', uniquestring(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "kind": "StorageV2",
+            "sku": {
+                "name": "[parameters('storageAccountType')]"
+            }
+        }
+    ]
 }
 ```
 
@@ -105,6 +116,42 @@ $id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
   -ResourceGroupName demoRG
+```
+
+## <a name="parameters"></a>Parametrar
+
+Att skicka parametrar till mallkod är precis som att skicka parametrar till en ARM-mall. Lägg till parametervärdena antingen i rad eller i en parameter fil.
+
+Om du vill skicka en parameter infogad, använder du:
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -TemplateSpecId $id `
+  -ResourceGroupName demoRG `
+  -StorageAccountType Standard_GRS
+```
+
+Använd följande för att skapa en lokal parameter fil:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "StorageAccountType": {
+      "value": "Standard_GRS"
+    }
+  }
+}
+```
+
+Och skicka parameter filen med:
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -TemplateSpecId $id `
+  -ResourceGroupName demoRG `
+  -TemplateParameterFile ./mainTemplate.parameters.json
 ```
 
 ## <a name="create-a-template-spec-with-linked-templates"></a>Skapa en mall-specifikation med länkade mallar

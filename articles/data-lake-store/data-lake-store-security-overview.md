@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: a6a6b0b15b8d2dc08f1581cb2ea0ea4c7e8036ca
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 4992be004a4b60b7b5fb591d834e8938cf03f34f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529984"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926288"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Säkerhet i Azure Data Lake Storage Gen1
 
@@ -39,7 +39,7 @@ Varje Azure-prenumeration kan associeras med en instans av Azure Active Director
 
 När Azure Active Directory autentiserat en användare så att användaren kan komma åt Data Lake Storage Gen1, kontrollerar auktorisering åtkomst behörigheterna för Data Lake Storage Gen1. Data Lake Storage Gen1 separerar auktoriseringen för konto-och data relaterade aktiviteter på följande sätt:
 
-* [Rollbaserad åtkomst kontroll](../role-based-access-control/overview.md) (RBAC) som tillhandahålls av Azure för konto hantering
+* [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md) för konto hantering
 * POSIX ACL för åtkomst till data i Store
 
 ### <a name="rbac-for-account-management"></a>RBAC för konto hantering
@@ -52,7 +52,7 @@ Observera att även om roller tilldelas för konto hantering, påverkar vissa ro
 
 | Roller | Hanterings rättigheter | Åtkomst behörigheter för data | Förklaring |
 | --- | --- | --- | --- |
-| Ingen roll har tilldelats |Ingen |Styrs av ACL |Användaren kan inte använda Azure Portal eller Azure PowerShell-cmdletar för att bläddra i Data Lake Storage Gen1. Användaren kan bara använda kommando rads verktyg. |
+| Ingen roll har tilldelats |Inga |Styrs av ACL |Användaren kan inte använda Azure Portal eller Azure PowerShell-cmdletar för att bläddra i Data Lake Storage Gen1. Användaren kan bara använda kommando rads verktyg. |
 | Ägare |Alla |Alla |Ägar rollen är en superanvändare. Den här rollen kan hantera allt och har fullständig åtkomst till data. |
 | Läsare |Skrivskyddad |Styrs av ACL |Rollen läsare kan visa allt om konto hantering, till exempel vilken användare som är tilldelad till vilken roll. Rollen läsare kan inte göra några ändringar. |
 | Deltagare |Alla utom Lägg till och ta bort roller |Styrs av ACL |Deltagar rollen kan hantera vissa aspekter av ett konto, till exempel distributioner och skapande och hantering av aviseringar. Deltagar rollen kan inte lägga till eller ta bort roller. |

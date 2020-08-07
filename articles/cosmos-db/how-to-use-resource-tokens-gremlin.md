@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/06/2019
-ms.openlocfilehash: 45bfba5b0ab25aa9930719f136428ccc0df5014d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 211dce8a2810d9eb07bf0f388753afd50add4945
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263569"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87919964"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Använd Azure Cosmos DB-Gremlin med SDK för
 
@@ -102,5 +102,5 @@ Med ett enda Gremlin-konto kan du utfärda ett obegränsat antal tokens. Du kan 
 Ett vanligt fel som uppstår när de använder resurs-token är "otillräcklig behörighet i Authorization-huvudet för motsvarande begäran. Försök igen med ett annat Authorization-huvud. " Det här felet returneras när en Gremlin-överträdelse försöker skriva en gräns eller ett hörn, men resurs-token beviljar endast *Läs* behörighet. Granska din genom gång för att se om den innehåller något av följande steg: *. addV ()*, *. addE ()*, *. drop ()* eller *. Property ()*.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Rollbaserad åtkomst kontroll](role-based-access-control.md) i Azure Cosmos DB
+* [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](role-based-access-control.md) i Azure Cosmos DB
 * [Lär dig hur du skyddar åtkomsten till data](secure-access-to-data.md) i Azure Cosmos DB

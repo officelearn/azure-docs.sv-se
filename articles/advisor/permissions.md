@@ -3,16 +3,16 @@ title: Behörigheter i Azure Advisor
 description: Advisor-behörigheter och hur de kan blockera din möjlighet att konfigurera prenumerationer eller skjuta upp eller stänga av rekommendationer.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 6b5dfdeb888b0577a40562536bd7a6dfc271cb19
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3c7b42372ae6de5c2f519b69aec8a154a2f35a82
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057586"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927393"
 ---
 # <a name="permissions-in-azure-advisor"></a>Behörigheter i Azure Advisor
 
-Azure Advisor ger rekommendationer baserat på användningen och konfigurationen av dina Azure-resurser och prenumerationer. Advisor använder de [inbyggda roller](../role-based-access-control/built-in-roles.md) som tillhandahålls av [rollbaserad Access Control](../role-based-access-control/overview.md) (RBAC) för att hantera åtkomst till rekommendationer och Advisor-funktioner. 
+Azure Advisor ger rekommendationer baserat på användningen och konfigurationen av dina Azure-resurser och prenumerationer. Advisor använder de [inbyggda roller](../role-based-access-control/built-in-roles.md) som tillhandahålls av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md) för att hantera åtkomst till rekommendationer och Advisor-funktioner. 
 
 ## <a name="roles-and-their-access"></a>Roller och deras åtkomst
 

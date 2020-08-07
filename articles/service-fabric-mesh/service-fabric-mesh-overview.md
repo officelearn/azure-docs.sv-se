@@ -5,12 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 10/1/2018
 ms.topic: overview
-ms.openlocfilehash: e64cc158a18e604cbd022be5c91350c95258272c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b7061a178a3f5a9d126afab3fc1f9aa77d5cc050
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257797"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927036"
 ---
 # <a name="what-is-service-fabric-mesh"></a>Vad är Service Fabric Mesh?
 
@@ -42,7 +42,7 @@ Med Service Fabric Mesh kan du:
 
 - Distribuera och hantera program utan att explicit etablera och hantera infrastruktur.  Service Fabric Mesh etablerar, uppgraderar, korrigeringar och underhåller den underliggande infrastrukturen åt dig.
 - Konfigurera kontinuerlig integrering med integrerade verktyg för att enkelt paketera och distribuera program.
-- Utnyttja alla funktioner i Azure Resource Manager-resurser. Exempel på dessa funktioner är Gransknings logg och [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md). Alla resurser som du distribuerar till Service Fabric nät tjänsten i Azure är Azure Resource Manager resurser. Dessa resurser omfattar program, tjänster, hemligheter och så vidare.
+- Utnyttja alla funktioner i Azure Resource Manager-resurser. Exempel på dessa funktioner är Gransknings logg och [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md)). Alla resurser som du distribuerar till Service Fabric nät tjänsten i Azure är Azure Resource Manager resurser. Dessa resurser omfattar program, tjänster, hemligheter och så vidare.
 - Distribuera och hantera resurser med hjälp av [Azure-portalen](https://portal.azure.com), Resource Manager-mallar eller Azure CLI/PowerShell-bibliotek.
 - Konfigurera driftsövervakning och -avisering med hjälp av [Application Insights](/azure/application-insights/) (eller valfritt verktyg) för att registrera spårningar för drifts- och diagnostikdata från plattformen.
 - Få diagnostikinformation för program som skickas ut från programmodellen med hjälp av [Application Insights](/azure/application-insights/) eller valfritt verktyg.

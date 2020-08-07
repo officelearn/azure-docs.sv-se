@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: 125b70b389809c576d17d1c8de35290c1c402c4a
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0d873401d377a03581a319769604f3d976f365be
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852896"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927246"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Snabb start: skapa en privat länk-tjänst med hjälp av Azure Portal
 
@@ -133,7 +133,7 @@ Så här skapar du en belastnings Utjämnings regel:
 
 ## <a name="create-a-private-link-service"></a>Skapa en Private Link-tjänst
 
-I det här avsnittet skapar du en privat länk-tjänst bakom en standard belastningsutjämnare.
+I det här avsnittet ska du skapa en privat länk-tjänst bakom en standard belastningsutjämnare.
 
 1. I den övre vänstra delen av sidan i Azure Portal väljer du **skapa en resurs**  >  **nätverk**  >  **Private Link Center (för hands version)**. Du kan också använda portalens sökruta för att söka efter en privat länk.
 

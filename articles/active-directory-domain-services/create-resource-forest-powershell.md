@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: d5eef553d0d3bf5acbcb61ef8f2dcfab88a53266
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: eb627b8069bcd9efd1d56adab5eda45dc34a1a10
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505775"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922004"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Skapa en Azure Active Directory Domain Services resurs skog och utgående skogs förtroende till en lokal domän med hjälp av Azure PowerShell
 
@@ -102,17 +102,17 @@ Om du vill skapa en resurs skog för en hanterad domän använder du `New-AzureA
 
 1. Granska följande parametrar som behövs för `New-AzureAaddsForest` skriptet. Se till att du även har de nödvändiga **Azure PowerShell** -och **Azure AD PowerShell** -modulerna. Se till att du har planerat de virtuella nätverks kraven för att tillhandahålla program och lokal anslutning.
 
-    | Name                         | Skript parameter          | Beskrivning |
+    | Namn                         | Skript parameter          | Beskrivning |
     |:-----------------------------|---------------------------|:------------|
     | Prenumeration                 | *– azureSubscriptionId*    | Prenumerations-ID som används för Azure AD DS-fakturering. Du kan hämta listan över prenumerationer med hjälp av cmdleten [Get-AzureRMSubscription][Get-AzureRMSubscription] . |
     | Resursgrupp               | *-aaddsResourceGroupName* | Namnet på resurs gruppen för den hanterade domänen och de associerade resurserna. |
-    | Location                     | *-aaddsLocation*          | Azure-regionen som är värd för din hanterade domän. För tillgängliga regioner, se [regioner som stöds för Azure AD DS.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
+    | Plats                     | *-aaddsLocation*          | Azure-regionen som är värd för din hanterade domän. För tillgängliga regioner, se [regioner som stöds för Azure AD DS.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
     | Azure AD DS-administratör    | *-aaddsAdminUser*         | User Principal Name av den första hanterade domän administratören. Det här kontot måste vara ett befintligt moln användar konto i din Azure Active Directory. Användaren, och användaren som kör skriptet, läggs till i *Administratörs gruppen för AAD-domänkontrollanten* . |
     | Namn på Azure AD DS-domän      | *-aaddsDomainName*        | Det fullständiga domän namnet för den hanterade domänen, baserat på den tidigare vägledningen om hur du väljer ett skogs namn. |
 
     `New-AzureAaddsForest`Skriptet kan skapa det virtuella Azure-nätverket och Azure AD DS-undernätet om dessa resurser inte redan finns. Skriptet kan också skapa arbets belastnings under näten när det anges:
 
-    | Name                              | Skript parameter                  | Description |
+    | Namn                              | Skript parameter                  | Beskrivning |
     |:----------------------------------|:----------------------------------|:------------|
     | Virtuellt nätverksnamn              | *-aaddsVnetName*                  | Namnet på det virtuella nätverket för den hanterade domänen.|
     | Adressutrymme                     | *-aaddsVnetCIDRAddressSpace*      | Det virtuella nätverkets adress intervall i CIDR-format (om du skapar det virtuella nätverket).|
@@ -148,8 +148,8 @@ Innan du börjar ska du kontrol lera att du förstår [nätverks övervägandena
 
 1. Skapa hybrid anslutningen till ditt lokala nätverk till Azure med hjälp av en Azure VPN-eller Azure ExpressRoute-anslutning. Hybrid nätverks konfigurationen ligger utanför den här dokumentationens omfattning och finns kanske redan i din miljö. Mer information om vissa scenarier finns i följande artiklar:
 
-    * [Azure plats-till-plats-VPN](/vpn-gateway/vpn-gateway-about-vpngateways).
-    * [Översikt över Azure ExpressRoute](/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [Azure plats-till-plats-VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [Översikt över Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
 
     > [!IMPORTANT]
     > Om du skapar anslutningen direkt till din hanterade domäns virtuella nätverk, använder du ett separat Gateway-undernät. Skapa inte gatewayen i under nätet för den hanterade domänen.
@@ -193,7 +193,7 @@ Install-Script -Name Add-AaddsResourceForestTrust
 
 Ange nu skriptet med följande information:
 
-| Name                               | Skript parameter     | Description |
+| Namn                               | Skript parameter     | Beskrivning |
 |:-----------------------------------|:---------------------|:------------|
 | Namn på Azure AD DS-domän            | *-ManagedDomainFqdn* | Fullständigt domän namn för den hanterade domänen, till exempel *aaddscontoso.com* |
 | Namn på lokal AD DS-domän      | *-TrustFqdn*         | FQDN för den betrodda skogen, till exempel *OnPrem.contoso.com* |

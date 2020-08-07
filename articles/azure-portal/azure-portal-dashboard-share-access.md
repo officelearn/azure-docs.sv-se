@@ -13,16 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 9ead7eb19e49574073f038648ca1d247b2dab98f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b478272ff790121d914a51f8ee4c5cf250134f4d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131709"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923891"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Dela Azure-instrumentpaneler med hjälp av rollbaserad åtkomstkontroll
 
-När du har konfigurerat en instrument panel kan du publicera den och dela den med andra användare i din organisation. Du tillåter andra att visa instrument panelen med hjälp av RBAC (Azure [rollbaserad Access Control](../role-based-access-control/role-assignments-portal.md) ). Tilldela en användare eller grupp av användare till en roll. Rollen definierar om dessa användare kan visa eller ändra den publicerade instrument panelen.
+När du har konfigurerat en instrument panel kan du publicera den och dela den med andra användare i din organisation. Du låter andra Visa din instrument panel med hjälp av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Tilldela en användare eller grupp av användare till en roll. Rollen definierar om dessa användare kan visa eller ändra den publicerade instrument panelen.
 
 Alla publicerade instrument paneler implementeras som Azure-resurser. De finns som hanterbara objekt i din prenumeration och ingår i en resurs grupp. Från ett perspektiv för åtkomst kontroll skiljer sig instrument paneler inte från andra resurser, till exempel en virtuell dator eller ett lagrings konto.
 

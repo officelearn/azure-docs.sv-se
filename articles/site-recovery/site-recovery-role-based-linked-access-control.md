@@ -6,12 +6,12 @@ ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: a11cd001e33e52f9138d9b302c39e04ee3d984a5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 95ea8b61b01b17512d99d0316073835326e6d7bd
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503539"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927172"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Hantera Site Recovery åtkomst med rollbaserad åtkomst kontroll (RBAC)
 
@@ -72,7 +72,7 @@ En användare behöver följande behörigheter för att slutföra replikeringen 
 Överväg att använda de [inbyggda rollerna](../role-based-access-control/built-in-roles.md) "Virtual Machine Contributor" och "klassisk virtuell dator deltagare" för Resource Manager respektive klassiska distributions modeller.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Rollbaserad Access Control](../role-based-access-control/role-assignments-portal.md): kom igång med RBAC i Azure Portal.
+* [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): kom igång med RBAC i Azure Portal.
 * Lär dig hur du hanterar åtkomst med:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)

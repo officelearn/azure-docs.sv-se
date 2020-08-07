@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1fc665aec3aa8c08449815dbb255f87404e370f
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: cfce0031d912b1611b6810310e56241857821579
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87906103"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926730"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Vad är gästanvändaråtkomst i Azure Active Directory B2B?
 
@@ -98,4 +98,3 @@ Du kan också använda [API-kopplingar](api-connectors-overview.md) för att int
 - [Licensieringsguide för Azure AD B2B-samarbete](licensing-guidance.md)
 - [Lägg till gästanvändare för B2B-samarbete i portalen](add-users-administrator.md)
 - [Förstå inlösningsprocessen för inbjudningar](redemption-experience.md)
-- Och som alltid kan du kontakta produktgruppen med eventuell feedback och förslag via vår [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).

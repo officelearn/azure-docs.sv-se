@@ -1,6 +1,6 @@
 ---
 title: Självstudie för att kopiera data till Azure Data Box via NFS | Microsoft Docs
-description: Lär dig hur du kopierar data till Azure Data Box via NFS
+description: I den här självstudien får du lära dig hur du ansluter till och kopierar data från värddatorn till Azure Data Box med hjälp av NFS med det lokala webb gränssnittet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 2b5789acfbb088ca8dbeb731b1ce7748041233cb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 590a0a1ce474d48e95163081dcdcacb52233badf
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960541"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926084"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Självstudie: kopiera data till Azure Data Box via NFS
 
@@ -23,7 +23,7 @@ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
-> * Förutsättningar
+> * Krav
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
 
@@ -48,7 +48,7 @@ Under blockblob- och sidblobresurser är entiteter på första nivån containrar
 
 I följande tabell visas UNC-sökvägen till filresurser på din Data Box och Azure Storage-sökvägens URL som data har överförts till. URL:en till den sista Azure Storage-sökvägen kan härledas från sökvägen till UNC-resursen.
  
-| Azure Storage-typ| Data Box-enhet resurser                                       |
+| Azure Storage-typ| Data Box-resurser                                       |
 |-------------------|--------------------------------------------------------------------------------|
 | Azure Block blobs | <li>UNC-sökväg till resurser: `//<DeviceIPAddress>/<StorageAccountName_BlockBlob>/<ContainerName>/files/a.txt`</li><li>URL för Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Azure-sidblobar  | <li>UNC-sökväg till resurser: `//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>URL för Azure Storage: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
@@ -139,17 +139,17 @@ Om du använder rsync-alternativet för en flertrådig kopia följer du dessa ri
 > [!IMPORTANT]
 > Följande Linux-filtyper stöds inte: symboliska länkar, paketfiler, blockera filer, Sockets och pipes. Dessa filtyper resulterar i problem under **Förbered för att skicka** steget.
 
-Om det finns några fel visas ett meddelande under kopierings processen.
+Ett meddelande visas om det uppstår fel under kopieringen.
 
-![Hämta och Visa fel vid anslutning och kopiering](media/data-box-deploy-copy-data/view-errors-1.png)
+![Ladda ned och visa fel från Anslut och kopiera](media/data-box-deploy-copy-data/view-errors-1.png)
 
-Välj **Hämta ärende lista**.
+Välj **Ladda ned lista med ärenden**.
 
-![Hämta och Visa fel vid anslutning och kopiering](media/data-box-deploy-copy-data/view-errors-2.png)
+![Ladda ned och visa fel från Anslut och kopiera](media/data-box-deploy-copy-data/view-errors-2.png)
 
-Öppna listan för att visa information om felet och välj lösnings-URL: en för att visa den rekommenderade lösningen.
+Öppna listan för att visa information om felet och välj lösnings-URL:en för att visa den rekommenderade lösningen.
 
-![Hämta och Visa fel vid anslutning och kopiering](media/data-box-deploy-copy-data/view-errors-3.png)
+![Ladda ned och visa fel från Anslut och kopiera](media/data-box-deploy-copy-data/view-errors-3.png)
 
 Mer information finns i [Visa felloggar under datakopiering till Data Box](data-box-logs.md#view-error-log-during-data-copy). En detaljerad lista över fel i samband med datakopieringen finns i [Felsöka problem med Data Box](data-box-troubleshoot.md).
 

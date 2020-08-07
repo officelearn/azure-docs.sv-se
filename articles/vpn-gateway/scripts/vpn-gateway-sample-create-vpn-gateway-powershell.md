@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell-skriptexempel – Skapa en VPN-gateway | Microsoft Docs
-description: Skapa en VPN-gateway med hjälp av PowerShell.
+description: Det här PowerShell-skriptet skapar en Route-baserad VPN Gateway i Azure. Lär dig mer om alla cmdlets i skriptet.
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: kumudD
@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 01/09/2020
 ms.author: alzam
-ms.openlocfilehash: 1531bf7fdb2ec23be49f5a31145e3d8c2487aedc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8cc4fa7dd8d5a3df4fbc6c42eaed0b5d97ac421f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087024"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927342"
 ---
 # <a name="create-a-vpn-gateway-with-powershell"></a>Skapa en VPN-gateway med PowerShell
 
@@ -68,7 +68,7 @@ Remove-AzResourceGroup -Name TestRG1
 
 Det här skriptet använder följande kommandon för att skapa distributionen. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Anteckningar |
 |---|---|
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Lägger till en undernätskonfiguration. Den här konfigurationen används med skapandeprocessen för virtuella nätverk. |
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Hämtar information för virtuellt nätverk. |

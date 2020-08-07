@@ -1,6 +1,6 @@
 ---
 title: Administratörshandbok för Azure Data Box Disk-portalen | Microsoft Docs
-description: Beskriver hur du använder Azure Portal för att administrera Azure Data Box.
+description: Lär dig hur du hanterar Data Box Disk med hjälp av Azure Portal. Hantera order, hantera diskar och spåra statusen för en order när den fortskrider.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4ac56a4d588071f599f62e6de94d9ec7367a1ae
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707743"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924761"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Använda Azure-portalen för att administrera din Data Box Disk
 
@@ -119,7 +119,7 @@ Följ stegen nedan om du vill redigera meddelandeinformationen.
 
 ## <a name="view-order-status"></a>Visa orderstatus
 
-|Orderstatus |Beskrivning |
+|Beställningsstatus |Beskrivning |
 |---------|---------|
 |Beställt     | En beställning har gjorts. <br> Om diskarna inte är tillgängliga får du ett meddelande. <br>Om diskarna är tillgängliga identifierar Microsoft en disk för leverans och förbereder diskpaketet.        |
 |Bearbetad     | Orderbearbetningen har slutförts. <br> Under orderbearbetningen utförs följande åtgärder:<li>Diskarna krypteras med AES-128 BitLocker-kryptering. </li> <li>Data Box-diskarna låses för att förhindra obehörig åtkomst.</li><li>Nyckeln som låser upp diskarna genereras under den här processen.</li>        |

@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: af3f9b4595be5af2477fdbef4e5f0a15224e8a93
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4aaa729ffd272c886bf5c545574d99c9de5842f9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285840"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922259"
 ---
 # <a name="authentication-with-azure-maps"></a>Autentisering med Azure Maps
 
@@ -80,7 +80,7 @@ Information om hur du visar ditt klient-ID finns i [Visa information om autentis
 
 ## <a name="authorization-with-role-based-access-control"></a>Auktorisering med rollbaserad åtkomst kontroll
 
-Azure Maps stöder åtkomst till alla huvud typer för Azure [-rollbaserad åtkomst kontroll](https://docs.microsoft.com/azure/role-based-access-control/overview) , inklusive: enskilda Azure AD-användare, grupper, program, Azure-resurser och Azure Managed-identiteter. Huvud typer beviljas en uppsättning behörigheter, även kallat en roll definition. En roll definition ger behörighet att REST API åtgärder. Att tillämpa åtkomst till ett eller flera Azure Maps-konton kallas för ett omfång. När du använder ett huvud konto, en roll definition och ett omfång skapas en roll tilldelning. 
+Azure Maps stöder åtkomst till alla huvud typer för [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) , inklusive: enskilda Azure AD-användare, grupper, program, Azure-resurser och Azure Managed-identiteter. Huvud typer beviljas en uppsättning behörigheter, även kallat en roll definition. En roll definition ger behörighet att REST API åtgärder. Att tillämpa åtkomst till ett eller flera Azure Maps-konton kallas för ett omfång. När du använder ett huvud konto, en roll definition och ett omfång skapas en roll tilldelning. 
 
 I nästa avsnitt beskrivs begrepp och komponenter i Azure Maps integration med rollbaserad åtkomst kontroll i Azure AD. Som en del av processen för att konfigurera ditt Azure Maps-konto är en Azure AD-katalog kopplad till Azure-prenumerationen som Azure Maps-kontot finns i. 
 

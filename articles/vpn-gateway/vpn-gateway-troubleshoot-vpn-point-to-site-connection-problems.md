@@ -1,19 +1,19 @@
 ---
 title: Felsök problem med Azure punkt-till-plats-anslutning
 titleSuffix: Azure VPN Gateway
-description: Lär dig hur du felsöker problem med punkt-till-plats-anslutning.
+description: Lär dig hur du felsöker vanliga problem med punkt-till-plats-anslutning som du kan uppleva i Azure, inklusive olika VPN-klient fel.
 services: vpn-gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: b997942fd8d8a90b4bd395c2afa7d99b64a97ad8
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 8fd32cb99db115484c913e1a0f00b038b62367e9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037757"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920661"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Fel sökning: problem med Azure punkt-till-plats-anslutning
 
@@ -39,7 +39,7 @@ Följ dessa steg för att lösa problemet:
 
 2. Kontrol lera att följande certifikat finns på rätt plats:
 
-    | Certifikat | Location |
+    | Certifikat | Plats |
     | ------------- | ------------- |
     | AzureClient. pfx  | Aktuell User\Personal\Certificates |
     | AzureRoot. cer    | Lokala Computer\Trusted rot certifikat utfärdare|
@@ -71,7 +71,7 @@ Förbereda Windows 10 eller Server 2016 för IKEv2:
 
 1. Installera uppdateringen.
 
-   | OS-version | Datum | Antal/länk |
+   | OS-version | Date | Antal/länk |
    |---|---|---|---|
    | Windows Server 2016<br>Windows 10, version 1607 | 17 januari 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10, version 1703 | 17 januari 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
@@ -115,7 +115,7 @@ När du försöker ansluta till ett virtuellt Azure-nätverk med hjälp av VPN-k
 
 1. Kontrol lera att följande certifikat finns på rätt plats:
 
-    | Certifikat | Location |
+    | Certifikat | Plats |
     | ------------- | ------------- |
     | AzureClient. pfx  | Aktuell User\Personal\Certificates |
     | Azuregateway-*GUID*. cloudapp.net  | Aktuella User\Trusted rot certifikat utfärdare|

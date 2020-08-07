@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 338fdcb6ee2ebad98972bead7e16c9bc5944f2b3
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 3d99293ea83c883f8d0870d78dfbec58f74c9bd1
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117059"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927325"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Felsöka problem med Log Analytics-agenten för Windows 
 
@@ -34,12 +34,12 @@ Kontrol lera att brand väggen eller proxyservern har kon figurer ATS för att t
 
 |Agentresurs|Portar |Riktning |Kringgå HTTPS-kontroll|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Port 443 |Utgående|Yes |  
-|*.oms.opinsights.azure.com |Port 443 |Utgående|Yes |  
-|*.blob.core.windows.net |Port 443 |Utgående|Yes |  
-|*. agentsvc.azure-automation.net |Port 443 |Utgående|Yes |  
+|*.ods.opinsights.azure.com |Port 443 |Outbound (Utgående)|Ja |  
+|*.oms.opinsights.azure.com |Port 443 |Outbound (Utgående)|Ja |  
+|*.blob.core.windows.net |Port 443 |Outbound (Utgående)|Ja |  
+|*. agentsvc.azure-automation.net |Port 443 |Outbound (Utgående)|Ja |  
 
-För brand Väggs information som krävs för Azure Government, se [Azure Government hantering](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). Om du planerar att använda Azure Automation Hybrid Runbook Worker för att ansluta till och registrera med Automation-tjänsten för att använda Runbooks eller hanterings lösningar i din miljö, måste den ha åtkomst till port numret och de URL: er som beskrivs i [Konfigurera ditt nätverk för Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+För brand Väggs information som krävs för Azure Government, se [Azure Government hantering](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). Om du planerar att använda Azure Automation Hybrid Runbook Worker för att ansluta till och registrera med Automation-tjänsten för att använda Runbooks eller hanterings lösningar i din miljö, måste den ha åtkomst till port numret och de URL: er som beskrivs i [Konfigurera ditt nätverk för Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 Det finns flera sätt som du kan kontrol lera om agenten lyckas kommunicera med Azure Monitor.
 

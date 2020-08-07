@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 1ae93dad9a18c18e330b4ff65924dd1db7a1faf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1da644d8aca0b197e21ec03c7d0ac0b454f92a9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515257"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926305"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Skydda data som lagras i Azure Data Lake Storage Gen1
 Att skydda data i Azure Data Lake Storage Gen1 är en metod i tre steg.  Både rollbaserad åtkomst kontroll (RBAC) och åtkomst kontrol listor (ACL: er) måste anges för att aktivera åtkomst till data för användare och säkerhets grupper fullständigt.
 
-1. Börja med att skapa säkerhets grupper i Azure Active Directory (AAD). Dessa säkerhets grupper används för att implementera rollbaserad åtkomst kontroll (RBAC) i Azure Portal. Mer information finns i [rollbaserad Access Control i Microsoft Azure](../role-based-access-control/role-assignments-portal.md).
+1. Börja med att skapa säkerhets grupper i Azure Active Directory (AAD). Dessa säkerhets grupper används för att implementera Azure-rollbaserad åtkomst kontroll (Azure RBAC) i Azure Portal. Mer information finns i [Azure RBAC](../role-based-access-control/role-assignments-portal.md).
 2. Tilldela AAD-säkerhetsgrupper till Data Lake Storage Gen1-kontot. Detta styr åtkomsten till Data Lake Storage Gen1 kontot från portalen och hanterings åtgärderna från portalen eller API: erna.
 3. Tilldela AAD-säkerhetsgrupper som åtkomst kontrol listor (ACL: er) i Data Lake Storage Gen1 fil system.
 4. Dessutom kan du också ange ett IP-adressintervall för klienter som kan komma åt data i Data Lake Storage Gen1.
 
 Den här artikeln innehåller anvisningar om hur du använder Azure Portal för att utföra ovanstående uppgifter. För detaljerad information om hur Data Lake Storage Gen1 implementerar säkerhet på konto-och data nivån, se [säkerhet i Azure Data Lake Storage gen1](data-lake-store-security-overview.md). Detaljerad information om hur ACL: er implementeras i Data Lake Storage Gen1 finns i [Översikt över Access Control i data Lake Storage gen1](data-lake-store-access-control.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar de här självstudierna måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -155,4 +155,3 @@ När du tar bort ACL: er för säkerhets grupper från ett Data Lake Storage Gen
 * [Komma igång med Data Lake Storage Gen1 med hjälp av PowerShell](data-lake-store-get-started-powershell.md)
 * [Kom igång med Data Lake Storage Gen1 med .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Åtkomst till diagnostikloggar för Data Lake Storage Gen1](data-lake-store-diagnostic-logs.md)
-

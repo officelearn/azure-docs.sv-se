@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: eecf7ba1471e35e2d9ab26394c7295f324c4ca20
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 034d1c4dbbb91ad7317ffb56b1fe38e010694c44
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84116394"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927104"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Migrera lokala SSIS-arbetsbelastningar till SSIS i ADF
 
@@ -66,7 +66,7 @@ De steg som krävs för att migrera **SSIS-paket** och **SQL Server Agent jobb**
 |-|-|-|
 |SSISDB|[Migrera **SSISDB**](scenario-ssis-migration-ssisdb-mi.md)|[Migrera SSIS-jobb till Azure SQL Managed instance agent](scenario-ssis-migration-ssisdb-mi.md#ssis-jobs-to-sql-managed-instance-agent)|
 |Filsystem|Distribuera om dem till fil resurser/Azure Files via dtinstall/dtutil/manuell kopia eller för att hålla i fil system för åtkomst via VNet/egen värd-IR. Mer information finns i [dtutil-verktyget](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|<li> Migrera med [SSIS för migrering av jobb i SSMS](how-to-migrate-ssis-job-ssms.md) <li>Omvandla dem till ADF-pipeline/-aktiviteter/-utlösare via scripts/SSMS/ADF Portal. Mer information finns i [schemaläggnings funktionen för SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
-|SQL Server (MSDB)|Exportera dem till fil system/fil resurser/Azure Files via SSMS/dtutil. Mer information finns i [Exportera SSIS-paket](https://docs.microsoft.com/sql/integration-services/import-and-export-packages-ssis-service).|Omvandla dem till ADF-pipeline/-aktiviteter/-utlösare via scripts/SSMS/ADF Portal. Mer information finns i [schemaläggnings funktionen för SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
+|SQL Server (MSDB)|Exportera dem till fil system/fil resurser/Azure Files via SSMS/dtutil. Mer information finns i [Exportera SSIS-paket](https://docs.microsoft.com/sql/integration-services/service/package-management-ssis-service#import-and-export-packages).|Omvandla dem till ADF-pipeline/-aktiviteter/-utlösare via scripts/SSMS/ADF Portal. Mer information finns i [schemaläggnings funktionen för SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |Paket arkiv|Exportera dem till fil system/fil resurser/Azure Files via SSMS/dtutil eller distribuera om dem till fil resurser/Azure Files via dtinstall/dtutil/manuell kopia eller behåll dem i fil system för att få åtkomst via VNet/egen värd-IR. Mer information finns i dtutil-verktyget. Mer information finns i [dtutil-verktyget](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|Omvandla dem till ADF-pipeline/-aktiviteter/-utlösare via scripts/SSMS/ADF Portal. Mer information finns i [schemaläggnings funktionen för SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 
 ### <a name="azure-sql-database-as-database-workload-destination"></a>**Azure SQL Database** som databasens arbets belastnings mål
@@ -75,7 +75,7 @@ De steg som krävs för att migrera **SSIS-paket** och **SQL Server Agent jobb**
 |-|-|-|
 |SSISDB|Distribuera om till Azure-SSISDB via SSDT/SSMS. Mer information finns i [distribuera SSIS-paket i Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial).|Omvandla dem till ADF-pipeline/-aktiviteter/-utlösare via scripts/SSMS/ADF Portal. Mer information finns i [schemaläggnings funktionen för SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |Filsystem|Distribuera om dem till fil resurser/Azure Files via dtinstall/dtutil/manuell kopia eller för att hålla i fil system för åtkomst via VNet/egen värd-IR. Mer information finns i [dtutil-verktyget](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|<li> Migrera med [SSIS för migrering av jobb i SSMS](how-to-migrate-ssis-job-ssms.md) <li> Omvandla dem till ADF-pipeline/-aktiviteter/-utlösare via scripts/SSMS/ADF Portal. Mer information finns i [schemaläggnings funktionen för SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
-|SQL Server (MSDB)|Exportera dem till fil system/fil resurser/Azure Files via SSMS/dtutil. Mer information finns i [Exportera SSIS-paket](https://docs.microsoft.com/sql/integration-services/import-and-export-packages-ssis-service).|Omvandla dem till ADF-pipeline/-aktiviteter/-utlösare via scripts/SSMS/ADF Portal. Mer information finns i [schemaläggnings funktionen för SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
+|SQL Server (MSDB)|Exportera dem till fil system/fil resurser/Azure Files via SSMS/dtutil. Mer information finns i [Exportera SSIS-paket](https://docs.microsoft.com/sql/integration-services/service/package-management-ssis-service#import-and-export-packages).|Omvandla dem till ADF-pipeline/-aktiviteter/-utlösare via scripts/SSMS/ADF Portal. Mer information finns i [schemaläggnings funktionen för SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |Paket arkiv|Exportera dem till fil system/fil resurser/Azure Files via SSMS/dtutil eller distribuera om dem till fil resurser/Azure Files via dtinstall/dtutil/manuell kopia eller behåll dem i fil system för att få åtkomst via VNet/egen värd-IR. Mer information finns i dtutil-verktyget. Mer information finns i [dtutil-verktyget](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|Omvandla dem till ADF-pipeline/-aktiviteter/-utlösare via scripts/SSMS/ADF Portal. Mer information finns i [schemaläggnings funktionen för SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 
 ## <a name="additional-resources"></a>Ytterligare resurser

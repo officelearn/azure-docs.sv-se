@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0a754873aeafe8d4e7b48d49647469874ff40f7e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: db18c71b09cd9beb58799ad4fbcbc944061153fb
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80875901"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921767"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Snabbstart – Konfigurera inloggning för en ensidesapp med Azure Active Directory B2C
 
@@ -24,9 +24,9 @@ Azure Active Directory B2C (Azure AD B2C) tillhandahåller moln identitets hante
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- [Visual Studio-koden](https://code.visualstudio.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
 - [Node.js](https://nodejs.org/en/download/)
 - Socialt konto från Facebook, Google eller Microsoft
 - Kod exempel från GitHub: [Active-Directory-B2C-JavaScript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
@@ -37,7 +37,7 @@ Azure Active Directory B2C (Azure AD B2C) tillhandahåller moln identitets hante
     git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
     ```
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 1. Starta servern genom att köra följande kommandon från Node.js-kommandotolken:
 
@@ -47,7 +47,7 @@ Azure Active Directory B2C (Azure AD B2C) tillhandahåller moln identitets hante
     npm start
     ```
 
-    Servern som startades av *Server. js* visar den port den lyssnar på:
+    Servern som startades av *server.js* visar den port som den lyssnar på:
 
     ```console
     Listening on port 6420...
@@ -75,6 +75,10 @@ Välj **anropa API** om du vill att ditt visnings namn ska returneras från webb
 ![Exempel program i webbläsare som visar svaret på webb-API](./media/quickstart-single-page-app/call-api-spa.png)
 
 Det enkelsidiga exempelprogrammet innehåller en åtkomsttoken i begäran till den skyddade webb-API-resursen.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Du kan använda Azure AD B2C-klientorganisationen om du vill prova andra snabbstarter eller självstudier för Azure AD B2C. När den inte längre behövs kan du ta bort [Azure AD B2C-klientorganisationen](faq.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## <a name="next-steps"></a>Nästa steg
 

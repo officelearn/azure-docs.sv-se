@@ -14,12 +14,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/20/2020
-ms.openlocfilehash: 2f8706fa8b272075ec64e2d36475509732914acf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0b6aba2b857a16631871d13f4a0fc14b682393e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003225"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926713"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Kör ett SSIS-paket med aktiviteten Kör SSIS-paket i Azure Data Factory
 
@@ -97,7 +97,7 @@ Utför följande steg på fliken **Inställningar** för AKTIVITETEN kör SSIS-p
 
 **SSISDB** som din paket plats väljs automatiskt om din Azure-SSIS IR etablerades med en SSIS-katalog (SSISDB) som hanteras av Azure SQL Database Server/hanterad instans eller om du kan välja den själv. Om den är markerad utför du följande steg.
 
-   1. Om din Azure-SSIS IR körs och kryss rutan **manuella poster** är avmarkerad bläddrar du och väljer dina befintliga mappar, projekt, paket och miljöer från SSISDB. Välj **Uppdatera** för att hämta nyligen tillagda mappar, projekt, paket eller miljöer från SSISDB, så att de är tillgängliga för bläddring och val. Om du vill bläddra och välja miljöer för dina paket körningar måste du konfigurera dina projekt i förväg för att lägga till dessa miljöer som referenser från samma mappar under SSISDB. Mer information finns i [skapa och MAPPA SSIS miljöer](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014).
+   1. Om din Azure-SSIS IR körs och kryss rutan **manuella poster** är avmarkerad bläddrar du och väljer dina befintliga mappar, projekt, paket och miljöer från SSISDB. Välj **Uppdatera** för att hämta nyligen tillagda mappar, projekt, paket eller miljöer från SSISDB, så att de är tillgängliga för bläddring och val. Om du vill bläddra och välja miljöer för dina paket körningar måste du konfigurera dina projekt i förväg för att lägga till dessa miljöer som referenser från samma mappar under SSISDB. Mer information finns i [skapa och MAPPA SSIS miljöer](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages).
 
    1. För **loggnings nivå**väljer du ett fördefinierat loggnings område för paket körningen. Markera kryss rutan **anpassad** om du vill ange ett anpassat loggnings namn i stället. 
 
@@ -269,7 +269,7 @@ Utför följande steg på fliken **åsidosättningar** för att köra SSIS-paket
 
    1. Ange Sök vägarna för de befintliga egenskaperna i det valda paketet ett i taget för att tilldela dem värden manuellt. Kontrol lera att de finns och att de har angetts korrekt för att paket körningen ska lyckas. Om du till exempel vill åsidosätta värdet för användar variabeln anger du dess sökväg i följande format: `\Package.Variables[User::<variable name>].Value` . 
 
-      Du kan hämta rätt **egenskaps Sök väg** för alla paket egenskaper genom att öppna paketet som innehåller det på SSDT. När paketet har öppnats väljer du egenskapen kontroll flöde och **konfigurationer** i fönstret **Egenskaper** för SSDT. Välj sedan knappen med tre punkter **(...**) bredvid dess **konfigurations** egenskap för att öppna de **paket konfigurations organisatörer** som normalt används för att [skapa paket konfigurationer i paket distributions modellen](https://docs.microsoft.com/sql/integration-services/create-package-configurations?view=sql-server-2014). 
+      Du kan hämta rätt **egenskaps Sök väg** för alla paket egenskaper genom att öppna paketet som innehåller det på SSDT. När paketet har öppnats väljer du egenskapen kontroll flöde och **konfigurationer** i fönstret **Egenskaper** för SSDT. Välj sedan knappen med tre punkter **(...**) bredvid dess **konfigurations** egenskap för att öppna de **paket konfigurations organisatörer** som normalt används för att [skapa paket konfigurationer i paket distributions modellen](https://docs.microsoft.com/sql/integration-services/packages/legacy-package-deployment-ssis#create-package-configurations). 
 
       ![Hämta paket egenskaper från SSDT-Configurations-egenskap](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 645d92a214f88985e1427ab24d350a6f85c0a076
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: fa23637500755f43bb380a9f20cbe3acc7c3a394
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371387"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925812"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Metod tips för att skydda PaaS-webb program och mobilappar med hjälp av Azure Storage
 I den här artikeln diskuterar vi en samling Azure Storage säkerhets metod tips för att skydda dina webb-och mobil program för PaaS-tjänster (Platform-as-a-Service). Dessa bästa metoder härleds från vår erfarenhet av Azure och våra kunders upplevelser som du själv har.
@@ -56,7 +56,7 @@ SAS gör att du kan dela innehåll på det sätt som du vill dela det utan att l
 Mer information om signaturer för delad åtkomst finns i [använda signaturer för delad åtkomst](/azure/storage/common/storage-dotnet-shared-access-signature-part-1). 
 
 ## <a name="use-role-based-access-control"></a>Använd rollbaserad åtkomstkontroll
-Ett annat sätt att hantera åtkomst är att använda [rollbaserad åtkomst kontroll](/azure/role-based-access-control/overview) (RBAC). Med RBAC fokuserar du på att ge de anställda de exakta behörigheter som de behöver, baserat på behovet av att känna till och minsta behörighets säkerhets principer. För många behörigheter kan exponera ett konto för angripare. För få behörigheter innebär det att anställda inte kan få jobbet gjort effektivt. RBAC hjälper till att lösa det här problemet genom att erbjuda detaljerad åtkomst hantering för Azure. Detta är nödvändigt för organisationer som vill tillämpa säkerhets principer för data åtkomst.
+Ett annat sätt att hantera åtkomst är att använda [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](/azure/role-based-access-control/overview). Med RBAC fokuserar du på att ge de anställda de exakta behörigheter som de behöver, baserat på behovet av att känna till och minsta behörighets säkerhets principer. För många behörigheter kan exponera ett konto för angripare. För få behörigheter innebär det att anställda inte kan få jobbet gjort effektivt. RBAC hjälper till att lösa det här problemet genom att erbjuda detaljerad åtkomst hantering för Azure. Detta är nödvändigt för organisationer som vill tillämpa säkerhets principer för data åtkomst.
 
 Du kan använda inbyggda Azure-roller i Azure för att tilldela behörigheter till användare. Använd till exempel lagrings konto deltagare för moln operatörer som behöver hantera lagrings konton och den klassiska rollen lagrings konto deltagare för att hantera klassiska lagrings konton. För moln operatörer som behöver hantera virtuella datorer, men inte det virtuella nätverk eller lagrings konto som de är anslutna till, kan du lägga till dem i rollen virtuell dator deltagare.
 

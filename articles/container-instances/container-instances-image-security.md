@@ -4,12 +4,12 @@ description: Rekommendationer för att skydda bilder och hemligheter för Azure 
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: d339683c8864b85f7ccb1ac3c982f03aa7abf103
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f49f115e10326887cf4d23406437467256b7df2e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907031"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922242"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Säkerhets överväganden för Azure Container Instances
 
@@ -40,7 +40,7 @@ Säkerhets övervakning och lösningar för avbildnings genomsökning, till exem
 
 ### <a name="protect-credentials"></a>Skydda autentiseringsuppgifter
 
-Behållare kan spridas över flera kluster och Azure-regioner. Därför måste du skydda autentiseringsuppgifter som krävs för inloggningar eller API-åtkomst, till exempel lösen ord eller tokens. Se till att endast privilegierade användare kan komma åt dessa behållare under överföring och i vila. Inventera alla hemligheter för autentiseringsuppgifter och Kräv sedan att utvecklare använder nya hemligheter – hanterings verktyg som är utformade för behållar plattformar.  Se till att lösningen innehåller krypterade databaser, TLS-kryptering för hemligheterade data i överföring och [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md)med minst behörighet. [Azure Key Vault](../key-vault/general/secure-your-key-vault.md) är en moln tjänst som skyddar krypterings nycklar och hemligheter (till exempel certifikat, anslutnings strängar och lösen ord) för program i behållare. Eftersom dessa data är känsliga och affärs kritiska kan du skydda åtkomsten till dina nyckel valv så att endast auktoriserade program och användare kan komma åt dem.
+Behållare kan spridas över flera kluster och Azure-regioner. Därför måste du skydda autentiseringsuppgifter som krävs för inloggningar eller API-åtkomst, till exempel lösen ord eller tokens. Se till att endast privilegierade användare kan komma åt dessa behållare under överföring och i vila. Inventera alla hemligheter för autentiseringsuppgifter och Kräv sedan att utvecklare använder nya hemligheter – hanterings verktyg som är utformade för behållar plattformar.  Se till att lösningen innehåller krypterade databaser, TLS-kryptering för hemligheterade data i överföring och minst privilegierad [Azure rollbaserad åtkomst kontroll (Azure RBAC)](../role-based-access-control/overview.md). [Azure Key Vault](../key-vault/general/secure-your-key-vault.md) är en moln tjänst som skyddar krypterings nycklar och hemligheter (till exempel certifikat, anslutnings strängar och lösen ord) för program i behållare. Eftersom dessa data är känsliga och affärs kritiska kan du skydda åtkomsten till dina nyckel valv så att endast auktoriserade program och användare kan komma åt dem.
 
 ## <a name="considerations-for-the-container-ecosystem"></a>Överväganden för containerns eko system
 
@@ -117,7 +117,7 @@ Precis som med en IT-miljö bör du konsekvent övervaka aktivitet och användar
 
 * [Azure Monitor for containers](../azure-monitor/insights/container-insights-overview.md) övervakar arbets Belastningens prestanda som distribueras till Kubernetes-miljöer som finns i Azure Kubernetes service (AKS). Azure Monitor för behållare ger dig prestanda synlighet genom att samla in minnes-och processor mått från styrenheter, noder och behållare som är tillgängliga i Kubernetes via Metrics-API: et. 
 
-* [Azure Container Monitoring-lösningen](../azure-monitor/insights/containers.md) hjälper dig att visa och hantera andra Docker-och Windows container-värdar på en enda plats. Ett exempel:
+* [Azure Container Monitoring-lösningen](../azure-monitor/insights/containers.md) hjälper dig att visa och hantera andra Docker-och Windows container-värdar på en enda plats. Till exempel:
 
   * Visa detaljerad gransknings information som visar kommandon som används med behållare. 
   * Felsök behållare genom att visa och söka i centraliserade loggar utan att behöva fjärrans luta till Docker eller Windows-värdar.  

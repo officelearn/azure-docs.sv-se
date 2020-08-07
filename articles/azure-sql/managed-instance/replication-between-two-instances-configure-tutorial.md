@@ -12,29 +12,37 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: cd476d3210263268627541eb40c50048f0eddd1b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 114d4f41ad48af3d1e585fcb01eb0794a8e349b5
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422920"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920123"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Självstudie: Konfigurera replikering mellan två hanterade instanser
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Med Transaktionsreplikering kan du replikera data från en databas till en annan som finns på antingen SQL Server eller [Azure SQL-hanterad instans](sql-managed-instance-paas-overview.md) (offentlig för hands version). SQL-hanterad instans kan vara utgivare, distributör eller prenumerant i replikeringstopologin. Se [konfigurationer för transaktionell replikering](replication-transactional-overview.md#common-configurations) för tillgängliga konfigurationer.
+Med Transaktionsreplikering kan du replikera data från en databas till en annan som finns på antingen SQL Server eller [Azure SQL-hanterad instans](sql-managed-instance-paas-overview.md). SQL-hanterad instans kan vara utgivare, distributör eller prenumerant i replikeringstopologin. Se [konfigurationer för transaktionell replikering](replication-transactional-overview.md#common-configurations) för tillgängliga konfigurationer. 
 
-> [!NOTE]
-> I den här artikeln beskrivs användningen av [transaktionell replikering](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) i Azure SQL-hanterad instans. Den är inte relaterad till [redundansväxlingen](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), en funktion för Azure SQL-hanterad instans som gör att du kan skapa kompletta läsbara repliker av enskilda instanser. Det finns ytterligare överväganden när du konfigurerar [transaktionell replikering med grupper för växling vid fel](replication-transactional-overview.md#with-failover-groups).
+Transaktionell replikering är för närvarande en offentlig för hands version för SQL-hanterad instans. 
 
-I den här självstudien får du lära dig att konfigurera en hanterad instans som utgivare och distributör och sedan en andra hanterad instans som prenumerant.  
+I den här guiden får du lära dig att:
+
+> [!div class="checklist"]
+>
+> - Konfigurera en hanterad instans som en replik utgivare och distributör.
+> - Konfigurera en hanterad instans som en replikerings-distributör.
 
 ![Replikera mellan två hanterade instanser](./media/replication-between-two-instances-configure-tutorial/sqlmi-sqlmi-repl.png)
 
-  > [!NOTE]
-  > - Den här artikeln är avsedd att hjälpa en avancerad användare att konfigurera replikering med SQL-hanterad instans från slut punkt till slut punkt, från och med att skapa resurs gruppen. Om du redan har distribuerat hanterade instanser kan du gå vidare till [steg 4](#4---create-a-publisher-database) för att skapa en utgivar databas, eller [steg 6](#6---configure-distribution) om du redan har en utgivare och prenumerations databas och är redo att börja konfigurera replikering.  
-  > - Den här artikeln konfigurerar utgivaren och distributören på samma hanterade instans. Information om hur du placerar distributören på en separat hanterad instans finns i självstudien [Konfigurera Transaktionsreplikering mellan Azure SQL-hanterad instans och SQL Server](replication-two-instances-and-sql-server-configure-tutorial.md). 
+Den här självstudien är avsedd för en erfaren mål grupp och förutsätter att användaren är van vid distribution och anslutning till både hanterade instanser och SQL Server virtuella datorer i Azure. 
+
+
+> [!NOTE]
+> - I den här artikeln beskrivs användningen av [transaktionell replikering](/sql/relational-databases/replication/transactional/transactional-replication) i Azure SQL-hanterad instans. Den är inte relaterad till [redundansväxlingen](../database/auto-failover-group-overview.md), en funktion för Azure SQL-hanterad instans som gör att du kan skapa kompletta läsbara repliker av enskilda instanser. Det finns ytterligare överväganden när du konfigurerar [transaktionell replikering med grupper för växling vid fel](replication-transactional-overview.md#with-failover-groups).
+
+
 
 ## <a name="requirements"></a>Krav
 

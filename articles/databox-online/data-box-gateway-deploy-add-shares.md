@@ -1,6 +1,6 @@
 ---
 title: Överföra data med Azure Data Box Gateway | Microsoft Docs
-description: Lär dig hur du lägger till och ansluter till resurser på en Data Box Gateway-enhet.
+description: Lär dig hur du lägger till och ansluter till resurser på din Azure Data Box Gateway. Data Box Gateway enheten kan överföra data till Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 4817db0ce9723f46ceac4f4720915a9bfddcf915
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 6db2d8fa6e957a63a4410f17b09a9f106bfba6e6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561703"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923483"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Självstudie: överföra data med Azure Data Box Gateway
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 > * Lägga till en resurs
 > * Ansluta till resurs
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrollera följande innan du lägger till resurser till din Data Box Gateway:
 

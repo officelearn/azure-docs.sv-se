@@ -1,18 +1,18 @@
 ---
 title: 'Azure VPN Gateway: Konfigurera aviseringar för logg händelser för diagnostiska resurser'
-description: Steg för att konfigurera aviseringar för VPN Gateway diagnostiska resurs logg händelser
+description: Lär dig hur du konfigurerar aviseringar baserat på resurs logg händelser från Azure VPN Gateway att använda Azure Monitor Log Analytics och de resurs loggar som är tillgängliga i Azure.
 services: vpn-gateway
 author: kumudD
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 21fcebf6667eb1bc7741dfb4ba268af42567d58e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d79bdc669ab2c3785b1cde569cfce3021e4d924f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075592"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923194"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>Konfigurera aviseringar för resurs logg händelser från VPN Gateway
 

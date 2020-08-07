@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: d8baf1c70d115b80e3238d3eedf128057684d2e6
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 73d82efed438d447c7af3bfc54d5c3fc22cdd819
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224714"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921936"
 ---
 # <a name="security-management-in-azure"></a>Säkerhetshantering i Azure
 Azure-prenumeranter kan hantera sina molnmiljöer från flera enheter, inklusive hantering av arbetsstationer, utvecklardatorer och även privilegierade slutanvändarens enheter som har uppgiftsspecifika behörigheter. I vissa fall kan administrativa funktioner utförs via webbaserade konsoler som [Azure-portalen](https://azure.microsoft.com/features/azure-portal/). I andra fall kan det finnas direkta anslutningar till Azure från lokala system över virtuella privata nätverk (VPN), Terminal Services, klientprotokoll för program eller (programmässigt) Azure Service Management API (SMAPI). Dessutom kan klientslutpunkter vara antingen domänanslutna eller isolerade och ohanterade, till exempel surfplattor eller smartphones.
@@ -66,7 +66,7 @@ Du kan också förenkla hanteringsuppgifter genom att konsolidera och ta bort oh
 ### <a name="providing-security-for-azure-remote-management"></a>Skapa säker Azure-fjärrhantering
 Azure tillhandahåller säkerhetsmekanismer som hjälper administratörer som hanterar Azure-molntjänster och virtuella datorer. Dessa mekanismer är:
 
-* Autentisering och [rollbaserad åtkomstkontroll](../../role-based-access-control/role-assignments-portal.md).
+* Autentisering och [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * Övervakning, loggning och granskning.
 * Certifikat och krypterad kommunikation.
 * En webbhanteringsportal.

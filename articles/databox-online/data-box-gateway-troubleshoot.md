@@ -1,6 +1,6 @@
 ---
 title: Använda Azure-portalen för att felsöka Azure Data Box Gateway | Microsoft Docs
-description: Beskriver hur du felsöker problem i Azure Data Box Gateway.
+description: Lär dig hur du felsöker problem på Azure Data Box Gateway. Du kan köra diagnostik, samla in information för support och använda loggar för att felsöka.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: troubleshooting
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 9688df6c27717cc74c874c75a9df0b47ffd24853
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e49cc400fd8af3d284a223363f3384063d862981
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564011"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927189"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Felsöka problem med din Azure Data Box Gateway
 

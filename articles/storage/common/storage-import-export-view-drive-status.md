@@ -1,6 +1,6 @@
 ---
 title: Visa status för Azure import/export-jobb | Microsoft Docs
-description: Lär dig hur du visar statusen för import/export-jobb och de enheter som används.
+description: Lär dig hur du visar statusen för Azure import/export-jobb och de enheter som används. Förstå de faktorer som påverkar hur lång tid det tar att bearbeta ett jobb.
 author: alkohli
 services: storage
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 7a000ab4a465e3b19efe6f2853bcd19dca47e440
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c75c9a2d0b491cc00d0fc58054b9bb1e58a364b8
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514125"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905728"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Visa status för Import/Export-jobb i Azure
 
@@ -36,7 +36,7 @@ Du ser något av följande jobb statusar beroende på var enheten finns i proces
 | Överföring | När minst en enhet har börjat bearbeta är jobbets tillstånd inställt på **överföring**. Mer information finns i [enhets tillstånd](#view-drive-status). |
 | Paketering | När alla enheter har slutfört bearbetningen placeras jobbet i **förpacknings** tillstånd tills enheterna skickas tillbaka till dig. |
 | Slutförd | När alla enheter har skickats tillbaka till dig, om jobbet har slutförts utan fel, anges jobbet som **slutfört**. Jobbet tas bort automatiskt efter 90 dagar i **slutfört** tillstånd. |
-| Stängd | När alla enheter har skickats tillbaka till dig, och om det uppstod några fel under bearbetningen av jobbet, anges jobbet till **stängt**. Jobbet tas bort automatiskt efter 90 dagar i **stängt** tillstånd. |
+| Stängda | När alla enheter har skickats tillbaka till dig, och om det uppstod några fel under bearbetningen av jobbet, anges jobbet till **stängt**. Jobbet tas bort automatiskt efter 90 dagar i **stängt** tillstånd. |
 
 ## <a name="view-drive-status"></a>Visa enhetsstatus
 

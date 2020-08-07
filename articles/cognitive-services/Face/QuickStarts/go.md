@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 8de043e9ae79c29d1c6d7e4f59ac7494eeb2d4f8
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 538024c88799b42e19ec04784b53cfc6c1a8430e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84985582"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833784"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av REST API och Go
 
 I den här snabb starten ska du använda Azures ansikts REST API med Go för att identifiera mänskliga ansikten i en bild.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" skapar du en ansikts resurs "  target="_blank"> skapa en ansikts resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.

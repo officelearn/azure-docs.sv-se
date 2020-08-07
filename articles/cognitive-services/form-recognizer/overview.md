@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 2193bd85265103957c5cafad10a243b266f7e5bc
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a087faee45b8725bc596a5faa92536741d8cd569
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026890"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836912"
 ---
 # <a name="what-is-form-recognizer"></a>Vad är formigenkänning?
 
@@ -76,7 +76,7 @@ Kom igång genom att följa en snabb start för att extrahera data från dina fo
 
 Du använder följande API: er för att träna modeller och extrahera strukturerade data från formulär.
 
-|Name |Beskrivning |
+|Namn |Beskrivning |
 |---|---|
 | **Träna anpassad modell**| Träna en ny modell för att analysera dina formulär genom att använda fem formulär av samma typ. Ange parametern _useLabelFile_ för `true` att träna med manuellt märkta data. |
 | **Analysera formulär** |Analysera ett enda dokument som skickas in som en ström för att extrahera text, nyckel/värde-par och tabeller från formuläret med din anpassade modell.  |

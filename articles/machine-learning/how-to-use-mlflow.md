@@ -10,13 +10,13 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.date: 06/04/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: ea26e1861d1e3916302563a27389763ebc4c450c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: a0241864a5eafe8783aea463197f86ff949ea9ed
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326706"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853389"
 ---
 # <a name="track-model-metrics-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Spåra modell mått och distribuera ML-modeller med MLflow och Azure Machine Learning (för hands version)
 
@@ -47,7 +47,7 @@ Följande diagram illustrerar att med MLflow spårning spårar du ett Experiment
  MLflow tracking erbjuder funktioner för mått loggning och artefakt lagring som endast är tillgängliga via [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 
-| Funktion | MLflow &nbsp; spårning & distribution | Azure Machine Learning python SDK |  Azure Machine Learning CLI | Azure Machine Learning-studio|
+| Kapacitet | MLflow &nbsp; spårning & distribution | Azure Machine Learning python SDK |  Azure Machine Learning CLI | Azure Machine Learning-studio|
 |---|---|---|---|---|
 | Hantera arbets yta |   | ✓ | ✓ | ✓ |
 | Använda data lager  |   | ✓ | ✓ | |
@@ -59,7 +59,7 @@ Följande diagram illustrerar att med MLflow spårning spårar du ett Experiment
 |Övervaka modell prestanda||✓|  |   |
 | Identifiera dataavvikelser |   | ✓ |   | ✓ |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Installera MLflow.](https://mlflow.org/docs/latest/quickstart.html)
 * [Installera Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) på den lokala datorn SDK: n ger anslutningen till MLflow för att få åtkomst till din arbets yta.

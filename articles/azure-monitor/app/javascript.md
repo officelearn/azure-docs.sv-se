@@ -2,14 +2,14 @@
 title: Azure Application insikter om JavaScript-webbappar
 description: Hämta sid visning och antal sessioner, webb klient data, enstaka sid program (SPA) och spåra användnings mönster. Identifiera undantag och prestandaproblem på JavaScript-baserade webbsidor.
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: e0545660cbca68d41bc24b7266496b7912d408bc
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 7c5abb109018bd8bc5b501fe728a3a0f422a3db7
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531327"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905833"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 
@@ -104,13 +104,13 @@ Varje konfigurations alternativ visas på en ny rad, om du inte vill åsidosätt
 
 De tillgängliga konfigurations alternativen är 
 
-| Namn | Typ | Description
+| Namn | Typ | Beskrivning
 |------|------|----------------
 | src | sträng **[obligatoriskt]** | Den fullständiga URL: en för varifrån SDK: n ska läsas in. Det här värdet används för attributet src för ett dynamiskt tillagd &lt; skript/ &gt; tagg. Du kan använda den offentliga CDN-platsen eller en privat värd som är värd för en.
-| name | sträng *[valfritt]* | Det globala namnet för den initierade SDK: n som standard appInsights. Det ```window.appInsights``` kommer att vara en referens till den initierade instansen. Obs! Om du anger ett namn värde eller om en föregående instans ska tilldelas (via det globala namnet appInsightsSDK), kommer detta namn värde också att definieras i det globala namn området som ```window.appInsightsSDK=<name value>``` , detta krävs av SDK-initierings koden för att säkerställa att den initierar och uppdaterar rätt kodfragments Skeleton och proxyservrar.
+| name | sträng *[valfritt]* | Det globala namnet för den initierade SDK: n som standard `appInsights` . Det ```window.appInsights``` kommer att vara en referens till den initierade instansen. Obs! Om du anger ett namn värde eller om en föregående instans ska tilldelas (via det globala namnet appInsightsSDK), kommer detta namn värde också att definieras i det globala namn området som ```window.appInsightsSDK=<name value>``` , detta krävs av SDK-initierings koden för att säkerställa att den initierar och uppdaterar rätt kodfragments Skeleton och proxyservrar.
 | LD | antal i MS *[valfritt]* | Definierar inläsnings fördröjning innan du försöker läsa in SDK. Standardvärdet är 0ms och ett negativt värde kommer omedelbart att lägga till en skript tagg till &lt; &gt; sidans huvud område, som sedan blockerar händelsen för sid inläsning tills skriptet läses in (eller Miss lyckas).
 | useXhr | boolesk *[valfritt]* | Den här inställningen används endast för inläsnings problem med repor ting SDK. Om du väljer att inte använda Fetch () försöker du först använda Fetch () om det är tillgängligt och sedan återgår till XHR. om värdet anges till sant kringgås bara hämtnings kontrollen. Användning av det här värdet krävs bara om programmet används i en miljö där hämtningen Miss lyckas med att skicka misslyckade händelser.
-| crossOrigin | sträng *[valfritt]* | Genom att inkludera den här inställningen inkluderar den skript kod som lagts till för att ladda ned SDK crossOrigin-attributet med det här strängvärdet. När det inte har definierats (standard) läggs inget crossOrigin-attribut till. Rekommenderade värden har inte definierats (standard). ""; eller "Anonym" (för alla giltiga värden se [HTML-attribut: crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) -dokumentation)
+| crossOrigin | sträng *[valfritt]* | Genom att inkludera den här inställningen inkluderar den skript kod som lagts till för att ladda ned SDK crossOrigin-attributet med det här strängvärdet. När det inte har definierats (standard) läggs inget crossOrigin-attribut till. Rekommenderade värden har inte definierats (standard). ""; eller "Anonym" (för alla giltiga värden se [HTML-attribut `crossorigin` :](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) dokumentation)
 | konfiguration | objekt **[obligatoriskt]** | Konfigurationen som skickas till Application Insights SDK under initieringen.
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Skicka telemetri till Azure Portal
@@ -153,9 +153,9 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Konfiguration
 De flesta konfigurations fälten får ett namn som är förfalskade som standard. Alla fält är valfria förutom för `instrumentationKey` .
 
-| Name | Standard | Description |
+| Namn | Standardvärde | Beskrivning |
 |------|---------|-------------|
-| instrumentationKey | null | **Krävs**<br>Instrumentation-nyckel som du fick från Azure Portal. |
+| instrumentationKey | null | **Obligatoriskt**<br>Instrumentation-nyckel som du fick från Azure Portal. |
 | accountId | null | Ett valfritt konto-ID, om din app grupperar användare till konton. Inga blank steg, kommatecken, semikolon, likheter eller lodräta staplar |
 | sessionRenewalMs | 1800000 | En session loggas om användaren är inaktiv under den här tiden i millisekunder. Standardvärdet är 30 minuter |
 | sessionExpirationMs | 86400000 | En session loggas om den fortsätter under den här tiden i millisekunder. Standardvärdet är 24 timmar |
@@ -195,9 +195,9 @@ De flesta konfigurations fälten får ett namn som är förfalskade som standard
 | enableResponseHeaderTracking | falskt | Om värdet är true spåras svars rubriker för AJAX-& Hämta. standard är falskt.
 | distributedTracingMode | `DistributedTracingModes.AI` | Ställer in läget för distribuerad spårning. Om AI_AND_W3C läge eller W3C-läge är inställt, genereras W3C trace context-rubriker (traceparent/tracestate) och tas med i alla utgående begär Anden. AI_AND_W3C tillhandahålls för bakåtkompatibilitet med alla äldre Application Insights instrumenterade tjänster. Se exemplet [här](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 | enableAjaxErrorStatusText | falskt | Standard falskt. Om värdet är true, inkludera data text för svars fel i beroende händelse vid misslyckade AJAX-begäranden.
-| enableAjaxPerfTracking | falskt | Standard falskt. Flagga för att aktivera sökning i och inklusive ytterligare ett webbläsarfönster. prestanda tider i rapporterade mått för Ajax (XHR och hämtning).
+| enableAjaxPerfTracking | falskt | Standard falskt. Flagga för att aktivera sökning efter och inklusive ytterligare ett webbläsarfönster. prestanda tider i rapporterade `ajax` (XHR och Fetch) mått.
 | maxAjaxPerfLookupAttempts | 3 | Standardvärdet är 3. Det maximala antalet gånger som ska sökas efter fönstret. prestanda tider (om det är tillgängligt), krävs detta eftersom inte alla webbläsare fyller i fönstret. prestanda innan XHR-begäran rapporteras och för hämtnings begär Anden läggs till efter dess slut.
-| ajaxPerfLookupDelay | 25 | Standardvärdet är 25 MS. Vänte tiden innan ett nytt försök att hitta Windows. prestanda för en Ajax-begäran visas i millisekunder och skickas direkt till setTimeout ().
+| ajaxPerfLookupDelay | 25 | Standardvärdet är 25 MS. Vänte tiden innan ett nytt försök att hitta Windows. prestanda tids inställningarna för en `ajax` begäran visas i millisekunder och skickas direkt till setTimeout ().
 | enableUnhandledPromiseRejectionTracking | falskt | Om värdet är true, kommer ohanterade löftes avslag att samlas in automatiskt och rapporteras som ett JavaScript-fel. När disableExceptionTracking är true (spåra inte undantag) ignoreras konfiguration svärdet och ohanterade löftes avslag rapporteras inte.
 
 ## <a name="single-page-applications"></a>Program med en sida
@@ -219,6 +219,38 @@ Genom att ställa in `autoTrackPageVisitTime: true` den tid som en användare l�
 |---------------|
 | [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
 | [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
+
+## <a name="correlation"></a>Korrelation
+
+Klient till Server-sido-korrelation stöds för:
+
+- XHR/AJAX-begäranden 
+- Hämta förfrågningar 
+
+Jämförelse mellan klienter och Server sidan **stöds inte** för `GET` och `POST` begär Anden.
+
+### <a name="enable-cross-component-correlation-between-client-ajax-and-server-requests"></a>Aktivera över-komponent-korrelation mellan client AJAX och Server förfrågningar
+
+Om du vill aktivera `CORS` korrelation måste klienten skicka två ytterligare begärandehuvuden `Request-Id` och `Request-Context` Server sidan måste kunna acceptera anslutningar med dessa huvuden. Att skicka rubrikerna är aktiverat genom `enableCorsCorrelation: true` att ställa in i Java Script SDK-konfigurationen. 
+
+Beroende på `Access-Control-Allow-Headers` Server sidans konfiguration är det ofta nödvändigt att utöka listan på Server sidan genom att manuellt lägga till `Request-Id` och `Request-Context` .
+
+Åtkomst – kontroll-Tillåt-rubriker: `Request-Id` , `Request-Context` ,`<your header>`
+
+Om någon av de servrar från tredje part som klienten kommunicerar med inte accepterar `Request-Id` `Request-Context` -och-rubrikerna, och du inte kan uppdatera konfigurationen, måste du lägga dem i en exkluderings lista via `correlationHeaderExcludeDomains` konfigurations egenskapen. Den här egenskapen stöder jokertecken.
+
+```javascript
+// excerpt of the config section of the JavaScript SDK snippet with correlation
+// between client-side AJAX and server requests enabled.
+cfg: { // Application Insights Configuration
+    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+    enableCorsCorrelation: true,
+    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
+    /* ...Other Configuration Options... */
+}});
+</script>
+
+``` 
 
 ## <a name="explore-browserclient-side-data"></a>Utforska data från webbläsare/klient Sidan
 

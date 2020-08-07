@@ -5,16 +5,16 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: mihansen
+ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: 8414a84190659ff31596bc202d29fe45eefdc588
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 483ca63abbabaabd3b25446c9267a1b0540f60dd
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536715"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852981"
 ---
 # <a name="client-application-registration"></a>Registrering av klient program
 I den föregående själv studie kursen har du distribuerat och konfigurerat Azure API för FHIR. Nu när du har konfigurerat Azure API för FHIR-installationen kommer vi att registrera ett offentligt klient program. Du kan läsa igenom guiden fullständig [registrering av en offentlig klient](register-public-azure-ad-client-app.md) med instruktioner för mer information eller fel sökning, men vi har informat de viktigaste stegen för den här kursen nedan.
@@ -55,7 +55,7 @@ Nu när du har konfigurerat rätt autentisering anger du API-behörigheterna:
 
 :::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="Skärm bild av bladet Lägg till API-behörigheter med stegen för att lägga till API-behörigheter markerade.":::
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Nu har du ett offentligt klient program. I nästa självstudie kommer vi att gå igenom testningen och få åtkomst till det här programmet via Postman.
 
 >[!div class="nextstepaction"]

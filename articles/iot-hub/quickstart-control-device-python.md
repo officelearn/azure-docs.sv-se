@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mqtt
-- tracking-python
+- devx-track-python
 ms.date: 01/09/2020
-ms.openlocfilehash: c03209413235b0d6fca22039756d6c19b643034b
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 6a93410b40926904a8429b70522eb01ab02f80a7
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84606504"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876469"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Snabbstart: Kontrollera en enhet ansluten till en IoT-hubb (Python)
 
@@ -26,7 +26,7 @@ ms.locfileid: "84606504"
 
 I den här snabb starten använder du en direkt metod för att styra en simulerad enhet som är ansluten till Azure IoT Hub. IoT Hub är en Azure-tjänst som gör att du kan hantera dina IoT-enheter från molnet och mata in stora mängder enhets telemetri till molnet för lagring eller bearbetning. Du kan använda direktmetoder för att fjärrändra beteendet hos en enhet ansluten till IoT Hub. I den här snabb starten används två python-program: ett simulerat enhets program som svarar på direkta metoder som anropas från ett Server dels program och ett Server dels program som anropar de direkta metoderna på den simulerade enheten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -40,7 +40,7 @@ I den här snabb starten använder du en direkt metod för att styra en simulera
 
 ### <a name="add-azure-iot-extension"></a>Lägg till Azure IoT-tillägg
 
-Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IoT-tillägget lägger till IoT Hub-, IoT Edge-och IoT Device Provisioning-tjänst (DPS)-kommandon i Azure CLI.
+Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IoT-tillägget lägger till kommandon specifika för IoT Hub, IoT Edge och IoT Device Provisioning Service (DPS) i Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-iot
@@ -78,7 +78,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
     ```
 
-    Anteckna enhetsanslutningssträngen. Den ser ut ungefär som:
+    Anteckna enhetens anslutningssträng, som ser ut så här:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
 

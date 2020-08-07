@@ -7,13 +7,13 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: tracking-python
-ms.openlocfilehash: 4c490d252fa1153324df62a6119ae6bdc548c331
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: devx-track-python
+ms.openlocfilehash: 01ed3df547a7dc02e0ca29028876eddb8be21c77
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341031"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852454"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Snabb start: använda Service Bus ämnen och prenumerationer med python
 
@@ -27,7 +27,7 @@ Den här artikeln beskriver hur du använder python med Azure Service Bus ämnen
 - Ta emot meddelanden från prenumerationer
 - Ta bort ämnen och prenumerationer
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 - En Azure-prenumeration. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Ett Service Bus namn område som skapats genom att följa stegen i [snabb starten: använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer](service-bus-quickstart-topics-subscriptions-portal.md). Kopiera namn områdets namn, namnet på den delade åtkomst nyckeln och värdet för primär nyckel från skärmen **principer för delad åtkomst** för senare användning i den här snabb starten. 
 - Python 3.4 x eller senare, med [Azure python SDK][Azure Python package] -paketet installerat. Mer information finns i [installations guiden för python](/azure/developer/python/azure-sdk-install).

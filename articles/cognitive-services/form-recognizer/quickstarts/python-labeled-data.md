@@ -9,25 +9,25 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.custom: tracking-python
-ms.openlocfilehash: b177063d4e50a310534ffa4c04557543c3354249
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: devx-track-python
+ms.openlocfilehash: 63b636a132e0fef806bb2d27a9dcbec5505f76a0
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028097"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904674"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Träna en formulär igenkännings modell med etiketter med hjälp av REST API och python
 
 I den här snabb starten använder du formulär tolken REST API med python för att träna en anpassad modell med manuellt märkta data. Mer information om den här funktionen finns i avsnittet [träna med etiketter](../overview.md#train-with-labels) i översikten.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabb starten måste du ha:
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).
-- En uppsättning av minst sex formulär av samma typ. Du använder dessa data för att träna modellen och testa ett formulär. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten. Ladda upp utbildnings filen till roten för en Blob Storage-behållare i ett Azure Storage-konto.
+- En uppsättning av minst sex formulär av samma typ. Du använder dessa data för att träna modellen och testa ett formulär. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten. Ladda upp utbildnings-filerna till roten för en Blob Storage-behållare i ett Azure Storage konto med standard prestanda nivå.
 
 > [!NOTE]
 > I den här snabb starten används fjärrdokument som används av URL: en. Om du vill använda lokala filer i stället, se [referens dokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync).

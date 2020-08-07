@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-java
-ms.openlocfilehash: a1057fa04d5834b0bebb98d9d66a35a21f1a4558
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 93f4e8b338f63f19a8c92bffd709a5f408072818
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325499"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835127"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-java"></a>Snabb start: skapa en miniatyr med hjälp av Visuellt innehåll REST API och Java
 
 I den här snabb starten ska du skapa en miniatyr bild från en avbildning med hjälp av Visuellt innehåll REST API. Du anger höjden och bredden, som kan skilja sig från den ursprungliga bildens proportioner. Visuellt innehåll använder smart beskärning för att identifiera det område som är intressant och generera koordinater för beskärning baserat på det området.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * [Java &trade; Plattform, Standard Edition Development Kit 7 eller 8](https://aka.ms/azure-jdks) (JDK 7 eller 8)

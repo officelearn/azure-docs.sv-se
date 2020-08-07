@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 779fc1cfc617e18eee4d84dcfd007f10ddb31f96
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 52bb3e63ff436aa73aaaf43f2f87f904b27f70b6
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808719"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876639"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Skapa ett IoT Edge-modulerbjudande
 
@@ -199,15 +199,14 @@ Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bil
 
 #### <a name="store-logos"></a>Butiks logo typer
 
-Ange en PNG-fil för logo typen med **stor** storlek (mellan 216 x 216 och 350 x 350 bild punkter). Partner Center använder detta för att skapa en **liten** (48 x 48 pixlar) och en storleks logo typ ( **mellan** 90 x 90 pixlar). Du kan också ersätta dem med olika avbildningar.
+Ange PNG-filer för ditt erbjudandes logo typ i var och en av följande fyra pixel storlekar:
 
-Alla tre logo typ storlekarna krävs för användning på olika platser i listan:
+- **Liten (48 x 48)**
+- **Medel (90 x 90)**
+- **Stor (216 x 216)**
+- **Bred (255 x 115)**
 
-- **Liten** (48 x 48)
-- **Medel** (90 x 90)
-- **Stor** (mellan 216 x 216 och 350 x 350)
-
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+Alla fyra logo typer krävs och används på olika platser i Marketplace-listan.
 
 #### <a name="screenshots-optional"></a>Skärm dum par (valfritt)
 

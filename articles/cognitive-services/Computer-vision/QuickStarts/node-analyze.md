@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, seo-javascript-september2018, seo-javascript-october2019, devx-track-javascript
-ms.openlocfilehash: 73b0c73936c23b619e017b63598550f2436a4c13
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: d6962ae364c8f86d5069c9ec47eed6ffc5d2d419
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405916"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835008"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-nodejs"></a>Snabb start: analysera en fjärravbildning med hjälp av Visuellt innehåll REST API med Node.js
 
@@ -49,9 +49,9 @@ Så här skapar du och kör exemplet:
 1. Kopiera följande kod till en textredigerare.
 1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild som du vill analysera.
 1. Du kan också ersätta värdet för frågeparametern `language` med ett annat språk.
-1. Spara koden som en fil med tillägget `.js`. Exempelvis `analyze-image.js`.
+1. Spara koden som en fil med tillägget `.js`. Till exempel `analyze-image.js`.
 1. Öppna ett kommandotolksfönster.
-1. Kör filen i kommandotolken med kommandot `node`. Exempelvis `node analyze-image.js`.
+1. Kör filen i kommandotolken med kommandot `node`. Till exempel `node analyze-image.js`.
 
 ```javascript
 'use strict';

@@ -10,13 +10,13 @@ ms.date: 06/12/2020
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.custom: tracking-python
-ms.openlocfilehash: 331f38f899c77f451fd43b81d7e83d73b3d5bcc1
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.custom: devx-track-python
+ms.openlocfilehash: 6a113b3a3df475853f3690a0e932378bc0e2ab02
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84782440"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844634"
 ---
 # <a name="tutorial-enable-authentication-in-a-python-web-application-with-azure-ad-b2c"></a>Självstudie: aktivera autentisering i ett python-webbprogram med Azure AD B2C
 
@@ -32,7 +32,7 @@ I de här självstudierna har du
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande Azure AD B2C resurser på plats innan du fortsätter med stegen i den här självstudien:
 
@@ -125,7 +125,7 @@ CLIENT_SECRET = "22222222-2222-2222-2222-222222222222" # Placeholder - for use O
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
-1. I konsolen eller terminalen växlar du till den katalog som innehåller exemplet. Ett exempel:
+1. I konsolen eller terminalen växlar du till den katalog som innehåller exemplet. Exempel:
 
     ```console
     cd ms-identity-python-webapp

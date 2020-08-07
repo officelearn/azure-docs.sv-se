@@ -8,13 +8,13 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 7945b3b0aeba7f5135665f4413d304eb225ac749
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: aac184b9dc7eae8afcf796376d2f7dca684b4367
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84604702"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852794"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Exempel: skapa en anpassad kunskap med hjälp av python
 
@@ -22,14 +22,14 @@ I det här Azure Kognitiv sökning färdigheter-exemplet får du lära dig hur d
 
 Den anpassade kunskapen är enkel genom design (den sammanfogar två strängar) så att du kan fokusera på de verktyg och tekniker som används för anpassad kunskaps utveckling i python. När du har lyckats med en enkel kunskap kan du förgrena ut med mer komplexa scenarier.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Granska det [anpassade kunskaps gränssnittet](cognitive-search-custom-skill-interface.md) för en introduktion till gränssnittet för indata/utdata som en anpassad färdighet ska implementera.
 
 + Konfigurera din miljö. Vi följde [den här självstudien från slut punkt till slut punkt](https://docs.microsoft.com/azure/python/tutorial-vs-code-serverless-python-01) för att konfigurera en server lös Azure-funktion med Visual Studio Code och python-tillägg. Självstudien vägleder dig genom installationen av följande verktyg och komponenter: 
 
   + [Python 3,75](https://www.python.org/downloads/release/python-375/)
-  + [Visuell Studio-kod](https://code.visualstudio.com/)
+  + [Visual Studio Code](https://code.visualstudio.com/)
   + [Python-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   + [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
   + [Azure Functions-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)

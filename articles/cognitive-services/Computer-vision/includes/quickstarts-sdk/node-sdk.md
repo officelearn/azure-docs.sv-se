@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 01/22/2020
 ms.author: pafarley
 ms.custom: devx-track-javascript
-ms.openlocfilehash: dc01600d052752d4558e22fe5c5ca48fb84a8121
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 861e6528b52af39a56cc6b936eae0d68df2eecf5
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405507"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87841924"
 ---
 <a name="HOLTop"></a>
 
@@ -72,7 +72,7 @@ Definiera sedan en funktion `computerVision` och deklarera en async-serie med fu
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Visuellt innehåll Node.js SDK.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) | Den här klassen krävs för alla Visuellt innehåll-funktioner. Du instansierar det med din prenumerations information och använder den för att utföra de flesta avbildnings åtgärder.|
 |[VisualFeatureTypes](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes?view=azure-node-latest)| Den här uppräkningen definierar de olika typerna av bild analys som kan göras i en standard analys åtgärd. Du anger en uppsättning **VisualFeatureTypes** -värden beroende på dina behov. |
@@ -140,7 +140,7 @@ Följande kod identifierar vanliga objekt i avbildningen och skriver ut dem till
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objects)]
 
-Definiera hjälp funktionen `formatRectObjects` :
+Definiera hjälp funktionen `formatRectObjects` för att returnera de övre, vänstra, nedre och högra koordinaterna, tillsammans med bredd och höjd.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objectformat)]
 

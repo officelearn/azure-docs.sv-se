@@ -10,19 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.custom: tracking-python
-ms.openlocfilehash: b5a39951301256894553a036786ddd2fff251109
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.custom: devx-track-python
+ms.openlocfilehash: b29d9921de0226cb8660b3f7e3c6d3e0d4a22754
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84606011"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852522"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-python"></a>Snabb start: anropa din Anpassad sökning i Bing slut punkt med python
 
 Använd den här snabb starten för att lära dig hur du begär Sök Resultat från Anpassad sökning i Bing-instansen. Även om det här programmet är skrivet i python är API för anpassad Bing-sökning en webb tjänst för RESTful som är kompatibel med de flesta programmeringsspråk. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingCustomSearchv7.py).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En instans av anpassad Bing-sökning. Mer information finns i [snabb start: skapa din första anpassad sökning i Bing-instans](quick-start.md).
 - [Python](https://www.python.org/) 2. x eller 3. x.

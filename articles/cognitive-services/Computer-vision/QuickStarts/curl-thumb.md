@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 05/20/2020
+ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 77850de4f2582c86281c58c32e1689fd8741126e
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 1c2ab3f0ef84007d8b9233c45d39fcfbacb5eaab
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987405"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835314"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>Snabb start: skapa en miniatyr med hjälp av Visuellt innehåll REST API och svängen
 
 I den här snabb starten skapar du en miniatyr bild från en avbildning med hjälp av Visuellt innehåll REST API. Du anger önskad höjd och bredd, vilket kan skilja sig från bild-breddförhållandet från indatabilden. Visuellt innehåll använder Smart beskärning för att intelligent identifiera intresse området och skapa beskärnings koordinater runt regionen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/) 
 * [cURL](https://curl.haxx.se/)

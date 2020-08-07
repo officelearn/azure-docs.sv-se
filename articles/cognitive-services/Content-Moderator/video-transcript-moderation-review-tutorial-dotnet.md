@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 2171bbaea065ce1ab3a8d90f32e6ea6dc1f1e821
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3e83781a5ac8270cef37346b5850edd95a102f6a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81404230"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87834413"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Självstudie: Moderering av video och avskrift
 
@@ -32,7 +32,7 @@ I den här självstudiekursen lär du dig att:
 > - Moderera avskriften med textändringstjänsten
 > - Lägga till den modererade avskriften i videogranskningen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Registrera dig för webbplatsen för [Content moderator gransknings verktyg](https://contentmoderator.cognitive.microsoft.com/) och skapa anpassade taggar. Se [använda Taggar](Review-Tool-User-Guide/tags.md) om du behöver hjälp med det här steget.
 
@@ -42,7 +42,7 @@ I den här självstudiekursen lär du dig att:
 
 ## <a name="enter-credentials"></a>Ange autentiseringsuppgifter
 
-Redigera `App.config` filen och lägg till Active Directory klient namn, tjänst slut punkter och prenumerations nycklar som anges av `#####`. Du behöver följande information:
+Redigera `App.config` filen och Lägg till Active Directory klient namn, tjänst slut punkter och prenumerations nycklar som anges av `#####` . Du behöver följande information:
 
 |Nyckel|Beskrivning|
 |-|-|
@@ -236,7 +236,7 @@ Modereringsprocessen returnerar en lista med nyckelbildrutor från videon, tills
 > [!NOTE]
 > Konsolprogrammet använder [FFmpeg](https://ffmpeg.org/)-biblioteket till att generera miniatyrer. De här miniatyrerna (bilder) motsvarar bildrutans tidsstämplar i videoändringens utdata.
 
-|Uppgift|Metoder|Fil|
+|Aktivitet|Metoder|Fil|
 |-|-|-|
 |Extraherar nyckelbildrutorna från videon och skapar miniatyrbilder av dem|`CreateVideoFrames()`<br>`GenerateFrameImages()`|`FrameGeneratorServices.cs`|
 |Genomsöker textavskriften, om det finns någon, för att hitta vuxet eller olämpligt ljud|`GenerateTextScreenProfanity()`| `VideoReviewAPI.cs`|
@@ -252,7 +252,7 @@ Fram tills nu har koden som visas i den här självstudien fokuserat på visuell
 
 Programmet utför följande uppgifter:
 
-|Uppgift|Metoder|Fil|
+|Aktivitet|Metoder|Fil|
 |-|-|-|
 |Bestämmer om textavskrifter ska genereras|`Main()`<br>`GetUserInputs()`|`Program.cs`|
 |I dessa fall skickas ett avskriftsjobb som en del av modereringen|`ConfigureTranscriptTask()`|`VideoModerator.cs`|
@@ -359,7 +359,7 @@ Total Elapsed Time: 00:05:56.8420355
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien skapar du ett program som förändrar&mdash;video innehåll,&mdash;inklusive avskrifts innehåll och skapar granskningar i gransknings verktyget. Nu ska du läsa mer om hur du kan få mer information om videoinspelning.
+I den här självstudien skapar du ett program som förändrar video innehåll, &mdash; inklusive avskrifts innehåll &mdash; och skapar granskningar i gransknings verktyget. Nu ska du läsa mer om hur du kan få mer information om videoinspelning.
 
 > [!div class="nextstepaction"]
 > [Videomoderering](./video-moderation-human-review.md)

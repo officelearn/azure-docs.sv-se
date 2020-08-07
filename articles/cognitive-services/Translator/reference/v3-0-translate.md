@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/17/2020
+ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 512632faae453ebdf7cb7b279fe2d29b25d23d6b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a853a28cf7633b5e81bfec2865cc8dc91f2d2f40
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090866"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903994"
 ---
 # <a name="translator-30-translate"></a>Translator 3,0: Översätt
 
@@ -136,7 +136,7 @@ Bröd texten i begäran är en JSON-matris. Varje mat ris element är ett JSON-o
 Följande begränsningar gäller:
 
 * Matrisen får innehålla högst 100 element.
-* Hela texten som ingår i begäran får inte överstiga 5 000 tecken inklusive blank steg.
+* Hela texten som ingår i begäran får inte överstiga 10 000 tecken inklusive blank steg.
 
 ## <a name="response-body"></a>Själva svaret
 
@@ -364,7 +364,7 @@ Om du inte vill få några svordomar i översättningen, oavsett om det finns sv
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>Åtgärd</th>
+  <th>Action</th>
   <tr>
     <td><code>NoAction</code></td>
     <td>Det här är standardbeteendet. Svordomar skickas från källa till mål.<br/><br/>

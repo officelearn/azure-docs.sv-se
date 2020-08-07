@@ -5,16 +5,16 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: mihansen
+ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: a6805fc686d0bc5bd0e2357828d59d40ba05f248
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 1c64468a2e420734ca51a5b9308bb52e13712c51
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "84872607"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852930"
 ---
 # <a name="testing-the-fhir-api"></a>Testa FHIR-API: et
 I de föregående två stegen har du distribuerat Azure API för FHIR och registrerat ditt klient program. Nu är du redo att testa att ditt Azure API för FHIR har kon figurer ATS med klient programmet. 
@@ -22,11 +22,11 @@ I de föregående två stegen har du distribuerat Azure API för FHIR och regist
 ## <a name="retrieve-capability-statement"></a>Hämta kapacitets instruktion
 Först får vi kapacitets satsen för ditt Azure API för FHIR. 
 1. Öppna Postman
-1. Hämta kapacitets instruktionen genom att göra GET https:// \< FHIR-Server-NAME>. azurehealthcareapis.com/metadata. I bilden nedan är namnet på FHIR-servern **fhirserver**.
+1. Hämta kapacitets instruktionen genom att göra GET https:// \<FHIR-SERVER-NAME> . azurehealthcareapis.com/metadata. I bilden nedan är namnet på FHIR-servern **fhirserver**.
 
 ![Kapacitets instruktion](media/tutorial-web-app/postman-capability-statement.png)
 
-Nästa försök att hämta en patient görs. Hämta en patient genom att ange GET https:// \< FHIR-Server-NAME>. azurehealthcareapis.com/patient. Du får ett 401-otillåtet fel. Det här felet beror på att du inte har beprövat att du ska ha åtkomst till patient data.
+Nästa försök att hämta en patient görs. Hämta en patient genom att ange GET https:// \<FHIR-SERVER-NAME> . azurehealthcareapis.com/patient. Du får ett 401-otillåtet fel. Det här felet beror på att du inte har beprövat att du ska ha åtkomst till patient data.
 
 ## <a name="get-patient-from-fhir-server"></a>Hämta patient från FHIR Server
 ![Misslyckad patient](media/tutorial-web-app/postman-patient-authorization-failed.png)
@@ -41,12 +41,12 @@ För att få åtkomst måste du ha en åtkomsttoken.
 |Token Name (Tokennamn)           |Ett namn för din token                                               |
 |Grant Type (Typ av beviljande)           |Auktoriseringskod                                                  |
 |Callback URL (Webbadress för återanrop)         |https://www.getpostman.com/oauth2/callback                          |
-|Auth URL (Auktoriseringswebbadress)             |https://login.microsoftonline.com/\<AZURE-AD-TENANT-ID>/oauth2/?resource=https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com|
+|Auth URL (Auktoriseringswebbadress)             |https://login.microsoftonline.com/\<AZURE-AD-TENANT-ID>/OAuth2/? Resource = https:// \<FHIR-SERVER-NAME> . azurehealthcareapis.com|
 |Access Token URL (Webbadress för åtkomsttoken)     |https://login.microsoftonline.com/\<AZURE-AD-TENANT-ID>/oauth2/token|
 |Klient-ID            |Det klient-ID som du kopierade i föregående steg             |
-|Klienthemlighet        |\<TOM>                                                            |
-|Omfång                |\<TOM>                                                            |
-|Status                |1234                                                                |
+|Client Secret (Klienthemlighet)        |\<BLANK>                                                            |
+|Omfång                |\<BLANK>                                                            |
+|Stat                |1234                                                                |
 |Klientautentisering|Skicka klientautentiseringsuppgifter i brödtext                                     |
 
 4. Logga in med dina autentiseringsuppgifter och välj **Godkänn**

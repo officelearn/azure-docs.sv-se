@@ -7,12 +7,12 @@ ms.date: 7/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 0cde9caa2f2b68b1e75eac635a81865cc4b6b33c
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 571f0e0ceff0adfbf1814abc627fcab6b23acbe1
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352838"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905864"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-preview-multiple-component-device-application-to-iot-hub-python"></a>Självstudie: ansluta en exempel-IoT Plug and Play förhandsgranska flera komponent enhets program till IoT Hub (python)
 
@@ -86,26 +86,26 @@ Temperatur styrenheten har flera komponenter och ett rot gränssnitt baserat på
 
 1. Importer `pnp_helper_preview_refresh.py` för att få åtkomst till hjälp metoder.
 
-1. Definierar två digitala dubbla modell identifierare (DTMIs) som unikt representerar två olika gränssnitt, definierade i DTDL-modellen. Komponenterna i en riktig temperatur kontroll bör implementera dessa två gränssnitt. Dessa två gränssnitt har redan publicerats på en central lagrings plats. Dessa DTMIs måste vara kända för användaren och varierar beroende på användnings scenariot för enheten. I det aktuella exemplet representerar dessa två gränssnitt:
+2. Definierar två digitala dubbla modell identifierare (DTMIs) som unikt representerar två olika gränssnitt, definierade i DTDL-modellen. Komponenterna i en riktig temperatur kontroll bör implementera dessa två gränssnitt. Dessa två gränssnitt har redan publicerats på en central lagrings plats. Dessa DTMIs måste vara kända för användaren och varierar beroende på användnings scenariot för enheten. I det aktuella exemplet representerar dessa två gränssnitt:
 
   - En termostat
   - Enhets information som har utvecklats av Azure.
 
-. Definierar DTMI `model_id` för den enhet som implementeras. DTMI är användardefinierad och måste matcha DTMI i DTDL modell fil.
+3. Definierar DTMI `model_id` för den enhet som implementeras. DTMI är användardefinierad och måste matcha DTMI i DTDL modell fil.
 
-1. Definierar de namn som har angetts för komponenterna i DTDL-filen. Det finns två termostater i DTDL och en komponent för enhets information. En konstant `serial_number` som kallas är också definierad i rot gränssnittet. En `serial_number` enhet kan inte ändras.
+4. Definierar de namn som har angetts för komponenterna i DTDL-filen. Det finns två termostater i DTDL och en komponent för enhets information. En konstant `serial_number` som kallas är också definierad i rot gränssnittet. En `serial_number` enhet kan inte ändras.
 
-1. Definierar implementeringar av kommando hanterare. Dessa definierar vad enheten gör när den tar emot kommando begär Anden.
+5. Definierar implementeringar av kommando hanterare. Dessa definierar vad enheten gör när den tar emot kommando begär Anden.
 
-1. Definierar funktioner för att skapa ett kommando svar. Dessa definierar hur enheten svarar med till-kommando begär Anden. Du skapar funktioner för kommando svar om ett kommando behöver skicka ett anpassat svar tillbaka till IoT Hub. Om en Response-funktion för ett kommando inte anges skickas ett allmänt svar. I det här exemplet har endast kommandot **getMaxMinReport** ett anpassat svar.
+6. Definierar funktioner för att skapa ett kommando svar. Dessa definierar hur enheten svarar med till-kommando begär Anden. Du skapar funktioner för kommando svar om ett kommando behöver skicka ett anpassat svar tillbaka till IoT Hub. Om en Response-funktion för ett kommando inte anges skickas ett allmänt svar. I det här exemplet har endast kommandot **getMaxMinReport** ett anpassat svar.
 
-1. Definierar en funktion för att skicka telemetri från den här enheten. Både termostater och rot gränssnittet skickar telemetri. Den här funktionen tar i en valfri komponent namn parameter för att kunna identifiera vilken komponent som skickade telemetri.
+7. Definierar en funktion för att skicka telemetri från den här enheten. Både termostater och rot gränssnittet skickar telemetri. Den här funktionen tar i en valfri komponent namn parameter för att kunna identifiera vilken komponent som skickade telemetri.
 
-1. Definierar en lyssnare för kommando begär Anden.
+8. Definierar en lyssnare för kommando begär Anden.
 
-1. Definierar en lyssnare för önskade egenskaps uppdateringar.
+9. Definierar en lyssnare för önskade egenskaps uppdateringar.
 
-1. Har en `main` funktion som:
+10. Har en `main` funktion som:
 
     1. Använder enhets-SDK för att skapa en enhets klient och ansluta till IoT Hub. Enheten skickar `model_id` så att IoT Hub kan identifiera enheten som en IoT plug and Play-enhet.
 

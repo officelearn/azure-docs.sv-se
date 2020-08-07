@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2defb00827e6f3ccf49c336007198b7d9ac176f6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bb4cfcd48608f90898648450a20d246f9fde002b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306119"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836011"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Arbeta med den tidigare versionen av Azure Migrate
 
@@ -85,7 +85,7 @@ En dator flyttas bara till ett senare steg om den tidigare har passerat. Om en d
 
 Vyn för Azure-beredskap i utvärderingen visar beredskapsstatus för varje virtuell dator.
 
-**Beredskap** | **Tillstånd** | **Information**
+**Beredskap** | **Stat** | **Information**
 --- | --- | ---
 Redo för Azure | Inga kompatibilitetsproblem. Datorn kan migreras med Azure, och den kommer att startas i Azure med fullständig support för Azure. | För förberedda virtuella datorer rekommenderar Azure Migrate en VM-storlek i Azure.
 Villkorligt redo för Azure | Datorn kan starta i Azure, men kanske inte har fullständig support för Azure. Till exempel en dator med en äldre version av Windows Server som inte stöds i Azure. | Azure Migrate förklarar beredskaps problemen och ger åtgärder.
@@ -101,7 +101,7 @@ Beredskapen tar hänsyn till ett antal VM-egenskaper, för att identifiera om de
 --- | --- | ---
 **Start typ** | BIOS stöds. UEFI stöds inte. | Villkoret klart om start typen är UEFI.
 **Kärnor** | Datorer Core <= det maximala antalet kärnor (128) som stöds för en virtuell Azure-dator.<br/><br/> Om prestanda historiken är tillgänglig, Azure Migrate beakta de använda kärnorna.<br/>Om en bekvämlighets faktor anges i utvärderings inställningarna multipliceras antalet använda kärnor av den praktiska faktorn.<br/><br/> Om det inte finns någon prestanda historik använder Azure Migrate tilldelade kärnor, utan att använda den praktiska faktorn. | Redo om det är mindre än eller lika med begränsningar.
-**Minne** | Datorns minnes storlek <= högsta mängd minne (3892 GB i Azure M-serien Standard_M128m &nbsp; <sup>2</sup>) för en virtuell Azure-dator. [Läs mer](../virtual-machines/windows/sizes.md).<br/><br/> Om prestanda historiken är tillgänglig Azure Migrate anses det använda minnet.<br/><br/>Om en bekvämlighets faktor anges multipliceras det använda minnet av den praktiska faktorn.<br/><br/> Om det inte finns någon historik används allokerat minne, utan att du använder den praktiska faktorn.<br/><br/> | Redo om det är inom gränserna.
+**Minne** | Datorns minnes storlek <= högsta mängd minne (3892 GB i Azure M-serien Standard_M128m &nbsp; <sup>2</sup>) för en virtuell Azure-dator. [Läs mer](../virtual-machines/sizes.md).<br/><br/> Om prestanda historiken är tillgänglig Azure Migrate anses det använda minnet.<br/><br/>Om en bekvämlighets faktor anges multipliceras det använda minnet av den praktiska faktorn.<br/><br/> Om det inte finns någon historik används allokerat minne, utan att du använder den praktiska faktorn.<br/><br/> | Redo om det är inom gränserna.
 **Lagrings disk** | Den allokerade storleken på en disk måste vara 4 TB (4096 GB) eller mindre.<br/><br/> Antalet diskar som är anslutna till datorn måste vara 65 eller mindre, inklusive OS-disken. | Redo om det är inom gränserna.
 **Nätverk** | En dator måste ha 32 eller färre nätverkskort kopplade till sig. | Redo om det är inom gränserna.
 
@@ -263,7 +263,7 @@ För datorer som övervakas med System Center Operations Manager 2012 R2 eller s
     ```sh InstallDependencyAgent-Linux64.bin```
 
 - Läs mer om [stöd för beroende agent](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) för operativ systemen Windows och Linux.
-- [Läs mer](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) om hur du kan använda skript för att installera beroende agenten.
+- [Läs mer](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent) om hur du kan använda skript för att installera beroende agenten.
 
 >[!NOTE]
 > Azure Monitor for VMs artikel som refereras till för att ge en översikt över system kraven och metoderna för att distribuera beroende agenten gäller även för Tjänstkarta-lösningen.

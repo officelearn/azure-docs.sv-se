@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 3b70590002e9c49f2f8711bb7fe90de79e1d2a73
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: c01e543b251020581d96d61434d0b3309535ef0c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554064"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902053"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Språk-och röst stöd för tal tjänsten
 
@@ -38,16 +38,16 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Nationell inställning  | Språk                          | Anpassningar                                    |
 |---------|-----------------------------------|---------------------------------------------------|
-| `ar-AE` | Arabiska (Förenade Arabemiraten)                      | Inga                                                |
+| `ar-AE` | Arabiska (Förenade Arabemiraten)                      | Nej                                                |
 | `ar-BH` | Arabiska (Bahrain), modern standard | Språkmodell                                    |
 | `ar-EG` | Arabiska (Egypten)                    | Språkmodell                                    |
-| `ar-IL` | Arabiska (Israel)                   | Inga                                                |
-| `ar-JO` | Arabiska (Jordanien)                   | Inga                                                |
-| `ar-KW` | Arabiska (Kuwait)                   | Inga                                                |
-| `ar-LB` | Arabiska (Libanon)                  | Inga                                                |
-| `ar-PS` | Arabiska (Palestina)                | Inga                                                |
-| `ar-QA` | Arabiska (Qatar)                    | Inga                                                |
-| `ar-SA` | Arabiska (Saudiarabien)             | Inga                                                |
+| `ar-IL` | Arabiska (Israel)                   | Nej                                                |
+| `ar-JO` | Arabiska (Jordanien)                   | Nej                                                |
+| `ar-KW` | Arabiska (Kuwait)                   | Nej                                                |
+| `ar-LB` | Arabiska (Libanon)                  | Nej                                                |
+| `ar-PS` | Arabiska (Palestina)                | Nej                                                |
+| `ar-QA` | Arabiska (Qatar)                    | Nej                                                |
+| `ar-SA` | Arabiska (Saudiarabien)             | Nej                                                |
 | `ar-SY` | Arabiska (Syrien)                    | Språkmodell                                    |
 | `ca-ES` | Katalanska                           | Språkmodell                                    |
 | `cs-CZ` | Tjeckiska (Tjeckien)            | Språk modell                                    | 
@@ -104,7 +104,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `sv-SE` | Svenska (Sverige)                  | Språkmodell                                    |
 | `ta-IN` | Tamiliska (Indien)                     | Språkmodell                                    |
 | `te-IN` | Telugu (Indien)                    | Språkmodell                                    |
-| `th-TH` | Thailändska (Thailand)                   | Inga                                                |
+| `th-TH` | Thailändska (Thailand)                   | Nej                                                |
 | `tr-TR` | Turkiska (Turkiet)                  | Språkmodell                                    |
 | `zh-CN` | Kinesiska (mandariner, förenklad)    | Akustisk modell<br>Språkmodell                  |
 | `zh-HK` | Kinesiska (kantonesiska, traditionell)  | Språkmodell                                    |
@@ -128,7 +128,7 @@ Mer information om regional tillgänglighet finns i [regioner](regions.md#standa
 |Nationell inställning  | Språk            | Kön | Röst namn | Format stöd |
 |--|--|--|--|--|
 | `ar-EG` | Arabiska (Egypten)                  | Kvinna | `ar-EG-SalmaNeural`      | Allmänt |
-| `ar-SA` | Arabiska (Saudiarabien)           | Kvinna | `ar-SA-ZariyahNeura`     | Allmänt |
+| `ar-SA` | Arabiska (Saudiarabien)           | Kvinna | `ar-SA-ZariyahNeural`    | Allmänt |
 | `ca-ES` | Katalanska (Spanien)                 | Kvinna | `ca-ES-AlbaNeural`       | Allmänt |
 | `da-DK` | Danska (Danmark)                | Kvinna | `da-DK-ChristelNeural`   | Allmänt |
 | `de-DE` | Tyska (Tyskland)                | Kvinna | `de-DE-KatjaNeural`      | Allmänt |

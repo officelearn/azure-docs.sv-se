@@ -1,44 +1,33 @@
 ---
-title: Förstå Migreringsverktyg för Azure Monitor aviseringar
-description: Förstå hur Migreringsverktyget för aviseringar fungerar och Felsök problem.
+title: Förstå migrering för Azure Monitor aviseringar
+description: Lär dig hur migreringen av aviseringar fungerar och Felsök problem.
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 533d114e08464ff95c654a6f071ea28a04caf510
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 52a74593fcfbdc2c1e464077e4ae460f6a5a9c39
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564103"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852403"
 ---
-# <a name="understand-how-the-migration-tool-works"></a>Förstå hur migreringsverktyget fungerar
+# <a name="understand-migration-options-to-newer-alerts"></a>Förstå migrerings alternativ för nya aviseringar
 
-Som [tidigare](monitoring-classic-retirement.md)meddelats kommer de klassiska aviseringarna i Azure monitor att dras tillbaka den 31 augusti 2019 (ursprungligen 30 juni 2019). Ett Migreringsverktyg är tillgängligt i Azure Portal till kunder som använder klassiska aviserings regler och som vill utlösa migrering själva.
+Klassiska aviseringar [dras tillbaka](./monitoring-classic-retirement.md), men fortfarande i begränsad användning för resurser som ännu inte stöder de nya aviseringarna. Ett nytt datum meddelas snart för migrering av återstående aviseringar, [Azure Government molnet](../../azure-government/documentation-government-welcome.md)och [Azure Kina 21Vianet](https://docs.azure.cn/).
 
-I den här artikeln förklaras hur det frivilliga migrations verktyget fungerar. Det beskriver också lösningar för några vanliga problem.
-
-> [!NOTE]
-> På grund av fördröjning i uppsamlingen av migreringen har den senaste indragnings tiden för migrering av klassisk avisering [utökats till 31 augusti 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) från det ursprungligen presenterade datumet den 30 juni 2019.
-
-## <a name="classic-alert-rules-that-will-not-be-migrated"></a>Klassiska aviseringsregler som inte kommer att migreras
+I den här artikeln förklaras hur det manuella migrerings-och volontär verktyget fungerar, som kommer att användas för att migrera återstående aviserings regler. Det beskriver också lösningar för några vanliga problem.
 
 > [!IMPORTANT]
 > Aktivitets logg aviseringar (inklusive tjänste hälso aviseringar) och logg aviseringar påverkas inte av migreringen. Migreringen gäller endast klassiska varnings regler som beskrivs [här](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
 
-Även om verktyget kan migrera nästan alla [klassiska varnings regler](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform)finns det vissa undantag. Följande varnings regler migreras inte med hjälp av verktyget (eller under den automatiska migreringen från och med 2019 september):
-
-- Klassiska aviserings regler för gäst mått på virtuella datorer (både Windows och Linux). Se [rikt linjerna för att återskapa varnings regler i nya mått aviseringar](#guest-metrics-on-virtual-machines) senare i den här artikeln.
-- Klassiska aviserings regler för klassiska lagrings mått. Se [vägledningen för att övervaka dina klassiska lagrings konton](https://azure.microsoft.com/blog/modernize-alerting-using-arm-storage-accounts/).
-- Klassiska aviserings regler för vissa lagrings konto mått. Se [informationen](#storage-account-metrics) längre fram i den här artikeln.
-- Klassiska varnings regler för vissa Cosmos DB mått. Se [informationen](#cosmos-db-metrics) längre fram i den här artikeln.
-- Klassiska varnings regler för alla klassiska virtuella datorer och Cloud Services-mått (Microsoft. ClassicCompute/virtualMachines och Microsoft. ClassicCompute/domän namn/platser/roller). Se [informationen](#classic-compute-metrics) längre fram i den här artikeln.
-
-Om din prenumeration har några sådana klassiska regler måste du migrera dem manuellt. Eftersom vi inte kan tillhandahålla en automatisk migrering, kommer alla befintliga, klassiska mått varningar för dessa typer att fortsätta att fungera fram till 2020 juni. Med det här tillägget får du tid att gå vidare till nya aviseringar. Du kan också fortsätta att skapa nya klassiska aviseringar på ovanstående undantag till juni 2020. Men för allt annat kan inga nya klassiska aviseringar skapas efter 2019 augusti.
-
 > [!NOTE]
-> Förutom ovanstående undantag, om de klassiska varnings reglerna är ogiltiga, dvs. de finns i [inaktuella mått](#classic-alert-rules-on-deprecated-metrics) eller resurser som har tagits bort, kommer de inte att migreras och kommer inte att vara tillgängliga när tjänsten har dragits tillbaka.
+> Om de klassiska varnings reglerna är ogiltiga, dvs. de finns i [inaktuella mått](#classic-alert-rules-on-deprecated-metrics) eller resurser som har tagits bort, kommer de inte att migreras och kommer inte att vara tillgängliga när tjänsten har dragits tillbaka.
+
+## <a name="manually-migrating-classic-alerts-to-newer-alerts"></a>Migrera klassiska varningar manuellt till nyare aviseringar
+
+Kunder som är intresserade av att manuellt migrera sina återstående aviseringar kan redan göra detta med hjälp av följande avsnitt. Dessa avsnitt definierar också mått som dras tillbaka av resurs leverantören och som för närvarande inte kan migreras direkt.
 
 ### <a name="guest-metrics-on-virtual-machines"></a>Gäst mått på virtuella datorer
 

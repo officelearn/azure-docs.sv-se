@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 01/21/2020
+ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 01a5404100da6c669da4513ac9fd08c959df220e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 340b0ed02821fb98f271539ac39e0ccad8581082
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588640"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904011"
 ---
 # <a name="translator-30-breaksentence"></a>Translator 3,0: BreakSentence
 
@@ -33,15 +33,15 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 Parametrarna för begäran som skickades till frågesträngen är:
 
-| Frågeparameter | Description |
+| Frågeparameter | Beskrivning |
 | -------| ----------- |
 | api-version <img width=200/>   | **Parameter för obligatorisk fråga**.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0` . |
 | language | **Valfri frågeparameter**.<br/>Språk tag gen som identifierar språk för inmatad text. Om ingen kod anges används automatisk språk identifiering. |
-| -skriptet    | **Valfri frågeparameter**.<br/>Skript tag gen som identifierar skriptet som används av inmatad text. Om ett skript inte anges kommer standard språket för språket att antas.  | 
+| skript    | **Valfri frågeparameter**.<br/>Skript tag gen som identifierar skriptet som används av inmatad text. Om ett skript inte anges kommer standard språket för språket att antas.  | 
 
 Begärandehuvuden innehåller:
 
-| Sidhuvuden | Description |
+| Sidhuvuden | Beskrivning |
 | ------- | ----------- |
 | Authentication-huvud (er) <img width=200/>  | **Begär ande huvud för begäran**.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>. |
 | Content-Type | **Begär ande huvud för begäran**.<br/>Anger nytto lastens innehålls typ. Möjliga värden är: `application/json` . |
@@ -61,7 +61,7 @@ Bröd texten i begäran är en JSON-matris. Varje mat ris element är ett JSON-o
 Följande begränsningar gäller:
 
 * Matrisen får innehålla högst 100 element.
-* Text värden för ett mat ris element får inte överstiga 10 000 tecken inklusive blank steg.
+* Text värden för ett mat ris element får inte överstiga 50 000 tecken inklusive blank steg.
 * Hela texten som ingår i begäran får inte överstiga 50 000 tecken inklusive blank steg.
 * Om `language` Frågeparametern anges måste alla mat ris element vara på samma språk. Annars används automatisk identifiering av språk för varje mat ris element oberoende av varandra.
 
@@ -97,7 +97,7 @@ Ett exempel på JSON-svar är:
 
 <table width="100%">
   <th width="20%">Sidhuvuden</th>
-  <th>Description</th>
+  <th>Beskrivning</th>
   <tr>
     <td>X-RequestId</td>
     <td>Värde som genereras av tjänsten för att identifiera begäran. Den används i fel söknings syfte.</td>
@@ -110,7 +110,7 @@ Följande är de möjliga HTTP-statuskod som en begäran returnerar.
 
 <table width="100%">
   <th width="20%">Statuskod</th>
-  <th>Description</th>
+  <th>Beskrivning</th>
   <tr>
     <td>200</td>
     <td>Åtgärden lyckades.</td>

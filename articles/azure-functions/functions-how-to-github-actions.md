@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: 1a7cc37f297f902fb5de473303f1dc260cbea9ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 3fcf26670ec03b1d3a496574e58ae706acdf5c53
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559095"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853299"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Kontinuerlig leverans med hjälp av GitHub-åtgärd
 
@@ -26,7 +26,7 @@ För ett Azure Functions-arbetsflöde har filen tre delar:
 | Avsnitt | Aktiviteter |
 | ------- | ----- |
 | **Autentisering** | <ol><li>Definiera ett huvud namn för tjänsten.</li><li>Ladda ned publicerings profil.</li><li>Skapa en GitHub-hemlighet.</li></ol>|
-| **Utveckla** | <ol><li>Konfigurera miljön.</li><li>Bygg in Function-appen.</li></ol> |
+| **Konstruktion** | <ol><li>Konfigurera miljön.</li><li>Bygg in Function-appen.</li></ol> |
 | **Distribuera** | <ol><li>Distribuera Function-appen.</li></ol>|
 
 > [!NOTE]
@@ -223,4 +223,4 @@ I följande exempel används version 1 av `functions-action` :
 Om du vill visa en fullständig Workflow. yaml-fil, se en av filerna i [arbets flödes exemplen för Azure GitHub-åtgärder lagrings platsen](https://aka.ms/functions-actions-samples) som har `functionapp` i namnet. Du kan använda dessa exempel som start punkt för arbets flödet.
 
 > [!div class="nextstepaction"]
-> [Läs mer om GitHub-åtgärder](https://help.github.com/en/articles/about-github-actions)
+> [Lär dig mer om GitHub Actions](https://help.github.com/en/articles/about-github-actions)

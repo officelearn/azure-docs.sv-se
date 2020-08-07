@@ -1,30 +1,30 @@
 ---
 title: Skapa och Använd en Azure Files resurs på virtuella Windows-datorer
-description: I den här snabbstarten konfigurerar du en Azure Files-resurs i Azure-portalen och ansluter den till en virtuell Windows-dator. Du ansluter till Files-resursen och laddar upp en fil till Files-resursen. Sedan tar du en ögonblicksbild av Files-resursen, ändrar filen Files-resursen och återställer en tidigare ögonblicksbild av Files-resursen.
+description: Skapa och Använd en Azure Files-resurs i Azure Portal. Anslut den till en virtuell Windows-dator, Anslut till fil resursen och ladda upp en fil till fil resursen.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6bbab0ee2eefe6e86c150d5bddab4f8e91a7c92d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0cbbcc822765097f83fcd1a52ce775c69faba9fa
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75463906"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836436"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Snabb start: skapa och hantera Azure Files resurs med virtuella Windows-datorer
 
 Artikeln visar de grundläggande stegen för att skapa och använda en Azure Files-resurs. I den här snabbstarten fokuserar vi på att snabbt konfigurera en Azure Files-resurs så att du kan se hur tjänsten fungerar. Om du behöver mer detaljerade instruktioner för att skapa och använda Azure-filresurser i din egen miljö, kan du läsa mer i [Använda en Azure-filresurs med Windows](storage-how-to-use-files-windows.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på [Azure-portalen](https://portal.azure.com).
 
-## <a name="prepare-your-environment"></a>Förbered din miljö
+## <a name="prepare-your-environment"></a>Förbereda din miljö
 
 I den här snabbstarten konfigurerar du följande objekt:
 
@@ -54,7 +54,7 @@ Därefter skapar du en filresurs.
 1. Skapa en ny txt-fil med namnet *qsTestFile* på den lokala datorn.
 1. Välj den nya filresursen och välj sedan **Överför** på filresursens plats.
 
-    ![Överför en fil](./media/storage-files-quick-create-use-windows/create-file-share-portal5.png)
+    ![Ladda upp en fil](./media/storage-files-quick-create-use-windows/create-file-share-portal5.png)
 
 1. Bläddra till platsen där du skapade din txt-fil > välj *qsTestFile.txt* > välj **Överför**.
 
@@ -101,7 +101,7 @@ Nu har du skapat en ny virtuell dator och anslutit en datadisk. Nu måste du ans
    ![UNC-sökvägen från fönstret Anslut i Azure Files](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
 
 1. I den virtuella datorn öppnar du **Utforskaren** och väljer **Den här datorn** i fönstret. Detta ändrar menyerna i menyfliksområdet. Under menyn **Dator** väljer du **Mappa nätverksenhet**.
-1. Välj enhetsbeteckningen och ange UNC-sökvägen. Om du har följt namn förslaget i den här snabb starten kopierar * \\du qsstorageacct. File. Core. Windows. net\qsfileshare* från **anteckningar**.
+1. Välj enhetsbeteckningen och ange UNC-sökvägen. Om du har följt namn förslaget i den här snabb starten kopierar du * \\ qsstorageacct. File. Core. Windows. Net\qsfileshare* från **anteckningar**.
 
    Kontrollera att båda kryssrutorna är markerade.
 
@@ -173,7 +173,7 @@ Precis som med lokala VSS-ögonblicksbilder, kan du visa ögonblicksbilder från
 
 1. Välj **Återställ**. Åtgärden kopierar innehållet i hela katalogen rekursivt vid tidpunkten då resursögonblicksbilden skapades till den ursprungliga platsen.
 
-   ![Knappen Återställ i varnings](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) meddelandet: om filen inte har ändrats visas inte en tidigare version av filen eftersom den är samma version som ögonblicks bilden. Detta är konsekvent med hur det fungerar på en Windows-filserver.
+   ![Knappen Återställ i varnings meddelandet ](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) : om filen inte har ändrats visas inte en tidigare version av filen eftersom den är samma version som ögonblicks bilden. Detta är konsekvent med hur det fungerar på en Windows-filserver.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -182,4 +182,4 @@ Precis som med lokala VSS-ögonblicksbilder, kan du visa ögonblicksbilder från
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Använda en Azure-filresurs med Windows](storage-how-to-use-files-windows.md)
+> [Använda en Azure-filresurs i Windows](storage-how-to-use-files-windows.md)

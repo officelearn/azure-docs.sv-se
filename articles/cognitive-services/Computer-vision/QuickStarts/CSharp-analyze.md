@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 1ece80ce5337304d1b0d51e5e334cd64cc133619
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: dc6ec5f440efef153273f8678bd1a55400a1235b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84984420"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835433"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-c"></a>Snabb start: analysera en lokal avbildning med hjälp av Visuellt innehåll REST API och C #
 
 I den här snabb starten ska du analysera en lokalt lagrad bild för att extrahera visuella funktioner med hjälp av Visuellt innehåll REST API. Med metoden [analysera avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) kan du extrahera visuell funktions information från bild innehåll.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * Du måste ha [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) eller senare

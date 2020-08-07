@@ -10,13 +10,13 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 486b89e5c93de7444758638ad36743ff2f0bcb37
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: dcbaaeb2868a421a41227e1b5d9fdd84a96248eb
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026346"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852369"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Åtkomst till datauppsättningar med Python med hjälp av Python-klientbiblioteket i Azure Machine Learning
 Förhands granskningen av Microsoft Azure Machine Learning python-klientprogrammet kan ge säker åtkomst till dina Azure Machine Learning data uppsättningar från en lokal python-miljö och möjliggör skapande och hantering av data uppsättningar i en arbets yta.
@@ -28,7 +28,7 @@ Det här avsnittet innehåller anvisningar om hur du:
 * få åtkomst till mellanliggande data uppsättningar från experiment
 * Använd python-klient biblioteket för att räkna upp data uppsättningar, få åtkomst till metadata, läsa innehållet i en data uppsättning, skapa nya data uppsättningar och uppdatera befintliga data uppsättningar
 
-## <a name="prerequisites"></a><a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a><a name="prerequisites"></a>Förutsättningar
 Python-klient biblioteket har testats i följande miljöer:
 
 * Windows, Mac och Linux

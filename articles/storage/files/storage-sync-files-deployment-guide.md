@@ -1,25 +1,25 @@
 ---
 title: Distribuera Azure File Sync | Microsoft Docs
-description: Lär dig hur du distribuerar Azure File Sync från början till slut.
+description: Lär dig hur du distribuerar Azure File Sync, från början till slut, med hjälp av Azure Portal, PowerShell eller Azure CLI.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 006825b5040db482262f79497b9fd810ed3b790c
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 27615d1367bd0faa035e68bf9f03df05cdccfa7f
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460634"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903858"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
 
 Vi rekommenderar starkt att du läser [planering för en Azure Files distribution](storage-files-planning.md) och [planering för en Azure File Sync distribution](storage-sync-files-planning.md) innan du slutför stegen som beskrivs i den här artikeln.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 08/05/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 5b656286a2958957e8518deca88ec22d7279d767
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3f7b6c46a69acf8eea546469cf7919e86703f17c
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323867"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852692"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB asynkron Java SDK för SQL API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -26,6 +26,8 @@ ms.locfileid: "87323867"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Asynkron Java-SDK v2](sql-api-sdk-async-java.md)
 > * [Synkron Java-SDK v2](sql-api-sdk-java.md)
+> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [Spark-anslutning](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * FLESTA (/rest/api
 > * [REST-resursprovider](/azure/azure-resource-manager/management/azure-services-resource-providers)

@@ -1,19 +1,20 @@
 ---
-title: 'Scenario: dirigera trafik via en NVA'
+title: 'Scenario: dirigera trafik via en virtuell nätverks installation (NVA)'
 titleSuffix: Azure Virtual WAN
 description: Dirigera trafik via NVA
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/04/2020
 ms.author: cherylmc
-ms.openlocfilehash: ed64b9d281cfbbf8202a99335ea2759b27a6fc42
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: fasttrack-edit
+ms.openlocfilehash: a8bed6c46b0660d5bf43863a5c7aaf4eeaf7e26f
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142966"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853245"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenario: dirigera trafik via en NVA
 
@@ -25,11 +26,70 @@ När du arbetar med virtuell WAN-routning för virtuella WAN finns det några ti
 >* [PowerShell-artikel](virtual-wan-route-table-nva.md)
 >
 
-## <a name="scenario-architecture"></a><a name="architecture"></a>Scenariots arkitektur
+## <a name="design"></a><a name="design"></a>Utforma
 
-I **bild 1**finns det två hubbar. **Hubb 1** och **hubb 2**.
+I det här scenariot använder vi namngivnings konventionen:
 
-* **Hubb 1** och **Hub 2** är direkt anslutna till NVA virtuella nätverk **VNet 2** och **VNet 4**.
+* "NVA virtuella nätverk" för virtuella nätverk där användare har distribuerat en NVA och har anslutit andra virtuella nätverk som ekrar (VNet 2 och VNet 4 i **anslutnings matrisen**nedan).
+* "NVA ekrar" för virtuella nätverk som är anslutna till ett NVA VNet (VNet 5, VNet 6, VNet 7 och VNet 8 i **anslutnings matrisen**nedan).
+* "Icke-NVA virtuella nätverk" för virtuella nätverk som är anslutna till ett virtuellt WAN-nätverk som inte har en NVA eller andra virtuella nätverk som peer-kopplas med dem (VNet 1 och VNet 3 i **anslutnings matrisen**nedan).
+* "Hubbar" för Microsoft-hanterade virtuella WAN-nav, där NVA virtuella nätverk är anslutna till. NVA eker-virtuella nätverk behöver inte vara anslutna till virtuella WAN-nav, endast till NVA virtuella nätverk.
+
+Följande anslutnings mat ris sammanfattar de flöden som stöds i det här scenariot:
+
+**Anslutnings mat ris**
+
+| Från             | Till:|   *NVA pinnar*|*NVA virtuella nätverk*|*Icke-NVA virtuella nätverk*|*Grenar*|
+|---|---|---|---|---|---|
+| **NVA pinnar**   | &#8594; | 0/0 UDR  |  Peering |   0/0 UDR    |  0/0 UDR  |
+| **NVA virtuella nätverk**    | &#8594; |   Statisk |      X   |        X     |      X    |
+| **Icke-NVA virtuella nätverk**| &#8594; |   Statisk |      X   |        X     |      X    |
+| **Grenar**     | &#8594; |   Statisk |      X   |        X     |      X    |
+
+Var och en av cellerna i anslutnings matrisen beskriver om en virtuell WAN-anslutning ("från"-sidan i flödet, rad rubrikerna i tabellen) får ett måltema ("till"-sidan i flödet, kolumn rubrikerna i kursiv stil i tabellen) för ett särskilt trafikflöde. Tänk också på följande:
+
+* NVA ekrar hanteras inte av virtuella WAN-nätverk. Det innebär att de mekanismer som de kommer att kommunicera med andra virtuella nätverk eller grenar bevaras av användaren. Anslutning till NVA VNet tillhandahålls av en VNet-peering och en standard väg till 0.0.0.0/0 som pekar på NVA som nästa hopp bör gälla anslutning till Internet, till andra ekrar och till grenar
+* NVA-virtuella nätverk kommer att veta om sina egna NVA ekrar, men inte om NVA ekrar kopplade till andra NVA virtuella nätverk. I tabell 1, VNet 2 vet till exempel VNet 5 och VNet 6, men inte andra ekrar som VNet 7 och VNet 8. En statisk väg krävs för att mata in andra ekrars prefix i NVA virtuella nätverk
+* På samma sätt vet inte grenar och icke-NVA virtuella nätverk om några NVA ekrar, eftersom NVA ekrar inte är anslutna till VWAN-hubbar. Det innebär att statiska vägar också behövs här.
+
+Med hänsyn till att NVA ekrar inte hanteras av virtuella WAN-nätverk visas samma anslutnings mönster i alla andra rader. Därför kommer en enda routningstabell (standard en) att göra:
+
+* Virtuella nätverk (icke-hubb virtuella nätverk och virtuella nätverk för användar NAV):
+  * Associerad routningstabell: **standard**
+  * Sprider till routningstabeller: **standard**
+* Delar
+  * Associerad routningstabell: **standard**
+  * Sprider till routningstabeller: **standard**
+
+I det här scenariot behöver vi dock tänka på vilka statiska vägar som ska konfigureras. Varje statisk väg har två komponenter, en del i den virtuella WAN-hubben som talar om vilka virtuella WAN-komponenter som anslutningen ska använda för varje eker, och en annan i den aktuella anslutningen som pekar på den konkreta IP-adress som tilldelats till NVA (eller till en belastningsutjämnare framför flera NVA), som **bild 1** visar:
+
+**Bild 1**
+
+:::image type="content" source="media/routing-scenarios/nva/nva-static-concept.png" alt-text="Bild 1":::
+
+Med det här alternativet är de statiska vägar som vi behöver i standard tabellen för att skicka trafik till NVA ekrar bakom NVA VNet följande:
+
+| Beskrivning | Routningstabell | Statisk väg              |
+| ----------- | ----------- | ------------------------- |
+| VNet 2       | Standardvärde     | 10.2.0.0/16-> eastusconn |
+| VNet 4       | Standardvärde     | 10.4.0.0/16-> weconn     |
+
+Nu vet Virtual WAN vilken anslutning som ska skicka paketen till, men anslutningen måste veta vad du ska göra när du tar emot dessa paket: det är här som anslutnings väg tabellerna används. Här kommer vi att använda de kortare prefixen (/24 i stället för längre/16) för att se till att dessa vägar har prioritet över vägar som importeras från NVA-virtuella nätverk (VNet 2 och VNet 4):
+
+| Beskrivning | Anslutning | Statisk väg            |
+| ----------- | ---------- | ----------------------- |
+| VNet 5       | eastusconn | 10.2.1.0/24 – > 10.2.0.5 |
+| VNet 6       | eastusconn | 10.2.2.0/24 – > 10.2.0.5 |
+| VNet 7       | weconn     | 10.4.1.0/24 – > 10.4.0.5 |
+| VNet 8       | weconn     | 10.4.2.0/24 – > 10.4.0.5 |
+
+Nu NVA virtuella nätverk, icke-NVA virtuella nätverk och grenar vet hur man når alla NVA ekrar. Mer information om routning av virtuell hubb finns i [om virtuell hubb](about-virtual-hub-routing.md).
+
+## <a name="architecture"></a><a name="architecture"></a>Arkitektur
+
+I **bild 2**finns det två hubbar. **Hub1** och **Hub2**.
+
+* **Hub1** och **Hub2** är direkt anslutna till NVA virtuella nätverk **VNet 2** och **VNet 4**.
 
 * **VNet 5** och **VNet 6** är peer-datorer med **VNet 2**.
 
@@ -37,35 +97,37 @@ I **bild 1**finns det två hubbar. **Hubb 1** och **hubb 2**.
 
 * **Virtuella nätverk 5, 6, 7, 8** är indirekta ekrar, inte direkt anslutna till en virtuell hubb.
 
-**Bild 1**
+**Bild 2**
 
-:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Bild 1":::
+:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Bild 2" lightbox="./media/routing-scenarios/nva/nva.png":::
 
 ## <a name="scenario-workflow"></a><a name="workflow"></a>Scenario arbets flöde
 
 Om du vill konfigurera routning via NVA följer du stegen nedan:
 
-1. Identifiera NVA eker VNet-anslutningen. I **bild 1**är det **VNet 2-anslutning (Eastusconn)** och **VNet 4-anslutning (weconn)**.
+1. Identifiera NVA eker VNet-anslutningen. I **bild 2**är det **VNet 2-anslutning (Eastusconn)** och **VNet 4-anslutning (weconn)**.
 
    Se till att UDR har kon figurer ATS:
-   * Från VNET 5 och 6 till VNET 2 NVA IP
-   * Från VNET 7 och 8 till VNET 4 NVA IP 
+   * Från VNet 5 och VNet 6 till VNet 2 NVA IP
+   * Från VNet 7 och VNet 8 till VNet 4 NVA IP 
    
-   Du behöver inte ansluta VNET 5, 6, 7, 8 till de virtuella hubbarna direkt. Se till att NSG: er i virtuella nätverk 5, 6, 7, 8 tillåter trafik för grenen (VPN/ER/P2S) eller virtuella nätverk som är anslutna till sin fjärran sluten virtuella nätverk. VNET 5, 6 måste till exempel säkerställa att NSG: er tillåter trafik för lokala adressprefix och virtuella nätverk 7, 8 som är anslutna till fjärrhubben 2. 
+   Du behöver inte ansluta virtuella nätverk 5, 6, 7, 8 till de virtuella hubbarna direkt. Se till att NSG: er i virtuella nätverk 5, 6, 7, 8 tillåter trafik för grenen (VPN/ER/P2S) eller virtuella nätverk som är anslutna till sin fjärran sluten virtuella nätverk. Till exempel måste virtuella nätverk 5, 6 säkerställa att NSG: er tillåter trafik för lokala adressprefix och virtuella nätverk 7, 8 som är anslutna till fjärrhubben 2.
 
-2. Lägg till en sammanställd statisk väg post för virtuella nätverk 2, 5, 6 till hubb 1 standard väg tabell. 
+2. Lägg till en sammanställd statisk väg post för virtuella nätverk 2, 5, 6 till hubb 1 standard väg tabell.
 
    :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Exempel":::
 
-3. Konfigurera en statisk väg för virtuella nätverk 5, 6 i VNET 2: s virtuella nätverks anslutning. Information om hur du konfigurerar konfigurering av routning för en virtuell nätverks anslutning finns i [routning av virtuell hubb](how-to-virtual-hub-routing.md#routing-configuration).
+3. Konfigurera en statisk väg för virtuella nätverk 5, 6 i VNet 2: s virtuella nätverks anslutning. Information om hur du konfigurerar konfigurering av routning för en virtuell nätverks anslutning finns i [routning av virtuell hubb](how-to-virtual-hub-routing.md#routing-configuration).
 
 4. Lägg till en sammanställd statisk väg post för virtuella nätverk 4, 7, 8 till hubb 1 standard väg tabell.
 
 5. Upprepa steg 2, 3 och 4 för standard väg tabellen i hubb 2.
 
-Detta leder till att konfigurations konfigurationen ändras så som visas i figuren nedan
+Detta leder till konfigurations ändringar för routning, som visas i **bild 3**nedan.
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Resultat":::
+**Bild 3**
+
+   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Bild 3" lightbox="./media/routing-scenarios/nva/nva-result.png":::
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,13 +10,13 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/20/2020
 ms.author: aahi
-ms.custom: tracking-python
-ms.openlocfilehash: 99c22edac7acefe3ec34ff40e892a7071b932ada
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: 34d1b62ed97b966c000ff81e8f7676c30338b6a1
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87013818"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876775"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Snabb start: använda python-REST API för att anropa tjänsten Textanalys kognitiv 
 <a name="HOLTop"></a>
@@ -90,7 +90,7 @@ languages = response.json()
 pprint(languages)
 ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```json
 {
@@ -158,7 +158,7 @@ sentiments = response.json()
 pprint(sentiments)
 ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 Sentiment-poängen för ett dokument är mellan 0,0 och 1,0, med en högre poäng som visar en mer positiv sentiment.
 
@@ -249,7 +249,7 @@ key_phrases = response.json()
 pprint(key_phrases)
 ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```json
 {
@@ -318,7 +318,7 @@ entities = response.json()
 pprint(entities)
 ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```json
 {

@@ -1,23 +1,23 @@
 ---
 title: Azure snabbstart – Skapa en blob i objektlagring med hjälp av PHP | Microsoft Docs
-description: Lär dig snabbt hur du överför objekt till och från Azure Blob Storage med hjälp av PHP
+description: Lär dig snabbt att överföra objekt till och från Azure Blob Storage med hjälp av PHP. Ladda upp, ladda ned och lista block blobbar i en behållare i Azure Blob Storage.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 0453d7465479fb1410d1436cc3fa53914633ece5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a19ff153ea0625a14401770de690dcfddeb74d88
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68726394"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835756"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Överföra objekt till och från Azure Blob Storage med hjälp av PHP
 I den här snabbstarten får du lära dig att använda PHP för att ladda upp, ladda ned och lista blockblobar i en container i Azure Blob-lagring. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 

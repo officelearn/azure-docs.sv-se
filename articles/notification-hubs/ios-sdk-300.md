@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: f43db986f70e64e55225465223b7e324450541a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bec4b771387854c40045f2b57afe7ead6c52f2c7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084345"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836045"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs-version-300-preview1"></a>Självstudie: skicka push-meddelanden till iOS-appar med hjälp av Azure Notification Hubs (version 3.0.0-preview1)
 
@@ -317,7 +317,7 @@ Push-meddelanden skickas vanligtvis via en serverdelstjänst, till exempel Mobil
 
 Här är en lista över några andra själv studie kurser som du kanske vill granska för att skicka meddelanden:
 
-- Azure-Mobile Apps: ett exempel på hur du skickar meddelanden från en Mobile Apps Server del som är integrerad med Notification Hubs finns i [lägga till push-meddelanden till din iOS-app](/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
+- Azure-Mobile Apps: ett exempel på hur du skickar meddelanden från en Mobile Apps Server del som är integrerad med Notification Hubs finns i [lägga till push-meddelanden till din iOS-app](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
 - ASP.NET: [använd Notification Hubs för att skicka push-meddelanden till användare](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
 - Azure Notification Hubs Java SDK: se [använda Notification Hubs från Java för att](notification-hubs-java-push-notification-tutorial.md)   skicka meddelanden från Java. Det här har testats i Eclipse för Android-utveckling.
 - PHP: [använda Notification Hubs från php](notification-hubs-php-push-notification-tutorial.md).

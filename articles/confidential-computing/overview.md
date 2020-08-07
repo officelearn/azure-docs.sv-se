@@ -8,12 +8,12 @@ ms.subservice: workloads
 ms.topic: overview
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 44006bdfd9ffe6e78380adefe9271f42c0a76f84
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 4e92f974ce7d6c03143276808c4ca4d09d607a84
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773287"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835824"
 ---
 # <a name="confidential-computing-on-azure"></a>Konfidentiell data behandling i Azure
 
@@ -52,7 +52,7 @@ Enclaves är säkra delar av en maskin varu processor och minne. Det finns inget
 
 När du utvecklar program kan du använda- [program verktyg](#oe-sdk) för att avskärma delar av koden och data i enklaven. Dessa verktyg ser till att din kod och dina data inte kan visas eller ändras av någon utanför den betrodda miljön. 
 
-Du kan till exempel tänka på en enklaven som en svart ruta. Du anger krypterad kod och data i rutan. Från utsidan av rutan kan du inte se något. Du ger enklaven en nyckel för att dekryptera data, och sedan bearbetas och krypteras data innan de skickas ut från enklaven.
+I grunden kan du tänka på en enklaven som en säker ruta. Du anger krypterad kod och data i rutan. Från utsidan av rutan kan du inte se något. Du ger enklaven en nyckel för att dekryptera data, och sedan bearbetas och krypteras data innan de skickas ut från enklaven.
 
 ### <a name="attestation"></a>Hälsoattestering
 
@@ -67,7 +67,7 @@ Attestering måste implementeras med hjälp av en säker attesterings tjänst so
 
 Med Azures konfidentiella data behandling kan du utnyttja funktioner för konfidentiell användning i en virtualiserad miljö. Nu kan du använda verktyg, program och moln infrastruktur för att bygga ovanpå säker maskin vara. 
 
-### <a name="virtual-machines"></a>Virtuella datorer
+### <a name="virtual-machines"></a>Virtual Machines
 
 Azure är den första moln leverantören som erbjuder konfidentiell data behandling i en virtualiserad miljö. Vi har utvecklat virtuella datorer som fungerar som ett abstraktions lager mellan maskin varan och ditt program. Du kan köra arbets belastningar i skala och med alternativ för redundans och tillgänglighet.  
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: ebc6ff2c7c0d72dff318c7582d9ae5339682bc95
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 42faf4ba0a596fc5b2b34f403a5117e5ceea82ed
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028233"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903348"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Säkerhetskopiera och återställa formulär igenkännings modeller
 
@@ -26,7 +26,7 @@ Kopierings-API: et aktiverar det här scenariot genom att du kan kopiera anpassa
 
 Om din app eller ditt företag är beroende av användningen av en anpassad modell för formulär igenkänning rekommenderar vi att du kopierar din modell till ett annat formulär tolknings konto i en annan region. Om ett regionalt avbrott inträffar kan du sedan komma åt din modell i den region där den kopierades.
 
-##  <a name="prerequisites"></a>Krav
+##  <a name="prerequisites"></a>Förutsättningar
 
 1. Två formulär igenkännings Azure-resurser i olika Azure-regioner. Om du inte har dem går du till Azure Portal och <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title=" skapar en ny formulär igenkännings resurs " target="_blank"> skapa en ny formulär igenkännings resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .
 1. Prenumerations nyckel, slut punkts-URL och prenumerations-ID för formulärets tolknings resurs. Du hittar dessa värden på resurs-fliken **Översikt** på Azure Portal.
@@ -54,7 +54,7 @@ Du får ett `201\Created` svar med ett `modelId` värde i bröd texten. Den här
 ```
 HTTP/1.1 201 Created
 Location: https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/33f4d42c-cd2f-4e74-b990-a1aeafab5a5d
-{"modelId":"33f4d42c-cd2f-4e74-b990-a1aeafab5a5d","accessToken":"1855fe23-5ffc-427b-aab2-e5196641502f","expirationDateTimeTicks":637233481531659440}
+{"modelId":"<your model ID>","accessToken":"<your access token>","expirationDateTimeTicks":637233481531659440}
 ```
 
 ## <a name="start-copy-operation"></a>Starta kopierings åtgärd
@@ -62,7 +62,7 @@ Location: https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0
 Följande HTTP-begäran startar kopierings åtgärden på käll resursen. Du måste ange slut punkten och nyckeln för käll resursen som rubriker. Observera att URL: en för begäran innehåller modell-ID: t för den käll modell som du vill kopiera.
 
 ```
-POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copy HTTP/1.1
+POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/<your model ID>/copy HTTP/1.1
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
@@ -72,7 +72,7 @@ Bröd texten i begäran måste ha följande format. Du måste ange resurs-ID och
 {
    "targetResourceId": "{TARGET_AZURE_FORM_RECOGNIZER_RESOURCE_ID}",  
    "targetResourceRegion": "{TARGET_AZURE_FORM_RECOGNIZER_RESOURCE_REGION_NAME}",
-   "copyAuthorization": {"modelId":"33f4d42c-cd2f-4e74-b990-a1aeafab5a5d","accessToken":"1855fe23-5ffc-427b-aab2-e5196641502f","expirationDateTimeTicks":637233481531659440}
+   "copyAuthorization": {"modelId":"<your model ID>","accessToken":"<your access token>","expirationDateTimeTicks":637233481531659440}
 }
 ```
 

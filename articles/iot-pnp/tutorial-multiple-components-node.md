@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 808d1ad522f6678ced54de334e7ea39fb60cd165
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: d26179ab82f29ce8f937f5b444463c1308d92047
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420698"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904113"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-preview-multiple-component-device-application-to-iot-hub-nodejs"></a>Självstudie: ansluta en exempel-IoT Plug and Play förhandsgranska flera komponent enhets program för att IoT Hub (Node.js)
 
@@ -98,29 +98,29 @@ Koden i *pnpTemperatureController.js* -filen implementerar en IoT plug and Play-
 
 1. Definiera `modelId` DTMI för den enhet som implementeras. Den här DTMI är användardefinierad och måste matcha DTMI för [temperatur styrenhetens DTDL-modell](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
 
-1. Implementera de komponenter som definieras i DTDL-modellen för temperatur styrenheten. Komponenterna i en riktig temperatur kontroll bör implementera dessa två gränssnitt. Dessa två gränssnitt har redan publicerats på en central lagrings plats. I det här exemplet är de två gränssnitten:
+2. Implementera de komponenter som definieras i DTDL-modellen för temperatur styrenheten. Komponenterna i en riktig temperatur kontroll bör implementera dessa två gränssnitt. Dessa två gränssnitt har redan publicerats på en central lagrings plats. I det här exemplet är de två gränssnitten:
   - Termostat
   - Enhets information som har utvecklats av Azure
 
-1. Definiera komponent namn. Det här exemplet har två termostater och en komponent för enhets information.
+3. Definiera komponent namn. Det här exemplet har två termostater och en komponent för enhets information.
 
-1. Definiera kommando namn. Detta är de kommandon som enheten svarar på.
+4. Definiera kommando namn. Detta är de kommandon som enheten svarar på.
 
-1. Definiera `serialNumber` konstanten. En `serialNumber` viss enhet korrigeras.
+5. Definiera `serialNumber` konstanten. En `serialNumber` viss enhet korrigeras.
 
-1. Definiera kommando hanterare.
+6. Definiera kommando hanterare.
 
-1. Definiera funktionerna för att skicka kommando svar.
+7. Definiera funktionerna för att skicka kommando svar.
 
-1. Definiera hjälp funktioner för att logga kommando begär Anden.
+8. Definiera hjälp funktioner för att logga kommando begär Anden.
 
-1. Definiera en hjälp funktion för att skapa egenskaperna.
+9. Definiera en hjälp funktion för att skapa egenskaperna.
 
-1. Definiera en lyssnare för egenskaps uppdateringar.
+10. Definiera en lyssnare för egenskaps uppdateringar.
 
-1. Definiera en funktion för att skicka telemetri från den här enheten. Både termostater och rot komponenten skickar telemetri. Den här funktionen tar emot komponent namnet som parameter.
+11. Definiera en funktion för att skicka telemetri från den här enheten. Både termostater och rot komponenten skickar telemetri. Den här funktionen tar emot komponent namnet som parameter.
 
-1. Definiera en `main` funktion som:
+12. Definiera en `main` funktion som:
 
     1. Använder enhets-SDK för att skapa en enhets klient och ansluta till IoT Hub. Enheten tillhandahåller `modelId` så att IoT Hub kan identifiera enheten som en IoT plug and Play-enhet.
 

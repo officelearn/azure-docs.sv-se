@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mqtt
-- tracking-python
+- devx-track-python
 - 'Role: Cloud Development'
 ms.date: 06/16/2020
-ms.openlocfilehash: 467375f2661ab42d6a60eac7fe8ff59129053037
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3df26f78e66aa1806fd13fd1a46444bb5dc79742
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319107"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876231"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Snabb start: skicka telemetri från en enhet till en IoT-hubb och Läs den med Server dels program (python)
 
@@ -27,7 +27,7 @@ ms.locfileid: "87319107"
 
 I den här snabb starten skickar du telemetri från ett simulerat enhets program via Azure IoT Hub till ett Server dels program för bearbetning. IoT Hub är en Azure-tjänst som gör att du kan mata in stora mängder telemetri från IoT-enheter i molnet för lagring eller bearbetning. I den här snabb starten används två i förväg skrivna python-program: en för att skicka Telemetrin och en för att läsa Telemetrin från hubben. Innan du kör dessa två program skapar du en IoT-hubb och registrerar en enhet med navet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 

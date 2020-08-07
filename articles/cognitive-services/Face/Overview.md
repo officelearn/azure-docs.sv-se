@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 6714a0c4b967d80ad683ef023b5811423bdcb022
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 061d6d1088358e5da0cb590fad5ed0a4cd9e422a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81403457"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87834226"
 ---
 # <a name="what-is-the-azure-face-service"></a>Vad är Azure Face service?
 
@@ -51,7 +51,7 @@ Och de här avbildningarna är kandidat ytorna:
 
 ![Fem bilder på leende människor. Bilder a och b visar samma person.](./Images/FaceFindSimilar.Candidates.jpg)
 
-För att hitta fyra liknande ansikten returnerar matchPerson-läget a och b, som visar samma person som mål ytan. MatchFace-läget returnerar a, b, c och d&mdash;exakt fyra kandidater, även om vissa inte är samma person som målet eller har låg likhet. Mer information finns i rikt linjer för [ansikts igenkänning](concepts/face-recognition.md) eller referens dokumentation för att [hitta liknande API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) .
+För att hitta fyra liknande ansikten returnerar matchPerson-läget a och b, som visar samma person som mål ytan. MatchFace-läget returnerar a, b, c och d &mdash; exakt fyra kandidater, även om vissa inte är samma person som målet eller har låg likhet. Mer information finns i rikt linjer för [ansikts igenkänning](concepts/face-recognition.md) eller referens dokumentation för att [hitta liknande API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) .
 
 ## <a name="face-grouping"></a>Ansiktsgruppering
 
@@ -61,7 +61,7 @@ API:et för gruppering delar in en uppsättning okända ansikten i flera grupper
 
 Identifiera API används för att identifiera ett identifierat ansikte mot en databas med personer. Den här funktionen kan vara användbar för automatisk bild markering i program för foto hantering. Du skapar databasen i förväg och du kan redigera den över tid.
 
-Följande bild visar ett exempel på en databas med namnet `"myfriends"`. Varje grupp kan innehålla upp till 1 000 000 olika person objekt. Varje personobjekt kan ha upp till 248 registrerade ansikten.
+Följande bild visar ett exempel på en databas med namnet `"myfriends"` . Varje grupp kan innehålla upp till 1 000 000 olika person objekt. Varje personobjekt kan ha upp till 248 registrerade ansikten.
 
 ![Ett rutnät med tre kolumner för olika personer, var och en med tre rader av ansikts bilder](./Images/person.group.clare.jpg)
 

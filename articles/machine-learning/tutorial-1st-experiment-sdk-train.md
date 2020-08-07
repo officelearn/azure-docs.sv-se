@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
 ms.date: 02/10/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 821b11dc89a3479f7310770db84d0947390a3109
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-python
+ms.openlocfilehash: be8f0c85f62779dec9231a9f44155d4608e88b52
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520552"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852709"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Självstudie: träna din första ML-modell
 
@@ -133,7 +133,7 @@ När utbildningen har slutförts anropar du `experiment` variabeln för att häm
 experiment
 ```
 
-<table style="width:100%"><tr><th>Name</th><th>Arbetsyta</th><th>Rapport sida</th><th>Sidan dokument</th></tr><tr><td>diabetes – experiment</td><td>ditt-arbetsyte namn</td><td>Länk till Azure Machine Learning Studio</td><td>Länk till dokumentation</td></tr></table>
+<table style="width:100%"><tr><th>Namn</th><th>Arbetsyta</th><th>Rapport sida</th><th>Sidan dokument</th></tr><tr><td>diabetes – experiment</td><td>ditt-arbetsyte namn</td><td>Länk till Azure Machine Learning Studio</td><td>Länk till dokumentation</td></tr></table>
 
 ## <a name="view-training-results-in-studio"></a>Visa utbildnings resultat i Studio
 

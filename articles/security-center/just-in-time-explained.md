@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: dfdb717a27af8dc7f3186ac7afdff4d1eb3d79f5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9c77ed2bf0d764fbbbe24770cc70b3fbeec7f678
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420846"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833461"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Förstå VM-åtkomst med just-in-Time (JIT)
 
@@ -44,7 +44,7 @@ När du aktiverar just-in-Time VM-åtkomst kan du välja portarna på den virtue
 
 Om det redan finns andra regler för de valda portarna prioriteras dessa befintliga regler för den nya regeln "neka all inkommande trafik". Om det inte finns några befintliga regler på de valda portarna, prioriteras de nya reglerna först i NSG och Azure-brandväggen.
 
-När en användare begär åtkomst till en virtuell dator kontrollerar Security Center att användaren har [rollbaserade Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) behörigheter för den virtuella datorn. Om begäran har godkänts konfigurerar Security Center NSG: er och Azure-brandväggen för att tillåta inkommande trafik till de valda portarna från den relevanta IP-adressen (eller intervallet) för den angivna tiden. När tiden har gått ut Security Center återställer NSG: er till sina tidigare tillstånd. Anslutningar som redan har upprättats avbryts inte.
+När en användare begär åtkomst till en virtuell dator kontrollerar Security Center att användaren har [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) behörigheter för den virtuella datorn. Om begäran har godkänts konfigurerar Security Center NSG: er och Azure-brandväggen för att tillåta inkommande trafik till de valda portarna från den relevanta IP-adressen (eller intervallet) för den angivna tiden. När tiden har gått ut Security Center återställer NSG: er till sina tidigare tillstånd. Anslutningar som redan har upprättats avbryts inte.
 
 > [!NOTE]
 > JIT stöder inte virtuella datorer som skyddas av Azure-brandväggar som kontrol leras av [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview).

@@ -7,13 +7,13 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: seo-python-october2019, tracking-python
-ms.openlocfilehash: f4fa90025e9aaa12c065514e0dd4e5d76e4f8d24
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: seo-python-october2019, devx-track-python
+ms.openlocfilehash: 55ed71c6947c70ac797656f2f18cf71dd8aaae9d
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85337302"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852488"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-python"></a>Snabb start: använda Azure Service Bus köer med python
 
@@ -23,7 +23,7 @@ Den här artikeln visar hur du använder python för att skapa, skicka meddeland
 
 Mer information om python Azure Service Bus-bibliotek finns i [Service Bus bibliotek för python](/python/api/overview/azure/servicebus?view=azure-python).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 - En Azure-prenumeration. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Ett Service Bus namn område som skapats genom att följa stegen i [snabb starten: använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer](service-bus-quickstart-topics-subscriptions-portal.md). Kopiera den primära anslutnings strängen från skärmen **principer för delad åtkomst** som du kan använda senare i den här artikeln. 
 - Python 3.4 x eller senare, med [python Azure Service Bus][Python Azure Service Bus package] -paketet installerat. Mer information finns i [installations guiden för python](/azure/developer/python/azure-sdk-install). 

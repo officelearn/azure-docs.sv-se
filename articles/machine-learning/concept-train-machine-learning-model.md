@@ -9,13 +9,13 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
-ms.custom: tracking-python
-ms.openlocfilehash: b35f971d90f8cd74e2f5a60e34864d8e55a743c4
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-python
+ms.openlocfilehash: dee74c787f6546494d12ea582eab383fbd99079d
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431909"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876911"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Träna modeller med Azure Machine Learning
 
@@ -23,7 +23,7 @@ Azure Machine Learning tillhandahåller flera olika sätt att träna modeller, f
 
 + [Azure Machine Learning SDK för python](#python-sdk): python SDK tillhandahåller flera olika sätt att träna modeller, var och en med olika funktioner.
 
-    | Utbildnings metod | Description |
+    | Utbildnings metod | Beskrivning |
     | ----- | ----- |
     | [Kör konfiguration](#run-configuration) | Ett **allmänt sätt att träna modeller** är att använda ett utbildnings skript och köra konfiguration. Kör konfigurationen tillhandahåller den information som behövs för att konfigurera den utbildnings miljö som används för att träna din modell. Du kan ta en körnings konfiguration, ditt utbildnings skript och ett beräknings mål (inlärnings miljön) och köra ett utbildnings jobb. |
     | [Automatiserad maskininlärning](#automated-machine-learning) | Med automatisk maskin inlärning kan du **träna modeller utan omfattande data vetenskap eller programmerings kunskap**. För personer med data vetenskap och programmerings bakgrund är det ett sätt att spara tid och resurser genom att automatisera val av algoritmer och justering av den valda parametern. Du behöver inte bekymra dig om att definiera en körnings konfiguration när du använder automatisk maskin inlärning. |

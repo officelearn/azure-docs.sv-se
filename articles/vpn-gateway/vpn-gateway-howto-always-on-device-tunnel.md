@@ -1,25 +1,25 @@
 ---
 title: Konfigurera en VPN-tunnel som alltid är på
 titleSuffix: Azure VPN Gateway
-description: Steg för att konfigurera Always on VPN-tunnel för VPN Gateway
+description: Lär dig hur du konfigurerar Always on, som upprätthåller en VPN-anslutning baserat på utlösare, till exempel användar inloggning, ändring av nätverks tillstånd eller enhets skärmen aktiv.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6db48928ebac115c42c643d669f6541a3654a53a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24043576fca4910631ccddb3924303dd642c6842
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983129"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927070"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Konfigurera en VPN-enhetstunnel för AlwaysOn
 
 [!INCLUDE [intro](../../includes/vpn-gateway-vwan-always-on-intro.md)]
 
-## <a name="configure-the-gateway"></a>Konfigurera en gateway
+## <a name="configure-the-gateway"></a>Konfigurera gatewayen
 
 Konfigurera VPN-gatewayen att använda IKEv2 och certifikatbaserad autentisering med hjälp av artikeln [Konfigurera en punkt-till-plats-VPN-anslutning](vpn-gateway-howto-point-to-site-resource-manager-portal.md) .
 

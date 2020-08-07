@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: c794cfb5f0d652e25007131d9ca39fb73e2218e2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 98077209e8245753bb9dae79fafd6c6a10f3eafb
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080683"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920729"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen1-environment-using-c"></a>Fråga efter data från Azure Time Series Insights gen1-miljön med hjälp av C #
 
@@ -75,10 +75,11 @@ Du kan också lägga till paketen med [NuGet 2.12 +](https://www.nuget.org/):
 
 ## <a name="c-sample-code"></a>Exempel kod för C#
 
-[!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs)]
+[!code-csharp[csharpquery-example](~/samples-tsi/gen1-sample/csharp-tsi-gen1-sample/Program.cs)]
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om frågor i [API-referensen för frågor](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
 
 - Läs hur du [ansluter en JavaScript-app med hjälp av klient-SDK](https://github.com/microsoft/tsiclient) för att Time Series Insights.
+Azure-samples/Azure-Time-Series-Insights/gen1-Sample/csharp-TSD-gen1-Sample/program. CS

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 766fb9fbe50f8a138eae020082680204872a653a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0869de4ccfe89cc3919ec2d2d80aa3e18749039a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87315453"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921100"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Azure Monitor loggar för tjänst leverantörer
 
@@ -40,7 +40,7 @@ Det finns två sätt som administratörer kan använda för att få åtkomst til
 
 Fördelarna med den distribuerade arkitekturen är:
 
-* Kunden kan bekräfta specifika behörighets nivåer via [Azure-delegerad resurs hantering](../../lighthouse/concepts/azure-delegated-resource-management.md), eller så kan du hantera åtkomst till loggarna med hjälp av sin egen [rollbaserade åtkomst](../../role-based-access-control/overview.md).
+* Kunden kan bekräfta specifika behörighets nivåer via [Azure-delegerad resurs hantering](../../lighthouse/concepts/azure-delegated-resource-management.md)eller kan hantera åtkomst till loggarna med sin egen [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](../../role-based-access-control/overview.md).
 * Loggar kan samlas in från alla typer av resurser, inte bara agentbaserade VM-data. Till exempel loggar i Azure granskning.
 * Varje kund kan ha olika inställningar för arbets ytan, till exempel kvarhållning och data capping.
 * Isolering mellan kunder för regler och kompatibilitet.
@@ -90,4 +90,3 @@ Det finns två alternativ för att implementera loggar på en central plats:
 * Generera sammanfattnings rapporter med [Power BI](./powerbi.md)
 
 * Publicera kunder till [Azure delegerad resurs hantering](../../lighthouse/concepts/azure-delegated-resource-management.md).
-

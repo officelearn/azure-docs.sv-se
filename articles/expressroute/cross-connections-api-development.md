@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: mialdrid
-ms.openlocfilehash: b4a83013d2cbeb2871a3963ec0c95144c02f4d66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 459a70c787dfdcd54fb3010655390787022c8f2e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77187017"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921630"
 ---
 # <a name="expressroute-crossconnnections-api-development-and-integration"></a>ExpressRoute CrossConnnections API-utveckling och integrering
 
@@ -30,7 +30,7 @@ Fördelar med att flytta till expressRouteCrossConnections-resursen:
 
 * Alla framtida förbättringar av ExpressRoute-partner görs tillgängliga på ExpressRouteCrossConnection-resursen.
 
-* Partner kan använda sig av [rollbaserade Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview) till expressRouteCrossConnection-resursen. Dessa kontroller kan definiera behörigheter för vilka användare som konton kan ändra expressRouteCrossConnection-resursen och lägga till/uppdatera/ta bort peering-konfigurationer.
+* Partner kan använda [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) till expressRouteCrossConnection-resursen. Dessa kontroller kan definiera behörigheter för vilka användare som konton kan ändra expressRouteCrossConnection-resursen och lägga till/uppdatera/ta bort peering-konfigurationer.
 
 * ExpressRouteCrossConnection-resursen exponerar API: er som kan vara till hjälp vid fel sökning av ExpressRoute-anslutningar. Detta inkluderar ARP-tabell, tabell Sammanfattning för BGP-vägar och information om BGP-routningstabell. Den här funktionen stöds inte av klassiska distributions-API: er.
 

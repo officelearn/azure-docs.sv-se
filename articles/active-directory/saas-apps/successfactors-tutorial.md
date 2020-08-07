@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9b141f3722a722a57e5ec7c5662ded4b9a8c790
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 1de6af0f30453d40348e9e836b2a5989652f49f1
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170436"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925164"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-successfactors"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SuccessFactors
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur du integrerar SuccessFactors med 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -116,7 +116,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     - `https://<companyname>.sapsf.cn/<companyname>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Hämta dessa värden genom att kontakta [supportteamet för SuccessFactors-klienten](https://www.successfactors.com/content/ssf-site/en/support.html).
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Hämta dessa värden genom att kontakta [supportteamet för SuccessFactors-klienten](https://www.sap.com/support.html).
 
 4. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -227,7 +227,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 Om du vill att Azure AD-användare ska kunna logga in på SuccessFactors måste de tillhandahållas i SuccessFactors. När det gäller SuccessFactors är etablering en manuell aktivitet.
 
-För att skapa användare i SuccessFactors behöver du kontakta [SuccessFactors-supportteamet](https://www.successfactors.com/content/ssf-site/en/support.html).
+För att skapa användare i SuccessFactors behöver du kontakta [SuccessFactors-supportteamet](https://www.sap.com/support.html).
 
 ## <a name="test-sso"></a>Testa SSO 
 

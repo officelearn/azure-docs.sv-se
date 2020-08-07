@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/04/2020
-ms.openlocfilehash: 36b94f53d3a9113c3980c94c3b8eff0713f11814
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/06/2020
+ms.openlocfilehash: ff8bb1fea863c8ba08434df9c718199ad9f51652
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446532"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925795"
 ---
 # <a name="log-analytics-agent-overview"></a>Översikt över Log Analytics agent
 Azure Log Analytics-agenten har utvecklats för omfattande hantering av virtuella datorer i alla moln, lokala datorer och de som övervakas av [System Center Operations Manager](/system-center/scom/). Windows-och Linux-agenterna skickar insamlade data från olika källor till din Log Analytics arbets yta i Azure Monitor, samt alla unika loggar eller mått som definierats i en övervaknings lösning. Log Analytics agenten stöder också insikter och andra tjänster i Azure Monitor som [Azure Monitor for VMS](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml)och [Azure Automation](../../automation/automation-intro.md).
@@ -122,11 +122,19 @@ Från och med versioner som publicerats efter 2018 augusti gör vi följande än
  - Ubuntu, Debian:`apt-get install -y python2`
  - SUSE`zypper install -y python2`
 
-Den körbara filen python2 måste ha ett alias till python med följande kommando:
+Den körbara filen python2 måste ha ett alias till *python* med hjälp av följande procedur:
 
-```
-alternatives --set python `which python2`
-```
+1. Kör följande kommando för att visa alla aktuella python-alias, om det finns ett sådant. Om så är fallet noterar du prioriteten för nästa steg.
+ 
+    ```
+    sudo update-alternatives ––display python
+    ```
+
+2. Kör följande kommando. Ersätt *\<priority\>* med ett tal som är större än den befintliga länkens prioritet, eller 1 om det inte finns några länkar.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 <priority>
+    ```
 
 ### <a name="supported-distros"></a>Distributioner som stöds
 
@@ -189,12 +197,12 @@ I följande tabell visas den konfigurations information för proxy och brand vä
 
 |Agentresurs|Portar |Riktning |Kringgå HTTPS-kontroll|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Port 443 |Utgående|Ja |  
-|*.oms.opinsights.azure.com |Port 443 |Utgående|Ja |  
-|*.blob.core.windows.net |Port 443 |Utgående|Ja |
-|*.azure-automation.net |Port 443 |Utgående|Ja |
+|*.ods.opinsights.azure.com |Port 443 |Outbound (Utgående)|Ja |  
+|*.oms.opinsights.azure.com |Port 443 |Outbound (Utgående)|Ja |  
+|*.blob.core.windows.net |Port 443 |Outbound (Utgående)|Ja |
+|*.azure-automation.net |Port 443 |Outbound (Utgående)|Ja |
 
-För brand Väggs information som krävs för Azure Government, se [Azure Government hantering](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). 
+För brand Väggs information som krävs för Azure Government, se [Azure Government hantering](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). 
 
 Om du planerar att använda Azure Automation Hybrid Runbook Worker för att ansluta till och registrera med Automation-tjänsten för att använda Runbooks eller hanterings lösningar i din miljö, måste den ha åtkomst till port numret och de URL: er som beskrivs i [Konfigurera ditt nätverk för Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 

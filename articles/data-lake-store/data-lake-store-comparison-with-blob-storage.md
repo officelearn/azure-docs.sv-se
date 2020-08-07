@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 9ab1e2ed4aeace0ec98cb358f32a07f64c3dfea2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f9a03b5636af4a60c4abf563e073e22c970b8a02
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075055"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921785"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Jämföra Azure Data Lake Storage Gen1 och Azure Blob Storage
 
@@ -33,7 +33,7 @@ I tabellen i den här artikeln sammanfattas skillnaderna mellan Azure Data Lake 
 | Data åtgärder-auktorisering |POSIX Access Control listor (ACL: er).  ACL: er baserade på Azure Active Directory identiteter kan ställas in på fil-och mappnivå. |För auktorisering på konto nivå – Använd [konto åtkomst nycklar](../storage/common/storage-account-keys-manage.md)<br>För konto-, container-eller BLOB-auktorisering – Använd [signatur nycklar för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Data åtgärder – granskning |Få. Mer information finns [här](data-lake-store-diagnostic-logs.md) . |Tillgänglig |
 | Vilande data kryptering |<ul><li>Transparent, Server sida</li> <ul><li>Med tjänst nycklar som hanteras</li><li>Med Kundhanterade nycklar i Azure-valv</li></ul></ul> |<ul><li>Transparent, Server sida</li> <ul><li>Med tjänst nycklar som hanteras</li><li>Med Kundhanterade nycklar i Azure-valv (för hands version)</li></ul><li>Kryptering av klientsidan</li></ul> |
-| Hanterings åtgärder (till exempel konto skapa) |[Rollbaserad åtkomst kontroll](../role-based-access-control/overview.md) (RBAC) som tillhandahålls av Azure för konto hantering |[Rollbaserad åtkomst kontroll](../role-based-access-control/overview.md) (RBAC) som tillhandahålls av Azure för konto hantering |
+| Hanterings åtgärder (till exempel konto skapa) |[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md) för konto hantering |[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md) för konto hantering |
 | SDK: er för utvecklare |.NET, Java, python, Node.js |.NET, Java, python, Node.js, C++, ruby, PHP, go, Android, iOS |
 | Analys arbets belastnings prestanda |Optimerade prestanda för arbets belastningar med parallell analys. Högt data flöde och IOPS. |Optimerade prestanda för arbets belastningar med parallell analys. |
 | Storleks begränsningar |Inga begränsningar för konto storlekar, fil storlekar eller antal filer |För vissa gränser, se [skalbarhets mål för standard lagrings konton](../storage/common/scalability-targets-standard-account.md) och [skalbarhets-och prestanda mål för Blob Storage](../storage/blobs/scalability-targets.md). Större konto gränser tillgängliga genom att kontakta [Azure-supporten](https://azure.microsoft.com/support/faq/) |
@@ -41,5 +41,3 @@ I tabellen i den här artikeln sammanfattas skillnaderna mellan Azure Data Lake 
 | Tjänsttillstånd |Allmänt tillgänglig |Allmänt tillgänglig |
 | Regional tillgänglighet |Se [här](https://azure.microsoft.com/regions/#services) |Tillgängligt i alla Azure-regioner |
 | Pris |Se [prissättning](https://azure.microsoft.com/pricing/details/data-lake-store/) |Se [prissättning](https://azure.microsoft.com/pricing/details/storage/) |
-
-

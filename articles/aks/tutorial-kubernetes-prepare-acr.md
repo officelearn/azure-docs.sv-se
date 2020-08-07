@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
-ms.openlocfilehash: 991123b4373332503eff242315e1596a091473c1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 197e5c7bed569e67376f9c28fe0d2e050016cce8
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243672"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922412"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Självstudier: Distribuera och använda Azure Container Registry
 
@@ -60,9 +60,12 @@ Kommandot returnerar ett meddelande om att *inloggningen har* slutförts.
 
 Om du vill visa en lista över dina aktuella lokala avbildningar använder du kommandot [docker images][docker-images]:
 
-```
+```azurecli
 $ docker images
+```
+Ovanstående kommando utdata visar listan över aktuella lokala avbildningar:
 
+```
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front             latest              4675398c9172        13 minutes ago      694MB
 redis                        latest              a1b99da73d05        7 days ago          106MB
@@ -83,11 +86,15 @@ Tagga nu din lokala *Azure-röst-frontend-* avbildning med *acrLoginServer* -adr
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
-Kontrollera att taggarna har tillämpats genom att köra [docker images][docker-images] igen. En bild taggas med ACR-instansadressen och ett versionsnummer.
+Kontrollera att taggarna har tillämpats genom att köra [docker images][docker-images] igen. 
+
+```azurecli
+$ docker images
+```
+
+En bild taggas med ACR-instansadressen och ett versionsnummer.
 
 ```
-$ docker images
-
 REPOSITORY                                           TAG           IMAGE ID            CREATED             SIZE
 azure-vote-front                                     latest        eaf2b9c57e5e        8 minutes ago       716 MB
 mycontainerregistry.azurecr.io/azure-vote-front      v1            eaf2b9c57e5e        8 minutes ago       716 MB

@@ -1,18 +1,18 @@
 ---
 title: Fel söknings guide för Azure Files prestanda
-description: Kända prestanda problem med Azure-filresurser och tillhör ande lösningar.
+description: Felsök kända prestanda problem med Azure-filresurser. Identifiera möjliga orsaker och tillhör ande lösningar när dessa problem påträffas.
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 64c7e56f14fb06e7b211954eb93e4858563a8f08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c0d7e5c7c021f8cdad8980bd7659d819b85f899
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511953"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905022"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Felsöka Azure Files prestanda problem
 

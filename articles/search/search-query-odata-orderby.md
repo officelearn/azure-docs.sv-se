@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/05/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 68e6ec0af0b24771b21dac35c944fc7fa098b404
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 333e48ff963ec42dd2ee00956fa046a5a038c099
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203105"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903790"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>OData $orderby-syntax i Azure Kognitiv sökning
 
@@ -50,7 +50,9 @@ Ett interaktivt syntax diagram är också tillgängligt:
 > [!NOTE]
 > Se [referens för OData-uttryck för Azure kognitiv sökning](search-query-odata-syntax-reference.md) för den fullständiga ebnf.
 
-Varje sats har sorterings villkor, eventuellt följt av en sorterings riktning ( `asc` för stigande eller `desc` för fallande). Om du inte anger någon riktning, är standardvärdet stigande. Sorterings villkoren kan antingen vara sökvägen till ett `sortable` fält eller ett anrop till endera eller- [`geo.distance`](search-query-odata-geo-spatial-functions.md) [`search.score`](search-query-odata-search-score-function.md) funktionerna.
+Varje sats har sorterings villkor, eventuellt följt av en sorterings riktning ( `asc` för stigande eller `desc` för fallande). Om du inte anger någon riktning, är standardvärdet stigande. Om det finns null-värden i fältet visas null-värden först om sorteringen är `asc` och sista om sorteringen är `desc` .
+
+Sorterings villkoren kan antingen vara sökvägen till ett `sortable` fält eller ett anrop till endera eller- [`geo.distance`](search-query-odata-geo-spatial-functions.md) [`search.score`](search-query-odata-search-score-function.md) funktionerna.
 
 Om flera dokument har samma sorterings villkor och `search.score` funktionen inte används (till exempel om du sorterar efter ett numeriskt `Rating` fält och tre dokument har en klassificering på 4) bryts bindningarna av dokument poängen i fallande ordning. När dokument resultatet är detsamma (till exempel när det inte finns någon text Sök fråga som anges i begäran) är den relativa ordningen för de bundna dokumenten obestämd.
 

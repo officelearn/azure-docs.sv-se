@@ -3,13 +3,13 @@ title: Skapa ett program för Azure Service Fabric container i Linux
 description: Skapa din första Linux-containerapp på Azure Service Fabric. Skapa en Docker-avbildning med din app, överför avbildningen till ett containerregister och skapa och distribuera en Service Fabric-containerapp.
 ms.topic: conceptual
 ms.date: 1/4/2019
-ms.custom: tracking-python
-ms.openlocfilehash: 547030b983dd02e7b65d404188dccdcc24d53a22
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: 35e96f1039dc71427a1a3d2745245eff5d012aaf
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083845"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847541"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Skapa din första Service Fabric-containerapp i Linux
 > [!div class="op_single_selector"]
@@ -373,7 +373,7 @@ Här är de fullständiga tjänst- och appmanifesten som används i den här art
 Om du vill lägga till en till containertjänst till ett program som redan har skapats med hjälp av yeoman utför du följande steg:
 
 1. Ändra katalogen till roten för det befintliga programmet. Till exempel `cd ~/YeomanSamples/MyApplication` om `MyApplication` är programmet som skapats av Yeoman.
-2. Jag kör `yo azuresfcontainer:AddService`
+2. Kör `yo azuresfcontainer:AddService`
 
 <a id="manually"></a>
 

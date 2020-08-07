@@ -7,14 +7,15 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, uppdaterings hantering, ändrings spårning, inventering, Runbooks, python, grafisk, hybrid
-ms.date: 03/24/2020
+ms.custom: references_regions
+ms.date: 08/06/2020
 ms.topic: overview
-ms.openlocfilehash: e775945526a5453085946ed4eea2a2e19761ba78
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 8c02b22d27fbae0465ed3b8c97622544256854e0
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85482198"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905626"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>Vad är Azure Arc för servrar (för hands version)?
 
@@ -28,10 +29,15 @@ För att kunna leverera den här upplevelsen med dina hybrid datorer utanför Az
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
-Azure-båge för servrar (för hands version) stöder följande scenarier med anslutna datorer:
+När du ansluter datorn till Azure Arc for Servers (för hands version) kan du utföra följande konfigurations hanterings aktiviteter:
 
 - Tilldela [Azure policy gäst konfigurationer](../../governance/policy/concepts/guest-configuration.md) med samma erfarenhet som princip tilldelning för virtuella Azure-datorer.
-- Loggdata som samlas in av Log Analytics-agenten som lagras i arbets ytan Log Analytics som datorn har registrerats. Loggdata från hybrid datorn innehåller nu egenskaper som är speciella för datorn, till exempel ett resurs-ID som kan användas för att ge stöd åt [resurs kontexts](../../azure-monitor/platform/design-logs-deployment.md#access-mode) loggar.
+
+- Övervaka din anslutna dators prestanda för gäst operativ system och identifiera program komponenter för att övervaka deras processer och beroenden med andra resurser som programmet kommunicerar med hjälp av [Azure Monitor for VMS](../../azure-monitor/insights/vminsights-overview.md).
+
+- Förenkla distributionen med andra Azure-tjänster som Azure Automation tillstånds konfiguration och Azure Monitor Log Analytics arbets yta med [Azure VM-tillägg](manage-vm-extensions.md) som stöds för Windows-eller Linux-datorer som inte kommer från Azure. Detta inkluderar konfiguration av konfiguration eller program vara efter distribution med hjälp av tillägget för anpassat skript.
+
+Loggdata som samlas in och lagras i en Log Analytics-arbetsyta från hybrid datorn innehåller nu egenskaper som är speciella för datorn, till exempel ett resurs-ID. Detta kan användas för att ge stöd åt [resurs Sammanhangs](../../azure-monitor/platform/design-logs-deployment.md#access-mode) logg åtkomst.
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
@@ -42,7 +48,7 @@ Med Azure Arc for Servers (för hands version) stöds endast vissa regioner:
 - Västeuropa
 - Sydostasien
 
-I de flesta fall ska den plats som du väljer när du skapar installations skriptet vara den Azure-region som är geografiskt närmast din dators plats. Data i vila lagras i den region i Azure som innehåller den region som du anger, vilket även kan påverka ditt val av region om du har data placering krav. Om den Azure-region som datorn är ansluten till påverkas av ett avbrott påverkas inte den anslutna datorn, men hanterings åtgärder som använder Azure kan inte slutföras. För återhämtning i händelse av ett regionalt avbrott, om du har flera platser som tillhandahåller en geografiskt redundant tjänst, är det bäst att ansluta datorerna på varje plats till en annan Azure-region.
+I de flesta fall ska den plats som du väljer när du skapar installations skriptet vara den Azure-region som är geografiskt närmast din dators plats. Data i vila lagras i den region i Azure som innehåller den region som du anger, vilket även kan påverka ditt val av region om du har data placering krav. Om den Azure-region som datorn är ansluten till påverkas av ett avbrott påverkas inte den anslutna datorn, men hanterings åtgärder som använder Azure kan inte slutföras. I händelse av ett regionalt avbrott, om du har flera platser som tillhandahåller en geografiskt redundant tjänst, är det bäst att ansluta datorerna på varje plats till en annan Azure-region.
 
 ### <a name="agent-status"></a>Agent status
 

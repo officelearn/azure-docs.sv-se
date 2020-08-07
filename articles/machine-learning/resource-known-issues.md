@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 03/31/2020
-ms.openlocfilehash: 8f58fcef1a35494053803d98b43ce97fed7205e0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.date: 08/06/2020
+ms.openlocfilehash: 23b749a45e130e99b660cd5bc56349732159e340
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373699"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905504"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Kända problem och fel sökning i Azure Machine Learning
 
@@ -131,7 +131,7 @@ Ibland kan det vara bra om du kan ange diagnostikinformation när du ber om hjä
 
     Du kan också använda init-skript om du behåller problem med att installera mot python-bibliotek. Den här metoden stöds inte officiellt. Mer information finns i [kluster omfång init-skript](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-* **Import fel i Databricks: det går inte att importera namnet timedelta från Pandas. _libs. tslibs**: om du ser det här felet när du använder automatisk maskin inlärning, kör du två följande rader i din bärbara dator:
+* **Import fel i Databricks: det går inte att importera namnet `Timedelta` från `pandas._libs.tslibs` **: om du ser det här felet när du använder automatisk maskin inlärning, kör du två följande rader i din bärbara dator:
     ```
     %sh rm -rf /databricks/python/lib/python3.7/site-packages/pandas-0.23.4.dist-info /databricks/python/lib/python3.7/site-packages/pandas
     %sh /databricks/python/bin/pip install pandas==0.23.4
@@ -219,7 +219,7 @@ Begränsningar och kända problem för data avvikelse Övervakare:
     | Kategoriska | sträng, bool, int, Float | Antalet unika värden i funktionen är mindre än 100 och mindre än 5% av antalet rader. | Null behandlas som sin egen kategori. | 
     | Numeriska | int, Float | Värdena i funktionen är av en numerisk datatyp och uppfyller inte villkoret för en kategoriska-funktion. | Funktionen utelämnas om >15% av värdena är null. | 
 
-* När du har [skapat en datadrift-övervakare](how-to-monitor-datasets.md) men inte kan se data på sidan för **data uppsättnings övervakning** i Azure Machine Learning Studio kan du prova följande.
+* När du har [skapat en data riktnings övervakare](how-to-monitor-datasets.md) men inte kan se data på sidan för **data uppsättnings övervakning** i Azure Machine Learning Studio kan du prova följande.
 
     1. Kontrol lera om du har valt rätt datum intervall överst på sidan.  
     1. På fliken **data uppsättnings övervakning** väljer du länken experimentera för att kontrol lera körnings statusen.  Den här länken är längst till höger i tabellen.
@@ -283,7 +283,7 @@ time.sleep(600)
 
 ## <a name="automated-machine-learning"></a>Automatiserad maskininlärning
 
-* **TensorFlow**: från och med version 1.5.0 av SDK installerar automatiserad Machine Learning inte TensorFlow-modeller som standard. Installera tensorflow och Använd det med dina automatiserade ML-experiment genom att installera tensorflow = = 1.12.0 via CondaDependecies. 
+* **TensorFlow**: från och med version 1.5.0 av SDK installerar automatiserad Machine Learning inte TensorFlow-modeller som standard. Installera TensorFlow och Använd det med dina automatiserade ML-experiment genom att installera TensorFlow = = 1.12.0 via CondaDependecies. 
  
    ```python
    from azureml.core.runconfig import RunConfiguration
@@ -382,5 +382,5 @@ Se fler fel söknings artiklar för Azure Machine Learning:
 * [Fel sökning av Docker-distribution med Azure Machine Learning](how-to-troubleshoot-deployment.md)
 * [Felsöka pipelines för Machine Learning](how-to-debug-pipelines.md)
 * [Felsöka klassen ParallelRunStep från Azure Machine Learning SDK](how-to-debug-parallel-run-step.md)
-* [Interaktiv fel sökning av en beräknings instans för Machine Learning med VS Code](how-to-set-up-vs-code-remote.md)
+* [Interaktiv fel sökning av en beräknings instans för Machine Learning med VS Code](how-to-debug-visual-studio-code.md)
 * [Använd Application Insights för att felsöka pipelines för Machine Learning](how-to-debug-pipelines-application-insights.md)

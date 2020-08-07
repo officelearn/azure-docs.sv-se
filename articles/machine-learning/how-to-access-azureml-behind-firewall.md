@@ -10,22 +10,19 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: 23ec12daa2e5c236da482615228b7c44037282fb
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 990a2d5279c796f354055328e6968ea705ea10b2
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808124"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873644"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Använd arbets ytan bakom en brand vägg för Azure Machine Learning
 
-I den här artikeln lär du dig hur du konfigurerar Azure-brandväggen för användning med en Azure Machine Learning-arbetsyta.
+I den här artikeln lär du dig hur du konfigurerar Azure-brandväggen för att kontrol lera åtkomsten till din Azure Machine Learning-arbetsyta och det offentliga Internet.   Mer information om hur du skyddar Azure Machine Learning finns i [företags säkerhet för Azure Machine Learning](concept-enterprise-security.md)
 
-> [!IMPORTANT]
-> Informationen i det här dokumentet baseras på användningen av Azure-brandväggen, men du bör kunna använda den med andra brand Väggs produkter. Om du har frågor om hur du tillåter kommunikation via brand väggen kan du läsa dokumentationen för den brand vägg som du använder.
-
-Azure-brandväggen kan användas för att styra åtkomsten till din Azure Machine Learning-arbetsyta och det offentliga Internet. Om konfigurationen inte är korrekt konfigurerad kan brand väggen orsaka problem med din arbets yta. Det finns flera olika värdnamn som används både i Azure Machine Learning-arbetsytan, som beskrivs i den här artikeln.
+Informationen i det här dokumentet baseras på användningen av [Azure-brandväggen](../firewall/tutorial-firewall-deploy-portal.md), men du bör kunna använda den med andra brand Väggs produkter. Om du har frågor om hur du tillåter kommunikation via brand väggen kan du läsa dokumentationen för den brand vägg som du använder.
 
 ## <a name="network-rules"></a>Nätverksregler
 
@@ -37,6 +34,8 @@ I brand väggen skapar du en nätverks regel som tillåter trafik till och från
 > Mer information om hur du konfigurerar Azure-brandväggen finns i [distribuera och konfigurera Azure-brandväggen](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
 ## <a name="microsoft-hosts"></a>Microsoft-värdar
+
+Om konfigurationen inte är korrekt konfigurerad kan brand väggen orsaka problem med din arbets yta. Det finns flera olika värdnamn som används både i Azure Machine Learning-arbetsytan.
 
 Värdarna i det här avsnittet ägs av Microsoft och tillhandahåller tjänster som krävs för att din arbets yta ska fungera korrekt.
 
@@ -58,6 +57,7 @@ Värdarna i det här avsnittet ägs av Microsoft och tillhandahåller tjänster 
 | **mcr.microsoft.com** | Microsoft Container Registry för Base Docker-avbildningar |
 | **your-acr-server-name.azurecr.io** | Krävs endast om din Azure Container Registry ligger bakom det virtuella nätverket. I den här konfigurationen skapas en privat länk från Microsoft-miljön till ACR-instansen i din prenumeration. Använd namnet på ACR-servern för din Azure Machine Learning-arbetsyta. |
 | **\*. notebooks.azure.net** | Krävs av antecknings böckerna i Azure Machine Learning Studio. |
+
 ## <a name="python-hosts"></a>Python-värdar
 
 Värdarna i det här avsnittet används för att installera python-paket. De krävs vid utveckling, utbildning och distribution. 
@@ -79,7 +79,7 @@ Värdarna i det här avsnittet används för att installera R-paket. De krävs v
 | ---- | ---- |
 | **cloud.r-project.org** | Används vid installation av CRAN-paket. |
 
-Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
-* [[Distribuera och konfigurera Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)]
+* [Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal](../firewall/tutorial-firewall-deploy-portal.md)
 * [Skydda Azure ML-experimentering och härlednings jobb i en Azure-Virtual Network](how-to-enable-virtual-network.md)

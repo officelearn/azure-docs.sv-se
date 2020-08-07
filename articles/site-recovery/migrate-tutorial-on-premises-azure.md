@@ -1,18 +1,17 @@
 ---
-title: Migrera lokala datorer med Azure Site Recovery
-description: Den här artikeln beskriver hur du migrerar lokala datorer till Azure med Azure Site Recovery
-author: rayne-wiselman
+title: Migrera lokala datorer med Azure Migrate
+description: Den här artikeln sammanfattar hur du migrerar lokala datorer till Azure och rekommenderar Azure Migrate.
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: raynew
-ms.openlocfilehash: 3c421845d4e15ef13ce98d0de111270159f564fe
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e0e60ee346d20113b2ec7970390d9874522cc770
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285364"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847320"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrera lokala datorer till Azure
 
@@ -20,7 +19,7 @@ I den här artikeln beskrivs alternativ för migrering av lokala datorer till Az
 
 ## <a name="migrate-with-azure-migrate"></a>Migrera med Azure Migrate
 
-Vi rekommenderar att du migrerar datorer till Azure med hjälp av tjänsten [Azure Migrate](../migrate/migrate-services-overview.md) . Azure Migrate tillhandahåller en central hubb för utvärdering och migrering av lokala datorer till Azure med hjälp av Azure Migrate, andra Azure-tjänster och verktyg från tredje part.
+Vi rekommenderar att du migrerar datorer till Azure med hjälp av tjänsten [Azure Migrate](../migrate/migrate-services-overview.md) . Azure Migrate är syftet – byggd för Server-migrering. Azure Migrate tillhandahåller en central hubb för identifiering, utvärdering och migrering av lokala datorer till Azure.
 
 Följ dessa länkar om du vill migrera med Azure Migrate:
 

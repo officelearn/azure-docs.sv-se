@@ -3,13 +3,13 @@ title: Självstudie – Skapa och köra en Jupyter Notebook – Azure Notebooks 
 description: Lär dig hur du skapar och kör en Jupyter Notebook i Azure Notebooks Preview som demonstrerar processen för linjär regression i data vetenskap.
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.custom: tracking-python
-ms.openlocfilehash: fd7fc324894595a991074c6d83ffc0f9fa3cff75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: f6480a93610761061462be8e83ce3e719f3e8bdf
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85834139"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846920"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Självstudie: skapa och kör en Jupyter-anteckningsbok med python
 
@@ -156,7 +156,7 @@ Grupper med Meny kommandon är följande:
 | --- | --- |
 | Fil | Kommandon för att hantera Notebook-filen, inklusive kommandon för att skapa och kopiera antecknings böcker, Visa en förhands granskning och ladda ned antecknings boken i olika format. |
 | Redigera | Vanliga kommandon för att klippa ut, kopiera och klistra in celler, söka efter och ersätta värden, hantera cell bilagor och infoga bilder.  |
-| Visa | Kommandon för att kontrol lera visningen av olika delar av Jupyter-ANVÄNDARGRÄNSSNITTET. |
+| Vy | Kommandon för att kontrol lera visningen av olika delar av Jupyter-ANVÄNDARGRÄNSSNITTET. |
 | Infogning | Kommandon för att infoga en ny cell ovanför eller under den aktuella cellen. Du använder dessa kommandon ofta när du skapar en antecknings bok. |
 | Mobiltelefon | De olika **körnings** kommandona kör en eller flera celler i olika kombinationer. Kommandona **cell typ** ändrar typ av cell mellan **kod**, **markdown**och **rå NBConvert** (oformaterad text). Kommandona **aktuella utdata** och **alla utdata** styr hur utdata från körnings kod visas och innehåller ett kommando för att rensa alla utdata. |
 | Kernel | Kommandon för att hantera hur kod körs i kerneln, tillsammans med **ändrings kärnan** för att ändra språket eller python-versionen som används för att köra antecknings boken. |

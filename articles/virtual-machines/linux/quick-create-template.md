@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 479e580ee8821f0a6de054c631714c5386927e4f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0849aeb6180a17238f0885896a863936cfdf715d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083924"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827664"
 ---
 # <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-an-arm-template"></a>Snabb start: skapa en Ubuntu Linux virtuell dator med en ARM-mall
 
@@ -21,17 +21,17 @@ Den här snabb starten visar hur du använder en Azure Resource Manager mall (AR
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
 
 [![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/).
+Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/).
 
 :::code language="json" source="~/quickstart-templates/101-vm-simple-linux/azuredeploy.json" range="1-261" highlight="110-260":::
 
@@ -65,7 +65,7 @@ Flera resurser definieras i mallen:
     - **DNS-etikett prefix**: Ange en unik identifierare som ska användas som en del av DNS-etiketten.
     - **Ubuntu OS-version**: Välj vilken version av Ubuntu som du vill köra på den virtuella datorn.
     - **Plats**: standardvärdet är samma plats som resurs gruppen, om den redan finns.
-    - **VM-storlek**: Välj den [storlek](sizes.md) som ska användas för den virtuella datorn.
+    - **VM-storlek**: Välj den [storlek](../sizes.md) som ska användas för den virtuella datorn.
     - **Virtual Network namn**: namn som ska användas för vNet.
     - **Under näts namn**: namnet på det undernät som den virtuella datorn ska använda.
     - **Nätverks säkerhets gruppens namn**: namnet på NSG.

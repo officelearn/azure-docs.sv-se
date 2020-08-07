@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: cb9c851ca33aa6eeb6d0fe0576f98ecb0693be02
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c3d487c1595a077ac8609813a41d15e28ede0e0b
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999414"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903331"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Azure Stream Analytics-lösningsmönster
 
@@ -86,17 +86,12 @@ För avancerade användare som vill införliva onlineutbildning och värdera til
 
 ![ASA Machine Learning app](media/stream-analytics-solution-patterns/machine-learning-app.png)
 
-## <a name="near-real-time-data-warehousing"></a>Nära data lager hantering i real tid
+## <a name="real-time-data-warehousing"></a>Data lager hantering i real tid
 
-Ett annat vanligt mönster är data lager i real tid, även kallat strömnings informations lager. Förutom händelser som anländer till Event Hubs och IoT Hub från ditt program kan [Azure Stream Analytics som körs på IoT Edge](stream-analytics-edge.md) användas för att uppfylla data rengöring, data reducering och data lagring och vidarebefordran. Stream Analytics som körs på IoT Edge kan hantera bandbredds begränsning och anslutnings problem på ett smidigt sätt i systemet. SQL-utmatnings kortet kan användas för att mata ut till SQL Data Warehouse. det maximala data flödet är dock begränsat till 10 MB/s.
+Ett annat vanligt mönster är data lager i real tid, även kallat strömnings informations lager. Förutom händelser som anländer till Event Hubs och IoT Hub från ditt program kan [Azure Stream Analytics som körs på IoT Edge](stream-analytics-edge.md) användas för att uppfylla data rengöring, data reducering och data lagring och vidarebefordran. Stream Analytics som körs på IoT Edge kan hantera bandbredds begränsning och anslutnings problem på ett smidigt sätt i systemet. Stream Analytics kan stödja data flödes hastigheter på upp till 200 MB per sekund vid skrivning till Azure Synapse Analytics.
 
 ![Data lager hantering för ASA](media/stream-analytics-solution-patterns/data-warehousing.png)
 
-Ett sätt att förbättra data flödet med viss latens kompromisser är att arkivera händelserna i Azure Blob Storage och sedan [importera dem till SQL Data Warehouse med PolyBase](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md). Du måste manuellt häfta ihop utdata från Stream Analytics till Blob Storage och indata från Blob Storage till SQL Data Warehouse genom att [arkivera data efter tidsstämpel](stream-analytics-custom-path-patterns-blob-storage-output.md) och importera regelbundet.
-
-I det här användnings mönstret används Azure Stream Analytics som en nära real tids ETL-motor. Nyligen ingångna händelser omvandlas kontinuerligt och lagras för förbrukning av underordnad analys tjänst.
-
-![ASA data lager hantering med hög data flöde](media/stream-analytics-solution-patterns/data-warehousing-high-throughput.png)
 
 ## <a name="archiving-real-time-data-for-analytics"></a>Arkivera real tids data för analys
 

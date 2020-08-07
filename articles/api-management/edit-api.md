@@ -1,6 +1,6 @@
 ---
 title: Redigera ett API med Azure Portal | Microsoft Docs
-description: Den här självstudien visar hur du använder API Management (APIM) för att redigera ett API.
+description: 'Lär dig hur du använder API Management (APIM) för att redigera ett API. Lägg till, ta bort eller Byt namn på åtgärder i APIM-instansen eller redigera API: n för Swagger.'
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: 6be36493fabce07838991c789e111e918a9a826d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8d3f476f4a6ecf05d63223f3ba2c2b5173e1d0bf
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "70072160"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905167"
 ---
 # <a name="edit-an-api"></a>Redigera ett API
 
@@ -26,7 +26,7 @@ Stegen i den här självstudien visar hur du använder API Management (APIM) fö
 + Du kan göra det genom att lägga till, ta bort, byta namn på åtgärderna i APIM-instansen. 
 + Du kan redigera din API:s swagger.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 + [Importera och publicera ditt första API](import-and-publish.md)
@@ -64,5 +64,5 @@ Du kan uppdatera ditt serverdels-API från Azure Portal genom att följa dessa s
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [APIM princip exempel](policy-samples.md)
-> [omvandla och skydda ett publicerat API](transform-api.md)
+> [APIM princip exempel](policy-samples.md) 
+>  [Transformera och skydda ett publicerat API](transform-api.md)

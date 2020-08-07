@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ccf4ad960abfd737a9a05d8fdc77a8bb1ea92d2d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3b30cefdd72286c15095828c409a87f173200a7b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417122"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828413"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>Aktivera Azure Monitor for VMs för en hybrid virtuell dator
 I den här artikeln beskrivs hur du aktiverar Azure Monitor for VMs för en virtuell dator utanför Azure, inklusive lokala miljöer och andra moln miljöer.
@@ -92,7 +92,7 @@ Om det inte går att starta beroende agenten kontrollerar du om det finns detalj
 
 Filer för beroende agenten placeras i följande kataloger:
 
-| Files | Position |
+| Files | Plats |
 |:--|:--|
 | Kärnfiler | /opt/microsoft/dependency-agent |
 | Loggfiler | /var/opt/microsoft/dependency-agent/log |
@@ -158,7 +158,7 @@ Om beroende Agent installationen lyckades, men du inte ser datorn på kartan, ka
 
     **Linux**: Sök efter den process som körs "Microsoft-Dependency-agent".
 
-2. Är du på den [kostnads fria pris nivån av Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? Den kostnads fria planen tillåter upp till fem unika datorer. Eventuella efterföljande datorer visas inte på kartan, även om de fem föregående fem inte längre skickar data.
+2. Är du på den [kostnads fria pris nivån av Log Analytics](./solutions.md)? Den kostnads fria planen tillåter upp till fem unika datorer. Eventuella efterföljande datorer visas inte på kartan, även om de fem föregående fem inte längre skickar data.
 
 3. Skickar datorn logg-och perf-data till Azure Monitor loggar? Utför följande fråga för datorn:
 

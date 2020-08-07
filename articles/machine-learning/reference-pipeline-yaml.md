@@ -10,13 +10,13 @@ ms.reviewer: larryfr
 ms.author: nilsp
 author: NilsPohlmann
 ms.date: 07/31/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 4fc28ca533c6670263c8d559f4d6dd3e21671881
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.custom: devx-track-python
+ms.openlocfilehash: 079341fe1b22db83ded4b11941d8bdf809adfb8d
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513170"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845543"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definiera pipeliner för Machine Learning i YAML
 
@@ -32,11 +32,11 @@ I följande tabell visas vad som inte stöds för närvarande när du definierar
 | AzureBatchStep | Ja |
 | DatabricksStep | Ja |
 | DataTransferStep | Ja |
-| AutoMLStep | Inga |
-| HyperDriveStep | Inga |
+| AutoMLStep | Nej |
+| HyperDriveStep | Nej |
 | ModuleStep | Ja |
-| MPIStep | Inga |
-| EstimatorStep | Inga |
+| MPIStep | Nej |
+| EstimatorStep | Nej |
 
 ## <a name="pipeline-definition"></a>Pipeline-definition
 

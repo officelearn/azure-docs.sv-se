@@ -7,13 +7,13 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.custom: tracking-python
-ms.openlocfilehash: b6c5abe6dc267795fc2fc4c5e3371a93414e21b9
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.custom: devx-track-python
+ms.openlocfilehash: 5cbf75ef2d9f0c1a65179e6a423b59f9763ce72b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985110"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872250"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Fil Systems åtgärder på Azure Data Lake Storage Gen1 med python
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "85985110"
 
 I den här artikeln får du lära dig hur du använder python SDK för att utföra fil Systems åtgärder på Azure Data Lake Storage Gen1. Instruktioner för hur du utför konto hanterings åtgärder på Data Lake Storage Gen1 med python finns i [konto hanterings åtgärder på data Lake Storage gen1 med python](data-lake-store-get-started-python.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Python**. Du kan hämta Python [här](https://www.python.org/downloads/). I den här artikeln används Python 3.6.2.
 
@@ -110,7 +110,7 @@ adlsFileSystemClient = core.AzureDLFileSystem(adlCreds, store_name=adlsAccountNa
 adlsFileSystemClient.mkdir('/mysampledirectory')
 ```
 
-## <a name="upload-a-file"></a>Överför en fil
+## <a name="upload-a-file"></a>Ladda upp en fil
 
 ```python
 ## Upload a file
@@ -118,7 +118,7 @@ multithread.ADLUploader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt'
 ```
 
 
-## <a name="download-a-file"></a>Hämta en fil
+## <a name="download-a-file"></a>Ladda ned en fil
 
 ```python
 ## Download a file

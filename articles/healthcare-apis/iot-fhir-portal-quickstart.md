@@ -1,26 +1,26 @@
 ---
-title: 'Snabb start: Distribuera IoT Connector (för hands version) med Azure Portal'
-description: I den här snabb starten får du lära dig hur du distribuerar, konfigurerar och använder funktionen IoT Connector i Azure API för FHIR med hjälp av Azure Portal.
+title: 'Snabb start: Distribuera Azure IoT Connector för FHIR (för hands version) med Azure Portal'
+description: I den här snabb starten får du lära dig hur du distribuerar, konfigurerar och använder funktionen Azure IoT Connector för FHIR i Azure API för FHIR med hjälp av Azure Portal.
 services: healthcare-apis
 author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
-ms.date: 05/11/2020
+ms.date: 08/04/2020
 ms.author: punagpal
-ms.openlocfilehash: 95f5b5f13401c224ccf67c5f013deedf00379de7
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 55d072492a1d90c6964935f2a79f73aacdceff21
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446813"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826780"
 ---
-# <a name="quickstart-deploy-iot-connector-preview-using-azure-portal"></a>Snabb start: Distribuera IoT Connector (för hands version) med Azure Portal
+# <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Snabb start: Distribuera Azure IoT Connector för FHIR (för hands version) med Azure Portal
 
-IoT Connector är en valfri funktion i Azure API för FHIR som gör det möjligt att mata in data från IoMT-enheter (Internet of Medicine saker). Under förhands gransknings fasen är IoT Connector-funktionen tillgänglig kostnads fritt. I den här snabbstarten lär du dig att:
-- Distribuera och konfigurera IoT-anslutning med hjälp av Azure Portal
-- Använda en simulerad enhet för att skicka data till IoT Connector
-- Visa resurser som skapats av IoT Connector på Azure API för FHIR
+Azure IoT Connector för FHIR * är en valfri funktion i Azure API för FHIR som gör det möjligt att mata in data från-enheter. I förhands gransknings fasen är Azure IoT Connector för FHIR-funktionen tillgänglig kostnads fritt. I den här snabbstarten lär du dig att:
+- Distribuera och konfigurera Azure IoT Connector för FHIR med hjälp av Azure Portal
+- Använda en simulerad enhet för att skicka data till Azure IoT Connector för FHIR
+- Visa resurser som har skapats av Azure IoT Connector för FHIR i Azure API för FHIR
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -29,7 +29,7 @@ IoT Connector är en valfri funktion i Azure API för FHIR som gör det möjligt
 
 ## <a name="go-to-azure-api-for-fhir-resource"></a>Gå till Azure API för FHIR-resurs
 
-Öppna [Azure Portal](https://portal.azure.com) och gå till Azure- **API: et för den FHIR** -resurs som du vill skapa IoT Connector-funktionen för.
+Öppna [Azure Portal](https://portal.azure.com) och gå till Azure- **API: et för den FHIR** -resurs som du vill skapa Azure IoT-kopplingen för FHIR-funktionen för.
 
 [![Azure API för FHIR-resurs](media/quickstart-iot-fhir-portal/portal-azure-api-fhir.jpg)](media/quickstart-iot-fhir-portal/portal-azure-api-fhir.jpg#lightbox)
 
@@ -37,35 +37,35 @@ På den vänstra navigerings menyn klickar du på **IoT Connector (för hands ve
 
 [![Funktionen IoT Connector](media/quickstart-iot-fhir-portal/portal-iot-connectors.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connectors.jpg#lightbox)
 
-## <a name="create-new-iot-connector-preview"></a>Skapa ny IoT-anslutning (förhands granskning)
+## <a name="create-new-azure-iot-connector-for-fhir-preview"></a>Skapa en ny Azure IoT-anslutning för FHIR (för hands version)
 
 Klicka på knappen **Lägg till** för att öppna sidan **skapa IoT Connector** .
 
 [![Lägg till IoT-koppling](media/quickstart-iot-fhir-portal/portal-iot-connectors-add.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connectors-add.jpg#lightbox)
 
-Ange inställningar för den nya IoT-anslutningen. Klicka på knappen **skapa** och vänta på IoT Connector-distribution.
+Ange inställningar för den nya Azure IoT-anslutningen för FHIR. Klicka på knappen **skapa** och vänta på Azure IoT Connector för FHIR-distribution.
 
 > [!NOTE]
 > Du måste välja **skapa** som värde för List rutan för **stängnings typ** för den här installationen. 
 
 [![Skapa IoT-koppling](media/quickstart-iot-fhir-portal/portal-iot-connector-create.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-create.jpg#lightbox)
 
-|Inställningen|Värde|Beskrivning |
+|Inställning|Värde|Beskrivning |
 |---|---|---|
-|Anslutnings namn|Ett unikt namn|Ange ett namn för att identifiera din IoT-anslutning. Det här namnet måste vara unikt inom en Azure API för FHIR-resurs. Namnet får endast innehålla gemener, siffror och bindestreck (-). Det måste börja och sluta med en bokstav eller en siffra, och måste vara mellan 3-24 tecken långt.|
-|Lösnings typ|Sök eller skapa|Välj **Lookup** om du har en out-of-band-process för att skapa [enhets](https://www.hl7.org/fhir/device.html) -och [patient](https://www.hl7.org/fhir/patient.html) FHIR-resurser i ditt Azure API för FHIR. IoT Connector använder referenser till dessa resurser när du skapar en [observations](https://www.hl7.org/fhir/observation.html) FHIR-resurs som representerar enhets data. Välj **skapa** när du vill att IoT Connector ska skapa enheter för Bare-ben och patient resurser i Azure API för FHIR med hjälp av respektive Identifier-värden som finns i enhetens data.|
+|Anslutnings namn|Ett unikt namn|Ange ett namn för att identifiera din Azure IoT-anslutning för FHIR. det här namnet måste vara unikt inom ett Azure-API för FHIR-resursen. Namnet får endast innehålla gemener, siffror och bindestreck (-). Det måste börja och sluta med en bokstav eller en siffra, och måste vara mellan 3-24 tecken långt.|
+|Lösnings typ|Sök eller skapa|Välj **Lookup** om du har en out-of-band-process för att skapa [enhets](https://www.hl7.org/fhir/device.html) -och [patient](https://www.hl7.org/fhir/patient.html) FHIR-resurser i ditt Azure API för FHIR. Azure IoT Connector för FHIR använder referenser till dessa resurser när de skapar en [observations](https://www.hl7.org/fhir/observation.html) FHIR resurs som representerar enhets data. Välj **skapa** när du vill att Azure IoT Connector för FHIR ska skapa enheter för Bare-ben och patient resurser i ditt Azure API för FHIR med hjälp av respektive Identifier-värden som finns i enhets data.|
 
-När installationen är klar visas den nya IoT-kopplingen på sidan **IoT-anslutningar** .
+När installationen är klar visas den nya Azure IoT-anslutningen för FHIR på sidan **IoT-anslutningar** .
 
 [![IoT-koppling har skapats](media/quickstart-iot-fhir-portal/portal-iot-connector-created.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-created.jpg#lightbox)
 
-## <a name="configure-iot-connector-preview"></a>Konfigurera IoT Connector (förhands granskning)
+## <a name="configure-azure-iot-connector-for-fhir-preview"></a>Konfigurera Azure IoT Connector för FHIR (för hands version)
 
-IoT Connector behöver två mappnings-mallar för att transformera enhets meddelanden till FHIR observations resurser: **enhets mappning** och **FHIR-mappning**. Din IoT-anslutning fungerar inte förrän dessa mappningar har laddats upp.
+Azure IoT Connector för FHIR behöver två mappnings-mallar för att transformera enhets meddelanden till FHIR-baserade observations resurser: **enhets mappning** och **FHIR mappning**. Din Azure IoT-anslutning för FHIR är inte fullt fungerande förrän dessa mappningar har laddats upp.
 
 [![IoT Connector saknar mappningar](media/quickstart-iot-fhir-portal/portal-iot-connector-missing-mappings.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-missing-mappings.jpg#lightbox)
 
-Om du vill överföra mappnings-mallar klickar du på den nyligen distribuerade IoT-anslutningen för att gå till **IoT Connector** -sidan.
+Om du vill överföra mappnings mallar klickar du på den nyligen distribuerade Azure IoT-anslutaren för FHIR för att gå till **IoT Connector** -sidan.
 
 [![IoT-koppling Klicka](media/quickstart-iot-fhir-portal/portal-iot-connector-click.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click.jpg#lightbox)
 
@@ -101,7 +101,6 @@ På sidan **enhets mappning** lägger du till följande skript i JSON-redigerare
 ```
 
 [![Enhets mappning för IoT Connector](media/quickstart-iot-fhir-portal/portal-iot-device-mapping.jpg)](media/quickstart-iot-fhir-portal/portal-iot-device-mapping.jpg#lightbox)
-
 
 #### <a name="fhir-mapping"></a>FHIR-mappning
 
@@ -142,7 +141,7 @@ På sidan **Mappning av FHIR** lägger du till följande skript i JSON-redigerar
 
 ## <a name="generate-a-connection-string"></a>Generera en anslutningssträng
 
-IoMT-enheten behöver en anslutnings sträng för att ansluta och skicka meddelanden till IoT Connector. På **IoT Connector** -sidan för den nyligen distribuerade IoT-anslutningen väljer du knappen **Hantera klient anslutningar** . 
+IoMT-enheten behöver en anslutnings sträng för att ansluta och skicka meddelanden till Azure IoT Connector för FHIR. På sidan **IoT Connector** för den nyligen distribuerade Azure IoT-ANSLUTNINGSPROGRAMMET för FHIR väljer du **Hantera klient anslutningar** . 
 
 [![IoT-koppling Klicka på Hantera klient anslutningar](media/quickstart-iot-fhir-portal/portal-iot-connector-click-client-connections.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click-client-connections.jpg#lightbox)
 
@@ -169,40 +168,42 @@ Distribuera [program mal len för kontinuerlig övervakning av patienter](https:
 > [!NOTE]
 > När dina riktiga enheter är klara kan du använda samma IoT Central-program för att [publicera dina enheter](https://docs.microsoft.com/azure/iot-central/core/howto-set-up-template) och ersätta enhets simulatorer. Enhets data kommer automatiskt att börja flöda till FHIR. 
 
-## <a name="connect-your-iot-data-with-the-iot-connector-preview"></a>Anslut dina IoT-data med IoT Connector (för hands version)
-När du har distribuerat ditt IoT Central-program börjar du skapa telemetri genom att använda dina två färdiga simulerade enheter. I den här självstudien kommer vi att ta in Telemetrin från *smarta viktigare korrigerings* simulatorer i FHIR via IoT-anslutningen. Om du vill exportera dina IoT-data till IoT-anslutningen vill vi [Konfigurera en kontinuerlig data export i IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#set-up-data-export). På sidan kontinuerlig data export:
+## <a name="connect-your-iot-data-with-the-azure-iot-connector-for-fhir-preview"></a>Anslut dina IoT-data med Azure IoT Connector för FHIR (för hands version)
+När du har distribuerat ditt IoT Central-program börjar du skapa telemetri genom att använda dina två färdiga simulerade enheter. I den här självstudien tar vi in Telemetrin från *smarta viktigare korrigerings* Simulator i FHIR via Azure IoT-anslutningen för FHIR. Om du vill exportera dina IoT-data till Azure IoT-anslutningsprogrammet för FHIR ska vi [ställa in en kontinuerlig data export i IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#set-up-data-export). På sidan kontinuerlig data export:
 - Välj *Azure-Event Hubs* som export mål.
 - Välj *Använd ett värde för anslutnings sträng* för fältet **Event Hubs namn område** .
-- Tillhandahåll IoT Connector-anslutningssträngen som hämtades i föregående steg för fältet **anslutnings sträng** .
+- Tillhandahåll Azure IoT Connector för FHIR anslutnings sträng som hämtades i föregående steg för fältet **anslutnings sträng** .
 - Behåll **telemetri** - *alternativet* för **data att exportera** fält.
 
 ## <a name="view-device-data-in-azure-api-for-fhir"></a>Visa enhets data i Azure API för FHIR
 
-Du kan visa de FHIR-baserade observations resurserna som skapats av IoT Connector på Azure API för FHIR med Postman. Konfigurera din [Postman för att få åtkomst till Azure API för FHIR](access-fhir-postman-tutorial.md) och gör en `GET` begäran till `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` att Visa observations FHIR resurser med ett hjärta pris värde. 
+Du kan visa de FHIR-baserade observations resurserna som skapats av Azure IoT Connector för FHIR på Azure API för FHIR med Postman. Konfigurera din [Postman för att få åtkomst till Azure API för FHIR](access-fhir-postman-tutorial.md) och gör en `GET` begäran till `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` att Visa observations FHIR resurser med ett hjärta pris värde. 
 
 > [!TIP]
 > Se till att användaren har rätt åtkomst till Azure API för FHIR-dataplan. Använd [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](configure-azure-rbac.md) för att tilldela nödvändiga data Plans roller.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När de inte längre behövs kan du ta bort en instans av IoT Connector genom att ta bort den tillhör ande resurs gruppen eller tillhör ande Azure API för FHIR-tjänsten eller själva IoT Connector-instansen. 
+När de inte längre behövs kan du ta bort en instans av Azure IoT Connector för FHIR genom att ta bort den tillhör ande resurs gruppen eller tillhör ande Azure API för FHIR-tjänsten eller Azure IoT-anslutaren för FHIR-instansen. 
 
-Om du vill ta bort en IoT Connector-instans direkt väljer du sidan instans från **IoT-kopplingar** för att gå till **IoT Connector** -sidan och klickar på knappen **ta bort** . Välj **Ja** när du uppmanas att bekräfta. 
+Om du vill ta bort en Azure IoT Connector för FHIR-instans direkt väljer du sidan instans från **IoT-kopplingar** för att gå till **IoT Connector** -sidan och klickar på knappen **ta bort** . Välj **Ja** när du uppmanas att bekräfta. 
 
 [![Ta bort IoT Connector-instans](media/quickstart-iot-fhir-portal/portal-iot-connector-delete.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-delete.jpg#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starts guiden har du distribuerat IoT Connector-funktionen i Azure API för FHIR-resurser. Välj mellan nästa steg för att lära dig mer om IoT Connector:
+I den här snabb starts guiden har du distribuerat Azure IoT Connector för FHIR-funktionen i Azure API för FHIR-resursen. Välj mellan nästa steg för att lära dig mer om Azure IoT Connector för FHIR:
 
-Förstå olika stadier i data flödet i IoT Connector.
+Förstå olika stadier i data flödet i Azure IoT Connector för FHIR.
 
 >[!div class="nextstepaction"]
->[Dataflöde i IoT-anslutningsprogram](iot-data-flow.md)
+>[Azure IoT-anslutning för FHIR data flöde](iot-data-flow.md)
 
 Lär dig hur du konfigurerar IoT Connector med hjälp av mallar för enhets-och FHIR-mappning.
 
 >[!div class="nextstepaction"]
->[Mallar för mappning i IoT-anslutningsprogram](iot-mapping-templates.md)
+>[FHIR för Azure IoT Connector för mappning av](iot-mapping-templates.md)
+
+* I Azure Portal kallas Azure IoT Connector för FHIR IoT Connector (för hands version).
 
 FHIR är ett registrerat varumärke som tillhör HL7 och används med tillåtelse av HL7.

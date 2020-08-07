@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 522a13c6de87dd8074b76f95670baf79fc96d419
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8917c73474b81ee76e6acdf8c6f274e962ee1215
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075341"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874239"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Självstudie: kom igång med Log Analytics frågor
 
@@ -32,7 +32,7 @@ En detaljerad själv studie kurs om hur du skriver logg frågor finns [i kom ig�
 ## <a name="open-log-analytics"></a>Öppna Log Analytics
 Om du vill använda Log Analytics måste du vara inloggad på ett Azure-konto. Om du inte har ett Azure-konto kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-För att slutföra de flesta av stegen i den här självstudien kan du använda [den här demo miljön](https://portal.loganalytics.io/demo), som innehåller massor av exempel data. Med demo miljön kan du inte spara frågor eller fästa resultat på en instrument panel.
+För att slutföra de flesta av stegen i den här självstudien kan du använda [den här demo miljön](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), som innehåller massor av exempel data. Med demo miljön kan du inte spara frågor eller fästa resultat på en instrument panel.
 
 Du kan också använda en egen miljö om du använder Azure Monitor för att samla in loggdata på minst en Azure-resurs. Öppna en Log Analytics arbets yta genom att välja **loggar**i Azure Monitor vänster-navigering. 
 
@@ -120,7 +120,7 @@ Filtrera `Event` frågeresultaten till **fel** händelser genom att filtrera fr�
    
 1. Välj **filter**.
    
-   ![Filtrera](media/get-started-portal/filter.png)
+   ![Filter](media/get-started-portal/filter.png)
 
 ## <a name="sort-group-and-select-columns"></a>Sortera, gruppera och Välj kolumner
 Om du vill sortera frågeresultaten efter en speciell kolumn, t. ex. **TimeGenerated [UTC]**, väljer du kolumn rubriken. Välj rubriken igen om du vill växla mellan stigande och fallande ordning.

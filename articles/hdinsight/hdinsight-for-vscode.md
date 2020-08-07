@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 04/07/2020
-ms.custom: tracking-python
-ms.openlocfilehash: d00e4ad8b0a9f1f50c30144867babcd8c782734d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: devx-track-python
+ms.openlocfilehash: bf31ad3311d6cbfd82ad1071d28bb7fee1bb9d2b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087137"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876792"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Använda Spark & Hive-verktyg för Visual Studio Code
 
@@ -331,7 +331,7 @@ Metod 2 skicka en fil och Lägg märke till att `.vscode` mappen automatiskt lä
 
     **Publicera/batches** Brödtext i begäran
 
-    | name | description | typ |
+    | name | beskrivning | typ |
     | --- | --- | --- |
     | file | Fil som innehåller det program som ska köras | Sökväg (obligatoriskt) |
     | proxyUser | Användare som ska personifieras när jobbet körs | Sträng |
@@ -352,7 +352,7 @@ Metod 2 skicka en fil och Lägg märke till att `.vscode` mappen automatiskt lä
 
     Svars text för det skapade batch-objektet.
 
-    | name | description | typ |
+    | name | beskrivning | typ |
     | --- | ---| --- |
     | ID | Sessions-ID | Int |
     | appId | Programmets ID för den här sessionen | Sträng |

@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6fe9fdd68f9419a9f730ea64b5aea19f583d751c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f582159b0ce1355b34c42496dc7516264b62d365
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496754"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902056"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-postgresql-server-using-powershell"></a>Säkerhetskopiera och återställa en Azure Database for PostgreSQL-server med hjälp av PowerShell
 
@@ -78,7 +78,7 @@ Parameter uppsättningen **PointInTimeRestore** för `Restore-AzPostgreSqlServer
 | Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Resurs gruppen där käll servern finns.  |
-| Name | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
+| Namn | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | Välj en tidpunkt för återställning. Datumet och tiden måste finnas inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd ISO8601 datum-och tids format. Du kan till exempel använda din egen lokala tidszon som **2020-03-13T05:59:00-08:00**. Du kan också använda formatet UTC-Zulu, till exempel **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Använd punkt-i-Time-läge för att återställa. |
 
@@ -120,8 +120,8 @@ Parameter **uppsättningen för den här** `Restore-AzPostgreSqlServer` cmdleten
 | Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | Namnet på den resurs grupp som den nya servern tillhör.|
-|Name | mydemoserver – omåterställd | Namnet på den nya servern. |
-|Location | USA, östra | Platsen för den nya servern. |
+|Namn | mydemoserver – omåterställd | Namnet på den nya servern. |
+|Plats | USA, östra | Platsen för den nya servern. |
 |UseGeoRestore | `<SwitchParameter>` | Använd geo-läge för att återställa. |
 
 När du skapar en ny server med geo Restore ärver den samma lagrings storlek och pris nivå som käll servern om inte parametern **SKU** anges.
@@ -133,4 +133,4 @@ Den nya servern som skapades under en återställning saknar de VNet-tjänstens 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Anpassa Azure Database for PostgreSQL Server parametrar med PowerShell](howto-configure-server-parameters-using-powershell.md)
+> [Så här genererar du en Azure Database for PostgreSQL anslutnings sträng med PowerShell](howto-connection-string-powershell.md)

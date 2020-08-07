@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 0337abedbc5b592a0ae48fabd5bc7ecbb484def9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 73044f35b90fd3e5996899fd7c3b0a925056f8ed
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132797"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836889"
 ---
 # <a name="whats-new-in-qna-maker"></a>Vad är nytt i QnA Maker
 
@@ -35,7 +35,7 @@ Lär dig vad som är nytt med QnA Maker.
 
 ### <a name="may-2020"></a>Maj 2020
 
-* [Rollbaserad åtkomstkontroll (RBAC)](concepts/role-based-access-control.md)
+* [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](concepts/role-based-access-control.md)
 * [Omfattande text redigering](how-to/edit-knowledge-base.md#rich-text-editing-for-answer) för svar
 
 ### <a name="march-2020"></a>Mars 2020

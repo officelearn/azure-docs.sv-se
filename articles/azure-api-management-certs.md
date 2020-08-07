@@ -1,6 +1,6 @@
 ---
 title: Ladda upp ett Azure Service Management-certifikat | Microsoft Docs
-description: Lär dig hur du överför service management-certifikatet för Azure Portal.
+description: Lär dig hur du överför service management-certifikatet för Azure Portal. Med hanterings certifikat kan du autentisera med den klassiska distributions modellen.
 services: cloud-services
 documentationcenter: .net
 author: georgewallace
@@ -10,12 +10,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: gwallace
-ms.openlocfilehash: 4b49a9b391eeca2d2e249b171d99f231bda6fdff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d2436b524ba6df68b12206bcb545e54a405b731
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78329128"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848561"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Ladda upp ett Azure Service Management-certifikat
 Med hanterings certifikat kan du autentisera med den klassiska distributions modellen som tillhandahålls av Azure. Många program och verktyg (som Visual Studio och Azure SDK) använder sådana här certifikat till att automatisera konfigurationen och distributionen av olika Azure-tjänster. 

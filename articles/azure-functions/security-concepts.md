@@ -3,12 +3,12 @@ title: Skydda Azure Functions
 description: Lär dig mer om hur du gör funktions koden igång i Azure säkrare från vanliga attacker.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: e0c5036681aace103ea69d1e9cc73e96dc30821f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9bec32c4c3d8005ef0d3c9fc5732785a5fa19a0c
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502689"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850720"
 ---
 # <a name="securing-azure-functions"></a>Skydda Azure Functions
 
@@ -70,6 +70,18 @@ I följande tabell jämförs användningen av olika typer av åtkomst nycklar:
 <sup>2</sup> Vissa namn som anges av tillägget.
 
 Mer information om åtkomst nycklar finns i artikeln om [bindning av http-utlösare](functions-bindings-http-webhook-trigger.md#obtaining-keys).
+
+
+#### <a name="secret-repositories"></a>Hemliga databaser
+
+Som standard lagras nycklar i en Blob Storage-behållare i kontot som anges av `AzureWebJobsStorage` inställningen. Du kan använda specifika program inställningar för att åsidosätta det här beteendet och lagra nycklar på en annan plats.
+
+|Plats  |Inställning | Värde | Beskrivning  |
+|---------|---------|---------|---------|
+|Annat lagrings konto     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Lagrar nycklar i Blob Storage för ett andra lagrings konto, baserat på den angivna SAS-webbadressen. Nycklar krypteras innan de lagras med en hemlighet som är unik för din Function-app. |
+|Filsystem   | `AzureWebJobsSecretStorageType`   |  `files`       | Nycklar sparas i fil systemet, krypteras före lagring med hjälp av en hemlighet som är unik för din Function-app. |
+|Azure Key Vault  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | Valvet måste ha en åtkomst princip som motsvarar den systemtilldelade hanterade identiteten för värd resursen. Åtkomst principen ska ge identiteten följande hemliga behörigheter: `Get` , `Set` , `List` och `Delete` . <br/>När du kör lokalt används utvecklarens identitet, och inställningarna måste finnas i [local.settings.jspå filen](functions-run-local.md#local-settings-file). | 
+|Kubernetes-hemligheter  |`AzureWebJobsSecretStorageType`<br/>`AzureWebJobsKubernetesSecretName` (valfritt) | `kubernetes`<br/>`<SECRETS_RESOURCE>` | Stöds endast när Functions-körningen körs i Kubernetes. När `AzureWebJobsKubernetesSecretName` inte är inställt anses lagrings platsen vara skrivskyddad. I det här fallet måste värdena genereras före distributionen. Azure Functions Core Tools genererar värdena automatiskt när du distribuerar till Kubernetes.|
 
 ### <a name="authenticationauthorization"></a>Autentisering/auktorisering
 

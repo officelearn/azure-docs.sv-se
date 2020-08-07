@@ -9,21 +9,22 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: dapine
-ms.openlocfilehash: 8fcac761ab1f0805a3b2b75107e0119fbfb9db6e
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 6f5df14d9488f8ccb1f93c2a16ba52998f25e268
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148097"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876588"
 ---
-# <a name="configure-azure-cognitive-services-virtual-networks"></a>Konfigurera virtuella Azure Cognitive Services-nätverk
+# <a name="configure-azure-cognitive-services-virtual-networks"></a>Konfigurera virtuella nätverk för Azure Cognitive Services
 
-Azure Cognitive Services tillhandahåller en skiktad säkerhets modell. Med den här modellen kan du skydda dina Cognitive Services-konton till en viss del av nätverk. När nätverks regler har kon figurer ATS kan endast program som begär data i den angivna uppsättningen nätverk komma åt kontot. Du kan begränsa åtkomsten till dina resurser med filtrering av förfrågningar. Tillåter endast förfrågningar från angivna IP-adresser, IP-intervall eller från en lista över undernät i [virtuella Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du är intresse rad av det här erbjudandet måste du [begära för hands versions åtkomst](https://aka.ms/cog-svc-vnet-signup).
+Azure Cognitive Services tillhandahåller en skiktad säkerhets modell. Med den här modellen kan du begränsa åtkomsten till dina Cognitive Services-konton till utvalda nätverk. När du har konfigurerat nätverksregler kan endast program som begär data över den angivna uppsättningen nätverk komma åt kontot. Du kan begränsa åtkomsten till dina resurser med filtrering av begäranden. Tillåter endast förfrågningar från angivna IP-adresser, IP-intervall eller från en lista över undernät i [virtuella Azure-nätverk](../virtual-network/virtual-networks-overview.md).
 
 Ett program som har åtkomst till en Cognitive Services-resurs när nätverks regler tillämpas kräver auktorisering. Auktorisering stöds med [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (autentiseringsuppgifter för Azure AD) eller med en giltig API-nyckel.
 
 > [!IMPORTANT]
 > Om du aktiverar brand Väggs regler för ditt Cognitive Services-konto blockeras inkommande begär Anden för data som standard. För att tillåta begär Anden genom måste något av följande villkor vara uppfyllda:
+
 > * Begäran bör härstamma från en tjänst som körs i ett Azure-Virtual Network (VNet) i listan över tillåtna undernät för mål Cognitive Services kontot. Slut punkten i begär Anden som kommer från VNet måste anges som den [anpassade under domänen](cognitive-services-custom-subdomains.md) för ditt Cognitive Services-konto.
 > * Eller så måste begäran härstamma från en lista över tillåtna IP-adresser.
 >
@@ -39,39 +40,39 @@ Nätverks regler tillämpas på alla nätverks protokoll till Azure Cognitive Se
 
 ## <a name="supported-regions-and-service-offerings"></a>Regioner och tjänst erbjudanden som stöds
 
-Stöd för virtuella nätverk för Cognitive Services nedan är begränsat till *centrala USA EUAP*, *södra centrala USA*, *östra USA*, *västra USA 2*, *Nord Europa*, *norra*Europa, *västra Europa*, *centrala Indien*, *östra Australien*, *västra USA*och *US gov, Virginia* Azure-regioner. Om tjänst erbjudandet inte visas i listan, har det inte stöd för virtuella nätverk.
+Cognitive Services som anges nedan stöder virtuella nätverk i kommersiellt moln och US Gov molnet. Om tjänsten inte visas i listan, har den inte stöd för virtuella nätverk än.
 
 > [!div class="checklist"]
+
 > * [Avvikelseidentifiering](./anomaly-detector/index.yml)
 > * [Visuellt innehåll](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
 > * [Custom Vision](./custom-vision-service/index.yml)
 > * [Ansikte](./face/index.yml)
 > * [Formigenkänning](./form-recognizer/index.yml)
-> * [LUIS](./luis/index.yml)
+> * [Language Understanding](./luis/index.yml)
 > * [Personanpassning](./personalizer/index.yml)
 > * [Textanalys](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
-
-Stöd för virtuella nätverk för Cognitive Services i listan nedan är begränsat till *centrala USA-EUAP*, *södra centrala* *USA, USA*, *västra USA 2*, *globala*och *US gov, Virginia* Azure-regioner.
-> [!div class="checklist"]
 > * [Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
 
 ## <a name="service-tags"></a>Tjänsttaggar
-Förutom att stödja tjänst slut punkter för virtuella nätverk för tjänsterna ovan stöder Cognitive Services också ett service tag för konfiguration av utgående nätverks regler. Följande tjänster ingår i CognitiveServicesManagement-tjänst tag gen.
+
+Cognitive Services stöder service märken för konfiguration av nätverks regler. Tjänsterna i listan nedan ingår i **CognitiveServicesManagement** service tag.
 > [!div class="checklist"]
+
 > * [Avvikelseidentifiering](./anomaly-detector/index.yml)
 > * [Visuellt innehåll](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
 > * [Custom Vision](./custom-vision-service/index.yml)
 > * [Ansikte](./face/index.yml)
 > * [Formigenkänning](./form-recognizer/index.yml)
-> * [LUIS](./luis/index.yml)
+> * [Language Understanding (LUIS)](./luis/index.yml)
 > * [Personanpassning](./personalizer/index.yml)
 > * [Textanalys](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
 > * [Översättare](./translator/index.yml)
-> * [Tjänst för taligenkänning](./speech-service/index.yml)
+> * [Tal tjänst](./speech-service/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Ändra standardåtkomstregeln för nätverk
 
@@ -84,7 +85,7 @@ Som standard accepterar Cognitive Services-resurser anslutningar från klienter 
 
 Du kan hantera standard regler för nätverks åtkomst för Cognitive Services resurser via Azure Portal, PowerShell eller Azure CLI.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 1. Gå till den Cognitive Services resurs som du vill skydda.
 
@@ -173,7 +174,7 @@ Aktivera en [tjänst slut punkt](../virtual-network/virtual-network-service-endp
 
 Varje Cognitive Services-resurs har stöd för upp till 100 virtuella nätverks regler, som kan kombineras med [IP-nätverks-regler](#grant-access-from-an-internet-ip-range).
 
-### <a name="required-permissions"></a>Nödvändiga behörigheter
+### <a name="required-permissions"></a>Behörigheter som krävs
 
 Om du vill tillämpa en virtuell nätverks regel på en Cognitive Services resurs måste användaren ha rätt behörighet för de undernät som läggs till. Den behörighet som krävs är standard *deltagar* rollen eller rollen *Cognitive Services Contributor* . Nödvändiga behörigheter kan också läggas till i anpassade roll definitioner.
 
@@ -186,7 +187,7 @@ Cognitive Services resurs och de virtuella nätverk som beviljats åtkomst kan f
 
 Du kan hantera virtuella nätverks regler för Cognitive Services resurser via Azure Portal, PowerShell eller Azure CLI.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 1. Gå till den Cognitive Services resurs som du vill skydda.
 
@@ -330,6 +331,7 @@ Du kan hantera virtuella nätverks regler för Cognitive Services resurser via A
         -g "myresourcegroup" -n "myaccount" \
         --subnet $subnetid
     ```
+
 ***
 
 > [!IMPORTANT]
@@ -355,13 +357,13 @@ Endast IPV4-adresser stöds för tillfället. Varje Cognitive Services-resurs ha
 
 Om du vill bevilja åtkomst från dina lokala nätverk till din Cognitive Services-resurs med en IP-nätverks regel måste du identifiera de Internet adresser som IP-adresser används i nätverket. Kontakta nätverks administratören om du behöver hjälp.
 
-Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md) lokalt för offentlig peering eller Microsoft-peering måste du identifiera NAT-IP-adresserna. För offentlig peering använder varje ExpressRoute-krets som standard två NAT-IP-adresser. Varje används för Azure-tjänstetrafik när trafiken går in Microsoft Azure nätverkets stamnät. De NAT-IP-adresser som används för Microsoft-peering är antingen kunden eller tillhandahålls av tjänst leverantören. Om du vill tillåta åtkomst till dina tjänstresurser måste du tillåta dessa offentliga IP-adresser i resursens IP-brandväggsinställning. För att kunna hitta ExpressRoute-kretsens IP-adresser för offentlig peering [öppnar du en supportbegäran hos ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure-portalen. Lär dig mer om [NAT för ExpressRoute offentliga peering och Microsoft-peering.](../expressroute/expressroute-nat.md#nat-requirements-for-azure-public-peering)
+Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md) lokalt för offentlig peering eller Microsoft-peering måste du identifiera NAT IP-adresserna. För offentlig peering använder varje ExpressRoute-krets som standard två NAT-IP-adresser. Varje används för Azure-tjänstetrafik när trafiken går in Microsoft Azure nätverkets stamnät. De NAT-IP-adresser som används för Microsoft-peering är antingen kunden eller tillhandahålls av tjänst leverantören. Om du vill tillåta åtkomst till dina tjänstresurser måste du tillåta dessa offentliga IP-adresser i resursens IP-brandväggsinställning. För att kunna hitta ExpressRoute-kretsens IP-adresser för offentlig peering [öppnar du en supportbegäran hos ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure-portalen. Lär dig mer om [NAT för ExpressRoute offentliga peering och Microsoft-peering.](../expressroute/expressroute-nat.md#nat-requirements-for-azure-public-peering)
 
 ### <a name="managing-ip-network-rules"></a>Hantera IP-nätverks regler
 
 Du kan hantera IP-nätverks regler för Cognitive Services resurser via Azure Portal, PowerShell eller Azure CLI.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 1. Gå till den Cognitive Services resurs som du vill skydda.
 
@@ -491,13 +493,13 @@ Du kan använda [privata slut punkter](../private-link/private-endpoint-overview
 
 Med privata slut punkter för Cognitive Services resurser kan du:
 
-- Skydda din Cognitive Services-resurs genom att konfigurera brand väggen för att blockera alla anslutningar på den offentliga slut punkten för tjänsten Cognitive Services.
-- Öka säkerheten för VNet genom att göra det möjligt att blockera exfiltrering av data från det virtuella nätverket.
-- Anslut säkert till Cognitive Services resurser från lokala nätverk som ansluter till VNet med [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](../expressroute/expressroute-locations.md) med privat peering.
+* Skydda din Cognitive Services-resurs genom att konfigurera brand väggen för att blockera alla anslutningar på den offentliga slut punkten för tjänsten Cognitive Services.
+* Öka säkerheten för VNet genom att göra det möjligt att blockera exfiltrering av data från det virtuella nätverket.
+* Anslut säkert till Cognitive Services resurser från lokala nätverk som ansluter till VNet med [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](../expressroute/expressroute-locations.md) med privat peering.
 
-### <a name="conceptual-overview"></a>Konceptuell översikt
+### <a name="conceptual-overview"></a>Begreppsmässig översikt
 
-En privat slut punkt är ett särskilt nätverks gränssnitt för en Azure-tjänst i ditt [VNet](../virtual-network/virtual-networks-overview.md). När du skapar en privat slut punkt för din Cognitive Services-resurs ger den säker anslutning mellan klienter på ditt VNet och din resurs. Den privata slut punkten tilldelas en IP-adress från det virtuella nätverkets IP-adressintervall. Anslutningen mellan den privata slut punkten och Cognitive Services tjänsten använder en säker privat länk.
+En privat slut punkt är ett särskilt nätverks gränssnitt för en Azure-resurs i ditt [VNet](../virtual-network/virtual-networks-overview.md). Att skapa en privat slut punkt för din Cognitive Services-resurs ger säker anslutning mellan klienter i ditt VNet och din resurs. Den privata slut punkten tilldelas en IP-adress från det virtuella nätverkets IP-adressintervall. Anslutningen mellan den privata slut punkten och Cognitive Services tjänsten använder en säker privat länk.
 
 Program i det virtuella nätverket kan ansluta till tjänsten via den privata slut punkten sömlöst med samma anslutnings strängar och auktoriseringsbeslut som de skulle använda i övrigt. Undantaget är tal tjänsten som kräver en separat slut punkt. Se avsnittet om [privata slut punkter med tal tjänsten](#private-endpoints-with-the-speech-service). Privata slut punkter kan användas med alla protokoll som stöds av den Cognitive Services resursen, inklusive REST.
 
@@ -509,11 +511,11 @@ Cognitive Services resurs ägare kan hantera medgivande förfrågningar och priv
 
 ### <a name="private-endpoints"></a>Privata slut punkter
 
-När du skapar den privata slut punkten måste du ange Cognitive Services resursen som den ansluter till. Mer information om hur du skapar en privat slut punkt finns i följande artiklar:
+När du skapar den privata slut punkten måste du ange Cognitive Services resursen som den ansluter till. Mer information om hur du skapar en privat slut punkt finns i:
 
-- [Skapa en privat slut punkt med hjälp av det privata länk centret i Azure Portal](../private-link/create-private-endpoint-portal.md)
-- [Skapa en privat slut punkt med Azure CLI](../private-link/create-private-endpoint-cli.md)
-- [Skapa en privat slut punkt med hjälp av Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
+* [Skapa en privat slut punkt med hjälp av det privata länk centret i Azure Portal](../private-link/create-private-endpoint-portal.md)
+* [Skapa en privat slut punkt med Azure CLI](../private-link/create-private-endpoint-cli.md)
+* [Skapa en privat slut punkt med hjälp av Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
 
 ### <a name="connecting-to-private-endpoints"></a>Ansluter till privata slut punkter
 
@@ -523,7 +525,7 @@ Vi skapar en [privat DNS-zon](../dns/private-dns-overview.md) som är kopplad ti
 
 ### <a name="private-endpoints-with-the-speech-service"></a>Privata slut punkter med tal tjänsten
 
-När du använder privata slut punkter med tal tjänsten måste du använda en anpassad slut punkt för att anropa API: t för tal tjänsten. Du kan inte använda den globala slut punkten. Du bör använda en slut punkt med formatet {Account}. {STT | TTS | Voice | DLS}. tal. Microsoft. com.
+När du använder privata slut punkter med tal tjänsten måste du använda en anpassad slut punkt för att anropa tal tjänsten. Du kan inte använda den globala slut punkten. Slut punkten måste följa det här mönstret: `{account}.{stt|tts|voice|dls}.speech.microsoft.com` .
 
 ### <a name="dns-changes-for-private-endpoints"></a>DNS-ändringar för privata slut punkter
 
@@ -531,17 +533,17 @@ När du skapar en privat slut punkt uppdateras DNS CNAME-resursposten för Cogni
 
 När du löser slut punkts-URL: en från utanför VNet med den privata slut punkten matchas den offentliga slut punkten för Cognitive Services resursen. Vid matchning från det VNet som är värd för den privata slut punkten matchas slut punktens URL till den privata slut punktens IP-adress.
 
-Den här metoden ger åtkomst till Cognitive Services resurs med samma anslutnings sträng för klienter på det virtuella nätverket som är värd för privata slut punkter, samt klienter utanför VNet.
+Den här metoden ger åtkomst till Cognitive Services resurs med samma anslutnings sträng för klienter i det virtuella nätverket som är värd för privata slut punkter och klienter utanför VNet.
 
-Om du använder en anpassad DNS-server i nätverket måste klienterna kunna matcha det fullständigt kvalificerade domän namnet (FQDN) för Cognitive Services resurs slut punkten till den privata slut punktens IP-adress. Du bör konfigurera DNS-servern så att den delegerar din privata länk under domän till det virtuella nätverkets privata DNS-zon.
+Om du använder en anpassad DNS-server i nätverket måste klienterna kunna matcha det fullständigt kvalificerade domän namnet (FQDN) för Cognitive Services resurs slut punkten till den privata slut punktens IP-adress. Konfigurera DNS-servern så att den delegerar din privata länk under domän till det virtuella nätverkets privata DNS-zon.
 
 > [!TIP]
 > När du använder en anpassad eller lokal DNS-server bör du konfigurera DNS-servern så att den matchar Cognitive Services resurs namnet i under domänen "privatelink" till den privata slut punkten för IP-adressen. Du kan göra detta genom att delegera privatelink-underdomänen till det virtuella nätverkets privata DNS-zon eller konfigurera DNS-zonen på DNS-servern och lägga till DNS-posterna.
 
 Mer information om hur du konfigurerar en egen DNS-server för att stödja privata slut punkter finns i följande artiklar:
 
-- [Namnmatchning för resurser i virtuella nätverk i Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [DNS-konfiguration för privata slut punkter](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+* [Namnmatchning för resurser i virtuella nätverk i Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+* [DNS-konfiguration för privata slut punkter](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
 
 ### <a name="pricing"></a>Prissättning
 

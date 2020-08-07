@@ -1,18 +1,18 @@
 ---
 title: Använda en Azure-filresurs med Windows | Microsoft Docs
-description: Lär dig hur du använder en Azure-filresurs med Windows och Windows Server.
+description: Lär dig att använda Azure-filresurser med Windows och Windows Server. Använd Azure-filresurser med SMB 3,0 på Windows-installationer som körs lokalt eller på virtuella Azure-datorer.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bb9e7582317851d1968e104cd351a2b5e02b1e19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcc79a0763d7441a8a3c04723578ccc27cf5fe4e
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509786"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905762"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan användas smidigt i Windows och Windows Server. Den här artikeln beskriver överväganden för att använda en Azure-filresurs med Windows och Windows Server.
@@ -40,7 +40,7 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 > [!Note]  
 > Vi rekommenderar alltid den senaste uppdateringen för din version av Windows.
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Se till att port 445 är öppen: SMB-protokollet kräver att TCP-port 445 är öppen; anslutningar misslyckas om port 445 är blockerad. Du kan kontrol lera om brand väggen blockerar port 445 med `Test-NetConnection` cmdleten. Information om hur du kan kringgå en blockerad 445-port finns i [Orsak 1: port 445 är blockerat](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) i vår guide för Windows fel sökning.
 
@@ -59,7 +59,7 @@ Så här hämtar du skriptet:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Navigera till lagrings kontot som innehåller den fil resurs du vill montera.
-1. Välj **fil resurser**.
+1. Välj **Filresurser**.
 1. Välj den fil resurs som du vill montera.
 
     :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="exempel":::
@@ -129,9 +129,9 @@ I följande tabell finns detaljerad information om status för SMB 1 i varje ver
 
 | Windows-version                           | SMB 1-standardstatus | Inaktivera/ta bort metod       | 
 |-------------------------------------------|----------------------|-----------------------------|
-| Windows Server 2019                       | Disabled             | Ta bort med Windows-funktionen |
-| Windows Server, versioner 1709+            | Disabled             | Ta bort med Windows-funktionen |
-| Windows 10, versioner 1709+                | Disabled             | Ta bort med Windows-funktionen |
+| Windows Server 2019                       | Inaktiverad             | Ta bort med Windows-funktionen |
+| Windows Server, versioner 1709+            | Inaktiverad             | Ta bort med Windows-funktionen |
+| Windows 10, versioner 1709+                | Inaktiverad             | Ta bort med Windows-funktionen |
 | Windows Server 2016                       | Enabled              | Ta bort med Windows-funktionen |
 | Windows 10, versionerna 1507, 1607 och 1703 | Enabled              | Ta bort med Windows-funktionen |
 | Windows Server 2012 R2                    | Enabled              | Ta bort med Windows-funktionen | 
@@ -200,6 +200,6 @@ När du har skapat den här registernyckeln måste du starta om servern för att
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure Files finns på följande länkar:
-- [Planera för distribution av Azure Files](storage-files-planning.md)
+- [Planera för en Azure Files-distribution](storage-files-planning.md)
 - [Vanliga frågor och svar](../storage-files-faq.md)
 - [Felsökning i Windows](storage-troubleshoot-windows-file-connection-problems.md)      

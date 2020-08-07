@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 56bdaa324420bf274e7cda8ac1c6506e4bc9ad21
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 954ea8d544baa2538e1b92a9f03b7a48169e7360
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81404061"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87834447"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Snabb start: så här skapar du en klassificerare med Custom Vision
 
 I den här snabb starten får du lära dig hur du skapar en klassificerare genom Custom Vision webbplats. När du har skapat en klassificerings modell kan du använda tjänsten Custom Vision för avbildnings klassificering.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En uppsättning avbildningar som du kan använda för att träna din klassificerare. Se nedan för tips om att välja bilder.
 
@@ -56,7 +56,7 @@ Navigera till [Custom vision webb sida](https://customvision.ai) i webbläsaren 
     |__Allmänna__| Optimerad för ett brett utbud av bild klassificerings aktiviteter. Om ingen av de andra domänerna är lämpliga, eller om du är osäker på vilken domän du väljer, väljer du den allmänna domänen. |
     |__Kost__|Optimerad för foton av rätter på samma sätt som du ser dem på en restaurang meny. Om du vill klassificera fotografier av enskilda frukter eller grönsaker använder du livsmedels domänen.|
     |__Landmärken__|Optimerad för identifierbara landmärken, både naturliga och artificiella. Den här domänen fungerar bäst när landmärket är tydligt synligt i fotografiet. Den här domänen fungerar även om landmärken är något som är något som står framför det.|
-    |__Återförsäljning__|Optimerad för avbildningar som finns i en shopping katalog eller shopping webbplats. Om du vill att hög precision ska klassificeras mellan dresses, Pants och skjortor använder du den här domänen.|
+    |__Retail__|Optimerad för avbildningar som finns i en shopping katalog eller shopping webbplats. Om du vill att hög precision ska klassificeras mellan dresses, Pants och skjortor använder du den här domänen.|
     |__Komprimerade domäner__| Optimerad för begränsningar i real tids klassificering på mobila enheter. Modeller som genereras av komprimerade domäner kan exporteras för att köras lokalt.|
 
 1. Välj slutligen __skapa projekt__.

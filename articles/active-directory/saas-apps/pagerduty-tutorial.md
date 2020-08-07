@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 99d9988a02b046562c2517df8a81b8ef5c778ef2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 330066a950165d3424ca7900493ac89ce746b309
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81683518"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904555"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pagerduty"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med PagerDuty
 
@@ -32,12 +32,15 @@ I den här självstudien får du lära dig hur du integrerar PagerDuty med Azure
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 * PagerDuty för enkel inloggning (SSO) aktive rad.
+
+> [!NOTE]
+> Om du använder MFA eller lösenordsbaserad autentisering med Azure AD stänger du av AuthnContext-värdet i SAML-begäran. Annars genererar Azure AD fel vid matchning av AuthnContext och skickar inte tillbaka token till programmet.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -107,7 +110,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -180,7 +183,7 @@ Om du vill att Azure AD-användare ska kunna logga in på PagerDuty måste de ti
 
     a. Skriv det **första och sista namnet** på användaren, t. ex. **B. Simon**. 
    
-    b. Ange **e-** postadress till användaren, t **.\@ex. b. Simon contoso.com**.
+    b. Ange **e-** postadress till användaren, t **. ex. b. Simon \@ contoso.com**.
    
     c. Klicka på **Lägg till**och sedan på **skicka inbjudningar**.
    
@@ -199,7 +202,7 @@ När du klickar på panelen PagerDuty på åtkomst panelen, bör du loggas in au
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova PagerDuty med Azure AD](https://aad.portal.azure.com/)
 

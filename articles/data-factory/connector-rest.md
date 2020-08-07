@@ -9,24 +9,24 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 2657f1998e3ca908bc52166154ac3353e1e5a66b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0a64c0a9653bd274e9298401163ad7abc1af99f
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415032"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852301"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Kopiera data från en REST-slutpunkt genom att använda Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från en REST-slutpunkt. Artikeln bygger på [kopierings aktivitet i Azure Data Factory](copy-activity-overview.md), som visar en översikt över kopierings aktiviteten.
 
-Skillnaden mellan den här REST-anslutningen, [http-kopplingen](connector-http.md) och [webb tabell anslutningen](connector-web-table.md) är:
+Skillnaden mellan den här REST-anslutningen, [http-kopplingen](connector-http.md)och [webb tabell anslutningen](connector-web-table.md) är:
 
 - **Rest Connector** stöder särskilt kopiering av data från RESTful-API: er; 
-- **Http-anslutningen** är generisk för att hämta data från alla http-slutpunkter, t. ex. för att hämta filen. Innan den här REST-anslutningen blir tillgänglig kan du välja att använda HTTP-anslutning för att kopiera data från RESTful-API, som stöds men mindre funktions jämförelser till REST Connector.
+- **Http-anslutningen** är generisk för att hämta data från alla http-slutpunkter, till exempel för att ladda ned filen. Innan den här REST-anslutningen blir tillgänglig kan du välja att använda HTTP-anslutning för att kopiera data från RESTful-API, som stöds men mindre funktions jämförelser till REST Connector.
 - **Webb tabells koppling** extraherar tabell innehåll från en HTML-webbsida.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
@@ -57,19 +57,19 @@ Följande avsnitt innehåller information om egenskaper som du kan använda för
 
 Följande egenskaper stöds för den REST-länkade tjänsten:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen **Type** måste anges till **RestService**. | Ja |
 | url | Bas-URL: en för REST-tjänsten. | Ja |
 | enableServerCertificateValidation | Huruvida TLS/SSL-certifikat på Server sidan ska verifieras vid anslutning till slut punkten. | Nej<br /> (Standardvärdet är **Sant**) |
-| authenticationType | Typ av autentisering som används för att ansluta till REST-tjänsten. Tillåtna värden är **Anonymous**, **Basic**, **AadServicePrincipal** och **ManagedServiceIdentity**. Se motsvarande avsnitt nedan om du vill ha fler egenskaper respektive exempel. | Ja |
+| authenticationType | Typ av autentisering som används för att ansluta till REST-tjänsten. Tillåtna värden är **Anonymous**, **Basic**, **AadServicePrincipal**och **ManagedServiceIdentity**. Se motsvarande avsnitt nedan om du vill ha fler egenskaper respektive exempel. | Ja |
 | connectVia | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om detta inte anges använder den här egenskapen standard Azure Integration Runtime. |Nej |
 
 ### <a name="use-basic-authentication"></a>Använd grundläggande autentisering
 
 Ange egenskapen **authenticationType** som **Basic**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt anger du följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | userName | Användar namnet som används för att få åtkomst till REST-slutpunkten. | Ja |
 | password | Användarens lösen ord (värdet **username** ). Markera det här fältet som en **SecureString** -typ för att lagra det på ett säkert sätt i Data Factory. Du kan också [referera till en hemlighet som lagrats i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -102,12 +102,13 @@ Ange egenskapen **authenticationType** som **Basic**. Förutom de allmänna egen
 
 Ange egenskapen **authenticationType** till **AadServicePrincipal**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt anger du följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | servicePrincipalId | Ange det Azure Active Directory programmets klient-ID. | Ja |
 | servicePrincipalKey | Ange Azure Active Directory programmets nyckel. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | tenant | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja |
-| aadResourceId | Ange den AAD-resurs som du begär för auktorisering, t. ex. `https://management.core.windows.net` .| Ja |
+| aadResourceId | Ange den AAD-resurs som du begär auktorisering för, till exempel `https://management.core.windows.net` .| Ja |
+| azureCloudType | För tjänstens huvud namns autentisering anger du vilken typ av Azure-moln miljö som ditt AAD-program är registrerat på. <br/> Tillåtna värden är **AzurePublic**, **AzureChina**, **azureusgovernment eller**och **AzureGermany**. Som standard används data fabrikens moln miljö. | Nej |
 
 **Exempel**
 
@@ -139,9 +140,9 @@ Ange egenskapen **authenticationType** till **AadServicePrincipal**. Förutom de
 
 Ange egenskapen **authenticationType** till **ManagedServiceIdentity**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt anger du följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| aadResourceId | Ange den AAD-resurs som du begär för auktorisering, t. ex. `https://management.core.windows.net` .| Ja |
+| aadResourceId | Ange den AAD-resurs som du begär auktorisering för, till exempel `https://management.core.windows.net` .| Ja |
 
 **Exempel**
 
@@ -171,7 +172,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds för att kopiera data från REST:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens **typ** -egenskap måste anges till **RestResource**. | Ja |
 | relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen inte anges används endast den URL som anges i den länkade tjänst definitionen. HTTP-anslutningen kopierar data från den kombinerade URL: en: `[URL specified in linked service]/[relative URL specified in dataset]` . | Nej |
@@ -207,7 +208,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **RestSource**. | Ja |
 | requestMethod | HTTP-metoden. Tillåtna värden är **Get** (standard) och **post**. | Nej |
@@ -305,21 +306,21 @@ Denna generiska REST-anslutning har stöd för följande sid brytnings mönster:
 * Nästa begär ande rubrik = egenskaps värde i den aktuella svars texten
 * Nästa begär ande rubrik = huvud värde i aktuella svarshuvuden
 
-**Sid brytnings regler** definieras som en ord lista i dataset som innehåller ett eller flera Skift läges känsliga nyckel/värde-par. Konfigurationen kommer att användas för att generera begäran från den andra sidan. Kopplingen slutar att gå igenom när den får HTTP-statuskod 204 (inget innehåll) eller något av JSONPath-uttrycken i "paginationRules" returnerar null.
+**Sid brytnings regler** definieras som en ord lista i data uppsättningen, som innehåller ett eller flera Skift läges känsliga nyckel/värde-par. Konfigurationen kommer att användas för att generera begäran från den andra sidan. Kopplingen slutar att gå igenom när den får HTTP-statuskod 204 (inget innehåll) eller något av JSONPath-uttrycken i "paginationRules" returnerar null.
 
 **Nycklar som stöds** i sid brytnings regler:
 
 | Nyckel | Beskrivning |
 |:--- |:--- |
 | AbsoluteUrl | Anger den URL som utfärdar nästa begäran. Det kan **antingen vara en absolut URL eller en relativ URL**. |
-| QueryParameters. *request_query_parameter* ELLER QueryParameters ["request_query_parameter"] | "request_query_parameter" är användardefinierad som refererar till ett parameter namn för en fråga i nästa HTTP-begärande-URL. |
-| Sidhuvud. *request_header* ELLER huvuden ["request_header"] | "request_header" är användardefinierat och refererar till ett rubrik namn i nästa HTTP-begäran. |
+| QueryParameters. *request_query_parameter* ELLER QueryParameters ["request_query_parameter"] | "request_query_parameter" är användardefinierad, som refererar till ett parameter namn för en fråga i nästa HTTP-begärande-URL. |
+| Sidhuvud. *request_header* ELLER huvuden ["request_header"] | "request_header" är användardefinierad, som refererar till ett huvud namn i nästa HTTP-begäran. |
 
 **Värden som stöds** i sid brytnings regler:
 
 | Värde | Beskrivning |
 |:--- |:--- |
-| Sidhuvud. *response_header* ELLER huvuden ["response_header"] | "response_header" är användardefinierad som refererar till ett rubrik namn i det aktuella HTTP-svaret och värdet som ska användas för nästa begäran. |
+| Sidhuvud. *response_header* ELLER huvuden ["response_header"] | "response_header" är användardefinierad, som refererar till ett rubrik namn i det aktuella HTTP-svaret och värdet som ska användas för nästa begäran. |
 | Ett JSONPath-uttryck som börjar med "$" (som representerar roten i svars texten) | Svars texten får bara innehålla ett JSON-objekt. JSONPath-uttrycket ska returnera ett enda primitivt värde som ska användas för nästa begäran. |
 
 **Exempel:**
@@ -409,7 +410,7 @@ Mallen definierar två parametrar:
 
     | Egenskap | Beskrivning |
     |:--- |:--- |:--- |
-    | URL |Ange URL: en som OAuth Bearer-token ska hämtas från. t. ex. i exemplet är dethttps://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | URL |Ange URL: en som OAuth Bearer-token ska hämtas från. i exemplet här är det t. ex.https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Metod | HTTP-metoden. Tillåtna värden är **post** och **Get**. | 
     | Sidhuvuden | Rubriken är användardefinierad, som refererar till ett rubrik namn i HTTP-begäran. | 
     | Brödtext | Bröd texten för HTTP-begäran. | 

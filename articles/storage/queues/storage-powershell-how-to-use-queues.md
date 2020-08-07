@@ -1,6 +1,6 @@
 ---
 title: Utföra Azure Queue Storage-åtgärder i PowerShell
-description: Så här utför du åtgärder i Azure Queue Storage med PowerShell
+description: Gör åtgärder i Azure Queue Storage med PowerShell. Med Azure Queue Storage kan du lagra ett stort antal meddelanden som är tillgängliga via HTTP/HTTPS.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 05/15/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 8a3de37f6442900f600f3c6a3efaf75141d151bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 873f1bd0187eb5609456592b7dc37a48671b7e42
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808993"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905711"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Utför Azure Queue Storage-åtgärder med Azure PowerShell
 

@@ -3,24 +3,24 @@ title: Azure snabb start – skapa en Event Hub med hjälp av Azure Portal
 description: I den här snabbstarten lär du dig hur du skapar en Azure-händelsehubb med hjälp av Azure Portal och hur du sedan skickar och tar emot händelser med hjälp av .NET Standard SDK.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 9ca71dbb1a82e3fd9fe241e197b0bcbbfec2dcb8
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: bc9190bba6b21e59f10f51bd0eb7da2426f6d1b4
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323132"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902124"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Snabbstart: Skapa en händelsehubb med hjälp av Azure Portal
 Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri som producerats av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
 I den här snabbstarten skapar du en händelsehubb med hjälp av [Azure-portalen](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du följande:
 
 - En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-- [Visual Studio 2019)](https://www.visualstudio.com/vs) eller senare.
+- [Visual Studio 2019](https://www.visualstudio.com/vs) eller senare.
 - [SDK för .NET Standard](https://www.microsoft.com/net/download/windows) version 2.0 eller senare.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
@@ -60,7 +60,7 @@ Ett Event Hubs-namnområde innehåller en unik omfattningscontainer som referera
     6. Lämna inställningarna för **data flödes enheter** som de är. Läs mer om data flödes enheter i [Event Hubs skalbarhet](event-hubs-scalability.md#throughput-units)  
     5. Välj **Granska + skapa** längst ned på sidan.
 
-       ![Skapa ett namnområde för en händelsehubb](./media/event-hubs-quickstart-portal/create-event-hub1.png)
+       ![Skapa en namnrymd för en händelsehubb](./media/event-hubs-quickstart-portal/create-event-hub1.png)
    6. På sidan **Granska + skapa** granskar du inställningarna och väljer **skapa**. Vänta tills distributionen har slutförts. 
 
        ![Granska + skapa sida](./media/event-hubs-quickstart-portal/review-create.png)

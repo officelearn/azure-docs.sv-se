@@ -3,16 +3,16 @@ title: Ansluta till Azure Event Hubs
 description: Skapa automatiserade uppgifter och arbets flöden som övervakar och hanterar händelser med hjälp av Azure Event Hubs och Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 7dab9753334a1f071d85d0d2bccbd88340e37634
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9e3bc4cdab62dd304c5266ff6c9cccf66600fb7b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284106"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848852"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Övervaka, ta emot och skicka händelser med Azure Event Hub och Azure Logic Apps
 
@@ -62,6 +62,9 @@ I Azure Logic Apps måste varje Logi Kap par starta med en [utlösare](../logic-
 
 Det här exemplet visar hur du kan starta ett Logic app-arbetsflöde när nya händelser skickas till Händelsehubben. 
 
+> [!NOTE]
+> Alla Event Hub-utlösare är *tids avsöknings* utlösare, vilket innebär att utlösaren bearbetar alla händelser och väntar sedan 30 sekunder per partition för att fler händelser ska visas i händelsehubben. Så om utlösaren har kon figurer ATS med fyra partitioner kan fördröjningen ta upp till två minuter innan utlösaren Slutför avsökningen av alla partitioner. Om inga händelser tas emot under den här fördröjningen hoppas utlösarens körning över. Annars fortsätter utlösaren att läsa händelser tills Händelsehubben är tom. Nästa Utlös ande sökning sker baserat på upprepnings intervallet som du anger i utlösarens egenskaper.
+
 1. I Azure Portal eller Visual Studio skapar du en tom Logic-app som öppnas Logic Apps designer. I det här exemplet används Azure Portal.
 
 1. I rutan Sök anger du "Event Hub" som filter. Välj den här utlösaren i listan utlösare: **när händelser är tillgängliga i Event Hub – Event Hubs**
@@ -100,11 +103,6 @@ Det här exemplet visar hur du kan starta ett Logic app-arbetsflöde när nya h�
 1. Fortsätt nu att lägga till en eller flera åtgärder i din Logic app för de uppgifter som du vill utföra med utlösnings resultaten. 
 
    Om du till exempel vill filtrera händelser baserat på ett speciellt värde, till exempel en kategori, kan du lägga till ett villkor så att åtgärden **skicka händelse** endast skickar händelser som uppfyller ditt villkor. 
-
-> [!NOTE]
-> Alla Event Hub-utlösare är *tids avsöknings* utlösare, vilket innebär att när en utlösare utlöses, bearbetar utlösaren alla händelser och väntar sedan i 30 sekunder innan fler händelser visas i händelsehubben.
-> Om inga händelser tas emot på 30 sekunder hoppas utlösarens körning över. Annars fortsätter utlösaren att läsa händelser tills Händelsehubben är tom.
-> Nästa Utlös ande sökning sker baserat på upprepnings intervallet som du anger i utlösarens egenskaper.
 
 <a name="add-action"></a>
 
@@ -158,7 +156,7 @@ Välj den här åtgärden i listan åtgärder: **skicka händelse-Event Hubs**
    | **Event Hubs namnrymd** | Ja | <*Event-Hubbs-namnrymd*> | Välj det Event Hubs namn område som du vill använda. |
    |||||  
 
-   Till exempel:
+   Exempel:
 
    ![Skapa Event Hub-anslutning](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 

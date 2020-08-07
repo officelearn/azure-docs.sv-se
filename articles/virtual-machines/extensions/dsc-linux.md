@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: a33d74c01771c2b60ac8667a1494ebe80271a8ac
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a1a166d12ef753a7a6fc7225d0467ead08514f99
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494793"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876724"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>DSC-tillägg för Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -29,25 +29,17 @@ ms.locfileid: "86494793"
 
 DSCForLinux-tillägget har publicerats och stöds av Microsoft. Tillägget installerar OMI-och DSC-agenten på virtuella Azure-datorer. DSC-tillägget kan också utföra följande åtgärder:
 
-
 - Registrera den virtuella Linux-datorn till ett Azure Automation-konto för att hämta konfigurationer från tjänsten Azure Automation (registrera ExtensionAction).
 - Skicka MOF-konfigurationer till den virtuella Linux-datorn (push-ExtensionAction).
 - Använd meta MOF-konfiguration på den virtuella Linux-datorn om du vill konfigurera en pull-server för att hämta Node-konfigurationen (pull-ExtensionAction).
 - Installera anpassade DSC-moduler till den virtuella Linux-datorn (installera ExtensionAction).
 - Ta bort anpassade DSC-moduler från den virtuella Linux-datorn (ta bort ExtensionAction).
 
- 
-
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
-DSC Linux-tillägget stöder alla [Linux-distributioner](../linux/endorsed-distros.md) som har godkänts på Azure, förutom:
-
-| Distribution | Version |
-|---|---|
-| Debian | Alla versioner |
-| Ubuntu| 18,04 |
+För noder som kör Linux stöder DSC Linux-tillägget alla Linux-distributioner som anges i [POWERSHELL DSC-dokumentationen](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
  
 ### <a name="internet-connectivity"></a>Internetanslutning
 

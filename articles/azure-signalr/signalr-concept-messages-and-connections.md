@@ -4,14 +4,14 @@ description: En översikt över viktiga begrepp gällande meddelanden och anslut
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 08/05/2020
 ms.author: zhshang
-ms.openlocfilehash: 5f6428231a3639738e8fb52e7dc3f2f2a3d2a26e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5483e10e817ce8a0a7e7c82d817b7bdbbdd9176b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75392817"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853457"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Meddelanden och anslutningar i Azure SignalR Service
 
@@ -36,7 +36,13 @@ För fakturering räknas endast utgående meddelanden från Azure SignalR Servic
 
 Meddelanden som är större än 2 KB räknas som flera meddelanden på 2 KB vartdera. Diagrammet över antal meddelanden i Azure-portalen uppdateras vart 100:e meddelande för varje hubb.
 
-Anta som exempel att du har tre klienter och en programserver. En klient skickar ett meddelande på 4 KB som servern ska skicka till alla klienter. Antalet meddelanden är åtta: ett meddelande från tjänsten att programservern och tre meddelanden från tjänsten till klienterna. Varje meddelande räknas som två meddelanden på 2 KB vartdera.
+Anta till exempel att du har en program Server och tre klienter:
+
+App server skickar ett meddelande på 1 KB till alla anslutna klienter. meddelandet från App Server till tjänsten betraktas som ett kostnads fritt inkommande meddelande. Endast de tre meddelanden som skickas från tjänst till varje klient faktureras som utgående meddelanden.
+
+Klient A skickar ett meddelande på 1 KB till en annan klient B, utan att gå via app server. Meddelandet från klient A till tjänst är ett kostnads fritt inkommande meddelande. Meddelandet från tjänst till klient B faktureras som utgående meddelande.
+
+Om du har tre klienter och en program Server. En klient skickar ett meddelande på 4 KB som servern ska skicka till alla klienter. Antalet fakturerade meddelanden är åtta: ett meddelande från tjänsten till program servern och tre meddelanden från tjänsten till klienterna. Varje meddelande räknas som två meddelanden på 2 KB vartdera.
 
 ## <a name="how-connections-are-counted"></a>Så räknas anslutningar
 
@@ -44,15 +50,15 @@ Det finns Server anslutningar och klient anslutningar med Azure SignalR-tjänste
 
 Det antal anslutningar som visas i Azure-portalen omfattar både serveranslutningar och klientanslutningar.
 
-Anta som exempel att du har två programservrar och att du definierar fem hubbar i kod. Antalet Server anslutningar är 50:2 App-servrar * 5 hubbar * 5 anslutningar per hubb.
+Anta till exempel att du har två program servrar och att du definierar fem hubbar i kod. Antalet Server anslutningar är 50:2 App-servrar * 5 hubbar * 5 anslutningar per hubb.
 
-ASP.NET SignalR beräknar serveranslutningar på ett annat sätt. Det omfattar en standardhubb utöver de hubbar som du definierar. Som standard behöver varje program Server fem fler inledande Server anslutningar. Det första antalet anslutningar för standard navet förblir konsekvent med det andra hubbens.
+ASP.NET SignalR beräknar serveranslutningar på ett annat sätt. Det omfattar en standardhubb utöver de hubbar som du definierar. Som standard behöver varje program Server fem fler inledande Server anslutningar. Det första antalet anslutningar för standard navet förblir konsekvent med andra hubbar.
 
-Under program serverns livs längd behåller tjänsten och program servern synkroniseringens anslutnings status och gör justeringar till Server anslutningar för bättre prestanda och service stabilitet. Så du kan se ändringar av serverns anslutnings nummer från tid till tid.
+Tjänsten och program servern håller på att synkronisera anslutnings status och gör justeringar till Server anslutningar för att få bättre prestanda och service stabilitet.  Så du kan se ändringar av serverns anslutnings nummer från tid till tid.
 
 ## <a name="how-inboundoutbound-traffic-is-counted"></a>Så räknas inkommande/utgående trafik
 
-Skillnaden mellan inkommande och utgående trafik baseras på perspektivet för Azure SignalR Service. Trafik beräknas i byte.
+Meddelandet som skickas till tjänsten är ett inkommande meddelande. Meddelande som skickats ut från tjänsten är utgående meddelande. Trafik beräknas i byte.
 
 ## <a name="related-resources"></a>Relaterade resurser
 

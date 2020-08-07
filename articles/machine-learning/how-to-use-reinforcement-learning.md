@@ -9,13 +9,13 @@ ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: 7a9c367c1669aab18da5a7cb1f7d732f9b8aee9e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 0a043bf79818480e045fb1f82640639fd7dcb232
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319073"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847643"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Förstärka inlärningen (för hands version) med Azure Machine Learning
 
@@ -36,11 +36,11 @@ I den här artikeln får du lära dig att:
 
 Den här artikeln baseras på [RLlib Pong-exemplet](https://aka.ms/azureml-rl-pong) som finns i Azure Machine Learning Notebooks GitHub- [lagringsplats](https://aka.ms/azureml-rl-notebooks).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kör den här koden i någon av följande miljöer. Vi rekommenderar att du försöker Azure Machine Learning beräknings instans för den snabbaste start upplevelsen. De förstärkta exempel antecknings böckerna är tillgängliga för att snabbt kunna klona och köra Azure Machine Learning beräknings instanser.
 
- - Azure Machine Learning beräknings instans
+ - Azure Machine Learning-beräkningsinstans
 
      - Lär dig att klona exempel antecknings böcker i [Självstudier: installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md).
          - Klona mappen för **att använda azureml** i stället för **självstudier**

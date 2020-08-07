@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 6d10d1a8ee47f2455f7fcd436d3e145eac8a8c0e
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.custom: seodec18, devx-track-python
+ms.openlocfilehash: 628cc600910800e25eff1d720d103c4c8b40004d
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84985930"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853151"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-python"></a>Snabb start: analysera en fjärravbildning med hjälp av Visuellt innehåll REST API och python
 
@@ -26,7 +26,7 @@ Du kan köra den här snabbstarten steg för steg med hjälp av en Jupyter-antec
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * [Python](https://www.python.org/downloads/) och följande paket:
@@ -44,9 +44,9 @@ Så här skapar du och kör exemplet:
 
 1. Kopiera följande kod till en textredigerare.
 1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill analysera.
-1. Spara koden som en fil med tillägget `.py`. Exempelvis `analyze-image.py`.
+1. Spara koden som en fil med tillägget `.py`. Till exempel `analyze-image.py`.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python analyze-image.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python analyze-image.py`.
 
 ```python
 import requests

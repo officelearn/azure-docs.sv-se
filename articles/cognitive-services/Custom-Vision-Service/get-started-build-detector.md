@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: ba121400368f37c4a562a9c34e209c59d15b173c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 01a5714cb78959a982ad73deb401edbafeebe8f9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81404116"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87834464"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Snabb start: så här skapar du en objekt detektor med Custom Vision
 
 I den här snabb starten får du lära dig hur du skapar en objekt detektor via Custom Vision webbplats. När du har skapat en detektor modell kan du använda tjänsten Custom Vision för objekt identifiering.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En uppsättning avbildningar som du kan använda för att träna din detektor modell. Du kan använda en uppsättning [exempel bilder](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) på GitHub. Du kan också välja egna bilder med hjälp av tipsen nedan.
 
@@ -55,6 +55,7 @@ Navigera till [Custom vision webb sida](https://customvision.ai) i webbläsaren 
     |---|---|
     |__Allmänt__| Optimerad för ett brett utbud av objekt identifierings aktiviteter. Om ingen av de andra domänerna är lämpliga, eller om du är osäker på vilken domän du väljer, väljer du den allmänna domänen. |
     |__Logotyp__|Optimerad för att hitta varumärkes logo typer i bilder.|
+    |__Produkter på hyllor__|Optimerad för att identifiera och klassificera produkter på hyllor.|
     |__Komprimerade domäner__| Optimerad för begränsningar av objekt identifiering i real tid på mobila enheter. Modeller som genereras av komprimerade domäner kan exporteras för att köras lokalt.|
 
 1. Välj slutligen __skapa projekt__.

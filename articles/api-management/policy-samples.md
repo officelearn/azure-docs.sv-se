@@ -1,18 +1,18 @@
 ---
 title: Inbyggda princip definitioner för Azure API Management
-description: Visar Azure Policy inbyggda princip definitioner för Azure API Management. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
+description: Visar Azure Policy inbyggda princip definitioner för Azure API Management. Dessa inbyggda princip definitioner tillhandahåller metoder för att hantera dina Azure-resurser.
 ms.date: 07/10/2020
 author: georgewallace
 ms.author: gwallace
 ms.service: api-management
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 02e3dacef17e02d25819aaeab6c0add2c20fc6ff
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 518813ae870285b7cf51936abae117c649bee040
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86275604"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902498"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-api-management"></a>Azure Policy inbyggda princip definitioner för Azure API Management
 

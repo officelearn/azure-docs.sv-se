@@ -1,0 +1,96 @@
+---
+title: Globala parametrar
+description: Ange globala parametrar för var och en av dina Azure Data Factory miljöer
+services: data-factory
+ms.service: data-factory
+ms.workload: data-services
+ms.topic: conceptual
+author: djpmsft
+ms.author: daperlov
+ms.date: 08/05/2020
+ms.openlocfilehash: 052f502ed27db9ade0fd2916f91d6922c52a5a98
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87854357"
+---
+# <a name="global-parameters-in-azure-data-factory"></a>Globala parametrar i Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+Globala parametrar är konstanter över en data fabrik som kan användas av en pipeline i valfritt uttryck. De är användbara när du har flera pipelines med identiska parameter namn och-värden. När du befordrar en data fabrik med kontinuerlig integrering och distributions process (CI/CD) kan du åsidosätta dessa parametrar i varje miljö. 
+
+## <a name="creating-global-parameters"></a>Globala parametrar skapas
+
+Om du vill skapa en global parameter går du till fliken *globala parametrar* i avsnittet *Hantera* . Välj **ny** för att öppna sidan för skapande av sidan – navigering.
+
+![Skapa globala parametrar](media/author-global-parameters/create-global-parameter-1.png)
+
+I sidan-nav anger du ett namn, väljer en datatyp och anger värdet för parametern.
+
+![Skapa globala parametrar](media/author-global-parameters/create-global-parameter-2.png)
+
+När du har skapat en global parameter kan du redigera den genom att klicka på parameterns namn. Om du vill ändra flera parametrar samtidigt väljer du **Redigera alla**.
+
+![Skapa globala parametrar](media/author-global-parameters/create-global-parameter-3.png)
+
+## <a name="using-global-parameters-in-a-pipeline"></a>Använda globala parametrar i en pipeline
+
+Globala parametrar kan användas i alla [pipeline-uttryck](control-flow-expression-language-functions.md). Om en pipeline refererar till en annan resurs, till exempel en data uppsättning eller ett data flöde, kan du överföra det globala parametervärdet via resursens parametrar. Globala parametrar refereras till som `pipeline().globalParameters.<parameterName>` .
+
+![Använda globala parametrar](media/author-global-parameters/expression-global-parameters.png)
+
+## <a name="global-parameters-in-cicd"></a><a name="cicd"></a>Globala parametrar i CI/CD
+
+Globala parametrar har en unik CI/CD-process i förhållande till andra entiteter i Azure Data Factory. När du publicerar en fabrik eller exporterar en ARM-mall med globala parametrar, skapas en mapp med namnet *dublettparameternamnet* med en fil som heter *your-factory-name_GlobalParameters.jspå*. Den här filen är ett JSON-objekt som innehåller varje global parameter typ och värde i den publicerade fabriken.
+
+![Globala parametrar publiceras](media/author-global-parameters/global-parameters-adf-publish.png)
+
+Om du distribuerar till en ny miljö, till exempel TEST eller produkt, rekommenderar vi att du skapar en kopia av den här globala parameter filen och skriver över lämpliga miljöaktuella värden. När du publicerar om den ursprungliga globala parameter filen kommer att skrivas över, men kopian för den andra miljön blir orörd.
+
+Om du till exempel har en fabrik med namnet "ADF-DEV" och en global parameter av typen String med namnet "miljö" med värdet "dev", genereras en fil som heter *ADF-DEV_GlobalParameters.jspå* . Om du distribuerar till en test fabrik med namnet ADF_TEST, skapar du en kopia av JSON-filen (till exempel med namnet ADF-TEST_GlobalParameters.jspå) och ersätter parametervärdena med de miljöaktuella värdena. Parametern "miljö" kan ha värdet "test" nu. 
+
+![Distribuera globala parametrar](media/author-global-parameters/powershell-task.png)
+
+Använd PowerShell-skriptet nedan för att befordra globala parametrar till ytterligare miljöer. Lägg till en Azure PowerShell DevOps-uppgift innan ARM-Malldistribution. I DevOps-aktiviteten måste du ange platsen för den nya parameter filen, mål resurs gruppen och mål data fabriken.
+
+> [!NOTE]
+> Om du vill distribuera globala parametrar med PowerShell måste du använda minst version 4.4.0 av AZ-modulen.
+
+```powershell
+param
+(
+    [parameter(Mandatory = $true)] [String] $globalParametersFilePath,
+    [parameter(Mandatory = $true)] [String] $resourceGroupName,
+    [parameter(Mandatory = $true)] [String] $dataFactoryName
+)
+
+Import-Module Az.DataFactory
+
+$newGlobalParameters = New-Object 'system.collections.generic.dictionary[string,Microsoft.Azure.Management.DataFactory.Models.GlobalParameterSpecification]'
+
+Write-Host "Getting global parameters JSON from: " $globalParametersFilePath
+$globalParametersJson = Get-Content $globalParametersFilePath
+
+Write-Host "Parsing JSON..."
+$globalParametersObject = [Newtonsoft.Json.Linq.JObject]::Parse($globalParametersJson)
+
+foreach ($gp in $globalParametersObject.GetEnumerator()) {
+    Write-Host "Adding global parameter:" $gp.Key
+    $globalParameterValue = $gp.Value.ToObject([Microsoft.Azure.Management.DataFactory.Models.GlobalParameterSpecification])
+    $newGlobalParameters.Add($gp.Key, $globalParameterValue)
+}
+
+$dataFactory = Get-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Name $dataFactoryName
+$dataFactory.GlobalParameters = $newGlobalParameters
+
+Write-Host "Updating" $newGlobalParameters.Count "global parameters."
+
+Set-AzDataFactoryV2 -InputObject $dataFactory -Force
+```
+
+## <a name="next-steps"></a>Nästa steg
+
+* Läs mer om Azure Data Factoryens [kontinuerliga integrerings-och distributions process](continuous-integration-deployment.md)
+* Lär dig hur du använder [språket för kontroll flödes uttryck](control-flow-expression-language-functions.md)

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: a470166d0ed172d95e80fadeb26139a702f40bb2
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: seodec18, devx-track-python
+ms.openlocfilehash: 771c2a6ea89f3bda4c671a053d505ba995f0d1db
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387463"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853100"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Snabbstart: Använd en domänmodell med hjälp av REST API:et och Python i Visuellt innehåll
 
@@ -41,9 +41,9 @@ Så här skapar du och kör exemplet med landmärken:
 
 1. Kopiera följande kod till en textredigerare.
 1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill identifiera landmärken i.
-1. Spara koden som en fil med tillägget `.py`. Exempelvis `get-landmarks.py`.
+1. Spara koden som en fil med tillägget `.py`. Till exempel `get-landmarks.py`.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python get-landmarks.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python get-landmarks.py`.
 
 ```python
 import os
@@ -125,9 +125,9 @@ Så här skapar du och kör exemplet med landmärken:
     1. Ersätt värdet för `subscription_key` med din prenumerationsnyckel.
     1. Ersätt värdet för `vision_base_url` med slutpunktens URL för resursen för Visuellt innehåll i den Azure-region där du fick dina prenumerationsnycklar, om så behövs.
     1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill identifiera kändisar i.
-1. Spara koden som en fil med tillägget `.py`. Exempelvis `get-celebrities.py`.
+1. Spara koden som en fil med tillägget `.py`. Till exempel `get-celebrities.py`.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python get-celebrities.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python get-celebrities.py`.
 
 ```python
 import requests

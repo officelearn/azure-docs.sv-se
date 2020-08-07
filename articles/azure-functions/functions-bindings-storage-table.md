@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: b6d8ca41c56239bc994b34119600dfa9db60ada6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: 7616f6c502f0b5402aa784f707d0dafa31268d78
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083097"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853066"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table Storage-bindningar för Azure Functions
 
@@ -611,7 +611,7 @@ Attributet [TableInput](/java/api/com.microsoft.azure.functions.annotation.table
 
 ---
 
-## <a name="output"></a>Utdata
+## <a name="output"></a>Resultat
 
 Använd en Azure Table Storage utgående bindning för att skriva entiteter till en tabell i ett Azure Storage konto.
 
@@ -994,7 +994,7 @@ Det finns två alternativ för att lägga till en tabell lagrings rad från en f
 
 | Bindning | Referens |
 |---|---|
-| Tabell | [Tabell fel koder](/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Tabeller | [Tabell fel koder](/rest/api/storageservices/fileservices/table-service-error-codes) |
 | BLOB, tabell, kö | [Lagrings fel koder](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | BLOB, tabell, kö | [Felsökning](/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 

@@ -9,14 +9,14 @@ ms.custom:
 - seodec18
 - seo-python-october2019
 - cli-validate
-- tracking-python
+- devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 0ab19e538d2ffb97f9bb80c47f9ce5471bdb87a9
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 2148668b555afe0d11156a6ee213248b1cad1beb
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799472"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904844"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Själv studie kurs: Distribuera en django-webbapp med PostgreSQL i Azure App Service
 
@@ -118,7 +118,7 @@ Dessa ändringar är specifika för att konfigurera django för att köras i all
 ## <a name="create-postgres-database-in-azure"></a>Skapa postgres-databas i Azure
 
 <!-- > [!NOTE]
-> Before you create an Azure Database for PostgreSQL server, check which [compute generation](/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) is available in your region. If your region doesn't support Gen4 hardware, change *--sku-name* in the following command line to a value that's supported in your region, such as B_Gen4_1.  -->
+> Before you create an Azure Database for PostgreSQL server, check which [compute generation](/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) is available in your region. -->
 
 Installera `db-up` tillägget för Azure CLI:
 
@@ -131,12 +131,12 @@ Om `az` kommandot inte känns igen kontrollerar du att du har installerat Azure 
 Skapa sedan postgres-databasen i Azure med [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) kommandot:
 
 ```azurecli
-az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen4_1 --server-name <postgre-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
+az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgre-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
 ```
 
 - Ersätt *\<postgres-server-name>* med ett namn som är unikt för alla Azure (Server slut punkten är `https://\<postgres-server-name>.postgres.database.azure.com` ). Ett utmärkt mönster är att använda en kombination av ditt företags namn och ett annat unikt värde.
 - För *\<admin-username>* och *\<admin-password>* anger du autentiseringsuppgifter för att skapa en administratörs användare för den här postgres-servern.
-- [Pris nivån](../../postgresql/concepts-pricing-tiers.md) B_Gen4_1 (Basic, Gen4, 1 kärna) som används här är den minst dyra. För produktions databaser utelämnar du `--sku-name` argumentet för att använda GP_Gen5_2-nivån (generell användning, generation 5, 2 kärnor) i stället.
+- [Pris nivån](../../postgresql/concepts-pricing-tiers.md) B_Gen5_1 (Basic, Gen5, 1 kärna) som används här är den minst dyra. För produktions databaser utelämnar du `--sku-name` argumentet för att använda GP_Gen5_2-nivån (generell användning, generation 5, 2 kärnor) i stället.
 
 Detta kommando utför följande åtgärder, vilket kan ta några minuter:
 

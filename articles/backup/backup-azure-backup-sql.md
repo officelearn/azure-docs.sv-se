@@ -3,12 +3,12 @@ title: Säkerhetskopiera SQL Server till Azure som en DPM-arbetsbelastning
 description: En introduktion till att säkerhetskopiera SQL Server databaser med hjälp av tjänsten Azure Backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: dd091f9446cafdb6ff91ae5679c703e07457169c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef8ffcb2445a7be27f7fd3da2115f76fe961fd74
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055373"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876316"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Säkerhetskopiera SQL Server till Azure som en DPM-arbetsbelastning
 
@@ -21,6 +21,9 @@ Säkerhetskopiera en SQL Server-databas till Azure och återställa den från Az
 1. Skapa en säkerhets kopierings princip för att skydda SQL Server databaser i Azure.
 1. Skapa säkerhets kopior på begäran i Azure.
 1. Återställ databasen från Azure.
+
+>[!NOTE]
+>DPM 2019-UR2 har stöd för SQL Server instanser av redundanskluster (FCI) med hjälp av klusterdelade volymer (CSV).
 
 ## <a name="prerequisites-and-limitations"></a>Krav och begränsningar
 

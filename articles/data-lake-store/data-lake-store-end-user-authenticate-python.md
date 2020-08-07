@@ -6,13 +6,13 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.custom: has-adal-ref, tracking-python
-ms.openlocfilehash: 848ee67fd0a8c75308265cd39f5c5040cbac51fe
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.custom: has-adal-ref, devx-track-python
+ms.openlocfilehash: c3262a2802da8dbd50fc05f7aa2fea71623c9b42
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984988"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872199"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Autentisering med slutanvändare med Azure Data Lake Storage Gen1 med python
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ I den här artikeln får du lära dig hur du använder python SDK för att utfö
 
 Båda alternativen beskrivs i den här artikeln. För tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med python, se [tjänst-till-tjänst-autentisering med data Lake Storage gen1 med hjälp av python](data-lake-store-service-to-service-authenticate-python.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Python**. Du kan hämta Python [här](https://www.python.org/downloads/). I den här artikeln används Python 3.6.2.
 

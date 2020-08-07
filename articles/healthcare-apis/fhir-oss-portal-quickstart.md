@@ -2,24 +2,24 @@
 title: 'Azure Portal: Distribuera FHIR-server med öppen källkod för Azure – Azure API för FHIR'
 description: Den här snabb starten förklarar hur du distribuerar Microsoft Open Source FHIR-servern med hjälp av Azure Portal.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: 5109c9a7c6432e42c6841b89cc28bde3e92c74aa
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.author: matjazl
+ms.openlocfilehash: 7fa119db0c974c93aff667060d153b21b8de16bb
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "84820188"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843495"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-azure-portal"></a>Snabb start: Distribuera FHIR-server med öppen källkod med Azure Portal
 
 I den här snabb starten får du lära dig hur du distribuerar en FHIR-server med öppen källkod i Azure med hjälp av Azure Portal. Vi kommer att använda enkla distributions länkar i [databasen med öppen källkod](https://github.com/Microsoft/fhir-server)
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="github-open-source-repository"></a>GitHub-lagringsplats med öppen källkod
 

@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
-ms.custom: tracking-python
-ms.openlocfilehash: c612ddc324144a818dd738b440660d473ec3a1bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 46512d61238c45936e7ebed4310993159cb43d34
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509650"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845450"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Utveckla för Azure Files med Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -89,7 +89,7 @@ for file_or_dir in generator:
     print(file_or_dir.name)
 ```
 
-## <a name="upload-a-file"></a>Överför en fil 
+## <a name="upload-a-file"></a>Ladda upp en fil 
 Azure-filresursen innehåller minst en rot katalog där filerna kan finnas. I det här avsnittet får du lära dig hur du laddar upp en fil från lokal lagring till rot katalogen för en resurs.
 
 Använd `create_file_from_path` `create_file_from_stream` metoderna,, eller för att skapa en fil och överföra `create_file_from_bytes` data `create_file_from_text` . De är avancerade metoder som utför den nödvändiga delningen när storleken på data överskrider 64 MB.
@@ -108,7 +108,7 @@ file_service.create_file_from_path(
     content_settings=ContentSettings(content_type='image/png'))
 ```
 
-## <a name="download-a-file"></a>Hämta en fil
+## <a name="download-a-file"></a>Ladda ned en fil
 Använd,, eller för att hämta data från en fil `get_file_to_path` `get_file_to_stream` `get_file_to_bytes` `get_file_to_text` . De är avancerade metoder som utför den nödvändiga delningen när storleken på data överskrider 64 MB.
 
 I följande exempel visas hur `get_file_to_path` du hämtar innehållet i **filen i** filen och lagrar det i **out-sunset.png** -filen.

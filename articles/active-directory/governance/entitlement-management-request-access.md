@@ -3,7 +3,7 @@ title: Begär ett åtkomst paket – hantering av Azure AD-berättigande
 description: Lär dig hur du använder min åtkomst Portal för att begära åtkomst till ett Access-paket i Azure Active Directory rättighets hantering.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: mamtakumar
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e744adeae55252ec70c8f766db1e29a3898886c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 527255653bf2779b36e0e463cd32a0b334c00f96
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078122"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798502"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Begär åtkomst till ett Access-paket i Azure AD-hantering av rättigheter
 

@@ -12,16 +12,16 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 385107f3bb5dd30a118d3a5f7a5f14213f0ad1c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c5015cb6328dba70fed40053bc234966572ae98
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554524"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873729"
 ---
 # <a name="what-are-security-defaults"></a>Vad är säkerhets inställningar?
 
-Det kan vara svårt att hantera säkerhet med vanliga identitetsbaserade attacker som att spreja efter lösen ord, spela upp och se till att det blir mer populärt. Säkerhets standarder gör det lättare att skydda din organisation från dessa attacker med förkonfigurerade säkerhets inställningar:
+Det kan vara svårt att hantera säkerhet med vanliga identitetsbaserade attacker, t. ex. Spray, uppspelning och nätfiske som blir mer populära. Säkerhets standarder gör det lättare att skydda din organisation från dessa attacker med förkonfigurerade säkerhets inställningar:
 
 - Kräver att alla användare registreras för Azure Multi-Factor Authentication.
 - Kräver att administratörer utför Multi-Factor Authentication.

@@ -2,18 +2,18 @@
 title: FHIR funktioner som stöds i Azure – Azure API för FHIR
 description: I den här artikeln beskrivs vilka funktioner i FHIR-specifikationen som implementeras i Azure API för FHIR
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: 7f92395f19d84f904493af458d1334f8013fd263
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: matjazl
+ms.openlocfilehash: 1cb3af32f1ad16218c82f91c3f28d4f4ab47e677
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85808037"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843512"
 ---
 # <a name="features"></a>Funktioner
 
@@ -35,21 +35,21 @@ Tidigare versioner som också stöds är:`3.0.2`
 | uppdatera med optimistisk låsning | Ja       | Ja       | Ja       |                                                     |
 | uppdatering (villkorligt)           | Ja       | Ja       | Ja       |                                                     |
 | 9.0a                          | Nej        | Nej        | Nej        |                                                     |
-| delete                         | Ja       | Ja       | Ja       |                                                     |
+| ta bort                         | Ja       | Ja       | Ja       |                                                     |
 | ta bort (villkorligt)           | Nej        | Nej        | Nej        |                                                     |
 | skapa                         | Ja       | Ja       | Ja       | Stöd för både efter-och-placering                               |
 | Skapa (villkorlig)           | Ja       | Ja       | Ja       |                                                     |
 | sök                         | Delvis   | Delvis   | Delvis   | Se nedan                                           |
-| kedjad sökning                 | No        | Ja       | No        |                                           |
+| kedjad sökning                 | Nej        | Ja       | Nej        |                                           |
 | omvänd länkad sökning         | Nej        | Nej        | Nej        |                                            |
 | funktioner                   | Ja       | Ja       | Ja       |                                                     |
 | batch                          | Ja       | Ja       | Ja       |                                                     |
-| transaktionen                    | No        | Ja       | No        |                                                     |
+| transaktionen                    | Nej        | Ja       | Nej        |                                                     |
 | historik                        | Ja       | Ja       | Ja       |                                                     |
 | växlings                         | Delvis   | Delvis   | Delvis   | `self`och `next` stöds                     |
 | mellanhand                 | Nej        | Nej        | Nej        |                                                     |
 
-## <a name="search"></a>Search
+## <a name="search"></a>Sök
 
 Alla typer av Sök parametrar stöds. 
 
@@ -102,7 +102,7 @@ Alla typer av Sök parametrar stöds.
 | `_score`                | Nej        | Nej        | Nej        |         |
 | `_count`                | Ja       | Ja       | Ja       |         |
 | `_summary`              | Delvis   | Delvis   | Delvis   | `_summary=count`stöds |
-| `_include`              | No        | Ja       | Nej        |         |
+| `_include`              | Nej        | Ja       | Nej        |         |
 | `_revinclude`           | Nej        | Nej        | Nej        |         |
 | `_contained`            | Nej        | Nej        | Nej        |         |
 | `_elements`             | Nej        | Nej        | Nej        |         |

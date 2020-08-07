@@ -6,13 +6,13 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: 559198c4ecbbc86cc82ce8b286d9608170e161c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: c377d9882b59731857641e1f593dd6b7b24ca7f9
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079731"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844090"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Service Bus utgående bindning för Azure Functions
 
@@ -384,7 +384,7 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
 
 Om du har `isSessionsEnabled` ställt in till `true` , `sessionHandlerOptions` kommer att användas.  Om du har `isSessionsEnabled` ställt in till `false` , `messageHandlerOptions` kommer att användas.
 
-|Egenskap  |Standard | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------|
 |prefetchCount|0|Hämtar eller anger antalet meddelanden som meddelande mottagaren samtidigt kan begära.|
 |maxAutoRenewDuration|00:05:00|Den längsta tid som meddelande låset ska förnyas automatiskt.|

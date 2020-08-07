@@ -1,6 +1,6 @@
 ---
 title: Designa Azure Table Storage för frågor | Microsoft Docs
-description: Design tabeller för frågor i Azure Table Storage.
+description: Design tabeller för frågor i Azure Table Storage. Välj lämplig partitionsnyckel, optimera frågor och sortera data för Table service.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d157e7d2880761fb6559723bdc1d6c34baffb09
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75457640"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903212"
 ---
 # <a name="design-for-querying"></a>Utforma för frågor
 Table service lösningar kan vara av intensiv, skriv intensiv eller en blandning av de två. Den här artikeln fokuserar på saker som du bör tänka på när du utformar Table service som stöder Läs åtgärder effektivt. Vanligt vis är en design som stöder Läs åtgärder effektiv för Skriv åtgärder. Det finns dock ytterligare saker att tänka på när du utformar för att stödja Skriv åtgärder, som beskrivs i artikeln [design för data ändringar](table-storage-design-for-modification.md).
@@ -35,7 +35,7 @@ Det här avsnittet fokuserar på de viktiga problem som du måste åtgärda när
 ## <a name="how-your-choice-of-partitionkey-and-rowkey-impacts-query-performance"></a>Hur du väljer PartitionKey och RowKey påverkar frågans prestanda
 I följande exempel förutsätts att tabell tjänsten lagrar anställdas entiteter med följande struktur (de flesta exempel utesluter egenskapen **timestamp** för klarhet):  
 
-| *Kolumn namn* | *Datatyp* |
+| *Kolumnnamn* | *Datatyp* |
 | --- | --- |
 | **PartitionKey** (avdelnings namn) |Sträng |
 | **RowKey** (medarbetar-ID) |Sträng |

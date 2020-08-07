@@ -1,6 +1,6 @@
 ---
 title: Custom caching in Azure API Management (Anpassad cachelagring i Azure API Management)
-description: Lär dig hur du cachelagrar objekt efter nyckel i Azure API Management
+description: Lär dig hur du cachelagrar objekt efter nyckel i Azure API Management. Du kan ändra nyckeln med hjälp av begärandehuvuden.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 7b87244b4df155768e815bdba5226fc784866f6b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a366cf6d4e17e83fd89ae21631ad5b40e8971c1b
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249724"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903450"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Custom caching in Azure API Management (Anpassad cachelagring i Azure API Management)
-Azure API Management-tjänsten har inbyggt stöd för [cachelagring av HTTP-svar](api-management-howto-cache.md) med hjälp av resurs-URL som nyckel. Nyckeln kan ändras av begärandehuvuden med hjälp av `vary-by` egenskaperna. Detta är användbart för cachelagring av hela HTTP-svar (aka-representationer), men ibland är det praktiskt att bara cachelagra en del av en representation. De nya principerna [cache-lookup-Value](./api-management-caching-policies.md#GetFromCacheByKey) och [cache-Store-Value](./api-management-caching-policies.md#StoreToCacheByKey) ger möjlighet att lagra och hämta godtyckliga data typer från princip definitioner. Den här möjligheten lägger också till värde till den tidigare skapade principen för att [Skicka begär Anden](./api-management-advanced-policies.md#SendRequest) eftersom du nu kan cachelagra svar från externa tjänster.
+Azure API Management-tjänsten har inbyggt stöd för [cachelagring av HTTP-svar](api-management-howto-cache.md) med hjälp av resurs-URL som nyckel. Nyckeln kan ändras av begärandehuvuden med hjälp av `vary-by` egenskaperna. Detta är användbart för cachelagring av hela HTTP-svar (kallas även för representationer), men ibland är det praktiskt att bara cachelagra en del av en representation. De nya principerna [cache-lookup-Value](./api-management-caching-policies.md#GetFromCacheByKey) och [cache-Store-Value](./api-management-caching-policies.md#StoreToCacheByKey) ger möjlighet att lagra och hämta godtyckliga data typer från princip definitioner. Den här möjligheten lägger också till värde till den tidigare skapade principen för att [Skicka begär Anden](./api-management-advanced-policies.md#SendRequest) eftersom du nu kan cachelagra svar från externa tjänster.
 
 ## <a name="architecture"></a>Arkitektur
 API Management tjänsten använder en delad datacache per klient, så att du, när du skalar upp till flera enheter, fortfarande får åtkomst till samma cachelagrade data. Men när du arbetar med en distribution i flera regioner finns det oberoende cacheminnen i varje region. Det är viktigt att inte behandla cachen som ett data lager, där det är den enda källan till viss information. Om du har gjort det och senare beslutade att dra nytta av distributionen i flera regioner kan kunder med användare som reser förlora åtkomsten till dessa cachelagrade data.

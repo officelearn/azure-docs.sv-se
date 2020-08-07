@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/27/2020
-ms.openlocfilehash: 292f7b65528c13d23d4f2b72467538c43c6ad75e
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: d8c61c90456607d73fc0e8abc24709d901328ecf
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84172496"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829534"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-100-preview1"></a>Självstudie: skicka push-meddelanden till Android-enheter med Firebase SDK-version 1.0.0-preview1
 
@@ -71,7 +71,7 @@ Det första steget är att skapa ett projekt i Android Studio:
 
    2. Välj **Registrera app**.
 
-4. Välj **Hämta Google-Services. JSON**, spara filen i **app**   -mappen i projektet och välj sedan **Nästa**.
+4. Välj **hämta google-services.jspå**, spara filen i **app**   -mappen i projektet och välj sedan **Nästa**.
 
    :::image type="content" source="media/android-sdk/download-google-service-button.png" alt-text="Hämta Google-tjänst":::
 
@@ -79,7 +79,7 @@ Det första steget är att skapa ett projekt i Android Studio:
 
    :::image type="content" source="media/android-sdk/notification-hubs-firebase-console-project-settings.png" alt-text="Projekt inställningar":::
 
-6. Om du inte har hämtat **Google-Services. JSON-** filen till **app**   -mappen i ditt Android Studio-projekt kan du göra det på den här sidan.
+6. Om du inte har hämtat **google-services.js** filen till mappen **app**   i Android Studio-projektet kan du göra det på den här sidan.
 
 7. Växla till fliken **Cloud Messaging**   .
 
@@ -228,7 +228,7 @@ Notification Hub har nu kon figurer ATS för att fungera med Firebase Cloud Mess
    }
    ```
 
-3. I Android Studio väljer du **build**på Meny raden och väljer sedan **Återskapa projekt**   för att se till att det inte finns några fel i koden. Om du får ett fel meddelande om **ic_launcher**   -ikonen tar du bort följande instruktion från filen AndroidManifest. XML:
+3. I Android Studio väljer du **build**på Meny raden och väljer sedan **Återskapa projekt**   för att se till att det inte finns några fel i koden. Om du får ett fel meddelande om **ic_launcher**   -ikonen tar du bort följande-sats från AndroidManifest.xml-filen:
 
    ```xml
    android:icon="@mipmap/ic_launcher"
@@ -278,7 +278,7 @@ I den här självstudien använde du Firebase Cloud Messaging för att skicka me
 
 Följande är en lista över några andra självstudier för att skicka meddelanden:
 
-- Azure-Mobile Apps: ett exempel på hur du skickar meddelanden från en Mobile Apps Server del som är integrerad med Notification Hubs finns i [lägga till push-meddelanden till din iOS-app](/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
+- Azure-Mobile Apps: ett exempel på hur du skickar meddelanden från en Mobile Apps Server del som är integrerad med Notification Hubs finns i [lägga till push-meddelanden till din iOS-app](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
 
 - ASP.NET: [använd Notification Hubs för att skicka push-meddelanden till användare](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
 

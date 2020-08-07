@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: ad9eb95c9e3a21cd33a367cc864a4d791888afb9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3b68df1b3fc2f03d7659205fe03fdae09ecc3f7a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124582"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827371"
 ---
 ## <a name="configure-the-sample-project"></a>Konfigurera exempelprojektet
 
@@ -18,7 +18,7 @@ Konfigurera sedan ett exempel klient program som ska interagera med din Azure Di
 
 Navigera till den nedladdade filen på din dator och packa upp den.
 
-När du är i den zippade mappen navigerar du till _AdtSampleApp/_. Öppna _**AdtE2ESample. SLN**_ i Visual Studio 2019. 
+När du är i den zippade mappen navigerar du till _AdtSampleApp_. Öppna _**AdtE2ESample. SLN**_ i Visual Studio 2019. 
 
 I Visual Studio använder du fönstret *Solution Explorer* för att skapa en kopia av den _SampleClientApp > **serviceConfig.js. MALLFIL** _ (du kan använda de högra menyerna för att kopiera och klistra in). Byt namn på kopian *serviceConfig.jspå*. Detta fungerar som en för hands uppsättnings-JSON-fil med nödvändiga konfigurationsfiler för att köra projektet.
 
@@ -31,6 +31,8 @@ Välj *serviceConfig.jspå* filen för att öppna den i redigerings fönstret. �
   "instanceUrl": "https://<your-Azure-Digital-Twins-instance-hostName>"
 }
 ```
+
+
 
 Spara och stäng filen. 
 

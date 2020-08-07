@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
-ms.custom: seo-python-october2019, tracking-python
-ms.openlocfilehash: 3a40ff7fbf021833ff382ad2288eb263378c96c2
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.custom: seo-python-october2019, devx-track-python
+ms.openlocfilehash: 7fd82e83c97c933173f168b7d79d5b6d6a3243b9
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85512608"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873304"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Snabb start: skapa en data fabrik och pipeline med python
 
@@ -34,7 +34,7 @@ Azure Data Factory är en molnbaserad data integrerings tjänst som gör att du 
 
 Pipelines kan mata in data från olika data lager. Pipelines bearbetar eller transformerar data med hjälp av beräknings tjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning. Pipelines publicerar utdata till data lager som Azure SQL Data Warehouse för Business Intelligence-program (BI).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 

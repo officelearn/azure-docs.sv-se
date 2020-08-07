@@ -58,6 +58,10 @@
       href: remote-work-support.md
     - name: FQDN i nätverksregler
       href: fqdn-filtering-network-rules.md
+    - name: Begrepp
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
 - name: Anvisningar
   items:
     - name: Distribuera med hjälp av Azure PowerShell

@@ -8,13 +8,13 @@ ms.devlang: python
 ms.topic: sample
 ms.date: 05/20/2020
 ms.author: sngun
-ms.custom: tracking-python
-ms.openlocfilehash: c52651e15f648bede419501f516392acbc266e8a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.custom: devx-track-python
+ms.openlocfilehash: 6602d757e210837aadadd431b27bb7cf76f06715
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558013"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873355"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python-exempel
 
@@ -48,7 +48,7 @@ Du behöver också [Python SDK](sql-api-sdk-python.md).
 
 Exemplet [database_management. py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py) python visar hur du utför följande uppgifter. Information om Azure Cosmos-databaser innan du kör följande exempel finns i avsnittet [arbeta med databaser, behållare och objekt](databases-containers-items.md) konceptuell artikel.
 
-| Uppgift | API-referens |
+| Aktivitet | API-referens |
 | --- | --- |
 | [Skapa en databas](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L48-L56) |CosmosClient. create_database|
 | [Läsa en databas via ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L59-L67) |CosmosClient. get_database_client|
@@ -60,7 +60,7 @@ Exemplet [database_management. py](https://github.com/Azure/azure-sdk-for-python
 
 Exemplet [container_management. py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py) python visar hur du utför följande uppgifter. Mer information om Azure Cosmos-samlingarna innan du kör följande exempel finns i avsnittet [arbeta med databaser, behållare och objekt](databases-containers-items.md) konceptuell artikel.
 
-| Uppgift | API-referens |
+| Aktivitet | API-referens |
 | --- | --- |
 | [Fråga för en behållare](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L51-L66) |databas. query_containers |
 | [Skapa en container](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L69-L163) |databas. create_container |
@@ -73,7 +73,7 @@ Exemplet [container_management. py](https://github.com/Azure/azure-sdk-for-pytho
 
 Exemplet [item_management. py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py) python visar hur du utför följande uppgifter. Information om Azure Cosmos-dokumenten innan du kör följande exempel finns i avsnittet [arbeta med databaser, behållare och objekt](databases-containers-items.md) konceptuell artikel.
 
-| Uppgift | API-referens |
+| Aktivitet | API-referens |
 | --- | --- |
 | [Skapa objekt i en behållare](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L26-L38) |container. create_item |
 | [Läsa ett objekt efter dess ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L41-L49) |container. read_item |
@@ -88,7 +88,7 @@ Exemplet [item_management. py](https://github.com/Azure/azure-sdk-for-python/blo
 
 Exemplet [index_management. py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) python visar hur du utför följande uppgifter. Om du vill veta mer om indexering i Azure Cosmos DB innan du kör följande exempel, se [indexerings principer](index-policy.md), [indexerings typer](index-types.md)och [indexerings Sök vägar](index-paths.md) konceptuella artiklar.
 
-| Uppgift | API-referens |
+| Aktivitet | API-referens |
 | --- | --- |
 | [Uteslut ett enskilt objekt från indexering](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L145-L201) | documents.IndexingDirective.Exclude|
 | [Använd manuell indexering med objekt som har indexerats](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L204-L263) | dokument. IndexingDirective. include |

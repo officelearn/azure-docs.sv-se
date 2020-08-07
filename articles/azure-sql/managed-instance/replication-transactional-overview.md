@@ -12,17 +12,19 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: ee481067a3904c208061607b7109fcba0f3faaa7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ec1dfa3edea5364151c543889d974944a1a1cd5a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504075"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920134"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance"></a>Transaktionell replikering med Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Transaktionsreplikering är en funktion i Azure SQL-hanterad instans och SQL Server som gör att du kan replikera data från en tabell i en Azure SQL-hanterad instans eller en SQL Server instans till tabeller som placeras på fjärrdatabaser. Med den här funktionen kan du synkronisera flera tabeller i olika databaser.
+Transaktionsreplikering är en funktion i Azure SQL-hanterad instans och SQL Server som gör att du kan replikera data från en tabell i en Azure SQL-hanterad instans eller en SQL Server instans till tabeller som placeras på fjärrdatabaser. Med den här funktionen kan du synkronisera flera tabeller i olika databaser. 
+
+Transaktionell replikering är för närvarande en offentlig för hands version för SQL-hanterad instans. 
 
 ## <a name="overview"></a>Översikt
 
@@ -41,11 +43,11 @@ Nyckel komponenterna i Transaktionsreplikering är **utgivare**, **distributör*
 
 ![replikering med SQL Database](./media/replication-transactional-overview/replication-to-sql-database.png)
 
-| Roll | Azure SQL Database | Hanterad Azure SQL-instans |
+| Role | Azure SQL Database | Hanterad Azure SQL-instans |
 | :----| :------------- | :--------------- |
-| **Publisher** | Nej | Ja |
-| **Möjligheter** | Nej | Ja|
-| **Pull-prenumerant** | Nej | Ja|
+| **Publisher** | Inga | Ja |
+| **Möjligheter** | Inga | Ja|
+| **Pull-prenumerant** | Inga | Ja|
 | **Push-prenumerant**| Ja | Ja|
 | &nbsp; | &nbsp; | &nbsp; |
 
@@ -73,11 +75,11 @@ Det finns olika [typer av replikering](https://docs.microsoft.com/sql/relational
 | Replikering | Azure SQL Database | Hanterad Azure SQL-instans |
 | :----| :------------- | :--------------- |
 | [**Standard transaktion**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Ja (endast som prenumerant) | Ja |
-| [**Ögonblicks bild**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Ja (endast som prenumerant) | Ja|
-| [**Sammanfoga replikering**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Nej | Nej|
-| [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Nej | Nej|
-| [**Dubbelriktad**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Nej | Ja|
-| [**Uppdaterings bara prenumerationer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Nej | Nej|
+| [**Ögonblicksbild**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Ja (endast som prenumerant) | Ja|
+| [**Sammanfoga replikering**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Inga | Inga|
+| [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Inga | Inga|
+| [**Dubbelriktad**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Inga | Ja|
+| [**Uppdaterings bara prenumerationer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Inga | Inga|
 | &nbsp; | &nbsp; | &nbsp; |
 
 ### <a name="supportability-matrix"></a>Support mat ris

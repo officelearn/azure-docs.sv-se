@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: kopiera data till Azure Data Box Blob Storage via REST-API: er'
-description: 'Lär dig hur du kopierar data till Azure Data Box Heavy Blob Storage via REST-API: er'
+description: 'I den här självstudien får du lära dig hur du ansluter till Azure Data Box Blob Storage med hjälp av REST-API: er via http eller https och sedan kopierar data från Azure Data Box Heavy.'
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: a57dc6c57e10c82f9548490c4c2e98fd87f677af
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: f9134b57d8a3e76417283e5d863724651b4f6a6f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849426"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921171"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Självstudie: kopiera data till Azure Data Box Blob Storage via REST-API: er  
 
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 
 Innan du börjar ska du kontrollera att:
 
-1. Du har slutfört [självstudien: konfigurera Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
+1. Du har slutfört självstudien [: Konfigurera Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
 2. Du har fått din Data Box Heavy-enhet och orderstatusen på portalen är **Levererad**.
 3. Du har granskat [systemkraven för Data Box Blob-lagring](data-box-system-requirements-rest.md) och känner till versioner av API:er, SDK:er och verktyg som stöds.
 4. Du har åtkomst till en värddator som innehåller de data som du vill kopiera till Data Box Heavy. Värddatorn måste

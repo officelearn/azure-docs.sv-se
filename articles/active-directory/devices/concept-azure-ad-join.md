@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3839c7b87e5d07368727d037b585965dce91303a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 31374b851d90e43e7380024923c3ad025859b7a0
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058093"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923738"
 ---
 # <a name="azure-ad-joined-devices"></a>Azure AD-anslutna enheter
 
@@ -28,13 +28,13 @@ Azure AD Join är avsett för organisationer som bara vill vara molnbaserade ell
 | **Primär mål grupp** | Lämpligt för både molnbaserade och hybrid organisationer. |
 |   | Gäller för alla användare i en organisation |
 | **Äganderätt till enhet** | Organisation |
-| **Operativ system** | Alla Windows 10-enheter |
+| **Operativ system** | Alla Windows 10-enheter förutom Windows 10 Home |
 |   | [Windows Server 2019 Virtual Machines som körs i Azure](howto-vm-sign-in-azure-ad-windows.md) (Server Core stöds inte) |
 | **Etablering** | Självbetjäning: Windows OOBE eller inställningar |
 |   | Massregistrering |
 |   | Windows Autopilot |
 | **Alternativ för enhets inloggning** | Organisations konton med: |
-|   | Lösenord |
+|   | lösenordsinställning |
 |   | Windows Hello för företag |
 |   | FIDO 2.0-säkerhets nycklar (för hands version) |
 | **Enhetshantering** | Hantering av mobila enheter (exempel: Microsoft Intune) |
@@ -62,7 +62,7 @@ Azure AD Join är främst avsett för organisationer som inte har någon lokal W
 - Du vill hantera en grupp användare i Azure AD istället för Active Directory. Det här scenariot kan gälla, till exempel för säsongs arbetare, entreprenörer eller studenter.
 - Du vill erbjuda anslutningsfunktioner för medarbetare på filialkontor med begränsad lokal infrastruktur.
 
-Du kan konfigurera Azure AD-anslutna enheter för Windows 10-enheter.
+Du kan konfigurera Azure AD-anslutna enheter för alla Windows 10-enheter med undantag för Windows 10 Home.
 
 Målet med Azure AD-anslutna enheter är att förenkla:
 

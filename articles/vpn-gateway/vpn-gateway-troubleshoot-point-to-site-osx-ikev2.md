@@ -1,18 +1,18 @@
 ---
 title: 'Azure-VPN Gateway: Felsöka punkt-till-plats-anslutningar: Mac OS X-klienter'
-description: Steg för att felsöka P2S Mac OS X VPN-klientanslutningar
+description: 'Felsök punkt-till-plats-anslutning från Mac OS X. kontrol lera följande inställningar: server adress, fjärr-ID, lokalt ID, autentiseringsinställningar och OS-version.'
 services: vpn-gateway
 author: kumudD
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: 8dbed35659e409e5e3bcad74b378dba1f71b1f29
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ae7ca9ad69bc5bea20fc959f86e41439bd01cd5c
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86998501"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920763"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Felsöka punkt-till-plats-VPN-anslutningar från Mac OS X VPN-klienter
 

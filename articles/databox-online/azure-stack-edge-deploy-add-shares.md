@@ -1,6 +1,6 @@
 ---
 title: Självstudie för att överföra data till resurser med Azure Stack Edge | Microsoft Docs
-description: Lär dig hur du lägger till och ansluter till resurser på Azure Stack Edge-enhet.
+description: I den här självstudien får du lära dig hur du lägger till och ansluter till resurser på din Azure Stack Edge-enhet, så att Azure Stack Edge kan överföra data till Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e62d746be92583abead1c3edb93900068b123838
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: fc47497eeceff20e8357195226c2d44cea64fa88
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82571079"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926118"
 ---
 # <a name="tutorial-transfer-data-with-azure-stack-edge"></a>Självstudie: överföra data med Azure Stack Edge
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Ansluta till resursen
 
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du lägger till resurser i Azure Stack Edge, se till att:
 
@@ -138,7 +138,7 @@ Gör följande på Linux-klienten som är ansluten till din Azure Stack Edge-enh
    `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
     > [!IMPORTANT]
-    > Om `sync` du använder alternativet när du monterar resurser förbättras överförings takten för stora filer.
+    > `sync`Om du använder alternativet när du monterar resurser förbättras överförings takten för stora filer.
     > Innan du monterar filresurserna kontrollerar du om de kataloger som kommer att fungera som monteringspunkter på den lokala datorn redan har skapats. Dessa kataloger får inte innehålla några filer eller undermappar.
 
     I följande exempel visas hur du ansluter via NFS till en resurs på din Azure Stack Edge-enhet. Enhetens IP-adress är `10.10.10.60`. `mylinuxshare2`-resursen är monterad på den virtuella Ubuntu-datorn. Resursens monteringspunkt är `/home/databoxubuntuhost/edge`.

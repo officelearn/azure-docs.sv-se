@@ -17,12 +17,12 @@ ms.date: 11/04/2019
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30cc8be6ad9ebffcad58c5b2412ae15ff3f26fa5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38cffdcc9c99cdec2aeac8bf6fe1dc1575691c8d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113316"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924038"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Etablering av rapporter i Azure Active Directory portal (för hands version)
 
@@ -39,7 +39,7 @@ Rapporterings arkitekturen i Azure Active Directory (Azure AD) består av följa
 
 I det här avsnittet får du en översikt över etablerings rapporten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 * Användare i rollerna säkerhets administratör, säkerhets läsare, rapport läsare, program administratör och moln program administratör
@@ -94,9 +94,9 @@ Du kan filtrera dina etablerings data. Vissa filter värden fylls i dynamiskt ba
 I standardvyn kan du välja följande filter:
 
 - Identitet
-- Datum
+- Date
 - Status
-- Åtgärd
+- Action
 
 
 ![Filter](./media/concept-provisioning-logs/default-filter.png "Filter")
@@ -131,7 +131,7 @@ Med **Åtgärds** filtret kan du filtrera:
 - Uppdatera
 - Ta bort
 - Inaktivera
-- Övrigt
+- Annat
 
 Dessutom kan du också ange följande filter till filtren i standardvyn:
 
@@ -245,7 +245,7 @@ Använd tabellen nedan för att bättre förstå hur du löser fel som du kan hi
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Kontrol lera status för användar etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)
+* [Kontrol lera status för användar etablering](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)
 * [Problem med att konfigurera användar etablering i ett Azure AD Gallery-program](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
 
 

@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: Lägg till identitets leverantörer i dina appar'
 titleSuffix: Azure AD B2C
-description: Lär dig hur du lägger till identitets leverantörer i dina program i Azure Active Directory B2C att använda Azure Portal.
+description: Följ den här självstudien för att lära dig hur du lägger till identitets leverantörer i dina program i Azure Active Directory B2C att använda Azure Portal.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1bdb7637624a1da5270eb1cba49e9f66e5042ccf
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9f9abf9105da773ec5f8321c0f8e70e20516618c
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87482013"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922157"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Självstudie: Lägg till identitets leverantörer till dina program i Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ I den här artikeln kan du se hur du:
 
 Du använder vanligt vis bara en identitets leverantör i dina program, men du har möjlighet att lägga till fler. Den här självstudien visar hur du lägger till en Azure AD-identitetsprovider och en Facebook-identitetsprovider i ditt program. Att lägga till båda dessa identitets leverantörer i ditt program är valfritt. Du kan också lägga till andra identitets leverantörer, till exempel [Amazon](identity-provider-amazon.md), [GitHub](identity-provider-github.md), [Google](identity-provider-google.md), [LinkedIn](identity-provider-linkedin.md), [Microsoft](identity-provider-microsoft-account.md)eller [Twitter](identity-provider-twitter.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9a4e4a30c5a84baf5a78d0a90f7302e2b31a5946
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 1d7b29bbd508223888c6f205e25008c0b29fecea
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903535"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922942"
 ---
 # <a name="monitor-azure-file-sync"></a>Övervaka Azure File Sync
 
@@ -72,10 +72,12 @@ I följande tabell visas några exempel scenarier som du kan använda för att �
 
 | Scenario | Mått som ska användas för avisering |
 |-|-|
-| Server slut punktens hälso tillstånd i portalen = fel | Resultat av Sync-session |
+| Server slut punkt hälsa visar ett fel i portalen | Resultat av Sync-session |
 | Det går inte att synkronisera filer till en server eller moln slut punkt | Filer som inte synkroniseras |
 | Den registrerade servern kan inte kommunicera med tjänsten för synkronisering av lagring | Status för server online |
 | Återställnings storleken för moln skiktet har överskridit 500GiB per dag  | Återställnings storlek för moln nivå |
+
+Instruktioner för hur du skapar aviseringar för dessa scenarier finns i avsnittet med [aviserings exempel](#alert-examples) .
 
 ## <a name="storage-sync-service"></a>Storage Sync Service (Tjänst för synkronisering av lagring)
 
@@ -110,7 +112,7 @@ Om du vill visa registrerad Server hälsa, Server slut punkts hälsa och mått g
 
 ## <a name="windows-server"></a>Windows Server
 
-På Windows Server kan du Visa moln nivåer, registrerad Server och synkroniseringsstatus.
+På den Windows-Server där Azure File Sync-agenten har installerats kan du Visa moln nivåer, registrerad Server och synkroniseringsstatus.
 
 ### <a name="event-logs"></a>Händelseloggar
 
@@ -162,6 +164,100 @@ Följande prestanda räknare för Azure File Sync är tillgängliga i prestanda 
 | AFS Sync-Operations\Downloaded Sync-filer/SEK | Antal hämtade filer per sekund. |
 | AFS Sync-Operations\Uploaded Sync-filer/SEK | Antal överförda filer per sekund. |
 | AFS Sync-Operations\Total Sync File-åtgärder/SEK | Totalt antal filer som har synkroniserats (uppladdning och nedladdning). |
+
+## <a name="alert-examples"></a>Aviserings exempel
+Det här avsnittet innehåller några exempel på aviseringar för Azure File Sync.
+
+  > [!Note]  
+  > Om du skapar en avisering och det är för brus, justera tröskelvärdet och aviserings logiken.
+  
+### <a name="how-to-create-an-alert-if-the-server-endpoint-health-shows-an-error-in-the-portal"></a>Så här skapar du en avisering om Server slut punkt hälsan visar ett fel i portalen
+
+1. I **Azure Portal**navigerar du till respektive **synkroniseringstjänst för lagring**. 
+2. Gå till avsnittet **övervakning** och klicka på **aviseringar**. 
+3. Skapa en ny varnings regel genom att klicka på **+ ny varnings regel** . 
+4. Konfigurera villkor genom att klicka på **Välj villkor**.
+5. I bladet **Konfigurera signal logik** klickar du på **Sync-session resultat** under signal namn.  
+6. Välj följande dimensions konfiguration: 
+    - Dimensions namn: **Server slut punktens namn**  
+    - Operator**=** 
+    - Dimensions värden: **alla aktuella och framtida värden**  
+7. Navigera till **aviserings logiken** och Slutför följande: 
+    - Tröskelvärdet har angetts till **statisk** 
+    - Operator: **mindre än** 
+    - Sammansättnings typ: **högsta**  
+    - Tröskel värde: **1** 
+    - Utvärderas baserat på: agg regerings kornig het = **24 timmar** | Utvärderings frekvens = **varje timme** 
+    - Klicka på **Slutför.** 
+8. Klicka på **Välj åtgärds grupp** för att lägga till en åtgärds grupp (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
+9. Fyll i **aviserings informationen** som **aviserings regelns namn**, **Beskrivning** och **allvarlighets grad**.
+10. Klicka på **Skapa aviseringsregel**. 
+
+### <a name="how-to-create-an-alert-if-files-are-failing-to-sync-to-a-server-or-cloud-endpoint"></a>Så här skapar du en avisering om filer inte kan synkroniseras till en server eller moln slut punkt
+
+1. I **Azure Portal**navigerar du till respektive **synkroniseringstjänst för lagring**. 
+2. Gå till avsnittet **övervakning** och klicka på **aviseringar**. 
+3. Skapa en ny varnings regel genom att klicka på **+ ny varnings regel** . 
+4. Konfigurera villkor genom att klicka på **Välj villkor**.
+5. I bladet **Konfigurera signal logik** klickar du på **filer som inte synkroniseras** under signal namn.  
+6. Välj följande dimensions konfiguration: 
+     - Dimensions namn: **Server slut punktens namn**  
+     - Operator**=** 
+     - Dimensions värden: **alla aktuella och framtida värden**  
+7. Navigera till **aviserings logiken** och Slutför följande: 
+     - Tröskelvärdet har angetts till **statisk** 
+     - Operator: **större än** 
+     - Sammansättnings typ: **totalt**  
+     - Tröskelvärde: **100** 
+     - Utvärderas baserat på: agg regerings granularitet = **5 minuter** | Utvärderings frekvens = **var 5: e minut** 
+     - Klicka på **Slutför.** 
+8. Klicka på **Välj åtgärds grupp** för att lägga till en åtgärds grupp (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
+9. Fyll i **aviserings informationen** som **aviserings regelns namn**, **Beskrivning** och **allvarlighets grad**.
+10. Klicka på **Skapa aviseringsregel**. 
+
+### <a name="how-to-create-an-alert-if-a-registered-server-is-failing-to-communicate-with-the-storage-sync-service"></a>Så här skapar du en avisering om en registrerad Server inte kan kommunicera med lagrings tjänsten för synkronisering
+
+1. I **Azure Portal**navigerar du till respektive **synkroniseringstjänst för lagring**. 
+2. Gå till avsnittet **övervakning** och klicka på **aviseringar**. 
+3. Skapa en ny varnings regel genom att klicka på **+ ny varnings regel** . 
+4. Konfigurera villkor genom att klicka på **Välj villkor**.
+5. I bladet **Konfigurera signal logik** klickar du på **serverns onlinestatus** under signal namn.  
+6. Välj följande dimensions konfiguration: 
+     - Dimensions namn: **Server namn**  
+     - Operator**=** 
+     - Dimensions värden: **alla aktuella och framtida värden**  
+7. Navigera till **aviserings logiken** och Slutför följande: 
+     - Tröskelvärdet har angetts till **statisk** 
+     - Operator: **mindre än** 
+     - Sammansättnings typ: **högsta**  
+     - Tröskelvärde (i byte): **1** 
+     - Utvärderas baserat på: agg regerings kornig het = **1 timme** | Utvärderings frekvens = **var 30: e minut** 
+     - Klicka på **Slutför.** 
+8. Klicka på **Välj åtgärds grupp** för att lägga till en åtgärds grupp (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
+9. Fyll i **aviserings informationen** som **aviserings regelns namn**, **Beskrivning** och **allvarlighets grad**.
+10. Klicka på **Skapa aviseringsregel**. 
+
+### <a name="how-to-create-an-alert-if-the-cloud-tiering-recall-size-has-exceeded-500gib-in-a-day"></a>Så här skapar du en avisering om återställnings storleken för moln skiktet har överskridit 500GiB under en dag
+
+1. I **Azure Portal**navigerar du till respektive **synkroniseringstjänst för lagring**. 
+2. Gå till avsnittet **övervakning** och klicka på **aviseringar**. 
+3. Skapa en ny varnings regel genom att klicka på **+ ny varnings regel** . 
+4. Konfigurera villkor genom att klicka på **Välj villkor**.
+5. I bladet **Konfigurera signal logik** klickar du på **moln nivå åter kallelse storlek** under signal namn.  
+6. Välj följande dimensions konfiguration: 
+     - Dimensions namn: **Server namn**  
+     - Operator**=** 
+     - Dimensions värden: **alla aktuella och framtida värden**  
+7. Navigera till **aviserings logiken** och Slutför följande: 
+     - Tröskelvärdet har angetts till **statisk** 
+     - Operator: **större än** 
+     - Sammansättnings typ: **totalt**  
+     - Tröskelvärde (i byte): **67108864000** 
+     - Utvärderas baserat på: agg regerings kornig het = **24 timmar** | Utvärderings frekvens = **varje timme** 
+    - Klicka på **Slutför.** 
+8. Klicka på **Välj åtgärds grupp** för att lägga till en åtgärds grupp (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
+9. Fyll i **aviserings informationen** som **aviserings regelns namn**, **Beskrivning** och **allvarlighets grad**.
+10. Klicka på **Skapa aviseringsregel**. 
 
 ## <a name="next-steps"></a>Nästa steg
 - [Planera för distribution av Azure File Sync](storage-sync-files-planning.md)

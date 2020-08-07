@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ecd7b0bc34d532e7d748bc9468d3a155b9aa2ad2
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: f9e4fdb0fe8872c505bbbbb10da11d8fb74a22b3
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87901750"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927223"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
@@ -305,27 +305,27 @@ Lös problemet genom att justera register värdet **DirectoryCacheEntrySizeMax**
  
 Du kan till exempel ställa in den på 0x100000 och se om prestandan blir bättre.
 
-## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-aad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Fel vid AadDsTenantNotFound aktivering av AAD DS-autentisering (Azure Active Directory Domain Service) för Azure Files "Det gick inte att hitta aktiva klienter med klient-ID AAD-Tenant-ID"
+## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-azure-ad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Fel vid AadDsTenantNotFound aktivering av autentisering med Azure Active Directory Domain Service (Azure AD DS) för Azure Files "Det gick inte att hitta aktiva klienter med klient-ID AAD-Tenant-ID"
 
 ### <a name="cause"></a>Orsak
 
-Fel AadDsTenantNotFound inträffar när du försöker [aktivera Azure Active Directory Domain Services (Azure AD DS)-autentisering på Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) på ett lagrings konto där [AAD-domän tjänsten (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) inte skapas på AAD-klienten för den associerade prenumerationen.  
+Fel AadDsTenantNotFound uppstår när du försöker [aktivera Azure Active Directory Domain Services (Azure AD DS)-autentisering på Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) på ett lagrings konto där [Azure AD DS (Azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) inte skapas på Azure AD-klienten för den associerade prenumerationen.  
 
 ### <a name="solution"></a>Lösning
 
-Aktivera AAD DS på AAD-klienten för den prenumeration som ditt lagrings konto har distribuerats till. Du behöver administratörs behörighet för AAD-klienten för att skapa en hanterad domän. Om du inte är administratör för Azure AD-klienten kontaktar du administratören och följer steg-för-steg-vägledningen för att [aktivera Azure Active Directory Domain Services att använda Azure Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Aktivera Azure AD DS på Azure AD-klienten för den prenumeration som ditt lagrings konto har distribuerats till. Du behöver administratörs behörighet för Azure AD-klienten för att skapa en hanterad domän. Om du inte är administratör för Azure AD-klienten kontaktar du administratören och följer steg-för-steg-vägledningen för att [aktivera Azure Active Directory Domain Services att använda Azure Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
-## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-aad-ds-authentication-enabled"></a>Fel: system fel 1359 har uppstått. Ett internt fel som har tagits emot via SMB-åtkomst till fil resurser med autentisering med Azure Active Directory Domain Service (AAD DS) aktiverat
+## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-azure-ad-ds-authentication-enabled"></a>Fel: system fel 1359 har uppstått. Ett internt fel som har tagits emot via SMB-åtkomst till fil resurser med Azure Active Directory Domain Service (Azure AD DS)-autentisering aktive rad
 
 ### <a name="cause"></a>Orsak
 
-Fel: system fel 1359 har uppstått. Ett internt fel inträffar när du försöker ansluta till fil resursen med AAD DS-autentisering aktive rad mot en AAD DS med domän-DNS-namn som börjar med ett numeriskt tecken. Om ditt DNS-namn för AAD DS-domänen till exempel är "1domain", får du det här felet när du försöker montera fil resursen med AAD-autentiseringsuppgifter. 
+Fel: system fel 1359 har uppstått. Ett internt fel inträffar när du försöker ansluta till fil resursen med Azure AD DS-autentisering aktive rad mot ett Azure AD DS med domän-DNS-namn som börjar med ett numeriskt tecken. Om ditt DNS-namn för Azure AD DS-domänen till exempel är "1domain", får du det här felet när du försöker montera fil resursen med Azure AD-autentiseringsuppgifter. 
 
 ### <a name="solution"></a>Lösning
 
-För närvarande kan du överväga att omdistribuera AAD DS med ett nytt domän-DNS-namn som gäller för reglerna nedan:
+För närvarande kan du överväga att omdistribuera Azure AD DS med ett nytt domän-DNS-namn som gäller för reglerna nedan:
 - Namn får inte börja med ett numeriskt tecken.
 - Namn måste vara mellan 3 och 63 tecken.
 

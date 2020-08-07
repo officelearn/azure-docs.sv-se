@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 7c30ee2ef4a6ab0cd4241cac921a59eeadf5ce17
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 15b69e664ae9a01635afb44d7b6b7c24d7551ce9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81401052"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921426"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>Vad är en konversation med flera enheter (för hands version)?
 
@@ -60,7 +60,7 @@ Real tids avskrift och översättning kan hjälpa till att göra konversationer 
 Du kan också ange bild texter för presentationer och föreläsningar både på skärmen och på mål grupps medlemmarnas egna enheter. När mål gruppen har anslutits till en konversations kod kan de se avskriften på deras önskade språk på sin egen enhet.
 
 > [!NOTE]
-> Om du vill se ett exempel kan du titta på [presentations översättare](https://www.microsoft.com/translator/apps/presentation-translator/), ett PowerPoint-tillägg som använder konversations tjänsten för flera enheter. Du kan ladda ned den [här](https://www.microsoft.com/download/details.aspx?id=55024).
+> Om du vill se ett exempel kan du titta på [presentations översättare](https://www.microsoft.com/translator/apps/presentation-translator/), ett PowerPoint-tillägg som använder konversations tjänsten för flera enheter. Du kan ladda ned den [här](https://download.cnet.com/s/powerpoint-add-in/).
 
 ## <a name="how-it-works"></a>Så här fungerar det
 

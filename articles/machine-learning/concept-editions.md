@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: j-martens
 ms.author: jmartens
 ms.date: 06/11/2020
-ms.openlocfilehash: 173ff8b638c40773ca2c4bdac5021f2ea4b84549
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa754868677802b7d0000045f22090fbca62d9b6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555530"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927427"
 ---
 # <a name="enterprise-and-basic-editions-of-azure-machine-learning"></a>Enterprise-och Basic-versioner av Azure Machine Learning 
 
@@ -112,7 +112,7 @@ Lär dig hur du [uppgraderar en grundläggande arbets yta till Enterprise Editio
 
 | Funktioner     | Utgåva                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Stöd för [rollbaserad Access Control](how-to-assign-roles.md) (RBAC)                                           | Alla                     |
+| [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](how-to-assign-roles.md) support                                           | Alla                     |
 | Stöd för [Virtual Network (VNet)](how-to-enable-virtual-network.md) för beräkning                                         | Alla                     |
 | Beräknings slut punktens autentisering                                                    | Alla                     |
 | [Privat arbets ytans länk](how-to-configure-private-link.md)                                                            | Alla                     |

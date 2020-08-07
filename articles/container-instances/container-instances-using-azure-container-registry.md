@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8a82b0b70b7be8897d8f85cabea2ee21ce84d913
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0a997733e015a9f65b59ffc99cc137dae3d2d62a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169620"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927444"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Distribuera till Azure Container Instances från Azure Container Registry
 
 [Azure Container Registry](../container-registry/container-registry-intro.md) är en Azure-baserad, hanterad behållare register tjänst som används för att lagra privata Docker-behållar avbildningar. Den här artikeln beskriver hur du hämtar behållar avbildningar som lagras i ett Azure Container Registry när du distribuerar till Azure Container Instances. Ett rekommenderat sätt att konfigurera register åtkomst är att skapa ett Azure Active Directory tjänstens huvud namn och lösen ord och lagra inloggnings uppgifterna i ett Azure Key Vault.
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 
 **Azure Container Registry**: du behöver ett Azure Container Registry-och minst en behållar avbildning i registret – för att slutföra stegen i den här artikeln. Om du behöver ett register kan du läsa [skapa ett behållar register med hjälp av Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
 
@@ -25,7 +25,7 @@ ms.locfileid: "86169620"
 
 ## <a name="configure-registry-authentication"></a>Konfigurera registerautentisering
 
-I ett produktions scenario, där du ger åtkomst till "konsol löst" tjänster och program, rekommenderar vi att du konfigurerar register åtkomst med hjälp av ett [huvud namn för tjänsten](../container-registry/container-registry-auth-service-principal.md). Med ett huvud namn för tjänsten kan du tillhandahålla [rollbaserad åtkomst kontroll](../container-registry/container-registry-roles.md) till behållar avbildningarna. Du kan till exempel konfigurera ett huvudnamn för tjänsten med enbart hämtningsåtkomst till ett register.
+I ett produktions scenario, där du ger åtkomst till "konsol löst" tjänster och program, rekommenderar vi att du konfigurerar register åtkomst med hjälp av ett [huvud namn för tjänsten](../container-registry/container-registry-auth-service-principal.md). Med ett huvud namn för tjänsten kan du ge dina behållar avbildningar [Azure rollbaserad åtkomst kontroll (Azure RBAC)](../container-registry/container-registry-roles.md) . Du kan till exempel konfigurera ett huvudnamn för tjänsten med enbart hämtningsåtkomst till ett register.
 
 Azure Container Registry ger ytterligare [autentiseringsalternativ](../container-registry/container-registry-authentication.md).
 

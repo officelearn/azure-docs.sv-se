@@ -3,12 +3,12 @@ title: Säkerhetskopiera SQL Server-databaser till Azure
 description: Den här artikeln beskriver hur du säkerhetskopierar SQL Server till Azure. Den här artikeln beskriver även återställning av SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: df8543d7f083dd2bf9d2421b4808de5b60a51e30
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 28644065619771069e556c941d2c5a77626e1ba6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513786"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922905"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Om SQL Server-säkerhetskopiering i virtuella Azure-datorer
 
@@ -40,7 +40,7 @@ Den här lösningen utnyttjar SQL-inbyggda API: er för att säkerhetskopiera SQ
 Innan du börjar ska du kontrol lera följande:
 
 1. Se till att du har en SQL Server-instans som körs i Azure. Du kan [snabbt skapa en SQL Server-instans](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md) på Marketplace.
-2. Granska stöd för [funktions överväganden](sql-support-matrix.md#feature-consideration-and-limitations) och [scenariot](sql-support-matrix.md#scenario-support).
+2. Granska [funktions överväganden](sql-support-matrix.md#feature-considerations-and-limitations) och [scenario supporten](sql-support-matrix.md#scenario-support).
 3. [Granska vanliga frågor](faq-backup-sql-server.md) om det här scenariot.
 
 ## <a name="set-vm-permissions"></a>Ange VM-behörigheter

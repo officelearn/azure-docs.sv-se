@@ -1,6 +1,6 @@
 ---
 title: Konfigurera VPN-gatewayöverföring för peer-kopplade virtuella nätverk
-description: Konfigurera VPN-gatewayöverföring för peer-kopplade virtuella nätverk.
+description: Lär dig hur du konfigurerar Gateway-överföring för peering av virtuella nätverk, vilket sömlöst ansluter två virtuella Azure-nätverk.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: yushwang
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 05df14005bb52d67aed0f616854c7b6b55e6e35d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66380fb7c8b9e3d88fe1c814042b51323ff3160a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982900"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925897"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Konfigurera VPN-gatewayöverföring för peer-kopplade virtuella nätverk
 
@@ -57,7 +57,7 @@ Anvisningar finns i följande dokument:
 
 De konton som du använder för att skapa peer-kopplade virtuella nätverk måste ha nödvändiga roller eller behörigheter. Om du i exemplet nedan peer-kopplar två virtuella nätverk med namnen Hub-RM och Spoke-Classic måste ditt konto ha följande roller eller behörigheter för varje virtuellt nätverk:
     
-|Virtuellt nätverk|Distributionsmodell|Roll|Behörigheter|
+|Virtuellt nätverk|Distributionsmodell|Role|Behörigheter|
 |---|---|---|---|
 |Hub-RM|Resource Manager|[Nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 | |Klassisk|[Klassisk nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|E.t.|

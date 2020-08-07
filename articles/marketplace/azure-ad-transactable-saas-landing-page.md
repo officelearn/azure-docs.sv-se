@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 1ff366e24adb82a0d7d4660d4afaffa0bbca0b3c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 737e2fc682e630775b763dd2f22f904d895a120f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328479"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921274"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Bygg in landnings sidan för ditt SaaS-erbjudande i kommersiellt marknads plats
 
@@ -56,7 +56,7 @@ Kom igång genom att följa anvisningarna för att [Registrera ett nytt program]
 
 Om du tänker fråga Microsoft Graph-API: t [konfigurerar du ditt nya program för att få åtkomst till webb-API: er](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis). När du väljer API-behörigheter för det här programmet är standardvärdet för **User. Read** tillräckligt för att samla in grundläggande information om köparen för att göra onboarding-processen smidig och automatisk. Begär inte några API-behörigheter som är märkta **kräver administratörs medgivande**, eftersom detta hindrar alla användare som inte är administratörer att besöka din landnings sida.
 
-Om du behöver utökade behörigheter som en del av din onboarding-eller etablerings process bör du överväga att använda de [stegvisa medgivande](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis) funktionerna i Azure AD så att alla köpare som skickas från Marketplace kan interagera från början med landnings sidan.
+Om du behöver utökade behörigheter som en del av din onboarding-eller etablerings process bör du överväga att använda de [stegvisa medgivande](https://aka.ms/incremental-consent) funktionerna i Azure AD så att alla köpare som skickas från Marketplace kan interagera från början med landnings sidan.
 
 ## <a name="use-a-code-sample-as-a-starting-point"></a>Använda ett kod exempel som utgångs punkt
 
@@ -90,16 +90,7 @@ Om du vill autentisera ditt program med SaaS-API: er behöver du en åtkomsttoke
 
 ### <a name="call-the-resolve-endpoint"></a>Anropa matchnings slut punkten
 
-API: erna för SaaS genomförande implementerar den [lösa](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) slut punkten som kan anropas för att bekräfta giltigheten för Marketplace-token och för att returnera information om prenumerationen, inklusive de värden som visas i den här tabellen.
-
-| Värde | Beskrivning |
-| ------------ | ------------- |
-| Id | Unik identifierare (GUID) för den här prenumerationen. Du behöver det här värdet i framtida anrop till API: er för SaaS-utförande. |
-| subscriptionName | Namnet på prenumerationen som angavs när erbjudandet lades till i Partner Center. |
-| offerId | Identifierare för det angivna erbjudandet (anges när erbjudandet lades till). |
-| planId | Identifierare för den aktuella planen för erbjudandet (anges när erbjudandet lades till). |
-| Antal | Kvantitet inmatad av köparen under köpet. |
-|||
+API: erna för SaaS-utförande implementerar den [lösa](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) slut punkten som kan anropas för att bekräfta giltigheten hos Marketplace-token och för att returnera information om prenumerationen.
 
 ## <a name="read-information-from-claims-encoded-in-the-id-token"></a>Läsa information från anspråk som är kodade i ID-token
 

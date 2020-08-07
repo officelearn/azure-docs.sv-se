@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: zhchia
-ms.openlocfilehash: 520373fc6a05bcaada973273e3553f9da623c669
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74e37bda28bed3ecd2c842c4659bcff3cb86eb6a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77064314"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920695"
 ---
 # <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>Självstudie: Konfigurera StarLeaf för automatisk användar etablering
 
@@ -31,12 +31,12 @@ Syftet med den här självstudien är att demonstrera de steg som ska utföras i
 >
 > Den här kopplingen är för närvarande en för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
 * En Azure AD-klientorganisation.
-* [En StarLeaf-klient](https://www.starleaf.com/solutions/).
+* [En StarLeaf-klient](https://starleaf.com/).
 * Ett användar konto i StarLeaf med administratörs behörighet.
 
 ## <a name="assign-users-to-starleaf"></a>Tilldela användare till StarLeaf
@@ -58,7 +58,7 @@ Innan du konfigurerar StarLeaf för automatisk användar etablering med Azure AD
 
     ![StarLeaf Lägg till SCIM](media/starleaf-provisioning-tutorial/image00.png)
 
-2. Välj den **typ** som ska Microsoft Azure Active Directory. Ange ett lämpligt namn i **namn**. Klicka på **Använd**.
+2. Välj den **typ** som ska Microsoft Azure Active Directory. Ange ett lämpligt namn i **namn**. Klicka på **Godkänn**.
 
     ![StarLeaf Lägg till SCIM](media/starleaf-provisioning-tutorial/image01.png)
 

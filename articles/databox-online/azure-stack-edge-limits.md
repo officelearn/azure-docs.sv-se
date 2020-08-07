@@ -1,6 +1,6 @@
 ---
 title: Gräns för Azure Stack gräns | Microsoft Docs
-description: Beskriver system gränser och rekommenderade storlekar för Azure Stack Edge.
+description: Lär dig mer om gränser och rekommenderade storlekar när du distribuerar och använder Azure Stack Edge, inklusive tjänst gränser, enhets gränser och lagrings gränser.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 4f7800efb5d4382e8d73c819d950fdfafd10f296
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bbcf3f61121813b91cb951809992d10977a640c
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82569841"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922718"
 ---
 # <a name="azure-stack-edge-limits"></a>Gränser för Azure Stack Edge
 

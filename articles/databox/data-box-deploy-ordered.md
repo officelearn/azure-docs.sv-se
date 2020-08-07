@@ -1,6 +1,6 @@
 ---
 title: Självstudie för att beställa Azure Data Box | Microsoft Docs
-description: Lär dig om förutsättningarna för distribution och hur du beställer en Azure Data Box
+description: I den här självstudien får du lära dig mer om Azure Data Box, en hybrid lösning som gör att du kan importera lokala data till Azure och hur du beställer Azure Data Box.
 services: databox
 author: priestlg
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: v-grpr
-ms.openlocfilehash: fd841dee5f3a845d793255f5e13b416fb1add4f4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9f742af1a3c9ede4857e329697eb959a5a51dc95
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007427"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926373"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Självstudie: Beställa Azure Data Box
 
@@ -89,7 +89,7 @@ You have logged in. Now let us find all the subscriptions to which you have acce
 
 **Installera Azure Data Box CLI-tillägget**
 
-Innan du kan använda kommandona för Azure Data Box CLI måste du installera tillägget. Azure CLI-tillägg ger dig till gång till experiment-och för hands versions kommandon som ännu inte har levererats som en del av kärn-CLI. Mer information om tillägg finns i [använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview).
+Innan du kan använda kommandona för Azure Data Box CLI måste du installera tillägget. Med Azure CLI-tillägg får du tillgång till experimentella kommandon som inte finns med i standardversionen av CLI:t ännu. Mer information om tillägg finns i [använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
 Kör följande kommando för att installera tillägget för Azure Data Box: `az extension add --name databox` :
 
@@ -666,7 +666,7 @@ Om du vill avbryta en Azure Data Boxs ordning kan du köra [AZ data-Job Cancel](
    |resurs-grupp [obligatoriskt]| Namnet på resurs gruppen som är kopplad till den ordning som ska tas bort. En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. | myresourcegroup|
    |namn [obligatoriskt]| Namnet på den ordning som ska tas bort. | "mydataboxorder"|
    |Orsak [required]| Orsaken till att ordern annulleras. | "Jag har angett felaktig information och behövde avbryta beställningen." |
-   |yes| Begär inte bekräftelse. | --Ja (-y)| --Ja-y |
+   |ja| Begär inte bekräftelse. | --Ja (-y)| --Ja-y |
    |felsökning| Inkludera felsöknings information för utförlig loggning | --Felsök |
    |Hjälp| Visa hjälp information för det här kommandot. | --hjälp-h |
    |endast-show-Errors| Visa endast fel, ignorera varningar. | --endast-show-Errors |
@@ -703,7 +703,7 @@ Om du har avbrutit en Azure Data Box order kan du köra [AZ](https://docs.micros
    |resurs-grupp [obligatoriskt]| Namnet på resurs gruppen som är kopplad till den ordning som ska tas bort. En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. | myresourcegroup|
    |namn [obligatoriskt]| Namnet på den ordning som ska tas bort. | "mydataboxorder"|
    |prenumeration| Namnet eller ID (GUID) för din Azure-prenumeration. | "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" |
-   |yes| Begär inte bekräftelse. | --Ja (-y)| --Ja-y |
+   |ja| Begär inte bekräftelse. | --Ja (-y)| --Ja-y |
    |felsökning| Inkludera felsöknings information för utförlig loggning | --Felsök |
    |Hjälp| Visa hjälp information för det här kommandot. | --hjälp-h |
    |endast-show-Errors| Visa endast fel, ignorera varningar. | --endast-show-Errors |

@@ -4,12 +4,12 @@ description: Innehåller en sammanfattning av stödinställningar och begränsni
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: d75e7053bfff14fbcb6deeae48c48f09e3e9ac0d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f2f3d26f74c6227ad257c188d4088fd41fca7075
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531888"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922324"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Support mat ris för Azure Backup
 
@@ -32,8 +32,8 @@ I följande tabell beskrivs funktionerna i Recovery Services-valv:
 **Funktion** | **Information**
 --- | ---
 **Valv i prenumerationen** | Upp till 500 Recovery Services-valv i en enstaka prenumeration.
-**Datorer i ett valv** | Upp till 1 000 virtuella Azure-datorer i ett enda valv.<br/><br/> Upp till 50 MABS-servrar kan registreras i ett enda valv.
-**Datakällor** | Den maximala storleken för en enskild [data källa](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) är 54 400 GB. Den här begränsningen gäller inte för virtuella Azure-säkerhetskopieringar. Inga gränser gäller för den totala mängden data som du kan säkerhetskopiera till valvet.
+**Datorer i ett valv** | Upp till 2000 data källor över alla arbets belastningar (som virtuella Azure-datorer, SQL Server VM, MABS-servrar och så vidare) kan skyddas i ett enda valv.<br><br>Upp till 1 000 virtuella Azure-datorer i ett enda valv.<br/><br/> Upp till 50 MABS-servrar kan registreras i ett enda valv.
+**Datakällor** | Den maximala storleken för en enskild [data källa](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) är 54 400 GB. Den här gränsen gäller inte för virtuella Azure-säkerhetskopieringar. Inga gränser gäller för den totala mängden data som du kan säkerhetskopiera till valvet.
 **Säkerhetskopieringar till valv** | **Virtuella Azure-datorer:** En gång om dagen.<br/><br/>**Datorer som skyddas av DPM/Mabs:** Två gånger om dagen.<br/><br/> **Datorer som har säkerhetskopierats direkt med hjälp av mars-agenten:** Tre gånger per dag.
 **Säkerhets kopieringar mellan valv** | Säkerhets kopiering är inom en region.<br/><br/> Du behöver ett valv i varje Azure-region som innehåller de virtuella datorer som du vill säkerhetskopiera. Du kan inte säkerhetskopiera till en annan region.
 **Flytta valv** | Du kan [Flytta valv](./backup-azure-move-recovery-services-vault.md) mellan prenumerationer eller mellan resurs grupper i samma prenumeration. Det finns dock inte stöd för att flytta valv mellan regioner.
@@ -113,10 +113,10 @@ Azure Backup stöder kryptering för överförings-och rest-data.
 
 **Dator** | **Under överföring** | **I vila**
 --- | --- | ---
-**Lokala Windows-datorer utan DPM/MABS** | ![Ja][green] | ![Yes][green]
-**Virtuella Azure-datorer** | ![Ja][green] | ![Yes][green]
-**Lokala Windows-datorer eller virtuella Azure-datorer med DPM** | ![Ja][green] | ![Yes][green]
-**Lokala Windows-datorer eller virtuella Azure-datorer med MABS** | ![Ja][green] | ![Yes][green]
+**Lokala Windows-datorer utan DPM/MABS** | ![Ja][green] | ![Ja][green]
+**Virtuella Azure-datorer** | ![Ja][green] | ![Ja][green]
+**Lokala Windows-datorer eller virtuella Azure-datorer med DPM** | ![Ja][green] | ![Ja][green]
+**Lokala Windows-datorer eller virtuella Azure-datorer med MABS** | ![Ja][green] | ![Ja][green]
 
 ## <a name="compression-support"></a>Stöd för komprimering
 
@@ -129,11 +129,11 @@ Säkerhets kopiering stöder komprimering av säkerhets kopierings trafik, som s
 --- | --- | ---
 **Direkt säkerhets kopiering av lokala Windows-datorer** | Ej tillämpligt | ![Ja][green]
 **Säkerhets kopiering av virtuella Azure-datorer med hjälp av VM-tillägg** | NA | NA
-**Säkerhetskopiera lokalt/Azure-datorer med hjälp av MABS/DPM** | ![Ja][green] | ![Yes][green]
+**Säkerhetskopiera lokalt/Azure-datorer med hjälp av MABS/DPM** | ![Ja][green] | ![Ja][green]
 
 ## <a name="retention-limits"></a>Gräns för kvarhållning
 
-**Inställning** | **Gränser**
+**Inställning** | **Begränsningar**
 --- | ---
 **Högsta antal återställnings punkter per skyddad instans (dator eller arbets belastning)** | 9 999
 **Maximal förfallotid för en återställningspunkt** | Obegränsad
@@ -150,9 +150,9 @@ Azure Backup har lagt till funktionen för återställning av kors region för a
 | Typ av säkerhets kopierings hantering | Stöds                                                    | Regioner som stöds |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Ja.   Stöds för krypterade virtuella datorer och virtuella datorer med mindre än 4 TB diskar | Alla offentliga Azure-regioner.  |
-| MARS-agent/lokalt | No                                                           | Ej tillämpligt               |
-| SQL-/SAP HANA          | No                                                           | Ej tillämpligt               |
-| DATABASSERVER                    | No                                                           | Ej tillämpligt               |
+| MARS-agent/lokalt | Inga                                                           | E.t.               |
+| SQL-/SAP HANA          | Inga                                                           | E.t.               |
+| DATABASSERVER                    | Inga                                                           | E.t.               |
 
 ## <a name="next-steps"></a>Nästa steg
 

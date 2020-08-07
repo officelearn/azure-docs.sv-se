@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: kopiera till Blob Storage via REST-API: er'
 titleSuffix: Azure Data Box
-description: Lär dig hur du kopierar data till en Azure Data Box Blob-lagring via REST-API:er
+description: 'I den här självstudien får du lära dig hur du ansluter till Azure Data Box Blob Storage med hjälp av REST-API: er via http eller https och sedan kopierar data från Azure Data Box.'
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 50c4daabe3dc980937f52db7e56cd778890b84d8
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 71f966cd62ffd2c735259dcfa98b9b97f87d9a19
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960696"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926203"
 ---
 # <a name="tutorial-use-rest-apis-to-copy-data-to-azure-data-box-blob-storage"></a>Självstudie: Använd REST API: er för att kopiera data till Azure Data Box Blob Storage  
 
@@ -24,7 +24,7 @@ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
-> * Förutsättningar
+> * Krav
 > * Ansluta till Data Box Blob-lagring via *http* eller *https*
 > * Kopiera data till Data Box
 

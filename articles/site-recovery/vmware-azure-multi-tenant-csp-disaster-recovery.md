@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 1b77eb136b8415e5a6e4596dc0b192ea426f378f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7cf0d35ae610c3f9fe477267e28e5449459148b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292838"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924588"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Konfigurera VMware haveri beredskap i en miljö med flera organisationer med Cloud Solution Provider (CSP)-programmet
 
@@ -98,7 +98,7 @@ Det finns tre större modeller med flera klienter:
 Genom att konfigurera klient prenumerationer enligt beskrivningen i den här artikeln kan du snabbt börja aktivera kunder i alla relevanta modeller för flera klienter. Du kan lära dig mer om olika modeller för flera klienter och aktivera lokala åtkomst kontroller [här](vmware-azure-multi-tenant-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [rollbaserad åtkomst kontroll](site-recovery-role-based-linked-access-control.md) för att hantera Azure Site Recovery-distributioner.
+- Lär dig mer om [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](site-recovery-role-based-linked-access-control.md) för att hantera Azure Site Recovery-distributioner.
 - Lär dig mer om VMware till Azure- [replikerings arkitektur](vmware-azure-architecture.md).
 - [Gå igenom självstudien](vmware-azure-tutorial.md) för att replikera virtuella VMware-datorer till Azure.
 Lär dig mer om [miljöer med flera klienter](vmware-azure-multi-tenant-overview.md) för att replikera virtuella VMware-datorer till Azure.

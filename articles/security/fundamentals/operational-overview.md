@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: f09d2604a1dbf06caebb604ba2d63a09560fd33b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f3ec284de3d43e75bd0832b1d98bb9d319a7ca0e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835926"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925319"
 ---
 # <a name="azure-operational-security-overview"></a>Översikt över Azures drift säkerhet
 
@@ -68,7 +68,7 @@ Azure AD innehåller också en fullständig uppsättning [funktioner för identi
 - [Lösenordshantering via självbetjäning](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [Grupp hantering via självbetjäning](/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [Hantering av privilegierade konton](/azure/active-directory/active-directory-privileged-identity-management-configure)
-- [Rollbaserad åtkomstkontroll](/azure/role-based-access-control/overview)
+- [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](/azure/role-based-access-control/overview)
 - [Övervakning av program användning](/azure/active-directory/connect-health/active-directory-aadconnect-health)
 - [Omfattande granskning](/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [Säkerhetsövervakning och aviseringar](/azure/operations-management-suite/oms-security-responding-alerts)

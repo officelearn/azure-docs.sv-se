@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: d99a5feb344f970b10925b596726520b9dba9464
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 5ca6e7fa6e02ff6c5e49185c2fb02f9bc5a16d9c
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134018"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927308"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Flytta virtuella Azure-datorer mellan Azure Government-regioner och offentliga regioner 
 
@@ -53,7 +53,7 @@ Den här självstudien visar hur du flyttar virtuella Azure-datorer mellan Azure
 Se till att ditt Azure-konto har behörighet att replikera virtuella datorer till Azure.
 
 - Granska de [behörigheter](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) som du behöver för att replikera datorer till Azure.
-- Verifiera och ändra [rollbaserade åtkomst](../role-based-access-control/role-assignments-portal.md) behörigheter. 
+- Verifiera och ändra [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) -behörigheter. 
 
 ### <a name="set-up-an-azure-network"></a>Skapa ett Azure-nätverk
 

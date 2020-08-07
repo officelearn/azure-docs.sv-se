@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: ''
-ms.openlocfilehash: 4446eef481e8370f7457311f6eae6ce40f9e6727
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ab869fc8577d4d1934be96404ded5a2051237bbf
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539269"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922736"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor"></a>Exempel på Resource Manager-mallar för Azure Monitor
 
@@ -49,7 +49,7 @@ az deployment group create \
 - Aviseringar
   - [Logg varnings regler](resource-manager-alerts-log.md) – aviseringar från logg frågor och Azure aktivitets logg.
   - [Mått varnings regler](resource-manager-alerts-metric.md) – aviseringar från mått som använder olika typer av logik.
-- Application Insights – kommer snart.
+- [Application Insights](resource-manager-app-resource.md)
 - [Diagnostikinställningar](resource-manager-diagnostic-settings.md) – skapa diagnostiska inställningar för att vidarebefordra loggar och mått från olika resurs typer.
 - [Logg frågor](resource-manager-log-queries.md) – skapa sparade logg frågor på en Log Analytics-arbetsyta.
 - [Log Analytics arbets yta](resource-manager-workspace.md) – skapa Log Analytics arbets yta och konfigurera insamling av olika data källor från Log Analytics agenten.

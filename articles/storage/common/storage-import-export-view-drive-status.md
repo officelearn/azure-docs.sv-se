@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c75c9a2d0b491cc00d0fc58054b9bb1e58a364b8
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: bf44b24b9222072bf5f1493b36b0dfcca24b5389
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905728"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923619"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Visa status för Import/Export-jobb i Azure
 
@@ -73,7 +73,7 @@ Hur lång tid det tar att bearbeta ett import/export-jobb varierar beroende på 
 -  Jobbtyp och storlek för de data som kopieras
 -  Antal diskar i ett jobb. 
 
-Import/export-tjänsten har inget service avtal men tjänsten strävar efter att slutföra kopian i 7 till 10 dagar efter att diskarna har tagits emot. Förutom statusen som publicerats på Azure-portalen kan REST-API: er användas för att spåra jobb förloppet. Parametern procent klart i API-anropet [list Jobs](/previous-versions/azure/dn529083(v=azure.100)) innehåller procent kopierings förloppet.
+Import/export-tjänsten har inget service avtal men tjänsten strävar efter att slutföra kopian i 7 till 10 dagar efter att diskarna har tagits emot. Förutom statusen som publicerats på Azure Portal kan REST-API: er användas för att spåra jobb förloppet. Parametern procent klart i API-anropet [list Jobs](/previous-versions/azure/dn529083(v=azure.100)) innehåller procent kopierings förloppet.
 
 
 ## <a name="next-steps"></a>Nästa steg

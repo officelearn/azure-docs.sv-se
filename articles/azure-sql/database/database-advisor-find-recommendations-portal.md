@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 27fcbcec07012dc34c846f316fccf788a0d25329
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72f0d361f69232894df3a9131d173411614a2055
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84041320"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921222"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Hitta och Använd prestanda rekommendationer
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Du kan använda Azure Portal för att hitta prestanda rekommendationer som kan o
 
 ## <a name="viewing-recommendations"></a>Visa rekommendationer
 
-Om du vill visa och tillämpa prestanda rekommendationer behöver du rätt [rollbaserad åtkomst kontroll](../../role-based-access-control/overview.md) behörighet i Azure. **Reader**Du måste ha behörighet för **SQL DB-deltagare** för att kunna visa rekommendationer och **ägare**, behörigheter för **SQL DB-deltagare** krävs för att utföra åtgärder. Skapa eller släpp index och Avbryt skapandet av index.
+Om du vill visa och tillämpa prestanda rekommendationer behöver du rätt Azure RBAC-behörighet [(rollbaserad åtkomst kontroll)](../../role-based-access-control/overview.md) i Azure. **Reader**Du måste ha behörighet för **SQL DB-deltagare** för att kunna visa rekommendationer och **ägare**, behörigheter för **SQL DB-deltagare** krävs för att utföra åtgärder. Skapa eller släpp index och Avbryt skapandet av index.
 
 Använd följande steg för att hitta prestanda rekommendationer på Azure Portal:
 
@@ -172,4 +172,4 @@ Azure SQL Database ger rekommendationer för att förbättra databasens prestand
 
 * [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md)
+* [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md)

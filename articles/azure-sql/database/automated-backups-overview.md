@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 08/04/2020
-ms.openlocfilehash: 205e99303cd53adf6aa952ccd65441b72471f3a2
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 3e37d907d00acd3e2b368700b70b4e268bad3ec9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810296"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921953"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Automatiserade säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 
@@ -111,7 +111,7 @@ Lagrings förbrukningen för säkerhets kopiering upp till den maximala data sto
 
 - Minska [lagrings perioden för säkerhets kopior](#change-the-pitr-backup-retention-period-by-using-the-azure-portal) till det minimum som krävs för dina behov.
 - Undvik att utföra stora Skriv åtgärder, till exempel indexera återskapare, oftare än du behöver.
-- För stora data inläsnings åtgärder bör du överväga att använda [grupperade columnstore-index](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes) och följande relaterade [metod tips](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)och/eller minska antalet icke-grupperade index.
+- För stora data inläsnings åtgärder bör du överväga att använda [grupperade columnstore-index](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) och följande relaterade [metod tips](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)och/eller minska antalet icke-grupperade index.
 - På den Generell användning tjänst nivån är den allokerade data lagringen billigare än priset för lagring av säkerhets kopior. Om du har kontinuerligt höga kostnader för säkerhets kopierings lagring kan du överväga att öka lagrings utrymmet för säkerhets kopieringen.
 - Använd TempDB i stället för permanenta tabeller i program logiken för att lagra tillfälliga resultat och/eller tillfälliga data.
 - Använd lokalt redundant lagring av säkerhets kopior när det är möjligt (till exempel dev/test-miljöer)

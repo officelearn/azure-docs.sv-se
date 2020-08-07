@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 670a38b48ee89930078078dc4a8ac1a2876648e2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ec5c98d90facf9458769f235880f17d14708e425
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503743"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923663"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Skala Azure Cosmos DB genom att använda Azure Functions timer-utlösare
 
@@ -23,7 +23,7 @@ Du kan ställa in data flödet via [Azure Resource Manager mallar](resource-mana
 
 För att förenkla processen att skala Azure Cosmos DB enligt ett schema har vi skapat ett exempel projekt med namnet [Azure Cosmos data flöde Scheduler](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler). Det här projektet är en Azure Functions-app med två timer-utlösare – "ScaleUpTrigger" och "ScaleDownTrigger". Utlösarna kör ett PowerShell-skript som anger data flödet för varje resurs som definieras i `resources.json` filen i varje utlösare. ScaleUpTrigger har kon figurer ATS för att köras kl. 8, UTC och ScaleDownTrigger har kon figurer ATS att köras på 6 PM UTC och dessa tider kan enkelt uppdateras i `function.json` filen för varje utlösare.
 
-Du kan klona det här projektet lokalt, ändra det för att ange Azure Cosmos DB resurser som ska skalas upp och ned och schemat ska köras. Senare kan du distribuera den i en Azure-prenumeration och skydda den med hjälp av hanterad tjänst identitet med RBAC-behörighet ( [Role-based Access Control](role-based-access-control.md) ) med rollen "Azure Cosmos DB operatör" för att ange data flöde för dina Azure Cosmos-konton.
+Du kan klona det här projektet lokalt, ändra det för att ange Azure Cosmos DB resurser som ska skalas upp och ned och schemat ska köras. Senare kan du distribuera den i en Azure-prenumeration och skydda den med hjälp av hanterad tjänst identitet med [Azures rollbaserade åtkomst kontroll (Azure RBAC)](role-based-access-control.md) -behörigheter med rollen "Azure Cosmos DB operatör" för att ange data flöde för dina Azure Cosmos-konton.
 
 ## <a name="next-steps"></a>Efterföljande moment
 

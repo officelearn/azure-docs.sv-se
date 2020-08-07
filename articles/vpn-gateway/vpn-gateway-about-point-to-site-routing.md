@@ -1,18 +1,18 @@
 ---
 title: 'Azure VPN Gateway: om routning av P2S'
-description: Den här artikeln hjälper dig att förstå hur punkt-till-plats-VPN-routning beter sig.
+description: Lär dig mer om beteendet för Azure Point-to-Site VPN-routning, som är beroende av klientens operativ system, protokollet som används för anslutningen och hur de virtuella nätverken ansluter.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: kumud
-ms.openlocfilehash: 536e1e57af16a87fba85323e9448bfb904d56384
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8ee75f80ea2e1ee379561b743c2b4add4ef1d7b9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027877"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926917"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Om VPN-routning från punkt till plats
 

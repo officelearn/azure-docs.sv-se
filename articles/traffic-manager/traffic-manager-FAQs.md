@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: rohink
-ms.openlocfilehash: 28453af7eb38f4195774d70c5960eacc8467dedd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a3293cac15636ddf29df24cc1eff471aee25ec1
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84417012"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926543"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Traffic Manager
 
@@ -306,7 +306,7 @@ Trafikvy prissättning baseras på antalet data punkter som används för att sk
 
 Det går inte att använda slut punkter från flera prenumerationer med Azure Web Apps. Azure Web Apps kräver att alla anpassade domän namn som används med Web Apps bara används i en enda prenumeration. Det går inte att använda Web Apps från flera prenumerationer med samma domän namn.
 
-För andra slut punkts typer är det möjligt att använda Traffic Manager med slut punkter från fler än en prenumeration. I Resource Manager kan du lägga till slut punkter från vilken prenumeration som helst i Traffic Manager, så länge som den person som konfigurerar Traffic Managers profilen har Läs behörighet till slut punkten. Dessa behörigheter kan beviljas med hjälp av [Azure Resource Manager rollbaserad åtkomst kontroll (RBAC)](../role-based-access-control/role-assignments-portal.md). Slut punkter från andra prenumerationer kan läggas till med [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) eller [Azure CLI](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
+För andra slut punkts typer är det möjligt att använda Traffic Manager med slut punkter från fler än en prenumeration. I Resource Manager kan du lägga till slut punkter från vilken prenumeration som helst i Traffic Manager, så länge som den person som konfigurerar Traffic Managers profilen har Läs behörighet till slut punkten. Dessa behörigheter kan beviljas med hjälp av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Slut punkter från andra prenumerationer kan läggas till med [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) eller [Azure CLI](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>Kan jag använda Traffic Manager med moln tjänstens mellanlagrings platser?
 
@@ -497,7 +497,7 @@ Den överordnade profilen utför inte hälso kontroller på den underordnade dir
 
 I följande tabell beskrivs beteendet för Traffic Manager hälso kontroller för en kapslad slut punkt.
 
-| Status för Övervakare för underordnad profil | Status för övervakaren för överordnad slut punkt | Obs! |
+| Status för Övervakare för underordnad profil | Status för övervakaren för överordnad slut punkt | Anteckningar |
 | --- | --- | --- |
 | Inaktiverat Den underordnade profilen har inaktiverats. |Stoppad |Status för överordnad slut punkt har stoppats, inte inaktiverats. Inaktiverat tillstånd är reserverat för att indikera att du har inaktiverat slut punkten i den överordnade profilen. |
 | Försämrad. Minst en underordnad profil slut punkt är i ett degraderat tillstånd. |Online: antalet Online-slutpunkter i den underordnade profilen är minst värdet för MinChildEndpoints.<BR>CheckingEndpoint: antalet online-och CheckingEndpoint-slutpunkter i den underordnade profilen är minst värdet för MinChildEndpoints.<BR>Degraderad: annars. |Trafiken dirigeras till en slut punkt med status CheckingEndpoint. Om MinChildEndpoints har angetts för hög försämras slut punkten alltid. |

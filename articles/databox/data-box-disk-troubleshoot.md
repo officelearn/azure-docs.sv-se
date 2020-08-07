@@ -1,6 +1,6 @@
 ---
 title: Felsökning av Azure Data Box-disk | Microsoft Docs
-description: Beskriver hur du felsöker problem i Azure Data Box-disk.
+description: Lär dig hur du använder loggar för att felsöka verifierings problem som kan uppstå när du distribuerar Azure Data Box Disk.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 35b4b206de9c16d66387135b0ca75b6aaeb7c744
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c1b38c4021660b9f59098f8442d16bfd0ecc582
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564997"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925550"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Använd loggar för att felsöka validerings problem i Azure Data Box Disk
 

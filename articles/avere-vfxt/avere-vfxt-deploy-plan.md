@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 6acc1ffd197ddba4290ff7c0751b259d98a70927
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 995ac2776f4197dac1c2ef73fd209833474be5a5
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80754388"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922684"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planera för ditt Avere vFXT-system
 
@@ -166,7 +166,7 @@ När du skapar klustret kan du välja om du vill skapa en offentlig IP-adress p�
 
 ## <a name="vm-access-roles"></a>Åtkomst roller för virtuella datorer
 
-Azure använder [rollbaserad åtkomst kontroll](../role-based-access-control/index.yml) (RBAC) för att auktorisera de virtuella datorerna i klustret för att utföra vissa uppgifter. Till exempel behöver kluster styrenheten auktorisering för att skapa och konfigurera klusternodens virtuella datorer. Klusternoder måste kunna tilldela eller omtilldela IP-adresser till andra klusternoder.
+Azure använder [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/index.yml) för att auktorisera de virtuella datorerna i klustret för att utföra vissa uppgifter. Till exempel behöver kluster styrenheten auktorisering för att skapa och konfigurera klusternodens virtuella datorer. Klusternoder måste kunna tilldela eller omtilldela IP-adresser till andra klusternoder.
 
 Två inbyggda Azure-roller används för de AVERT vFXT virtuella datorerna:
 

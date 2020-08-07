@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 16cba1896a9e9e4038091769fb78ca0c0469710e
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 799713c237d8a528b7e458da1e26695484ca1080
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448835"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923177"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Självstudie: Konfigurera iProva för automatisk användar etablering
 
@@ -38,7 +38,7 @@ Syftet med den här självstudien är att demonstrera de steg som ska utföras i
 > * Etablera grupper och grupp medlemskap i iProva
 > * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/iprova-tutorial) till iProva (rekommenderas)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -124,7 +124,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
    |---|---|
    |aktiv|Boolesk|
    |displayName|Sträng|
-   |title|Sträng|
+   |rubrik|Sträng|
    |e-postmeddelanden [typ EQ "Work"]. värde|Sträng|
    |preferredLanguage|Sträng|
    |userName|Sträng|
@@ -182,7 +182,7 @@ Den här åtgärden startar den första synkroniseringen av alla användare och/
 När du har konfigurerat etableringen använder du följande resurser för att övervaka distributionen:
 
 1. Använd [etablerings loggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att avgöra vilka användare som har etablerats eller har misslyckats
-2. Kontrol lera [förlopps indikatorn](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etablerings cykeln och hur nära den är att slutföras
+2. Kontrol lera [förlopps indikatorn](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etablerings cykeln och hur nära den är att slutföras
 3. Om etablerings konfigurationen verkar vara i ett ohälsosamt tillstånd, kommer programmet att placeras i karantän. Lär dig mer om karantän tillstånd [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="change-log"></a>Ändringslogg

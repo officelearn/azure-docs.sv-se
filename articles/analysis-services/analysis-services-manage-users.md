@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b1f848b5e6fa053d81754d441fd4845c1a24ee5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15ae1ca6902c27732812a591f492430150c84ecb
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361497"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926186"
 ---
 # <a name="authentication-and-user-permissions"></a>Autentisering och användarbehörigheter
 
@@ -68,7 +68,7 @@ Excel-användare kan ansluta till en server med hjälp av ett Windows-konto, ett
 
 ![Åtkomst kontroll i Azure Portal](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-Roller på den här nivån gäller för användare eller konton som behöver utföra uppgifter som kan utföras i portalen eller med hjälp av Azure Resource Manager mallar. Mer information finns i [rollbaserad Access Control](../role-based-access-control/overview.md). 
+Roller på den här nivån gäller för användare eller konton som behöver utföra uppgifter som kan utföras i portalen eller med hjälp av Azure Resource Manager mallar. Läs mer i [Azure rollbaserad åtkomst kontroll (Azure RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="database-roles"></a>Databas roller
 
@@ -81,4 +81,4 @@ Roller på den här nivån gäller för användare eller konton som behöver utf
 [Hantera åtkomst till resurser med Azure Active Directory grupper](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Hantera databas roller och användare](analysis-services-database-users.md)  
 [Hantera serveradministratörer](analysis-services-server-admins.md)  
-[Rollbaserad Access Control](../role-based-access-control/overview.md)  
+[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md)  

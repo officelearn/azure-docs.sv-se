@@ -1,6 +1,6 @@
 ---
 title: Returnera din Azure Stack Edge-enhet | Microsoft Docs
-description: Beskriver hur du returnerar Azure Stack Edge-enheten.
+description: Lär dig hur du rensar data och returnerar Azure Stack Edge-enheten och sedan tar bort resursen som är kopplad till enheten.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 018fe9b97b343bc07cf3c04a1d0e84edaf6cc7ac
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: aa917361ad3c967a697421e86d232e1a206c403e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283868"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923959"
 ---
 # <a name="return-your-azure-stack-edge-device"></a>Returnera din Azure Stack Edge-enhet
 

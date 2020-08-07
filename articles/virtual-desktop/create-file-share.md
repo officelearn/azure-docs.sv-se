@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7c6b37cd8c127bf3c7643b39d54bfcdb8093c58c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: c9636a08b896cefdbec825e4979ad1ec89f8847b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027400"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87842917"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Skapa en profil behållare med Azure Files och AD DS
 
@@ -21,7 +21,7 @@ I den här artikeln får du lära dig hur du skapar en Azure-filresurs som auten
 
 Den här processen använder Active Directory Domain Services (AD DS), som är en lokal katalog tjänst. Om du letar efter information om hur du skapar en FSLogix profil behållare med Azure AD DS, se [skapa en FSLogix profil behållare med Azure Files](create-profile-container-adds.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrol lera att domänkontrollanten är synkroniserad med Azure och kan matchas från det virtuella Azure-nätverket (VNET) som värdarna för din session är anslutna till.
 
@@ -90,7 +90,7 @@ Om du vill konfigurera behörigheter på resurs nivå tilldelar du varje använd
 
 Tilldela rollbaserad åtkomst kontroll (RBAC) behörigheter:
 
-1. Öppna Azure Portal.
+1. Öppna Azure-portalen.
 
 2. Öppna det lagrings konto som du skapade i [Konfigurera ett lagrings konto](#set-up-a-storage-account).
 
@@ -119,7 +119,7 @@ Du behöver veta två saker från Azure Portal för att komma igång:
 
 Så här hämtar du UNC-sökvägen:
 
-1. Öppna Azure Portal.
+1. Öppna Azure-portalen.
 
 2. Öppna det lagrings konto som du skapade i [Konfigurera ett lagrings konto](#set-up-a-storage-account).
 
@@ -139,7 +139,7 @@ Så här hämtar du UNC-sökvägen:
 
 Hämta lagrings konto nyckeln:
 
-1. Öppna Azure Portal.
+1. Öppna Azure-portalen.
 
 2. Öppna det lagrings konto som du skapade i [Konfigurera ett lagrings konto](#set-up-a-storage-account).
 
@@ -181,7 +181,7 @@ Så här konfigurerar du NTFS-behörigheter:
      - Ersätt <monterade enhets brev> med bokstaven för den enhet som du använde för att mappa enheten.
      - Ersätt <användar-e-> med UPN för den användare eller Active Directory grupp som innehåller de användare som behöver åtkomst till resursen.
 
-     Ett exempel:
+     Exempel:
 
      ```powershell
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
@@ -189,8 +189,6 @@ Så här konfigurerar du NTFS-behörigheter:
      icacls <mounted-drive-letter>: /remove "Authenticated Users"
      icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
-
-5. Välj **Använd**.
 
 ## <a name="configure-fslogix-on-session-host-vms"></a>Konfigurera FSLogix på en session som är värd för virtuella datorer
 
@@ -226,7 +224,7 @@ Kontrol lera dina behörigheter för din session:
 
 1. Starta en session på det virtuella Windows-skrivbordet.
 
-2. Öppna Azure Portal.
+2. Öppna Azure-portalen.
 
 3. Öppna det lagrings konto som du skapade i [Konfigurera ett lagrings konto](#set-up-a-storage-account).
 

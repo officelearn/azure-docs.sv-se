@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.custom: tracking-python
-ms.openlocfilehash: b40da0c8746bc63a99394027b61d777a611727e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 51a340c2fb32de60f20c678e0bc23f2420261e44
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559598"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849887"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Distribuera till App Service med GitHub-åtgärder
 
@@ -29,7 +29,7 @@ För ett Azure App Service-arbetsflöde har filen tre delar:
 |Avsnitt  |Aktiviteter  |
 |---------|---------|
 |**Autentisering** | 1. definiera ett huvud namn för tjänsten <br /> 2. skapa en GitHub-hemlighet |
-|**Utveckla** | 1. Konfigurera miljön <br /> 2. Bygg webb programmet |
+|**Konstruktion** | 1. Konfigurera miljön <br /> 2. Bygg webb programmet |
 |**Distribuera** | 1. distribuera webbappen |
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
@@ -283,7 +283,7 @@ Du hittar vår uppsättning åtgärder grupperade i olika databaser på GitHub, 
 
 - [Docker-inloggning/utloggning](https://github.com/Azure/docker-login)
 
-- [Händelser som utlöser arbets flöden](https://help.github.com/en/articles/events-that-trigger-workflows)
+- [Händelser som utlöser arbetsflöden](https://help.github.com/en/articles/events-that-trigger-workflows)
 
 - [K8s-distribution](https://github.com/Azure/k8s-deploy)
 

@@ -7,26 +7,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: cedc400ac6659cf2b2d0e9c499bf8789a6311e32
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 234d6af25f37bf04d3240177142d5ef919e8dd2d
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141899"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903484"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Träna en formulär igenkännings modell med etiketter med hjälp av verktyget för att använda exempel etiketter
 
 I den här snabb starten använder du formulär tolken REST API med verktyget för att träna en anpassad modell med manuellt märkta data. Mer information om den här funktionen finns i avsnittet [träna med etiketter](../overview.md#train-with-labels) i översikten.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabb starten måste du ha:
 
-- En uppsättning av minst sex formulär av samma typ. Du använder dessa data för att träna modellen och testa ett formulär. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten. Ladda upp utbildnings filen till roten för en Blob Storage-behållare i ett Azure Storage-konto.
+- En uppsättning av minst sex formulär av samma typ. Du använder dessa data för att träna modellen och testa ett formulär. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten. Ladda upp utbildnings-filerna till roten för en Blob Storage-behållare i ett Azure Storage konto med standard prestanda nivå.
 
 ## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
 
@@ -133,7 +133,7 @@ Därefter skapar du taggar (etiketter) och tillämpar dem på de text element so
    1. Klicka **+** om du vill skapa en ny tagg.
    1. Ange namnet på taggen.
    1. Spara taggen genom att trycka på RETUR.
-1. Klicka och dra i huvud redigeraren för att markera ett eller flera ord från de markerade text elementen.
+1. Klicka i huvud redigeraren för att välja ord från de markerade text elementen.
 1. Klicka på den tagg som du vill använda, eller tryck på motsvarande tangent bords nyckel. Siffer nycklarna tilldelas som kortkommandon för de första 10 taggarna. Du kan ändra ordning på taggarna med hjälp av upp-och nedpilens ikoner i rutan kod redigeraren.
     > [!Tip]
     > Tänk på följande när du är etikett på formulären.
@@ -170,7 +170,7 @@ Följande värde typer och varianter stöds för närvarande:
 > [!NOTE]
 > Se följande regler för datum format:
 > 
-> Följande tecken kan användas som avgränsare för DMY datum: `, - / . \` . Det går inte att använda blank steg som avgränsare. Ett exempel:
+> Följande tecken kan användas som avgränsare för DMY datum: `, - / . \` . Det går inte att använda blank steg som avgränsare. Exempel:
 > * 01, 01, 2020
 > * 01-01-2020
 > * 01/01/2020
@@ -192,7 +192,7 @@ Följande värde typer och varianter stöds för närvarande:
 
 Klicka på ikonen träna i det vänstra fönstret för att öppna sidan utbildning. Klicka sedan på knappen **träna** för att börja träna modellen. När inlärnings processen har slutförts visas följande information:
 
-* **Modell-ID** – ID: t för den modell som skapades och tränades. Varje utbildnings anrop skapar en ny modell med sitt eget ID. Kopiera den här strängen till en säker plats. du behöver det om du vill utföra förutsägelse samtal via REST API.
+* **Modell-ID** – ID: t för den modell som skapades och tränades. Varje utbildnings anrop skapar en ny modell med sitt eget ID. Kopiera den här strängen till en säker plats. du behöver det om du vill utföra förutsägelse samtal via [REST API](./curl-train-extract.md) eller [klient biblioteket](./client-library.md).
 * **Genomsnittlig noggrannhet** – modellens genomsnittliga noggrannhet. Du kan förbättra modell precisionen genom att märka ytterligare formulär och utbildning igen för att skapa en ny modell. Vi rekommenderar att du börjar med att märka fem formulär och lägga till fler formulär efter behov.
 * Listan med taggar och den uppskattade noggrannheten per tagg.
 

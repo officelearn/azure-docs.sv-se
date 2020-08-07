@@ -9,13 +9,13 @@ ms.author: laobri
 author: lobrien
 ms.date: 07/20/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 3fe49215055b5b090c9d8e4e25a832544c5c88ce
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, contperfq4, devx-track-python
+ms.openlocfilehash: 740ca2d991f9447e8a3a04c7795c8a6f3011fd39
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319651"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843036"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Flytta data till och mellan olika steg i ML-pipelinen (Python)
 
@@ -32,7 +32,7 @@ Den här artikeln visar hur du kan:
 - Använd `PipelineData` objekt som inmatade steg i pipeline-steg
 - Skapa nya `Dataset` objekt `PipelineData` som du vill behålla
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver:
 

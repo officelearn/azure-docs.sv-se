@@ -6,17 +6,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 01/29/2020
-ms.openlocfilehash: 7041221b015465e9db2d67d8dd7760d644c34f0c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 07/29/2020
+ms.openlocfilehash: bf6215bd9225292f7b85ed6d4c4566cd4ee860b7
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387446"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902107"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Geografisk tillgänglighet och valuta support för kommersiella marknads platser
 
-Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som definieras av kundens fakturerings adress, och transaktioner kan slutföras i 17 valutor. Tabellen nedan visar varje geografisk plats som stöds, dess [ISO 3166 2-siffriga alfa kod](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)och den tilldelade valutan.
+## <a name="supported-geographic-locations"></a>Geografiska platser som stöds
+
+Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som definieras av kundens fakturerings adress, och transaktioner kan slutföras i 17 valutor. I följande tabell visas varje geografisk plats som stöds, dess [ISO 3166 2-siffriga alfa kod](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)och den tilldelade valutan.
 
 |   Land/region namn               |   ISO-2   |   Valuta   |
 |-------------------------------------|-----------|--------------|
@@ -167,3 +169,34 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 \*För kunder i Brasilien använder Marketplace via Cloud solution providers (CSP) USD.
 
 \** Endast kostnads fria och BYOL VM-avbildningar.
+
+## <a name="how-we-convert-currency"></a>Så här konverterar vi valuta
+
+För alla avgiftsbelagda erbjudande typer har ISV möjlighet att ange priser i USD eller ladda upp priser i lokal valuta. Priserna som anges i USD konverteras automatiskt till lokal valuta när sidan sparas. Priserna Partner Center använder uppdateras dagligen. ISV: er kan exportera priserna och granska de konverterade motsvarigheterna.
+
+För att justera ett pris innan du publicerar, exportera bara pris kalkyl bladet, ändra det och ladda upp det med ändringar.
+
+> [!NOTE]
+> När du har publicerat ett pris för en marknad i planen kan du inte ändra det senare. För att se till att priserna är rätt innan du publicerar dem, exportera pris kalkyl bladet och granska priserna på varje marknad.
+
+## <a name="rate-changes"></a>Hastighets ändringar
+
+De priser som vi använder för att beräkna lokala priser uppdateras dagligen. Den här beräkningen görs när ISV sparar sidan och de kan granska alla priser genom att exportera och granska priser innan publicering.
+
+### <a name="retrieving-currency-information-by-api"></a>Hämtar valuta information via API
+
+Enskilda priser (som, beroende på hur de har ställts in, kan ha påverkats av växelkurserna på den dag då de sparades) kan hämtas med hjälp av ett API. valuta information kan inte.
+
+Mer information om hur du anger pris för vissa erbjudande typer finns i följande artiklar:
+
+- [Skapa ett erbjudande för Azure-program](partner-center-portal/create-new-azure-apps-offer.md)
+- [Skapa ett erbjudande för Azure Container](partner-center-portal/create-azure-container-offer.md)
+- [Skapa ett erbjudande för virtuella datorer i Azure](partner-center-portal/azure-vm-create-offer.md)
+- [Skapa ett konsulttjänsterbjudande](partner-center-portal/create-consulting-service-offer.md)
+- [Skapa en Dynamics 365 för kund engagemang & PowerApps-erbjudande](partner-center-portal/create-new-customer-engagement-offer.md)
+- [Skapa ett erbjudande för Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)
+- [Skapa ett erbjudande för Dynamics 365 for Business Central](partner-center-portal/create-new-business-central-offer.md)
+- [Skapa ett IoT Edge-modulerbjudande](partner-center-portal/azure-iot-edge-module-creation.md)
+- [Skapa ett erbjudande för hanterad tjänst](partner-center-portal/create-new-managed-service-offer.md)
+- [Skapa en Power BI-app](partner-center-portal/create-power-bi-app-offer.md)
+- [Skapa ett SaaS-erbjudande](partner-center-portal/create-new-saas-offer.md)

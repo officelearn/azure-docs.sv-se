@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a43538ec7fa17764e8d9d53aad305480bd3ab4f5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 0dde9d8b50233c3c4033daf618e0e626c0174b0c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419809"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903161"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Enhets identitet och skriv bords virtualisering
 
@@ -43,16 +43,16 @@ Innan du konfigurerar enhets identiteter i Azure AD för din VDI-miljö kan du b
 
 | Enhets identitets typ | Infrastruktur för identiteter | Windows-enheter | VDI-plattforms version | Stöds |
 | --- | --- | --- | --- | --- |
-| Hybrid Azure AD-ansluten | Externt | Windows-aktuell * * * * och Windows-äldre * * * * | Permanent | Yes |
-|   |   | Windows-aktuell | Icke-beständig | No |
-|   |   | Äldre Windows-enheter | Icke-beständig | Yes |
-|   | Hanterad * * | Windows aktuella och Windows-äldre | Permanent | Yes |
-|   |   | Windows-aktuell | Icke-beständig | No |
-|   |   | Äldre Windows-enheter | Icke-beständig | Yes |
-| Azure AD-ansluten | Federerade | Windows-aktuell | Permanent | No |
-|   |   |   | Icke-beständig | No |
-|   | Hanterade | Windows-aktuell | Permanent | No |
-|   |   |   | Icke-beständig | No |
+| Hybrid Azure AD-ansluten | Externt | Windows-aktuell * * * * och Windows-äldre * * * * | Permanent | Ja |
+|   |   | Windows-aktuell | Icke-beständig | Nej |
+|   |   | Äldre Windows-enheter | Icke-beständig | Ja |
+|   | Hanterad * * | Windows aktuella och Windows-äldre | Permanent | Ja |
+|   |   | Windows-aktuell | Icke-beständig | Nej |
+|   |   | Äldre Windows-enheter | Icke-beständig | Ja |
+| Azure AD-ansluten | Federerade | Windows-aktuell | Permanent | Nej |
+|   |   |   | Icke-beständig | Nej |
+|   | Hanterade | Windows-aktuell | Permanent | Nej |
+|   |   |   | Icke-beständig | Nej |
 | Azure AD-registrerad | Federerade | Windows-aktuell | Permanent | Ej tillämpligt |
 |   |   |   | Icke-beständig | Ej tillämpligt |
 |   | Hanterade | Windows-aktuell | Permanent | Ej tillämpligt |
@@ -77,7 +77,7 @@ Om du förlitar dig på system förberedelse verktyget (sysprep.exe) och om du a
 
 Om du förlitar dig på en ögonblicks bild av en virtuell dator (VM) för att skapa ytterligare virtuella datorer, se till att ögonblicks bilden inte är från en virtuell dator som redan är registrerad i Azure AD som en hybrid Azure AD-anslutning.
 
-När du distribuerar icke-permanent VDI bör IT-administratörerna betala nära uppmärksamheten för att hantera inaktuella enheter i Azure AD. Microsoft rekommenderar att IT-administratörer implementerar vägledningen nedan. Om du inte gör det kommer din katalog ha många inaktuella hybrid Azure AD-anslutna enheter som har registrerats från den icke-permanenta VDI-plattformen.
+Hybrid Azure AD-anslutning för icke-permanent VDI stöds inte i Windows aktuella versioner. När du distribuerar icke-permanent VDI för Windows-äldre bör IT-administratörerna betala nära uppmärksamheten för att hantera inaktuella enheter i Azure AD. Microsoft rekommenderar att IT-administratörer implementerar vägledningen nedan. Om du inte gör det kommer din katalog ha många inaktuella hybrid Azure AD-anslutna enheter som har registrerats från den icke-permanenta VDI-plattformen.
 
 - Skapa och Använd ett prefix för visnings namnet på datorn som anger Skriv bordet som VDI-baserat.
 - Implementera följande kommando som en del av utloggnings skriptet. Det här kommandot utlöser ett samtal med bästa prestanda till Azure AD för att ta bort enheten.

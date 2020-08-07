@@ -635,7 +635,7 @@
             - name: Konfigurera kontinuerlig integrering med Azure Pipelines
               href: ./service-fabric-tutorial-deploy-app-with-cicd-vsts.md
             - name: Distribuera ditt Linux-program med Jenkins
-              href: service-fabric-cicd-your-linux-applications-with-jenkins.md
+              href: /azure/developer/jenkins/deploy-to-service-fabric-cluster
     - name: Konfigurera och ställa in omvänd proxy
       items:
         - name: Konfigurera och ställa in omvänd proxy

@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 7a0f04344d2e4213bbbabb63d57bdaf933154388
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 425ed63238c07ffcf53df10eeddfa0ac95679a2c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797906"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904522"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
@@ -56,12 +56,12 @@ Granska följande resurser när du förbereder ditt erbjudande för Azure-progra
 
 [Mallarna för video skapande lösningar och hanterade program för Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) ger en omfattande introduktion till Azures program erbjudande typ:
 
-* Vilka erbjudande typer är tillgängliga.
-* Det krävs tekniska till gångar.
-* Så här redigerar du en Azure Resource Manager mall;
-* Utveckla och testa appens användar gränssnitt;
+* Vilka erbjudande typer är tillgängliga
+* Det krävs tekniska till gångar
+* Så här redigerar du en Azure Resource Manager mall
+* Utveckla och testa användar gränssnittet för appen
 * Så här publicerar du app-erbjudandet
-* Programmets gransknings process.
+* Programmets gransknings process
 
 ### <a name="suggested-tools"></a>Rekommenderade verktyg
 
@@ -247,15 +247,14 @@ Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bil
 
 #### <a name="store-logos"></a>Butiks logo typer
 
-Ange en PNG-fil för logo typen med **stor** storlek (mellan 216 x 216 och 350 x 350 bild punkter). Partner Center använder detta för att skapa en **liten** (48 x 48 pixlar) och en storleks logo typ ( **mellan** 90 x 90 pixlar). Du kan också ersätta dem med olika avbildningar.
-
-Alla tre logo typ storlekarna krävs för användning på olika platser i listan:
+Ange PNG-filer för ditt erbjudandes logo typ i följande tre bild punkter:
 
 - **Liten** (48 x 48)
 - **Medel** (90 x 90)
-- **Stor** (mellan 216 x 216 och 350 x 350)
+- **Stor** (216 x 216)
+- **Bred** (255 x 115)
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+Alla tre logo typer krävs och används på olika platser i listan.
 
 #### <a name="screenshots"></a>Skärmbilder
 
@@ -283,7 +282,7 @@ Din förhands gransknings mål identifieras av ID: n för Azure Subscription ID,
 Lägg till minst ett Azure-prenumerations-ID, antingen individuellt (upp till 10) eller genom att ladda upp en CSV-fil (upp till 100). Genom att lägga till dessa prenumerations-ID: n definierar du vem som kan förhandsgranska ditt erbjudande innan det publiceras Live. Om ditt erbjudande redan är Live kan du fortfarande definiera en förhands gransknings grupp för testning av erbjudande ändringar eller uppdateringar av erbjudandet.
 
 > [!NOTE]
-> En förhands gransknings mål skiljer sig från en privat publik. En förhands gransknings grupp kan komma åt ditt erbjudande _innan_ det publiceras Live på marknads platser. De kan se och validera alla planer, inklusive de som endast är tillgängliga för en privat mål grupp när ditt erbjudande har publicerats fullständigt till Marketplace. En privat publik (som definieras på fliken planera **priser och tillgänglighet** ) har exklusiv åtkomst till en viss plan.
+> En förhands gransknings mål skiljer sig från en privat publik. En förhands gransknings grupp kan komma åt ditt erbjudande *innan* det publiceras Live på marknads platser. De kan se och validera alla planer, inklusive de som endast är tillgängliga för en privat mål grupp när ditt erbjudande har publicerats fullständigt till Marketplace. En privat publik (som definieras på fliken planera **priser och tillgänglighet** ) har exklusiv åtkomst till en viss plan.
 
 Välj **Spara utkast** innan du fortsätter.
 
@@ -335,7 +334,7 @@ Välj typ av plan för ditt erbjudande. En plan för **lösnings mal len** hante
 
 #### <a name="re-use-technical-configuration"></a>Använd teknisk konfiguration igen
 
-Om du har mer än en plan av samma typ och paketen är identiska mellan dem kan du välja **det här schemat Återanvänd paket från ett annat abonnemang**.  När du väljer det här alternativet kommer du att kunna välja något av de andra planerna av samma typ för det här erbjudandet för att återanvända paket från. 
+Om du har mer än en plan av samma typ och paketen är identiska mellan dem kan du välja **det här schemat Återanvänd paket från ett annat abonnemang**.  När du väljer det här alternativet kommer du att kunna välja något av de andra planerna av samma typ för det här erbjudandet för att återanvända paket från.
 
 >[!Note]
 >När du återanvänder paket från ett annat abonnemang försvinner fliken teknisk konfiguration från den här planen. Den tekniska konfigurations informationen från den andra planen, inklusive eventuella uppdateringar som du gör i framtiden, kommer även att användas för den här planen.<br><br>Den här inställningen kan inte ändras när den här planen har publicerats.
@@ -416,9 +415,9 @@ Om du redan har angett priser för din plan i USA dollar (USD) och lagt till en 
 
 Ange priset per månad för den här planen.  Detta pris är utöver alla Azure-infrastrukturer eller program kostnader som du betalar per användning av de resurser som distribueras av den här lösningen.
 
-Utöver priset per månad kan du också ange priser för förbrukning av enheter som inte är standard med hjälp av [avgiftsbelagd fakturering](./azure-app-metered-billing.md).  Du kan ställa in priset per månad på noll och debitera exklusivt genom att fakturera faktureringen om du vill. 
+Utöver priset per månad kan du också ange priser för förbrukning av enheter som inte är standard med hjälp av [avgiftsbelagd fakturering](./azure-app-metered-billing.md).  Du kan ställa in priset per månad på noll och debitera exklusivt genom att fakturera faktureringen om du vill.
 
-Priser som angetts i USD (USD = USA dollar) konverteras till den lokala valutan för alla valda marknader med de aktuella växelkurserna när de sparas. Validera dessa priser innan du publicerar genom att exportera pris kalkyl bladet och granska priset på varje marknad. Om du vill ange anpassade priser på en enskild marknad ändrar du och importerar pris kalkyl bladet. 
+Priser som angetts i USD (USD = USA dollar) konverteras till den lokala valutan för alla valda marknader med de aktuella växelkurserna när de sparas. Validera dessa priser innan du publicerar genom att exportera pris kalkyl bladet och granska priset på varje marknad. Om du vill ange anpassade priser på en enskild marknad ändrar du och importerar pris kalkyl bladet.
 
 >[!Note]
 >Du måste först spara dina pris ändringar för att möjliggöra export av pris information.
@@ -442,8 +441,7 @@ Om du gör planen privat anger du ett **ID för Azure-prenumeration** och dess b
 >[!Note]
 >Privata erbjudanden stöds inte med Azure-prenumerationer som upprättats via en åter försäljare av Cloud Solution Provider-programmet (CSP).
 
-
-### <a name="technical-configuration"></a>Teknisk konfiguration 
+### <a name="technical-configuration"></a>Teknisk konfiguration
 
 På den här fliken kan du ladda upp distributions paketet som gör det möjligt för kunder att distribuera planen.
 
@@ -501,15 +499,15 @@ Ange en HTTPS webhook-slutpunkt för att ta emot aviseringar om alla CRUD-åtgä
 
 #### <a name="customize-allowed-customer-actions"></a>Anpassa tillåtna kund åtgärder
 
-Välj det här alternativet om du vill ange vilka åtgärder som kunder kan utföra på de hanterade resurserna utöver de " `*/read` "-åtgärder som är tillgängliga som standard. 
+Välj det här alternativet om du vill ange vilka åtgärder som kunder kan utföra på de hanterade resurserna utöver de " `*/read` "-åtgärder som är tillgängliga som standard.
 
-Lista de ytterligare åtgärder som du vill att kunden ska utföra här, avgränsade med semikolon.  Mer information finns i [förstå neka tilldelningar för Azure-resurser](../../role-based-access-control/deny-assignments.md).  Information om tillgängliga åtgärder finns i [Azure Resource Manager Resource Provider-åtgärder](../../role-based-access-control/resource-provider-operations.md). Om du till exempel vill tillåta att användare startar om virtuella datorer kan du lägga till dem `Microsoft.Compute/virtualMachines/restart/action` i de tillåtna åtgärderna.
+Lista de ytterligare åtgärder som du vill att kunden ska utföra här, avgränsade med semikolon.  Mer information finns i [förstå neka tilldelningar för Azure-resurser](../../role-based-access-control/deny-assignments.md). Information om tillgängliga åtgärder finns i [Azure Resource Manager Resource Provider-åtgärder](../../role-based-access-control/resource-provider-operations.md). Om du till exempel vill tillåta att användare startar om virtuella datorer kan du lägga till dem `Microsoft.Compute/virtualMachines/restart/action` i de tillåtna åtgärderna.
 
 #### <a name="global-azure--azure-government-cloud"></a>Globalt Azure/Azure Government-moln
 
-Ange vem som ska ha hanterings åtkomst till det här hanterade programmet i varje moln som stöds. Användare, grupper eller program som du vill ska beviljas behörighet till den hanterade resurs gruppen identifieras med hjälp av Azure Active Directory-identiteter (AAD).
+Ange vem som ska ha hanterings åtkomst till det här hanterade programmet i varje moln som stöds. Användare, grupper eller program som du vill ska beviljas behörighet till den hanterade resurs gruppen identifieras med hjälp av Azure Active Directory-identiteter (AD).
 
-**Azure Active Directory klient-ID** – AAD-klient-ID: t (även kallat katalog-ID) som innehåller identiteterna för de användare, grupper eller program som du vill ge behörighet till. Du hittar ditt AAD-klient-ID på Azure Portal i [Egenskaper för Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
+**Azure Active Directory klient-ID** – Azure AD-klient-ID: t (även kallat katalog-ID) som innehåller identiteterna för de användare, grupper eller program som du vill ge behörighet till. Du hittar ditt Azure AD-klient-ID på Azure Portal i [Egenskaper för Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 
 **Auktorisering** – lägg till Azure Active Directory objekt-ID för den användare, grupp eller det program som du vill bevilja behörighet till den hanterade resurs gruppen. Identifiera användaren med sitt huvud-ID, som finns på [bladet Azure Active Directory användare på Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
@@ -580,7 +578,7 @@ När du har slutfört alla obligatoriska avsnitt i erbjudandet väljer du **Gran
 
 Granska slut för ande status för varje avsnitt i erbjudandet.
     - *Inte startad* – innebär att avsnittet inte har vidrör ATS och måste slutföras.
-    - *Uncompleted* – innebär att avsnittet innehåller fel som behöver åtgärdas eller som kräver mer information. Gå tillbaka till avsnitten och uppdatera det.
+    - *Ofullständig* – innebär att avsnittet innehåller fel som behöver åtgärdas eller som kräver mer information. Gå tillbaka till avsnitten och uppdatera det.
     - *Complete* – innebär att avsnittet har slutförts, att alla nödvändiga data har angetts och att det inte finns några fel. Alla avsnitt i erbjudandet måste vara i ett komplett tillstånd innan du kan skicka in erbjudandet.
 
 Om detta är första gången du publicerar det här erbjudandet kan du tillhandahålla test instruktioner till certifierings teamet för att se till att appen testas korrekt, förutom eventuella kompletterande anteckningar som hjälper dig att förstå din app.

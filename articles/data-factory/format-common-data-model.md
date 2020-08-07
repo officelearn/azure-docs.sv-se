@@ -5,21 +5,21 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/05/2020
 ms.author: daperlov
-ms.openlocfilehash: 3c4f2df074bc7feaa42704942a3fd238ab4b333a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 483e26cf4044b909c8d7923cfd74bd6fcf871e2a
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083788"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905313"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Gemensamt data modell format i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 COMMON data service-systemet (common data Model) gör det möjligt för data och dess innebörd att enkelt delas mellan program och affärs processer. Mer information finns i Översikt över [common data Model](https://docs.microsoft.com/common-data-model/) .
 
-I Azure Data Factory kan användare omvandla till och från common data service entiteter som lagras i [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) med hjälp av mappnings data flöden. Välj mellan model.jspå och manifest stil common data service källor och skriv till common data service MANIFEST-filer.
+I Azure Data Factory kan användare omvandla data från common data service entiteter i både model.jsi och manifest form som lagras i [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) med hjälp av mappnings data flöden. Du kan också sinka data i common data service-format med common data service-entitetsreferenser som kommer att använda dina data i CSV-eller Parquet-format i partitionerade mappar. 
 
 > [!NOTE]
 > Common data Model (common data service) format Connector för ADF-dataflöden är för närvarande tillgängligt som en offentlig för hands version.
@@ -29,21 +29,21 @@ I Azure Data Factory kan användare omvandla till och från common data service 
 Den gemensamma data modellen är tillgänglig som en [infogad data uppsättning](data-flow-source.md#inline-datasets) i mappa data flöden som både en källa och en mottagare.
 
 > [!NOTE]
-> När du skriver common data service-entiteter måste du redan ha definierat en befintlig common data service Entity-definition (metadata schema). Data flödes mottagaren för ADF läser den common data service och importerar schemat till din mottagare för fält mappning.
+> När du skriver common data service-entiteter måste du ha en befintlig common data service Entity-definition (metadata schema) som redan har definierats för användning som referens. Data flödes mottagaren för ADF läser den common data service och importerar schemat till din mottagare för fält mappning.
 
 ### <a name="source-properties"></a>Käll egenskaper
 
 I tabellen nedan visas de egenskaper som stöds av en common data service-källa. Du kan redigera dessa egenskaper på fliken **käll alternativ** .
 
-| Name | Beskrivning | Obligatorisk | Tillåtna värden | Skript egenskap för data flöde |
+| Namn | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Formatet måste vara`cdm` | ja | `cdm` | format |
-| Format för metadata | Där enhets referensen till data finns. Om du använder common data service version 1,0 väljer du manifest. Om du använder en common data service-version före 1,0 väljer du model.jspå. | Yes | `'manifest'` eller `'model'` | manifestType |
+| Format för metadata | Där enhets referensen till data finns. Om du använder common data service version 1,0 väljer du manifest. Om du använder en common data service-version före 1,0 väljer du model.jspå. | Ja | `'manifest'` eller `'model'` | manifestType |
 | Rot plats: behållare | Behållarens namn på mappen common data service | ja | Sträng | Fil Systems |
 | Rot plats: mappsökväg | Rotmappens plats för mappen common data service | ja | Sträng | folderPath |
 | Manifest fil: enhets Sök väg | Mappsökväg för entiteten i rotmappen | nej | Sträng | entityPath |
-| Manifest fil: manifest namn | Manifest filens namn. Standardvärdet är ' default '  | No | Sträng | manifestName |
-| Filtrera efter senast ändrad | Välj att filtrera filer baserat på när de senast ändrades | nej | Tidsstämpel | modifiedAfter <br> modifiedBefore | 
+| Manifest fil: manifest namn | Manifest filens namn. Standardvärdet är ' default '  | Nej | Sträng | manifestName |
+| Filtrera efter senast ändrad | Välj att filtrera filer baserat på när de senast ändrades | nej | Timestamp | modifiedAfter <br> modifiedBefore | 
 | Länkad schema tjänst | Den länkade tjänsten där sökkorpus finns | Ja, om du använder manifest | `'adlsgen2'` eller `'github'` | corpusStore | 
 | Enhets referens behållare | Containerns sökkorpus finns i | Ja, om du använder manifest och sökkorpus i ADLS Gen2 | Sträng | adlsgen2_fileSystem |
 | Enhets referens databas | GitHub-lagringsplatsnamn | Ja, om du använder manifest och sökkorpus i GitHub | Sträng | github_repository |
@@ -52,9 +52,28 @@ I tabellen nedan visas de egenskaper som stöds av en common data service-källa
 | Sökkorpus-entitet | Sökväg till entitetsreferens | ja | Sträng | entitetsrelation |
 | Det gick inte att hitta några filer | Om värdet är true uppstår ett fel inte om inga filer hittas | nej | `true` eller `false` | ignoreNoFilesFound |
 
+### <a name="sink-settings"></a>Mottagar inställningar
+
+* Peka på den common data service som innehåller definitionen för den entitet som du vill skriva.
+
+![enhets inställningar](media/data-flow/common-data-model-111.png "Entitetsreferens")
+
+* Definiera partitionens sökväg och format för de utdatafiler som du vill att ADF ska använda för att skriva dina entiteter.
+
+![format för entitet](media/data-flow/common-data-model-222.png "Format för entitet")
+
+* Ange platsen för utdatafilen och plats och namn för manifest filen.
+
+![common data service-plats](media/data-flow/common-data-model-333.png "COMMON data service-plats")
+
+
 #### <a name="import-schema"></a>Importera schema
 
 COMMON data service är endast tillgänglig som en infogad data uppsättning och har som standard inte ett associerat schema. Hämta kolumnens metadata genom att klicka på knappen **Importera schema** på fliken **projektion** . Detta gör att du kan referera till kolumn namn och data typer som anges av sökkorpus. Om du vill importera schemat måste en [fel söknings session för data flöde](concepts-data-flow-debug-mode.md) vara aktiv och du måste ha en befintlig definitions fil för common data service för att peka på.
+
+När du mappar data flödes kolumner till enhets egenskaper i Sink-omvandlingen, klickar du på fliken mappning och väljer Importera schema. ADF läser enhets referensen som du pekade på i dina Sink-alternativ, så att du kan mappa till mål common data service-schemat.
+
+![Inställningar för common data service-mottagare](media/data-flow/common-data-model-444.png "COMMON data service-mappning")
 
 > [!NOTE]
 >  När du använder model.jsav ursprungs typ som härstammar från Power BI eller Power Platform data flöden kan du stöta på "sökkorpus-sökvägen är null eller tom" fel från käll omvandlingen. Detta beror troligen på formateringsfel i sökvägen till partitionens plats i model.jsfilen. Följ dessa steg för att åtgärda detta: 
@@ -93,13 +112,13 @@ source(output(
 
 I tabellen nedan visas de egenskaper som stöds av en common data service-mottagare. Du kan redigera dessa egenskaper på fliken **Inställningar** .
 
-| Name | Beskrivning | Obligatorisk | Tillåtna värden | Skript egenskap för data flöde |
+| Namn | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Formatet måste vara`cdm` | ja | `cdm` | format |
 | Rot plats: behållare | Behållarens namn på mappen common data service | ja | Sträng | Fil Systems |
 | Rot plats: mappsökväg | Rotmappens plats för mappen common data service | ja | Sträng | folderPath |
 | Manifest fil: enhets Sök väg | Mappsökväg för entiteten i rotmappen | nej | Sträng | entityPath |
-| Manifest fil: manifest namn | Manifest filens namn. Standardvärdet är ' default ' | No | Sträng | manifestName |
+| Manifest fil: manifest namn | Manifest filens namn. Standardvärdet är ' default ' | Nej | Sträng | manifestName |
 | Länkad schema tjänst | Den länkade tjänsten där sökkorpus finns | ja | `'adlsgen2'` eller `'github'` | corpusStore | 
 | Enhets referens behållare | Containerns sökkorpus finns i | Ja, om sökkorpus i ADLS Gen2 | Sträng | adlsgen2_fileSystem |
 | Enhets referens databas | GitHub-lagringsplatsnamn | Ja, om sökkorpus i GitHub | Sträng | github_repository |

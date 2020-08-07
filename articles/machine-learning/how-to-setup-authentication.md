@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 4061d7a3d21b8c2db2bf161c422994cb2742b0b4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9d73492110703e64df5f948ad8a2a1ed8d2c63b9
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489885"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904546"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,6 +36,9 @@ Oavsett vilken autentiseringstyp som används används rollbaserad åtkomst kont
 * [Konfigurera utvecklings miljön](how-to-configure-environment.md) för att installera Azure Machine Learning SDK eller använd en [Azure Machine Learning Notebook VM](concept-azure-machine-learning-architecture.md#compute-instance) med SDK redan installerad.
 
 ## <a name="interactive-authentication"></a>Interaktiv autentisering
+
+> [!IMPORTANT]
+> Interaktiv autentisering använder webbläsaren och kräver cookies (inklusive cookies från tredje part). Om du har inaktiverat cookies kan du få ett fel meddelande som "vi kunde inte logga in dig". Det här felet kan också inträffa om du har aktiverat [Azure Multi-Factor Authentication](/azure/active-directory/authentication/concept-mfa-howitworks).
 
 De flesta exempel i dokumentationen och exemplen använder interaktiv autentisering. Om du exempelvis använder SDK finns det två funktions anrop som automatiskt kommer att fråga dig om ett UI-baserat autentiseringspaket:
 

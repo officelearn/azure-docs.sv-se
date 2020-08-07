@@ -6,17 +6,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: dcb3afd14a7355a08291cd8553d5050d96919aec
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 345d4fe218f5eed433204622bd47481628ec810f
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801435"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874069"
 ---
-# <a name="get-started-with-log-queries-in-azure-monitor"></a>Kom igång med logg frågor i Azure Monitor
+# <a name="get-started-with-log-queries-in-azure-monitor"></a>Kom igång med loggfrågor i Azure Monitor
 
 > [!NOTE]
-> Du kan arbeta med den här övningen i din egen miljö om du samlar in data från minst en virtuell dator. Om du inte gör det använder du vår [demo miljö](https://portal.loganalytics.io/demo), som innehåller massor av exempel data.  Om du redan vet hur du frågar i KQL, men bara behöver skapa användbara frågor baserat på resurs typ (er), kan du läsa avsnittet [sparade exempel frågor](saved-queries.md).
+> Du kan arbeta med den här övningen i din egen miljö om du samlar in data från minst en virtuell dator. Om du inte gör det använder du vår [demo miljö](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), som innehåller massor av exempel data.  Om du redan vet hur du frågar i KQL, men bara behöver skapa användbara frågor baserat på resurs typ (er), kan du läsa avsnittet [sparade exempel frågor](saved-queries.md).
 
 I den här självstudien får du lära dig att skriva logg frågor i Azure Monitor. Du får lära dig att:
 
@@ -111,8 +111,8 @@ När du skriver filter villkor kan du använda följande uttryck:
 |:---|:---|:---|
 | == | Kontrol lera likhet<br>(Skift läges känsligt) | `Level == 8` |
 | =~ | Kontrol lera likhet<br>(inte Skift läges känsligt) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
-| ! =,  <> | Kontrol lera olikhet<br>(båda uttrycken är identiska) | `Level != 4` |
-| *och*, *eller* | Krävs mellan villkor| `Level == 16 or CommandLine != ""` |
+| !=, <> | Kontrol lera olikhet<br>(båda uttrycken är identiska) | `Level != 4` |
+| *and*, *or* | Krävs mellan villkor| `Level == 16 or CommandLine != ""` |
 
 Om du vill filtrera efter flera villkor kan du antingen använda **och**:
 

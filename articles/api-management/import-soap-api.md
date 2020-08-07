@@ -1,6 +1,6 @@
 ---
 title: Importera SOAP API med Azure Portal | Microsoft Docs
-description: Läs hur du importerar SOAP API med API Management.
+description: 'Lär dig hur du importerar en standard-XML-representation av ett SOAP-API och sedan testar API: et i Azure-och Developer-portalerna.'
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 7b1fd34824bec9641edc94ce278fa21a1b57b2c0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 583179c4678b43bef25174835ec2701d571b37b6
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202748"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905658"
 ---
 # <a name="import-soap-api"></a>Importera SOAP API
 
@@ -30,7 +30,7 @@ I den här artikeln kan du se hur du:
 > * Testa API:et i Azure Portal
 > * Testa API:et i Developer-portalen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 

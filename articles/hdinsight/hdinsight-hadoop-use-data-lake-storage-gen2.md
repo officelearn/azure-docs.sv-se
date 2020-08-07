@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 2992324a1080b75a98264958f56ea28e93b54651
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 21b09e6b7a2be6b87288d973b40c566fb6217841
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534591"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849989"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 
@@ -100,12 +100,13 @@ Tilldela den hanterade identiteten till rollen **Storage BLOB data-ägare** på 
 
 Du kan [Ladda ned en mall för exempel filen](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) och [Ladda ned en exempel parameter fil](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Innan du använder mallen och kod avsnittet för Azure CLI nedan ersätter du följande plats hållare med rätt värden:
 
-| Platshållare | Description |
+| Platshållare | Beskrivning |
 |---|---|
 | `<SUBSCRIPTION_ID>` | ID för din Azure-prenumeration |
 | `<RESOURCEGROUPNAME>` | Den resurs grupp där du vill att det nya klustret och lagrings kontot ska skapas. |
 | `<MANAGEDIDENTITYNAME>` | Namnet på den hanterade identitet som får behörigheter på ditt Azure Data Lake Storage Gen2-konto. |
 | `<STORAGEACCOUNTNAME>` | Det nya Azure Data Lake Storage Gen2 kontot som ska skapas. |
+| `<FILESYSTEMNAME>`  | Namnet på det fil system som det här klustret ska använda i lagrings kontot. |
 | `<CLUSTERNAME>` | Namnet på ditt HDInsight-kluster. |
 | `<PASSWORD>` | Ditt lösen ord för att logga in på klustret med SSH och Ambari-instrumentpanelen. |
 
@@ -138,7 +139,8 @@ az storage account create --name <STORAGEACCOUNTNAME> \
 
 Logga sedan in på portalen. Lägg till den nya användarspecifika hanterade identiteten i rollen **Storage BLOB data Contributor** på lagrings kontot. Det här steget beskrivs i steg 3 under [använda Azure Portal](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
-När du har tilldelat rollen för den användarspecifika hanterade identiteten distribuerar du mallen med hjälp av följande kodfragment.
+ > [!IMPORTANT]
+ > Kontrol lera att ditt lagrings konto har den användar tilldelnings identitet med rollen **Storage BLOB data Contributor** , annars kommer klustret inte att kunna skapas.
 
 ```azurecli
 az group deployment create --name HDInsightADLSGen2Deployment \

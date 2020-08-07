@@ -3,12 +3,12 @@ title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder gäst konfigurations agenten för att granska inställningar i virtuella datorer.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: f2f07a3e88984a84ca1529052d5899ad8570a268
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bec0215d3f10aa9f6a20eea7258ec9d5081e8f98
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072815"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901988"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Om Azure Policys gästkonfiguration
 
@@ -48,7 +48,7 @@ I datorn använder gäst konfigurations klienten lokala verktyg för att köra g
 
 I följande tabell visas en lista över de lokala verktyg som används på varje operativ system som stöds. För inbyggt innehåll hanterar gäst konfigurationen inläsning av dessa verktyg automatiskt.
 
-|Operativsystem|Validerings verktyg|Kommentarer|
+|Operativsystem|Validerings verktyg|Obs!|
 |-|-|-|
 |Windows|[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| Sidan har lästs in till en mapp som endast används av Azure Policy. Är inte i konflikt med Windows PowerShell DSC. PowerShell-kärnan har inte lagts till i System Sök vägen.|
 |Linux|[Chefs INSPEC](https://www.chef.io/inspec/)| Installerar chefs inspecens version 2.2.61 på standard platsen och läggs till i System Sök vägen. Beroenden för INSPEC-paketet inklusive ruby och python installeras också. |
@@ -74,7 +74,26 @@ I följande tabell visas en lista över operativ system som stöds på Azure-avb
 
 Anpassade avbildningar av virtuella datorer stöds av principer för gäst konfiguration så länge de är ett av operativ systemen i tabellen ovan.
 
-## <a name="guest-configuration-extension-network-requirements"></a>Nätverks krav för gäst konfigurations tillägg
+## <a name="network-requirements"></a>Nätverkskrav
+
+Virtuella datorer i Azure kan använda antingen det lokala nätverkskortet eller en privat länk för att kommunicera med gäst konfigurations tjänsten.
+
+Azure Arc-datorer ansluter med den lokala nätverks infrastrukturen för att komma åt Azure-tjänster och rapportera kompatibilitetsstatus.
+
+### <a name="communicate-over-virtual-networks-in-azure"></a>Kommunicera via virtuella nätverk i Azure
+
+Virtuella datorer som använder virtuella nätverk för kommunikation kommer att kräva utgående åtkomst till Azure-datacenter på porten `443` . Om du använder ett privat virtuellt nätverk i Azure som inte tillåter utgående trafik, konfigurerar du undantag med regler för nätverks säkerhets grupper. Service tag-GuestAndHybridManagement kan användas för att referera till gäst konfigurations tjänsten.
+
+### <a name="communicate-over-private-link-in-azure"></a>Kommunicera via privat länk i Azure
+
+Virtuella datorer kan använda [privat länk](../../../private-link/private-link-overview.md) för kommunikation till gäst konfigurations tjänsten. Använd taggen med namnet `EnablePrivateNeworkGC` och värdet `TRUE` för att aktivera den här funktionen. Taggen kan tillämpas före eller efter principer för gäst konfiguration som tillämpas på datorn.
+
+Trafiken dirigeras med hjälp av den [offentliga Azure-IP-adressen](../../../virtual-network/what-is-ip-address-168-63-129-16.md) för att upprätta en säker, autentiserad kanal med Azures plattforms resurser.
+
+### <a name="azure-arc-connected-machines"></a>Azure Arc-anslutna datorer
+
+Noder som finns utanför Azure och som är anslutna till Azure-bågen kräver anslutning till gäst konfigurations tjänsten.
+Information om nätverks-och proxy-krav som anges i [Azure Arc-dokumentationen](../../../azure-arc/servers/overview.md).
 
 För att kunna kommunicera med resurs leverantören för gäst konfiguration i Azure måste datorer ha utgående åtkomst till Azure-datacenter på port **443**. Om ett nätverk i Azure inte tillåter utgående trafik konfigurerar du undantag med regler för [nätverks säkerhets grupper](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . [Service tag-](../../../virtual-network/service-tags-overview.md) GuestAndHybridManagement kan användas för att referera till gäst konfigurations tjänsten.
 

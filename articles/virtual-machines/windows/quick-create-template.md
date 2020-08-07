@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: d74994609799c155453f0c7cac887f2e033ea90b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 11e5d4e31f388dcffe7f1292afa223562d44b20a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087290"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832305"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>Snabb start: skapa en virtuell Windows-dator med en ARM-mall
 
@@ -21,17 +21,17 @@ Den här snabb starten visar hur du använder en Azure Resource Manager mall (AR
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
 
 [![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-windows%2fazuredeploy.json)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 :::code language="json" source="~/quickstart-templates/101-vm-simple-windows/azuredeploy.json" range="1-225" highlight="67-224":::
 
@@ -63,7 +63,7 @@ Flera resurser definieras i mallen:
     - **Administratörs lösen ord**: Ange ett lösen ord som ska användas för administratörs kontot. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](faq.md#what-are-the-password-requirements-when-creating-a-vm).
     - **DNS-etikett prefix**: Ange en unik identifierare som ska användas som en del av DNS-etiketten.
     - **Windows OS-version**: Välj vilken version av Windows du vill köra på den virtuella datorn.
-    - **VM-storlek**: Välj den [storlek](sizes.md) som ska användas för den virtuella datorn.
+    - **VM-storlek**: Välj den [storlek](../sizes.md) som ska användas för den virtuella datorn.
     - **Plats**: standardvärdet är samma plats som resurs gruppen, om den redan finns.
 1. Välj **Granska + skapa**. När verifieringen är klar väljer du **skapa** för att skapa och distribuera den virtuella datorn.
 

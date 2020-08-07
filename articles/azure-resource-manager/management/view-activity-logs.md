@@ -3,12 +3,12 @@ title: Visa Azures aktivitets loggar för att övervaka resurser
 description: Använd aktivitets loggarna om du vill granska användar åtgärder och fel. Visar Azure Portal PowerShell, Azure CLI och REST.
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 9511090099894fad6708843f106570ed029f0c1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b02865e4487a187d1296b2971918aa101d711b5b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75478141"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827086"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Visa aktivitets loggar för att övervaka åtgärder på resurser
 
@@ -191,7 +191,7 @@ REST-åtgärderna för att arbeta med aktivitetsloggen ingår i [Insights REST A
 ## <a name="next-steps"></a>Nästa steg
 
 * Azure aktivitets loggar kan användas med Power BI för att få bättre insikter om åtgärder i din prenumeration. Se [Visa och analysera Azure aktivitets loggar i Power BI med mera](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
-* Information om hur du ställer in säkerhets principer finns i [Azure Role-based Access Control](../../role-based-access-control/role-assignments-portal.md).
+* Information om hur du ställer in säkerhets principer finns i [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * Om du vill visa mer information om ändringarna i dina program från infrastruktur lagret hela vägen till program distribution, se [Använd program ändrings analys i Azure Monitor](../../azure-monitor/app/change-analysis.md).
 * Mer information om kommandon för att Visa distributions åtgärder finns i [Visa distributions åtgärder](../templates/deployment-history.md).
 * Information om hur du förhindrar borttagningar av en resurs för alla användare finns i [låsa resurser med Azure Resource Manager](lock-resources.md).

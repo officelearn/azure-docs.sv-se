@@ -4,16 +4,30 @@ description: Lär dig hur du kan distribuera kod till Azure Functions på olika 
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 754a3ea2a316878cc8c2bd918b99476a7194b545
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: bf8944952abf83837d05019bd783bec2fd43cefe
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562947"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905133"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Distributions tekniker i Azure Functions
 
-Du kan använda flera olika tekniker för att distribuera din Azure Functions projekt kod till Azure. Den här artikeln innehåller en fullständig lista över dessa tekniker, beskriver vilka tekniker som är tillgängliga för vilka varianter-funktioner, förklarar vad som händer när du använder varje metod och ger rekommendationer för den bästa metoden att använda i olika scenarier. De olika verktyg som har stöd för distribution till Azure Functions är justerade till rätt teknik baserat på deras kontext. I allmänhet är zip-distribution den rekommenderade distributions tekniken för Azure Functions.
+Du kan använda flera olika tekniker för att distribuera din Azure Functions projekt kod till Azure. Den här artikeln innehåller en översikt över de distributions metoder som är tillgängliga för dig och rekommendationer för den bästa metoden att använda i olika scenarier. Den innehåller också en fullständig lista över och viktig information om underlyng-distributions teknikerna. 
+
+## <a name="deployment-methods"></a>Distributions metoder
+
+Den distributions teknik som du använder för att publicera kod i Azure bestäms vanligt vis av hur du publicerar appen. Lämplig distributions metod bestäms av speciella behov och punkten i utvecklings cykeln. Under utveckling och testning kan du till exempel distribuera direkt från utvecklingsverktyg, till exempel Visual Studio Code. När din app är i produktion är du mer sannolik att publicera kontinuerligt från käll kontroll eller genom att använda en automatiserad publicerings pipeline, som innehåller ytterligare validering och testning.  
+
+I följande tabell beskrivs tillgängliga distributions metoder för ditt funktions projekt.
+
+| Distributions &nbsp; typ | Metoder | Bäst för... |
+| -- | -- | -- |
+| Verktyg-baserade | &bull;&nbsp;[Visual &nbsp; Studio &nbsp; Code &nbsp; Publishing](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Visual Studio-publicering](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[Kärn verktyg publicera](functions-run-local.md#publish) | Distributioner under utveckling och andra AD-Hock distributioner. Distributioner hanteras lokalt av verktyget. | 
+| App Service-hanterad| &bull;&nbsp;[Distributions &nbsp; Center &nbsp; (CI/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[Container &nbsp; distributioner](functions-create-function-linux-custom-image.md#enable-continuous-deployment-to-azure) |  Kontinuerlig distribution (CI/CD) från käll kontroll eller ett behållar register. Distributioner hanteras av App Service Platform (kudu).|
+| Externa pipelines|&bull;&nbsp;[DevOps-pipeline](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[GitHub-åtgärder](functions-how-to-github-actions.md) | Produktions-och DevOps-pipeliner som innehåller ytterligare verifiering, testning och andra åtgärder körs som en del av en automatiserad distribution. Distributioner hanteras av pipelinen. |
+
+Även om vissa funktions distributioner använder den bästa tekniken baserat på deras kontext, baseras de flesta distributions metoderna på [zip-distribution](#zip-deploy).
 
 ## <a name="deployment-technology-availability"></a>Tillgänglighet för distributions teknik
 

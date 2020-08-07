@@ -5,12 +5,12 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 05/25/2020
-ms.openlocfilehash: bd7619f000d16a55e1cfb31cc3b9cfb3b6d33502
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 7f9c5afbeed0c772f76e013a37dd870ed2185be7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432618"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827681"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Replikera virtuella Azure-datorer som körs i närhets placerings grupper till en annan region
 
@@ -42,7 +42,7 @@ I ett typiskt scenario kan du ha dina virtuella datorer som körs i en närhets 
 ## <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>Konfigurera Site Recovery för Virtual Machines i närhets placerings grupp
 
 > [!NOTE]
-> Kontrol lera att du har det unika ID: t för målets närhets placering. Om du skapar en ny närhets grupp, kontrollerar du kommandot [här](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#create-a-proximity-placement-group) och om du använder en befintlig närhets placerings grupp använder du kommandot [här](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#list-proximity-placement-groups).
+> Kontrol lera att du har det unika ID: t för målets närhets placering. Om du skapar en ny närhets grupp, kontrollerar du kommandot [här](../virtual-machines/windows/proximity-placement-groups.md#create-a-proximity-placement-group) och om du använder en befintlig närhets placerings grupp använder du kommandot [här](../virtual-machines/windows/proximity-placement-groups.md#list-proximity-placement-groups).
 
 ### <a name="azure-to-azure"></a>Azure till Azure
 

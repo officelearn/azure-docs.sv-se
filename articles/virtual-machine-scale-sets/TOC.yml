@@ -117,7 +117,7 @@
     - name: Avbildningar
       href: shared-image-galleries.md
     - name: VM-typer och storlekar
-      href: ../virtual-machines/windows/sizes.md
+      href: ../virtual-machines/sizes.md
       items:
         - name: Generellt syfte
           href: ../virtual-machines/sizes-general.md
@@ -193,10 +193,10 @@
           href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
           maintainContext: true
     - name: Nätverk
-      href: ../virtual-machines/windows/network-overview.md
+      href: ../virtual-machines/network-overview.md
       maintainContext: true
     - name: Infrastruktur för automatisering
-      href: ../virtual-machines/windows/infrastructure-automation.md
+      href: ../virtual-machines/infrastructure-automation.md
       maintainContext: true
     - name: Säkerhet
       items:
@@ -378,13 +378,13 @@
     - name: Använda Ansible
       items:
         - name: Skapa och hantera skalningsuppsättningar
-          href: /azure/ansible/ansible-create-configure-vmss
+          href: /azure/developer/ansible/vm-scale-set-configure
           maintainContext: true
         - name: Distribuera appar till skalningsuppsättningar
-          href: /azure/ansible/ansible-deploy-app-vmss
+          href: /azure/developer/ansible/vm-scale-set-deploy-app
           maintainContext: true
         - name: Autoskala en skalningsuppsättning
-          href: /azure/ansible/ansible-auto-scale-vmss
+          href: /azure/developer/ansible/vm-scale-set-auto-scale
           maintainContext: true
 - name: Referens
   items:

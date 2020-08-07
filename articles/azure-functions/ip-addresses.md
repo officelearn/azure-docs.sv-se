@@ -3,12 +3,12 @@ title: IP-adresser i Azure Functions
 description: Lär dig hur du hittar inkommande och utgående IP-adresser för Function-appar och vad som gör att de ändras.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: bfd2d573e0a1c78d0ef4c68be224f92e8f689f62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b99855d8cc28a41d9eb91bdcf691747910ed4a1
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656774"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874086"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>IP-adresser i Azure Functions
 
@@ -49,12 +49,13 @@ Ett annat sätt att hitta tillgängliga utgående IP-adresser är genom att anv�
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
 ```
+
 > [!NOTE]
-> När en Function-app som körs i [förbruknings planen](functions-scale.md#consumption-plan) skalas, kan ett nytt intervall utgående IP-adresser tilldelas. När du kör i förbruknings planen kan du behöva vitlista hela data centret.
+> När en Function-app som körs i [förbruknings planen](functions-scale.md#consumption-plan) skalas, kan ett nytt intervall utgående IP-adresser tilldelas. När du kör i förbruknings planen kan du behöva lägga till hela data centret i en lista över tillåtna.
 
 ## <a name="data-center-outbound-ip-addresses"></a>Utgående IP-adresser för data Center
 
-Om du behöver vitlista de utgående IP-adresserna som används av dina Functions-appar är ett annat alternativ att vitlista för funktionen Apps data Center (Azure-regionen). Du kan [Hämta en JSON-fil som visar IP-adresser för alla Azure-datacenter](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Leta sedan reda på JSON-fragmentet som gäller den region som din Function-App körs i.
+Om du behöver lägga till de utgående IP-adresser som används av dina funktions program i en lista över tillåtna, är ett annat alternativ att lägga till funktionen Apps data Center (Azure-region) i en lista över tillåtna. Du kan [Hämta en JSON-fil som visar IP-adresser för alla Azure-datacenter](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Leta sedan reda på JSON-fragmentet som gäller den region som din Function-App körs i.
 
 Detta är till exempel det västra Europa-JSON-fragmentet som kan se ut så här:
 

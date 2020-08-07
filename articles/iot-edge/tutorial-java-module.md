@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 86c2bc86a4eeea8b04c4f22c20edade2eac2a811
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: ef4b42b56ea3e9e73de6d5bc793b2f1b206f34f3
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439035"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829993"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Självstudie: utveckla en Java IoT Edge-modul för Linux-enheter
 
@@ -40,7 +40,7 @@ Den här självstudien visar hur du utvecklar en modul i **Java** med **Visual S
 
 Använd följande tabell för att förstå alternativen för att utveckla och distribuera Java-moduler:
 
-| Java | Visuell Studio-kod | Visual Studio 2017/2019 |
+| Java | Visual Studio-koden | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Använda VS Code för Java-moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Använda VS Code för Java-moduler på Linux-ARM32](./media/tutorial-c-module/green-check.png) |  |
@@ -62,7 +62,7 @@ Om du vill utveckla en IoT Edge-modul i Java installerar du följande ytterligar
 * [Maven](https://maven.apache.org/)
 
    >[!TIP]
-   >Miljövariabler för Java och maven kommer att läggas till under installations processerna. Du måste starta om alla Visual Studio Code-terminaler-, PowerShell-eller kommando tolks instanser som du har öppnat när du lade till dessa miljövariabler. På så sätt ser du att Java-och maven-kommandona känns igen av dessa verktyg.
+   >Installations processerna för Java och maven lägger till miljövariabler i systemet. Starta om alla öppna Visual Studio Code-terminaler-, PowerShell-eller kommando tolks instanser när installationen är klar. Det här steget ser till att dessa verktyg kan identifiera Java-och maven-kommandon som skickas framåt.
 
 ## <a name="create-a-module-project"></a>Skapa ett modul-projekt
 

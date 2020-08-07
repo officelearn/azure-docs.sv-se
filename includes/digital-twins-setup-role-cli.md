@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: 1714fac465531a2d3a5829e7080132510ccd1ec4
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 2f10a6915a3edf673316ae9151b6052442678ef9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407577"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832369"
 ---
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
 
@@ -24,7 +24,18 @@ Du kan kontrol lera behörighets nivån genom att köra det här kommandot i Clo
 az role assignment list --assignee <your-Azure-email>
 ```
 
-Om du är ägare `roleDefinitionName` är värdet i resultatet *ägare*:
+> [!NOTE]
+> Om det här kommandot returnerar ett fel som anger att CLI **inte kan hitta användare eller tjänstens huvud namn i diagram databasen**:
+>
+> Använd användarens *objekt-ID* i stället för ditt e-postmeddelande för resten av den här artikeln. Detta kan inträffa för användare på personliga [Microsoft-konton (MSA: er)](https://account.microsoft.com/account). 
+>
+> Använd [Azure Portal sidan för Azure Active Directory användare](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) för att välja ditt användar konto och öppna dess information. Kopiera användarens *ObjectID*:
+>
+> :::image type="content" source="../articles/digital-twins/media/includes/user-id.png" alt-text="Visning av användar sida i Azure Portal som markerar GUID i fältet objekt-ID" lightbox="../articles/digital-twins/media/includes/user-id.png":::
+>
+> Upprepa sedan kommandot roll tilldelnings lista med hjälp av användarens *objekt-ID* i stället för din e-post.
+
+När du har kört kommandot roll tilldelnings lista, om du är ägare, `roleDefinitionName` är värdet i resultatet *ägare*:
 
 :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/cloud-shell/owner-role.png" alt-text="Cloud Shell fönster som visar utdata från kommandot AZ Role Assignment List":::
 

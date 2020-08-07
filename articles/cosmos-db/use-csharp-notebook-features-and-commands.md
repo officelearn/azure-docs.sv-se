@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.custom: tracking-python
-ms.openlocfilehash: d9d48e825adeecd54375ce13c612d4a0c6eaaa18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 6c095083f88c00f706d19d1c652e19da007c6542
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263423"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876435"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Använd inbyggda Notebook-kommandon och-funktioner i Azure Cosmos DB C#-anteckningsböcker (för hands version)
 
@@ -39,7 +39,7 @@ Version 3 av [Azure Cosmos dB .NET SDK för SQL API](https://github.com/Azure/az
 
 Skapa en instans av ``CosmosClient`` för att köra en SDK-åtgärd. 
 
-Ett exempel:
+Exempel:
 
 ```csharp
 // Include usings
@@ -96,7 +96,7 @@ var endpoint = Cosmos.Endpoint;
 ## <a name="print-console-output-in-c-code"></a>Skriv ut konsol utdata i C#-kod
 I C#-koden kan du använda syntaxen display. AsMarkdown () med [String-interpolation](/dotnet/csharp/language-reference/tokens/interpolated) för att skriva ut konsol utdata som visas när du kör cellen. 
 
-Ett exempel: 
+Exempel: 
 
 ```csharp
 // Print text in the output
@@ -134,7 +134,7 @@ Du kan använda ``%%upload`` kommandot Magic för att överföra data från en J
 - Ersätt ``{database_id}`` och ``{container_id}`` med namnet på databasen och behållaren i ditt Azure Cosmos-konto. 
 - Ersätt ``{url_location_of_file}`` med platsen för din JSON-fil. Filen måste vara en matris med giltiga JSON-objekt och den bör vara tillgänglig via det offentliga Internet.
 
-Ett exempel:
+Exempel:
 
 ```csharp
 %%upload --database databaseName --container containerName --url 

@@ -6,12 +6,12 @@ ms.author: t-trtr
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/04/2020
-ms.openlocfilehash: 7acdee98e5e433567a3d177400ee4e7043d0895c
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e70ee75344a939ea1632df3549d796617c7596af
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921560"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902005"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Självstudie: Konfigurera och kör Azure Key Vault-providern för hemligheter Store CSI-drivrutinen på Kubernetes
 
@@ -28,9 +28,9 @@ I den här guiden får du lära dig att:
 > * Tilldela tjänstens huvud namn eller Använd hanterade identiteter.
 > * Distribuera din POD med monterade hemligheter från ditt nyckel valv.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 * Innan du börjar den här självstudien installerar du [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
@@ -71,7 +71,7 @@ Slutför avsnitten "skapa en resurs grupp," skapa AKS-kluster "och" Anslut till 
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
-1. Använd följande kommando för att visa metadata för det AKS-kluster som du har skapat. Kopiera **principalId**, **clientId**, **subscriptionId**och **nodeResourceGroup** för senare användning.
+1. Använd följande kommando för att visa metadata för det AKS-kluster som du har skapat. Kopiera **principalId**, **clientId**, **subscriptionId**och **nodeResourceGroup** för senare användning. Om fråga-klustret inte skapades med hanterade identiteter aktiverade, kommer **principalId** och **clientId** att vara null. 
 
     ```azurecli
     az aks show --name contosoAKSCluster --resource-group contosoResourceGroup
@@ -166,7 +166,7 @@ Följande bild visar konsolens utdata för **AZ-contosoKeyVault5 show--name** me
 
 ### <a name="assign-a-service-principal"></a>Tilldela ett tjänstobjekt
 
-Om du använder ett huvud namn för tjänsten ger du behörighet för det för att få åtkomst till ditt nyckel valv och hämta hemligheter. Tilldela rollen *läsare* och ge tjänstens huvud namn behörighet att *Hämta* hemligheter från nyckel valvet genom att göra följande:
+Om du använder ett huvud namn för tjänsten ger du behörighet för det för att få åtkomst till ditt nyckel valv och hämta hemligheter. Tilldela rollen *läsare* och ge tjänstens huvud namn behörighet att *Hämta* hemligheter från nyckel valvet genom att göra följande kommando:
 
 1. Tilldela tjänstens huvud namn till ditt befintliga nyckel valv. Parametern **$AZURE _CLIENT_ID** är det **appId** som du kopierade efter att du har skapat ditt tjänst huvud namn.
     ```azurecli
@@ -204,10 +204,10 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
 
 Om du använder hanterade identiteter tilldelar du vissa roller till det AKS-kluster som du har skapat. 
 
-1. För att skapa, lista eller läsa en användardefinierad hanterad identitet måste ditt AKS-kluster tilldelas rollen [hanterad identitets deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-contributor) . Kontrol lera att **$clientId** är Kubernetes-klustrets clientId.
+1. Om du vill skapa, Visa eller läsa en användardefinierad hanterad identitet måste ditt AKS-kluster tilldelas rollen [hanterad identitets operatör](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) . Kontrol lera att **$clientId** är Kubernetes-klustrets clientId. För omfånget kommer den att vara under din Azure-prenumerations tjänst, särskilt den resurs grupp för noden som gjordes när AKS-klustret skapades. Det här omfånget garanterar att endast resurser inom gruppen påverkas av rollerna som tilldelas nedan. 
 
     ```azurecli
-    az role assignment create --role "Managed Identity Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     ```

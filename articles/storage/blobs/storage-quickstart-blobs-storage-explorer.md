@@ -1,7 +1,7 @@
 ---
 title: Snabb start – skapa en blob med Azure Storage Explorer
 titleSuffix: Azure Storage
-description: I den här snabb starten får du lära dig hur du använder Azure Storage Explorer för att skapa en behållare och en BLOB, ladda ned bloben till den lokala datorn och Visa alla blobar i behållaren.
+description: Lär dig hur du använder Azure Storage Explorer för att skapa en behållare och en BLOB, ladda ned bloben till den lokala datorn och Visa alla blobar i behållaren.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 3ed0885152b15ef365d0e02c198b684bedd2f95b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f8768a1b2542eb0461ef0c50c96e22c80eced57a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083658"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836470"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Snabb start: använda Azure Storage Explorer för att skapa en BLOB
 
@@ -30,7 +30,7 @@ För den här snabbstarten krävs att du installerar Azure Storage Explorer. Inf
 
 Första gången programmet startas visas fönstret **Microsoft Azure Storage Explorer – anslut**. I Storage Explorer finns flera olika sätt att ansluta till lagringskonton. I följande tabell visas vilka olika sätt du kan ansluta på:
 
-|Uppgift|Syfte|
+|Aktivitet|Syfte|
 |---|---|
 |Lägga till ett Azure-konto | Omdirigerar dig till din organisations inloggnings sida för att autentisera dig för Azure. |
 |Använda en anslutningssträng eller en signatur-URI för delad åtkomst | Kan användas för direkt åtkomst till en container eller ett lagringskonto med en SAS-token eller en delad anslutningssträng. |

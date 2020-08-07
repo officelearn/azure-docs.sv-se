@@ -1,6 +1,6 @@
 ---
-title: Migrera Windows Server 2008-servrar till Azure med Azure Site Recovery
-description: Den här artikeln beskriver hur du migrerar lokala Windows Server 2008-datorer till Azure med Azure Site Recovery.
+title: Migrera Windows Server 2008-servrar till Azure med Azure Migrate/Site Recovery
+description: I den här artikeln beskrivs hur du migrerar lokala Windows Server 2008-datorer till Azure och rekommenderar Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8d672c1113f265f9fbbabc7caed8df071f548f2a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d8cd8bf2e1a29b122fb4bac7a12454f102183fe3
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503828"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845569"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrera servrar som kör Windows Server 2008 till Azure
 
@@ -31,9 +31,11 @@ I den här guiden får du lära dig att:
 
 ## <a name="migrate-with-azure-migrate"></a>Migrera med Azure Migrate
 
-Vi rekommenderar att du migrerar datorer till Azure med hjälp av tjänsten [Azure Migrate](../migrate/migrate-services-overview.md) . Azure Migrate tillhandahåller en central hubb för utvärdering och migrering av lokala datorer till Azure med hjälp av Azure Migrate, andra Azure-tjänster och verktyg från tredje part. Azure Site Recovery bör endast användas för haveri beredskap och inte migrering.
+Vi rekommenderar att du migrerar datorer till Azure med hjälp av tjänsten [Azure Migrate](../migrate/migrate-services-overview.md) . 
 
-Azure Migrate stöder migrering av servrar som kör Windows Server 2008.
+- Azure Migrate är syftet – byggd för Server-migrering.
+- Azure Migrate tillhandahåller en central hubb för identifiering, utvärdering och migrering av lokala datorer till Azure. Azure Site Recovery bör endast användas för haveri beredskap och inte migrering.
+- Azure Migrate stöder migrering av servrar som kör Windows Server 2008.
 
 
 ## <a name="migrate-with-site-recovery"></a>Migrera med Site Recovery

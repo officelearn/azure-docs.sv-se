@@ -145,7 +145,11 @@
         - name: Skapa användare
           href: howto-create-users.md
         - name: Anslutningssträngar
-          href: howto-connection-string.md
+          items:
+            - name: Anslut program
+              href: howto-connection-string.md
+            - name: Azure PowerShell
+              href: howto-connection-string-powershell.md
         - name: Konfigurera SSL
           href: howto-configure-ssl.md
         - name: Konfigurera TLS

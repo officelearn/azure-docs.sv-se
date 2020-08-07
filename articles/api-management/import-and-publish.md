@@ -1,6 +1,6 @@
 ---
 title: Importera och publicera ditt första API i Azure API Management
-description: Lär dig hur du importerar ett API för OpenAPI-specifikation till Azure API Management och testar ditt API i Azure Portal.
+description: Lär dig hur du importerar ett API för OpenAPI-specifikation till Azure API Management och sedan testar ditt API i Azure Portal.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 38b723cb823547d4737a68576575c2b629f5eb67
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 71a239393c61dccf39ed505aa2b08d7612b7e370
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206277"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905558"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importera och publicera ditt första API
 
@@ -62,7 +62,7 @@ I det här avsnittet visas hur du importerar och publicerar ett OpenAPI-API för
    |**URL-schema**|**HTTPS**|Vilka protokoll som kan användas för att få åtkomst till API: et.|
    |**API URL-suffix**|*konferens*|Suffixet som läggs till i bas-URL: en för API Managements tjänsten. API Management skiljer API: er från deras suffix så att suffixet måste vara unikt för varje-API för en specifik utgivare.|
    |**Taggar**| |Taggar för att ordna API: er för sökning, gruppering eller filtrering.|
-   |**Produkter**|**Obegränsat**|Associering av en eller flera API: er. Varje API Management instans levereras med två exempel produkter: **starter** och **obegränsade**. Du publicerar ett API genom att associera API: et med en produkt, **obegränsat** i det här exemplet.<br/>Du kan inkludera flera API: er i en produkt och erbjuda dem till utvecklare via Developer-portalen. Om du vill lägga till detta API till en annan produkt skriver du eller väljer produkt namnet. Upprepa det här steget om du vill lägga till API: et till flera produkter. Du kan också lägga till API: er till produkter senare från sidan **Inställningar** .<br/>För att få åtkomst till API:et måste utvecklarna först prenumerera på en produkt. När de prenumererar får de en prenumerations nyckel som är lämplig för alla API: er i produkten. <br/>Om du har skapat API Management-instansen är du redan administratör, så du prenumererar på alla produkter i instansen.|
+   |**Läkemedle**|**Obegränsat**|Associering av en eller flera API: er. Varje API Management instans levereras med två exempel produkter: **starter** och **obegränsade**. Du publicerar ett API genom att associera API: et med en produkt, **obegränsat** i det här exemplet.<br/>Du kan inkludera flera API: er i en produkt och erbjuda dem till utvecklare via Developer-portalen. Om du vill lägga till detta API till en annan produkt skriver du eller väljer produkt namnet. Upprepa det här steget om du vill lägga till API: et till flera produkter. Du kan också lägga till API: er till produkter senare från sidan **Inställningar** .<br/>För att få åtkomst till API:et måste utvecklarna först prenumerera på en produkt. När de prenumererar får de en prenumerations nyckel som är lämplig för alla API: er i produkten. <br/>Om du har skapat API Management-instansen är du redan administratör, så du prenumererar på alla produkter i instansen.|
    |**Gateways**|**Hanterade**|API-Gateway (er) som exponerar API: et. Det här fältet är endast tillgängligt i tjänster för **utvecklare** och **Premium** -nivån.<br/>**Hanterad** Gateway anger den gateway som är inbyggd i API Management tjänsten och som finns i Microsoft Azure. Andra gatewayer är [egna gateways](self-hosted-gateway-overview.md) och är bara tillgängliga i tjänst nivåerna Premium och Developer. Du kan distribuera dem i lokalt eller i andra moln.<br/>Om inga gatewayer har valts är API: et inte tillgängligt och API-begärandena lyckas inte.|
    |**Vilken är versionen för det här API:et?**|Markera eller avmarkera|Mer information om versions hantering finns i [publicera flera versioner av ditt API](api-management-get-started-publish-versions.md).|
 

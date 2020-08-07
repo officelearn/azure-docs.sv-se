@@ -16,13 +16,13 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.custom: tracking-python
-ms.openlocfilehash: 5688caa16faf4a9d83b6d23b24676d43ad16697b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: 3b6a38087aee7f33861f980cb6d245024f8d51ee
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084304"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852335"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Använda Notification Hubs från python
 
@@ -446,7 +446,7 @@ hub.send_template_notification(template_payload)
 
 ![Skärm bild av en-konsol med information om H T T P P-begäran och innehålls typ och Service Buss format värden som anges i rött.][5]
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Den här artikeln visar hur du skapar en python REST-klient för Notification Hubs. Här kan göra du följande:
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: c5cb2f7acb3f1432c2eadd769021c27ba41e9887
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 82b2ae42c500702fa95d65f86d1b3934c2a1d361
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031940"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835382"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-curl"></a>Snabb start: analysera en fjärravbildning med hjälp av Visuellt innehåll REST API och svängen
 
@@ -25,7 +25,7 @@ I den här snabb starten ska du analysera en fjärrlagrad avbildning för att ex
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/) 
-* [Klammerparentes](https://curl.haxx.se/)
+* [cURL](https://curl.haxx.se/)
 * När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
   * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Visuellt innehåll-tjänsten. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
   * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.

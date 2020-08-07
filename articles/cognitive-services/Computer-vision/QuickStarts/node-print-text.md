@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-javascript
-ms.openlocfilehash: 1e90e2bfa91a4c72ca2e2e7ae366ca1ea42020fe
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 4f0a895795c9a50e3ec81632b2d57329dbe4777d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405899"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87834991"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-nodejs"></a>Snabb start: extrahera utskriven text (OCR) med hjälp av Visuellt innehåll REST API och Node.js
 
@@ -51,9 +51,9 @@ Så här skapar du och kör exemplet:
 
 1. Kopiera följande kod till en textredigerare.
 1. Du kan också ersätta värdet för `imageUrl` med webbadressen till en annan bild som du vill extrahera tryckt text ur.
-1. Spara koden som en fil med tillägget `.js`. Exempelvis `get-printed-text.js`.
+1. Spara koden som en fil med tillägget `.js`. Till exempel `get-printed-text.js`.
 1. Öppna ett kommandotolksfönster.
-1. Kör filen i kommandotolken med kommandot `node`. Exempelvis `node get-printed-text.js`.
+1. Kör filen i kommandotolken med kommandot `node`. Till exempel `node get-printed-text.js`.
 
 ```javascript
 'use strict';

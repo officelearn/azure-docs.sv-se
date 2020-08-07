@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: a75a5942ad0aac39f2fe6afb9c62a254c4645d0a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 4bd13adb9bb431749f1d0f52781ce22c832fc090
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372951"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846742"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Hantera & öka kvoter för resurser med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -46,13 +46,9 @@ Här följer en sammanställning av kvot gränserna av olika resurs typer i din 
 > Begränsningar kan komma att ändras. De senaste kan alltid finnas på tjänst nivå kvot [dokumentet](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) för hela Azure.
 
 ### <a name="virtual-machines"></a>Virtuella datorer
-För varje Azure-prenumeration finns det en gräns för hur många virtuella datorer du kan ha på dina tjänster eller fristående. Den här gränsen är på regions nivå både på det totala antalet kärnor och även per familj.
-
-Virtuella dator kärnor har en regional total gräns och en region per storleks serie (Dv2, F osv.), som båda tillämpas separat. Anta till exempel att en prenumeration i regionen USA, östra har en gräns för totalt antal VM-kärnor på 30, en gräns för antal kärnor i A-serien på 30 och en gräns för antal kärnor i D-serien på 30. Den här prenumerationen kan distribuera 30 virtuella datorer i A1-serien eller 30 virtuella datorer i D1-serien, eller en kombination av båda som inte överstiger sammanlagt 30 kärnor (t.ex. 10 virtuella datorer i A1-serien och 20 virtuella datorer i D1-serien).
+För varje Azure-prenumeration finns det en gräns för antalet virtuella datorer i dina tjänster eller fristående. Virtuella dator kärnor har en regional total gräns och en region per storleks serie (Dv2, F osv.), som båda tillämpas separat. Anta till exempel att en prenumeration i regionen USA, östra har en gräns för totalt antal VM-kärnor på 30, en gräns för antal kärnor i A-serien på 30 och en gräns för antal kärnor i D-serien på 30. Den här prenumerationen kan distribuera 30 virtuella datorer i A1-serien eller 30 virtuella datorer i D1-serien, eller en kombination av båda som inte överstiger sammanlagt 30 kärnor (t.ex. 10 virtuella datorer i A1-serien och 20 virtuella datorer i D1-serien).
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
-
-En mer detaljerad och aktuell lista över kvot gränser finns i [artikeln om Azure-wide-kvoten](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning-beräkning
 För [Azure Machine Learning Compute](concept-compute-target.md#azure-machine-learning-compute-managed)finns en standard kvot gräns för både antalet kärnor och antalet unika beräknings resurser som tillåts per region i en prenumeration. Den här kvoten är separat från den virtuella datorns kärn kvot och kärn gränserna delas inte mellan de två resurs typerna eftersom AmlCompute är en hanterad tjänst som distribuerar resurser i en modell som är värd för en värd.
@@ -84,16 +80,10 @@ För [Azure Machine Learning pipeliner](concept-ml-pipelines.md)finns en kvot gr
 - Maximalt antal steg som tillåts i en pipeline är 30 000
 - Högsta antalet schemabaserade körningar och blob-hämtningar för blogg utlösta scheman över publicerade pipelines per prenumeration är 100 000
 
-> [!NOTE]
-> Kontakta [Microsoft Support](https://azure.microsoft.com/support/options/)om du vill öka den här gränsen.
-
 ### <a name="container-instances"></a>Containerinstanser
 
 Det finns också en gräns för antalet behållar instanser som du kan sätta upp under en viss tids period (i varje timme) eller i hela prenumerationen.
-
-[!INCLUDE [container-instances-limits](../../includes/container-instances-limits.md)]
-
-Om du vill ha en mer detaljerad och uppdaterad lista över kvot gränser kontrollerar du kvot artikeln för hela Azure [här](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
+För gränserna, se [container instances gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
 
 ### <a name="storage"></a>Storage
 Det finns en gräns för antalet lagrings konton per region och i en viss prenumeration. Standard gränsen är 250 och omfattar både standard-och Premium Storages konton. Om du behöver fler än 250 lagrings konton i en specifik region gör du en begäran via [supporten för Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Azure Storages teamet granskar ditt affärs ärende och kan godkänna upp till 250 lagrings konton för en specifik region.
@@ -126,7 +116,7 @@ Azure Machine Learning Compute hanteras separat från andra Azure-resurs kvoter 
 1. Välj en prenumeration för att Visa kvot gränserna. Kom ihåg att filtrera till den region som du är intresse rad av.
 
 1. Nu kan du växla mellan en vy på prenumerations nivå och en arbets yta på nivån:
-    + **Prenumerationsvy:** På så sätt kan du Visa din användning av kärn kvoten för VM-serien, expandera den efter arbets ytan och utöka den ytterligare med hjälp av de faktiska kluster namnen. Den här vyn är optimal för att snabbt komma igång med information om kärn användningen för en viss VM-serie för att se avbrottet per arbets yta och ytterligare av de underliggande klustren för var och en av dessa arbets ytor. Den allmänna konventionen i den här vyn är (användning/kvot), där användningen är det aktuella antalet skalade kärnor och kvoten är det logiska maximala antalet kärnor som resursen kan skalas till. För varje **arbets yta**skulle kvoten vara kvoten för arbets ytans nivå (enligt beskrivningen ovan) som anger det maximala antalet kärnor som du kan skala till för en viss VM-serie. För ett **kluster** på samma sätt är kvoten i själva verket de kärnor som motsvarar det högsta antalet noder som klustret kan skala till som definieras av egenskapen max_nodes.
+    + **Prenumerationsvy:** Visar din användning av kärn kvoten för VM-serien, expanderar den efter arbets ytan och expanderar den ytterligare genom de faktiska kluster namnen. Få snabbt till gång till information om kärn användningen för en viss VM-serie för att se avbrottet per arbets yta och ytterligare av de underliggande klustren för var och en av dessa arbets ytor. Den allmänna konventionen i den här vyn är (användning/kvot), där användningen är det aktuella antalet skalade kärnor och kvoten är det logiska maximala antalet kärnor som resursen kan skalas till. För varje **arbets yta**skulle kvoten vara kvoten för arbets ytans nivå (enligt beskrivningen ovan) som anger det maximala antalet kärnor som du kan skala till för en viss VM-serie. För ett **kluster** på samma sätt är kvoten i själva verket de kärnor som motsvarar det högsta antalet noder som klustret kan skala till som definieras av egenskapen max_nodes.
 
     + **Vyn arbets yta:** På så sätt kan du Visa din användning av kärn kvoten per arbets yta, expandera den av VM-serien och utöka den ytterligare genom att utöka den med de faktiska kluster namnen. Den här vyn är optimal för att snabbt komma igång med information om kärn användningen för en viss arbets yta för att se upprensningen av VM-familjer och ytterligare av de underliggande klustren för var och en av dessa familjer.
 
@@ -149,8 +139,4 @@ När du begär en kvot ökning måste du välja den tjänst som du begär för a
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer med de här artiklarna:
-
 + [Planera & hantera kostnader för Azure Machine Learning](concept-plan-manage-cost.md)
-
-+ [Hur du ökar din kvot](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).

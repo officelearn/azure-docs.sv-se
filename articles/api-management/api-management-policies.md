@@ -1,6 +1,6 @@
 ---
 title: Azure API Management-principer | Microsoft Docs
-description: Läs mer om principerna som är tillgängliga för användning i Azure API Management.
+description: Läs mer om principerna som är tillgängliga för användning i Azure API Management. Med principer kan utgivare ändra API-beteendet genom konfigurationen.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 069fc95d226e4417bb650b6092a7d00953f69e8d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4cdd9b7ace107d09ec14b23e02c56d2b13f264e6
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252865"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905677"
 ---
 # <a name="api-management-policies"></a>API Management-principer
 Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](api-management-howto-policies.md).  

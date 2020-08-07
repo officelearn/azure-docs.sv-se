@@ -10,13 +10,13 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: faa2945b27e083865acb506f30c4d79ef65f3ca0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 04ae1788dfd3050fdd2042f88a8e1829e9063ad3
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317866"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851366"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuera en maskin inlärnings modell till Azure App Service (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,7 @@ Mer information om funktioner som tillhandahålls av Azure App Service finns i [
 > [!IMPORTANT]
 > Om du behöver kunna logga de bedömnings data som används med din distribuerade modell, eller resultatet av en bedömning, bör du istället distribuera till Azure Kubernetes-tjänsten. Mer information finns i [samla in data på dina produktions modeller](how-to-enable-data-collection.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -115,7 +115,7 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-När `show_output=True` visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta. När avbildningen har skapats visas platsen i Azure Container Registry. Den plats som returnerades är i formatet `<acrinstance>.azurecr.io/package@sha256:<imagename>` . Exempelvis `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
+När `show_output=True` visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta. När avbildningen har skapats visas platsen i Azure Container Registry. Den plats som returnerades är i formatet `<acrinstance>.azurecr.io/package@sha256:<imagename>` . Till exempel `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
 
 > [!IMPORTANT]
 > Spara plats informationen som används när avbildningen distribueras.
@@ -247,7 +247,7 @@ Det här kommandot returnerar information som liknar följande hostname- `<app-n
 
 ## <a name="use-the-web-app"></a>Använda webbapp
 
-Webb tjänsten som skickar begär anden till modellen finns på `{baseurl}/score` . Exempelvis `https://<app-name>.azurewebsites.net/score`. Följande python-kod visar hur du skickar data till URL: en och visar svaret:
+Webb tjänsten som skickar begär anden till modellen finns på `{baseurl}/score` . Till exempel `https://<app-name>.azurewebsites.net/score`. Följande python-kod visar hur du skickar data till URL: en och visar svaret:
 
 ```python
 import requests

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 287ee62acf3a078c4b47803060f61c9dd4134ab7
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ba03acabb3325045a71d55f583343a26b4d121ca
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408355"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832370"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Konfigurera en digital Azure-instans och autentisering (CLI)
 
@@ -46,7 +46,7 @@ Använd de här värdena i följande kommando för att skapa instansen:
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
 
-### <a name="verify-success"></a>Verifieringen lyckades
+### <a name="verify-success-and-collect-important-values"></a>Verifiera lyckade och samla in viktiga värden
 
 Om instansen har skapats ser resultatet i Cloud Shell ut ungefär så här, vilket innebär att information om resursen som du har skapat visas.
 
@@ -71,12 +71,16 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 Resultatet av det här kommandot är information om den roll tilldelning som har skapats.
 
-> [!TIP]
-> Om du får ett *400: BadRequest* -fel i stället kör du följande kommando för att hämta *ObjectID* för användaren:
-> ```azurecli
-> az ad user show --id <Azure-AD-email-of-user-to-assign> --query objectId
-> ```
-> Upprepa sedan kommandot roll tilldelning med användarens *objekt-ID* i stället för e-postmeddelandet.
+> [!NOTE]
+> Om det här kommandot returnerar ett fel som anger att CLI **inte kan hitta användare eller tjänstens huvud namn i diagram databasen**:
+>
+> Använd användarens *objekt-ID* i stället för e-post. Detta kan inträffa för användare på personliga [Microsoft-konton (MSA: er)](https://account.microsoft.com/account). 
+>
+> Använd [Azure Portal sidan för Azure Active Directory användare](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) för att välja användar kontot och öppna dess information. Kopiera användarens *ObjectID*:
+>
+> :::image type="content" source="media/includes/user-id.png" alt-text="Visning av användar sida i Azure Portal som markerar GUID i fältet objekt-ID" lightbox="media/includes/user-id.png":::
+>
+> Upprepa sedan kommandot roll tilldelnings lista med användarens *objekt-ID* i stället för e-postmeddelandet.
 
 ### <a name="verify-success"></a>Verifieringen lyckades
 
@@ -117,7 +121,7 @@ Navigera till *manifest.jspå* du nyss skapade och tryck på "öppna".
 Kör sedan följande kommando för att skapa en app-registrering (ersätter plats hållare vid behov):
 
 ```azurecli
-az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
+az ad app create --display-name <name-for-your-app-registration> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
 ```
 
 Här är ett utdrag av utdata från det här kommandot som visar information om registreringen du har skapat:

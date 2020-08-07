@@ -3,14 +3,14 @@ title: 'Snabb start: publicera kunskaps bas, REST, python-QnA Maker'
 description: Den här python REST-baserade snabb starten publicerar din kunskaps bas och skapar en slut punkt som kan anropas i ditt program eller chatt-robot.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27, tracking-python
+ms.custom: RESTCURL2020FEB27, devx-track-python
 ms.topic: how-to
-ms.openlocfilehash: a5aa5a313a96c12adccf0a1c198dce69661935d6
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 12290303a4c1759b8633617ac99942060ece88d0
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608663"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874936"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Snabbstart: Publicera en kunskapsbas i QnA Maker med hjälp av Python
 
@@ -19,7 +19,7 @@ Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar
 Den här snabb starten anropar QnA Maker REST API: er:
 * [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) (Publicera) – detta API kräver inte någon information i brödtexten för begäran.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Python 3.7](https://www.python.org/downloads/)
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta din nyckel och slut punkt (som innehåller resurs namnet) väljer du **snabb start** för resursen i Azure Portal.

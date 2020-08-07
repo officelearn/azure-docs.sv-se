@@ -4,34 +4,36 @@ description: Lär dig hur du använder Notification Hubs Mass stöd för att utf
 services: notification-hubs
 author: sethmanheim
 manager: femila
-editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 08/04/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 8eb03a42f38c0cc7fe82eda6a81d1c8c1213ec74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a7de1921732328fe4112de9b9171af3e21fe7e3
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71212393"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832186"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exportera och importera Azure Notification Hubs-registreringar i bulk
-Det finns scenarier där det krävs för att skapa eller ändra ett stort antal registreringar i en Notification Hub. Några av dessa scenarier är tagga uppdateringar efter batch-beräkningar eller migrering av en befintlig push-implementering för att använda Notification Hubs.
+
+Det finns scenarier där det krävs för att skapa eller ändra ett stort antal registreringar i en Notification Hub. Några av dessa scenarier är tagga uppdateringar efter batch-beräkningar eller migrering av en befintlig push-implementering för att använda Azure Notification Hubs.
 
 Den här artikeln förklarar hur du utför ett stort antal åtgärder på en Notification Hub, eller om du vill exportera alla registreringar i bulk.
 
 ## <a name="high-level-flow"></a>Flöde på hög nivå
+
 Batch-support har utformats för att stödja långvariga jobb som omfattar miljon tals registreringar. För att uppnå denna skalning använder batch-supporten Azure Storage för att lagra jobb information och utdata. För Mass uppdaterings åtgärder krävs det att användaren skapar en fil i en BLOB-behållare, vars innehåll är en lista över registrerings uppdaterings åtgärder. När jobbet startas tillhandahåller användaren en URL till bloben för indata, tillsammans med en URL till en utdataparameter (även i en BLOB-behållare). När jobbet har startats kan användaren kontrol lera statusen genom att fråga en URL-plats som anges i början av jobbet. Ett enskilt jobb kan bara utföra åtgärder av en viss typ (skapar, uppdaterar eller tar bort). Export åtgärder utförs analogously.
 
 ## <a name="import"></a>Importera
 
 ### <a name="set-up"></a>Konfigurera
+
 I det här avsnittet förutsätter vi att du har följande entiteter:
 
 - En etablerad Notification Hub.
@@ -39,7 +41,8 @@ I det här avsnittet förutsätter vi att du har följande entiteter:
 - Referenser till [Azure Storage NuGet-paketet](https://www.nuget.org/packages/windowsazure.storage/) och [Notification Hubs NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 ### <a name="create-input-file-and-store-it-in-a-blob"></a>Skapa indatafilen och lagra den i en BLOB
-En indatafil innehåller en lista över registreringar serialiserade i XML, en per rad. Med hjälp av Azure SDK visar följande kod exempel hur du serialiserar registreringarna och laddar upp dem till BLOB-behållare.
+
+En indatafil innehåller en lista över registreringar serialiserade i XML, en per rad. Med hjälp av Azure SDK visar följande kod exempel hur du serialiserar registreringarna och laddar upp dem till BLOB-behållaren:
 
 ```csharp
 private static void SerializeToBlob(CloudBlobContainer container, RegistrationDescription[] descriptions)
@@ -62,6 +65,7 @@ private static void SerializeToBlob(CloudBlobContainer container, RegistrationDe
 > Föregående kod serialiserar registreringarna i minnet och laddar upp hela data strömmen till en blob. Om du har laddat upp en fil med fler än några megabyte kan du läsa mer i Azure Blob-vägledningen om hur du utför de här stegen. Du kan till exempel [blockera blobbar](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
 
 ### <a name="create-url-tokens"></a>Skapa URL-token
+
 När indatafilen har överförts genererar du webb adresserna för att tillhandahålla Notification Hub för både indatafilen och katalogen utdata. Du kan använda två olika BLOB-behållare för indata och utdata.
 
 ```csharp
@@ -90,6 +94,7 @@ static Uri GetInputFileUrl(CloudBlobContainer container, string filePath)
 ```
 
 ### <a name="submit-the-job"></a>Skicka jobbet
+
 Med de två URL: erna för in-och utdata kan du nu starta batch-jobbet.
 
 ```csharp
@@ -131,6 +136,7 @@ När jobbet har slutförts kan du kontrol lera resultatet genom att titta på f�
 De här filerna innehåller en lista över lyckade och misslyckade åtgärder från batchen. Fil formatet är `.cvs` , där varje rad har rad numret för den ursprungliga indatafilen och resultatet av åtgärden (vanligt vis den skapade eller uppdaterade registrerings beskrivningen).
 
 ### <a name="full-sample-code"></a>Fullständig exempel kod
+
 Följande exempel kod importerar registreringar till en Notification Hub.
 
 ```csharp
@@ -169,7 +175,7 @@ namespace ConsoleApplication1
                 new MpnsRegistrationDescription(@"http://dm2.notify.live.net/throttledthirdparty/01.00/12G9Ed13dLb5RbCii5fWzpFpAgAAAAADAQAAAAQUZm52OkJCMjg1QTg1QkZDMdUxREQFBlVTTkMwMQ"),
             };
 
-            //write to blob store to create an input file
+            // Write to blob store to create an input file
             var blobClient = new CloudBlobClient(STORAGE_ENDPOINT, new Microsoft.WindowsAzure.Storage.Auth.StorageCredentials(STORAGE_ACCOUNT, STORAGE_PASSWORD));
             var container = blobClient.GetContainerReference("testjobs");
             container.CreateIfNotExists();
@@ -181,7 +187,7 @@ namespace ConsoleApplication1
             var inputFileSasUri = GetInputFileUrl(container, INPUT_FILE_NAME);
 
 
-            //Lets import this file
+            // Import this file
             NotificationHubClient client = NotificationHubClient.CreateClientFromConnectionString(CONNECTION_STRING, HUB_NAME);
             var createTask = client.SubmitNotificationHubJobAsync(
                 new NotificationHubJob {
@@ -221,35 +227,35 @@ namespace ConsoleApplication1
 
         static Uri GetOutputDirectoryUrl(CloudBlobContainer container)
         {
-            //Set the expiry time and permissions for the container.
-            //In this case no start time is specified, so the shared access signature becomes valid immediately.
+            // Set the expiry time and permissions for the container.
+            // In this case no start time is specified, so the shared access signature becomes valid immediately.
             SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
             {
                 SharedAccessExpiryTime = DateTime.UtcNow.AddHours(4),
                 Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.List | SharedAccessBlobPermissions.Read
             };
 
-            //Generate the shared access signature on the container, setting the constraints directly on the signature.
+            // Generate the shared access signature on the container, setting the constraints directly on the signature.
             string sasContainerToken = container.GetSharedAccessSignature(sasConstraints);
 
-            //Return the URI string for the container, including the SAS token.
+            // Return the URI string for the container, including the SAS token.
             return new Uri(container.Uri + sasContainerToken);
         }
 
         static Uri GetInputFileUrl(CloudBlobContainer container, string filePath)
         {
-            //Set the expiry time and permissions for the container.
-            //In this case no start time is specified, so the shared access signature becomes valid immediately.
+            // Set the expiry time and permissions for the container.
+            // In this case no start time is specified, so the shared access signature becomes valid immediately.
             SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
             {
                 SharedAccessExpiryTime = DateTime.UtcNow.AddHours(4),
                 Permissions = SharedAccessBlobPermissions.Read
             };
 
-            //Generate the shared access signature on the container, setting the constraints directly on the signature.
+            // Generate the shared access signature on the container, setting the constraints directly on the signature.
             string sasToken = container.GetBlockBlobReference(filePath).GetSharedAccessSignature(sasConstraints);
 
-            //Return the URI string for the container, including the SAS token.
+            // Return the URI string for the container, including the SAS token.
             return new Uri(container.Uri + "/" + filePath + sasToken);
         }
 
@@ -262,22 +268,24 @@ namespace ConsoleApplication1
 ```
 
 ## <a name="export"></a>Exportera
+
 Export av registreringen liknar importen, med följande skillnader:
 
 - Du behöver bara URL: en för utdata.
 - Du skapar en NotificationHubJob av typen ExportRegistrations.
 
 ### <a name="sample-code-snippet"></a>Exempel kods tycke
-Här är ett exempel kods tycke för att exportera registreringar i Java:
+
+Följande är ett exempel kods tycke för att exportera registreringar i Java:
 
 ```java
-// submit an export job
+// Submit an export job
 NotificationHubJob job = new NotificationHubJob();
 job.setJobType(NotificationHubJobType.ExportRegistrations);
 job.setOutputContainerUri("container uri with SAS signature");
 job = hub.submitNotificationHubJob(job);
 
-// wait until the job is done
+// Wait until the job is done
 while(true){
     Thread.sleep(1000);
     job = hub.getNotificationHubJob(job.getJobId());
@@ -288,6 +296,7 @@ while(true){
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 Mer information om registreringar finns i följande artiklar:
 
 - [Registreringshantering](notification-hubs-push-notification-registration-management.md)

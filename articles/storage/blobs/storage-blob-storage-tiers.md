@@ -1,6 +1,6 @@
 ---
 title: Frekventa, låg frekventa och Arkiv åtkomst nivåer för blobbar – Azure Storage
-description: Läs om åtkomst nivåer för frekvent åtkomst, låg frekvent åtkomst och arkivering för Azure Blob Storage. Granska lagrings konton som stöder skiktning. Jämför blockera alternativ för blogg lagring.
+description: Läs om åtkomst nivåer för frekvent åtkomst, låg frekvent åtkomst och arkivering för Azure Blob Storage. Granska lagrings konton som stöder skiktning. Jämför Block Blob Storage-alternativ.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 03/23/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 17df78f846d8422c0200ce5fc75b4722d21d35df
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a46597087a3eee03f7c5b8d1c9746f968ea1980d
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828280"
+ms.locfileid: "87849734"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: nivåer för frekvent åtkomst, lågfrekvent åtkomst och arkivlagring
 

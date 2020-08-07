@@ -3,14 +3,14 @@ title: Ansluta Azure Functions till Azure Storage med hjälp av kommando rads ve
 description: Lär dig hur du ansluter Azure Functions till en Azure Storage kö genom att lägga till en utgående bindning till ditt kommando rads projekt.
 ms.date: 02/07/2020
 ms.topic: quickstart
-ms.custom: tracking-python
+ms.custom: devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 8a5f9cd42d13b7cfb4bc6e95809112a3b7045fe4
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 3e84db3aa13ae77f931a46683f0c5e4572f6ce44
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560106"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852641"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>Ansluta Azure Functions till Azure Storage med hjälp av kommando rads verktyg
 

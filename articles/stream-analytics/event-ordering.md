@@ -6,13 +6,13 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/12/2019
-ms.openlocfilehash: e9617018b06d4f62b49946ae5593bd51805355e0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 08/06/2020
+ms.openlocfilehash: b4e34befbf28de2b985ff49ce17a87a25842015e
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044574"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901699"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Konfigurera principer för händelse ordning för Azure Stream Analytics
 
@@ -75,6 +75,11 @@ När flera partitioner från samma inkommande data ström kombineras, är den se
 Det här meddelandet för att meddela att minst en partition i dina indata är tom och kommer att fördröja utdata med tröskelvärdet för sent införsel. För att undvika detta rekommenderar vi att du antingen:  
 1. Se till att alla partitioner för Event Hub/IoT Hub ta emot ininformation. 
 2. Använd partition by PartitionID-sats i frågan. 
+
+## <a name="why-do-i-see-a-delay-of-5-seconds-even-when-my-late-arrival-policy-is-set-to-0"></a>Varför ser jag en fördröjning på 5 sekunder även om min sent införsel princip är inställd på 0?
+Detta inträffar när det finns en inpartition som aldrig har tagit emot några inaktuella ingångar. Du kan verifiera ingångs måtten efter partition för att validera det här beteendet. 
+
+När en partition inte har några data för mer än det konfigurerade tröskelvärdet för sent införsel, förflyttar sig Stream Analytics-programmet för program tids stämpling enligt beskrivningen i avsnittet om sortering av evenemang. Detta kräver uppskattad införsel tid. Om partitionen aldrig hade några data beräknar Stream Analytics ankomst tiden som *lokal tid – 5 sekunder*. På grund av dessa partitioner som aldrig hade några data kan det Visa en fördröjning på vattenstämpeln på 5 sekunder.  
 
 ## <a name="next-steps"></a>Nästa steg
 * [Överväganden för tidshantering](stream-analytics-time-handling.md)

@@ -10,13 +10,13 @@ author: lobrien
 manager: cgronlun
 ms.date: 06/15/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: 698fdf1295ec38fc7eca9a58e681d7fe13ec32fc
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 3973e94c9d3add25dba0af7a6b0c0deb18b77440
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319515"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850448"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Använd automatisk ML i en Azure Machine Learning pipeline i python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -506,7 +506,7 @@ Varje- `Run` objekt innehåller `StepRun` objekt som innehåller information om 
 
 Slutligen hämtas faktiska mått och modell till din lokala dator, enligt beskrivningen i avsnittet "Undersök resultat från pipelines" ovan.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Kör den här Jupyter Notebook som visar ett [komplett exempel på automatiserad ml i en pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) som använder regression för att förutsäga taxi-priser
 - [Skapa automatiserade ML-experiment utan att skriva kod](how-to-use-automated-ml-for-ml-models.md)

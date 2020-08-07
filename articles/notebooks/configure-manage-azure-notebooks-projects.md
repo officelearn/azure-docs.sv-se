@@ -3,13 +3,13 @@ title: Konfigurera och hantera Azure Notebooks för hands version
 description: Lär dig hur du hanterar projekt-metadata, projektfiler, projektets miljö och installations steg via både Azure Notebooks användar gränssnitt och direkt åtkomst till terminalen.
 ms.topic: how-to
 ms.date: 02/28/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 53acf7c916b402e291b9779948579761e79179ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 7674c2151922d26e069b5cd285cb311d7a18fa98
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85834088"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852811"
 ---
 # <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Hantera och konfigurera projekt i Azure Notebooks för hands version
 
@@ -38,7 +38,7 @@ Som standard körs projekt på den **kostnads fria beräknings** nivån, som är
 
 På instrument panelen för projektet väljer du **projekt inställningar**och väljer sedan fliken **information** som innehåller projektets metadata enligt beskrivningen i följande tabell. Du kan ändra projektets metadata när som helst.
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 | --- | --- |
 | Projektnamn | Ett eget namn för ditt projekt som Azure Notebooks används för visning. Till exempel "Hello World i python". |
 | Projekt-ID | En anpassad identifierare som blir en del av den URL som du använder för att dela ett projekt. Detta ID får endast använda bokstäver, siffror och bindestreck, får innehålla högst 30 tecken och får inte vara ett [reserverat projekt-ID](create-clone-jupyter-notebooks.md#reserved-project-ids). Om du är osäker på vad du ska använda, är en gemensam konvention att använda en gemen version av ditt projekt namn där blank steg är i bindestreck, till exempel "Min-anteckningsbok-Project" (trunkeras om det behövs för att få plats för längd begränsningen). |
@@ -74,7 +74,7 @@ Varje objekt i projektets fil lista innehåller kommandon via en snabb meny för
 
 ![Kommandon på en fil snabb meny](media/project-file-commands.png)
 
-| Kommando | Kortkommando | Åtgärd |
+| Kommando | Kortkommando | Action |
 | --- | --- | --- |
 | Kör | r (eller klicka) | Kör en Notebook-fil. Andra filtyper öppnas för visning.  |
 | Kopiera länk | y | Kopierar en länk till filen till Urklipp. |
@@ -92,7 +92,7 @@ En för hands version av en fil eller antecknings bok är en skrivskyddad vy av 
 
 Förhands gransknings sidan stöder flera verktygsfälts kommandon med kortkommandon:
 
-| Kommando | Kortkommando | Åtgärd |
+| Kommando | Kortkommando | Action |
 | --- | --- | --- |
 | Dela | s | Visar popup-fönstret för delning som du kan använda för att få en länk, dela till sociala medier, Hämta HTML för inbäddning och skicka ett e-postmeddelande. |
 | Klona | c  | Klona antecknings boken till ditt konto. |

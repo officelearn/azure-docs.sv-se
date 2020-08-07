@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: f2af8dcb2460e4e95d29bd81e6994d145ac61a48
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4949a83ac2aac664c19be46a367fce2bbff4cb02
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247787"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904827"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Överväganden vid planering av Service Fabric kluster kapacitet
 
@@ -155,7 +155,7 @@ Klustrets kapacitets krav bestäms av dina särskilda krav för arbets belastnin
 
 #### <a name="virtual-machine-sizing"></a>Storlek på virtuell dator
 
-**För produktions arbets belastningar är rekommenderad VM-storlek (SKU) standard D2_V2 (eller motsvarande) med minst 50 GB lokal SSD.** Minst 50 GB lokal SSD rekommenderas, men vissa arbets belastningar (till exempel sådana som kör Windows-behållare) kräver större diskar. Tänk på följande begränsningar när du väljer andra [storlekar för virtuella datorer](../virtual-machines/sizes-general.md) för produktions arbets belastningar:
+**För produktions arbets belastningar är rekommenderad VM-storlek (SKU) [Standard D2_V2](../virtual-machines/dv2-dsv2-series.md) (eller motsvarande) med minst 50 GB lokal SSD, 2 kärnor och 4 GiB minne.** Minst 50 GB lokal SSD rekommenderas, men vissa arbets belastningar (till exempel sådana som kör Windows-behållare) kräver större diskar. Tänk på följande begränsningar när du väljer andra [storlekar för virtuella datorer](../virtual-machines/sizes-general.md) för produktions arbets belastningar:
 
 - Partiella kärn VM-storlekar som standard a0 stöds inte.
 - *A-serien* VM-storlekar stöds inte av prestanda skäl.

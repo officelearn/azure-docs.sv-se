@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 7d34b54349a681061f80798a19ce65d2266f589d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 441575a33e7c3d54de7b25c06f7a839805f8ac1b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559477"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87875293"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Vad är Azure Machine Learning pipelines?
 
@@ -42,7 +42,7 @@ Azure-molnet tillhandahåller flera andra pipelines, var och en med olika ändam
 
 | Scenario | Primär persona | Azure-erbjudande | OSS-erbjudande | Kanoniskt rör | Styrkor | 
 | -------- | --------------- | -------------- | ------------ | -------------- | --------- | 
-| Modell dirigering (maskin inlärning) | Data Scientist | Azure Machine Learning pipelines | Kubeflow-pipeline | Data > modell | Distribution, cachelagring, kod-första, återanvänd | 
+| Modell dirigering (maskin inlärning) | Dataexpert | Azure Machine Learning pipelines | Kubeflow-pipeline | Data > modell | Distribution, cachelagring, kod-första, återanvänd | 
 | Data dirigering (Förbered data) | Datatekniker | [Azure Data Factory-pipeliner](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Apache-luft flöde | Data-> data | Starkt förskriven rörelse. Datacentrerade aktiviteter. |
 | Code & app Orchestration (CI/CD) | App-utvecklare/OPS | [Azure DevOps-pipeline](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Kod + modell-> App/Service | Det mest öppna och flexibla aktivitets stödet, godkännande köer, faser med hantera | 
 

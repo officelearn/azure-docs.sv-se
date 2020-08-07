@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
-ms.openlocfilehash: dbfd90c760f4f5f9f6cf1bac8c7d75f474f6827b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.date: 08/06/2020
+ms.openlocfilehash: 25378cc0510260a6ccd0a0bdb162b145cbae5c8e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223677"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847881"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Kopiera data till eller från Azure Data Lake Storage Gen1 med Azure Data Factory
 
@@ -75,7 +75,7 @@ Följ dessa steg om du vill använda autentisering av tjänstens huvud namn.
 
 1. Registrera en program enhet i Azure Active Directory och ge den till gång till Data Lake Store. Detaljerade anvisningar finns i [tjänst-till-tjänst-autentisering](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
 
-    - Program-ID:t
+    - Program-ID
     - Program nyckel
     - Klientorganisations-ID
 
@@ -91,6 +91,7 @@ Följande egenskaper stöds:
 | servicePrincipalId | Ange programmets klient-ID. | Ja |
 | servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som en `SecureString` för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | tenant | Ange klient information, till exempel domän namn eller klient-ID, under vilken ditt program finns. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja |
+| azureCloudType | För tjänstens huvud namns autentisering anger du vilken typ av Azure-moln miljö som ditt AAD-program är registrerat på. <br/> Tillåtna värden är **AzurePublic**, **AzureChina**, **azureusgovernment eller**och **AzureGermany**. Som standard används data fabrikens moln miljö. | Nej |
 
 **Exempel:**
 
@@ -216,7 +217,7 @@ Följande egenskaper stöds för Azure Data Lake Store gen1 under `storeSettings
 | ***Ytterligare inställningar:*** |  | |
 | rekursiva | Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. Observera att när rekursivt har angetts till true och sinken är en filbaserad lagring, kopieras inte en tom mapp eller undermapp till mottagaren. <br>Tillåtna värden är **True** (standard) och **false**.<br>Den här egenskapen gäller inte när du konfigurerar `fileListPath` . |Nej |
 | deleteFilesAfterCompletion | Anger om de binära filerna kommer att tas bort från käll arkivet efter att du har flyttat till mål lagret. Filen som ska tas bort är per fil, så när kopierings aktiviteten Miss lyckas visas några filer som redan har kopierats till målet och tagits bort från källan, medan andra fortfarande är kvar på käll arkivet. <br/>Den här egenskapen är endast giltig i ett binärt kopierings scenario där data källor är BLOB, ADLS Gen1, ADLS Gen2, S3, Google Cloud Storage, File, Azure File, SFTP eller FTP. Standardvärdet: false. |Nej |
-| modifiedDatetimeStart    | Filter för filer baserat på attributet: senast ändrad. <br>Filerna väljs om deras senaste ändrings tid ligger inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd` . Tiden tillämpas på UTC-tidszonen i formatet "2018-12-01T05:00:00Z". <br> Egenskaperna kan vara NULL, vilket innebär att inget filter för filattribut kommer att användas för data uppsättningen.  När `modifiedDatetimeStart` har datetime-värde men `modifiedDatetimeEnd` är null, innebär det att filerna vars senast ändrade attribut är större än eller lika med värdet för datetime väljs.  När `modifiedDatetimeEnd` har ett datetime-värde men `modifiedDatetimeStart` är null, innebär det att filerna vars senast ändrade attribut är mindre än värdet för datetime väljs.<br/>Den här egenskapen gäller inte när du konfigurerar `fileListPath` . | Nej                                            |
+| modifiedDatetimeStart    | Filter för filer baserat på attributet: senast ändrad. <br>Filerna väljs om deras senaste ändrings tid ligger inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd` . Tiden tillämpas på UTC-tidszonen i formatet "2018-12-01T05:00:00Z". <br> Egenskaperna kan vara NULL, vilket innebär att inget attribut filter används för data uppsättningen.  När `modifiedDatetimeStart` har datetime-värde men `modifiedDatetimeEnd` är null, innebär det att filerna vars senast ändrade attribut är större än eller lika med värdet för datetime väljs.  När `modifiedDatetimeEnd` har ett datetime-värde men `modifiedDatetimeStart` är null, innebär det att filerna vars senast ändrade attribut är mindre än värdet för datetime väljs.<br/>Den här egenskapen gäller inte när du konfigurerar `fileListPath` . | Nej                                            |
 | modifiedDatetimeEnd      | Samma som ovan.                                               | Nej                                           |
 | maxConcurrentConnections | Antalet anslutningar för att ansluta till lagrings lager samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till data lagret. | Nej                                           |
 

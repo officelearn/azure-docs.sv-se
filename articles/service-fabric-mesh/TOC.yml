@@ -35,7 +35,7 @@
           href: service-fabric-mesh-tutorial-template-upgrade-app.md
         - name: 4 – Ta bort ett program
           href: service-fabric-mesh-tutorial-template-remove-app.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Terminologi
       href: service-fabric-mesh-terminology.md
@@ -51,9 +51,9 @@
       href: service-fabric-mesh-storing-state.md
     - name: Hemligheter
       href: service-fabric-mesh-secrets-overview.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
-    - name: Ställ in din utvecklingsmiljö
+    - name: Ställt in din utvecklingsmiljö
       href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
     - name: Konfigurera Service Fabric Mesh CLI
       href: service-fabric-mesh-howto-setup-cli.md
@@ -82,11 +82,9 @@
     - name: Referens för Service Fabric Mesh CLI
       href: /cli/azure/ext/mesh
     - name: 'REST API:er för Service Fabric-klientresurs'
-      href: '/rest/api/servicefabric/sfclient-index#service-fabric-resource-model'
+      href: /rest/api/servicefabric/sfclient-index#service-fabric-resource-model
     - name: Referens för Service Fabric Maven CLI
       href: service-fabric-mesh-reference-maven.md
-    - name: Resource Manager-mall
-      href: /azure/templates/microsoft.servicefabricmesh/allversions
 - name: Resurser
   items:
     - name: Vanliga frågor

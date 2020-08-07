@@ -6,17 +6,17 @@ ms.author: robb
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: 380a1366994e970c208a6c3ad505414cb12bc0c2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d7d9f55bbd3d8060670008f321a77b2a28376e47
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324105"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849027"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Skapa en klassisk måttavisering med en Resource Manager-mall
+
 > [!WARNING]
-> 
-> I den här artikeln beskrivs hur du skapar **klassiska mått varningar** med Resource Manager-mallar. De klassiska aviseringarna drogs tillbaka i augusti 2019 och ställdes in så att de var helt inaktuella i juni 2020. Du kan inte skapa nya klassiska offentliga aviseringar Azure. Vissa regionala versioner av Azure kan fortfarande ha alternativet, men vi föreslår att du i stället skapar [nya mått aviseringar](./alerts-metric-near-real-time.md) med hjälp av mallar om det är möjligt. [Den här artikeln](alerts-metric-create-templates.md) innehåller information.
+> Den här artikeln beskriver hur du skapar äldre klassiska mått varningar. Azure Monitor har nu stöd för [nyare aviseringar i nästan real tid och nya aviserings upplevelser](./alerts-overview.md). Klassiska aviseringar [dras tillbaka](./monitoring-classic-retirement.md), men fortfarande i begränsad användning för resurser som ännu inte stöder de nya aviseringarna.
 >
 
 Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/templates/template-syntax.md) för att konfigurera klassiska Azure-Metric-aviseringar. På så sätt kan du automatiskt konfigurera aviseringar för dina resurser när de skapas för att säkerställa att alla resurser övervakas korrekt.
@@ -398,7 +398,7 @@ En avisering i en Resource Manager-mall är oftast användbar när du skapar en 
 }
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 * [Läs mer om aviseringar](alerts-overview.md)
 * [Lägg till diagnostikinställningar](./diagnostic-settings-template.md) i Resource Manager-mallen
 * För JSON-syntax och egenskaper, se referens för [Microsoft. Insights/alertrules-](/azure/templates/microsoft.insights/alertrules) mallen.

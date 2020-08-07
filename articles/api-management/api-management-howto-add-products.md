@@ -1,6 +1,6 @@
 ---
 title: Skapa och publicera en produkt i Azure API Management
-description: Lär dig hur du skapar och publicerar produkter i Azure API Management.
+description: 'Lär dig hur du skapar och publicerar produkter i Azure API Management. När en produkt har publicerats kan utvecklare börja använda produktens API: er.'
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: d90b212286b555bf5b858990fd5dcb062348be8d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 69b5e381ed8446b45f68b4b1ce9bb13df47039c0
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254732"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904912"
 ---
 # <a name="create-and-publish-a-product"></a>Skapa och publicera en produkt  
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 ![Lägga till produktsjälvstudie](media/api-management-howto-add-products/added-product.png)
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Slutför följande snabb start: [skapa en Azure API Management-instans](get-started-create-service-instance.md).
@@ -52,7 +52,7 @@ I den här guiden får du lära dig att:
     | Visningsnamn             | Det namn som du vill ska visas i **utvecklarportalen**.                                                                                                                                                                                                                                                        |
     | Namn                     | Ett beskrivande namn på produkten.                                                                                                                                                                                                                                                                                      |
     | Beskrivning              | I fältet **Beskrivning** kan du ange detaljerad information om produkten som t.ex. syfte, API:er som den ger åtkomst till och annan användbar information.                                                                                                                                               |
-    | Tillstånd                    | Tryck på **Publicerad** om du vill publicera produkten. Produkten måste vara publicerad innan API:er i en produkt kan anropa den. Som standard visas nya produkter som opublicerade och är bara synliga för gruppen **Administratörer**.                                                                                      |
+    | Stat                    | Tryck på **Publicerad** om du vill publicera produkten. Produkten måste vara publicerad innan API:er i en produkt kan anropa den. Som standard visas nya produkter som opublicerade och är bara synliga för gruppen **Administratörer**.                                                                                      |
     | Prenumeration krävs    | Markera **Kräv prenumeration** om det ska krävas att en användare prenumererar för att kunna använda produkten.                                                                                                                                                                                                                                   |
     | Godkännande krävs        | Markera **Kräv godkännande** om du vill att en administratör ska granska och godkänna eller avvisa prenumerationsförsök för produkten. Om rutan är avmarkerad godkänns prenumerationsförsök automatiskt.                                                                                                                         |
     | Antal tillåtna prenumerationer | Ange en prenumerationsgräns för att begränsa antalet flera samtidiga prenumerationer.                                                                                                                                                                                                                                |

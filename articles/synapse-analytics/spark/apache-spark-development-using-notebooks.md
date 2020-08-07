@@ -9,13 +9,13 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
-ms.custom: tracking-python
-ms.openlocfilehash: a7dc0fcae9a6fea789d30bac10511007454ecc5f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-python
+ms.openlocfilehash: 6e0062450889a2bbbdfcd47137ffbe36b83cae57
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504015"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849106"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Skapa, utveckla och underhålla antecknings böcker för Synapse Studio (för hands version) i Azure Synapse Analytics
 
@@ -71,7 +71,7 @@ Du kan ställa in det primära språket för nya tillagda celler i list rutan i 
 
 Du kan använda flera språk i en bärbar dator genom att ange rätt språk-Magic-kommando i början av en cell. I följande tabell visas Magic-kommandon för att växla mellan cell språk.
 
-|Magiskt kommando |Språk | Description |  
+|Magiskt kommando |Språk | Beskrivning |  
 |---|------|-----|
 |%% pyspark| Python | Kör en **python** -fråga mot Spark-kontext.  |
 |%% Spark| Scala | Kör en **Scala** -fråga mot Spark-kontext.  |  
@@ -119,7 +119,7 @@ IntelliSense-funktionerna finns på olika förfallo nivåer för olika språk. A
 |PySpark (python)|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Spark (Scala)|Ja|Ja|Ja|Ja|-|-|-|Ja|
 |SparkSQL|Ja|Ja|-|-|-|-|-|-|
-|.NET för Spark (C#)|Yes|-|-|-|-|-|-|-|
+|.NET för Spark (C#)|Ja|-|-|-|-|-|-|-|
 
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Formatera en text cell med knappar i verktygsfältet
 

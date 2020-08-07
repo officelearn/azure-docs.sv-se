@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 1ee4c8a52098bfa7c012e85f25371c306b106b86
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5e786a64d7d9606a3a99a3f1b3f8c67c9869cd1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029441"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830690"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Felsöka automatisk skalning med VM-skalningsuppsättningar
 **Problem** – du har skapat en infrastruktur för automatisk skalning i Azure Resource Manager att använda skalnings uppsättningar för virtuella datorer, t. ex. genom att distribuera en mall som den här: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – du har definierat dina skalnings regler och den fungerar utmärkt, förutom oavsett hur mycket belastning du lägger till på de virtuella datorerna, skalas den inte.
@@ -23,7 +23,7 @@ ms.locfileid: "87029441"
 Några saker att tänka på är:
 
 * Hur många virtuella processorer har varje virtuell dator och du läser in varje vCPU?
-  Föregående exempel på Azure snabb starts mal len har ett do_work. php-skript som läser in en enda vCPU. Om du använder en virtuell dator som är större än en vCPU VM-storlek som Standard_A1 eller D1 måste du köra den här inläsningen flera gånger. Kontrol lera hur många virtuella processorer som finns för dina virtuella datorer genom att granska [storlekar för virtuella Windows-datorer i Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+  Föregående exempel på Azure snabb starts mal len har ett do_work. php-skript som läser in en enda vCPU. Om du använder en virtuell dator som är större än en vCPU VM-storlek som Standard_A1 eller D1 måste du köra den här inläsningen flera gånger. Kontrol lera hur många virtuella processorer som finns för dina virtuella datorer genom att granska [storlekar för virtuella Windows-datorer i Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * Hur många virtuella datorer i den virtuella datorns skalnings uppsättning arbetar du med var och en?
   
     En skalnings händelse inträffar bara när genomsnitts processorn över **alla** virtuella datorer i en skalnings uppsättning överskrider tröskelvärdet under den tid som anges internt i reglerna för autoskalning.

@@ -63,6 +63,8 @@
           href: security-center-policy-definitions.md
         - name: Använda rekommendationer för att förbättra säkerheten
           href: security-center-using-recommendations.md
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
     - name: Aviseringar för skydd mot hot och säkerhet
       items:
         - name: Översikt över skydd mot hot i Security Center

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 08e36f8ef31114b18a166e7a14d6d7ad8385582c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 3fb13a4912fbd2a9bea39b56333adbd1329efef6
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850380"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985911"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Skapa & använda program varu miljöer i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -320,6 +320,14 @@ myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 > [!WARNING]
 > Om du installerar vissa python-beroenden i Docker-avbildningen och glömmer att ange user_managed_dependencies = True, kommer dessa paket inte att finnas i körnings miljön, vilket orsakar körnings problem. Som standard skapar Azure ML en Conda-miljö med beroenden som du har angett, och kör i den miljön i stället för att använda python-bibliotek som du har installerat på bas avbildningen.
 
+### <a name="retrieve-image-details"></a>Hämta avbildnings information
+
+För en registrerad miljö kan du hämta avbildnings information med hjälp av följande kod där `details` är en instans av [DockerImageDetails](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockerimagedetails?view=azure-ml-py) (AzureML python SDK >= 1,11) och ger all information om miljö avbildningen, till exempel Dockerfile, register och avbildnings namn.
+
+```python
+details = environment.get_image_details()
+```
+
 ## <a name="use-environments-for-training"></a>Använda miljöer för utbildning
 
 Om du vill skicka en utbildnings körning måste du kombinera din miljö, [Beräkna mål](concept-compute-target.md)och ditt Python-skript i en körnings konfiguration. Den här konfigurationen är ett wrapper-objekt som används för att skicka körningar.
@@ -376,12 +384,6 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 # Submit the run 
 run = experiment.submit(sk_est)
-```
-### <a name="retrieve-dockerfile-from-a-run"></a>Hämta Dockerfile från en körning
-
-Använd följande kod för att hämta Dockerfile för en Docker-aktiverad körning.
-```python
-print(run.get_environment().get_image_details().dockerfile)
 ```
 
 ## <a name="use-environments-for-web-service-deployment"></a>Använda miljöer för webb tjänst distribution

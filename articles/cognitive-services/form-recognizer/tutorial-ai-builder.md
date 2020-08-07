@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 07/01/2020
 ms.author: pafarley
-ms.openlocfilehash: 16869ab3a1961879cfcda1eaa383073cd2309a01
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6ea1504f5cb3ae405ccd22774204f898484e6876
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433710"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987128"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Självstudie: skapa en app för bearbetning av formulär med AI Builder
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En uppsättning minst fem formulär av samma typ som används för utbildning/testning av data. Se [skapa en tränings data uppsättning](./build-training-data-set.md) för tips och alternativ för att sätta samman din tränings data uppsättning. I den här snabb starten kan du använda filerna under mappen **träna** i [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2128080).
-* En Power Apps eller en automatiserad energi licens – se [licens guiden](https://go.microsoft.com/fwlink/?linkid=2085130). Licensen måste innehålla [DataFlex Pro](https://powerplatform.microsoft.com/en-us/common-data-service/).
+* En Power Apps eller en automatiserad energi licens – se [licens guiden](https://go.microsoft.com/fwlink/?linkid=2085130). Licensen måste innehålla [common data service](https://powerplatform.microsoft.com/en-us/common-data-service/).
 * Ett AI Builder [-tillägg eller en utvärderings version](https://go.microsoft.com/fwlink/?LinkId=2113956&clcid=0x409).
 
 

@@ -3,16 +3,16 @@ title: Felsök Azure Cosmos DB HTTP 408 eller begär timeout-problem med .NET SD
 description: Så här diagnostiserar och åtgärdar du undantags tids gränsen för .NET SDK-begäran
 author: j82w
 ms.service: cosmos-db
-ms.date: 07/29/2020
+ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 3d6fed539581b2d1add87ade92e34bcf2e1913e8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a0469feed391025f8dd50a7f8b11b96265b0df29
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417615"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987417"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout"></a>Diagnostisera och Felsök Azure Cosmos DB timeout för .NET SDK-begäran
 HTTP 408-felet uppstår om SDK inte kunde slutföra begäran innan tids gränsen uppnåddes.
@@ -45,9 +45,12 @@ Klient programmet som använder SDK bör skalas upp/ut.
 När du kör i Azure kan klienter som använder .NET SDK nå ut till PAT-port (Azure SNAT).
 
 #### <a name="solution-1"></a>Lösning 1:
-Följ [port överbelastnings guide för SNAT](troubleshoot-dot-net-sdk.md#snat).
+Om du kör på virtuella Azure-datorer följer du [guiden för SNAT-portens överbelastnings guide](troubleshoot-dot-net-sdk.md#snat).
 
 #### <a name="solution-2"></a>Lösning 2:
+Om du kör på Azure App Service följer du [fel söknings guiden för anslutnings fel](../app-service/troubleshoot-intermittent-outbound-connection-errors.md#cause) och [använder App Service diagnostik](https://azure.github.io/AppService/2018/03/01/Deep-Dive-into-TCP-Connections-in-App-Service-Diagnostics.html).
+
+#### <a name="solution-3"></a>Lösning 3:
 Om du använder en HTTP-proxy kontrollerar du att den har stöd för det antal anslutningar som kon figurer ATS i SDK `ConnectionPolicy` .
 Annars är det problem med ansikts anslutning.
 

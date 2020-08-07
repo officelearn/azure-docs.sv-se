@@ -8,12 +8,12 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 06/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c2ef52669a0bc5cd29bdcebf920beb1f409e65d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 92d92072fbc8ceebdd4fd9253620e5fba89bfb54
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533112"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987519"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Snabb start: Konfigurera Azure NetApp Files och skapa en NFS-volym 
 
@@ -26,7 +26,7 @@ I den här snabb starten ska du konfigurera följande objekt:
 - En kapacitets grupp
 - En NFS-volym för Azure NetApp Files
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar 
 
@@ -132,7 +132,7 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
 
     > [!NOTE]
     > En lista över regioner som stöds finns i avsnittet [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) .
-    > Om du vill hämta regions namnet som stöds av våra kommando rads verktyg använder du`az account list-locations -query "[].{Region:name}" --out table`
+    > Om du vill hämta regions namnet som stöds av våra kommando rads verktyg använder du`az account list-locations --query "[].{Region:name}" --out table`
     >
 
 2. Skapa en ny resurs grupp med kommandot [AZ Group Create](/cli/azure/group#az-group-create) :

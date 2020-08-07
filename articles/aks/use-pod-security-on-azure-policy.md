@@ -5,22 +5,18 @@ services: container-service
 ms.topic: article
 ms.date: 07/06/2020
 author: jluk
-ms.openlocfilehash: 5677cb3d240381e06c76ed73354981f782bdb0dd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 18947f409ebcef570998671f9f421f8228e9692d
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830231"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987366"
 ---
 # <a name="secure-pods-with-azure-policy-preview"></a>Skydda poddar med Azure Policy (för hands version)
 
 För att förbättra säkerheten för ditt AKS-kluster kan du kontrol lera vilka funktioner poddar beviljas och om allt körs mot företagets policy. Den här åtkomsten definieras via inbyggda principer som tillhandahålls av [Azure policy-tillägget för AKS][kubernetes-policy-reference]. Genom att tillhandahålla ytterligare kontroll över säkerhets aspekterna av din POD-specifikation, som rot privilegier, möjliggör striktare säkerhets kontroll och insyn i vad som distribueras i klustret. Om en POD inte uppfyller de villkor som anges i principen kan Azure Policy förhindra att Pod startar eller flaggar en överträdelse. Den här artikeln visar hur du använder Azure Policy för att begränsa distributionen av poddar i AKS.
 
-> [!IMPORTANT]
-> AKS för hands versions funktioner är självbetjänings deltagande. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och undantas från service nivå avtalen och den begränsade garantin. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Mer information finns i följande support artiklar:
->
-> * [Support principer för AKS][aks-support-policies]
-> * [Vanliga frågor och svar om support för Azure][aks-faq]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 6138dc06e8ed70ba85f4ccfc3370c044f34bd1f1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: bd1362db2e70d4f9f46d80b00805856e08aedac4
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963962"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987349"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Självstudie: Konfigurera SQL Data Sync mellan databaser i Azure SQL Database och SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -55,11 +55,11 @@ PowerShell-exempel på hur du konfigurerar SQL Data Sync finns i [så här synkr
 
    På sidan **skapa data Sync-grupp** ändrar du följande inställningar:
 
-   | Inställningen                        | Beskrivning |
+   | Inställning                        | Beskrivning |
    | ------------------------------ | ------------------------------------------------- |
    | **Sync-gruppens namn** | Ange ett namn för den nya Sync-gruppen. Namnet skiljer sig från namnet på själva databasen. |
    | **Synka metadata-databas** | Välj att skapa en databas (rekommenderas) eller Använd en befintlig databas.<br/><br/>Om du väljer **ny databas**väljer du **Skapa ny databas.** På sidan **SQL Database** namnger och konfigurerar du den nya databasen och väljer **OK**.<br/><br/>Om du väljer **Använd befintlig databas**väljer du databasen i listan. |
-   | **Automatisk synkronisering** | Välj **på** eller **av**.<br/><br/>Om du väljer **på**anger du ett nummer och väljer **sekunder**, **minuter**, **timmar**eller **dagar** i avsnittet **Synkroniseringsfrekvens** . |
+   | **Automatisk synkronisering** | Välj **på** eller **av**.<br/><br/>Om du väljer **på**anger du ett nummer och väljer **sekunder**, **minuter**, **timmar**eller **dagar** i avsnittet **Synkroniseringsfrekvens** .<br/> Den första synkroniseringen börjar efter den valda intervall perioden från den tidpunkt då konfigurationen sparades.|
    | **Konflikt lösning** | Välj **hubben Win** eller **member Win**.<br/><br/>**Hubben Win** innebär att data i Hub-databasen skriver över motstridiga data i medlems databasen när konflikter uppstår.<br/><br/>**Medlemmen Win** innebär att om konflikter uppstår skriver data i medlems databasen över motstridiga data i Hubbs databasen. |
 
    > [!NOTE]
@@ -83,7 +83,7 @@ I avsnittet **medlems databas** lägger du till en databas i Azure SQL Database 
 
   Ändra följande inställningar på sidan **konfigurera Azure SQL Database** :
 
-  | Inställningen                       | Beskrivning |
+  | Inställning                       | Beskrivning |
   | ----------------------------- | ------------------------------------------------- |
   | **Synkronisera medlems namn** | Ange ett namn för den nya synkroniserings medlemmen. Namnet skiljer sig från själva databas namnet. |
   | **Prenumeration** | Välj den associerade Azure-prenumerationen för fakturerings syfte. |

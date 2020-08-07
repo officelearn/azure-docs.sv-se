@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 07/29/2020
 ms.author: aahi
-ms.openlocfilehash: 367e214a3945ec9d6ed0ffc5b11e6af25dc41503
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: b3cec783b43d0169a3d0d56ca040e1397701102e
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413339"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986176"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Språk stöd för API för textanalys v3 
 
@@ -25,7 +25,7 @@ ms.locfileid: "85413339"
 
 #### <a name="sentiment-analysis"></a>[Attitydanalys](#tab/sentiment-analysis)
 
-| Språk              | Språkkod | v2-stöd | v3-stöd | Startar v3-modell version: |              Kommentarer |
+| Språk              | Språkkod | v2-stöd | v3-stöd | Startar v3-modell version: |              Anteckningar |
 |:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
 | Kinesiska – Förenklad    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh`även godkänd |
 | Kinesiska (traditionell)   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
@@ -49,7 +49,7 @@ ms.locfileid: "85413339"
 
 ### <a name="opinion-mining-v31-preview-only"></a>Utåsikts utvinning (v 3.1 – endast för hands version)
 
-| Språk              | Språkkod | Från och med v3 modell version: |              Kommentarer |
+| Språk              | Språkkod | Från och med v3 modell version: |              Anteckningar |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
 | Engelska               |     `en`      |              2020-04-01              |                    |
 
@@ -60,7 +60,7 @@ ms.locfileid: "85413339"
 > * NER v3 stöder för närvarande bara engelska och spanska språk. Om du anropar NER v3 med ett annat språk returneras v 2.1-API: et, förutsatt att språket stöds i version 2,1.
 > * v 2.1 returnerar bara den fullständiga uppsättningen tillgängliga entiteter för de engelska, kinesiska, enkla, franska, tyska och spanska språken.  Entiteterna "person", "plats" och "organisation" returneras för de andra språk som stöds.
 
-| Språk               | Språkkod | v 2.1-stöd | v3-stöd | Från och med v3 modell version: |       Kommentarer        |
+| Språk               | Språkkod | v 2.1-stöd | v3-stöd | Från och med v3 modell version: |       Anteckningar        |
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
 | Arabiska                |     `ar`      |     ✓      |            |                                 |                    |
 | Tjeckiska                 |     `cs`      |     ✓      |            |                                 |                    |
@@ -88,7 +88,7 @@ ms.locfileid: "85413339"
 
 #### <a name="key-phrase-extraction"></a>[Extrahering av nyckel fraser](#tab/key-phrase-extraction)
 
-| Språk              | Språkkod | v2-stöd | v3-stöd | Tillgängligt från och med v3-modell version: |       Kommentarer        |
+| Språk              | Språkkod | v2-stöd | v3-stöd | Tillgängligt från och med v3-modell version: |       Anteckningar        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
 | Nederländska                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Engelska               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -108,7 +108,7 @@ ms.locfileid: "85413339"
 
 #### <a name="entity-linking"></a>[Länkning av entitet](#tab/entity-linking)
 
-| Språk | Språkkod | v2-stöd | v3-stöd | Tillgängligt från och med v3-modell version: | Kommentarer |
+| Språk | Språkkod | v2-stöd | v3-stöd | Tillgängligt från och med v3-modell version: | Anteckningar |
 |:---------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:-----:|
 | Engelska  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
 | Spanska  |     `es`      |     ✓      |     ✓      |                2019-10-01                 |       |

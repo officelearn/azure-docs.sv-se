@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: rohink
-ms.openlocfilehash: 97b266398b3ea46d09b04524dad34922f21b1a95
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 540c4d6f2dde64cef9b5795d635ac6259bfc69c3
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76939287"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985639"
 ---
 # <a name="what-is-azure-private-dns"></a>Vad är Azure Privat DNS?
 
@@ -55,14 +55,14 @@ Azure DNS tillhandahåller följande funktioner:
 
 * **Omvänd DNS-sökning stöds inom det virtuella nätverkets omfång**. Omvänd DNS-sökning för en privat IP-adress i det virtuella nätverk som är kopplat till en privat zon returnerar det fullständiga domän namnet som innehåller värd/postnamn och zonnamn som suffix.
 
-## <a name="other-considerations"></a>Andra överväganden
+## <a name="other-considerations"></a>Ytterligare överväganden
 
 Azure DNS har följande begränsningar:
 
 * Ett enskilt virtuellt nätverk kan bara länkas till en privat zon om automatisk registrering av VM DNS-poster är aktiverat. Du kan dock länka flera virtuella nätverk till en enda DNS-zon.
 * Omvänd DNS fungerar endast för privat IP-utrymme i det länkade virtuella nätverket
 * Omvänd DNS för en privat IP-adress för ett länkat virtuellt nätverk returnerar *Internal.cloudapp.net* som standard suffix för den virtuella datorn. För virtuella nätverk som är länkade till en privat zon med autoregistrering aktive rad returnerar omvänd DNS för en privat IP-adress två FQDN: en med standard suffixet *Internal.cloudapp.net* och ett annat med suffixet för den privata zonen.
-* Villkorlig vidarebefordran stöds inte för närvarande. För att aktivera matchning mellan Azure och lokala nätverk. Se [namn matchning för virtuella datorer och roll instanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+* Villkorlig vidarebefordran stöds inte för närvarande. Information om hur du aktiverar matchning mellan Azure och lokala nätverk finns i [namn matchning för virtuella datorer och roll instanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
  
 ## <a name="pricing"></a>Prissättning
 

@@ -12,12 +12,12 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 07/09/2020
-ms.openlocfilehash: c3f3e7540f837722d4dd730c5635ac30c699ccd3
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 8b29708dbcc6bbb0d127b4277fd4b2d962da6e6a
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184369"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986397"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Anpassa installations programmet för en Azure-SSIS Integration Runtime
 
@@ -48,7 +48,7 @@ Följande begränsningar gäller endast för anpassade standardinställningar:
 
 - IBM iSeries Access ODBC-drivrutinen stöds inte på Azure-SSIS IR. Du kan se installations fel under den anpassade installationen. Kontakta IBM-supporten om du behöver hjälp.
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -129,11 +129,11 @@ Följ stegen nedan om du vill etablera eller konfigurera om Azure-SSIS IR med an
 
    * Om du väljer **Installera licensierad komponent** typ kan du sedan välja en integrerad komponent från våra ISV-partner i list rutan **komponent namn** :
 
-     * Om du väljer **uppgifts fabriks komponenten SentryOne** kan du installera komponenterna i [aktivitets fabriken](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) från SentryOne på din Azure-SSIS IR genom att ange den produkt licens nyckel som du har köpt från dem i rutan **licens nyckel** . Den aktuella integrerade versionen är **2019.4.3**.
+     * Om du väljer **uppgifts fabriks komponenten SentryOne** kan du installera komponenterna i [aktivitets fabriken](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) från SentryOne på din Azure-SSIS IR genom att ange den produkt licens nyckel som du har köpt från dem i rutan **licens nyckel** . Den aktuella integrerade versionen är **2020.1.3**.
 
-     * Om du väljer **oh22's-Hedda. I/o** -komponenten kan du installera [Hedda. IO](https://hedda.io/ssis-component/) -datakvalitet/rengörings komponent från oh22 på din Azure-SSIS IR efter köpet av tjänsten. Den aktuella integrerade versionen är **1.0.13**.
+     * Om du väljer **oh22's-Hedda. I/o** -komponenten kan du installera [Hedda. IO](https://hedda.io/ssis-component/) -datakvalitet/rengörings komponent från oh22 på din Azure-SSIS IR efter köpet av tjänsten. Den aktuella integrerade versionen är **1.0.14**.
 
-     * Om du väljer komponenten **oh22's SQLPhonetics.net** kan du installera [SQLPhonetics.net](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) Data Quality/Matching-komponenten från oh22 på din Azure-SSIS IR genom att ange den produkt licens nyckel som du har köpt från dem i rutan **licens nyckel** . Den aktuella integrerade versionen är **1.0.43**.
+     * Om du väljer komponenten **oh22's SQLPhonetics.net** kan du installera [SQLPhonetics.net](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) Data Quality/Matching-komponenten från oh22 på din Azure-SSIS IR genom att ange den produkt licens nyckel som du har köpt från dem i rutan **licens nyckel** . Den aktuella integrerade versionen är **1.0.45**.
 
      * Om du väljer komponenten **SSIS Integration Toolkit för KingswaySoft** kan du installera [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) Suite för CRM/ERP/Marketing/Collaboration-appar, till exempel Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce marknadsförings moln osv. från KingswaySoft på din Azure-SSIS IR genom att ange den produkt licens nyckel som du har köpt från dem i rutan **licens nyckel** . Den aktuella integrerade versionen är **2019,2**.
 

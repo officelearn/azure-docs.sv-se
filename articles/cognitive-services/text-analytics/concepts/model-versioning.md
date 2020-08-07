@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 04/21/2020
+ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: c9c598d385768e604d9b42e3ea055629e6ae2866
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b3e8c2c8a5e95cc5c862112410f5073a5e600651
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108557"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986771"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Modell version i API för textanalys
 
@@ -26,19 +26,19 @@ Med version 3 av API för textanalys kan du välja den modell version som använ
 Använd tabellen nedan för att se vilka modell versioner som stöds av varje slut punkt.
 
 
-| Slutpunkt                        | Versioner som stöds                       | Senaste version |
-|---------------------------------|------------------------------------------|----------------|
-| `/sentiment`                    | `2019-10-01`, `2020-04-01`               | `2020-04-01`   |
-| `/languages`                    | `2019-10-01`                             | `2019-10-01`   |
-| `/entities/linking`             | `2019-10-01`, `2020-02-01`               | `2020-02-01`   |
-| `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01` | `2020-04-01`   |
-| `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01` | `2020-04-01`   |
-| `/keyphrases`                   | `2019-10-01`                             | `2019-10-01`   |
+| Slutpunkt                        | Versioner som stöds                                     | Senaste version |
+|---------------------------------|--------------------------------------------------------|----------------|
+| `/sentiment`                    | `2019-10-01`, `2020-04-01`                             | `2020-04-01`   |
+| `/languages`                    | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
+| `/entities/linking`             | `2019-10-01`, `2020-02-01`                             | `2020-02-01`   |
+| `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,              | `2020-04-01`   |
+| `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`  | `2020-07-01`   |
+| `/keyphrases`                   | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
 
 
 Du hittar information om uppdateringarna för de här modellerna i [Vad är nytt](../whats-new.md).
 
-## <a name="text-analytics-for-health"></a>Textanalys för hälsa
+## <a name="text-analytics-for-health"></a>Textanalys för hälso- och sjukvården
 
 [Textanalys för hälso tillstånds](../how-tos/text-analytics-for-health.md) container använder separata modell versioner än API-slutpunkterna ovan.  Observera att endast en modell version är tillgänglig per behållar avbildning.
 

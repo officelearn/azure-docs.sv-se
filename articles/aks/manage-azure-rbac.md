@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/20/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 824146e7e0b1130b8e5f6c087dbf5ccbac2c8224
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 064a62b030a1fd9f3c875fce646ad8553b75d513
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799369"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986635"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Använda Azure RBAC för Kubernetes-auktorisering (förhandsversion)
 
@@ -25,11 +25,7 @@ Det här dokumentet beskriver en ny metod som möjliggör en enhetlig hanterings
 
 Möjligheten att hantera RBAC för Kubernetes-resurser från Azure ger dig möjlighet att hantera RBAC för kluster resurserna, antingen med hjälp av Azure eller interna Kubernetes-mekanismer. När det är aktiverat verifieras Azure AD-huvudobjekten exklusivt av Azure RBAC medan vanliga Kubernetes-användare och tjänst konton är exklusivt verifierade av Kubernetes RBAC. Mer information om autentisering, auktorisering och RBAC på AKS finns [här](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
 
-> [!IMPORTANT]
-> AKS för hands versions funktioner är tillgängliga på en självbetjänings-och deltagande nivå. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och omfattas inte av service nivå avtal och begränsad garanti. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Mer information finns i följande support artiklar:
->
-> - [Support principer för AKS](support-policies.md)
-> - [Vanliga frågor och svar om support för Azure](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="prerequisites"></a>Förutsättningar 
 - Registrera dig för för hands versionen <https://aka.ms/aad-rbac-sign-up-form> .

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 07/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ffc9d3f4feb003d537b52cde15356e756aa11c0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd5e3e2a0e6d50340954600c5a452b6d026e5afc
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500148"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987478"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med slack
 
@@ -52,7 +52,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 * Slack har stöd för **SP**-initierad enkel inloggning
 * Slack stöder **just-in-time**-användaretablering
 * Slack har stöd för [**automatisk** användaretablering](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-provisioning-tutorial)
-* När du har konfigurerat slack kan du framtvinga kontroll över sessioner, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* När du har konfigurerat slack kan du framtvinga kontroll över sessioner, vilket skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-slack-from-the-gallery"></a>Lägga till Slack från galleriet
 
@@ -106,7 +106,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Förutom över, förväntar slack-programmet några fler attribut att skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav. Du måste också lägga till `email` attributet. Om användaren inte har en e-postadress mappar du **EmailAddress** till **User. UserPrincipalName** och mappar **e-post** till **User. UserPrincipalName**.
 
-    | Name | Källattribut |
+    | Namn | Källattribut |
     | -----|---------|
     | emailaddress | user.userprincipalname |
     | e-post | user.userprincipalname |
@@ -159,15 +159,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Gå till **Microsoft Azure AD** och sedan till **Teaminställningar**.
 
-     ![Konfigurera enkel inloggning på App-sida](./media/slack-tutorial/tutorial-slack-001.png)
+     ![Konfigurera enkel inloggning på App-sida](./media/slack-tutorial/tutorial-slack-team-settings.png)
 
 3. I avsnittet **Teaminställningar** klickar du på fliken **Autentisering** och sedan på **Ändra inställningar**.
 
-    ![Konfigurera enkel inloggning på App-sida](./media/slack-tutorial/tutorial-slack-002.png)
+    ![Konfigurera enkel inloggning på App-sida](./media/slack-tutorial/tutorial-slack-authentication.png)
 
 4. Gör följande i dialogrutan **Inställningar för SAML-autentisering**:
 
-    ![Konfigurera enkel inloggning på App-sida](./media/slack-tutorial/tutorial-slack-003.png)
+    ![Konfigurera enkel inloggning på App-sida](./media/slack-tutorial/tutorial-slack-save-authentication.png)
 
     a.  I textrutan **SAML 2.0 Endpoint (HTTP)** (SAML 2.0-slutpunkt (HTTP)) klistrar du in värdet för **inloggnings-URL:en**, som du har kopierat från Azure-portalen.
 
@@ -177,7 +177,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     d. Konfigurera de tre inställningarna ovan efter behov för ditt Slack-team. Mer information om inställningarna finns i **Slacks konfigurationsguide för enkel inloggning** här. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
-    ![Konfigurera enkel inloggning på App-sida](./media/slack-tutorial/tutorial-slack-004.png)
+    ![Konfigurera enkel inloggning på App-sida](./media/slack-tutorial/tutorial-slack-expand.png)
 
     e. Klicka på **expandera** och ange `https://slack.com` i text rutan **Service Provider Issuer** .
 

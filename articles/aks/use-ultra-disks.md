@@ -4,12 +4,12 @@ description: Lär dig hur du aktiverar och konfigurerar Ultra disks i ett Azure 
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 540269c7ecf42a7e022aa2efb048df7b11587d1a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: f74da764f5a0b021199782dbad03e6e95cceb7f2
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926747"
+ms.locfileid: "87986839"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Använd Azure Ultra disks på Azure Kubernetes service (för hands version)
 
@@ -49,11 +49,7 @@ När du är klar uppdaterar du registreringen av resurs leverantören *Microsoft
 az provider register --namespace Microsoft.ContainerService
 ```
 
-> [!IMPORTANT]
-> AKS för hands versions funktioner är självbetjänings deltagande. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och undantas från service nivå avtalen och den begränsade garantin. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Mer information finns i följande support artiklar:
->
-> - [Support principer för AKS](support-policies.md)
-> - [Vanliga frågor och svar om support för Azure](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="install-aks-preview-cli-extension"></a>Installera CLI-tillägget aks-preview
 
@@ -95,9 +91,8 @@ Om du vill skapa kluster utan stöd för Ultra disk kan du göra det genom att u
 
 Du kan aktivera Ultra disks i befintliga kluster genom att lägga till en ny Node-pool i klustret som stöder Ultra disks. Konfigurera en ny Node-pool så att den använder värdbaserad kryptering med hjälp av `--aks-custom-headers` flaggan.
 
-
 ```azurecli
-az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
+az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
 ```
 
 Om du vill skapa nya resurspooler utan stöd för Ultra disks kan du göra det genom att utesluta den anpassade `--aks-custom-headers` parametern.

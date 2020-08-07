@@ -3,14 +3,14 @@ title: 'Snabb start: skapa en C# ASP.NET Core-app'
 description: Lär dig hur du kör Web Apps i Azure App Service genom att distribuera standard mal len C# ASP.NET Core webbapp från Visual Studio.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 04/22/2020
+ms.date: 08/06/2020
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: d489ed9dbf9b8075951258e0841675877e11be38
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 77ff1e907b15b129ef03d7ce799631d6d0a9671d
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506799"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986193"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Snabb start: skapa en ASP.NET Core webbapp i Azure
 

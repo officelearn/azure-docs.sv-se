@@ -2,20 +2,27 @@
 title: Distributions kvoten överskreds
 description: Beskriver hur du löser problemet med fler än 800 distributioner i resurs grupps historiken.
 ms.topic: troubleshooting
-ms.date: 06/25/2020
-ms.openlocfilehash: 1b0c3de6007964b487a13e71cd43bd984cd970f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/07/2020
+ms.openlocfilehash: 8996d7817eea2f8daf44fbc9b4416c884b05940f
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391187"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987060"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>Lös fel när antalet distributioner överskrider 800
 
 Varje resurs grupp är begränsad till 800 distributioner i distributions historiken. I den här artikeln beskrivs det fel som du får när en distribution Miss lyckas eftersom den skulle överskrida de tillåtna 800-distributionerna. Lös problemet genom att ta bort distributioner från resurs grupps historiken. Att ta bort en distribution från historiken påverkar inte några av de distribuerade resurserna.
 
-> [!NOTE]
-> Azure Resource Manager börjar snart att automatiskt ta bort distributioner från historiken när du nära gränsen. Du kanske fortfarande ser det här felet om du har valt att inte ta bort dem automatiskt. Mer information finns i [automatiska borttagningar från distributions historiken](deployment-history-deletions.md).
+Azure Resource Manager tar automatiskt bort distributioner från historiken när du närmar dig gränsen. Du kan fortfarande se det här felet av någon av följande orsaker:
+
+1. Du har ett CanNotDelete-lås på resurs gruppen som förhindrar borttagningar från distributions historiken.
+1. Du har valt att inte ta bort automatiskt.
+1. Du har ett stort antal distributioner som körs samtidigt och de automatiska borttagningarna bearbetas inte tillräckligt snabbt för att minska det totala antalet.
+
+Information om hur du tar bort låset eller väljer i till automatiska borttagningar finns i [automatiska borttagningar från distributions historiken](deployment-history-deletions.md).
+
+Den här artikeln beskriver hur du manuellt tar bort distributioner från historiken.
 
 ## <a name="symptom"></a>Symptom
 

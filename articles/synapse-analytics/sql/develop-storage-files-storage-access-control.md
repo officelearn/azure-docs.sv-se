@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: b7005954b14a9263ec074c836180853a99812dd5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fd4cc4cfa7b7be9085ac404cab7fc7447b6d66a7
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534778"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987145"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Kontrol lera åtkomsten till lagrings kontot för SQL på begäran (för hands version)
 
@@ -49,7 +49,7 @@ En användare som har loggat in på en SQL-resurs på begäran måste ha behöri
 Du kan få en SAS-token genom att gå till **Azure Portal-> lagrings konto-> signatur för delad åtkomst-> konfigurera behörigheter – > generera SAS och anslutnings sträng.**
 
 > [!IMPORTANT]
-> När en SAS-token skapas, innehåller den ett frågetecken ("?") i början av token. Om du vill använda token i SQL på begäran måste du ta bort frågetecknet (?) när du skapar en autentiseringsuppgift. Ett exempel:
+> När en SAS-token skapas, innehåller den ett frågetecken ("?") i början av token. Om du vill använda token i SQL på begäran måste du ta bort frågetecknet (?) när du skapar en autentiseringsuppgift. Till exempel:
 >
 > SAS-token:? sa = 2018-03-28&SS = bfqt&SRT = SCO&SP = rwdlacup&se = 2019-04-18T20:42:12Z&St = 2019-04-18T12:42:12Z&spr = https&sig = lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78% 3D
 
@@ -81,12 +81,13 @@ I tabellen nedan hittar du tillgängliga typer av autentisering:
 
 Du kan använda följande kombinationer av auktoriserings-och Azure Storage typer:
 
-|                     | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
+| Auktoriseringstyp  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
-| *SÄKERHETS*               | Stöds      | Stöds inte   | Stöds     |
-| *Hanterad identitet* | Stöds      | Stöds        | Stöds     |
-| *Användar identitet*    | Stöds      | Stöds        | Stöds     |
+| [SÄKERHETS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Stöds\*      | Stöds inte   | Stöds\*     |
+| [Hanterad identitet](?tabs=managed-identity#supported-storage-authorization-types) | Stöds      | Stöds        | Stöds     |
+| [Användar identitet](?tabs=user-identity#supported-storage-authorization-types)    | Stöds\*      | Stöds\*        | Stöds\*     |
 
+\*SAS-token och Azure AD-identitet kan användas för att få åtkomst till en lagrings enhet som inte skyddas med brand väggen.
 
 > [!IMPORTANT]
 > Vid åtkomst till lagring som skyddas med brand väggen kan endast hanterad identitet användas. Du måste [tillåta betrodda Microsoft-tjänster... Ange](../../storage/common/storage-network-security.md#trusted-microsoft-services) och [tilldela uttryckligen en Azure-roll](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) till den [systemtilldelade hanterade identiteten](../../active-directory/managed-identities-azure-resources/overview.md) för den resurs instansen. I det här fallet motsvarar åtkomst omfånget för instansen den Azure-roll som tilldelats den hanterade identiteten.
@@ -177,27 +178,46 @@ Autentiseringsuppgifter för databasens omfång ger åtkomst till Azure Storage 
 
 Azure AD-användare kan komma åt alla filer i Azure Storage om de har minst `Storage Blob Data Owner` , `Storage Blob Data Contributor` eller `Storage Blob Data Reader` roll. Azure AD-användare behöver inte autentiseringsuppgifter för att komma åt lagringen.
 
+```sql
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>'
+)
+```
+
 SQL-användare kan inte använda Azure AD-autentisering för åtkomst till lagring.
 
 ### <a name="shared-access-signature"></a>[Signatur för delad åtkomst](#tab/shared-access-signature)
 
-Följande skript skapar en autentiseringsuppgift som används för att komma åt filer på lagrings platsen med SAS-token som anges i autentiseringsuppgiften.
+Följande skript skapar en autentiseringsuppgift som används för att komma åt filer på lagrings platsen med SAS-token som anges i autentiseringsuppgiften. Skriptet skapar ett exempel på en extern data källa som använder denna SAS-token för att komma åt lagringen.
 
 ```sql
+-- Optional: Create MASTER KEY if not exists in database:
+-- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>'
+GO
 CREATE DATABASE SCOPED CREDENTIAL [SasToken]
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
      SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
+          CREDENTIAL = SasToken
+)
 ```
 
 ### <a name="managed-identity"></a>[Hanterad identitet](#tab/managed-identity)
 
-Följande skript skapar en databas-begränsade autentiseringsuppgifter som kan användas för att personifiera den aktuella Azure AD-användaren som hanterad identitet för tjänsten. 
+Följande skript skapar en databas-begränsade autentiseringsuppgifter som kan användas för att personifiera den aktuella Azure AD-användaren som hanterad identitet för tjänsten. Skriptet skapar ett exempel på en extern data källa som använder arbets ytans identitet för att komma åt lagringen.
 
 ```sql
-CREATE DATABASE SCOPED CREDENTIAL [SynapseIdentity]
+-- Optional: Create MASTER KEY if not exists in database:
+-- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>
+CREATE DATABASE SCOPED CREDENTIAL SynapseIdentity
 WITH IDENTITY = 'Managed Identity';
 GO
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
+          CREDENTIAL = SynapseIdentity
+)
 ```
 
 Den databasbaserade autentiseringsuppgiften behöver inte matcha namnet på lagrings kontot eftersom det används explicit i DATA källan som definierar lagrings platsen.
@@ -206,6 +226,11 @@ Den databasbaserade autentiseringsuppgiften behöver inte matcha namnet på lagr
 
 Databasens begränsade autentiseringsuppgifter krävs inte för att tillåta åtkomst till offentligt tillgängliga filer. Skapa [data källa utan databasens begränsade autentiseringsuppgifter](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) för att få åtkomst till offentligt tillgängliga filer i Azure Storage.
 
+```sql
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.blob.core.windows.net/<container>/<path>'
+)
+```
 ---
 
 Autentiseringsuppgifter för databas omfånget används i externa data källor för att ange vilken autentiseringsmetod som ska användas för att få åtkomst till den här lagringen:

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 2d062ea4f38742129d44be0e2b7ff51fe3ad8dd1
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 4d0ed9826326256e3b91815746e43d34b6934ba0
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562437"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985893"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Förstå dubbla modeller i Azure Digitals flätas
 
@@ -204,14 +204,7 @@ Det utökade gränssnittet kan inte ändra någon av definitionerna för de öve
 
 ## <a name="validating-models"></a>Validerar modeller
 
-> [!TIP]
-> Vi rekommenderar att du validerar dina modeller offline innan du laddar upp dem till din Azure Digital-instansen.
-
-Det finns ett språk oberoende exempel som kan användas för att validera modell dokument för att kontrol lera att DTDL är korrekt. Den finns här: [**DTDL validator-exempel**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
-
-DTDL validator-exemplet bygger på ett .NET DTDL parser-bibliotek, som är tillgängligt på NuGet som ett bibliotek på klient sidan: [**Microsoft. Azure. DigitalTwins. parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). Du kan också använda biblioteket direkt för att skapa en egen verifierings lösning. När du använder parser-biblioteket ska du se till att använda en version som är kompatibel med den version som Azure Digital är igång. Under för hands versionen är detta versions *3.7.0*.
-
-Du kan lära dig mer om parser-biblioteket, inklusive exempel på användning, i [*How-to: parsa och validera modeller*](how-to-use-parser.md).
+[!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

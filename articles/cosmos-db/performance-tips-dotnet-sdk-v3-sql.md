@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
-ms.openlocfilehash: 30fdc3c2b75d8ae567acfc612514ab080b929c5f
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 9816ea7dd9f5aef9dcdd62319f8cc4408eff3fd8
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850257"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987264"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestandatips för Azure Cosmos DB och .NET
 
@@ -107,7 +107,7 @@ När den körs på TCP-protokollet optimerar klienten för svars tid genom att a
 
 I scenarier där du har sparse-åtkomst och om du upptäcker ett högre antal anslutningar jämfört med åtkomst till gateway-läge kan du:
 
-* Konfigurera egenskapen [CosmosClientOptions. PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) till `PrivatePortPool` (gällande med framework-version>= 4.6.1 och .net core-version >= 2,0): med den här egenskapen kan SDK använda en liten pool av tillfälliga portar för olika Azure Cosmos DB mål slut punkter.
+* Konfigurera egenskapen [CosmosClientOptions. PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) till `PrivatePortPool` (gällande med framework-version>= 4.6.1 och .net Core-version >= 2,0): med den här egenskapen kan SDK använda en liten pool av tillfälliga portar för olika Azure Cosmos DB mål slut punkter.
 * Konfigurera egenskapen [CosmosClientOptions. IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) måste vara större än eller lika med 10 minuter. De rekommenderade värdena är mellan 20 minuter och 24 timmar.
 
 <a id="same-region"></a>
@@ -149,7 +149,7 @@ När du arbetar med Azure Functions bör instanserna också följa de befintliga
 
 **Inaktivera innehålls svar vid Skriv åtgärder**
 
-För arbets belastningar som har hävningsvyer skapar du nytto laster ange värdet false för alternativet EnableContentResponseOnWrite-begäran. Tjänsten kommer inte längre att returnera den skapade eller uppdaterade resursen till SDK: n. Normalt är programmet det objekt som skapas så att det inte behöver tjänsten för att returnera det. Huvud värden är fortfarande tillgängliga som begär ande avgift. Detta kan förbättra prestandan eftersom SDK inte längre behöver allokera minne eller serialisera bröd texten i svaret. Detta minskar också nätverkets bandbredds användning för att ytterligare hjälpa till med prestanda.  
+För arbets belastningar som har tungly Create-nyttolaster ställer du in alternativet EnableContentResponseOnWrite Request på false. Tjänsten kommer inte längre att returnera den skapade eller uppdaterade resursen till SDK: n. Normalt är programmet det objekt som skapas så att det inte behöver tjänsten för att returnera det. Huvud värden är fortfarande tillgängliga som begär ande avgift. Detta kan förbättra prestandan eftersom SDK inte längre behöver allokera minne eller serialisera bröd texten i svaret. Detta minskar också nätverkets bandbredds användning för att ytterligare hjälpa till med prestanda.  
 
 ```csharp
 ItemRequestOption requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
@@ -199,7 +199,7 @@ readItemResponse.Diagnostics.ToString();
 
 Se [öka antalet trådar/aktiviteter](#increase-threads) i avsnittet nätverk i den här artikeln.
 
-## <a name="indexing-policy"></a>Indexeringspolicy
+## <a name="indexing-policy"></a>Indexeringsprincip
  
 **Utesluta sökvägar som inte används från indexering för att få snabbare skrivning**
 

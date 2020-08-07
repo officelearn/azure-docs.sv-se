@@ -6,12 +6,12 @@ manager: gwallace
 ms.topic: article
 ms.date: 07/10/2020
 author: jluk
-ms.openlocfilehash: f6cb370d258a79420b03baf17ec964b091cdebb7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5b3dc3803cfb89f4a74d082b5913e69df1d03a00
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056590"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986720"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Minska latens med närhets placerings grupper (förhands granskning)
 
@@ -26,11 +26,7 @@ När du distribuerar ditt program i Azure skapar spridning av virtuella datorer 
 * En Node-pool måste använda Virtual Machine Scale Sets för att associera en närhets placerings grupp.
 * En Node-pool kan bara associera en närhets placerings grupp i nodens skapande tid.
 
-> [!IMPORTANT]
-> AKS för hands versions funktioner är tillgängliga på en självbetjänings-och deltagande nivå. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och omfattas inte av service nivå avtal och begränsad garanti. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Mer information finns i följande support artiklar:
->
-> - [Support principer för AKS](support-policies.md)
-> - [Vanliga frågor och svar om support för Azure](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

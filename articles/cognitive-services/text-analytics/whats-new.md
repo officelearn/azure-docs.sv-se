@@ -8,24 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: f2ce8f300ae7586fc16fd9170ec290b19875d01c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 67850490a3c1d972d4d03eec545068b1d9eb9fff
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371132"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986306"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Vad är nytt i API:et för textanalys?
 
 API för textanalys uppdateras regelbundet. Den här artikeln innehåller information om nya versioner och funktioner för att hålla dig uppdaterad med den senaste utvecklingen.
 
-## <a name="july-2020"></a>Juli 2020
+## <a name="august-2020"></a>2020 augusti
+
+* Modell version `2020-07-01` för v3 `/keyphrases` - `/pii` och `/languages` slut punkter som lägger till:
+    * Ytterligare myndigheter och landsspecifika [entiteter](named-entity-types.md?tabs=personal) för namngiven enhets igenkänning.
+* Ett HTTP 400-fel kommer nu att returneras för v3 API-begäranden som överskrider [gränserna](concepts/data-limits.md)för publicerade data. 
+
+## <a name="july-2020"></a>Juli 2020 
 
 ### <a name="text-analytics-for-health-container---public-gated-preview"></a>Textanalys för hälso container – för hands version av offentlig gated
 
-Behållaren Textanalys för hälso tillstånd finns nu i för hands versionen av den offentliga övervisningen, vilket gör att du kan extrahera information från ostrukturerad engelsk text i kliniska dokument som: patient insugnings formulär, läkares anteckningar, forsknings handlingar och utsläpps sammanfattningar. För närvarande debiteras du inte för Textanalys för användning av hälso containern. 
+Behållaren Textanalys för hälso tillstånd finns nu i för hands versionen av den offentliga övervisningen, vilket gör att du kan extrahera information från ostrukturerad engelsk text i kliniska dokument som: patient insugnings formulär, läkares anteckningar, forsknings handlingar och utsläpps sammanfattningar. För närvarande debiteras du inte för Textanalys för användning av hälso containern.
 
 Behållaren erbjuder följande funktioner:
 
@@ -153,7 +159,7 @@ Det stöder engelska ( `en` ), japanska ( `ja` ), kinesiska (förenklad) `zh-Han
 
 * [Vad är API för textanalys?](overview.md)  
 * [Exempel på användarscenarier](text-analytics-user-scenarios.md)
-* [Sentimentanalys](how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Sentiment-analys](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Språk identifiering](how-tos/text-analytics-how-to-language-detection.md)
 * [Enhets igenkänning](how-tos/text-analytics-how-to-entity-linking.md)
 * [Extrahering av nyckel fraser](how-tos/text-analytics-how-to-keyword-extraction.md)

@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: larryfr
 author: Blackmist
 ms.date: 07/27/2020
-ms.openlocfilehash: 06ab819065f96508bcc4ebd26371c743c89b9220
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5ddd4fc368a4e479d3d720698c7447d2b3cdf3cc
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87487810"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986570"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Använd en Azure Resource Manager mall för att skapa en arbets yta för Azure Machine Learning
 
@@ -750,6 +750,32 @@ För att undvika det här problemet rekommenderar vi en av följande metoder:
 
     ```text
     /subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault
+    ```
+
+### <a name="virtual-network-not-linked-to-private-dns-zone"></a>Virtuellt nätverk som inte är länkat till en privat DNS-zon
+
+När du skapar en arbets yta med en privat slut punkt skapar mallen en Privat DNS zon med namnet __privatelink.API.azureml.MS__. En __virtuell nätverks länk__ läggs automatiskt till i den här privata DNS-zonen. Länken läggs bara till för den första arbets ytan och den privata slut punkten som du skapar i en resurs grupp. Om du skapar ett annat virtuellt nätverk och en arbets yta med en privat slut punkt i samma resurs grupp, kan det andra virtuella nätverket inte läggas till i den privata DNS-zonen.
+
+Om du vill visa de virtuella nätverks länkar som redan finns för den privata DNS-zonen använder du följande Azure CLI-kommando:
+
+```azurecli
+az network private-dns link vnet list --zone-name privatelink.api.azureml.ms --resource-group myresourcegroup
+```
+
+Använd följande steg för att lägga till det virtuella nätverket som innehåller en annan arbets yta och privat slut punkt:
+
+1. Använd följande kommando för att hitta det virtuella nätverks-ID: t för det nätverk som du vill lägga till:
+
+    ```azurecli
+    az network vnet show --name myvnet --resource-group myresourcegroup --query id
+    ```
+    
+    Det här kommandot returnerar ett värde som liknar ""/subscriptions/GUID/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet "". Spara det här värdet och Använd det i nästa steg.
+
+2. Använd följande kommando för att lägga till en virtuell nätverks länk i privatelink.api.azureml.ms Privat DNS zon. För `--virtual-network` parametern använder du utdata från föregående kommando:
+
+    ```azurecli
+    az network private-dns link vnet create --name mylinkname --registration-enabled true --resource-group myresourcegroup --virtual-network myvirtualnetworkid --zone-name privatelink.api.azureml.ms
     ```
 
 ## <a name="next-steps"></a>Nästa steg

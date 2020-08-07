@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: eb82422aa0e3d45743539da623fcb919e8e77bbc
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 0e60ba0517fb3b9388045762853c651869cffb6a
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141829"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986465"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Exempel på användar scenarier för API för textanalys
 
@@ -29,7 +29,7 @@ Skapa insikter från resultat från kund-och personal undersökningar genom att 
 
 ## <a name="analyze-recorded-inbound-customer-calls"></a>Analysera registrerade inkommande kund samtal
 
-Extrahera insikter från kund tjänst samtal med Text till tal, Attitydanalys och Extrahering av diskussionsämne. Visa resultaten på Power BI instrument panel eller på en portal för att bättre förstå kunder, markera kund tjänst trender och driva kund engagemang. Skicka API-begäranden som en batch för rapportering eller i real tid för ingripande. Se exempel koden [på GitHub](https://github.com/rlagh2/callcenteranalytics).
+Extrahera insikter från kund service samtal med tal-till-text, Attitydanalys och Extrahering av diskussionsämne. Visa resultaten på Power BI instrument panel eller på en portal för att bättre förstå kunder, markera kund tjänst trender och driva kund engagemang. Skicka API-begäranden som en batch för rapportering eller i real tid för ingripande. Se exempel koden [på GitHub](https://github.com/rlagh2/callcenteranalytics).
 
 ![En bild som beskriver hur du automatiserar insikter från kund service samtal med sentiment-analys](media/use-cases/azure-inbound.svg)
 

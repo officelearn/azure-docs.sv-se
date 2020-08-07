@@ -5,12 +5,12 @@ services: container-service
 ms.service: container-service
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: ce2871883300e9eb135b51fdb2f5566e451084f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbb003c287a18810c2c14c4f2ea401fa55cca427
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374618"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987298"
 ---
 # <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>För hands version – Lägg till en adresspool för en plats i ett Azure Kubernetes service-kluster (AKS)
 
@@ -26,17 +26,13 @@ Den här artikeln förutsätter grundläggande kunskaper om Kubernetes och Azure
 
 Den här funktionen finns för närvarande som en förhandsversion.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 När du skapar ett kluster för att använda en adresspool, måste klustret också använda Virtual Machine Scale Sets för Node-pooler och *standard* -SKU-belastningsutjämnaren. Du måste också lägga till ytterligare en Node-pool när du har skapat klustret för att använda en resurspool för en plats. Att lägga till ytterligare en Node-pool beskrivs i ett senare steg, men du måste först aktivera en för hands versions funktion.
 
-> [!IMPORTANT]
-> AKS för hands versions funktionerna är självbetjänings-och deltagande. De erbjuds att samla in feedback och buggar från vår community. I för hands versionen är dessa funktioner inte avsedda att användas för produktion. Funktioner i offentlig för hands version har stöd för bästa prestanda. Hjälp från AKS Technical Support Teams är endast tillgängligt under kontors tid Pacific-timezone (PST). Mer information finns i följande support artiklar:
->
-> * [Support principer för AKS][aks-support-policies]
-> * [Vanliga frågor och svar om support för Azure][aks-faq]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="register-spotpoolpreview-preview-feature"></a>Registrera spotpoolpreview Preview-funktion
 
@@ -60,7 +56,7 @@ När du är klar uppdaterar du registreringen av resurs leverantören *Microsoft
 az provider register --namespace Microsoft.ContainerService
 ```
 
-### <a name="install-aks-preview-cli-extension"></a>Installera AKS-Preview CLI-tillägg
+### <a name="install-aks-preview-cli-extension"></a>Installera CLI-tillägget aks-preview
 
 Om du vill skapa ett AKS-kluster som använder en Node-adresspool, behöver du *AKS-Preview CLI-* tillägget version 0.4.32 eller högre. Installera *AKS-Preview* Azure CLI-tillägget med kommandot [AZ Extension Add][az-extension-add] och Sök efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
 
@@ -85,7 +81,7 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster med en 
 * En kubernetes.azure.com/scalesetpriority:spot har etiketten *kubernetes.azure.com/scalesetpriority:spot*, *Kubernetes.Azure.com/scalesetpriority=spot:NoSchedule*och system poddar har anti-tillhörighet.
 * Du måste lägga till en [motsvarande tolererande][spot-toleration] för att schemalägga arbets belastningar på en resurspool för en plats.
 
-## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>Lägga till en adresspool för en plats i ett AKS-kluster
+## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>Lägga till en skalningsuppsättningsnodpool för VM med oanvänd kapacitet i ett AKS-kluster
 
 Du måste lägga till en adresspool för en plats i ett befintligt kluster som har flera aktiverade noder. Mer information om hur du skapar ett AKS-kluster med flera noder finns [här][use-multiple-node-pools].
 

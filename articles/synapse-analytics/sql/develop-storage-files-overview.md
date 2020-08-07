@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 3c33e2152fc120d406886d89adda26603126a8ba
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2a0751f12f33a36d9e0003977bcf40b66d715615
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87483560"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986958"
 ---
 # <a name="access-external-storage-in-synapse-sql-on-demand"></a>Åtkomst till extern lagring i Synapse SQL (på begäran)
 
@@ -25,11 +25,7 @@ I det här dokumentet beskrivs hur kan användare läsa data från filerna som l
 
 Användaren kan använda [olika autentiseringsmetoder](develop-storage-files-storage-access-control.md) , till exempel Azure AD passthrough-autentisering (standard för Azure AD-huvudobjekt) och SAS-autentisering (standard för SQL-huvudobjekt).
 
-## <a name="openrowset"></a>OPENROWSET
-
-Funktionen [OpenRowSet](develop-openrowset.md) gör att användaren kan läsa filerna från Azure Storage.
-
-### <a name="query-files-using-openrowset"></a>Köra frågefiler med OpenRowSet
+## <a name="query-files-using-openrowset"></a>Köra frågefiler med OpenRowSet
 
 OpenRowSet gör det möjligt för användare att fråga externa filer på Azure Storage om de har åtkomst till lagringen. Användare som är ansluten till Synapse SQL-slutpunkt på begäran ska använda följande fråga för att läsa innehållet i filerna i Azure Storage:
 
@@ -40,8 +36,10 @@ SELECT * FROM
 
 Användaren kan komma åt lagringen med följande åtkomst regler:
 
-- Azure AD User-OpenRowSet kommer att använda Azure AD-identitet för anroparen för att få åtkomst till Azure Storage eller åtkomst till lagring med anonym åtkomst.
-- SQL User – OpenRowSet kommer att få åtkomst till lagring med anonym åtkomst.
+- Azure AD-användare – `OPENROWSET` kommer att använda Azure AD-identitet för anroparen för att få åtkomst till Azure Storage eller åtkomst till lagring med anonym åtkomst.
+- SQL-användare – `OPENROWSET` kommer att få åtkomst till lagring med anonym åtkomst eller kan personifieras med SAS-token eller hanterad identitet för arbets ytan.
+
+### <a name="impersonation"></a>[Personifiering](#tab/impersonation)
 
 SQL-huvudobjekt kan också använda OpenRowSet för att direkt fråga filer som skyddas med SAS-token eller hanterad identitet på arbets ytan. Om en SQL-användare kör den här funktionen måste en privilegie rad användare med `ALTER ANY CREDENTIAL` behörighet skapa en server begränsad autentiseringsuppgift som matchar URL i funktionen (med hjälp av lagrings namn och behållare) och beviljar behörighet för den här autentiseringsuppgiften till anroparen i OpenRowSet-funktionen:
 
@@ -56,10 +54,17 @@ GRANT REFERENCES CREDENTIAL::[https://<storage_account>.dfs.core.windows.net/<co
 
 Om det inte finns några AUTENTISERINGSUPPGIFTER på server nivå som matchar URL: en eller SQL-användare saknar referens behörighet för den här autentiseringsuppgiften returneras felet. SQL-huvudobjekt kan inte personifiera med en viss Azure AD-identitet.
 
+### <a name="direct-access"></a>[Direkt åtkomst](#tab/direct-access)
+
+Ingen ytterligare konfiguration krävs för att Azure AD-användare ska kunna komma åt filerna med sina identiteter.
+Alla användare kan komma åt Azure Storage som tillåter anonym åtkomst (ytterligare konfiguration behövs inte).
+
+---
+
 > [!NOTE]
 > Den här versionen av OpenRowSet är utformad för snabb och enkel data utforskning med standardautentisering. Om du vill utnyttja personifiering eller hanterad identitet använder du OpenRowSet med DATASOURCE enligt beskrivningen i nästa avsnitt.
 
-### <a name="query-data-sources-using-openrowset"></a>Fråga data källor med hjälp av OpenRowSet
+## <a name="query-data-sources-using-openrowset"></a>Fråga data källor med hjälp av OpenRowSet
 
 OpenRowSet gör det möjligt för användaren att fråga filerna som placerats på en extern data Källa:
 
@@ -70,9 +75,18 @@ SELECT * FROM
  FORMAT= 'parquet') as rows
 ```
 
-Privilegierade användare med kontroll databas behörighet måste skapa databas OMFATTNINGs referenser som ska användas för åtkomst till lagring och extern DATA källa som anger URL: en till data källan och autentiseringsuppgiften som ska användas:
+Användare som kör den här frågan måste kunna komma åt filerna. Användarna måste personifieras med SAS- [token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) eller [hanterad identitet för arbets ytan](develop-storage-files-storage-access-control.md?tabs=managed-identity) om de inte kan komma åt filerna direkt med sin [Azure AD-identitet](develop-storage-files-storage-access-control.md?tabs=user-identity) eller [anonym åtkomst](develop-storage-files-storage-access-control.md?tabs=public-access).
+
+### <a name="impersonation"></a>[Personifiering](#tab/impersonation)
+
+`DATABASE SCOPED CREDENTIAL`anger hur du kommer åt filer på den refererade data källan (för närvarande SAS och hanterad identitet). Privilegierade användare med `CONTROL DATABASE` behörighet måste skapa `DATABASE SCOPED CREDENTIAL` som kommer att användas för att komma åt lagringen och `EXTERNAL DATA SOURCE` anger URL: en till data källan och autentiseringsuppgiften som ska användas:
 
 ```sql
+EXECUTE AS somepoweruser;
+
+-- Create MASTER KEY if it doesn't exists in database
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'some very strong password';
+
 CREATE DATABASE SCOPED CREDENTIAL AccessAzureInvoices
  WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
  SECRET = '******srt=sco&amp;sp=rwac&amp;se=2017-02-01T00:55:34Z&amp;st=201********' ;
@@ -82,16 +96,14 @@ CREATE EXTERNAL DATA SOURCE MyAzureInvoices
  CREDENTIAL = AccessAzureInvoices) ;
 ```
 
-DATABASens begränsade AUTENTISERINGSUPPGIFTER anger hur du kommer åt filer på den refererade data källan (för närvarande SAS och hanterad identitet).
-
 Anroparen måste ha någon av följande behörigheter för att köra OpenRowSet-funktionen:
 
 - En av behörigheterna för att köra OpenRowSet:
   - `ADMINISTER BULK OPERATIONS`aktiverar inloggning för att köra OpenRowSet-funktionen.
   - `ADMINISTER DATABASE BULK OPERATIONS`gör det möjligt för databas omfattnings användare att köra OpenRowSet-funktionen.
-- REFERERAR till DATABASens begränsade AUTENTISERINGSUPPGIFTER till autentiseringsuppgiften som refereras i den externa DATA källan
+- `REFERENCES DATABASE SCOPED CREDENTIAL`till autentiseringsuppgiften som refereras till i `EXTERNAL DATA SOURCE` .
 
-#### <a name="access-anonymous-data-sources"></a>Åtkomst till anonyma data källor
+### <a name="direct-access"></a>[Direkt åtkomst](#tab/direct-access)
 
 Användaren kan skapa en extern DATA källa utan AUTENTISERINGSUPPGIFTER som ska hänvisa till offentlig åtkomst lagring eller använda Azure AD passthrough-autentisering:
 
@@ -99,7 +111,7 @@ Användaren kan skapa en extern DATA källa utan AUTENTISERINGSUPPGIFTER som ska
 CREATE EXTERNAL DATA SOURCE MyAzureInvoices
  WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>') ;
 ```
-
+---
 ## <a name="external-table"></a>EXTERN TABELL
 
 Användare med behörighet att läsa tabell har åtkomst till externa filer med hjälp av en extern tabell som skapats ovanpå Azure Storage mappar och filer.
@@ -117,9 +129,18 @@ FILE_FORMAT = TextFileFormat
 ) ;
 ```
 
-Användaren med behörigheten kontrol lera databas skulle behöva skapa en databas med begränsade AUTENTISERINGSUPPGIFTER som ska användas för åtkomst till lagring och extern DATA källa som anger URL: en till data källan och autentiseringsuppgiften som ska användas:
+Användare som läser data från den här tabellen måste kunna komma åt filerna. Användarna måste personifieras med SAS- [token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) eller [hanterad identitet för arbets ytan](develop-storage-files-storage-access-control.md?tabs=managed-identity) om de inte kan komma åt filerna direkt med sin [Azure AD-identitet](develop-storage-files-storage-access-control.md?tabs=user-identity) eller [anonym åtkomst](develop-storage-files-storage-access-control.md?tabs=public-access).
+
+### <a name="impersonation"></a>[Personifiering](#tab/impersonation)
+
+DATABASens begränsade AUTENTISERINGSUPPGIFTER anger hur du kommer åt filer på den refererade data källan. Användaren med behörigheten kontrol lera databas skulle behöva skapa en databas med begränsade AUTENTISERINGSUPPGIFTER som ska användas för åtkomst till lagring och extern DATA källa som anger URL: en till data källan och autentiseringsuppgiften som ska användas:
 
 ```sql
+EXECUTE AS somepoweruser;
+
+-- Create MASTER KEY if it doesn't exists in database
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'some very strong password';
+
 CREATE DATABASE SCOPED CREDENTIAL cred
  WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
  SECRET = '******srt=sco&sp=rwac&se=2017-02-01T00:55:34Z&st=201********' ;
@@ -130,7 +151,15 @@ CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
  ) ;
 ```
 
-DATABASens begränsade AUTENTISERINGSUPPGIFTER anger hur du kommer åt filer på den refererade data källan.
+### <a name="direct-access"></a>[Direkt åtkomst](#tab/direct-access)
+
+Användaren kan skapa en extern DATA källa utan AUTENTISERINGSUPPGIFTER som ska hänvisa till offentlig åtkomst lagring eller använda Azure AD passthrough-autentisering:
+
+```sql
+CREATE EXTERNAL DATA SOURCE MyAzureInvoices
+ WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>') ;
+```
+---
 
 ### <a name="read-external-files-with-external-table"></a>Läsa externa filer med extern tabell
 
@@ -167,14 +196,14 @@ Nu är du redo att fortsätta med följande artiklar:
 
 - [Efterfråga CSV-fil](query-single-csv-file.md)
 
-- [Efterfråga mappar och flera filer](query-folders-multiple-csv-files.md)
-
-- [Fråga efter vissa filer](query-specific-files.md)
-
 - [Efterfråga Parquet-filer](query-parquet-files.md)
 
-- [Fråga kapslade typer](query-parquet-nested-types.md)
-
 - [Efterfråga JSON-filer](query-json-files.md)
+
+- [Efterfråga mappar och flera filer](query-folders-multiple-csv-files.md)
+
+- [Använda funktioner för partitionering och metadata](query-specific-files.md)
+
+- [Fråga kapslade typer](query-parquet-nested-types.md)
 
 - [Skapa och använda vyer](create-use-views.md)

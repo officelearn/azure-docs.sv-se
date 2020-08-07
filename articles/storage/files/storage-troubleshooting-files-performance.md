@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 1c0d7e5c7c021f8cdad8980bd7659d819b85f899
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ceadc2d37b9d13502b5ae20605ff083edfd5c51f
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905022"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987009"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Felsöka Azure Files prestanda problem
 
@@ -174,35 +174,30 @@ Högre än förväntad fördröjning vid åtkomst till Azure Files för i/o-inte
 
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Så här skapar du en avisering om en fil resurs är begränsad
 
-1. Klicka på **övervaka**i [Azure Portal](https://portal.azure.com). 
-
-2. Klicka på **aviseringar** och klicka sedan på **+ ny varnings regel**.
-
-3. Klicka på **Välj** för att välja **lagrings konto/fil** resurs som innehåller den fil resurs som du vill Avisera om och klicka sedan på **Slutför**. Om lagrings konto namnet till exempel är contoso väljer du Contoso/File-resursen.
-
-4. Klicka på **Lägg** till för att lägga till ett villkor.
-
+1. Gå till ditt **lagrings konto** i **Azure Portal**.
+2. I avsnittet övervakning klickar du på **aviseringar** och klickar sedan på **+ ny varnings regel**.
+3. Klicka på **Redigera resurs**, Välj **fil resurs typ** för lagrings kontot och klicka sedan på **färdig**. Om lagrings konto namnet till exempel är contoso väljer du Contoso/File-resursen.
+4. Klicka på **Välj villkor** för att lägga till ett villkor.
 5. Du kommer att se en lista över signaler som stöds för lagrings kontot. Välj måttet **transaktioner** .
+6. På bladet **Konfigurera signal logik** klickar du på list rutan **Dimensions namn** och väljer **svarstyp**.
+7. Klicka på list rutan **Dimensions värden** och välj **SUCCESSWITHTHROTTLING** (för SMB) eller **ClientThrottlingError** (för rest).
 
-6. På bladet **Konfigurera signal logik** går du till dimensionen **svars typ** , klickar på list rutan **Dimensions värden** och väljer **SuccessWithThrottling** (för SMB) eller **ClientThrottlingError** (för rest). 
+> [!NOTE]
+> Om dimension svärdet SuccessWithThrottling eller ClientThrottlingError inte visas innebär det att resursen inte har begränsats. Lägg till dimension svärdet genom att klicka på **Lägg till anpassat värde** bredvid List rutan **Dimensions värden** , Skriv **SuccessWithThrottling** eller **ClientThrottlingError**, klicka på **OK** och upprepa steg #7.
 
-  > [!NOTE]
-  > Om dimension svärdet SuccessWithThrottling eller ClientThrottlingError inte visas innebär det att resursen inte har begränsats.  Lägg till dimension svärdet genom att klicka på **+** list rutan bredvid **dimensionsvärdena** , skriva **SuccessWithThrottling** eller **ClientThrottlingError**, klicka på **OK** och upprepa steg #6.
+8. Klicka på list rutan **Dimensions namn** och välj **fil resurs**.
+9. Klicka på list rutan **Dimensions värden** och välj den eller de fil resurser som du vill Avisera om.
 
-7. Gå till **fil resurs** dimensionen, klicka på list rutan **Dimensions värden** och välj den eller de fil resurser som du vill Avisera om. 
+> [!NOTE]
+> Om fil resursen är en standard fil resurs väljer du **alla aktuella och framtida värden**. List rutan med dimensions värden visar inte fil resurserna eftersom det inte finns några tillgängliga fil resurser per resurs. Begränsnings varningar för standard fil resurser utlöses om någon fil resurs på lagrings kontot är begränsad och aviseringen inte kommer att identifiera vilken fil resurs som har begränsats. Eftersom per resurs-mått inte är tillgängliga för standard fil resurser, är rekommendationen att ha en fil resurs per lagrings konto.
 
-  > [!NOTE]
-  > Om fil resursen är en standard fil resurs är List rutan dimensions värden tom eftersom det inte finns några mått per delnings statistik för standard fil resurser. Begränsnings varningar för standard fil resurser utlöses om någon fil resurs på lagrings kontot är begränsad och aviseringen inte kommer att identifiera vilken fil resurs som har begränsats. Eftersom per resurs-mått inte är tillgängliga för standard fil resurser, är rekommendationen att ha en fil resurs per lagrings konto. 
+10. Definiera **aviserings parametrarna** (tröskelvärde, Operator, agg regerings precision och frekvens för utvärderingen) och klicka på **Slutför**.
 
-8. Definiera **aviserings parametrar** (tröskelvärde, Operator, sammansättnings precision och frekvens) som används för att utvärdera varnings regeln för mått och klicka på **Slutför**.
+> [!TIP]
+> Om du använder ett statiskt tröskelvärde kan mått diagrammet hjälpa till att fastställa ett rimligt tröskelvärde om fil resursen för närvarande begränsas. Om du använder ett dynamiskt tröskelvärde visar mått diagrammet de beräknade tröskelvärdena baserat på aktuella data.
 
-  > [!TIP]
-  > Om du använder ett statiskt tröskelvärde kan mått diagrammet hjälpa till att fastställa ett rimligt tröskelvärde om fil resursen för närvarande begränsas. Om du använder ett dynamiskt tröskelvärde visar mått diagrammet de beräknade tröskelvärdena baserat på aktuella data.
-
-9. Lägg till en **Åtgärds grupp** (e-post, SMS osv.) i aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
-
-10. Fyll i **aviserings informationen** som **aviserings regelns namn**, **Beskrivning** och **allvarlighets grad**.
-
-11. Klicka på **skapa aviserings regel** för att skapa aviseringen.
+11. Klicka på **Välj åtgärds grupp** för att lägga till en **Åtgärds grupp** (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
+12. Fyll i **aviserings informationen** som **aviserings regelns namn**, **Beskrivning** och **allvarlighets grad**.
+13. Klicka på **skapa aviserings regel** för att skapa aviseringen.
 
 Mer information om hur du konfigurerar aviseringar i Azure Monitor finns i [Översikt över aviseringar i Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/27/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 79a12505ccc7cea709a88818513ba95710989954
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 0dc79132ae75be511b53bf272e578ff0ce7a7775
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142375"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986822"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Data-och hastighets begränsningar för API för textanalys
 <a name="data-limits"></a>
@@ -32,16 +32,13 @@ Använd den här artikeln för att hitta gränserna för storlek och frekvenser 
 | Gräns | Värde |
 |------------------------|---------------|
 | Maximal storlek på ett enskilt dokument | 5 120 tecken som mäts av [StringInfo. LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Maximal storlek på hela begäran | 1 MB |
+| Maximal storlek på hela begäran | 1 MB |
 
 Det maximala antalet dokument som du kan skicka i en enskild begäran beror på vilken API-version och funktion du använder.
 
 #### <a name="version-3"></a>[Version 3](#tab/version-3)
 
-> [!NOTE]
-> Om din v3 API-begäran överskrider dessa gränser, men ligger inom v2-gränser, returneras en varning i API-svaret. Från och med 7/15/2020 kommer en 400-felkod att returneras i stället. 
-
-Följande gränser har ändrats i v3 för API: et. Att överskrida gränserna nedan genererar en varning i API-svaret.
+Följande gränser har ändrats i v3 för API: et. Om du överskrider gränserna nedan skapas en HTTP 400-felkod.
 
 
 | Funktion | Maximalt antal dokument per begäran | 
@@ -64,7 +61,7 @@ Följande gränser har ändrats i v3 för API: et. Att överskrida gränserna ne
 
 ---
 
-## <a name="rate-limits"></a>Hastighets begränsningar
+## <a name="rate-limits"></a>Hastighetsbegränsningar
 
 Din hastighets gräns varierar beroende på [pris nivå](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). Dessa begränsningar är desamma för båda versionerna av API: et.
 
@@ -83,4 +80,4 @@ Begär Anden mäts för varje Textanalys funktion separat. Du kan till exempel s
 ## <a name="see-also"></a>Se även
 
 * [Vad är API för textanalys](../overview.md)
-* [Pris information](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)
+* [Prisinformation](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)

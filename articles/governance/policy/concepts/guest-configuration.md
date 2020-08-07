@@ -1,14 +1,14 @@
 ---
 title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder gäst konfigurations agenten för att granska inställningar i virtuella datorer.
-ms.date: 05/20/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8c0f5d4df640fa29f88b3c4c6c0403ad9de97dea
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 906c86856342febc92f070493fde31af42e4ca10
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921698"
+ms.locfileid: "87987111"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Om Azure Policys gästkonfiguration
 
@@ -35,8 +35,9 @@ Innan du kan använda gäst konfiguration måste du registrera resurs leverantö
 Om du vill granska inställningarna i en dator är ett [tillägg för virtuell dator](../../../virtual-machines/extensions/overview.md) aktiverat och datorn måste ha en Systemhanterad identitet. Tillägget hämtar tillämplig princip tilldelning och motsvarande konfigurations definition. Identiteten används för att autentisera datorn när den läser och skriver till gäst konfigurations tjänsten. Tillägget krävs inte för Arc-anslutna datorer eftersom det ingår i Arc Connected Machine agent.
 
 > [!IMPORTANT]
-> Gäst konfigurations tillägget och en hanterad identitet krävs för att granska virtuella Azure-datorer. För att > måste gäst konfigurations tillägget utföra granskningar på virtuella Azure-datorer. För att distribuera tillägget i skala tilldelar du följande princip initiativ: > distribuera tillägget i skala tilldelar du följande princip definitioner: 
->  - [Distribuera krav för att aktivera principer för gäst konfiguration på virtuella datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
+> Gäst konfigurations tillägget och en hanterad identitet krävs för att granska virtuella Azure-datorer. Om du vill distribuera tillägget i skala tilldelar du följande princip initiativ:
+> 
+> - [Distribuera krav för att aktivera principer för gäst konfiguration på virtuella datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
 
 ### <a name="limits-set-on-the-extension"></a>Begränsningar som angetts för tillägget
 
@@ -99,7 +100,7 @@ För att kunna kommunicera med resurs leverantören för gäst konfiguration i A
 
 ## <a name="managed-identity-requirements"></a>Krav för hanterade identiteter
 
-Principer i initiativet för att [distribuera krav för att aktivera principer för gäst konfiguration på virtuella datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) möjliggör en systemtilldelad hanterad identitet om den inte finns. Det finns två princip definitioner i det initiativ som hanterar skapandet av identitet. OM villkoren i princip definitionerna säkerställer rätt beteende baserat på dator resursens aktuella tillstånd i Azure.
+Princip definitioner i initiativet initiativ [distribuera krav för att aktivera principer för gäst konfiguration på virtuella datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) möjliggör en systemtilldelad hanterad identitet om den inte finns. Det finns två princip definitioner i det initiativ som hanterar skapandet av identitet. OM villkoren i princip definitionerna säkerställer rätt beteende baserat på dator resursens aktuella tillstånd i Azure.
 
 Om datorn inte har några hanterade identiteter är den effektiva principen: för [ \[ hands version \] : Lägg till systemtilldelad hanterad identitet för att aktivera gäst konfigurations tilldelningar på virtuella datorer utan identiteter](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
 
@@ -201,8 +202,8 @@ Inbyggda princip exempel för gäst konfiguration finns på följande platser:
 
 - Lär dig hur du visar information om varje inställning från [vyn efterlevnad för gäst konfiguration](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
 - Granska exempel i [Azure policy exempel](../samples/index.md).
-- Granska [Azure Policy-definitionsstrukturen](definition-structure.md).
-- Granska [Förstå policy-effekter](effects.md).
+- Granska [Azure Policy-definitionsstrukturen](./definition-structure.md).
+- Granska [Förstå policy-effekter](./effects.md).
 - Lär dig att [program mässigt skapa principer](../how-to/programmatically-create.md).
 - Lär dig hur du [hämtar efterlevnadsprinciper](../how-to/get-compliance-data.md).
 - Lär dig hur du [åtgärdar icke-kompatibla resurser](../how-to/remediate-resources.md).

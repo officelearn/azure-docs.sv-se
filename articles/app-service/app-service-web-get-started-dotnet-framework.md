@@ -3,14 +3,14 @@ title: 'Snabb start: skapa en C# ASP.NET-app'
 description: Lär dig hur du kör webbappar i Azure App Service genom att distribuera standard mal len C# ASP.NET-webbapp från Visual Studio.
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
-ms.date: 04/21/2020
+ms.date: 08/06/2020
 ms.custom: mvc, devcenter, seodec18
-ms.openlocfilehash: 4f3b9966e1d146479ef6aa57e13cbb4ddadb415f
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d4406841c235061dd90a510c577be796852a7417
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85205857"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986992"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Skapa en ASP.NET Framework-webbapp i Azure
 
@@ -20,7 +20,7 @@ Den här snabbstarten visar hur du distribuerar din första ASP.NET-webbapp till
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien installerar du <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> med arbets belastningen **ASP.net och webb utveckling** .
 
@@ -80,10 +80,10 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
 
 1. I dialog rutan **Konfigurera värd plan** anger du värdena i följande tabell och väljer sedan **OK**.
 
-   | Inställningen | Föreslaget värde | Beskrivning |
+   | Inställning | Föreslaget värde | Beskrivning |
    |-|-|-|
    | Värdplan| myAppServicePlan | Namnet på App Service-planen. |
-   | Location | Europa, västra | Datacenter som är värd för webbappen. |
+   | Plats | Europa, västra | Datacenter som är värd för webbappen. |
    | Storlek | Kostnadsfri | [Prisnivån](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avgör tillgängliga värdfunktioner. |
 
    ![Skapa apptjänstplan](./media/app-service-web-get-started-dotnet-framework/app-service-plan-framework-vs2019.png)

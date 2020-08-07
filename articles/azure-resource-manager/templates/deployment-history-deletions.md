@@ -2,24 +2,22 @@
 title: Borttagning av distributionshistorik
 description: Beskriver hur Azure Resource Manager automatiskt tar bort distributioner från distributions historiken. Distributioner tas bort när historiken är nära att överskrida gränsen på 800.
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 8ec3291dc5e35689d4e2c614949e0328057fbfd3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 08/07/2020
+ms.openlocfilehash: 736a25a3c73f8f4c70c5fb6c686fa2b8bb86666d
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248997"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986516"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Automatisk borttagning från distributions historik
 
 Varje gång du distribuerar en mall skrivs information om distributionen till distributions historiken. Varje resurs grupp är begränsad till 800 distributioner i distributions historiken.
 
-Azure Resource Manager börjar snart att automatiskt ta bort distributioner från historiken när du nära gränsen. Automatisk borttagning är en förändring från tidigare beteende. Tidigare var du tvungen att manuellt ta bort distributioner från distributions historiken för att undvika ett fel. **Den här funktionen har ännu inte lagts till i Azure. Vi meddelar dig om den här kommande ändringen, om du inte vill avanmäla dig.**
+Azure Resource Manager tar automatiskt bort distributioner från historiken när du närmar dig gränsen. Automatisk borttagning är en förändring från tidigare beteende. Tidigare var du tvungen att manuellt ta bort distributioner från distributions historiken för att undvika ett fel. **Den här ändringen implementerades den 6 augusti 2020.**
 
 > [!NOTE]
 > Att ta bort en distribution från historiken påverkar inte några av de distribuerade resurserna.
->
-> Om du har ett [CanNotDelete-lås](../management/lock-resources.md) på en resurs grupp går det inte att ta bort distributionerna för resurs gruppen. Du måste ta bort låset för att kunna dra nytta av automatiska borttagningar i distributions historiken.
 
 ## <a name="when-deployments-are-deleted"></a>När distributioner tas bort
 
@@ -35,6 +33,24 @@ Distributioner tas bort från din historik när du når 775 eller flera distribu
 Förutom distributioner utlöser du även borttagningar när du kör [åtgärden vad händer om](template-deploy-what-if.md) eller verifierar en distribution.
 
 När du ger en distribution samma namn som en i historiken återställer du dess plats i historiken. Distributionen flyttas till den senaste platsen i historiken. Du kan också återställa en distributions plats när du återställer [till distributionen](rollback-on-error.md) efter ett fel.
+
+## <a name="remove-locks-that-block-deletions"></a>Ta bort lås som blockerar borttagningar
+
+Om du har ett [CanNotDelete-lås](../management/lock-resources.md) på en resurs grupp går det inte att ta bort distributionerna för resurs gruppen. Du måste ta bort låset för att kunna dra nytta av automatiska borttagningar i distributions historiken.
+
+Om du vill använda PowerShell för att ta bort ett lås kör du följande kommandon:
+
+```azurepowershell-interactive
+$lockId = (Get-AzResourceLock -ResourceGroupName lockedRG).LockId
+Remove-AzResourceLock -LockId $lockId
+```
+
+Om du vill använda Azure CLI för att ta bort ett lås kör du följande kommandon:
+
+```azurecli-interactive
+lockid=$(az lock show --resource-group lockedRG --name deleteLock --output tsv --query id)
+az lock delete --ids $lockid
+```
 
 ## <a name="opt-out-of-automatic-deletions"></a>Inaktivera automatiska borttagningar
 
@@ -78,7 +94,7 @@ Om du vill återaktivera automatiska borttagningar använder du [AZ-funktionen a
 az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGrooming
 ```
 
-# <a name="rest"></a>[FLESTA](#tab/rest)
+# <a name="rest"></a>[REST](#tab/rest)
 
 Använd [funktioner – registrera](/rest/api/resources/features/register)för REST API.
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 0a0feb6b638cb6e3a74fcd30baea5e8a04375699
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c638b434ceb31b57689b11971f48eb322b94726
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857802"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985622"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Använda REST API:et för modellkonvertering
 
@@ -53,6 +53,8 @@ Returnerar ID: t för den pågående konverteringen, figursatt i ett JSON-dokume
 
 #### <a name="request-body"></a>Begärandetext
 
+> [!NOTE]
+> Allt under hämtas `input.folderPath` för att utföra konverteringen på Azure. Om `input.folderPath` inte anges hämtas hela innehållet i behållaren. Alla blobbar och mappar som hämtats måste ha [giltiga Windows-filnamn](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions).
 
 ```json
 {
@@ -79,7 +81,7 @@ Om ARR-kontot inte är länkat till ditt lagrings konto kan du använda det här
 |-----------|:-----------|
 | /v1/Accounts/**accountID**/conversions/createWithSharedAccessSignature | POST |
 
-Returnerar ID: t för den pågående konverteringen, figursatt i ett JSON-dokument. Fält namnet är "conversionId".
+Returnerar ID: t för den pågående konverteringen, figursatt i ett JSON-dokument. Fält namnet är `conversionId` .
 
 #### <a name="request-body"></a>Begärandetext
 
@@ -88,6 +90,8 @@ Begär ande texten är samma som i Create REST-anropet ovan, men indata och utda
 > [!NOTE]
 > Dessa SAS URI-token är frågesträngarna och inte hela URI: n. 
 
+> [!NOTE]
+> Allt under hämtas `input.folderPath` för att utföra konverteringen på Azure. Om `input.folderPath` inte anges hämtas hela innehållet i behållaren. Alla blobbar och mappar som hämtats måste ha [giltiga Windows-filnamn](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions).
 
 ```json
 {
@@ -116,7 +120,7 @@ Statusen för en pågående konvertering startade med ett av REST-anropen ovan k
 
 | Slutpunkt | Metod |
 |-----------|:-----------|
-| /v1/Accounts/**accountID**/conversions/**conversionId** | HÄMTA |
+| /v1/Accounts/**accountID**/conversions/**conversionId** | GET |
 
 Returnerar ett JSON-dokument med ett "status"-fält som kan ha följande värden:
 

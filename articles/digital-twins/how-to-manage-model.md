@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b8a53ae598130086a9009dbec891052e863cdf0f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 64c7db4223fcb703272749b0bf8d5b1583fbb818
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281369"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987332"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Hantera Azure Digitals dubbla modeller
 
@@ -67,9 +67,7 @@ Efter den här metoden kan du gå vidare till för att definiera modeller för s
 
 ### <a name="validate-syntax"></a>Validera syntax
 
-Det finns ett bibliotek på klient sidan som kan tolkas och verifieras DTDL. Den genererar en C#-objekt modell av DTDL-innehållet, som kan användas i modell drivna utvecklings scenarier som att generera GRÄNSSNITTs element. Du kan också använda det här biblioteket för att se till att dina modeller inte har några syntaxfel innan du laddar upp dem. 
-
-Mer information om det här biblioteket och åtkomst till ett exempel som är byggt på det för en DTDL-verifierare finns i [*How-to: parse and validate Models*](how-to-use-parser.md).
+[!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
 ## <a name="manage-models-with-apis"></a>Hantera modeller med API: er.
 
@@ -86,7 +84,7 @@ I följande avsnitt visas hur du utför olika modell hanterings åtgärder med h
 När modeller har skapats kan du ladda upp dem till Azure Digitals-instansen.
 
 > [!TIP]
-> Vi rekommenderar att du validerar dina modeller offline innan du laddar upp dem till din Azure Digital-instansen. Du kan använda [DTDL för klient sidans parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) och [DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) som beskrivs i [*instruktionen att parsa och validera modeller*](how-to-use-parser.md) för att kontrol lera dina modeller innan du överför dem till tjänsten.
+> Vi rekommenderar att du validerar dina modeller offline innan du laddar upp dem till din Azure Digital-instansen. Du kan använda [DTDL för klient sidans parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) och [DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) som beskrivs i [*instruktionen att parsa och validera modeller*](how-to-parse-models.md) för att kontrol lera dina modeller innan du överför dem till tjänsten.
 
 När du är redo att ladda upp en modell kan du använda följande kodfragment:
 

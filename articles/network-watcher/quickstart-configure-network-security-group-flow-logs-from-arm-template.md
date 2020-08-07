@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/22/2020
 ms.author: damendo
 ms.custom: subject-armqs
-ms.openlocfilehash: fd0f295fbc47a8e461885916dbe48f7604e182c3
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7d8cb89b1187bb15e7b361e1b6b9505400c612b5
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854660"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986325"
 ---
 # <a name="quickstart-configure-nsg-flow-logs-from-arm-template"></a>Snabb start: Konfigurera NSG flödes loggar från ARM-mallen
 
@@ -69,6 +69,7 @@ Om du använder Azure Resource Manager mallar för första gången kan du läsa 
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell#deploy-local-template)
 * [Självstudie: skapa och distribuera din första Azure Resource Manager-mall](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
 
+Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-networkwatcher-flowlogs-create).
 
 Nedan visas ett exempel på en fullständig mall som är den enklaste versionen med minsta parametrar som skickas för att ställa in NSG flödes loggar. För fler exempel går du till den här [länken](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-azure-resource-manager).
 

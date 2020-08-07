@@ -209,14 +209,14 @@
       items:
         - name: Skapa datafabriker visuellt
           href: author-visually.md
+        - name: Iterativ utveckling och felsökning
+          href: iterative-development-debugging.md
         - name: Hanteringshubb
           href: author-management-hub.md
         - name: Källkontroll
           href: source-control.md
         - name: Kontinuerlig integrering och leverans
           href: continuous-integration-deployment.md
-        - name: Iterativ utveckling och felsökning
-          href: iterative-development-debugging.md
     - name: Anslutningar
       items:
         - name: Översikt över anslutningsprogram
@@ -562,6 +562,8 @@
       items:
         - name: Parametrisera länkade tjänster
           href: parameterize-linked-services.md
+        - name: Globala parametrar
+          href: author-global-parameters.md
         - name: Uttrycksspråk
           href: control-flow-expression-language-functions.md
         - name: Systemvariabler

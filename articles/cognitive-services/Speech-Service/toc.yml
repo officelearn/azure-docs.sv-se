@@ -494,10 +494,8 @@
       items:
         - name: Anpassad nyckelordsöversikt
           href: custom-keyword-overview.md
-        - name: Riktlinjer för anpassad namngivning av nyckelord
-          href: speech-devices-sdk-kws-guidelines.md
-        - name: Anpassad nyckelordsigenkänning
-          href: speech-devices-sdk-create-kws.md
+        - name: Grundläggande anpassade nyckelord
+          href: custom-keyword-basics.md
 - name: Talarigenkänning
   items:
     - name: Översikt

@@ -59,6 +59,8 @@
       href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Säkerhetsbaslinje för Azure Databricks
       href: ../../azure-databricks/security-baseline.md
+    - name: Säkerhetsbaslinje för Azure Firewall
+      href: ../../firewall/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Functions
       href: ../../azure-functions/security-baseline.md
     - name: Azure Policy-säkerhetsbaslinje
@@ -83,6 +85,8 @@
       href: ../fundamentals/customer-lockbox-security-baseline.md
     - name: Säkerhetsbaslinje för Data Lake Analytics
       href: ../../data-lake-analytics/security-baseline.md
+    - name: DDOS Protection-säkerhetsbaslinje
+      href: ../fundamentals/ddos-protection-security-baseline.md
     - name: Säkerhetsbaslinje för Event Hubs
       href: ../../event-hubs/security-baseline.md
     - name: ExpressRoute-säkerhetsbaslinje
@@ -95,6 +99,8 @@
       href: ../../logic-apps/security-baseline.md
     - name: Network Watcher-säkerhetsbaslinje
       href: ../../network-watcher/security-baseline.md
+    - name: Security Center-baslinje
+      href: ../../security-center/security-baseline.md
     - name: Baslinje för Service Fabric
       href: ../../service-fabric/security-baseline.md
     - name: Baslinje för Stream Analytics

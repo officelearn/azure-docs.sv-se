@@ -7,13 +7,15 @@
     - name: Jämföra meddelandetjänster
       href: ../event-grid/compare-messaging-services.md
       maintainContext: true
+    - name: Använda Service Bus med Java Message Service (JMS) 2.0 (förhandsversion)
+      href: how-to-use-java-message-service-20.md
 - name: Snabbstarter
   items:
     - name: Service Bus-köer
       items:
         - name: Skapa en Service Bus-kö
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -127,6 +129,8 @@
           items:
             - name: 'Köer, ämnen och prenumerationer'
               href: service-bus-queues-topics-subscriptions.md
+            - name: Java Message Service (JMS) 2.0-entiteter (förhandsversion)
+              href: java-message-service-20-entities.md
             - name: 'Meddelanden, nyttolaster och serialisering'
               href: service-bus-messages-payloads.md
             - name: 'Överföringar av meddelanden, lås och uppgörelser'

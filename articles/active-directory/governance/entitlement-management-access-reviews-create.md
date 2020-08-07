@@ -27,7 +27,7 @@ ms.locfileid: "87798519"
 
 För att minska risken för föråldrad åtkomst bör du aktivera regelbunden granskning av användare som har aktiva tilldelningar till ett Access-paket i hantering av Azure AD-rättigheter. Du kan aktivera granskningar när du skapar ett nytt Access-paket eller redigerar ett befintligt Access-paket. I den här artikeln beskrivs hur du aktiverar åtkomst granskningar av Access-paket.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill aktivera granskningar av åtkomst paket måste du uppfylla kraven för att skapa ett Access-paket:
 - Azure AD Premium P2

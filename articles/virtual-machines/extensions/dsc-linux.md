@@ -35,7 +35,7 @@ DSCForLinux-tillägget har publicerats och stöds av Microsoft. Tillägget insta
 - Installera anpassade DSC-moduler till den virtuella Linux-datorn (installera ExtensionAction).
 - Ta bort anpassade DSC-moduler från den virtuella Linux-datorn (ta bort ExtensionAction).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 

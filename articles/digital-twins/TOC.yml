@@ -70,8 +70,6 @@
           href: how-to-create-azure-function.md
         - name: Fråga tvillingdiagrammet
           href: how-to-query-graph.md
-        - name: Visa mått i Azure Monitor
-          href: how-to-view-metrics.md
     - name: Anslut indata
       items:
         - name: Mata in telemetri från IoT Hub
@@ -79,13 +77,19 @@
     - name: Anslut utdata
       items:
         - name: Hantera slutpunkter och vägar
-          href: how-to-manage-routes.md
+          items:
+            - name: 'API:er och CLI-version'
+              href: how-to-manage-routes-apis-cli.md
+            - name: Portalversion
+              href: how-to-manage-routes-portal.md
         - name: Integrera med Azure Maps
           href: how-to-integrate-maps.md
         - name: Integrera med Azure Time Series Insights
           href: how-to-integrate-time-series-insights.md
     - name: Felsöka
       items:
+        - name: Visa mått i Azure Monitor
+          href: troubleshoot-metrics.md
         - name: Aktivera diagnostikloggar
           href: troubleshoot-diagnostics.md
         - name: Kända problem

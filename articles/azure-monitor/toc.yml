@@ -171,10 +171,14 @@
         - name: Övervaka virtuella Azure-datorer
           href: insights/monitor-vm-azure.md
           displayname: VM
+    - name: Distribuera
+      items:
+        - name: Distribuera Azure Monitor
+          href: deploy.md
+        - name: Distribuera i stor skala
+          href: deploy-scale.md
     - name: Hantera och konfigurera
       items:
-        - name: Distribuera i stor skala
-          href: platform/deploy-scale.md
         - name: Rollbehörigheter och säkerhet
           href: platform/roles-permissions-security.md
         - name: IP-adresser

@@ -12,7 +12,7 @@ ms.lasthandoff: 07/09/2020
 ms.locfileid: "86181511"
 ---
 > [!IMPORTANT]
-> Den 9 oktober 2020 kommer den Azure Notebooks offentliga för hands versionen att dras tillbaka och ersättas med integrerade tjänster från Visual Studio, Azure och GitHub.
+> Den 9 oktober 2020 kommer Azure Notebooks offentliga förhandsgranskningssida att tas ur bruk och ersättas med integrerade tjänster från Visual Studio, Azure och GitHub.
 > [Lär dig mer](https://aka.ms/aznb-notebooks-at-msft/) om dina alternativ och våra andra Notebook-upplevelser från Microsoft.
 >
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.

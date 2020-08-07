@@ -471,7 +471,7 @@
                   href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Azure Data Factory
               href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Montera lagring från Linux med NFS
+            - name: Montera lagring med NFS
               href: network-file-system-protocol-support-how-to.md
             - name: Montera lagring från Linux med blobfuse
               href: storage-how-to-mount-container-linux.md
@@ -560,6 +560,8 @@
               href: 'https://github.com/microsoft/AzureStorageExplorer/releases'
             - name: Felsöka Storage Explorer
               href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Storage Explorer-säkerhet
+              href: ../common/storage-explorer-security.md
             - name: Stödpolicy och livscykel för Storage Explorer
               href: ../common/storage-explorer-support-policy-lifecycle.md
             - name: Storage Explorer-hjälpmedel
@@ -744,7 +746,7 @@
                 - name: 'Konfigurera, optimera, felsöka'
                   href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Azure Data Factory
-              href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: ../../data-factory/connector-azure-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Överför data med DistCp-verktyget
               href: data-lake-storage-use-distcp.md
             - name: Överföra data med dataflyttbiblioteket
@@ -834,6 +836,10 @@
               href: 'https://github.com/microsoft/AzureStorageExplorer/releases'
             - name: Felsöka Storage Explorer
               href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Storage Explorer-säkerhet
+              href: ../common/storage-explorer-security.md
+            - name: Stödpolicy och livscykel för Storage Explorer
+              href: ../common/storage-explorer-support-policy-lifecycle.md
             - name: Storage Explorer-hjälpmedel
               href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Frågesida på Microsoft Q&A

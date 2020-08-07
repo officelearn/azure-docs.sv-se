@@ -13,10 +13,10 @@
       items:
         - name: Registrera en app
           href: quickstart-register-app.md
-        - name: 'Konfigurera appen för att komma åt webb-API:er'
-          href: quickstart-configure-app-access-web-apis.md
-        - name: 'Konfigurera appen för att göra webb-API:er tillgängliga'
+        - name: Konfigurera en app för att göra ett webb-API tillgänglig
           href: quickstart-configure-app-expose-web-apis.md
+        - name: Konfigurera en app för att komma åt ett webb-API
+          href: quickstart-configure-app-access-web-apis.md
         - name: Ändra konton som stöds av en app
           href: quickstart-modify-supported-accounts.md
         - name: Ta bort en objekt

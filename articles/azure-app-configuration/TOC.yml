@@ -75,7 +75,7 @@
       href: ./policy-samples.md
 - name: Begrepp
   items:
-    - name: Nyckelvärdeslagring
+    - name: Nycklar och värden
       href: concept-key-value.md
     - name: Tidpunktsbaserad ögonblicksbild
       href: concept-point-time-snapshot.md
@@ -147,7 +147,7 @@
           href: 'https://docs.microsoft.com/rest/api/appconfiguration/'
 - name: Resurser
   items:
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/app-configuration/'
     - name: Videoklipp
       items:

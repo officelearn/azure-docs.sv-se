@@ -23,6 +23,8 @@
       href: tutorial-access-api-with-certificates.md
     - name: Strömma loggar till händelsehubb
       href: tutorial-azure-monitor-stream-logs-to-event-hub.md
+    - name: Guide för logganalys
+      href: tutorial-log-analytics-wizard.md
 - name: Begrepp
   items:
     - name: Planera en rapporterings- och övervakningsdistribution

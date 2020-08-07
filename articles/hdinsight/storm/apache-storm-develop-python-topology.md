@@ -22,7 +22,7 @@ Lär dig hur du skapar en [Apache Storm](https://storm.apache.org/) -topologi so
 > [!IMPORTANT]  
 > Informationen i det här dokumentet har testats med storm på HDInsight 3,6.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Apache Storm kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **Storm** för **kluster typ**.
 

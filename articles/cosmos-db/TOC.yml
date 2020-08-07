@@ -728,7 +728,7 @@
               href: mongodb-feature-support.md
             - name: VANLIGA FRÅGOR OCH SVAR
               href: mongodb-api-faq.md
-        - name: Instruktionsguider
+        - name: Anvisningar
           items:
             - name: Guide före migrering
               href: mongodb-pre-migration.md
@@ -798,7 +798,7 @@
           items:
             - name: VANLIGA FRÅGOR OCH SVAR
               href: gremlin-api-faq.md
-        - name: Instruktionsguider
+        - name: Anvisningar
           items:
             - name: Diagramdatamodellering
               href: graph-modeling.md
@@ -883,7 +883,7 @@
           items:
             - name: VANLIGA FRÅGOR OCH SVAR
               href: table-api-faq.md
-        - name: Instruktionsguider
+        - name: Anvisningar
           items:
             - name: Skapa appar med tabell-API
               href: table-support.md
@@ -1248,7 +1248,7 @@
           href: sql-api-sdk-dotnet-changefeed.md
         - name: .NET-masskörningsbibliotek v2
           href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: 'Java-SDK:er'
+    - name: 'Java SDK:er och anslutningsprogram'
       items:
         - name: Java SDK v4
           href: sql-api-sdk-java-v4.md
@@ -1256,6 +1256,10 @@
           href: sql-api-sdk-async-java.md
         - name: Synkron Java-SDK v2
           href: sql-api-sdk-java.md
+        - name: Spring-dataanslutningsprogram för SQL-API
+          href: sql-api-sdk-java-spring.md
+        - name: Spark-anslutningsprogram för SQL-API
+          href: sql-api-sdk-java-spark.md
         - name: Java-masskörningsbibliotek v2
           href: sql-api-sdk-bulk-executor-java.md
     - name: Node.js

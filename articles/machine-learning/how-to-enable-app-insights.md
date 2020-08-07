@@ -34,7 +34,7 @@ Förutom att samla in en slut punkts utdata och svar kan du övervaka:
 [Läs mer om Azure Application insikter](../azure-monitor/app/app-insights-overview.md). 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag
 

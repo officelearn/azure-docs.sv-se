@@ -57,7 +57,7 @@ Vi har även testat de flesta vanliga program driv rutiner, men du kan se inform
 
 Detta är de steg som en användare/ett program behöver för att autentisera med Azure AD som beskrivs nedan:
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Du kan följa med i Azure Cloud Shell, en virtuell Azure-dator eller på den lokala datorn. Kontrol lera att du har [installerat Azure CLI](/cli/azure/install-azure-cli).
 

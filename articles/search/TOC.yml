@@ -312,9 +312,15 @@
         - name: Lista över förhandsgranskningsfunktioner
           href: search-api-preview.md
         - name: Utveckla i .NET
-          href: search-howto-dotnet-sdk.md
+          items:
+            - name: Use Microsoft.Azure.Search (v10)
+              href: search-howto-dotnet-sdk.md
+            - name: Komma igång (v10)
+              href: search-get-started-dotnet-v10.md
         - name: Uppgradera SDK
           items:
+            - name: .NET SDK 11.0
+              href: search-dotnet-sdk-migration-version-11.md
             - name: .NET SDK 10.0
               href: search-dotnet-sdk-migration-version-10.md
             - name: .NET SDK 9.0
@@ -349,7 +355,7 @@
           items:
             - name: Säkerhetsfilter
               href: search-security-trimming-for-azure-search.md
-            - name: Filtrera efter identiteter i AAD
+            - name: Filtrera på användaridentiteter
               href: search-security-trimming-for-azure-search-with-aad.md
     - name: Hantera
       items:

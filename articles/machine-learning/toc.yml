@@ -229,7 +229,7 @@
         - name: Ställa in kataloger med indata och utdata
           displayName: 'large data, write, experiment files, size limit'
           href: how-to-save-write-experiment-files.md
-        - name: Interaktiv felsökning
+        - name: Visual Studio-koden
           displayName: 'Visual Studio Code, VSCode, debug, bugs, remote, compute, instance'
           href: how-to-set-up-vs-code-remote.md
         - name: Git-integrering
@@ -437,26 +437,28 @@
           href: how-to-schedule-pipelines.md
         - name: Utlösa en pipeline
           href: how-to-trigger-published-pipeline.md
+        - name: Designern (dra och släpp)
+          items:
+            - name: Loggmått
+              displayName: 'designer, logging'
+              href: how-to-track-designer-experiments.md
+            - name: Omvandla data
+              displayName: pipeline
+              href: how-to-designer-transform-data.md
+            - name: Omträna med publicerade pipelines
+              displayName: 'retrain, designer, published pipeline'
+              href: how-to-retrain-designer.md
+            - name: Batch-förutsägelser
+              displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+              href: how-to-run-batch-predictions-designer.md
+            - name: Köra Python-kod
+              displayName: 'feature extraction, feature engineering'
+              href: how-to-designer-python.md
         - name: Felsöka pipelines
           displayName: designer
           href: how-to-debug-pipelines.md
         - name: Felsöka pipelines i Application Insights.
           href: how-to-debug-pipelines-application-insights.md
-        - name: Loggmått i Designer
-          displayName: 'designer, logging'
-          href: how-to-track-designer-experiments.md
-        - name: Omvandla data i Designer
-          displayName: pipeline
-          href: how-to-designer-transform-data.md
-        - name: Omträna med publicerade pipelines i Designer
-          displayName: 'retrain, designer, published pipeline'
-          href: how-to-retrain-designer.md
-        - name: Batch-förutsägelser i Designer
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-          href: how-to-run-batch-predictions-designer.md
-        - name: Köra Python-kod i Designer
-          displayName: 'feature extraction, feature engineering'
-          href: how-to-designer-python.md
         - name: Använda parallella körningssteg
           displayName: score scoring batch consume pipeline parallelrunstep inference
           href: how-to-use-parallel-run-step.md
@@ -475,6 +477,9 @@
     - name: Hantera resurser i VS Code
       displayName: 'vscode,resources'
       href: how-to-manage-resources-vscode.md
+    - name: Interaktiv felsökning i VS Code
+      displayName: 'vscode,remote,debug,pipelines,deployments,ssh'
+      href: how-to-debug-visual-studio-code.md
     - name: Exportera och ta bort data
       displayName: GDPR
       href: how-to-export-delete-data.md

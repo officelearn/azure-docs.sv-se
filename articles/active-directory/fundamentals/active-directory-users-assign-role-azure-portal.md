@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a468b5f43e8b024dd1da6e382049f8cce6de295
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 77ba802d5e337851b3b5141695e5b2f0c6456719
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797373"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902362"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Tilldela roller som administratör och icke-administratör till användare med Azure Active Directory
 
@@ -28,7 +28,7 @@ Mer information om tillgängliga Azure AD-roller finns [i tilldela administratö
 
 ## <a name="assign-roles"></a>Tilldela roller
 
-Ett vanligt sätt att tilldela Azure AD-roller till en användare finns på sidan **tilldelade roller** för en användare. Du kan också använda den för att få en högre inaktivitet i en roll med hjälp av Privileged Identity Management (PIM). Mer information om hur du använder PIM finns [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
+Ett vanligt sätt att tilldela Azure AD-roller till en användare finns på sidan **tilldelade roller** för en användare. Du kan också konfigurera användar behörigheten så att den förhöjds just-in-Time i en roll med hjälp av Privileged Identity Management (PIM). Mer information om hur du använder PIM finns [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
 
 > [!Note]
 > Om du har en Azure AD Premium P2-licens plan och redan använder PIM utförs alla roll hanterings aktiviteter i [Privileged Identity Managements upplevelsen](../users-groups-roles/directory-manage-roles-portal.md).

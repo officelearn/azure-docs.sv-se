@@ -3,12 +3,12 @@ title: Support mat ris för MARS-agenten
 description: I den här artikeln sammanfattas Azure Backup support när du säkerhetskopierar datorer som kör Microsoft Azure Recovery Services-agenten (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5ff9510dfa31bb947d50b1a91fb7f73c2d767471
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2b719bd36c27336b3fe24cdb904715bf8194ed70
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538657"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872420"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Recovery Services MARS-agenten
 
@@ -27,7 +27,7 @@ Azure Backup använder MARS-agenten för att säkerhetskopiera data från lokala
 
 Dina säkerhets kopierings alternativ beror på var agenten är installerad. Mer information finns i [Azure Backup-arkitektur med mars-agenten](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). Information om MABS och DPM backup-arkitekturen finns i [säkerhetskopiera till DPM eller Mabs](backup-architecture.md#architecture-back-up-to-dpmmabs). Se även [kraven](backup-support-matrix-mabs-dpm.md) för säkerhets kopierings arkitekturen.
 
-**Installation** | **Detaljer**
+**Installation** | **Information**
 --- | ---
 Hämta den senaste MARS-agenten | Du kan ladda ned den senaste versionen av agenten från valvet eller [Ladda ned den direkt](https://aka.ms/azurebackup_agent).
 Installera direkt på en dator | Du kan installera MARS-agenten direkt på en lokal Windows Server eller på en virtuell Windows-dator som kör något av de [operativ system som stöds](./backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
@@ -41,11 +41,11 @@ Installera på en säkerhets kopierings Server | När du konfigurerar DPM eller 
 
 När du använder MARS-agenten för att säkerhetskopiera data tar agenten en ögonblicks bild av data och lagrar den i en lokal cache-mapp innan data skickas till Azure. Mappen cache (scratch) har flera krav:
 
-**Cache** | **Detaljer**
+**Cache** | **Information**
 --- | ---
 Storlek |  Det lediga utrymmet i cache-mappen bör vara minst 5 till 10 procent av den totala storleken på dina säkerhets kopierings data.
-Position | Cache-mappen måste lagras lokalt på den dator som säkerhets kopie ras och måste vara online. Cache-mappen får inte finnas på en nätverks resurs, på flyttbara medier eller på en frånkopplad volym.
-Mapp | Cache-mappen ska inte vara krypterad på en deduplicerad volym eller i en mapp som är komprimerad, som är sparse eller som har en referens punkt.
+Plats | Cache-mappen måste lagras lokalt på den dator som säkerhets kopie ras och måste vara online. Cache-mappen får inte finnas på en nätverks resurs, på flyttbara medier eller på en frånkopplad volym.
+Mapp | Cache-mappen bör inte vara krypterad på en deduplicerad volym eller i en mapp som är komprimerad, som är sparse eller som har en referens punkt.
 Plats ändringar | Du kan ändra cache-platsen genom att stoppa säkerhets kopierings motorn ( `net stop bengine` ) och kopiera cache-mappen till en ny enhet. (Kontrol lera att det finns tillräckligt med utrymme på den nya enheten.) Uppdatera sedan två register poster under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**config/ScratchLocation** och **config/CloudBackupProvider/ScratchLocation**) till den nya platsen och starta om motorn.
 
 ## <a name="networking-and-access-support"></a>Nätverks-och åtkomst stöd
@@ -54,7 +54,7 @@ Plats ändringar | Du kan ändra cache-platsen genom att stoppa säkerhets kopie
 
 MARS-agenten behöver åtkomst till följande URL: er:
 
-- <http://www.msftncsi.com/ncsi.txt>
+- `http://www.msftncsi.com/ncsi.txt`
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *. MicrosoftOnline.com
@@ -90,9 +90,19 @@ Mer information finns i krav för [ExpressRoute-routning](../expressroute/expres
 >[!NOTE]
 >Offentlig peering är föråldrad för nya kretsar.
 
+### <a name="private-endpoint-support"></a>Stöd för privat slut punkt
+
+Du kan nu använda privata slut punkter för att säkerhetskopiera dina data på ett säkert sätt från servrar till ditt Recovery Services-valv. Eftersom Azure Active Directory för närvarande inte stöder privata slut punkter måste de IP-adresser och FQDN: er som krävs för Azure Active Directory vara tillåtna utgående åtkomst separat.
+
+När du använder MARS-agenten för att säkerhetskopiera lokala resurser, se till att ditt lokala nätverk (som innehåller dina resurser som ska säkerhets kopie RAS) är peer-kopplat med det virtuella Azure-nätverket som innehåller en privat slut punkt för valvet. Sedan kan du fortsätta att installera MARS-agenten och konfigurera säkerhets kopiering. Du måste dock se till att all kommunikation för säkerhets kopiering sker via endast peer-nätverket.
+
+Om du tar bort privata slut punkter för valvet efter att en MARS-agent har registrerats på det måste du registrera om behållaren med valvet. Du behöver inte sluta skydda dem.
+
+Läs mer om [privata slut punkter för Azure Backup](private-endpoints.md).
+
 ### <a name="throttling-support"></a>Stöd för begränsning
 
-**Funktion** | **Detaljer**
+**Funktion** | **Information**
 --- | ---
 Bandbredds kontroll | Stöds. I MARS-agenten använder du **ändra egenskaper** för att justera bandbredden.
 Nätverksbegränsning | Inte tillgängligt för säkerhetskopierade datorer som kör Windows Server 2008 R2, Windows Server 2008 SP2 eller Windows 7.
@@ -124,7 +134,7 @@ Mer information finns i [Mabs-och DPM-operativsystem som stöds](backup-support-
 
 ### <a name="operating-systems-at-end-of-support"></a>Operativ system i slutet av supporten
 
-Följande operativ system är i slutet av supporten och rekommenderar starkt att du uppgraderar operativ systemet så att det fortsätter att vara skyddat.
+Följande operativ system är i slutet av supporten och vi rekommenderar starkt att du uppgraderar operativ systemet för att fortsätta att vara skyddat.
 
 Om befintliga åtaganden förhindrar uppgradering av operativ systemet bör du överväga att migrera Windows-servrar till virtuella Azure-datorer och utnyttja virtuella Azure-säkerhetskopieringar för att fortsätta vara skyddade. Besök [sidan migrering här](https://azure.microsoft.com/migration/windows-server/) om du vill ha mer information om hur du migrerar din Windows Server.
 
@@ -162,19 +172,19 @@ Krypterade<sup>*</sup>| Stöds.
 Komprimerade | Stöds.
 Utspridda | Stöds.
 Komprimerad och sparse |Stöds.
-Hårda länkar| Stöds ej. Hoppades.
-Referenspunkt| Stöds ej. Hoppades.
-Krypterad och sparse |Stöds ej. Hoppades.
-Komprimerad ström| Stöds ej. Hoppades.
-Sparse-dataström| Stöds ej. Hoppades.
-OneDrive (synkroniserade filer är sparse-strömmar)| Stöds ej.
-Mappar med DFS Replication aktiverat | Stöds ej.
+Hårda länkar| Stöds inte. Hoppades.
+Referenspunkt| Stöds inte. Hoppades.
+Krypterad och sparse |Stöds inte. Hoppades.
+Komprimerad ström| Stöds inte. Hoppades.
+Sparse-dataström| Stöds inte. Hoppades.
+OneDrive (synkroniserade filer är sparse-strömmar)| Stöds inte.
+Mappar med DFS Replication aktiverat | Stöds inte.
 
 \*Se till att MARS-agenten har åtkomst till de certifikat som krävs för att komma åt de krypterade filerna. Otillgängliga filer kommer att hoppas över.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Enheter eller volymer som stöds för säkerhets kopiering
 
-**Enhet/volym** | **Support** | **Detaljer**
+**Enhet/volym** | **Support** | **Information**
 --- | --- | ---
 Skrivskyddade volymer| Stöds inte | VSS (Volume Copy Shadow service) fungerar bara om volymen är skrivbar.
 Offline-volymer| Stöds inte |VSS fungerar bara om volymen är online.

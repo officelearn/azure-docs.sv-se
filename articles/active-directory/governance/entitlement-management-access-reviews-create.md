@@ -3,7 +3,7 @@ title: Skapa en åtkomst granskning av ett Access-paket i hantering av Azure AD-
 description: Lär dig hur du skapar en åtkomst gransknings princip för rättighets hanterings åtkomst paket i Azure Active Directory åtkomst granskningar (för hands version).
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -16,18 +16,18 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7aed942058a922fc8da504fe14c5ad8e0bed59a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 012eefe9140703a62d7bb1074ab763191a0976cb
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078593"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798519"
 ---
 # <a name="create-an-access-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Skapa en åtkomst granskning av ett Access-paket i hantering av Azure AD-rättigheter
 
 För att minska risken för föråldrad åtkomst bör du aktivera regelbunden granskning av användare som har aktiva tilldelningar till ett Access-paket i hantering av Azure AD-rättigheter. Du kan aktivera granskningar när du skapar ett nytt Access-paket eller redigerar ett befintligt Access-paket. I den här artikeln beskrivs hur du aktiverar åtkomst granskningar av Access-paket.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill aktivera granskningar av åtkomst paket måste du uppfylla kraven för att skapa ett Access-paket:
 - Azure AD Premium P2

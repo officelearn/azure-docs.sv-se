@@ -7,12 +7,12 @@ ms.author: v-lakast
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7786f970f612d2856948e2286ed234e2b0895072
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7d563c7706529c6f3e280f7d138c0d6ba0dfc849
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836978"
+ms.locfileid: "87902221"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Hantera slut punkter och vägar i Azure Digitals dubbla (portal)
 
@@ -129,44 +129,49 @@ Om du faktiskt vill skicka data från digitala Azure-sändningar till en slut pu
 
 ### <a name="create-an-event-route"></a>Skapa en händelse väg 
 
-En händelse flödes definition kan innehålla följande element:
-* Det väg-ID som du vill använda
+En händelse flödes definition innehåller följande element:
+* Det väg namn som du vill använda
 * Namnet på den slut punkt som du vill använda
 * Ett filter som definierar vilka händelser som skickas till slut punkten
+    - Om du vill inaktivera vägen så att inga händelser skickas, använder du ett filter värde för`false`
+    - Om du vill aktivera en väg som inte har någon speciell filtrering använder du ett filter värde för`true`
+    - Mer information om någon annan typ av filter finns i avsnittet [*Filtrera händelser*](#filter-events) nedan.
 
-Om det inte finns något väg-ID dirigeras inga meddelanden utanför Azures digitala dubbla.
-Om det finns ett väg-ID och filtret är `true` , dirigeras alla meddelanden till slut punkten.
-Om ett väg-ID och ett annat filter läggs till filtreras meddelandena baserat på filtret.
-
-En väg bör tillåta att flera meddelanden och händelse typer väljs.
+En enda väg kan tillåta att flera meddelanden och händelse typer väljs.
 
 Om du vill skapa en händelse väg går du till informations sidan för din Azure Digital-instansen i [Azure Portal](https://portal.azure.com) (du kan hitta instansen genom att ange dess namn i portalens Sök fält).
 
 Från menyn instans väljer du _händelse vägar_. Sedan väljer du *+ skapa en händelse väg*från sidan *händelse vägar* som följer. 
 
-På sidan *skapa en händelse väg* som öppnas, väljer du minst ett namn för din väg i fältet _namn_ och väljer den _slut punkt_ som du vill använda för att skapa vägen från List rutan.
+På sidan *skapa en händelse väg* som öppnas väljer du minst:
+* Ett namn för din väg i fältet _namn_
+* _Slut punkten_ som du vill använda för att skapa vägen 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Skärm bild som visar hur du skapar en händelse väg för din instans.":::
+För att vägen ska aktive ras måste du också **lägga till ett händelse flödes filter** på minst `true` . (Om du lämnar standardvärdet för `false` skapas vägen, men inga händelser skickas till den.) Det gör du genom att växla växeln för _avancerad redigerare_ för att aktivera den och skriva `true` i *filter* rutan.
+
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Skärm bild som visar hur du skapar en händelse väg för din instans." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 När du är färdig trycker du på knappen _Spara_ för att skapa din händelse väg.
 
 ### <a name="filter-events"></a>Filtrera händelser
 
-Utan filtrering tar slut punkter emot flera olika händelser från Azures digitala dubbla:
+Som beskrivs ovan har vägar ett **filter** fält. Om filtervärdet i din väg är `false` , skickas inga händelser till din slut punkt. 
+
+När du har aktiverat det minimala filtret för `true` får slut punkter flera olika händelser från Azures digitala dubbla:
 * Telemetri som har utlösts av [digitala sammanflätade](concepts-twins-graph.md) tjänster med Azure Digitals dubbla tjänst-API
 * Dubbla egenskaps ändrings meddelanden, utlöses vid egenskaps ändringar för alla dubbla i Azure Digitals-instansen
 * Livs cykel händelser, utlöses när de är uppdelade eller relationer skapade eller raderas
 * Modell ändrings händelser, som utlöses när [modeller](concepts-models.md) som kon figurer ATS i en Azure Digitals dubblas-instans läggs till eller tas bort
 
-Du kan begränsa vilka händelser som ska skickas genom att lägga till ett **filter** för en slut punkt till händelse vägen.
+Du kan begränsa vilka typer av händelser som skickas genom att definiera ett mer Specific-filter.
 
-Om du vill lägga till ett filter när du skapar en händelse väg använder du avsnittet _Lägg till ett händelse flödes filter_ på sidan *skapa en händelse väg* . 
+Om du vill lägga till ett händelse filter när du skapar en händelse väg använder du avsnittet _Lägg till ett händelse flödes filter_ på sidan *skapa en händelse väg* . 
 
 Du kan antingen välja bland några grundläggande vanliga filter alternativ eller använda avancerade filter alternativ för att skriva egna anpassade filter.
 
 #### <a name="use-the-basic-filters"></a>Använd de grundläggande filtren
 
-Om du vill använda de grundläggande filtren expanderar du alternativet _händelse typer_ och markerar kryss rutorna som motsvarar de händelser som du vill filtrera på. 
+Om du vill använda de grundläggande filtren expanderar du alternativet _händelse typer_ och markerar kryss rutorna som motsvarar de händelser som du vill skicka till din slut punkt. 
 
 :::row:::
     :::column:::

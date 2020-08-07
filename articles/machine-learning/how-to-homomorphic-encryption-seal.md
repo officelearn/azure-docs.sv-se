@@ -9,13 +9,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: 7af69b90228514db14ce3feecd4ad5cc8a84f567
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: b241220168a5cd81ce23be729944df387e87e567
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307088"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844550"
 ---
 # <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Så här distribuerar du en krypterad inferencing-webb tjänst (för hands version)
 
@@ -34,7 +34,7 @@ ACI är en bra lösning för att testa och förstå arbets flödet för modell d
 
 Krypterings metoden som används i det här exemplet är [homomorphic-kryptering](https://github.com/Microsoft/SEAL#homomorphic-encryption). Homomorphic-kryptering gör det möjligt att utföra beräkningar på krypterade data utan att behöva åtkomst till en hemlig nyckel (dekryptering). Resultatet av beräkningarna krypteras och kan bara visas av ägaren av den hemliga nyckeln. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här guiden förutsätter att du har en modell för bild klassificering som registrerats i Azure Machine Learning. Om inte, registrera modellen med en [förtränad modell](https://github.com/Azure/MachineLearningNotebooks/raw/master/tutorials/image-classification-mnist-data/sklearn_mnist_model.pkl) eller skapa en egen genom att slutföra [en bild klassificerings modell med Azure Machine Learning själv studie kursen](tutorial-train-models-with-aml.md).
 

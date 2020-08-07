@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 08/06/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 29dc03d663d590c13a1948411ed597388750c1d7
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 82866daaf720fc6b1ea9ba823587c921fd438b9c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428010"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902481"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Gör så här: anpassa anspråk som skickas i token för en angiven app i en klient (för hands version)
 
@@ -44,7 +44,7 @@ En princip för anspråks mappning är en typ av **princip** objekt som ändrar 
 
 Det finns vissa uppsättningar med anspråk som definierar hur och när de används i tokens.
 
-| Anspråks uppsättning | Description |
+| Anspråks uppsättning | Beskrivning |
 |---|---|
 | Uppsättning Core-anspråk | Förekommer i varje token oavsett principen. Dessa anspråk anses också vara begränsade och kan inte ändras. |
 | Grundläggande anspråks uppsättning | Innehåller de anspråk som genereras som standard för token (utöver uppsättningen med kärn anspråk). Du kan utelämna eller ändra grundläggande anspråk genom att använda anspråks mappnings principerna. |
@@ -261,13 +261,15 @@ Du styr vilka anspråk som ska genereras och var data kommer från genom att anv
 **Datatyp:** JSON-BLOB med en eller flera anspråks schema poster
 
 **Sammanfattning:** Den här egenskapen definierar vilka anspråk som finns i de token som påverkas av principen, förutom den grundläggande anspråks uppsättningen och kärn anspråks uppsättningen.
-För varje anspråks schema post som definieras i den här egenskapen krävs viss information. Ange var data kommer från (**värde** eller **käll-ID-par**) och vilka anspråk data genereras som (**anspråks typ**).
+För varje anspråks schema post som definieras i den här egenskapen krävs viss information. Ange var data kommer från (**värde**, **käll-ID-par**eller **käll-ExtensionID-par**) och vilka anspråks data som angivits som (**anspråks typ**).
 
 ### <a name="claim-schema-entry-elements"></a>Poster för anspråks schema poster
 
 **Värde:** Värdet element definierar ett statiskt värde som de data som ska genereras i anspråket.
 
-**Käll-/ID-par:** Käll-och ID-elementen definierar var data i anspråket ska hämtas från. 
+**Käll-/ID-par:** Käll-och ID-elementen definierar var data i anspråket ska hämtas från.  
+
+**Käll-ExtensionID-par:** Käll-och ExtensionID-elementen definierar det katalog schemas tilläggs attribut där data i anspråket ska hämtas från. Mer information finns i [använda tillägg för katalog schema i anspråk](active-directory-schema-extensions.md).
 
 Ange käll elementet till något av följande värden: 
 
@@ -284,7 +286,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabell 3: giltiga ID-värden per källa
 
-| Källa | ID | Description |
+| Källa | ID | Beskrivning |
 |-----|-----|-----|
 | Användare | surname | Familje namn |
 | Användare | givenname | Förnamn |
@@ -321,7 +323,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 | Användare | othermail | Annan e-post |
 | Användare | land | Land/region |
 | Användare | city | Stad |
-| Användare | state | Tillstånd |
+| Användare | state | Stat |
 | Användare | befattning | Befattning |
 | Användare | employeeid | Anställnings-ID |
 | Användare | facsimiletelephonenumber | Facsimile-telefonnummer |
@@ -359,7 +361,7 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabell 4: omvandlings metoder och förväntade indata och utdata
 
-|TransformationMethod|Förväntad Indatatyp|Förväntad utdata|Description|
+|TransformationMethod|Förväntad Indatatyp|Förväntad utdata|Beskrivning|
 |-----|-----|-----|-----|
 |Slå ihop|sträng1, sträng2, avgränsare|outputClaim|Kopplar ihop inmatade strängar med hjälp av en avgränsare mellan. Till exempel: sträng1: " foo@bar.com ", sträng2: "sandbox", avgränsare: "." resulterar i outputClaim: " foo@bar.com.sandbox "|
 |ExtractMailPrefix|E-post eller UPN|extraherad sträng|ExtensionAttributes 1-15 eller andra schema tillägg som lagrar ett UPN-eller e-postadress värde för användaren, t. ex. johndoe@contoso.com . Extraherar den lokala delen av en e-postadress. Exempel: mail: " foo@bar.com " resulterar i outputClaim: "foo". Om det inte finns något \@ tecken returneras den ursprungliga Indatasträngen som den är.|
@@ -385,7 +387,7 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabell 5: attribut som tillåts som data källa för SAML-NameID
 
-|Källa|ID|Description|
+|Källa|ID|Beskrivning|
 |-----|-----|-----|
 | Användare | e-post|E-postadress|
 | Användare | userPrincipalName|UPN (User Principal Name)|
@@ -411,7 +413,7 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 | TransformationMethod | Begränsningar |
 | ----- | ----- |
-| ExtractMailPrefix | Ingen |
+| ExtractMailPrefix | Inga |
 | Slå ihop | Det suffix som anslöts måste vara en verifierad domän för resurs klienten. |
 
 ### <a name="custom-signing-key"></a>Anpassad signerings nyckel

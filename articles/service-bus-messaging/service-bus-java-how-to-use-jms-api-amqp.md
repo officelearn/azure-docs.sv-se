@@ -4,14 +4,21 @@ description: Så här använder du JMS (Java Message Service) med Azure Service 
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 95558f973041a086dc66d2bebb1ce54ee58c952a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 935579bdcb142969d9baf7ca24cf03268620bf46
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320790"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799692"
 ---
 # <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Använda Java Message Service (JMS) med Azure Service Bus och AMQP 1,0
+
+> [!WARNING]
+> Nedanstående guide innehåller **begränsat stöd** för JMS (Java Message Service) 1,1 API och finns endast för Azure Service Bus standard nivå.
+>
+> Fullständigt stöd för Java Message Service (JMS) 2,0 API är bara tillgängligt på [Azure Service Bus Premium-nivån i för hands versionen](how-to-use-java-message-service-20.md), vilket är starkt rekommenderat.
+>
+
 Den här artikeln förklarar hur du använder Azure Service Bus meddelande funktioner (köer och publicera/prenumerera ämnen) från Java-program med hjälp av den populära API-standarden Java Message Service (JMS). Det finns en [medföljande artikel](service-bus-amqp-dotnet.md) som förklarar hur du gör detta med hjälp av Azure Service Bus .NET API. Du kan använda dessa två guider tillsammans för att lära dig mer om plattforms oberoende meddelanden med AMQP 1,0.
 
 Advanced Message Queueing Protocol (AMQP) 1,0 är ett effektivt, tillförlitligt meddelande protokoll på trådnivå som du kan använda för att bygga robusta program för meddelanden mellan plattformar.
@@ -29,7 +36,7 @@ Den här guiden förutsätter att du redan har ett Service Bus namnrum som inneh
 ## <a name="downloading-the-amqp-10-jms-client-library"></a>Hämta klient biblioteket AMQP 1,0 JMS
 Information om var du hämtar den senaste versionen av Apache qpid JMS AMQP 1,0-klient biblioteket finns på [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html) .
 
-Du måste lägga till följande fyra JAR-filer från Apache qpid JMS AMQP 1,0 distribution Archive till Java-CLASSPATH när du skapar och kör JMS-program med Service Bus:
+Du måste lägga till följande JAR-filer från Apache qpid JMS AMQP 1,0 distribution Archive till Java-CLASSPATH när du skapar och kör JMS-program med Service Bus:
 
 * Geronimo-JMS \_ 1,1 \_ spec-1.0. jar
 * qpid-JMS-client-[version]. jar
@@ -377,4 +384,3 @@ Du kan också använda Service Bus AMQP 1,0 från andra språk, inklusive .NET, 
 * [Service Bus AMQP 1,0 Developer ' s guide](service-bus-amqp-dotnet.md)
 * [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Java-utvecklingscenter](https://azure.microsoft.com/develop/java/)
-

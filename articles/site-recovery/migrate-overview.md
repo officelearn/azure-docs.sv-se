@@ -1,23 +1,23 @@
 ---
-title: Migrera servrar och virtuella datorer till Azure med Azure Site Recovery
-description: Beskriver hur du migrerar lokala och virtuella Azure IaaS-datorer till Azure med hjälp av tjänsten Azure Site Recovery.
+title: Jämför Azure Migrate och Site Recovery för migrering till Azure
+description: Sammanfattar fördelarna med att använda Azure Migrate för migrering i stället för Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/06/2020
 ms.author: raynew
-ms.openlocfilehash: aaf01dcd63c21e4741456f4f7fccaf22b8fbfffc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 358efaa1493aa08fb76c9bb83e0e4289950e0969
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281318"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844328"
 ---
-# <a name="about-migration"></a>Om migrering
+# <a name="migrating-to-azure"></a>Migrera till Azure
 
-Använd Azure Migrate tjänsten för att migrera virtuella datorer och servrar till Azure, i stället för tjänsten Azure Site Recovery. [Läs mer](../migrate/migrate-services-overview.md) om Azure Migrate.
+För migrering rekommenderar vi att du använder tjänsten Azure Migrate för att migrera virtuella datorer och servrar till Azure, i stället för tjänsten Azure Site Recovery. [Läs mer](../migrate/migrate-services-overview.md) om Azure Migrate.
 
 
 ## <a name="why-use-azure-migrate"></a>Varför ska jag använda Azure Migrate?
@@ -29,8 +29,8 @@ Att använda Azure Migrate för migrering ger ett antal fördelar:
 - Användning av Azure Migrate ger möjlighet till samverkan och framtida utöknings barhet med Azure Migrate verktyg, andra Azure-tjänster och verktyg från tredje part.
 - Verktyget Azure Migrate: Migreringsverktyg för Server är syftet-byggt för Server migrering till Azure. Den är optimerad för migrering. Du behöver inte lära dig mer om begrepp och scenarier som inte är direkt relevanta för migrering. 
 - Det finns inga avgifter för verktygs användning för migrering i 180 dagar, från tidpunkten då replikeringen startades för en virtuell dator. Det ger dig tid att slutföra migreringen. Du betalar bara för de lagrings-och nätverks resurser som används i replikeringen och för de beräknings avgifter som förbrukas under testmigreringar.
-- För virtuella VMware-datorer tillhandahåller Azure Migrate migrering utan agent, förutom den agentbaserade migreringen.
-- Vi prioriterar nya funktioner för migrering för Azure Migrate: Migreringsverktyg för Server.
+- Azure Migrate stöder alla migrerings scenarier som stöds av Site Recovery. För virtuella VMware-datorer tillhandahåller Azure Migrate dessutom ett alternativ för att migrera utan agent.
+- Vi prioriterar nya funktioner för migrering för Azure Migrate: Migreringsverktyg för Server. Dessa funktioner är inte riktade för Site Recovery.
 
 ## <a name="when-to-use-site-recovery"></a>När ska jag använda Site Recovery?
 

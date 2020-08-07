@@ -6,22 +6,22 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 2c292ee601114a58e38b9e509efa53be2d3c93d6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9bc323e0fafc576c5e75f46b3c38fdf140b1b0f4
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328378"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799810"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Aktivera Azure Monitor for VMs med Azure Policy
 I den här artikeln beskrivs hur du aktiverar Azure Monitor for VMs för virtuella Azure-datorer eller en hybrid virtuell dator som är ansluten till Azure ARC (för hands version) med Azure Policy. Med Azure Policy kan du tilldela princip definitioner som installerar de agenter som krävs för Azure Monitor for VMs i Azure-miljön och automatiskt aktivera övervakning av virtuella datorer när varje virtuell dator skapas. Azure Monitor for VMs tillhandahåller en funktion som gör att du kan identifiera och reparera icke-kompatibla virtuella datorer i din miljö. Använd den här funktionen i stället för att arbeta direkt med Azure Policy.
 
-Om du inte är bekant med Azure Policy får du en kort introduktion vid [distribution Azure Monitor i skala med Azure policy](../platform/deploy-scale.md).
+Om du inte är bekant med Azure Policy får du en kort introduktion vid [distribution Azure Monitor i skala med Azure policy](../deploy-scale.md).
 
 > [!NOTE]
-> Om du vill använda Azure Policy med skalnings uppsättningar för virtuella Azure-datorer, eller om du vill arbeta med Azure Policy direkt för att aktivera virtuella Azure-datorer, se [distribuera Azure Monitor i skala med hjälp av Azure policy](../platform/deploy-scale.md#azure-monitor-for-vms-and-virtual-machine-agents).
+> Om du vill använda Azure Policy med skalnings uppsättningar för virtuella Azure-datorer, eller om du vill arbeta med Azure Policy direkt för att aktivera virtuella Azure-datorer, se [distribuera Azure Monitor i skala med hjälp av Azure policy](../deploy-scale.md#azure-monitor-for-vms).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 - [Skapa och konfigurera en Log Analytics-arbetsyta](vminsights-configure-workspace.md).
 - Se [operativ system som stöds](vminsights-enable-overview.md#supported-operating-systems) för att säkerställa att operativ systemet för den virtuella datorn eller skalnings uppsättningen för virtuella datorer som du aktiverar stöds. 
 

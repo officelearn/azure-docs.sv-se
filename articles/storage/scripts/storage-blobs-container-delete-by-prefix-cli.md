@@ -1,6 +1,6 @@
 ---
 title: Exempel på Azure CLI-skript – Ta bort containrar efter prefix | Microsoft Docs
-description: Ta bort Azure Storage-blobcontainrar baserat på containerns namnprefix.
+description: Ta bort Azure Storage BLOB-behållare baserat på ett behållar namn-prefix och rensa sedan distributionen. Se hjälp Länkar för kommandon som används i skript exemplet.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 66869b7dc38e11b614ebc89538c2c195122b5bb3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: aeccf255004cd4512fbc591942324341504b20f7
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87479565"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901903"
 ---
 # <a name="use-an-azure-cli-script-to-delete-containers-based-on-container-name-prefix"></a>Använd ett Azure CLI-skript för att ta bort behållare baserade på behållar namnets prefix
 
@@ -41,7 +41,7 @@ az group delete --name myResourceGroup
 
 Det här skriptet använder följande kommandon för att ta bort containrar baserat på containerns namnprefix. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az storage account create](/cli/azure/storage/account) | Skapar ett Azure Storage-konto i den angivna resursgruppen. |

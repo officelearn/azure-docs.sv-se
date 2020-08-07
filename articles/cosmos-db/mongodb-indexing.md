@@ -1,20 +1,20 @@
 ---
 title: Hantera indexering i Azure Cosmos DBs API för MongoDB
-description: 'Den här artikeln visar en översikt över Azure Cosmos DB indexerings funktioner med hjälp av MongoDB-API: et.'
+description: Den här artikeln innehåller en översikt över Azure Cosmos DB indexerings funktioner med Azure Cosmos DB s API för MongoDB
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 08/06/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b8db9e2d8b58047ebe29865bb95d7f218732c88e
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: e47b8727eccd1b185f381ae3f8474fe13a406501
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761169"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843818"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Hantera indexering i Azure Cosmos DBs API för MongoDB
 
@@ -315,7 +315,7 @@ Informationen om indexets förlopp visar procent andelen förloppet för den akt
    }
    ```
 
-### <a name="background-index-updates"></a>Uppdateringar av bakgrunds index
+## <a name="background-index-updates"></a>Uppdateringar av bakgrunds index
 
 Oavsett vilket värde som angetts för egenskapen för **bakgrunds** index görs alltid index uppdateringar i bakgrunden. Eftersom index uppdateringar använder ru: er-enheter () med lägre prioritet än andra databas åtgärder, resulterar index ändringar inte i någon nedtid för skrivningar, uppdateringar eller borttagningar.
 

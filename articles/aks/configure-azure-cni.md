@@ -4,12 +4,12 @@ description: Lär dig hur du konfigurerar Azure CNI (avancerat) nätverk i Azure
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: d025bcddfdee25cddac311ac9a201b7f3afebd22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1bf459c530195b8855169123b8f496e4969403b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416859"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872437"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Konfigurera Azure CNI Networking i Azure Kubernetes service (AKS)
 
@@ -19,7 +19,7 @@ Med [Azure Container Network Interface (cni)][cni-networking]hämtar varje Pod e
 
 Den här artikeln visar hur du använder *Azure cni* Networking för att skapa och använda ett virtuellt nätverks under nät för ett AKS-kluster. Mer information om nätverks alternativ och överväganden finns i [nätverks koncept för Kubernetes och AKS][aks-network-concepts].
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Det virtuella nätverket för AKS-klustret måste tillåta utgående Internet anslutning.
 * AKS-kluster får inte använda `169.254.0.0/16` , `172.30.0.0/16` , `172.31.0.0/16` eller `192.0.2.0/24` för Kubernetes-tjänstens adress intervall.
@@ -63,7 +63,7 @@ Det maximala antalet poddar per nod i ett AKS-kluster är 250. *Standardvärdet*
 | -- | :--: | :--: | -- |
 | Azure CLI | 110 | 30 | Ja (upp till 250) |
 | Resource Manager-mall | 110 | 30 | Ja (upp till 250) |
-| Portalen | 110 | 30 | No |
+| Portalen | 110 | 30 | Nej |
 
 ### <a name="configure-maximum---new-clusters"></a>Konfigurera högsta – nya kluster
 
@@ -87,7 +87,7 @@ Ett minsta värde för maximalt poddar per nod upprätthålls för att garantera
 
 ### <a name="configure-maximum---existing-clusters"></a>Konfigurera maximalt antal befintliga kluster
 
-Inställningen maxPod per nod kan definieras när du skapar en ny Node-pool. Om du behöver öka inställningen för maxPod per nod i ett befintligt kluster lägger du till en ny nod med det nya önskade maxPod antalet. När du har migrerat poddar till den nya poolen tar du bort den äldre poolen. Om du vill ta bort en äldre pool i ett kluster kontrollerar du att du ställer in lägen för resurspool enligt definitionen i noden [system Node pool Document[system-Node-Pools].
+Inställningen maxPod per nod kan definieras när du skapar en ny Node-pool. Om du behöver öka inställningen för maxPod per nod i ett befintligt kluster lägger du till en ny nod med det nya önskade maxPod antalet. När du har migrerat poddar till den nya poolen tar du bort den äldre poolen. Om du vill ta bort en äldre pool i ett kluster måste du kontrol lera att du anger lägen för resurspool enligt definitionen i [dokumentet för pooler för system][system-node-pools].
 
 ## <a name="deployment-parameters"></a>Distributions parametrar
 
@@ -214,4 +214,4 @@ Kubernetes-kluster som skapats med AKS-motorn stöder både [Kubernetes][kubenet
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
-[system-Node-pooler]: use-system-pools.md
+[system-node-pools]: use-system-pools.md

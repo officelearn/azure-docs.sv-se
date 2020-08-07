@@ -10,13 +10,13 @@ ms.subservice: anomaly-detector
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.custom: tracking-python
-ms.openlocfilehash: d872e4486bdc8fcd3629feb452b0d436872c70d8
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.custom: devx-track-python
+ms.openlocfilehash: b29fa17c21b2cdb2e764c905af3819142d8c341e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86189465"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844073"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Recept: förutsägande underhåll med Cognitive Services för Big data
 
@@ -28,7 +28,7 @@ Det hypotetiska scenariot är en kraft anläggning där IoT-enheter övervakar [
 
 Det kan finnas extrem värden i data med slumpmässig frekvens. I dessa situationer kommer RPM-värden att bli upp och MW-utdata går nedåt, för krets skydd. Idén är att du ska kunna se data olika samtidigt, men med olika signaler.
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * [Azure Synapse-arbetsyta](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) konfigurerad med en [Spark-pool](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
@@ -37,7 +37,7 @@ Det kan finnas extrem värden i data med slumpmässig frekvens. I dessa situatio
 
 ### <a name="create-an-anomaly-detector-resource"></a>Skapa en resurs för avvikelse detektor
 
-Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Translator med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli). Du kan också:
+Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Translator med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli). Du kan även:
 
 - Visa en befintlig resurs i [Azure Portal](https://portal.azure.com/).
 

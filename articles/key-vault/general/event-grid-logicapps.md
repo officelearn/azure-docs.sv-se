@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 53e8586486d9a9ebf870de350d5607f58977c0f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 340fcd723442a53ca72d3af0461226be737eb7a5
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81423280"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844209"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Använd Logic Apps för att ta emot e-post om status ändringar för Key Vault-hemligheter
 
@@ -23,11 +23,12 @@ I den här guiden får du lära dig hur du svarar på Azure Key Vault händelser
 
 En översikt över Azure Key Vault/Azure Event Grid-integrering finns i [övervaknings Key Vault med Azure Event Grid (för hands version)](event-grid-overview.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett e-postkonto från valfri e-postleverantör som stöds av Azure Logic Apps (till exempel Office 365 Outlook). Det här e-postkontot används för att skicka händelsemeddelandena. En fullständig lista över Logic App-anslutningsprogram som stöds finns i [Översikt över anslutningsappar](/connectors)
-- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - Ett nyckel valv i din Azure-prenumeration. Du kan snabbt skapa ett nytt nyckel valv genom att följa stegen i [Ange och hämta en hemlighet från Azure Key Vault med hjälp av Azure CLI](../secrets/quick-create-cli.md).
+- Registrerade Event Grid som en resurs leverantör, se [resurs leverantörs registreringar](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)
 
 ## <a name="create-a-logic-app-via-event-grid"></a>Skapa en Logic app via Event Grid
 
@@ -58,8 +59,8 @@ Följ dessa steg om du vill skapa en Azure Event Grid-prenumeration:
    ![Logic App Designer – Lägg till e-post](../media/eventgrid-logicappdesigner3.png)
 
 1. Bygg din e-postmall:
-    - **För att:** Ange e-postadressen som e-postmeddelandena ska skickas till. I den här självstudiekursen använder du ett e-postkonto som du kan komma åt för testning.
-    - **Ämne** och **Brödtext**: Skriv e-postmeddelandets text. Välj JSON-egenskaper från valverktyget för att ta med dynamiskt innehåll baserat på händelsedata. Du kan hämta data om händelsen med hjälp av `@{triggerBody()?['Data']}`.
+    - **För att:** Ange e-postadressen som e-postmeddelandena ska skickas till. I den här självstudien använder du ett e-postkonto som du kan komma åt för testning.
+    - **Ämne** och **Brödtext**: Skriv e-postmeddelandets text. Välj JSON-egenskaper från valverktyget för att ta med dynamiskt innehåll baserat på händelsedata. Du kan hämta data om händelsen med hjälp av `@{triggerBody()?['Data']}` .
 
     Din e-postmall kan se ut som i det här exemplet.
 

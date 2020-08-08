@@ -55,7 +55,7 @@
         - name: Hantera anpassade modeller
           href: how-to-manage-model.md
         - name: Parsa och verifiera modeller
-          href: how-to-use-parser.md
+          href: how-to-parse-models.md
         - name: Lägga till taggar
           href: how-to-use-tags.md
     - name: Använda en live-körningsmiljö

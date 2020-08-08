@@ -298,6 +298,9 @@
               displayName: 'firstline worker, frontline worker, flw'
             - name: Offentliga klientappar med enstaka och flera konton
               href: single-multi-account.md
+            - name: Hantera fel och undantag
+              href: msal-android-handling-exceptions.md
+              displayName: 'android, mobile'
             - name: Loggning
               href: msal-logging.md?tabs=android
         - name: iOS och macOS

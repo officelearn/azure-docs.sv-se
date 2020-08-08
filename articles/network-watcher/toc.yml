@@ -7,14 +7,14 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Konfigurera NSG Flow-loggar med ARM-mall
-      href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
     - name: Diagnostisera problem med VM-trafikfilter – Portal
       href: diagnose-vm-network-traffic-filtering-problem.md
     - name: Diagnostisera problem med VM-trafikfilter – PowerShell
       href: diagnose-vm-network-traffic-filtering-problem-powershell.md
     - name: Diagnostisera problem med VM-trafikfilter – Azure CLI
       href: diagnose-vm-network-traffic-filtering-problem-cli.md
+    - name: Konfigurera NSG Flow-loggar med ARM-mall
+      href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: Självstudier
   items:
     - name: Diagnostisera ett problem med VM-routning

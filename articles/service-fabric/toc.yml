@@ -671,7 +671,7 @@
                 - name: Skala ut programmässigt
                   href: service-fabric-cluster-programmatic-scaling.md
                 - name: Skala upp primär nodtyp
-                  href: service-fabric-scale-up-node-type.md
+                  href: service-fabric-scale-up-primary-node-type.md
                 - name: Lägg till en nodtyp
                   href: virtual-machine-scale-set-scale-node-type-scale-out.md
                 - name: Ta bort en nodtyp
